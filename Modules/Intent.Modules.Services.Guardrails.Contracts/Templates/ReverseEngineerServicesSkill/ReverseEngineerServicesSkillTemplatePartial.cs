@@ -27,14 +27,14 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
             MarkdownFile = new MarkdownFile("SKILL", relativeLocation: "reverse-engineer-services")
                 .FromMarkdown("""
 ---
-description: Reverse-engineer an existing C# application layer (CQRS commands/queries, DTOs, services, controllers/endpoints, authorization, integration events/commands and their handlers) into the Intent Architect Services designer so the model mirrors the code and the Intent.Services.Guardrails.Contracts module adopts the existing files in place — including HTTP exposure, security and the primary Domain entity action per command/query, installing the WebApi/Security/DomainInteractions metadata modules when the code calls for them. Use when the user has installed the Services Guardrails module (or asks to "align / model / reverse-engineer the services") on a brownfield codebase.
+description: Reverse-engineer an existing C# application layer (CQRS commands/queries, DTOs, services, controllers/endpoints, authorization, integration events/commands and their handlers) into the Intent Architect Services designer so the model mirrors the code and the Intent.Services.Guardrails.Contracts module adopts the existing files in place — including HTTP exposure, security and the intent of each command, query and service operation (entity actions, invocations, published events and sent commands), installing the WebApi/Security/DomainInteractions metadata modules when the code calls for them. Use when the user has installed the Services Guardrails module (or asks to "align / model / reverse-engineer the services") on a brownfield codebase.
 short-description: Model existing commands, queries, DTOs and endpoints in the Services designer and adopt their files with the Services Guardrails module.
 argument-hint: "[application name]"
 ---
 
 # Reverse-engineer the Services
 
-Goal: the Services designer describes the application layer **as it is** (requests, DTOs, endpoint surface, security, domain intent), and an SF run against the existing files changes **nothing but Intent file headers and the code's formatting**: what the code does stays exactly the same. Handlers, validators, mapping profiles and controllers stay hand-written.
+Goal: the Services designer describes the application layer **as it is** (requests, services, DTOs, endpoint surface, security, intent), and an SF run against the existing files changes **nothing but Intent file headers and the code's formatting**: what the code does stays exactly the same. Handlers, validators, mapping profiles and controllers stay hand-written.
 
 Run **reverse-engineer-domain** first when the code has a domain layer. Commands, DTOs and entity actions reference Domain types. Load **scripting-the-model**, **exploring-the-model** and **changing-the-model** before modelling, and **generating-and-applying-code** / **resolve-destructive-changes** before the first SF run.
 
@@ -48,10 +48,11 @@ Run **reverse-engineer-domain** first when the code has a domain layer. Commands
    | MediatR-style requests (`IRequest<T>`, `ICommand` / `IQuery`, `*Command` / `*Query` classes) | `Intent.Modelers.Services.CQRS` |
    | HTTP endpoints: `[ApiController]` / `ControllerBase`, minimal APIs (`app.MapGet/MapPost…`), FastEndpoints, Azure Functions HTTP triggers | `Intent.Metadata.WebApi` |
    | Authorization: `[Authorize(...)]`, `[AllowAnonymous]`, `RequireAuthorization(...)`, policies or roles | `Intent.Metadata.Security` (WebApi normally brings it as a dependency; install explicitly if missing) |
-   | Handlers that load, create, update or delete Domain entities via repositories or a DbContext, and a Domain designer exists | `Intent.Modelers.Services.DomainInteractions` |
+   | Handlers or service methods that load, create, update or delete Domain entities via repositories or a DbContext, and a Domain designer exists | `Intent.Modelers.Services.DomainInteractions` |
    | Pagination types (`PagedResult<T>`, `PagedList`) | none; reference the `Intent.Modelers.Services.Pagination` package (§3) |
    | Integration events / messaging: consumers or handlers (`IConsumer<T>`, `IHandleMessages<T>`, `IIntegrationEventHandler<T>`), publish or send calls (`IEventBus`, `IMessageBus`, `IPublishEndpoint`, `ISendEndpointProvider`), MassTransit, NServiceBus, Azure Service Bus | `Intent.Modelers.Eventing` + `Intent.Modelers.Services.EventInteractions` |
    | Domain event handlers: `INotificationHandler<…DomainEvent…>`, `IDomainEventHandler<T>`, `DomainEventNotification<T>` | `Intent.Modelers.Domain.Events` (run **reverse-engineer-domain** first, so the Domain Events exist to link to) |
+   | Calls to another application's API through a client (Refit, NSwag or Kiota clients, typed `HttpClient` wrappers) | `Intent.Modelers.Types.ServiceProxies`, only if that application is modelled in Intent and its Services package can be referenced. Otherwise report the calls (§5). |
 
    - Get the exact current version with `searchAvailableModules(id)`, then call `install_or_update_modules` and state in one line what you installed and why.
    - After installing, a designer tab may open a dialog that blocks tools. Ask the user to close it, then continue.
@@ -72,8 +73,12 @@ Dispatch `Explore` sub-agents in one message, one per feature folder group (e.g.
   - Return type (`Guid`, a DTO, a list of DTOs, `PagedResult<…>`, or nothing).
   - `[Authorize(Roles/Policy)]` / `[AllowAnonymous]`.
   - Brief validator rules.
+  - Its handler's intent (§5): the Domain entities it creates, updates, deletes or reads; the service operations, commands, queries, domain services, repository operations, stored procedures or other applications' API clients it calls; and the integration events it publishes or integration commands it sends.
 - **Each DTO:** path, namespace, `class` or `record`, declaration modifiers, and every property, reported as for commands (type as spelled, nullability, collection-ness, default value).
-- **Each service:** path, namespace, class name, declaration modifiers, and every method signature, with parameter and return types as spelled.
+- **Each service:**
+  - Path, namespace, class name, declaration modifiers, and every method signature, with parameter and return types as spelled.
+  - Whether it is **public** (a controller action or other endpoint calls its methods directly) or **internal** (only other application code calls it).
+  - Each method's intent, reported as for a command's handler.
 - **Nullable context:** per project, whether the csproj sets `<Nullable>` (and to what); per file, any `#nullable` directives.
 - **Each enum:** path, namespace, access modifier (`public`, `internal` or none), and literals with explicit values.
 - **Each domain event handler:** path, namespace, class name, declaration modifiers, and the domain event(s) it handles.
@@ -84,9 +89,9 @@ Dispatch `Explore` sub-agents in one message, one per feature folder group (e.g.
 - **Each nested type a message uses (an eventing DTO):** reported as for DTOs, plus its base type.
 - **Each integration event handler or consumer:** path, namespace, class name, declaration modifiers, and the messages it handles (from `IConsumer<T>`, `IHandleMessages<T>`, `IIntegrationEventHandler<T>` or equivalent).
 - **Each controller action:**
-  - HTTP verb, **absolute route**, and success status code.
-  - Which properties bind from the route, query or body.
-  - Which request it dispatches.
+  - HTTP verb, **absolute route** (and the controller's route prefix), and success status code.
+  - Which properties or parameters bind from the route, query or body.
+  - Which command or query it dispatches, or which service operation it calls.
 - **Shared types:** `PagedResult<T>`, marker interfaces, permission constants.
 
 ## 2. Align the Codebase Structure
@@ -119,8 +124,11 @@ Save the Codebase Structure designer (`saveOnSuccess: true` on a no-op script) o
      - **File named differently from its type** (e.g. `psMembersDTO.cs` holds `PsMembersDTO`): apply `File Config` with `Filename = psMembersDTO`.
      - **File holding several types:** model every type as its own element in that file's folder, and apply `File Config` with the file's name to each type the file is *not* named after. Elements that end up at the same path are generated into one file, written by the element the file is named after.
      - **Set it before the first SF run.** If a type already had its own file generated and you then point it at another file, the SF offers to delete the old file. Treat that as a destructive change: don't apply it unless the old file is a duplicate.
-3. **DTOs first** (dependency order), then commands and queries:
+3. **DTOs first** (dependency order), then commands, queries and services:
    - **Fields:** one `DTO-Field` per property, with exact names and types. `isNullable` for nullable types (see "Nullability and type spelling" below), `isCollection` for lists (never `List<…>` as a type name). A property initializer (`= "Basislink"`) is the field's Value (see "Default values" below).
+   - **Services:** one `Service` per application service class, named as the concrete class (no interface is generated), with one `Operation` per method and one `Parameter` per parameter, typed as for fields. A service is one of two kinds, and both are modelled the same way here:
+     - **Public:** a controller action or other endpoint calls its operations directly, so each operation is that endpoint's request, exactly like a command or query. It gets HTTP settings and security (§4) and its intent (§5).
+     - **Internal:** only other application code calls it. It gets no HTTP settings, but still gets its intent (§5).
    - **Default values and initializers:** where a service operation parameter has a default (`string area = "Basislink"`, `bool forceCreate = false`, `Exception ex = null`), or a DTO, command or query property has an initializer, set the element's Value (`el.setValue("Basislink")`). Otherwise Merge mode drops the default from the existing signature.
      - Strings are quoted for you, and an already quoted value stays as it is. `null`, `default`, numbers, `true` and `false` are used as written.
      - An enum literal name gets its enum type (`Info` becomes `EventTypeEnum.Info`), and a bare `DateTime` member gets its type (`Now` becomes `DateTime.Now`).
@@ -162,27 +170,46 @@ Save the Codebase Structure designer (`saveOnSuccess: true` on a no-op script) o
 
 ## 4. Endpoint surface and security (HTTP solution; WebApi/Security metadata installed in §0)
 
-For each command and query, set the following from its controller action:
+For each command, query and **public** service operation (§3), set the following from the controller action or endpoint that calls it. A public service operation is an endpoint's request in the same way a command or query is.
 
 - **`Http Settings`:**
-  - `Verb` and the **absolute** `Route` (e.g. `api/customers/{customerId}/addresses`).
+  - `Verb` and `Route`. A command or query takes the **absolute** route (e.g. `api/customers/{customerId}/addresses`). A service operation's route is relative to its service: put the controller's route prefix on the Service as `Http Service Settings` → `Route` (e.g. `api/customers`), and give each operation the rest (`{customerId}/addresses`). A `Route` starting with `~/` ignores the prefix. If a service's operations are called from controllers with different prefixes, leave `Http Service Settings` off and give each operation its absolute route.
   - `Success Response Code` from the actual result: `Created(...)` → `201 (Created)`, `NoContent()` → `204 (No Content)`, `Ok(...)` → `200 (Ok)`.
 - **`Parameter Settings.Source`:**
-  - `From Route` for every field whose camelCase name is a `{routeParam}`.
-  - `From Query` for the remaining fields of GET and DELETE actions.
+  - `From Route` for every field or operation parameter whose camelCase name is a `{routeParam}`.
+  - `From Query` for the remaining fields or parameters of GET and DELETE actions.
   - Leave body fields at the default.
 - **Security:**
   - `Secured` with `Roles` (or `Policy`) mirroring `[Authorize(...)]`; resolve constants, so `Permissions.RoleAdmin` becomes `Admin`.
   - `Unsecured` for `[AllowAnonymous]`.
-  - Apply them per element. Use the package level only if the code secures everything uniformly.
+  - Apply them per element: command, query, service operation, or the Service when all its operations are secured the same way. Use the package level only if the code secures everything uniformly.
 
-If the code has no HTTP surface, skip this section.
+Internal services get none of this. If the code has no HTTP surface, skip this section.
 
-## 5. Primary domain intent (DomainInteractions installed in §0)
+## 5. Intent (DomainInteractions and EventInteractions installed in §0)
 
-Give each command and query **one** primary Entity Action to the Domain class it acts on. Follow the designer's own rules; read them in `getDesignerSchema()`:
+Model the **intent** of each command, query and service operation, for public **and** internal services alike: what it does, as interaction associations from it. Follow the designer's own rules; read them in `getDesignerSchema()`.
 
-| Request purpose | Entity Action |
+| What the code does | Association (context menu) | Target |
+|---|---|---|
+| Creates, updates, deletes or reads Domain entities | `Create Entity Action` / `Update Entity Action` / `Delete Entity Action` / `Query Entity Action` (`Create Entity`, `Update Entity`, …) | The Domain class (see "Entity Actions" below) |
+| Calls another service operation, or dispatches a command or query (`_ordersService.Approve(…)`, `_mediator.Send(new ApproveOrderCommand(…))`) | `Perform Invocation` (`Invoke Service`) | That service `Operation`, `Command` or `Query` |
+| Calls a domain service, a custom repository operation or a stored procedure | `Perform Invocation` | That Domain Service or Repository `Operation`, or the `Stored Procedure` |
+| Calls another application's API through a client | `Perform Invocation` | The `Operation` of the matching `Service Proxy` |
+| Publishes an integration event | `Publish Integration Event` | The integration event (`Message`) |
+| Sends an integration command | `Send Integration Command` | The `Integration Command` |
+
+- **Model every intent, not every step.** Everything the code does on purpose gets its association: an operation that updates an order, invokes `NotificationService.SendConfirmation` and publishes `OrderUpdated` gets all three. Don't add what an intent already implies: updating an entity reads it first, so `Update Entity Action` alone is enough, and cancelling an order that also fails its payment inside the aggregate is one `Update Entity Action` → `Order`.
+- **Invoke, don't repeat.** When an operation delegates to another service operation, command or query, model the `Perform Invocation` only. The callee carries its own intent; don't copy it onto the caller.
+- **The target must be in the model.** If what the code calls isn't modelled (a private helper, an external client with no `Service Proxy`), add no association; say what it calls in the element's comment, and report it.
+- **No intent, no association.** An operation that only calculates or formats gets none.
+- **When unsure, ask** the user, in one `ask_user_question` for all the uncertain elements, rather than skipping them.
+- **Projections.** If a handler or service operation projects one entity through another (e.g. listing payments via orders), still target the conceptually primary entity and mention the projection in the comment.
+- **Mappings.** Create the associations without field mappings (the designer's default). Add mappings only if the user asks.
+
+**Entity Actions** target the entity the code acts on:
+
+| Purpose | Entity Action |
 |---|---|
 | Create aggregate root | `Create Entity Action` → root |
 | Add a compositional child | `Create Entity Action` → child (`Address`, `OrderItem`, …), not the root |
@@ -192,17 +219,14 @@ Give each command and query **one** primary Entity Action to the Domain class it
 | Get by id / reference | `Query Entity Action` → entity, target `"1"` |
 | Search / list | `Query Entity Action` → entity, target `"0..*"` |
 
-- **One action per request.** Don't add secondary actions for side effects the aggregate operation implies (e.g. cancelling an order that also fails its payment).
-- **Projections.** If a handler projects one entity through another (e.g. listing payments via orders), still target the conceptually primary entity and mention the projection in the comment.
-- **Mappings.** Create the associations without field mappings (the designer's default). Add mappings only if the user asks.
-
 ## 6. Diagram
 
 Create a `Diagram` in the package if none exists:
 
-- All commands and queries in **one vertical column on the left**, exactly **100px apart top-to-top**, grouped by feature folder.
-- The related Domain entities **200px to the right**, grouped by feature.
-- Route every Entity Action association. DTOs can't be placed on this diagram.
+- All commands, queries and services in **one vertical column on the left**, grouped by feature folder. Commands and queries go exactly **100px apart top-to-top**. A service grows with its operations, so start the next element **100px below the service's bottom edge**.
+- The related Domain entities **200px to the right**, grouped by feature, together with any domain services, repositories and stored procedures the left column invokes.
+- If the diagram can show them, the integration events, integration commands and service proxies the left column publishes, sends or invokes go in a further column **200px to the right** of the entities.
+- Route every intent association (§5). Invocations between commands, queries and services stay within the left column. DTOs can't be placed on this diagram.
 
 ## 7. Generate, verify and adopt
 

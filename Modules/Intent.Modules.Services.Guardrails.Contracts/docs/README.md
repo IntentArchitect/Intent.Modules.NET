@@ -11,7 +11,8 @@ The module generates `skills/reverse-engineer-services/SKILL.md` into the applic
 - model existing commands, queries, DTOs and services in the Services designer, mirroring the code's folders and record/class kinds;
 - model integration events, integration commands, eventing DTOs and their handlers when the code has messaging;
 - install the CQRS, WebApi, Security, DomainInteractions, Eventing and EventInteractions modules when the code calls for them;
-- capture each endpoint's HTTP settings and security, and one primary Domain entity action per command or query;
+- capture the HTTP surface and its security on commands, queries and publicly exposed service operations alike;
+- model the intent of every command, query and service operation, public or internal: the entity actions it performs, the services, commands, queries and service proxies it invokes, and the integration events and commands it publishes or sends;
 - run the Software Factory until it changes nothing but the Intent file headers and the code's formatting, then adopt the existing files.
 
 Run it after `reverse-engineer-domain` (from Intent.Domain.Guardrails.Contracts) when the code has a domain layer.
