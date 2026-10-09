@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{967EBB45-E32C-4697-A6F5-7FC70EC606EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CqrsSpike.Subscriber.Api", "CqrsSpike.Subscriber.Api\CqrsSpike.Subscriber.Api.csproj", "{2AC4CFBA-E811-48F5-8DB2-BDA5944DBD77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{CFAD16AB-B0E0-4436-887B-4D4C403D37CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CqrsSpike.Subscriber.Application", "CqrsSpike.Subscriber.Application\CqrsSpike.Subscriber.Application.csproj", "{63C4311E-C0D6-41B6-97EA-625E7B6BCE68}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{93D968E9-86EC-403C-8F3E-C93F33F85767}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CqrsSpike.Subscriber.Domain", "CqrsSpike.Subscriber.Domain\CqrsSpike.Subscriber.Domain.csproj", "{32DD4FC2-28C8-4383-BCC8-0E7758561F07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{13690471-0A33-433D-8BFE-E41AE58AEDB7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CqrsSpike.Subscriber.Infrastructure", "CqrsSpike.Subscriber.Infrastructure\CqrsSpike.Subscriber.Infrastructure.csproj", "{E5B0C303-16AD-48EB-BA77-F9095FE43CEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2AC4CFBA-E811-48F5-8DB2-BDA5944DBD77} = {967EBB45-E32C-4697-A6F5-7FC70EC606EB}
+		{63C4311E-C0D6-41B6-97EA-625E7B6BCE68} = {CFAD16AB-B0E0-4436-887B-4D4C403D37CC}
+		{32DD4FC2-28C8-4383-BCC8-0E7758561F07} = {93D968E9-86EC-403C-8F3E-C93F33F85767}
+		{E5B0C303-16AD-48EB-BA77-F9095FE43CEA} = {13690471-0A33-433D-8BFE-E41AE58AEDB7}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AC4CFBA-E811-48F5-8DB2-BDA5944DBD77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AC4CFBA-E811-48F5-8DB2-BDA5944DBD77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AC4CFBA-E811-48F5-8DB2-BDA5944DBD77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AC4CFBA-E811-48F5-8DB2-BDA5944DBD77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63C4311E-C0D6-41B6-97EA-625E7B6BCE68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63C4311E-C0D6-41B6-97EA-625E7B6BCE68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63C4311E-C0D6-41B6-97EA-625E7B6BCE68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63C4311E-C0D6-41B6-97EA-625E7B6BCE68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32DD4FC2-28C8-4383-BCC8-0E7758561F07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32DD4FC2-28C8-4383-BCC8-0E7758561F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32DD4FC2-28C8-4383-BCC8-0E7758561F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32DD4FC2-28C8-4383-BCC8-0E7758561F07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B0C303-16AD-48EB-BA77-F9095FE43CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B0C303-16AD-48EB-BA77-F9095FE43CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B0C303-16AD-48EB-BA77-F9095FE43CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B0C303-16AD-48EB-BA77-F9095FE43CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e731acb6-c3f7-467f-b6d3-09a005b819e9" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Filters</name>
+  <display>Filters</display>
+  <parentFolderId>44d7877e-71e0-4c97-9a96-eaf3009fcff3</parentFolderId>
+  <children>
+    <element id="1fb2a215-280f-412f-9d85-a82fde054b24" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.BinaryContentFilter</name>
+      <display>Intent.AspNetCore.Controllers.BinaryContentFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <parentFolderId>e731acb6-c3f7-467f-b6d3-09a005b819e9</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;cb64d373-8f01-4fdf-a4b7-d6e6f1c2adfe&quot;]" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="1 - Low" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="35f4bea4-d526-4e92-a0e6-46e03b6decc5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.ExceptionFilter</name>
+      <display>Intent.AspNetCore.Controllers.ExceptionFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <parentFolderId>e731acb6-c3f7-467f-b6d3-09a005b819e9</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;cb64d373-8f01-4fdf-a4b7-d6e6f1c2adfe&quot;,&quot;be43106d-6055-42f5-a4de-b44660562665&quot;]" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7cad7e66-8f5c-45dc-a75e-591c0da7fc60" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>UpdateOrderCommand</name>
+  <display>UpdateOrderCommand: void</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <typeReference id="f2e860db-f744-4d12-9893-b1178d37ed1a" />
+  <parentFolderId>5223d867-2cd3-442c-87cd-42fadbffa1f6</parentFolderId>
+  <packageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</packageId>
+  <packageName>CqrsSpike.Publisher.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/orders/{id}" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="ba638a6f-d5b2-492a-a916-67fa2550d760" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <typeReference id="366e07ff-f261-4a00-a0df-f38640caf7fe">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>7cad7e66-8f5c-45dc-a75e-591c0da7fc60</parentFolderId>
+      <packageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</packageId>
+      <packageName>CqrsSpike.Publisher.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="715f276e-9c78-4984-a8c1-e10c9f82cf91" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CustomerName</name>
+      <display>CustomerName: string</display>
+      <typeReference id="3b40ac58-1f67-4bef-a004-ed75e8373422">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>7cad7e66-8f5c-45dc-a75e-591c0da7fc60</parentFolderId>
+      <packageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</packageId>
+      <packageName>CqrsSpike.Publisher.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" value="100" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="f53f366f-ff37-441f-8f3c-c9ef92f2f28a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Total</name>
+      <display>Total: decimal</display>
+      <typeReference id="a931f88e-c2dd-43fa-987e-c3fae6646ea4">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>7cad7e66-8f5c-45dc-a75e-591c0da7fc60</parentFolderId>
+      <packageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</packageId>
+      <packageName>CqrsSpike.Publisher.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <association id="1128dfa8-c30c-4a95-8d27-e5a227d8c965">
+      <sourceEnd id="b8ea8b6c-e65e-44e3-a149-2f20c33b2314" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+        <display>updated by : Orders.UpdateOrderCommand</display>
+        <order>0</order>
+        <typeReference id="ca3b3398-7d98-4f65-9237-f74b1c09ac31">
+          <typeId>7cad7e66-8f5c-45dc-a75e-591c0da7fc60</typeId>
+          <typeName>UpdateOrderCommand</typeName>
+          <isNavigable>false</isNavigable>
+          <typePackageName>CqrsSpike.Publisher.Services</typePackageName>
+          <typePackageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</typePackageId>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="1128dfa8-c30c-4a95-8d27-e5a227d8c965" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+        <name>order</name>
+        <display>[update] order: Update</display>
+        <order>3</order>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="6f9492c3-530b-4b4b-b710-f4f280b81851">
+          <typeId>c35a64cd-f19a-4396-8d17-4892d7f5f8f3</typeId>
+          <typeName>Update</typeName>
+          <typePackageName>CqrsSpike.Publisher.Domain</typePackageName>
+          <typePackageId>50f7bbf9-cf59-424c-8d7a-847ed5bc3aa4</typePackageId>
+        </typeReference>
+        <mappings>
+          <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+            <source applicationId="9bc41daf-2ce2-49ff-9b64-d37ec9212cb5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7cad7e66-8f5c-45dc-a75e-591c0da7fc60" location="[CqrsSpike.Publisher].[Services].[UpdateOrderCommand]" />
+            <target applicationId="9bc41daf-2ce2-49ff-9b64-d37ec9212cb5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="889c8e94-cb6e-43ef-a518-4f9ba067acef" location="[CqrsSpike.Publisher].[Services].[Order]" />
+            <mappedEnds>
+              <mappedEnd>
+                <expression>{Id}</expression>
+                <path>
+                  <target id="889c8e94-cb6e-43ef-a518-4f9ba067acef" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="4ccb563f-0d37-40df-b4d3-c84298982b92" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+                <sources>
+                  <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                    <path>
+                      <target id="7cad7e66-8f5c-45dc-a75e-591c0da7fc60" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                      <target id="ba638a6f-d5b2-492a-a916-67fa2550d760" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+            </mappedEnds>
+          </mapping>
+          <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+            <source applicationId="9bc41daf-2ce2-49ff-9b64-d37ec9212cb5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7cad7e66-8f5c-45dc-a75e-591c0da7fc60" location="[CqrsSpike.Publisher].[Services].[UpdateOrderCommand]" />
+            <target applicationId="9bc41daf-2ce2-49ff-9b64-d37ec9212cb5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="889c8e94-cb6e-43ef-a518-4f9ba067acef" location="[CqrsSpike.Publisher].[Services].[Order]" />
+            <mappedEnds>
+              <mappedEnd>
+                <expression>{UpdateOrderCommand}</expression>
+                <path>
+                  <target id="889c8e94-cb6e-43ef-a518-4f9ba067acef" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="c35a64cd-f19a-4396-8d17-4892d7f5f8f3" name="Update" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                </path>
+                <sources>
+                  <source identifier="UpdateOrderCommand" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                    <path>
+                      <target id="7cad7e66-8f5c-45dc-a75e-591c0da7fc60" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+              <mappedEnd>
+                <expression>{CustomerName}</expression>
+                <path>
+                  <target id="889c8e94-cb6e-43ef-a518-4f9ba067acef" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="c35a64cd-f19a-4396-8d17-4892d7f5f8f3" name="Update" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  <target id="5553de00-0763-4049-84af-cb706d8c14c7" name="customerName" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+                <sources>
+                  <source identifier="CustomerName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                    <path>
+                      <target id="7cad7e66-8f5c-45dc-a75e-591c0da7fc60" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                      <target id="715f276e-9c78-4984-a8c1-e10c9f82cf91" name="CustomerName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+              <mappedEnd>
+                <expression>{Total}</expression>
+                <path>
+                  <target id="889c8e94-cb6e-43ef-a518-4f9ba067acef" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="c35a64cd-f19a-4396-8d17-4892d7f5f8f3" name="Update" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  <target id="167bb477-a71f-408c-ab16-bb91eefc88c2" name="total" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+                <sources>
+                  <source identifier="Total" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                    <path>
+                      <target id="7cad7e66-8f5c-45dc-a75e-591c0da7fc60" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                      <target id="f53f366f-ff37-441f-8f3c-c9ef92f2f28a" name="Total" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+            </mappedEnds>
+          </mapping>
+        </mappings>
+      </targetEnd>
+      <associationType>Update Entity Action</associationType>
+      <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+    </association>
+  </children>
+</class>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="43aaf9d5-c919-4cc9-8c68-9d705ec7e56a" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetShipmentsQuery</name>
+  <display>GetShipmentsQuery: ShipmentDto[*]</display>
+  <typeReference id="a5616243-0d3e-4737-8696-2d42e620c57c">
+    <typeId>aba8066d-d3ea-4d82-bc89-8d443371fae9</typeId>
+    <typeName>ShipmentDto</typeName>
+    <isCollection>true</isCollection>
+    <typePackageName>CqrsSpike.Subscriber.Services</typePackageName>
+    <typePackageId>554d8670-1dd9-4377-977c-0af544d2af3d</typePackageId>
+  </typeReference>
+  <parentFolderId>22a1de1c-7c57-4760-b436-5fd4b7e982b9</parentFolderId>
+  <packageId>554d8670-1dd9-4377-977c-0af544d2af3d</packageId>
+  <packageName>CqrsSpike.Subscriber.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/shipments" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <association id="5c002c31-3992-4186-bc9e-4733e18a8167">
+      <sourceEnd id="0c8819dd-3455-4ea1-a8c1-952b51275fbc" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+        <display>: GetShipmentsQuery</display>
+        <order>0</order>
+        <typeReference id="12bc0bba-7e98-4c39-98f6-e50c2c75ad45">
+          <typeId>43aaf9d5-c919-4cc9-8c68-9d705ec7e56a</typeId>
+          <typeName>GetShipmentsQuery</typeName>
+          <isNavigable>false</isNavigable>
+          <typePackageName>CqrsSpike.Subscriber.Services</typePackageName>
+          <typePackageId>554d8670-1dd9-4377-977c-0af544d2af3d</typePackageId>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="5c002c31-3992-4186-bc9e-4733e18a8167" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+        <name>shipments</name>
+        <display>[query] shipments: Shipment[*]?</display>
+        <order>0</order>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="028eb414-7975-4512-9a2c-ff12be916fce">
+          <typeId>230e4f2a-ed0a-4896-9b26-eca846cafc26</typeId>
+          <typeName>Shipment</typeName>
+          <isNullable>true</isNullable>
+          <isCollection>true</isCollection>
+          <typePackageName>CqrsSpike.Subscriber.Domain</typePackageName>
+          <typePackageId>26dca8c8-02d2-4479-b82b-e2c8e6cbee1c</typePackageId>
+        </typeReference>
+        <mappings>
+          <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+            <source applicationId="d1e437d6-1c03-4b04-9b46-6a717882611b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="43aaf9d5-c919-4cc9-8c68-9d705ec7e56a" location="[CqrsSpike.Subscriber].[Services].[GetShipmentsQuery]" />
+            <target applicationId="d1e437d6-1c03-4b04-9b46-6a717882611b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="230e4f2a-ed0a-4896-9b26-eca846cafc26" location="[CqrsSpike.Subscriber].[Services].[Shipment]" />
+          </mapping>
+        </mappings>
+      </targetEnd>
+      <associationType>Query Entity Action</associationType>
+      <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+    </association>
+  </children>
+</class>

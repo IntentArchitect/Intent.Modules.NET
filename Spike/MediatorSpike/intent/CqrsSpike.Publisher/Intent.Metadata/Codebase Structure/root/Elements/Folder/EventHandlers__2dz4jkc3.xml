@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="873efe22-075d-4a59-a8ac-c5f88ae97cb7" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>EventHandlers</name>
+  <display>EventHandlers</display>
+  <parentFolderId>f06ef9c5-0db2-41a3-abc5-298a17a06714</parentFolderId>
+  <children>
+    <element id="4f704172-4d7a-410a-b5c9-929ac30c3515" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MediatR.DomainEvents.AggregateManager</name>
+      <display>Intent.MediatR.DomainEvents.AggregateManager</display>
+      <externalReference>Intent.MediatR.DomainEvents</externalReference>
+      <parentFolderId>873efe22-075d-4a59-a8ac-c5f88ae97cb7</parentFolderId>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="6e39d4e9-3c6f-4f3f-b4fb-e7f65a1b47b2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MediatR.DomainEvents.DefaultDomainEventHandler</name>
+      <display>Intent.MediatR.DomainEvents.DefaultDomainEventHandler</display>
+      <externalReference>Intent.MediatR.DomainEvents</externalReference>
+      <parentFolderId>873efe22-075d-4a59-a8ac-c5f88ae97cb7</parentFolderId>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="c9012aa7-20ee-421e-837e-9de1f59fa591" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MediatR.DomainEvents.DomainEventHandler</name>
+      <display>Intent.MediatR.DomainEvents.DomainEventHandler</display>
+      <externalReference>Intent.MediatR.DomainEvents</externalReference>
+      <parentFolderId>873efe22-075d-4a59-a8ac-c5f88ae97cb7</parentFolderId>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

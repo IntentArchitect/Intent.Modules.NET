@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7308f451-051c-443b-8ee7-602437315373" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Configuration</name>
+  <display>Configuration</display>
+  <parentFolderId>e5b0c303-16ad-48eb-ba77-f9095fe43cea</parentFolderId>
+  <children>
+    <element id="cceefa4b-f81e-4921-b774-e6a111c5d281" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</name>
+      <display>Intent.Eventing.Contracts.CompositeMessageBusConfiguration</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <parentFolderId>7308f451-051c-443b-8ee7-602437315373</parentFolderId>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="879411c7-3743-46eb-8bc9-b1890093c108" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.MassTransitConfiguration</name>
+      <display>Intent.Eventing.MassTransit.MassTransitConfiguration</display>
+      <externalReference>Intent.Eventing.MassTransit</externalReference>
+      <parentFolderId>7308f451-051c-443b-8ee7-602437315373</parentFolderId>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

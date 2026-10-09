@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ac9b42cc-c41e-435f-a6c0-034d5feacfc7" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Common</name>
+  <display>Common</display>
+  <parentFolderId>c90e7de2-7b5e-4f6b-80ac-2c2ef3b4804f</parentFolderId>
+  <children>
+    <element id="0942283b-f7df-4738-8c46-b9eb68c20902" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.CollectionWrapper</name>
+      <display>Intent.Entities.CollectionWrapper</display>
+      <externalReference>Intent.Entities</externalReference>
+      <parentFolderId>ac9b42cc-c41e-435f-a6c0-034d5feacfc7</parentFolderId>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>
