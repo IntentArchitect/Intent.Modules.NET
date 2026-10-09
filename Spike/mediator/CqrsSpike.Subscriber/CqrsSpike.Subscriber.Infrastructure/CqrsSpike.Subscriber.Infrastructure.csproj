@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>1701,1702</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CqrsSpike.Subscriber.Domain\CqrsSpike.Subscriber.Domain.csproj" />
+    <ProjectReference Include="..\CqrsSpike.Subscriber.Application\CqrsSpike.Subscriber.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.4.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.28" />
+  </ItemGroup>
+  </Project>

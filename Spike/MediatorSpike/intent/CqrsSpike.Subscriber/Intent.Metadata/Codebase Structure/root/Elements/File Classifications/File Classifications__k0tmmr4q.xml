@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="55855cf6-e128-4a61-b8d3-76913994d04a" type="File Classifications" typeId="81b0c54f-8f28-47f0-b0c1-6e8fe1212f50">
+  <name>File Classifications</name>
+  <display>File Classifications</display>
+  <parentFolderId>486194ff-6f08-4f4b-9a39-bd4907a81a84</parentFolderId>
+  <children>
+    <element id="9d8a55bc-c6c4-4a8d-b141-f3b0add59dd8" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>App Composition</name>
+      <display>App Composition</display>
+      <parentFolderId>55855cf6-e128-4a61-b8d3-76913994d04a</parentFolderId>
+    </element>
+    <element id="e2687cb7-5f34-43fb-b35d-0a218a04f25d" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>API Contract</name>
+      <display>API Contract</display>
+      <parentFolderId>55855cf6-e128-4a61-b8d3-76913994d04a</parentFolderId>
+    </element>
+    <element id="93312dae-fae1-4773-a7d7-5b7d6c0767c1" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Validation</name>
+      <display>Validation</display>
+      <parentFolderId>55855cf6-e128-4a61-b8d3-76913994d04a</parentFolderId>
+    </element>
+    <element id="cb741b6e-377a-4e3e-b3c8-83956efd0196" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Request Pipeline</name>
+      <display>Request Pipeline</display>
+      <parentFolderId>55855cf6-e128-4a61-b8d3-76913994d04a</parentFolderId>
+    </element>
+    <element id="66440de8-d150-473e-bf67-6a89764e0e4c" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Persistence Schema</name>
+      <display>Persistence Schema</display>
+      <parentFolderId>55855cf6-e128-4a61-b8d3-76913994d04a</parentFolderId>
+    </element>
+    <element id="938e586a-bec4-48d1-82e8-daf83f91940c" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Business Logic</name>
+      <display>Business Logic</display>
+      <parentFolderId>55855cf6-e128-4a61-b8d3-76913994d04a</parentFolderId>
+    </element>
+    <element id="1e066c6f-3864-4d42-9ad5-7bfc9a1240ce" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Data Access</name>
+      <display>Data Access</display>
+      <parentFolderId>55855cf6-e128-4a61-b8d3-76913994d04a</parentFolderId>
+    </element>
+    <element id="cc89011d-26d8-4c61-b79b-299bb75baa99" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Object Mapping</name>
+      <display>Object Mapping</display>
+      <parentFolderId>55855cf6-e128-4a61-b8d3-76913994d04a</parentFolderId>
+    </element>
+    <element id="658d53e2-fa36-48ed-a6d4-7d5abe243bfc" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Security</name>
+      <display>Security</display>
+      <parentFolderId>55855cf6-e128-4a61-b8d3-76913994d04a</parentFolderId>
+    </element>
+  </children>
+</class>

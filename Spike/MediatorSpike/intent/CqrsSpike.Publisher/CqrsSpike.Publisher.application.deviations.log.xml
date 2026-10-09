@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.MediatR.DomainEvents.DomainEventHandler#833ca2b8-00ba-4b2e-a991-eaa35d346dfd</correlationId>
+      <path>CqrsSpike.Publisher.Application/EventHandlers/Orders/OrderPlacedDomainEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-05T12:29:42.1752761Z</updatedAt>
+      <deviationsHash>95FDBF14DED802624DD676FCAF915DAF6D32EEB76B65705F6B748275D9C14F3E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#889c8e94-cb6e-43ef-a518-4f9ba067acef</correlationId>
+      <path>CqrsSpike.Publisher.Domain/Entities/Order.cs</path>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-05T12:29:42.1754541Z</updatedAt>
+      <deviationsHash>EAEDA5AC308EDEBDE256E9C08F39AA9FF575826B0984E8E4FD63ADA3BEBF3868</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

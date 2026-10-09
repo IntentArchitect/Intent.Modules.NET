@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="04707ba2-1474-41b9-95ea-2d9cf3da256a" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <parentFolderId>554d8670-1dd9-4377-977c-0af544d2af3d</parentFolderId>
+  <packageId>554d8670-1dd9-4377-977c-0af544d2af3d</packageId>
+  <packageName>CqrsSpike.Subscriber.Services</packageName>
+  <diagram>
+    <targetPackageId>554d8670-1dd9-4377-977c-0af544d2af3d</targetPackageId>
+  </diagram>
+</class>

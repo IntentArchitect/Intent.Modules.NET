@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e27d374e-559e-45e7-a7bf-818fab236d69" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Repositories</name>
+  <display>Repositories</display>
+  <parentFolderId>32dd4fc2-28c8-4383-bcc8-0e7758561f07</parentFolderId>
+  <children>
+    <element id="f1bd40a7-0c76-457d-8c00-af381e0f583e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CursorPagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.CursorPagedListInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <parentFolderId>e27d374e-559e-45e7-a7bf-818fab236d69</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;1e066c6f-3864-4d42-9ad5-7bfc9a1240ce&quot;]" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="1 - Low" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="dd92bba1-7bd3-4678-8408-f39a753b0cca" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <parentFolderId>e27d374e-559e-45e7-a7bf-818fab236d69</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;1e066c6f-3864-4d42-9ad5-7bfc9a1240ce&quot;]" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="2 - Medium" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="21f7ff2f-193e-429e-8ae6-7af6307c4a7a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.EntityRepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.EntityRepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <parentFolderId>e27d374e-559e-45e7-a7bf-818fab236d69</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;1e066c6f-3864-4d42-9ad5-7bfc9a1240ce&quot;]" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="2 - Medium" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="a6aeeb02-f358-4518-899b-c34278b525d3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <parentFolderId>e27d374e-559e-45e7-a7bf-818fab236d69</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;1e066c6f-3864-4d42-9ad5-7bfc9a1240ce&quot;]" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="1 - Low" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="438a8bac-93ab-417f-85d6-8e99f8c76a73" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <parentFolderId>e27d374e-559e-45e7-a7bf-818fab236d69</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;1e066c6f-3864-4d42-9ad5-7bfc9a1240ce&quot;]" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="1 - Low" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="7f188c2f-4500-4de2-b70a-d5014fbfb757" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
+      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <parentFolderId>e27d374e-559e-45e7-a7bf-818fab236d69</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;1e066c6f-3864-4d42-9ad5-7bfc9a1240ce&quot;]" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="1 - Low" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

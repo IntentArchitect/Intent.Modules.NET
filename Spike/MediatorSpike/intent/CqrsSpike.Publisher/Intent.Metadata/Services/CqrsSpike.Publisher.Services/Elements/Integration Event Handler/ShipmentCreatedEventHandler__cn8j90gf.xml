@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c7817005-38df-4230-8b6b-34e4a6d30ec1" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>ShipmentCreatedEventHandler</name>
+  <display>ShipmentCreatedEventHandler</display>
+  <parentFolderId>14981976-5ff2-4160-91ac-1a687e471617</parentFolderId>
+  <packageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</packageId>
+  <packageName>CqrsSpike.Publisher.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <association id="211fb5e3-1458-4963-a57a-3dad0a518821">
+      <sourceEnd id="708e95aa-bbf2-4715-9bcb-1dfdcbdfb4f6" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+        <display>handled by: IntegrationEventHandlers.ShipmentCreatedEventHandler</display>
+        <order>0</order>
+        <typeReference id="ed03db0d-a1b6-4b70-a93e-4d54e0b5895b">
+          <typeId>c7817005-38df-4230-8b6b-34e4a6d30ec1</typeId>
+          <typeName>ShipmentCreatedEventHandler</typeName>
+          <isNavigable>false</isNavigable>
+          <typePackageName>CqrsSpike.Publisher.Services</typePackageName>
+          <typePackageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</typePackageId>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="211fb5e3-1458-4963-a57a-3dad0a518821" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+        <name>Handler</name>
+        <display>[handles] ShipmentCreatedEvent</display>
+        <order>0</order>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="1eaef094-0cd3-4b74-91f4-1b93d7c751ff">
+          <typeId>8c8f4df9-1ff2-4f12-96cf-35a4e63f4b5d</typeId>
+          <typeName>ShipmentCreatedEvent</typeName>
+          <typePackageName>CqrsSpike.Subscriber.Eventing.Messages</typePackageName>
+          <typePackageId>50d5076b-4775-4564-a824-748d4679dd92</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Subscribe Integration Event</associationType>
+      <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+    </association>
+  </children>
+</class>

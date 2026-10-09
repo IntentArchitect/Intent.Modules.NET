@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fadcae1e-e76f-4ad3-b406-b3bde56ef309" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>FastEndpoints</name>
+  <display>FastEndpoints</display>
+  <parentFolderId>2ac4cfba-e811-48f5-8db2-bda5944dbd77</parentFolderId>
+  <children>
+    <element id="a388fac6-f185-46a4-9144-f857067109e8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.FastEndpoints.EndpointTemplate</name>
+      <display>Intent.FastEndpoints.EndpointTemplate</display>
+      <externalReference>Intent.FastEndpoints</externalReference>
+      <parentFolderId>fadcae1e-e76f-4ad3-b406-b3bde56ef309</parentFolderId>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="60574a88-0927-4ed9-b8ea-d95de99b683b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.FastEndpoints.ExceptionProcessorTemplate</name>
+      <display>Intent.FastEndpoints.ExceptionProcessorTemplate</display>
+      <externalReference>Intent.FastEndpoints</externalReference>
+      <parentFolderId>fadcae1e-e76f-4ad3-b406-b3bde56ef309</parentFolderId>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ffbf129e-c42a-4e26-8bc7-1ac24a8a0998" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>MarkOrderShippedCommand</name>
+  <display>MarkOrderShippedCommand: void</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <typeReference id="f9958b61-989a-4cca-9e6f-05542f1df0e5" />
+  <parentFolderId>5223d867-2cd3-442c-87cd-42fadbffa1f6</parentFolderId>
+  <packageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</packageId>
+  <packageName>CqrsSpike.Publisher.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <element id="965cfdf1-213d-49e4-ab86-7ffcf54f6fb8" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <typeReference id="1862dc43-19d2-4996-b6bd-641da4e5e13e">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>ffbf129e-c42a-4e26-8bc7-1ac24a8a0998</parentFolderId>
+      <packageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</packageId>
+      <packageName>CqrsSpike.Publisher.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="393a3d69-5fb0-43cf-be97-b29ce8c75abe" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>ShipmentId</name>
+      <display>ShipmentId: guid</display>
+      <typeReference id="c4eec70f-0b78-41d2-97fa-01e77c4f8249">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>ffbf129e-c42a-4e26-8bc7-1ac24a8a0998</parentFolderId>
+      <packageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</packageId>
+      <packageName>CqrsSpike.Publisher.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <association id="9706d33a-f965-47ed-a141-d15f0012fd64">
+      <sourceEnd id="d74f9aa7-fac1-4978-9815-888585aad9bc" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+        <display>updated by : Orders.MarkOrderShippedCommand</display>
+        <order>0</order>
+        <typeReference id="e0a2c077-1643-4d2f-8f30-3b0450f72e26">
+          <typeId>ffbf129e-c42a-4e26-8bc7-1ac24a8a0998</typeId>
+          <typeName>MarkOrderShippedCommand</typeName>
+          <isNavigable>false</isNavigable>
+          <typePackageName>CqrsSpike.Publisher.Services</typePackageName>
+          <typePackageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</typePackageId>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="9706d33a-f965-47ed-a141-d15f0012fd64" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+        <name>order</name>
+        <display>[update] order: MarkShipped</display>
+        <order>2</order>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="eab921d2-8428-4434-8be4-b99b005f71ae">
+          <typeId>f0a3eb81-b434-4bac-82e9-b4a1132c15ac</typeId>
+          <typeName>MarkShipped</typeName>
+          <typePackageName>CqrsSpike.Publisher.Domain</typePackageName>
+          <typePackageId>50f7bbf9-cf59-424c-8d7a-847ed5bc3aa4</typePackageId>
+        </typeReference>
+        <mappings>
+          <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+            <source applicationId="9bc41daf-2ce2-49ff-9b64-d37ec9212cb5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ffbf129e-c42a-4e26-8bc7-1ac24a8a0998" location="[CqrsSpike.Publisher].[Services].[MarkOrderShippedCommand]" />
+            <target applicationId="9bc41daf-2ce2-49ff-9b64-d37ec9212cb5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="889c8e94-cb6e-43ef-a518-4f9ba067acef" location="[CqrsSpike.Publisher].[Services].[Order]" />
+            <mappedEnds>
+              <mappedEnd>
+                <expression>{OrderId}</expression>
+                <path>
+                  <target id="889c8e94-cb6e-43ef-a518-4f9ba067acef" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="4ccb563f-0d37-40df-b4d3-c84298982b92" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+                <sources>
+                  <source identifier="OrderId" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                    <path>
+                      <target id="ffbf129e-c42a-4e26-8bc7-1ac24a8a0998" name="MarkOrderShippedCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                      <target id="965cfdf1-213d-49e4-ab86-7ffcf54f6fb8" name="OrderId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+            </mappedEnds>
+          </mapping>
+          <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+            <source applicationId="9bc41daf-2ce2-49ff-9b64-d37ec9212cb5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ffbf129e-c42a-4e26-8bc7-1ac24a8a0998" location="[CqrsSpike.Publisher].[Services].[MarkOrderShippedCommand]" />
+            <target applicationId="9bc41daf-2ce2-49ff-9b64-d37ec9212cb5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="889c8e94-cb6e-43ef-a518-4f9ba067acef" location="[CqrsSpike.Publisher].[Services].[Order]" />
+            <mappedEnds>
+              <mappedEnd>
+                <expression>{MarkOrderShippedCommand}</expression>
+                <path>
+                  <target id="889c8e94-cb6e-43ef-a518-4f9ba067acef" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="f0a3eb81-b434-4bac-82e9-b4a1132c15ac" name="MarkShipped" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                </path>
+                <sources>
+                  <source identifier="MarkOrderShippedCommand" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                    <path>
+                      <target id="ffbf129e-c42a-4e26-8bc7-1ac24a8a0998" name="MarkOrderShippedCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+              <mappedEnd>
+                <expression>{ShipmentId}</expression>
+                <path>
+                  <target id="889c8e94-cb6e-43ef-a518-4f9ba067acef" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="f0a3eb81-b434-4bac-82e9-b4a1132c15ac" name="MarkShipped" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  <target id="b1416087-5a37-48b6-8581-f5ca18fad82d" name="shipmentId" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+                <sources>
+                  <source identifier="ShipmentId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                    <path>
+                      <target id="ffbf129e-c42a-4e26-8bc7-1ac24a8a0998" name="MarkOrderShippedCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                      <target id="393a3d69-5fb0-43cf-be97-b29ce8c75abe" name="ShipmentId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+            </mappedEnds>
+          </mapping>
+        </mappings>
+      </targetEnd>
+      <associationType>Update Entity Action</associationType>
+      <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+    </association>
+  </children>
+</class>

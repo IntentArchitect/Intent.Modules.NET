@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="af66ecba-abb9-4db6-807d-2198d8ecd72f" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>RequestShipmentCommandHandler</name>
+  <display>RequestShipmentCommandHandler</display>
+  <parentFolderId>b67d433b-4297-4cc0-8a81-fd8ec6ec05ba</parentFolderId>
+  <packageId>554d8670-1dd9-4377-977c-0af544d2af3d</packageId>
+  <packageName>CqrsSpike.Subscriber.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <association id="2dfb8dd5-98e6-4cd2-9d22-b79aa6d38f47">
+      <sourceEnd id="e98562c7-b0ed-4709-a7a7-1e73b8e240a3" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+        <display>handled by: IntegrationEventHandlers.RequestShipmentCommandHandler</display>
+        <order>0</order>
+        <typeReference id="25557d7a-88d5-4a05-b98f-8b4a0c50253d">
+          <typeId>af66ecba-abb9-4db6-807d-2198d8ecd72f</typeId>
+          <typeName>RequestShipmentCommandHandler</typeName>
+          <isNavigable>false</isNavigable>
+          <typePackageName>CqrsSpike.Subscriber.Services</typePackageName>
+          <typePackageId>554d8670-1dd9-4377-977c-0af544d2af3d</typePackageId>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="2dfb8dd5-98e6-4cd2-9d22-b79aa6d38f47" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+        <name>Handler</name>
+        <display>[handles] RequestShipmentCommand</display>
+        <order>0</order>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="dfb90a81-d407-4c31-87a5-5ec62fe8ea7b">
+          <typeId>bd7c2c8a-01ad-4477-923b-8e84b6b11083</typeId>
+          <typeName>RequestShipmentCommand</typeName>
+          <typePackageName>CqrsSpike.Subscriber.Eventing.Messages</typePackageName>
+          <typePackageId>50d5076b-4775-4564-a824-748d4679dd92</typePackageId>
+        </typeReference>
+        <stereotypes>
+          <stereotype stereotypeDefinitionId="ced769d7-12d7-4efc-b8e7-4fe013097613" name="Command Consumption">
+            <addedByDefault>true</addedByDefault>
+            <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+            <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+            <properties>
+              <property name="219da315-395e-43d1-be25-205098fa8053" display="Queue Name" />
+            </properties>
+          </stereotype>
+        </stereotypes>
+      </targetEnd>
+      <associationType>Subscribe Integration Command</associationType>
+      <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="ced769d7-12d7-4efc-b8e7-4fe013097613" name="Command Consumption">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+          <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+          <properties>
+            <property name="219da315-395e-43d1-be25-205098fa8053" display="Queue Name" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </association>
+  </children>
+</class>

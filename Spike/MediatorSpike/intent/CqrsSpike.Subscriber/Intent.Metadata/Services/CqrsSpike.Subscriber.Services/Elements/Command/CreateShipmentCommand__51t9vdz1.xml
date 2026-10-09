@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="04943149-e786-4581-8d77-e76e297a2c55" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CreateShipmentCommand</name>
+  <display>CreateShipmentCommand: guid</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <typeReference id="06c697b5-216b-4400-bd9c-66b680c6a56b">
+    <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+    <typeName>guid</typeName>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+  </typeReference>
+  <parentFolderId>22a1de1c-7c57-4760-b436-5fd4b7e982b9</parentFolderId>
+  <packageId>554d8670-1dd9-4377-977c-0af544d2af3d</packageId>
+  <packageName>CqrsSpike.Subscriber.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/shipments" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="201 (Created)" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="9530d6a5-201c-4e9a-8366-91dd3ed794e5" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <typeReference id="4979e019-f0e3-4dbc-9fb0-187c0d4f35df">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>04943149-e786-4581-8d77-e76e297a2c55</parentFolderId>
+      <packageId>554d8670-1dd9-4377-977c-0af544d2af3d</packageId>
+      <packageName>CqrsSpike.Subscriber.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="true" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <association id="bd88eda0-7f16-4f9c-8e3b-607d5f340b3d">
+      <sourceEnd id="a67a94df-cbb1-4257-93b1-c193fa22000a" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+        <display>created by : Shipments.CreateShipmentCommand</display>
+        <order>0</order>
+        <typeReference id="a3b25c41-86aa-4014-8349-19edbdfd0b32">
+          <typeId>04943149-e786-4581-8d77-e76e297a2c55</typeId>
+          <typeName>CreateShipmentCommand</typeName>
+          <isNavigable>false</isNavigable>
+          <typePackageName>CqrsSpike.Subscriber.Services</typePackageName>
+          <typePackageId>554d8670-1dd9-4377-977c-0af544d2af3d</typePackageId>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="bd88eda0-7f16-4f9c-8e3b-607d5f340b3d" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+        <name>shipment</name>
+        <display>[create] shipment: Shipment</display>
+        <order>1</order>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="14c272bf-683c-40f1-998c-704ed213611c">
+          <typeId>230e4f2a-ed0a-4896-9b26-eca846cafc26</typeId>
+          <typeName>Shipment</typeName>
+          <typePackageName>CqrsSpike.Subscriber.Domain</typePackageName>
+          <typePackageId>26dca8c8-02d2-4479-b82b-e2c8e6cbee1c</typePackageId>
+        </typeReference>
+        <mappings>
+          <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+            <source applicationId="d1e437d6-1c03-4b04-9b46-6a717882611b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="04943149-e786-4581-8d77-e76e297a2c55" location="[CqrsSpike.Subscriber].[Services].[CreateShipmentCommand]" />
+            <target applicationId="d1e437d6-1c03-4b04-9b46-6a717882611b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="230e4f2a-ed0a-4896-9b26-eca846cafc26" location="[CqrsSpike.Subscriber].[Services].[Shipment]" />
+            <mappedEnds>
+              <mappedEnd>
+                <expression>{CreateShipmentCommand}</expression>
+                <path>
+                  <target id="230e4f2a-ed0a-4896-9b26-eca846cafc26" name="Shipment" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                </path>
+                <sources>
+                  <source identifier="CreateShipmentCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                    <path>
+                      <target id="04943149-e786-4581-8d77-e76e297a2c55" name="CreateShipmentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+              <mappedEnd>
+                <expression>{OrderId}</expression>
+                <path>
+                  <target id="230e4f2a-ed0a-4896-9b26-eca846cafc26" name="Shipment" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="5798d2f8-cf77-4114-a8aa-e3671667ce24" name="OrderId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+                <sources>
+                  <source identifier="OrderId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                    <path>
+                      <target id="04943149-e786-4581-8d77-e76e297a2c55" name="CreateShipmentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                      <target id="9530d6a5-201c-4e9a-8366-91dd3ed794e5" name="OrderId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+              <mappedEnd>
+                <expression>"Created"</expression>
+                <path>
+                  <target id="230e4f2a-ed0a-4896-9b26-eca846cafc26" name="Shipment" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="d8b43ae6-77c0-4cb3-b102-b03cc53ed031" name="Status" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </mappedEnd>
+              <mappedEnd>
+                <expression>DateTimeOffset.UtcNow</expression>
+                <path>
+                  <target id="230e4f2a-ed0a-4896-9b26-eca846cafc26" name="Shipment" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                  <target id="5e8c6a6f-5b58-4ac2-a688-72d7b8e25d08" name="CreatedAt" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </mappedEnd>
+            </mappedEnds>
+          </mapping>
+        </mappings>
+      </targetEnd>
+      <associationType>Create Entity Action</associationType>
+      <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+    </association>
+    <association id="58a0936b-200c-4b21-9c0e-005c22138207">
+      <sourceEnd id="28237a0b-6c0c-4a29-9d1c-fddff9d9e7b4" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+        <display>published by : Shipments.CreateShipmentCommand</display>
+        <order>0</order>
+        <typeReference id="c0d8fd52-7125-41ec-bdfb-0c9a32ad2253">
+          <typeId>04943149-e786-4581-8d77-e76e297a2c55</typeId>
+          <typeName>CreateShipmentCommand</typeName>
+          <isNavigable>false</isNavigable>
+          <typePackageName>CqrsSpike.Subscriber.Services</typePackageName>
+          <typePackageId>554d8670-1dd9-4377-977c-0af544d2af3d</typePackageId>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="58a0936b-200c-4b21-9c0e-005c22138207" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+        <display>[publish] ShipmentCreatedEvent</display>
+        <order>2</order>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="7b3c7cd4-f81f-4e3c-9d61-d01bfeeb7723">
+          <typeId>8c8f4df9-1ff2-4f12-96cf-35a4e63f4b5d</typeId>
+          <typeName>ShipmentCreatedEvent</typeName>
+          <typePackageName>CqrsSpike.Subscriber.Eventing.Messages</typePackageName>
+          <typePackageId>50d5076b-4775-4564-a824-748d4679dd92</typePackageId>
+        </typeReference>
+        <mappings>
+          <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+            <source applicationId="d1e437d6-1c03-4b04-9b46-6a717882611b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="04943149-e786-4581-8d77-e76e297a2c55" location="[CqrsSpike.Subscriber].[Services].[CreateShipmentCommand]" />
+            <target applicationId="d1e437d6-1c03-4b04-9b46-6a717882611b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8c8f4df9-1ff2-4f12-96cf-35a4e63f4b5d" location="[CqrsSpike.Subscriber].[Services].[ShipmentCreatedEvent]" />
+            <mappedEnds>
+              <mappedEnd>
+                <expression>{shipment.Id}</expression>
+                <path>
+                  <target id="8c8f4df9-1ff2-4f12-96cf-35a4e63f4b5d" name="ShipmentCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+                  <target id="b72f7435-4c4d-4063-8979-01e54a775004" name="ShipmentId" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+                <sources>
+                  <source identifier="shipment.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                    <path>
+                      <target id="04943149-e786-4581-8d77-e76e297a2c55" name="CreateShipmentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                      <target id="bd88eda0-7f16-4f9c-8e3b-607d5f340b3d" name="shipment" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                      <target id="7374fa3a-b61a-41e1-926c-65a5e8cec8cc" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+              <mappedEnd>
+                <expression>{OrderId}</expression>
+                <path>
+                  <target id="8c8f4df9-1ff2-4f12-96cf-35a4e63f4b5d" name="ShipmentCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+                  <target id="0756e878-16ed-470e-b5e3-46c5155c4619" name="OrderId" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+                <sources>
+                  <source identifier="OrderId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                    <path>
+                      <target id="04943149-e786-4581-8d77-e76e297a2c55" name="CreateShipmentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                      <target id="9530d6a5-201c-4e9a-8366-91dd3ed794e5" name="OrderId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+            </mappedEnds>
+          </mapping>
+        </mappings>
+      </targetEnd>
+      <associationType>Publish Integration Event</associationType>
+      <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+    </association>
+  </children>
+</class>

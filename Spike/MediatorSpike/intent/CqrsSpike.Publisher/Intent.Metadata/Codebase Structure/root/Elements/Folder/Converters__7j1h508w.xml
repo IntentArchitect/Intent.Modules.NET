@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c93dc66c-3e48-4ee6-9b2c-3657659a2a17" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Converters</name>
+  <display>Converters</display>
+  <parentFolderId>62ab7c66-21cb-44b5-a5a8-95d0067673ed</parentFolderId>
+  <children>
+    <element id="cdaa68e6-c349-4181-971d-00e2fd8de4b4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.UtcDateTimeOffsetConverter</name>
+      <display>Intent.EntityFrameworkCore.UtcDateTimeOffsetConverter</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <parentFolderId>c93dc66c-3e48-4ee6-9b2c-3657659a2a17</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;8df36710-3ff6-4e44-9b1c-34132d823d4e&quot;]" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cf892369-c505-41b0-802d-7036a207e1fd" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Models</name>
+  <display>Models</display>
+  <parentFolderId>21e4cdbe-516d-4899-ba01-d31f7f6d4fbd</parentFolderId>
+  <children>
+    <element id="d7dfaf28-772f-4bc6-b2a1-2dd511cda03d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.ResultModel</name>
+      <display>Intent.Application.Identity.ResultModel</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <parentFolderId>cf892369-c505-41b0-802d-7036a207e1fd</parentFolderId>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="a758fcd2-6ba7-4c83-9565-447dc7c1798d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MediatR.DomainEvents.DomainEventNotification</name>
+      <display>Intent.MediatR.DomainEvents.DomainEventNotification</display>
+      <externalReference>Intent.MediatR.DomainEvents</externalReference>
+      <parentFolderId>cf892369-c505-41b0-802d-7036a207e1fd</parentFolderId>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>
