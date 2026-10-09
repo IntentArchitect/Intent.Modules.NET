@@ -2,7 +2,6 @@
 <association id="fca75ecd-50ca-4f65-9bc3-c1c6713b0fda">
   <sourceEnd id="2203925f-c567-43e0-b927-368c81934a68" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : RequestShipmentCommandHandler.Handler</display>
-    <order>0</order>
     <typeReference id="1131f58c-124d-4673-9714-cb6e7107e47e">
       <typeId>2dfb8dd5-98e6-4cd2-9d22-b79aa6d38f47</typeId>
       <typeName>Handler</typeName>

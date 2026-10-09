@@ -1,13 +1,8 @@
-using CqrsSpike.Subscriber.Application.Common.Interfaces;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.QueryModels", Version = "1.0")]
+using Mediator;
 
 namespace CqrsSpike.Subscriber.Application.OrderRecords.GetOrderRecordByOrderId
 {
-    public class GetOrderRecordByOrderIdQuery : IRequest<OrderRecordDto>, IQuery
+    public class GetOrderRecordByOrderIdQuery : IQuery<OrderRecordDto>
     {
         public GetOrderRecordByOrderIdQuery(Guid orderId)
         {

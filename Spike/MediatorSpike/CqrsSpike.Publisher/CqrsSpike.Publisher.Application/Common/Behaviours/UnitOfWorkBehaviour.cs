@@ -1,22 +1,17 @@
 using System.Transactions;
-using CqrsSpike.Publisher.Application.Common.Interfaces;
 using CqrsSpike.Publisher.Domain.Common.Interfaces;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour", Version = "1.0")]
+using Mediator;
 
 namespace CqrsSpike.Publisher.Application.Common.Behaviours
 {
     /// <summary>
-    /// Ensures that all operations processed as part of handling a <see cref="ICommand"/> either
+    /// Ensures that all operations processed as part of handling a <see cref="IBaseCommand"/> either
     /// pass or fail as one unit. This behaviour makes it unnecessary for developers to call
     /// SaveChangesAsync() inside their business logic (e.g. command handlers), and doing so should
     /// be avoided unless absolutely necessary.
     /// </summary>
     public class UnitOfWorkBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : notnull, ICommand
+        where TRequest : IBaseCommand
     {
         private readonly IUnitOfWork _dataSource;
 
@@ -25,15 +20,15 @@ namespace CqrsSpike.Publisher.Application.Common.Behaviours
             _dataSource = dataSource ?? throw new ArgumentNullException(nameof(dataSource));
         }
 
-        public async Task<TResponse> Handle(
+        public async ValueTask<TResponse> Handle(
             TRequest request,
-            RequestHandlerDelegate<TResponse> next,
+            MessageHandlerDelegate<TRequest, TResponse> next,
             CancellationToken cancellationToken)
         {
             if (_dataSource.HasDbTransaction())
             {
                 // External EF transaction active — skip TransactionScope to avoid MSDTC escalation.
-                var result = await next(cancellationToken);
+                var result = await next(request, cancellationToken);
                 await _dataSource.SaveChangesAsync(cancellationToken);
                 return result;
             }
@@ -47,7 +42,7 @@ namespace CqrsSpike.Publisher.Application.Common.Behaviours
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                var response = await next(cancellationToken);
+                var response = await next(request, cancellationToken);
 
                 // By calling SaveChanges at the last point in the transaction ensures that write-
                 // locks in the database are created and then released as quickly as possible. This

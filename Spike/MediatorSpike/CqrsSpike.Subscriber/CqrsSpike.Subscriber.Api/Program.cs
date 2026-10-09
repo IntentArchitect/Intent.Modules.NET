@@ -3,11 +3,6 @@ using CqrsSpike.Subscriber.Api.FastEndpoints;
 using CqrsSpike.Subscriber.Application;
 using CqrsSpike.Subscriber.Infrastructure;
 using FastEndpoints;
-using Intent.RoslynWeaver.Attributes;
-using Mode = Intent.RoslynWeaver.Attributes.Mode;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
 namespace CqrsSpike.Subscriber.Api
 {

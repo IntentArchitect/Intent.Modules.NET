@@ -1,8 +1,3 @@
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventHandlerInterface", Version = "1.0")]
-
 namespace CqrsSpike.Publisher.Application.Common.Eventing
 {
     public interface IIntegrationEventHandler<in TMessage>

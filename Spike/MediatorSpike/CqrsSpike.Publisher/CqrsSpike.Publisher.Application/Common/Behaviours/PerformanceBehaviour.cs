@@ -1,17 +1,13 @@
 using System.Diagnostics;
 using CqrsSpike.Publisher.Application.Common.Interfaces;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
+using Mediator;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.Behaviours.PerformanceBehaviour", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Application.Common.Behaviours
 {
     public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : notnull
+        where TRequest : IMessage
     {
         private readonly ILogger<PerformanceBehaviour<TRequest, TResponse>> _logger;
         private readonly ICurrentUserService _currentUserService;
@@ -28,14 +24,14 @@ namespace CqrsSpike.Publisher.Application.Common.Behaviours
             _logRequestPayload = configuration.GetValue<bool?>("CqrsSettings:LogRequestPayload") ?? false;
         }
 
-        public async Task<TResponse> Handle(
+        public async ValueTask<TResponse> Handle(
             TRequest request,
-            RequestHandlerDelegate<TResponse> next,
+            MessageHandlerDelegate<TRequest, TResponse> next,
             CancellationToken cancellationToken)
         {
             _timer.Start();
 
-            var response = await next(cancellationToken);
+            var response = await next(request, cancellationToken);
 
             _timer.Stop();
 

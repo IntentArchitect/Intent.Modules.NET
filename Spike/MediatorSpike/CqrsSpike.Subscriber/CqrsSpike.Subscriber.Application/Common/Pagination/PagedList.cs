@@ -1,8 +1,4 @@
 using CqrsSpike.Subscriber.Domain.Repositories;
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.PagedList", Version = "1.0")]
 
 namespace CqrsSpike.Subscriber.Application.Common.Pagination
 {

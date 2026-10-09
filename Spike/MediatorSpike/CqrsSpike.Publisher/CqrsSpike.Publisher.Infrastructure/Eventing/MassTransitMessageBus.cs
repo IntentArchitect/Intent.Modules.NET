@@ -1,10 +1,6 @@
 using CqrsSpike.Publisher.Application.Common.Eventing;
-using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.MassTransitMessageBus", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Infrastructure.Eventing
 {

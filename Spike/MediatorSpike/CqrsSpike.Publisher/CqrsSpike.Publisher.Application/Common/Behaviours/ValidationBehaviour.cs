@@ -1,15 +1,11 @@
 using CqrsSpike.Publisher.Application.Common.Interfaces;
 using FluentValidation;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.ValidationBehaviour", Version = "1.0")]
+using Mediator;
 
 namespace CqrsSpike.Publisher.Application.Common.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : notnull
+        where TRequest : IMessage
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 
@@ -18,14 +14,14 @@ namespace CqrsSpike.Publisher.Application.Common.Behaviours
             _validators = validators;
         }
 
-        public async Task<TResponse> Handle(
+        public async ValueTask<TResponse> Handle(
             TRequest request,
-            RequestHandlerDelegate<TResponse> next,
+            MessageHandlerDelegate<TRequest, TResponse> next,
             CancellationToken cancellationToken)
         {
             if (request is IBypassPipelineValidation)
             {
-                return await next(cancellationToken);
+                return await next(request, cancellationToken);
             }
 
             if (_validators.Any())
@@ -40,7 +36,7 @@ namespace CqrsSpike.Publisher.Application.Common.Behaviours
                 }
             }
 
-            return await next(cancellationToken);
+            return await next(request, cancellationToken);
         }
     }
 }

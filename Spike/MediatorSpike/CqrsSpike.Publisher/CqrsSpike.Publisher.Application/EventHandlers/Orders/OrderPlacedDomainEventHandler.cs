@@ -1,28 +1,21 @@
 using CqrsSpike.Publisher.Application.AuditEntries.CreateAuditEntry;
 using CqrsSpike.Publisher.Application.Common.Models;
 using CqrsSpike.Publisher.Domain.Events;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MediatR.DomainEvents.DomainEventHandler", Version = "1.0")]
+using Mediator;
 
 namespace CqrsSpike.Publisher.Application.EventHandlers.Orders
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class OrderPlacedDomainEventHandler : INotificationHandler<DomainEventNotification<OrderPlacedDomainEvent>>
+    public class OrderPlacedDomainEventHandler : INotificationHandler<OrderPlacedDomainEventNotification>
     {
         private readonly ISender _mediator;
 
-        [IntentManaged(Mode.Merge)]
         public OrderPlacedDomainEventHandler(ISender mediator)
         {
             _mediator = mediator;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task Handle(
-            DomainEventNotification<OrderPlacedDomainEvent> notification,
+        public async ValueTask Handle(
+            OrderPlacedDomainEventNotification notification,
             CancellationToken cancellationToken)
         {
             var domainEvent = notification.DomainEvent;

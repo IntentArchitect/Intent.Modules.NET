@@ -1,13 +1,8 @@
-using CqrsSpike.Publisher.Application.Common.Interfaces;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandModels", Version = "1.0")]
+using Mediator;
 
 namespace CqrsSpike.Publisher.Application.Orders.MarkOrderShipped
 {
-    public class MarkOrderShippedCommand : IRequest, ICommand
+    public class MarkOrderShippedCommand : ICommand
     {
         public MarkOrderShippedCommand(Guid orderId, Guid shipmentId)
         {

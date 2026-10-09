@@ -3,11 +3,7 @@ using CqrsSpike.Publisher.Domain.Common;
 using CqrsSpike.Publisher.Domain.Common.Interfaces;
 using CqrsSpike.Publisher.Domain.Entities;
 using CqrsSpike.Publisher.Infrastructure.Persistence.Configurations;
-using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Infrastructure.Persistence
 {
@@ -48,7 +44,6 @@ namespace CqrsSpike.Publisher.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
         }
 
-        [IntentManaged(Mode.Ignore)]
         private void ConfigureModel(ModelBuilder modelBuilder)
         {
             // Seed data

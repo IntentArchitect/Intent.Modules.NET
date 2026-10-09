@@ -1,8 +1,3 @@
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Entities.NotFoundException", Version = "1.0")]
-
 namespace CqrsSpike.Subscriber.Domain.Common.Exceptions
 {
     public class NotFoundException : Exception

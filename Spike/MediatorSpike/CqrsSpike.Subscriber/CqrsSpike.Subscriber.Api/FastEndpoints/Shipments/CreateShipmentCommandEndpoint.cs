@@ -1,12 +1,7 @@
 using System.Net.Mime;
 using CqrsSpike.Subscriber.Application.Shipments.CreateShipment;
 using FastEndpoints;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
-using Mode = Intent.RoslynWeaver.Attributes.Mode;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.FastEndpoints.EndpointTemplate", Version = "1.0")]
+using Mediator;
 
 namespace CqrsSpike.Subscriber.Api.FastEndpoints.Shipments
 {

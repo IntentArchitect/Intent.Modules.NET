@@ -109,37 +109,10 @@
             <entry key="status" value="assigned" />
           </metadata>
         </element>
-        <element id="ea898d00-1d7d-4a1e-9098-1aa7df50adcc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Application.MediatR.CommandHandlerSkillTemplate</name>
-          <display>Intent.Application.MediatR.CommandHandlerSkillTemplate</display>
-          <externalReference>Intent.Application.MediatR</externalReference>
-          <parentFolderId>3e413df8-a198-4abe-8e6a-a3715135b214</parentFolderId>
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-        </element>
-        <element id="46d5e191-aa4e-40eb-95fe-9f415ccf30ef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Application.MediatR.QueryHandlerSkillTemplate</name>
-          <display>Intent.Application.MediatR.QueryHandlerSkillTemplate</display>
-          <externalReference>Intent.Application.MediatR</externalReference>
-          <parentFolderId>3e413df8-a198-4abe-8e6a-a3715135b214</parentFolderId>
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-        </element>
         <element id="a6792e31-5536-4312-8712-208a750e611c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
           <name>Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate</name>
           <display>Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate</display>
           <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
-          <parentFolderId>3e413df8-a198-4abe-8e6a-a3715135b214</parentFolderId>
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-        </element>
-        <element id="13585a46-4f3c-40ee-8680-72a5793a344d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.MediatR.DomainEvents.DomainEventHandlerSkill</name>
-          <display>Intent.MediatR.DomainEvents.DomainEventHandlerSkill</display>
-          <externalReference>Intent.MediatR.DomainEvents</externalReference>
           <parentFolderId>3e413df8-a198-4abe-8e6a-a3715135b214</parentFolderId>
           <metadata>
             <entry key="status" value="assigned" />

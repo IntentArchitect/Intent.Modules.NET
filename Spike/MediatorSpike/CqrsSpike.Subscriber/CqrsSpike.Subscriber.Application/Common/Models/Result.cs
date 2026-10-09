@@ -1,8 +1,3 @@
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.Identity.ResultModel", Version = "1.0")]
-
 namespace CqrsSpike.Subscriber.Application.Common.Models
 {
     public class Result

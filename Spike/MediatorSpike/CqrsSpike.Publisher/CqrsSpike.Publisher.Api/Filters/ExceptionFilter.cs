@@ -2,12 +2,8 @@ using System.Diagnostics;
 using CqrsSpike.Publisher.Application.Common.Exceptions;
 using CqrsSpike.Publisher.Domain.Common.Exceptions;
 using FluentValidation;
-using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AspNetCore.Controllers.ExceptionFilter", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Api.Filters
 {

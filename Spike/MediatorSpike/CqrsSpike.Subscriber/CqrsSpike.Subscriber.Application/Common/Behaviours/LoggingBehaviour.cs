@@ -1,22 +1,18 @@
 using CqrsSpike.Subscriber.Application.Common.Interfaces;
-using Intent.RoslynWeaver.Attributes;
-using MediatR.Pipeline;
+using Mediator;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.Behaviours.LoggingBehaviour", Version = "1.0")]
-
 namespace CqrsSpike.Subscriber.Application.Common.Behaviours
 {
-    public class LoggingBehaviour<TRequest> : IRequestPreProcessor<TRequest>
-        where TRequest : notnull
+    public class LoggingBehaviour<TRequest, TResponse> : MessagePreProcessor<TRequest, TResponse>
+        where TRequest : IMessage
     {
-        private readonly ILogger<LoggingBehaviour<TRequest>> _logger;
+        private readonly ILogger<LoggingBehaviour<TRequest, TResponse>> _logger;
         private readonly ICurrentUserService _currentUserService;
         private readonly bool _logRequestPayload;
 
-        public LoggingBehaviour(ILogger<LoggingBehaviour<TRequest>> logger,
+        public LoggingBehaviour(ILogger<LoggingBehaviour<TRequest, TResponse>> logger,
             ICurrentUserService currentUserService,
             IConfiguration configuration)
         {
@@ -25,7 +21,7 @@ namespace CqrsSpike.Subscriber.Application.Common.Behaviours
             _logRequestPayload = configuration.GetValue<bool?>("CqrsSettings:LogRequestPayload") ?? false;
         }
 
-        public async Task Process(TRequest request, CancellationToken cancellationToken)
+        protected override async ValueTask Handle(TRequest request, CancellationToken cancellationToken)
         {
             var requestName = typeof(TRequest).Name;
             var user = await _currentUserService.GetAsync();

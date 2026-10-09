@@ -148,19 +148,13 @@
     <association id="1128dfa8-c30c-4a95-8d27-e5a227d8c965">
       <sourceEnd id="b8ea8b6c-e65e-44e3-a149-2f20c33b2314" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
         <display>updated by : Orders.UpdateOrderCommand</display>
-        <order>0</order>
         <typeReference id="ca3b3398-7d98-4f65-9237-f74b1c09ac31">
-          <typeId>7cad7e66-8f5c-45dc-a75e-591c0da7fc60</typeId>
-          <typeName>UpdateOrderCommand</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Publisher.Services</typePackageName>
-          <typePackageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="1128dfa8-c30c-4a95-8d27-e5a227d8c965" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
         <name>order</name>
         <display>[update] order: Update</display>
-        <order>3</order>
         <traits>
           <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
         </traits>

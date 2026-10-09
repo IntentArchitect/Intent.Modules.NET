@@ -1,13 +1,10 @@
 using CqrsSpike.Subscriber.Application.Common.Eventing;
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour", Version = "1.0")]
+using Mediator;
 
 namespace CqrsSpike.Subscriber.Application.Common.Behaviours
 {
-    public class MessageBusPublishBehaviour<TRequest, TResponse> : MediatR.IPipelineBehavior<TRequest, TResponse>
-        where TRequest : notnull
+    public class MessageBusPublishBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+        where TRequest : IMessage
     {
         private readonly IMessageBus _messageBus;
 
@@ -16,12 +13,12 @@ namespace CqrsSpike.Subscriber.Application.Common.Behaviours
             _messageBus = messageBus;
         }
 
-        public async Task<TResponse> Handle(
+        public async ValueTask<TResponse> Handle(
             TRequest request,
-            MediatR.RequestHandlerDelegate<TResponse> next,
+            MessageHandlerDelegate<TRequest, TResponse> next,
             CancellationToken cancellationToken)
         {
-            var response = await next(cancellationToken);
+            var response = await next(request, cancellationToken);
 
             await _messageBus.FlushAllAsync(cancellationToken);
 

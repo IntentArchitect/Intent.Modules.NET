@@ -1,13 +1,8 @@
-using CqrsSpike.Publisher.Application.AuditEntries;
 using CqrsSpike.Publisher.Application.AuditEntries.GetAuditEntries;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
+using CqrsSpike.Publisher.Application.AuditEntries;
+using Mediator;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
-[assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Api.Controllers
 {

@@ -73,19 +73,13 @@
     <association id="bd88eda0-7f16-4f9c-8e3b-607d5f340b3d">
       <sourceEnd id="a67a94df-cbb1-4257-93b1-c193fa22000a" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
         <display>created by : Shipments.CreateShipmentCommand</display>
-        <order>0</order>
         <typeReference id="a3b25c41-86aa-4014-8349-19edbdfd0b32">
-          <typeId>04943149-e786-4581-8d77-e76e297a2c55</typeId>
-          <typeName>CreateShipmentCommand</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Subscriber.Services</typePackageName>
-          <typePackageId>554d8670-1dd9-4377-977c-0af544d2af3d</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="bd88eda0-7f16-4f9c-8e3b-607d5f340b3d" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
         <name>shipment</name>
         <display>[create] shipment: Shipment</display>
-        <order>1</order>
         <traits>
           <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
         </traits>
@@ -152,18 +146,12 @@
     <association id="58a0936b-200c-4b21-9c0e-005c22138207">
       <sourceEnd id="28237a0b-6c0c-4a29-9d1c-fddff9d9e7b4" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
         <display>published by : Shipments.CreateShipmentCommand</display>
-        <order>0</order>
         <typeReference id="c0d8fd52-7125-41ec-bdfb-0c9a32ad2253">
-          <typeId>04943149-e786-4581-8d77-e76e297a2c55</typeId>
-          <typeName>CreateShipmentCommand</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Subscriber.Services</typePackageName>
-          <typePackageId>554d8670-1dd9-4377-977c-0af544d2af3d</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="58a0936b-200c-4b21-9c0e-005c22138207" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
         <display>[publish] ShipmentCreatedEvent</display>
-        <order>2</order>
         <traits>
           <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
         </traits>

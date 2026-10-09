@@ -1,12 +1,8 @@
 using System.Transactions;
 using CqrsSpike.Publisher.Application.Common.Eventing;
 using CqrsSpike.Publisher.Domain.Common.Interfaces;
-using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.MassTransit.IntegrationEventConsumer", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Infrastructure.Eventing
 {

@@ -73,19 +73,13 @@
     <association id="6926bacc-b3bc-44fe-b193-b061165949bc">
       <sourceEnd id="d24c4df8-517b-4abc-b96f-8535e89d6efb" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
         <display>: GetOrderRecordByOrderIdQuery</display>
-        <order>0</order>
         <typeReference id="e2858116-65e2-42d0-8f71-15e18cec3c89">
-          <typeId>be089f55-42e6-4de9-a41d-d9d411d47385</typeId>
-          <typeName>GetOrderRecordByOrderIdQuery</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Subscriber.Services</typePackageName>
-          <typePackageId>554d8670-1dd9-4377-977c-0af544d2af3d</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="6926bacc-b3bc-44fe-b193-b061165949bc" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
         <name>orderRecord</name>
         <display>[query] orderRecord: OrderRecord</display>
-        <order>1</order>
         <traits>
           <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
         </traits>

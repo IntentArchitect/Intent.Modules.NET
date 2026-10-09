@@ -1,9 +1,5 @@
 using FluentValidation;
-using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.FluentValidation.Dtos.ValidatorProvider", Version = "1.0")]
 
 namespace CqrsSpike.Subscriber.Application.Common.Validation
 {

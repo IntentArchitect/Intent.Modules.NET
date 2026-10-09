@@ -8,8 +8,8 @@ using Xunit.Abstractions;
 namespace CqrsSpike.Scenarios;
 
 /// <summary>
-/// Runtime scenarios shared, unchanged, by the MediatR baseline and the Mediator variant. They
-/// talk to the apps over HTTP only, so the same assertions prove behavioural parity.
+/// Runtime scenarios for the MediatorSpike apps. They talk to the apps over HTTP only, so they
+/// assert observable behaviour rather than how the Mediator pipeline is wired internally.
 /// </summary>
 [Collection(SpikeCollection.Name)]
 public class Scenarios

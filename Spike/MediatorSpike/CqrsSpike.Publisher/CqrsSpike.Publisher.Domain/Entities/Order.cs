@@ -1,8 +1,5 @@
 using CqrsSpike.Publisher.Domain.Common;
 using CqrsSpike.Publisher.Domain.Events;
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace CqrsSpike.Publisher.Domain.Entities
 {

@@ -12,19 +12,13 @@
     <association id="2dfb8dd5-98e6-4cd2-9d22-b79aa6d38f47">
       <sourceEnd id="e98562c7-b0ed-4709-a7a7-1e73b8e240a3" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
         <display>handled by: IntegrationEventHandlers.RequestShipmentCommandHandler</display>
-        <order>0</order>
         <typeReference id="25557d7a-88d5-4a05-b98f-8b4a0c50253d">
-          <typeId>af66ecba-abb9-4db6-807d-2198d8ecd72f</typeId>
-          <typeName>RequestShipmentCommandHandler</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Subscriber.Services</typePackageName>
-          <typePackageId>554d8670-1dd9-4377-977c-0af544d2af3d</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="2dfb8dd5-98e6-4cd2-9d22-b79aa6d38f47" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
         <name>Handler</name>
         <display>[handles] RequestShipmentCommand</display>
-        <order>0</order>
         <traits>
           <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
         </traits>

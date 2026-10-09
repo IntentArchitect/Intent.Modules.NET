@@ -109,24 +109,6 @@
             <entry key="status" value="assigned" />
           </metadata>
         </element>
-        <element id="4ed6aa25-3a2e-46ac-bbac-2554bb20b39c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Application.MediatR.CommandHandlerSkillTemplate</name>
-          <display>Intent.Application.MediatR.CommandHandlerSkillTemplate</display>
-          <externalReference>Intent.Application.MediatR</externalReference>
-          <parentFolderId>3cefa524-dcfa-408a-b4e1-d7fb16595b34</parentFolderId>
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-        </element>
-        <element id="1b25a906-27f4-41c1-8745-4a7f2935b556" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Application.MediatR.QueryHandlerSkillTemplate</name>
-          <display>Intent.Application.MediatR.QueryHandlerSkillTemplate</display>
-          <externalReference>Intent.Application.MediatR</externalReference>
-          <parentFolderId>3cefa524-dcfa-408a-b4e1-d7fb16595b34</parentFolderId>
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-        </element>
         <element id="004cff13-38d0-4b4c-bdb2-df361404223d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
           <name>Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate</name>
           <display>Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate</display>
