@@ -57,12 +57,14 @@ With more than about six requirements, dispatch one `discovery` sub-agent per sp
 
 5. **Re-check the tests of every reworded criterion, in this same turn.** `read_spec(slug, artifact: "tests", requirementId: <its requirement>)` lists the tests citing it (titles carrying `[spec:<slug> R7.3]`). When the user chose to change a test, update it first and run it. Then have one `discovery` sub-agent judge each reworded criterion against its citing tests as a sceptic: which of its clauses they assert (`full`, `partial` with what is missing, or `mismatch`). Report the result: a `mismatch` is a disagreement for the user, and the next verify records the new degree as a binding.
 
+6. **Re-confirm the binding of every test this turn edited.** Its edit leaves the criteria it cites `stale`. Have a `discovery` sceptic judge each such criterion against its citing tests, then record a `full` or `partial` degree with `record_spec_verdict(slug, bindings)` and **no `results`**, exactly as **sdd-heal** step 5 does. Leave a `mismatch` unrecorded and report it as a disagreement.
+
 `request_spec_review` refuses a spec another framework owns. For that spec, ask about each requirement with `ask_user_question` instead (update the spec, change the code back, or leave it), and apply the answers.
 
 ## 4. Follow the approved wording
 
 - **Design:** patch the affected realization-table rows, diagrams and `<FileRef>`s.
-- **Tasks:** for a new requirement, add a task to `tasks.md` with `(satisfies: RN)`.
+- **Tasks:** for a new requirement, add a task to `tasks.md` with `(satisfies: RN)`, unless the spec is a Capability, which has no tasks.
 - **Traceability:** where targets were added or deleted, re-record that task with its existing targets **plus** the new ones and **minus** the deleted ones, because a call with targets replaces the task's links (see **sdd-record-traceability**). Call `complete_spec_task` for any new task.
 
 This is bookkeeping that follows from wording the user approved. Do it without asking, and give it one line in the report.

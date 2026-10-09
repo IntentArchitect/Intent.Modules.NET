@@ -34,7 +34,7 @@ argument-hint: "[application name]"
 
 # Reverse-engineer the Domain
 
-Goal: the Domain designer describes the code **as it is**, and a Software Factory (SF) run against the existing files changes **nothing but the Intent file headers**. You are aligning the model to the code, not the code to the model. Business logic, method bodies and EF configuration code stay hand-written.
+Goal: the Domain designer describes the code **as it is**, and a Software Factory (SF) run against the existing files changes **nothing but the Intent file headers and the code's formatting**: what the code does stays exactly the same. You are aligning the model to the code, not the code to the model. Business logic, method bodies and EF configuration code stay hand-written.
 
 Load **scripting-the-model**, **exploring-the-model** and **changing-the-model** before you start, and **generating-and-applying-code** / **resolve-destructive-changes** before the first SF run. Follow them for _how_ to script, lay out and generate; this skill only adds what is specific to reverse-engineering.
 
@@ -239,16 +239,17 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
    - `using Intent.RoslynWeaver.Attributes;`
    - `[assembly: IntentTemplate(...)]`
    - possibly the two merge directives
-   - plus one `PackageReference Intent.RoslynWeaver.Attributes` per csproj.
+   - one `PackageReference Intent.RoslynWeaver.Attributes` per csproj
+   - and formatting from RoslynWeaver's Auto Format, anywhere in the file (step 5).
 
-   The only exception is an equivalent type rewrite the user accepts (step 4).
+   The only other exception is an equivalent type rewrite the user accepts (step 4).
 2. **Diagnose anything else:**
    - **`create`** means a path or name mismatch. Fix the folder, Template Output location or element name, or add `File Config` for a type that lives in another file or a differently named one. Never apply it.
    - **Inserted members** mean the model has something the code doesn't (wrong name, type or nullability). Fix the model.
    - **A changed signature on a modelled operation** (`async` added or removed, a `CancellationToken` appended or dropped, the return type wrapped in `Task<…>`) means the async rule didn't match the code. Set `Async Configuration` on that operation (§3 "Async operations"). If its async shape can't be reproduced (§3 "Shapes the template can't reproduce"), remove the operation from the model. Never remove it because a type is spelled differently (see "Equivalent type rewrites"). Never hand-edit the signature.
    - **A changed type declaration** (e.g. `internal sealed class` rewritten to `public class`, or `partial` dropped) means the modifiers don't match the code. Fix `Default Type Modifiers`, or that element's `Type Configuration` → `Modifiers` (`Enum Configuration` → `Access Modifier` for an enum; §3 "Type modifiers"). Never hand-edit the declaration.
    - **A type spelled differently on an existing member** (`Nullable<DateTime>` → `DateTime?`, `DTO.Logging.LogDTO` → `LogDTO`, `string?` → `string`): see "Equivalent type rewrites" (step 4). Don't remove the member.
-   - **Deleted or changed lines** mean drift. Use **resolve-destructive-changes**. Never apply destructive changes, apart from equivalent type rewrites the user accepted (step 4).
+   - **Deleted or changed lines**, other than formatting (step 5), mean drift. Use **resolve-destructive-changes**. Never apply destructive changes, apart from equivalent type rewrites the user accepted (step 4).
    - **A template exception** ("The parent has not been set for this type …") is a module bug. Report it to the user. Only as a last resort, and only _before_ that template has ever been applied, disable that Template Output (`Template Output Settings.Is Enabled = false`). Disabling it after an apply makes the SF propose deleting every file it previously owned.
 3. **Merge directives (critical).** Every adopted file must carry both of these lines, in this order:
 
@@ -267,7 +268,7 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
    | `DTO.Logging.LogDTO` (partly or fully qualified) | `LogDTO` plus a `using` |
    | `string?` with nullable reference types off | `string` |
 
-   - **Never remove a member from the model, or leave one out, to avoid an equivalent rewrite.** This covers properties, fields, parameters and operations. The model must mirror the code; a smaller model that keeps the diff header-only defeats the purpose.
+   - **Never remove a member from the model, or leave one out, to avoid an equivalent rewrite.** This covers properties, fields, parameters and operations. The model must mirror the code; a smaller model that keeps the diff free of type rewrites defeats the purpose.
    - **Confirm it is really equivalent:**
      - the same type after resolving usings and enclosing namespaces;
      - `Nullable<T>` vs `T?`;
@@ -276,18 +277,24 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
      Anything else is real drift, so fix the model. That includes a different type, nullability added or removed on a value type, or a changed collection type.
    - **Ask the user once, for all of them together,** with `ask_user_question`, **before** applying any affected file. List each as `File:line — before → after`. Offer:
      1. **Accept the rewrites (recommended).** Keep the members in the model and apply the files. Only the spelling changes; behaviour is identical. For `string?` with nullable reference types off, this also clears warning CS8632.
-     2. **Keep the code as written; leave these members out of the model.** Adoption stays header-only, but the model is incomplete. Put a comment on each affected element saying what is missing and why.
+     2. **Keep the code as written; leave these members out of the model.** The files keep their spelling, but the model is incomplete. Put a comment on each affected element saying what is missing and why.
      3. **Model them, but don't adopt the affected files yet.** Apply every other file, and leave these until a RoslynWeaver build keeps the existing spelling. Until then, the SF keeps proposing these changes, so the zero-change check doesn't pass for those files.
    - **Follow the answer, and state it in the final report** with the list of affected members.
-5. **Apply** only the files you reviewed (`apply_staged_file_changes` with explicit paths): header-only files, plus files whose equivalent rewrites the user accepted (step 4).
-6. **Verify:** `dotnet build`, the test suite, and a final SF run that proposes **zero** changes, apart from files the user chose not to adopt yet (step 4, option 3).
+5. **Formatting changes — accept, never suppress.** RoslynWeaver's Auto Format is on by default and lays out each adopted file to the C# style rules: indentation, spaces around operators, commas and colons, trailing spaces, blank lines and line breaks. It can touch hundreds of lines, including inside hand-written method bodies (`GetFileName(link): null` → `GetFileName(link) : null`). That is expected: it changes the layout, never what the code does, and brings the code in line with its coding standards.
+   - **Confirm it is formatting only:** the same tokens in the same order, with only the whitespace between them changed. String literal contents and comment text are unchanged. Anything else (a token added, removed, reordered or renamed) is not formatting; diagnose it under step 2.
+   - **Apply formatting changes with the rest of the file.** They need no question to the user.
+   - **Never turn off Auto Format** (the `Auto Format by Default` application setting, under `RoslynWeaver Settings`), and never suppress it any other way, to make a diff smaller or header-only. That hides harmless fixes, and with it off, the members the SF rewrites (declarations with attributes, for example) lose their indentation. If it is already off, ask the user whether to turn it back on (recommended); don't change it without asking.
+   - **Reviewing a large diff:** read past the whitespace. What is left must be the header changes from step 1 or equivalent type rewrites (step 4). If the files are under git and had no other uncommitted changes, `git diff -w -- <file>` after applying shows exactly what is left; revert any file that shows more, and diagnose it under step 2.
+   - **In the final report,** say how many files were reformatted, so the user expects the whitespace changes in their commit.
+6. **Apply** only the files you reviewed (`apply_staged_file_changes` with explicit paths): files whose only changes are the headers and formatting, plus files whose equivalent rewrites the user accepted (step 4).
+7. **Verify:** `dotnet build`, the test suite, and a final SF run that proposes **zero** changes, apart from files the user chose not to adopt yet (step 4, option 3).
 
 ## Gotchas
 
 - **Saving.** A package created by script (`createPackage`) is not seen by the SF until the designer is saved. Save it explicitly with `saveOnSuccess: true`.
 - **Blocking dialogs.** After a module install, a designer tab may show a dialog that blocks every tool ("A dialog is currently showing…"). Ask the user to resolve it, then retry.
 - **Concurrent edits.** The user may be editing the model while you work. Elements you didn't create (new classes, attributes, changed multiplicities) are theirs. Don't modify them and don't apply their generated output. Report them instead.
-- **No hand edits.** Beyond the merge directives, never hand-edit adopted files to make the diff clean. Fix the model.
+- **No hand edits.** Beyond the merge directives, never hand-edit adopted files to make the diff clean, and never turn off Auto Format to make it smaller (§6 step 5). Fix the model.
 """);
         }
 

@@ -11,19 +11,19 @@ The module generates `skills/reverse-engineer-domain/SKILL.md` into the applicat
 - model an existing domain layer (entities, value objects, enums, repositories) in the Domain designer;
 - install `Intent.Metadata.RDBMS` or `Intent.Metadata.DocumentDB` to match the code's persistence;
 - align the Template Outputs with the existing folders, and apply Async Configuration to non-conventional operations;
-- run the Software Factory until it changes nothing but the Intent file headers, then adopt the existing files.
+- run the Software Factory until it changes nothing but the Intent file headers and the code's formatting, then adopt the existing files.
 
 ## Templates
 
-| Template              | Model          | Emits                                                                                       | Role                                        |
-| --------------------- | -------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| EntityContract        | Class          | Type with base type, attributes as properties, navigable associations, constructors and operations | `Guardrails.Contracts.Domain.Entity`        |
-| EnumContract          | Enum           | `enum` with its literals and values                                                         | `Guardrails.Contracts.Domain.Enum`          |
-| ValueObjectContract   | Value Object   | Type with attributes as properties (no equality implementation)                             | `Guardrails.Contracts.Domain.ValueObject`   |
-| RepositoryContract    | Repository     | Concrete type with its operations, empty bodies (no interface is generated)                 | `Guardrails.Contracts.Domain.Repository`    |
-| DomainContract        | Data Contract  | Type with attributes as properties and its base contract                                    | `Guardrails.Contracts.Domain.DataContract`  |
-| DomainServiceContract | Domain Service | Type with its operations, empty bodies                                                      | `Guardrails.Contracts.Domain.DomainService` |
-| DomainEventContract   | Domain Event   | Type with its properties and base Domain Event. Generated only when `Intent.Modelers.Domain.Events` is installed | `Guardrails.Contracts.Domain.DomainEvent` |
+| Template              | Model          | Emits                                                                                                            | Role                                        |
+| --------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| EntityContract        | Class          | Type with base type, attributes as properties, navigable associations, constructors and operations               | `Guardrails.Contracts.Domain.Entity`        |
+| EnumContract          | Enum           | `enum` with its literals and values                                                                              | `Guardrails.Contracts.Domain.Enum`          |
+| ValueObjectContract   | Value Object   | Type with attributes as properties (no equality implementation)                                                  | `Guardrails.Contracts.Domain.ValueObject`   |
+| RepositoryContract    | Repository     | Concrete type with its operations, empty bodies (no interface is generated)                                      | `Guardrails.Contracts.Domain.Repository`    |
+| DomainContract        | Data Contract  | Type with attributes as properties and its base contract                                                         | `Guardrails.Contracts.Domain.DataContract`  |
+| DomainServiceContract | Domain Service | Type with its operations, empty bodies                                                                           | `Guardrails.Contracts.Domain.DomainService` |
+| DomainEventContract   | Domain Event   | Type with its properties and base Domain Event. Generated only when `Intent.Modelers.Domain.Events` is installed | `Guardrails.Contracts.Domain.DomainEvent`   |
 
 Put an Output Anchor carrying these roles at the root of the project that holds each kind of type. The Repository role usually goes on the project with the concrete repository classes, often Infrastructure. Designer folders then supply the rest of each file's path.
 
@@ -63,12 +63,12 @@ Each element is generated into `<ElementName>.cs` in its folder, with the namesp
 
 By default, collection properties are generated as `ICollection<T>`, and operation parameters and return types as `IEnumerable<T>`. Where the code uses a different collection, apply **Collection Type** to the attribute, the association end (navigation property), the constructor or operation parameter, or the operation itself (its return type), and choose the **Type**:
 
-| Type | Emits |
-|---|---|
-| IEnumerable, ICollection, IList, IReadOnlyCollection, IReadOnlyList, List, HashSet, ISet | `IEnumerable<T>`, `ICollection<T>`, … (`System.Collections.Generic`) |
-| IQueryable | `IQueryable<T>` (`System.Linq`) |
-| Array | `T[]` |
-| Custom | **Custom Format**, with `{0}` for the element type, e.g. `System.Collections.ObjectModel.ObservableCollection<{0}>` |
+| Type                                                                                     | Emits                                                                                                               |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| IEnumerable, ICollection, IList, IReadOnlyCollection, IReadOnlyList, List, HashSet, ISet | `IEnumerable<T>`, `ICollection<T>`, … (`System.Collections.Generic`)                                                |
+| IQueryable                                                                               | `IQueryable<T>` (`System.Linq`)                                                                                     |
+| Array                                                                                    | `T[]`                                                                                                               |
+| Custom                                                                                   | **Custom Format**, with `{0}` for the element type, e.g. `System.Collections.ObjectModel.ObservableCollection<{0}>` |
 
 The Type must match the code. Under Merge mode, the generated signature replaces the existing one, so a wrong collection type rewrites the member. On an async operation the return type is wrapped after the collection is applied, giving `Task<IEnumerable<T>>`. The stereotype is ignored on a type that isn't a collection.
 
@@ -117,6 +117,7 @@ Every file carries both directives: plain `Mode.Merge` for the file, plus a defa
 - A modelled member that is **missing** is added with the generated signature and an empty body. A new method that returns a value won't compile until its body is written.
 - A modelled member that **already exists** is merged too: its signature (modifiers, return type, parameters) is brought in line with the model, and its body is merged with the empty generated body, so the existing statements stay as they are. Review the Software Factory diff before applying.
 - Hand-written members that were never modelled are kept. A member that Intent itself added can be removed again when it is deleted from the model, depending on the application's RoslynWeaver "Merge Behaviour" setting.
+- **Formatting:** keep RoslynWeaver's "Auto Format by Default" setting on. It lays out every merged file to the C# style rules (indentation, spacing, line breaks), including inside existing method bodies, so the first merge can reformat many lines. It never changes what the code does. With it off, the members the Software Factory rewrites lose their indentation.
 
 ## Conventions
 

@@ -34,7 +34,7 @@ argument-hint: "[application name]"
 
 # Reverse-engineer the Services
 
-Goal: the Services designer describes the application layer **as it is** (requests, DTOs, endpoint surface, security, domain intent), and an SF run against the existing files changes **nothing but Intent file headers**. Handlers, validators, mapping profiles and controllers stay hand-written.
+Goal: the Services designer describes the application layer **as it is** (requests, DTOs, endpoint surface, security, domain intent), and an SF run against the existing files changes **nothing but Intent file headers and the code's formatting**: what the code does stays exactly the same. Handlers, validators, mapping profiles and controllers stay hand-written.
 
 Run **reverse-engineer-domain** first when the code has a domain layer. Commands, DTOs and entity actions reference Domain types. Load **scripting-the-model**, **exploring-the-model** and **changing-the-model** before modelling, and **generating-and-applying-code** / **resolve-destructive-changes** before the first SF run.
 
@@ -208,8 +208,8 @@ Create a `Diagram` in the package if none exists:
 
 Same as **reverse-engineer-domain** §6:
 
-1. **Every change must be header-only.** Expect `using` + `IntentTemplate`, the two merge directives, and the csproj package reference. The only exception is an equivalent type rewrite the user accepts (step 4).
-2. **Diagnose anything else:** `create` means a path or name mismatch, or a type that lives in another file without `File Config` (§3). Member inserts mean model drift. Deletes mean destructive drift (use **resolve-destructive-changes**). A duplicate type means the record/class kind is wrong. A changed type declaration (e.g. `internal sealed class` rewritten to `public class`) means the modifiers are wrong: fix `Default Type Modifiers`, or that element's `Type Configuration` → `Modifiers` (`Enum Configuration` → `Access Modifier` for an enum; §3). **A type spelled differently on an existing member** (`Nullable<DateTime>` → `DateTime?`, `DTO.Logging.LogDTO` → `LogDTO`, `string?` → `string`): see "Equivalent type rewrites" (step 4). Don't remove the member.
+1. **Every change must be a header or formatting change.** Expect `using` + `IntentTemplate`, the two merge directives, the csproj package reference, and formatting from RoslynWeaver's Auto Format anywhere in the file (step 5). The only other exception is an equivalent type rewrite the user accepts (step 4).
+2. **Diagnose anything else:** `create` means a path or name mismatch, or a type that lives in another file without `File Config` (§3). Member inserts mean model drift. Deletes, and changed lines that aren't just formatting (step 5), mean destructive drift (use **resolve-destructive-changes**). A duplicate type means the record/class kind is wrong. A changed type declaration (e.g. `internal sealed class` rewritten to `public class`) means the modifiers are wrong: fix `Default Type Modifiers`, or that element's `Type Configuration` → `Modifiers` (`Enum Configuration` → `Access Modifier` for an enum; §3). **A type spelled differently on an existing member** (`Nullable<DateTime>` → `DateTime?`, `DTO.Logging.LogDTO` → `LogDTO`, `string?` → `string`): see "Equivalent type rewrites" (step 4). Don't remove the member.
 3. **Merge directives:** every adopted file needs both of these lines, in this order:
 
    ```csharp
@@ -227,7 +227,7 @@ Same as **reverse-engineer-domain** §6:
    | `DTO.Logging.LogDTO` (partly or fully qualified) | `LogDTO` plus a `using` |
    | `string?` with nullable reference types off | `string` |
 
-   - **Never remove a member from the model, or leave one out, to avoid an equivalent rewrite.** This covers properties, fields, parameters and operations. The model must mirror the code; a smaller model that keeps the diff header-only defeats the purpose.
+   - **Never remove a member from the model, or leave one out, to avoid an equivalent rewrite.** This covers properties, fields, parameters and operations. The model must mirror the code; a smaller model that keeps the diff free of type rewrites defeats the purpose.
    - **Confirm it is really equivalent:**
      - the same type after resolving usings and enclosing namespaces;
      - `Nullable<T>` vs `T?`;
@@ -236,17 +236,24 @@ Same as **reverse-engineer-domain** §6:
      Anything else is real drift, so fix the model. That includes a different type, nullability added or removed on a value type, or a changed collection type.
    - **Ask the user once, for all of them together,** with `ask_user_question`, **before** applying any affected file. List each as `File:line — before → after`. Offer:
      1. **Accept the rewrites (recommended).** Keep the members in the model and apply the files. Only the spelling changes; behaviour is identical. For `string?` with nullable reference types off, this also clears warning CS8632.
-     2. **Keep the code as written; leave these members out of the model.** Adoption stays header-only, but the model is incomplete. Put a comment on each affected element saying what is missing and why.
+     2. **Keep the code as written; leave these members out of the model.** The files keep their spelling, but the model is incomplete. Put a comment on each affected element saying what is missing and why.
      3. **Model them, but don't adopt the affected files yet.** Apply every other file, and leave these until a RoslynWeaver build keeps the existing spelling. Until then, the SF keeps proposing these changes, so the zero-change check doesn't pass for those files.
    - **Follow the answer, and state it in the final report** with the list of affected members.
-5. **Apply** the reviewed files only: header-only files, plus files whose equivalent rewrites the user accepted (step 4).
-6. **Finish with:** `dotnet build`, tests, and a final SF run proposing **zero** changes, apart from files the user chose not to adopt yet (step 4, option 3).
+5. **Formatting changes — accept, never suppress.** RoslynWeaver's Auto Format is on by default and lays out each adopted file to the C# style rules: indentation, spaces around operators, commas and colons, trailing spaces, blank lines and line breaks. It can touch hundreds of lines, including inside hand-written method bodies (`GetFileName(link): null` → `GetFileName(link) : null`). That is expected: it changes the layout, never what the code does, and brings the code in line with its coding standards.
+   - **Confirm it is formatting only:** the same tokens in the same order, with only the whitespace between them changed. String literal contents and comment text are unchanged. Anything else (a token added, removed, reordered or renamed) is not formatting; diagnose it under step 2.
+   - **Apply formatting changes with the rest of the file.** They need no question to the user.
+   - **Never turn off Auto Format** (the `Auto Format by Default` application setting, under `RoslynWeaver Settings`), and never suppress it any other way, to make a diff smaller or header-only. That hides harmless fixes, and with it off, the members the SF rewrites (declarations with attributes, for example) lose their indentation. If it is already off, ask the user whether to turn it back on (recommended); don't change it without asking.
+   - **Reviewing a large diff:** read past the whitespace. What is left must be the header changes from step 1 or equivalent type rewrites (step 4). If the files are under git and had no other uncommitted changes, `git diff -w -- <file>` after applying shows exactly what is left; revert any file that shows more, and diagnose it under step 2.
+   - **In the final report,** say how many files were reformatted, so the user expects the whitespace changes in their commit.
+6. **Apply** the reviewed files only: files whose only changes are the headers and formatting, plus files whose equivalent rewrites the user accepted (step 4).
+7. **Finish with:** `dotnet build`, tests, and a final SF run proposing **zero** changes, apart from files the user chose not to adopt yet (step 4, option 3).
 
 ## Gotchas
 
 - **Concurrent edits.** Elements, associations or stereotypes you didn't create are the user's in-progress work. Leave them, don't apply their output, and report them.
 - **Blocking dialogs.** A dialog in a designer tab blocks all tools. Ask the user to close it.
 - **Disabling templates.** Disabling a Template Output after its files were applied makes the SF propose deleting them all. Don't use it as a workaround after adoption.
+- **Auto Format.** Never turn it off to make adoption diffs smaller (§7 step 5).
 """);
         }
 

@@ -12,7 +12,7 @@ The module generates `skills/reverse-engineer-services/SKILL.md` into the applic
 - model integration events, integration commands, eventing DTOs and their handlers when the code has messaging;
 - install the CQRS, WebApi, Security, DomainInteractions, Eventing and EventInteractions modules when the code calls for them;
 - capture each endpoint's HTTP settings and security, and one primary Domain entity action per command or query;
-- run the Software Factory until it changes nothing but the Intent file headers, then adopt the existing files.
+- run the Software Factory until it changes nothing but the Intent file headers and the code's formatting, then adopt the existing files.
 
 Run it after `reverse-engineer-domain` (from Intent.Domain.Guardrails.Contracts) when the code has a domain layer.
 
@@ -133,6 +133,7 @@ Every file carries both directives: plain `Mode.Merge` for the file, plus a defa
 - A modelled member that is **missing** is added with the generated signature and an empty body. A new method that returns a value won't compile until its body is written.
 - A modelled member that **already exists** is merged too: its signature (modifiers, return type, parameters) is brought in line with the model, and its body is merged with the empty generated body, so the existing statements stay as they are. Review the Software Factory diff before applying.
 - Hand-written members that were never modelled are kept. A member that Intent itself added can be removed again when it is deleted from the model, depending on the application's RoslynWeaver "Merge Behaviour" setting.
+- **Formatting:** keep RoslynWeaver's "Auto Format by Default" setting on. It lays out every merged file to the C# style rules (indentation, spacing, line breaks), including inside existing method bodies, so the first merge can reformat many lines. It never changes what the code does. With it off, the members the Software Factory rewrites lose their indentation.
 
 ## Conventions
 
