@@ -4,12 +4,12 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.DomainEventHand
 {
     // Hand-written partial (not generated): the designer-owned partial's base list and members are
     // regenerated, so the File Config members live here. See ContractFileGroups, GlobalNamespaceOutput
-    // and DomainEventsMetadata (raw element and stereotype ids, no Domain Events modeler dependency).
+    // and OptionalModelerMetadata (raw element and stereotype ids, no Domain Events modeler dependency).
     public partial class DomainEventHandlerContractTemplate : IServicesContractTemplate
     {
         public IElement ContractElement => Model;
 
-        public bool HasNoNamespace => Model.GetDomainEventHandlerFileConfig()?.NoNamespace() == true;
+        public bool HasNoNamespace => Model.GetOptionalModelerFileConfig()?.NoNamespace() == true;
 
         /// <summary>
         /// A template that shares its output file with other contract templates only runs when it

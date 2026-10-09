@@ -25,7 +25,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.DomainEventHand
             // Types are only resolved here when this handler owns a multi-type file shared with other contracts.
             this.AddContractTypeSources();
 
-            var fileConfig = Model.GetDomainEventHandlerFileConfig();
+            var fileConfig = Model.GetOptionalModelerFileConfig();
             CSharpFile = new CSharpFile(this.GetContractNamespace(Model, fileConfig?.Namespace(), fileConfig?.NoNamespace() == true), Model.GetElementFolderPath(), this)
                 .IntentManagedContractMerge();
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Services.Guardrails.Contracts.Api;
@@ -76,6 +77,26 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             foreach (var field in fields)
             {
                 @class.AddProperty(template.GetContractTypeName(field), field.Name, property =>
+                {
+                    property.RepresentsModel(field);
+                    property.WithContractInitialValue(template, field.Value, field.TypeReference);
+                });
+            }
+        }
+
+        /// <summary>
+        /// The same for the raw Properties of a Message or Integration Command, or the Fields of an Eventing DTO (see
+        /// <see cref="OptionalModelerMetadata"/>), honouring this module's filter-targeted Collection Type. Only an Eventing
+        /// DTO-Field can have a Value; the Eventing designer offers none on a Property, so those never get an initializer.
+        /// Must be called from within a builder callback so types resolve at build time.
+        /// </summary>
+        public static void AddContractProperties(this CSharpClass @class, ICSharpTemplate template, IEnumerable<IElement> fields)
+        {
+            foreach (var field in fields)
+            {
+                var collectionType = field.GetOptionalModelerCollectionType();
+                var typeName = template.GetContractTypeName(field.TypeReference, field, collectionType?.Kind, collectionType?.CustomFormat);
+                @class.AddProperty(typeName, field.Name, property =>
                 {
                     property.RepresentsModel(field);
                     property.WithContractInitialValue(template, field.Value, field.TypeReference);

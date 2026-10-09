@@ -35,9 +35,9 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.DomainEventHand
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IElement> GetModels(IApplication application)
         {
-            // Raw elements by type id: no dependency on Intent.Modelers.Domain.Events (see DomainEventsMetadata).
+            // Raw elements by type id: no dependency on Intent.Modelers.Domain.Events (see OptionalModelerMetadata).
             // Without that modeler installed there are no such elements, so this is empty.
-            return _metadataManager.Services(application).GetElementsOfType(DomainEventsMetadata.DomainEventHandlerTypeId);
+            return _metadataManager.Services(application).GetElementsOfType(OptionalModelerMetadata.DomainEventHandlerTypeId);
         }
     }
 }

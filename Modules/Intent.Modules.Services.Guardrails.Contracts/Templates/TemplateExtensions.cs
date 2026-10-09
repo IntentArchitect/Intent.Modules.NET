@@ -8,6 +8,10 @@ using Intent.Modules.Services.Guardrails.Contracts.Templates.CommandContract;
 using Intent.Modules.Services.Guardrails.Contracts.Templates.DomainEventHandlerContract;
 using Intent.Modules.Services.Guardrails.Contracts.Templates.DtoContract;
 using Intent.Modules.Services.Guardrails.Contracts.Templates.EnumContract;
+using Intent.Modules.Services.Guardrails.Contracts.Templates.EventingDtoContract;
+using Intent.Modules.Services.Guardrails.Contracts.Templates.IntegrationCommandContract;
+using Intent.Modules.Services.Guardrails.Contracts.Templates.IntegrationEventContract;
+using Intent.Modules.Services.Guardrails.Contracts.Templates.IntegrationEventHandlerContract;
 using Intent.Modules.Services.Guardrails.Contracts.Templates.QueryContract;
 using Intent.Modules.Services.Guardrails.Contracts.Templates.ServiceContract;
 using Intent.RoslynWeaver.Attributes;
@@ -58,6 +62,46 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         public static string GetEnumContractName(this IIntentTemplate template, EnumModel model)
         {
             return template.GetTypeName(EnumContractTemplate.TemplateId, model);
+        }
+
+        public static string GetEventingDtoContractName<T>(this IIntentTemplate<T> template) where T : IElement
+        {
+            return template.GetTypeName(EventingDtoContractTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetEventingDtoContractName(this IIntentTemplate template, IElement model)
+        {
+            return template.GetTypeName(EventingDtoContractTemplate.TemplateId, model);
+        }
+
+        public static string GetIntegrationCommandContractName<T>(this IIntentTemplate<T> template) where T : IElement
+        {
+            return template.GetTypeName(IntegrationCommandContractTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetIntegrationCommandContractName(this IIntentTemplate template, IElement model)
+        {
+            return template.GetTypeName(IntegrationCommandContractTemplate.TemplateId, model);
+        }
+
+        public static string GetIntegrationEventContractName<T>(this IIntentTemplate<T> template) where T : IElement
+        {
+            return template.GetTypeName(IntegrationEventContractTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetIntegrationEventContractName(this IIntentTemplate template, IElement model)
+        {
+            return template.GetTypeName(IntegrationEventContractTemplate.TemplateId, model);
+        }
+
+        public static string GetIntegrationEventHandlerContractName<T>(this IIntentTemplate<T> template) where T : IElement
+        {
+            return template.GetTypeName(IntegrationEventHandlerContractTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetIntegrationEventHandlerContractName(this IIntentTemplate template, IElement model)
+        {
+            return template.GetTypeName(IntegrationEventHandlerContractTemplate.TemplateId, model);
         }
 
         public static string GetQueryContractName<T>(this IIntentTemplate<T> template) where T : QueryModel

@@ -36,7 +36,10 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.EnumContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EnumModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetEnumModels();
+            // Only this application's own packages: enums also arrive through eventing packages referenced from another
+            // application, which owns (and generates) them. See OptionalModelerMetadata.IsOwnedBy.
+            return _metadataManager.Services(application).GetEnumModels()
+                .Where(x => x.InternalElement.IsOwnedBy(application));
         }
     }
 }

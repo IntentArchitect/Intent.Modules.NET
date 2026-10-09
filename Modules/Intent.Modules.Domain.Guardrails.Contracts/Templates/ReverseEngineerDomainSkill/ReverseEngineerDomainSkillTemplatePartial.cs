@@ -69,11 +69,12 @@ Dispatch read-only `Explore` sub-agents in **one** message, with non-overlapping
 - **Domain project, every `.cs` file plus the EF `IEntityTypeConfiguration`s and the `DbContext`.** For each type, report:
   - Path, namespace and kind (aggregate root / owned entity / value object / enum / repository interface / helper).
   - Declaration modifiers exactly as written: `public`, `internal` or none, plus `sealed`, `abstract`, `static`, `partial`.
-  - Every property: exact type, nullability, collection-ness and setter.
-  - Constructors and public methods (signatures only).
+  - Every property: exact type **as spelled** (e.g. `Nullable<T>` vs `T?`, `System.Guid` vs `Guid`, partly qualified names such as `DTO.Logging.LogDTO`), nullability, collection-ness and setter.
+  - Constructors and public methods (signatures only, with parameter and return types as spelled).
   - Enum literals with explicit values.
   - Repository interfaces: their base interface and every extra method signature.
   - Domain events: path, namespace, kind (`class` / `record`), declaration modifiers, every property, the base type, and which entity methods or constructors raise each event.
+- **Nullable context:** per project, whether the csproj sets `<Nullable>` (and to what); per file, any `#nullable` directives.
 - **From the EF configuration, per property and relationship:**
   - `OwnsOne` / `OwnsMany` / `HasOne` / `HasMany`.
   - FK properties and shared primary keys (`HasForeignKey<T>(x => x.Id)`).
@@ -122,11 +123,16 @@ Create one designer `Folder` per code folder **below** the template output (e.g.
   - **The setting's `sealed` is left off automatically** for an abstract type (`Is Abstract`, or an abstract operation) and for a type another modelled type inherits from.
   - **Exceptions:** wherever a type differs from the setting, apply `Type Configuration` and set `Modifiers` to the code's keywords, e.g. `public`, `internal static` or `public abstract partial`: one of `public` / `internal`, plus any of `sealed`, `abstract`, `static`, `partial`, in any order. `Is Abstract` on the element still adds `abstract`. An invalid or conflicting value (e.g. `sealed` on an abstract type) is an error on the element.
   - **Enums** take only the setting's access modifier (`internal sealed` gives `internal enum`). Where an enum differs, apply `Enum Configuration` and set `Access Modifier` to `public` or `internal`.
-  - **Can't be reproduced:** `file`-scoped and `unsafe` types. Leave them unmodelled and report them.
+  - **Can't be reproduced:** `file`-scoped and `unsafe` types. Leave them unmodelled and report them. This applies only to shapes the model can't express at all. A type that is merely spelled differently is never a reason to leave a member out (§6, "Equivalent type rewrites").
 - **Delete placeholders** such as a default `MyEntity` if the code doesn't have them.
-- **Attributes:** use the exact names and types (`string`, `guid`, `datetime`, `decimal`, `long`, `binary`, enums). Set `isNullable` for `T?`. Do **not** model collections of entities as attributes; use associations.
+- **Attributes:** use the exact names and types (`string`, `guid`, `datetime`, `decimal`, `long`, `binary`, enums). Set `isNullable` for nullable types (see "Nullability and type spelling"). Do **not** model collections of entities as attributes; use associations.
 - **Collections:** the template emits `ICollection<T>` for properties and `IEnumerable<T>` for operation parameters and return types. Wherever the code uses anything else (`List<T>`, `IList<T>`, `IReadOnlyCollection<T>`, `IQueryable<T>`, `T[]`, …), apply the **`Collection Type`** stereotype to that attribute, association end, parameter or operation (for its return type) and set `Type` to match (`Custom` + `Custom Format` with `{0}` for anything else). Otherwise Merge mode rewrites the existing signature.
-- **Parameter modifiers:** where a constructor or operation parameter is declared `ref`, `out`, `in`, `ref readonly` or `params`, apply the **`Parameter Modifier`** stereotype and set `Modifier` to match (for `params`, also set `Collection Type = Array`). Otherwise Merge mode drops the modifier from the existing signature. An extension method (`this` parameter) can't be reproduced; leave it unmodelled and report it.
+- **Nullability and type spelling.** Model the type, not its spelling:
+  - **Nullable value types:** set `isNullable` for `T?` **and** for `Nullable<T>` / `System.Nullable<T>`. They are the same type.
+  - **`string?` (or any reference type with `?`) with nullable reference types off:** nullable reference types are off when the csproj has no `<Nullable>enable</Nullable>` (or `annotations`) and the file has no `#nullable enable`. The `?` then does nothing, and the compiler warns CS8632. Model the member as a nullable `string` anyway. The template emits `string`, which removes the meaningless `?`. That fixes the code, but it is a change beyond the headers, so handle it under "Equivalent type rewrites" (§6). Never drop the member.
+  - **Nullable reference types on:** when the csproj enables `<Nullable>`, make sure the project's Nullable option in the Codebase Structure designer matches, so the template emits `string?`. A `string?` → `string` diff in that case is real drift: fix the project setting, not the member.
+  - **Other spellings of the same type** (`System.Guid`, `Int32`, `String`, or a partly or fully qualified name such as `DTO.Logging.LogDTO`): model the type itself (`guid`, `int`, `string`, `LogDTO`). Depending on the RoslynWeaver version, the SF may rewrite the code's spelling to the template's. Handle that under "Equivalent type rewrites" (§6).
+- **Parameter modifiers:** where a constructor or operation parameter is declared `ref`, `out`, `in`, `ref readonly` or `params`, apply the **`Parameter Modifier`** stereotype and set `Modifier` to match (for `params`, also set `Collection Type = Array`). Otherwise Merge mode drops the modifier from the existing signature. An extension method (`this` parameter) can't be reproduced; leave it unmodelled and report it. Like the other "leave it unmodelled" rules, this covers only shapes the model can't express, never a type spelled differently (§6, "Equivalent type rewrites").
 - **Default values and initializers:** where a constructor or operation parameter has a default (`string area = "Basislink"`, `bool forceCreate = false`, `Exception ex = null`), or an attribute's property has an initializer, set the element's Value (`el.setValue("Basislink")`). Otherwise Merge mode drops the default from the existing signature.
   - Strings are quoted for you, and an already quoted value stays as it is. `null`, `default`, numbers, `true` and `false` are used as written.
   - An enum literal name gets its enum type (`Info` becomes `EventTypeEnum.Info`), and a bare `DateTime` member gets its type (`Now` becomes `DateTime.Now`).
@@ -188,6 +194,8 @@ st.setProperty("Include Cancellation Token", false);
 - a method that returns a task without being `async` and takes a `CancellationToken`;
 - `ValueTask` / `ValueTask<T>` return types.
 
+These rules cover only shapes the model can't express. A type that is merely spelled differently is never a reason to leave a method out (§6, "Equivalent type rewrites").
+
 ## 4. Persistence alignment
 
 ### 4a. RDBMS (relational solution; `Intent.Metadata.RDBMS` installed in §0)
@@ -232,12 +240,15 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
    - `[assembly: IntentTemplate(...)]`
    - possibly the two merge directives
    - plus one `PackageReference Intent.RoslynWeaver.Attributes` per csproj.
+
+   The only exception is an equivalent type rewrite the user accepts (step 4).
 2. **Diagnose anything else:**
    - **`create`** means a path or name mismatch. Fix the folder, Template Output location or element name, or add `File Config` for a type that lives in another file or a differently named one. Never apply it.
    - **Inserted members** mean the model has something the code doesn't (wrong name, type or nullability). Fix the model.
-   - **A changed signature on a modelled operation** (`async` added or removed, a `CancellationToken` appended or dropped, the return type wrapped in `Task<…>`) means the async rule didn't match the code. Set `Async Configuration` on that operation (§3 "Async operations"). If its shape can't be reproduced, remove the operation from the model. Never hand-edit the signature.
+   - **A changed signature on a modelled operation** (`async` added or removed, a `CancellationToken` appended or dropped, the return type wrapped in `Task<…>`) means the async rule didn't match the code. Set `Async Configuration` on that operation (§3 "Async operations"). If its async shape can't be reproduced (§3 "Shapes the template can't reproduce"), remove the operation from the model. Never remove it because a type is spelled differently (see "Equivalent type rewrites"). Never hand-edit the signature.
    - **A changed type declaration** (e.g. `internal sealed class` rewritten to `public class`, or `partial` dropped) means the modifiers don't match the code. Fix `Default Type Modifiers`, or that element's `Type Configuration` → `Modifiers` (`Enum Configuration` → `Access Modifier` for an enum; §3 "Type modifiers"). Never hand-edit the declaration.
-   - **Deleted or changed lines** mean drift. Use **resolve-destructive-changes**. Never apply destructive changes.
+   - **A type spelled differently on an existing member** (`Nullable<DateTime>` → `DateTime?`, `DTO.Logging.LogDTO` → `LogDTO`, `string?` → `string`): see "Equivalent type rewrites" (step 4). Don't remove the member.
+   - **Deleted or changed lines** mean drift. Use **resolve-destructive-changes**. Never apply destructive changes, apart from equivalent type rewrites the user accepted (step 4).
    - **A template exception** ("The parent has not been set for this type …") is a module bug. Report it to the user. Only as a last resort, and only _before_ that template has ever been applied, disable that Template Output (`Template Output Settings.Is Enabled = false`). Disabling it after an apply makes the SF propose deleting every file it previously owned.
 3. **Merge directives (critical).** Every adopted file must carry both of these lines, in this order:
 
@@ -247,8 +258,29 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
    ```
 
    The current templates write both. If the template didn't, add exactly these lines above the `IntentTemplate` attribute in each adopted file **before any further model change**. Without the first, the next SF run treats the file as fully managed and strips constructors, XML docs, attributes, base types, `virtual` and initialisers. The first must stay untargeted: with only a targeted directive, the class declaration itself is fully managed. The second fully manages constructor and method signatures, and merges their attributes and comments.
-4. **Apply** only the header-only files you reviewed (`apply_staged_file_changes` with explicit paths).
-5. **Verify:** `dotnet build`, the test suite, and a final SF run that proposes **zero** changes.
+4. **Equivalent type rewrites — ask, never drop.** An equivalent type rewrite is an SF diff where the only change to an existing member is how a type is spelled, and both spellings mean the same type:
+
+   | Code | Template |
+   |---|---|
+   | `Nullable<DateTime>`, `System.Nullable<int>` | `DateTime?`, `int?` |
+   | `System.Guid`, `Int32`, `String` | `Guid`, `int`, `string` |
+   | `DTO.Logging.LogDTO` (partly or fully qualified) | `LogDTO` plus a `using` |
+   | `string?` with nullable reference types off | `string` |
+
+   - **Never remove a member from the model, or leave one out, to avoid an equivalent rewrite.** This covers properties, fields, parameters and operations. The model must mirror the code; a smaller model that keeps the diff header-only defeats the purpose.
+   - **Confirm it is really equivalent:**
+     - the same type after resolving usings and enclosing namespaces;
+     - `Nullable<T>` vs `T?`;
+     - for `string?`, that nullable reference types are off.
+
+     Anything else is real drift, so fix the model. That includes a different type, nullability added or removed on a value type, or a changed collection type.
+   - **Ask the user once, for all of them together,** with `ask_user_question`, **before** applying any affected file. List each as `File:line — before → after`. Offer:
+     1. **Accept the rewrites (recommended).** Keep the members in the model and apply the files. Only the spelling changes; behaviour is identical. For `string?` with nullable reference types off, this also clears warning CS8632.
+     2. **Keep the code as written; leave these members out of the model.** Adoption stays header-only, but the model is incomplete. Put a comment on each affected element saying what is missing and why.
+     3. **Model them, but don't adopt the affected files yet.** Apply every other file, and leave these until a RoslynWeaver build keeps the existing spelling. Until then, the SF keeps proposing these changes, so the zero-change check doesn't pass for those files.
+   - **Follow the answer, and state it in the final report** with the list of affected members.
+5. **Apply** only the files you reviewed (`apply_staged_file_changes` with explicit paths): header-only files, plus files whose equivalent rewrites the user accepted (step 4).
+6. **Verify:** `dotnet build`, the test suite, and a final SF run that proposes **zero** changes, apart from files the user chose not to adopt yet (step 4, option 3).
 
 ## Gotchas
 

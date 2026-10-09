@@ -22,9 +22,26 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         /// </summary>
         public static void AddContract(CSharpFile file, ICSharpTemplate template, IElement element)
         {
+            // Raw optional modeler elements first (see OptionalModelerMetadata): they have no typed Is*Model() check.
             if (element.IsDomainEventHandler())
             {
                 AddDomainEventHandler(file, template, element);
+            }
+            else if (element.IsIntegrationEventHandler())
+            {
+                AddIntegrationEventHandler(file, template, element);
+            }
+            else if (element.IsIntegrationEvent())
+            {
+                AddIntegrationEvent(file, template, element);
+            }
+            else if (element.IsIntegrationCommand())
+            {
+                AddIntegrationCommand(file, template, element);
+            }
+            else if (element.IsEventingDto())
+            {
+                AddEventingDto(file, template, element);
             }
             else if (element.IsServiceModel())
             {
@@ -110,16 +127,91 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         }
 
         /// <summary>
-        /// A Domain Event Handler (raw element, see <see cref="DomainEventsMetadata"/>) is guarded as a class only:
+        /// A Message, shown as "Integration Event" (raw element, see <see cref="OptionalModelerMetadata"/>), is guarded like a
+        /// command: a class or record with its Properties and no base type or interfaces.
+        /// </summary>
+        public static void AddIntegrationEvent(CSharpFile file, ICSharpTemplate template, IElement element)
+        {
+            AddEventingMessage(file, template, element);
+        }
+
+        /// <summary>
+        /// An Integration Command (raw element, see <see cref="OptionalModelerMetadata"/>) is guarded like a command: a class or
+        /// record with its Properties and no base type or interfaces.
+        /// </summary>
+        public static void AddIntegrationCommand(CSharpFile file, ICSharpTemplate template, IElement element)
+        {
+            AddEventingMessage(file, template, element);
+        }
+
+        /// <summary>
+        /// An Eventing DTO (raw element, see <see cref="OptionalModelerMetadata"/>) is guarded like a DTO: Is Abstract, generic
+        /// types, the base type from its Generalization, and its Fields.
+        /// </summary>
+        public static void AddEventingDto(CSharpFile file, ICSharpTemplate template, IElement element)
+        {
+            file.AddContractType(element.GetContractTypeKind(), element.Name, @class =>
+            {
+                @class.RepresentsModel(element);
+
+                if (element.IsAbstract)
+                {
+                    @class.Abstract();
+                }
+
+                foreach (var genericType in element.GenericTypes)
+                {
+                    @class.AddGenericParameter(genericType.Name);
+                }
+
+                var parentDtoTypeReference = element.GetEventingParentDtoTypeReference();
+                if (parentDtoTypeReference != null)
+                {
+                    @class.WithBaseType(template.GetTypeName(parentDtoTypeReference));
+                }
+
+                @class.AddContractProperties(template, element.GetEventingDtoFields());
+                @class.ApplyContractModifiers(template, element, element.GetOptionalModelerTypeConfiguration()?.Modifiers(), element.IsInheritedByAnyEventingDto());
+            });
+        }
+
+        /// <summary>
+        /// A Domain Event Handler (raw element, see <see cref="OptionalModelerMetadata"/>) is guarded as a class only:
         /// its Handle method signatures and base interfaces are framework-specific, and Merge keeps the existing ones.
-        /// Its modifiers come from its own Type Configuration stereotype (Modifiers only) or the module setting.
+        /// Its modifiers come from the handler Type Configuration stereotype (Modifiers only) or the module setting.
         /// </summary>
         public static void AddDomainEventHandler(CSharpFile file, ICSharpTemplate template, IElement element)
+        {
+            AddHandler(file, template, element);
+        }
+
+        /// <summary>
+        /// An Integration Event Handler (raw element, see <see cref="OptionalModelerMetadata"/>) is guarded as a class only, like a
+        /// Domain Event Handler: its handle methods and handler interfaces depend on the message broker (e.g. MassTransit's
+        /// <c>IConsumer&lt;T&gt;</c>, NServiceBus's <c>IHandleMessages&lt;T&gt;</c>), and Merge keeps the existing ones. Its
+        /// Subscribe Integration Event and Subscribe Integration Command associations are documentation only and are not read.
+        /// </summary>
+        public static void AddIntegrationEventHandler(CSharpFile file, ICSharpTemplate template, IElement element)
+        {
+            AddHandler(file, template, element);
+        }
+
+        private static void AddEventingMessage(CSharpFile file, ICSharpTemplate template, IElement element)
+        {
+            file.AddContractType(element.GetContractTypeKind(), element.Name, @class =>
+            {
+                @class.RepresentsModel(element);
+                @class.AddContractProperties(template, element.GetEventingProperties());
+                @class.ApplyContractModifiers(template, element, element.GetOptionalModelerTypeConfiguration()?.Modifiers(), isInherited: false);
+            });
+        }
+
+        private static void AddHandler(CSharpFile file, ICSharpTemplate template, IElement element)
         {
             file.AddClass(element.Name, @class =>
             {
                 @class.RepresentsModel(element);
-                @class.ApplyContractModifiers(template, element, element.GetDomainEventHandlerModifiers(), isInherited: false);
+                @class.ApplyContractModifiers(template, element, element.GetHandlerModifiers(), isInherited: false);
             });
         }
 

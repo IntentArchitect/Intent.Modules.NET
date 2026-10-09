@@ -12,6 +12,10 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         public const string Query = "Guardrails.Contracts.Services.Query";
         public const string Dto = "Guardrails.Contracts.Services.Dto";
         public const string Enum = "Guardrails.Contracts.Services.Enum";
+        public const string IntegrationEvent = "Guardrails.Contracts.Services.IntegrationEvent";
+        public const string IntegrationCommand = "Guardrails.Contracts.Services.IntegrationCommand";
+        public const string EventingDto = "Guardrails.Contracts.Services.EventingDto";
+        public const string IntegrationEventHandler = "Guardrails.Contracts.Services.IntegrationEventHandler";
 
         public const string DomainEnum = "Guardrails.Contracts.Domain.Enum";
         public const string DomainEntity = "Guardrails.Contracts.Domain.Entity";
@@ -19,16 +23,19 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         public const string DomainDataContract = "Guardrails.Contracts.Domain.DataContract";
 
         public static readonly string[] TypeSources =
-        [
+            [
             Service,
             Command,
             Query,
             Dto,
             Enum,
+            IntegrationEvent,
+            IntegrationCommand,
+            EventingDto,
             DomainEnum,
             DomainEntity,
             DomainValueObject,
             DomainDataContract
-        ];
+            ];
     }
 }

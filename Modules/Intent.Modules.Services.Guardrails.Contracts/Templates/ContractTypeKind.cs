@@ -1,4 +1,5 @@
 using Intent.Exceptions;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Services.Guardrails.Contracts.Api;
@@ -59,6 +60,36 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         private static ContractTypeKind GetDeclaredKind(DTOModel model)
         {
             return ToKind(model.GetTypeConfiguration()?.Type()?.IsRecord() == true);
+        }
+
+        /// <summary>
+        /// The kind of a Message, Integration Command or Eventing DTO (raw elements, see <see cref="OptionalModelerMetadata"/>),
+        /// from this module's filter-targeted Type Configuration. Like <see cref="GetContractTypeKind(DTOModel)"/>, an Eventing DTO
+        /// must share the kind of the Eventing DTO it inherits from.
+        /// </summary>
+        public static ContractTypeKind GetContractTypeKind(this IElement element)
+        {
+            var kind = GetDeclaredKind(element);
+
+            var parentDto = element.IsEventingDto() ? element.GetEventingParentDtoTypeReference()?.Element as IElement : null;
+            if (parentDto != null && parentDto.IsEventingDto())
+            {
+                var parentKind = GetDeclaredKind(parentDto);
+                if (parentKind != kind)
+                {
+                    throw new ElementException(element,
+                        $"Eventing DTO '{element.Name}' is a {Describe(kind)} but inherits from Eventing DTO '{parentDto.Name}', which is a {Describe(parentKind)}. " +
+                        "In C# a record cannot inherit from a class and a class cannot inherit from a record. " +
+                        "Give both Eventing DTOs the same Type Configuration.");
+                }
+            }
+
+            return kind;
+        }
+
+        private static ContractTypeKind GetDeclaredKind(IElement element)
+        {
+            return ToKind(element.GetOptionalModelerTypeConfiguration()?.IsRecord() == true);
         }
 
         private static ContractTypeKind ToKind(bool isRecord)
