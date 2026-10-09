@@ -1,15 +1,11 @@
 using CqrsSpike.Publisher.Domain.Common;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MediatR.DomainEvents.DomainEventNotification", Version = "1.0")]
+using Mediator;
 
 namespace CqrsSpike.Publisher.Application.Common.Models
 {
-    public class DomainEventNotification<TDomainEvent> : INotification where TDomainEvent : DomainEvent
+    public abstract class DomainEventNotification<TDomainEvent> : INotification where TDomainEvent : DomainEvent
     {
-        public DomainEventNotification(TDomainEvent domainEvent)
+        protected DomainEventNotification(TDomainEvent domainEvent)
         {
             DomainEvent = domainEvent;
         }

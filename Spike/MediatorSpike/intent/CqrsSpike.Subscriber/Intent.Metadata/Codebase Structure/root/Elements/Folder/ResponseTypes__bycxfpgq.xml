@@ -3,15 +3,4 @@
   <name>ResponseTypes</name>
   <display>ResponseTypes</display>
   <parentFolderId>fadcae1e-e76f-4ad3-b406-b3bde56ef309</parentFolderId>
-  <children>
-    <element id="efd86388-27f5-4327-9691-a3328c4f5ac0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.FastEndpoints.JsonResponseTemplate</name>
-      <display>Intent.FastEndpoints.JsonResponseTemplate</display>
-      <externalReference>Intent.FastEndpoints</externalReference>
-      <parentFolderId>a212689e-acda-46ee-8ff1-d2d575f6abd1</parentFolderId>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-  </children>
 </class>

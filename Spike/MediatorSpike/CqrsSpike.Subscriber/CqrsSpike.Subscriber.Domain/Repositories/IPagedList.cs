@@ -1,8 +1,3 @@
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Entities.Repositories.Api.PagedListInterface", Version = "1.0")]
-
 namespace CqrsSpike.Subscriber.Domain.Repositories
 {
     /// <summary>

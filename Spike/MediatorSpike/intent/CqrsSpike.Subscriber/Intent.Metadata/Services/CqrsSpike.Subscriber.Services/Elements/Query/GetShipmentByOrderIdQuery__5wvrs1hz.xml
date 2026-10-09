@@ -73,19 +73,13 @@
     <association id="6645bd9d-0c68-4bee-953a-2645c02b1ba3">
       <sourceEnd id="07cde362-6326-4794-8385-3b3d2399eb74" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
         <display>: GetShipmentByOrderIdQuery</display>
-        <order>0</order>
         <typeReference id="0fbe896a-6ef4-477d-90a5-4aaae5f12d54">
-          <typeId>4ad45955-873c-48fd-a4e7-e5043f7c2007</typeId>
-          <typeName>GetShipmentByOrderIdQuery</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Subscriber.Services</typePackageName>
-          <typePackageId>554d8670-1dd9-4377-977c-0af544d2af3d</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="6645bd9d-0c68-4bee-953a-2645c02b1ba3" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
         <name>shipment</name>
         <display>[query] shipment: Shipment</display>
-        <order>1</order>
         <traits>
           <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
         </traits>

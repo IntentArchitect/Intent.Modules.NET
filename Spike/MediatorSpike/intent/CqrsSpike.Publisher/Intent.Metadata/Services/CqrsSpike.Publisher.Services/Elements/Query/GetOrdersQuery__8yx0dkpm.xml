@@ -33,19 +33,13 @@
     <association id="e2000774-e362-4cf8-bf95-bd21fbb8482e">
       <sourceEnd id="0c87da6f-ece1-46c3-9967-8f936ab507b1" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
         <display>: GetOrdersQuery</display>
-        <order>0</order>
         <typeReference id="fcc849fc-0328-4383-aff7-39c660fce969">
-          <typeId>eee8b581-c492-4ef0-9dcf-bf8d8fb264cd</typeId>
-          <typeName>GetOrdersQuery</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Publisher.Services</typePackageName>
-          <typePackageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="e2000774-e362-4cf8-bf95-bd21fbb8482e" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
         <name>orders</name>
         <display>[query] orders: Order[*]?</display>
-        <order>0</order>
         <traits>
           <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
         </traits>

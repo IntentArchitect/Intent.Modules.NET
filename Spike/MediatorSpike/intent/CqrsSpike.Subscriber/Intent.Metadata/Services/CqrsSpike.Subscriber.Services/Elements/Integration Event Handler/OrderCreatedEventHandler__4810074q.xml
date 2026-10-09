@@ -12,19 +12,13 @@
     <association id="64559f2f-4661-4792-b62c-61d0f2ebbe94">
       <sourceEnd id="1b284612-ef61-41e9-b4df-e912f399adb2" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
         <display>handled by: IntegrationEventHandlers.OrderCreatedEventHandler</display>
-        <order>0</order>
         <typeReference id="ff7cd6db-a869-4cb6-abf8-bd7aed4ecdd8">
-          <typeId>2328a03d-dbaf-4396-a6e8-5fa058a1a361</typeId>
-          <typeName>OrderCreatedEventHandler</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Subscriber.Services</typePackageName>
-          <typePackageId>554d8670-1dd9-4377-977c-0af544d2af3d</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="64559f2f-4661-4792-b62c-61d0f2ebbe94" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
         <name>Handler</name>
         <display>[handles] OrderCreatedEvent</display>
-        <order>0</order>
         <traits>
           <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
         </traits>

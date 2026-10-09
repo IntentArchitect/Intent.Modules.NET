@@ -113,19 +113,13 @@
     <association id="ac2ea412-89c4-4918-9696-b2e5827b2aa2">
       <sourceEnd id="4a41f971-6ef2-4b36-8263-6a09bbda6409" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
         <display>created by : Orders.CreateOrderCommand</display>
-        <order>0</order>
         <typeReference id="2290bee1-5062-419f-8b00-0bd46dd86d21">
-          <typeId>58c53a5e-a1b3-4bb5-aa77-f3e720a5c156</typeId>
-          <typeName>CreateOrderCommand</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Publisher.Services</typePackageName>
-          <typePackageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="ac2ea412-89c4-4918-9696-b2e5827b2aa2" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
         <name>order</name>
         <display>[create] order: Order</display>
-        <order>2</order>
         <traits>
           <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
         </traits>
@@ -196,18 +190,12 @@
     <association id="77d5cd1f-f6dc-427a-8124-3529669b9695">
       <sourceEnd id="6487327e-3066-4cbc-a75a-c62a6560b250" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
         <display>published by : Orders.CreateOrderCommand</display>
-        <order>0</order>
         <typeReference id="4dc1e8e6-c11e-4480-a5db-dc6c9a58677a">
-          <typeId>58c53a5e-a1b3-4bb5-aa77-f3e720a5c156</typeId>
-          <typeName>CreateOrderCommand</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Publisher.Services</typePackageName>
-          <typePackageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="77d5cd1f-f6dc-427a-8124-3529669b9695" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
         <display>[publish] OrderCreatedEvent</display>
-        <order>3</order>
         <traits>
           <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
         </traits>
@@ -278,18 +266,12 @@
     <association id="c89dccc4-7031-4a3b-ad6c-f9a86376f0f4">
       <sourceEnd id="01c4bde2-14de-4e73-9f49-377f8a55af57" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
         <display>sent by : Orders.CreateOrderCommand</display>
-        <order>0</order>
         <typeReference id="3e5eeeeb-1cd1-4990-aa89-1234dd951fc2">
-          <typeId>58c53a5e-a1b3-4bb5-aa77-f3e720a5c156</typeId>
-          <typeName>CreateOrderCommand</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Publisher.Services</typePackageName>
-          <typePackageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="c89dccc4-7031-4a3b-ad6c-f9a86376f0f4" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
         <display>[send] RequestShipmentCommand</display>
-        <order>4</order>
         <traits>
           <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
         </traits>

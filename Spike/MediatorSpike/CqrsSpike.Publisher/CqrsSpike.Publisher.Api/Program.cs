@@ -3,10 +3,6 @@ using CqrsSpike.Publisher.Api.Configuration;
 using CqrsSpike.Publisher.Api.Filters;
 using CqrsSpike.Publisher.Application;
 using CqrsSpike.Publisher.Infrastructure;
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Api
 {

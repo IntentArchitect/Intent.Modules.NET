@@ -33,19 +33,13 @@
     <association id="395fac7a-2905-4a03-a6de-c4fbdb67e6f0">
       <sourceEnd id="d3c9acd6-6e6a-4a79-a932-819c8399803c" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
         <display>: GetAuditEntriesQuery</display>
-        <order>0</order>
         <typeReference id="065f8dc5-84ee-45ce-94fe-50b8d983f156">
-          <typeId>07d8f27e-f777-4fb4-8738-381f5a59bf48</typeId>
-          <typeName>GetAuditEntriesQuery</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Publisher.Services</typePackageName>
-          <typePackageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="395fac7a-2905-4a03-a6de-c4fbdb67e6f0" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
         <name>auditEntries</name>
         <display>[query] auditEntries: AuditEntry[*]?</display>
-        <order>0</order>
         <traits>
           <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
         </traits>

@@ -23,24 +23,6 @@
         <entry key="status" value="assigned" />
       </metadata>
     </element>
-    <element id="c190c86e-b11f-47a2-8eaf-e5d76809f476" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.FastEndpoints.ApiVersioningConfiguration</name>
-      <display>Intent.FastEndpoints.ApiVersioningConfiguration</display>
-      <externalReference>Intent.FastEndpoints</externalReference>
-      <parentFolderId>eeb27370-2b50-4816-9163-6e9ad8a80b61</parentFolderId>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-    <element id="5da2d024-daee-4b2c-9e9c-6176168ab710" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.FastEndpoints.ApiVersionSwaggerGenOptions</name>
-      <display>Intent.FastEndpoints.ApiVersionSwaggerGenOptions</display>
-      <externalReference>Intent.FastEndpoints</externalReference>
-      <parentFolderId>eeb27370-2b50-4816-9163-6e9ad8a80b61</parentFolderId>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
     <element id="56b98d80-707a-4457-9e2e-884cfa24c39b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
       <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>

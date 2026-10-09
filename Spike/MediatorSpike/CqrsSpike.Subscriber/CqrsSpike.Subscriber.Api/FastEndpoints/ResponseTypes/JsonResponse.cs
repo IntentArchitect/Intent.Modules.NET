@@ -1,8 +1,3 @@
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.FastEndpoints.JsonResponseTemplate", Version = "1.0")]
-
 namespace CqrsSpike.Subscriber.Api.FastEndpoints.ResponseTypes
 {
     /// <summary>

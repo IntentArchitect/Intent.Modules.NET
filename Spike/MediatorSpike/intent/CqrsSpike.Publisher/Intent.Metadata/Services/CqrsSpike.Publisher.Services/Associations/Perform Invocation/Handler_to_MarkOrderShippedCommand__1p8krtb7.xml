@@ -2,7 +2,6 @@
 <association id="21606618-460e-4d09-aa94-70e5c9d56a20">
   <sourceEnd id="110b6a08-b1c9-4424-b09a-14f82974c3f7" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : ShipmentCreatedEventHandler.Handler</display>
-    <order>0</order>
     <typeReference id="c304ec05-4ec3-4b93-93db-5e49f8831533">
       <typeId>211fb5e3-1458-4963-a57a-3dad0a518821</typeId>
       <typeName>Handler</typeName>

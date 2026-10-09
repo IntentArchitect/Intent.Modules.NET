@@ -96,19 +96,13 @@
     <association id="9706d33a-f965-47ed-a141-d15f0012fd64">
       <sourceEnd id="d74f9aa7-fac1-4978-9815-888585aad9bc" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
         <display>updated by : Orders.MarkOrderShippedCommand</display>
-        <order>0</order>
         <typeReference id="e0a2c077-1643-4d2f-8f30-3b0450f72e26">
-          <typeId>ffbf129e-c42a-4e26-8bc7-1ac24a8a0998</typeId>
-          <typeName>MarkOrderShippedCommand</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Publisher.Services</typePackageName>
-          <typePackageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="9706d33a-f965-47ed-a141-d15f0012fd64" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
         <name>order</name>
         <display>[update] order: MarkShipped</display>
-        <order>2</order>
         <traits>
           <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
         </traits>

@@ -4,11 +4,7 @@ using AutoMapper.QueryableExtensions;
 using CqrsSpike.Subscriber.Application.Common.Pagination;
 using CqrsSpike.Subscriber.Domain.Common.Interfaces;
 using CqrsSpike.Subscriber.Domain.Repositories;
-using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase", Version = "1.0")]
 
 namespace CqrsSpike.Subscriber.Infrastructure.Repositories
 {

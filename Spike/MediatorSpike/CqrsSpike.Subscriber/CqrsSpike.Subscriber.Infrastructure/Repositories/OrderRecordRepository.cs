@@ -2,14 +2,9 @@ using AutoMapper;
 using CqrsSpike.Subscriber.Domain.Entities;
 using CqrsSpike.Subscriber.Domain.Repositories;
 using CqrsSpike.Subscriber.Infrastructure.Persistence;
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.Repository", Version = "1.0")]
 
 namespace CqrsSpike.Subscriber.Infrastructure.Repositories
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class OrderRecordRepository : RepositoryBase<OrderRecord, OrderRecord, ApplicationDbContext>, IOrderRecordRepository
     {
         public OrderRecordRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)

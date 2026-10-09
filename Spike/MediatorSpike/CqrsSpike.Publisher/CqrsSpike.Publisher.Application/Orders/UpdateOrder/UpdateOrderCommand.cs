@@ -1,13 +1,8 @@
-using CqrsSpike.Publisher.Application.Common.Interfaces;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandModels", Version = "1.0")]
+using Mediator;
 
 namespace CqrsSpike.Publisher.Application.Orders.UpdateOrder
 {
-    public class UpdateOrderCommand : IRequest, ICommand
+    public class UpdateOrderCommand : ICommand
     {
         public UpdateOrderCommand(Guid id, string customerName, decimal total)
         {

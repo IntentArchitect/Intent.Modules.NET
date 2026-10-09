@@ -2,7 +2,6 @@
 <association id="90823d2e-56f7-4bc3-9ccb-b81f7a9c3e53">
   <sourceEnd id="36a5f0cc-db52-4397-a06d-8ecc53739d9b" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : OrderCreatedEventHandler.Handler</display>
-    <order>0</order>
     <typeReference id="daffd252-e48f-4540-ab6c-3dfb11e17caf">
       <typeId>64559f2f-4661-4792-b62c-61d0f2ebbe94</typeId>
       <typeName>Handler</typeName>

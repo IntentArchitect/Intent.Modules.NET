@@ -3,15 +3,4 @@
   <name>Services</name>
   <display>Services</display>
   <parentFolderId>52ba81a1-7887-40df-8a33-bebe45669f45</parentFolderId>
-  <children>
-    <element id="b1752ee1-b240-4e7f-b5ba-ee96d4c75042" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MediatR.DomainEvents.DomainEventService</name>
-      <display>Intent.MediatR.DomainEvents.DomainEventService</display>
-      <externalReference>Intent.MediatR.DomainEvents</externalReference>
-      <parentFolderId>d1876f42-d262-46aa-a517-c6ba4557a168</parentFolderId>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-  </children>
 </class>

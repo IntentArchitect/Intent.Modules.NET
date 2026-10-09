@@ -1,8 +1,3 @@
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.DomainEvents.DomainEventBase", Version = "1.0")]
-
 namespace CqrsSpike.Publisher.Domain.Common
 {
     public abstract class DomainEvent

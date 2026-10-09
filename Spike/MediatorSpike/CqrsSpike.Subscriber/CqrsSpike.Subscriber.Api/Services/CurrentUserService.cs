@@ -1,11 +1,7 @@
 using System.Security.Claims;
 using CqrsSpike.Subscriber.Application.Common.Interfaces;
 using Duende.IdentityModel;
-using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.Identity.CurrentUserService", Version = "1.0")]
 
 namespace CqrsSpike.Subscriber.Api.Services
 {

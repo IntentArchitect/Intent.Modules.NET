@@ -1,11 +1,7 @@
 using CqrsSpike.Subscriber.Domain.Common.Interfaces;
 using CqrsSpike.Subscriber.Domain.Entities;
 using CqrsSpike.Subscriber.Infrastructure.Persistence.Configurations;
-using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.DbContext", Version = "1.0")]
 
 namespace CqrsSpike.Subscriber.Infrastructure.Persistence
 {
@@ -29,7 +25,6 @@ namespace CqrsSpike.Subscriber.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ShipmentConfiguration());
         }
 
-        [IntentManaged(Mode.Ignore)]
         private void ConfigureModel(ModelBuilder modelBuilder)
         {
             // Seed data

@@ -1,13 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using CqrsSpike.Publisher.Api.Services;
 using CqrsSpike.Publisher.Application.Common.Interfaces;
-using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.Identity.ApplicationSecurityConfiguration", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Api.Configuration
 {
@@ -38,7 +34,6 @@ namespace CqrsSpike.Publisher.Api.Configuration
             return services;
         }
 
-        [IntentManaged(Mode.Ignore)]
         private static void ConfigureAuthorization(AuthorizationOptions options)
         {
             // Configure policies and other authorization options here. For example:

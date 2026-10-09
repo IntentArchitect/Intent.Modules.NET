@@ -3,11 +3,6 @@ using CqrsSpike.Subscriber.Application.Common.Exceptions;
 using CqrsSpike.Subscriber.Domain.Common.Exceptions;
 using FastEndpoints;
 using FluentValidation;
-using Intent.RoslynWeaver.Attributes;
-using Mode = Intent.RoslynWeaver.Attributes.Mode;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.FastEndpoints.ExceptionProcessorTemplate", Version = "1.0")]
 
 namespace CqrsSpike.Subscriber.Api.FastEndpoints
 {

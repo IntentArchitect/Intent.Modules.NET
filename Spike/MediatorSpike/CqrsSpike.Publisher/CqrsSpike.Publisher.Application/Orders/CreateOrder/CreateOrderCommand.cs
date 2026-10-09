@@ -1,13 +1,8 @@
-using CqrsSpike.Publisher.Application.Common.Interfaces;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandModels", Version = "1.0")]
+using Mediator;
 
 namespace CqrsSpike.Publisher.Application.Orders.CreateOrder
 {
-    public class CreateOrderCommand : IRequest<Guid>, ICommand
+    public class CreateOrderCommand : ICommand<Guid>
     {
         public CreateOrderCommand(string customerName, decimal total)
         {

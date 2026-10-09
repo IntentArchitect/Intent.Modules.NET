@@ -1,9 +1,5 @@
 using System.Linq.Expressions;
 using CqrsSpike.Publisher.Domain.Common.Interfaces;
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Domain.Repositories
 {

@@ -1,12 +1,8 @@
 using CqrsSpike.Publisher.Application.Common.Interfaces;
 using CqrsSpike.Publisher.Application.Common.Models;
 using CqrsSpike.Publisher.Domain.Common;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
+using Mediator;
 using Microsoft.Extensions.Logging;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MediatR.DomainEvents.DomainEventService", Version = "2.0")]
 
 namespace CqrsSpike.Publisher.Infrastructure.Services
 {
@@ -24,17 +20,14 @@ namespace CqrsSpike.Publisher.Infrastructure.Services
         public async Task Publish(DomainEvent domainEvent, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Publishing domain event. Event - {event}", domainEvent.GetType().Name);
-            await _mediator.Publish(GetNotificationCorrespondingToDomainEvent(domainEvent), cancellationToken);
-        }
+            var notification = DomainEventNotificationFactory.Create(domainEvent);
+            if (notification is null)
+            {
+                _logger.LogDebug("No notification is mapped for domain event {event}", domainEvent.GetType().Name);
+                return;
+            }
 
-        private static INotification GetNotificationCorrespondingToDomainEvent(DomainEvent domainEvent)
-        {
-            var result = Activator.CreateInstance(
-                typeof(DomainEventNotification<>).MakeGenericType(domainEvent.GetType()), domainEvent);
-
-            return result == null
-                ? throw new Exception($"Unable to create DomainEventNotification<{domainEvent.GetType().Name}>")
-                : (INotification)result;
+            await _mediator.Publish(notification, cancellationToken);
         }
     }
 }

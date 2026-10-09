@@ -132,18 +132,12 @@
         <association id="0f0c3cb8-3fea-4287-8464-7ee8f8fbf626">
           <sourceEnd id="ac74f025-2c9b-490f-a13a-a904fc8d0268" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
             <display>published by : Order.Order</display>
-            <order>0</order>
             <typeReference id="1a437d12-fce6-4e81-8d14-011bc30292a8">
-              <typeId>1004ea05-a121-4607-958e-3b0a13b92590</typeId>
-              <typeName>Order</typeName>
               <isNavigable>false</isNavigable>
-              <typePackageName>CqrsSpike.Publisher.Domain</typePackageName>
-              <typePackageId>50f7bbf9-cf59-424c-8d7a-847ed5bc3aa4</typePackageId>
             </typeReference>
           </sourceEnd>
           <targetEnd id="0f0c3cb8-3fea-4287-8464-7ee8f8fbf626" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
             <display>publishes : OrderPlacedDomainEvent</display>
-            <order>2</order>
             <typeReference id="90de833c-3682-477e-94ad-b121d6ca7056">
               <typeId>ab693fbf-fd24-491b-b7a8-a816b284e0a5</typeId>
               <typeName>OrderPlacedDomainEvent</typeName>

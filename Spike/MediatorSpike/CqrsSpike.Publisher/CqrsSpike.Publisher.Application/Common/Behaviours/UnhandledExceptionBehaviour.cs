@@ -1,16 +1,12 @@
 using FluentValidation;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
+using Mediator;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Application.Common.Behaviours
 {
     public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : notnull
+        where TRequest : IMessage
     {
         private readonly ILogger<UnhandledExceptionBehaviour<TRequest, TResponse>> _logger;
         private readonly bool _logRequestPayload;
@@ -22,14 +18,14 @@ namespace CqrsSpike.Publisher.Application.Common.Behaviours
             _logRequestPayload = configuration.GetValue<bool?>("CqrsSettings:LogRequestPayload") ?? false;
         }
 
-        public async Task<TResponse> Handle(
+        public async ValueTask<TResponse> Handle(
             TRequest request,
-            RequestHandlerDelegate<TResponse> next,
+            MessageHandlerDelegate<TRequest, TResponse> next,
             CancellationToken cancellationToken)
         {
             try
             {
-                return await next(cancellationToken);
+                return await next(request, cancellationToken);
             }
             catch (ValidationException)
             {

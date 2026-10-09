@@ -2,14 +2,9 @@ using AutoMapper;
 using CqrsSpike.Publisher.Domain.Entities;
 using CqrsSpike.Publisher.Domain.Repositories;
 using CqrsSpike.Publisher.Infrastructure.Persistence;
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.Repository", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Infrastructure.Repositories
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class AuditEntryRepository : RepositoryBase<AuditEntry, AuditEntry, ApplicationDbContext>, IAuditEntryRepository
     {
         public AuditEntryRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)

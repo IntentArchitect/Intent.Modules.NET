@@ -4,43 +4,6 @@
   <display>Interfaces</display>
   <parentFolderId>5c937c89-69f0-4cd1-838e-e0c711456243</parentFolderId>
   <children>
-    <element id="47e1d39e-8dc3-487b-8fa2-265aeaf4ee7e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface</name>
-      <display>Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface</display>
-      <externalReference>Intent.Application.MediatR.FluentValidation</externalReference>
-      <parentFolderId>67864d4d-0275-4b54-88f0-8ee07f2de91d</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;93312dae-fae1-4773-a7d7-5b7d6c0767c1&quot;]" />
-            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="2 - Medium" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-    <element id="24da4f70-09e8-4c90-8307-b2a1cbbc9829" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.CommandInterface</name>
-      <display>Intent.Application.MediatR.CommandInterface</display>
-      <externalReference>Intent.Application.MediatR</externalReference>
-      <parentFolderId>67864d4d-0275-4b54-88f0-8ee07f2de91d</parentFolderId>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-    <element id="6d890ce7-06aa-4755-8869-94907e5a93ce" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.QueryInterface</name>
-      <display>Intent.Application.MediatR.QueryInterface</display>
-      <externalReference>Intent.Application.MediatR</externalReference>
-      <parentFolderId>67864d4d-0275-4b54-88f0-8ee07f2de91d</parentFolderId>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
     <element id="a900109e-e055-4619-bb0f-834e166f7c18" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Identity.CurrentUserInterface</name>
       <display>Intent.Application.Identity.CurrentUserInterface</display>

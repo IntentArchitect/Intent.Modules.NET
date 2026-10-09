@@ -1,9 +1,5 @@
 using AutoMapper;
 using CqrsSpike.Publisher.Domain.Entities;
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.Dtos.AutoMapper.DtoMappingProfile", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Application.Orders
 {

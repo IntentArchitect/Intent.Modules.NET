@@ -2,16 +2,12 @@ using System.Reflection;
 using CqrsSpike.Subscriber.Application.Common.Exceptions;
 using CqrsSpike.Subscriber.Application.Common.Interfaces;
 using CqrsSpike.Subscriber.Application.Common.Security;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.Behaviours.AuthorizationBehaviour", Version = "1.0")]
+using Mediator;
 
 namespace CqrsSpike.Subscriber.Application.Common.Behaviours
 {
     public class AuthorizationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : notnull
+        where TRequest : IMessage
     {
         private readonly ICurrentUserService _currentUserService;
 
@@ -20,9 +16,9 @@ namespace CqrsSpike.Subscriber.Application.Common.Behaviours
             _currentUserService = currentUserService;
         }
 
-        public async Task<TResponse> Handle(
+        public async ValueTask<TResponse> Handle(
             TRequest request,
-            RequestHandlerDelegate<TResponse> next,
+            MessageHandlerDelegate<TRequest, TResponse> next,
             CancellationToken cancellationToken)
         {
             var authorizeAttributes = request.GetType().GetCustomAttributes<AuthorizeAttribute>();
@@ -83,7 +79,7 @@ namespace CqrsSpike.Subscriber.Application.Common.Behaviours
             }
 
             // User is authorized / authorization not required
-            return await next(cancellationToken);
+            return await next(request, cancellationToken);
         }
     }
 }

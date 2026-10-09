@@ -1,13 +1,8 @@
-using CqrsSpike.Publisher.Application.Common.Interfaces;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CommandModels", Version = "1.0")]
+using Mediator;
 
 namespace CqrsSpike.Publisher.Application.AuditEntries.CreateAuditEntry
 {
-    public class CreateAuditEntryCommand : IRequest<Guid>, ICommand
+    public class CreateAuditEntryCommand : ICommand<Guid>
     {
         public CreateAuditEntryCommand(string description)
         {

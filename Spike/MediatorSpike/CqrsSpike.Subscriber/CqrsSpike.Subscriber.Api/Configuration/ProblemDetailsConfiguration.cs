@@ -1,9 +1,5 @@
 using System.Diagnostics;
-using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Diagnostics;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AspNetCore.ProblemDetailsConfiguration", Version = "1.0")]
 
 namespace CqrsSpike.Subscriber.Api.Configuration
 {

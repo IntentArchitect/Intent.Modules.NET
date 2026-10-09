@@ -61,19 +61,13 @@
     <association id="b0ad535c-baf2-4f89-991d-10c57a55ec0d">
       <sourceEnd id="403f6e94-8630-4485-9c18-d91bd8ccc629" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
         <display>created by : AuditEntries.CreateAuditEntryCommand</display>
-        <order>0</order>
         <typeReference id="ae69453b-4f72-4d21-8e80-140ddddaa398">
-          <typeId>46aacddd-c423-4439-8156-e3903a4d5064</typeId>
-          <typeName>CreateAuditEntryCommand</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Publisher.Services</typePackageName>
-          <typePackageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="b0ad535c-baf2-4f89-991d-10c57a55ec0d" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
         <name>auditEntry</name>
         <display>[create] auditEntry: AuditEntry</display>
-        <order>1</order>
         <traits>
           <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
         </traits>

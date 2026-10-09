@@ -1,8 +1,3 @@
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AspNetCore.Permissions", Version = "1.0")]
-
 namespace CqrsSpike.Publisher.Application.Security
 {
     public static class Permissions

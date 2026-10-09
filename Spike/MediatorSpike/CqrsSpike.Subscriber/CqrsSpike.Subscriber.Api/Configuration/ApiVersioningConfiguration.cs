@@ -1,10 +1,6 @@
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using FastEndpoints.AspVersioning;
-using Intent.RoslynWeaver.Attributes;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.FastEndpoints.ApiVersioningConfiguration", Version = "1.0")]
 
 namespace CqrsSpike.Subscriber.Api.Configuration
 {

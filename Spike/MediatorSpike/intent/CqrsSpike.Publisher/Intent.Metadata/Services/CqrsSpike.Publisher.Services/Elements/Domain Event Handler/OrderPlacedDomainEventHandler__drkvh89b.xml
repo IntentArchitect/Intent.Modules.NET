@@ -10,19 +10,13 @@
     <association id="82c06ab9-965d-40fe-a3d8-5f6c229b018f">
       <sourceEnd id="04ec3632-5742-4880-a4c2-ff54e38ba4d8" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
         <display>: OrderPlacedDomainEventHandler</display>
-        <order>0</order>
         <typeReference id="8be00644-b88f-4d5d-9046-742d2e08b455">
-          <typeId>833ca2b8-00ba-4b2e-a991-eaa35d346dfd</typeId>
-          <typeName>OrderPlacedDomainEventHandler</typeName>
           <isNavigable>false</isNavigable>
-          <typePackageName>CqrsSpike.Publisher.Services</typePackageName>
-          <typePackageId>fe1fb671-49d1-4caa-aa12-1e6c4e0d8a4f</typePackageId>
         </typeReference>
       </sourceEnd>
       <targetEnd id="82c06ab9-965d-40fe-a3d8-5f6c229b018f" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
         <name>handler</name>
         <display>[handles] OrderPlacedDomainEvent</display>
-        <order>0</order>
         <traits>
           <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
         </traits>

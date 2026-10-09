@@ -1,18 +1,13 @@
-using CqrsSpike.Publisher.Application.Orders;
 using CqrsSpike.Publisher.Application.Orders.CreateOrder;
 using CqrsSpike.Publisher.Application.Orders.DeleteOrder;
 using CqrsSpike.Publisher.Application.Orders.GetOrderById;
 using CqrsSpike.Publisher.Application.Orders.GetOrders;
 using CqrsSpike.Publisher.Application.Orders.UpdateOrder;
+using CqrsSpike.Publisher.Application.Orders;
 using CqrsSpike.Publisher.Application.Security;
-using Intent.RoslynWeaver.Attributes;
-using MediatR;
+using Mediator;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
-[assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
 namespace CqrsSpike.Publisher.Api.Controllers
 {
