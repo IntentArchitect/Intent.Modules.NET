@@ -54,7 +54,9 @@ Git history is the record of both versions. Commit `bcfc0d8aa6` holds the Mediat
   silently drops every behaviour (P5).
 - `DomainEventNotification<T>` stays **abstract**, with a sealed subclass per event. A
   non-abstract generic breaks the source generator (P6).
-- `Mediator.SourceGenerator` keeps `PrivateAssets="all"` and stays in the Application project only (P2, D12).
+- `Mediator.SourceGenerator` keeps `PrivateAssets="all"` and stays in the Infrastructure project only, where
+  `AddMediator` is called with `options.Assemblies = [typeof(Application.DependencyInjection)]` (P2, D17).
+  Application references `Mediator.Abstractions` only.
 - `ServiceLifetime.Scoped` stays (D8).
 
 ## Running it
@@ -128,6 +130,9 @@ commit `bcfc0d8aa6`): **112 files identical, 71 changed, 2 added, 4 removed.** P
 | Validators, `IBypassPipelineValidation` | — | identical code | template id only |
 | `.csproj` (Application) | `MediatR 12.5.0` | `Mediator.Abstractions` + `Mediator.SourceGenerator` (`PrivateAssets=all`) | packages |
 
+Since this was measured, D17 moved `AddMediator` and `Mediator.SourceGenerator` from Application to
+Infrastructure (`AddInfrastructure`, scanning the Application assembly via `options.Assemblies`).
+
 Unchanged: Domain, EF Core, repositories, `IMessageBus`, MassTransit consumer and bus, security,
 filters, Api hosting.
 
@@ -154,7 +159,7 @@ filters, Api hosting.
    call sites differ only by `using MediatR;` → `using Mediator;`.
 4. **Modular Monolith breaks generator-in-Application (probe P12).** Two Application assemblies that
    each run the generator build clean. At runtime the first one's mediator wins `ISender`, and the
-   second module's commands throw `MissingMessageHandlerException`. D12 holds for single-Application
+   second module's commands throw `MissingMessageHandlerException`. D12/D17 hold for single-Application
    Clean Architecture only.
 5. **Validations must be modelled.** The generated validators carry only modelled rules
    (`Validations` stereotype). Without them, S2 and S9 pass invalid input straight to the handler.
