@@ -20,14 +20,7 @@ namespace CqrsSpike.Publisher.Infrastructure.Services
         public async Task Publish(DomainEvent domainEvent, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Publishing domain event. Event - {event}", domainEvent.GetType().Name);
-            var notification = DomainEventNotificationFactory.Create(domainEvent);
-            if (notification is null)
-            {
-                _logger.LogDebug("No notification is mapped for domain event {event}", domainEvent.GetType().Name);
-                return;
-            }
-
-            await _mediator.Publish(notification, cancellationToken);
+            await _mediator.Publish(DomainEventNotificationFactory.Create(domainEvent), cancellationToken);
         }
     }
 }

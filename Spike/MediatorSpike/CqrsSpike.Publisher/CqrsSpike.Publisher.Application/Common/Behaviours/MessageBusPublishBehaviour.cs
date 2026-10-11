@@ -7,10 +7,12 @@ namespace CqrsSpike.Publisher.Application.Common.Behaviours
         where TRequest : IMessage
     {
         private readonly IMessageBus _messageBus;
+        private readonly MessageBusFlushOwner _flushOwner;
 
-        public MessageBusPublishBehaviour(IMessageBus messageBus)
+        public MessageBusPublishBehaviour(IMessageBus messageBus, MessageBusFlushOwner flushOwner)
         {
             _messageBus = messageBus;
+            _flushOwner = flushOwner;
         }
 
         public async ValueTask<TResponse> Handle(
@@ -18,11 +20,22 @@ namespace CqrsSpike.Publisher.Application.Common.Behaviours
             MessageHandlerDelegate<TRequest, TResponse> next,
             CancellationToken cancellationToken)
         {
-            var response = await next(request, cancellationToken);
+            var isOwner = _flushOwner.Enter();
+            try
+            {
+                var response = await next(request, cancellationToken);
 
-            await _messageBus.FlushAllAsync(cancellationToken);
+                if (isOwner)
+                {
+                    await _messageBus.FlushAllAsync(cancellationToken);
+                }
 
-            return response;
+                return response;
+            }
+            finally
+            {
+                _flushOwner.Exit();
+            }
         }
     }
 }

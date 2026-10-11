@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using System.Text.Encodings.Web;
+using MassTransit;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,14 +19,13 @@ namespace CqrsSpike.Scenarios.Infrastructure;
 
 internal static class FactoryConfiguration
 {
-    public static void Apply(IWebHostBuilder builder, string databaseName)
+    public static void Apply(IWebHostBuilder builder)
     {
         builder.UseEnvironment("Development");
         builder.ConfigureAppConfiguration((_, config) =>
         {
             config.AddInMemoryCollection(new Dictionary<string, string?>
             {
-                ["ConnectionStrings:DefaultConnection"] = databaseName,
                 ["RabbitMq:Host"] = "localhost",
                 ["RabbitMq:VirtualHost"] = "/",
                 ["RabbitMq:Username"] = SpikeFixture.BrokerUser,
@@ -37,6 +37,13 @@ internal static class FactoryConfiguration
         builder.ConfigureLogging(logging => logging.SetMinimumLevel(LogLevel.Warning));
         builder.ConfigureTestServices(services =>
         {
+            // Host start (and so CreateClient) returns only once the bus is connected and its
+            // queues and bindings exist, so no scenario can publish into a missing binding.
+            services.Configure<MassTransitHostOptions>(options =>
+            {
+                options.WaitUntilStarted = true;
+                options.StartTimeout = TimeSpan.FromSeconds(30);
+            });
             services.AddAuthentication(options =>
                 {
                     options.DefaultAuthenticateScheme = TestAuthHandler.SchemeName;
@@ -59,7 +66,7 @@ public sealed class PublisherFactory : WebApplicationFactory<CqrsSpike.Publisher
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        FactoryConfiguration.Apply(builder, $"Publisher-{Guid.NewGuid():N}");
+        FactoryConfiguration.Apply(builder);
         builder.ConfigureTestServices(services =>
         {
             services.AddHttpContextAccessor();
@@ -79,7 +86,7 @@ public sealed class SubscriberFactory : WebApplicationFactory<CqrsSpike.Subscrib
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        FactoryConfiguration.Apply(builder, $"Subscriber-{Guid.NewGuid():N}");
+        FactoryConfiguration.Apply(builder);
     }
 }
 

@@ -58,6 +58,11 @@ Git history is the record of both versions. Commit `bcfc0d8aa6` holds the Mediat
   `AddMediator` is called with `options.Assemblies = [typeof(Application.DependencyInjection)]` (P2, D17).
   Application references `Mediator.Abstractions` only.
 - `ServiceLifetime.Scoped` stays (D8).
+- Only the outermost owner flushes the bus (D18). `MessageBusPublishBehaviour` checks `MessageBusFlushOwner`,
+  and `IntegrationEventConsumer` claims ownership before it dispatches. Drop either and nested
+  commands flush the outer work's messages before the outer commit. S7 and S7b cover the behaviour; the
+  consumer's claim has no test. Code that wraps dispatches in its own transaction must claim the owner too.
+- Behaviours are Scoped, so they keep no per-call state in fields (D8).
 
 ## Running it
 
@@ -65,6 +70,7 @@ Needs Docker (or any RabbitMQ on `localhost:5672` that accepts `guest/guest`) an
 
 ```pwsh
 # build + runtime scenarios — the fixture reuses a broker on :5672 or starts rabbitmq:3.13 via Testcontainers
+# Stop any `dotnet run` copies of the apps first: queue names are fixed, so they would compete for the test messages.
 dotnet build CqrsSpike.sln
 dotnet test CqrsSpike.sln
 
@@ -77,20 +83,31 @@ curl -X POST localhost:5101/api/orders -H "Content-Type: application/json" -d '{
 
 ## Scenario matrix — runtime results (2026-10-09)
 
-`tests/Shared/Scenarios.cs` runs against both apps over real RabbitMQ. 8/8 pass. Before the
-collapse, the same scenarios also passed unchanged against the generated MediatR baseline
-(2026-10-05), which proved behavioural parity.
+`tests/Shared/Scenarios.cs` runs against both apps over real RabbitMQ, and `tests/Shared/BehaviourChecks.cs`
+checks single behaviours in-process: 13/13 pass. Before the collapse, S1–S9 also passed unchanged
+against the generated MediatR baseline (2026-10-05), which proved behavioural parity. S3b, S7b, S10,
+the behaviour checks and the stricter S7 were added after an adversarial review (D18).
+
+> [!NOTE]
+> Persistence is EF Core InMemory, which ignores `TransactionScope`. "Commit" below means the unit of
+> work's `SaveChanges`; rollback is never exercised. InMemory also ignores the unique `OrderId` indexes
+> behind S10's idempotency, so concurrent duplicates are only prevented on a relational provider.
+> Proving the transactional claims needs one.
 
 | # | Scenario | Proves | Result |
 |---|---|---|---|
 | S1 | CRUD via controller → `ISender` → handler → EF | command/query dispatch, void + value returns, NotFound | ✅ |
 | S2 | Invalid command → 400, nothing buffered or committed | ValidationBehaviour runs before the handler | ✅ |
-| S3 | Admin-only delete: anonymous 401, wrong role 403, Admin 200 | AuthorizationBehaviour | ✅ |
+| S3 | Admin-only delete: anonymous 401, wrong role 403, Admin 200 | endpoint authorization (ASP.NET Core answers before Mediator runs) | ✅ |
+| S3b | `DeleteOrderCommand` sent straight through `ISender` with an anonymous principal | AuthorizationBehaviour rejects it (`UnauthorizedAccessException`); an unauthenticated principal is not a user | ✅ |
 | S4 | Entity ctor raises domain event → handler sends `CreateAuditEntryCommand` | domain event dispatch + nested command from a notification handler | ✅ |
 | S5/S6 | Order → `OrderCreatedEvent` (publish) + `RequestShipmentCommand` (send) → Subscriber integration **event** and **command** handlers dispatch commands → `ShipmentCreatedEvent` → Publisher integration handler dispatches `MarkOrderShippedCommand` | command publishes/sends integration messages; integration handlers dispatch via `ISender` in both apps | ✅ |
-| S7 | Recorded pipeline order for a create | bus **flush happens after UoW commit** (`publish → send → commit → flush:2`) | ✅ |
+| S7 | Recorded pipeline order for a create | exactly **one** flush, by the outermost dispatch, after the final commit: `commit → publish → send → commit → flush:2` (the first commit is the domain-event handler's nested `CreateAuditEntryCommand`, which no longer flushes; D18) | ✅ |
+| S7b | `CreateOrderCommand` sent while an outer owner holds the scope (what `IntegrationEventConsumer` does) | a dispatch inside an outer owner's scope buffers but does not flush (D18). Not tested: that the outer owner (the consumer) then flushes after its commit, and that the consumer claims ownership; both need a MassTransit test harness | ✅ |
 | S8 | Query passes flush (`flush:0`) but never commits | UoW constrained to commands only | ✅ |
 | S9 | FastEndpoints command (validation 400 / 201) and queries | FastEndpoints host dispatch | ✅ |
+| S10 | `OrderCreatedEvent` and `RequestShipmentCommand` redelivered after the round trip | Subscriber handlers are idempotent per order under sequential redelivery: no duplicate rows, single-result lookups keep returning 200 | ✅ |
+| — | `PerformanceBehaviour` reused for two calls; unmapped domain event | per-call timing under Scoped behaviours (D8); an unmapped domain event throws instead of being dropped | ✅ |
 
 **Two-process run:** both apps were started with `dotnet run` as separate processes against a
 RabbitMQ container and driven with curl.
@@ -160,7 +177,8 @@ filters, Api hosting.
 4. **Modular Monolith breaks generator-in-Application (probe P12).** Two Application assemblies that
    each run the generator build clean. At runtime the first one's mediator wins `ISender`, and the
    second module's commands throw `MissingMessageHandlerException`. D12/D17 hold for single-Application
-   Clean Architecture only.
+   Clean Architecture only. Not yet probed: one generator in a composition project with
+   `options.Assemblies = [ModA, ModB]`.
 5. **Validations must be modelled.** The generated validators carry only modelled rules
    (`Validations` stereotype). Without them, S2 and S9 pass invalid input straight to the handler.
 6. **Designer scripting trap:** calling `pkg.addReference(...)` reloads the designer's packages

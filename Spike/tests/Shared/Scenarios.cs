@@ -1,7 +1,14 @@
 using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
+using CqrsSpike.Publisher.Application.Orders.CreateOrder;
+using CqrsSpike.Publisher.Application.Orders.DeleteOrder;
 using CqrsSpike.Scenarios.Infrastructure;
+using CqrsSpike.Subscriber.Application.OrderRecords.RecordOrder;
+using Mediator;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using PublisherFlushOwner = CqrsSpike.Publisher.Application.Common.Eventing.MessageBusFlushOwner;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -109,7 +116,8 @@ public class Scenarios
     {
         var id = await CreateOrderAsync(Publisher(), "Bob", 5m);
 
-        // The generated CurrentUserService reports no user for an anonymous caller -> 401.
+        // ASP.NET Core's [Authorize] on the controller action answers these first; the
+        // dispatch-level check is covered by S3b.
         var anonymous = await Publisher().DeleteAsync($"api/orders/{id}");
         Assert.Equal(HttpStatusCode.Unauthorized, anonymous.StatusCode);
 
@@ -121,6 +129,31 @@ public class Scenarios
 
         var gone = await Publisher().GetAsync($"api/orders/{id}");
         Assert.Equal(HttpStatusCode.NotFound, gone.StatusCode);
+    }
+
+    [Fact]
+    public async Task S3b_Authorization_BehaviourRejectsAnonymousDispatch()
+    {
+        var id = await CreateOrderAsync(Publisher(), "Bea", 5m);
+
+        // Dispatch straight through ISender, past ASP.NET Core's endpoint authorization, with the
+        // unauthenticated principal an anonymous HTTP caller carries.
+        using var scope = _fixture.Publisher.Services.CreateScope();
+        var accessor = scope.ServiceProvider.GetRequiredService<IHttpContextAccessor>();
+        accessor.HttpContext = new DefaultHttpContext();
+        try
+        {
+            var sender = scope.ServiceProvider.GetRequiredService<ISender>();
+            await Assert.ThrowsAsync<UnauthorizedAccessException>(
+                async () => await sender.Send(new DeleteOrderCommand(id)));
+        }
+        finally
+        {
+            accessor.HttpContext = null;
+        }
+
+        var stillThere = await Publisher().GetAsync($"api/orders/{id}");
+        Assert.Equal(HttpStatusCode.OK, stillThere.StatusCode);
     }
 
     // ------------------------------------------------------------------ S4: domain events
@@ -168,11 +201,48 @@ public class Scenarios
         Assert.Contains("publish:OrderCreatedEvent", entries);
         Assert.Contains("send:RequestShipmentCommand", entries);
 
-        var commit = entries.LastIndexOf("commit");
-        var flush = entries.FindLastIndex(e => e.StartsWith("flush:"));
-        Assert.True(commit >= 0, "UnitOfWork commit not observed");
-        Assert.True(flush > commit, $"Bus flush must follow the commit: {string.Join(" -> ", entries)}");
-        Assert.Contains("flush:2", entries);
+        // The domain-event handler's nested CreateAuditEntryCommand shares the request's bus buffer.
+        // Only the outermost dispatch may flush, exactly once, after the final commit.
+        var trace = string.Join(" -> ", entries);
+        var flushes = entries.Where(e => e.StartsWith("flush:")).ToList();
+        Assert.True(flushes.Count == 1, $"Expected a single flush, by the outermost dispatch: {trace}");
+        Assert.Equal("flush:2", entries[^1]);
+        Assert.True(entries.LastIndexOf("commit") >= 0, $"UnitOfWork commit not observed: {trace}");
+        Assert.True(entries.LastIndexOf("commit") < entries.Count - 1, $"Bus flush must follow the final commit: {trace}");
+    }
+
+    [Fact]
+    public async Task S7b_Pipeline_DispatchDoesNotFlushWhileAnOuterOwnerHoldsTheScope()
+    {
+        // IntegrationEventConsumer claims MessageBusFlushOwner before its handler dispatches, then
+        // flushes after its own transaction completes. Reproduce that from outside the consumer.
+        var trace = $"s7b-{Guid.NewGuid():N}";
+        using var scope = _fixture.Publisher.Services.CreateScope();
+        var accessor = scope.ServiceProvider.GetRequiredService<IHttpContextAccessor>();
+        accessor.HttpContext = new DefaultHttpContext { TraceIdentifier = trace };
+        try
+        {
+            var owner = scope.ServiceProvider.GetRequiredService<PublisherFlushOwner>();
+            Assert.True(owner.Enter());
+            try
+            {
+                await scope.ServiceProvider.GetRequiredService<ISender>().Send(new CreateOrderCommand("Ivy", 3m));
+            }
+            finally
+            {
+                owner.Exit();
+            }
+        }
+        finally
+        {
+            accessor.HttpContext = null;
+        }
+
+        var entries = _fixture.Recorder.ForTrace(trace).Select(e => e.What).ToList();
+        var recorded = string.Join(" -> ", entries);
+        Assert.Contains("publish:OrderCreatedEvent", entries);
+        Assert.DoesNotContain(entries, e => e.StartsWith("flush:"));
+        _output.WriteLine(recorded);
     }
 
     [Fact]
@@ -208,6 +278,29 @@ public class Scenarios
 
         var missing = await Subscriber().GetAsync($"api/shipments/by-order/{Guid.NewGuid()}");
         Assert.Equal(HttpStatusCode.NotFound, missing.StatusCode);
+    }
+
+    [Fact]
+    public async Task S10_Subscriber_RedeliveredMessagesAreIdempotent()
+    {
+        var customer = $"Gus-{Guid.NewGuid():N}";
+        var orderId = await CreateOrderAsync(Publisher(), customer, 7m);
+        await WaitForAsync(() => Subscriber().GetAsync($"api/order-records/{orderId}"), _ => true, "OrderRecord in Subscriber");
+        var shipment = await WaitForAsync(() => Subscriber().GetAsync($"api/shipments/by-order/{orderId}"), _ => true, "Shipment in Subscriber");
+        var shipmentId = shipment.GetProperty("id").GetGuid();
+
+        // Simulate the broker redelivering OrderCreatedEvent and RequestShipmentCommand.
+        using (var scope = _fixture.Subscriber.Services.CreateScope())
+        {
+            await scope.ServiceProvider.GetRequiredService<ISender>().Send(new RecordOrderCommand(orderId, customer, 7m));
+        }
+        var again = await Subscriber().PostAsJsonAsync("api/shipments", new { orderId });
+        Assert.Equal(HttpStatusCode.Created, again.StatusCode);
+        Assert.Equal(shipmentId, await again.Content.ReadFromJsonAsync<Guid>());
+
+        // A duplicate row would make these single-result lookups fail with a 500.
+        Assert.Equal(HttpStatusCode.OK, (await Subscriber().GetAsync($"api/order-records/{orderId}")).StatusCode);
+        Assert.Equal(HttpStatusCode.OK, (await Subscriber().GetAsync($"api/shipments/by-order/{orderId}")).StatusCode);
     }
 
     private static string TraceOf(HttpResponseMessage response) =>

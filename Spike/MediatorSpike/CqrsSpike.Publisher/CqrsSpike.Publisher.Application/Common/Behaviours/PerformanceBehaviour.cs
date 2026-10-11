@@ -11,14 +11,12 @@ namespace CqrsSpike.Publisher.Application.Common.Behaviours
     {
         private readonly ILogger<PerformanceBehaviour<TRequest, TResponse>> _logger;
         private readonly ICurrentUserService _currentUserService;
-        private readonly Stopwatch _timer;
         private readonly bool _logRequestPayload;
 
         public PerformanceBehaviour(ILogger<PerformanceBehaviour<TRequest, TResponse>> logger,
             ICurrentUserService currentUserService,
             IConfiguration configuration)
         {
-            _timer = new Stopwatch();
             _logger = logger;
             _currentUserService = currentUserService;
             _logRequestPayload = configuration.GetValue<bool?>("CqrsSettings:LogRequestPayload") ?? false;
@@ -29,13 +27,13 @@ namespace CqrsSpike.Publisher.Application.Common.Behaviours
             MessageHandlerDelegate<TRequest, TResponse> next,
             CancellationToken cancellationToken)
         {
-            _timer.Start();
+            // Behaviours are Scoped (one instance per message type per scope), so timing state must
+            // stay local to the call rather than live in a field.
+            var started = Stopwatch.GetTimestamp();
 
             var response = await next(request, cancellationToken);
 
-            _timer.Stop();
-
-            var elapsedMilliseconds = _timer.ElapsedMilliseconds;
+            var elapsedMilliseconds = (long)Stopwatch.GetElapsedTime(started).TotalMilliseconds;
 
             if (elapsedMilliseconds > 500)
             {
