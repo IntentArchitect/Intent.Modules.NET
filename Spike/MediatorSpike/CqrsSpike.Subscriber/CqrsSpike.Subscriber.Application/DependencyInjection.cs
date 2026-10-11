@@ -17,6 +17,7 @@ namespace CqrsSpike.Subscriber.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), lifetime: ServiceLifetime.Transient);
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddScoped<MessageBusFlushOwner>();
             services.AddTransient<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<RequestShipmentCommand>, RequestShipmentCommandHandler>();
             return services;

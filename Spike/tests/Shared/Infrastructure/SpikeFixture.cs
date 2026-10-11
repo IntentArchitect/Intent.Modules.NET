@@ -36,10 +36,10 @@ public sealed class SpikeFixture : IAsyncLifetime
         Publisher = new PublisherFactory(Recorder);
         Subscriber = new SubscriberFactory();
 
-        // Force both hosts (and their MassTransit buses) to start before any scenario runs.
+        // Start both hosts before any scenario runs. MassTransitHostOptions.WaitUntilStarted (see
+        // FactoryConfiguration) makes each start block until its bus is connected.
         _ = Publisher.CreateClient();
         _ = Subscriber.CreateClient();
-        await Task.Delay(TimeSpan.FromSeconds(2));
     }
 
     public async Task DisposeAsync()

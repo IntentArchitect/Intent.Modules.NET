@@ -15,6 +15,12 @@ namespace CqrsSpike.Subscriber.Application.OrderRecords.RecordOrder
 
         public async ValueTask<Unit> Handle(RecordOrderCommand request, CancellationToken cancellationToken)
         {
+            // OrderCreatedEvent is delivered at least once; a redelivery must not record the order twice.
+            if (await _orderRecordRepository.AnyAsync(x => x.OrderId == request.OrderId, cancellationToken))
+            {
+                return Unit.Value;
+            }
+
             var orderRecord = new OrderRecord
             {
                 CustomerName = request.CustomerName,

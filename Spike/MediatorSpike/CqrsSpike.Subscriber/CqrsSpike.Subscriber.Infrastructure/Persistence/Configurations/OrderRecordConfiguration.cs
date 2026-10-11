@@ -10,6 +10,11 @@ namespace CqrsSpike.Subscriber.Infrastructure.Persistence.Configurations
         {
             builder.HasKey(x => x.Id);
 
+            // One row per order: backs the handlers' idempotency checks against concurrent
+            // redelivery. EF Core InMemory does not enforce it; a relational provider does.
+            builder.HasIndex(x => x.OrderId)
+                .IsUnique();
+
             builder.Property(x => x.CustomerName)
                     .IsRequired();
 

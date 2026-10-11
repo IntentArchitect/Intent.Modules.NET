@@ -5,18 +5,19 @@ using Mediator;
 namespace CqrsSpike.Publisher.Application.Common.Models
 {
     /// <summary>
-    /// Maps a domain event to its Mediator notification. Generated per modelled domain event so that
-    /// dispatch stays free of reflection: Mediator's source generator cannot see open generic
-    /// notification types such as DomainEventNotification&lt;T&gt;.
+    /// Maps a domain event to its Mediator notification without reflection: Mediator's source
+    /// generator cannot see open generic notification types such as DomainEventNotification&lt;T&gt;.
+    /// Every domain event needs an arm here; an unmapped event throws rather than being dropped.
     /// </summary>
     public static class DomainEventNotificationFactory
     {
-        public static INotification? Create(DomainEvent domainEvent)
+        public static INotification Create(DomainEvent domainEvent)
         {
             return domainEvent switch
             {
                 OrderPlacedDomainEvent e => new OrderPlacedDomainEventNotification(e),
-                _ => null
+                _ => throw new InvalidOperationException(
+                    $"No notification is mapped for domain event {domainEvent.GetType().Name}. Add one to {nameof(DomainEventNotificationFactory)}.")
             };
         }
     }

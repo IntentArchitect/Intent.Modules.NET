@@ -19,15 +19,22 @@ namespace CqrsSpike.Subscriber.Application.Shipments.CreateShipment
 
         public async ValueTask<Guid> Handle(CreateShipmentCommand request, CancellationToken cancellationToken)
         {
-            var shipment = new Shipment
+            // RequestShipmentCommand is delivered at least once. A redelivery reuses the existing
+            // shipment, but still announces it, in case the earlier ShipmentCreatedEvent was lost.
+            var shipment = await _shipmentRepository.FindAsync(x => x.OrderId == request.OrderId, cancellationToken);
+            if (shipment is null)
             {
-                OrderId = request.OrderId,
-                Status = "Created",
-                CreatedAt = DateTimeOffset.UtcNow
-            };
+                shipment = new Shipment
+                {
+                    OrderId = request.OrderId,
+                    Status = "Created",
+                    CreatedAt = DateTimeOffset.UtcNow
+                };
 
-            _shipmentRepository.Add(shipment);
-            await _shipmentRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+                _shipmentRepository.Add(shipment);
+                await _shipmentRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            }
+
             _messageBus.Publish(new ShipmentCreatedEvent
             {
                 ShipmentId = shipment.Id,

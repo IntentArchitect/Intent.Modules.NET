@@ -18,7 +18,8 @@ namespace CqrsSpike.Subscriber.Api.Services
         {
             var claimsPrincipal = GetClaimsPrincipal();
 
-            if (claimsPrincipal is null)
+            // HttpContext.User is never null; an anonymous caller gets an unauthenticated principal.
+            if (claimsPrincipal?.Identity?.IsAuthenticated != true)
             {
                 return Task.FromResult((ICurrentUser?)null);
             }
