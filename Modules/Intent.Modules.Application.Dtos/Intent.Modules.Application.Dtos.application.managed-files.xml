@@ -15,4 +15,5 @@
   <file path="Templates/DtoModel/DtoModelTemplatePartial.cs" deviationsHash="80126F9C3A10BA42660149B19D33A84B84B50321E2E5B3CC732DDCF5D0A16D45" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/DtoModel/DtoModelTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/TemplateExtensions.cs" deviationsHash="B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/DTO Services Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
 </managedFiles>

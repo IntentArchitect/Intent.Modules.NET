@@ -1,3 +1,7 @@
+### Version 4.7.6
+
+- Improvement: Commands and Queries now get a Services designer warning when a property without a default value follows one with a default value, as the generated constructor drops that default. The check previously lived in `Intent.Modelers.Services.CQRS`.
+
 ### Version 4.7.5
 
 - Improvement: Added default Template Classification and Priorities.

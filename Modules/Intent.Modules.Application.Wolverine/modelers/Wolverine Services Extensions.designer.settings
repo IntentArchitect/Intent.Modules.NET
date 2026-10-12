@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>3c12a1f5-3c09-4084-a1bb-07e38776f07f</id>
+  <name>Wolverine Services Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+      <validateFunctionOverride>// The generated constructor gives a default value only to the trailing properties that all have one,
+// so a property without a default after one that has one silently loses that default.
+let defaultValueDetected = false;
+for (const child of element.getChildren("DTO-Field")) {
+    const value = child.getValue();
+    if (value != null &amp;&amp; value !== "") {
+        defaultValueDetected = true;
+        continue;
+    }
+    if (defaultValueDetected) {
+        return {
+            text: "Property [" + child.getName() + "] without a default value must precede properties with default values",
+            type: "warning"
+        };
+    }
+}
+return "";</validateFunctionOverride>
+      <mappingSettings />
+    </elementExtension>
+    <elementExtension type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+      <validateFunctionOverride>// The generated constructor gives a default value only to the trailing properties that all have one,
+// so a property without a default after one that has one silently loses that default.
+let defaultValueDetected = false;
+for (const child of element.getChildren("DTO-Field")) {
+    const value = child.getValue();
+    if (value != null &amp;&amp; value !== "") {
+        defaultValueDetected = true;
+        continue;
+    }
+    if (defaultValueDetected) {
+        return {
+            text: "Property [" + child.getName() + "] without a default value must precede properties with default values",
+            type: "warning"
+        };
+    }
+}
+return "";</validateFunctionOverride>
+      <mappingSettings />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <scripts />
+</settings>

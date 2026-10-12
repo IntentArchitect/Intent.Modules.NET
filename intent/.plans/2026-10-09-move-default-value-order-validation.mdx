@@ -1,0 +1,35 @@
+# Move "default value order" validation out of the Services designers
+
+Full rich plan: `intent/.plans/2026-10-09-move-default-value-order-validation.mdx`
+
+## Context
+The warning "Property [X] without a default value must precede properties with default values" is defined in `D:\Dev\Intent.Modules`:
+- `Intent.Modelers.Services.CQRS` (6.0.8): `validateFunction` on Command and Query (the ordering check is the whole script)
+- `Intent.Modelers.Services` (4.0.17-pre.1): `validateFunction` on DTO, which reads `Intent.Application.Dtos`' DTO Settings by GUID
+
+The templates that generate constructors silently drop out-of-order defaults (a trailing-only guard), so the warning belongs to them.
+
+## Approach
+Remove the three scripts. Re-add them as Module Builder **Element Extensions** (Extension Settings › Validate Function, which Intent appends as an additional validation) in:
+- **Intent.Application.MediatR**: Command and Query, ungated (the constructor is always generated)
+- **Intent.Application.Wolverine**: Command and Query, ungated
+- **Intent.Application.Dtos**: DTO. Skip the check when Property Setter Accessibility is public/init/unset AND (Static Factory Method is false OR the DTO is abstract). This fixes the current gate, which misses the abstract case and treats an unset accessibility as non-public.
+
+User decisions:
+- The client-side DtoContract modules get no extension.
+- MediatR and Wolverine raise their minimum Services.CQRS dependency, and Dtos raises its minimum Services dependency, to the new versions.
+- **Interoperability (the reverse direction):** `Intent.Modelers.Services.CQRS.imodspec` gets a new `<interoperability>` block that detects MediatR and Wolverine and installs their new versions. `Intent.Modelers.Services.imodspec` gets a Dtos entry appended to its existing block. With both directions locked, the validation is never present twice and never missing. The five releases reference each other's new versions, so all five versions are settled up front and the releases ship together.
+
+## Steps
+1. Read CONTEXT.md files. Run the version gate for all 5 modules. Change is designer/metadata only, with no output impact.
+2. Intent.Modules (new feature branch): clear the Validate Function on Command, Query and DTO. Run the SF and inspect the diff. Add the interop blocks to the CQRS and Services `.imodspec` files using the target versions. Build.
+3. MediatR and Wolverine: add a Services designer extension plus Command and Query Element Extensions. Raise the CQRS floor.
+4. Dtos: add a Services designer extension plus a gated DTO Element Extension. Raise the Services floor.
+5. Close out: dependency audit, release notes, CONTEXT.md updates (create one for Services.CQRS).
+
+## Verification
+- Services-only app: no warning.
+- With MediatR or Wolverine: the warning shows once on Command and Query.
+- Dtos: the warning follows the settings and abstract matrix.
+- Interop: updating only the designer module upgrades the installed MediatR, Wolverine or Dtos module. Floor: updating only the implementing module upgrades the designer module.
+- The SF produces no generated-code changes.

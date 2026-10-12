@@ -139,7 +139,7 @@ public class CreateCustomerCommand : IRequest<Guid>, ICommand
 }
 ```
 
-The designer will also raise a warning if the Command has been incorrectly configured (but will still allow the Software Factory to be executed)
+This module adds a Services designer warning on any Command or Query whose properties are ordered this way (the Software Factory can still be executed). The same rule applies to Queries.
 
 ## Commercial License Options
 

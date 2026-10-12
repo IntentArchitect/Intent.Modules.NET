@@ -146,6 +146,27 @@ self-assembles based on what else is installed.
 
 ---
 
+## Designer validation: default value order on Commands and Queries
+
+- **The warning lives here, not in the designer module.** `designers/MediatR Services Extensions` holds Command and
+  Query Element Extensions whose Extension Settings › Validate Function warns when a property without a default
+  value follows one with a default value. It exists because `CqrsTemplateHelpers.ShouldSetDefaultValue` silently
+  drops any default that is not part of the trailing run, so the warning belongs to the module whose template drops
+  it. Rejected: leaving it in `Intent.Modelers.Services.CQRS` (its home until 6.0.8). There it fired in applications
+  that generate no constructor at all.
+- **Intent appends an extension's Validate Function; it does not replace the element's own.** The client evaluates
+  `settings.validateFunctions` as an array, so every installed module's check runs and each one adds its own
+  message. The generated XML calls it `validateFunctionOverride`, but nothing is overridden.
+- **Ungated.** Commands and Queries always get a constructor, so there is no setting to check.
+- **`Intent.Application.Wolverine` carries an identical check.** The two modules are alternative dispatch
+  implementations and are never installed together, so neither guards against the other. Keep the two scripts
+  identical.
+- **Version contract with `Intent.Modelers.Services.CQRS`:** the floor is 6.0.9 (written against `6.0.9-pre.0`), the
+  first version without its own copy of the check. That module's `<interoperability>` updates this one to 4.7.6 in
+  return. Lowering either side lets an application run both copies (a duplicate warning) or neither.
+
+---
+
 ## How this compares to `Intent.Application.Wolverine`
 
 `Intent.Application.Wolverine`'s CONTEXT.md explicitly credits this module's constructor-generation

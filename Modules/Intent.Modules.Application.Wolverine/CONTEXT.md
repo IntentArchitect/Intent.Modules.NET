@@ -8,6 +8,8 @@ This document contains durable architectural decisions, constraints, and pattern
 
 - Command and Query models in Wolverine generate parameterized constructors by default, assigning values to properties (aligning with the MediatR module pattern).
 - If a command/query contains properties that can be constructor-initialized, we map constructor parameters to those properties.
+- A default value is kept only on the trailing run of properties that all have one. The rest are silently dropped, so `designers/Wolverine Services Extensions` adds Command and Query Element Extensions whose Validate Function warns about a property without a default after one with a default. Intent appends an extension's Validate Function to the element's own, so each installed module's check adds its own message. `Intent.Application.MediatR` carries an identical check; keep the two scripts identical. No guard between them is needed because the two modules are alternative dispatch implementations and are never installed together.
+- Version contract with `Intent.Modelers.Services.CQRS`: the floor is 6.0.9 (written against `6.0.9-pre.0`), the first version without its own copy of this check. Until 6.0.8 the check lived there and fired even where no constructor is generated. That module's `<interoperability>` updates this one to 1.1.2 in return.
 
 ### 2. Controller Dispatcher Constructor Mapping
 

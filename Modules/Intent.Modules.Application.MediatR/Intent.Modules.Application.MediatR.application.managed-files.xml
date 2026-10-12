@@ -27,6 +27,7 @@
   <file path="Templates/QueryModels/QueryModelsTemplatePartial.cs" deviationsHash="A03CD553B9ADED13FD999C71AF3BA9E60CF02C83C406047F25334CFDFAA9C8ED" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/QueryModels/QueryModelsTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/TemplateExtensions.cs" deviationsHash="1CBB0964D6E9CE11FA1994F6DE7622CE13035EDA4C1CC3398CF5AACF20C849E9" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="modelers/MediatR Services Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
   <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
   <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
 </managedFiles>

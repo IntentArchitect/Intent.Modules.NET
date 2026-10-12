@@ -6,7 +6,7 @@
   <file path="FactoryExtensions/AITasksFactoryExtension.cs" deviationsHash="A1DFF8237A90F4B672745570C75AA44791DE43BF486778B325C3D8681AF2B4A9" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/WolverineRegistrationFactoryExtension.cs" deviationsHash="696FD719D233C3A6458ED1A98F7D84B432276EC1DD86B5852123405F344376CD" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Application.Wolverine.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
-  <file path="Intent.Modules.Application.Wolverine.csproj" deviationsHash="B278870EAE85D07B353E9853FDD34358C9965021F9A57E69B5FB4BA69CFDAD9E" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Modules.Application.Wolverine.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Templates/ApplicationHandlerPolicy/ApplicationHandlerPolicyTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ApplicationHandlerPolicy/ApplicationHandlerPolicyTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
@@ -41,5 +41,6 @@
   <file path="Templates/UnitOfWorkMiddleware/UnitOfWorkMiddlewareTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/ValidationMiddleware/ValidationMiddlewareTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ValidationMiddleware/ValidationMiddlewareTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="modelers/Wolverine Services Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
   <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

@@ -97,6 +97,10 @@ public class ApplicationHandlerPolicy : IHandlerPolicy
 }
 ```
 
+## Property Default Values
+
+A Command or Query property's default value is used in the generated constructor only when every property after it also has a default value. Otherwise the default is dropped. This module adds a Services designer warning on any Command or Query whose properties are ordered this way. Move properties with a default value after all properties without one.
+
 ## NuGet Dependencies
 
 This module adds a reference to `WolverineFx` (version 5.39.5+) which supports .NET 8, 9, and 10.

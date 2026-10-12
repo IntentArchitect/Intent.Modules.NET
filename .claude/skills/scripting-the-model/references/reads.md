@@ -72,7 +72,7 @@ Notes:
 - `getElementDetails` throws for an element that lives in a **referenced** package owned by another designer; the message names the owning application and designer, so re-issue the query against that `designerId`.
 - `getDiagramSnapshot()` returns no elements until something has been PLACED — a freshly scripted designer has nothing on its diagram and no sizes yet. Don't read it before the first layout; call `apply_change_diagram_layout`, which reports the resulting positions and sizes.
 - `searchElements`'s `matches[].path` is package-rooted (`Package/Folder/Name`). Prefer it over a bare name when feeding `getElementDetails` or `lookupByPath`.
-- The finders (`findElements`, `lookupByName`, `lookupByPath`, `lookupById`, `lookupPackage`, `getPackages`, `resolveType`) are documented in `elements.md` / `packages.md` / `types.md` and are equally available in a query.
+- The finders (`findElements`, `lookupByName`, `lookupByPath`, `lookupById`, `lookupPackage`, `getPackages`, `getUnloadedPackages`, `resolveType`) are documented in `elements.md` / `packages.md` / `types.md` and are equally available in a query.
 
 ## `run_solution_query` globals
 

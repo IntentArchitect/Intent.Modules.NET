@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>96d37ee1-b043-4fbc-9c1d-86ea59520f3d</id>
+  <name>DTO Services Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+      <validateFunctionOverride>// A default value reaches the generated code through the protected constructor (non-public setters)
+// or the static Create method. Both give a default value only to the trailing parameters that all have
+// one, so a property without a default after one that has one silently loses that default.
+const dtoSettings = application.getSettings("aac8a446-047c-468b-809b-ca28989b558b"); // DTO Settings
+const setterAccessibility = dtoSettings?.getField("1b43bdbc-c11b-4e81-8285-6ca5c0876158")?.value; // Property Setter Accessibility
+const staticFactoryMethod = String(dtoSettings?.getField("c2df571f-f917-41a2-933e-cfef7999c597")?.value).toLowerCase() === "true"; // Static Factory Method
+const hasPublicSetters = !setterAccessibility || setterAccessibility === "public" || setterAccessibility === "init";
+const hasStaticFactoryMethod = staticFactoryMethod &amp;&amp; !element.getIsAbstract();
+if (hasPublicSetters &amp;&amp; !hasStaticFactoryMethod) {
+    return "";
+}
+
+let defaultValueDetected = false;
+for (const child of element.getChildren("DTO-Field")) {
+    const value = child.getValue();
+    if (value != null &amp;&amp; value !== "") {
+        defaultValueDetected = true;
+        continue;
+    }
+    if (defaultValueDetected) {
+        return {
+            text: "Property [" + child.getName() + "] without a default value must precede properties with default values",
+            type: "warning"
+        };
+    }
+}
+return "";</validateFunctionOverride>
+      <mappingSettings />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <scripts />
+</settings>

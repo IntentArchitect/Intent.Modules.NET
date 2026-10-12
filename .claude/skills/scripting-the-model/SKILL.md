@@ -1,6 +1,10 @@
 ---
 description: The designer scripting API — the map for reading a model with run_designer_query and mutating it with run_designer_script. Naming conventions, editable-first lookup, the result channel, and a per-aspect index into references/ for the real signatures (elements, types, stereotypes, associations, mappings, packages, reads, recipes). REQUIRED before calling either script tool.
 short-description: The designer scripting API: conventions, which tool to use, and an index into the per-aspect signature references.
+requiredTools:
+  - run_designer_query
+  - run_designer_script
+  - read_file
 ---
 
 # Scripting the Model
@@ -58,7 +62,7 @@ Scripts are plain JavaScript with top-level `await`. Hold references in local va
 | Stereotypes and their properties, including item lists | `references/stereotypes.md` |
 | Associations: creation, cardinality, direction, reading links | `references/associations.md` |
 | Basic and advanced mappings | `references/mappings.md` |
-| Packages (including creating one) and package references | `references/packages.md` |
+| Packages (creating, loading and unloading one) and package references | `references/packages.md` |
 | Worked end-to-end recipes | `references/recipes.md` |
 
 For the **workflow** around these — discovery order, the verify-until-clean loop, diagram layout as its own step — see the **exploring-the-model** and **changing-the-model** skills.
