@@ -57,16 +57,19 @@ Git history is the record of both versions. Commit `bcfc0d8aa6` holds the Mediat
 - `Mediator.SourceGenerator` keeps `PrivateAssets="all"` and stays in the Infrastructure project only, where
   `AddMediator` is called with `options.Assemblies = [typeof(Application.DependencyInjection)]` (P2, D17).
   Application references `Mediator.Abstractions` only.
-- `ServiceLifetime.Scoped` stays (D8).
+- `ServiceLifetime.Transient` stays (D23): a fresh handler and fresh behaviours per dispatch, as in MediatR and Wolverine.
+- `options.NotificationPublisherType` stays `SequentialNotificationPublisher` (D22): one handler at a time, stop at the first
+  failure, rethrow the handler's own exception. Mediator's built-in publishers keep going and throw `AggregateException` (a 500).
 - Only the outermost owner flushes the bus (D18). `MessageBusPublishBehaviour` checks `MessageBusFlushOwner`,
   and `IntegrationEventConsumer` claims ownership before it dispatches. Drop either and nested
   commands flush the outer work's messages before the outer commit. S7 and S7b cover the behaviour; the
   consumer's claim has no test. Code that wraps dispatches in its own transaction must claim the owner too.
-- Behaviours are Scoped, so they keep no per-call state in fields (D8).
 
 ## Running it
 
-Needs Docker (or any RabbitMQ on `localhost:5672` that accepts `guest/guest`) and the .NET 8 runtime.
+Needs Docker (the fixture starts SQL Server 2022 via Testcontainers, and RabbitMQ unless one already listens on
+`localhost:5672` with `guest/guest`) and the .NET 10 SDK with the ASP.NET Core
+targeting pack (Arch ships it separately as `aspnet-targeting-pack`; without it the build fails with NETSDK1226).
 
 ```pwsh
 # build + runtime scenarios — the fixture reuses a broker on :5672 or starts rabbitmq:3.13 via Testcontainers
@@ -81,18 +84,23 @@ dotnet run --no-launch-profile --project MediatorSpike/CqrsSpike.Subscriber/Cqrs
 curl -X POST localhost:5101/api/orders -H "Content-Type: application/json" -d '{"customerName":"Tess","total":42.5}'
 ```
 
-## Scenario matrix — runtime results (2026-10-09)
+## Scenario matrix — runtime results (2026-10-11, .NET 10)
 
-`tests/Shared/Scenarios.cs` runs against both apps over real RabbitMQ, and `tests/Shared/BehaviourChecks.cs`
-checks single behaviours in-process: 13/13 pass. Before the collapse, S1–S9 also passed unchanged
+`tests/Shared/Scenarios.cs` runs against both apps over real RabbitMQ, `tests/Shared/BehaviourChecks.cs`
+checks single behaviours in-process, and `tests/Shared/PipelineShapeChecks.cs` pins the generated pipeline, publisher and lifetimes, and
+`tests/Shared/DomainEventChecks.cs` covers domain-event dispatch in-process, and `tests/Shared/RelationalChecks.cs`
+proves rollback and unique indexes on SQL Server: 25/25 pass on
+net10.0 (13/13 on net8.0 on 2026-10-09, before D19). Before the collapse, S1–S9 also passed unchanged
 against the generated MediatR baseline (2026-10-05), which proved behavioural parity. S3b, S7b, S10,
-the behaviour checks and the stricter S7 were added after an adversarial review (D18).
+the behaviour checks and the stricter S7 were added after the adversarial review of 2026-10-09 (see
+"Adversarial review fixes" in [DECISIONS.md](DECISIONS.md); D18 covers only the bus flush).
 
 > [!NOTE]
-> Persistence is EF Core InMemory, which ignores `TransactionScope`. "Commit" below means the unit of
-> work's `SaveChanges`; rollback is never exercised. InMemory also ignores the unique `OrderId` indexes
-> behind S10's idempotency, so concurrent duplicates are only prevented on a relational provider.
-> Proving the transactional claims needs one.
+> The apps keep EF Core InMemory so they run without a database. The tests replace it with SQL Server
+> (`tests/Shared/Infrastructure/SqlServerDatabase.cs`), so every scenario runs with real transactions and the
+> unique `OrderId` indexes enforced, and `TransactionScope` nesting (consumer, command, nested command) is
+> proven not to escalate to a distributed transaction. `DomainEventChecks` and `BehaviourChecks` stay on
+> InMemory: they test dispatch, not persistence.
 
 | # | Scenario | Proves | Result |
 |---|---|---|---|
@@ -107,7 +115,12 @@ the behaviour checks and the stricter S7 were added after an adversarial review 
 | S8 | Query passes flush (`flush:0`) but never commits | UoW constrained to commands only | ✅ |
 | S9 | FastEndpoints command (validation 400 / 201) and queries | FastEndpoints host dispatch | ✅ |
 | S10 | `OrderCreatedEvent` and `RequestShipmentCommand` redelivered after the round trip | Subscriber handlers are idempotent per order under sequential redelivery: no duplicate rows, single-result lookups keep returning 200 | ✅ |
-| — | `PerformanceBehaviour` reused for two calls; unmapped domain event | per-call timing under Scoped behaviours (D8); an unmapped domain event throws instead of being dropped | ✅ |
+| — | `PerformanceBehaviour` reused for two calls; unmapped domain event | per-call timing even when an instance is reused (D8, D23); an unmapped domain event throws instead of being dropped | ✅ |
+| — | Two async validators on one command | validators run one at a time, never concurrently on the shared DbContext (D21) | ✅ |
+| — | Pipeline registrations for a command and a query, both apps | the generator closed exactly the declared behaviours, in order: 7 for commands, 6 for queries. Fails on a dropped entry or a non-literal array (P5, D20) | ✅ |
+| — | Notification publisher and lifetimes, both apps | `INotificationPublisher` resolves to `SequentialNotificationPublisher` (D22); a command's handler and behaviours are Transient (D23) | ✅ |
+| — | Relational, SQL Server (`tests/Shared/RelationalChecks.cs`) | a domain-event handler that fails after a nested command saved rolls back both rows; eight concurrent deliveries of one `OrderCreatedEvent` leave exactly one `OrderRecord` (the unique index rejects the rest) | ✅ |
+| — | Domain events, in-process (`tests/Shared/DomainEventChecks.cs`) | an event's handlers all run, one at a time; an event raised by a handler is dispatched in the same `SaveChanges`; a failing handler stops later handlers and the save, and its own exception reaches the caller | ✅ |
 
 **Two-process run:** both apps were started with `dotnet run` as separate processes against a
 RabbitMQ container and driven with curl.
@@ -139,16 +152,17 @@ commit `bcfc0d8aa6`): **112 files identical, 71 changed, 2 added, 4 removed.** P
 | Behaviours (×7) | `IPipelineBehavior` + `RequestHandlerDelegate<T>`, `next(ct)` | `IPipelineBehavior` + `MessageHandlerDelegate<TReq,T>`, `next(request, ct)`, `ValueTask` | a few lines each, bodies identical |
 | UnitOfWork constraint | `where TRequest : notnull, ICommand` | `where TRequest : IBaseCommand` | 1 line |
 | LoggingBehaviour | `IRequestPreProcessor<T>` (assembly-scanned) | `MessagePreProcessor<T,R>`, **listed first** in `PipelineBehaviors` | shape change |
-| DI (`AddApplication`) | `AddMediatR(cfg => { RegisterServicesFromAssembly; AddOpenBehavior… })` | `AddMediator((MediatorOptions o) => { o.ServiceLifetime = Scoped; o.PipelineBehaviors = [ … ]; })` | block swap |
+| DI | `AddApplication`: `AddMediatR(cfg => { RegisterServicesFromAssembly; AddOpenBehavior… })` | `Infrastructure/Configuration/MediatorConfiguration.cs`, called from `AddInfrastructure`: `AddMediator((MediatorOptions o) => { o.ServiceLifetime = Transient; o.Assemblies = [Application]; o.NotificationPublisherType = typeof(SequentialNotificationPublisher); o.PipelineBehaviors = [ … ]; })` (D17, D22, D23) | block moves to Infrastructure |
 | Domain event notification | `DomainEventNotification<T>` (instantiable generic) | **abstract** generic base + **sealed per-event** notification + `DomainEventNotificationFactory` switch | +2 files (+1 per event) |
 | Domain event handler | `INotificationHandler<DomainEventNotification<E>>` → `Task` | `INotificationHandler<ENotification>` → `ValueTask` | signature only; **body unchanged** (`notification.DomainEvent.X`) |
 | DomainEventService | `Activator.CreateInstance(typeof(DomainEventNotification<>).MakeGenericType…)` | `DomainEventNotificationFactory.Create(e)` then `Publish` (no reflection) | rewritten |
 | Controllers / FastEndpoints / integration handlers | `using MediatR;` + `ISender` | `using Mediator;` + `ISender` | **1 using line** |
 | Validators, `IBypassPipelineValidation` | — | identical code | template id only |
-| `.csproj` (Application) | `MediatR 12.5.0` | `Mediator.Abstractions` + `Mediator.SourceGenerator` (`PrivateAssets=all`) | packages |
+| `.csproj` | Application: `MediatR 12.5.0` | Application: `Mediator.Abstractions`. Infrastructure: `Mediator.SourceGenerator` (`PrivateAssets=all`) (D17) | packages |
 
-Since this was measured, D17 moved `AddMediator` and `Mediator.SourceGenerator` from Application to
-Infrastructure (`AddInfrastructure`, scanning the Application assembly via `options.Assemblies`).
+The two rows above describe the current layout. When the delta was measured, both lived in Application; D17 moved them
+to Infrastructure, and D22 gave `AddMediator` its own `MediatorConfiguration` class with a stop-on-first-failure
+notification publisher (`SequentialNotificationPublisher`, +1 file per app).
 
 Unchanged: Domain, EF Core, repositories, `IMessageBus`, MassTransit consumer and bus, security,
 filters, Api hosting.
@@ -174,11 +188,11 @@ filters, Api hosting.
    Regenerating instead of hand-assembling caught all of these.
 3. **The dispatch modules are near-identical.** Controllers, FastEndpoints and integration-handler
    call sites differ only by `using MediatR;` → `using Mediator;`.
-4. **Modular Monolith breaks generator-in-Application (probe P12).** Two Application assemblies that
-   each run the generator build clean. At runtime the first one's mediator wins `ISender`, and the
-   second module's commands throw `MissingMessageHandlerException`. D12/D17 hold for single-Application
-   Clean Architecture only. Not yet probed: one generator in a composition project with
-   `options.Assemblies = [ModA, ModB]`.
+4. **Modular Monolith: one generator, in the host (probes P12, P13; D25).** A generator per module fails: two
+   Application assemblies that each run it build clean, but the first one's mediator wins `ISender` and the
+   second module's commands throw `MissingMessageHandlerException` (P12). One generator in the host, with
+   `options.Assemblies = [ModA, ModB]` and modules referencing `Mediator.Abstractions` only, dispatches both
+   modules' commands and notifications, and a module's own behaviour can be constrained to its own messages (P13).
 5. **Validations must be modelled.** The generated validators carry only modelled rules
    (`Validations` stereotype). Without them, S2 and S9 pass invalid input straight to the handler.
 6. **Designer scripting trap:** calling `pkg.addReference(...)` reloads the designer's packages
@@ -191,7 +205,6 @@ filters, Api hosting.
 
 ## Open questions for the module phase
 
-- **Modular Monolith:** where does the generator live when one host has several Application modules (finding 4)?
 - **Migration of existing apps:** custom void handlers need `return Unit.Value;` because the bodies are user-owned. A module migration or a documented compile-fix?
 - **Role consumers of the dropped marker templates** (`Application.Command.Interface` / `Application.Query.Interface`), e.g. Dapr PubSub `IEvent : IRequest, ICommand`.
 - **Seams to replicate in other modules:**

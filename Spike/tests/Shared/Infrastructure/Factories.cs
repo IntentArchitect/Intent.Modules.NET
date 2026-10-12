@@ -14,6 +14,7 @@ using PublisherEventBus = CqrsSpike.Publisher.Application.Common.Eventing.IMessa
 using PublisherMessageBus = CqrsSpike.Publisher.Infrastructure.Eventing.MassTransitMessageBus;
 using PublisherDbContext = CqrsSpike.Publisher.Infrastructure.Persistence.ApplicationDbContext;
 using PublisherUnitOfWork = CqrsSpike.Publisher.Domain.Common.Interfaces.IUnitOfWork;
+using SubscriberDbContext = CqrsSpike.Subscriber.Infrastructure.Persistence.ApplicationDbContext;
 
 namespace CqrsSpike.Scenarios.Infrastructure;
 
@@ -58,10 +59,12 @@ internal static class FactoryConfiguration
 public sealed class PublisherFactory : WebApplicationFactory<CqrsSpike.Publisher.Api.Program>
 {
     private readonly PipelineRecorder _recorder;
+    private readonly string _database;
 
-    public PublisherFactory(PipelineRecorder recorder)
+    public PublisherFactory(PipelineRecorder recorder, string database)
     {
         _recorder = recorder;
+        _database = database;
     }
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
@@ -69,6 +72,7 @@ public sealed class PublisherFactory : WebApplicationFactory<CqrsSpike.Publisher
         FactoryConfiguration.Apply(builder);
         builder.ConfigureTestServices(services =>
         {
+            SqlServerDatabase.Replace<PublisherDbContext>(services, _database);
             services.AddHttpContextAccessor();
             services.AddSingleton(_recorder);
             services.AddTransient<IStartupFilter, TraceHeaderStartupFilter>();
@@ -84,9 +88,17 @@ public sealed class PublisherFactory : WebApplicationFactory<CqrsSpike.Publisher
 
 public sealed class SubscriberFactory : WebApplicationFactory<CqrsSpike.Subscriber.Api.Program>
 {
+    private readonly string _database;
+
+    public SubscriberFactory(string database)
+    {
+        _database = database;
+    }
+
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         FactoryConfiguration.Apply(builder);
+        builder.ConfigureTestServices(services => SqlServerDatabase.Replace<SubscriberDbContext>(services, _database));
     }
 }
 
