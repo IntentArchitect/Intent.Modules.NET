@@ -1,6 +1,6 @@
 <Project>
   <!-- Isolates the spike from the modules repo build settings (LangVersion pin, etc.). -->
   <PropertyGroup>
-    <LangVersion>12.0</LangVersion>
+    <LangVersion>14.0</LangVersion>
   </PropertyGroup>
 </Project>

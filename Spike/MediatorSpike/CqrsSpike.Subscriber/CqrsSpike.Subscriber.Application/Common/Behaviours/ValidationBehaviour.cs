@@ -1,5 +1,6 @@
 using CqrsSpike.Subscriber.Application.Common.Interfaces;
 using FluentValidation;
+using FluentValidation.Results;
 using Mediator;
 
 namespace CqrsSpike.Subscriber.Application.Common.Behaviours
@@ -27,8 +28,15 @@ namespace CqrsSpike.Subscriber.Application.Common.Behaviours
             if (_validators.Any())
             {
                 var context = new ValidationContext<TRequest>(request);
-                var validationResults = await Task.WhenAll(_validators.Select(v => v.ValidateAsync(context, cancellationToken)));
-                var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
+                var failures = new List<ValidationFailure>();
+
+                // One validator at a time: async rules share the scoped DbContext, which does not
+                // support concurrent operations.
+                foreach (var validator in _validators)
+                {
+                    var result = await validator.ValidateAsync(context, cancellationToken);
+                    failures.AddRange(result.Errors.Where(f => f != null));
+                }
 
                 if (failures.Count != 0)
                 {
