@@ -84,9 +84,83 @@ internal static class MigrationHelper
 
         var sdkOptions = new SDKOptions(sdkString);
 
-        return sdkOptions.IsMicrosoftNETSdkWeb() || sdkOptions.IsMicrosoftNETSdkBlazorWebAssembly() || sdkOptions.IsMicrosoftNETSdkWorker()
-            || (sdkOptions.IsMicrosoftNETSdk() && generateLaunchSettings);
+        // Honoured for every SDK: ApplyGenerateSettingsDefaults turns it on for host projects first
+        return generateLaunchSettings &&
+               (sdkOptions.IsMicrosoftNETSdkWeb() || sdkOptions.IsMicrosoftNETSdkBlazorWebAssembly() || sdkOptions.IsMicrosoftNETSdkWorker() || sdkOptions.IsMicrosoftNETSdk());
     }
+
+    /// <summary>
+    /// Defaults "Generate AppSettings File" and "Generate LaunchSettings File" to true on every
+    /// <c>C# Project (.NET)</c> with a host SDK (Web, Worker, Blazor WebAssembly), and records that SDK
+    /// in the element's metadata. This mirrors the <c>.NET Settings</c> On Changed script, which uses the
+    /// same marker to tell a default it applied from a value the user chose.
+    /// </summary>
+    public static void ApplyGenerateSettingsDefaults(IApplicationPersistable application)
+    {
+        foreach (var package in application.GetDesigners().Where(s => s.Id == Designers.VisualStudioId).SelectMany(x => x.GetPackages()))
+        {
+            var requiresSave = false;
+
+            foreach (var project in package.GetElementsOfType(CSharpProjectNETModel.SpecializationTypeId))
+            {
+                if (!project.Stereotypes.TryGet(NETSettings.DefinitionId, out var netSettings) ||
+                    !netSettings.Properties.TryGet(SdkPropertyId, out var sdkProperty) ||
+                    !HostSdks.Contains(sdkProperty.Value))
+                {
+                    continue;
+                }
+
+                SetFlag(netSettings, GenerateAppSettingsFilePropertyId, "Generate AppSettings File");
+                SetFlag(netSettings, GenerateLaunchSettingsFilePropertyId, "Generate LaunchSettings File");
+
+                if (project.Metadata.Exists(GenerateSettingsDefaultsSdkMetadataKey))
+                {
+                    project.Metadata.Update(GenerateSettingsDefaultsSdkMetadataKey, sdkProperty.Value);
+                }
+                else
+                {
+                    project.Metadata.Add(GenerateSettingsDefaultsSdkMetadataKey, sdkProperty.Value);
+                }
+
+                requiresSave = true;
+            }
+
+            if (requiresSave)
+            {
+                package.Save();
+            }
+        }
+
+        static void SetFlag(Persistence.IStereotypePersistable netSettings, string propertyId, string propertyName)
+        {
+            if (!netSettings.Properties.TryGet(propertyId, out var property))
+            {
+                property = netSettings.Properties.Add(
+                    id: propertyId,
+                    name: propertyName,
+                    value: "true",
+                    configure: config => config.IsActive = true);
+            }
+
+            property.Value = "true";
+            property.IsActive = true;
+        }
+    }
+
+    /// <summary>
+    /// Must match the key the <c>.NET Settings</c> On Changed script uses.
+    /// </summary>
+    private const string GenerateSettingsDefaultsSdkMetadataKey = "generate-settings-defaults-sdk";
+    private const string SdkPropertyId = "1f0cdbc4-7a18-40a5-aeca-90452cce4fcf";
+    private const string GenerateAppSettingsFilePropertyId = "a811d3f2-253e-46de-ae72-bd6ec9f30d54";
+    private const string GenerateLaunchSettingsFilePropertyId = "4fe561b9-333e-4341-8243-d569db8cd8f4";
+
+    private static readonly string[] HostSdks =
+    [
+        "Microsoft.NET.Sdk.Web",
+        "Microsoft.NET.Sdk.Worker",
+        "Microsoft.NET.Sdk.BlazorWebAssembly"
+    ];
 
     public static string GetNewBaseUrl()
     {

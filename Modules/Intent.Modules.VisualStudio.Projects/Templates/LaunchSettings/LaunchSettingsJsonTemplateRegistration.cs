@@ -23,19 +23,24 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
-            var modelIds = _metadataManager.CodebaseStructure(application).GetASPNETCoreWebApplicationModels()
-                .Select(x => x.Id)
+            // Web, Worker and Blazor WebAssembly projects are always registered: managed when "Generate
+            // LaunchSettings File" is on, hands-off (an existing file is kept exactly as it is) when off.
+            // A plain Microsoft.NET.Sdk project is only registered when the flag is on.
+            var registrations = _metadataManager.CodebaseStructure(application).GetASPNETCoreWebApplicationModels()
+                .Select(x => (x.Id, IsHandsOff: false))
                 .Union(_metadataManager.CodebaseStructure(application).GetCSharpProjectNETModels()
                     .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkWeb() ||
                                 x.GetNETSettings().SDK().IsMicrosoftNETSdkBlazorWebAssembly() ||
-                                x.GetNETSettings().SDK().IsMicrosoftNETSdkWorker() ||
-                                (x.GetNETSettings().SDK().IsMicrosoftNETSdk() && x.GetNETSettings().GenerateLaunchSettingsFile()))
-                    .Select(x => x.Id));
+                                x.GetNETSettings().SDK().IsMicrosoftNETSdkWorker())
+                    .Select(x => (x.Id, IsHandsOff: !x.GetNETSettings().GenerateLaunchSettingsFile())))
+                .Union(_metadataManager.CodebaseStructure(application).GetCSharpProjectNETModels()
+                    .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdk() && x.GetNETSettings().GenerateLaunchSettingsFile())
+                    .Select(x => (x.Id, IsHandsOff: false)));
 
-            foreach (var modelId in modelIds)
+            foreach (var (modelId, isHandsOff) in registrations)
             {
                 var project = application.Projects.Single(x => x.Id == modelId);
-                registry.Register(TemplateId, project, p => new LaunchSettingsJsonTemplate(p, project.Application.EventDispatcher, application, _persistenceLoader));
+                registry.Register(TemplateId, project, p => new LaunchSettingsJsonTemplate(p, project.Application.EventDispatcher, application, _persistenceLoader, isHandsOff));
             }
         }
     }

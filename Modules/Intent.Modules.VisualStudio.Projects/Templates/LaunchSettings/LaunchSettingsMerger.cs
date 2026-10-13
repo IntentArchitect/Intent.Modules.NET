@@ -1,8 +1,6 @@
 #nullable enable
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
 using System.Linq;
 using Intent.Modules.Common.CSharp.Configuration;
 using Newtonsoft.Json;
@@ -55,20 +53,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
             return JToken.DeepEquals(original, merged)
                 ? existingContent
-                : Serialize(merged, existingContent);
+                : JsonFileFormatting.Serialize(merged, existingContent);
         }
 
-        public static JObject Parse(string content)
-        {
-            using var reader = new JsonTextReader(new StringReader(content))
-            {
-                // Keep date- and number-like values exactly as they were written
-                DateParseHandling = DateParseHandling.None,
-                FloatParseHandling = FloatParseHandling.Decimal
-            };
-
-            return JObject.Load(reader);
-        }
+        public static JObject Parse(string content) => JsonFileFormatting.Parse(content);
 
         private static string CreateNew(LaunchSettings launchSettings, LaunchSettingsRegistrations registrations)
         {
@@ -235,56 +223,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                     }
                 }
             }
-        }
-
-        private static string Serialize(JObject launchSettings, string originalContent)
-        {
-            var leadingWhitespace = originalContent[..(originalContent.Length - originalContent.TrimStart().Length)];
-            var trailingWhitespace = originalContent[originalContent.TrimEnd().Length..];
-            var (indentChar, indentation) = DetectIndentation(originalContent);
-
-            using var stringWriter = new StringWriter(CultureInfo.InvariantCulture) { NewLine = DetectNewLine(originalContent) };
-            using (var jsonWriter = new JsonTextWriter(stringWriter))
-            {
-                jsonWriter.Formatting = Formatting.Indented;
-                jsonWriter.IndentChar = indentChar;
-                jsonWriter.Indentation = indentation;
-
-                launchSettings.WriteTo(jsonWriter);
-            }
-
-            return leadingWhitespace + stringWriter + trailingWhitespace;
-        }
-
-        private static string DetectNewLine(string content)
-        {
-            var index = content.IndexOf('\n');
-            if (index < 0)
-            {
-                return Environment.NewLine;
-            }
-
-            return index > 0 && content[index - 1] == '\r' ? "\r\n" : "\n";
-        }
-
-        private static (char IndentChar, int Indentation) DetectIndentation(string content)
-        {
-            // The first indented line is one level deep, so its leading whitespace is one indent
-            foreach (var line in content.Split('\n').Skip(1))
-            {
-                if (string.IsNullOrWhiteSpace(line))
-                {
-                    continue;
-                }
-
-                var width = line.Length - line.TrimStart(' ', '\t').Length;
-                if (width > 0)
-                {
-                    return (line[0], width);
-                }
-            }
-
-            return (' ', 2);
         }
     }
 }

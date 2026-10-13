@@ -13,7 +13,9 @@ using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Persistence;
 using Intent.SdkEvolutionHelpers;
+using Intent.Modules.VisualStudio.Projects.Sync;
 using Intent.Templates;
+using Intent.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -37,13 +39,26 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         private readonly List<EnvironmentVariableRegistrationRequest> _environmentVariables = new();
         private bool _noDefaultLaunchSettingsFile;
 
+        /// <summary>
+        /// <c>Generate LaunchSettings File</c> is off for a host project: an existing file is left exactly
+        /// as it is, none is created, and profiles, environment variables and ports are not added.
+        /// </summary>
+        private readonly bool _isHandsOff;
+
         public const string Identifier = "Intent.VisualStudio.Projects.CoreWeb.LaunchSettings";
 
         public LaunchSettingsJsonTemplate(IOutputTarget outputTarget, IApplicationEventDispatcher applicationEventDispatcher, IApplication application,
             IPersistenceLoader persistenceLoader)
+            : this(outputTarget, applicationEventDispatcher, application, persistenceLoader, isHandsOff: false)
+        {
+        }
+
+        public LaunchSettingsJsonTemplate(IOutputTarget outputTarget, IApplicationEventDispatcher applicationEventDispatcher, IApplication application,
+            IPersistenceLoader persistenceLoader, bool isHandsOff)
             : base(Identifier, outputTarget, null)
         {
             _persistenceLoader = persistenceLoader;
+            _isHandsOff = isHandsOff;
             _model = ExecutionContext.MetadataManager.GetAllProjectModels(application).FirstOrDefault(m => m.Id == OutputTarget.Id);
 
             ExecutionContext.EventDispatcher.Subscribe<EnvironmentVariableRegistrationRequest>(HandleEnvironmentVariable);
@@ -117,7 +132,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         
         public override bool CanRunTemplate()
         {
-            return !_noDefaultLaunchSettingsFile;
+            if (_noDefaultLaunchSettingsFile)
+            {
+                return false;
+            }
+
+            // Hands-off never creates the file. An existing one is still "generated" (unchanged, see
+            // TransformText) so that the Software Factory neither rewrites it nor proposes deleting it.
+            return !_isHandsOff || TryGetExistingFileContent(out _);
         }
 
         private void HandleLaunchProfileRegistration(LaunchProfileRegistrationRequest request)
@@ -196,6 +218,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
             if (!TryGetExistingFileContent(out var content) || string.IsNullOrWhiteSpace(content))
             {
+                if (_isHandsOff)
+                {
+                    // No file will be created, so there are no ports to announce or record
+                    return;
+                }
+
                 if (!string.IsNullOrWhiteSpace(_defaultApplicationUrl))
                 {
                     _randomSslPort = new Uri(_defaultApplicationUrl).Port;
@@ -305,6 +333,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
         public override string TransformText()
         {
+            if (_isHandsOff)
+            {
+                LogDroppedRegistrations();
+                return TryGetExistingFileContent(out var existingContent) ? existingContent : string.Empty;
+            }
+
             var environmentVariables = new List<EnvironmentVariableRegistrationRequest>
             {
                 // In case has not been set through an event, sets this be default.
@@ -326,6 +360,22 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 existingContent: TryGetExistingFileContent(out var content) ? content : null,
                 createDefaultLaunchSettings: GetDefaultLaunchSettings,
                 registrations: registrations);
+        }
+
+        private void LogDroppedRegistrations()
+        {
+            var dropped = Profiles.Keys.Select(name => $"profile \"{name}\"")
+                .Concat(_environmentVariables.Select(x => $"environment variable \"{x.Key}\""))
+                .Distinct()
+                .ToArray();
+            if (dropped.Length == 0)
+            {
+                return;
+            }
+
+            Logging.Log.Info(
+                $"\"Generate LaunchSettings File\" is off for project \"{Project.Name}\", " +
+                $"so these were not added to its launchSettings.json: {string.Join(", ", dropped)}");
         }
 
         private bool IsMicrosoftNETSdkWorker()
@@ -434,13 +484,21 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
-            return new TemplateFileConfig(
+            var config = new TemplateFileConfig(
                 overwriteBehaviour: OverwriteBehaviour.Always,
                 codeGenType: CodeGenType.Basic,
                 fileName: "launchSettings",
                 fileExtension: "json",
                 relativeLocation: "Properties"
             );
+
+            if (_isHandsOff)
+            {
+                // A hands-off file's .csproj items are the developer's too: neither added nor removed
+                config.CustomMetadata[FileAddedData.LeaveProjectItemsUnchangedKey] = "true";
+            }
+
+            return config;
         }
     }
 }

@@ -19,6 +19,37 @@
   <order>0</order>
   <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
   <packageName>Intent.VisualStudio.Projects</packageName>
+  <onChangedScript>// Defaults "Generate AppSettings File" and "Generate LaunchSettings File" to true for host-type
+// SDKs. The metadata marker records the SDK the defaults were last applied for, so an untick
+// sticks until the SDK changes. The marker is written before the flags, so the On Changed event
+// raised by setting them returns early instead of re-applying the defaults.
+const markerKey = "generate-settings-defaults-sdk";
+const hostSdks = ["Microsoft.NET.Sdk.Web", "Microsoft.NET.Sdk.Worker", "Microsoft.NET.Sdk.BlazorWebAssembly"];
+
+const stereotype = element.getStereotype("a490a23f-5397-40a1-a3cb-6da7e0b467c0"); // .NET Settings
+if (stereotype == null) {
+    return;
+}
+
+const sdk = stereotype.getProperty("SDK")?.value;
+const marker = element.hasMetadata(markerKey) ? element.getMetadata(markerKey) : null;
+
+if (hostSdks.indexOf(sdk) &gt;= 0) {
+    if (marker === sdk) {
+        return;
+    }
+
+    element.setMetadata(markerKey, sdk);
+    stereotype.getProperty("Generate AppSettings File").setValue(true);
+    stereotype.getProperty("Generate LaunchSettings File").setValue(true);
+    return;
+}
+
+if (marker != null) {
+    element.removeMetadata(markerKey);
+    stereotype.getProperty("Generate AppSettings File").setValue(false);
+    stereotype.getProperty("Generate LaunchSettings File").setValue(false);
+}</onChangedScript>
   <properties>
     <property id="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf">
       <name>SDK</name>
@@ -212,6 +243,7 @@ return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunctio
       </valueOptions>
     </property>
     <property id="a811d3f2-253e-46de-ae72-bd6ec9f30d54">
+      <hint>Generate and manage this project's `appsettings.json`. On by default for Web, Worker and Blazor WebAssembly projects. For those projects, turning it off makes Intent hands-off: an existing `appsettings.json` is left exactly as it is, none is created, and settings other modules request for this project are not written.</hint>
       <name>Generate AppSettings File</name>
       <type>string</type>
       <controlType>checkbox</controlType>
@@ -220,12 +252,16 @@ return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunctio
       <defaultValue>false</defaultValue>
       <isActiveFunction>switch (SDK) {
     case "Microsoft.NET.Sdk":
+    case "Microsoft.NET.Sdk.Web":
+    case "Microsoft.NET.Sdk.Worker":
+    case "Microsoft.NET.Sdk.BlazorWebAssembly":
         return true;
     default:
         return false;
 }</isActiveFunction>
     </property>
     <property id="4fe561b9-333e-4341-8243-d569db8cd8f4">
+      <hint>Generate and manage this project's `Properties/launchSettings.json`. On by default for Web, Worker and Blazor WebAssembly projects. For those projects, turning it off makes Intent hands-off: an existing `launchSettings.json` is left exactly as it is, none is created, and launch profiles other modules request are not added.</hint>
       <name>Generate LaunchSettings File</name>
       <type>string</type>
       <controlType>checkbox</controlType>
@@ -234,6 +270,9 @@ return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunctio
       <defaultValue>false</defaultValue>
       <isActiveFunction>switch (SDK) {
     case "Microsoft.NET.Sdk":
+    case "Microsoft.NET.Sdk.Web":
+    case "Microsoft.NET.Sdk.Worker":
+    case "Microsoft.NET.Sdk.BlazorWebAssembly":
         return true;
     default:
         return false;

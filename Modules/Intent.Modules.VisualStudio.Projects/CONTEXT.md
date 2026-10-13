@@ -69,11 +69,43 @@ Management (CPM) for a solution.
     follows the model, so `MSTest.Sdk` modelled as `Microsoft.NET.Sdk` *is* rewritten. Rejected: a
     free-text or `(unspecified)` SDK option (the user chose an explicit `MSTest.Sdk` option instead).
   - `TargetFrameworksSync`: see the invariant below. Rejected for now: modelling platform TFMs.
+  - `AppSettingsTemplate.UpdateExistingFile`: same no-op/format-preserving contract as
+    `LaunchSettingsMerger`, via the shared `JsonFileFormatting`.
   - `SlnxMerger.NormalizePath`: `./src/X/X.csproj` and `src/X/X.csproj` are the same entry.
     `CSharpProjectNETModel.GetRelativeLocation()` keeps its `.` seed, because it also feeds
     `ProjectConfig`'s output path, and the classic `.sln` template emits `.\` deliberately. Only the
     `.slnx` side normalises. An existing `./`-prefixed entry is matched and kept as written, not
     rewritten, since rewriting it would be exactly the churn being removed.
+
+- **`Generate AppSettings File` / `Generate LaunchSettings File` registers a host project's template
+  in one of two modes rather than not at all.** For Web, Worker and Blazor WASM projects, flag off
+  means *hands-off*: the template is still registered, `CanRunTemplate()` is true only when the file
+  exists, and `RunTemplate()` returns it unchanged. A registered template whose output equals the
+  file on disk is what stops the Software Factory both rewriting it and proposing to delete it.
+  Not registering at all would leave a previously generated file looking orphaned. Hands-off also keeps
+  claiming `AppSettingRegistrationRequest`s (`MarkHandled`) and drops them, with one SF info line, so
+  they can't fall through to another project's file. Hands-off covers the file's `.csproj` items
+  too: the template sets the module-internal `FileAddedData.LeaveProjectItemsUnchangedKey` file
+  metadata and the project sync then neither adds nor removes the file's items. Rejected: just
+  omitting the item-type metadata in hands-off mode. The sync reads "no metadata" as "remove the
+  item", so a Worker switched from managed to hands-off lost its `<Content Include>` and stopped
+  copying `appsettings.json`. Keeping the managed metadata instead would add `Content` items to a
+  brownfield Worker. A plain `Microsoft.NET.Sdk` project keeps the
+  old rule (registered only when on), because a hands-off template there would swallow settings that
+  class libraries rely on flowing to their host. The legacy `ASP.NET Core Web Application` element
+  stays unconditional.
+
+- **The flags default to true for host SDKs through three paths, which share a metadata marker.**
+  A hidden designer default of `false` is indistinguishable from a real `false`, so the `.NET Settings`
+  On Changed script records the SDK it last defaulted for in element metadata
+  (`generate-settings-defaults-sdk`). Marker ≠ host SDK: set both flags true. Marker = SDK: leave them
+  alone, so an untick sticks. Non-host SDK with a marker: reset both to false and remove the marker.
+  The script writes the marker *before* the flags, so the On Changed event raised by setting them
+  returns early. `MigrationHelper.ApplyGenerateSettingsDefaults` does the same for the
+  `4.1.11-pre.0` version migration (upgrades) and `OnInstallMigration` (new apps). The key and
+  property ids in `MigrationHelper` must stay in sync with the script. Accepted costs: the upgrade
+  edits every host project's metadata; changing SDK between host types re-defaults an earlier
+  untick; a brownfield install also defaults to on, and adopters untick (see README).
 
 ## Invariants & Constraints
 
@@ -85,6 +117,24 @@ Management (CPM) for a solution.
   warning, because rewriting them would mean guessing per-platform version suffixes
   (`windows10.0.19041.0`). So changing a MAUI project's framework in the model is a manual `.csproj`
   edit.
+
+- **`AppSettingsTemplate` consults `.editorconfig` only for a brand-new file.** An existing file's
+  indentation and newlines are detected from the file itself. Only the `[*]` section and sections
+  whose glob matches the file apply; previously every `indent_size` in the file applied and the last
+  one won, so eShop's `[*.{cs,...}] indent_size = 4` re-indented its JSON.
+
+- **The project sync never leaves a file's `Remove` item behind when it drops that file's
+  re-include.** `CoreProjectSyncProcessor` removes a file's item when its template requests no item
+  settings. A same-type `Remove` + `Include` pair is the shape written for `RemoveItemType`, so both
+  go together (and an emptied `ItemGroup` with them), restoring the SDK's default globbing.
+  Previously only the `Include` went, which excluded the file entirely. A `Remove` with no matching
+  re-include is a deliberate exclusion by the developer and is kept.
+
+- **`HasLaunchSettings` now requires `Generate LaunchSettings File` for every SDK.** The
+  `3.9.2-pre.0` migration's call to `ApplyLaunchSettingsStereotype` therefore skips host projects
+  for an app upgrading from before it, since the flags aren't set yet at that point. The
+  `4.1.11-pre.0` migration repeats the call after setting them. Note that `ApplyLaunchSettingsStereotype`
+  only saves the package when `setValue` is true.
 
 - **This flag makes floating versions legal to NuGet; it does not change how this module resolves
   versions.** `SdkSchemeProcessor` (see `FactoryExtensions/NuGet/SchemeProcessors/SdkSchemeProcessor.cs`)

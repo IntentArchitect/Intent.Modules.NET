@@ -159,7 +159,7 @@ Adding an `IntentIgnore="true"` attribute to a `PackageReference` will cause thi
 
 ## Launch Settings
 
-For web, Blazor WebAssembly and worker projects (and `Microsoft.NET.Sdk` projects with _Generate LaunchSettings File_ enabled on the _.NET Settings_ stereotype), this module generates `Properties/launchSettings.json`, including launch profiles and environment variables which other modules register (e.g. a `Docker` profile).
+For projects with _Generate LaunchSettings File_ enabled on the _.NET Settings_ stereotype, this module generates `Properties/launchSettings.json`, including launch profiles and environment variables which other modules register (e.g. a `Docker` profile). _Generate LaunchSettings File_ is on by default for Web, Worker and Blazor WebAssembly projects (see [Generate AppSettings File and Generate LaunchSettings File](#generate-appsettings-file-and-generate-launchsettings-file)).
 
 Once the file exists, it is only ever added to:
 
@@ -169,6 +169,14 @@ Once the file exists, it is only ever added to:
 - On `*.Api` profiles, a `launchUrl` pointing at `swagger` or `scalar/v1` is updated when you switch between Swashbuckle and Scalar. Any other `launchUrl` is left as you set it.
 
 Everything else in the file is preserved as written, including `$schema`, property order, unrecognized properties and `commandName` values, indentation, line endings, and the trailing newline. When nothing needs adding, the file is left untouched.
+
+## App Settings
+
+For projects with _Generate AppSettings File_ enabled on the _.NET Settings_ stereotype, this module generates `appsettings.json` (and `appsettings.{Environment}.json` for each modelled runtime environment), adding the settings and connection strings which other modules register.
+
+An existing file is only ever added to: a setting that is already present keeps its value. When nothing needs adding, the file is left byte-for-byte as it is. When something is added, the file keeps its own indentation, line endings and comments, and date- and number-like values are kept exactly as written.
+
+A new file is indented according to the `.editorconfig` that applies to it, honouring only the `[*]` section and sections whose glob matches the file (e.g. `[*.json]`), so a `[*.cs]` `indent_size` does not reach JSON files. Without one, it is indented with 2 spaces.
 
 ## Stereotype details
 
@@ -191,6 +199,15 @@ The _Target Framework_ / _Target Frameworks_ properties set the `.csproj` file's
 - it holds platform-specific frameworks (e.g. `net10.0-android;net10.0-ios`) which reduce to the modelled framework.
 
 The model can't represent platform-specific frameworks. When those of a multi-platform project (e.g. .NET MAUI) no longer match the model, the `.csproj` is left untouched and the Software Factory logs a warning naming the project, so the change has to be made by hand.
+
+#### Generate AppSettings File and Generate LaunchSettings File
+
+These control whether this module manages the project's `appsettings.json` (see [App Settings](#app-settings)) and `Properties/launchSettings.json` (see [Launch Settings](#launch-settings)). They are available for `Microsoft.NET.Sdk`, Web, Worker and Blazor WebAssembly projects:
+
+- **Web, Worker and Blazor WebAssembly projects** default to on, both when a project is created and when its _SDK_ is changed to one of these. Turning a flag off makes Intent hands-off for that file: an existing file and its `.csproj` items (e.g. `<Content Include="appsettings.json">`) are left exactly as they are (never rewritten, added or deleted), none is created, and settings, launch profiles or ports which other modules request for the project are not written. The Software Factory log lists what was not written.
+- **`Microsoft.NET.Sdk` projects** default to off. With _Generate AppSettings File_ off, settings registered for the project are handled by the host projects that reference it.
+
+Applications upgraded from an earlier version of this module have both flags turned on for their Web, Worker and Blazor WebAssembly projects, so those files keep being generated.
 
 #### The `Suppress Warnings` property
 
@@ -269,6 +286,7 @@ When modelling projects that already exist on disk, model them to match the repo
 - Turn on _Materialize Folder_ for solution folders that are folders on disk (e.g. `src`, `tests`).
 - Set _SDK_ to what each `.csproj` uses, including `MSTest.Sdk` for MSTest projects. Leave _MSTest SDK Version_ empty when `global.json` supplies it.
 - Set _Target Framework_ to each project's base framework (e.g. `net10.0` for a .NET MAUI app targeting `net10.0-android;net10.0-ios`).
+- Untick _Generate AppSettings File_ and _Generate LaunchSettings File_ on Web, Worker and Blazor WebAssembly projects whose `appsettings.json` and `launchSettings.json` should stay hands-off.
 
 ### Central Package Management
 

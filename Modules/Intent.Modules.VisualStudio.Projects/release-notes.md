@@ -4,6 +4,9 @@
 - Fixed: With _Materialize Folder_ on, merging into an existing `.slnx` whose entries were written by `dotnet sln add` (`src/X/X.csproj`) crashed the Software Factory with a duplicate project name. Paths are now compared after normalisation, and new entries are written without a `./` prefix.
 - New Feature: Added `MSTest.Sdk` to the _.NET Settings_ _SDK_ options, with an optional _MSTest SDK Version_. An existing `Sdk` attribute that the model can't represent (e.g. `Microsoft.Build.NoTargets/3.7.0`) is no longer overwritten.
 - Fixed: Platform-specific or conditional target frameworks (e.g. a .NET MAUI project's `net10.0-android;net10.0-ios`) were collapsed to the modelled framework. They are now left untouched, as is a reordered but otherwise equal `TargetFrameworks` list.
+- Improvement: _Generate AppSettings File_ and _Generate LaunchSettings File_ now apply to Web, Worker and Blazor WebAssembly projects, defaulting to on (existing applications are migrated to on). Turning one off leaves an existing file and its `.csproj` items exactly as they are, and drops what other modules request for it.
+- Fixed: When a generated file stopped requesting its `.csproj` item settings, only its re-include item was removed, leaving its `Remove` item and an empty `ItemGroup` behind. This excluded the file from the project (e.g. `appsettings.json` was no longer copied to the output). Both items are now removed, restoring the SDK's default.
+- Fixed: An existing `appsettings.json` was re-indented on every run, using `.editorconfig` settings meant for other file types. It is now left untouched when nothing is added, keeps its own formatting and comments when something is, and `.editorconfig` sections are honoured for new files.
 
 ### Version 4.1.10
 
