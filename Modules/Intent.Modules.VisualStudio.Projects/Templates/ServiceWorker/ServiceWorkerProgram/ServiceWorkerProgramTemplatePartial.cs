@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Intent.Engine;
@@ -41,9 +42,23 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
             }
 
             CSharpFile = (useTopLevelStatements
-                    ? new CSharpFile(string.Empty, this.GetFolderPath()).AddUsing(this.GetNamespace())
+                    ? new CSharpFile(string.Empty, this.GetFolderPath())
                     : new CSharpFile(this.GetNamespace(), this.GetFolderPath()))
                 .IntentManagedMerge();
+
+            if (useTopLevelStatements)
+            {
+                // Top-level statements need a using for what a Main method would see through its
+                // enclosing namespace. Checked once every template is registered.
+                CSharpFile.OnBuild(file =>
+                {
+                    var projectNamespace = this.GetNamespace();
+                    if (IsNamespaceDeclared(projectNamespace, GetNamespacesGeneratedInThisProject()))
+                    {
+                        file.AddUsing(projectNamespace);
+                    }
+                });
+            }
 
             if (_existingProgramShape.Kind == ExistingProgramShapeKind.Unrecognised)
             {
@@ -116,6 +131,35 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
                 $"the role \"{IAppStartupTemplate.RoleName}\" to get the correct template.");
 
         public bool HasStartupFile => _startupFile is not null;
+
+        /// <summary>
+        /// Whether <c>using <paramref name="namespace"/>;</c> would compile: something is declared in that
+        /// namespace or one nested under it. A project's code can live under a different root than its
+        /// name (dotnet/eShop's OrderProcessor project uses eShop.OrderProcessor.*), and a using for a
+        /// namespace that doesn't exist fails with CS0246.
+        /// </summary>
+        internal static bool IsNamespaceDeclared(string @namespace, IEnumerable<string> declaredNamespaces)
+        {
+            if (string.IsNullOrWhiteSpace(@namespace))
+            {
+                return false;
+            }
+
+            return declaredNamespaces.Any(declared =>
+                declared != null &&
+                (declared == @namespace || declared.StartsWith($"{@namespace}.", StringComparison.Ordinal)));
+        }
+
+        private IEnumerable<string> GetNamespacesGeneratedInThisProject()
+        {
+            var projectId = OutputTarget.GetProject()?.Id;
+
+            return ExecutionContext.GetApplicationTemplates()
+                .OfType<IntentTemplateBase>()
+                .Where(template => !ReferenceEquals(template, this) && template.OutputTarget.GetProject()?.Id == projectId)
+                .OfType<IClassProvider>()
+                .Select(template => template.Namespace);
+        }
 
         private string ReadExistingProgramFile()
         {

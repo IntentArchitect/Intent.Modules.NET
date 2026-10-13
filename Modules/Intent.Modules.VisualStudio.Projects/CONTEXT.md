@@ -120,6 +120,16 @@ Management (CPM) for a solution.
   sets that to match the file. Rejected: detecting it from the file, because on-disk detection must
   never override a modelled setting.
 
+- **A top-level `Program.cs` only gets `using <project namespace>;` when a generated type in the same
+  project is declared in that namespace or under it.** The using stands in for the enclosing
+  namespace a `Main` method's class would have. A brownfield project's code can live under a
+  different root than its name (eShop's `OrderProcessor` project uses `eShop.OrderProcessor.*`), and
+  an unconditional `using OrderProcessor;` failed to compile with CS0246. The check runs in an
+  `OnBuild` callback, once every template is registered. Hand-written types aren't visible to it,
+  which only drops a using that no generated statement needs. Rejected: never adding it, which could
+  break greenfield top-level Workers whose generated statements reference root-namespace types by
+  name. `Intent.AspNetCore`'s `ProgramTemplate` still adds the using unconditionally.
+
 - **The Worker template is in Merge mode (`IntentManagedMerge()`) by default.** Previously generated
   files get a one-line `Mode.Fully` → `Mode.Merge` change. Accepted consequences: uninstalling a module
   removes its generated *statements* (RoslynWeaver 4.7.0+) but can leave its `using` lines; Serilog's

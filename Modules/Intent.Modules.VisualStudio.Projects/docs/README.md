@@ -233,6 +233,8 @@ When `Program.cs` already exists, the template adapts to it rather than adding s
 - Its builder declaration is kept as written: `var builder = WebApplication.CreateBuilder(args);` or `Host.CreateApplicationBuilder(args)` (generated as `HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);` for a new file).
 - Its run call is kept: `app.Run();`, or `await app.RunAsync();`, in which case a generated `Main` method is `async Task`.
 
+With top-level statements, `using {project namespace};` is only added when Intent generates types in that namespace (or a namespace nested under it), so a project whose code lives under a different root namespace still compiles.
+
 An existing `Program.cs` in any other shape is left untouched, and the Software Factory logs a warning. This includes `Host.CreateDefaultBuilder(args).ConfigureServices(...)`, different variable names than `builder` and `app`, or more than one run call. Startup code that other modules add to `Program.cs` (e.g. Serilog or Windows Service hosting) is then not applied.
 
 The logging settings a `Main`-method Worker adds (`Logging:EventLog:*`) are written to that project's own `appsettings.json` only.
