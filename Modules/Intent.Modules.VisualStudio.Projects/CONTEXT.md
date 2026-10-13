@@ -107,6 +107,30 @@ Management (CPM) for a solution.
   edits every host project's metadata; changing SDK between host types re-defaults an earlier
   untick; a brownfield install also defaults to on, and adopters untick (see README).
 
+- **The Worker `Program.cs` adapts to an existing file's builder line and run call only.**
+  `ExistingProgramShape` reads the file (through `ExecutionContext.FileSystem`, because
+  `TryGetExistingFileContent` needs `FileMetadata`, which isn't configured until after the
+  constructor). When it finds exactly one `builder` declaration from `WebApplication.CreateBuilder` or
+  `Host.CreateApplicationBuilder`, one `var app = builder.Build();` and one `app.Run();` /
+  `await app.RunAsync();`, the template re-emits those verbatim, so Merge mode adds nothing that
+  duplicates them. `RunAsync` makes a generated `Main` `async Task`. Any other shape is
+  `Unrecognised`: the file is generated `OnceOff` (left untouched) with a warning, because merging
+  into an unknown shape is how duplicate `Run` calls happen. Statement style (top-level vs `Main`)
+  is *never* detected: it stays with the modelled `Use top-level statements`, and brownfield setup
+  sets that to match the file. Rejected: detecting it from the file, because on-disk detection must
+  never override a modelled setting.
+
+- **The Worker template is in Merge mode (`IntentManagedMerge()`) by default.** Previously generated
+  files get a one-line `Mode.Fully` → `Mode.Merge` change. Accepted consequences: uninstalling a module
+  removes its generated *statements* (RoslynWeaver 4.7.0+) but can leave its `using` lines; Serilog's
+  try/catch wrapper is added to a brownfield file on its first merge.
+
+- **The Worker's `Logging:EventLog:*` settings go through `AppSettingsTemplate.AddSetting`, not
+  `ApplyAppSetting`.** An `AppSettingRegistrationRequest` without a role is claimed by *every* host
+  project's appsettings template, so those settings leaked into all of them. `AddSetting` targets the
+  Worker project's own base (no runtime environment) instance, found with `FindTemplateInstances`
+  from the `AddClass` callback, by which point every template is registered.
+
 ## Invariants & Constraints
 
 - **`TargetFrameworksSync` only rewrites a single, unconditional, plain-moniker value whose set

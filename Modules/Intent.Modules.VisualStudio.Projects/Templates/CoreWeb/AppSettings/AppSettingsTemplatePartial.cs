@@ -54,6 +54,27 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             return Model.IncludeAspNetCoreLoggingLevel;
         }
 
+        /// <summary>
+        /// Adds a setting to this file only. Unlike an <see cref="AppSettingRegistrationRequest"/>, which
+        /// every applicable host project claims, it can't land in another project's file. Ignored when
+        /// the template is hands-off.
+        /// </summary>
+        internal void AddSetting(string key, object value)
+        {
+            if (Model.IsHandsOff)
+            {
+                _droppedKeys.Add(key);
+                return;
+            }
+
+            if (_appSettings.Any(x => x.Key == key))
+            {
+                return;
+            }
+
+            _appSettings.Add(new AppSettingRegistrationRequest(key, value));
+        }
+
         public override bool CanRunTemplate()
         {
             if (Model.IsHandsOff)

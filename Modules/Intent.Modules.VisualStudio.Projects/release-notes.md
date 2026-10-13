@@ -7,6 +7,7 @@
 - Improvement: _Generate AppSettings File_ and _Generate LaunchSettings File_ now apply to Web, Worker and Blazor WebAssembly projects, defaulting to on (existing applications are migrated to on). Turning one off leaves an existing file and its `.csproj` items exactly as they are, and drops what other modules request for it.
 - Fixed: When a generated file stopped requesting its `.csproj` item settings, only its re-include item was removed, leaving its `Remove` item and an empty `ItemGroup` behind. This excluded the file from the project (e.g. `appsettings.json` was no longer copied to the output). Both items are now removed, restoring the SDK's default.
 - Fixed: An existing `appsettings.json` was re-indented on every run, using `.editorconfig` settings meant for other file types. It is now left untouched when nothing is added, keeps its own formatting and comments when something is, and `.editorconfig` sections are honoured for new files.
+- Fixed: A Worker project's existing `Program.cs` was overwritten, or failed to merge, and its logging settings were added to every project's `appsettings.json`. `Program.cs` is now generated in Merge mode, keeping an existing builder declaration and `Run`/`RunAsync` call. A shape it can't merge into is left untouched, and the logging settings go to that project's own `appsettings.json` only.
 
 ### Version 4.1.10
 

@@ -224,6 +224,19 @@ When enabled the `Program.cs` will no longer generate a class and instead use [t
 > [!NOTE]
 > Requires at least version `6.0.0` of the `Intent.Modules.AspNetCore` to be installed in order for changes to take effect.
 
+#### Worker projects' `Program.cs`
+
+For `Microsoft.NET.Sdk.Worker` projects, this module generates `Program.cs` with `[assembly: DefaultIntentManaged(Mode.Merge)]`, so statements you add are kept. _Use top-level statements_ decides between top-level statements and a `Main` method: set it to match an existing `Program.cs`, since switching an existing file between the two styles isn't supported.
+
+When `Program.cs` already exists, the template adapts to it rather than adding statements that duplicate yours:
+
+- Its builder declaration is kept as written: `var builder = WebApplication.CreateBuilder(args);` or `Host.CreateApplicationBuilder(args)` (generated as `HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);` for a new file).
+- Its run call is kept: `app.Run();`, or `await app.RunAsync();`, in which case a generated `Main` method is `async Task`.
+
+An existing `Program.cs` in any other shape is left untouched, and the Software Factory logs a warning. This includes `Host.CreateDefaultBuilder(args).ConfigureServices(...)`, different variable names than `builder` and `app`, or more than one run call. Startup code that other modules add to `Program.cs` (e.g. Serilog or Windows Service hosting) is then not applied.
+
+The logging settings a `Main`-method Worker adds (`Logging:EventLog:*`) are written to that project's own `appsettings.json` only.
+
 #### Use minimal hosting model
 
 When enabled `Startup.cs` will no longer be generated, and all start-up will be performed in `Program.cs` by of the [new minimal hosting model](https://learn.microsoft.com/aspnet/core/migration/50-to-60#use-startup-with-the-new-minimal-hosting-model) introduced with .NET 6.
@@ -286,6 +299,7 @@ When modelling projects that already exist on disk, model them to match the repo
 - Turn on _Materialize Folder_ for solution folders that are folders on disk (e.g. `src`, `tests`).
 - Set _SDK_ to what each `.csproj` uses, including `MSTest.Sdk` for MSTest projects. Leave _MSTest SDK Version_ empty when `global.json` supplies it.
 - Set _Target Framework_ to each project's base framework (e.g. `net10.0` for a .NET MAUI app targeting `net10.0-android;net10.0-ios`).
+- Set _Use top-level statements_ to match each Worker project's existing `Program.cs`.
 - Untick _Generate AppSettings File_ and _Generate LaunchSettings File_ on Web, Worker and Blazor WebAssembly projects whose `appsettings.json` and `launchSettings.json` should stay hands-off.
 
 ### Central Package Management
