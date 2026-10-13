@@ -242,6 +242,14 @@ This stereotype is applied to **Solution Folder** elements.
 
 When checked, this option will materialize your logical **Visual Studio Solution** folders as actual folders on disk.
 
+Projects under a materialized folder are written to an `.slnx` file the way `dotnet sln add` writes them (e.g. `src/Basket.API/Basket.API.csproj`). Paths are compared after normalisation, so an existing entry written as `src/...` or `./src/...` is matched and kept exactly as written.
+
+## Adopting an existing (brownfield) repository
+
+When modelling projects that already exist on disk, model them to match the repository so that the Software Factory leaves existing files alone:
+
+- Turn on _Materialize Folder_ for solution folders that are folders on disk (e.g. `src`, `tests`).
+
 ### Central Package Management
 
 In .NET, [Central Package Management (CPM)](https://learn.microsoft.com/nuget/consume-packages/central-package-management) allows management of NuGet package versions for multiple `.csproj` from a central `Directory.Packages.props` file and an MSBuild property.

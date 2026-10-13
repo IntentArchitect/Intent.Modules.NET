@@ -80,6 +80,22 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
         }
 
         [Fact]
+        public void WhenNew_MaterializedFolderProject_ShouldNotHaveDotPrefix()
+        {
+            // CSharpProjectNETModel seeds a Materialize Folder project's relative location with ".".
+            var model = new SolutionModel();
+            var srcFolder = CreateFolder("src");
+            var projects = new[]
+            {
+                CreateProject("Basket.API", relativeLocation: @".\src\Basket.API", parentFolder: srcFolder),
+            };
+
+            VisualStudioSolutionSlnxTemplate.SyncFoldersAndProjects(model, [srcFolder], projects);
+
+            model.SolutionProjects.Single().FilePath.ShouldBe("src/Basket.API/Basket.API.csproj");
+        }
+
+        [Fact]
         public void WhenNew_DeepNestedFolders_ShouldNestCorrectly()
         {
             var model = new SolutionModel();

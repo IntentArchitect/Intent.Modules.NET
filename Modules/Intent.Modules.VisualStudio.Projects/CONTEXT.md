@@ -59,6 +59,17 @@ Management (CPM) for a solution.
   `environmentVariables` stays ahead of `workingDirectory`). Existing `Tests/**/launchSettings.json`
   outputs therefore don't churn.
 
+- **Sync steps read what is on disk first, and write only what the model can represent and has
+  actually changed.** Driven by the dotnet/eShop brownfield adoption, where each defect was a sync step
+  overwriting something the model can't express or didn't change. The model stays authoritative for
+  everything it *can* represent: what's on disk only shapes details the model has no setting for
+  (indentation, a builder line), and never overrides a modelled setting. Applied in:
+  - `SlnxMerger.NormalizePath`: `./src/X/X.csproj` and `src/X/X.csproj` are the same entry.
+    `CSharpProjectNETModel.GetRelativeLocation()` keeps its `.` seed, because it also feeds
+    `ProjectConfig`'s output path, and the classic `.sln` template emits `.\` deliberately. Only the
+    `.slnx` side normalises. An existing `./`-prefixed entry is matched and kept as written, not
+    rewritten, since rewriting it would be exactly the churn being removed.
+
 ## Invariants & Constraints
 
 - **This flag makes floating versions legal to NuGet; it does not change how this module resolves
