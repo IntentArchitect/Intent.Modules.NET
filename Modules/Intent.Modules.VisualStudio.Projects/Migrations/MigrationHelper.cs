@@ -90,10 +90,9 @@ internal static class MigrationHelper
     }
 
     /// <summary>
-    /// Defaults "Generate AppSettings File" and "Generate LaunchSettings File" to true on every
-    /// <c>C# Project (.NET)</c> with a host SDK (Web, Worker, Blazor WebAssembly), and records that SDK
-    /// in the element's metadata. This mirrors the <c>.NET Settings</c> On Changed script, which uses the
-    /// same marker to tell a default it applied from a value the user chose.
+    /// Sets "Generate AppSettings File" and "Generate LaunchSettings File" to true on every
+    /// <c>C# Project (.NET)</c> with a host SDK (Web, Worker, Blazor WebAssembly). Those projects always
+    /// had both files generated before the flags applied to them, so this keeps them doing so.
     /// </summary>
     public static void ApplyGenerateSettingsDefaults(IApplicationPersistable application)
     {
@@ -112,16 +111,6 @@ internal static class MigrationHelper
 
                 SetFlag(netSettings, GenerateAppSettingsFilePropertyId, "Generate AppSettings File");
                 SetFlag(netSettings, GenerateLaunchSettingsFilePropertyId, "Generate LaunchSettings File");
-
-                if (project.Metadata.Exists(GenerateSettingsDefaultsSdkMetadataKey))
-                {
-                    project.Metadata.Update(GenerateSettingsDefaultsSdkMetadataKey, sdkProperty.Value);
-                }
-                else
-                {
-                    project.Metadata.Add(GenerateSettingsDefaultsSdkMetadataKey, sdkProperty.Value);
-                }
-
                 requiresSave = true;
             }
 
@@ -147,10 +136,6 @@ internal static class MigrationHelper
         }
     }
 
-    /// <summary>
-    /// Must match the key the <c>.NET Settings</c> On Changed script uses.
-    /// </summary>
-    private const string GenerateSettingsDefaultsSdkMetadataKey = "generate-settings-defaults-sdk";
     private const string SdkPropertyId = "1f0cdbc4-7a18-40a5-aeca-90452cce4fcf";
     private const string GenerateAppSettingsFilePropertyId = "a811d3f2-253e-46de-ae72-bd6ec9f30d54";
     private const string GenerateLaunchSettingsFilePropertyId = "4fe561b9-333e-4341-8243-d569db8cd8f4";

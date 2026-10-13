@@ -95,17 +95,15 @@ Management (CPM) for a solution.
   class libraries rely on flowing to their host. The legacy `ASP.NET Core Web Application` element
   stays unconditional.
 
-- **The flags default to true for host SDKs through three paths, which share a metadata marker.**
-  A hidden designer default of `false` is indistinguishable from a real `false`, so the `.NET Settings`
-  On Changed script records the SDK it last defaulted for in element metadata
-  (`generate-settings-defaults-sdk`). Marker ≠ host SDK: set both flags true. Marker = SDK: leave them
-  alone, so an untick sticks. Non-host SDK with a marker: reset both to false and remove the marker.
-  The script writes the marker *before* the flags, so the On Changed event raised by setting them
-  returns early. `MigrationHelper.ApplyGenerateSettingsDefaults` does the same for the
-  `4.1.11-pre.0` version migration (upgrades) and `OnInstallMigration` (new apps). The key and
-  property ids in `MigrationHelper` must stay in sync with the script. Accepted costs: the upgrade
-  edits every host project's metadata; changing SDK between host types re-defaults an earlier
-  untick; a brownfield install also defaults to on, and adopters untick (see README).
+- **Existing host projects keep their behaviour through migrations; after that the flags are the
+  user's.** `MigrationHelper.ApplyGenerateSettingsDefaults` sets both flags to true on every Web,
+  Worker and Blazor WASM project, from the `4.1.11-pre.0` version migration (existing apps) and
+  `OnInstallMigration` (apps installing the module, e.g. seeded from an architecture template).
+  Nothing infers defaults in the designer afterwards: a host project added later starts with the
+  stored default (off), and the user ticks the flags. Rejected: a `.NET Settings` On Changed script
+  with an element-metadata marker to default the flags whenever the SDK became a host SDK. It was
+  removed as an unconventional way to manage a setting's value, and it flipped marker-less projects
+  (e.g. apps already on 4.1.11-pre.0) back to on at their first `.NET Settings` edit.
 
 - **The Worker `Program.cs` adapts to an existing file's builder line and run call only.**
   `ExistingProgramShape` reads the file (through `ExecutionContext.FileSystem`, because

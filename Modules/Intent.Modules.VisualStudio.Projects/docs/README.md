@@ -204,10 +204,10 @@ The model can't represent platform-specific frameworks. When those of a multi-pl
 
 These control whether this module manages the project's `appsettings.json` (see [App Settings](#app-settings)) and `Properties/launchSettings.json` (see [Launch Settings](#launch-settings)). They are available for `Microsoft.NET.Sdk`, Web, Worker and Blazor WebAssembly projects:
 
-- **Web, Worker and Blazor WebAssembly projects** default to on, both when a project is created and when its _SDK_ is changed to one of these. Turning a flag off makes Intent hands-off for that file: an existing file and its `.csproj` items (e.g. `<Content Include="appsettings.json">`) are left exactly as they are (never rewritten, added or deleted), none is created, and settings, launch profiles or ports which other modules request for the project are not written. The Software Factory log lists what was not written.
+- **Web, Worker and Blazor WebAssembly projects:** turning a flag off makes Intent hands-off for that file: an existing file and its `.csproj` items (e.g. `<Content Include="appsettings.json">`) are left exactly as they are (never rewritten, added or deleted), none is created, and settings, launch profiles or ports which other modules request for the project are not written. The Software Factory log lists what was not written.
 - **`Microsoft.NET.Sdk` projects** default to off. With _Generate AppSettings File_ off, settings registered for the project are handled by the host projects that reference it.
 
-Applications upgraded from an earlier version of this module have both flags turned on for their Web, Worker and Blazor WebAssembly projects, so those files keep being generated.
+When this module is installed, or upgraded from an earlier version, both flags are turned on for the application's existing Web, Worker and Blazor WebAssembly projects, which always had both files generated. From then on, the flags are whatever you set them to.
 
 #### The `Suppress Warnings` property
 
