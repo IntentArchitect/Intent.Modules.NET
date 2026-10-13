@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="5159fdd6-5f13-4cb5-ac2e-3ccabd837119">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="Scalar.NET10.AuthCode.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="Scalar.NET10.AuthCode.Api/Configuration/OpenApiConfiguration.cs" />
-  <file path="Scalar.NET10.AuthCode.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Scalar.NET10.AuthCode.Api/Filters/ExceptionFilter.cs" />
-  <file path="Scalar.NET10.AuthCode.Api/Filters/HideRouteParametersFromBodyOperationTransformer.cs" />
-  <file path="Scalar.NET10.AuthCode.Api/Program.cs" />
-  <file path="Scalar.NET10.AuthCode.Api/Properties/launchSettings.json" />
-  <file path="Scalar.NET10.AuthCode.Api/Scalar.NET10.AuthCode.Api.csproj" />
-  <file path="Scalar.NET10.AuthCode.Api/appsettings.json" />
-  <file path="Scalar.NET10.AuthCode.Application/DependencyInjection.cs" />
-  <file path="Scalar.NET10.AuthCode.Application/Scalar.NET10.AuthCode.Application.csproj" />
-  <file path="Scalar.NET10.AuthCode.Domain/Scalar.NET10.AuthCode.Domain.csproj" />
-  <file path="Scalar.NET10.AuthCode.Infrastructure/DependencyInjection.cs" />
-  <file path="Scalar.NET10.AuthCode.Infrastructure/Scalar.NET10.AuthCode.Infrastructure.csproj" />
-  <file path="Scalar.NET10.AuthCode.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="Scalar.NET10.AuthCode.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="Scalar.NET10.AuthCode.Api/Configuration/OpenApiConfiguration.cs" templateId="Intent.AspNetCore.Scalar.OpenApiConfiguration" />
+  <file path="Scalar.NET10.AuthCode.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Scalar.NET10.AuthCode.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="Scalar.NET10.AuthCode.Api/Filters/HideRouteParametersFromBodyOperationTransformer.cs" templateId="Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer" />
+  <file path="Scalar.NET10.AuthCode.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Scalar.NET10.AuthCode.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Scalar.NET10.AuthCode.Api/Scalar.NET10.AuthCode.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Scalar.NET10.AuthCode.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Scalar.NET10.AuthCode.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Scalar.NET10.AuthCode.Application/Scalar.NET10.AuthCode.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Scalar.NET10.AuthCode.Domain/Scalar.NET10.AuthCode.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Scalar.NET10.AuthCode.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Scalar.NET10.AuthCode.Infrastructure/Scalar.NET10.AuthCode.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Scalar.NET10.AuthCode.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

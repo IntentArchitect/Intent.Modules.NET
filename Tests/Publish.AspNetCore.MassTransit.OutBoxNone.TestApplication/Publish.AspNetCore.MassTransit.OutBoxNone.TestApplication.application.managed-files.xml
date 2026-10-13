@@ -1,70 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="5ffa2a75-821a-41f2-8232-af7df2460b0b">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Controllers/RolesController.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Filters/ExceptionFilter.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Program.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Properties/launchSettings.json" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Publish.AspNetCore.MassTransit.OutBoxNone.Api.csproj" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Startup.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/appsettings.json" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/AssemblyAttributes.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Eventing/IEventBus.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Pagination/PagedList.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Pagination/PagedResult.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/DependencyInjection.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/IValidationService.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Implementation/RolesService.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/PriviledgeDto.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleCreatedEvent.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleDeletedEvent.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleUpdatedEvent.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Interfaces/IRolesService.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Publish.AspNetCore.MassTransit.OutBoxNone.Application.csproj" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/PriviledgeDto.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/PriviledgeDtoValidator.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleCreateDto.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleCreateDtoValidator.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleDto.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleDtoMappingExtensions.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleUpdateDto.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleUpdateDtoValidator.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/ValidationService.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Common/CollectionExtensions.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Common/UpdateHelper.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Entities/Priviledge.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Entities/Role.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Publish.AspNetCore.MassTransit.OutBoxNone.Domain.csproj" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Repositories/IEFRepository.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Repositories/IPagedList.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Repositories/IRepository.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Repositories/IRoleRepository.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Configuration/MassTransitConfiguration.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/DependencyInjection.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Eventing/IntegrationEventConsumer.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Eventing/MassTransitMessageBus.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Migrations/README.md" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Persistence/Configurations/RoleConfiguration.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.csproj" deviationsHash="56A40752D444349187C3F3D081EA0DA3716BC78472EC2CF2B7A1879BCAAC8811" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Repositories/RoleRepository.cs" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Controllers/RolesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Publish.AspNetCore.MassTransit.OutBoxNone.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Implementation/RolesService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/PriviledgeDto.cs" templateId="Intent.Eventing.Contracts.IntegrationEventDto" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleDeletedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleUpdatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Interfaces/IRolesService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Publish.AspNetCore.MassTransit.OutBoxNone.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/PriviledgeDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/PriviledgeDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleCreateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleCreateDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleUpdateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/RoleUpdateDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Application/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Entities/Priviledge.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Entities/Role.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Publish.AspNetCore.MassTransit.OutBoxNone.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Domain/Repositories/IRoleRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Persistence/Configurations/RoleConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.csproj" deviationsHash="56A40752D444349187C3F3D081EA0DA3716BC78472EC2CF2B7A1879BCAAC8811" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Repositories/RoleRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

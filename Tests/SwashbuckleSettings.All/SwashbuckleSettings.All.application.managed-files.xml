@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="a26894fb-e873-47c8-b57a-5646890e1fcb">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="SwashbuckleSettings.All.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="SwashbuckleSettings.All.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="SwashbuckleSettings.All.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="SwashbuckleSettings.All.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="SwashbuckleSettings.All.Api/Controllers/DefaultController.cs" />
-  <file path="SwashbuckleSettings.All.Api/Filters/ExceptionFilter.cs" />
-  <file path="SwashbuckleSettings.All.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="SwashbuckleSettings.All.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="SwashbuckleSettings.All.Api/Program.cs" />
-  <file path="SwashbuckleSettings.All.Api/Properties/launchSettings.json" />
-  <file path="SwashbuckleSettings.All.Api/Startup.cs" />
-  <file path="SwashbuckleSettings.All.Api/SwashbuckleSettings.All.Api.csproj" />
-  <file path="SwashbuckleSettings.All.Api/appsettings.json" />
-  <file path="SwashbuckleSettings.All.Application/Common/Interfaces/ICommand.cs" />
-  <file path="SwashbuckleSettings.All.Application/Common/Interfaces/IQuery.cs" />
-  <file path="SwashbuckleSettings.All.Application/CreateWidget/CreateWidget.cs" />
-  <file path="SwashbuckleSettings.All.Application/CreateWidget/CreateWidgetHandler.cs" />
-  <file path="SwashbuckleSettings.All.Application/DependencyInjection.cs" />
-  <file path="SwashbuckleSettings.All.Application/ReplaceWidget/ReplaceWidget.cs" />
-  <file path="SwashbuckleSettings.All.Application/ReplaceWidget/ReplaceWidgetHandler.cs" />
-  <file path="SwashbuckleSettings.All.Application/SwashbuckleSettings.All.Application.csproj" deviationsHash="FB2DB19BF1A6F1073B366FE9FD6A3C7B26D3682138895BF6C88A87BD12B45244" />
-  <file path="SwashbuckleSettings.All.Application/UpdateWidget/UpdateWidget.cs" />
-  <file path="SwashbuckleSettings.All.Application/UpdateWidget/UpdateWidgetHandler.cs" />
-  <file path="SwashbuckleSettings.All.Application/WidgetDto.cs" />
-  <file path="SwashbuckleSettings.All.Domain/SwashbuckleSettings.All.Domain.csproj" />
-  <file path="SwashbuckleSettings.All.Infrastructure/DependencyInjection.cs" />
-  <file path="SwashbuckleSettings.All.Infrastructure/SwashbuckleSettings.All.Infrastructure.csproj" />
-  <file path="SwashbuckleSettings.All.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="SwashbuckleSettings.All.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="SwashbuckleSettings.All.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="SwashbuckleSettings.All.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="SwashbuckleSettings.All.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="SwashbuckleSettings.All.Api/Controllers/DefaultController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="SwashbuckleSettings.All.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="SwashbuckleSettings.All.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="SwashbuckleSettings.All.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="SwashbuckleSettings.All.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="SwashbuckleSettings.All.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="SwashbuckleSettings.All.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="SwashbuckleSettings.All.Api/SwashbuckleSettings.All.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="SwashbuckleSettings.All.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="SwashbuckleSettings.All.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="SwashbuckleSettings.All.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="SwashbuckleSettings.All.Application/CreateWidget/CreateWidget.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="SwashbuckleSettings.All.Application/CreateWidget/CreateWidgetHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="SwashbuckleSettings.All.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="SwashbuckleSettings.All.Application/ReplaceWidget/ReplaceWidget.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="SwashbuckleSettings.All.Application/ReplaceWidget/ReplaceWidgetHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="SwashbuckleSettings.All.Application/SwashbuckleSettings.All.Application.csproj" deviationsHash="FB2DB19BF1A6F1073B366FE9FD6A3C7B26D3682138895BF6C88A87BD12B45244" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="SwashbuckleSettings.All.Application/UpdateWidget/UpdateWidget.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="SwashbuckleSettings.All.Application/UpdateWidget/UpdateWidgetHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="SwashbuckleSettings.All.Application/WidgetDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="SwashbuckleSettings.All.Domain/SwashbuckleSettings.All.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="SwashbuckleSettings.All.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="SwashbuckleSettings.All.Infrastructure/SwashbuckleSettings.All.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="SwashbuckleSettings.All.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

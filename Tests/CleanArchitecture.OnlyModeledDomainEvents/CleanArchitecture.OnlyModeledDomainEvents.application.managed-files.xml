@@ -1,99 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="aaf53608-ca0b-4cc7-a2ea-8e8a19c7fd67">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/CleanArchitecture.OnlyModeledDomainEvents.Api.csproj" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Filters/ExceptionFilter.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Program.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Properties/launchSettings.json" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Services/CurrentUserService.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Startup.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/appsettings.json" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/CleanArchitecture.OnlyModeledDomainEvents.Application.csproj" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Interfaces/ICommand.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Interfaces/IQuery.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Models/Result.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Pagination/PagedList.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Pagination/PagedResult.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/DependencyInjection.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/EventHandlers/Agg1EventHandler.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/EventHandlers/CustomerCreatedHandler.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/CleanArchitecture.OnlyModeledDomainEvents.Domain.csproj" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/CollectionExtensions.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/DomainEvent.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/IHasDomainEvent.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/Interfaces/ICosmosDBUnitOfWork.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/UpdateHelper.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Entities/Agg1.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Entities/Agg2.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Entities/Customer.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Entities/Order.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Events/Agg1Event.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Events/CustomerCreated.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/Documents/ICustomerDocument.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/Documents/IOrderDocument.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/IAgg1Repository.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/IAgg2Repository.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/ICosmosDBRepository.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/ICustomerRepository.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/IEFRepository.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/IOrderRepository.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/IPagedList.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/IRepository.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.csproj" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/DependencyInjection.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Migrations/README.md" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/Configurations/Agg1Configuration.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/Configurations/Agg2Configuration.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/CosmosDBUnitOfWork.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/Documents/CustomerDocument.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/Documents/OrderDocument.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/Agg1Repository.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/Agg2Repository.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/CosmosDBRepositoryBase.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/CosmosPagedList.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/CustomerCosmosDBRepository.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/OrderCosmosDBRepository.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Services/DomainEventService.cs" />
-  <file path="CleanArchitecture.OnlyModeledDomainEvents.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/CleanArchitecture.OnlyModeledDomainEvents.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/CleanArchitecture.OnlyModeledDomainEvents.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/EventHandlers/Agg1EventHandler.cs" templateId="Intent.MediatR.DomainEvents.DefaultDomainEventHandler" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Application/EventHandlers/CustomerCreatedHandler.cs" templateId="Intent.MediatR.DomainEvents.DefaultDomainEventHandler" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/CleanArchitecture.OnlyModeledDomainEvents.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/Interfaces/ICosmosDBUnitOfWork.cs" templateId="Intent.CosmosDB.CosmosDBUnitOfWorkInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Entities/Agg1.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Entities/Agg2.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Entities/Customer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Entities/Order.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Events/Agg1Event.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Events/CustomerCreated.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/Documents/ICustomerDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/Documents/IOrderDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/IAgg1Repository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/IAgg2Repository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/ICosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepositoryInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/ICustomerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/IOrderRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/CleanArchitecture.OnlyModeledDomainEvents.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/Configurations/Agg1Configuration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/Configurations/Agg2Configuration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/CosmosDBUnitOfWork.cs" templateId="Intent.CosmosDB.CosmosDBUnitOfWork" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/Documents/CustomerDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentOfTInterface" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/Documents/OrderDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs" templateId="Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/Agg1Repository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/Agg2Repository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/CosmosDBRepositoryBase.cs" templateId="Intent.CosmosDB.CosmosDBRepositoryBase" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/CosmosPagedList.cs" templateId="Intent.CosmosDB.CosmosPagedList" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/CustomerCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/OrderCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="CleanArchitecture.OnlyModeledDomainEvents.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

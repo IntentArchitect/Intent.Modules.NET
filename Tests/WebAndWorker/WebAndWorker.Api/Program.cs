@@ -8,7 +8,7 @@ using WebAndWorker.Api.Logging;
 using WebAndWorker.Application;
 using WebAndWorker.Infrastructure;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
 namespace WebAndWorker.Api
@@ -72,6 +72,7 @@ namespace WebAndWorker.Api
                 logger.Write(LogEventLevel.Information, "Starting web host");
 
                 app.Run();
+
             }
             catch (HostAbortedException)
             {

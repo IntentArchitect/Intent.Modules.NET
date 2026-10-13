@@ -1,85 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="f829f9a9-22e7-4c53-b644-4254eacfb4e8">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="EfCore.SecondLevelCaching.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/Controllers/InvoicesController.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/EfCore.SecondLevelCaching.Api.csproj" />
-  <file path="EfCore.SecondLevelCaching.Api/Filters/ExceptionFilter.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/Program.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/Properties/launchSettings.json" />
-  <file path="EfCore.SecondLevelCaching.Api/Services/CurrentUserService.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/Startup.cs" />
-  <file path="EfCore.SecondLevelCaching.Api/appsettings.json" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/DistributedCacheExtensions.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/ICommand.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/IQuery.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Models/Result.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Pagination/PagedList.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/DependencyInjection.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/EfCore.SecondLevelCaching.Application.csproj" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandHandler.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/GetInvoices/GetInvoicesQuery.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs" deviationsHash="D9C964C9B31CB5C75C727AA3BDC909A4775B9AC5E8680EBD114794A2E42702EC" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/InvoiceDto.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/InvoiceDtoMappingExtensions.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/UpdateInvoice/UpdateInvoiceCommand.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandHandler.cs" />
-  <file path="EfCore.SecondLevelCaching.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs" />
-  <file path="EfCore.SecondLevelCaching.Domain/Common/CollectionExtensions.cs" />
-  <file path="EfCore.SecondLevelCaching.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="EfCore.SecondLevelCaching.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="EfCore.SecondLevelCaching.Domain/Common/UpdateHelper.cs" />
-  <file path="EfCore.SecondLevelCaching.Domain/EfCore.SecondLevelCaching.Domain.csproj" />
-  <file path="EfCore.SecondLevelCaching.Domain/Entities/Invoice.cs" />
-  <file path="EfCore.SecondLevelCaching.Domain/Repositories/IEFRepository.cs" />
-  <file path="EfCore.SecondLevelCaching.Domain/Repositories/IInvoiceRepository.cs" deviationsHash="B6F2C15909B065DCE4FE36C0E28A80CA9AFF39B4130DD1D0394135078F18C808" />
-  <file path="EfCore.SecondLevelCaching.Domain/Repositories/IPagedList.cs" />
-  <file path="EfCore.SecondLevelCaching.Domain/Repositories/IRepository.cs" />
-  <file path="EfCore.SecondLevelCaching.Infrastructure/Caching/DistributedCacheServiceProvider.cs" />
-  <file path="EfCore.SecondLevelCaching.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" />
-  <file path="EfCore.SecondLevelCaching.Infrastructure/DependencyInjection.cs" />
-  <file path="EfCore.SecondLevelCaching.Infrastructure/EfCore.SecondLevelCaching.Infrastructure.csproj" deviationsHash="82B05875D200416F658EDE42B6894193D334EA5831FE580733D2734C4ACA3D52" />
-  <file path="EfCore.SecondLevelCaching.Infrastructure/Migrations/README.md" />
-  <file path="EfCore.SecondLevelCaching.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="EfCore.SecondLevelCaching.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" />
-  <file path="EfCore.SecondLevelCaching.Infrastructure/Repositories/InvoiceRepository.cs" deviationsHash="CE6E84496E392D069E534245D501A77D9BF57EF365CEF5159CBA92F988A88539" />
-  <file path="EfCore.SecondLevelCaching.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="EfCore.SecondLevelCaching.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="EfCore.SecondLevelCaching.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="EfCore.SecondLevelCaching.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="EfCore.SecondLevelCaching.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="EfCore.SecondLevelCaching.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="EfCore.SecondLevelCaching.Api/Controllers/InvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="EfCore.SecondLevelCaching.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="EfCore.SecondLevelCaching.Api/EfCore.SecondLevelCaching.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EfCore.SecondLevelCaching.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="EfCore.SecondLevelCaching.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="EfCore.SecondLevelCaching.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="EfCore.SecondLevelCaching.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="EfCore.SecondLevelCaching.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="EfCore.SecondLevelCaching.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="EfCore.SecondLevelCaching.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="EfCore.SecondLevelCaching.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="EfCore.SecondLevelCaching.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/DistributedCacheExtensions.cs" templateId="Intent.AspNetCore.DistributedCaching.IDistributedCacheExtensions" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" templateId="Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWorkInterface" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="EfCore.SecondLevelCaching.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="EfCore.SecondLevelCaching.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="EfCore.SecondLevelCaching.Application/EfCore.SecondLevelCaching.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/GetInvoices/GetInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs" deviationsHash="D9C964C9B31CB5C75C727AA3BDC909A4775B9AC5E8680EBD114794A2E42702EC" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/InvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/InvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/UpdateInvoice/UpdateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="EfCore.SecondLevelCaching.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="EfCore.SecondLevelCaching.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="EfCore.SecondLevelCaching.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="EfCore.SecondLevelCaching.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="EfCore.SecondLevelCaching.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="EfCore.SecondLevelCaching.Domain/EfCore.SecondLevelCaching.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EfCore.SecondLevelCaching.Domain/Entities/Invoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EfCore.SecondLevelCaching.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="EfCore.SecondLevelCaching.Domain/Repositories/IInvoiceRepository.cs" deviationsHash="B6F2C15909B065DCE4FE36C0E28A80CA9AFF39B4130DD1D0394135078F18C808" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EfCore.SecondLevelCaching.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="EfCore.SecondLevelCaching.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="EfCore.SecondLevelCaching.Infrastructure/Caching/DistributedCacheServiceProvider.cs" templateId="Intent.EntityFrameworkCore.SecondLevelCaching.DistributedCacheServiceProvider" />
+  <file path="EfCore.SecondLevelCaching.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" templateId="Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWork" />
+  <file path="EfCore.SecondLevelCaching.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="EfCore.SecondLevelCaching.Infrastructure/EfCore.SecondLevelCaching.Infrastructure.csproj" deviationsHash="82B05875D200416F658EDE42B6894193D334EA5831FE580733D2734C4ACA3D52" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EfCore.SecondLevelCaching.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="EfCore.SecondLevelCaching.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="EfCore.SecondLevelCaching.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EfCore.SecondLevelCaching.Infrastructure/Repositories/InvoiceRepository.cs" deviationsHash="CE6E84496E392D069E534245D501A77D9BF57EF365CEF5159CBA92F988A88539" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EfCore.SecondLevelCaching.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="EfCore.SecondLevelCaching.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

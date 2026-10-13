@@ -1,113 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="f8ed0666-9d96-4b22-a569-3e203152124c">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/domain-services/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="EventingSubscribers.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="EventingSubscribers.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="EventingSubscribers.Api/EventingSubscribers.Api.csproj" />
-  <file path="EventingSubscribers.Api/Program.cs" />
-  <file path="EventingSubscribers.Api/Properties/launchSettings.json" />
-  <file path="EventingSubscribers.Api/Services/CurrentUserService.cs" />
-  <file path="EventingSubscribers.Api/appsettings.json" />
-  <file path="EventingSubscribers.Application/AssemblyAttributes.cs" />
-  <file path="EventingSubscribers.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="EventingSubscribers.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="EventingSubscribers.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" />
-  <file path="EventingSubscribers.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="EventingSubscribers.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="EventingSubscribers.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="EventingSubscribers.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="EventingSubscribers.Application/Common/Eventing/IMessageBus.cs" />
-  <file path="EventingSubscribers.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="EventingSubscribers.Application/Common/Interfaces/ICommand.cs" />
-  <file path="EventingSubscribers.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="EventingSubscribers.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="EventingSubscribers.Application/Common/Interfaces/IQuery.cs" />
-  <file path="EventingSubscribers.Application/Common/Models/Result.cs" />
-  <file path="EventingSubscribers.Application/Common/Pagination/PagedList.cs" />
-  <file path="EventingSubscribers.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="EventingSubscribers.Application/DependencyInjection.cs" />
-  <file path="EventingSubscribers.Application/EventingSubscribers.Application.csproj" />
-  <file path="EventingSubscribers.Application/Implementation/AccountService.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/AccountUpgradedEvent.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/CommandInvokedEvent.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EntityOperationInvokedEvent.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/AccountUpgradedEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/CommandInvokedEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/EntityOperationInvokedEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/InvoiceCreatedEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ItemCreatedEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ProductCreatedEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ProductLookedUpEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ProductRemovedEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ServiceOperationInvokedEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ShipmentLookedUpEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ShipmentReceivedEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/TaskAssignedEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/TaskLookedUpEventHandler.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/InvoiceCreatedEvent.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/ItemCreatedEvent.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/ProductCreatedEvent.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/ProductLookedUpEvent.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/ProductRemovedEvent.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/ServiceOperationInvokedEvent.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/ShipmentLookedUpEvent.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/ShipmentReceivedEvent.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/TaskAssignedEvent.cs" />
-  <file path="EventingSubscribers.Application/IntegrationEvents/TaskLookedUpEvent.cs" />
-  <file path="EventingSubscribers.Application/Interfaces/IAccountService.cs" />
-  <file path="EventingSubscribers.Application/ProcessAccountUpgrade/ProcessAccountUpgradeCommand.cs" />
-  <file path="EventingSubscribers.Application/ProcessAccountUpgrade/ProcessAccountUpgradeCommandHandler.cs" />
-  <file path="EventingSubscribers.Domain/Address.cs" />
-  <file path="EventingSubscribers.Domain/Common/CollectionExtensions.cs" />
-  <file path="EventingSubscribers.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="EventingSubscribers.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="EventingSubscribers.Domain/Common/UpdateHelper.cs" />
-  <file path="EventingSubscribers.Domain/Entities/Account.cs" />
-  <file path="EventingSubscribers.Domain/Entities/Invoice.cs" />
-  <file path="EventingSubscribers.Domain/Entities/Item.cs" />
-  <file path="EventingSubscribers.Domain/Entities/Order.cs" />
-  <file path="EventingSubscribers.Domain/Entities/Product.cs" />
-  <file path="EventingSubscribers.Domain/Entities/ShipTask.cs" />
-  <file path="EventingSubscribers.Domain/Entities/Shipment.cs" />
-  <file path="EventingSubscribers.Domain/EventingSubscribers.Domain.csproj" />
-  <file path="EventingSubscribers.Domain/OrderStatus.cs" />
-  <file path="EventingSubscribers.Domain/Repositories/IAccountRepository.cs" />
-  <file path="EventingSubscribers.Domain/Repositories/IEFRepository.cs" />
-  <file path="EventingSubscribers.Domain/Repositories/IInvoiceRepository.cs" />
-  <file path="EventingSubscribers.Domain/Repositories/IItemRepository.cs" />
-  <file path="EventingSubscribers.Domain/Repositories/IOrderRepository.cs" />
-  <file path="EventingSubscribers.Domain/Repositories/IPagedList.cs" />
-  <file path="EventingSubscribers.Domain/Repositories/IProductRepository.cs" />
-  <file path="EventingSubscribers.Domain/Repositories/IRepository.cs" />
-  <file path="EventingSubscribers.Domain/Repositories/IShipTaskRepository.cs" />
-  <file path="EventingSubscribers.Domain/Repositories/IShipmentRepository.cs" />
-  <file path="EventingSubscribers.Domain/TaskPriority.cs" />
-  <file path="EventingSubscribers.Domain/ValueObject.cs" />
-  <file path="EventingSubscribers.Infrastructure/DependencyInjection.cs" />
-  <file path="EventingSubscribers.Infrastructure/EventingSubscribers.Infrastructure.csproj" />
-  <file path="EventingSubscribers.Infrastructure/Migrations/README.md" />
-  <file path="EventingSubscribers.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/AccountConfiguration.cs" />
-  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" />
-  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/ItemConfiguration.cs" />
-  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" />
-  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" />
-  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/ShipTaskConfiguration.cs" />
-  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/ShipmentConfiguration.cs" />
-  <file path="EventingSubscribers.Infrastructure/Repositories/AccountRepository.cs" />
-  <file path="EventingSubscribers.Infrastructure/Repositories/InvoiceRepository.cs" />
-  <file path="EventingSubscribers.Infrastructure/Repositories/ItemRepository.cs" />
-  <file path="EventingSubscribers.Infrastructure/Repositories/OrderRepository.cs" />
-  <file path="EventingSubscribers.Infrastructure/Repositories/ProductRepository.cs" />
-  <file path="EventingSubscribers.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="EventingSubscribers.Infrastructure/Repositories/ShipTaskRepository.cs" />
-  <file path="EventingSubscribers.Infrastructure/Repositories/ShipmentRepository.cs" />
-  <file path="EventingSubscribers.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/domain-services/SKILL.md" templateId="Intent.DomainServices.DomainServiceSkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="EventingSubscribers.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="EventingSubscribers.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="EventingSubscribers.Api/EventingSubscribers.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EventingSubscribers.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="EventingSubscribers.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="EventingSubscribers.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="EventingSubscribers.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="EventingSubscribers.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="EventingSubscribers.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="EventingSubscribers.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="EventingSubscribers.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />
+  <file path="EventingSubscribers.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="EventingSubscribers.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="EventingSubscribers.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="EventingSubscribers.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="EventingSubscribers.Application/Common/Eventing/IMessageBus.cs" templateId="Intent.Eventing.Contracts.MessageBusInterface" />
+  <file path="EventingSubscribers.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="EventingSubscribers.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="EventingSubscribers.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="EventingSubscribers.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="EventingSubscribers.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="EventingSubscribers.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="EventingSubscribers.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="EventingSubscribers.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="EventingSubscribers.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="EventingSubscribers.Application/EventingSubscribers.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EventingSubscribers.Application/Implementation/AccountService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/AccountUpgradedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/CommandInvokedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EntityOperationInvokedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/AccountUpgradedEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/CommandInvokedEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/EntityOperationInvokedEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/InvoiceCreatedEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ItemCreatedEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ProductCreatedEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ProductLookedUpEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ProductRemovedEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ServiceOperationInvokedEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ShipmentLookedUpEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/ShipmentReceivedEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/TaskAssignedEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/EventHandlers/TaskLookedUpEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/InvoiceCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/ItemCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/ProductCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/ProductLookedUpEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/ProductRemovedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/ServiceOperationInvokedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/ShipmentLookedUpEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/ShipmentReceivedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/TaskAssignedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/IntegrationEvents/TaskLookedUpEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="EventingSubscribers.Application/Interfaces/IAccountService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="EventingSubscribers.Application/ProcessAccountUpgrade/ProcessAccountUpgradeCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="EventingSubscribers.Application/ProcessAccountUpgrade/ProcessAccountUpgradeCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="EventingSubscribers.Domain/Address.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="EventingSubscribers.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="EventingSubscribers.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="EventingSubscribers.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="EventingSubscribers.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="EventingSubscribers.Domain/Entities/Account.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EventingSubscribers.Domain/Entities/Invoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EventingSubscribers.Domain/Entities/Item.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EventingSubscribers.Domain/Entities/Order.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EventingSubscribers.Domain/Entities/Product.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EventingSubscribers.Domain/Entities/ShipTask.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EventingSubscribers.Domain/Entities/Shipment.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EventingSubscribers.Domain/EventingSubscribers.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EventingSubscribers.Domain/OrderStatus.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="EventingSubscribers.Domain/Repositories/IAccountRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EventingSubscribers.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="EventingSubscribers.Domain/Repositories/IInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EventingSubscribers.Domain/Repositories/IItemRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EventingSubscribers.Domain/Repositories/IOrderRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EventingSubscribers.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="EventingSubscribers.Domain/Repositories/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EventingSubscribers.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="EventingSubscribers.Domain/Repositories/IShipTaskRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EventingSubscribers.Domain/Repositories/IShipmentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EventingSubscribers.Domain/TaskPriority.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="EventingSubscribers.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="EventingSubscribers.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="EventingSubscribers.Infrastructure/EventingSubscribers.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EventingSubscribers.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="EventingSubscribers.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/AccountConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/ItemConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/ShipTaskConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EventingSubscribers.Infrastructure/Persistence/Configurations/ShipmentConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EventingSubscribers.Infrastructure/Repositories/AccountRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EventingSubscribers.Infrastructure/Repositories/InvoiceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EventingSubscribers.Infrastructure/Repositories/ItemRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EventingSubscribers.Infrastructure/Repositories/OrderRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EventingSubscribers.Infrastructure/Repositories/ProductRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EventingSubscribers.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="EventingSubscribers.Infrastructure/Repositories/ShipTaskRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EventingSubscribers.Infrastructure/Repositories/ShipmentRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EventingSubscribers.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

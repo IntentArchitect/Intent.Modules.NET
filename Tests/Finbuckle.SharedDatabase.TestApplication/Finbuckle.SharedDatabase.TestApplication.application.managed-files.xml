@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="8913a8a9-4b21-4c49-8bd1-bc4ab2ef443b">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Configuration/MultiTenancyConfiguration.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Controllers/UsersController.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Filters/ExceptionFilter.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Filters/TenantHeaderOperationFilter.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Finbuckle.SharedDatabase.TestApplication.Api.csproj" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Program.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Properties/launchSettings.json" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Startup.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Api/appsettings.json" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Pagination/PagedList.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Pagination/PagedResult.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/DependencyInjection.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Finbuckle.SharedDatabase.TestApplication.Application.csproj" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/IValidationService.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Implementation/UsersService.cs" deviationsHash="2FD440A570E6F7273F1A069272D8D1A9379547F1CCF4B3F9AF0A0B56DF4261D1" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Interfaces/IUsersService.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/CreateUserRoleDto.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/CreateUserRoleDtoValidator.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UpdateUserRoleDto.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UpdateUserRoleDtoValidator.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserCreateDto.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserCreateDtoValidator.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserDto.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserDtoMappingExtensions.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserRoleDto.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserRoleDtoMappingExtensions.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserUpdateDto.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserUpdateDtoValidator.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Application/ValidationService.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Common/CollectionExtensions.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Common/DomainEvent.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Common/IHasDomainEvent.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Common/UpdateHelper.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Entities/Role.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Entities/User.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Finbuckle.SharedDatabase.TestApplication.Domain.csproj" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/IEFRepository.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/IPagedList.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/IRepository.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/IUserRepository.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/DependencyInjection.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Finbuckle.SharedDatabase.TestApplication.Infrastructure.csproj" deviationsHash="E89F181B48881ED41743D93365DA8592B7E194C6BACB9E4AE27E837E30282039" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Migrations/README.md" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Persistence/Configurations/UserConfiguration.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Persistence/DesignTimeDbContextFactory.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Repositories/UserRepository.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Services/DomainEventService.cs" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/appsettings.json" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Configuration/MultiTenancyConfiguration.cs" templateId="Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Controllers/UsersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Filters/TenantHeaderOperationFilter.cs" templateId="Intent.Modules.AspNetCore.MultiTenancy.TenantHeaderOperationFilter" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Finbuckle.SharedDatabase.TestApplication.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Finbuckle.SharedDatabase.TestApplication.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Implementation/UsersService.cs" deviationsHash="2FD440A570E6F7273F1A069272D8D1A9379547F1CCF4B3F9AF0A0B56DF4261D1" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Interfaces/IUsersService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/CreateUserRoleDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/CreateUserRoleDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UpdateUserRoleDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UpdateUserRoleDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserCreateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserCreateDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserRoleDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserRoleDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserUpdateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/Users/UserUpdateDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Application/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Entities/Role.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Entities/User.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Finbuckle.SharedDatabase.TestApplication.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/IUserRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Finbuckle.SharedDatabase.TestApplication.Infrastructure.csproj" deviationsHash="E89F181B48881ED41743D93365DA8592B7E194C6BACB9E4AE27E837E30282039" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Persistence/Configurations/UserConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Persistence/DesignTimeDbContextFactory.cs" templateId="Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Repositories/UserRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/appsettings.json" templateId="Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

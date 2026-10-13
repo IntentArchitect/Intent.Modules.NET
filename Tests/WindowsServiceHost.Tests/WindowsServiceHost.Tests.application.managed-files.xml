@@ -26,7 +26,7 @@
   <file path="WindowsServiceHost.Tests/Jobs/UnScheduledJob.cs" templateId="Intent.QuartzScheduler.ScheduledJob" />
   <file path="WindowsServiceHost.Tests/MyScheduled/MyScheduledCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
   <file path="WindowsServiceHost.Tests/MyScheduled/MyScheduledCommandHandler.cs" deviationsHash="01B2231E692A3049E62D8F1F201069618F89B65BD0ABA3E4C194864DACA6D1BB" templateId="Intent.Application.MediatR.CommandHandler" />
-  <file path="WindowsServiceHost.Tests/Program.cs" templateId="Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram" />
+  <file path="WindowsServiceHost.Tests/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram" />
   <file path="WindowsServiceHost.Tests/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="WindowsServiceHost.Tests/Services/AzureServiceBusHostedService.cs" templateId="Intent.Eventing.AzureServiceBus.AzureServiceBusHostedService" />
   <file path="WindowsServiceHost.Tests/WindowsBackgroundService.cs" templateId="Intent.WindowsServiceHost.WindowsBackgroundService" />

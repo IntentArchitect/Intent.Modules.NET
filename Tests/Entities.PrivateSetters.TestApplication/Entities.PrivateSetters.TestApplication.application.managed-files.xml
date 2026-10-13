@@ -1,339 +1,339 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="d0a966f2-9858-4ae8-810d-5ceb1379d7eb">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="Entities.PrivateSetters.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Api/Entities.PrivateSetters.TestApplication.Api.csproj" />
-  <file path="Entities.PrivateSetters.TestApplication.Api/Filters/ExceptionFilter.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Api/Program.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Api/Properties/launchSettings.json" />
-  <file path="Entities.PrivateSetters.TestApplication.Api/Services/CurrentUserService.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Api/Startup.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Api/appsettings.json" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Interfaces/ICommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Interfaces/IQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Models/Result.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Pagination/PagedList.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/DependencyInjection.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Entities.PrivateSetters.TestApplication.Application.csproj" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/IValidationService.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/CreateInvoiceLineDataContractDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/CreateInvoiceLineDataContractDtoValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/GetInvoices/GetInvoicesQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/InvoiceDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/InvoiceDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/Operation/OperationCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/Operation/OperationCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/Operation/OperationCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/OperationLineDataContractDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/OperationLineDataContractDtoValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/CreateManyToManyDest/CreateManyToManyDestCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/CreateManyToManyDest/CreateManyToManyDestCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/CreateManyToManyDest/CreateManyToManyDestCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/DeleteManyToManyDest/DeleteManyToManyDestCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/DeleteManyToManyDest/DeleteManyToManyDestCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/DeleteManyToManyDest/DeleteManyToManyDestCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/GetManyToManyDestById/GetManyToManyDestByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/GetManyToManyDestById/GetManyToManyDestByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/GetManyToManyDestById/GetManyToManyDestByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/GetManyToManyDests/GetManyToManyDestsQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/GetManyToManyDests/GetManyToManyDestsQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/GetManyToManyDests/GetManyToManyDestsQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/ManyToManyDestDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/ManyToManyDestDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/OperationAsync/OperationAsyncCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/OperationAsync/OperationAsyncCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/OperationAsync/OperationAsyncCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/CreateManyToManySource/CreateManyToManySourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/CreateManyToManySource/CreateManyToManySourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/CreateManyToManySource/CreateManyToManySourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/DeleteManyToManySource/DeleteManyToManySourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/DeleteManyToManySource/DeleteManyToManySourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/DeleteManyToManySource/DeleteManyToManySourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/GetManyToManySourceById/GetManyToManySourceByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/GetManyToManySourceById/GetManyToManySourceByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/GetManyToManySourceById/GetManyToManySourceByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/GetManyToManySources/GetManyToManySourcesQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/GetManyToManySources/GetManyToManySourcesQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/GetManyToManySources/GetManyToManySourcesQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/ManyToManySourceDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/ManyToManySourceDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/OperationAsync/OperationAsyncCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/OperationAsync/OperationAsyncCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/OperationAsync/OperationAsyncCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/CreateManyToOneDest/CreateManyToOneDestCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/CreateManyToOneDest/CreateManyToOneDestCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/CreateManyToOneDest/CreateManyToOneDestCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/DeleteManyToOneDest/DeleteManyToOneDestCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/DeleteManyToOneDest/DeleteManyToOneDestCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/DeleteManyToOneDest/DeleteManyToOneDestCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/GetManyToOneDestById/GetManyToOneDestByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/GetManyToOneDestById/GetManyToOneDestByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/GetManyToOneDestById/GetManyToOneDestByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/GetManyToOneDests/GetManyToOneDestsQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/GetManyToOneDests/GetManyToOneDestsQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/GetManyToOneDests/GetManyToOneDestsQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/ManyToOneDestDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/ManyToOneDestDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/OperationAsync/OperationAsyncCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/OperationAsync/OperationAsyncCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/OperationAsync/OperationAsyncCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/CreateManyToOneSource/CreateManyToOneSourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/CreateManyToOneSource/CreateManyToOneSourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/CreateManyToOneSource/CreateManyToOneSourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/DeleteManyToOneSource/DeleteManyToOneSourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/DeleteManyToOneSource/DeleteManyToOneSourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/DeleteManyToOneSource/DeleteManyToOneSourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/GetManyToOneSourceById/GetManyToOneSourceByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/GetManyToOneSourceById/GetManyToOneSourceByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/GetManyToOneSourceById/GetManyToOneSourceByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/GetManyToOneSources/GetManyToOneSourcesQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/GetManyToOneSources/GetManyToOneSourcesQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/GetManyToOneSources/GetManyToOneSourcesQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/ManyToOneSourceDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/ManyToOneSourceDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/OperationAsync/OperationAsyncCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/OperationAsync/OperationAsyncCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/OperationAsync/OperationAsyncCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/CreateOneToManySource/CreateOneToManySourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/CreateOneToManySource/CreateOneToManySourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/CreateOneToManySource/CreateOneToManySourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/DeleteOneToManySource/DeleteOneToManySourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/DeleteOneToManySource/DeleteOneToManySourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/DeleteOneToManySource/DeleteOneToManySourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/DeleteOneToManySourceOneToManyDest/DeleteOneToManySourceOneToManyDestCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/DeleteOneToManySourceOneToManyDest/DeleteOneToManySourceOneToManyDestCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/DeleteOneToManySourceOneToManyDest/DeleteOneToManySourceOneToManyDestCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceById/GetOneToManySourceByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceById/GetOneToManySourceByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceById/GetOneToManySourceByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceOneToManyDestById/GetOneToManySourceOneToManyDestByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceOneToManyDestById/GetOneToManySourceOneToManyDestByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceOneToManyDestById/GetOneToManySourceOneToManyDestByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceOneToManyDests/GetOneToManySourceOneToManyDestsQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceOneToManyDests/GetOneToManySourceOneToManyDestsQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceOneToManyDests/GetOneToManySourceOneToManyDestsQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySources/GetOneToManySourcesQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySources/GetOneToManySourcesQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySources/GetOneToManySourcesQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OneToManySourceDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OneToManySourceDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OneToManySourceOneToManyDestDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OneToManySourceOneToManyDestDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/Operation/OperationCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/Operation/OperationCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/Operation/OperationCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OperationOneToManySource/OperationOneToManySourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OperationOneToManySource/OperationOneToManySourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OperationOneToManySource/OperationOneToManySourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/CreateOneToOneSource/CreateOneToOneSourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/CreateOneToOneSource/CreateOneToOneSourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/CreateOneToOneSource/CreateOneToOneSourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/DeleteOneToOneSource/DeleteOneToOneSourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/DeleteOneToOneSource/DeleteOneToOneSourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/DeleteOneToOneSource/DeleteOneToOneSourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/GetOneToOneSourceById/GetOneToOneSourceByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/GetOneToOneSourceById/GetOneToOneSourceByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/GetOneToOneSourceById/GetOneToOneSourceByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/GetOneToOneSources/GetOneToOneSourcesQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/GetOneToOneSources/GetOneToOneSourcesQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/GetOneToOneSources/GetOneToOneSourcesQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/OneToOneSourceDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/OneToOneSourceDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/Operation/OperationCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/Operation/OperationCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/Operation/OperationCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/CreateOneToOptionalSource/CreateOneToOptionalSourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/CreateOneToOptionalSource/CreateOneToOptionalSourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/CreateOneToOptionalSource/CreateOneToOptionalSourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/DeleteOneToOptionalSource/DeleteOneToOptionalSourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/DeleteOneToOptionalSource/DeleteOneToOptionalSourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/DeleteOneToOptionalSource/DeleteOneToOptionalSourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/GetOneToOptionalSourceById/GetOneToOptionalSourceByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/GetOneToOptionalSourceById/GetOneToOptionalSourceByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/GetOneToOptionalSourceById/GetOneToOptionalSourceByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/GetOneToOptionalSources/GetOneToOptionalSourcesQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/GetOneToOptionalSources/GetOneToOptionalSourcesQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/GetOneToOptionalSources/GetOneToOptionalSourcesQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/OneToOptionalSourceDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/OneToOptionalSourceDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/Operation/OperationCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/Operation/OperationCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/Operation/OperationCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/CreateOptionalToManyDest/CreateOptionalToManyDestCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/CreateOptionalToManyDest/CreateOptionalToManyDestCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/CreateOptionalToManyDest/CreateOptionalToManyDestCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/DeleteOptionalToManyDest/DeleteOptionalToManyDestCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/DeleteOptionalToManyDest/DeleteOptionalToManyDestCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/DeleteOptionalToManyDest/DeleteOptionalToManyDestCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/GetOptionalToManyDestById/GetOptionalToManyDestByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/GetOptionalToManyDestById/GetOptionalToManyDestByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/GetOptionalToManyDestById/GetOptionalToManyDestByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/GetOptionalToManyDests/GetOptionalToManyDestsQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/GetOptionalToManyDests/GetOptionalToManyDestsQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/GetOptionalToManyDests/GetOptionalToManyDestsQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/OperationAsync/OperationAsyncCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/OperationAsync/OperationAsyncCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/OperationAsync/OperationAsyncCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/OptionalToManyDestDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/OptionalToManyDestDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/CreateOptionalToManySource/CreateOptionalToManySourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/CreateOptionalToManySource/CreateOptionalToManySourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/CreateOptionalToManySource/CreateOptionalToManySourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/DeleteOptionalToManySource/DeleteOptionalToManySourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/DeleteOptionalToManySource/DeleteOptionalToManySourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/DeleteOptionalToManySource/DeleteOptionalToManySourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/GetOptionalToManySourceById/GetOptionalToManySourceByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/GetOptionalToManySourceById/GetOptionalToManySourceByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/GetOptionalToManySourceById/GetOptionalToManySourceByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/GetOptionalToManySources/GetOptionalToManySourcesQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/GetOptionalToManySources/GetOptionalToManySourcesQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/GetOptionalToManySources/GetOptionalToManySourcesQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/OperationAsync/OperationAsyncCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/OperationAsync/OperationAsyncCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/OperationAsync/OperationAsyncCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/OptionalToManySourceDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/OptionalToManySourceDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/CreateOptionalToOneDest/CreateOptionalToOneDestCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/CreateOptionalToOneDest/CreateOptionalToOneDestCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/CreateOptionalToOneDest/CreateOptionalToOneDestCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/DeleteOptionalToOneDest/DeleteOptionalToOneDestCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/DeleteOptionalToOneDest/DeleteOptionalToOneDestCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/DeleteOptionalToOneDest/DeleteOptionalToOneDestCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/GetOptionalToOneDestById/GetOptionalToOneDestByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/GetOptionalToOneDestById/GetOptionalToOneDestByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/GetOptionalToOneDestById/GetOptionalToOneDestByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/GetOptionalToOneDests/GetOptionalToOneDestsQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/GetOptionalToOneDests/GetOptionalToOneDestsQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/GetOptionalToOneDests/GetOptionalToOneDestsQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/OperationAsync/OperationAsyncCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/OperationAsync/OperationAsyncCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/OperationAsync/OperationAsyncCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/OptionalToOneDestDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/OptionalToOneDestDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/CreateOptionalToOneSource/CreateOptionalToOneSourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/CreateOptionalToOneSource/CreateOptionalToOneSourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/CreateOptionalToOneSource/CreateOptionalToOneSourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/DeleteOptionalToOneSource/DeleteOptionalToOneSourceCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/DeleteOptionalToOneSource/DeleteOptionalToOneSourceCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/DeleteOptionalToOneSource/DeleteOptionalToOneSourceCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/GetOptionalToOneSourceById/GetOptionalToOneSourceByIdQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/GetOptionalToOneSourceById/GetOptionalToOneSourceByIdQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/GetOptionalToOneSourceById/GetOptionalToOneSourceByIdQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/GetOptionalToOneSources/GetOptionalToOneSourcesQuery.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/GetOptionalToOneSources/GetOptionalToOneSourcesQueryHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/GetOptionalToOneSources/GetOptionalToOneSourcesQueryValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/OperationAsync/OperationAsyncCommand.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/OperationAsync/OperationAsyncCommandHandler.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/OperationAsync/OperationAsyncCommandValidator.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/OptionalToOneSourceDto.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/OptionalToOneSourceDtoMappingExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Application/ValidationService.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Common/CollectionExtensions.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Common/UpdateHelper.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Contracts/LineDataContract.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities.PrivateSetters.TestApplication.Domain.csproj" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/ManyToManyDest.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/ManyToManySource.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/ManyToOneDest.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/ManyToOneSource.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/OptionalToManyDest.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/OptionalToManySource.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/OptionalToOneDest.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/OptionalToOneSource.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Compositional/OneToManyDest.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Compositional/OneToManySource.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Compositional/OneToOneDest.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Compositional/OneToOneSource.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Compositional/OneToOptionalDest.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Compositional/OneToOptionalSource.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Invoice.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Line.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Mapping/MappingCompositeMultiple.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Mapping/MappingCompositeSingle.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Mapping/MappingRoot.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Tag.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IManyToManyDestRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IManyToManySourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IManyToOneDestRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IManyToOneSourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IOptionalToManyDestRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IOptionalToManySourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IOptionalToOneDestRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IOptionalToOneSourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Compositional/IOneToManySourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Compositional/IOneToOneSourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Compositional/IOneToOptionalSourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/IEFRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/IInvoiceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/IPagedList.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/IRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/ITagRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Mapping/IMappingRootRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Entities.PrivateSetters.TestApplication.Infrastructure.csproj" deviationsHash="8B51ADFEEDA3A11FF27BA07E1DE9A125BD32CD89429667564EABF34BAD63E8F9" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Migrations/README.md" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/ManyToManyDestConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/ManyToManySourceConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/ManyToOneDestConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/ManyToOneSourceConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/OptionalToManyDestConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/OptionalToManySourceConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/OptionalToOneDestConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/OptionalToOneSourceConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Compositional/OneToManySourceConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Compositional/OneToOneSourceConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Compositional/OneToOptionalSourceConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Mapping/MappingRootConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/TagConfiguration.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/ManyToManyDestRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/ManyToManySourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/ManyToOneDestRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/ManyToOneSourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/OptionalToManyDestRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/OptionalToManySourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/OptionalToOneDestRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/OptionalToOneSourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Compositional/OneToManySourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Compositional/OneToOneSourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Compositional/OneToOptionalSourceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/InvoiceRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Mapping/MappingRootRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/TagRepository.cs" />
-  <file path="Entities.PrivateSetters.TestApplication.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="Entities.PrivateSetters.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Api/Entities.PrivateSetters.TestApplication.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Entities.PrivateSetters.TestApplication.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="Entities.PrivateSetters.TestApplication.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Entities.PrivateSetters.TestApplication.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Entities.PrivateSetters.TestApplication.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="Entities.PrivateSetters.TestApplication.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="Entities.PrivateSetters.TestApplication.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Entities.PrivateSetters.TestApplication.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/CreateInvoiceLineDataContractDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/CreateInvoiceLineDataContractDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/GetInvoices/GetInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/InvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/InvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/Operation/OperationCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/Operation/OperationCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/Operation/OperationCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/OperationLineDataContractDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/Invoices/OperationLineDataContractDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/CreateManyToManyDest/CreateManyToManyDestCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/CreateManyToManyDest/CreateManyToManyDestCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/CreateManyToManyDest/CreateManyToManyDestCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/DeleteManyToManyDest/DeleteManyToManyDestCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/DeleteManyToManyDest/DeleteManyToManyDestCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/DeleteManyToManyDest/DeleteManyToManyDestCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/GetManyToManyDestById/GetManyToManyDestByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/GetManyToManyDestById/GetManyToManyDestByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/GetManyToManyDestById/GetManyToManyDestByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/GetManyToManyDests/GetManyToManyDestsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/GetManyToManyDests/GetManyToManyDestsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/GetManyToManyDests/GetManyToManyDestsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/ManyToManyDestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/ManyToManyDestDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/OperationAsync/OperationAsyncCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/OperationAsync/OperationAsyncCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManyDests/OperationAsync/OperationAsyncCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/CreateManyToManySource/CreateManyToManySourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/CreateManyToManySource/CreateManyToManySourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/CreateManyToManySource/CreateManyToManySourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/DeleteManyToManySource/DeleteManyToManySourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/DeleteManyToManySource/DeleteManyToManySourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/DeleteManyToManySource/DeleteManyToManySourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/GetManyToManySourceById/GetManyToManySourceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/GetManyToManySourceById/GetManyToManySourceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/GetManyToManySourceById/GetManyToManySourceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/GetManyToManySources/GetManyToManySourcesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/GetManyToManySources/GetManyToManySourcesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/GetManyToManySources/GetManyToManySourcesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/ManyToManySourceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/ManyToManySourceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/OperationAsync/OperationAsyncCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/OperationAsync/OperationAsyncCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToManySources/OperationAsync/OperationAsyncCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/CreateManyToOneDest/CreateManyToOneDestCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/CreateManyToOneDest/CreateManyToOneDestCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/CreateManyToOneDest/CreateManyToOneDestCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/DeleteManyToOneDest/DeleteManyToOneDestCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/DeleteManyToOneDest/DeleteManyToOneDestCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/DeleteManyToOneDest/DeleteManyToOneDestCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/GetManyToOneDestById/GetManyToOneDestByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/GetManyToOneDestById/GetManyToOneDestByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/GetManyToOneDestById/GetManyToOneDestByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/GetManyToOneDests/GetManyToOneDestsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/GetManyToOneDests/GetManyToOneDestsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/GetManyToOneDests/GetManyToOneDestsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/ManyToOneDestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/ManyToOneDestDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/OperationAsync/OperationAsyncCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/OperationAsync/OperationAsyncCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneDests/OperationAsync/OperationAsyncCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/CreateManyToOneSource/CreateManyToOneSourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/CreateManyToOneSource/CreateManyToOneSourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/CreateManyToOneSource/CreateManyToOneSourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/DeleteManyToOneSource/DeleteManyToOneSourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/DeleteManyToOneSource/DeleteManyToOneSourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/DeleteManyToOneSource/DeleteManyToOneSourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/GetManyToOneSourceById/GetManyToOneSourceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/GetManyToOneSourceById/GetManyToOneSourceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/GetManyToOneSourceById/GetManyToOneSourceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/GetManyToOneSources/GetManyToOneSourcesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/GetManyToOneSources/GetManyToOneSourcesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/GetManyToOneSources/GetManyToOneSourcesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/ManyToOneSourceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/ManyToOneSourceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/OperationAsync/OperationAsyncCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/OperationAsync/OperationAsyncCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ManyToOneSources/OperationAsync/OperationAsyncCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/CreateOneToManySource/CreateOneToManySourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/CreateOneToManySource/CreateOneToManySourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/CreateOneToManySource/CreateOneToManySourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/DeleteOneToManySource/DeleteOneToManySourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/DeleteOneToManySource/DeleteOneToManySourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/DeleteOneToManySource/DeleteOneToManySourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/DeleteOneToManySourceOneToManyDest/DeleteOneToManySourceOneToManyDestCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/DeleteOneToManySourceOneToManyDest/DeleteOneToManySourceOneToManyDestCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/DeleteOneToManySourceOneToManyDest/DeleteOneToManySourceOneToManyDestCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceById/GetOneToManySourceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceById/GetOneToManySourceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceById/GetOneToManySourceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceOneToManyDestById/GetOneToManySourceOneToManyDestByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceOneToManyDestById/GetOneToManySourceOneToManyDestByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceOneToManyDestById/GetOneToManySourceOneToManyDestByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceOneToManyDests/GetOneToManySourceOneToManyDestsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceOneToManyDests/GetOneToManySourceOneToManyDestsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySourceOneToManyDests/GetOneToManySourceOneToManyDestsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySources/GetOneToManySourcesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySources/GetOneToManySourcesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/GetOneToManySources/GetOneToManySourcesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OneToManySourceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OneToManySourceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OneToManySourceOneToManyDestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OneToManySourceOneToManyDestDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/Operation/OperationCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/Operation/OperationCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/Operation/OperationCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OperationOneToManySource/OperationOneToManySourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OperationOneToManySource/OperationOneToManySourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToManySources/OperationOneToManySource/OperationOneToManySourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/CreateOneToOneSource/CreateOneToOneSourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/CreateOneToOneSource/CreateOneToOneSourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/CreateOneToOneSource/CreateOneToOneSourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/DeleteOneToOneSource/DeleteOneToOneSourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/DeleteOneToOneSource/DeleteOneToOneSourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/DeleteOneToOneSource/DeleteOneToOneSourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/GetOneToOneSourceById/GetOneToOneSourceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/GetOneToOneSourceById/GetOneToOneSourceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/GetOneToOneSourceById/GetOneToOneSourceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/GetOneToOneSources/GetOneToOneSourcesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/GetOneToOneSources/GetOneToOneSourcesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/GetOneToOneSources/GetOneToOneSourcesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/OneToOneSourceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/OneToOneSourceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/Operation/OperationCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/Operation/OperationCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOneSources/Operation/OperationCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/CreateOneToOptionalSource/CreateOneToOptionalSourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/CreateOneToOptionalSource/CreateOneToOptionalSourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/CreateOneToOptionalSource/CreateOneToOptionalSourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/DeleteOneToOptionalSource/DeleteOneToOptionalSourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/DeleteOneToOptionalSource/DeleteOneToOptionalSourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/DeleteOneToOptionalSource/DeleteOneToOptionalSourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/GetOneToOptionalSourceById/GetOneToOptionalSourceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/GetOneToOptionalSourceById/GetOneToOptionalSourceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/GetOneToOptionalSourceById/GetOneToOptionalSourceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/GetOneToOptionalSources/GetOneToOptionalSourcesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/GetOneToOptionalSources/GetOneToOptionalSourcesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/GetOneToOptionalSources/GetOneToOptionalSourcesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/OneToOptionalSourceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/OneToOptionalSourceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/Operation/OperationCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/Operation/OperationCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OneToOptionalSources/Operation/OperationCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/CreateOptionalToManyDest/CreateOptionalToManyDestCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/CreateOptionalToManyDest/CreateOptionalToManyDestCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/CreateOptionalToManyDest/CreateOptionalToManyDestCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/DeleteOptionalToManyDest/DeleteOptionalToManyDestCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/DeleteOptionalToManyDest/DeleteOptionalToManyDestCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/DeleteOptionalToManyDest/DeleteOptionalToManyDestCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/GetOptionalToManyDestById/GetOptionalToManyDestByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/GetOptionalToManyDestById/GetOptionalToManyDestByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/GetOptionalToManyDestById/GetOptionalToManyDestByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/GetOptionalToManyDests/GetOptionalToManyDestsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/GetOptionalToManyDests/GetOptionalToManyDestsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/GetOptionalToManyDests/GetOptionalToManyDestsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/OperationAsync/OperationAsyncCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/OperationAsync/OperationAsyncCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/OperationAsync/OperationAsyncCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/OptionalToManyDestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManyDests/OptionalToManyDestDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/CreateOptionalToManySource/CreateOptionalToManySourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/CreateOptionalToManySource/CreateOptionalToManySourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/CreateOptionalToManySource/CreateOptionalToManySourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/DeleteOptionalToManySource/DeleteOptionalToManySourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/DeleteOptionalToManySource/DeleteOptionalToManySourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/DeleteOptionalToManySource/DeleteOptionalToManySourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/GetOptionalToManySourceById/GetOptionalToManySourceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/GetOptionalToManySourceById/GetOptionalToManySourceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/GetOptionalToManySourceById/GetOptionalToManySourceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/GetOptionalToManySources/GetOptionalToManySourcesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/GetOptionalToManySources/GetOptionalToManySourcesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/GetOptionalToManySources/GetOptionalToManySourcesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/OperationAsync/OperationAsyncCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/OperationAsync/OperationAsyncCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/OperationAsync/OperationAsyncCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/OptionalToManySourceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToManySources/OptionalToManySourceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/CreateOptionalToOneDest/CreateOptionalToOneDestCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/CreateOptionalToOneDest/CreateOptionalToOneDestCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/CreateOptionalToOneDest/CreateOptionalToOneDestCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/DeleteOptionalToOneDest/DeleteOptionalToOneDestCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/DeleteOptionalToOneDest/DeleteOptionalToOneDestCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/DeleteOptionalToOneDest/DeleteOptionalToOneDestCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/GetOptionalToOneDestById/GetOptionalToOneDestByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/GetOptionalToOneDestById/GetOptionalToOneDestByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/GetOptionalToOneDestById/GetOptionalToOneDestByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/GetOptionalToOneDests/GetOptionalToOneDestsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/GetOptionalToOneDests/GetOptionalToOneDestsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/GetOptionalToOneDests/GetOptionalToOneDestsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/OperationAsync/OperationAsyncCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/OperationAsync/OperationAsyncCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/OperationAsync/OperationAsyncCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/OptionalToOneDestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneDests/OptionalToOneDestDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/CreateOptionalToOneSource/CreateOptionalToOneSourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/CreateOptionalToOneSource/CreateOptionalToOneSourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/CreateOptionalToOneSource/CreateOptionalToOneSourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/DeleteOptionalToOneSource/DeleteOptionalToOneSourceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/DeleteOptionalToOneSource/DeleteOptionalToOneSourceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/DeleteOptionalToOneSource/DeleteOptionalToOneSourceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/GetOptionalToOneSourceById/GetOptionalToOneSourceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/GetOptionalToOneSourceById/GetOptionalToOneSourceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/GetOptionalToOneSourceById/GetOptionalToOneSourceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/GetOptionalToOneSources/GetOptionalToOneSourcesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/GetOptionalToOneSources/GetOptionalToOneSourcesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/GetOptionalToOneSources/GetOptionalToOneSourcesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/OperationAsync/OperationAsyncCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/OperationAsync/OperationAsyncCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/OperationAsync/OperationAsyncCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/OptionalToOneSourceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/OptionalToOneSources/OptionalToOneSourceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Application/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Contracts/LineDataContract.cs" templateId="Intent.Entities.DataContract" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities.PrivateSetters.TestApplication.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/ManyToManyDest.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/ManyToManySource.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/ManyToOneDest.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/ManyToOneSource.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/OptionalToManyDest.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/OptionalToManySource.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/OptionalToOneDest.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Aggregational/OptionalToOneSource.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Compositional/OneToManyDest.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Compositional/OneToManySource.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Compositional/OneToOneDest.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Compositional/OneToOneSource.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Compositional/OneToOptionalDest.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Compositional/OneToOptionalSource.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Invoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Line.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Mapping/MappingCompositeMultiple.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Mapping/MappingCompositeSingle.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Mapping/MappingRoot.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Entities/Tag.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IManyToManyDestRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IManyToManySourceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IManyToOneDestRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IManyToOneSourceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IOptionalToManyDestRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IOptionalToManySourceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IOptionalToOneDestRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Aggregational/IOptionalToOneSourceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Compositional/IOneToManySourceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Compositional/IOneToOneSourceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Compositional/IOneToOptionalSourceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/IInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/ITagRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Mapping/IMappingRootRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Entities.PrivateSetters.TestApplication.Infrastructure.csproj" deviationsHash="8B51ADFEEDA3A11FF27BA07E1DE9A125BD32CD89429667564EABF34BAD63E8F9" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/ManyToManyDestConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/ManyToManySourceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/ManyToOneDestConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/ManyToOneSourceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/OptionalToManyDestConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/OptionalToManySourceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/OptionalToOneDestConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/OptionalToOneSourceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Compositional/OneToManySourceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Compositional/OneToOneSourceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Compositional/OneToOptionalSourceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Mapping/MappingRootConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/TagConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/ManyToManyDestRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/ManyToManySourceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/ManyToOneDestRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/ManyToOneSourceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/OptionalToManyDestRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/OptionalToManySourceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/OptionalToOneDestRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Aggregational/OptionalToOneSourceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Compositional/OneToManySourceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Compositional/OneToOneSourceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Compositional/OneToOptionalSourceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/InvoiceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/Mapping/MappingRootRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Repositories/TagRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Entities.PrivateSetters.TestApplication.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

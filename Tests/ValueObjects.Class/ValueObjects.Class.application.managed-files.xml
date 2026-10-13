@@ -1,145 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="0f20f746-bcad-4e1e-b944-7df6806d0f40">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/domain-services/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/integration-test/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="ValueObjects.Class.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="ValueObjects.Class.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="ValueObjects.Class.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="ValueObjects.Class.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="ValueObjects.Class.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="ValueObjects.Class.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="ValueObjects.Class.Api/Controllers/TestEntitiesController.cs" />
-  <file path="ValueObjects.Class.Api/Filters/ExceptionFilter.cs" />
-  <file path="ValueObjects.Class.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="ValueObjects.Class.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="ValueObjects.Class.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="ValueObjects.Class.Api/Program.cs" />
-  <file path="ValueObjects.Class.Api/Properties/launchSettings.json" />
-  <file path="ValueObjects.Class.Api/Services/CurrentUserService.cs" />
-  <file path="ValueObjects.Class.Api/Startup.cs" />
-  <file path="ValueObjects.Class.Api/ValueObjects.Class.Api.csproj" />
-  <file path="ValueObjects.Class.Api/appsettings.json" />
-  <file path="ValueObjects.Class.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="ValueObjects.Class.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="ValueObjects.Class.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="ValueObjects.Class.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="ValueObjects.Class.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="ValueObjects.Class.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="ValueObjects.Class.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="ValueObjects.Class.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="ValueObjects.Class.Application/Common/Interfaces/ICommand.cs" />
-  <file path="ValueObjects.Class.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="ValueObjects.Class.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="ValueObjects.Class.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="ValueObjects.Class.Application/Common/Interfaces/IQuery.cs" />
-  <file path="ValueObjects.Class.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="ValueObjects.Class.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="ValueObjects.Class.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="ValueObjects.Class.Application/Common/Models/Result.cs" />
-  <file path="ValueObjects.Class.Application/Common/Pagination/PagedList.cs" />
-  <file path="ValueObjects.Class.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="ValueObjects.Class.Application/Common/Validation/IValidationService.cs" />
-  <file path="ValueObjects.Class.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="ValueObjects.Class.Application/Common/Validation/ValidationService.cs" />
-  <file path="ValueObjects.Class.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="ValueObjects.Class.Application/DependencyInjection.cs" />
-  <file path="ValueObjects.Class.Application/EventHandlers/TestEventHandler.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntity/CreateTestEntityCommand.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntity/CreateTestEntityCommandHandler.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntity/CreateTestEntityCommandValidator.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntityAddressDto.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntityAddressDtoValidator.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntityMoneyDto.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntityMoneyDtoValidator.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/DeleteTestEntity/DeleteTestEntityCommand.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/DeleteTestEntity/DeleteTestEntityCommandHandler.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/DeleteTestEntity/DeleteTestEntityCommandValidator.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/GetTestEntities/GetTestEntitiesQuery.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/GetTestEntities/GetTestEntitiesQueryHandler.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/GetTestEntities/GetTestEntitiesQueryValidator.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/GetTestEntityById/GetTestEntityByIdQuery.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/GetTestEntityById/GetTestEntityByIdQueryHandler.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/GetTestEntityById/GetTestEntityByIdQueryValidator.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/TestEntityAddressDto.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/TestEntityAddressDtoMappingExtensions.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/TestEntityDto.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/TestEntityDtoMappingExtensions.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/TestEntityMoneyDto.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/TestEntityMoneyDtoMappingExtensions.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntity/UpdateTestEntityCommand.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntity/UpdateTestEntityCommandHandler.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntity/UpdateTestEntityCommandValidator.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntityAddressDto.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntityAddressDtoValidator.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntityMoneyDto.cs" />
-  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntityMoneyDtoValidator.cs" />
-  <file path="ValueObjects.Class.Application/ValueObjects.Class.Application.csproj" />
-  <file path="ValueObjects.Class.Domain/Address.cs" />
-  <file path="ValueObjects.Class.Domain/AddressType.cs" />
-  <file path="ValueObjects.Class.Domain/Common/CollectionExtensions.cs" />
-  <file path="ValueObjects.Class.Domain/Common/DomainEvent.cs" />
-  <file path="ValueObjects.Class.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="ValueObjects.Class.Domain/Common/IHasDomainEvent.cs" />
-  <file path="ValueObjects.Class.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="ValueObjects.Class.Domain/Common/UpdateHelper.cs" />
-  <file path="ValueObjects.Class.Domain/Entities/TestEntity.cs" />
-  <file path="ValueObjects.Class.Domain/Events/TestEvent.cs" />
-  <file path="ValueObjects.Class.Domain/Money.cs" />
-  <file path="ValueObjects.Class.Domain/Repositories/IEFRepository.cs" />
-  <file path="ValueObjects.Class.Domain/Repositories/IPagedList.cs" />
-  <file path="ValueObjects.Class.Domain/Repositories/IRepository.cs" />
-  <file path="ValueObjects.Class.Domain/Repositories/ITestEntityRepository.cs" />
-  <file path="ValueObjects.Class.Domain/Services/ITestDomainService.cs" />
-  <file path="ValueObjects.Class.Domain/Services/TestDomainService.cs" />
-  <file path="ValueObjects.Class.Domain/ValueObject.cs" />
-  <file path="ValueObjects.Class.Domain/ValueObjects.Class.Domain.csproj" />
-  <file path="ValueObjects.Class.Infrastructure/DependencyInjection.cs" />
-  <file path="ValueObjects.Class.Infrastructure/Migrations/README.md" />
-  <file path="ValueObjects.Class.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="ValueObjects.Class.Infrastructure/Persistence/Configurations/TestEntityConfiguration.cs" />
-  <file path="ValueObjects.Class.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="ValueObjects.Class.Infrastructure/Repositories/TestEntityRepository.cs" />
-  <file path="ValueObjects.Class.Infrastructure/Services/DomainEventService.cs" />
-  <file path="ValueObjects.Class.Infrastructure/ValueObjects.Class.Infrastructure.csproj" deviationsHash="370B703C7DBF17A18C28FF01DA7B87AC0B676801901550DC9D289744ACA64258" />
-  <file path="ValueObjects.Class.IntegrationTests/AddressType.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/BaseIntegrationTest.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/EFContainerFixture.cs" deviationsHash="0398FA3C0D76855C8DF279E628B41CDBD4E05BED1EDB8E25C8A39E0656570A66" />
-  <file path="ValueObjects.Class.IntegrationTests/GlobalUsings.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/HttpClients/HttpClientRequestException.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/HttpClients/JsonResponse.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/HttpClients/ProblemDetailsWithErrors.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/HttpClients/TestEntities/ITestEntitiesService.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/HttpClients/TestEntities/TestEntitiesHttpClient.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/IntegrationTestWebAppFactory.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/PopulateIdsSpecimenBuilder.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/PagedResult.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/CreateTestEntityAddressDto.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/CreateTestEntityCommand.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/CreateTestEntityMoneyDto.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/DeleteTestEntityCommand.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/GetTestEntitiesQuery.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/GetTestEntityByIdQuery.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/TestEntityAddressDto.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/TestEntityDto.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/TestEntityMoneyDto.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/UpdateTestEntityAddressDto.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/UpdateTestEntityCommand.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/UpdateTestEntityMoneyDto.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/SharedContainerFixture.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/TestDataFactory.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Tests/TestEntities/CreateTestEntityTests.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Tests/TestEntities/DeleteTestEntityTests.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Tests/TestEntities/GetTestEntitiesTests.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Tests/TestEntities/GetTestEntityByIdTests.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/Tests/TestEntities/UpdateTestEntityTests.cs" />
-  <file path="ValueObjects.Class.IntegrationTests/ValueObjects.Class.IntegrationTests.csproj" />
-  <file path="ValueObjects.Class.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/domain-services/SKILL.md" templateId="Intent.DomainServices.DomainServiceSkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/integration-test/SKILL.md" templateId="Intent.AspNetCore.IntegrationTesting.IntegrationTestSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="ValueObjects.Class.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="ValueObjects.Class.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="ValueObjects.Class.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="ValueObjects.Class.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="ValueObjects.Class.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="ValueObjects.Class.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="ValueObjects.Class.Api/Controllers/TestEntitiesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="ValueObjects.Class.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="ValueObjects.Class.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="ValueObjects.Class.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="ValueObjects.Class.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="ValueObjects.Class.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="ValueObjects.Class.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="ValueObjects.Class.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="ValueObjects.Class.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="ValueObjects.Class.Api/ValueObjects.Class.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ValueObjects.Class.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="ValueObjects.Class.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="ValueObjects.Class.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="ValueObjects.Class.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="ValueObjects.Class.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="ValueObjects.Class.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="ValueObjects.Class.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="ValueObjects.Class.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="ValueObjects.Class.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="ValueObjects.Class.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="ValueObjects.Class.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="ValueObjects.Class.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="ValueObjects.Class.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="ValueObjects.Class.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="ValueObjects.Class.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="ValueObjects.Class.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="ValueObjects.Class.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="ValueObjects.Class.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="ValueObjects.Class.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="ValueObjects.Class.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="ValueObjects.Class.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="ValueObjects.Class.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="ValueObjects.Class.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="ValueObjects.Class.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="ValueObjects.Class.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="ValueObjects.Class.Application/EventHandlers/TestEventHandler.cs" templateId="Intent.MediatR.DomainEvents.DefaultDomainEventHandler" />
+  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntity/CreateTestEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntity/CreateTestEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntity/CreateTestEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntityAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntityAddressDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntityMoneyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="ValueObjects.Class.Application/TestEntities/CreateTestEntityMoneyDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="ValueObjects.Class.Application/TestEntities/DeleteTestEntity/DeleteTestEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="ValueObjects.Class.Application/TestEntities/DeleteTestEntity/DeleteTestEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="ValueObjects.Class.Application/TestEntities/DeleteTestEntity/DeleteTestEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="ValueObjects.Class.Application/TestEntities/GetTestEntities/GetTestEntitiesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="ValueObjects.Class.Application/TestEntities/GetTestEntities/GetTestEntitiesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="ValueObjects.Class.Application/TestEntities/GetTestEntities/GetTestEntitiesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="ValueObjects.Class.Application/TestEntities/GetTestEntityById/GetTestEntityByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="ValueObjects.Class.Application/TestEntities/GetTestEntityById/GetTestEntityByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="ValueObjects.Class.Application/TestEntities/GetTestEntityById/GetTestEntityByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="ValueObjects.Class.Application/TestEntities/TestEntityAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="ValueObjects.Class.Application/TestEntities/TestEntityAddressDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="ValueObjects.Class.Application/TestEntities/TestEntityDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="ValueObjects.Class.Application/TestEntities/TestEntityDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="ValueObjects.Class.Application/TestEntities/TestEntityMoneyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="ValueObjects.Class.Application/TestEntities/TestEntityMoneyDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntity/UpdateTestEntityCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntity/UpdateTestEntityCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntity/UpdateTestEntityCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntityAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntityAddressDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntityMoneyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="ValueObjects.Class.Application/TestEntities/UpdateTestEntityMoneyDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="ValueObjects.Class.Application/ValueObjects.Class.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ValueObjects.Class.Domain/Address.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="ValueObjects.Class.Domain/AddressType.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="ValueObjects.Class.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="ValueObjects.Class.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="ValueObjects.Class.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="ValueObjects.Class.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="ValueObjects.Class.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="ValueObjects.Class.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="ValueObjects.Class.Domain/Entities/TestEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="ValueObjects.Class.Domain/Events/TestEvent.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="ValueObjects.Class.Domain/Money.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="ValueObjects.Class.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="ValueObjects.Class.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="ValueObjects.Class.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="ValueObjects.Class.Domain/Repositories/ITestEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="ValueObjects.Class.Domain/Services/ITestDomainService.cs" templateId="Intent.DomainServices.DomainServiceInterface" />
+  <file path="ValueObjects.Class.Domain/Services/TestDomainService.cs" templateId="Intent.DomainServices.DomainServiceImplementation" />
+  <file path="ValueObjects.Class.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="ValueObjects.Class.Domain/ValueObjects.Class.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ValueObjects.Class.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="ValueObjects.Class.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="ValueObjects.Class.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="ValueObjects.Class.Infrastructure/Persistence/Configurations/TestEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="ValueObjects.Class.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="ValueObjects.Class.Infrastructure/Repositories/TestEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="ValueObjects.Class.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="ValueObjects.Class.Infrastructure/ValueObjects.Class.Infrastructure.csproj" deviationsHash="370B703C7DBF17A18C28FF01DA7B87AC0B676801901550DC9D289744ACA64258" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ValueObjects.Class.IntegrationTests/AddressType.cs" templateId="Intent.AspNetCore.IntegrationTesting.EnumContract" />
+  <file path="ValueObjects.Class.IntegrationTests/BaseIntegrationTest.cs" templateId="Intent.AspNetCore.IntegrationTesting.BaseIntegrationTest" />
+  <file path="ValueObjects.Class.IntegrationTests/EFContainerFixture.cs" deviationsHash="0398FA3C0D76855C8DF279E628B41CDBD4E05BED1EDB8E25C8A39E0656570A66" templateId="Intent.AspNetCore.IntegrationTesting.EFContainerFixture" />
+  <file path="ValueObjects.Class.IntegrationTests/GlobalUsings.cs" templateId="Intent.Modules.AspNetCore.IntegrationTesting.Templates.StaticContentTemplateRegistrations.StaticFilesStaticContentTemplateRegistration" />
+  <file path="ValueObjects.Class.IntegrationTests/HttpClients/HttpClientRequestException.cs" templateId="Intent.AspNetCore.IntegrationTesting.HttpClientRequestException" />
+  <file path="ValueObjects.Class.IntegrationTests/HttpClients/JsonResponse.cs" templateId="Intent.AspNetCore.IntegrationTesting.JsonResponse" />
+  <file path="ValueObjects.Class.IntegrationTests/HttpClients/ProblemDetailsWithErrors.cs" templateId="Intent.AspNetCore.IntegrationTesting.ProblemDetailsWithErrors" />
+  <file path="ValueObjects.Class.IntegrationTests/HttpClients/TestEntities/ITestEntitiesService.cs" templateId="Intent.AspNetCore.IntegrationTesting.ProxyServiceContract" />
+  <file path="ValueObjects.Class.IntegrationTests/HttpClients/TestEntities/TestEntitiesHttpClient.cs" templateId="Intent.AspNetCore.IntegrationTesting.HttpClient" />
+  <file path="ValueObjects.Class.IntegrationTests/IntegrationTestWebAppFactory.cs" templateId="Intent.AspNetCore.IntegrationTesting.IntegrationTestWebAppFactory" />
+  <file path="ValueObjects.Class.IntegrationTests/PopulateIdsSpecimenBuilder.cs" templateId="Intent.AspNetCore.IntegrationTests.CRUD.PopulateIdsSpecimenBuilder" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/PagedResult.cs" templateId="Intent.AspNetCore.IntegrationTesting.PagedResult" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/CreateTestEntityAddressDto.cs" templateId="Intent.AspNetCore.IntegrationTesting.DtoContract" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/CreateTestEntityCommand.cs" templateId="Intent.AspNetCore.IntegrationTesting.DtoContract" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/CreateTestEntityMoneyDto.cs" templateId="Intent.AspNetCore.IntegrationTesting.DtoContract" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/DeleteTestEntityCommand.cs" templateId="Intent.AspNetCore.IntegrationTesting.DtoContract" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/GetTestEntitiesQuery.cs" templateId="Intent.AspNetCore.IntegrationTesting.DtoContract" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/GetTestEntityByIdQuery.cs" templateId="Intent.AspNetCore.IntegrationTesting.DtoContract" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/TestEntityAddressDto.cs" templateId="Intent.AspNetCore.IntegrationTesting.DtoContract" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/TestEntityDto.cs" templateId="Intent.AspNetCore.IntegrationTesting.DtoContract" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/TestEntityMoneyDto.cs" templateId="Intent.AspNetCore.IntegrationTesting.DtoContract" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/UpdateTestEntityAddressDto.cs" templateId="Intent.AspNetCore.IntegrationTesting.DtoContract" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/UpdateTestEntityCommand.cs" templateId="Intent.AspNetCore.IntegrationTesting.DtoContract" />
+  <file path="ValueObjects.Class.IntegrationTests/Services/TestEntities/UpdateTestEntityMoneyDto.cs" templateId="Intent.AspNetCore.IntegrationTesting.DtoContract" />
+  <file path="ValueObjects.Class.IntegrationTests/SharedContainerFixture.cs" templateId="Intent.AspNetCore.IntegrationTesting.SharedContainerFixture" />
+  <file path="ValueObjects.Class.IntegrationTests/TestDataFactory.cs" templateId="Intent.AspNetCore.IntegrationTests.CRUD.TestDataFactory" />
+  <file path="ValueObjects.Class.IntegrationTests/Tests/TestEntities/CreateTestEntityTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
+  <file path="ValueObjects.Class.IntegrationTests/Tests/TestEntities/DeleteTestEntityTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
+  <file path="ValueObjects.Class.IntegrationTests/Tests/TestEntities/GetTestEntitiesTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
+  <file path="ValueObjects.Class.IntegrationTests/Tests/TestEntities/GetTestEntityByIdTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
+  <file path="ValueObjects.Class.IntegrationTests/Tests/TestEntities/UpdateTestEntityTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
+  <file path="ValueObjects.Class.IntegrationTests/ValueObjects.Class.IntegrationTests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ValueObjects.Class.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

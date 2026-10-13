@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="37917353-50eb-4e6f-a64c-241e49dd5cc6">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="OpenTelemetry.Console.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="OpenTelemetry.Console.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="OpenTelemetry.Console.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="OpenTelemetry.Console.Api/Configuration/OpenTelemetryConfiguration.cs" />
-  <file path="OpenTelemetry.Console.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="OpenTelemetry.Console.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="OpenTelemetry.Console.Api/Controllers/DefaultController.cs" />
-  <file path="OpenTelemetry.Console.Api/Filters/ExceptionFilter.cs" />
-  <file path="OpenTelemetry.Console.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="OpenTelemetry.Console.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="OpenTelemetry.Console.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="OpenTelemetry.Console.Api/OpenTelemetry.Console.Api.csproj" />
-  <file path="OpenTelemetry.Console.Api/Program.cs" />
-  <file path="OpenTelemetry.Console.Api/Properties/launchSettings.json" />
-  <file path="OpenTelemetry.Console.Api/Services/CurrentUserService.cs" />
-  <file path="OpenTelemetry.Console.Api/Startup.cs" />
-  <file path="OpenTelemetry.Console.Api/appsettings.json" />
-  <file path="OpenTelemetry.Console.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="OpenTelemetry.Console.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="OpenTelemetry.Console.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="OpenTelemetry.Console.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="OpenTelemetry.Console.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="OpenTelemetry.Console.Application/Common/Interfaces/ICommand.cs" />
-  <file path="OpenTelemetry.Console.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="OpenTelemetry.Console.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="OpenTelemetry.Console.Application/Common/Interfaces/IQuery.cs" />
-  <file path="OpenTelemetry.Console.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="OpenTelemetry.Console.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="OpenTelemetry.Console.Application/Common/Models/Result.cs" />
-  <file path="OpenTelemetry.Console.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="OpenTelemetry.Console.Application/DependencyInjection.cs" />
-  <file path="OpenTelemetry.Console.Application/OpenTelemetry.Console.Application.csproj" />
-  <file path="OpenTelemetry.Console.Application/Test/TestCommand.cs" />
-  <file path="OpenTelemetry.Console.Application/Test/TestCommandHandler.cs" />
-  <file path="OpenTelemetry.Console.Domain/OpenTelemetry.Console.Domain.csproj" />
-  <file path="OpenTelemetry.Console.Infrastructure/DependencyInjection.cs" />
-  <file path="OpenTelemetry.Console.Infrastructure/OpenTelemetry.Console.Infrastructure.csproj" />
-  <file path="OpenTelemetry.Console.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="OpenTelemetry.Console.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="OpenTelemetry.Console.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="OpenTelemetry.Console.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="OpenTelemetry.Console.Api/Configuration/OpenTelemetryConfiguration.cs" templateId="Intent.OpenTelemetry.OpenTelemetryConfiguration" />
+  <file path="OpenTelemetry.Console.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="OpenTelemetry.Console.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="OpenTelemetry.Console.Api/Controllers/DefaultController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="OpenTelemetry.Console.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="OpenTelemetry.Console.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="OpenTelemetry.Console.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="OpenTelemetry.Console.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="OpenTelemetry.Console.Api/OpenTelemetry.Console.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="OpenTelemetry.Console.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="OpenTelemetry.Console.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="OpenTelemetry.Console.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="OpenTelemetry.Console.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="OpenTelemetry.Console.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="OpenTelemetry.Console.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="OpenTelemetry.Console.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="OpenTelemetry.Console.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="OpenTelemetry.Console.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="OpenTelemetry.Console.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="OpenTelemetry.Console.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="OpenTelemetry.Console.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="OpenTelemetry.Console.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="OpenTelemetry.Console.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="OpenTelemetry.Console.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="OpenTelemetry.Console.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="OpenTelemetry.Console.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="OpenTelemetry.Console.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="OpenTelemetry.Console.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="OpenTelemetry.Console.Application/OpenTelemetry.Console.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="OpenTelemetry.Console.Application/Test/TestCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="OpenTelemetry.Console.Application/Test/TestCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="OpenTelemetry.Console.Domain/OpenTelemetry.Console.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="OpenTelemetry.Console.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="OpenTelemetry.Console.Infrastructure/OpenTelemetry.Console.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="OpenTelemetry.Console.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

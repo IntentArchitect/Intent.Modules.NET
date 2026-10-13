@@ -1,101 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="2ab52206-4c2d-44cb-87dd-14898ae43e4d">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="CleanArchitecture.IdentityService.Api/CleanArchitecture.IdentityService.Api.csproj" />
-  <file path="CleanArchitecture.IdentityService.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Configuration/AspNetCoreIdentityConfiguration.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Configuration/IdentityServiceCollectionExtensions.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Configuration/IdentityServiceEmailSenderCollectionExtensions.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Controllers/IdentityController.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Filters/ExceptionFilter.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Program.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Properties/launchSettings.json" />
-  <file path="CleanArchitecture.IdentityService.Api/Services/CurrentUserService.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Services/ITokenService.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Services/IdentityServiceManager.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/Services/TokenService.cs" />
-  <file path="CleanArchitecture.IdentityService.Api/appsettings.json" />
-  <file path="CleanArchitecture.IdentityService.Application/CleanArchitecture.IdentityService.Application.csproj" deviationsHash="588E0C888F9E7B1BF68BB119D923202A4E4072A1F0BBA6CA67F4EA9BBCAC8502" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Interfaces/IApplicationDbContext.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Interfaces/ICommand.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Interfaces/IQuery.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Models/Result.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Pagination/PagedList.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Pagination/PagedResult.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Validation/IValidationService.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Validation/ValidationService.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/DependencyInjection.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/AccessTokenResponseDto.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/ForgotPasswordRequestDto.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/ForgotPasswordRequestDtoValidator.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/InfoRequestDto.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/InfoRequestDtoValidator.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/InfoResponseDto.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/LoginRequestDto.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/LoginRequestDtoValidator.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/RefreshRequestDto.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/RefreshRequestDtoValidator.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/RegisterRequestDto.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/RegisterRequestDtoValidator.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/ResendConfirmationEmailRequestDto.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/ResendConfirmationEmailRequestDtoValidator.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/ResetPasswordRequestDto.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/ResetPasswordRequestDtoValidator.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/TwoFactorRequestDto.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/TwoFactorRequestDtoValidator.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Identity/TwoFactorResponseDto.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Implementation/IdentityService.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Interfaces/IIdentityEmailSender.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Interfaces/IIdentityService.cs" />
-  <file path="CleanArchitecture.IdentityService.Application/Interfaces/IIdentityServiceManager.cs" />
-  <file path="CleanArchitecture.IdentityService.Domain/CleanArchitecture.IdentityService.Domain.csproj" />
-  <file path="CleanArchitecture.IdentityService.Domain/Common/CollectionExtensions.cs" />
-  <file path="CleanArchitecture.IdentityService.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="CleanArchitecture.IdentityService.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="CleanArchitecture.IdentityService.Domain/Common/UpdateHelper.cs" />
-  <file path="CleanArchitecture.IdentityService.Domain/Entities/ApplicationIdentityUser.cs" />
-  <file path="CleanArchitecture.IdentityService.Domain/Repositories/IApplicationIdentityUserRepository.cs" />
-  <file path="CleanArchitecture.IdentityService.Domain/Repositories/IEFRepository.cs" />
-  <file path="CleanArchitecture.IdentityService.Domain/Repositories/IPagedList.cs" />
-  <file path="CleanArchitecture.IdentityService.Domain/Repositories/IRepository.cs" />
-  <file path="CleanArchitecture.IdentityService.Infrastructure/CleanArchitecture.IdentityService.Infrastructure.csproj" deviationsHash="C5A28ECF378DB5D1CA3CBDA54517C79BE2AD5837B90B509BDEE7A73FE742273D" />
-  <file path="CleanArchitecture.IdentityService.Infrastructure/DependencyInjection.cs" />
-  <file path="CleanArchitecture.IdentityService.Infrastructure/Implementation/Identity/IdentityEmailSender.cs" />
-  <file path="CleanArchitecture.IdentityService.Infrastructure/Migrations/README.md" />
-  <file path="CleanArchitecture.IdentityService.Infrastructure/Options/EmailSenderOptions.cs" />
-  <file path="CleanArchitecture.IdentityService.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="CleanArchitecture.IdentityService.Infrastructure/Persistence/Configurations/ApplicationIdentityUserConfiguration.cs" />
-  <file path="CleanArchitecture.IdentityService.Infrastructure/Repositories/ApplicationIdentityUserRepository.cs" />
-  <file path="CleanArchitecture.IdentityService.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="CleanArchitecture.IdentityService.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="CleanArchitecture.IdentityService.Api/CleanArchitecture.IdentityService.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.IdentityService.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="CleanArchitecture.IdentityService.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="CleanArchitecture.IdentityService.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="CleanArchitecture.IdentityService.Api/Configuration/AspNetCoreIdentityConfiguration.cs" templateId="Intent.AspNetCore.Identity.AspNetCoreIdentityConfiguration" />
+  <file path="CleanArchitecture.IdentityService.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="CleanArchitecture.IdentityService.Api/Configuration/IdentityServiceCollectionExtensions.cs" templateId="Intent.AspNetCore.Identity.IdentityServiceCollectionExtensions" />
+  <file path="CleanArchitecture.IdentityService.Api/Configuration/IdentityServiceEmailSenderCollectionExtensions.cs" templateId="Intent.AspNetCore.IdentityService.IdentityServiceEmailSenderCollectionExtensions" />
+  <file path="CleanArchitecture.IdentityService.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="CleanArchitecture.IdentityService.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="CleanArchitecture.IdentityService.Api/Controllers/IdentityController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CleanArchitecture.IdentityService.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="CleanArchitecture.IdentityService.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="CleanArchitecture.IdentityService.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="CleanArchitecture.IdentityService.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="CleanArchitecture.IdentityService.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="CleanArchitecture.IdentityService.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="CleanArchitecture.IdentityService.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="CleanArchitecture.IdentityService.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="CleanArchitecture.IdentityService.Api/Services/ITokenService.cs" templateId="Intent.AspNetCore.IdentityService.TokenServiceInterface" />
+  <file path="CleanArchitecture.IdentityService.Api/Services/IdentityServiceManager.cs" templateId="Intent.AspNetCore.IdentityService.IdentityServiceManager" />
+  <file path="CleanArchitecture.IdentityService.Api/Services/TokenService.cs" templateId="Intent.AspNetCore.IdentityService.TokenService" />
+  <file path="CleanArchitecture.IdentityService.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="CleanArchitecture.IdentityService.Application/CleanArchitecture.IdentityService.Application.csproj" deviationsHash="588E0C888F9E7B1BF68BB119D923202A4E4072A1F0BBA6CA67F4EA9BBCAC8502" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Interfaces/IApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContextInterface" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="CleanArchitecture.IdentityService.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="CleanArchitecture.IdentityService.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/AccessTokenResponseDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/ForgotPasswordRequestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/ForgotPasswordRequestDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/InfoRequestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/InfoRequestDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/InfoResponseDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/LoginRequestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/LoginRequestDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/RefreshRequestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/RefreshRequestDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/RegisterRequestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/RegisterRequestDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/ResendConfirmationEmailRequestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/ResendConfirmationEmailRequestDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/ResetPasswordRequestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/ResetPasswordRequestDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/TwoFactorRequestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/TwoFactorRequestDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.IdentityService.Application/Identity/TwoFactorResponseDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.IdentityService.Application/Implementation/IdentityService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="CleanArchitecture.IdentityService.Application/Interfaces/IIdentityEmailSender.cs" templateId="Intent.AspNetCore.IdentityService.IdentityEmailSenderInterface" />
+  <file path="CleanArchitecture.IdentityService.Application/Interfaces/IIdentityService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="CleanArchitecture.IdentityService.Application/Interfaces/IIdentityServiceManager.cs" templateId="Intent.AspNetCore.IdentityService.IdentityServiceManagerInterface" />
+  <file path="CleanArchitecture.IdentityService.Domain/CleanArchitecture.IdentityService.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.IdentityService.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="CleanArchitecture.IdentityService.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="CleanArchitecture.IdentityService.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="CleanArchitecture.IdentityService.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="CleanArchitecture.IdentityService.Domain/Entities/ApplicationIdentityUser.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.IdentityService.Domain/Repositories/IApplicationIdentityUserRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.IdentityService.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="CleanArchitecture.IdentityService.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="CleanArchitecture.IdentityService.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="CleanArchitecture.IdentityService.Infrastructure/CleanArchitecture.IdentityService.Infrastructure.csproj" deviationsHash="C5A28ECF378DB5D1CA3CBDA54517C79BE2AD5837B90B509BDEE7A73FE742273D" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.IdentityService.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.IdentityService.Infrastructure/Implementation/Identity/IdentityEmailSender.cs" templateId="Intent.AspNetCore.IdentityService.IdentityEmailSender" />
+  <file path="CleanArchitecture.IdentityService.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="CleanArchitecture.IdentityService.Infrastructure/Options/EmailSenderOptions.cs" templateId="Intent.AspNetCore.IdentityService.EmailSenderOptions" />
+  <file path="CleanArchitecture.IdentityService.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="CleanArchitecture.IdentityService.Infrastructure/Persistence/Configurations/ApplicationIdentityUserConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="CleanArchitecture.IdentityService.Infrastructure/Repositories/ApplicationIdentityUserRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="CleanArchitecture.IdentityService.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="CleanArchitecture.IdentityService.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

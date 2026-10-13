@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="4188da7c-c7fc-4d6a-9d0c-522a695bfe1f">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Application.Identity.MSAL.TestApplication.Api.csproj" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Filters/ExceptionFilter.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Program.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Properties/launchSettings.json" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Services/CurrentUserService.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/Startup.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Api/appsettings.json" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Application.Identity.MSAL.TestApplication.Application.csproj" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Models/Result.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Pagination/PagedList.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Pagination/PagedResult.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Application/DependencyInjection.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Domain/Application.Identity.MSAL.TestApplication.Domain.csproj" />
-  <file path="Application.Identity.MSAL.TestApplication.Domain/Common/CollectionExtensions.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Domain/Common/UpdateHelper.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Domain/Repositories/IEFRepository.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Domain/Repositories/IPagedList.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Domain/Repositories/IRepository.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Infrastructure/Application.Identity.MSAL.TestApplication.Infrastructure.csproj" deviationsHash="7D1B529EA2D95A48F73D47B50CDDF8F72FC9FEFAC79D261401B82A8E3F72E217" />
-  <file path="Application.Identity.MSAL.TestApplication.Infrastructure/DependencyInjection.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Infrastructure/Migrations/README.md" />
-  <file path="Application.Identity.MSAL.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Application.Identity.MSAL.TestApplication.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Application.Identity.MSAL.TestApplication.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="Application.Identity.MSAL.TestApplication.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Application.Identity.MSAL.TestApplication.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Application.Identity.MSAL.TestApplication.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Application.Identity.MSAL.TestApplication.Domain/Application.Identity.MSAL.TestApplication.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Application.Identity.MSAL.TestApplication.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Application.Identity.MSAL.TestApplication.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Application.Identity.MSAL.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Application.Identity.MSAL.TestApplication.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Application.Identity.MSAL.TestApplication.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="Application.Identity.MSAL.TestApplication.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Application.Identity.MSAL.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Application.Identity.MSAL.TestApplication.Infrastructure/Application.Identity.MSAL.TestApplication.Infrastructure.csproj" deviationsHash="7D1B529EA2D95A48F73D47B50CDDF8F72FC9FEFAC79D261401B82A8E3F72E217" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Application.Identity.MSAL.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Application.Identity.MSAL.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="Application.Identity.MSAL.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="Application.Identity.MSAL.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="Application.Identity.MSAL.TestApplication.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

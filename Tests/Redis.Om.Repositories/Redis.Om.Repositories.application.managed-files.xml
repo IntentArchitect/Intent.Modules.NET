@@ -1,201 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="eb23fe9b-a294-4fa6-88ea-1f869a01910b">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="Redis.Om.Repositories.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="Redis.Om.Repositories.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="Redis.Om.Repositories.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="Redis.Om.Repositories.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="Redis.Om.Repositories.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Redis.Om.Repositories.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="Redis.Om.Repositories.Api/Controllers/ClientsController.cs" />
-  <file path="Redis.Om.Repositories.Api/Controllers/DerivedTypesController.cs" />
-  <file path="Redis.Om.Repositories.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="Redis.Om.Repositories.Api/Filters/ExceptionFilter.cs" />
-  <file path="Redis.Om.Repositories.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="Redis.Om.Repositories.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="Redis.Om.Repositories.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="Redis.Om.Repositories.Api/Program.cs" />
-  <file path="Redis.Om.Repositories.Api/Properties/launchSettings.json" />
-  <file path="Redis.Om.Repositories.Api/Redis.Om.Repositories.Api.csproj" />
-  <file path="Redis.Om.Repositories.Api/Services/CurrentUserService.cs" />
-  <file path="Redis.Om.Repositories.Api/Startup.cs" />
-  <file path="Redis.Om.Repositories.Api/appsettings.json" />
-  <file path="Redis.Om.Repositories.Application/Clients/ClientDto.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/ClientDtoMappingExtensions.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/CreateClient/CreateClientCommand.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/CreateClient/CreateClientCommandHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/CreateClient/CreateClientCommandValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/DeleteClient/DeleteClientCommand.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/DeleteClient/DeleteClientCommandHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/DeleteClient/DeleteClientCommandValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClientById/GetClientByIdQuery.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClientById/GetClientByIdQueryHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClientById/GetClientByIdQueryValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClientByName/GetClientByName.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClientByName/GetClientByNameHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClientByName/GetClientByNameValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClients/GetClientsQuery.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClients/GetClientsQueryHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClients/GetClientsQueryValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClientsByName/GetClientsByNameQuery.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClientsByName/GetClientsByNameQueryHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClientsByName/GetClientsByNameQueryValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClientsPaged/GetClientsPagedQuery.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClientsPaged/GetClientsPagedQueryHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/GetClientsPaged/GetClientsPagedQueryValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/UpdateClient/UpdateClientCommand.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/UpdateClient/UpdateClientCommandHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/UpdateClient/UpdateClientCommandValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/UpdateClientByOp/UpdateClientByOpCommand.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/UpdateClientByOp/UpdateClientByOpCommandHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/Clients/UpdateClientByOp/UpdateClientByOpCommandValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Interfaces/ICommand.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Interfaces/IQuery.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Models/Result.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Pagination/PagedResult.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Validation/IValidationService.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Validation/ValidationService.cs" />
-  <file path="Redis.Om.Repositories.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Redis.Om.Repositories.Application/DependencyInjection.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedType/CreateDerivedTypeCommand.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedType/CreateDerivedTypeCommandHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedType/CreateDerivedTypeCommandValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedTypeDerivedTypeAggregateDto.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedTypeDerivedTypeAggregateDtoValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/DeleteDerivedType/DeleteDerivedTypeCommand.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/DeleteDerivedType/DeleteDerivedTypeCommandHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/DeleteDerivedType/DeleteDerivedTypeCommandValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/DerivedTypeDto.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/DerivedTypeDtoMappingExtensions.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypeById/GetDerivedTypeByIdQuery.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypeById/GetDerivedTypeByIdQueryHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypeById/GetDerivedTypeByIdQueryValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypes/GetDerivedTypesQuery.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypes/GetDerivedTypesQueryHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypes/GetDerivedTypesQueryValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedType/UpdateDerivedTypeCommand.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedType/UpdateDerivedTypeCommandHandler.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedType/UpdateDerivedTypeCommandValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedTypeDerivedTypeAggregateDto.cs" />
-  <file path="Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedTypeDerivedTypeAggregateDtoValidator.cs" />
-  <file path="Redis.Om.Repositories.Application/EventHandlers/RegionManager.cs" />
-  <file path="Redis.Om.Repositories.Application/Redis.Om.Repositories.Application.csproj" />
-  <file path="Redis.Om.Repositories.Domain/Address.cs" />
-  <file path="Redis.Om.Repositories.Domain/ClientType.cs" />
-  <file path="Redis.Om.Repositories.Domain/Common/CollectionExtensions.cs" />
-  <file path="Redis.Om.Repositories.Domain/Common/DomainEvent.cs" />
-  <file path="Redis.Om.Repositories.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="Redis.Om.Repositories.Domain/Common/IHasDomainEvent.cs" />
-  <file path="Redis.Om.Repositories.Domain/Common/Interfaces/IRedisOmUnitOfWork.cs" />
-  <file path="Redis.Om.Repositories.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Redis.Om.Repositories.Domain/Common/UpdateHelper.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/BaseOfT.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/BaseType.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/Category.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/Client.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/Country.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/Customer.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/DerivedOfT.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/DerivedType.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/DerivedTypeAggregate.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/EntityOfT.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/IdTesting.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/Invoice.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/InvoiceLogo.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/LineItem.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/Product.cs" />
-  <file path="Redis.Om.Repositories.Domain/Entities/Region.cs" />
-  <file path="Redis.Om.Repositories.Domain/Events/RegionChangedDomainEvent.cs" />
-  <file path="Redis.Om.Repositories.Domain/Redis.Om.Repositories.Domain.csproj" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IAddressDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IBaseOfTDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IBaseTypeDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/ICategoryDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IClientDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/ICountryDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/ICustomerDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IDerivedOfTDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IDerivedTypeAggregateDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IDerivedTypeDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IEntityOfTDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IIdTestingDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IInvoiceDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IInvoiceLogoDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/ILineItemDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IProductDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IRegionDocument.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/IBaseTypeRepository.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/IClientRepository.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/ICustomerRepository.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/IDerivedOfTRepository.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/IDerivedTypeRepository.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/IEntityOfTRepository.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/IIdTestingRepository.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/IInvoiceRepository.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/IPagedList.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/IRedisOmRepository.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/IRegionRepository.cs" />
-  <file path="Redis.Om.Repositories.Domain/Repositories/IRepository.cs" />
-  <file path="Redis.Om.Repositories.Domain/ValueObject.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Configuration/RedisOmConfiguration.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/DependencyInjection.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/AddressDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/BaseOfTDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/BaseTypeDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/CategoryDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/ClientDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/CountryDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/CustomerDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/DerivedOfTDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/DerivedTypeAggregateDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/DerivedTypeDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/EntityOfTDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/IRedisOmDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/IdTestingDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/InvoiceDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/InvoiceLogoDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/LineItemDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/ProductDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/ReflectionHelper.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/RegionDocument.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Persistence/RedisOmUnitOfWork.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Redis.Om.Repositories.Infrastructure.csproj" />
-  <file path="Redis.Om.Repositories.Infrastructure/Repositories/BaseTypeRedisOmRepository.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Repositories/ClientRedisOmRepository.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Repositories/CustomerRedisOmRepository.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Repositories/DerivedOfTRedisOmRepository.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Repositories/DerivedTypeRedisOmRepository.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Repositories/EntityOfTRedisOmRepository.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Repositories/IdTestingRedisOmRepository.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Repositories/InvoiceRedisOmRepository.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Repositories/RedisOmPagedList.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Repositories/RedisOmRepositoryBase.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Repositories/RegionRedisOmRepository.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Services/DomainEventService.cs" />
-  <file path="Redis.Om.Repositories.Infrastructure/Services/IndexCreationService.cs" />
-  <file path="Redis.Om.Repositories.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="Redis.Om.Repositories.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="Redis.Om.Repositories.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="Redis.Om.Repositories.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="Redis.Om.Repositories.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="Redis.Om.Repositories.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Redis.Om.Repositories.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="Redis.Om.Repositories.Api/Controllers/ClientsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="Redis.Om.Repositories.Api/Controllers/DerivedTypesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="Redis.Om.Repositories.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="Redis.Om.Repositories.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="Redis.Om.Repositories.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="Redis.Om.Repositories.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="Redis.Om.Repositories.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="Redis.Om.Repositories.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Redis.Om.Repositories.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Redis.Om.Repositories.Api/Redis.Om.Repositories.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Redis.Om.Repositories.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="Redis.Om.Repositories.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="Redis.Om.Repositories.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Redis.Om.Repositories.Application/Clients/ClientDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Redis.Om.Repositories.Application/Clients/ClientDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Redis.Om.Repositories.Application/Clients/CreateClient/CreateClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Redis.Om.Repositories.Application/Clients/CreateClient/CreateClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Redis.Om.Repositories.Application/Clients/CreateClient/CreateClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Redis.Om.Repositories.Application/Clients/DeleteClient/DeleteClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Redis.Om.Repositories.Application/Clients/DeleteClient/DeleteClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Redis.Om.Repositories.Application/Clients/DeleteClient/DeleteClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClientById/GetClientByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClientById/GetClientByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClientById/GetClientByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClientByName/GetClientByName.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClientByName/GetClientByNameHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClientByName/GetClientByNameValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClients/GetClientsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClients/GetClientsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClients/GetClientsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClientsByName/GetClientsByNameQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClientsByName/GetClientsByNameQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClientsByName/GetClientsByNameQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClientsPaged/GetClientsPagedQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClientsPaged/GetClientsPagedQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Redis.Om.Repositories.Application/Clients/GetClientsPaged/GetClientsPagedQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Redis.Om.Repositories.Application/Clients/UpdateClient/UpdateClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Redis.Om.Repositories.Application/Clients/UpdateClient/UpdateClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Redis.Om.Repositories.Application/Clients/UpdateClient/UpdateClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Redis.Om.Repositories.Application/Clients/UpdateClientByOp/UpdateClientByOpCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Redis.Om.Repositories.Application/Clients/UpdateClientByOp/UpdateClientByOpCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Redis.Om.Repositories.Application/Clients/UpdateClientByOp/UpdateClientByOpCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Redis.Om.Repositories.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="Redis.Om.Repositories.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="Redis.Om.Repositories.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="Redis.Om.Repositories.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="Redis.Om.Repositories.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="Redis.Om.Repositories.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="Redis.Om.Repositories.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="Redis.Om.Repositories.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="Redis.Om.Repositories.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="Redis.Om.Repositories.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="Redis.Om.Repositories.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="Redis.Om.Repositories.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="Redis.Om.Repositories.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="Redis.Om.Repositories.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="Redis.Om.Repositories.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="Redis.Om.Repositories.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="Redis.Om.Repositories.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="Redis.Om.Repositories.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="Redis.Om.Repositories.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="Redis.Om.Repositories.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="Redis.Om.Repositories.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="Redis.Om.Repositories.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Redis.Om.Repositories.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="Redis.Om.Repositories.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Redis.Om.Repositories.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedType/CreateDerivedTypeCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedType/CreateDerivedTypeCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedType/CreateDerivedTypeCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedTypeDerivedTypeAggregateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/CreateDerivedTypeDerivedTypeAggregateDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/DeleteDerivedType/DeleteDerivedTypeCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/DeleteDerivedType/DeleteDerivedTypeCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/DeleteDerivedType/DeleteDerivedTypeCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/DerivedTypeDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/DerivedTypeDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypeById/GetDerivedTypeByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypeById/GetDerivedTypeByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypeById/GetDerivedTypeByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypes/GetDerivedTypesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypes/GetDerivedTypesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/GetDerivedTypes/GetDerivedTypesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedType/UpdateDerivedTypeCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedType/UpdateDerivedTypeCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedType/UpdateDerivedTypeCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedTypeDerivedTypeAggregateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Redis.Om.Repositories.Application/DerivedTypes/UpdateDerivedTypeDerivedTypeAggregateDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Redis.Om.Repositories.Application/EventHandlers/RegionManager.cs" templateId="Intent.MediatR.DomainEvents.AggregateManager" />
+  <file path="Redis.Om.Repositories.Application/Redis.Om.Repositories.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Redis.Om.Repositories.Domain/Address.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="Redis.Om.Repositories.Domain/ClientType.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="Redis.Om.Repositories.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Redis.Om.Repositories.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="Redis.Om.Repositories.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Redis.Om.Repositories.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="Redis.Om.Repositories.Domain/Common/Interfaces/IRedisOmUnitOfWork.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmUnitOfWorkInterface" />
+  <file path="Redis.Om.Repositories.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Redis.Om.Repositories.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Redis.Om.Repositories.Domain/Entities/BaseOfT.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/BaseType.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/Category.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/Client.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/Country.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/Customer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/DerivedOfT.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/DerivedType.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/DerivedTypeAggregate.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/EntityOfT.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/IdTesting.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/Invoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/InvoiceLogo.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/LineItem.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/Product.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Entities/Region.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Redis.Om.Repositories.Domain/Events/RegionChangedDomainEvent.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="Redis.Om.Repositories.Domain/Redis.Om.Repositories.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IAddressDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmValueObjectDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IBaseOfTDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IBaseTypeDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/ICategoryDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IClientDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/ICountryDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/ICustomerDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IDerivedOfTDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IDerivedTypeAggregateDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IDerivedTypeDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IEntityOfTDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IIdTestingDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IInvoiceDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IInvoiceLogoDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/ILineItemDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IProductDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/Documents/IRegionDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/IBaseTypeRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/IClientRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/ICustomerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/IDerivedOfTRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/IDerivedTypeRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/IEntityOfTRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/IIdTestingRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/IInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/IRedisOmRepository.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmRepositoryInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/IRegionRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Redis.Om.Repositories.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Redis.Om.Repositories.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="Redis.Om.Repositories.Infrastructure/Configuration/RedisOmConfiguration.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmConfiguration" />
+  <file path="Redis.Om.Repositories.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/AddressDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmValueObjectDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/BaseOfTDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/BaseTypeDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/CategoryDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/ClientDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/CountryDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/CustomerDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/DerivedOfTDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/DerivedTypeAggregateDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/DerivedTypeDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/EntityOfTDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/IRedisOmDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentOfTInterface" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/IdTestingDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/InvoiceDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/InvoiceLogoDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/LineItemDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/ProductDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/ReflectionHelper.cs" templateId="Intent.Redis.Om.Repositories.Templates.ReflectionHelper" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/RegionDocument.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocument" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmDocumentTypeExtensionMethods" />
+  <file path="Redis.Om.Repositories.Infrastructure/Persistence/RedisOmUnitOfWork.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmUnitOfWork" />
+  <file path="Redis.Om.Repositories.Infrastructure/Redis.Om.Repositories.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Redis.Om.Repositories.Infrastructure/Repositories/BaseTypeRedisOmRepository.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmRepository" />
+  <file path="Redis.Om.Repositories.Infrastructure/Repositories/ClientRedisOmRepository.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmRepository" />
+  <file path="Redis.Om.Repositories.Infrastructure/Repositories/CustomerRedisOmRepository.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmRepository" />
+  <file path="Redis.Om.Repositories.Infrastructure/Repositories/DerivedOfTRedisOmRepository.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmRepository" />
+  <file path="Redis.Om.Repositories.Infrastructure/Repositories/DerivedTypeRedisOmRepository.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmRepository" />
+  <file path="Redis.Om.Repositories.Infrastructure/Repositories/EntityOfTRedisOmRepository.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmRepository" />
+  <file path="Redis.Om.Repositories.Infrastructure/Repositories/IdTestingRedisOmRepository.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmRepository" />
+  <file path="Redis.Om.Repositories.Infrastructure/Repositories/InvoiceRedisOmRepository.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmRepository" />
+  <file path="Redis.Om.Repositories.Infrastructure/Repositories/RedisOmPagedList.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmPagedList" />
+  <file path="Redis.Om.Repositories.Infrastructure/Repositories/RedisOmRepositoryBase.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmRepositoryBase" />
+  <file path="Redis.Om.Repositories.Infrastructure/Repositories/RegionRedisOmRepository.cs" templateId="Intent.Redis.Om.Repositories.Templates.RedisOmRepository" />
+  <file path="Redis.Om.Repositories.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="Redis.Om.Repositories.Infrastructure/Services/IndexCreationService.cs" templateId="Intent.Redis.Om.Repositories.Templates.IndexCreationService" />
+  <file path="Redis.Om.Repositories.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

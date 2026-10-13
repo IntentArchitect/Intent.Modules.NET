@@ -1,146 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="3d450dd7-4b01-4641-9828-8ba27fcdd370">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="TableStorage.Tests.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="TableStorage.Tests.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="TableStorage.Tests.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="TableStorage.Tests.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="TableStorage.Tests.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="TableStorage.Tests.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="TableStorage.Tests.Api/Controllers/InvoicesController.cs" />
-  <file path="TableStorage.Tests.Api/Controllers/OrdersController.cs" />
-  <file path="TableStorage.Tests.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="TableStorage.Tests.Api/Filters/ExceptionFilter.cs" />
-  <file path="TableStorage.Tests.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="TableStorage.Tests.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="TableStorage.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="TableStorage.Tests.Api/Program.cs" />
-  <file path="TableStorage.Tests.Api/Properties/launchSettings.json" />
-  <file path="TableStorage.Tests.Api/Services/CurrentUserService.cs" />
-  <file path="TableStorage.Tests.Api/Startup.cs" />
-  <file path="TableStorage.Tests.Api/TableStorage.Tests.Api.csproj" />
-  <file path="TableStorage.Tests.Api/appsettings.json" />
-  <file path="TableStorage.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="TableStorage.Tests.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="TableStorage.Tests.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="TableStorage.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="TableStorage.Tests.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="TableStorage.Tests.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="TableStorage.Tests.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="TableStorage.Tests.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="TableStorage.Tests.Application/Common/Interfaces/ICommand.cs" />
-  <file path="TableStorage.Tests.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="TableStorage.Tests.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="TableStorage.Tests.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="TableStorage.Tests.Application/Common/Interfaces/IQuery.cs" />
-  <file path="TableStorage.Tests.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="TableStorage.Tests.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="TableStorage.Tests.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="TableStorage.Tests.Application/Common/Models/Result.cs" />
-  <file path="TableStorage.Tests.Application/Common/Pagination/CursorPagedList.cs" />
-  <file path="TableStorage.Tests.Application/Common/Pagination/CursorPagedResult.cs" />
-  <file path="TableStorage.Tests.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs" />
-  <file path="TableStorage.Tests.Application/Common/Pagination/PagedList.cs" />
-  <file path="TableStorage.Tests.Application/Common/Pagination/PagedResult.cs" />
-  <file path="TableStorage.Tests.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="TableStorage.Tests.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="TableStorage.Tests.Application/Common/Validation/IValidationService.cs" />
-  <file path="TableStorage.Tests.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="TableStorage.Tests.Application/Common/Validation/ValidationService.cs" />
-  <file path="TableStorage.Tests.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="TableStorage.Tests.Application/DependencyInjection.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandHandler.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/GetInvoices/GetInvoicesQuery.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/GetPagedInvoices/GetPagedInvoicesQuery.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/GetPagedInvoices/GetPagedInvoicesQueryHandler.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/GetPagedInvoices/GetPagedInvoicesQueryValidator.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/InvoiceDto.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/InvoiceDtoMappingExtensions.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/UpdateInvoice/UpdateInvoiceCommand.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandHandler.cs" />
-  <file path="TableStorage.Tests.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs" />
-  <file path="TableStorage.Tests.Application/Orders/CreateOrder/CreateOrderCommand.cs" />
-  <file path="TableStorage.Tests.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs" />
-  <file path="TableStorage.Tests.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs" />
-  <file path="TableStorage.Tests.Application/Orders/CreateOrderCustomerDto.cs" />
-  <file path="TableStorage.Tests.Application/Orders/CreateOrderCustomerDtoValidator.cs" />
-  <file path="TableStorage.Tests.Application/Orders/CreateOrderOrderLineDto.cs" />
-  <file path="TableStorage.Tests.Application/Orders/CreateOrderOrderLineDtoValidator.cs" />
-  <file path="TableStorage.Tests.Application/Orders/DeleteOrder/DeleteOrderCommand.cs" />
-  <file path="TableStorage.Tests.Application/Orders/DeleteOrder/DeleteOrderCommandHandler.cs" />
-  <file path="TableStorage.Tests.Application/Orders/DeleteOrder/DeleteOrderCommandValidator.cs" />
-  <file path="TableStorage.Tests.Application/Orders/GetOrderById/GetOrderByIdQuery.cs" />
-  <file path="TableStorage.Tests.Application/Orders/GetOrderById/GetOrderByIdQueryHandler.cs" />
-  <file path="TableStorage.Tests.Application/Orders/GetOrderById/GetOrderByIdQueryValidator.cs" />
-  <file path="TableStorage.Tests.Application/Orders/GetOrders/GetOrdersQuery.cs" />
-  <file path="TableStorage.Tests.Application/Orders/GetOrders/GetOrdersQueryHandler.cs" />
-  <file path="TableStorage.Tests.Application/Orders/GetOrders/GetOrdersQueryValidator.cs" />
-  <file path="TableStorage.Tests.Application/Orders/GetOrdersFiltered/GetOrdersFilteredQuery.cs" />
-  <file path="TableStorage.Tests.Application/Orders/GetOrdersFiltered/GetOrdersFilteredQueryHandler.cs" deviationsHash="C0BBDB42DAEEB7F2FD59E4224ADDA5360F674F299071B60BE4C9243BDB78A2EC" />
-  <file path="TableStorage.Tests.Application/Orders/GetOrdersFiltered/GetOrdersFilteredQueryValidator.cs" />
-  <file path="TableStorage.Tests.Application/Orders/GetPagedOrders/GetPagedOrdersQuery.cs" />
-  <file path="TableStorage.Tests.Application/Orders/GetPagedOrders/GetPagedOrdersQueryHandler.cs" />
-  <file path="TableStorage.Tests.Application/Orders/GetPagedOrders/GetPagedOrdersQueryValidator.cs" />
-  <file path="TableStorage.Tests.Application/Orders/OrderCustomerDto.cs" />
-  <file path="TableStorage.Tests.Application/Orders/OrderCustomerDtoMappingExtensions.cs" />
-  <file path="TableStorage.Tests.Application/Orders/OrderDto.cs" />
-  <file path="TableStorage.Tests.Application/Orders/OrderDtoMappingExtensions.cs" />
-  <file path="TableStorage.Tests.Application/Orders/OrderOrderLineDto.cs" />
-  <file path="TableStorage.Tests.Application/Orders/OrderOrderLineDtoMappingExtensions.cs" />
-  <file path="TableStorage.Tests.Application/Orders/UpdateOrder/UpdateOrderCommand.cs" />
-  <file path="TableStorage.Tests.Application/Orders/UpdateOrder/UpdateOrderCommandHandler.cs" />
-  <file path="TableStorage.Tests.Application/Orders/UpdateOrder/UpdateOrderCommandValidator.cs" />
-  <file path="TableStorage.Tests.Application/Orders/UpdateOrderCustomerDto.cs" />
-  <file path="TableStorage.Tests.Application/Orders/UpdateOrderCustomerDtoValidator.cs" />
-  <file path="TableStorage.Tests.Application/TableStorage.Tests.Application.csproj" />
-  <file path="TableStorage.Tests.Domain/Common/CollectionExtensions.cs" />
-  <file path="TableStorage.Tests.Domain/Common/DomainEvent.cs" />
-  <file path="TableStorage.Tests.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="TableStorage.Tests.Domain/Common/IHasDomainEvent.cs" />
-  <file path="TableStorage.Tests.Domain/Common/Interfaces/ITableStorageUnitOfWork.cs" />
-  <file path="TableStorage.Tests.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="TableStorage.Tests.Domain/Common/UpdateHelper.cs" />
-  <file path="TableStorage.Tests.Domain/Entities/Customer.cs" />
-  <file path="TableStorage.Tests.Domain/Entities/Invoice.cs" />
-  <file path="TableStorage.Tests.Domain/Entities/Order.cs" />
-  <file path="TableStorage.Tests.Domain/Entities/OrderLine.cs" />
-  <file path="TableStorage.Tests.Domain/Repositories/ICursorPagedList.cs" />
-  <file path="TableStorage.Tests.Domain/Repositories/IEFRepository.cs" />
-  <file path="TableStorage.Tests.Domain/Repositories/IInvoiceRepository.cs" />
-  <file path="TableStorage.Tests.Domain/Repositories/IOrderRepository.cs" />
-  <file path="TableStorage.Tests.Domain/Repositories/IPagedList.cs" />
-  <file path="TableStorage.Tests.Domain/Repositories/IRepository.cs" />
-  <file path="TableStorage.Tests.Domain/Repositories/ITableStorageRepository.cs" />
-  <file path="TableStorage.Tests.Domain/Repositories/TableEntities/IInvoiceTableEntity.cs" />
-  <file path="TableStorage.Tests.Domain/Repositories/TableEntities/IOrderTableEntity.cs" />
-  <file path="TableStorage.Tests.Domain/TableStorage.Tests.Domain.csproj" />
-  <file path="TableStorage.Tests.Infrastructure/DependencyInjection.cs" />
-  <file path="TableStorage.Tests.Infrastructure/Persistence/TableStorageUnitOfWork.cs" />
-  <file path="TableStorage.Tests.Infrastructure/Persistence/Tables/ITableAdapter.cs" />
-  <file path="TableStorage.Tests.Infrastructure/Persistence/Tables/InvoiceTableEntity.cs" />
-  <file path="TableStorage.Tests.Infrastructure/Persistence/Tables/OrderTableEntity.cs" />
-  <file path="TableStorage.Tests.Infrastructure/Repositories/InvoiceTableStorageRepository.cs" />
-  <file path="TableStorage.Tests.Infrastructure/Repositories/OrderTableStorageRepository.cs" />
-  <file path="TableStorage.Tests.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="TableStorage.Tests.Infrastructure/Repositories/TableStorageRepositoryBase.cs" />
-  <file path="TableStorage.Tests.Infrastructure/Services/DomainEventService.cs" />
-  <file path="TableStorage.Tests.Infrastructure/TableStorage.Tests.Infrastructure.csproj" deviationsHash="C115DBB7671124337D7C8D9EB1BD5D631B37AEBF2E9FA2518ED7C30B5D4871DC" />
-  <file path="TableStorage.Tests.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="TableStorage.Tests.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="TableStorage.Tests.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="TableStorage.Tests.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="TableStorage.Tests.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="TableStorage.Tests.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="TableStorage.Tests.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="TableStorage.Tests.Api/Controllers/InvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="TableStorage.Tests.Api/Controllers/OrdersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="TableStorage.Tests.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="TableStorage.Tests.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="TableStorage.Tests.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="TableStorage.Tests.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="TableStorage.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="TableStorage.Tests.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="TableStorage.Tests.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="TableStorage.Tests.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="TableStorage.Tests.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="TableStorage.Tests.Api/TableStorage.Tests.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TableStorage.Tests.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="TableStorage.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="TableStorage.Tests.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="TableStorage.Tests.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="TableStorage.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="TableStorage.Tests.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="TableStorage.Tests.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="TableStorage.Tests.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="TableStorage.Tests.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="TableStorage.Tests.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="TableStorage.Tests.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="TableStorage.Tests.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="TableStorage.Tests.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="TableStorage.Tests.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="TableStorage.Tests.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="TableStorage.Tests.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="TableStorage.Tests.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="TableStorage.Tests.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="TableStorage.Tests.Application/Common/Pagination/CursorPagedList.cs" templateId="Intent.Azure.TableStorage.CursorPagedList" />
+  <file path="TableStorage.Tests.Application/Common/Pagination/CursorPagedResult.cs" templateId="Intent.Application.Dtos.Pagination.CursorPagedResult" />
+  <file path="TableStorage.Tests.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions" />
+  <file path="TableStorage.Tests.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="TableStorage.Tests.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="TableStorage.Tests.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="TableStorage.Tests.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="TableStorage.Tests.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="TableStorage.Tests.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="TableStorage.Tests.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="TableStorage.Tests.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="TableStorage.Tests.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="TableStorage.Tests.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TableStorage.Tests.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TableStorage.Tests.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TableStorage.Tests.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TableStorage.Tests.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TableStorage.Tests.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TableStorage.Tests.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TableStorage.Tests.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TableStorage.Tests.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TableStorage.Tests.Application/Invoices/GetInvoices/GetInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TableStorage.Tests.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TableStorage.Tests.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TableStorage.Tests.Application/Invoices/GetPagedInvoices/GetPagedInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TableStorage.Tests.Application/Invoices/GetPagedInvoices/GetPagedInvoicesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TableStorage.Tests.Application/Invoices/GetPagedInvoices/GetPagedInvoicesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TableStorage.Tests.Application/Invoices/InvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TableStorage.Tests.Application/Invoices/InvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="TableStorage.Tests.Application/Invoices/UpdateInvoice/UpdateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TableStorage.Tests.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TableStorage.Tests.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TableStorage.Tests.Application/Orders/CreateOrder/CreateOrderCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TableStorage.Tests.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TableStorage.Tests.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TableStorage.Tests.Application/Orders/CreateOrderCustomerDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TableStorage.Tests.Application/Orders/CreateOrderCustomerDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="TableStorage.Tests.Application/Orders/CreateOrderOrderLineDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TableStorage.Tests.Application/Orders/CreateOrderOrderLineDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="TableStorage.Tests.Application/Orders/DeleteOrder/DeleteOrderCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TableStorage.Tests.Application/Orders/DeleteOrder/DeleteOrderCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TableStorage.Tests.Application/Orders/DeleteOrder/DeleteOrderCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TableStorage.Tests.Application/Orders/GetOrderById/GetOrderByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TableStorage.Tests.Application/Orders/GetOrderById/GetOrderByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TableStorage.Tests.Application/Orders/GetOrderById/GetOrderByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TableStorage.Tests.Application/Orders/GetOrders/GetOrdersQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TableStorage.Tests.Application/Orders/GetOrders/GetOrdersQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TableStorage.Tests.Application/Orders/GetOrders/GetOrdersQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TableStorage.Tests.Application/Orders/GetOrdersFiltered/GetOrdersFilteredQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TableStorage.Tests.Application/Orders/GetOrdersFiltered/GetOrdersFilteredQueryHandler.cs" deviationsHash="C0BBDB42DAEEB7F2FD59E4224ADDA5360F674F299071B60BE4C9243BDB78A2EC" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TableStorage.Tests.Application/Orders/GetOrdersFiltered/GetOrdersFilteredQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TableStorage.Tests.Application/Orders/GetPagedOrders/GetPagedOrdersQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TableStorage.Tests.Application/Orders/GetPagedOrders/GetPagedOrdersQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TableStorage.Tests.Application/Orders/GetPagedOrders/GetPagedOrdersQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TableStorage.Tests.Application/Orders/OrderCustomerDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TableStorage.Tests.Application/Orders/OrderCustomerDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="TableStorage.Tests.Application/Orders/OrderDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TableStorage.Tests.Application/Orders/OrderDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="TableStorage.Tests.Application/Orders/OrderOrderLineDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TableStorage.Tests.Application/Orders/OrderOrderLineDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="TableStorage.Tests.Application/Orders/UpdateOrder/UpdateOrderCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TableStorage.Tests.Application/Orders/UpdateOrder/UpdateOrderCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TableStorage.Tests.Application/Orders/UpdateOrder/UpdateOrderCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TableStorage.Tests.Application/Orders/UpdateOrderCustomerDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TableStorage.Tests.Application/Orders/UpdateOrderCustomerDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="TableStorage.Tests.Application/TableStorage.Tests.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TableStorage.Tests.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="TableStorage.Tests.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="TableStorage.Tests.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="TableStorage.Tests.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="TableStorage.Tests.Domain/Common/Interfaces/ITableStorageUnitOfWork.cs" templateId="Intent.Azure.TableStorage.TableStorageUnitOfWorkInterface" />
+  <file path="TableStorage.Tests.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="TableStorage.Tests.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="TableStorage.Tests.Domain/Entities/Customer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TableStorage.Tests.Domain/Entities/Invoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TableStorage.Tests.Domain/Entities/Order.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TableStorage.Tests.Domain/Entities/OrderLine.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TableStorage.Tests.Domain/Repositories/ICursorPagedList.cs" templateId="Intent.Entities.Repositories.Api.CursorPagedListInterface" />
+  <file path="TableStorage.Tests.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="TableStorage.Tests.Domain/Repositories/IInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="TableStorage.Tests.Domain/Repositories/IOrderRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="TableStorage.Tests.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="TableStorage.Tests.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="TableStorage.Tests.Domain/Repositories/ITableStorageRepository.cs" templateId="Intent.Azure.TableStorage.TableStorageRepositoryInterface" />
+  <file path="TableStorage.Tests.Domain/Repositories/TableEntities/IInvoiceTableEntity.cs" templateId="Intent.Azure.TableStorage.TableStorageTableEntityInterface" />
+  <file path="TableStorage.Tests.Domain/Repositories/TableEntities/IOrderTableEntity.cs" templateId="Intent.Azure.TableStorage.TableStorageTableEntityInterface" />
+  <file path="TableStorage.Tests.Domain/TableStorage.Tests.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TableStorage.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="TableStorage.Tests.Infrastructure/Persistence/TableStorageUnitOfWork.cs" templateId="Intent.Azure.TableStorage.TableStorageUnitOfWork" />
+  <file path="TableStorage.Tests.Infrastructure/Persistence/Tables/ITableAdapter.cs" templateId="Intent.Azure.TableStorage.TableStorageTableAdapterInterface" />
+  <file path="TableStorage.Tests.Infrastructure/Persistence/Tables/InvoiceTableEntity.cs" templateId="Intent.Azure.TableStorage.TableStorageTableEntity" />
+  <file path="TableStorage.Tests.Infrastructure/Persistence/Tables/OrderTableEntity.cs" templateId="Intent.Azure.TableStorage.TableStorageTableEntity" />
+  <file path="TableStorage.Tests.Infrastructure/Repositories/InvoiceTableStorageRepository.cs" templateId="Intent.Azure.TableStorage.TableStorageRepository" />
+  <file path="TableStorage.Tests.Infrastructure/Repositories/OrderTableStorageRepository.cs" templateId="Intent.Azure.TableStorage.TableStorageRepository" />
+  <file path="TableStorage.Tests.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="TableStorage.Tests.Infrastructure/Repositories/TableStorageRepositoryBase.cs" templateId="Intent.Azure.TableStorage.TableStorageRepositoryBase" />
+  <file path="TableStorage.Tests.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="TableStorage.Tests.Infrastructure/TableStorage.Tests.Infrastructure.csproj" deviationsHash="C115DBB7671124337D7C8D9EB1BD5D631B37AEBF2E9FA2518ED7C30B5D4871DC" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TableStorage.Tests.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

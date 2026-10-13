@@ -1,175 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="b652a876-21ab-4187-b535-60639f452925">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/domain-services/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/CleanArchitecture.ServiceModelling.ComplexTypes.Api.csproj" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Controllers/CustomerAnemicsController.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Controllers/CustomerRichesController.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Controllers/PurchasesController.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Filters/ExceptionFilter.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Program.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Properties/launchSettings.json" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Services/CurrentUserService.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Startup.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/appsettings.json" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CleanArchitecture.ServiceModelling.ComplexTypes.Application.csproj" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Interfaces/ICommand.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Interfaces/IQuery.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Models/Result.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Pagination/PagedList.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Pagination/PagedResult.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CreateCustomerAnemic/CreateCustomerAnemicCommand.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CreateCustomerAnemic/CreateCustomerAnemicCommandHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CreateCustomerAnemic/CreateCustomerAnemicCommandValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CreateCustomerAnemicAddressDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CreateCustomerAnemicAddressDtoValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CustomerAnemicAddressDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CustomerAnemicAddressDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CustomerAnemicDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CustomerAnemicDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/DeleteCustomerAnemic/DeleteCustomerAnemicCommand.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/DeleteCustomerAnemic/DeleteCustomerAnemicCommandHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/DeleteCustomerAnemic/DeleteCustomerAnemicCommandValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/GetCustomerAnemicById/GetCustomerAnemicByIdQuery.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/GetCustomerAnemicById/GetCustomerAnemicByIdQueryHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/GetCustomerAnemicById/GetCustomerAnemicByIdQueryValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/GetCustomerAnemics/GetCustomerAnemicsQuery.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/GetCustomerAnemics/GetCustomerAnemicsQueryHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/GetCustomerAnemics/GetCustomerAnemicsQueryValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/UpdateCustomerAnemic/UpdateCustomerAnemicCommand.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/UpdateCustomerAnemic/UpdateCustomerAnemicCommandHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/UpdateCustomerAnemic/UpdateCustomerAnemicCommandValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/UpdateCustomerAnemicAddressDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/UpdateCustomerAnemicAddressDtoValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/ChangeAddress/ChangeAddressCommand.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/ChangeAddress/ChangeAddressCommandHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/ChangeAddress/ChangeAddressCommandValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/ChangeAddressDCDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/ChangeAddressDCDtoValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckAddressDCDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckAddressDCDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckResult/CheckResultCommand.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckResult/CheckResultCommandHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckResult/CheckResultCommandValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CreateCustomerRich/CreateCustomerRichCommand.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CreateCustomerRich/CreateCustomerRichCommandHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CreateCustomerRich/CreateCustomerRichCommandValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CreateCustomerRichAddressDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CreateCustomerRichAddressDtoValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CustomerRichAddressDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CustomerRichAddressDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CustomerRichDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CustomerRichDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/DeleteCustomerRich/DeleteCustomerRichCommand.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/DeleteCustomerRich/DeleteCustomerRichCommandHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/DeleteCustomerRich/DeleteCustomerRichCommandValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRichById/GetCustomerRichByIdQuery.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRichById/GetCustomerRichByIdQueryHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRichById/GetCustomerRichByIdQueryValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRiches/GetCustomerRichesQuery.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRiches/GetCustomerRichesQueryHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRiches/GetCustomerRichesQueryValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/UpdateCustomerRich/UpdateCustomerRichCommand.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/UpdateCustomerRich/UpdateCustomerRichCommandHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/UpdateCustomerRich/UpdateCustomerRichCommandValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/UpdateCustomerRichAddressDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/UpdateCustomerRichAddressDtoValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/DependencyInjection.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/IValidationService.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/CreatePurchase/CreatePurchaseCommand.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/CreatePurchase/CreatePurchaseCommandHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/CreatePurchase/CreatePurchaseCommandValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/CreatePurchaseMoneyDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/CreatePurchaseMoneyDtoValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/DeletePurchase/DeletePurchaseCommand.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/DeletePurchase/DeletePurchaseCommandHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/DeletePurchase/DeletePurchaseCommandValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/GetPurchaseById/GetPurchaseByIdQuery.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/GetPurchaseById/GetPurchaseByIdQueryHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/GetPurchaseById/GetPurchaseByIdQueryValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/GetPurchases/GetPurchasesQuery.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/GetPurchases/GetPurchasesQueryHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/GetPurchases/GetPurchasesQueryValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/PurchaseDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/PurchaseDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/PurchaseMoneyDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/PurchaseMoneyDtoMappingExtensions.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/UpdatePurchase/UpdatePurchaseCommand.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/UpdatePurchase/UpdatePurchaseCommandHandler.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/UpdatePurchase/UpdatePurchaseCommandValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/UpdatePurchaseMoneyDto.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/UpdatePurchaseMoneyDtoValidator.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/ValidationService.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Address.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/CleanArchitecture.ServiceModelling.ComplexTypes.Domain.csproj" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Common/CollectionExtensions.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Common/DomainEvent.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Common/IHasDomainEvent.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Common/UpdateHelper.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Contracts/AddressDC.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Entities/CustomerAnemic.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Entities/CustomerRich.cs" deviationsHash="423144468A59CB8A4CA976379F2C1F197B1DF36503DCF288DD9F9A0EB23E50EA" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Entities/Purchase.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Entities/TestDecimals.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Money.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/ICustomerAnemicRepository.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/ICustomerRichRepository.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/IEFRepository.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/IPagedList.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/IPurchaseRepository.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/IRepository.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/ITestDecimalsRepository.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/ValueObject.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.csproj" deviationsHash="67F176B7BDD09E8102256D93AD730026BF79B677E627DCE9CD5FCB08BC1D422B" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/DependencyInjection.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Migrations/README.md" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Persistence/Configurations/CustomerAnemicConfiguration.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Persistence/Configurations/CustomerRichConfiguration.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Persistence/Configurations/PurchaseConfiguration.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Persistence/Configurations/TestDecimalsConfiguration.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Repositories/CustomerAnemicRepository.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Repositories/CustomerRichRepository.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Repositories/PurchaseRepository.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Repositories/TestDecimalsRepository.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Services/DomainEventService.cs" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/domain-services/SKILL.md" templateId="Intent.DomainServices.DomainServiceSkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/CleanArchitecture.ServiceModelling.ComplexTypes.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Controllers/CustomerAnemicsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Controllers/CustomerRichesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Controllers/PurchasesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CleanArchitecture.ServiceModelling.ComplexTypes.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CreateCustomerAnemic/CreateCustomerAnemicCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CreateCustomerAnemic/CreateCustomerAnemicCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CreateCustomerAnemic/CreateCustomerAnemicCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CreateCustomerAnemicAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CreateCustomerAnemicAddressDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CustomerAnemicAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CustomerAnemicAddressDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CustomerAnemicDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/CustomerAnemicDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/DeleteCustomerAnemic/DeleteCustomerAnemicCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/DeleteCustomerAnemic/DeleteCustomerAnemicCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/DeleteCustomerAnemic/DeleteCustomerAnemicCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/GetCustomerAnemicById/GetCustomerAnemicByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/GetCustomerAnemicById/GetCustomerAnemicByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/GetCustomerAnemicById/GetCustomerAnemicByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/GetCustomerAnemics/GetCustomerAnemicsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/GetCustomerAnemics/GetCustomerAnemicsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/GetCustomerAnemics/GetCustomerAnemicsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/UpdateCustomerAnemic/UpdateCustomerAnemicCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/UpdateCustomerAnemic/UpdateCustomerAnemicCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/UpdateCustomerAnemic/UpdateCustomerAnemicCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/UpdateCustomerAnemicAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerAnemics/UpdateCustomerAnemicAddressDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/ChangeAddress/ChangeAddressCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/ChangeAddress/ChangeAddressCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/ChangeAddress/ChangeAddressCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/ChangeAddressDCDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/ChangeAddressDCDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckAddressDCDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckAddressDCDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckResult/CheckResultCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckResult/CheckResultCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CheckResult/CheckResultCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CreateCustomerRich/CreateCustomerRichCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CreateCustomerRich/CreateCustomerRichCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CreateCustomerRich/CreateCustomerRichCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CreateCustomerRichAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CreateCustomerRichAddressDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CustomerRichAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CustomerRichAddressDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CustomerRichDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/CustomerRichDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/DeleteCustomerRich/DeleteCustomerRichCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/DeleteCustomerRich/DeleteCustomerRichCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/DeleteCustomerRich/DeleteCustomerRichCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRichById/GetCustomerRichByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRichById/GetCustomerRichByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRichById/GetCustomerRichByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRiches/GetCustomerRichesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRiches/GetCustomerRichesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/GetCustomerRiches/GetCustomerRichesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/UpdateCustomerRich/UpdateCustomerRichCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/UpdateCustomerRich/UpdateCustomerRichCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/UpdateCustomerRich/UpdateCustomerRichCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/UpdateCustomerRichAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/CustomerRiches/UpdateCustomerRichAddressDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/CreatePurchase/CreatePurchaseCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/CreatePurchase/CreatePurchaseCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/CreatePurchase/CreatePurchaseCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/CreatePurchaseMoneyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/CreatePurchaseMoneyDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/DeletePurchase/DeletePurchaseCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/DeletePurchase/DeletePurchaseCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/DeletePurchase/DeletePurchaseCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/GetPurchaseById/GetPurchaseByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/GetPurchaseById/GetPurchaseByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/GetPurchaseById/GetPurchaseByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/GetPurchases/GetPurchasesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/GetPurchases/GetPurchasesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/GetPurchases/GetPurchasesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/PurchaseDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/PurchaseDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/PurchaseMoneyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/PurchaseMoneyDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/UpdatePurchase/UpdatePurchaseCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/UpdatePurchase/UpdatePurchaseCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/UpdatePurchase/UpdatePurchaseCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/UpdatePurchaseMoneyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/Purchases/UpdatePurchaseMoneyDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Application/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Address.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/CleanArchitecture.ServiceModelling.ComplexTypes.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Contracts/AddressDC.cs" templateId="Intent.Entities.DataContract" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Entities/CustomerAnemic.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Entities/CustomerRich.cs" deviationsHash="423144468A59CB8A4CA976379F2C1F197B1DF36503DCF288DD9F9A0EB23E50EA" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Entities/Purchase.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Entities/TestDecimals.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Money.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/ICustomerAnemicRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/ICustomerRichRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/IPurchaseRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/ITestDecimalsRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.csproj" deviationsHash="67F176B7BDD09E8102256D93AD730026BF79B677E627DCE9CD5FCB08BC1D422B" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Persistence/Configurations/CustomerAnemicConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Persistence/Configurations/CustomerRichConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Persistence/Configurations/PurchaseConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Persistence/Configurations/TestDecimalsConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Repositories/CustomerAnemicRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Repositories/CustomerRichRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Repositories/PurchaseRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Repositories/TestDecimalsRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

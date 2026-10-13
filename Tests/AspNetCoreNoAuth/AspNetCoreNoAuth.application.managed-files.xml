@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="2cb9a48b-f484-4d52-918e-54a8be38b3d1">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".gitignore" />
-  <file path="AspNetCoreNoAuth.Api/AspNetCoreNoAuth.Api.csproj" />
-  <file path="AspNetCoreNoAuth.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="AspNetCoreNoAuth.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="AspNetCoreNoAuth.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="AspNetCoreNoAuth.Api/Filters/ExceptionFilter.cs" />
-  <file path="AspNetCoreNoAuth.Api/Program.cs" />
-  <file path="AspNetCoreNoAuth.Api/Properties/launchSettings.json" />
-  <file path="AspNetCoreNoAuth.Api/Services/CurrentUserService.cs" />
-  <file path="AspNetCoreNoAuth.Api/appsettings.json" />
-  <file path="AspNetCoreNoAuth.Application/AspNetCoreNoAuth.Application.csproj" />
-  <file path="AspNetCoreNoAuth.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="AspNetCoreNoAuth.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="AspNetCoreNoAuth.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="AspNetCoreNoAuth.Application/Common/Models/Result.cs" />
-  <file path="AspNetCoreNoAuth.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="AspNetCoreNoAuth.Application/DependencyInjection.cs" />
-  <file path="AspNetCoreNoAuth.Domain/AspNetCoreNoAuth.Domain.csproj" />
-  <file path="AspNetCoreNoAuth.Infrastructure/AspNetCoreNoAuth.Infrastructure.csproj" />
-  <file path="AspNetCoreNoAuth.Infrastructure/DependencyInjection.cs" />
-  <file path="AspNetCoreNoAuth.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="AspNetCoreNoAuth.Api/AspNetCoreNoAuth.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AspNetCoreNoAuth.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="AspNetCoreNoAuth.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="AspNetCoreNoAuth.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="AspNetCoreNoAuth.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="AspNetCoreNoAuth.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="AspNetCoreNoAuth.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="AspNetCoreNoAuth.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="AspNetCoreNoAuth.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="AspNetCoreNoAuth.Application/AspNetCoreNoAuth.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AspNetCoreNoAuth.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="AspNetCoreNoAuth.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="AspNetCoreNoAuth.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="AspNetCoreNoAuth.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="AspNetCoreNoAuth.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="AspNetCoreNoAuth.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="AspNetCoreNoAuth.Domain/AspNetCoreNoAuth.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AspNetCoreNoAuth.Infrastructure/AspNetCoreNoAuth.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AspNetCoreNoAuth.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="AspNetCoreNoAuth.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

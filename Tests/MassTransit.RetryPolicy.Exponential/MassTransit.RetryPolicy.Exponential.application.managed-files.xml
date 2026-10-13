@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="50d558de-c495-4ed5-b9d0-de5dfdb4b4f1">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path="MassTransit.RetryPolicy.Exponential.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="MassTransit.RetryPolicy.Exponential.Api/MassTransit.RetryPolicy.Exponential.Api.csproj" />
-  <file path="MassTransit.RetryPolicy.Exponential.Api/Program.cs" />
-  <file path="MassTransit.RetryPolicy.Exponential.Api/Properties/launchSettings.json" />
-  <file path="MassTransit.RetryPolicy.Exponential.Api/Startup.cs" />
-  <file path="MassTransit.RetryPolicy.Exponential.Api/appsettings.json" />
-  <file path="MassTransit.RetryPolicy.Exponential.Application/Common/Eventing/IEventBus.cs" />
-  <file path="MassTransit.RetryPolicy.Exponential.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="MassTransit.RetryPolicy.Exponential.Application/MassTransit.RetryPolicy.Exponential.Application.csproj" />
-  <file path="MassTransit.RetryPolicy.Exponential.Domain/MassTransit.RetryPolicy.Exponential.Domain.csproj" />
-  <file path="MassTransit.RetryPolicy.Exponential.Infrastructure/Configuration/MassTransitConfiguration.cs" />
-  <file path="MassTransit.RetryPolicy.Exponential.Infrastructure/DependencyInjection.cs" />
-  <file path="MassTransit.RetryPolicy.Exponential.Infrastructure/Eventing/IntegrationEventConsumer.cs" />
-  <file path="MassTransit.RetryPolicy.Exponential.Infrastructure/Eventing/MassTransitMessageBus.cs" />
-  <file path="MassTransit.RetryPolicy.Exponential.Infrastructure/MassTransit.RetryPolicy.Exponential.Infrastructure.csproj" />
-  <file path="MassTransit.RetryPolicy.Exponential.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="MassTransit.RetryPolicy.Exponential.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="MassTransit.RetryPolicy.Exponential.Api/MassTransit.RetryPolicy.Exponential.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MassTransit.RetryPolicy.Exponential.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="MassTransit.RetryPolicy.Exponential.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="MassTransit.RetryPolicy.Exponential.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="MassTransit.RetryPolicy.Exponential.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="MassTransit.RetryPolicy.Exponential.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="MassTransit.RetryPolicy.Exponential.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="MassTransit.RetryPolicy.Exponential.Application/MassTransit.RetryPolicy.Exponential.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MassTransit.RetryPolicy.Exponential.Domain/MassTransit.RetryPolicy.Exponential.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MassTransit.RetryPolicy.Exponential.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
+  <file path="MassTransit.RetryPolicy.Exponential.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="MassTransit.RetryPolicy.Exponential.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
+  <file path="MassTransit.RetryPolicy.Exponential.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
+  <file path="MassTransit.RetryPolicy.Exponential.Infrastructure/MassTransit.RetryPolicy.Exponential.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MassTransit.RetryPolicy.Exponential.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

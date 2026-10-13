@@ -1,73 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="31ac754c-9bd6-45cf-9eff-adc02d98f105">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="AzureFunction.QueueStorage.Api/AzureFunction.QueueStorage.Api.csproj" />
-  <file path="AzureFunction.QueueStorage.Api/AzureFunctionHelper.cs" />
-  <file path="AzureFunction.QueueStorage.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="AzureFunction.QueueStorage.Api/Configuration/OpenApiConfigurationOptions.cs" />
-  <file path="AzureFunction.QueueStorage.Api/CreateProductCommandConsumer.cs" />
-  <file path="AzureFunction.QueueStorage.Api/Program.cs" />
-  <file path="AzureFunction.QueueStorage.Api/ResponseTypes/JsonResponse.cs" />
-  <file path="AzureFunction.QueueStorage.Api/Services/CurrentUserService.cs" />
-  <file path="AzureFunction.QueueStorage.Api/host.json" />
-  <file path="AzureFunction.QueueStorage.Api/local.settings.json" />
-  <file path="AzureFunction.QueueStorage.Application/AssemblyAttributes.cs" />
-  <file path="AzureFunction.QueueStorage.Application/AzureFunction.QueueStorage.Application.csproj" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Eventing/IEventBus.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Interfaces/ICommand.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Interfaces/IQuery.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Models/Result.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Pagination/PagedList.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Pagination/PagedResult.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="AzureFunction.QueueStorage.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="AzureFunction.QueueStorage.Application/DependencyInjection.cs" />
-  <file path="AzureFunction.QueueStorage.Application/IntegrationCommands/CreateProductCommand.cs" />
-  <file path="AzureFunction.QueueStorage.Application/IntegrationEvents/EventHandlers/CreateProductCommandHandler.cs" />
-  <file path="AzureFunction.QueueStorage.Application/IntegrationEvents/ProductCreatedEvent.cs" />
-  <file path="AzureFunction.QueueStorage.Application/ResourceLocation.cs" />
-  <file path="AzureFunction.QueueStorage.Domain/AzureFunction.QueueStorage.Domain.csproj" />
-  <file path="AzureFunction.QueueStorage.Domain/Common/CollectionExtensions.cs" />
-  <file path="AzureFunction.QueueStorage.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="AzureFunction.QueueStorage.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="AzureFunction.QueueStorage.Domain/Common/UpdateHelper.cs" />
-  <file path="AzureFunction.QueueStorage.Domain/Repositories/IEFRepository.cs" />
-  <file path="AzureFunction.QueueStorage.Domain/Repositories/IPagedList.cs" />
-  <file path="AzureFunction.QueueStorage.Domain/Repositories/IRepository.cs" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/AzureFunction.QueueStorage.Infrastructure.csproj" deviationsHash="B4F837D545D0F919C348C87C8840704EE76355A7AEFE025D9BA715FAE1219B9D" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/Configuration/AzureQueueStorageConfiguration.cs" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/Configuration/AzureQueueStorageOptions.cs" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/Configuration/AzureQueueStorageSubscriptionOptions.cs" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/DependencyInjection.cs" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/Eventing/AzureQueueStorageEnvelope.cs" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/Eventing/AzureQueueStorageEventDispatcher.cs" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/Eventing/AzureQueueStorageMessageBus.cs" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/Eventing/IAzureQueueStorageEventDispatcher.cs" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/Migrations/README.md" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/Persistence/DesignTimeDbContextFactory.cs" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/appsettings.json" />
-  <file path="AzureFunction.QueueStorage.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="AzureFunction.QueueStorage.Api/AzureFunction.QueueStorage.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunction.QueueStorage.Api/AzureFunctionHelper.cs" templateId="Intent.AzureFunctions.AzureFunctionClassHelper" />
+  <file path="AzureFunction.QueueStorage.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="AzureFunction.QueueStorage.Api/Configuration/OpenApiConfigurationOptions.cs" templateId="Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate" />
+  <file path="AzureFunction.QueueStorage.Api/CreateProductCommandConsumer.cs" templateId="Intent.AzureFunctions.AzureQueueStorage.AzureFunctionConsumer" />
+  <file path="AzureFunction.QueueStorage.Api/Program.cs" templateId="Intent.AzureFunctions.Isolated.Program" />
+  <file path="AzureFunction.QueueStorage.Api/ResponseTypes/JsonResponse.cs" templateId="Intent.AzureFunctions.ReturnTypes.JsonResponse" />
+  <file path="AzureFunction.QueueStorage.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="AzureFunction.QueueStorage.Api/host.json" templateId="Intent.VisualStudio.Projects.AzureFunctions.HostJson" />
+  <file path="AzureFunction.QueueStorage.Api/local.settings.json" templateId="Intent.VisualStudio.Projects.AzureFunctions.LocalSettingsJson" />
+  <file path="AzureFunction.QueueStorage.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="AzureFunction.QueueStorage.Application/AzureFunction.QueueStorage.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="AzureFunction.QueueStorage.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="AzureFunction.QueueStorage.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="AzureFunction.QueueStorage.Application/IntegrationCommands/CreateProductCommand.cs" templateId="Intent.Eventing.Contracts.IntegrationCommand" />
+  <file path="AzureFunction.QueueStorage.Application/IntegrationEvents/EventHandlers/CreateProductCommandHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="AzureFunction.QueueStorage.Application/IntegrationEvents/ProductCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="AzureFunction.QueueStorage.Application/ResourceLocation.cs" templateId="Intent.AzureFunctions.ReturnTypes.ResourceLocationClass" />
+  <file path="AzureFunction.QueueStorage.Domain/AzureFunction.QueueStorage.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunction.QueueStorage.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="AzureFunction.QueueStorage.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="AzureFunction.QueueStorage.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="AzureFunction.QueueStorage.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="AzureFunction.QueueStorage.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="AzureFunction.QueueStorage.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="AzureFunction.QueueStorage.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/AzureFunction.QueueStorage.Infrastructure.csproj" deviationsHash="B4F837D545D0F919C348C87C8840704EE76355A7AEFE025D9BA715FAE1219B9D" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/Configuration/AzureQueueStorageConfiguration.cs" templateId="Intent.Eventing.AzureQueueStorage.AzureQueueStorageConfiguration" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/Configuration/AzureQueueStorageOptions.cs" templateId="Intent.Eventing.AzureQueueStorage.AzureQueueStorageOptions" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/Configuration/AzureQueueStorageSubscriptionOptions.cs" templateId="Intent.Eventing.AzureQueueStorage.AzureQueueStorageSubscriptionOptions" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/Eventing/AzureQueueStorageEnvelope.cs" templateId="Intent.Eventing.AzureQueueStorage.AzureQueueStorageEnvelope" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/Eventing/AzureQueueStorageEventDispatcher.cs" templateId="Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventDispatcher" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/Eventing/AzureQueueStorageMessageBus.cs" templateId="Intent.Eventing.AzureQueueStorage.AzureQueueStorageMessageBus" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/Eventing/IAzureQueueStorageEventDispatcher.cs" templateId="Intent.Eventing.AzureQueueStorage.AzureQueueStorageEventDispatcherInterface" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/Persistence/DesignTimeDbContextFactory.cs" templateId="Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/appsettings.json" templateId="Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson" />
+  <file path="AzureFunction.QueueStorage.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>
