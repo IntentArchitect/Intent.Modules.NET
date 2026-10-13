@@ -68,6 +68,7 @@ Management (CPM) for a solution.
     (`Uno.Sdk`, `Microsoft.Build.NoTargets/3.7.0`) is never rewritten. A representable one always
     follows the model, so `MSTest.Sdk` modelled as `Microsoft.NET.Sdk` *is* rewritten. Rejected: a
     free-text or `(unspecified)` SDK option (the user chose an explicit `MSTest.Sdk` option instead).
+  - `TargetFrameworksSync`: see the invariant below. Rejected for now: modelling platform TFMs.
   - `SlnxMerger.NormalizePath`: `./src/X/X.csproj` and `src/X/X.csproj` are the same entry.
     `CSharpProjectNETModel.GetRelativeLocation()` keeps its `.` seed, because it also feeds
     `ProjectConfig`'s output path, and the classic `.sln` template emits `.\` deliberately. Only the
@@ -75,6 +76,15 @@ Management (CPM) for a solution.
     rewritten, since rewriting it would be exactly the churn being removed.
 
 ## Invariants & Constraints
+
+- **`TargetFrameworksSync` only rewrites a single, unconditional, plain-moniker value whose set
+  differs from the model.** Multiple `TargetFramework(s)` elements, a `Condition` on the element or
+  its `PropertyGroup`, or a `$(` reference: untouched. Equal as a set, raw or after reducing
+  `net10.0-android` to `net10.0`: untouched, so order (the first TFM is the IDE's default target) and
+  platform suffixes survive. Platform-suffixed values with a different base set: untouched, with a
+  warning, because rewriting them would mean guessing per-platform version suffixes
+  (`windows10.0.19041.0`). So changing a MAUI project's framework in the model is a manual `.csproj`
+  edit.
 
 - **This flag makes floating versions legal to NuGet; it does not change how this module resolves
   versions.** `SdkSchemeProcessor` (see `FactoryExtensions/NuGet/SchemeProcessors/SdkSchemeProcessor.cs`)

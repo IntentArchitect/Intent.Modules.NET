@@ -182,6 +182,16 @@ For `MSTest.Sdk`, the optional _MSTest SDK Version_ property is written as `Sdk=
 
 When the existing `.csproj` uses an SDK that isn't one of these options (e.g. `Microsoft.Build.NoTargets/3.7.0` or `Uno.Sdk`), its `Sdk` attribute is never changed, whatever the model says. An SDK which is one of the options is always made to match the model. For example, an `MSTest.Sdk` project modelled as `Microsoft.NET.Sdk` is rewritten to `Microsoft.NET.Sdk`.
 
+#### Target frameworks
+
+The _Target Framework_ / _Target Frameworks_ properties set the `.csproj` file's `<TargetFramework>` / `<TargetFrameworks>`. An existing value is only rewritten when it is a single, unconditional element holding plain monikers (e.g. `net8.0`) whose set differs from the model. It is left untouched when:
+
+- there is more than one `TargetFramework`/`TargetFrameworks` element, or a `Condition` on the element or its `PropertyGroup`, or the value uses an MSBuild property (`$(...)`);
+- it holds the same frameworks as the model, in any order;
+- it holds platform-specific frameworks (e.g. `net10.0-android;net10.0-ios`) which reduce to the modelled framework.
+
+The model can't represent platform-specific frameworks. When those of a multi-platform project (e.g. .NET MAUI) no longer match the model, the `.csproj` is left untouched and the Software Factory logs a warning naming the project, so the change has to be made by hand.
+
 #### The `Suppress Warnings` property
 
 Adds a [`<NoWarn />`](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-options/errors-warnings#nowarn) element to the `.csproj` file with the specified value of semi-colon separated codes of warnings to suppress.
@@ -258,6 +268,7 @@ When modelling projects that already exist on disk, model them to match the repo
 
 - Turn on _Materialize Folder_ for solution folders that are folders on disk (e.g. `src`, `tests`).
 - Set _SDK_ to what each `.csproj` uses, including `MSTest.Sdk` for MSTest projects. Leave _MSTest SDK Version_ empty when `global.json` supplies it.
+- Set _Target Framework_ to each project's base framework (e.g. `net10.0` for a .NET MAUI app targeting `net10.0-android;net10.0-ios`).
 
 ### Central Package Management
 

@@ -19,6 +19,7 @@ using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Templates;
+using Intent.Utils;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates;
 
@@ -451,26 +452,16 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
             return false;
         }
 
-        var element = GetPropertyGroupElement(doc, "TargetFramework") ??
-            GetPropertyGroupElement(doc, "TargetFrameworks");
-        if (element == null)
+        var result = TargetFrameworksSync.Sync(doc, targetFrameworks);
+        if (result == TargetFrameworksSyncResult.PlatformTargetsPreserved)
         {
-            return false;
+            Logging.Log.Warning(
+                $"The target frameworks of project \"{Project.Name}\" were not updated to " +
+                $"\"{string.Join(";", targetFrameworks)}\": its .csproj targets specific platforms " +
+                "(e.g. net10.0-android), which the model can't represent. Update the .csproj by hand.");
         }
 
-        var elementValue = string.Join(";", targetFrameworks.OrderBy(x => x));
-        if (element.Value == elementValue)
-        {
-            return false;
-        }
-
-        var elementName = targetFrameworks.Length == 1
-            ? "TargetFramework"
-            : "TargetFrameworks";
-
-        element.ReplaceWith(XElement.Parse($"<{elementName}>{elementValue}</{elementName}>"));
-
-        return true;
+        return result == TargetFrameworksSyncResult.Rewritten;
     }
 
     private bool SyncNetFrameworkVersions(XDocument doc)
