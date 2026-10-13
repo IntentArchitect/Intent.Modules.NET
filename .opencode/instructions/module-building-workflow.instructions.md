@@ -5,7 +5,7 @@ inclusion: always
 description: "Phase-by-phase workflow for any task that builds or changes an Intent Architect module, and which workflow skill each phase calls for."
 keywords: [workflow, module building, phases, version, documentation, context]
 template-id: Intent.ModuleBuilder.AI.Workflow.RootPrinciples.ModuleBuildingWorkflowMd
-contentHash: 62F9ED1FB77BB94998D48F19A25B0BFD677210BC003EC523963B1EA84A83783A
+contentHash: 3FBF2A3DECBFE01C494FFB43A7B6029614DFF0FB42611CF3614D1E819DF7CB5C
 ---
 # Module Building Workflow
 
@@ -198,6 +198,25 @@ because a fix made there is itself an observable change the documentation step t
 - [ ] Documentation reflects what shipped
 - [ ] `CONTEXT.md` updated with this change's durable knowledge
 - [ ] Build exits 0, and regenerated output was inspected
+
+===
+
+## If An Agent Gate Hook Itself Fails
+
+This repository runs an agent gate from your harness's hooks: `dotnet run <harness folder>/hooks/gate/gate.cs`,
+such as `.claude/hooks/gate/gate.cs`. When that hook cannot run at all, the error comes from `dotnet`, not
+from the gate. It is a machine setup problem, not a problem with your work. Do not retry the hook, work
+around it, or treat it as a finding to fix. Tell the user which of these applies:
+
+| Error from the hook | Cause | Fix for the user |
+| --- | --- | --- |
+| `dotnet: command not found`, or `dotnet` is not recognized | No .NET SDK on `PATH` | Install the .NET 10 SDK |
+| `Couldn't find a project to run` | The active SDK is older than .NET 10, often because a `global.json` pins one | Install the .NET 10 SDK, or update `global.json` |
+| `A compatible .NET SDK was not found` | A `global.json` pins an SDK that is not installed | Install that SDK, or update `global.json` |
+| `An error occurred trying to start process`, naming the gate's own build output | The gate has not been built yet | Run `dotnet run <harness folder>/hooks/gate/gate.cs -- warm` from the project root |
+| `gate.cs` itself cannot be found | Your working directory is not the project root | Change back to the project root |
+
+A failing close-out hook never needs action from you. It only reports, and the turn may end.
 
 ===
 
