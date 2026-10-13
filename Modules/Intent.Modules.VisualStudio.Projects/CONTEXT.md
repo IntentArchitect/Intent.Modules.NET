@@ -31,34 +31,6 @@ Management (CPM) for a solution.
   property — so `ApplyFloatingVersionsProperty()` is only ever called when the box is checked, and
   it only ever sets the value to `"true"`.
 
-- **An existing `launchSettings.json` is merged as a JSON tree (`JObject`), never round-tripped
-  through the typed `LaunchSettings` classes** (see `Templates/LaunchSettings/LaunchSettingsMerger.cs`).
-  The typed round-trip dropped unknown members (`$schema`), reordered properties into C# declaration
-  order, normalised `commandName` casing and rewrote formatting and the trailing newline, so every
-  run produced a diff. `CommandNameConverter` also throws on an unrecognised `commandName`, which
-  crashed the Software Factory. Rejected: adding `[JsonExtensionData]` to the typed classes (keeps
-  unknown members but still reorders properties and normalises enum values); patching the raw text
-  (fragile).
-
-- **Merging is add-only.** A registered profile is appended only when no profile of that name
-  exists. A same-named profile is left untouched even if it lacks fields we would generate, because
-  re-adding fields a developer deliberately removed is worse than an incomplete profile. Environment
-  variables are only added, never overwritten. The HTTP URL for `LaunchProfileHttpPortRequired` is
-  only appended to an `applicationUrl` that has an `https://` entry and no `http://` entry.
-
-- **`launchUrl` on `*.Api` profiles is only kept in sync when it points at an Intent-managed default
-  path** (`swagger` or `scalar/v1`, held in `IntentManagedLaunchUrlPaths`). Swapping Swashbuckle for
-  Scalar therefore still updates it, but a custom `launchUrl` is never touched. Rejected: never
-  updating an existing `launchUrl` (leaves `swagger` behind after switching to Scalar); always
-  rewriting it, which was the previous behaviour and overwrote custom URLs (and threw on a null or
-  relative value).
-
-- **A new file still goes through the typed model**: defaults → `JObject` → the same add-only rules →
-  `ToObject<LaunchSettings>()` → `ToJson()`. One set of rules serves both paths, while ending on the
-  typed serializer keeps a new file byte-identical to what was generated before (e.g.
-  `environmentVariables` stays ahead of `workingDirectory`). Existing `Tests/**/launchSettings.json`
-  outputs therefore don't churn.
-
 ## Invariants & Constraints
 
 - **This flag makes floating versions legal to NuGet; it does not change how this module resolves
@@ -86,34 +58,9 @@ Management (CPM) for a solution.
   deviation — the two CPM properties are still adjacent in the stereotype's own description text and
   in `docs/README.md`, just not in designer property-pane order.
 
-- **When there is nothing to add, `LaunchSettingsMerger.Merge` must return the original string.**
-  It compares the merged tree with the original (`JToken.DeepEquals`) and only re-serializes on a
-  real change. The "no diff" guarantee depends on this; never re-serialize unconditionally. When a
-  change does need writing, the indent character and width, newline style, and leading/trailing
-  whitespace are taken from the existing file. JSON comments are lost on a write, since `JObject`
-  can't hold them inside objects.
-
-- **Every read of an existing `launchSettings.json` goes through `LaunchSettingsMerger.Parse`, never
-  `LaunchSettings.FromJson`.** That includes `BeforeTemplateExecution()`, which reads the
-  `applicationUrl` and `iisExpress` ports. `Parse` turns off date parsing and parses floats as
-  decimals, so date-like strings and values such as `1.50` survive a rewrite exactly as written.
-
-- **`GetDefaultLaunchSettings()` is only called when no file exists.** It is passed to the merger as
-  a `Func`, because `ReplacePorts()` mutates the registered `Profile` instances.
-
 ## Module Interactions
 
 - **`Intent.ModuleBuilder`** — its *Dependency Version Overwrite Behavior* module setting interacts
   with the limitation above: setting it to `Never` is the only way to also preserve a
   module-requested package's float, since this module's own NuGet resolution otherwise always wins
   when a module requests the same package.
-
-- **`Intent.AspNetCore.Swashbuckle` / `Intent.AspNetCore.Scalar`** — publish
-  `DefaultLaunchUrlPathRequest` with `swagger` / `scalar/v1`. A module that publishes a new default
-  path must also have it added to `LaunchSettingsMerger.IntentManagedLaunchUrlPaths`, otherwise a
-  later swap away from it won't update existing `launchUrl` values.
-
-- **`Intent.AspNetCore` (when *Enable HTTPS Redirect* is off) and `Intent.Dapr.AspNetCore`** publish
-  `LaunchProfileHttpPortRequired`. **`Intent.AspNetCore.Docker`, `Intent.Aws.Lambda.Functions` and
-  `Intent.Blazor`** publish `LaunchProfileRegistrationRequest`. Their profiles are appended to an
-  existing file only when it lacks a profile with that name.
