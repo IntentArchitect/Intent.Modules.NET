@@ -9,7 +9,7 @@ derived from. Building those modules is a separate exercise with its own test ap
 Design decisions and probe evidence: [DECISIONS.md](DECISIONS.md).
 
 > [!WARNING]
-> **Never run the Software Factory on `MediatorSpike/intent/MediatorSpike.isln`.**
+> **Never run the Software Factory on `intent/MediatorSpike.isln`.**
 > The app code is hand-owned and carries no Intent code-management markers. Any Software Factory
 > run would overwrite or delete it. The Intent solution is kept only as a record of how the apps
 > were scaffolded. Its MediatR modules are uninstalled.
@@ -18,16 +18,17 @@ Design decisions and probe evidence: [DECISIONS.md](DECISIONS.md).
 
 ```
 Spike/
-├─ MediatorSpike/                  the two apps, hand-owned source on Mediator
-│  ├─ intent/MediatorSpike.isln    scaffolding record only; do NOT run the Software Factory (see above)
-│  ├─ CqrsSpike.Publisher/         Controllers host: CRUD, domain events, publishes + sends integration messages
-│  └─ CqrsSpike.Subscriber/        FastEndpoints host: integration event/command handlers dispatch commands
-├─ tests/
-│  ├─ Shared/                      scenario tests + fixtures, compiled into the test project
-│  └─ CqrsSpike.Tests/             runs the scenarios against MediatorSpike
-├─ probes/                         minimal repros of each Mediator constraint / failure mode
-├─ tools/errs.py                   build-log error summariser
-└─ CqrsSpike.sln                   the 8 app projects + the test project
+└─ MediatorSpike/                  everything for this spike (D26)
+   ├─ README.md, DECISIONS.md      this overview; the decision log and probe evidence
+   ├─ MediatorSpike.sln            the 8 app projects + the test project
+   ├─ intent/MediatorSpike.isln    scaffolding record only; do NOT run the Software Factory (see above)
+   ├─ CqrsSpike.Publisher/         Controllers host: CRUD, domain events, publishes + sends integration messages
+   ├─ CqrsSpike.Subscriber/        FastEndpoints host: integration event/command handlers dispatch commands
+   ├─ tests/
+   │  ├─ Shared/                   scenario, pipeline, domain-event and relational tests + fixtures
+   │  └─ CqrsSpike.Tests/          compiles Shared/ against both apps
+   ├─ probes/                      minimal repros of each Mediator constraint / failure mode
+   └─ Directory.Build.props, nuget.config, .gitignore   apply to everything above
 ```
 
 Each app also keeps its own `CqrsSpike.<App>.sln`.
@@ -74,13 +75,13 @@ targeting pack (Arch ships it separately as `aspnet-targeting-pack`; without it 
 ```pwsh
 # build + runtime scenarios — the fixture reuses a broker on :5672 or starts rabbitmq:3.13 via Testcontainers
 # Stop any `dotnet run` copies of the apps first: queue names are fixed, so they would compete for the test messages.
-dotnet build CqrsSpike.sln
-dotnet test CqrsSpike.sln
+dotnet build MediatorSpike.sln
+dotnet test MediatorSpike.sln
 
 # real two-process run (needs a broker on :5672)
 docker run -d --name cqrsspike-rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13-management
-dotnet run --no-launch-profile --project MediatorSpike/CqrsSpike.Publisher/CqrsSpike.Publisher.Api --urls http://localhost:5101
-dotnet run --no-launch-profile --project MediatorSpike/CqrsSpike.Subscriber/CqrsSpike.Subscriber.Api --urls http://localhost:5102
+dotnet run --no-launch-profile --project CqrsSpike.Publisher/CqrsSpike.Publisher.Api --urls http://localhost:5101
+dotnet run --no-launch-profile --project CqrsSpike.Subscriber/CqrsSpike.Subscriber.Api --urls http://localhost:5102
 curl -X POST localhost:5101/api/orders -H "Content-Type: application/json" -d '{"customerName":"Tess","total":42.5}'
 ```
 
