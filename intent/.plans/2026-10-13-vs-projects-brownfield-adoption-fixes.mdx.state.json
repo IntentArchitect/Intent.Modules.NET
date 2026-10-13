@@ -1,0 +1,20 @@
+{
+  "comments": [
+    {
+      "id": "cmv6olyev306q",
+      "quote": "When a  Program.cs exists, its detected style overrides Use top-level statements,",
+      "blockSourceLine": 195,
+      "body": "This sounds FAIL, now the user can no longer change from  1 to the other because the code version always overwrites it. NO dont do this. The AI can toggle the setting when it sets it up.",
+      "createdAt": "2026-10-13T12:53:14.743Z",
+      "sentAt": "2026-10-13T12:57:55.735Z"
+    },
+    {
+      "id": "cmv6oz1xd6a9p",
+      "quote": "When the file's style matches the setting and its shape is recognised:",
+      "blockSourceLine": 211,
+      "body": "Stop being bad, if its top level statements or not have nothing to do withg it,",
+      "createdAt": "2026-10-13T13:03:25.825Z",
+      "sentAt": "2026-10-13T13:03:27.235Z"
+    }
+  ]
+}
