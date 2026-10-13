@@ -174,6 +174,14 @@ Everything else in the file is preserved as written, including `$schema`, proper
 
 ### The _.NET Settings_ stereotype
 
+#### The `SDK` property
+
+Sets the `Sdk` attribute of the `.csproj` file. Besides the `Microsoft.NET.Sdk.*` SDKs, `Aspire.AppHost.Sdk` (written with its _Aspire SDK Version_) and `MSTest.Sdk` are available.
+
+For `MSTest.Sdk`, the optional _MSTest SDK Version_ property is written as `Sdk="MSTest.Sdk/{version}"`. Leave it empty to resolve the version from `global.json` (`"msbuild-sdks": { "MSTest.Sdk": "4.0.2" }`). An empty value also keeps any version already in the `.csproj`.
+
+When the existing `.csproj` uses an SDK that isn't one of these options (e.g. `Microsoft.Build.NoTargets/3.7.0` or `Uno.Sdk`), its `Sdk` attribute is never changed, whatever the model says. An SDK which is one of the options is always made to match the model. For example, an `MSTest.Sdk` project modelled as `Microsoft.NET.Sdk` is rewritten to `Microsoft.NET.Sdk`.
+
 #### The `Suppress Warnings` property
 
 Adds a [`<NoWarn />`](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-options/errors-warnings#nowarn) element to the `.csproj` file with the specified value of semi-colon separated codes of warnings to suppress.
@@ -249,6 +257,7 @@ Projects under a materialized folder are written to an `.slnx` file the way `dot
 When modelling projects that already exist on disk, model them to match the repository so that the Software Factory leaves existing files alone:
 
 - Turn on _Materialize Folder_ for solution folders that are folders on disk (e.g. `src`, `tests`).
+- Set _SDK_ to what each `.csproj` uses, including `MSTest.Sdk` for MSTest projects. Leave _MSTest SDK Version_ empty when `global.json` supplies it.
 
 ### Central Package Management
 

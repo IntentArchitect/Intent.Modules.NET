@@ -201,6 +201,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return _stereotype.GetProperty<bool>("Generate LaunchSettings File");
             }
 
+            public string MSTestSDKVersion()
+            {
+                return _stereotype.GetProperty<string>("MSTest SDK Version");
+            }
+
             public class SDKOptions
             {
                 public readonly string Value;
@@ -228,6 +233,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                             return SDKOptionsEnum.MicrosoftNETSdkWindowsDesktop;
                         case "Aspire.AppHost.Sdk":
                             return SDKOptionsEnum.AspireAppHostSdk;
+                        case "MSTest.Sdk":
+                            return SDKOptionsEnum.MSTestSdk;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -261,6 +268,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 {
                     return Value == "Aspire.AppHost.Sdk";
                 }
+                public bool IsMSTestSdk()
+                {
+                    return Value == "MSTest.Sdk";
+                }
             }
 
             public enum SDKOptionsEnum
@@ -271,7 +282,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 MicrosoftNETSdkRazor,
                 MicrosoftNETSdkWorker,
                 MicrosoftNETSdkWindowsDesktop,
-                AspireAppHostSdk
+                AspireAppHostSdk,
+                MSTestSdk
             }
             public class OutputTypeOptions
             {

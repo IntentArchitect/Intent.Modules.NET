@@ -34,6 +34,7 @@
         <option>Microsoft.NET.Sdk.Worker</option>
         <option>Microsoft.NET.Sdk.WindowsDesktop</option>
         <option>Aspire.AppHost.Sdk</option>
+        <option>MSTest.Sdk</option>
       </valueOptions>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
@@ -237,6 +238,14 @@ return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunctio
     default:
         return false;
 }</isActiveFunction>
+    </property>
+    <property id="0aca4b00-3558-46c4-abcc-e4d9b8b17090">
+      <hint>Written to the `.csproj` as `Sdk="MSTest.Sdk/{version}"`. Leave empty to resolve the version from `global.json` (`msbuild-sdks`), or to keep a version already in the `.csproj`.</hint>
+      <name>MSTest SDK Version</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <isActiveFunction>return properties["SDK"].value == "MSTest.Sdk";</isActiveFunction>
     </property>
   </properties>
 </stereotypeDefinition>

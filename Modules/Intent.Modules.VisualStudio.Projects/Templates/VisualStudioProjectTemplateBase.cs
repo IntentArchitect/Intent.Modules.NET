@@ -182,15 +182,11 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         {
             var netSettings = csharpProjectModel.GetNETSettings();
 
-            var sdkValue = netSettings.SDK().IsAspireAppHostSdk()
-                ? $"{netSettings.SDK().Value}/{netSettings.AspireSDKVersion()}"
-                : $"{netSettings.SDK().Value}";
-            
-            if (doc.Root!.Attribute("Sdk")!.Value != sdkValue)
-            {
-                doc.Root.Attribute("Sdk")!.Value = sdkValue;
-                hasChange = true;
-            }
+            hasChange |= SdkAttributeSync.Sync(
+                doc: doc,
+                modelledSdk: netSettings.SDK().Value,
+                aspireSdkVersion: netSettings.AspireSDKVersion(),
+                msTestSdkVersion: netSettings.MSTestSDKVersion());
 
             hasChange |= SyncProperty(doc, "OutputType", netSettings.OutputType().Value switch
             {
@@ -619,9 +615,10 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
 
         if (implicitUsingsIsEnabled == true)
         {
-            var implicitUsings = sdk switch
+            var implicitUsings = SdkAttributeSync.GetSdkName(sdk) switch
             {
                 "Microsoft.NET.Sdk" => ImplicitUsings.ForSdk,
+                "MSTest.Sdk" => ImplicitUsings.ForMSTestSdk,
                 "Microsoft.NET.Sdk.BlazorWebAssembly" => ImplicitUsings.ForBlazorWebAssemblySdk,
                 "Microsoft.NET.Sdk.Web" => ImplicitUsings.ForWebSdk,
                 "Microsoft.NET.Sdk.Worker" => ImplicitUsings.ForWorkerSdk,

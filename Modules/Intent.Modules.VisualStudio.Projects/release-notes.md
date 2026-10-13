@@ -2,6 +2,7 @@
 
 - Fixed: An existing `launchSettings.json` is no longer rewritten on every Software Factory run (which dropped `$schema`, reordered properties, stripped the trailing newline, overwrote custom `launchUrl` values, and could crash on an unrecognized `commandName` or a missing `profiles` section) - it is now only added to, and left untouched when nothing is missing.
 - Fixed: With _Materialize Folder_ on, merging into an existing `.slnx` whose entries were written by `dotnet sln add` (`src/X/X.csproj`) crashed the Software Factory with a duplicate project name. Paths are now compared after normalisation, and new entries are written without a `./` prefix.
+- New Feature: Added `MSTest.Sdk` to the _.NET Settings_ _SDK_ options, with an optional _MSTest SDK Version_. An existing `Sdk` attribute that the model can't represent (e.g. `Microsoft.Build.NoTargets/3.7.0`) is no longer overwritten.
 
 ### Version 4.1.10
 

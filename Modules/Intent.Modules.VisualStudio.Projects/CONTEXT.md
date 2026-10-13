@@ -64,6 +64,10 @@ Management (CPM) for a solution.
   overwriting something the model can't express or didn't change. The model stays authoritative for
   everything it *can* represent: what's on disk only shapes details the model has no setting for
   (indentation, a builder line), and never overrides a modelled setting. Applied in:
+  - `SdkAttributeSync`: an existing `Sdk` whose name isn't one of the `.NET Settings` SDK options
+    (`Uno.Sdk`, `Microsoft.Build.NoTargets/3.7.0`) is never rewritten. A representable one always
+    follows the model, so `MSTest.Sdk` modelled as `Microsoft.NET.Sdk` *is* rewritten. Rejected: a
+    free-text or `(unspecified)` SDK option (the user chose an explicit `MSTest.Sdk` option instead).
   - `SlnxMerger.NormalizePath`: `./src/X/X.csproj` and `src/X/X.csproj` are the same entry.
     `CSharpProjectNETModel.GetRelativeLocation()` keeps its `.` seed, because it also feeds
     `ProjectConfig`'s output path, and the classic `.sln` template emits `.\` deliberately. Only the
