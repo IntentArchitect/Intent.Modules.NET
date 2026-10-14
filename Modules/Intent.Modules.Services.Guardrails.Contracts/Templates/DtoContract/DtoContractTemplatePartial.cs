@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.IArchitect.Agent.Persistence;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -37,10 +38,12 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.DtoContract
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return CSharpFile.GetConfig();
+            var result = CSharpFile.GetConfig();
+            //result.CustomMetadata["RoslynWeaver.DefaultIntentManagedProfile"] = "ContractsFully";
+            return result;
         }
 
         [IntentManaged(Mode.Fully)]

@@ -32,7 +32,7 @@
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
-            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="The modifiers every class and record contract is declared with, unless its Type Configuration sets Modifiers. sealed is left off abstract types and types another modelled type inherits from. Enums take only the access modifier, unless their Enum Configuration sets one." />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="The modifiers every class and record contract is declared with, unless its Type Configuration sets Modifiers. An option without public or internal declares types without an access modifier, and none declares them with no modifiers at all. sealed is left off abstract types and types another modelled type inherits from. Enums take only the access modifier, unless their Enum Configuration sets one." />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="public" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" />
             <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" />
@@ -101,6 +101,38 @@
           <name>internal sealed partial</name>
           <display>internal sealed partial = internal sealed partial</display>
           <value>internal sealed partial</value>
+          <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
+          <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+          <packageName>Intent.Services.Guardrails.Contracts</packageName>
+        </element>
+        <element id="d2c52f3a-fc3b-4622-ad52-2b3d7990facb" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>none</name>
+          <display>none = none</display>
+          <value>none</value>
+          <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
+          <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+          <packageName>Intent.Services.Guardrails.Contracts</packageName>
+        </element>
+        <element id="37af424c-e9dc-42ce-ace9-9ae837e40a46" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>sealed</name>
+          <display>sealed = sealed</display>
+          <value>sealed</value>
+          <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
+          <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+          <packageName>Intent.Services.Guardrails.Contracts</packageName>
+        </element>
+        <element id="b97503a1-42d8-41e3-ac4e-b8a613e389b8" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>partial</name>
+          <display>partial = partial</display>
+          <value>partial</value>
+          <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
+          <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+          <packageName>Intent.Services.Guardrails.Contracts</packageName>
+        </element>
+        <element id="90bd0d7e-a0ee-443d-9d0a-73557c303ff2" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>sealed partial</name>
+          <display>sealed partial = sealed partial</display>
+          <value>sealed partial</value>
           <parentFolderId>d0c9c937-5c8f-4adb-be14-b9bdd3748741</parentFolderId>
           <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
           <packageName>Intent.Services.Guardrails.Contracts</packageName>

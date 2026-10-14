@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="41304368-35ef-4063-ae8a-017587f7c8ac" version="3.1.0">
-  <comment>Overrides how the Domain Event contract is declared: Type sets class or record (empty means class), Modifiers sets its modifiers (empty means the Default Type Modifiers module setting).</comment>
+  <comment>Overrides how the Domain Event contract is declared: Type sets class, record or positional record (empty means class), Modifiers sets its modifiers (empty means the Default Type Modifiers module setting).</comment>
   <name>Type Configuration</name>
   <targetMode>filter-function</targetMode>
   <targetFilterFunction>return element.specializationId == "0814e459-fb9b-47db-b7eb-32ce30397e8a";</targetFilterFunction>
@@ -19,7 +19,7 @@
   <packageName>Intent.Domain.Guardrails.Contracts</packageName>
   <properties>
     <property id="b0470223-735b-4e2b-96c4-0b0f37031c0d">
-      <hint>class or record. Empty means class.</hint>
+      <hint>class, record or positional record. Empty means class. A positional record declares every attribute as a positional parameter, e.g. record Money(decimal Amount, string Currency); it applies to types with attributes (Class, Value Object, Data Contract, Domain Event).</hint>
       <name>Type</name>
       <type>string</type>
       <controlType>select</controlType>
@@ -27,10 +27,11 @@
       <valueOptions>
         <option>class</option>
         <option>record</option>
+        <option>positional record</option>
       </valueOptions>
     </property>
     <property id="77b57734-5d54-4178-85e0-24dd0fc99410">
-      <hint>Optional. The type's modifiers when they differ from the Default Type Modifiers module setting, e.g. internal sealed. Use public or internal, plus any of sealed, abstract, static, partial. Is Abstract on the element still adds abstract.</hint>
+      <hint>Optional. The type's modifiers when they differ from the Default Type Modifiers module setting, e.g. internal sealed. Use at most one of public or internal, plus any of sealed, abstract, static, partial; leave the access modifier out when the code has none, or use none for no modifiers at all. Is Abstract on the element still adds abstract.</hint>
       <name>Modifiers</name>
       <type>string</type>
       <controlType>text</controlType>

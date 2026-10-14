@@ -224,6 +224,12 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 return string.Equals(_stereotype.GetProperty<string>(TypeProperty), "record", StringComparison.Ordinal);
             }
 
+            /// <summary>A record whose properties are its positional parameters (see <see cref="ContractTypeKind.PositionalRecord"/>).</summary>
+            public bool IsPositionalRecord()
+            {
+                return string.Equals(_stereotype.GetProperty<string>(TypeProperty), "positional record", StringComparison.Ordinal);
+            }
+
             public string Modifiers()
             {
                 return _stereotype.GetProperty<string>(ModifiersProperty);

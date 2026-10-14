@@ -26,7 +26,7 @@ The planned human stops are the phase gates (they resolve by themselves under `g
 
 1. **Resolve the slug.** Text describing new work, rather than naming a spec, starts at **Requirements** with no slug; the guard in **sdd-requirements** handles overlap with existing specs. Otherwise, if you weren't handed an exact slug, call `read_spec` with no `slug` and match what the user named. If nothing plausibly matches, `ask_user_question` offering the closest specs or a new Change. Use only ids and slugs that tool responses returned.
 2. **Read the phase** from that listing and start at its section: design → **Design**, tasks → **Tasks**, implementation → **Waves**, verification or done → **Fix loop**. A Change at requirements → **Requirements**. A **Capability** has no tasks or waves of its own: its Run is the **Fix loop** alone, and it never folds. A Capability still at requirements or design first needs its gates: `advance_spec_phase(slug, "requirements", "design")` if at requirements, then `advance_spec_phase(slug, "design", "verification")`.
-3. Seed `todo_update` in **one** call with one item per step still ahead: requirements first when there is no spec yet or it is at requirements, then the remaining phases, one per unticked Wave, the fix loop and, for a Change, the fold. Add the Wave items once tasks are written. Keep exactly one in progress.
+3. Seed `todo_update` in **one** call with one item per step still ahead: requirements first when there is no spec yet or it is at requirements, then the remaining phases, one per unticked Wave, the fix loop and, when **Fold** applies, the fold. Add the Wave items once tasks are written. Keep exactly one in progress.
 
 ## Requirements
 
@@ -80,7 +80,7 @@ A clean verdict moves the spec to **done** by itself, whatever the gate cadence,
 
 ## Fold
 
-Only for a Change the fix loop took to **done**. Dispatch `/sdd-fold`. Then call `request_spec_review(capabilitySlug)` for each existing Capability its report names, handling feedback by dispatching `/sdd-fold` again with it, and raise each created Capability's gates as **sdd-fold** step 4 says. Once every review and gate is approved, call `advance_spec_phase(slug, artifact: "requirements", toPhase: "archived")`.
+Only for a Change the fix loop took to **done**. Under `gates: auto` skip it and end the Run: the user folds from the Specs panel's **Fold into capabilities**. Dispatch `/sdd-fold`. Then call `request_spec_review(capabilitySlug)` for each existing Capability its report names, handling feedback by dispatching `/sdd-fold` again with it, and raise each created Capability's gates as **sdd-fold** step 4 says. Once every review and gate is approved, call `advance_spec_phase(slug, artifact: "requirements", toPhase: "archived")`.
 
 ## End
 

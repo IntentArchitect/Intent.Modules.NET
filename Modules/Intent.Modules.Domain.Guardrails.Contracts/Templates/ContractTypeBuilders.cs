@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Domain.Guardrails.Contracts.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -60,32 +62,61 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             }
         }
 
+        /// <summary>
+        /// A Class. Its primary-constructor parameters come from its attributes when it's a positional record, or from the
+        /// constructor marked Primary Constructor. On a record those parameters are the record's properties, so attributes with
+        /// the same names aren't declared again; on a class they're plain parameters and every attribute stays a property.
+        /// </summary>
         public static void AddEntity(CSharpFile file, ICSharpTemplate template, ClassModel model)
         {
-            file.AddContractType(model.InternalElement, model.Name, model.GetContractTypeKind(), @class =>
+            var kind = model.GetContractTypeKind();
+            var primaryConstructorModel = model.GetContractPrimaryConstructor(kind);
+            file.AddContractType(model.InternalElement, model.Name, kind, @class =>
+            {
+                @class.RepresentsModel(model);
+                foreach (var genericType in model.GenericTypes)
                 {
-                    @class.RepresentsModel(model);
-                    foreach (var genericType in model.GenericTypes)
-                    {
-                        @class.AddGenericParameter(genericType);
-                    }
+                    @class.AddGenericParameter(genericType);
+                }
 
-                    if (model.IsAbstract)
-                    {
-                        @class.Abstract();
-                    }
+                if (model.IsAbstract)
+                {
+                    @class.Abstract();
+                }
 
-                    if (model.ParentClassTypeReference != null)
-                    {
-                        @class.WithBaseType(template.GetTypeName(model.ParentClassTypeReference));
-                    }
+                if (model.ParentClassTypeReference != null)
+                {
+                    @class.WithBaseType(template.GetTypeName(model.ParentClassTypeReference));
+                }
 
-                    @class.AddContractProperties(template, model.Attributes);
-                    @class.AddContractNavigationProperties(template, model.AssociatedClasses);
-                    @class.AddStubbedConstructors(template, model.Constructors);
-                    @class.AddStubbedMethods(template, model.Operations);
-                    @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), template.IsInheritedByAnyClass(model));
-                },
+                CSharpConstructor primaryConstructor;
+                if (primaryConstructorModel != null)
+                {
+                    primaryConstructor = @class.AddContractPrimaryConstructor(template, primaryConstructorModel);
+                    var parameterNames = primaryConstructorModel.Parameters.Select(x => x.Name).ToList();
+                    @class.AddContractProperties(template, kind.IsRecord()
+                        ? model.Attributes.Where(x => !parameterNames.Contains(x.Name))
+                        : model.Attributes);
+                }
+                else
+                {
+                    primaryConstructor = @class.AddContractAttributes(template, kind, model.Attributes);
+                }
+
+                @class.AddContractNavigationProperties(template, model.AssociatedClasses);
+                @class.AddStubbedConstructors(template, model.Constructors);
+                @class.AddStubbedMethods(template, model.Operations);
+
+                // A Class can also call a base primary constructor from an ordinary constructor (": base(...)"), so base
+                // arguments are only written when this Class declares parameters on the type itself.
+                if (primaryConstructor != null && model.ParentClass != null)
+                {
+                    primaryConstructor.PassBasePrimaryParameters(model.InternalElement, $"Class '{model.Name}'",
+                        primaryConstructor.Parameters.Select(x => x.Name).ToList(), $"Class '{model.ParentClass.Name}'", GetPrimaryParameterNames(model.ParentClass));
+                }
+
+                @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), template.IsInheritedByAnyClass(model));
+            },
                 baseKind: model.ParentClass?.GetContractTypeKind());
         }
 
@@ -105,10 +136,11 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
 
         public static void AddValueObject(CSharpFile file, ICSharpTemplate template, ValueObjectModel model)
         {
-            file.AddContractType(model.InternalElement, model.Name, model.GetContractTypeKind(), @class =>
+            var kind = model.GetContractTypeKind();
+            file.AddContractType(model.InternalElement, model.Name, kind, @class =>
             {
                 @class.RepresentsModel(model);
-                @class.AddContractProperties(template, model.Attributes);
+                @class.AddContractAttributes(template, kind, model.Attributes);
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
             });
         }
@@ -125,23 +157,30 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
 
         public static void AddDataContract(CSharpFile file, ICSharpTemplate template, DataContractModel model)
         {
-            file.AddContractType(model.InternalElement, model.Name, model.GetContractTypeKind(), @class =>
+            var kind = model.GetContractTypeKind();
+            file.AddContractType(model.InternalElement, model.Name, kind, @class =>
+            {
+                @class.RepresentsModel(model);
+                foreach (var genericType in model.GenericTypes)
                 {
-                    @class.RepresentsModel(model);
-                    foreach (var genericType in model.GenericTypes)
-                    {
-                        @class.AddGenericParameter(genericType);
-                    }
+                    @class.AddGenericParameter(genericType);
+                }
 
-                    // BaseDataContract is the target of the Data Contract Generalization association.
-                    if (model.BaseDataContract != null)
-                    {
-                        @class.WithBaseType(template.GetTypeName(GuardrailsContractsDomainRoles.DataContract, model.BaseDataContract));
-                    }
+                // BaseDataContract is the target of the Data Contract Generalization association.
+                if (model.BaseDataContract != null)
+                {
+                    @class.WithBaseType(template.GetTypeName(GuardrailsContractsDomainRoles.DataContract, model.BaseDataContract));
+                }
 
-                    @class.AddContractProperties(template, model.Attributes);
-                    @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), template.IsInheritedByAnyDataContract(model));
-                },
+                var primaryConstructor = @class.AddContractAttributes(template, kind, model.Attributes);
+                if (model.BaseDataContract != null && model.BaseDataContract.GetContractTypeKind() == ContractTypeKind.PositionalRecord)
+                {
+                    primaryConstructor.PassBasePrimaryParameters(model.InternalElement, $"Data Contract '{model.Name}'",
+                        model.Attributes.Select(x => x.Name).ToList(), $"Data Contract '{model.BaseDataContract.Name}'", model.BaseDataContract.Attributes.Select(x => x.Name).ToList());
+                }
+
+                @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), template.IsInheritedByAnyDataContract(model));
+            },
                 baseKind: model.BaseDataContract?.GetContractTypeKind());
         }
 
@@ -152,28 +191,51 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         public static void AddDomainEvent(CSharpFile file, ICSharpTemplate template, IElement model)
         {
             var baseEvent = model.GetBaseDomainEvent();
-            file.AddContractType(model, model.Name, model.GetDomainEventContractTypeKind(), @class =>
+            var kind = model.GetDomainEventContractTypeKind();
+            file.AddContractType(model, model.Name, kind, @class =>
+            {
+                @class.RepresentsModel(model);
+                foreach (var genericType in model.GenericTypes)
                 {
-                    @class.RepresentsModel(model);
-                    foreach (var genericType in model.GenericTypes)
-                    {
-                        @class.AddGenericParameter(genericType.Name);
-                    }
+                    @class.AddGenericParameter(genericType.Name);
+                }
 
-                    if (model.IsAbstract)
-                    {
-                        @class.Abstract();
-                    }
+                if (model.IsAbstract)
+                {
+                    @class.Abstract();
+                }
 
-                    if (baseEvent != null)
-                    {
-                        @class.WithBaseType(template.GetTypeName(GuardrailsContractsDomainRoles.DomainEvent, baseEvent));
-                    }
+                if (baseEvent != null)
+                {
+                    @class.WithBaseType(template.GetTypeName(GuardrailsContractsDomainRoles.DomainEvent, baseEvent));
+                }
 
-                    @class.AddDomainEventProperties(template, model.GetDomainEventProperties());
-                    @class.ApplyContractModifiers(template, model, model.GetDomainEventModifiers(), template.IsInheritedByAnyDomainEvent(model));
-                },
+                var properties = model.GetDomainEventProperties().ToList();
+                var primaryConstructor = @class.AddDomainEventFields(template, kind, properties);
+                if (baseEvent != null && baseEvent.GetDomainEventContractTypeKind() == ContractTypeKind.PositionalRecord)
+                {
+                    primaryConstructor.PassBasePrimaryParameters(model, $"Domain Event '{model.Name}'",
+                        properties.Select(x => x.Name).ToList(), $"Domain Event '{baseEvent.Name}'", baseEvent.GetDomainEventProperties().Select(x => x.Name).ToList());
+                }
+
+                @class.ApplyContractModifiers(template, model, model.GetDomainEventModifiers(), template.IsInheritedByAnyDomainEvent(model));
+            },
                 baseKind: baseEvent?.GetDomainEventContractTypeKind());
+        }
+
+        /// <summary>
+        /// The parameters a Class declares on the type: its attributes when it's a positional record, otherwise its Primary
+        /// Constructor's parameters, otherwise none.
+        /// </summary>
+        private static IReadOnlyList<string> GetPrimaryParameterNames(ClassModel model)
+        {
+            if (model.GetContractTypeKind() == ContractTypeKind.PositionalRecord)
+            {
+                return model.Attributes.Select(x => x.Name).ToList();
+            }
+
+            return model.Constructors.FirstOrDefault(x => x.HasPrimaryConstructor())?.Parameters.Select(x => x.Name).ToList()
+                ?? new List<string>();
         }
 
         public static void AddDomainService(CSharpFile file, ICSharpTemplate template, DomainServiceModel model)

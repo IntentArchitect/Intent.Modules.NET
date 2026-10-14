@@ -128,6 +128,8 @@ namespace Intent.Services.Guardrails.Contracts.Api
                             return TypeOptionsEnum.Class;
                         case "record":
                             return TypeOptionsEnum.Record;
+                        case "positional record":
+                            return TypeOptionsEnum.PositionalRecord;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -141,12 +143,17 @@ namespace Intent.Services.Guardrails.Contracts.Api
                 {
                     return Value == "record";
                 }
+                public bool IsPositionalRecord()
+                {
+                    return Value == "positional record";
+                }
             }
 
             public enum TypeOptionsEnum
             {
                 Class,
-                Record
+                Record,
+                PositionalRecord
             }
         }
 

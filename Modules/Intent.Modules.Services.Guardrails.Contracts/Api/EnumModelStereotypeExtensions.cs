@@ -94,6 +94,8 @@ namespace Intent.Services.Guardrails.Contracts.Api
                             return AccessModifierOptionsEnum.Public;
                         case "internal":
                             return AccessModifierOptionsEnum.Internal;
+                        case "none":
+                            return AccessModifierOptionsEnum.None;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -107,12 +109,17 @@ namespace Intent.Services.Guardrails.Contracts.Api
                 {
                     return Value == "internal";
                 }
+                public bool IsNone()
+                {
+                    return Value == "none";
+                }
             }
 
             public enum AccessModifierOptionsEnum
             {
                 Public,
-                Internal
+                Internal,
+                None
             }
         }
 

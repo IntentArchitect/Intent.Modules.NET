@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="9bb8b979-bcb2-4908-91d5-b65028475bb6" version="3.1.0">
-  <comment>Overrides how the Integration Event (Message), Integration Command or Eventing DTO contract is declared: Type sets class or record (empty means class), Modifiers sets its modifiers (empty means the Default Type Modifiers module setting).</comment>
+  <comment>Overrides how the Integration Event (Message), Integration Command or Eventing DTO contract is declared: Type sets class, record or positional record (empty means class), Modifiers sets its modifiers (empty means the Default Type Modifiers module setting).</comment>
   <name>Type Configuration</name>
   <targetMode>filter-function</targetMode>
   <targetFilterFunction>// Message (Integration Event), Integration Command, Eventing DTO
@@ -20,7 +20,7 @@ return ["cbe970af-5bad-4d92-a3ed-a24b9fdaa23e", "7f01ca8e-0e3c-4735-ae23-a45169f
   <packageName>Intent.Services.Guardrails.Contracts</packageName>
   <properties>
     <property id="2f0cd31c-9b25-410b-bb47-ccb513504353">
-      <hint>class or record. Empty means class.</hint>
+      <hint>class, record or positional record. Empty means class. A positional record declares every field as a positional parameter, e.g. record CancelOrderCommand(int OrderNumber); it applies to types with fields (Command, Query, DTO and the eventing types), not to a Service.</hint>
       <name>Type</name>
       <type>string</type>
       <controlType>select</controlType>
@@ -28,10 +28,11 @@ return ["cbe970af-5bad-4d92-a3ed-a24b9fdaa23e", "7f01ca8e-0e3c-4735-ae23-a45169f
       <valueOptions>
         <option>class</option>
         <option>record</option>
+        <option>positional record</option>
       </valueOptions>
     </property>
     <property id="7d854ec0-7ba8-48f5-a08e-539ef5fcb359">
-      <hint>Optional. The type's modifiers when they differ from the Default Type Modifiers module setting, e.g. internal sealed. Use public or internal, plus any of sealed, abstract, static, partial. Is Abstract on the element still adds abstract.</hint>
+      <hint>Optional. The type's modifiers when they differ from the Default Type Modifiers module setting, e.g. internal sealed. Use at most one of public or internal, plus any of sealed, abstract, static, partial; leave the access modifier out when the code has none, or use none for no modifiers at all. Is Abstract on the element still adds abstract.</hint>
       <name>Modifiers</name>
       <type>string</type>
       <controlType>text</controlType>

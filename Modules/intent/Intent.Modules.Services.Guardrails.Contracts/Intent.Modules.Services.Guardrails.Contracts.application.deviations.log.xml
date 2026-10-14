@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#134c4e3a-eca5-4e31-a467-543b65040e20</correlationId>
+      <path>Templates/DtoContract/DtoContractTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-13T08:50:43.1134751Z</updatedAt>
+      <deviationsHash>258D86DD548506C3C0C873412669A420FB5E405FEEA9B8A6798EB468974E46D3</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

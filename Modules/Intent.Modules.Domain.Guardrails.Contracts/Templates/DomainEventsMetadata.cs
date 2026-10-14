@@ -99,13 +99,13 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         }
 
         /// <summary>
-        /// Type Configuration: "record" means a record; "class", an empty Type or no stereotype mean a class, as with
-        /// the typed accessors' IsRecord().
+        /// Type Configuration: "record" means a record and "positional record" a positional record; "class", an empty Type or
+        /// no stereotype mean a class, as with the typed accessors' IsRecord() and IsPositionalRecord().
         /// </summary>
         public static ContractTypeKind GetDomainEventContractTypeKind(this IElement domainEvent)
         {
             var type = domainEvent.GetStereotype(TypeConfigurationDefinitionId)?.GetProperty<string>(TypeProperty);
-            return type == "record" ? ContractTypeKind.Record : ContractTypeKind.Class;
+            return ContractTypeKindExtensions.ToKind(type == "record", type == "positional record");
         }
 
         /// <summary>Type Configuration Modifiers, or null when not set (see <see cref="ContractTypeModifiers"/>).</summary>

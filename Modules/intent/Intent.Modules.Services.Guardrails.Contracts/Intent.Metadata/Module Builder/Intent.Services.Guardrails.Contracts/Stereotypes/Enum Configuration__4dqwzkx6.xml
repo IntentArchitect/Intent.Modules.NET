@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="ea86d23f-bd74-42b8-863d-98025fb5b7a7" version="3.1.0">
-  <comment>Overrides how the guardrail contract declares this enum. Access Modifier sets public or internal (empty means the access modifier of the Default Type Modifiers module setting).</comment>
+  <comment>Overrides how the guardrail contract declares this enum. Access Modifier sets public, internal or none (empty means the access modifier of the Default Type Modifiers module setting).</comment>
   <name>Enum Configuration</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -21,7 +21,7 @@
   <packageName>Intent.Services.Guardrails.Contracts</packageName>
   <properties>
     <property id="3c318da8-73cb-4ba4-80f1-8fe5a0d5b498">
-      <hint>Optional. The enum's access modifier when it differs from the access modifier in the Default Type Modifiers module setting. An enum declared without one is internal.</hint>
+      <hint>Optional. The enum's access modifier when it differs from the access modifier in the Default Type Modifiers module setting. Use none for an enum declared without one.</hint>
       <name>Access Modifier</name>
       <type>string</type>
       <controlType>select</controlType>
@@ -29,6 +29,7 @@
       <valueOptions>
         <option>public</option>
         <option>internal</option>
+        <option>none</option>
       </valueOptions>
     </property>
   </properties>

@@ -13,7 +13,7 @@
   </targetTypes>
   <traitStorage>package</traitStorage>
   <applyMode>manually</applyMode>
-  <icon type="FontAwesome" source="file-code-o" />
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACGUlEQVR4AeyWS04DMQxA7SKYHRQJOlyBAhv+52KBhPhJ/ITYcAkOUX5XYEVbrsB0xbKDNCauNP2onTBummZUJaoVJ3FiP1vTpAQz0jxI0QqprUilEdMkBZ6I+qVzdr39EzbiQ9PEaEFMD8+1H3GRiGphPT7IZZ9h5B6EA0NcIqDntXq8z8NxpBggHLmCSYBe1j7jPR5KRQQSVRfQRCrbv9AvQHQ1EDDDlMaDEYEMOJ3AINoILgHoevAoLCcKZuUr3h2c14+cgnBoUTW4UN/HDes9wXIpodeVZrwDOZtzEI6zVQ3OFcwt6z3B8hwpmEa8DTlaIUA4TgVzRkh3rKdCgMtISS1strfSuay+MCAcYGs9OEWie9ZTQSytJgm9h432Zjo3qi8UCAf4vRGcqP5RSffXgQF8606MUAoHwjFG1YUj9W/2wHoqCBCm+qjeKUhF85YDwOPoYx76BTTNKYgmLvGSBxGnzPKGqVZEfcSit1r/u4x1XS4mCaLzY33Ng1hPsdCBcUV0d4FkTRj3kLkxyNCJjiY8iKPEZ7o1roj0bsiyz4ww54IxSE4/1s08iPUUCx0YV0RyV+hshXEPmRuDDJ3oaMKDOEp8plvjimTdC9L5zAhzLhiD5PRj3cyDWE+x0IGviDBhUnOxva+IOGWWN4gqonsr2ViTsItAJAdP29aDTDvj//nTVkT6XrJtr4PRgug2Fm1tZkD+AAAA///pXTLrAAAABklEQVQDAB745nTiP4jlAAAAAElFTkSuQmCC" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
   <displayAsAnnotation>false</displayAsAnnotation>

@@ -42,9 +42,10 @@ Integration events, integration commands, eventing DTOs and integration event ha
 - **Names** are used verbatim; no `Event` suffix is added.
 - **Handlers are class-only.** Handle methods and handler interfaces depend on the message broker (`IConsumer<T>`, `IHandleMessages<T>`, …), so Merge keeps the existing ones. The Subscribe Integration Event and Subscribe Integration Command associations document the subscription; the template doesn't read them.
 
+Positional records (`record OrderPlaced(Guid OrderId)`) use Type Configuration → Type = positional record, as for commands and DTOs.
+
 Not supported yet:
 
-- **Positional records** (`record OrderPlaced(Guid OrderId)`): the template emits property-style members, which would be merged as a second set.
 - **Property initializers on messages:** the Eventing designer has no Value on a Message or Integration Command property. Eventing DTO fields do have one.
 - **A subscriber's own copy of a message** that is modelled in another application's package: it is never generated in the subscriber.
 - **Accessors:** every property is emitted as `{ get; set; }`, as for DTOs. What Merge does to an existing `init` or get-only accessor hasn't been verified, so review the Software Factory diff for those properties.
@@ -54,7 +55,8 @@ Not supported yet:
 Every template except EnumContract emits a `class` by default. Apply **Type Configuration** to a Service, Command, Query or DTO and set **Type** to `record` to emit a `record` instead, for example for a DTO that is a record in code. An empty Type, or no stereotype, means `class`.
 
 - The Type must match the kind of the existing type on disk. Otherwise the merge adds a second declaration with the same name and the project won't compile.
-- A DTO and its base DTO must have the same Type Configuration, because C# doesn't allow a record and a class to inherit from each other. A mismatch raises an error on the DTO.
+- A DTO and its base DTO must both be records (record or positional record) or both be classes, because C# doesn't allow a record and a class to inherit from each other. A mismatch raises an error on the DTO.
+- **Type = positional record** emits a record whose fields are its primary constructor's positional parameters, in model order: `public record CancelOrderCommand(int OrderNumber);`. A field's Value becomes the parameter's default, and Collection Type applies as for properties. It applies to Commands, Queries, DTOs, integration events, integration commands and Eventing DTOs, not to a Service. A positional record whose base is a positional record must declare the base's parameters among its own fields; they are passed on by name (`record ChildDto(int Id, string Name) : BaseDto(Id)`). A record with both a parameter list and body properties isn't supported.
 - Integration events, integration commands and eventing DTOs have their own **Type Configuration** with the same Type and Modifiers, because the module doesn't depend on the Eventing modeler. An eventing DTO and its base eventing DTO must also have the same Type.
 - Structs are not supported, because Intent's C# file builder can't declare them.
 
@@ -62,13 +64,13 @@ Every template except EnumContract emits a `class` by default. Apply **Type Conf
 
 Under Merge mode the generated declaration's modifiers replace the existing ones, so they must match the code.
 
-- **Default Type Modifiers** (module setting, in Services Guardrails Contracts Settings) applies to every class, record and enum contract: `public` (the default) or `internal`, each optionally followed by `sealed`, `partial` or `sealed partial`. Set it to the codebase's own convention, e.g. `internal sealed`. The Domain contract module has its own setting.
-- **Type Configuration → Modifiers** replaces the setting for one element, e.g. `public`, `internal static` or `public sealed partial`. Use one of `public` or `internal`, plus any of `sealed`, `abstract`, `static` and `partial`, in any order; they are written in the usual C# order. A type declared without an access modifier is `internal`, so model it as `internal`.
+- **Default Type Modifiers** (module setting, in Services Guardrails Contracts Settings) applies to every class, record and enum contract: `public` (the default) or `internal`, each optionally followed by `sealed`, `partial` or `sealed partial`. For code that declares types without an access modifier, choose `sealed`, `partial`, `sealed partial`, or `none` for no modifiers at all. Set it to the codebase's own convention, e.g. `internal sealed` or `sealed`. The Domain contract module has its own setting.
+- **Type Configuration → Modifiers** replaces the setting for one element, e.g. `public`, `sealed`, `internal static` or `public sealed partial`. Use at most one of `public` or `internal`, plus any of `sealed`, `abstract`, `static` and `partial`, in any order; they are written in the usual C# order. Leave the access modifier out when the code has none (`sealed` gives `sealed class CreateOrderCommandHandler`), and use `none` on its own when the declaration has no modifiers at all (`record OrderPlaced`), because an empty Modifiers means the setting applies.
 - **Domain Event Handlers and Integration Event Handlers** share a Type Configuration with Modifiers only, because a handler is always a class.
 - **abstract:** Is Abstract on a DTO or eventing DTO always adds `abstract`.
 - **sealed from the setting** is left off an abstract DTO or eventing DTO, and off one that another DTO (or eventing DTO) inherits from.
-- **Errors:** Modifiers set on an element are used as given. These raise an error on the element: `sealed` or `static` on an abstract or inherited type, `static` on a record, two access modifiers, more than one of `sealed`, `abstract` and `static`, or a keyword the builder can't write (`file`, `unsafe`, …).
-- **Enums** take only the setting's access modifier (`internal sealed` gives `internal enum`). Where an enum differs, apply **Enum Configuration** and set **Access Modifier** to `public` or `internal`. An enum declared without an access modifier is `internal`.
+- **Errors:** Modifiers set on an element are used as given. These raise an error on the element: `sealed` or `static` on an abstract or inherited type, `static` on a record, two access modifiers, more than one of `sealed`, `abstract` and `static`, `none` with any other keyword, or a keyword the builder can't write (`file`, `unsafe`, …).
+- **Enums** take only the setting's access modifier: `internal sealed` gives `internal enum`, and a setting without one, such as `sealed` or `none`, gives `enum`. Where an enum differs, apply **Enum Configuration** and set **Access Modifier** to `public`, `internal`, or `none` for an enum declared without one.
 
 ## File Config stereotype
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Domain.Guardrails.Contracts.Api;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -87,24 +88,164 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
             }
         }
 
+        /// <summary>
+        /// Every constructor except the one marked Primary Constructor (see <see cref="AddContractPrimaryConstructor"/>), with an
+        /// empty body.
+        /// </summary>
         public static void AddStubbedConstructors(this CSharpClass @class, ICSharpTemplate template, IEnumerable<ClassConstructorModel> constructors)
         {
-            foreach (var constructor in constructors)
+            foreach (var constructor in constructors.Where(x => !x.HasPrimaryConstructor()))
             {
                 @class.AddConstructor(ctor =>
                 {
                     ctor.RepresentsModel(constructor);
-                    foreach (var parameter in constructor.Parameters)
-                    {
-                        var modifier = parameter.GetModifier();
-                        ctor.AddParameter(template.GetOperationTypeName(parameter.TypeReference, parameter.GetCollectionFormat()).WithModifierPrefix(modifier, isConstructorParameter: true), parameter.Name, param =>
-                        {
-                            param.RepresentsModel(parameter);
-                            param.WithContractDefaultValue(template, parameter.InternalElement, parameter.Value, parameter.TypeReference, modifier);
-                        });
-                    }
+                    ctor.AddContractConstructorParameters(template, constructor);
                 });
             }
+        }
+
+        /// <summary>
+        /// The constructor marked with the Primary Constructor stereotype, or null when none is. A C# type has at most one
+        /// primary constructor, and a positional record's positional parameters are its attributes, so it can't have one too.
+        /// </summary>
+        public static ClassConstructorModel GetContractPrimaryConstructor(this ClassModel model, ContractTypeKind kind)
+        {
+            var primaryConstructors = model.Constructors.Where(x => x.HasPrimaryConstructor()).ToList();
+            if (primaryConstructors.Count > 1)
+            {
+                throw new ElementException(model.InternalElement,
+                    $"Class '{model.Name}' has {primaryConstructors.Count} constructors marked Primary Constructor, but a C# type can only have one primary constructor. " +
+                    "Keep the stereotype only on the constructor the code declares on the type itself.");
+            }
+
+            if (primaryConstructors.Count == 1 && kind == ContractTypeKind.PositionalRecord)
+            {
+                throw new ElementException(model.InternalElement,
+                    $"Class '{model.Name}' is a positional record, whose attributes are its positional parameters, and it also has a constructor marked Primary Constructor. " +
+                    "Use one or the other: set Type to record to keep the primary constructor's parameters, or remove the stereotype to make the attributes the positional parameters.");
+            }
+
+            return primaryConstructors.SingleOrDefault();
+        }
+
+        /// <summary>
+        /// The constructor marked Primary Constructor, declared on the type itself, e.g. <c>class OrderService(IOrderRepository repository)</c>
+        /// or <c>record Money(decimal Amount, string Currency)</c>. Its parameters are written as for any constructor (names verbatim,
+        /// Parameter Modifier, defaults from Values); a primary constructor has no body.
+        /// </summary>
+        public static CSharpConstructor AddContractPrimaryConstructor(this CSharpClass @class, ICSharpTemplate template, ClassConstructorModel constructor)
+        {
+            CSharpConstructor primaryConstructor = null;
+            @class.AddPrimaryConstructor(ctor =>
+            {
+                primaryConstructor = ctor;
+                ctor.RepresentsModel(constructor);
+                ctor.AddContractConstructorParameters(template, constructor);
+            });
+            return primaryConstructor;
+        }
+
+        private static void AddContractConstructorParameters(this CSharpConstructor ctor, ICSharpTemplate template, ClassConstructorModel constructor)
+        {
+            foreach (var parameter in constructor.Parameters)
+            {
+                var modifier = parameter.GetModifier();
+                ctor.AddParameter(template.GetOperationTypeName(parameter.TypeReference, parameter.GetCollectionFormat()).WithModifierPrefix(modifier, isConstructorParameter: true), parameter.Name, param =>
+                {
+                    param.RepresentsModel(parameter);
+                    param.WithContractDefaultValue(template, parameter.InternalElement, parameter.Value, parameter.TypeReference, modifier);
+                });
+            }
+        }
+
+        /// <summary>
+        /// The attributes as properties, or for a <see cref="ContractTypeKind.PositionalRecord"/> as the positional parameters of its
+        /// primary constructor, e.g. <c>record Money(decimal Amount, string Currency)</c>: in model order, names verbatim, typed as the
+        /// properties they declare, with defaults from Values. Returns that primary constructor, or null when they are properties.
+        /// </summary>
+        public static CSharpConstructor AddContractAttributes(this CSharpClass @class, ICSharpTemplate template, ContractTypeKind kind, IEnumerable<AttributeModel> attributes)
+        {
+            if (kind != ContractTypeKind.PositionalRecord)
+            {
+                @class.AddContractProperties(template, attributes);
+                return null;
+            }
+
+            return @class.AddContractPositionalParameters(attributes, (ctor, attribute) =>
+                ctor.AddParameter(template.GetPropertyTypeName(attribute.TypeReference, attribute.GetCollectionFormat()), attribute.Name, param =>
+                {
+                    param.RepresentsModel(attribute);
+                    param.WithContractDefaultValue(template, attribute.InternalElement, attribute.Value, attribute.TypeReference, modifier: null);
+                }));
+        }
+
+        /// <summary>
+        /// The same for a Domain Event's Properties (raw elements, see <see cref="DomainEventsMetadata"/>).
+        /// </summary>
+        public static CSharpConstructor AddDomainEventFields(this CSharpClass @class, ICSharpTemplate template, ContractTypeKind kind, IEnumerable<IElement> properties)
+        {
+            if (kind != ContractTypeKind.PositionalRecord)
+            {
+                @class.AddDomainEventProperties(template, properties);
+                return null;
+            }
+
+            return @class.AddContractPositionalParameters(properties, (ctor, property) =>
+                ctor.AddParameter(template.GetPropertyTypeName(property.TypeReference, property.GetDomainEventPropertyCollectionFormat()), property.Name, param =>
+                {
+                    param.RepresentsModel(property);
+                    param.WithContractDefaultValue(template, property, property.Value, property.TypeReference, modifier: null);
+                }));
+        }
+
+        private static CSharpConstructor AddContractPositionalParameters<TField>(this CSharpClass @class, IEnumerable<TField> fields, Action<CSharpConstructor, TField> addParameter)
+        {
+            CSharpConstructor primaryConstructor = null;
+            @class.AddPrimaryConstructor(ctor =>
+            {
+                primaryConstructor = ctor;
+                foreach (var field in fields)
+                {
+                    addParameter(ctor, field);
+                }
+            });
+            return primaryConstructor;
+        }
+
+        /// <summary>
+        /// A type with primary-constructor parameters that inherits from one passes the base's parameters on by name, e.g.
+        /// <c>record Child(Guid Id, string Name) : Base(Id)</c>. The derived type must declare a parameter for each of the
+        /// base's, which is how the code has to be written. Same rule as the Services module's.
+        /// </summary>
+        public static void PassBasePrimaryParameters(this CSharpConstructor primaryConstructor, IElement element, string elementDescription, IReadOnlyCollection<string> ownParameters, string baseDescription, IReadOnlyList<string> baseParameters)
+        {
+            if (baseParameters.Count == 0)
+            {
+                return;
+            }
+
+            if (primaryConstructor == null)
+            {
+                throw new ElementException(element,
+                    $"{elementDescription} inherits from {baseDescription}, which declares its parameters on the type ({string.Join(", ", baseParameters)}), so it has to pass them to the base constructor. " +
+                    $"Set {element.Name}'s Type Configuration Type to positional record, with attributes for those parameters, as the code declares it.");
+            }
+
+            var missing = baseParameters.Where(x => !ownParameters.Contains(x)).ToList();
+            if (missing.Count > 0)
+            {
+                throw new ElementException(element,
+                    $"{elementDescription} inherits from {baseDescription}, which declares its parameters on the type, so {element.Name}'s own primary-constructor parameters must include them to pass on to the base constructor. " +
+                    $"Add the missing ones to {element.Name}, as the code declares them: {string.Join(", ", missing)}.");
+            }
+
+            primaryConstructor.CallsBase(call =>
+            {
+                foreach (var name in baseParameters)
+                {
+                    call.AddArgument(name);
+                }
+            });
         }
 
         public static void AddStubbedMethods(this CSharpClass @class, ICSharpTemplate template, IEnumerable<OperationModel> operations)

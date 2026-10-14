@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
@@ -80,29 +81,39 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             });
         }
 
+        /// <summary>
+        /// A command is a class or record with its fields as properties, or a positional record with them as positional
+        /// parameters (<c>record CancelOrderCommand(int OrderNumber)</c>). No IRequest or other interfaces; Merge keeps the code's.
+        /// </summary>
         public static void AddCommand(CSharpFile file, ICSharpTemplate template, CommandModel model)
         {
-            file.AddContractType(model.GetContractTypeKind(), model.Name, @class =>
+            var kind = model.GetContractTypeKind();
+            file.AddContractType(kind, model.Name, @class =>
             {
                 @class.RepresentsModel(model);
-                @class.AddContractProperties(template, model.Properties);
+                @class.AddContractFields(template, kind, model.Properties);
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
             });
         }
 
+        /// <summary>
+        /// A query is built like a command (<see cref="AddCommand"/>).
+        /// </summary>
         public static void AddQuery(CSharpFile file, ICSharpTemplate template, QueryModel model)
         {
-            file.AddContractType(model.GetContractTypeKind(), model.Name, @class =>
+            var kind = model.GetContractTypeKind();
+            file.AddContractType(kind, model.Name, @class =>
             {
                 @class.RepresentsModel(model);
-                @class.AddContractProperties(template, model.Properties);
+                @class.AddContractFields(template, kind, model.Properties);
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
             });
         }
 
         public static void AddDto(CSharpFile file, ICSharpTemplate template, DTOModel model)
         {
-            file.AddContractType(model.GetContractTypeKind(), model.Name, @class =>
+            var kind = model.GetContractTypeKind();
+            file.AddContractType(kind, model.Name, @class =>
             {
                 @class.RepresentsModel(model);
 
@@ -121,7 +132,15 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                     @class.WithBaseType(template.GetTypeName(model.ParentDtoTypeReference));
                 }
 
-                @class.AddContractProperties(template, model.Fields);
+                var primaryConstructor = @class.AddContractFields(template, kind, model.Fields);
+
+                var parentDto = model.ParentDtoTypeReference?.Element?.AsDTOModel();
+                if (parentDto != null && parentDto.GetDeclaredContractTypeKind() == ContractTypeKind.PositionalRecord)
+                {
+                    primaryConstructor.PassBasePositionalParameters(model.InternalElement, $"DTO '{model.Name}'",
+                        model.Fields.Select(x => x.Name).ToList(), $"DTO '{parentDto.Name}'", parentDto.Fields.Select(x => x.Name).ToList());
+                }
+
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), template.IsInheritedByAnyDto(model));
             });
         }
@@ -150,7 +169,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         /// </summary>
         public static void AddEventingDto(CSharpFile file, ICSharpTemplate template, IElement element)
         {
-            file.AddContractType(element.GetContractTypeKind(), element.Name, @class =>
+            var kind = element.GetContractTypeKind();
+            file.AddContractType(kind, element.Name, @class =>
             {
                 @class.RepresentsModel(element);
 
@@ -170,7 +190,16 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                     @class.WithBaseType(template.GetTypeName(parentDtoTypeReference));
                 }
 
-                @class.AddContractProperties(template, element.GetEventingDtoFields());
+                var fields = element.GetEventingDtoFields();
+                var primaryConstructor = @class.AddContractFields(template, kind, fields);
+
+                var parentDto = parentDtoTypeReference?.Element as IElement;
+                if (parentDto != null && parentDto.IsEventingDto() && parentDto.GetDeclaredContractTypeKind() == ContractTypeKind.PositionalRecord)
+                {
+                    primaryConstructor.PassBasePositionalParameters(element, $"Eventing DTO '{element.Name}'",
+                        fields.Select(x => x.Name).ToList(), $"Eventing DTO '{parentDto.Name}'", parentDto.GetEventingDtoFields().Select(x => x.Name).ToList());
+                }
+
                 @class.ApplyContractModifiers(template, element, element.GetOptionalModelerTypeConfiguration()?.Modifiers(), element.IsInheritedByAnyEventingDto());
             });
         }
@@ -198,10 +227,11 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
 
         private static void AddEventingMessage(CSharpFile file, ICSharpTemplate template, IElement element)
         {
-            file.AddContractType(element.GetContractTypeKind(), element.Name, @class =>
+            var kind = element.GetContractTypeKind();
+            file.AddContractType(kind, element.Name, @class =>
             {
                 @class.RepresentsModel(element);
-                @class.AddContractProperties(template, element.GetEventingProperties());
+                @class.AddContractFields(template, kind, element.GetEventingProperties());
                 @class.ApplyContractModifiers(template, element, element.GetOptionalModelerTypeConfiguration()?.Modifiers(), isInherited: false);
             });
         }

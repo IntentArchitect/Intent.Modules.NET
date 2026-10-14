@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
@@ -31,6 +33,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 case ContractTypeKind.Class:
                     return file.AddClass(name, configure);
                 case ContractTypeKind.Record:
+                case ContractTypeKind.PositionalRecord:
+                    // A positional record is a record whose fields go on its primary constructor (see AddContractFields).
                     return file.AddRecord(name, record => configure(record));
                 default:
                     throw new InvalidOperationException($"Unsupported contract type kind: {kind}");
@@ -82,6 +86,104 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                     property.WithContractInitialValue(template, field.Value, field.TypeReference);
                 });
             }
+        }
+
+        /// <summary>
+        /// The fields as properties, or for a <see cref="ContractTypeKind.PositionalRecord"/> as the positional parameters of
+        /// its primary constructor. Returns that primary constructor, or null when the fields are properties.
+        /// </summary>
+        public static CSharpConstructor AddContractFields(this CSharpClass @class, ICSharpTemplate template, ContractTypeKind kind, IEnumerable<DTOFieldModel> fields)
+        {
+            if (kind != ContractTypeKind.PositionalRecord)
+            {
+                @class.AddContractProperties(template, fields);
+                return null;
+            }
+
+            return @class.AddContractPositionalParameters(fields, (ctor, field) =>
+                ctor.AddParameter(template.GetContractTypeName(field), field.Name, parameter =>
+                {
+                    parameter.RepresentsModel(field);
+                    parameter.WithContractDefaultValue(template, field.InternalElement, field.Value, field.TypeReference, modifier: null);
+                }));
+        }
+
+        /// <summary>
+        /// The same for the raw Properties of a Message or Integration Command, or the Fields of an Eventing DTO.
+        /// </summary>
+        public static CSharpConstructor AddContractFields(this CSharpClass @class, ICSharpTemplate template, ContractTypeKind kind, IEnumerable<IElement> fields)
+        {
+            if (kind != ContractTypeKind.PositionalRecord)
+            {
+                @class.AddContractProperties(template, fields);
+                return null;
+            }
+
+            return @class.AddContractPositionalParameters(fields, (ctor, field) =>
+            {
+                var collectionType = field.GetOptionalModelerCollectionType();
+                var typeName = template.GetContractTypeName(field.TypeReference, field, collectionType?.Kind, collectionType?.CustomFormat);
+                ctor.AddParameter(typeName, field.Name, parameter =>
+                {
+                    parameter.RepresentsModel(field);
+                    parameter.WithContractDefaultValue(template, field, field.Value, field.TypeReference, modifier: null);
+                });
+            });
+        }
+
+        /// <summary>
+        /// A positional record's primary constructor, e.g. <c>record CancelOrderCommand(int OrderNumber)</c>: one parameter per
+        /// field, in model order and named verbatim (they are the record's properties, so they're usually PascalCase). A field's
+        /// Value becomes the parameter's default.
+        /// </summary>
+        private static CSharpConstructor AddContractPositionalParameters<TField>(this CSharpClass @class, IEnumerable<TField> fields, Action<CSharpConstructor, TField> addParameter)
+        {
+            CSharpConstructor primaryConstructor = null;
+            @class.AddPrimaryConstructor(ctor =>
+            {
+                primaryConstructor = ctor;
+                foreach (var field in fields)
+                {
+                    addParameter(ctor, field);
+                }
+            });
+            return primaryConstructor;
+        }
+
+        /// <summary>
+        /// A positional record that inherits from a positional record passes the base's positional parameters on by name,
+        /// e.g. <c>record ChildDto(int Id, string Name) : BaseDto(Id)</c>. The derived record must itself be positional and
+        /// declare a parameter for each of the base's, which is how the code has to be written.
+        /// </summary>
+        public static void PassBasePositionalParameters(this CSharpConstructor primaryConstructor, IElement element, string elementDescription, IReadOnlyCollection<string> ownParameters, string baseDescription, IReadOnlyList<string> baseParameters)
+        {
+            if (baseParameters.Count == 0)
+            {
+                return;
+            }
+
+            if (primaryConstructor == null)
+            {
+                throw new ElementException(element,
+                    $"{elementDescription} inherits from {baseDescription}, which is a positional record, so it has to pass {baseDescription}'s positional parameters ({string.Join(", ", baseParameters)}) to the base constructor. " +
+                    $"Set {element.Name}'s Type Configuration Type to positional record, with fields for those parameters, as the code declares it.");
+            }
+
+            var missing = baseParameters.Where(x => !ownParameters.Contains(x)).ToList();
+            if (missing.Count > 0)
+            {
+                throw new ElementException(element,
+                    $"{elementDescription} is a positional record that inherits from {baseDescription}, also a positional record, so its own positional parameters must include {baseDescription}'s to pass on to the base constructor. " +
+                    $"Add the missing fields to {element.Name}, as the code declares them: {string.Join(", ", missing)}.");
+            }
+
+            primaryConstructor.CallsBase(call =>
+            {
+                foreach (var name in baseParameters)
+                {
+                    call.AddArgument(name);
+                }
+            });
         }
 
         /// <summary>

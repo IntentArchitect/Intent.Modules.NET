@@ -20,7 +20,7 @@ return ["d80e61c5-7e4c-4175-9df1-0413f664824c", "c0582230-22f5-4f74-8eb0-ec6fc93
   <packageName>Intent.Services.Guardrails.Contracts</packageName>
   <properties>
     <property id="0d3123aa-b506-4aed-abbd-161e4e38bb64">
-      <hint>Optional. The class's modifiers when they differ from the Default Type Modifiers module setting, e.g. internal sealed. Use public or internal, plus any of sealed, abstract, static, partial.</hint>
+      <hint>Optional. The class's modifiers when they differ from the Default Type Modifiers module setting, e.g. internal sealed. Use at most one of public or internal, plus any of sealed, abstract, static, partial; leave the access modifier out when the code has none, or use none for no modifiers at all.</hint>
       <name>Modifiers</name>
       <type>string</type>
       <controlType>text</controlType>

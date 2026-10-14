@@ -1,0 +1,17 @@
+{
+  "answers:open-questions": {
+    "sentinel": {
+      "selected": [
+        "none"
+      ],
+      "freeform": ""
+    },
+    "consumer": {
+      "selected": [
+        "user"
+      ],
+      "freeform": ""
+    }
+  },
+  "answered:open-questions": "2026-10-14T09:53:39.665Z"
+}

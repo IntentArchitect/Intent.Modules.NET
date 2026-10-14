@@ -14,13 +14,15 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
     /// The modifiers a class, record or enum contract is declared with. Under plain Mode.Merge, RoslynWeaver replaces the existing
     /// declaration's modifiers with the generated ones, so they must match the code. The element's Type Configuration Modifiers
     /// (Enum Configuration Access Modifier for an enum) wins; otherwise the Default Type Modifiers module setting applies;
-    /// otherwise <c>public</c>.
+    /// otherwise <c>public</c>. The access modifier is optional, so a type the code declares without one is modelled without
+    /// one, and <c>none</c> means no modifiers at all.
     /// Same rules as the Services module's ContractTypeModifiers; keep the two in step.
     /// </summary>
     internal static class ContractTypeModifiers
     {
         private const string FallbackModifiers = "public";
-        private const string SupportedModifiersText = "Use public or internal, plus any of sealed, abstract, static or partial.";
+        private const string NoModifiers = "none";
+        private const string SupportedModifiersText = "Use at most one of public or internal, plus any of sealed, abstract, static or partial, or none for no modifiers.";
 
         /// <summary>
         /// Applies the modifiers to <paramref name="type"/>. Call it after the type's members are configured, because abstract
@@ -51,6 +53,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         /// <summary>
         /// Applies an enum's access modifier: its Enum Configuration Access Modifier, otherwise the access modifier of the
         /// Default Type Modifiers module setting. An enum can't be sealed or partial, so the rest of the setting doesn't apply.
+        /// An Access Modifier of none, or a setting without an access modifier, declares the enum without one.
         /// </summary>
         public static void ApplyContractAccessModifier(this CSharpEnum @enum, ICSharpTemplate template, IElement element, string configuredAccessModifier)
         {
@@ -65,9 +68,13 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 case "internal":
                     @enum.Internal();
                     break;
+                case null:
+                case NoModifiers:
+                    @enum.WithoutAccessModifier();
+                    break;
                 default:
                     throw new ElementException(element,
-                        $"The Enum Configuration Access Modifier '{access}' on '{element.Name}' isn't valid. Use public or internal.");
+                        $"The Enum Configuration Access Modifier '{access}' on '{element.Name}' isn't valid. Use public, internal or none.");
             }
         }
 
@@ -129,13 +136,19 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
 
         private static void Apply(CSharpClass type, ParsedModifiers modifiers)
         {
-            if (modifiers.Access == "internal")
+            switch (modifiers.Access)
             {
-                type.Internal();
-            }
-            else
-            {
-                type.Public();
+                case "public":
+                    type.Public();
+                    break;
+                case "internal":
+                    type.Internal();
+                    break;
+                case null:
+                    type.WithoutAccessModifier();
+                    break;
+                default:
+                    throw new InvalidOperationException($"Unexpected access modifier '{modifiers.Access}'.");
             }
 
             if (modifiers.IsSealed)
@@ -160,8 +173,9 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         }
 
         /// <summary>
-        /// Keywords in any order, separated by whitespace. Exactly one access modifier is required: the builder always writes
-        /// one, so a type declared without one (implicitly internal) must be modelled as internal.
+        /// Keywords in any order, separated by whitespace. At most one access modifier; without one the type is declared without
+        /// one, as the code does. none stands alone and means no modifiers at all: a keyword is needed because empty Modifiers
+        /// means the module setting applies.
         /// </summary>
         private static ParsedModifiers Parse(string value, Func<string, Exception> invalid)
         {
@@ -197,14 +211,16 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                     case "partial":
                         result.IsPartial = true;
                         break;
+                    case NoModifiers:
+                        break;
                     default:
                         throw invalid($"'{token}' isn't supported. {SupportedModifiersText}");
                 }
             }
 
-            if (result.Access == null)
+            if (seen.Contains(NoModifiers) && seen.Count > 1)
             {
-                throw invalid($"it has no access modifier. A type declared without one is internal, so use internal. {SupportedModifiersText}");
+                throw invalid($"none means no modifiers at all, so it can't be combined with other keywords. {SupportedModifiersText}");
             }
 
             if (new[] { result.IsSealed, result.IsAbstract, result.IsStatic }.Count(x => x) > 1)

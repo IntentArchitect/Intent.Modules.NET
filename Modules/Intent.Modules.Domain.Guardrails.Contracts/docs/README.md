@@ -32,19 +32,28 @@ Put an Output Anchor carrying these roles at the root of the project that holds 
 Every template except EnumContract emits a `class` by default. Apply **Type Configuration** to a Class, Value Object, Repository, Data Contract, Domain Service or Domain Event and set **Type** to `record` to emit a `record` instead. An empty Type, or no stereotype, means `class`.
 
 - The Type must match the kind of the existing type on disk. Otherwise the merge adds a second declaration with the same name and the project won't compile.
-- A record can only inherit from a record, and a class cannot inherit from a record. A mismatch between an element and its base type raises an error on the element.
+- A record can only inherit from a record, and a class cannot inherit from a record. A record and a positional record can inherit from each other. A mismatch between an element and its base type raises an error on the element.
+- **Type = positional record** emits a record whose attributes are its primary constructor's positional parameters, in model order: `public record Money(decimal Amount, string Currency);`. An attribute's Value becomes the parameter's default. It applies to Class, Value Object, Data Contract and Domain Event, not to a Repository or Domain Service. A Class keeps its navigation properties, constructors and operations in the body. A positional type whose base declares parameters on the type must include them among its own; they're passed on by name (`record Child(Guid Id, string Name) : Base(Id)`).
 - Structs are not supported, because Intent's C# file builder can't declare them.
+
+## Primary Constructor stereotype
+
+Apply **Primary Constructor** to a Class Constructor to declare its parameters on the type itself (C# 12): `public class OrderService(IOrderRepository repository)` or `public record Money(decimal Amount, string Currency)`. The parameters are written as for any constructor (names verbatim, Parameter Modifier, defaults from Values), and a primary constructor has no body.
+
+- At most one constructor per Class can carry it, and not on a Class whose Type is positional record. Either raises an error on the Class.
+- On a **record**, the parameters are the record's properties, so attributes with the same names aren't declared again; the other attributes stay body properties. On a **class**, the parameters are plain parameters and every attribute stays a property.
+- When the base Class also declares parameters on the type, they're passed on by name (`class Child(Guid id, ILogger logger) : Base(logger)`), so this constructor must include them.
 
 ## Type modifiers
 
 Under Merge mode the generated declaration's modifiers replace the existing ones, so they must match the code.
 
-- **Default Type Modifiers** (module setting, in Domain Guardrails Contracts Settings) applies to every class, record and enum contract: `public` (the default) or `internal`, each optionally followed by `sealed`, `partial` or `sealed partial`. Set it to the codebase's own convention, e.g. `internal sealed`.
-- **Type Configuration → Modifiers** replaces the setting for one element, e.g. `public`, `internal static` or `public abstract partial`. Use one of `public` or `internal`, plus any of `sealed`, `abstract`, `static` and `partial`, in any order; they are written in the usual C# order. A type declared without an access modifier is `internal`, so model it as `internal`.
+- **Default Type Modifiers** (module setting, in Domain Guardrails Contracts Settings) applies to every class, record and enum contract: `public` (the default) or `internal`, each optionally followed by `sealed`, `partial` or `sealed partial`. For code that declares types without an access modifier, choose `sealed`, `partial`, `sealed partial`, or `none` for no modifiers at all. Set it to the codebase's own convention, e.g. `internal sealed` or `sealed`.
+- **Type Configuration → Modifiers** replaces the setting for one element, e.g. `public`, `sealed`, `internal static` or `public abstract partial`. Use at most one of `public` or `internal`, plus any of `sealed`, `abstract`, `static` and `partial`, in any order; they are written in the usual C# order. Leave the access modifier out when the code has none (`sealed` gives `sealed class PriceCalculator`), and use `none` on its own when the declaration has no modifiers at all (`record OrderPlaced`), because an empty Modifiers means the setting applies.
 - **abstract:** Is Abstract on a Class or Domain Event, or an abstract operation, always adds `abstract`.
 - **sealed from the setting** is left off an abstract type, and off a Class, Data Contract or Domain Event that another modelled element inherits from.
-- **Errors:** Modifiers set on an element are used as given. These raise an error on the element: `sealed` or `static` on an abstract or inherited type, `static` on a record, two access modifiers, more than one of `sealed`, `abstract` and `static`, or a keyword the builder can't write (`file`, `unsafe`, …).
-- **Enums** take only the setting's access modifier (`internal sealed` gives `internal enum`). Where an enum differs, apply **Enum Configuration** and set **Access Modifier** to `public` or `internal`. An enum declared without an access modifier is `internal`.
+- **Errors:** Modifiers set on an element are used as given. These raise an error on the element: `sealed` or `static` on an abstract or inherited type, `static` on a record, two access modifiers, more than one of `sealed`, `abstract` and `static`, `none` with any other keyword, or a keyword the builder can't write (`file`, `unsafe`, …).
+- **Enums** take only the setting's access modifier: `internal sealed` gives `internal enum`, and a setting without one, such as `sealed` or `none`, gives `enum`. Where an enum differs, apply **Enum Configuration** and set **Access Modifier** to `public`, `internal`, or `none` for an enum declared without one.
 
 ## File Config stereotype
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="6bbf9e89-c521-4122-aa53-3fc7786f1157" version="3.1.0">
-  <comment>Overrides how the guardrail contract declares this element: Type sets class or record (empty means class), Modifiers sets its modifiers (empty means the Default Type Modifiers module setting).</comment>
+  <comment>Overrides how the guardrail contract declares this element: Type sets class, record or positional record (empty means class), Modifiers sets its modifiers (empty means the Default Type Modifiers module setting).</comment>
   <name>Type Configuration</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -24,7 +24,7 @@
   <packageName>Intent.Services.Guardrails.Contracts</packageName>
   <properties>
     <property id="fd8a5276-96d8-4990-9b66-a9ffacca7749">
-      <hint>class or record. Empty means class.</hint>
+      <hint>class, record or positional record. Empty means class. A positional record declares every field as a positional parameter, e.g. record CancelOrderCommand(int OrderNumber); it applies to types with fields (Command, Query, DTO and the eventing types), not to a Service.</hint>
       <name>Type</name>
       <type>string</type>
       <controlType>select</controlType>
@@ -32,10 +32,11 @@
       <valueOptions>
         <option>class</option>
         <option>record</option>
+        <option>positional record</option>
       </valueOptions>
     </property>
     <property id="b08b54e6-92e3-45eb-a233-0c79b4d76aab">
-      <hint>Optional. The type's modifiers when they differ from the Default Type Modifiers module setting, e.g. internal sealed. Use public or internal, plus any of sealed, abstract, static, partial. Is Abstract on the element still adds abstract.</hint>
+      <hint>Optional. The type's modifiers when they differ from the Default Type Modifiers module setting, e.g. internal sealed. Use at most one of public or internal, plus any of sealed, abstract, static, partial; leave the access modifier out when the code has none, or use none for no modifiers at all. Is Abstract on the element still adds abstract.</hint>
       <name>Modifiers</name>
       <type>string</type>
       <controlType>text</controlType>

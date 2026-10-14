@@ -61,6 +61,10 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Settings
                     "internal partial" => DefaultTypeModifiersOptionsEnum.InternalPartial,
                     "public sealed partial" => DefaultTypeModifiersOptionsEnum.PublicSealedPartial,
                     "internal sealed partial" => DefaultTypeModifiersOptionsEnum.InternalSealedPartial,
+                    "none" => DefaultTypeModifiersOptionsEnum.None,
+                    "sealed" => DefaultTypeModifiersOptionsEnum.Sealed,
+                    "partial" => DefaultTypeModifiersOptionsEnum.Partial,
+                    "sealed partial" => DefaultTypeModifiersOptionsEnum.SealedPartial,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -104,6 +108,26 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Settings
             {
                 return Value == "internal sealed partial";
             }
+
+            public bool IsNone()
+            {
+                return Value == "none";
+            }
+
+            public bool IsSealed()
+            {
+                return Value == "sealed";
+            }
+
+            public bool IsPartial()
+            {
+                return Value == "partial";
+            }
+
+            public bool IsSealedPartial()
+            {
+                return Value == "sealed partial";
+            }
         }
 
         public enum DefaultTypeModifiersOptionsEnum
@@ -116,6 +140,10 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Settings
             InternalPartial,
             PublicSealedPartial,
             InternalSealedPartial,
+            None,
+            Sealed,
+            Partial,
+            SealedPartial,
         }
     }
 }
