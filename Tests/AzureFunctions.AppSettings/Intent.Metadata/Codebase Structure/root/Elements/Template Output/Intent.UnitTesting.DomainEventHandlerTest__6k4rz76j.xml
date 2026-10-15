@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5949d25e-1c15-41e5-82e2-9f7716861e7c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.UnitTesting.DomainEventHandlerTest</name>
+  <display>Intent.UnitTesting.DomainEventHandlerTest</display>
+  <externalReference>Intent.UnitTesting</externalReference>
+  <parentFolderId>fff9853b-fb74-4809-a2ba-562cba951891</parentFolderId>
+  <metadata>
+    <entry key="status" value="unassigned" />
+  </metadata>
+</class>
