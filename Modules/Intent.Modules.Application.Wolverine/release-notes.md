@@ -1,5 +1,6 @@
 ### Version 1.1.2
 
+- Improvement: Command and Query handler `Handle` methods are now generated with `Body = Mode.Ignore` when `Intent.Application.CQRS.CRUD` is not installed, as nothing can implement them.
 - Improvement: Commands and Queries now get a Services designer warning when a property without a default value follows one with a default value, as the generated constructor drops that default. The check previously lived in `Intent.Modelers.Services.CQRS`.
 
 ### Version 1.1.1

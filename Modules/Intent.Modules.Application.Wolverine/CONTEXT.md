@@ -89,6 +89,15 @@ Both the `opts.Policies.AddMiddleware<MessageBusFlushMiddleware>(...)` and its c
 
 **Confirmed accurate, not aspirational.** This paragraph described the intended shape before `Intent.Eventing.Wolverine` actually implemented the DbContext splice — until it did, the strip ran with no replacement and every durable-outbox message was silently discarded (see that module's `CONTEXT.md`, D5 carve-out, for the fix). No change was needed in this module: `ApplicationHandlerPolicyTemplatePartial` and `MessageBusFlushMiddlewareTemplatePartial` were already correct, the gate and the tagging were already correct, and the missing half lived entirely on the eventing-module side of the strip/splice pair.
 
+### `Handle` body mode is keyed to whether `Intent.Application.CQRS.CRUD` is installed
+
+`CommandHandlerTemplate`/`QueryHandlerTemplate` take the `Handle` attribute from `Templates/HandlerBodyModeExtensions.GetHandleMethodIntentManagedAttribute`. With `Intent.Application.CQRS.CRUD` installed it is `Fully` + `Body = Mode.Merge`, unchanged from published versions, and CQRS.CRUD overrides it to `Body = Mode.Fully` on the handlers it implements. Without it, it is `Fully` + `Body = Mode.Ignore`: nothing can ever generate the body, so it belongs to the developer or AI from the first run.
+
+- **Only CQRS.CRUD counts.** It finds handlers by `TemplateRoles.Application.Handler.*`. `Intent.Application.MediatR.CRUD` matches the MediatR `TemplateId` and never touches Wolverine handlers, so checking for it here would leave stubs Merge with nothing to implement them. (The MediatR module checks both.)
+- **Soft lookup, no dependency.** The check is `InstalledModules.Any(...)` by module id.
+- **The skills keep the published rule** ("ALWAYS if you modify `Handle`, make the body `Mode.Ignore`"), which holds in both states. A Merge stub is just "not Ignore yet" to the AI.
+- **Rejected on this branch (never published):** Merge on CRUD-implemented bodies (confused the AI), Fully on every handler (deletes hand-written code in existing apps once the file's output next changes), and Ignore on every unimplemented handler (sticky, so a mapping added later is never implemented). The MediatR `CONTEXT.md` has the reasoning and the RoslynWeaver observations (MediatR handlers and service operations, same mechanics, not re-run on a Wolverine app). The one this design relies on: `Merge`→`Ignore` keeps a hand-written body. `Ignore` is sticky, so installing CQRS.CRUD later does not implement existing handlers until they are switched to `Body = Mode.Fully` by hand.
+
 ---
 
 ## ⚠️ Anti-Patterns (Must Nots)

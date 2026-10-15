@@ -1,3 +1,7 @@
+### Version 4.5.1
+
+- Improvement: Service Call Handler `Handle` methods are now generated with `Body = Mode.Ignore` when `Intent.Application.ServiceImplementations.Conventions.CRUD` is not installed, as nothing can implement them.
+
 ### Version 4.5.0
 
 - Improvement: Updated dependency modules.

@@ -70,7 +70,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                         method.RegisterAsProcessingHandlerForModel(model);
                         method.TryAddXmlDocComments(model.InternalElement);
                         method.Async();
-                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
+                        method.AddAttribute(template.ExecutionContext.GetHandleMethodIntentManagedAttribute());
                         method.AddParameter(GetCommandModelName(template, model), "request", p => p.RepresentsModel(model));
                         method.AddParameter("CancellationToken", "cancellationToken");
 

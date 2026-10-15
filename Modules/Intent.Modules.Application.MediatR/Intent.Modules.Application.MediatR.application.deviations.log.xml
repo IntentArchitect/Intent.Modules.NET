@@ -35,12 +35,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4ba1d060-8722-4b1d-97e1-e7f070b8be2e</correlationId>
       <path>Templates/CommandHandler/CommandHandlerTemplatePartial.cs</path>
-      <count>4</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-31T21:06:43.814605Z</updatedAt>
-      <deviationsHash>475E8CF30CBCE149CA80F4B3378B0A25CC691340D852C44B544F0ADAC1FBC4B2</deviationsHash>
-      <fileHash>8C6675D650938EBDF0A6AE0ACD93CBFB24BA35D5F0216CD72F80DDEED037485B</fileHash>
+      <count>5</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-13T13:03:57.2517633Z</updatedAt>
+      <deviationsHash>57E20C3F54EDD4D159B99E150C5C8AE61FF19C7C4936F6C34482B3959BF27DBB</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#4ba1d060-8722-4b1d-97e1-e7f070b8be2e</correlationId>
@@ -59,9 +58,9 @@
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#c9d4d6a0-1547-45df-8967-1ed76f8347f5</correlationId>
       <path>Templates/CommandHandlerSkill/CommandHandlerSkillTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:57:37.0748871Z</updatedAt>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-13T13:03:57.2518402Z</updatedAt>
       <deviationsHash>8CE50CD3BBCBF8D2E83EC8FCCD087B8785BA85BA825FF6D79E931B3569079A5E</deviationsHash>
     </file>
     <file>
@@ -113,12 +112,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3a8eb772-0533-42c8-9767-a87c67884d46</correlationId>
       <path>Templates/QueryHandler/QueryHandlerTemplatePartial.cs</path>
-      <count>4</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-31T21:06:43.8148192Z</updatedAt>
-      <deviationsHash>5A454EE4714DC1A245A1F7A3C114ACA873564FCD73EF7A29BAC76B273984A09E</deviationsHash>
-      <fileHash>63D04966EC4313606A246525301A9457472E018A1A70F59AD8453263A3B985AF</fileHash>
+      <count>5</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-13T13:03:57.2517934Z</updatedAt>
+      <deviationsHash>F8C87B792894FB4ABA511940CFBD8D8B29735A02EE1BB124FFE22635BECB8828</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#3a8eb772-0533-42c8-9767-a87c67884d46</correlationId>
@@ -137,9 +135,9 @@
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#1df6293f-8be4-4fa3-a2f3-b720321debdb</correlationId>
       <path>Templates/QueryHandlerSkill/QueryHandlerSkillTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:57:37.0749174Z</updatedAt>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-13T13:03:57.2518539Z</updatedAt>
       <deviationsHash>A22B0C936251D2BB86FFB93822846F7AC5EF856BB98C46168D6265A261D38A06</deviationsHash>
     </file>
     <file>

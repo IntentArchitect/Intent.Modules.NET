@@ -99,6 +99,71 @@ find it by matching your generated class name in source text.
 
 ---
 
+## `Handle` body mode is keyed to whether a CRUD module is installed
+
+`CommandHandlerTemplate.Configure`/`QueryHandlerTemplate.Configure` (and so the consolidated
+single-file path too) take the `Handle` attribute from
+`Templates/HandlerBodyModeExtensions.GetHandleMethodIntentManagedAttribute`:
+
+- **`Intent.Application.MediatR.CRUD` or `Intent.Application.CQRS.CRUD` installed** →
+  `Fully` + `Body = Mode.Merge`, unchanged from published versions. A CRUD module overrides it to
+  `Body = Mode.Fully` on the handlers it implements. MediatR.CRUD finds those handlers by this
+  module's `TemplateId`, CQRS.CRUD by `TemplateRoles.Application.Handler.*`.
+- **Neither installed** → `Fully` + `Body = Mode.Ignore`. Nothing can ever generate the body, so it
+  belongs to the developer or AI from the first run.
+
+The stub is emitted in both cases. The check is a soft `InstalledModules.Any(...)` string lookup, so
+no `.imodspec` dependency on either CRUD module is needed or wanted (CRUD depends on this module, not
+the other way round).
+
+**The AI only needs one rule.** `mediatr-command-handler`/`mediatr-query-handler` keep the published
+rule, "ALWAYS if you modify `Handle`, make the body `Mode.Ignore`". A Merge stub is just "not Ignore
+yet", the same as a Fully body, so the AI never has to reason about Merge semantics. Without a CRUD
+module the rule is already satisfied.
+
+**Why Merge stays on unimplemented handlers when a CRUD module is installed** (decided 2026-10-14 with
+the module owner, after trying the alternatives below on this branch, none published):
+
+- It is upgrade-safe: CRUD apps see no change from published output.
+- A mapping added to a handler after its first SF run still gets implemented (Merge→Fully is rewritten).
+
+**Rejected alternatives:**
+
+- **Merge on CRUD-implemented bodies, with state-aware skill text** ("augment the body, don't edit
+  generated statements"), so mapping changes could keep flowing into customised handlers. Withdrawn
+  because Merge's contract confused the AI: it has to tell generated statements from its own, and
+  editing a generated statement in place makes Intent re-add it as a duplicate. The accepted cost of
+  the Fully/Ignore rule is that once a handler is switched to Ignore, mapping changes no longer reach it.
+- **Fully on every handler, stubs included, when CRUD is installed** (to remove Merge from output).
+  It silently deletes code in existing apps: developers implement handlers directly in published Merge
+  stubs. Observed on RoslynWeaver 5.0.1: Merge→Fully rewrites the attribute and keeps the body on the
+  next run, and a re-run with no output change keeps it too. But the next model change that alters the
+  file's output replaces the body with the stub. The SF flags it as destructive only at that point.
+- **Ignore on every unimplemented handler, even with CRUD installed.** Upgrade-safe, but Ignore is
+  sticky: a handler whose mapping is added after its first SF run would never be implemented without a
+  manual attribute switch.
+
+**How RoslynWeaver treats the attribute on an existing handler** (RoslynWeaver 5.0.1, observed
+2026-10-13/14, partly on service operations, same mechanics):
+
+- **`Merge`→`Ignore`** (an app with no CRUD module upgrading): the attribute is rewritten and a
+  hand-written body survives.
+- **`Fully`→`Merge`**: the attribute is rewritten and the body is unchanged.
+- **`Ignore` is sticky.** An existing `Body = Mode.Ignore` is never rewritten; its body survived a model
+  change while the template generated `Fully`. So installing a CRUD module into an app whose handlers
+  were generated without one does not implement those existing handlers.
+- **Switching `Ignore` back to `Body = Mode.Fully` by hand hands the body back to CRUD.** It is replaced
+  with the generated statements, flagged destructive, on the next run that changes the file's output,
+  not on an unchanged re-run.
+- **Uninstalling a CRUD module from an app** removes the statements it generated from bodies that are
+  still Merge in that run (observed). Fully bodies were not re-tested.
+
+**Adding a new handler-implementing module?** Add its module id to
+`HandlerBodyModeExtensions.CrudImplementationModuleIds`. Otherwise its handlers will be generated
+with `Body = Mode.Ignore` in apps without a CRUD module, and Ignore is sticky.
+
+---
+
 ## Gotchas / footguns
 
 - **Priority-4 tie** between `ValidationBehaviour` and `MessageBusPublishBehaviour` — see above.
