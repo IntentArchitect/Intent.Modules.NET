@@ -56,6 +56,12 @@ declare function getDiagramSnapshot(): Promise<any>;
 
 /** The designer's own settings block (a slice of the schema): rules, elementTypes, mappings, associationTypes. */
 declare function getSettings(): Promise<any>;
+
+/** SHOWS THE USER how elements fit together: opens an unsaved, auto-laid-out diagram of the elements plus their
+ *  first-level neighbours (muted unless in `highlightIds`). Changes nothing in the model, is never saved, and replaces
+ *  the designer's previous generated diagram. Returns the diagram API — `getDiagramSnapshot()` then reads its layout. */
+declare function showDynamicDiagram(elementIds: string | string[] | IElementApi | IElementApi[],
+    options?: { label?: string, highlightIds?: (string | IElementApi)[] }): Promise<IDiagramApi>;
 ```
 
 **Composing the slices costs ONE call, same as the bare schema** — this is a script, not a tool per read:

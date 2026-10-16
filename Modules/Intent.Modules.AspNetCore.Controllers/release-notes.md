@@ -1,3 +1,7 @@
+### Version 7.1.16
+
+- Improvement: `ExceptionFilter.OnException` is now generated with `[IntentManaged(Mode.Fully, Body = Mode.Merge)]`, so you can add your own `case` blocks to the exception `switch` and they are kept when the Software Factory runs again.
+
 ### Version 7.1.15
 
 - Improvement: Added default Template Classification and Priorities.
