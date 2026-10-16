@@ -9,8 +9,13 @@
   <parentFolderId>eca90396-0828-43f5-9bbd-32c16ba595e4</parentFolderId>
   <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
   <packageName>CosmosDB.Domain</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
   <stereotypes />
-  <metadata />
+  <metadata>
+    <entry key="currentPartitionKey" value="" />
+  </metadata>
   <childElements>
     <childElement id="e9717abe-d05d-490b-b0b0-974d3e523524" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Identifier</name>
@@ -60,6 +65,30 @@
         <isRequired>true</isRequired>
         <typePackageName>Intent.Common.Types</typePackageName>
         <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c1d7e051-c293-4746-8f96-ad890505e1bb</parentFolderId>
+      <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+      <packageName>CosmosDB.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8fb2dc71-2f7f-4430-9b2a-3637cfaedc99" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Schedules</name>
+      <display>Schedules: Schedule[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3b7308bc-36a8-4d01-a2fc-b69fefd02155">
+        <typeId>2a5b991e-c247-48a8-9718-ca9194101553</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CosmosDB.Domain</typePackageName>
+        <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>

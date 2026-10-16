@@ -23,6 +23,8 @@ namespace CosmosDB.Domain.Entities
 
         public string Id { get; set; }
 
+        public ICollection<Schedule> Schedules { get; set; } = [];
+
         public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

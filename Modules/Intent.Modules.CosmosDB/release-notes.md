@@ -1,3 +1,8 @@
+### Version 2.0.2
+
+- Fixed: Software Factory failed with `Could not find template from dependency: TemplateId / Role = ` when a Value Object had an attribute typed as another Value Object (single or collection). Nested Value Objects now generate their own `{Name}Document` properties, explicit `I{Name}Document` accessors and `ToEntity`/`PopulateFromEntity` mappings, the same as Value Objects on entities.
+- Fixed: Nullable Value Object properties on documents now generate a nullable explicit interface accessor (e.g. `IAddressDocument? ICustomerDocument.BillingAddress`), removing a `CS8603` warning.
+
 ### Version 2.0.1
 
 - Fixed: Pinned an explicit `Azure.Identity` dependency (1.21.0) instead of relying solely on `IEvangelist.Azure.CosmosRepository`'s own transitive `Azure.Identity 1.13.1`. Older `Azure.Identity` releases ship a full `DefaultAzureCredential` implementation that collides (`CS0433`) with the copy `Azure.Core 1.53.0+` now embeds internally; `Azure.Identity 1.21.0` is a thin facade over that same implementation and does not conflict.

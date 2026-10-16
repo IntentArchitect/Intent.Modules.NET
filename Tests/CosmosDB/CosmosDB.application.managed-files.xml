@@ -356,6 +356,8 @@
   <file path="CosmosDB.Domain/Repositories/Documents/IPackageContainerDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
   <file path="CosmosDB.Domain/Repositories/Documents/IProductDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
   <file path="CosmosDB.Domain/Repositories/Documents/IRegionDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.Domain/Repositories/Documents/IScheduleDocument.cs" templateId="Intent.CosmosDB.CosmosDBValueObjectDocumentInterface" />
+  <file path="CosmosDB.Domain/Repositories/Documents/IScheduleSlotDocument.cs" templateId="Intent.CosmosDB.CosmosDBValueObjectDocumentInterface" />
   <file path="CosmosDB.Domain/Repositories/Documents/IUniversityDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
   <file path="CosmosDB.Domain/Repositories/Documents/IWithGuidIdDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
   <file path="CosmosDB.Domain/Repositories/Documents/IWithoutPartitionKeyDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
@@ -394,6 +396,8 @@
   <file path="CosmosDB.Domain/Repositories/Throughput/IManualRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="CosmosDB.Domain/Repositories/Throughput/IManualWithValueRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="CosmosDB.Domain/Repositories/Throughput/IServerlessThroughputRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.Domain/Schedule.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="CosmosDB.Domain/ScheduleSlot.cs" templateId="Intent.ValueObjects.ValueObject" />
   <file path="CosmosDB.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
   <file path="CosmosDB.Infrastructure/CosmosDB.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CosmosDB.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
@@ -426,6 +430,8 @@
   <file path="CosmosDB.Infrastructure/Persistence/Documents/ProductDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
   <file path="CosmosDB.Infrastructure/Persistence/Documents/ReflectionHelper.cs" templateId="Intent.CosmosDB.ReflectionHelper" />
   <file path="CosmosDB.Infrastructure/Persistence/Documents/RegionDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.Infrastructure/Persistence/Documents/ScheduleDocument.cs" templateId="Intent.CosmosDB.CosmosDBValueObjectDocument" />
+  <file path="CosmosDB.Infrastructure/Persistence/Documents/ScheduleSlotDocument.cs" templateId="Intent.CosmosDB.CosmosDBValueObjectDocument" />
   <file path="CosmosDB.Infrastructure/Persistence/Documents/Throughput/AutoscaleDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
   <file path="CosmosDB.Infrastructure/Persistence/Documents/Throughput/AutoscaleWithMaxValueDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
   <file path="CosmosDB.Infrastructure/Persistence/Documents/Throughput/ManualDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />

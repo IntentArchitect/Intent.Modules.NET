@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -28,6 +29,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateId);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}Document", @class =>
@@ -46,8 +48,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
                     this.AddCosmosDBDocumentProperties(
                         @class: @class,
                         attributes: attributes,
-                        associationEnds: Array.Empty<AssociationEndModel>()
-                        );
+                        associationEnds: Array.Empty<AssociationEndModel>(),
+                        documentInterfaceTemplateId: CosmosDBValueObjectDocumentInterfaceTemplate.TemplateId);
 
                     var valueObjectTypeName = GetTypeName(TemplateRoles.Domain.ValueObject, Model);
 
