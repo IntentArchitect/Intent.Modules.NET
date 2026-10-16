@@ -97,6 +97,17 @@ Neither is recoverable by the agent: the files live inside `Intent.Metadata`, wh
 
 The two tools in step 5 do not have this problem: setting a stereotype property saves in place, and `relativeLocation` changes only the output `location`. Neither renames anything.
 
+## What Building A Whole Family Showed (2026-10-13)
+
+Learned building the five Mediator module applications. None of it changes the steps above; it changes what to expect afterwards.
+
+- **Choose the creation components carefully.** `modules.config` is written at creation, and in the environment this was tested in, `install_or_update_modules`, `uninstall_modules` and `listInstalledModules` all failed for every application (`Application with id [...] could not be found`, or `Cannot read properties of undefined (reading 'split')`), including for apps that existed before the family. A module that was not part of the creation components therefore could not be added afterwards. In particular a satellite that models element types from a designer extension (for example Domain Events) needs that modeler selected at creation. This is an Intent Architect fault, not a repo one; report it to the Intent support team rather than working around it.
+- **Group the family in one solution folder by editing the `.isln`.** The applications land at the solution root. Setting `solutionFolder="Modules/<Family>"` on each `<application>` entry by hand is the only way found, and it is the one hand edit of an `.isln` this repo allows. The entry is otherwise identical to its siblings.
+- **Every Software Factory run stages the same by-products.** After step 5 the run still stages `../.codex/instructions/csharp-guidelines.md`, `../.cursor/rules/...`, `../.github/instructions/...` and a `../<Solution>.sln`. Never pass them to `apply_staged_file_changes`; apply an explicit list of the module's own files.
+- **A hand-maintained `.csproj` is flagged destructive on every later run.** The Software Factory rewrites it from the model (for example it drops `<Nullable>enable</Nullable>` and the SDK pins a hand edit set). Either scope nullable with `#nullable enable` in the files that need it and apply the generated project, or leave the hand-authored project unapplied and say so; do not fight it silently.
+- **The `.imodspec` dependency list is re-derived from `modules.config`.** Dependencies removed by hand come back on the next run, and dependencies the code needs but `modules.config` lacks are never added. Treat the list as something the dependency audit re-checks after every run.
+- **Template ids come from the element name and folder in the designer.** Create elements at the package root when another module will find them by id.
+
 ## Cleaning Up An Attempt
 
 When the user asks you to undo a failed or abandoned attempt and **only then**:
