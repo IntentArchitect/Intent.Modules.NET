@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#8eb0d67d-a0f3-44c2-8ce1-2dd6f3e8eb7b</correlationId>
+      <path>TestMediator.Subscriber.Application/IntegrationEvents/EventHandlers/IntegrationEventHandlers/OrderCreatedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-15T15:20:25.7003601Z</updatedAt>
+      <deviationsHash>C9C81BF04190428E430647B80588002C8E01772C4B7F33B2A8B4DE4D357E50FC</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#5e6a60cf-c4f0-4c14-8def-06792de84d60</correlationId>
+      <path>TestMediator.Subscriber.Application/IntegrationEvents/EventHandlers/IntegrationEventHandlers/OrderRelayHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-15T15:24:41.6896982Z</updatedAt>
+      <deviationsHash>6B3FB97402A5F33905A21838F98E6A96B297A5DA79D552F283DAC9D0A232E745</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#7ad62e6b-67c7-4dbd-97b8-2ae41b0954fd</correlationId>
+      <path>TestMediator.Subscriber.Application/IntegrationEvents/EventHandlers/IntegrationEventHandlers/OrderShippedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-15T15:20:25.7003814Z</updatedAt>
+      <deviationsHash>FC8DDF876D469EC980A2C25BB7881581DE3FD68B3405D10C480D206670E726B8</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Mediator.CommandHandler#d4d0fb30-a731-4eb2-a05d-acc41aebd039</correlationId>
+      <path>TestMediator.Subscriber.Application/Shipments/CompleteShipment/CompleteShipmentCommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-15T15:20:25.7002309Z</updatedAt>
+      <deviationsHash>5E486D3F361E2F22E09DFA3E82D0481C27C39A265B724F92859752564FAA9636</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Mediator.CommandHandler#5e224e3c-d4da-42c7-8806-4b44467a356d</correlationId>
+      <path>TestMediator.Subscriber.Application/Shipments/CreateShipment/CreateShipmentCommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-15T15:20:25.7002916Z</updatedAt>
+      <deviationsHash>42460BABBFD45797074E4F708B61083B5164525E62D655F032FCD3F00773F8D0</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Mediator.QueryHandler#3d91288a-32a7-460e-ab9d-4a75a2eb6696</correlationId>
+      <path>TestMediator.Subscriber.Application/Shipments/GetShipments/GetShipmentsQueryHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-15T15:20:25.7003139Z</updatedAt>
+      <deviationsHash>01F7E61E12E485FD4D5CA4B680D95041D10D9A2B39BDD815785653B52325921D</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

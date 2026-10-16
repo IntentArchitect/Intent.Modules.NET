@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5e6a60cf-c4f0-4c14-8def-06792de84d60" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>OrderRelayHandler</name>
+  <display>OrderRelayHandler</display>
+  <parentFolderId>81d64ad4-bfd4-44e6-9305-72054f235651</parentFolderId>
+  <packageId>157bc27d-4dd4-4d92-95f5-6f5aa23cc4e0</packageId>
+  <packageName>TestMediator.Subscriber.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <association id="b8f039eb-3658-4f2d-be4a-7fc62f0fd5a3">
+      <sourceEnd id="8c958c17-5f2b-4901-8cb7-c93290b6d17d" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+        <display>handled by: IntegrationEventHandlers.OrderRelayHandler</display>
+        <typeReference id="e7b262da-6515-4e7a-a897-e1dbaaad735f">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="b8f039eb-3658-4f2d-be4a-7fc62f0fd5a3" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+        <name>Handler</name>
+        <display>[handles] OrderCancelledEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="d7d531b2-23e2-4a1e-8c3f-0842240cbb13">
+          <typeId>f6d75def-9dc9-478f-9867-ebb1fe6652b3</typeId>
+          <typeName>OrderCancelledEvent</typeName>
+          <typePackageName>TestMediator.Publisher.Eventing.Messages</typePackageName>
+          <typePackageId>5b0471b8-6c38-4116-886b-2225d5177dd4</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Subscribe Integration Event</associationType>
+      <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+    </association>
+  </children>
+</class>

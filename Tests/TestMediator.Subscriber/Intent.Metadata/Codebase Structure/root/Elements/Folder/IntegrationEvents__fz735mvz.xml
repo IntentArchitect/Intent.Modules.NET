@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="094e35ca-230f-4962-95a9-5f4db725a93f" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>IntegrationEvents</name>
+  <display>IntegrationEvents</display>
+  <parentFolderId>b7861cef-61c4-40d8-ad7c-3c63fb034ae7</parentFolderId>
+  <packageId>c2a2a5f0-3908-4c89-88fc-3ac8f7f7008f</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="b779aff4-22aa-4df4-85c7-7f4b34ca2834" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventDto</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventDto</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <parentFolderId>094e35ca-230f-4962-95a9-5f4db725a93f</parentFolderId>
+      <packageId>c2a2a5f0-3908-4c89-88fc-3ac8f7f7008f</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="a9be9d05-a9fb-46c4-8c7d-3c3f8b6a060b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventEnum</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventEnum</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <parentFolderId>094e35ca-230f-4962-95a9-5f4db725a93f</parentFolderId>
+      <packageId>c2a2a5f0-3908-4c89-88fc-3ac8f7f7008f</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="575944b1-3a15-41b1-8070-79fe1abd347d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventMessage</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventMessage</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <parentFolderId>094e35ca-230f-4962-95a9-5f4db725a93f</parentFolderId>
+      <packageId>c2a2a5f0-3908-4c89-88fc-3ac8f7f7008f</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="00a829a9-6c62-4870-a9ad-5bb3e46d90dc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.DomainMapping.DtoExtensions</name>
+      <display>Intent.Eventing.Contracts.DomainMapping.DtoExtensions</display>
+      <externalReference>Intent.Eventing.Contracts.DomainMapping</externalReference>
+      <parentFolderId>094e35ca-230f-4962-95a9-5f4db725a93f</parentFolderId>
+      <packageId>c2a2a5f0-3908-4c89-88fc-3ac8f7f7008f</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="b00a5662-615f-4c52-ab1d-a795d1e5938e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.DomainMapping.MessageExtensions</name>
+      <display>Intent.Eventing.Contracts.DomainMapping.MessageExtensions</display>
+      <externalReference>Intent.Eventing.Contracts.DomainMapping</externalReference>
+      <parentFolderId>094e35ca-230f-4962-95a9-5f4db725a93f</parentFolderId>
+      <packageId>c2a2a5f0-3908-4c89-88fc-3ac8f7f7008f</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

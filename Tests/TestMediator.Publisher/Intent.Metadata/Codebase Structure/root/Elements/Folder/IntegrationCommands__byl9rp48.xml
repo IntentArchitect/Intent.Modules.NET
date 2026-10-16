@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3fbb809e-0996-4fec-b59f-550c37452384" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>IntegrationCommands</name>
+  <display>IntegrationCommands</display>
+  <parentFolderId>7be7cb5f-ae19-4cbe-89be-22c5479024e0</parentFolderId>
+  <packageId>8627adce-bbab-4adc-a8ff-7eeadf59eda4</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="875add98-dd33-48fa-9f11-2245f3cd6ed4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationCommand</name>
+      <display>Intent.Eventing.Contracts.IntegrationCommand</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <parentFolderId>3fbb809e-0996-4fec-b59f-550c37452384</parentFolderId>
+      <packageId>8627adce-bbab-4adc-a8ff-7eeadf59eda4</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

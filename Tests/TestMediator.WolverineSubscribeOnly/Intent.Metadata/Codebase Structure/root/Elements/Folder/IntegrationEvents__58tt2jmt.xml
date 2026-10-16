@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b7e1774c-5cfe-4fd5-afdc-927a1d935691" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>IntegrationEvents</name>
+  <display>IntegrationEvents</display>
+  <parentFolderId>afceecc5-256e-4424-81f8-a76792ce6e86</parentFolderId>
+  <packageId>24ce7a39-7972-49b2-8505-3ff3624a6fd5</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="6a6bc9a4-f089-4fe5-8352-b1c77e86c42f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventDto</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventDto</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <parentFolderId>b7e1774c-5cfe-4fd5-afdc-927a1d935691</parentFolderId>
+      <packageId>24ce7a39-7972-49b2-8505-3ff3624a6fd5</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="c32d7d67-7b2a-45df-a724-8d745bab8a3b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventEnum</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventEnum</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <parentFolderId>b7e1774c-5cfe-4fd5-afdc-927a1d935691</parentFolderId>
+      <packageId>24ce7a39-7972-49b2-8505-3ff3624a6fd5</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="7649f5d9-fa16-4596-b666-52b87a7419cc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventMessage</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventMessage</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <parentFolderId>b7e1774c-5cfe-4fd5-afdc-927a1d935691</parentFolderId>
+      <packageId>24ce7a39-7972-49b2-8505-3ff3624a6fd5</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

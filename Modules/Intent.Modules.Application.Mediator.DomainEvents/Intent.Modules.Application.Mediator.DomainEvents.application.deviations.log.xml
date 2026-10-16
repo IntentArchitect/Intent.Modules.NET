@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7bc019a7-e086-40de-b807-0961b06a601e</correlationId>
+      <path>Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-16T08:27:08.5682254Z</updatedAt>
+      <deviationsHash>76C6E91B88F517D1AB5BDA840B6176CD8394A56E7650EFD9BF7BE1405D0365C4</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d2e35f07-c7c9-4b6f-b403-d5eac1b60737</correlationId>
+      <path>Templates/DomainEventHandler/DomainEventHandlerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-16T08:27:08.5682314Z</updatedAt>
+      <deviationsHash>3C539E88BB7E21AEAEAF8D2B43EE4BC9B33740ECAFD05BB1ED9642C1519DA9F2</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#6d7c60ad-d446-4d35-896a-75479fb1e474</correlationId>
+      <path>Templates/DomainEventHandlerSkill/DomainEventHandlerSkillTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-16T08:27:08.5682529Z</updatedAt>
+      <deviationsHash>F704421507883C1C8C538AA48D53FA1F080FA0DFD0B75F95D0A5E7C44E64E582</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#66091ce3-2431-4a0c-a381-02cd4f4d4744</correlationId>
+      <path>Templates/DomainEventNotificationFactory/DomainEventNotificationFactoryTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-16T08:27:08.568239Z</updatedAt>
+      <deviationsHash>A37CAF18F34EE0C3774C6800D852E37A79AD91ADF71DB7726C9E6562D6127D53</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#131e0039-3b2d-4aed-940d-7e8c0d59c08c</correlationId>
+      <path>Templates/DomainEventService/DomainEventServiceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-14T03:37:43.9164039Z</updatedAt>
+      <deviationsHash>7BC211446D2FB615A8ECA53B2345FB573EB180CA356D6CC236143E51C8B3C8D9</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

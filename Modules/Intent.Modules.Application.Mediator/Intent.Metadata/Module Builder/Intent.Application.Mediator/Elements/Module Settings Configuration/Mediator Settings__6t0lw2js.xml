@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ad217e62-f3f2-4ec8-8ccf-62272a3e31e4" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Mediator Settings</name>
+  <display>Mediator Settings</display>
+  <sort-children>manually</sort-children>
+  <parentFolderId>97b3feab-26dc-4faa-ad20-4aca4de98976</parentFolderId>
+  <packageId>97b3feab-26dc-4faa-ad20-4aca4de98976</packageId>
+  <packageName>Intent.Application.Mediator</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="15b3e709-aeb8-410a-9172-1273eb7b0864" name="Configuration">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="ce4eefa2-657c-42b0-a8cf-bbe35ef1d8a9" display="Settings Type" value="Application Settings" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="17fd2373-eaca-4109-846d-2f55123ad2c5" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Enable logging behaviour</name>
+      <display>Enable logging behaviour</display>
+      <parentFolderId>ad217e62-f3f2-4ec8-8ccf-62272a3e31e4</parentFolderId>
+      <packageId>97b3feab-26dc-4faa-ad20-4aca4de98976</packageId>
+      <packageName>Intent.Application.Mediator</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Log every command and query, with the current user, before it is handled. Opt in; the behaviour logs without a user when Intent.Application.Identity is not installed." />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" />
+            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="a6ffb57a-8f07-445a-affd-0b0a4341bd8d" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Enable performance behaviour</name>
+      <display>Enable performance behaviour</display>
+      <parentFolderId>ad217e62-f3f2-4ec8-8ccf-62272a3e31e4</parentFolderId>
+      <packageId>97b3feab-26dc-4faa-ad20-4aca4de98976</packageId>
+      <packageName>Intent.Application.Mediator</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Warn when a command or query takes longer than 500 ms to handle. Opt in." />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" />
+            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="e2428551-ac90-4ba3-9357-cd7fbb9da3f4" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Enable unhandled exception behaviour</name>
+      <display>Enable unhandled exception behaviour</display>
+      <parentFolderId>ad217e62-f3f2-4ec8-8ccf-62272a3e31e4</parentFolderId>
+      <packageId>97b3feab-26dc-4faa-ad20-4aca4de98976</packageId>
+      <packageName>Intent.Application.Mediator</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Log unhandled exceptions from commands and queries (validation exceptions are rethrown unlogged). Opt in." />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" />
+            <property name="29696a13-bf1d-4fbd-bdf3-adb802430cb4" display="Order Priority" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+  </children>
+</class>

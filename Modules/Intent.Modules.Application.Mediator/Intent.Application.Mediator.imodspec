@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Application.Mediator</id>
+  <version>1.0.0-pre.0</version>
+  <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
+  <summary>Source-generated Mediator library CQRS dispatch with AI-written handlers.</summary>
+  <description>Source-generated Mediator library CQRS dispatch with AI-written handlers.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA1MCA1MCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNTAgNTAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJDQoJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMzYuNjEiIHkxPSIyNC4xNjU1IiB4Mj0iMzYuNTA4OSIgeTI9IjIuNjIyNSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDUwKSI+DQoJCTxzdG9wICBvZmZzZXQ9IjAuMjA2NiIgc3R5bGU9InN0b3AtY29sb3I6IzE2M0I3NCIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMTAyQjUxIi8+DQoJPC9saW5lYXJHcmFkaWVudD4NCgk8cG9seWxpbmUgZmlsbD0idXJsKCNTVkdJRF8xXykiIHBvaW50cz0iMjUuMywzMi4zIDM1LjksMjMuOCA0Ny44LDQ3LjQgMzIuNyw0Ny40IAkiLz4NCgkNCgkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8wMDAwMDA1NjQxMTg5MjMyNTE4NDA0MzMwMDAwMDAxMzEwNjU0ODExODQ2MDQ5Njc4OV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTcuMjc4MiIgeTE9IjQ3LjEwNzIiIHgyPSIxNy41MTciIHkyPSIyLjc3MDQiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMCA1MCkiPg0KCQk8c3RvcCAgb2Zmc2V0PSIwLjI5NSIgc3R5bGU9InN0b3AtY29sb3I6IzA5QzRGRiIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA3MUMxIi8+DQoJPC9saW5lYXJHcmFkaWVudD4NCgk8cG9seWxpbmUgZmlsbD0idXJsKCNTVkdJRF8wMDAwMDA1NjQxMTg5MjMyNTE4NDA0MzMwMDAwMDAxMzEwNjU0ODExODQ2MDQ5Njc4OV8pIiBwb2ludHM9IjI1LDIuMyAzMi43LDE3LjIgMTcuMyw0Ny40IDIuMiw0Ny40IAkNCgkJIi8+DQo8L2c+DQo8ZyBpZD0ibGF5ZXIxXzAwMDAwMDk0NTg5MDI5NTQ5MTgzOTU5MDkwMDAwMDE0MTc2MTI3OTE0NjQyODk2NTMxXyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc3LjA5MSAtODEyLjc1KSI+DQoJDQoJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMDAwMDAxNjg3OTg1NzQ5NTE2MjgwNTQyMDAwMDAwMTc0ODEyNzUwNjc2ODk0MDI3OTNfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjE3OC41MjAyIiB5MT0iMTcuMTg4NSIgeDI9IjE3OC42MjkzIiB5Mj0iNDMuMzAzNCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg2LjEyMzIzNGUtMTcgMSAxIC02LjEyMzIzNGUtMTcgNzcuOTg4OCA2NjYuMDc3OCkiPg0KCQk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA3MEMwIi8+DQoJCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMxNjNCNzQiLz4NCgk8L2xpbmVhckdyYWRpZW50Pg0KCTxwYXRoIGZpbGw9InVybCgjU1ZHSURfMDAwMDAxNjg3OTg1NzQ5NTE2MjgwNTQyMDAwMDAwMTc0ODEyNzUwNjc2ODk0MDI3OTNfKSIgZD0iTTEwNS4zLDg1Ni4xYy0yLjQsMC00LjgtMC44LTcuMi0xLjENCgkJYzAuMy0yLjQsMC44LTQuOCwxLjEtNy4yYzAtMS4xLTEuMS0yLjEtMi4xLTEuNmMtMC44LDAuNS0xLjksMS4xLTIuNywwLjhjLTEuMS0wLjMtMS45LTEuMy0xLjktMi40YzAtMS4xLDAuOC0yLjEsMS45LTIuNA0KCQljMS4xLTAuMywxLjksMC4zLDIuNywwLjhjMS4xLDAuNSwyLjEtMC41LDIuMS0xLjZjMC0yLjQtMC41LTQuOC0xLjEtNy4yYzIuNC0wLjMsNC44LTAuOCw3LjItMS4xYzEuMSwwLDIuMSwxLjEsMS42LDIuMQ0KCQljLTAuNSwwLjgtMS4xLDEuOS0wLjgsMi43YzAuMywxLjEsMS4zLDEuOSwyLjQsMS45YzEuMSwwLDIuMS0wLjgsMi40LTEuOWMwLjMtMS4xLTAuMy0xLjktMC44LTIuN2MtMC41LTEuMSwwLjUtMi4xLDEuNi0yLjENCgkJYzIuNCwwLDQuOCwwLjgsNy4yLDEuMWMtMC4zLDIuNC0wLjgsNC44LTEuMSw3LjJjMCwxLjEsMS4xLDIuMSwyLjEsMS42YzAuOC0wLjUsMS45LTEuMSwyLjctMC44YzEuMSwwLjMsMS45LDEuMywxLjksMi40DQoJCWMwLDEuMS0wLjgsMi4xLTEuOSwyLjRjLTEuMSwwLjMtMS45LTAuMy0yLjctMC44Yy0xLjEtMC41LTIuMSwwLjUtMi4xLDEuNmMwLDIuNCwwLjUsNC44LDEuMSw3LjJjLTIuNCwwLjMtNC44LDAuOC03LjIsMS4xDQoJCWMtMS4xLDAtMi4xLTEuMS0xLjYtMi4xYzAuNS0wLjgsMS4xLTEuOSwwLjgtMi43Yy0wLjMtMS4xLTEuMy0xLjktMi40LTEuOWMtMS4xLDAtMi4xLDAuOC0yLjQsMS45Yy0wLjMsMS4xLDAuMywxLjksMC44LDIuNw0KCQlDMTA3LjQsODU1LDEwNi40LDg1Ni4xLDEwNS4zLDg1Ni4xeiIvPg0KPC9nPg0KPGcgaWQ9ImxheWVyMV8wMDAwMDAyMTExNzQ3MTI1NjA2MDQ0MjAxMDAwMDAwMjkzNjI2OTc0MDI0MjMyMTg1MF8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03Ny4wOTEgLTgxMi43NSkiPg0KCQ0KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzAwMDAwMTU0NDA0ODAxNzA1NjUyNzQ5NDUwMDAwMDA5OTM1NDU5NDQzMjQyOTEzMTc3XyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxNzEuMjk4NiIgeTE9IjIwLjIyMDUiIHgyPSIyMDMuMzM0OSIgeTI9IjIwLjIyMDUiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgLTc3LjA5MSA4NjIuNzUpIj4NCgkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIwLjcwODEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwOUM0RkYiLz4NCgk8L2xpbmVhckdyYWRpZW50Pg0KCTxwYXRoIGZpbGw9InVybCgjU1ZHSURfMDAwMDAxNTQ0MDQ4MDE3MDU2NTI3NDk0NTAwMDAwMDk5MzU0NTk0NDMyNDI5MTMxNzdfKSIgZD0iTTEwNy4yLDg1My45Yy0yLjQsMC00LjgtMC44LTcuMi0xLjENCgkJYzAuMy0yLjQsMC44LTQuOCwxLjEtNy4yYzAtMS4xLTEuMS0yLjEtMi4xLTEuNmMtMC44LDAuNS0xLjksMS4xLTIuNywwLjhjLTEuMS0wLjMtMS45LTEuMy0xLjktMi40czAuOC0yLjEsMS45LTIuNA0KCQljMS4xLTAuMywxLjksMC4zLDIuNywwLjhjMS4xLDAuNSwyLjEtMC41LDIuMS0xLjZjMC0yLjQtMC41LTQuOC0xLjEtNy4yYzIuNC0wLjMsNC44LTAuOCw3LjItMS4xYzEuMSwwLDIuMSwxLjEsMS42LDIuMQ0KCQljLTAuNSwwLjgtMS4xLDEuOS0wLjgsMi43YzAuMywxLjEsMS4zLDEuOSwyLjQsMS45YzEuMSwwLDIuMS0wLjgsMi40LTEuOWMwLjMtMS4xLTAuMy0xLjktMC44LTIuN2MtMC41LTEuMSwwLjUtMi4xLDEuNi0yLjENCgkJYzIuNCwwLDQuOCwwLjgsNy4yLDEuMWMtMC4zLDIuNC0wLjgsNC44LTEuMSw3LjJjMCwxLjEsMS4xLDIuMSwyLjEsMS42YzAuOC0wLjUsMS45LTEuMSwyLjctMC44YzEuMSwwLjMsMS45LDEuMywxLjksMi40DQoJCXMtMC44LDIuMS0xLjksMi40Yy0xLjEsMC4zLTEuOS0wLjMtMi43LTAuOGMtMS4xLTAuNS0yLjEsMC41LTIuMSwxLjZjMCwyLjQsMC41LDQuOCwxLjEsNy4yYy0yLjQsMC4zLTQuOCwwLjgtNy4yLDEuMQ0KCQljLTEuMSwwLTIuMS0xLjEtMS42LTIuMWMwLjUtMC44LDEuMS0xLjksMC44LTIuN2MtMC4zLTEuMS0xLjMtMS45LTIuNC0xLjljLTEuMSwwLTIuMSwwLjgtMi40LDEuOWMtMC4zLDEuMSwwLjMsMS45LDAuOCwyLjcNCgkJQzEwOS4zLDg1Mi45LDEwOC4yLDg1My45LDEwNy4yLDg1My45eiIvPg0KPC9nPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8wMDAwMDA3NDQzNDIyNDYxMDE1NjM4MDE4MDAwMDAxMTEzNzYxMDI5NTQ3MjE1NTA2M18iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMjkuMTAxNCIgeTE9IjE5Ljk1NDkiIHgyPSIzNy4xNzM0IiB5Mj0iMTkuOTU0OSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDUwKSI+DQoJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzBDMCIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMxNjNCNzQiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBmaWxsPSJ1cmwoI1NWR0lEXzAwMDAwMDc0NDM0MjI0NjEwMTU2MzgwMTgwMDAwMDExMTM3NjEwMjk1NDcyMTU1MDYzXykiIGQ9Ik0zNy4yLDI5LjR2MS4zYzAsMCwwLDAuMy0wLjMsMC4zSDM0djIuOQ0KCWMwLDAuMywwLDAuMy0wLjMsMC4zaC0xLjNjMCwwLTAuMywwLTAuMy0wLjNWMzFoLTIuOWMwLDAtMC4zLDAtMC4zLTAuM3YtMS4zYzAtMC4zLDAuMy0wLjMsMC4zLTAuM2gyLjl2LTIuOWMwLDAsMC0wLjMsMC4zLTAuM2gxLjMNCgljMCwwLDAuMywwLDAuMywwLjN2Mi45SDM3QzM3LDI5LjEsMzcuMiwyOS4xLDM3LjIsMjkuNHoiLz4NCjwvc3ZnPg0K</iconUrl>
+  <templates>
+    <template id="Intent.Application.Mediator.AuthorizationBehaviour" externalReference="a6e986a8-41f1-4686-82bb-6c0e55a0d66c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.Behaviours.AuthorizationBehaviour</role>
+      <location>Common/Behaviours</location>
+      <severity>high</severity>
+      <classifications>Security,Request Pipeline</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.CommandHandler" externalReference="061aa6b4-bd6b-4445-8c54-aba775068e78">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Command.Handler</role>
+      <location></location>
+      <severity>medium</severity>
+      <classifications>Business Logic</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.CommandHandlerSkill" externalReference="e630961b-80c9-4a44-8722-80581e03688b">
+      <role>AI.Context.Skills.Handler</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.Mediator.CommandModels" externalReference="8ef01f22-a5d8-455d-b27d-a24c7c2939a1">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Command</role>
+      <location></location>
+      <severity>high</severity>
+      <classifications>API Contract,Security</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.IntegrationEventHandlerSkill" externalReference="da118878-0fe4-49ee-bee0-1be2d1ca1efe">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.Mediator.LoggingBehaviour" externalReference="e9358d17-76fe-4fd8-96b3-3fcd5bc5dd6c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.Behaviours.LoggingBehaviour</role>
+      <location>Common/Behaviours</location>
+      <severity>low</severity>
+      <classifications>Request Pipeline</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.MediatorConfiguration" externalReference="c3f8eedf-6d50-4fe7-8c4f-1bf05e79b4ac">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Configuration.Mediator</role>
+      <location>Configuration</location>
+      <severity>high</severity>
+      <classifications>App Composition,Request Pipeline</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.MessageBusFlushOwner" externalReference="6e386970-4580-4230-81cf-fa5821cf596e">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.Eventing.MessageBusFlushOwner</role>
+      <location>Common/Eventing</location>
+      <severity>medium</severity>
+      <classifications>Request Pipeline</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.MessageBusPublishBehaviour" externalReference="91d0ef29-20e0-40c2-9333-b447a6cfbc5b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.Behaviours.MessageBusPublishBehaviour</role>
+      <location>Common/Behaviours</location>
+      <severity>medium</severity>
+      <classifications>Request Pipeline</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.PerformanceBehaviour" externalReference="4be771b6-464e-4aa4-9c21-42bc5cbbcfa6">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.Behaviours.PerformanceBehaviour</role>
+      <location>Common/Behaviours</location>
+      <severity>low</severity>
+      <classifications>Request Pipeline</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.QueryHandler" externalReference="4e3aeed6-7a02-4d9e-9c5c-e962dee46609">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Query.Handler</role>
+      <location></location>
+      <severity>medium</severity>
+      <classifications>Business Logic</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.QueryHandlerSkill" externalReference="09721aa0-8290-436a-bba1-a12cdfeffd85">
+      <role>AI.Context.Skills.Handler</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.Mediator.QueryModels" externalReference="24f55a08-c8ec-499a-83dd-fa4d826f12b6">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Query</role>
+      <location></location>
+      <severity>high</severity>
+      <classifications>API Contract,Security</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.SequentialNotificationPublisher" externalReference="6ad8c763-c517-47c9-9902-8f3c2515af9f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Configuration.SequentialNotificationPublisher</role>
+      <location>Configuration</location>
+      <severity>medium</severity>
+      <classifications>Request Pipeline</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.UnhandledExceptionBehaviour" externalReference="5dad7538-c077-40c8-9836-c954f3c84863">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.Behaviours.UnhandledExceptionBehaviour</role>
+      <location>Common/Behaviours</location>
+      <severity>low</severity>
+      <classifications>Request Pipeline</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.UnitOfWorkBehaviour" externalReference="1c78c882-abb5-4d97-9ce0-b7a90ba7d136">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.Behaviours.UnitOfWorkBehaviour</role>
+      <location>Common/Behaviours</location>
+      <severity>high</severity>
+      <classifications>Request Pipeline,Persistence Schema</classifications>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions />
+  <moduleSettings>
+    <group id="ad217e62-f3f2-4ec8-8ccf-62272a3e31e4" title="Mediator Settings" type="application-settings" externalReference="ad217e62-f3f2-4ec8-8ccf-62272a3e31e4">
+      <settings>
+        <setting id="17fd2373-eaca-4109-846d-2f55123ad2c5" title="Enable logging behaviour" type="switch">
+          <hint>Log every command and query, with the current user, before it is handled. Opt in; the behaviour logs without a user when Intent.Application.Identity is not installed.</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+        <setting id="a6ffb57a-8f07-445a-affd-0b0a4341bd8d" title="Enable performance behaviour" type="switch">
+          <hint>Warn when a command or query takes longer than 500 ms to handle. Opt in.</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+        <setting id="e2428551-ac90-4ba3-9357-cd7fbb9da3f4" title="Enable unhandled exception behaviour" type="switch">
+          <hint>Log unhandled exceptions from commands and queries (validation exceptions are rethrown unlogged). Opt in.</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Application.DependencyInjection" version="4.1.14" />
+    <dependency id="Intent.Common" version="3.11.2" />
+    <dependency id="Intent.Common.CSharp" version="3.10.10" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Common.UnitOfWork" version="1.0.5" />
+    <dependency id="Intent.Metadata.Security" version="1.0.1" />
+    <dependency id="Intent.Modelers.Domain" version="3.13.2" />
+    <dependency id="Intent.Modelers.Eventing" version="6.0.5" />
+    <dependency id="Intent.Modelers.Services" version="4.0.16" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="6.0.8" />
+    <dependency id="Intent.Modelers.Services.EventInteractions" version="2.0.8" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <interoperability>
+    <detect id="Intent.AspNetCore.Controllers">
+      <install>
+        <package id="Intent.AspNetCore.Controllers.Dispatch.Mediator" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.FastEndpoints">
+      <install>
+        <package id="Intent.FastEndpoints.Dispatch.Mediator" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.FluentValidation">
+      <install>
+        <package id="Intent.Application.Mediator.FluentValidation" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.DomainEvents">
+      <install>
+        <package id="Intent.Application.Mediator.DomainEvents" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Eventing.MassTransit">
+      <install>
+        <package id="Intent.Eventing.MassTransit" version="7.2.4-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Eventing.NServiceBus">
+      <install>
+        <package id="Intent.Eventing.NServiceBus" version="1.0.4-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Eventing.Wolverine">
+      <install>
+        <package id="Intent.Eventing.Wolverine" version="1.0.1-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.EntityFrameworkCore">
+      <install>
+        <package id="Intent.EntityFrameworkCore" version="5.2.1-pre.0" />
+      </install>
+    </detect>
+    <!-- Minimum Compatible Versions -->
+    <detect id="Intent.EntityFrameworkCore.Repositories">
+      <install>
+        <package id="Intent.EntityFrameworkCore.Repositories" version="4.8.2" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.AutoMapper">
+      <install>
+        <package id="Intent.Application.AutoMapper" version="5.3.10" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.Dtos.Mapperly">
+      <install>
+        <package id="Intent.Application.Dtos.Mapperly" version="1.1.4" />
+      </install>
+    </detect>
+    <!-- /Minimum Compatible Versions -->
+  </interoperability>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags>mediator cqrs ai-handlers pipeline-behaviours dotnet</tags>
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="Services" src="modelers/Mediator Services Extensions.designer.settings" externalReference="1103f3e9-ac22-41eb-aa4c-64e21f1e6bfd" />
+  </metadata>
+  <migrations />
+</package>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>b3db3c15-2ad8-4b70-a48f-1a96b6678152</id>
+  <name>Mediator Domain Events Services Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+      <mappingSettings />
+      <rules>In this application, the handler for this Domain Event Handler is written by an AI agent, never by the Software Factory (Intent.Application.Mediator.DomainEvents). The Software Factory generates only a stub whose Handle body throws NotImplementedException. The associations modelled on this Domain Event Handler (Create Entity, Update Entity, Delete Entity, Query Entity, Invoke, Publish Integration Event, Send Integration Command and so on) are the specification for that body, in model order. Field mappings are not modelled. Whenever you create this Domain Event Handler, or add, remove, reorder or change any association on it, find its handler once the Software Factory has generated it and write or update the handler body in the same piece of work, using the mediator-domain-event-handler skill. Nothing else will prompt you: a new stub raises no task, and a changed association changes no generated file.</rules>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <scripts />
+</settings>

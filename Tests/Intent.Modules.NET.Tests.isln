@@ -237,5 +237,11 @@
     <application id="e74b3878-7b44-403c-a208-ec678c431940" name="WolverineEventing.Subscribe.RabbitMQ" solutionFolder="Eventing/Wolverine" relativePath="WolverineEventing.Subscribe.RabbitMQ/WolverineEventing.Subscribe.RabbitMQ.application.config" />
     <application id="fb6f2f4d-8445-4de7-9938-add53e780320" name="ModuleBuilderAITests" solutionFolder="AI" relativePath="ModuleBuilderAITests/ModuleBuilderAITests.application.config" />
     <application id="a20d8617-c841-4b11-921b-c1e08ccb1eba" name="AzureFunctions.AppSettings" solutionFolder="Azure Functions" relativePath="AzureFunctions.AppSettings/AzureFunctions.AppSettings.application.config" />
+    <application id="fc70cb37-b1d7-4f31-9c0e-c340553ce45d" name="TestMediator.Publisher" solutionFolder="Mediator" relativePath="TestMediator.Publisher/TestMediator.Publisher.application.config" />
+    <application id="063681bc-4246-4578-a6cc-89bf030daa4f" name="TestMediator.Outbox" solutionFolder="Mediator" relativePath="TestMediator.Outbox/TestMediator.Outbox.application.config" />
+    <application id="c9d3382b-b73c-4bca-9e84-a44325ff1cbe" name="TestMediator.Subscriber" solutionFolder="Mediator" relativePath="TestMediator.Subscriber/TestMediator.Subscriber.application.config" />
+    <application id="83c27fc4-ec66-4873-b98a-2df856d62669" name="TestMediator.WolverineEventing" solutionFolder="Mediator" relativePath="TestMediator.WolverineEventing/TestMediator.WolverineEventing.application.config" />
+    <application id="504bd045-6c51-4f5d-996e-c199c8e64748" name="TestMediator.WolverineSubscribeOnly" solutionFolder="Mediator" relativePath="TestMediator.WolverineSubscribeOnly/TestMediator.WolverineSubscribeOnly.application.config" />
+    <application id="5673a202-49eb-4ece-bd12-b4978161e029" name="TestMediator.Nsb" solutionFolder="Mediator" relativePath="TestMediator.Nsb/TestMediator.Nsb.application.config" />
   </applications>
 </solution>

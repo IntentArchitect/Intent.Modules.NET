@@ -60,6 +60,15 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineIntegrationEventM
                         && ExecutionContext.GetSettings()?.GetUnitOfWorkSettings()?.UseAmbientTransactions() == true
                         && ProviderSupportsAmbientTransactions();
 
+                    // Mediator dispatch (D18): the integration event handler sends commands whose
+                    // MessageBusPublishBehaviour flushes the scoped bus. Claiming the scoped
+                    // MessageBusFlushOwner for the whole consume - Before() to FinallyAsync() - makes
+                    // those behaviours nested, so nothing is flushed until this middleware has committed
+                    // the unit of work. Only present when Mediator generated the owner; MediatR and
+                    // Wolverine dispatch output is unchanged. See WolverineEventingRegistrationExtension
+                    // for the matching service-location registration.
+                    var claimsFlushOwner = this.TryGetMediatorFlushOwner(out var flushOwnerType);
+
                     CSharpConstructor ctor = null;
                     if (hasBus || usesPersistenceUnitOfWork)
                     {
@@ -70,6 +79,11 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineIntegrationEventM
                             if (hasBus)
                             {
                                 ctor.AddParameter(busType, "messageBus", param => param.IntroduceReadonlyField());
+                            }
+
+                            if (claimsFlushOwner)
+                            {
+                                ctor.AddParameter(flushOwnerType, "flushOwner", param => param.IntroduceReadonlyField());
                             }
                         });
                     }
@@ -95,12 +109,26 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineIntegrationEventM
                             var isolationLevelType = UseType("System.Transactions.IsolationLevel");
                             var transactionScopeAsyncFlowOptionType = UseType("System.Transactions.TransactionScopeAsyncFlowOption");
 
+                            if (claimsFlushOwner)
+                            {
+                                method.AddStatement("_flushOwner.Enter();");
+                            }
+
                             method.AddObjectInitializerBlock("return new Scope", scope =>
                             {
                                 scope.AddInitStatement("Transaction",
                                     $"new {transactionScopeType}({transactionScopeOptionType}.Required, new {transactionOptionsType} {{ IsolationLevel = {isolationLevelType}.ReadCommitted }}, {transactionScopeAsyncFlowOptionType}.Enabled)");
                                 scope.WithSemicolon();
                             });
+                        });
+                    }
+
+                    if (claimsFlushOwner && !wrapInTransaction)
+                    {
+                        // No ambient transaction, so no Before() above - add one just to claim ownership.
+                        @class.AddMethod("void", "Before", method =>
+                        {
+                            method.AddStatement("_flushOwner.Enter();");
                         });
                     }
 
@@ -141,6 +169,14 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineIntegrationEventM
                         }
                     });
 
+                    if (claimsFlushOwner && !wrapInTransaction)
+                    {
+                        @class.AddMethod("void", "Finally", method =>
+                        {
+                            method.AddStatement("_flushOwner.Exit();");
+                        });
+                    }
+
                     if (wrapInTransaction)
                     {
                         @class.AddMethod(UseType("System.Threading.Tasks.Task"), "FinallyAsync", method =>
@@ -153,6 +189,13 @@ namespace Intent.Modules.Eventing.Wolverine.Templates.WolverineIntegrationEventM
                             // happens AFTER dispose, so a broker publish can never occur inside the
                             // ambient scope (load-bearing for Azure Service Bus - see CONTEXT.md).
                             method.AddStatement("scope.Transaction.Dispose();");
+
+                            if (claimsFlushOwner)
+                            {
+                                // Released before the flush: the flush is this middleware's own, and a
+                                // failing broker publish must not leave the owner claimed.
+                                method.AddStatement("_flushOwner.Exit();");
+                            }
 
                             if (hasBus)
                             {

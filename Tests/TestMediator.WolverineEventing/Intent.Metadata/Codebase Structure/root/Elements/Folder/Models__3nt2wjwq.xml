@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7babb601-a0fa-4e03-91f5-851fb014e665" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Models</name>
+  <display>Models</display>
+  <parentFolderId>4356a276-ac0f-42bd-b513-cf5c13f100e6</parentFolderId>
+  <packageId>2de315e8-60a2-459c-bb95-5b5ea8b5af6d</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="3262665f-9b35-47f3-8061-835e5c375eb2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.ResultModel</name>
+      <display>Intent.Application.Identity.ResultModel</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <parentFolderId>7babb601-a0fa-4e03-91f5-851fb014e665</parentFolderId>
+      <packageId>2de315e8-60a2-459c-bb95-5b5ea8b5af6d</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

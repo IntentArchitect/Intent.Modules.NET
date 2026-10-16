@@ -15,8 +15,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 {
     /// <summary>
-    /// When the EF DbContext and either dispatch stack's unit-of-work template (MediatR's
-    /// UnitOfWorkBehaviour, or Wolverine's UnitOfWorkMiddleware) are present, this extension wires
+    /// When the EF DbContext and any dispatch stack's unit-of-work template (MediatR's or
+    /// Mediator's UnitOfWorkBehaviour, or Wolverine's UnitOfWorkMiddleware) are present, this extension wires
     /// cross-module changes so that dispatch correctly co-exists with any infrastructure that
     /// externally manages an EF connection/transaction (e.g. NServiceBus ITransactionalSession, raw
     /// ADO.NET orchestrators, etc.):
@@ -27,7 +27,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
     /// 2. Implements <c>HasDbTransaction()</c> on <c>ApplicationDbContext</c> returning
     ///    <c>Database.CurrentTransaction != null</c>.
     ///
-    /// 3. Modifies <c>UnitOfWorkBehaviour.Handle</c> (MediatR) and <c>UnitOfWorkMiddleware.Before</c>
+    /// 3. Modifies <c>UnitOfWorkBehaviour.Handle</c> (MediatR and Mediator) and <c>UnitOfWorkMiddleware.Before</c>
     ///    (Wolverine) to skip wrapping in <c>TransactionScope</c> when <c>HasDbTransaction()</c> is
     ///    true — prevents MSDTC escalation when an external party already owns the connection. Both
     ///    are held to the same behavioural bar: run the handler, save, return, with no scope.
@@ -119,8 +119,13 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         private static void ModifyUnitOfWorkBehaviour(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
-                "Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour");
+            ModifyUnitOfWorkBehaviour(application, "Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour");
+            ModifyUnitOfWorkBehaviour(application, "Intent.Application.Mediator.UnitOfWorkBehaviour");
+        }
+
+        private static void ModifyUnitOfWorkBehaviour(IApplication application, string templateId)
+        {
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(templateId);
             if (template == null) return;
 
             template.CSharpFile.AfterBuild(file =>
@@ -141,10 +146,13 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 // Idempotency guard — skip if already modified
                 if (handleMethod.Statements.Any(s => s.ToString().Contains("HasDbTransaction"))) return;
 
-                // Match the next() call style already in the method (older MediatR omits cancellationToken)
-                var nextInvocation = handleMethod.Statements.Any(s => s.ToString().Contains("next(cancellationToken)"))
-                    ? "next(cancellationToken)"
-                    : "next()";
+                // Match the next() call style already in the method: Mediator passes the message and the
+                // token, newer MediatR passes only the token, and older MediatR omits cancellationToken.
+                var nextInvocation = handleMethod.Statements.Any(s => s.ToString().Contains("next(request, cancellationToken)"))
+                    ? "next(request, cancellationToken)"
+                    : handleMethod.Statements.Any(s => s.ToString().Contains("next(cancellationToken)"))
+                        ? "next(cancellationToken)"
+                        : "next()";
 
                 handleMethod.InsertStatement(0,
                     $"if ({unitOfWorkField.Name}.HasDbTransaction())\r\n" +

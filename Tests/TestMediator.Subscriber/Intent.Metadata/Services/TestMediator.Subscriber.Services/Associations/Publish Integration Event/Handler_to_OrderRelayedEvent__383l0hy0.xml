@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f400322f-5daf-4513-9d66-770febb89546">
+  <sourceEnd id="25c847c6-bffc-49b7-a558-eb33cea0660a" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : OrderRelayHandler.Handler</display>
+    <order>0</order>
+    <typeReference id="82db55cb-48f2-4a12-b1af-bf32d8d904de">
+      <typeId>b8f039eb-3658-4f2d-be4a-7fc62f0fd5a3</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>TestMediator.Subscriber.Services</typePackageName>
+      <typePackageId>157bc27d-4dd4-4d92-95f5-6f5aa23cc4e0</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="f400322f-5daf-4513-9d66-770febb89546" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderRelayedEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="0783cbea-c8a4-4ed2-a8cf-4a993a4ddab3">
+      <typeId>50ad4904-bf27-402d-bdec-f7439f0d2a46</typeId>
+      <typeName>OrderRelayedEvent</typeName>
+      <typePackageName>TestMediator.Subscriber.Eventing.Messages</typePackageName>
+      <typePackageId>4c1b4104-c027-4453-aa13-5f0f60e851b4</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+</association>

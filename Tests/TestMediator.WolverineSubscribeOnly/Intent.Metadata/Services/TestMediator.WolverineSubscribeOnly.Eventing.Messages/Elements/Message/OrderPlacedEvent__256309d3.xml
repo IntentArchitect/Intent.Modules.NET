@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7c235d1f-059f-4dde-9c3c-d555841aa125" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>OrderPlacedEvent</name>
+  <display>OrderPlacedEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>b4337216-d1ca-408c-80de-bd064d6e6270</parentFolderId>
+  <packageId>b4337216-d1ca-408c-80de-bd064d6e6270</packageId>
+  <packageName>TestMediator.WolverineSubscribeOnly.Eventing.Messages</packageName>
+  <children>
+    <element id="846cbe9f-7f6d-4c3d-85fe-2b974f5d810c" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <typeReference id="a86f4d17-23b2-46d6-8db4-ba3657c54be7">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>7c235d1f-059f-4dde-9c3c-d555841aa125</parentFolderId>
+      <packageId>b4337216-d1ca-408c-80de-bd064d6e6270</packageId>
+      <packageName>TestMediator.WolverineSubscribeOnly.Eventing.Messages</packageName>
+    </element>
+    <element id="3426a21d-6dcc-43a2-900b-20d50e542a52" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>CustomerName</name>
+      <display>CustomerName: string</display>
+      <typeReference id="451d52bd-63cc-4c18-9620-c4c4022189b1">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>7c235d1f-059f-4dde-9c3c-d555841aa125</parentFolderId>
+      <packageId>b4337216-d1ca-408c-80de-bd064d6e6270</packageId>
+      <packageName>TestMediator.WolverineSubscribeOnly.Eventing.Messages</packageName>
+    </element>
+  </children>
+</class>

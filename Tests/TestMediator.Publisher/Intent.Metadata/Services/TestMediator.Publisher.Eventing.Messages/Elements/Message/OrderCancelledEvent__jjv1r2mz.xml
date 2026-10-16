@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f6d75def-9dc9-478f-9867-ebb1fe6652b3" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <comment>Subscribed by TestMediator.Subscriber's relay handler. MassTransit registers one consumer per message type, so each Subscriber handler needs its own message.</comment>
+  <name>OrderCancelledEvent</name>
+  <display>OrderCancelledEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>5b0471b8-6c38-4116-886b-2225d5177dd4</parentFolderId>
+  <packageId>5b0471b8-6c38-4116-886b-2225d5177dd4</packageId>
+  <packageName>TestMediator.Publisher.Eventing.Messages</packageName>
+  <children>
+    <element id="6faa03d7-9d90-4b33-89cd-6cdc53fce0f8" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <typeReference id="e027a3bb-d210-4f3c-8534-28f8670e07ce">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>f6d75def-9dc9-478f-9867-ebb1fe6652b3</parentFolderId>
+      <packageId>5b0471b8-6c38-4116-886b-2225d5177dd4</packageId>
+      <packageName>TestMediator.Publisher.Eventing.Messages</packageName>
+    </element>
+  </children>
+</class>

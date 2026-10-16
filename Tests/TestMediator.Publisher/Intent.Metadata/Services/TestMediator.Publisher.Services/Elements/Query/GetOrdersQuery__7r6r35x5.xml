@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="29e91e70-ffa2-4dce-8438-75c78b9f2f46" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetOrdersQuery</name>
+  <display>GetOrdersQuery: OrderDto[*]</display>
+  <typeReference id="0c88df02-b112-476b-a200-507dbbed8b8d">
+    <typeId>f4117e07-cadf-4bab-aaea-d57a931bcd43</typeId>
+    <typeName>OrderDto</typeName>
+    <isCollection>true</isCollection>
+    <typePackageName>TestMediator.Publisher.Services</typePackageName>
+    <typePackageId>9d0412d0-a390-4560-93c3-37636d3d83f6</typePackageId>
+  </typeReference>
+  <parentFolderId>bb1594eb-a40c-4cb0-b4c0-4db9d252a557</parentFolderId>
+  <packageId>9d0412d0-a390-4560-93c3-37636d3d83f6</packageId>
+  <packageName>TestMediator.Publisher.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/orders" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <association id="f44d366a-10da-4fc0-8aec-a5eb3dba569e">
+      <sourceEnd id="6d1a7bad-0b36-4954-a44c-e3f2a9374b0f" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+        <display>: GetOrdersQuery</display>
+        <typeReference id="a2b465fc-234d-481d-a8f6-ccee0c5919d2">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="f44d366a-10da-4fc0-8aec-a5eb3dba569e" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+        <name>orders</name>
+        <display>[query] orders: Order[*]</display>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="b67ef698-c93d-43d8-aa7a-ce3f7abfa7a0">
+          <typeId>3cc5fb3a-db1a-4e4c-a7cf-951a01873414</typeId>
+          <typeName>Order</typeName>
+          <isCollection>true</isCollection>
+          <typePackageName>TestMediator.Publisher.Domain</typePackageName>
+          <typePackageId>d892abdc-aade-41bf-89b4-7dfea0259f3b</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Query Entity Action</associationType>
+      <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+    </association>
+  </children>
+</class>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#a1ff46df-b303-43b2-99bd-3d5063265085</correlationId>
+      <path>TestMediator.Nsb.Application/IntegrationEvents/EventHandlers/IntegrationEventHandlers/OrderPlacedEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-15T20:28:42.3635405Z</updatedAt>
+      <deviationsHash>CF9C30A56B5C35733601CB5FF1F9A15EF3EB1952A66C19590D1E1D90DB67AAB1</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Mediator.CommandHandler#7ea88f11-ecbd-4c77-bb0c-0295b756e098</correlationId>
+      <path>TestMediator.Nsb.Application/Orders/AcceptOrder/AcceptOrderCommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-15T20:28:42.3635166Z</updatedAt>
+      <deviationsHash>580D8ABC822C264FA78F349D60FBBBC3173FE03E619F46BD44D81D76E00C5ADA</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e6864595-ff08-461e-805e-8e6f9af58e3c" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Exceptions</name>
+  <display>Exceptions</display>
+  <parentFolderId>afd3ec8b-b331-4c07-bf18-d374beab1463</parentFolderId>
+  <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="999444fb-2cd9-4d23-a08d-f415352cbab9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.NotFoundException</name>
+      <display>Intent.Entities.NotFoundException</display>
+      <externalReference>Intent.Entities</externalReference>
+      <parentFolderId>e6864595-ff08-461e-805e-8e6f9af58e3c</parentFolderId>
+      <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

@@ -1,3 +1,8 @@
+### Version 1.0.1
+
+- Improvement: Applications dispatching through `Intent.Application.Mediator` are now supported: the Mediator message-bus flush is removed under the Durable outbox or when no bus is registered, and with Outbox = None the integration event middleware claims flush ownership so commands it sends do not flush the bus early.
+- Fixed: a subscribe-only application with Outbox = None and no persistence failed to build (`CS0246`): `WolverineConfiguration` registered `WolverineIntegrationEventMiddleware` although that template skips itself when the application has neither a message bus nor a unit of work to protect. The registration now follows the template's own gate.
+
 ### Version 1.0.0
 
 - Fixed: an application with Transactional Outbox = Durable failed to build on first generation (`CS0234`/`CS1061` for `Wolverine.EntityFrameworkCore`/`Wolverine.SqlServer`/`Wolverine.Postgresql`) because the `WolverineFx.EntityFrameworkCore` and `WolverineFx.SqlServer`/`WolverineFx.Postgresql` NuGet package references were never declared alongside the `using` statements and durability calls that need them. Existing golden samples masked this because their `.csproj` already had the packages hand-pinned from before the regression; any newly generated application hit it immediately.

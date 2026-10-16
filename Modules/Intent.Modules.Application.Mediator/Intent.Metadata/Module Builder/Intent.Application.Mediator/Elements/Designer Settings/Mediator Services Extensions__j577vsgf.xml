@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1103f3e9-ac22-41eb-aa4c-64e21f1e6bfd" type="Designer Settings" typeId="7a6411a8-ffef-4209-91c6-8d12755a806a">
+  <name>Mediator Services Extensions</name>
+  <display>Mediator Services Extensions</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>520e033a-0c80-437d-8e1a-7e542fd0dba2</parentFolderId>
+  <packageId>97b3feab-26dc-4faa-ad20-4aca4de98976</packageId>
+  <packageName>Intent.Application.Mediator</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="81e5637b-05d7-43a4-9619-6ef873be9f47" name="Designer Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="9566aa04-ab84-4fbc-b039-6e676159ed82" display="Is Reference" value="false" />
+        <property name="fdbbd211-a162-4f29-bcdb-1250309d8aef" display="Extend Designers" value="[&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;]" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="14441454-bfe0-4d5d-8dba-d86d74d33a3b" name="AI Settings">
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="17477a69-d9a5-4251-9329-0963e8121b5f" display="Rules" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</class>

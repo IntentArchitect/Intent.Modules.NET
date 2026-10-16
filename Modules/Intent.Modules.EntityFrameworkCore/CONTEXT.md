@@ -16,10 +16,13 @@
 a dispatch stack's unit-of-work seam detect whether an external party (e.g. NServiceBus
 `ITransactionalSession`, raw ADO.NET) has already enlisted an EF connection/transaction.
 When it returns `true`, the seam skips wrapping in `TransactionScope` to avoid MSDTC
-escalation. Two dispatch stacks are wired to this guard, held to the same behavioural bar
+escalation. Three dispatch stacks are wired to this guard, held to the same behavioural bar
 (run the handler, save, return — no scope):
 
 - **MediatR** — `UnitOfWorkBehaviour.Handle`, the original implementation.
+- **Mediator** (`Intent.Application.Mediator`, the martinothamar source-generated library) —
+  `UnitOfWorkBehaviour.Handle`, template id `Intent.Application.Mediator.UnitOfWorkBehaviour`.
+  See "Mediator Branch" below.
 - **Wolverine** — `UnitOfWorkMiddleware.Before` (`ModifyUnitOfWorkMiddleware`, added alongside
 
   fixing the durable-outbox `TransactionMiddlewareMode.Lightweight` collision in
@@ -47,7 +50,7 @@ The method must be present in **three places** for a project to compile:
    intentional: the interface check was too narrow (a DbContext may implement `IApplicationDbContext`
    rather than `IUnitOfWork`), and an extra method on a class that doesn't need it is harmless.
 
-3. **`UnitOfWorkBehaviour.Handle`** (MediatR) **and/or `UnitOfWorkMiddleware.Before`**
+3. **`UnitOfWorkBehaviour.Handle`** (MediatR and/or Mediator) **and/or `UnitOfWorkMiddleware.Before`**
    (Wolverine) — whichever dispatch template(s) the application has, each gets its own
    injected guard. See below.
 
@@ -129,19 +132,49 @@ load-bearing — this extension is the only cross-module mutator of that templat
 The check hardcodes the field name `_dataSource`. That name comes from
 `fieldSuffix: "dataSource"` at
 `Intent.Modules.Application.MediatR.Behaviours/Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplatePartial.cs`
-— the only non-default `fieldSuffix` among the 16 `ApplyUnitOfWorkImplementations` call sites,
-and it lives in a different module. The coupling is accepted because the check **fails
+— the only non-default `fieldSuffix` among the 16 `ApplyUnitOfWorkImplementations` call sites
+that existed when this was written, and it lives in a different module. The Mediator core's
+`UnitOfWorkBehaviourTemplatePartial.cs` also passes `fieldSuffix: "dataSource"`, so the Mediator
+branch depends on the same name; if the Mediator core changes it, the branch skips injection and
+the optimisation is lost without an error (same fail-closed behaviour). The coupling is accepted because the check **fails
 closed**: if the name ever changes, injection is skipped and the build stays green (the
 co-existence optimisation is silently lost) rather than emitting code that will not compile.
 
-### Guard: MediatR `next()` vs `next(cancellationToken)`
+### Guard: `next()` vs `next(cancellationToken)` vs `next(request, cancellationToken)`
 
 Older MediatR versions (used in .NET 6 projects) use `next()` with no argument. Newer
-versions use `next(cancellationToken)`. The injected block must match the existing call style
-already present in the Handle method — do not hardcode `next(cancellationToken)`.
+MediatR versions use `next(cancellationToken)`. Mediator's pipeline delegate takes the message
+as well, so its `Handle` calls `next(request, cancellationToken)`. The injected block must match
+the existing call style already present in the Handle method — do not hardcode one form.
 
-Detection: inspect `handleMethod.Statements` for `"next(cancellationToken)"` and fall back
-to `"next()"` if not found.
+Detection: inspect `handleMethod.Statements` for `"next(request, cancellationToken)"` first, then
+`"next(cancellationToken)"`, and fall back to `"next()"` if neither is found. The three strings
+do not overlap as substrings, so the order only matters for readability, not correctness.
+
+### Mediator Branch — A Sibling Registration, Not a Copy of the MediatR Branch
+
+`ModifyUnitOfWorkBehaviour(application)` now calls the same private overload twice, once per
+template id (`Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour` and
+`Intent.Application.Mediator.UnitOfWorkBehaviour`); each is a no-op when its template is absent,
+so an application with either dispatch stack (or neither) gets only what applies.
+
+**Why the Mediator branch emits `next(request, cancellationToken)` itself.** The MediatR branch
+only recognised `next(cancellationToken)` and `next()`. Pointed at Mediator's behaviour it would
+have found neither, fallen through to `next()`, and emitted a call that does not compile against
+Mediator's delegate. The injected early-return therefore picks the call style from what the Handle
+method already contains (above), rather than the Mediator branch reusing the MediatR branch's
+two-way test.
+
+**One shared body, parameterised by template id.** A second, Mediator-only method would duplicate
+the `_dataSource` field check, the idempotency guard and the injected block, which must stay
+identical across stacks ("held to the same behavioural bar"). Keep it as one body.
+
+**Found by:** the Mediator core module's `UnitOfWorkBehaviour` (plan: Intent.Application.Mediator
+dispatch modules, "Seams in consuming modules"). This module takes no reference on the core; the
+template id is a string, the same as the Wolverine and MediatR ids.
+
+**Status:** written from the code, not yet generated or run. No application has had the Mediator
+modules installed together with this version of this module.
 
 ### Multi-DbContext Projects
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6c086f59-9506-4858-b055-a46d76d0d6a9" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Shipments</name>
+  <display>Shipments</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>157bc27d-4dd4-4d92-95f5-6f5aa23cc4e0</parentFolderId>
+  <packageId>157bc27d-4dd4-4d92-95f5-6f5aa23cc4e0</packageId>
+  <packageName>TestMediator.Subscriber.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</class>

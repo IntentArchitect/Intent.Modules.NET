@@ -92,7 +92,7 @@ uses before assuming a different one applies:
 2. **Metadata-tagged-statement lookup** (the *dominant* mechanism, used by nearly every companion
    including this module's own Finbuckle wiring): key statements are tagged
    (`.AddMetadata("configure-masstransit", true)`, `"message-broker"` → broker key,
-   `"in-memory-outbox"`, `"eventbus-flush"`, `"mediatr-config"`, `"telemetry-tracing"`, etc.).
+   `"in-memory-outbox"`, `"eventbus-flush"`, `"mediatr-config"`, `"mediator-config"`/`"mediator-pipeline"`, `"telemetry-tracing"`, etc.).
    Downstream extensions find the tagged template via `FindTemplateInstance<T>`, drill into the
    `CSharpFile`'s statement tree via `FindMethod`/`FindStatement(p => p.HasMetadata(...))`, and
    mutate in an `OnBuild`/`AfterBuild` callback with an explicit numeric priority. **This is
@@ -121,6 +121,50 @@ uses before assuming a different one applies:
    looks up `"Intent.Application.DependencyInjection.DependencyInjection"` by hardcoded string
    with an inline comment flagging it should become role-based later — a known-incomplete corner
    of the coupling story, worth treating as "still fragile" rather than a settled pattern to copy.
+
+---
+
+## Mediator dispatch seam (`Intent.Application.Mediator`)
+
+The Mediator core (martinothamar `Mediator` library) owns its whole pipeline list; this module only
+*removes* an item from it and, outside the EF outbox, makes the consumer the owner of the bus buffer.
+Both halves reference the core by **string id only** (no project reference, no `.imodspec`
+dependency): `Intent.Application.Mediator.MediatorConfiguration`,
+`Intent.Application.Mediator.MessageBusFlushOwner`, and the metadata keys `mediator-config`,
+`mediator-pipeline` and `eventbus-flush`.
+
+**1. `MessageBusInteropExtension.InstallMessageBusForMediatorDispatch` — strip the flush item under
+the EF outbox.** Sibling of the MediatR branch, same gate (`OutboxPattern == entity-framework`).
+Mediator's pipeline is a literal collection expression the source generator reads, so the
+`MessageBusPublishBehaviour` item (tagged `eventbus-flush`) is removed from the collection published
+as `mediator-pipeline` metadata on the `mediator-config` invocation, in an `AfterBuild` at priority
+1000. The existing `DbContext.SaveChanges` splice is reused unchanged: the flush still happens,
+inside `SaveChanges`, exactly as for MediatR.
+- **Why not edit the item in place / search the statement tree:** `AddItem` does not set `Parent`, so
+  `CSharpStatement.Remove()` throws and a recursive search never reaches inside the collection; the
+  core therefore publishes the collection itself and the seam calls `Statements.Remove(item)`.
+- **Why priority 1000:** the core's own cleanup runs after it (priority 2000) so it can see whether
+  the array ended up empty.
+
+**2. `IntegrationEventConsumerTemplate.ClaimMediatorFlushOwner` — the consumer claims
+`MessageBusFlushOwner` (D18), except under the EF outbox.** Without a claim, an integration event
+handler that sends a command through Mediator would run that command's `MessageBusPublishBehaviour`
+as the outermost owner and flush the bus ahead of the consumer's own unit of work. The consumer
+resolves the scoped owner, calls `Enter()` before the handler is instantiated, wraps the rest of
+`Consume` in `try`, and calls `Exit()` in `finally`; the behaviour of any nested command then sees a
+nested owner and defers. The consumer's own flush, which already runs after its unit of work, is
+left where it is. Registered as `AfterBuild` priority 500 so the consume body (unit of work, flush)
+is complete before it is wrapped.
+- **Skipped under the EF outbox:** there the flush item is stripped (1 above) and the flush lives in
+  `SaveChanges`, so there is no nested flush to guard against; a claim would guard nothing.
+- **Skipped unless the owner template exists and `CanRunTemplate()`:** `FindTemplateInstance` alone
+  is not enough, because the owner template of an always-installed module resolves its type name
+  even when its own `CanRunTemplate()` skips it (no message-bus role resolved). MediatR and Wolverine
+  dispatch output is unchanged.
+
+**Status:** written from the code, not yet generated or run (no application has had the Mediator
+modules installed together with this version of this module). The plan's `TestMediator.Outbox` app
+is meant to run the EF-outbox branch.
 
 ---
 

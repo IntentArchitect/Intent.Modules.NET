@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="650d1f96-2771-4150-9952-4b0e0185840b" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MediatorEndpointExtension</name>
+  <display>MediatorEndpointExtension</display>
+  <parentFolderId>45ea5c0a-2514-4d95-a6c1-92286af32d2d</parentFolderId>
+  <packageId>45ea5c0a-2514-4d95-a6c1-92286af32d2d</packageId>
+  <packageName>Intent.FastEndpoints.Dispatch.Mediator</packageName>
+</class>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2f824ef5-2e9b-47e2-bb2f-289baa3fd701" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>RecordOrderCommand</name>
+  <display>RecordOrderCommand: void</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <typeReference id="b5c670c3-78e4-4ead-8fb0-fb812b0dd493" />
+  <parentFolderId>79a6b81a-295d-4d80-a287-c095d6a8ddfd</parentFolderId>
+  <packageId>0e22549b-9bbd-4ed9-bbfe-e1462cbd0262</packageId>
+  <packageName>TestMediator.WolverineSubscribeOnly.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <element id="bcf2a52e-eb8d-438f-b804-96770435feac" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <typeReference id="6956e2d1-51a8-43e6-9533-dc85cd9ba948">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>2f824ef5-2e9b-47e2-bb2f-289baa3fd701</parentFolderId>
+      <packageId>0e22549b-9bbd-4ed9-bbfe-e1462cbd0262</packageId>
+      <packageName>TestMediator.WolverineSubscribeOnly.Services</packageName>
+    </element>
+    <element id="b13eb40d-a6fc-45b6-af62-5981048d978d" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CustomerName</name>
+      <display>CustomerName: string</display>
+      <typeReference id="c0bf9196-cb32-4d6f-8044-123c3fd2a9ff">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>2f824ef5-2e9b-47e2-bb2f-289baa3fd701</parentFolderId>
+      <packageId>0e22549b-9bbd-4ed9-bbfe-e1462cbd0262</packageId>
+      <packageName>TestMediator.WolverineSubscribeOnly.Services</packageName>
+    </element>
+  </children>
+</class>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#650d1f96-2771-4150-9952-4b0e0185840b</correlationId>
+      <path>FactoryExtensions/MediatorEndpointExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-13T21:18:11.0014224Z</updatedAt>
+      <deviationsHash>9173D63D493E6606556A52F0BB0242A4732DF37FA5F549911C38B4D42C136F71</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

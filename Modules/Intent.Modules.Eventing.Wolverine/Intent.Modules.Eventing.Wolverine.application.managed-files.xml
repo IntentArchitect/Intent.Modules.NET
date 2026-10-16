@@ -5,9 +5,9 @@
   <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/SubscribeIntegrationEventTargetEndModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
-  <file path="FactoryExtensions/WolverineEventingRegistrationExtension.cs" deviationsHash="0A19EBB62FDE8552BE6DB858DE4B1E3BE9D0EED734D29CB421BC545AF81170C8" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/WolverineEventingRegistrationExtension.cs" deviationsHash="6E8C57547B28F7BB85BE45D0754D3015445CFDA6F86A005358EEE25CED0F7480" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/WolverineFinbuckleConfiguratorExtension.cs" deviationsHash="E35709048EBDAC68A1CE8C666B101E10D0144749CF99E4F8A91EBF27361263E0" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/WolverineMessageBusInteropExtension.cs" deviationsHash="8CF382050E24168515072B086F4A580C72CFB2040059C0804C0C5D9490D5F631" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/WolverineMessageBusInteropExtension.cs" deviationsHash="DC42BFEEDC0162E146D4A264DE4EFBB412C5FF04142D38445351BA416A09AA01" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/WolverineTelemetryConfiguratorExtension.cs" deviationsHash="FB4B09BCD871527D5E9BEC7BA248F09153D9B6B2208379B38A52EC2553FB75AB" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Eventing.Wolverine.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Eventing.Wolverine.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />

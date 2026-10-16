@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="be2f3522-ed7f-402b-9e41-6cf532320323" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>a40d606c-d7ed-4b2a-9992-b496f68dfbc1</parentFolderId>
+  <packageId>a40d606c-d7ed-4b2a-9992-b496f68dfbc1</packageId>
+  <packageName>Intent.Application.Mediator.DomainEvents</packageName>
+</class>

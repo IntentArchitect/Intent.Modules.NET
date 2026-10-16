@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1a4c5b15-9864-45db-908a-5284ea9d95a9" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>OrderPlacedEvent</name>
+  <display>OrderPlacedEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>14e350fa-f2ee-4600-b66a-742d5ae0742d</parentFolderId>
+  <packageId>14e350fa-f2ee-4600-b66a-742d5ae0742d</packageId>
+  <packageName>TestMediator.Outbox.Eventing.Messages</packageName>
+  <children>
+    <element id="d31f54eb-a756-4d50-a792-6e11bdd9f2d8" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <typeReference id="6bd3d2e6-38c1-4c52-9173-0c4349a4a892">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>1a4c5b15-9864-45db-908a-5284ea9d95a9</parentFolderId>
+      <packageId>14e350fa-f2ee-4600-b66a-742d5ae0742d</packageId>
+      <packageName>TestMediator.Outbox.Eventing.Messages</packageName>
+    </element>
+    <element id="44797b1f-db94-4b9a-aa0c-97b5eb3070c3" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>CustomerName</name>
+      <display>CustomerName: string</display>
+      <typeReference id="73c542b2-3f00-46e6-8f1a-0af1605ceb15">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>1a4c5b15-9864-45db-908a-5284ea9d95a9</parentFolderId>
+      <packageId>14e350fa-f2ee-4600-b66a-742d5ae0742d</packageId>
+      <packageName>TestMediator.Outbox.Eventing.Messages</packageName>
+    </element>
+  </children>
+</class>

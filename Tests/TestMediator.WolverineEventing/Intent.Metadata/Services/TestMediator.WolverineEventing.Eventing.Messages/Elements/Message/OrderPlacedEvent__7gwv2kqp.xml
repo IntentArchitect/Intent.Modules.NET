@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0bd73c6c-6eeb-410d-badc-ba6a93ec5fe2" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>OrderPlacedEvent</name>
+  <display>OrderPlacedEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>824dbe7b-a890-4125-9845-26fbfeba1bbb</parentFolderId>
+  <packageId>824dbe7b-a890-4125-9845-26fbfeba1bbb</packageId>
+  <packageName>TestMediator.WolverineEventing.Eventing.Messages</packageName>
+  <children>
+    <element id="46b0cd75-2a4c-4b7c-b22b-914e5c817bbe" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <typeReference id="5093dd8e-0aed-4d54-88ae-1ce4a01b2744">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0bd73c6c-6eeb-410d-badc-ba6a93ec5fe2</parentFolderId>
+      <packageId>824dbe7b-a890-4125-9845-26fbfeba1bbb</packageId>
+      <packageName>TestMediator.WolverineEventing.Eventing.Messages</packageName>
+    </element>
+    <element id="a76a910f-0b2b-4cc4-9eee-928c9429ca97" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>CustomerName</name>
+      <display>CustomerName: string</display>
+      <typeReference id="5b7e4371-5bf6-4bf4-af6b-e07ca70e2a56">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0bd73c6c-6eeb-410d-badc-ba6a93ec5fe2</parentFolderId>
+      <packageId>824dbe7b-a890-4125-9845-26fbfeba1bbb</packageId>
+      <packageName>TestMediator.WolverineEventing.Eventing.Messages</packageName>
+    </element>
+  </children>
+</class>

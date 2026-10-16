@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="49be02c3-abd2-4b65-be05-bc32aa5a3083" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>OrderPlacedDomainEventHandler</name>
+  <display>OrderPlacedDomainEventHandler</display>
+  <parentFolderId>9f583b08-c0e1-4698-a229-83ced612625d</parentFolderId>
+  <packageId>9d0412d0-a390-4560-93c3-37636d3d83f6</packageId>
+  <packageName>TestMediator.Publisher.Services</packageName>
+  <children>
+    <association id="aba9ec97-8e8d-412f-a312-f040b0acba23">
+      <sourceEnd id="3122f57d-a14e-41e9-abf8-b578c395cc5a" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+        <display>: OrderPlacedDomainEventHandler</display>
+        <typeReference id="f7aa2260-2107-497b-846e-fcf8d01ae8d9">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="aba9ec97-8e8d-412f-a312-f040b0acba23" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+        <name>handler</name>
+        <display>[handles] OrderPlacedDomainEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="f3f69a6e-0fac-4d62-9e6b-fa51835d7be1">
+          <typeId>57db689e-2506-47b8-bfc5-604683b360dc</typeId>
+          <typeName>OrderPlacedDomainEvent</typeName>
+          <typePackageName>TestMediator.Publisher.Domain</typePackageName>
+          <typePackageId>d892abdc-aade-41bf-89b4-7dfea0259f3b</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Domain Event Handler Association</associationType>
+      <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+    </association>
+  </children>
+</class>

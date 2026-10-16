@@ -11,6 +11,7 @@ using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Modules.Eventing.Contracts;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Wolverine.Settings;
+using Intent.Modules.Eventing.Wolverine.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -38,6 +39,7 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
             InstallMessageBusForServiceContractDispatch(application);
             InstallMessageBusForWolverineDispatch(application);
             InstallMessageBusForMediatRDispatch(application);
+            InstallMessageBusForMediatorDispatch(application);
         }
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
@@ -48,7 +50,7 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
         /// <summary>
         /// R6.3: when the Transactional Outbox setting is Durable, the application layer's explicit
         /// `_messageBus.FlushAllAsync(...)` call is stripped out of the dispatch layer (controllers,
-        /// the Wolverine handler policy, the MediatR config lambda) and replaced with a single splice
+        /// the Wolverine handler policy, the MediatR config lambda, the Mediator pipeline item) and replaced with a single splice
         /// into <c>ApplicationDbContext.SaveChanges</c>/<c>SaveChangesAsync</c> instead — see
         /// <see cref="InstallMessageBusForDbContextForTransactionalOutboxPattern"/>. The dispatch-layer
         /// flush is dispatcher-specific and would double-flush (or, without the splice, be discarded
@@ -128,6 +130,48 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                 var mediatorConfig = (CSharpLambdaBlock)mediatrConfigLambda.Statements.FirstOrDefault();
                 var statementToRemove = mediatorConfig?.Statements.FirstOrDefault(stmt => stmt.HasMetadata("eventbus-flush"));
                 statementToRemove?.Remove();
+            }, 1000);
+        }
+
+        /// <summary>
+        /// Sibling of the MediatR branch for the Mediator dispatch stack. Mediator's pipeline is a literal
+        /// <c>typeof(...)</c> array the source generator reads, so the flush behaviour is removed as an
+        /// item from the collection published on the <c>AddMediator</c> invocation, never edited in place.
+        /// <para>
+        /// Stripped in two cases: under the Durable outbox (the flush moves into <c>SaveChanges</c>), and whenever
+        /// this application registers no <c>IMessageBus</c> at all (a subscribe-only application, R3.9).
+        /// Eventing.Contracts always generates the bus interface, so without the second strip the flush behaviour
+        /// would be added to the pipeline and every <c>ISender.Send</c> would throw at resolve time.
+        /// </para>
+        /// </summary>
+        private void InstallMessageBusForMediatorDispatch(IApplication application)
+        {
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.Mediator.MediatorConfiguration");
+            if (template == null)
+            {
+                return;
+            }
+
+            template.CSharpFile.AfterBuild(file =>
+            {
+                // Evaluated at build time: whether a bus is registered depends on template instances that
+                // are not all registered yet when this extension runs.
+                if (!IsTransactionalOutboxPatternSelected(application) && template.WolverineMessageBusIsRegistered())
+                {
+                    return;
+                }
+
+                var addMediatorMethod = file.Classes.First().FindMethod("AddMediatorConfiguration");
+                var configInvocation = addMediatorMethod?.FindStatement(stmt => stmt.HasMetadata("mediator-config"));
+                if (configInvocation == null || !configInvocation.TryGetMetadata<CSharpCollectionExpression>("mediator-pipeline", out var pipeline))
+                {
+                    return;
+                }
+
+                foreach (var item in pipeline.Statements.Where(stmt => stmt.HasMetadata("eventbus-flush")).ToList())
+                {
+                    pipeline.Statements.Remove(item);
+                }
             }, 1000);
         }
 

@@ -156,6 +156,17 @@ dotnet user-secrets set "Wolverine:AmazonSqs:Region" "us-east-1"
 
 Leave `AccessKey`/`SecretKey` unset to use the [AWS credential chain](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-assign.html), or set both for explicit credentials.
 
+## Mediator dispatch
+
+When the application dispatches through `Intent.Application.Mediator`:
+
+- **Transactional Outbox = Durable:** the Mediator message-bus flush behaviour is removed from the pipeline; the flush happens inside `ApplicationDbContext.SaveChanges`/`SaveChangesAsync`, as for the other dispatch stacks.
+- **Subscribe-only applications** (nothing published, no commands sent): no message bus is registered, so the flush behaviour is removed from the Mediator pipeline in this case as well.
+- **Transactional Outbox = None:** the generated integration event middleware claims the Mediator message-bus flush ownership for the duration of the handler, so a command the handler sends through Mediator does not flush the bus itself. The middleware flushes once, after its unit of work commits. To make the middleware and those commands share one message bus, the generated Wolverine configuration also registers the message bus and the flush owner for service location.
+- With `Transactional Outbox = Durable` and an `Intent.Application.Mediator` unit of work, the EF Core transactions are registered in Lightweight mode, as they are for the MediatR and Wolverine unit of work.
+
+No setting is involved.
+
 ## Migrating from MassTransit
 
 This section is for a developer replacing `Intent.Eventing.MassTransit` with this module in an existing application. Read it end to end before starting — the review and coexistence steps below matter more than they look.

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="520e033a-0c80-437d-8e1a-7e542fd0dba2" type="Designers Folder" typeId="dbb71aa5-0db2-4a2a-97a9-501950f36f99">
+  <name>designers</name>
+  <display>designers</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>97b3feab-26dc-4faa-ad20-4aca4de98976</parentFolderId>
+  <packageId>97b3feab-26dc-4faa-ad20-4aca4de98976</packageId>
+  <packageName>Intent.Application.Mediator</packageName>
+</class>

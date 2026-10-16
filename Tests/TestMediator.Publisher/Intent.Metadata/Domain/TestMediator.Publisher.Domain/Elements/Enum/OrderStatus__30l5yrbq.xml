@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="866cae2b-80d9-4864-aff1-376c6fb8ef3a" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>OrderStatus</name>
+  <display>OrderStatus</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>d892abdc-aade-41bf-89b4-7dfea0259f3b</parentFolderId>
+  <packageId>d892abdc-aade-41bf-89b4-7dfea0259f3b</packageId>
+  <packageName>TestMediator.Publisher.Domain</packageName>
+  <children>
+    <element id="2614390e-fafa-4250-af3c-94e0c7234841" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Placed</name>
+      <display>Placed</display>
+      <parentFolderId>866cae2b-80d9-4864-aff1-376c6fb8ef3a</parentFolderId>
+      <packageId>d892abdc-aade-41bf-89b4-7dfea0259f3b</packageId>
+      <packageName>TestMediator.Publisher.Domain</packageName>
+    </element>
+    <element id="546bfbaa-e39e-4a74-bf88-d4f9ba46a69e" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Shipped</name>
+      <display>Shipped</display>
+      <parentFolderId>866cae2b-80d9-4864-aff1-376c6fb8ef3a</parentFolderId>
+      <packageId>d892abdc-aade-41bf-89b4-7dfea0259f3b</packageId>
+      <packageName>TestMediator.Publisher.Domain</packageName>
+    </element>
+  </children>
+</class>

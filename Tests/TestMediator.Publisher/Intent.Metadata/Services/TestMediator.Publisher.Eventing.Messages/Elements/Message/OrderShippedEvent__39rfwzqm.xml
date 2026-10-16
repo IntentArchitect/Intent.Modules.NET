@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5f11f62f-7e85-432f-816f-15746314a3f8" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>OrderShippedEvent</name>
+  <display>OrderShippedEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>5b0471b8-6c38-4116-886b-2225d5177dd4</parentFolderId>
+  <packageId>5b0471b8-6c38-4116-886b-2225d5177dd4</packageId>
+  <packageName>TestMediator.Publisher.Eventing.Messages</packageName>
+  <children>
+    <element id="ccb2a65b-581e-40d7-b1ef-077fa7c6d9ec" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: guid</display>
+      <typeReference id="122cfd23-f612-4255-892f-e87bb9468100">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>5f11f62f-7e85-432f-816f-15746314a3f8</parentFolderId>
+      <packageId>5b0471b8-6c38-4116-886b-2225d5177dd4</packageId>
+      <packageName>TestMediator.Publisher.Eventing.Messages</packageName>
+    </element>
+  </children>
+</class>

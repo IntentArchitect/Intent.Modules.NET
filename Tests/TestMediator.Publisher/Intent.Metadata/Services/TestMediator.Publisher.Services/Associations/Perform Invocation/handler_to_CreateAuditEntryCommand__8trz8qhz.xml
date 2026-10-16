@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6667c87f-88b6-46e7-bd74-d2a0c493e139">
+  <sourceEnd id="551a9c88-d3f4-4729-aeaf-9234f9366bdc" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderPlacedDomainEventHandler.handler</display>
+    <typeReference id="8a6026b0-7821-468c-8584-2fd02c12678b">
+      <typeId>aba9ec97-8e8d-412f-a312-f040b0acba23</typeId>
+      <typeName>handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>TestMediator.Publisher.Services</typePackageName>
+      <typePackageId>9d0412d0-a390-4560-93c3-37636d3d83f6</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="6667c87f-88b6-46e7-bd74-d2a0c493e139" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] CreateAuditEntryCommand(...): void</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="81f3cc25-ef3b-467d-8bff-f79b03935a90">
+      <typeId>9b851aad-b233-4eef-9541-d917eba0daaf</typeId>
+      <typeName>CreateAuditEntryCommand</typeName>
+      <typePackageName>TestMediator.Publisher.Services</typePackageName>
+      <typePackageId>9d0412d0-a390-4560-93c3-37636d3d83f6</typePackageId>
+    </typeReference>
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="fc70cb37-b1d7-4f31-9c0e-c340553ce45d" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="aba9ec97-8e8d-412f-a312-f040b0acba23" location="[TestMediator.Publisher].[Services].[handler]" />
+        <target applicationId="fc70cb37-b1d7-4f31-9c0e-c340553ce45d" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9b851aad-b233-4eef-9541-d917eba0daaf" location="[TestMediator.Publisher].[Services].[CreateAuditEntryCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{handler}</expression>
+            <path>
+              <target id="9b851aad-b233-4eef-9541-d917eba0daaf" name="CreateAuditEntryCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="handler" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="aba9ec97-8e8d-412f-a312-f040b0acba23" name="handler" type="association" specialization="Domain Event Handler Association Target End" specializationId="f45dfee9-f62b-45ac-bfce-a3878e04b73f" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

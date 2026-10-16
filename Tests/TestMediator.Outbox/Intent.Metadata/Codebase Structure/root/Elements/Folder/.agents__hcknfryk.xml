@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2bf16fde-ffe8-4ca0-aefa-e626f7d9db02" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>.agents</name>
+  <display>.agents</display>
+  <externalReference>bc1949f3-0b35-4854-a4b2-49e1e4e3ec72</externalReference>
+  <order>1</order>
+  <parentFolderId>4c092292-dc85-49c9-8f6d-628039f96667</parentFolderId>
+  <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="f257bb75-a981-44ed-9d50-3c4b98721aa7" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+      <name>instructions</name>
+      <display>instructions</display>
+      <externalReference>4354281a-9b36-434c-a99a-719c8884f1dd</externalReference>
+      <parentFolderId>2bf16fde-ffe8-4ca0-aefa-e626f7d9db02</parentFolderId>
+      <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+          <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+          <properties>
+            <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="250aad1b-99ff-4d7d-b77e-bae853e52ffe" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+          <name>AI.Context.Instructions</name>
+          <display>AI.Context.Instructions</display>
+          <externalReference>18dcf656-5310-4d44-8607-ac52fb4d4797</externalReference>
+          <parentFolderId>f257bb75-a981-44ed-9d50-3c4b98721aa7</parentFolderId>
+          <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+          <packageName>root</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="038659bc-102c-4b59-9c32-1065c84d067a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.UnitTestInstructionTemplate</name>
+          <display>Intent.UnitTesting.UnitTestInstructionTemplate</display>
+          <externalReference>Intent.UnitTesting</externalReference>
+          <parentFolderId>f257bb75-a981-44ed-9d50-3c4b98721aa7</parentFolderId>
+          <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+          <packageName>root</packageName>
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+        </element>
+        <element id="560ca2a6-7f58-4526-b905-391b18e2eaf9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
+          <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
+          <externalReference>Intent.Common.CSharp</externalReference>
+          <parentFolderId>f257bb75-a981-44ed-9d50-3c4b98721aa7</parentFolderId>
+          <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+          <packageName>root</packageName>
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+        </element>
+      </children>
+    </element>
+    <element id="010060ce-2732-40fc-b4e5-c6aadffb3768" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+      <name>skills</name>
+      <display>skills</display>
+      <externalReference>a2c20692-eee9-43c8-8ae5-578fd1b8bbdf</externalReference>
+      <parentFolderId>2bf16fde-ffe8-4ca0-aefa-e626f7d9db02</parentFolderId>
+      <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+          <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+          <properties>
+            <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="b0ddf3a4-c1df-4a68-84e9-d89b66615b35" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+          <name>AI.Context.Skills</name>
+          <display>AI.Context.Skills</display>
+          <externalReference>ec122670-c8af-4c8b-82e8-71734537bd4a</externalReference>
+          <parentFolderId>010060ce-2732-40fc-b4e5-c6aadffb3768</parentFolderId>
+          <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+          <packageName>root</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="57eb20b8-501b-45c2-a248-68f90e795b90" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Entities.DomainEntitySkill</name>
+          <display>Intent.Entities.DomainEntitySkill</display>
+          <externalReference>Intent.Entities</externalReference>
+          <parentFolderId>010060ce-2732-40fc-b4e5-c6aadffb3768</parentFolderId>
+          <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+          <packageName>root</packageName>
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+        </element>
+        <element id="7a1361c5-bd63-4f2d-b8f3-a26370b85c6b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.FluentValidation.CustomValidationSkillTemplate</name>
+          <display>Intent.Application.FluentValidation.CustomValidationSkillTemplate</display>
+          <externalReference>Intent.Application.FluentValidation</externalReference>
+          <parentFolderId>010060ce-2732-40fc-b4e5-c6aadffb3768</parentFolderId>
+          <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+          <packageName>root</packageName>
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+        </element>
+        <element id="12ef1811-9dc2-409b-8372-a9ea546a4609" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate</name>
+          <display>Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate</display>
+          <externalReference>Intent.Application.ServiceImplementations</externalReference>
+          <parentFolderId>010060ce-2732-40fc-b4e5-c6aadffb3768</parentFolderId>
+          <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+          <packageName>root</packageName>
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+        </element>
+        <element id="d1c0a787-f31b-4533-a097-74a02bc60fdf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate</name>
+          <display>Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate</display>
+          <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+          <parentFolderId>010060ce-2732-40fc-b4e5-c6aadffb3768</parentFolderId>
+          <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+          <packageName>root</packageName>
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+        </element>
+        <element id="3748f9fd-97e6-44bd-b31d-2f893d9f9bff" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.Mediator.CommandHandlerSkill</name>
+          <display>Intent.Application.Mediator.CommandHandlerSkill</display>
+          <externalReference>Intent.Application.Mediator</externalReference>
+          <parentFolderId>010060ce-2732-40fc-b4e5-c6aadffb3768</parentFolderId>
+          <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+          <packageName>root</packageName>
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+        </element>
+        <element id="98cc23e9-db43-43cc-aea2-ef62bfa3b115" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.Mediator.IntegrationEventHandlerSkill</name>
+          <display>Intent.Application.Mediator.IntegrationEventHandlerSkill</display>
+          <externalReference>Intent.Application.Mediator</externalReference>
+          <parentFolderId>010060ce-2732-40fc-b4e5-c6aadffb3768</parentFolderId>
+          <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+          <packageName>root</packageName>
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+        </element>
+        <element id="6719a1a4-9c01-446f-b2a5-696203218e30" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.Mediator.QueryHandlerSkill</name>
+          <display>Intent.Application.Mediator.QueryHandlerSkill</display>
+          <externalReference>Intent.Application.Mediator</externalReference>
+          <parentFolderId>010060ce-2732-40fc-b4e5-c6aadffb3768</parentFolderId>
+          <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+          <packageName>root</packageName>
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+        </element>
+      </children>
+    </element>
+    <element id="8394cb6b-65cf-4fd8-8c97-3b92d025d2a3" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>AI.Context</name>
+      <display>AI.Context</display>
+      <externalReference>393acb5c-c764-45da-b528-6ffd86198069</externalReference>
+      <parentFolderId>2bf16fde-ffe8-4ca0-aefa-e626f7d9db02</parentFolderId>
+      <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+  </children>
+</class>
