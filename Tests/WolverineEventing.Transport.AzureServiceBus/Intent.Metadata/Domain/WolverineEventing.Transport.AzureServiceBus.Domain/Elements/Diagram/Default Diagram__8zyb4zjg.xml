@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d0ca5361-dfb5-452e-87aa-bd8024fa5610</parentFolderId>
+  <packageId>d0ca5361-dfb5-452e-87aa-bd8024fa5610</packageId>
+  <packageName>WolverineEventing.Transport.AzureServiceBus.Domain</packageName>
   <diagram>
     <targetPackageId>d0ca5361-dfb5-452e-87aa-bd8024fa5610</targetPackageId>
   </diagram>

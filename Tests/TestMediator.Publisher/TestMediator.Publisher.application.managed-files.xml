@@ -58,7 +58,7 @@
   <file path="TestMediator.Publisher.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
   <file path="TestMediator.Publisher.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
   <file path="TestMediator.Publisher.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
-  <file path="TestMediator.Publisher.Application/EventHandlers/DomainEventHandlers/OrderPlacedDomainEventHandler.cs" deviationsHash="5D929A8A9C0B7DC055D20F1ED3DC38D997E647F4F9BB6CDA22676EC89D8AE976" templateId="Intent.Application.Mediator.DomainEvents.DomainEventHandler" />
+  <file path="TestMediator.Publisher.Application/EventHandlers/DomainEventHandlers/OrderPlacedDomainEventHandler.cs" deviationsHash="D4C5FEBA51F78A382BA942458E5FC4E6C71EAFB085936CDBD00827AB11435F1B" templateId="Intent.Application.Mediator.DomainEvents.DomainEventHandler" />
   <file path="TestMediator.Publisher.Application/IntegrationEvents/EventHandlers/IntegrationEventHandlers/OrderCreatedEventHandler.cs" deviationsHash="26DBF7E74E5443CBAA329B3648C3C60F22D33DF8B4B79C67C62E0C7582098A67" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
   <file path="TestMediator.Publisher.Application/IntegrationEvents/OrderCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
   <file path="TestMediator.Publisher.Application/IntegrationEvents/OrderShippedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />

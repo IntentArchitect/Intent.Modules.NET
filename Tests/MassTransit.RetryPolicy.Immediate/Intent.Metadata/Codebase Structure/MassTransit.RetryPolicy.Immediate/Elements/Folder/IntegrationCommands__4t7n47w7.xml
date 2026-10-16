@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>56712bb1-92b2-4e46-8289-b5a76121ac06</parentFolderId>
+  <packageId>e7fd613b-cd98-4863-9b6e-1e7057221865</packageId>
+  <packageName>MassTransit.RetryPolicy.Immediate</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4411a945-8d17-49a5-9004-bd48e8a30113</parentFolderId>
+      <packageId>e7fd613b-cd98-4863-9b6e-1e7057221865</packageId>
+      <packageName>MassTransit.RetryPolicy.Immediate</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

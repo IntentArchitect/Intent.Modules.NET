@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>07b2c093-12f6-4668-9941-2147242e1303</parentFolderId>
+  <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+  <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>69f35e62-f241-4c0a-a2f1-9486f1bbc112</parentFolderId>
+      <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+      <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
       <stereotypes />
       <metadata />
       <childElements>
@@ -30,6 +34,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa24bfcc-87df-45e5-a3cb-a3943bf1b85d</parentFolderId>
+          <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+          <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -42,6 +48,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa24bfcc-87df-45e5-a3cb-a3943bf1b85d</parentFolderId>
+          <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+          <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
           <stereotypes />
           <metadata />
           <childElements>
@@ -53,6 +61,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>945c683c-0b62-4b47-824b-c54f90642a01</parentFolderId>
+              <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+              <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -65,6 +75,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>945c683c-0b62-4b47-824b-c54f90642a01</parentFolderId>
+              <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+              <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />
@@ -81,6 +93,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa24bfcc-87df-45e5-a3cb-a3943bf1b85d</parentFolderId>
+          <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+          <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />

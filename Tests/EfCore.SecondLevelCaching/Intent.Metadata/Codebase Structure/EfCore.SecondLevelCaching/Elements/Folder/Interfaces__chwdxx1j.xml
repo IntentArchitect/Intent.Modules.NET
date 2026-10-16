@@ -153,6 +153,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b11893a6-254f-4003-b008-480f6221ca8b</parentFolderId>
+      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+      <packageName>EfCore.SecondLevelCaching</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -167,6 +169,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b11893a6-254f-4003-b008-480f6221ca8b</parentFolderId>
+      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+      <packageName>EfCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -203,6 +207,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b11893a6-254f-4003-b008-480f6221ca8b</parentFolderId>
+      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+      <packageName>EfCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

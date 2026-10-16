@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>fbfb2328-208e-477b-8063-aa307410a2f9</parentFolderId>
+  <packageId>fbfb2328-208e-477b-8063-aa307410a2f9</packageId>
+  <packageName>N_ServiceBus.SQS.Domain</packageName>
   <diagram>
     <targetPackageId>fbfb2328-208e-477b-8063-aa307410a2f9</targetPackageId>
   </diagram>

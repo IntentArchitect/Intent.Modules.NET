@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8339c9bd-ca13-43f8-96a3-ee0c7f68dc54</parentFolderId>
+  <packageId>8339c9bd-ca13-43f8-96a3-ee0c7f68dc54</packageId>
+  <packageName>WolverineEventing.MultiTenancy.Domain</packageName>
   <diagram>
     <targetPackageId>8339c9bd-ca13-43f8-96a3-ee0c7f68dc54</targetPackageId>
   </diagram>

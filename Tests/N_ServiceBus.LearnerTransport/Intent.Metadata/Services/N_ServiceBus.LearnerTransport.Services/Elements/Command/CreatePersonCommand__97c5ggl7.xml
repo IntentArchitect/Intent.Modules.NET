@@ -16,7 +16,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>2d8e566c-35f3-482d-82e2-4db8bb1b0acd</parentFolderId>
   <packageId>949bbc79-f237-42b1-ac6b-20b32300f302</packageId>
-  <packageName>NServiceBus.LearnerTransport.Services</packageName>
+  <packageName>N_ServiceBus.LearnerTransport.Services</packageName>
   <traits>
     <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
     <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
@@ -44,7 +44,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>ef65a885-8a0f-414a-b529-3f3285c27c4a</parentFolderId>
       <packageId>949bbc79-f237-42b1-ac6b-20b32300f302</packageId>
-      <packageName>NServiceBus.LearnerTransport.Services</packageName>
+      <packageName>N_ServiceBus.LearnerTransport.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
           <addedByDefault>true</addedByDefault>
@@ -94,7 +94,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>ef65a885-8a0f-414a-b529-3f3285c27c4a</parentFolderId>
       <packageId>949bbc79-f237-42b1-ac6b-20b32300f302</packageId>
-      <packageName>NServiceBus.LearnerTransport.Services</packageName>
+      <packageName>N_ServiceBus.LearnerTransport.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
           <addedByDefault>true</addedByDefault>

@@ -191,6 +191,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e99793ef-5c78-4064-8998-162defd96d22</parentFolderId>
+      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+      <packageName>CleanArchitecture.SingleFiles</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -205,6 +207,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e99793ef-5c78-4064-8998-162defd96d22</parentFolderId>
+      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+      <packageName>CleanArchitecture.SingleFiles</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -241,6 +245,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e99793ef-5c78-4064-8998-162defd96d22</parentFolderId>
+      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+      <packageName>CleanArchitecture.SingleFiles</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -277,6 +283,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e99793ef-5c78-4064-8998-162defd96d22</parentFolderId>
+      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+      <packageName>CleanArchitecture.SingleFiles</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -313,6 +321,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e99793ef-5c78-4064-8998-162defd96d22</parentFolderId>
+      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+      <packageName>CleanArchitecture.SingleFiles</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

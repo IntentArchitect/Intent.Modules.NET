@@ -153,6 +153,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6adf1739-26f3-467b-95f3-3ebfdfeb8274</parentFolderId>
+      <packageId>76e13d0e-3361-4bd7-8238-629326ffdb87</packageId>
+      <packageName>Entities.Constants.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -189,6 +191,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6adf1739-26f3-467b-95f3-3ebfdfeb8274</parentFolderId>
+      <packageId>76e13d0e-3361-4bd7-8238-629326ffdb87</packageId>
+      <packageName>Entities.Constants.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

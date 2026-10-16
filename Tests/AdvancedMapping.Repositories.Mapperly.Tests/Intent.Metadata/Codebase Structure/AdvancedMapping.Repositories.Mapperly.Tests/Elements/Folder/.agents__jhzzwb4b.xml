@@ -51,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9d65f9ee-d299-49fe-8f4b-52384cfa948a</parentFolderId>
+      <packageId>7360b8e2-bc2d-40c4-87fa-6e305b1dc9f4</packageId>
+      <packageName>AdvancedMapping.Repositories.Mapperly.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

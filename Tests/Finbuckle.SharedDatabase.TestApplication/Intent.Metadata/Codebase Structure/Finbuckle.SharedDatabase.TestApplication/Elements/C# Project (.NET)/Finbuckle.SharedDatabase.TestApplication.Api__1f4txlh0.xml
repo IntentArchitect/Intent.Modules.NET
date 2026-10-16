@@ -169,6 +169,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>19139c14-b0b4-4bd2-9808-3abe0e823559</parentFolderId>
+      <packageId>7f5bb63d-0822-4d6a-bdd1-590ed03e253c</packageId>
+      <packageName>Finbuckle.SharedDatabase.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

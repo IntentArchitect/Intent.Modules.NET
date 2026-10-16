@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b4100c4f-008d-48d9-b763-6048e68c931d</parentFolderId>
+  <packageId>b4100c4f-008d-48d9-b763-6048e68c931d</packageId>
+  <packageName>Entities.PrivateSetters.EF.CosmosDb</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

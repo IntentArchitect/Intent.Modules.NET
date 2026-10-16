@@ -616,6 +616,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>02d4e2ed-0776-4cbb-af22-2eefef5f2f21</parentFolderId>
+      <packageId>7d76c0bf-cca8-4ef8-86d0-980c9d5a862d</packageId>
+      <packageName>BlazorNoMudBlazor</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -630,6 +632,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>02d4e2ed-0776-4cbb-af22-2eefef5f2f21</parentFolderId>
+      <packageId>7d76c0bf-cca8-4ef8-86d0-980c9d5a862d</packageId>
+      <packageName>BlazorNoMudBlazor</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

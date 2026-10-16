@@ -61,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>829c0d5f-d2ec-4d65-9d28-7e808979e299</parentFolderId>
+      <packageId>c05aba94-2ef9-4d33-b6d5-c55775781493</packageId>
+      <packageName>MassTransit.RetryPolicy.Exponential</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

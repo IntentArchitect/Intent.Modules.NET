@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.Mediator.DomainEvents.DomainEventHandler#49be02c3-abd2-4b65-be05-bc32aa5a3083</correlationId>
+      <path>TestMediator.Publisher.Application/EventHandlers/DomainEventHandlers/OrderPlacedDomainEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-16T15:46:45.9129056Z</updatedAt>
+      <deviationsHash>D4C5FEBA51F78A382BA942458E5FC4E6C71EAFB085936CDBD00827AB11435F1B</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#d0981a0f-e4fe-4ab7-a20c-151d60d23e78</correlationId>
       <path>TestMediator.Publisher.Application/IntegrationEvents/EventHandlers/IntegrationEventHandlers/OrderCreatedEventHandler.cs</path>
       <count>3</count>

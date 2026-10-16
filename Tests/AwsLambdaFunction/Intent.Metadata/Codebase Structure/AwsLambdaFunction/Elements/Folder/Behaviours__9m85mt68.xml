@@ -311,6 +311,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b1b3368b-1e22-4cae-8b5a-df3bbaa7a9ff</parentFolderId>
+      <packageId>981fe5b0-e27f-4763-9e15-1269456523fd</packageId>
+      <packageName>AwsLambdaFunction</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0c809ee9-f3ba-42a0-97d5-ddf90f967f9e</parentFolderId>
+  <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
+  <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a8904e3b-6451-4665-bbb6-90c276134d52</parentFolderId>
+      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

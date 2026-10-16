@@ -16,7 +16,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>8ed53a72-34b7-4f3e-ab34-d3532be85e0d</parentFolderId>
   <packageId>6ada38bc-eb52-4e66-baf9-750369c1f931</packageId>
-  <packageName>NServiceBus.AzureServiceBus.Services</packageName>
+  <packageName>N_ServiceBus.AzureServiceBus.Services</packageName>
   <traits>
     <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
     <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
@@ -56,7 +56,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>3f94e4f1-8387-45b4-97aa-93c279011d9e</parentFolderId>
       <packageId>6ada38bc-eb52-4e66-baf9-750369c1f931</packageId>
-      <packageName>NServiceBus.AzureServiceBus.Services</packageName>
+      <packageName>N_ServiceBus.AzureServiceBus.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
           <addedByDefault>true</addedByDefault>

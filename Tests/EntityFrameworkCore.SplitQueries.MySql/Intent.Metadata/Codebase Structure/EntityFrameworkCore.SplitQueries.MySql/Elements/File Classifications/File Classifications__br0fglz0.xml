@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</parentFolderId>
+  <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+  <packageName>EntityFrameworkCore.SplitQueries.MySql</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -16,6 +18,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6e36e9b-3d38-4d7a-bec9-f6faa4311d5c</parentFolderId>
+      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.MySql</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -27,6 +31,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6e36e9b-3d38-4d7a-bec9-f6faa4311d5c</parentFolderId>
+      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.MySql</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -38,6 +44,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6e36e9b-3d38-4d7a-bec9-f6faa4311d5c</parentFolderId>
+      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.MySql</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -49,6 +57,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6e36e9b-3d38-4d7a-bec9-f6faa4311d5c</parentFolderId>
+      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.MySql</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -60,6 +70,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6e36e9b-3d38-4d7a-bec9-f6faa4311d5c</parentFolderId>
+      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.MySql</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -71,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6e36e9b-3d38-4d7a-bec9-f6faa4311d5c</parentFolderId>
+      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.MySql</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -82,6 +96,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6e36e9b-3d38-4d7a-bec9-f6faa4311d5c</parentFolderId>
+      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.MySql</packageName>
       <stereotypes />
       <metadata />
       <childElements />

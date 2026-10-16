@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9f11f313-e0f4-405d-891d-c47334523e58</parentFolderId>
+  <packageId>9f11f313-e0f4-405d-891d-c47334523e58</packageId>
+  <packageName>EntityFrameworkCore.CustomPrimaryConnectionString.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements />

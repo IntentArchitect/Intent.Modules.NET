@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>13915750-f177-4473-9fe8-0ef549deed61</parentFolderId>
+  <packageId>d431f5ce-182f-49ae-bce3-355b0bb892ee</packageId>
+  <packageName>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6222daf4-4c18-432f-8d8c-544a19e759cd</parentFolderId>
+      <packageId>d431f5ce-182f-49ae-bce3-355b0bb892ee</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6222daf4-4c18-432f-8d8c-544a19e759cd</parentFolderId>
+      <packageId>d431f5ce-182f-49ae-bce3-355b0bb892ee</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6222daf4-4c18-432f-8d8c-544a19e759cd</parentFolderId>
+      <packageId>d431f5ce-182f-49ae-bce3-355b0bb892ee</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

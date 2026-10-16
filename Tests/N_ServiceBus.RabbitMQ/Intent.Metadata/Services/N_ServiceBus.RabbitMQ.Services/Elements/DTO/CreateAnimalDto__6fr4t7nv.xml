@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>26b2f64a-3221-4716-a88a-2f6d6bcad450</parentFolderId>
   <packageId>509ec879-9053-4eec-ba0e-2849e66d1797</packageId>
-  <packageName>NServiceBus.RabbitMQ.Services</packageName>
+  <packageName>N_ServiceBus.RabbitMQ.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -31,7 +31,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8d303b5d-af10-4b22-a2d7-a5366a2a85c5</parentFolderId>
       <packageId>509ec879-9053-4eec-ba0e-2849e66d1797</packageId>
-      <packageName>NServiceBus.RabbitMQ.Services</packageName>
+      <packageName>N_ServiceBus.RabbitMQ.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
           <addedByDefault>true</addedByDefault>

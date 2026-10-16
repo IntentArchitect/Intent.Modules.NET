@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>b35a11d0-3778-43b5-a7c6-ea4328b07a28</parentFolderId>
   <packageId>b35a11d0-3778-43b5-a7c6-ea4328b07a28</packageId>
-  <packageName>NServiceBus.OutboxPattern.Subscribe.Eventing.Messages</packageName>
+  <packageName>N_ServiceBus.Persistence.Sql.Subscribe.Eventing.Messages</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -31,7 +31,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>6516bed8-d2c5-4366-adc5-706702e73718</parentFolderId>
       <packageId>b35a11d0-3778-43b5-a7c6-ea4328b07a28</packageId>
-      <packageName>NServiceBus.OutboxPattern.Subscribe.Eventing.Messages</packageName>
+      <packageName>N_ServiceBus.Persistence.Sql.Subscribe.Eventing.Messages</packageName>
       <stereotypes />
       <metadata />
       <childElements />

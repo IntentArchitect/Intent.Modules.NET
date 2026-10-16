@@ -219,6 +219,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c26e5b3f-05b6-4a71-b74d-4032ccf86c31</parentFolderId>
+      <packageId>529bf4ef-debf-44e2-8afd-7f5e214d14a6</packageId>
+      <packageName>EfCoreSoftDelete</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

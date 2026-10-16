@@ -105,6 +105,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6a08a633-3654-4856-9ffb-25dbace22ab4</parentFolderId>
+      <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF8</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

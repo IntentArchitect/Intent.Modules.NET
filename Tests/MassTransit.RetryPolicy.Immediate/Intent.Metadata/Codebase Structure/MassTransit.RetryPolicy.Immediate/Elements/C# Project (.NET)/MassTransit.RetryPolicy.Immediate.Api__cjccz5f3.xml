@@ -169,6 +169,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>27cbcca6-d040-4a6c-a96f-780edf3e1d36</parentFolderId>
+      <packageId>e7fd613b-cd98-4863-9b6e-1e7057221865</packageId>
+      <packageName>MassTransit.RetryPolicy.Immediate</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

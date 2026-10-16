@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8e852e06-5210-402f-9eca-815be03ce0b7</parentFolderId>
+  <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+  <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
   <stereotypes />
   <metadata />
   <childElements />

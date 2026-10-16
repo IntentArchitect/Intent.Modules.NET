@@ -99,6 +99,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6d6c297c-0c26-4e48-955a-59e78438f908</parentFolderId>
+      <packageId>97f17e62-39f3-419e-945b-b095624c8c28</packageId>
+      <packageName>AspNetCore.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -135,6 +137,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6d6c297c-0c26-4e48-955a-59e78438f908</parentFolderId>
+      <packageId>97f17e62-39f3-419e-945b-b095624c8c28</packageId>
+      <packageName>AspNetCore.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

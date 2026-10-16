@@ -549,6 +549,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>44a8fa2b-baa0-412e-80f2-43567b1963e2</parentFolderId>
+      <packageId>8b009537-c6e5-471f-9eeb-b45e87fa0c89</packageId>
+      <packageName>CompositeMessageBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

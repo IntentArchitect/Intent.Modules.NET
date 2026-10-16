@@ -181,6 +181,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b546e1dd-a359-41e7-ade5-68f3b80762a4</parentFolderId>
+      <packageId>0869b96e-b1a4-43f4-892a-c68e14a898a5</packageId>
+      <packageName>SignalR</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -217,6 +219,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b546e1dd-a359-41e7-ade5-68f3b80762a4</parentFolderId>
+      <packageId>0869b96e-b1a4-43f4-892a-c68e14a898a5</packageId>
+      <packageName>SignalR</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

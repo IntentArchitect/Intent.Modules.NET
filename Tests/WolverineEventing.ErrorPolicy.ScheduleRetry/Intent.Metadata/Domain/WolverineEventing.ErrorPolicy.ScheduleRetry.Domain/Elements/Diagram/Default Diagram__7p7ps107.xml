@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4487e3c3-380a-4c1b-8373-d0f6c5b4ad94</parentFolderId>
+  <packageId>4487e3c3-380a-4c1b-8373-d0f6c5b4ad94</packageId>
+  <packageName>WolverineEventing.ErrorPolicy.ScheduleRetry.Domain</packageName>
   <diagram>
     <targetPackageId>4487e3c3-380a-4c1b-8373-d0f6c5b4ad94</targetPackageId>
   </diagram>

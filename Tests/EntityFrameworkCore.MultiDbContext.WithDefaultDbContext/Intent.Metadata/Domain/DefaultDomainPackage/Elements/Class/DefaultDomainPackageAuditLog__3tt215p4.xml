@@ -8,6 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>ee56881e-1557-45f2-8185-178fd0a00772</parentFolderId>
   <packageId>ee56881e-1557-45f2-8185-178fd0a00772</packageId>
+  <packageName>DefaultDomainPackage</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="92e433aa-4858-4129-849f-ef0f9f0bf9e6" name="Audit Log">
       <addedByDefault>true</addedByDefault>

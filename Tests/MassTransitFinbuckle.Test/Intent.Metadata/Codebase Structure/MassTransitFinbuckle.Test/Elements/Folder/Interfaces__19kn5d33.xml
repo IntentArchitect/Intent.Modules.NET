@@ -153,6 +153,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d284ef12-ae39-42da-9759-5ce4cd79fc6e</parentFolderId>
+      <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
+      <packageName>MassTransitFinbuckle.Test</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -189,6 +191,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d284ef12-ae39-42da-9759-5ce4cd79fc6e</parentFolderId>
+      <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
+      <packageName>MassTransitFinbuckle.Test</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

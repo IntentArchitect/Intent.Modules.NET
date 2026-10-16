@@ -61,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1379ea3e-c43c-4d5b-bb76-baaf42004469</parentFolderId>
+      <packageId>3666517d-3a27-4747-8c60-5172ece34e91</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

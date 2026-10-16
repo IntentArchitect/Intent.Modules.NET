@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0493fdad-7fe2-4658-9e30-6bdc4addd42b</parentFolderId>
+  <packageId>0493fdad-7fe2-4658-9e30-6bdc4addd42b</packageId>
+  <packageName>MassTransit.RetryPolicy.Incremental</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

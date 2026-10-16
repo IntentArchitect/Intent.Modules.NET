@@ -67,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9cdd0d68-0555-4123-ba42-d61e5c1984b9</parentFolderId>
+      <packageId>9a3a04f0-fa2e-4239-bf35-d2e480a03267</packageId>
+      <packageName>DtoSettings.Class.Init</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -81,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9cdd0d68-0555-4123-ba42-d61e5c1984b9</parentFolderId>
+      <packageId>9a3a04f0-fa2e-4239-bf35-d2e480a03267</packageId>
+      <packageName>DtoSettings.Class.Init</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

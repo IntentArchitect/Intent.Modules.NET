@@ -172,6 +172,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6964125b-0b54-4eab-a826-3ff7057b8a3b</parentFolderId>
+      <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+      <packageName>Hangfire.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

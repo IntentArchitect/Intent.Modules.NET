@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d92d09ee-db5e-42de-986e-feba7197d5e9</parentFolderId>
+  <packageId>d92d09ee-db5e-42de-986e-feba7197d5e9</packageId>
+  <packageName>MassTransit.RetryPolicy.Interval</packageName>
   <stereotypes />
   <metadata />
   <childElements />

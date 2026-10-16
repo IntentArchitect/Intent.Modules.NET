@@ -67,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>905165ef-bccf-45dc-9f4c-2ba261f245b9</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -103,6 +105,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>905165ef-bccf-45dc-9f4c-2ba261f245b9</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -139,6 +143,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>905165ef-bccf-45dc-9f4c-2ba261f245b9</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

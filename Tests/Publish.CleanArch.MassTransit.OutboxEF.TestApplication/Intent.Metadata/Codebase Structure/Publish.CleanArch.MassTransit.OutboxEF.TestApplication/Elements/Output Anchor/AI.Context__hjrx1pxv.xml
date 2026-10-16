@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>11a3cfac-10ea-4a08-a087-5fa04ee10eff</parentFolderId>
+  <packageId>3fe47d94-1efe-4443-b2c9-0a13a61875b6</packageId>
+  <packageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements />

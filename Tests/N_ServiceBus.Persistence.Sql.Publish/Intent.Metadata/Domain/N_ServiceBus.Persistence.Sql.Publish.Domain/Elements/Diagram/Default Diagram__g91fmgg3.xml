@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3631bcc6-3ffc-4906-96cc-8edabe3550f5</parentFolderId>
+  <packageId>3631bcc6-3ffc-4906-96cc-8edabe3550f5</packageId>
+  <packageName>N_ServiceBus.Persistence.Sql.Publish.Domain</packageName>
   <diagram>
     <targetPackageId>3631bcc6-3ffc-4906-96cc-8edabe3550f5</targetPackageId>
   </diagram>

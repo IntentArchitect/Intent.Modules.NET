@@ -143,6 +143,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f3eed6e0-43e2-47e6-b706-65d909f7a090</parentFolderId>
+      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+      <packageName>EfCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

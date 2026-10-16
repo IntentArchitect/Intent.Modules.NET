@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>db7312e2-fb18-49fb-a44e-eca70f1a29ca</parentFolderId>
+  <packageId>96180650-c419-412c-87ba-a67befe3a60a</packageId>
+  <packageName>MudBlazor.ExampleApp</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>97518680-c9d4-4491-a4aa-8c4c8b08b67b</parentFolderId>
+      <packageId>96180650-c419-412c-87ba-a67befe3a60a</packageId>
+      <packageName>MudBlazor.ExampleApp</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

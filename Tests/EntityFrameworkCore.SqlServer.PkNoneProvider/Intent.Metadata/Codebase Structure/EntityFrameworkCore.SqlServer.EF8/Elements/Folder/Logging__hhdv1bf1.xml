@@ -7,6 +7,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>138a7532-64bb-4a06-b624-94cf62b0f891</parentFolderId>
   <packageId>e93314d2-a851-47b0-b3a7-465525ec94fe</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.PkNoneProvider</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +20,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8b503be0-3726-4b77-aa98-b2dd77932d3c</parentFolderId>
       <packageId>e93314d2-a851-47b0-b3a7-465525ec94fe</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.PkNoneProvider</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -34,6 +36,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8b503be0-3726-4b77-aa98-b2dd77932d3c</parentFolderId>
       <packageId>e93314d2-a851-47b0-b3a7-465525ec94fe</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.PkNoneProvider</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

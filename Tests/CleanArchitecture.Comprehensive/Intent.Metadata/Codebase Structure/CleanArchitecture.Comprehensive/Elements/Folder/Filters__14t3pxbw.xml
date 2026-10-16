@@ -243,6 +243,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -279,6 +281,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -2,7 +2,6 @@
 <association id="f400322f-5daf-4513-9d66-770febb89546">
   <sourceEnd id="25c847c6-bffc-49b7-a558-eb33cea0660a" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
     <display>published by : OrderRelayHandler.Handler</display>
-    <order>0</order>
     <typeReference id="82db55cb-48f2-4a12-b1af-bf32d8d904de">
       <typeId>b8f039eb-3658-4f2d-be4a-7fc62f0fd5a3</typeId>
       <typeName>Handler</typeName>

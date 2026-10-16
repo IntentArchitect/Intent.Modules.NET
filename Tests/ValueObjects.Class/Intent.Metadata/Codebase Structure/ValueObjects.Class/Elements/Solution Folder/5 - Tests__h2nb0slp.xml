@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>db2287c9-6d9f-43e3-8823-4717cc27da01</parentFolderId>
+  <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+  <packageName>ValueObjects.Class</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>63d346da-a893-4028-a267-9a9aef958803</parentFolderId>
+      <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+      <packageName>ValueObjects.Class</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -67,6 +71,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -87,6 +93,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>98c8739f-4190-4eb4-a873-22354160ba5d</parentFolderId>
+              <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+              <packageName>ValueObjects.Class</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -99,6 +107,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>98c8739f-4190-4eb4-a873-22354160ba5d</parentFolderId>
+              <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+              <packageName>ValueObjects.Class</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
                   <addedByDefault>false</addedByDefault>
@@ -135,6 +145,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>98c8739f-4190-4eb4-a873-22354160ba5d</parentFolderId>
+              <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+              <packageName>ValueObjects.Class</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
                   <addedByDefault>false</addedByDefault>
@@ -170,6 +182,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>98c8739f-4190-4eb4-a873-22354160ba5d</parentFolderId>
+              <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+              <packageName>ValueObjects.Class</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
                   <addedByDefault>false</addedByDefault>
@@ -205,6 +219,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>98c8739f-4190-4eb4-a873-22354160ba5d</parentFolderId>
+              <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+              <packageName>ValueObjects.Class</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
                   <addedByDefault>false</addedByDefault>
@@ -241,6 +257,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>98c8739f-4190-4eb4-a873-22354160ba5d</parentFolderId>
+              <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+              <packageName>ValueObjects.Class</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
                   <addedByDefault>false</addedByDefault>
@@ -278,6 +296,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -298,6 +318,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>7a8e2111-0b46-4789-8117-0117d57e0213</parentFolderId>
+              <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+              <packageName>ValueObjects.Class</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -310,6 +332,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>7a8e2111-0b46-4789-8117-0117d57e0213</parentFolderId>
+              <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+              <packageName>ValueObjects.Class</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
                   <addedByDefault>false</addedByDefault>
@@ -347,6 +371,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -367,6 +393,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>d5ce20de-3317-46ce-9910-06fec0fcf992</parentFolderId>
+              <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+              <packageName>ValueObjects.Class</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -379,6 +407,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>d5ce20de-3317-46ce-9910-06fec0fcf992</parentFolderId>
+              <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+              <packageName>ValueObjects.Class</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
                   <addedByDefault>false</addedByDefault>
@@ -417,6 +447,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -429,6 +461,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -465,6 +499,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -500,6 +536,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -536,6 +574,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -572,6 +612,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -608,6 +650,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -644,6 +688,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -680,6 +726,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -715,6 +763,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -729,6 +779,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -743,6 +795,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -778,6 +832,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -813,6 +869,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aa0dc054-2e4e-485e-ac90-93ea4ae5e8bd</parentFolderId>
+          <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+          <packageName>ValueObjects.Class</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

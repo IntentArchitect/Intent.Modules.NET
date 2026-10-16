@@ -7,7 +7,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>08e9bf50-0acf-4562-becf-b96a56245218</parentFolderId>
   <packageId>08e9bf50-0acf-4562-becf-b96a56245218</packageId>
-  <packageName>Wolverine.Transport.AzureServiceBus.Services</packageName>
+  <packageName>WolverineEventing.Transport.AzureServiceBus.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements />

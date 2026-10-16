@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0468b4bb-04b7-4441-a4c3-4303581f0bd4</parentFolderId>
+  <packageId>076efad2-3524-475f-981d-f7bb06ea9c21</packageId>
+  <packageName>RichDomain</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ad367c07-0008-4346-8f4e-d0da2e86740b</parentFolderId>
+      <packageId>076efad2-3524-475f-981d-f7bb06ea9c21</packageId>
+      <packageName>RichDomain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

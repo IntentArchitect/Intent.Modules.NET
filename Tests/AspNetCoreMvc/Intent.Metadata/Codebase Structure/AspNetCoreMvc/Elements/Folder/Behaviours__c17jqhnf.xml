@@ -311,6 +311,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e9a8bd9f-af49-471c-a70c-250fc6731bfa</parentFolderId>
+      <packageId>a6f3be8b-db13-47fa-9df8-a1a2a7f5124c</packageId>
+      <packageName>AspNetCoreMvc</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

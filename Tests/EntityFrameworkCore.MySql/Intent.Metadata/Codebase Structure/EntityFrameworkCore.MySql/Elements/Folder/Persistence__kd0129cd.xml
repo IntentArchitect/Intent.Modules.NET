@@ -76,6 +76,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a3b293fb-2867-4af8-8b37-30778c38848e</parentFolderId>
+      <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+      <packageName>EntityFrameworkCore.MySql</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

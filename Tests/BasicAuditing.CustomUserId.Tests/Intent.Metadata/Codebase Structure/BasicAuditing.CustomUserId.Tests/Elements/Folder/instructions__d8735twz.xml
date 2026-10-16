@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>70a20693-8166-4c08-978f-ad476da903b3</parentFolderId>
+  <packageId>266990af-580e-4b5b-9d78-54639dd67747</packageId>
+  <packageName>BasicAuditing.CustomUserId.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d37c78b1-f374-4e41-882f-8b6218fd2fb6</parentFolderId>
+      <packageId>266990af-580e-4b5b-9d78-54639dd67747</packageId>
+      <packageName>BasicAuditing.CustomUserId.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

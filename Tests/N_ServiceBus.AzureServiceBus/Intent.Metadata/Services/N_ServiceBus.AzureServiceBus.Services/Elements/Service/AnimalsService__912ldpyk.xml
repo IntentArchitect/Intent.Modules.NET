@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>46210188-31bb-4ad1-89d2-ac849b5f8c3b</parentFolderId>
   <packageId>6ada38bc-eb52-4e66-baf9-750369c1f931</packageId>
-  <packageName>NServiceBus.AzureServiceBus.Services</packageName>
+  <packageName>N_ServiceBus.AzureServiceBus.Services</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
       <addedByDefault>false</addedByDefault>
@@ -38,7 +38,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>1665ba82-3196-40b8-8f26-7af73ca4b954</parentFolderId>
       <packageId>6ada38bc-eb52-4e66-baf9-750369c1f931</packageId>
-      <packageName>NServiceBus.AzureServiceBus.Services</packageName>
+      <packageName>N_ServiceBus.AzureServiceBus.Services</packageName>
       <traits>
         <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
         <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
@@ -77,7 +77,7 @@
           <isMapped>false</isMapped>
           <parentFolderId>4808ba62-47bb-40a6-acec-d5ce7402e0ff</parentFolderId>
           <packageId>6ada38bc-eb52-4e66-baf9-750369c1f931</packageId>
-          <packageName>NServiceBus.AzureServiceBus.Services</packageName>
+          <packageName>N_ServiceBus.AzureServiceBus.Services</packageName>
           <stereotypes />
           <metadata />
           <childElements />

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e13b97f9-3054-4118-bfe9-cbbe57b1d400</parentFolderId>
+  <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+  <packageName>EntityFrameworkCore.SplitQueries.MySql</packageName>
   <stereotypes />
   <metadata />
   <childElements />

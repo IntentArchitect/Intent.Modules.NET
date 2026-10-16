@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>31a87ef9-46bf-49e1-acbe-800b0b6f14d7</parentFolderId>
+  <packageId>31a87ef9-46bf-49e1-acbe-800b0b6f14d7</packageId>
+  <packageName>AzureIdentityManagement.Domain.CosmosDB</packageName>
   <diagram>
     <targetPackageId>4bc1b8bf-c3a2-47fe-b454-f67c2a66ed7f</targetPackageId>
   </diagram>

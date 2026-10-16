@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>c05aba94-2ef9-4d33-b6d5-c55775781493</parentFolderId>
+  <packageId>c05aba94-2ef9-4d33-b6d5-c55775781493</packageId>
+  <packageName>MassTransit.RetryPolicy.Exponential</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -16,6 +18,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2ed50611-d3eb-4997-af53-9532c0c80264</parentFolderId>
+      <packageId>c05aba94-2ef9-4d33-b6d5-c55775781493</packageId>
+      <packageName>MassTransit.RetryPolicy.Exponential</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -27,6 +31,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2ed50611-d3eb-4997-af53-9532c0c80264</parentFolderId>
+      <packageId>c05aba94-2ef9-4d33-b6d5-c55775781493</packageId>
+      <packageName>MassTransit.RetryPolicy.Exponential</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -38,6 +44,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2ed50611-d3eb-4997-af53-9532c0c80264</parentFolderId>
+      <packageId>c05aba94-2ef9-4d33-b6d5-c55775781493</packageId>
+      <packageName>MassTransit.RetryPolicy.Exponential</packageName>
       <stereotypes />
       <metadata />
       <childElements />

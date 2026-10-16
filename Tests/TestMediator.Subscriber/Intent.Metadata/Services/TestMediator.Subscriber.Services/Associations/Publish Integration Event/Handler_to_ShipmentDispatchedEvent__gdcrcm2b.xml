@@ -2,7 +2,6 @@
 <association id="e09058d0-7e7f-4cdd-997f-a34fc0e4e17a">
   <sourceEnd id="3507245d-bb15-4f60-b0f8-0c897fa8afcf" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
     <display>published by : OrderShippedEventHandler.Handler</display>
-    <order>0</order>
     <typeReference id="d9879e0b-4b12-46f2-a749-97959e9ba7e8">
       <typeId>1308a8f4-1c12-4912-9c4d-6c48a7cfd4b8</typeId>
       <typeName>Handler</typeName>

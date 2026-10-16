@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>3e9b07e5-07e9-4e42-9ad0-44951af1bd23</parentFolderId>
   <packageId>3e9b07e5-07e9-4e42-9ad0-44951af1bd23</packageId>
-  <packageName>NServiceBus.AzureServiceBus.Eventing.Messages</packageName>
+  <packageName>N_ServiceBus.AzureServiceBus.Eventing.Messages</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="c45c1bba-04ce-4ba3-88e6-c69b6ce3d1ca" name="NServiceBus">
       <addedByDefault>false</addedByDefault>
@@ -40,7 +40,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>04acbb36-65d3-4bf8-9f55-2e7bd16b8ec0</parentFolderId>
       <packageId>3e9b07e5-07e9-4e42-9ad0-44951af1bd23</packageId>
-      <packageName>NServiceBus.AzureServiceBus.Eventing.Messages</packageName>
+      <packageName>N_ServiceBus.AzureServiceBus.Eventing.Messages</packageName>
       <stereotypes />
       <metadata />
       <childElements />

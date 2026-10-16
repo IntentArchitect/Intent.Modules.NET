@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>852131cc-15b4-4306-87d6-5edcb63595df</parentFolderId>
+  <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+  <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>51886537-db4a-431c-a96d-566e2887bf2d</parentFolderId>
+      <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+      <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -74,6 +78,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d110e403-24d4-43fa-b63a-f175475c915a</parentFolderId>
+          <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+          <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -94,6 +100,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>d0880cdb-a907-4598-a2d4-3b19be5e3933</parentFolderId>
+              <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+              <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -108,6 +116,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d110e403-24d4-43fa-b63a-f175475c915a</parentFolderId>
+          <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+          <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,6 +130,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d110e403-24d4-43fa-b63a-f175475c915a</parentFolderId>
+          <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+          <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -132,6 +144,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d110e403-24d4-43fa-b63a-f175475c915a</parentFolderId>
+          <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+          <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -168,6 +182,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d110e403-24d4-43fa-b63a-f175475c915a</parentFolderId>
+          <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+          <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -204,6 +220,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d110e403-24d4-43fa-b63a-f175475c915a</parentFolderId>
+          <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+          <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

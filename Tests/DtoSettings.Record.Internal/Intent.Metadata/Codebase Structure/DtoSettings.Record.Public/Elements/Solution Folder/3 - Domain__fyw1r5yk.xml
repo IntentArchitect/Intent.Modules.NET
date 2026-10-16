@@ -7,6 +7,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>71d6e0dd-b394-4a47-b358-3de19d40a714</parentFolderId>
+  <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+  <packageName>DtoSettings.Record.Public</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -18,6 +20,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>56ba0aca-4ae1-49a7-8781-10c72d484a7f</parentFolderId>
+      <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+      <packageName>DtoSettings.Record.Public</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -63,6 +67,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d5320ea-e518-4826-ac06-08148727eaab</parentFolderId>
+          <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+          <packageName>DtoSettings.Record.Public</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -83,6 +89,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>d5c31fef-2855-4fb7-a28b-558c7c89b26c</parentFolderId>
+              <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+              <packageName>DtoSettings.Record.Public</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -95,6 +103,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>d5c31fef-2855-4fb7-a28b-558c7c89b26c</parentFolderId>
+              <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+              <packageName>DtoSettings.Record.Public</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
                   <addedByDefault>false</addedByDefault>
@@ -131,6 +141,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>d5c31fef-2855-4fb7-a28b-558c7c89b26c</parentFolderId>
+              <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+              <packageName>DtoSettings.Record.Public</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />
@@ -145,6 +157,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>d5c31fef-2855-4fb7-a28b-558c7c89b26c</parentFolderId>
+              <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+              <packageName>DtoSettings.Record.Public</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />
@@ -161,6 +175,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d5320ea-e518-4826-ac06-08148727eaab</parentFolderId>
+          <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+          <packageName>DtoSettings.Record.Public</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -173,6 +189,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d5320ea-e518-4826-ac06-08148727eaab</parentFolderId>
+          <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+          <packageName>DtoSettings.Record.Public</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -185,6 +203,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d5320ea-e518-4826-ac06-08148727eaab</parentFolderId>
+          <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+          <packageName>DtoSettings.Record.Public</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

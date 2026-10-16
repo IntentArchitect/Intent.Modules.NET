@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3a909b8e-15aa-4888-9476-845d9b83d766</parentFolderId>
+  <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4361e309-3761-4910-9f41-98bbcd030299</parentFolderId>
+      <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -64,6 +68,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e6c6f57e-93d8-4b3f-8800-308471de0af6</parentFolderId>
+          <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -76,6 +82,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e6c6f57e-93d8-4b3f-8800-308471de0af6</parentFolderId>
+          <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -88,6 +96,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e6c6f57e-93d8-4b3f-8800-308471de0af6</parentFolderId>
+          <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -122,6 +132,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e6c6f57e-93d8-4b3f-8800-308471de0af6</parentFolderId>
+          <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements>
@@ -133,6 +145,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>6d6c0dd7-cd8a-4178-80aa-22a13393838a</parentFolderId>
+              <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+              <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />

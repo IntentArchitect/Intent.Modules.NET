@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>025a1882-15ef-4841-b180-d20c55a8e347</parentFolderId>
+  <packageId>025a1882-15ef-4841-b180-d20c55a8e347</packageId>
+  <packageName>N_ServiceBus.SqlServer.Domain</packageName>
   <diagram>
     <targetPackageId>025a1882-15ef-4841-b180-d20c55a8e347</targetPackageId>
   </diagram>

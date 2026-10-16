@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b0452764-1600-48ba-9658-9bef55b4a795</parentFolderId>
+  <packageId>b0452764-1600-48ba-9658-9bef55b4a795</packageId>
+  <packageName>N_ServiceBus.Persistence.NHibernate.Publish.Domain</packageName>
   <diagram>
     <targetPackageId>b0452764-1600-48ba-9658-9bef55b4a795</targetPackageId>
   </diagram>

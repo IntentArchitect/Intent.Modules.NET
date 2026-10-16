@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4a115de8-4e17-4af7-b922-5379423303e7</parentFolderId>
+      <packageId>76e13d0e-3361-4bd7-8238-629326ffdb87</packageId>
+      <packageName>Entities.Constants.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

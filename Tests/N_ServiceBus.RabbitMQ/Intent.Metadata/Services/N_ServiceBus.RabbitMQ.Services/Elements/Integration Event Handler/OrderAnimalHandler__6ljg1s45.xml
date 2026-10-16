@@ -7,7 +7,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>509ec879-9053-4eec-ba0e-2849e66d1797</parentFolderId>
   <packageId>509ec879-9053-4eec-ba0e-2849e66d1797</packageId>
-  <packageName>NServiceBus.RabbitMQ.Services</packageName>
+  <packageName>N_ServiceBus.RabbitMQ.Services</packageName>
   <traits>
     <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
   </traits>

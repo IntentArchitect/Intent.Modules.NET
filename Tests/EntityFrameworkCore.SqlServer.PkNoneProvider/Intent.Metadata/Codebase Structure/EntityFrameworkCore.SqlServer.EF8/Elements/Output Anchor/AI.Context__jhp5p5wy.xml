@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8dca22af-35f8-4c54-84af-a7d109002cfa</parentFolderId>
+  <packageId>e93314d2-a851-47b0-b3a7-465525ec94fe</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.PkNoneProvider</packageName>
   <stereotypes />
   <metadata />
   <childElements />

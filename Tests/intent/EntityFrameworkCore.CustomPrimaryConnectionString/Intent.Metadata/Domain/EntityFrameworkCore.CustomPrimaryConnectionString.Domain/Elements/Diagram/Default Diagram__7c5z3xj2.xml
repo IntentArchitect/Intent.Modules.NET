@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>fd925c2d-807f-4d80-a85c-5ef96cf6810c</parentFolderId>
+  <packageId>fd925c2d-807f-4d80-a85c-5ef96cf6810c</packageId>
+  <packageName>EntityFrameworkCore.CustomPrimaryConnectionString.Domain</packageName>
   <diagram>
     <targetPackageId>fd925c2d-807f-4d80-a85c-5ef96cf6810c</targetPackageId>
   </diagram>

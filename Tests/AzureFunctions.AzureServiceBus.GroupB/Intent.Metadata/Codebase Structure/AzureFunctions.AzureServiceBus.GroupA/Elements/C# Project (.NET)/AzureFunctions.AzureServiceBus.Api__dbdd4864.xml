@@ -9,7 +9,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>c4019e8b-c5a3-457d-ab27-da21607e1a81</parentFolderId>
   <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-  <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+  <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
       <addedByDefault>true</addedByDefault>
@@ -59,7 +59,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c1d87bb2-d2e7-473a-9fa2-cc5f3049b0f9</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -75,7 +75,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c1d87bb2-d2e7-473a-9fa2-cc5f3049b0f9</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -91,7 +91,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c1d87bb2-d2e7-473a-9fa2-cc5f3049b0f9</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -107,7 +107,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c1d87bb2-d2e7-473a-9fa2-cc5f3049b0f9</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -123,7 +123,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c1d87bb2-d2e7-473a-9fa2-cc5f3049b0f9</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -139,7 +139,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c1d87bb2-d2e7-473a-9fa2-cc5f3049b0f9</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -153,7 +153,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c1d87bb2-d2e7-473a-9fa2-cc5f3049b0f9</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -166,6 +166,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c1d87bb2-d2e7-473a-9fa2-cc5f3049b0f9</parentFolderId>
+      <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
