@@ -106,5 +106,6 @@
   <metadata>
     <install target="Services" src="modelers/Mediator Domain Events Services Extensions.designer.settings" externalReference="b3db3c15-2ad8-4b70-a48f-1a96b6678152" />
   </metadata>
+  <releaseNotes>release-notes.md</releaseNotes>
   <migrations />
 </package>

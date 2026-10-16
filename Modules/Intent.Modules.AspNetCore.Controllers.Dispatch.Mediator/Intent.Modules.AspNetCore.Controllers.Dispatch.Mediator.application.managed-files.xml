@@ -9,4 +9,5 @@
   <file path="FactoryExtensions/MediatorControllerDispatchExtension.cs" deviationsHash="1613669935B71C0986C94E749BD7761F5170D0AA790048E99A8FBE6F3B68EECA" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.AspNetCore.Controllers.Dispatch.Mediator.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.AspNetCore.Controllers.Dispatch.Mediator.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

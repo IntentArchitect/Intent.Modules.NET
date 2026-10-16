@@ -72,5 +72,6 @@
   <tags>mediator fluentvalidation validation cqrs dotnet</tags>
   <moduleSettingsExtensions />
   <metadata />
+  <releaseNotes>release-notes.md</releaseNotes>
   <migrations />
 </package>

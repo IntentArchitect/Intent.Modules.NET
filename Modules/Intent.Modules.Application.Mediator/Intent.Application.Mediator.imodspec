@@ -253,5 +253,6 @@
   <metadata>
     <install target="Services" src="modelers/Mediator Services Extensions.designer.settings" externalReference="1103f3e9-ac22-41eb-aa4c-64e21f1e6bfd" />
   </metadata>
+  <releaseNotes>release-notes.md</releaseNotes>
   <migrations />
 </package>

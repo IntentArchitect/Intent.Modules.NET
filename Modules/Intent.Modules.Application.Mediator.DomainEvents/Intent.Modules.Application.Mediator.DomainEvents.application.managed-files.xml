@@ -26,4 +26,5 @@
   <file path="Templates/TypedDomainEventNotification/TypedDomainEventNotificationTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/TypedDomainEventNotification/TypedDomainEventNotificationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="modelers/Mediator Domain Events Services Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

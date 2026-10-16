@@ -44,4 +44,5 @@
   <file path="Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplatePartial.cs" deviationsHash="D5431C7D5725EF4A16061D7CF61401281D0234797B2213DA4CDEB8F4CF8F8C65" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="modelers/Mediator Services Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

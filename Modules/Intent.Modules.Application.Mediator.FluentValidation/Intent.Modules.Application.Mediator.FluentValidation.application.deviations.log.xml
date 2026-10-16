@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#2f9fa230-9b10-4eea-b0d8-3a231b17c9aa</correlationId>
+      <path>FactoryExtensions/UnhandledExceptionBehaviourExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-16T13:35:19.5507773Z</updatedAt>
+      <deviationsHash>89AE800603CAD00DCCA319490467B9DF792642A70D1C7B6C27CA93639BF49675</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a288ffaf-91c1-478e-9b9a-a227cc71f370</correlationId>
       <path>Templates/CommandValidator/CommandValidatorTemplatePartial.cs</path>
       <count>4</count>

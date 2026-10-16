@@ -9,4 +9,5 @@
   <file path="FactoryExtensions/MediatorEndpointExtension.cs" deviationsHash="9173D63D493E6606556A52F0BB0242A4732DF37FA5F549911C38B4D42C136F71" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.FastEndpoints.Dispatch.Mediator.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.FastEndpoints.Dispatch.Mediator.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>
