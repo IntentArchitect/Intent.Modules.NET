@@ -61,6 +61,30 @@ namespace Intent.Domain.Guardrails.Contracts.Api
             return true;
         }
 
+        public static OperationConfiguration GetOperationConfiguration(this OperationModel model)
+        {
+            var stereotype = model.GetStereotype(OperationConfiguration.DefinitionId);
+            return stereotype != null ? new OperationConfiguration(stereotype) : null;
+        }
+
+
+        public static bool HasOperationConfiguration(this OperationModel model)
+        {
+            return model.HasStereotype(OperationConfiguration.DefinitionId);
+        }
+
+        public static bool TryGetOperationConfiguration(this OperationModel model, out OperationConfiguration stereotype)
+        {
+            if (!HasOperationConfiguration(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new OperationConfiguration(model.GetStereotype(OperationConfiguration.DefinitionId));
+            return true;
+        }
+
         public class AsyncConfiguration
         {
             private IStereotype _stereotype;
@@ -73,14 +97,111 @@ namespace Intent.Domain.Guardrails.Contracts.Api
 
             public string Name => _stereotype.Name;
 
-            public bool IsAsync()
-            {
-                return _stereotype.GetProperty<bool>("Is Async");
-            }
-
             public bool IncludeCancellationToken()
             {
                 return _stereotype.GetProperty<bool>("Include Cancellation Token");
+            }
+
+            public AsyncModeOptions AsyncMode()
+            {
+                return new AsyncModeOptions(_stereotype.GetProperty<string>("Async Mode"));
+            }
+
+            public TaskTypeOptions TaskType()
+            {
+                return new TaskTypeOptions(_stereotype.GetProperty<string>("Task Type"));
+            }
+
+            public string CancellationTokenName()
+            {
+                return _stereotype.GetProperty<string>("Cancellation Token Name");
+            }
+
+            public bool CancellationTokenDefault()
+            {
+                return _stereotype.GetProperty<bool>("Cancellation Token Default");
+            }
+
+            public class AsyncModeOptions
+            {
+                public readonly string Value;
+
+                public AsyncModeOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public AsyncModeOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "async":
+                            return AsyncModeOptionsEnum.Async;
+                        case "no async keyword":
+                            return AsyncModeOptionsEnum.NoAsyncKeyword;
+                        case "sync":
+                            return AsyncModeOptionsEnum.Sync;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsAsync()
+                {
+                    return Value == "async";
+                }
+                public bool IsNoAsyncKeyword()
+                {
+                    return Value == "no async keyword";
+                }
+                public bool IsSync()
+                {
+                    return Value == "sync";
+                }
+            }
+
+            public enum AsyncModeOptionsEnum
+            {
+                Async,
+                NoAsyncKeyword,
+                Sync
+            }
+            public class TaskTypeOptions
+            {
+                public readonly string Value;
+
+                public TaskTypeOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public TaskTypeOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "Task":
+                            return TaskTypeOptionsEnum.Task;
+                        case "ValueTask":
+                            return TaskTypeOptionsEnum.ValueTask;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsTask()
+                {
+                    return Value == "Task";
+                }
+                public bool IsValueTask()
+                {
+                    return Value == "ValueTask";
+                }
+            }
+
+            public enum TaskTypeOptionsEnum
+            {
+                Task,
+                ValueTask
             }
 
         }
@@ -206,6 +327,110 @@ namespace Intent.Domain.Guardrails.Contracts.Api
                 IQueryable,
                 Array,
                 Custom
+            }
+        }
+
+        public class OperationConfiguration
+        {
+            private IStereotype _stereotype;
+            public const string DefinitionId = "721c01a7-4220-421a-94ac-feafc9128092";
+
+            public OperationConfiguration(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+            public AccessModifierOptions AccessModifier()
+            {
+                return new AccessModifierOptions(_stereotype.GetProperty<string>("Access Modifier"));
+            }
+
+            public bool Virtual()
+            {
+                return _stereotype.GetProperty<bool>("Virtual");
+            }
+
+            public bool Override()
+            {
+                return _stereotype.GetProperty<bool>("Override");
+            }
+
+            public bool Sealed()
+            {
+                return _stereotype.GetProperty<bool>("Sealed");
+            }
+
+            public bool New()
+            {
+                return _stereotype.GetProperty<bool>("New");
+            }
+
+            public class AccessModifierOptions
+            {
+                public readonly string Value;
+
+                public AccessModifierOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public AccessModifierOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "public":
+                            return AccessModifierOptionsEnum.Public;
+                        case "protected":
+                            return AccessModifierOptionsEnum.Protected;
+                        case "internal":
+                            return AccessModifierOptionsEnum.Internal;
+                        case "private":
+                            return AccessModifierOptionsEnum.Private;
+                        case "protected internal":
+                            return AccessModifierOptionsEnum.ProtectedInternal;
+                        case "none":
+                            return AccessModifierOptionsEnum.None;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsPublic()
+                {
+                    return Value == "public";
+                }
+                public bool IsProtected()
+                {
+                    return Value == "protected";
+                }
+                public bool IsInternal()
+                {
+                    return Value == "internal";
+                }
+                public bool IsPrivate()
+                {
+                    return Value == "private";
+                }
+                public bool IsProtectedInternal()
+                {
+                    return Value == "protected internal";
+                }
+                public bool IsNone()
+                {
+                    return Value == "none";
+                }
+            }
+
+            public enum AccessModifierOptionsEnum
+            {
+                Public,
+                Protected,
+                Internal,
+                Private,
+                ProtectedInternal,
+                None
             }
         }
 

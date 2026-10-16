@@ -17,7 +17,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
     /// User decision: this module does not depend on Intent.Modelers.Domain.Events, and references neither its NuGet
     /// package nor its assembly. A consumer installs that module only when its code has domain events; without it
     /// there are no Domain Event elements and nothing is generated. So there are no typed models (no DomainEventModel)
-    /// and, because the three Domain Event stereotypes target elements by specialization id, no generated typed
+    /// and, because the four Domain Event stereotypes target elements by specialization id, no generated typed
     /// accessors either. Reading by element type id and stereotype definition id is the fallback the typed-accessor
     /// rule permits when no typed accessor exists. Every raw id and property name is kept here, in one place.
     /// </para>
@@ -33,6 +33,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         public const string FileConfigDefinitionId = "42c50d5f-97a1-47b2-b76a-f7bb5936650f";
         public const string TypeConfigurationDefinitionId = "41304368-35ef-4063-ae8a-017587f7c8ac";
         public const string CollectionTypeDefinitionId = "3eb6bbc8-7734-4523-849d-595c1bbcc810";
+        public const string PropertyConfigurationDefinitionId = "68051676-fae8-4ae9-8b46-d19fe8ae776d";
 
         private const string FilenameProperty = "Filename";
         private const string NamespaceProperty = "Namespace";
@@ -40,6 +41,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         private const string TypeProperty = "Type";
         private const string ModifiersProperty = "Modifiers";
         private const string CustomFormatProperty = "Custom Format";
+        private const string RequiredProperty = "Required";
 
         public static bool IsDomainEvent(this IElement element)
         {
@@ -112,6 +114,12 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         public static string GetDomainEventModifiers(this IElement domainEvent)
         {
             return domainEvent.GetStereotype(TypeConfigurationDefinitionId)?.GetProperty<string>(ModifiersProperty);
+        }
+
+        /// <summary>True when a Domain Event Property's Property Configuration has Required ticked.</summary>
+        public static bool IsRequiredDomainEventProperty(this IElement property)
+        {
+            return property.GetStereotype(PropertyConfigurationDefinitionId)?.GetProperty<bool>(RequiredProperty) == true;
         }
 
         /// <summary>

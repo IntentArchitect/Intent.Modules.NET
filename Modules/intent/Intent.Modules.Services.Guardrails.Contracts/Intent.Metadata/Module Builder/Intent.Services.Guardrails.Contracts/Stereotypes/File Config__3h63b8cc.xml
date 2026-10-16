@@ -20,7 +20,7 @@ return ["d80e61c5-7e4c-4175-9df1-0413f664824c", "cbe970af-5bad-4d92-a3ed-a24b9fd
   <packageName>Intent.Services.Guardrails.Contracts</packageName>
   <properties>
     <property id="c7b26cd6-fc4b-40ad-9f6e-888090700814">
-      <hint>Optional. The existing file's name, with or without .cs; the file stays in this element's folder. Elements with the same Filename in the same folder are generated into one file.</hint>
+      <hint>Optional. The existing file's name, with or without .cs; the file stays in this element's folder. With .cs the name is used exactly as written, so include it when the name starts or ends with a space (e.g. abc .cs); without it, surrounding spaces are trimmed. Elements with the same Filename in the same folder are generated into one file.</hint>
       <name>Filename</name>
       <type>string</type>
       <controlType>text</controlType>

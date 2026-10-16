@@ -61,6 +61,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 {
                     property.RepresentsModel(attribute);
                     property.WithContractInitialValue(template, attribute.Value, attribute.TypeReference);
+                    property.WithContractRequired(attribute.GetPropertyConfiguration()?.Required() == true);
                 });
             }
         }
@@ -76,6 +77,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 {
                     p.RepresentsModel(property);
                     p.WithContractInitialValue(template, property.Value, property.TypeReference);
+                    p.WithContractRequired(property.IsRequiredDomainEventProperty());
                 });
             }
         }
@@ -84,8 +86,40 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         {
             foreach (var associationEnd in associationEnds.Where(x => x.IsNavigable))
             {
-                @class.AddProperty(template.GetPropertyTypeName(associationEnd, associationEnd.GetCollectionFormat()), associationEnd.Name, property => property.RepresentsModel(associationEnd));
+                @class.AddProperty(template.GetPropertyTypeName(associationEnd, associationEnd.GetCollectionFormat()), associationEnd.Name, property =>
+                {
+                    property.RepresentsModel(associationEnd);
+                    property.WithContractRequired(associationEnd.IsContractRequired());
+                });
             }
+        }
+
+        /// <summary>
+        /// Property Configuration Required: the property is declared <c>required</c>. Under Merge a property's own modifiers follow
+        /// the generated ones, and on its first merge into an existing file every existing modifier is replaced, so a
+        /// <c>required</c> in the code survives only if it is modelled. Positional parameters never get here, so the stereotype
+        /// is ignored on a positional record's fields (user decision).
+        /// </summary>
+        private static void WithContractRequired(this CSharpProperty property, bool isRequired)
+        {
+            if (isRequired)
+            {
+                property.Required();
+            }
+        }
+
+        /// <summary>
+        /// Navigation properties: <see cref="ClassModel.AssociatedClasses"/> holds the concrete target and source end models, and
+        /// each has its own generated Property Configuration accessor.
+        /// </summary>
+        private static bool IsContractRequired(this AssociationEndModel associationEnd)
+        {
+            return associationEnd switch
+            {
+                AssociationTargetEndModel targetEnd => targetEnd.GetPropertyConfiguration()?.Required() == true,
+                AssociationSourceEndModel sourceEnd => sourceEnd.GetPropertyConfiguration()?.Required() == true,
+                _ => false
+            };
         }
 
         /// <summary>
@@ -99,6 +133,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 @class.AddConstructor(ctor =>
                 {
                     ctor.RepresentsModel(constructor);
+                    ctor.ApplyContractAccessModifier(constructor.InternalElement, constructor.GetConstructorConfiguration()?.AccessModifier().Value);
                     ctor.AddContractConstructorParameters(template, constructor);
                 });
             }
@@ -252,7 +287,12 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         {
             foreach (var operation in operations)
             {
-                @class.AddMethod(template.GetOperationReturnType(operation), operation.Name, method =>
+                var async = operation.GetContractAsync();
+                var modelledReturnType = CSharpTypeParser.Parse(operation.TypeReference?.Element != null
+                    ? template.GetOperationTypeName(operation.TypeReference, operation.GetCollectionFormat())
+                    : "void");
+
+                @class.AddMethod(async.GetReturnType(modelledReturnType, template), operation.Name, method =>
                 {
                     method.RepresentsModel(operation);
                     foreach (var genericType in operation.GenericTypes)
@@ -260,10 +300,15 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                         method.AddGenericParameter(genericType);
                     }
 
-                    if (operation.IsStatic)
-                    {
-                        method.Static();
-                    }
+                    var configuration = operation.GetOperationConfiguration();
+                    method.ApplyContractModifiers(operation.InternalElement, configuration?.AccessModifier().Value,
+                        isStatic: operation.IsStatic,
+                        isAbstract: operation.IsAbstract,
+                        isVirtual: configuration?.Virtual() == true,
+                        isOverride: configuration?.Override() == true,
+                        isSealed: configuration?.Sealed() == true,
+                        isNew: configuration?.New() == true);
+
 
                     foreach (var parameter in operation.Parameters)
                     {
@@ -276,10 +321,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                         });
                     }
 
-                    if (operation.IncludeCancellationToken())
-                    {
-                        method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken", param => param.WithDefaultValue("default"));
-                    }
+                    async.AddCancellationTokenParameter(method, template);
 
                     if (operation.IsAbstract)
                     {
@@ -292,74 +334,20 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                         return;
                     }
 
-                    // Under Mode.Merge the existing method's modifiers are replaced with these, so async must be emitted
-                    // to keep async/await implementations compiling.
-                    if (operation.IsAsync())
-                    {
-                        // Async() with no argument converts a ValueTask return type to Task; keep a modelled ValueTask as is.
-                        if (method.ReturnTypeInfo.IsValueTask())
-                        {
-                            method.Async(asValueTask: true);
-                        }
-                        else
-                        {
-                            method.Async();
-                        }
-                    }
+                    async.ApplyAsyncKeyword(method);
                 });
             }
         }
 
-        /// <summary>
-        /// An explicit Async Configuration stereotype wins; otherwise an operation is async when its name ends with "Async".
-        /// </summary>
-        public static bool IsAsync(this OperationModel operation)
+        // The stereotype accessors are generated against the Common.Types operation model; both wrap the same designer element.
+        private static ContractAsync GetContractAsync(this OperationModel operation)
         {
-            var asyncConfiguration = operation.GetAsyncConfiguration();
-            return asyncConfiguration?.IsAsync() ?? operation.Name.EndsWith("Async", StringComparison.Ordinal);
+            return ContractAsync.For(operation.InternalElement, new CommonTypesOperationModel(operation.InternalElement).GetAsyncConfiguration(), operation.Parameters.Select(x => x.Name));
         }
 
-        /// <summary>
-        /// Async operations get a CancellationToken parameter unless the Async Configuration stereotype turns it off.
-        /// </summary>
-        private static bool IncludeCancellationToken(this OperationModel operation)
+        private static OperationModelStereotypeExtensions.OperationConfiguration GetOperationConfiguration(this OperationModel operation)
         {
-            return operation.IsAsync() && (operation.GetAsyncConfiguration()?.IncludeCancellationToken() ?? true);
-        }
-
-        // The stereotype accessor is generated against the Common.Types operation model; both wrap the same designer element.
-        private static OperationModelStereotypeExtensions.AsyncConfiguration GetAsyncConfiguration(this OperationModel operation)
-        {
-            return new CommonTypesOperationModel(operation.InternalElement).GetAsyncConfiguration();
-        }
-
-        private static string GetOperationReturnType(this ICSharpTemplate template, OperationModel operation)
-        {
-            var hasReturnType = operation.TypeReference?.Element != null;
-            if (!operation.IsAsync())
-            {
-                return hasReturnType ? template.GetOperationTypeName(operation.TypeReference, operation.GetCollectionFormat()) : "void";
-            }
-
-            if (!hasReturnType)
-            {
-                return template.UseType("System.Threading.Tasks.Task");
-            }
-
-            // A return type already modelled as Task / Task<T> / ValueTask / ValueTask<T> is not wrapped again.
-            var returnType = template.GetOperationTypeName(operation.TypeReference, operation.GetCollectionFormat());
-            return IsAwaitableType(returnType)
-                ? returnType
-                : $"{template.UseType("System.Threading.Tasks.Task")}<{returnType}>";
-        }
-
-        private static bool IsAwaitableType(string typeName)
-        {
-            var genericStart = typeName.IndexOf('<');
-            var name = (genericStart >= 0 ? typeName.Substring(0, genericStart) : typeName).TrimEnd('?');
-            var lastDot = name.LastIndexOf('.');
-            name = lastDot >= 0 ? name.Substring(lastDot + 1) : name;
-            return name is "Task" or "ValueTask";
+            return new CommonTypesOperationModel(operation.InternalElement).GetOperationConfiguration();
         }
 
         /// <summary>

@@ -42,8 +42,10 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         private static readonly char[] InvalidFileNameChars = [':', '*', '?', '"', '<', '>', '|'];
 
         /// <summary>
-        /// Applies a File Config Filename, if any. A trailing ".cs" is optional. The file always stays
-        /// in the element's own folder. Empty or absent means the default (the element name).
+        /// Applies a File Config Filename, if any. A trailing ".cs" is optional. With it, the name is taken exactly as
+        /// written (only whitespace after ".cs" is ignored), so a file whose name starts or ends with a space, such as
+        /// "abc .cs", can be targeted; without it, surrounding whitespace is trimmed. The file always stays in the
+        /// element's own folder. Empty or absent means the default (the element name).
         /// Must be called in the template constructor, before the file config is read.
         /// </summary>
         public static CSharpFile WithContractFileName(this CSharpFile file, IElement element, string filename)
@@ -53,10 +55,14 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 return file;
             }
 
-            var name = filename.Trim();
+            var name = filename.TrimEnd();
             if (name.EndsWith(".cs", StringComparison.OrdinalIgnoreCase))
             {
                 name = name.Substring(0, name.Length - ".cs".Length);
+            }
+            else
+            {
+                name = name.Trim();
             }
 
             if (name.IndexOfAny(PathSeparators) >= 0)
@@ -67,7 +73,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                     "Move the element into the designer folder that matches the file's location and set Filename to just the file name.");
             }
 
-            if (name.Length == 0 ||
+            if (string.IsNullOrWhiteSpace(name) ||
                 name == "." ||
                 name == ".." ||
                 name.EndsWith(".", StringComparison.Ordinal) ||
@@ -204,7 +210,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         private static bool IsIdentifierPart(char c)
         {
             return IsIdentifierStart(c) ||
-                   char.GetUnicodeCategory(c) is UnicodeCategory.DecimalDigitNumber or UnicodeCategory.Format;
+                char.GetUnicodeCategory(c) is UnicodeCategory.DecimalDigitNumber or UnicodeCategory.Format;
         }
 
         /// <summary>
@@ -312,8 +318,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 .ToList();
 
             var owner = ordered.FirstOrDefault(x => string.Equals(x.ContractElement.Name, fileName, StringComparison.Ordinal))
-                        ?? ordered.FirstOrDefault(x => string.Equals(x.ContractElement.Name, fileName, StringComparison.OrdinalIgnoreCase))
-                        ?? ordered[0];
+                ?? ordered.FirstOrDefault(x => string.Equals(x.ContractElement.Name, fileName, StringComparison.OrdinalIgnoreCase))
+                ?? ordered[0];
 
             return new FileGroup(owner, ordered.Where(x => !ReferenceEquals(x, owner)).ToList());
         }

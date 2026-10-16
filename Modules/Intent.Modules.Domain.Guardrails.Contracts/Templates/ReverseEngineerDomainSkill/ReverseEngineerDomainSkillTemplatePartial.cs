@@ -59,7 +59,7 @@ Load **scripting-the-model**, **exploring-the-model** and **changing-the-model**
    - **File path:** `GetFolderPath()` makes the file path = Template Output location + the designer folder path.
    - **Class name:** whether it is `Model.Name` verbatim (no `I`, no suffix).
    - **Repository output:** whether repositories generate the **interface** (older pre-release: name the element `ICustomerRepository`, output in the Domain project) or the **implementation class** (newer: name it `CustomerRepository`, output in the Infrastructure `Repositories` folder).
-   - **Async operations:** read `IsAsync()`, `IncludeCancellationToken()` and `GetOperationReturnType()` in `ContractBuilderExtensions`, then model to what you find (see §3 "Async operations"). In the current module an operation is async when its name ends in `Async` (ordinal, so case-sensitive), unless its `Async Configuration` stereotype says otherwise. The older `Asynchronous` stereotype is no longer read.
+   - **Async operations:** read `ContractAsync` (and `AddStubbedMethods` in `ContractBuilderExtensions`), then model to what you find (see §3 "Async operations"). In the current module an operation is async when its name ends in `Async` (ordinal, so case-sensitive), unless its `Async Configuration` stereotype says otherwise. The older `Asynchronous` stereotype is no longer read.
    - **Merge directives:** whether the template output carries both `[assembly: DefaultIntentManaged(...)]` lines (see §6).
 
 ## 1. Extract the code (read-only, in parallel)
@@ -69,8 +69,8 @@ Dispatch read-only `Explore` sub-agents in **one** message, with non-overlapping
 - **Domain project, every `.cs` file plus the EF `IEntityTypeConfiguration`s and the `DbContext`.** For each type, report:
   - Path, namespace and kind (aggregate root / owned entity / value object / enum / repository interface / helper).
   - Declaration modifiers exactly as written: `public`, `internal` or none, plus `sealed`, `abstract`, `static`, `partial`.
-  - Every property: exact type **as spelled** (e.g. `Nullable<T>` vs `T?`, `System.Guid` vs `Guid`, partly qualified names such as `DTO.Logging.LogDTO`), nullability, collection-ness and setter.
-  - Constructors and public methods (signatures only, with parameter and return types as spelled).
+  - Every property: exact type **as spelled** (e.g. `Nullable<T>` vs `T?`, `System.Guid` vs `Guid`, partly qualified names such as `DTO.Logging.LogDTO`), nullability, collection-ness, setter and whether it is `required`.
+  - Constructors and methods other than private helpers (signatures only, with parameter and return types as spelled), with their modifiers exactly as written: access (`public`, `protected`, `internal`, `private`, `protected internal` or none), plus `static`, `abstract`, `virtual`, `override`, `sealed`, `new`.
   - Whether the type declares parameters on the type itself: a positional record (`record Money(decimal Amount, string Currency)`) or a primary constructor (`class OrderService(IOrderRepository repository)`), and any base-type arguments (`: Base(Id)`).
   - Enum literals with explicit values.
   - Repository interfaces: their base interface and every extra method signature.
@@ -116,7 +116,7 @@ Create one designer `Folder` per code folder **below** the template output (e.g.
 - **Files that don't follow the convention:** each element is written to `<ElementName>.cs` in its folder's namespace. Apply the **`File Config`** stereotype only where the code differs, and set only the property you need; both are optional.
   - **Namespace doesn't follow the folders:** set `Namespace` to the file's exact namespace. Every type that shares a file needs the same `Namespace`.
   - **No namespace in the file** (types declared in the global namespace): tick `No Namespace` and leave `Namespace` empty.
-  - **File named differently from its type:** set `Filename` to the file's name, with or without `.cs` (the folder stays the element's own).
+  - **File named differently from its type:** set `Filename` to the file's name, with or without `.cs` (the folder stays the element's own). If the name starts or ends with a space (e.g. `abc .cs`), include `.cs`: with it the name is used exactly as written, without it surrounding spaces are trimmed.
   - **File holding several types:** model every type as its own element in that file's folder, and set `Filename` to the file's name on each type the file is *not* named after. Elements that end up at the same path are generated into one file, written by the element the file is named after.
   - **Set it before the first SF run.** If a type already had its own file generated and you then point it at another file, the SF offers to delete the old file. Treat that as a destructive change.
 - **Type modifiers:** Merge mode replaces each class, record or enum declaration's modifiers with the generated ones, so they must match the code.
@@ -134,6 +134,11 @@ Create one designer `Folder` per code folder **below** the template output (e.g.
   - **Nullable reference types on:** when the csproj enables `<Nullable>`, make sure the project's Nullable option in the Codebase Structure designer matches, so the template emits `string?`. A `string?` → `string` diff in that case is real drift: fix the project setting, not the member.
   - **Other spellings of the same type** (`System.Guid`, `Int32`, `String`, or a partly or fully qualified name such as `DTO.Logging.LogDTO`): model the type itself (`guid`, `int`, `string`, `LogDTO`). Depending on the RoslynWeaver version, the SF may rewrite the code's spelling to the template's. Handle that under "Equivalent type rewrites" (§6).
 - **Parameter modifiers:** where a constructor or operation parameter is declared `ref`, `out`, `in`, `ref readonly` or `params`, apply the **`Parameter Modifier`** stereotype and set `Modifier` to match (for `params`, also set `Collection Type = Array`). Otherwise Merge mode drops the modifier from the existing signature. An extension method (`this` parameter) can't be reproduced; leave it unmodelled and report it. Like the other "leave it unmodelled" rules, this covers only shapes the model can't express, never a type spelled differently (§6, "Equivalent type rewrites").
+- **Operation and constructor modifiers:** method and constructor signatures are fully managed, so their modifiers must match the code exactly; a mismatch rewrites the declaration.
+  - **Operations** are `public` unless the **`Operation Configuration`** stereotype says otherwise. Set `Access Modifier` (`public`, `protected`, `internal`, `private`, `protected internal`, or `none` for a method declared without one) and tick `Virtual`, `Override`, `Sealed` (only with `Override`, for `sealed override`) or `New` as the code declares. `static` and `abstract` stay on the operation's own `Is Static` / `Is Abstract`, and `async` on `Async Configuration`.
+  - **Constructors** are `public` unless the **`Constructor Configuration`** stereotype sets `Access Modifier`, e.g. `protected` for a constructor only EF Core uses. A constructor declared without an access modifier is private, so model it as `private`; the generated code then spells it out. It's ignored on a `Primary Constructor`.
+  - A combination C# rejects (e.g. `static` with `virtual`, `sealed` without `override`, or a `private` `virtual`) is an error on the element. `private protected` can't be reproduced; leave that member unmodelled and report it.
+- **Required properties:** where a property (an attribute, a navigation property or a Domain Event property) is declared `required`, apply the **`Property Configuration`** stereotype and tick `Required`. On its first merge, Merge mode replaces a property's modifiers with the generated ones, so an unmodelled `required` is dropped. Accessors need nothing: Merge keeps an existing `init`, `private set` or get-only accessor as written. A positional record's fields are constructor parameters, so `Required` is ignored on them.
 - **Default values and initializers:** where a constructor or operation parameter has a default (`string area = "Basislink"`, `bool forceCreate = false`, `Exception ex = null`), or an attribute's property has an initializer, set the element's Value (`el.setValue("Basislink")`). Otherwise Merge mode drops the default from the existing signature.
   - Strings are quoted for you, and an already quoted value stays as it is. `null`, `default`, numbers, `true` and `false` are used as written.
   - An enum literal name gets its enum type (`Info` becomes `EventTypeEnum.Info`), and a bare `DateTime` member gets its type (`Now` becomes `DateTime.Now`).
@@ -149,7 +154,7 @@ Create one designer `Folder` per code folder **below** the template output (e.g.
 - **Domain events** (when `Intent.Modelers.Domain.Events` is installed): one `Domain Event` element per event class, in the designer folder that matches its code folder, named verbatim, with one `Property` per property (exact names and types).
   - Model a base event as a Domain Event Generalization only when the base is itself a modelled domain event. A framework base or interface (`DomainEvent`, `IDomainEvent`, `INotification`) stays in the code under Merge mode.
   - Linking the raising operation or constructor to the event (the Domain Event Origin association) is optional. It documents intent and generates nothing.
-  - Domain Events take the same `File Config` and `Type Configuration` stereotypes (record events are common), and their properties take `Collection Type`.
+  - Domain Events take the same `File Config` and `Type Configuration` stereotypes (record events are common), and their properties take `Collection Type` and `Property Configuration`.
 - **Comments:** copy XML-doc summaries into element comments where they help.
 - **Constructors and methods:** model only behaviour you need. Unmodelled members survive in Merge mode.
 - **Records and primary constructors:** set `Type Configuration` → `Type` to `record` for a record.
@@ -159,7 +164,7 @@ Create one designer `Folder` per code folder **below** the template output (e.g.
 
 ### Async operations
 
-This applies to every modelled operation, whether it belongs to a repository, a domain service or an entity. Settle each one before the first SF run. Merge mode applies the generated signature (modifiers, return type and parameters) to the existing method and keeps only its body. A mismatch here breaks the build, e.g. `async` stripped from a method whose body still `await`s.
+This applies to every modelled operation, whether it belongs to a repository, a domain service or an entity. Settle each one before the first SF run. Merge mode applies the generated signature (modifiers, return type and parameters) to the existing method and keeps only its body. A mismatch here breaks the build, e.g. `async` stripped from a method whose body still `await`s, or added to one that returns its task directly.
 
 **What the template emits.** An operation is async when its name ends in `Async`, unless the operation's `Async Configuration` stereotype says otherwise. An async operation gets:
 
@@ -169,35 +174,39 @@ This applies to every modelled operation, whether it belongs to a repository, a 
 
 A sync operation's return type is emitted exactly as modelled, with no token. A brand-new async method gets an empty body with no `await`, so the compiler warns CS1998. In reverse-engineering that is just another inserted member (§6), so fix the model.
 
-The stereotype has two properties:
+The stereotype's properties:
 
-- `Is Async` (default `true`) explicitly sets async or sync.
-- `Include Cancellation Token` (default `true`) turns the extra parameter off. It only applies when `Is Async` is on.
+- `Async Mode` (default `async`): `async` is the keyword plus a task return type; `no async keyword` is the same return type and token without the keyword, for a method that returns its task directly; `sync` is the return type exactly as modelled, with no token.
+- `Task Type`: `Task` or `ValueTask`. Empty means `Task`, or `ValueTask` when the return type is modelled as one. An explicit value converts a modelled `Task` / `ValueTask` to the other. Not used for `sync`.
+- `Include Cancellation Token` (default `true`) adds the trailing token parameter. Not used for `sync`.
+- `Cancellation Token Name`: the token's name when the code doesn't call it `cancellationToken`, e.g. `ct`. Empty means `cancellationToken`.
+- `Cancellation Token Default` (default `true`) writes `= default`. Untick it when the code's token has no default.
 
-Applying the stereotype with its defaults therefore makes the operation async.
+Applying the stereotype with its defaults therefore gives the conventional async shape.
 
 **Conventional code: no stereotype.** The method is named `…Async`, is declared `async`, returns `Task` / `Task<T>` and ends with `CancellationToken cancellationToken = default`. Model the name as-is, set the return type to `T` (or none for `Task`), and add nothing.
 
-**Non-conventional code: set the stereotype explicitly.** Check every method against the convention. Wherever it differs, apply `Async Configuration` and set **both** properties explicitly. Don't rely on the defaults or on the name:
+**Non-conventional code: set the stereotype explicitly.** Check every method against the convention. Wherever it differs, apply `Async Configuration`, set `Async Mode` explicitly, and set every other property where the code differs from its default. Don't rely on the name:
 
-| Code                                                                                                             | Model                                                                             |
-| ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `async Task<T> GetNextReference(…, CancellationToken cancellationToken = default)`: async, but no `Async` suffix | `Is Async = true`, `Include Cancellation Token = true`, return type `T`           |
-| `bool ExistsAsync(…)`: named `…Async` but synchronous                                                            | `Is Async = false`, return type `bool`                                            |
-| `async Task<T> LoadAsync(…)` with no `CancellationToken` parameter                                               | `Is Async = true`, `Include Cancellation Token = false`, return type `T`          |
-| `Task<T> FindAsync(…) => _inner.FindAsync(…)`: returns a task without `async`, and takes no `CancellationToken`  | `Is Async = false`, return type `Task<T>` (the designer has `Task` and `Task<T>`) |
+| Code                                                                                                             | Model                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `async Task<T> GetNextReference(…, CancellationToken cancellationToken = default)`: async, but no `Async` suffix | `Async Mode = async`, return type `T`                                                        |
+| `bool ExistsAsync(…)`: named `…Async` but synchronous                                                            | `Async Mode = sync`, return type `bool`                                                      |
+| `async Task<T> LoadAsync(…)` with no `CancellationToken` parameter                                               | `Async Mode = async`, `Include Cancellation Token = false`, return type `T`                  |
+| `Task<T> FindAsync(…, CancellationToken ct) => _inner.FindAsync(…, ct)`: returns its task without `async`        | `Async Mode = no async keyword`, `Cancellation Token Name = ct`, return type `T`              |
+| `async ValueTask<T> GetAsync(…, CancellationToken cancellationToken)`: `ValueTask`, and a token with no default   | `Async Mode = async`, `Task Type = ValueTask`, `Cancellation Token Default = false`, return type `T` |
 
 ```js
 const st = op.ensureStereotype("Async Configuration");
-st.setProperty("Is Async", true);
-st.setProperty("Include Cancellation Token", false);
+st.setProperty("Async Mode", "no async keyword");
+st.setProperty("Cancellation Token Name", "ct");
 ```
 
-**Shapes the template can't reproduce.** Leave these methods unmodelled; Merge mode keeps them untouched. Say so in your report. The designer has no `CancellationToken` or `ValueTask` type, so none of them can be modelled by hand:
+**Shapes the template can't reproduce.** The designer has no `CancellationToken` or `ValueTask` type, so the stereotype is the only way to produce them. Leave these methods unmodelled; Merge mode keeps them untouched. Say so in your report:
 
-- a `CancellationToken` that is named differently (e.g. `ct`), not optional, or not the last parameter;
-- a method that returns a task without being `async` and takes a `CancellationToken`;
-- `ValueTask` / `ValueTask<T>` return types.
+- a `CancellationToken` that isn't the last parameter.
+
+A token default written another way, e.g. `= default(CancellationToken)`, is part of the fully managed signature, so expect it to be rewritten to `= default`, which means the same. Accept it, and mention it in your report.
 
 These rules cover only shapes the model can't express. A type that is merely spelled differently is never a reason to leave a method out (§6, "Equivalent type rewrites").
 

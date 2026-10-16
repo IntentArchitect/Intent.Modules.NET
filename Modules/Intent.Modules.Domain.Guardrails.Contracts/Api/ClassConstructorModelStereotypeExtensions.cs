@@ -13,6 +13,29 @@ namespace Intent.Domain.Guardrails.Contracts.Api
 {
     public static class ClassConstructorModelStereotypeExtensions
     {
+        public static ConstructorConfiguration GetConstructorConfiguration(this ClassConstructorModel model)
+        {
+            var stereotype = model.GetStereotype(ConstructorConfiguration.DefinitionId);
+            return stereotype != null ? new ConstructorConfiguration(stereotype) : null;
+        }
+
+
+        public static bool HasConstructorConfiguration(this ClassConstructorModel model)
+        {
+            return model.HasStereotype(ConstructorConfiguration.DefinitionId);
+        }
+
+        public static bool TryGetConstructorConfiguration(this ClassConstructorModel model, out ConstructorConfiguration stereotype)
+        {
+            if (!HasConstructorConfiguration(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new ConstructorConfiguration(model.GetStereotype(ConstructorConfiguration.DefinitionId));
+            return true;
+        }
         public static PrimaryConstructor GetPrimaryConstructor(this ClassConstructorModel model)
         {
             var stereotype = model.GetStereotype(PrimaryConstructor.DefinitionId);
@@ -35,6 +58,83 @@ namespace Intent.Domain.Guardrails.Contracts.Api
 
             stereotype = new PrimaryConstructor(model.GetStereotype(PrimaryConstructor.DefinitionId));
             return true;
+        }
+
+        public class ConstructorConfiguration
+        {
+            private IStereotype _stereotype;
+            public const string DefinitionId = "2189ac42-f723-4663-9673-80ad2cdd9f51";
+
+            public ConstructorConfiguration(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+            public AccessModifierOptions AccessModifier()
+            {
+                return new AccessModifierOptions(_stereotype.GetProperty<string>("Access Modifier"));
+            }
+
+            public class AccessModifierOptions
+            {
+                public readonly string Value;
+
+                public AccessModifierOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public AccessModifierOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "public":
+                            return AccessModifierOptionsEnum.Public;
+                        case "protected":
+                            return AccessModifierOptionsEnum.Protected;
+                        case "internal":
+                            return AccessModifierOptionsEnum.Internal;
+                        case "private":
+                            return AccessModifierOptionsEnum.Private;
+                        case "protected internal":
+                            return AccessModifierOptionsEnum.ProtectedInternal;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsPublic()
+                {
+                    return Value == "public";
+                }
+                public bool IsProtected()
+                {
+                    return Value == "protected";
+                }
+                public bool IsInternal()
+                {
+                    return Value == "internal";
+                }
+                public bool IsPrivate()
+                {
+                    return Value == "private";
+                }
+                public bool IsProtectedInternal()
+                {
+                    return Value == "protected internal";
+                }
+            }
+
+            public enum AccessModifierOptionsEnum
+            {
+                Public,
+                Protected,
+                Internal,
+                Private,
+                ProtectedInternal
+            }
         }
 
         public class PrimaryConstructor

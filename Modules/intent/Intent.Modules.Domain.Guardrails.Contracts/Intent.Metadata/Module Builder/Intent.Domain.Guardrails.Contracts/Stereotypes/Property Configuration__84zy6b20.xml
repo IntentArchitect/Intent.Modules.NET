@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="68051676-fae8-4ae9-8b46-d19fe8ae776d" version="3.1.0">
+  <comment>Overrides how the guardrail contract declares this Domain Event property. Required adds the C# required modifier, as the code declares it.</comment>
+  <name>Property Configuration</name>
+  <targetMode>filter-function</targetMode>
+  <targetFilterFunction>return element.specializationId == "b4d69073-5abb-4968-b41b-545b2f7408ed";</targetFilterFunction>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="fa-asterisk" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>e1000a88-d8cd-4f0a-9d5a-b45b4c9ec666</parentFolderId>
+  <order>0</order>
+  <packageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</packageId>
+  <packageName>Intent.Domain.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="84e9d192-b6c9-4225-a1d1-a28d34e6ba39">
+      <hint>Tick when the code declares this property required (C# 11), e.g. public required string Name { get; init; }. On its first merge into an existing file, Merge replaces a property's modifiers with the generated ones, so an unmodelled required is dropped. Ignored on a positional record's fields, which are constructor parameters.</hint>
+      <name>Required</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+    </property>
+  </properties>
+</stereotypeDefinition>

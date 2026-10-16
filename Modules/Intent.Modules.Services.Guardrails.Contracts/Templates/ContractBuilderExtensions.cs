@@ -73,7 +73,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
 
         /// <summary>
         /// Adds a <c>{ get; set; }</c> property for each field, name used verbatim, with an initializer when the field has
-        /// a Value (see <see cref="ContractDefaultValues"/>).
+        /// a Value (see <see cref="ContractDefaultValues"/>), and <c>required</c> when its Property Configuration says so.
         /// Must be called from within a builder callback so types resolve at build time.
         /// </summary>
         public static void AddContractProperties(this CSharpClass @class, ICSharpTemplate template, IEnumerable<DTOFieldModel> fields)
@@ -84,7 +84,22 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 {
                     property.RepresentsModel(field);
                     property.WithContractInitialValue(template, field.Value, field.TypeReference);
+                    property.WithContractRequired(field.GetPropertyConfiguration()?.Required() == true);
                 });
+            }
+        }
+
+        /// <summary>
+        /// Property Configuration Required: the property is declared <c>required</c>. Under Merge a property's own modifiers follow
+        /// the generated ones, and on its first merge into an existing file every existing modifier is replaced, so a
+        /// <c>required</c> in the code survives only if it is modelled. Positional parameters never get here, so the stereotype
+        /// is ignored on a positional record's fields (user decision). Same rule as the Domain module's.
+        /// </summary>
+        private static void WithContractRequired(this CSharpProperty property, bool isRequired)
+        {
+            if (isRequired)
+            {
+                property.Required();
             }
         }
 
@@ -202,6 +217,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 {
                     property.RepresentsModel(field);
                     property.WithContractInitialValue(template, field.Value, field.TypeReference);
+                    property.WithContractRequired(field.IsOptionalModelerPropertyRequired());
                 });
             }
         }
@@ -214,19 +230,25 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         {
             foreach (var operation in operations)
             {
-                var isAsync = operation.IsAsync();
-                var returnType = CSharpTypeParser.Parse(operation.TypeReference?.Element != null
+                var async = ContractAsync.For(operation.InternalElement, operation.GetAsyncConfiguration(), operation.Parameters.Select(x => x.Name));
+                var modelledReturnType = CSharpTypeParser.Parse(operation.TypeReference?.Element != null
                     ? template.GetContractTypeName(operation)
                     : "void");
 
-                if (isAsync && !returnType.IsTask() && !returnType.IsValueTask())
-                {
-                    returnType = returnType.WrapInTask(template);
-                }
-
-                @class.AddMethod(returnType, operation.Name, method =>
+                @class.AddMethod(async.GetReturnType(modelledReturnType, template), operation.Name, method =>
                 {
                     method.RepresentsModel(operation);
+
+                    // Service operations have no Is Static or Is Abstract of their own, so static comes from the stereotype.
+                    var configuration = operation.GetOperationConfiguration();
+                    method.ApplyContractModifiers(operation.InternalElement, configuration?.AccessModifier().Value,
+                        isStatic: configuration?.Static() == true,
+                        isAbstract: false,
+                        isVirtual: configuration?.Virtual() == true,
+                        isOverride: configuration?.Override() == true,
+                        isSealed: configuration?.Sealed() == true,
+                        isNew: configuration?.New() == true);
+
 
                     foreach (var genericType in operation.GenericTypes)
                     {
@@ -244,40 +266,10 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                         });
                     }
 
-                    if (isAsync && operation.IncludeCancellationToken())
-                    {
-                        method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken", param =>
-                        {
-                            param.WithDefaultValue("default");
-                        });
-                    }
-
-                    // Under Mode.Merge the existing method's modifiers are replaced with these, so async must be emitted
-                    // to keep async/await implementations compiling.
-                    if (isAsync)
-                    {
-                        // Async() with no argument converts a ValueTask return type to Task; keep a modelled ValueTask as is.
-                        method.Async(asValueTask: returnType.IsValueTask());
-                    }
+                    async.AddCancellationTokenParameter(method, template);
+                    async.ApplyAsyncKeyword(method);
                 });
             }
-        }
-
-        /// <summary>
-        /// An explicit Async Configuration stereotype wins; otherwise an operation is async when its
-        /// name ends with "Async" (the same rule as the Domain guardrail contracts).
-        /// </summary>
-        public static bool IsAsync(this OperationModel operation)
-        {
-            return operation.GetAsyncConfiguration()?.IsAsync() ?? operation.Name.EndsWith("Async", StringComparison.Ordinal);
-        }
-
-        /// <summary>
-        /// Async operations get a CancellationToken parameter unless the Async Configuration stereotype turns it off.
-        /// </summary>
-        public static bool IncludeCancellationToken(this OperationModel operation)
-        {
-            return operation.GetAsyncConfiguration()?.IncludeCancellationToken() ?? true;
         }
     }
 }

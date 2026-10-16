@@ -37,6 +37,30 @@ namespace Intent.Domain.Guardrails.Contracts.Api
             return true;
         }
 
+        public static PropertyConfiguration GetPropertyConfiguration(this AssociationSourceEndModel model)
+        {
+            var stereotype = model.GetStereotype(PropertyConfiguration.DefinitionId);
+            return stereotype != null ? new PropertyConfiguration(stereotype) : null;
+        }
+
+
+        public static bool HasPropertyConfiguration(this AssociationSourceEndModel model)
+        {
+            return model.HasStereotype(PropertyConfiguration.DefinitionId);
+        }
+
+        public static bool TryGetPropertyConfiguration(this AssociationSourceEndModel model, out PropertyConfiguration stereotype)
+        {
+            if (!HasPropertyConfiguration(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new PropertyConfiguration(model.GetStereotype(PropertyConfiguration.DefinitionId));
+            return true;
+        }
+
         public class CollectionType
         {
             private IStereotype _stereotype;
@@ -159,6 +183,25 @@ namespace Intent.Domain.Guardrails.Contracts.Api
                 Array,
                 Custom
             }
+        }
+
+        public class PropertyConfiguration
+        {
+            private IStereotype _stereotype;
+            public const string DefinitionId = "858f8df8-3697-428a-b559-90f90b0ea6f7";
+
+            public PropertyConfiguration(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+            public bool Required()
+            {
+                return _stereotype.GetProperty<bool>("Required");
+            }
+
         }
 
     }

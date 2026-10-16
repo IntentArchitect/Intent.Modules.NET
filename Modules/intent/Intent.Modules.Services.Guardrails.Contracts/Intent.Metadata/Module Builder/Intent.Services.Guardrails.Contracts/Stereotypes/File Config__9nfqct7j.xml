@@ -25,7 +25,7 @@
   <packageName>Intent.Services.Guardrails.Contracts</packageName>
   <properties>
     <property id="c1ae06dd-91ed-4e44-92ca-9384a54fbc59">
-      <hint>Optional. The existing file's name, with or without .cs; the file stays in this element's folder. Elements with the same Filename in the same folder are generated into one file.</hint>
+      <hint>Optional. The existing file's name, with or without .cs; the file stays in this element's folder. With .cs the name is used exactly as written, so include it when the name starts or ends with a space (e.g. abc .cs); without it, surrounding spaces are trimmed. Elements with the same Filename in the same folder are generated into one file.</hint>
       <name>Filename</name>
       <type>string</type>
       <controlType>text</controlType>

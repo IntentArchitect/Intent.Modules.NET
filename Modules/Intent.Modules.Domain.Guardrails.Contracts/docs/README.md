@@ -63,6 +63,7 @@ Each element is generated into `<ElementName>.cs` in its folder, with the namesp
 - **No Namespace:** tick it for a type declared in the global namespace (no `namespace` declaration in the file). Leave Namespace empty; setting both is an error. References to the type need no `using`.
 - **Filename** (with or without `.cs`; a file name only, as the folder stays the element's own):
   - **File named differently from its type**, e.g. `orderEntity.cs` holds `Order`: set `Filename = orderEntity`.
+  - **File name that starts or ends with a space**, e.g. `abc .cs`: include `.cs`. With `.cs` the name is used exactly as written; without it, surrounding spaces are trimmed.
   - **File holding several types:** give each type that isn't the file's namesake the file's name. All contract elements that end up at the same path are generated into one file. The element whose name matches the file name writes it (otherwise the first by name), and the other elements' templates write no file of their own. References to every type in the file still resolve.
 - **Shared files and namespaces:** every type in one file must end up with the same namespace. If the file's namespace isn't the derived one, give each of its types the same Namespace.
 - **Changing it later:** if a type already had its own generated file and you then point it at another file, or change its Filename, the Software Factory offers to delete the old file. Review that before applying.
@@ -80,6 +81,29 @@ By default, collection properties are generated as `ICollection<T>`, and operati
 | Custom                                                                                   | **Custom Format**, with `{0}` for the element type, e.g. `System.Collections.ObjectModel.ObservableCollection<{0}>` |
 
 The Type must match the code. Under Merge mode, the generated signature replaces the existing one, so a wrong collection type rewrites the member. On an async operation the return type is wrapped after the collection is applied, giving `Task<IEnumerable<T>>`. The stereotype is ignored on a type that isn't a collection.
+
+## Property Configuration stereotype
+
+Apply **Property Configuration** to an attribute, a navigable association end or a Domain Event property that the code declares `required`, and tick **Required**. The property is then generated as `public required string Name { get; set; }`.
+
+- **Why it matters:** under Merge mode a property's modifiers follow the generated ones. On the first merge into an existing file every existing modifier is replaced, so an unmodelled `required` would be dropped.
+- **Accessors need nothing:** Merge keeps an existing `init`, `private set` or get-only accessor as written, so `public required string Name { get; init; }` stays as it is.
+- **Positional records:** their fields are constructor parameters, which can't be `required`, so Required is ignored on them.
+
+## Operation Configuration and Constructor Configuration stereotypes
+
+Constructor and method signatures are fully managed under Merge, so their modifiers replace the existing ones and must match the code.
+
+- **Operation Configuration** (on an Operation): operations are `public` without it.
+  - **Access Modifier:** `public` (the default), `protected`, `internal`, `private`, `protected internal`, or `none` for a method declared without one.
+  - **Virtual**, **Override**, **Sealed** and **New** checkboxes. Sealed is only valid with Override (`public sealed override`).
+  - `static` and `abstract` come from the operation's own **Is Static** and **Is Abstract**, and `async` from **Async Configuration**.
+  - Examples: Access Modifier `protected` + Override gives `protected override void Apply(…)`; `internal` with Is Static gives `internal static Order Create(…)`.
+- **Constructor Configuration** (on a Class Constructor): constructors are `public` without it. **Access Modifier** is `public`, `protected`, `internal`, `private` or `protected internal`, e.g. `protected Order()` for a constructor only EF Core uses.
+  - A constructor declared without an access modifier is private, so model it as `private`; the generated code then spells it out.
+  - It's ignored on a **Primary Constructor**, which has no access modifier of its own.
+- **Errors:** a combination C# rejects raises an error on the element: `static` with `virtual`, `override`, `sealed` or `abstract`; `virtual` with `override` or `abstract`; `sealed` without `override`, or with `abstract`; `new` with `override`; or `virtual`, `abstract` or `override` on a `private` (or `none`) method.
+- `private protected` can't be reproduced.
 
 ## Parameter Modifier stereotype
 
@@ -132,6 +156,12 @@ Every file carries both directives: plain `Mode.Merge` for the file, plus a defa
 
 - Every name is used exactly as it appears in the designer, with no casing changes: types, properties, navigation properties, constructors, methods, parameters, enum literals and namespaces. `OrderRepository` stays `OrderRepository` (no interface or `I` prefix is generated), and a property modelled as `orderDate` stays `orderDate`. The designer mirrors the code, so its casing is the codebase's own convention.
 - Collections are `ICollection<T>` on properties and `IEnumerable<T>` on operation parameters and return types, unless Collection Type says otherwise. They are written by their short name with a `using` (`IEnumerable<T>`, not `System.Collections.Generic.IEnumerable<T>`), even in a file that also imports `System.Collections`.
-- An operation is async when its name ends in `Async`, unless the **Async Configuration** stereotype says otherwise. An async operation gets the `async` keyword, a `Task` or `Task<T>` return type (a modelled `Task`/`ValueTask` is not wrapped again) and a `CancellationToken cancellationToken = default` parameter. On the stereotype, **Is Async** explicitly sets async or sync, and **Include Cancellation Token** turns the extra parameter off. Abstract operations never get `async`. A new async method's empty body has no `await`, so the compiler warns (CS1998).
+- An operation is async when its name ends in `Async`, unless the **Async Configuration** stereotype says otherwise. An async operation gets the `async` keyword, a `Task` or `Task<T>` return type (a modelled `Task`/`ValueTask` is not wrapped again) and a `CancellationToken cancellationToken = default` parameter. Abstract operations never get `async`. A new async method's empty body has no `await`, so the compiler warns (CS1998). The stereotype's properties:
+  - **Async Mode** (default `async`): `async`; `no async keyword`, the same return type and token without `async`, for a method that returns its task directly (`public Task<Order> FindAsync(Guid id, CancellationToken ct) => _set.FindAsync(id, ct);`); or `sync`, the return type exactly as modelled with no token.
+  - **Task Type**: `Task` or `ValueTask`. Empty means `Task`, or `ValueTask` when the return type is modelled as one; an explicit value converts a modelled `Task`/`ValueTask` to the other.
+  - **Include Cancellation Token** (default ticked) adds the token parameter.
+  - **Cancellation Token Name**: the token's name when the code doesn't call it `cancellationToken`, e.g. `ct`. Method signatures are fully managed, so any other name would otherwise be renamed.
+  - **Cancellation Token Default** (default ticked) writes `= default`; untick it for a token without a default.
+  - A `CancellationToken` that isn't the last parameter can't be reproduced.
 - Types modelled in the Domain designer resolve through this module's roles, so the right `using`s are added across folders and projects.
 - Consumer projects need the `Intent.RoslynWeaver.Attributes` NuGet package.

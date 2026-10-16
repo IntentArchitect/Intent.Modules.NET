@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="721c01a7-4220-421a-94ac-feafc9128092" version="3.1.0">
+  <comment>The operation's modifiers as the code declares them. Without it, an operation is public. Is Static and Is Abstract on the operation still add static and abstract, and async comes from Async Configuration. Method signatures are fully managed under Merge, so these must match the code.</comment>
+  <name>Operation Configuration</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="e042bb67-a1df-480c-9935-b26210f78591">Operation</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="lock" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>11aae230-6dfe-414e-bf5f-18280aad6ae2</parentFolderId>
+  <order>0</order>
+  <packageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</packageId>
+  <packageName>Intent.Domain.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="1f4ee571-1586-474a-a2cd-a78b6a7d91d7">
+      <hint>The method's access modifier as the code declares it. none writes no access modifier (C#'s private). Empty means public.</hint>
+      <name>Access Modifier</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>public</defaultValue>
+      <valueOptions>
+        <option>public</option>
+        <option>protected</option>
+        <option>internal</option>
+        <option>private</option>
+        <option>protected internal</option>
+        <option>none</option>
+      </valueOptions>
+    </property>
+    <property id="85cf7b27-8fb2-4833-b740-45f93246f8bd">
+      <hint>Tick when the code declares the method virtual.</hint>
+      <name>Virtual</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+    </property>
+    <property id="ee898fad-a9ab-424f-a85f-b4fffa7794e3">
+      <hint>Tick when the code declares the method override, including sealed override and abstract override.</hint>
+      <name>Override</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+    </property>
+    <property id="f074fca0-6559-466c-8bf2-1d68493e3713">
+      <hint>Tick for sealed override, together with Override.</hint>
+      <name>Sealed</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+    </property>
+    <property id="dc46c329-a3da-4293-94d0-45389ea82c09">
+      <hint>Tick when the code declares the method new, hiding a base class member.</hint>
+      <name>New</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+    </property>
+  </properties>
+</stereotypeDefinition>

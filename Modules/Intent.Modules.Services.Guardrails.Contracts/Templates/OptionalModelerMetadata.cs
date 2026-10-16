@@ -64,12 +64,16 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         /// <summary>This module's "Collection Type" stereotype for Message and Integration Command Properties and Eventing DTO-Fields.</summary>
         public const string CollectionTypeStereotypeId = "def585dc-4000-4215-969b-fcf9afd61c34";
 
+        /// <summary>This module's "Property Configuration" stereotype for Message and Integration Command Properties and Eventing DTO-Fields.</summary>
+        public const string PropertyConfigurationStereotypeId = "b310df29-d6be-4569-ae15-7006bb1c8286";
+
         private const string FilenameProperty = "Filename";
         private const string NamespaceProperty = "Namespace";
         private const string NoNamespaceProperty = "No Namespace";
         private const string TypeProperty = "Type";
         private const string ModifiersProperty = "Modifiers";
         private const string CustomFormatProperty = "Custom Format";
+        private const string RequiredProperty = "Required";
 
         public static bool IsDomainEventHandler(this ICanBeReferencedType element) => IsOfType(element, DomainEventHandlerTypeId);
 
@@ -143,6 +147,12 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         public static string GetHandlerModifiers(this IElement element)
         {
             return element.GetStereotype(HandlerTypeConfigurationStereotypeId)?.GetProperty<string>(ModifiersProperty);
+        }
+
+        /// <summary>True when a Property's or Eventing DTO-Field's Property Configuration has Required ticked.</summary>
+        public static bool IsOptionalModelerPropertyRequired(this IElement element)
+        {
+            return element.GetStereotype(PropertyConfigurationStereotypeId)?.GetProperty<bool>(RequiredProperty) == true;
         }
 
         /// <summary>A Message's, Integration Command's or Eventing DTO's Type Configuration, or null when the stereotype is not applied.</summary>

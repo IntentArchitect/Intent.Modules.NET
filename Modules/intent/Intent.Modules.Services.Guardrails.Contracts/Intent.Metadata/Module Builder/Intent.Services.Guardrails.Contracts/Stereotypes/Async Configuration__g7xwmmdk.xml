@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="582f45ce-db44-4e70-bf08-4d69d2b3a760" version="3.1.0">
-  <comment>Explicitly sets whether the guardrail contract emits this operation as async. Without it, an operation is async when its name ends in Async, and async operations get a CancellationToken parameter.</comment>
+  <comment>Explicitly sets the operation's async shape: Async Mode (async, no async keyword or sync), Task Type, and the CancellationToken parameter. Without it, an operation is async when its name ends in Async: the async keyword, a Task return type and CancellationToken cancellationToken = default.</comment>
   <name>Async Configuration</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -20,17 +20,49 @@
   <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
   <packageName>Intent.Services.Guardrails.Contracts</packageName>
   <properties>
-    <property id="afd97ed1-c2fa-4e53-b762-3dc1a75d1a24">
-      <hint>Emit the async keyword and a Task or Task&lt;T&gt; return type.</hint>
-      <name>Is Async</name>
+    <property id="a732332f-7a1d-4337-bb28-fc9a4af08a3f">
+      <hint>Append a CancellationToken parameter. Not used when Async Mode is sync.</hint>
+      <name>Include Cancellation Token</name>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
       <defaultValue>true</defaultValue>
     </property>
-    <property id="a732332f-7a1d-4337-bb28-fc9a4af08a3f">
-      <hint>Append CancellationToken cancellationToken = default. Only applies when Is Async is ticked.</hint>
-      <name>Include Cancellation Token</name>
+    <property id="f0349bc8-e954-405b-a89f-7be98bd82f1a">
+      <hint>async: the async keyword and a Task or ValueTask return type. no async keyword: the same return type without async, for a method that returns the task directly, e.g. =&gt; _inner.FindAsync(id). sync: the return type exactly as modelled, with no CancellationToken.</hint>
+      <name>Async Mode</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>async</defaultValue>
+      <valueOptions>
+        <option>async</option>
+        <option>no async keyword</option>
+        <option>sync</option>
+      </valueOptions>
+    </property>
+    <property id="9749e8be-02db-45fe-8878-603340ccbb7d">
+      <hint>Task or ValueTask. Empty means Task, or ValueTask when the return type is modelled as one. An explicit value also converts a return type modelled as Task or ValueTask. Not used when Async Mode is sync.</hint>
+      <name>Task Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <valueOptions>
+        <option>Task</option>
+        <option>ValueTask</option>
+      </valueOptions>
+    </property>
+    <property id="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722">
+      <hint>The CancellationToken parameter's name when the code doesn't call it cancellationToken, e.g. ct. Empty means cancellationToken. Method signatures are fully managed, so any other name in the code is otherwise renamed.</hint>
+      <name>Cancellation Token Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>cancellationToken</placeholder>
+    </property>
+    <property id="23533f45-4f15-4a89-9072-ca36e23d7aad">
+      <hint>Write = default on the CancellationToken parameter. Untick when the code declares it without a default.</hint>
+      <name>Cancellation Token Default</name>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
