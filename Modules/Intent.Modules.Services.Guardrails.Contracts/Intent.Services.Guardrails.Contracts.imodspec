@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Services.Guardrails.Contracts</id>
   <version>1.0.0-pre.0</version>
-  <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
+  <supportedClientVersions>[5.4.0-beta.6,6.0.0)</supportedClientVersions>
   <summary>Guards Services designer elements (services, commands, queries, DTOs, enums, integration events and their handlers, and API clients as service proxies) by merging their modelled members into existing C# files, never touching method bodies.</summary>
   <description>Guards Services designer elements (services, commands, queries, DTOs, enums, integration events and their handlers, and API clients as service proxies) by merging their modelled members into existing C# files, never touching method bodies.</description>
   <authors>Intent Architect</authors>
@@ -131,7 +131,7 @@
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.VisualStudio.Projects">
       <install>
-        <package id="Intent.VisualStudio.Projects" version="4.1.11-pre.0" />
+        <package id="Intent.VisualStudio.Projects" version="4.1.11-pre.1" />
       </install>
     </detect>
     <detect id="Intent.Modelers.Types.ServiceProxies">
@@ -139,14 +139,19 @@
         <package id="Intent.Modelers.Types.ServiceProxies" version="5.5.7-pre.0" />
       </install>
     </detect>
+    <detect id="Intent.Modelers.CodebaseStructure">
+      <install>
+        <package id="Intent.Modelers.CodebaseStructure" version="1.2.0-pre.1" />
+      </install>
+    </detect>
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.11.1" />
+    <dependency id="Intent.Common" version="3.11.8-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.10.12-pre.2" />
-    <dependency id="Intent.Common.Types" version="4.1.3" />
-    <dependency id="Intent.Modelers.Services" version="4.0.17-pre.2" />
-    <dependency id="Intent.Modelers.Services.CQRS" version="6.0.8" />
+    <dependency id="Intent.Common.Types" version="4.1.4-pre.0" />
+    <dependency id="Intent.Modelers.Services" version="4.0.17-pre.4" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="6.0.9-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="5.0.2-pre.9" />
   </dependencies>
   <files>

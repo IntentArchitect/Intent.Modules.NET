@@ -58,7 +58,7 @@ declare function getDiagramSnapshot(): Promise<any>;
 declare function getSettings(): Promise<any>;
 
 /** SHOWS THE USER how elements fit together: opens an unsaved, auto-laid-out diagram of the elements plus their
- *  first-level neighbours (muted unless in `highlightIds`). Changes nothing in the model, is never saved, and replaces
+ *  first-level neighbours (passing `highlightIds` mutes the rest, for a diff). Changes nothing in the model, is never saved, and replaces
  *  the designer's previous generated diagram. Returns the diagram API — `getDiagramSnapshot()` then reads its layout. */
 declare function showDynamicDiagram(elementIds: string | string[] | IElementApi | IElementApi[],
     options?: { label?: string, highlightIds?: (string | IElementApi)[] }): Promise<IDiagramApi>;

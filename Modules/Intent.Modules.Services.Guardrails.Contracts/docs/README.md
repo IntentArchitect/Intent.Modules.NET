@@ -4,6 +4,8 @@ Guards the Services designer's model in existing C# code. Each modelled element 
 
 Install it into an application whose existing code has been modelled in the Services designer, by hand, with Intent's C# importer, or with the AI skill below. Set the Default Type Modifiers module setting to the code's convention, and apply the Type Configuration and Async Configuration stereotypes wherever the code differs from the defaults described below.
 
+It needs Intent Architect 5.4.0-beta.6 or later. Where the application already has them, installing it also brings Intent.VisualStudio.Projects up to 4.1.11-pre.1, Intent.Modelers.Types.ServiceProxies up to 5.5.7-pre.0, and Intent.Modelers.CodebaseStructure up to 1.2.0-pre.1, the versions the AI skill relies on.
+
 ## AI skill: reverse-engineer-services
 
 The module generates `skills/reverse-engineer-services/SKILL.md` into the application's agents folder (the `AI.Context.Skills` output). An AI agent working in Intent Architect uses it to:
@@ -206,7 +208,7 @@ Every file carries both directives: plain `Mode.Merge` for the file, plus a defa
 
 ## Conventions
 
-- Every name is used exactly as it appears in the designer, with no casing changes: types, properties, methods, parameters, enum literals and namespaces. `OrderService` stays `OrderService` (no interface is generated), and a field modelled as `customerId` stays `customerId`. The designer mirrors the code, so its casing is the codebase's own convention.
+- Every name is used exactly as it appears in the designer, with no casing changes: types, properties, methods, parameters, enum literals and namespaces. `OrderService` stays `OrderService` (no interface is generated), and a field modelled as `customerId` stays `customerId`. The designer mirrors the code, so its casing is the codebase's own convention. Set the Services designer's Service Settings naming conventions (Property, Entity, Operation and Parameter) to Manual, so the designer doesn't rename what was modelled. Parameter Naming Convention needs Intent.Modelers.Services 4.0.17 or later, which this module depends on; it defaults to Camel Case.
 - Collections are `List<T>`, unless Collection Type says otherwise. They are written by their short name with a `using` (`IEnumerable<T>`, not `System.Collections.Generic.IEnumerable<T>`), even in a file that also imports `System.Collections`.
 - An operation is async when its name ends in `Async`, unless the **Async Configuration** stereotype says otherwise. An async operation gets the `async` keyword, a `Task` or `Task<T>` return type (a modelled `Task`/`ValueTask` is not wrapped again) and a `CancellationToken cancellationToken = default` parameter. A new async method's empty body has no `await`, so the compiler warns (CS1998). The stereotype's properties:
   - **Async Mode** (default `async`): `async`; `no async keyword`, the same return type and token without `async`, for a method that returns its task directly (`public Task<OrderDto> GetAsync(Guid id, CancellationToken ct) => _inner.GetAsync(id, ct);`); or `sync`, the return type exactly as modelled with no token.

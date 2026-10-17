@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.IModSpecFile#96959c8c-4dfc-4b5e-b566-d54d311d091e</correlationId>
+      <path>Intent.Domain.Guardrails.Contracts.imodspec</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-17T13:05:14.3236685Z</updatedAt>
+      <deviationsHash>01B28D780B333386E5477B5B3363EA8CD70C9C2F6E7DDFCE49CCB68D9DA940F6</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -11,7 +11,7 @@
   <file path="Api/QueryModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/ServiceModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Intent.Modules.Services.Guardrails.Contracts.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="Intent.Services.Guardrails.Contracts.imodspec" deviationsHash="1058F71F3BEF953FB5D7B26D8106EF0818F61934D0124862122DCAC894B6BB57" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Services.Guardrails.Contracts.imodspec" deviationsHash="1D987FCE2BA8D55EA9A9808E280D039BC9AD8AC2E6194D6C23498F7C5384B4BC" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
   <file path="Templates/CommandContract/CommandContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/CommandContract/CommandContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />

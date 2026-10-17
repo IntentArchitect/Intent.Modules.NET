@@ -4,6 +4,8 @@ Guards the Domain designer's model in existing C# code. Each modelled element is
 
 Install it into an application whose existing code has been modelled in the Domain designer, by hand, with Intent's C# importer, or with the AI skill below. Set the Default Type Modifiers module setting to the code's convention, and apply the Type Configuration and Async Configuration stereotypes wherever the code differs from the defaults described below.
 
+It needs Intent Architect 5.4.0-beta.6 or later. Where the application already has them, installing it also brings Intent.VisualStudio.Projects up to 4.1.11-pre.1 and Intent.Modelers.CodebaseStructure up to 1.2.0-pre.1, the versions the AI skill relies on.
+
 ## AI skill: reverse-engineer-domain
 
 The module generates `skills/reverse-engineer-domain/SKILL.md` into the application's agents folder (the `AI.Context.Skills` output). An AI agent working in Intent Architect uses it to:

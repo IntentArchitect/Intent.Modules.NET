@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Domain.Guardrails.Contracts</id>
   <version>1.0.0-pre.0</version>
-  <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
+  <supportedClientVersions>[5.4.0-beta.6,6.0.0)</supportedClientVersions>
   <summary>Guards Domain designer elements (entities, enums, value objects, repositories, data contracts, domain services) by merging their modelled members into existing C# files, never touching method bodies.</summary>
   <description>Guards Domain designer elements (entities, enums, value objects, repositories, data contracts, domain services) by merging their modelled members into existing C# files, never touching method bodies.</description>
   <authors>Intent Architect</authors>
@@ -99,16 +99,21 @@
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.VisualStudio.Projects">
       <install>
-        <package id="Intent.VisualStudio.Projects" version="4.1.11-pre.0" />
+        <package id="Intent.VisualStudio.Projects" version="4.1.11-pre.1" />
+      </install>
+    </detect>
+    <detect id="Intent.Modelers.CodebaseStructure">
+      <install>
+        <package id="Intent.Modelers.CodebaseStructure" version="1.2.0-pre.1" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.11.1" />
+    <dependency id="Intent.Common" version="3.11.8-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.10.12-pre.2" />
-    <dependency id="Intent.Common.Types" version="4.1.3" />
-    <dependency id="Intent.Modelers.Domain" version="3.13.3-pre.0" />
+    <dependency id="Intent.Common.Types" version="4.1.4-pre.0" />
+    <dependency id="Intent.Modelers.Domain" version="3.13.3-pre.1" />
     <dependency id="Intent.Modelers.Domain.Repositories" version="3.6.3" />
     <dependency id="Intent.Modelers.Domain.Services" version="1.3.1" />
     <dependency id="Intent.Modelers.Domain.ValueObjects" version="3.6.4-pre.0" />
