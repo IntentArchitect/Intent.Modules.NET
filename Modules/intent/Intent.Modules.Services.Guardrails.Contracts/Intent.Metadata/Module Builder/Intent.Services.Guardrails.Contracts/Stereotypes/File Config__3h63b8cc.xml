@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="a8268032-90eb-4ec9-9bf7-5ab5aa60886f" version="3.1.0">
-  <comment>Optional overrides for the file the Domain Event Handler, Integration Event (Message), Integration Command, Eventing DTO or Integration Event Handler contract is merged into. Set only what differs from the convention.</comment>
+  <comment>Optional overrides for the file the Domain Event Handler, Integration Event (Message), Integration Command, Eventing DTO, Integration Event Handler or Service Proxy contract is merged into. Set only what differs from the convention.</comment>
   <name>File Config</name>
   <targetMode>filter-function</targetMode>
-  <targetFilterFunction>// Domain Event Handler, Message (Integration Event), Integration Command, Eventing DTO, Integration Event Handler
-return ["d80e61c5-7e4c-4175-9df1-0413f664824c", "cbe970af-5bad-4d92-a3ed-a24b9fdaa23e", "7f01ca8e-0e3c-4735-ae23-a45169f71625", "544f1d57-27ce-4985-a4ec-cc01568d72b0", "c0582230-22f5-4f74-8eb0-ec6fc9364900"].indexOf(element.specializationId) &gt;= 0;</targetFilterFunction>
+  <targetFilterFunction>// Domain Event Handler, Message (Integration Event), Integration Command, Eventing DTO, Integration Event Handler, Service Proxy
+return ["d80e61c5-7e4c-4175-9df1-0413f664824c", "cbe970af-5bad-4d92-a3ed-a24b9fdaa23e", "7f01ca8e-0e3c-4735-ae23-a45169f71625", "544f1d57-27ce-4985-a4ec-cc01568d72b0", "c0582230-22f5-4f74-8eb0-ec6fc9364900", "07d8d1a9-6b9f-4676-b7d3-8db06299e35c"].indexOf(element.specializationId) &gt;= 0;</targetFilterFunction>
   <traitStorage>package</traitStorage>
   <applyMode>manually</applyMode>
   <icon type="FontAwesome" source="fa-file-code-o" />

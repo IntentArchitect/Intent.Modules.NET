@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="7eb59935-6069-4d59-bbbe-15231c53aeae" version="3.1.0">
+  <comment>The C# default value of this Service Proxy Parameter, as the code declares it, e.g. int page = 1. A Service Proxy Parameter has no Value of its own, and method signatures are fully managed, so an unmodelled default is removed from the code.</comment>
+  <name>Default Value</name>
+  <targetMode>filter-function</targetMode>
+  <targetFilterFunction>// Parameter (on a Service Proxy Operation)
+return ["f11273c1-217f-4f42-b690-3d8b488f95a8"].indexOf(element.specializationId) &gt;= 0;</targetFilterFunction>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="fa-pencil" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>d1b06837-852d-4218-8833-37d9c0552d1d</parentFolderId>
+  <order>0</order>
+  <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+  <packageName>Intent.Services.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="1452c702-4074-4235-a3de-7794af7bc2b1">
+      <hint>The default as written in the code, e.g. 1, "en" or null. Formatted like a service operation parameter's Value: a string is quoted unless it already is, or is null, default or an expression; an enum literal is qualified with its enum type; a value starting with @ is used verbatim without the @. The CancellationToken parameter's default is set by Async Configuration instead.</hint>
+      <name>Value</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. 1</placeholder>
+    </property>
+  </properties>
+</stereotypeDefinition>

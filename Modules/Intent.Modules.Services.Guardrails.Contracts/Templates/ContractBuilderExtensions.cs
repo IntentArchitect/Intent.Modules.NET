@@ -271,5 +271,86 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 });
             }
         }
+
+        /// <summary>
+        /// A concrete Service Proxy's Operations (raw elements, see <see cref="OptionalModelerMetadata"/>): a public method with
+        /// an empty body for each, name used verbatim, plus the async keyword for Async Mode async. Method modifiers other than
+        /// async aren't modelled for proxies (a documented limitation). Must be called from within a builder callback.
+        /// </summary>
+        public static void AddStubbedProxyOperations(this CSharpClass @class, ICSharpTemplate template, IEnumerable<IElement> operations)
+        {
+            foreach (var operation in operations)
+            {
+                var parameters = operation.GetServiceProxyParameters();
+                var async = ContractAsync.For(operation, operation.GetServiceProxyAsyncConfiguration(), parameters.Select(x => x.Name));
+                @class.AddMethod(async.GetReturnType(template.GetProxyOperationReturnType(operation), template), operation.Name, method =>
+                {
+                    method.RepresentsModel(operation);
+                    method.Public();
+                    AddProxyParameters(template, parameters, representsModel: true, (type, name, configure) => method.AddParameter(type, name, configure));
+                    async.AddCancellationTokenParameter(method, template);
+                    async.ApplyAsyncKeyword(method);
+                });
+            }
+        }
+
+        /// <summary>
+        /// The same for a Service Proxy whose Type is interface: interface methods have no access modifier and no body, so they
+        /// never get the async keyword; the return type and CancellationToken follow the same async rules.
+        /// </summary>
+        public static void AddStubbedProxyOperations(this CSharpInterface @interface, ICSharpTemplate template, IEnumerable<IElement> operations)
+        {
+            foreach (var operation in operations)
+            {
+                var parameters = operation.GetServiceProxyParameters();
+                var async = ContractAsync.For(operation, operation.GetServiceProxyAsyncConfiguration(), parameters.Select(x => x.Name));
+                @interface.AddMethod(async.GetReturnType(template.GetProxyOperationReturnType(operation), template), operation.Name, method =>
+                {
+                    method.RepresentsModel(operation);
+                    // Intent.Modules.Common.CSharp (up to 3.10.12-pre.2) never sets an interface method parameter's Parent, so
+                    // RepresentsModel throws on one; the parameters are written without it.
+                    AddProxyParameters(template, parameters, representsModel: false, (type, name, configure) => method.AddParameter(type, name, configure));
+                    async.AddCancellationTokenParameter(method, template);
+                });
+            }
+        }
+
+        /// <summary>
+        /// The Operation's return type before any async wrapping (void when none is modelled), honouring this module's
+        /// filter-targeted Collection Type.
+        /// </summary>
+        private static CSharpType GetProxyOperationReturnType(this ICSharpTemplate template, IElement operation)
+        {
+            if (operation.TypeReference?.Element == null)
+            {
+                return CSharpTypeParser.Parse("void");
+            }
+
+            var collectionType = operation.GetOptionalModelerCollectionType();
+            return CSharpTypeParser.Parse(template.GetContractTypeName(operation.TypeReference, operation, collectionType?.Kind, collectionType?.CustomFormat));
+        }
+
+        /// <summary>
+        /// Each Parameter by name and type, verbatim, with its Collection Type and its Default Value stereotype as the default
+        /// (formatted like a service operation parameter's Value, see <see cref="ContractDefaultValues"/>). Proxy Parameters
+        /// have no Parameter Modifier.
+        /// </summary>
+        private static void AddProxyParameters(ICSharpTemplate template, IEnumerable<IElement> parameters, bool representsModel, Action<string, string, Action<CSharpParameter>> addParameter)
+        {
+            foreach (var parameter in parameters)
+            {
+                var collectionType = parameter.GetOptionalModelerCollectionType();
+                var typeName = template.GetContractTypeName(parameter.TypeReference, parameter, collectionType?.Kind, collectionType?.CustomFormat);
+                addParameter(typeName, parameter.Name, param =>
+                {
+                    if (representsModel)
+                    {
+                        param.RepresentsModel(parameter);
+                    }
+
+                    param.WithContractDefaultValue(template, parameter, parameter.GetServiceProxyDefaultValue(), parameter.TypeReference, modifier: null);
+                });
+            }
+        }
     }
 }

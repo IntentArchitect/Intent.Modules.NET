@@ -10,9 +10,10 @@ The module generates `skills/reverse-engineer-services/SKILL.md` into the applic
 
 - model existing commands, queries, DTOs and services in the Services designer, mirroring the code's folders and record/class kinds;
 - model integration events, integration commands, eventing DTOs and their handlers when the code has messaging;
-- install the CQRS, WebApi, Security, DomainInteractions, Eventing and EventInteractions modules when the code calls for them;
+- model the code's API clients as Service Proxies, with no mappings (see Service proxies);
+- install the CQRS, WebApi, Security, DomainInteractions, Eventing, EventInteractions and Service Proxies modules when the code calls for them;
 - capture the HTTP surface and its security on commands, queries and publicly exposed service operations alike;
-- model the intent of every command, query and service operation, public or internal: the entity actions it performs, the services, commands, queries and service proxies it invokes, and the integration events and commands it publishes or sends;
+- model the intent of every command, query and service operation, public or internal: the entity actions it performs, the services, commands, queries and API client methods it invokes, and the integration events and commands it publishes or sends;
 - run the Software Factory until it changes nothing but the Intent file headers and the code's formatting, then adopt the existing files.
 
 Run it after `reverse-engineer-domain` (from Intent.Domain.Guardrails.Contracts) when the code has a domain layer.
@@ -31,8 +32,9 @@ Run it after `reverse-engineer-domain` (from Intent.Domain.Guardrails.Contracts)
 | IntegrationCommandContract      | Integration Command           | Type with its properties; no base type or interfaces. Generated only when `Intent.Modelers.Eventing` is installed                                             | `Guardrails.Contracts.Services.IntegrationCommand`      |
 | EventingDtoContract             | Eventing DTO                  | Type with fields as properties and its base Eventing DTO. Generated only when `Intent.Modelers.Eventing` is installed                                         | `Guardrails.Contracts.Services.EventingDto`             |
 | IntegrationEventHandlerContract | Integration Event Handler     | Class only, no members. Handle methods and handler interfaces stay in the code. Generated only when `Intent.Modelers.Services.EventInteractions` is installed | `Guardrails.Contracts.Services.IntegrationEventHandler` |
+| ServiceProxyContract            | Service Proxy                 | The client class (or interface) with its operations, empty bodies. Generated only when `Intent.Modelers.Types.ServiceProxies` is installed                    | `Guardrails.Contracts.Services.ServiceProxy`            |
 
-Put an Output Anchor carrying these roles at the Application project's root. Designer folders then supply the rest of each file's path. Integration events, integration commands and eventing DTOs often live in a separate Contracts project; give their roles an Output Anchor there instead.
+Put an Output Anchor carrying these roles at the Application project's root. Designer folders then supply the rest of each file's path. Integration events, integration commands and eventing DTOs often live in a separate Contracts project; give their roles an Output Anchor there instead. API clients usually live in the Infrastructure project; give the ServiceProxy role an Output Anchor there.
 
 ## Integration eventing
 
@@ -49,6 +51,50 @@ Not supported yet:
 - **Property initializers on messages:** the Eventing designer has no Value on a Message or Integration Command property. Eventing DTO fields do have one.
 - **A subscriber's own copy of a message** that is modelled in another application's package: it is never generated in the subscriber.
 - **Accessors:** every property is emitted as `{ get; set; }`, as for DTOs. Merge leaves an existing property's accessors alone, so `init`, `private set` and get-only properties in the code stay as written; only a newly added property gets `{ get; set; }`.
+
+## Service proxies
+
+Each API client in the code (a typed `HttpClient` wrapper, or a Refit, NSwag or Kiota client) is modelled as one **Service Proxy** in the Services designer, purely as a picture of the code, and ServiceProxyContract merges it into the client's own file. The module has no dependency on `Intent.Modelers.Types.ServiceProxies`: the template generates nothing until that modeler is installed and proxies are modelled. When it is installed, it must be 5.5.7-pre.0 or later, which can create a proxy by script with no mapping dialog, in a folder or at the Services package root.
+
+- **No mappings.** A proxy's Operations and Parameters are the client's methods and parameters. The template never reads a mapping, so a proxy needs none to another application's endpoints.
+- **One proxy, one file.** A proxy is the concrete client class (`PaymentsClient`) by default. Set **Service Proxy Configuration → Type** to `interface` only for a client whose implementation is generated at runtime, such as a Refit interface (`IGitHubApi`). The interface a concrete client implements isn't modelled or guarded: it stays hand-written, so a signature change in the model needs a matching hand edit there.
+- **Methods:** one per Operation, named verbatim, with an empty body. A class method is `public`, plus `async` per the async rules (see Conventions); an interface method has no access modifier and never `async`. Return and parameter types follow Collection Type, and the async shape and CancellationToken follow the proxy Operation's own **Async Configuration**, which has the same properties as a service operation's.
+- **Default values:** a proxy Parameter has no Value, so apply **Default Value** and set **Value** where the code declares a default (`int page = 1`). It's formatted as described under Default values.
+- **Modifiers:** a class takes Default Type Modifiers, or **Service Proxy Configuration → Modifiers**, with the same rules as Type Configuration. An interface takes only the setting's access modifier, or its own Modifiers: at most one of `public` or `internal`, plus `partial`, or `none`. Anything else raises an error on the proxy.
+- **Kept from the code:** base types (`: IPaymentsClient`), attributes (Refit's `[Get("/users/{user}")]`), constructors and fields aren't generated, so Merge keeps them.
+- **Contract types:** a request or response type the code declares itself is modelled as a DTO, Command, Query or Enum and guarded by its own template. A type from outside the code, such as one from a NuGet contracts package, is a Type-Definition and isn't generated.
+- **Only this application's own packages** are generated, as for integration eventing.
+- **Don't install Intent's own client generators** (`Intent.Application.Contracts.Clients`, `Intent.Integration.HttpClients`) alongside this module: they fail on unmapped proxies.
+
+```csharp
+// Service Proxy PaymentsClient, Service Proxy Configuration → Modifiers = internal sealed
+internal sealed class PaymentsClient
+{
+    public async Task<PaymentDto> GetPaymentAsync(Guid id, CancellationToken cancellationToken = default)
+    {
+    }
+
+    public async Task<List<PaymentDto>> ListPaymentsAsync(int page = 1, CancellationToken cancellationToken = default)
+    {
+    }
+}
+
+// Service Proxy IGitHubApi, Type = interface, Async Configuration → Include Cancellation Token unticked
+public interface IGitHubApi
+{
+    Task<GitHubUser> GetUserAsync(string user);
+}
+```
+
+Merged into the existing files, the class keeps its `: IPaymentsClient`, constructor, fields and method bodies, and the interface keeps its Refit attributes.
+
+Not supported yet:
+
+- Class method modifiers other than `public` and `async` (`virtual`, `override`, `sealed`, `new`, or another access modifier).
+- Explicit interface implementations (`Task<PaymentDto> IPaymentsClient.GetPaymentAsync(...)`).
+- Generic methods: the designer allows no generic parameters on a proxy Operation.
+- Parameter modifiers (`ref`, `out`, `params`).
+- **Designer errors (not verified):** the Service Proxies modeler re-syncs proxy parameters when the Services package loads and when a proxy changes, and assumes every proxy operation is mapped. On an unmapped proxy it may show an error. It stops before it changes any parameter, so nothing is lost.
 
 ## Type Configuration stereotype
 
@@ -67,6 +113,7 @@ Under Merge mode the generated declaration's modifiers replace the existing ones
 - **Default Type Modifiers** (module setting, in Services Guardrails Contracts Settings) applies to every class, record and enum contract: `public` (the default) or `internal`, each optionally followed by `sealed`, `partial` or `sealed partial`. For code that declares types without an access modifier, choose `sealed`, `partial`, `sealed partial`, or `none` for no modifiers at all. Set it to the codebase's own convention, e.g. `internal sealed` or `sealed`. The Domain contract module has its own setting.
 - **Type Configuration → Modifiers** replaces the setting for one element, e.g. `public`, `sealed`, `internal static` or `public sealed partial`. Use at most one of `public` or `internal`, plus any of `sealed`, `abstract`, `static` and `partial`, in any order; they are written in the usual C# order. Leave the access modifier out when the code has none (`sealed` gives `sealed class CreateOrderCommandHandler`), and use `none` on its own when the declaration has no modifiers at all (`record OrderPlaced`), because an empty Modifiers means the setting applies.
 - **Domain Event Handlers and Integration Event Handlers** share a Type Configuration with Modifiers only, because a handler is always a class.
+- **Service Proxies** set Modifiers on **Service Proxy Configuration**. A proxy that is an interface takes only an access modifier and `partial` (see Service proxies).
 - **abstract:** Is Abstract on a DTO or eventing DTO always adds `abstract`.
 - **sealed from the setting** is left off an abstract DTO or eventing DTO, and off one that another DTO (or eventing DTO) inherits from.
 - **Errors:** Modifiers set on an element are used as given. These raise an error on the element: `sealed` or `static` on an abstract or inherited type, `static` on a record, two access modifiers, more than one of `sealed`, `abstract` and `static`, `none` with any other keyword, or a keyword the builder can't write (`file`, `unsafe`, …).
@@ -74,7 +121,7 @@ Under Merge mode the generated declaration's modifiers replace the existing ones
 
 ## File Config stereotype
 
-Each element is generated into `<ElementName>.cs` in its folder, with the namespace derived from its folders. Apply **File Config** to a Service, Command, Query, DTO, Enum, Domain Event Handler, Integration Event, Integration Command, Eventing DTO or Integration Event Handler only where the code differs. Both properties are optional; set just the one you need.
+Each element is generated into `<ElementName>.cs` in its folder, with the namespace derived from its folders. Apply **File Config** to a Service, Command, Query, DTO, Enum, Domain Event Handler, Integration Event, Integration Command, Eventing DTO, Integration Event Handler or Service Proxy only where the code differs. Both properties are optional; set just the one you need.
 
 - **Namespace:** replaces the derived namespace, for a file whose namespace doesn't follow its folders (e.g. `Basislink.DTO` in a sub-folder). It is used as given, with no casing changes, and references to the type get the matching `using`.
 - **No Namespace:** tick it for a type declared in the global namespace (no `namespace` declaration in the file). Leave Namespace empty; setting both is an error. References to the type need no `using`.
@@ -89,7 +136,7 @@ Each element is generated into `<ElementName>.cs` in its folder, with the namesp
 
 ## Collection Type stereotype
 
-Collections are generated as `List<T>` by default. Where the code uses a different collection, apply **Collection Type** to the DTO field (also on commands and queries), the operation parameter, the operation itself (its return type), or an integration event, integration command or eventing DTO property, and choose the **Type**:
+Collections are generated as `List<T>` by default. Where the code uses a different collection, apply **Collection Type** to the DTO field (also on commands and queries), the operation parameter, the operation itself (its return type), an integration event, integration command or eventing DTO property, or a Service Proxy Operation (its return type) or Parameter, and choose the **Type**:
 
 | Type                                                                                     | Emits                                                                                                               |
 | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -124,7 +171,7 @@ Apply **Parameter Modifier** to a service operation parameter where the code dec
 
 ## Default values
 
-Set the Value of a service operation parameter to give it a default (`string area = "Basislink"`), and the Value of a DTO, command, query or eventing DTO field to give its property an initializer (`public string Area { get; set; } = "Basislink";`). The Value is formatted the way Intent's DTO templates format it:
+Set the Value of a service operation parameter to give it a default (`string area = "Basislink"`), and the Value of a DTO, command, query or eventing DTO field to give its property an initializer (`public string Area { get; set; } = "Basislink";`). A Service Proxy Parameter has no Value, so its default is the **Default Value** stereotype's Value; applying the stereotype with an empty Value raises an error on the parameter. The Value is formatted the way Intent's DTO templates format it:
 
 - **Strings** are quoted, unless the value is already quoted, is `null` or `default`, or looks like an expression (contains `.` or `(`, or starts with `_`). `Basislink` and `"Basislink"` both give `"Basislink"`.
 - **Enums:** a literal name gets its enum type (`Info` gives `EventTypeEnum.Info`).
@@ -168,5 +215,6 @@ Every file carries both directives: plain `Mode.Merge` for the file, plus a defa
   - **Cancellation Token Name**: the token's name when the code doesn't call it `cancellationToken`, e.g. `ct`. Method signatures are fully managed, so any other name would otherwise be renamed.
   - **Cancellation Token Default** (default ticked) writes `= default`; untick it for a token without a default.
   - A `CancellationToken` that isn't the last parameter can't be reproduced.
+  - Service Proxy Operations have their own Async Configuration with the same properties and rules. An interface method never gets the `async` keyword.
 - Fields typed as Domain enums, entities, value objects or data contracts resolve through the Domain contract roles, with no reference to the Domain contract module.
 - Consumer projects need the `Intent.RoslynWeaver.Attributes` NuGet package.

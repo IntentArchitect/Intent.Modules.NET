@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.IModSpecFile#76ae5930-45bc-4bd1-bdfe-42d92c076a37</correlationId>
+      <path>Intent.Services.Guardrails.Contracts.imodspec</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-16T15:23:11.1233486Z</updatedAt>
+      <deviationsHash>1058F71F3BEF953FB5D7B26D8106EF0818F61934D0124862122DCAC894B6BB57</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#134c4e3a-eca5-4e31-a467-543b65040e20</correlationId>
       <path>Templates/DtoContract/DtoContractTemplatePartial.cs</path>
       <count>1</count>

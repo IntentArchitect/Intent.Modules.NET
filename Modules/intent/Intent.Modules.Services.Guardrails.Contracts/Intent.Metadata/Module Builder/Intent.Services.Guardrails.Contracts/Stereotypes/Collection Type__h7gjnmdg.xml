@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="def585dc-4000-4215-969b-fcf9afd61c34" version="3.1.0">
-  <comment>Overrides the collection type the guardrail contract emits for this Integration Event, Integration Command or Eventing DTO property, where the code doesn't use the template default (List&lt;T&gt;). Ignored when the type isn't a collection.</comment>
+  <comment>Overrides the collection type the guardrail contract emits for this Integration Event, Integration Command or Eventing DTO property, Service Proxy Operation return type or Service Proxy Parameter, where the code doesn't use the template default (List&lt;T&gt;). Ignored when the type isn't a collection.</comment>
   <name>Collection Type</name>
   <targetMode>filter-function</targetMode>
-  <targetFilterFunction>// Property (on a Message or Integration Command), Eventing DTO-Field
-return ["bde29850-5fb9-4f47-9941-b9e182fd9bdc", "93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7"].indexOf(element.specializationId) &gt;= 0;</targetFilterFunction>
+  <targetFilterFunction>// Property (on a Message or Integration Command), Eventing DTO-Field, Operation (on a Service Proxy, for its return type), Parameter (on a Service Proxy Operation)
+return ["bde29850-5fb9-4f47-9941-b9e182fd9bdc", "93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7", "aee6811e-b2f6-4562-a8eb-502029f63bc8", "f11273c1-217f-4f42-b690-3d8b488f95a8"].indexOf(element.specializationId) &gt;= 0;</targetFilterFunction>
   <traitStorage>package</traitStorage>
   <applyMode>manually</applyMode>
   <icon type="FontAwesome" source="list" />

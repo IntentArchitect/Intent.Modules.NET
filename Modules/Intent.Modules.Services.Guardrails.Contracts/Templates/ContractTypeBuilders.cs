@@ -18,6 +18,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
     /// </summary>
     public static class ContractTypeBuilders
     {
+        private const string ServiceProxyConfigurationName = "Service Proxy Configuration";
+
         /// <summary>
         /// Dispatches on the element's type to the matching builder.
         /// </summary>
@@ -43,6 +45,10 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             else if (element.IsEventingDto())
             {
                 AddEventingDto(file, template, element);
+            }
+            else if (element.IsServiceProxy())
+            {
+                AddServiceProxy(file, template, element);
             }
             else if (element.IsServiceModel())
             {
@@ -223,6 +229,36 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         public static void AddIntegrationEventHandler(CSharpFile file, ICSharpTemplate template, IElement element)
         {
             AddHandler(file, template, element);
+        }
+
+        /// <summary>
+        /// A Service Proxy (raw element, see <see cref="OptionalModelerMetadata"/>) is guarded as the one type its client code
+        /// declares (user decision): the concrete client class by default, or with Service Proxy Configuration Type interface,
+        /// the client's interface, for code whose implementation is generated at runtime (e.g. Refit). Each Operation becomes a
+        /// method with an empty body. No base types or attributes are generated, so Merge keeps the code's own (a class's
+        /// <c>: IPaymentsClient</c>, Refit's <c>[Get(...)]</c>). Mappings are never read: a proxy represents the client code only
+        /// (user decision).
+        /// </summary>
+        public static void AddServiceProxy(CSharpFile file, ICSharpTemplate template, IElement element)
+        {
+            var configuration = element.GetServiceProxyConfiguration();
+            if (configuration?.IsInterface() == true)
+            {
+                file.AddInterface(element.Name, @interface =>
+                {
+                    @interface.RepresentsModel(element);
+                    @interface.AddStubbedProxyOperations(template, element.GetServiceProxyOperations());
+                    @interface.ApplyContractModifiers(template, element, configuration.Modifiers(), ServiceProxyConfigurationName);
+                });
+                return;
+            }
+
+            file.AddClass(element.Name, @class =>
+            {
+                @class.RepresentsModel(element);
+                @class.AddStubbedProxyOperations(template, element.GetServiceProxyOperations());
+                @class.ApplyContractModifiers(template, element, configuration?.Modifiers(), isInherited: false, ServiceProxyConfigurationName);
+            });
         }
 
         private static void AddEventingMessage(CSharpFile file, ICSharpTemplate template, IElement element)

@@ -14,6 +14,7 @@ using Intent.Modules.Services.Guardrails.Contracts.Templates.IntegrationEventCon
 using Intent.Modules.Services.Guardrails.Contracts.Templates.IntegrationEventHandlerContract;
 using Intent.Modules.Services.Guardrails.Contracts.Templates.QueryContract;
 using Intent.Modules.Services.Guardrails.Contracts.Templates.ServiceContract;
+using Intent.Modules.Services.Guardrails.Contracts.Templates.ServiceProxyContract;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -122,6 +123,16 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         public static string GetServiceContractName(this IIntentTemplate template, ServiceModel model)
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, model);
+        }
+
+        public static string GetServiceProxyContractName<T>(this IIntentTemplate<T> template) where T : IElement
+        {
+            return template.GetTypeName(ServiceProxyContractTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetServiceProxyContractName(this IIntentTemplate template, IElement model)
+        {
+            return template.GetTypeName(ServiceProxyContractTemplate.TemplateId, model);
         }
 
     }

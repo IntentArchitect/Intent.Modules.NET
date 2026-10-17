@@ -17,6 +17,10 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         public const string EventingDto = "Guardrails.Contracts.Services.EventingDto";
         public const string IntegrationEventHandler = "Guardrails.Contracts.Services.IntegrationEventHandler";
 
+        // Not a type source: nothing in the model references a Service Proxy as a type.
+        public const string ServiceProxy = "Guardrails.Contracts.Services.ServiceProxy";
+
+
         public const string DomainEnum = "Guardrails.Contracts.Domain.Enum";
         public const string DomainEntity = "Guardrails.Contracts.Domain.Entity";
         public const string DomainValueObject = "Guardrails.Contracts.Domain.ValueObject";

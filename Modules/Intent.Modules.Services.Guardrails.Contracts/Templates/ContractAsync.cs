@@ -22,6 +22,18 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
     {
         private const string DefaultCancellationTokenName = "cancellationToken";
 
+        // The stereotype's property names and options, for a filter-targeted Async Configuration read by name. They must stay
+        // the same as the typed stereotype's.
+        private const string IncludeCancellationTokenProperty = "Include Cancellation Token";
+        private const string AsyncModeProperty = "Async Mode";
+        private const string TaskTypeProperty = "Task Type";
+        private const string CancellationTokenNameProperty = "Cancellation Token Name";
+        private const string AsyncModeAsync = "async";
+        private const string AsyncModeNoAsyncKeyword = "no async keyword";
+        private const string AsyncModeSync = "sync";
+        private const string TaskTypeTask = "Task";
+        private const string TaskTypeValueTask = "ValueTask";
+
         // Read raw: a stereotype applied before this property existed has no stored value, which must keep "= default".
         private const string CancellationTokenDefaultProperty = "Cancellation Token Default";
 
@@ -59,8 +71,39 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         /// </summary>
         public static ContractAsync For(IElement operation, OperationModelStereotypeExtensions.AsyncConfiguration configuration, IEnumerable<string> parameterNames)
         {
+            var settings = configuration == null
+                ? null
+                : new Settings(
+                    configuration.AsyncMode().Value,
+                    configuration.TaskType().Value,
+                    configuration.IncludeCancellationToken(),
+                    configuration.CancellationTokenName(),
+                    operation.GetStereotype(OperationModelStereotypeExtensions.AsyncConfiguration.DefinitionId)?.GetProperty<string>(CancellationTokenDefaultProperty));
+            return For(operation, settings, parameterNames);
+        }
+
+        /// <summary>
+        /// The same for an operation whose Async Configuration is a filter-targeted stereotype with no typed accessor, read by
+        /// property name. <paramref name="stereotype"/> is that stereotype, or null when it isn't applied. Its properties and
+        /// options must be the same as the typed stereotype's.
+        /// </summary>
+        public static ContractAsync For(IElement operation, IStereotype stereotype, IEnumerable<string> parameterNames)
+        {
+            var settings = stereotype == null
+                ? null
+                : new Settings(
+                    stereotype.GetProperty<string>(AsyncModeProperty),
+                    stereotype.GetProperty<string>(TaskTypeProperty),
+                    stereotype.GetProperty<bool>(IncludeCancellationTokenProperty),
+                    stereotype.GetProperty<string>(CancellationTokenNameProperty),
+                    stereotype.GetProperty<string>(CancellationTokenDefaultProperty));
+            return For(operation, settings, parameterNames);
+        }
+
+        private static ContractAsync For(IElement operation, Settings settings, IEnumerable<string> parameterNames)
+        {
             ContractAsync result;
-            if (configuration == null)
+            if (settings == null)
             {
                 var isAsync = operation.Name.EndsWith("Async", StringComparison.Ordinal);
                 result = isAsync
@@ -69,7 +112,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             }
             else
             {
-                result = FromConfiguration(operation, configuration);
+                result = FromSettings(operation, settings);
             }
 
             if (result.IncludeCancellationToken && parameterNames.Contains(result.CancellationTokenName, StringComparer.Ordinal))
@@ -82,47 +125,47 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             return result;
         }
 
-        private static ContractAsync FromConfiguration(IElement operation, OperationModelStereotypeExtensions.AsyncConfiguration configuration)
+        private static ContractAsync FromSettings(IElement operation, Settings settings)
         {
-            var mode = configuration.AsyncMode();
+            var mode = settings.AsyncMode;
             bool hasAsyncKeyword;
             // An empty Async Mode is a stereotype applied before the property replaced Is Async (user decision: no migration);
             // async, the property's default, keeps that output.
-            if (string.IsNullOrWhiteSpace(mode.Value) || mode.IsAsync())
+            if (string.IsNullOrWhiteSpace(mode) || mode == AsyncModeAsync)
             {
                 hasAsyncKeyword = true;
             }
-            else if (mode.IsNoAsyncKeyword())
+            else if (mode == AsyncModeNoAsyncKeyword)
             {
                 hasAsyncKeyword = false;
             }
-            else if (mode.IsSync())
+            else if (mode == AsyncModeSync)
             {
                 return Sync;
             }
             else
             {
                 throw new ElementException(operation,
-                    $"Operation '{operation.Name}' has an Async Configuration Async Mode of '{mode.Value}', which isn't valid. Choose async, no async keyword or sync.");
+                    $"Operation '{operation.Name}' has an Async Configuration Async Mode of '{mode}', which isn't valid. Choose async, no async keyword or sync.");
             }
 
-            var taskType = configuration.TaskType();
+            var taskType = settings.TaskType;
             bool? asValueTask;
-            if (string.IsNullOrWhiteSpace(taskType.Value))
+            if (string.IsNullOrWhiteSpace(taskType))
             {
                 asValueTask = null;
             }
-            else if (taskType.IsTask() || taskType.IsValueTask())
+            else if (taskType == TaskTypeTask || taskType == TaskTypeValueTask)
             {
-                asValueTask = taskType.IsValueTask();
+                asValueTask = taskType == TaskTypeValueTask;
             }
             else
             {
                 throw new ElementException(operation,
-                    $"Operation '{operation.Name}' has an Async Configuration Task Type of '{taskType.Value}', which isn't valid. Choose Task or ValueTask, or clear it.");
+                    $"Operation '{operation.Name}' has an Async Configuration Task Type of '{taskType}', which isn't valid. Choose Task or ValueTask, or clear it.");
             }
 
-            var configuredName = configuration.CancellationTokenName();
+            var configuredName = settings.CancellationTokenName;
             var tokenName = string.IsNullOrWhiteSpace(configuredName) ? DefaultCancellationTokenName : configuredName.Trim();
             if (!IsIdentifier(tokenName))
             {
@@ -131,10 +174,9 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                     "Use the name the code declares, for example ct, or clear it to use cancellationToken.");
             }
 
-            var storedDefault = operation.GetStereotype(OperationModelStereotypeExtensions.AsyncConfiguration.DefinitionId)?.GetProperty<string>(CancellationTokenDefaultProperty);
-            var hasDefault = !string.Equals(storedDefault?.Trim(), "false", StringComparison.OrdinalIgnoreCase);
+            var hasDefault = !string.Equals(settings.StoredCancellationTokenDefault?.Trim(), "false", StringComparison.OrdinalIgnoreCase);
 
-            return new ContractAsync(isAwaitable: true, hasAsyncKeyword, asValueTask, configuration.IncludeCancellationToken(), tokenName, hasDefault);
+            return new ContractAsync(isAwaitable: true, hasAsyncKeyword, asValueTask, settings.IncludeCancellationToken, tokenName, hasDefault);
         }
 
         /// <summary>
@@ -190,30 +232,40 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         /// <summary>Appends the CancellationToken parameter, when the operation takes one.</summary>
         public void AddCancellationTokenParameter(CSharpClassMethod method, ICSharpTemplate template)
         {
-            if (!IncludeCancellationToken)
+            if (IncludeCancellationToken)
             {
-                return;
+                method.AddParameter(template.UseType("System.Threading.CancellationToken"), CancellationTokenName, ConfigureCancellationTokenParameter);
             }
+        }
 
-            method.AddParameter(template.UseType("System.Threading.CancellationToken"), CancellationTokenName, param =>
+        /// <summary>The same for an interface method.</summary>
+        public void AddCancellationTokenParameter(CSharpInterfaceMethod method, ICSharpTemplate template)
+        {
+            if (IncludeCancellationToken)
             {
-                if (CancellationTokenHasDefault)
-                {
-                    param.WithDefaultValue("default");
-                }
-            });
+                method.AddParameter(template.UseType("System.Threading.CancellationToken"), CancellationTokenName, ConfigureCancellationTokenParameter);
+            }
         }
 
         /// <summary>
         /// The async modifier, for Async Mode async. Under Merge the existing method's modifiers are replaced with these, so it
         /// must be emitted to keep async/await implementations compiling, and left off a method that returns its task directly.
         /// Call it after the return type is set: Async(asValueTask) then leaves a Task or ValueTask return type as it is.
+        /// An interface method has no body, so it never gets the keyword and has no overload here.
         /// </summary>
         public void ApplyAsyncKeyword(CSharpClassMethod method)
         {
             if (HasAsyncKeyword)
             {
                 method.Async(asValueTask: method.ReturnTypeInfo.IsValueTask());
+            }
+        }
+
+        private void ConfigureCancellationTokenParameter(CSharpParameter parameter)
+        {
+            if (CancellationTokenHasDefault)
+            {
+                parameter.WithDefaultValue("default");
             }
         }
 
@@ -224,5 +276,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 (char.IsLetter(identifier[0]) || identifier[0] == '_') &&
                 identifier.All(c => char.IsLetterOrDigit(c) || c == '_');
         }
+
+        /// <summary>An Async Configuration's values, read through the typed accessor or by property name.</summary>
+        private sealed record Settings(string AsyncMode, string TaskType, bool IncludeCancellationToken, string CancellationTokenName, string StoredCancellationTokenDefault);
     }
 }

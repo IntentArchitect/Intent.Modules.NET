@@ -11,7 +11,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
     /// <summary>
     /// Raw metadata ids for the Services designer elements that optional modelers add: Domain Event Handlers
     /// (Intent.Modelers.Domain.Events), Messages shown as "Integration Event", Integration Commands and Eventing DTOs
-    /// (Intent.Modelers.Eventing), and Integration Event Handlers (Intent.Modelers.Services.EventInteractions).
+    /// (Intent.Modelers.Eventing), Integration Event Handlers (Intent.Modelers.Services.EventInteractions), and Service
+    /// Proxies with their Operations and Parameters (Intent.Modelers.Types.ServiceProxies).
     /// <para>
     /// Deliberate, documented exception to "typed accessors only" (user decision): this module takes no dependency on
     /// those modelers, so their typed models are not available. The reverse-engineering skill installs a modeler in a
@@ -52,6 +53,22 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         /// <summary>"Integration Event Handler" element type (Intent.Modelers.Services.EventInteractions).</summary>
         public const string IntegrationEventHandlerTypeId = "c0582230-22f5-4f74-8eb0-ec6fc9364900";
 
+        /// <summary>"Service Proxy" element type (Intent.Modelers.Types.ServiceProxies).</summary>
+        public const string ServiceProxyTypeId = "07d8d1a9-6b9f-4676-b7d3-8db06299e35c";
+
+        /// <summary>
+        /// "Operation" element type, the child of a Service Proxy (Intent.Modelers.Types.ServiceProxies). Not the Services
+        /// designer's Operation, which has a different id.
+        /// </summary>
+        public const string ServiceProxyOperationTypeId = "aee6811e-b2f6-4562-a8eb-502029f63bc8";
+
+        /// <summary>
+        /// "Parameter" element type, the child of a Service Proxy Operation (Intent.Modelers.Types.ServiceProxies). Not the
+        /// Services designer's Parameter, which has a different id.
+        /// </summary>
+        public const string ServiceProxyParameterTypeId = "f11273c1-217f-4f42-b690-3d8b488f95a8";
+
+
         /// <summary>This module's shared "File Config" stereotype for every optional modeler element above.</summary>
         public const string FileConfigStereotypeId = "a8268032-90eb-4ec9-9bf7-5ab5aa60886f";
 
@@ -67,6 +84,19 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         /// <summary>This module's "Property Configuration" stereotype for Message and Integration Command Properties and Eventing DTO-Fields.</summary>
         public const string PropertyConfigurationStereotypeId = "b310df29-d6be-4569-ae15-7006bb1c8286";
 
+        /// <summary>This module's "Service Proxy Configuration" stereotype for Service Proxies (Type and Modifiers).</summary>
+        public const string ServiceProxyConfigurationStereotypeId = "35cf5540-f14a-4ef3-ae22-f9d24aa9c90a";
+
+        /// <summary>
+        /// This module's "Async Configuration" stereotype for Service Proxy Operations, with the same properties and options as
+        /// the typed one on Services Operations (see <see cref="ContractAsync"/>).
+        /// </summary>
+        public const string ServiceProxyAsyncConfigurationStereotypeId = "38da9465-4099-4b22-ac5a-a01cde22dec2";
+
+        /// <summary>This module's "Default Value" stereotype for Service Proxy Parameters, which have no Value of their own.</summary>
+        public const string DefaultValueStereotypeId = "7eb59935-6069-4d59-bbbe-15231c53aeae";
+
+
         private const string FilenameProperty = "Filename";
         private const string NamespaceProperty = "Namespace";
         private const string NoNamespaceProperty = "No Namespace";
@@ -74,6 +104,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         private const string ModifiersProperty = "Modifiers";
         private const string CustomFormatProperty = "Custom Format";
         private const string RequiredProperty = "Required";
+        private const string ValueProperty = "Value";
+
 
         public static bool IsDomainEventHandler(this ICanBeReferencedType element) => IsOfType(element, DomainEventHandlerTypeId);
 
@@ -84,6 +116,61 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         public static bool IsEventingDto(this ICanBeReferencedType element) => IsOfType(element, EventingDtoTypeId);
 
         public static bool IsIntegrationEventHandler(this ICanBeReferencedType element) => IsOfType(element, IntegrationEventHandlerTypeId);
+
+        public static bool IsServiceProxy(this ICanBeReferencedType element) => IsOfType(element, ServiceProxyTypeId);
+
+        /// <summary>The Operations of a Service Proxy, in model order.</summary>
+        public static IList<IElement> GetServiceProxyOperations(this IElement element)
+        {
+            return element.ChildElements.Where(x => IsOfType(x, ServiceProxyOperationTypeId)).ToList();
+        }
+
+        /// <summary>The Parameters of a Service Proxy Operation, in model order.</summary>
+        public static IList<IElement> GetServiceProxyParameters(this IElement operation)
+        {
+            return operation.ChildElements.Where(x => IsOfType(x, ServiceProxyParameterTypeId)).ToList();
+        }
+
+        /// <summary>A Service Proxy's Service Proxy Configuration, or null when the stereotype is not applied.</summary>
+        public static ServiceProxyConfiguration GetServiceProxyConfiguration(this IElement element)
+        {
+            var stereotype = element.GetStereotype(ServiceProxyConfigurationStereotypeId);
+            return stereotype != null ? new ServiceProxyConfiguration(element, stereotype) : null;
+        }
+
+        /// <summary>
+        /// A Service Proxy Operation's Async Configuration stereotype, or null when it is not applied. It has no typed accessor,
+        /// so <see cref="ContractAsync"/> reads it by property name.
+        /// </summary>
+        public static IStereotype GetServiceProxyAsyncConfiguration(this IElement operation)
+        {
+            return operation.GetStereotype(ServiceProxyAsyncConfigurationStereotypeId);
+        }
+
+        /// <summary>
+        /// A Service Proxy Parameter's Default Value, or null when the stereotype is not applied. Applied with an empty Value is
+        /// an error on the element: the stereotype exists only to hold the default, so leaving it empty would silently remove
+        /// the code's default.
+        /// </summary>
+        public static string GetServiceProxyDefaultValue(this IElement parameter)
+        {
+            var stereotype = parameter.GetStereotype(DefaultValueStereotypeId);
+            if (stereotype == null)
+            {
+                return null;
+            }
+
+            var value = stereotype.GetProperty<string>(ValueProperty);
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ElementException(parameter,
+                    $"Parameter '{parameter.Name}' has the Default Value stereotype, but its Value is empty. " +
+                    "Set Value to the default the code declares, for example 1 or null, or remove the stereotype if the parameter has no default.");
+            }
+
+            return value;
+        }
+
 
         /// <summary>
         /// True when the element lives in one of this application's own packages. Eventing packages are routinely
@@ -257,6 +344,45 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             public ContractCollectionKind Kind { get; }
 
             public string CustomFormat { get; }
+        }
+
+        public sealed class ServiceProxyConfiguration
+        {
+            private readonly IElement _element;
+            private readonly IStereotype _stereotype;
+
+            public ServiceProxyConfiguration(IElement element, IStereotype stereotype)
+            {
+                _element = element;
+                _stereotype = stereotype;
+            }
+
+            /// <summary>
+            /// True for Type interface: the proxy is the client's interface, for code whose implementation is generated at
+            /// runtime (e.g. Refit). Empty or class means the concrete client class; any other value is an error on the element.
+            /// </summary>
+            public bool IsInterface()
+            {
+                var type = _stereotype.GetProperty<string>(TypeProperty);
+                switch (type?.Trim())
+                {
+                    case null:
+                    case "":
+                    case "class":
+                        return false;
+                    case "interface":
+                        return true;
+                    default:
+                        throw new ElementException(_element,
+                            $"Service Proxy '{_element.Name}' has a Service Proxy Configuration Type of '{type}', which isn't valid. " +
+                            "Choose class for the concrete client class, or interface when the code has only the client's interface.");
+                }
+            }
+
+            public string Modifiers()
+            {
+                return _stereotype.GetProperty<string>(ModifiersProperty);
+            }
         }
     }
 }
