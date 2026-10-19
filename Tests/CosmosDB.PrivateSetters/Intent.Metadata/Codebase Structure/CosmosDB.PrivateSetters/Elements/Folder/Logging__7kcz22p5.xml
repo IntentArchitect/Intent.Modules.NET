@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>07e37433-d16d-4131-a898-e2d85f366b82</parentFolderId>
+  <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+  <packageName>CosmosDB.PrivateSetters</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4420666d-ff4b-4b73-b54a-24f65675607c</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB.PrivateSetters</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

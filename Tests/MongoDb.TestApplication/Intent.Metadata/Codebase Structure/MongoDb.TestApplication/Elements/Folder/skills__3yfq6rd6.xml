@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>927ebee8-ade8-4eeb-87e2-3da4d0dce0be</parentFolderId>
+  <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+  <packageName>MongoDb.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d44c2639-04ad-4bbe-8fe7-9a35e498e9b7</parentFolderId>
+      <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+      <packageName>MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d44c2639-04ad-4bbe-8fe7-9a35e498e9b7</parentFolderId>
+      <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+      <packageName>MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d44c2639-04ad-4bbe-8fe7-9a35e498e9b7</parentFolderId>
+      <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+      <packageName>MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

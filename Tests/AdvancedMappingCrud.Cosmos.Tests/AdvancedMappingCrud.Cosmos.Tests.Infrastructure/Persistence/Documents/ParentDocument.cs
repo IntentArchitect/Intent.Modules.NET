@@ -27,9 +27,9 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
         public string Id { get; set; } = default!;
         public string Name { get; set; } = default!;
         public List<ChildDocument>? Children { get; set; }
-        IReadOnlyList<IChildDocument> IParentDocument.Children => Children;
+        IReadOnlyList<IChildDocument>? IParentDocument.Children => Children;
         public ParentDetailsDocument? ParentDetails { get; set; }
-        IParentDetailsDocument IParentDocument.ParentDetails => ParentDetails;
+        IParentDetailsDocument? IParentDocument.ParentDetails => ParentDetails;
 
         public Parent ToEntity(Parent? entity = default)
         {

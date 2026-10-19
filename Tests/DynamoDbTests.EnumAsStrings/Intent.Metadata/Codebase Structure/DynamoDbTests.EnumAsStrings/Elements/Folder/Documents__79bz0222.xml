@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d0099ebb-c286-471f-8c7f-d879f95f42ae</parentFolderId>
+  <packageId>696850f8-2a02-40f8-834d-f10b94c4fc68</packageId>
+  <packageName>DynamoDbTests.EnumAsStrings</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d05da669-6b4f-4468-a3be-531c389b1749</parentFolderId>
+      <packageId>696850f8-2a02-40f8-834d-f10b94c4fc68</packageId>
+      <packageName>DynamoDbTests.EnumAsStrings</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d05da669-6b4f-4468-a3be-531c389b1749</parentFolderId>
+      <packageId>696850f8-2a02-40f8-834d-f10b94c4fc68</packageId>
+      <packageName>DynamoDbTests.EnumAsStrings</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d05da669-6b4f-4468-a3be-531c389b1749</parentFolderId>
+      <packageId>696850f8-2a02-40f8-834d-f10b94c4fc68</packageId>
+      <packageName>DynamoDbTests.EnumAsStrings</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d05da669-6b4f-4468-a3be-531c389b1749</parentFolderId>
+      <packageId>696850f8-2a02-40f8-834d-f10b94c4fc68</packageId>
+      <packageName>DynamoDbTests.EnumAsStrings</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

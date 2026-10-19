@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ec519dd3-1360-4dab-9cd3-ddf4d7acc051</parentFolderId>
+  <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+  <packageName>Entities.PrivateSetters.MongoDb</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7f6d9345-ad84-4d50-a856-fb61d89c1f4a</parentFolderId>
+      <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+      <packageName>Entities.PrivateSetters.MongoDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7f6d9345-ad84-4d50-a856-fb61d89c1f4a</parentFolderId>
+      <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+      <packageName>Entities.PrivateSetters.MongoDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3a885fef-875c-4713-8d2a-cff5155a2b3b</parentFolderId>
+  <packageId>3a885fef-875c-4713-8d2a-cff5155a2b3b</packageId>
+  <packageName>Scalar.NET9.OAuth2Implicit.Services</packageName>
   <diagram>
     <targetPackageId>3a885fef-875c-4713-8d2a-cff5155a2b3b</targetPackageId>
   </diagram>

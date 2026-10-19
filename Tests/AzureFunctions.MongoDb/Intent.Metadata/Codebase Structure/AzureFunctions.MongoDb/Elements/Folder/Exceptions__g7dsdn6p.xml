@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0fcbe058-68eb-4980-9cf8-9ef74cda951b</parentFolderId>
+  <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+  <packageName>AzureFunctions.MongoDb</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f91c07ce-da8d-48cb-a2f4-cbaf24f290ff</parentFolderId>
+      <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+      <packageName>AzureFunctions.MongoDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

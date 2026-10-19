@@ -257,6 +257,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6932953d-89bf-4334-a762-3c3f6ec10b65</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

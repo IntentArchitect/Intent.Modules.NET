@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3a30e7e7-d68a-42b6-9405-2d18b271c1a7</parentFolderId>
+  <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+  <packageName>Dapper.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>95314cc4-7ebe-4cfe-881c-a6c5d89dc314</parentFolderId>
+      <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+      <packageName>Dapper.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>95314cc4-7ebe-4cfe-881c-a6c5d89dc314</parentFolderId>
+      <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+      <packageName>Dapper.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

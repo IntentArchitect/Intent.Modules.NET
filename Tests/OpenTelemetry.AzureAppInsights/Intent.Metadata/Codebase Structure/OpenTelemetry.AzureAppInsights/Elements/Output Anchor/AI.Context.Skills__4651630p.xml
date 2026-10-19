@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6c7a15ed-3275-4e03-9eb2-53a020b01cf5</parentFolderId>
+  <packageId>6407e5e4-2aa2-4019-b042-cadd5c6ae80f</packageId>
+  <packageName>OpenTelemetry.AzureAppInsights</packageName>
   <stereotypes />
   <metadata />
   <childElements />

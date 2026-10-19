@@ -77,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8d73b64e-ff55-4e4e-b76a-8f958fc97360</parentFolderId>
+      <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+      <packageName>AdvancedMappingCrudMongo.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -113,6 +115,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8d73b64e-ff55-4e4e-b76a-8f958fc97360</parentFolderId>
+      <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+      <packageName>AdvancedMappingCrudMongo.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -127,6 +131,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8d73b64e-ff55-4e4e-b76a-8f958fc97360</parentFolderId>
+      <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+      <packageName>AdvancedMappingCrudMongo.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -141,6 +147,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8d73b64e-ff55-4e4e-b76a-8f958fc97360</parentFolderId>
+      <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+      <packageName>AdvancedMappingCrudMongo.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

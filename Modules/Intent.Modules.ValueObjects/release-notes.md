@@ -1,3 +1,13 @@
+### Version 4.3.0
+
+- Improvement: A Value Object can now contain other Value Objects through associations, not only through attributes. Each navigable association from a Value Object to another Value Object generates a property, a constructor parameter and an equality component (`1` required, `0..1` nullable, `0..*` a collection). Previously these associations were accepted by the designer but silently produced nothing.
+- **Breaking change**: Value Objects with associations to other Value Objects gain a constructor parameter per association, appended after the attribute parameters. Hand-written `new MyValueObject(...)` calls for those Value Objects must pass the new arguments (`null` for `0..1` and `0..*` associations).
+- Fixed: Value Objects holding a collection were never equal to each other, because `GetEqualityComponents` yielded the collection itself (compared by reference). Each collection now contributes its element count followed by its elements, so equal collections compare equal and items cannot shift between adjacent collections (`[a, b] + [c]` is not equal to `[a] + [b, c]`). A `null` collection counts as empty.
+- Fixed: `GetHashCode` no longer throws `InvalidOperationException: Sequence contains no elements` for a Value Object whose only members are empty collections.
+- Fixed: `CS8603` warning in `GetEqualityComponents` for nullable properties.
+- Improvement: Removed the boilerplate `// Using a yield return statement...` comment from `GetEqualityComponents`.
+- Known limitation: Record Value Objects (Value Object Type = Record) use compiler-generated equality, which compares collection members by reference, so two records holding equal collections are never equal. This now also applies to collection associations on records.
+
 ### Version 4.2.10
 
 - Improvement: Updated output path of some templates to be more consistant with other templates.

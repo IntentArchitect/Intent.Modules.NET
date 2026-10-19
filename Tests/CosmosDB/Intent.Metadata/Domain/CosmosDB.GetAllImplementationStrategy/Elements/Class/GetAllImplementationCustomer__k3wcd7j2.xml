@@ -9,6 +9,9 @@
   <parentFolderId>831098b6-72cb-4c0e-9086-be92d765957f</parentFolderId>
   <packageId>831098b6-72cb-4c0e-9086-be92d765957f</packageId>
   <packageName>CosmosDB.GetAllImplementationStrategy</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
   <stereotypes />
   <metadata>
     <entry key="currentPartitionKey" value="" />

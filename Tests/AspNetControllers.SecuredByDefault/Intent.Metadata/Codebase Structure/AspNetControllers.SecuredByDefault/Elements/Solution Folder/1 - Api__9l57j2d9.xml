@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>30656ab2-8ebf-4c2a-803b-c16480061036</parentFolderId>
+  <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+  <packageName>AspNetControllers.SecuredByDefault</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9ce2b38a-1cfd-449d-972d-f331a7a52b73</parentFolderId>
+      <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+      <packageName>AspNetControllers.SecuredByDefault</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -77,6 +81,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>33f268df-0900-485a-a481-0e433d9b6c4d</parentFolderId>
+          <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+          <packageName>AspNetControllers.SecuredByDefault</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -97,6 +103,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>9d714ee8-7443-4954-a4f3-d128d31d43a6</parentFolderId>
+              <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+              <packageName>AspNetControllers.SecuredByDefault</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -111,6 +119,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>33f268df-0900-485a-a481-0e433d9b6c4d</parentFolderId>
+          <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+          <packageName>AspNetControllers.SecuredByDefault</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -123,6 +133,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>33f268df-0900-485a-a481-0e433d9b6c4d</parentFolderId>
+          <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+          <packageName>AspNetControllers.SecuredByDefault</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -135,6 +147,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>33f268df-0900-485a-a481-0e433d9b6c4d</parentFolderId>
+          <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+          <packageName>AspNetControllers.SecuredByDefault</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -171,6 +185,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>33f268df-0900-485a-a481-0e433d9b6c4d</parentFolderId>
+          <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+          <packageName>AspNetControllers.SecuredByDefault</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -207,6 +223,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>33f268df-0900-485a-a481-0e433d9b6c4d</parentFolderId>
+          <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+          <packageName>AspNetControllers.SecuredByDefault</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

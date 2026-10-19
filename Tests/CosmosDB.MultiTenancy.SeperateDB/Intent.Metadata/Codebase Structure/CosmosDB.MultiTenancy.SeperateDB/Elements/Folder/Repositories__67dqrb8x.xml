@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d87b2cba-2801-42f5-a6e7-8636e0eb99bf</parentFolderId>
+  <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+  <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3b19465a-3dce-4a57-9a30-3d7e7152a150</parentFolderId>
+      <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+      <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3b19465a-3dce-4a57-9a30-3d7e7152a150</parentFolderId>
+      <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+      <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3b19465a-3dce-4a57-9a30-3d7e7152a150</parentFolderId>
+      <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+      <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3b19465a-3dce-4a57-9a30-3d7e7152a150</parentFolderId>
+      <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+      <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

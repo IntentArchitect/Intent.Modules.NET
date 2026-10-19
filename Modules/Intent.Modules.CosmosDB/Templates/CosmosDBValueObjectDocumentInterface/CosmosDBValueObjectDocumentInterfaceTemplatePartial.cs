@@ -31,8 +31,11 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface
             AddTypeSource(TemplateId);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddInterface($"I{Model.Name}Document", @interface =>
+                .AddInterface($"I{Model.Name}Document")
+                .OnBuild(file =>
                 {
+                    var @interface = file.Interfaces.First();
+
                     var attributes = Model.ChildElements
                         .Where(x => x.IsAttributeModel())
                         .Select(x => x.AsAttributeModel())
@@ -42,7 +45,12 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface
                     {
                         @interface.AddProperty(GetTypeName(attribute.TypeReference), attribute.Name.ToPascalCase(), p => p.WithoutSetter());
                     }
-                });
+
+                    foreach (var associationEnd in this.GetValueObjectAssociationEnds(Model))
+                    {
+                        @interface.AddProperty(GetTypeName(associationEnd), associationEnd.Name.ToPascalCase(), p => p.WithoutSetter());
+                    }
+                }, 1000);
         }
 
         [IntentManaged(Mode.Fully)]

@@ -68,10 +68,10 @@ return lookupByName("Customer")?.findChildren({ specialization: "Attribute" }).m
 const customer = createElementUnder("Domain", "Class", "Customer");
 const order    = createElementUnder("Domain", "Class", "Order");
 createAssociation("Association", customer.id, order.id, { targetMultiplicity: "0..*", sourceMultiplicity: "1" });
-// ...then lay the diagram out as a SEPARATE step with apply_change_diagram_layout — not in this script.
+// ...no layout here. Show the changes at the end with showDynamicDiagram in a run_designer_query.
 ```
 
-After running, inspect the returned `errors[]` (scoped to what you changed). If non-empty, fix the issues in a follow-up script and re-run until clear.
+After running, inspect the returned `errors[]` — what your change introduced, anywhere in the designer. If non-empty, fix those in a follow-up script.
 
 ## (h) Advanced-map a command's fields onto a domain entity (discover → create → map → verify)
 

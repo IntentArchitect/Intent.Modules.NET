@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7ea39235-e108-483b-bf05-c56dd0cffd9b</parentFolderId>
+  <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+  <packageName>DynamoDbTests.PrivateSetters</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>24e95fbe-fbce-48e6-b68a-760339dcdd88</parentFolderId>
+      <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+      <packageName>DynamoDbTests.PrivateSetters</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -67,6 +71,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>93f8782d-9b7b-4b20-ad73-0241420d0231</parentFolderId>
+          <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+          <packageName>DynamoDbTests.PrivateSetters</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -79,6 +85,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>93f8782d-9b7b-4b20-ad73-0241420d0231</parentFolderId>
+          <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+          <packageName>DynamoDbTests.PrivateSetters</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -91,6 +99,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>93f8782d-9b7b-4b20-ad73-0241420d0231</parentFolderId>
+          <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+          <packageName>DynamoDbTests.PrivateSetters</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

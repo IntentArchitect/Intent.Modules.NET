@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>244affe1-2a7d-439d-85f9-3c04db9856ee</parentFolderId>
+  <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+  <packageName>AspNetControllers.SecuredByDefault</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d8f1d4f9-340e-4745-88b6-6afb2cf997e7</parentFolderId>
+      <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+      <packageName>AspNetControllers.SecuredByDefault</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d8f1d4f9-340e-4745-88b6-6afb2cf997e7</parentFolderId>
+      <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+      <packageName>AspNetControllers.SecuredByDefault</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

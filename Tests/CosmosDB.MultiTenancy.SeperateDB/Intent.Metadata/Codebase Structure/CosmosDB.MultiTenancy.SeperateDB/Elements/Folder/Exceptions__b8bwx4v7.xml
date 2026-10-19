@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>83670418-a92c-49c9-b36c-91e7890c6554</parentFolderId>
+  <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+  <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1aec9694-481d-4231-9abf-9c62b57add81</parentFolderId>
+      <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+      <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

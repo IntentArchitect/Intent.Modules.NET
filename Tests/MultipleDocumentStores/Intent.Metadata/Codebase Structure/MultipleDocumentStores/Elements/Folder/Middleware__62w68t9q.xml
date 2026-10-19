@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>51943174-2235-4aa6-90a0-cacb540fefcc</parentFolderId>
+  <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+  <packageName>MultipleDocumentStores</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>816e2858-7383-4586-8931-7231bce99dbe</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

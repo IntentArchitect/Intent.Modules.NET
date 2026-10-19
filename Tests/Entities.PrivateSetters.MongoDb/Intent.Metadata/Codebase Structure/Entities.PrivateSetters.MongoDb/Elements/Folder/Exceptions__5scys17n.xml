@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>284cba53-d14a-40c0-afd2-6fc79b00b03d</parentFolderId>
+      <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+      <packageName>Entities.PrivateSetters.MongoDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

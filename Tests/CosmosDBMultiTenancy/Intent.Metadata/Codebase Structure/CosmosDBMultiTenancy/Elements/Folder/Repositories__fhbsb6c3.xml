@@ -105,6 +105,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c33043c3-6d63-41d5-9342-79409d323fa2</parentFolderId>
+      <packageId>941894ee-9173-4b5e-aae9-d4fb9d409961</packageId>
+      <packageName>CosmosDBMultiTenancy</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -119,6 +121,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c33043c3-6d63-41d5-9342-79409d323fa2</parentFolderId>
+      <packageId>941894ee-9173-4b5e-aae9-d4fb9d409961</packageId>
+      <packageName>CosmosDBMultiTenancy</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -155,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c33043c3-6d63-41d5-9342-79409d323fa2</parentFolderId>
+      <packageId>941894ee-9173-4b5e-aae9-d4fb9d409961</packageId>
+      <packageName>CosmosDBMultiTenancy</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -191,6 +197,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c33043c3-6d63-41d5-9342-79409d323fa2</parentFolderId>
+      <packageId>941894ee-9173-4b5e-aae9-d4fb9d409961</packageId>
+      <packageName>CosmosDBMultiTenancy</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

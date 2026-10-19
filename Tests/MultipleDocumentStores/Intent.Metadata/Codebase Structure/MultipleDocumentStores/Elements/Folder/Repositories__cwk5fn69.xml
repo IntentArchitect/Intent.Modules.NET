@@ -153,6 +153,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5d7705ac-e4b5-450b-ba34-3d57fe87d53b</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -167,6 +169,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5d7705ac-e4b5-450b-ba34-3d57fe87d53b</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -203,6 +207,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5d7705ac-e4b5-450b-ba34-3d57fe87d53b</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -239,6 +245,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5d7705ac-e4b5-450b-ba34-3d57fe87d53b</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -275,6 +283,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5d7705ac-e4b5-450b-ba34-3d57fe87d53b</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

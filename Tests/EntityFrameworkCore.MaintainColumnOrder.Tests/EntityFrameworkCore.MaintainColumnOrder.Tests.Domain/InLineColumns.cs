@@ -26,7 +26,6 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain
 
         protected override IEnumerable<object> GetEqualityComponents()
         {
-            // Using a yield return statement to return each element one at a time
             yield return Col1;
             yield return Col2;
         }

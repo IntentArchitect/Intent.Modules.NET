@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8cbb067e-a22f-4419-adc4-2ffc850495e5</parentFolderId>
+  <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+  <packageName>CosmosDB.Authentication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cb7d5ff4-2b18-4845-9ee4-c711ecbae38e</parentFolderId>
+      <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+      <packageName>CosmosDB.Authentication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

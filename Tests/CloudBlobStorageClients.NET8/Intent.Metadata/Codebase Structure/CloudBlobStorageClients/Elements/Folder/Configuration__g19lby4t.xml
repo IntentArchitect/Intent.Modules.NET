@@ -257,6 +257,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cddf2dcb-88f8-4ad8-b618-c97e8a5c7bdf</parentFolderId>
+      <packageId>62b340d7-6049-4668-9e56-7f1575ce29ea</packageId>
+      <packageName>CloudBlobStorageClients</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using CosmosDB.EntityInterfaces.Domain.Entities;
 using CosmosDB.EntityInterfaces.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -31,6 +33,8 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
         public string Identifier { get; set; } = default!;
         [JsonProperty("@id")]
         public string Id { get; set; } = default!;
+        public List<ScheduleDocument> Schedules { get; set; } = default!;
+        IReadOnlyList<IScheduleDocument> IIdTestingDocument.Schedules => Schedules;
 
         public IdTesting ToEntity(IdTesting? entity = default)
         {
@@ -38,6 +42,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
 
             entity.Identifier = Identifier ?? throw new Exception($"{nameof(entity.Identifier)} is null");
             entity.Id = Id ?? throw new Exception($"{nameof(entity.Id)} is null");
+            entity.Schedules = Schedules.Select(x => x.ToEntity()).ToList() ?? throw new Exception($"{nameof(entity.Schedules)} is null");
 
             return entity;
         }
@@ -46,6 +51,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
         {
             Identifier = entity.Identifier;
             Id = entity.Id;
+            Schedules = entity.Schedules.Select(x => ScheduleDocument.FromEntity(x)!).ToList();
 
             _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
 

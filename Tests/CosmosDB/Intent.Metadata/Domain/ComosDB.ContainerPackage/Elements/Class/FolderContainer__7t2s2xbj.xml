@@ -9,6 +9,9 @@
   <parentFolderId>96d27f9a-9b78-41f1-9238-aec7c13b4787</parentFolderId>
   <packageId>e81e140c-bff0-49bd-9d9f-2043ef86290c</packageId>
   <packageName>ComosDB.ContainerPackage</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
   <stereotypes />
   <metadata>
     <entry key="currentPartitionKey" value="FolderPartitionKey" />

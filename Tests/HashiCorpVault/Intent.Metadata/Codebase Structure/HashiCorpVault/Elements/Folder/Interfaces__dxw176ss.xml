@@ -99,6 +99,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5a131bbb-172e-4ad8-971b-2b4dc325aa1d</parentFolderId>
+      <packageId>1dc33871-c2c5-4459-933a-2d96297ef8a9</packageId>
+      <packageName>HashiCorpVault</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

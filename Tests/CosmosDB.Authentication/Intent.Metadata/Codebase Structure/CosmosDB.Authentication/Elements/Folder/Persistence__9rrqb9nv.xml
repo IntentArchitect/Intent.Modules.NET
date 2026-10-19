@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b0ae8797-0e17-495b-9723-bd8fe36ef84f</parentFolderId>
+  <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+  <packageName>CosmosDB.Authentication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>db8a508d-76a1-4d6f-826d-a804bd7855da</parentFolderId>
+      <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+      <packageName>CosmosDB.Authentication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>db8a508d-76a1-4d6f-826d-a804bd7855da</parentFolderId>
+      <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+      <packageName>CosmosDB.Authentication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>db8a508d-76a1-4d6f-826d-a804bd7855da</parentFolderId>
+      <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+      <packageName>CosmosDB.Authentication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>db8a508d-76a1-4d6f-826d-a804bd7855da</parentFolderId>
+      <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+      <packageName>CosmosDB.Authentication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>db8a508d-76a1-4d6f-826d-a804bd7855da</parentFolderId>
+      <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+      <packageName>CosmosDB.Authentication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

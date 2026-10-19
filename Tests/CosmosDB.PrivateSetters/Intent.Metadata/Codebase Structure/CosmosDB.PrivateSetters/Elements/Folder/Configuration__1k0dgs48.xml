@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3b24cd56-5def-4bbc-be81-875be95cafbc</parentFolderId>
+  <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+  <packageName>CosmosDB.PrivateSetters</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>03ef6816-66ec-45dc-b5ff-a0b6e2648e93</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB.PrivateSetters</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>03ef6816-66ec-45dc-b5ff-a0b6e2648e93</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB.PrivateSetters</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

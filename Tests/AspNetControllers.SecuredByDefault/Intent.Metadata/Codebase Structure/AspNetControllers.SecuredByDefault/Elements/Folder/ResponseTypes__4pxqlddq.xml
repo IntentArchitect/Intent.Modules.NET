@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>aae50134-2054-46b1-bf67-19eb8f2c1578</parentFolderId>
+  <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+  <packageName>AspNetControllers.SecuredByDefault</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>025e1c44-c157-4437-a5b3-313bd51b0451</parentFolderId>
+      <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+      <packageName>AspNetControllers.SecuredByDefault</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

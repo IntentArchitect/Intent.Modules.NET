@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0311d47d-5d7b-488b-bb2f-865240bb9ce1" type="Value Object" typeId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5">
+  <name>Itinerary</name>
+  <display>Itinerary</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eca90396-0828-43f5-9bbd-32c16ba595e4</parentFolderId>
+  <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+  <packageName>CosmosDB.Domain</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="0c9208c9-1776-43de-967a-b130b067cc00" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Legs</name>
+      <display>Legs: Coordinates[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="23d4218d-c831-4ba8-bbbd-826ef550b856">
+        <typeId>aeff913e-2b28-4190-8be9-41366519c0c5</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CosmosDB.Domain</typePackageName>
+        <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0311d47d-5d7b-488b-bb2f-865240bb9ce1</parentFolderId>
+      <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+      <packageName>CosmosDB.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

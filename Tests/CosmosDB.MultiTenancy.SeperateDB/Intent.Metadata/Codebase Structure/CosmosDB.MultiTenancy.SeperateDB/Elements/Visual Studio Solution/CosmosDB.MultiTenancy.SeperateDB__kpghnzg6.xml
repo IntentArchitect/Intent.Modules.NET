@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>896dcc16-33ec-4815-807d-c4a4b258c266</parentFolderId>
+  <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+  <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

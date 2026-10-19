@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8d09ad06-b56c-4f15-ac61-758ec2f477c7</parentFolderId>
+  <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+  <packageName>GraphQL.MongoDb.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f89d69d8-6fae-477c-aef7-7dc8682f8b54</parentFolderId>
+      <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+      <packageName>GraphQL.MongoDb.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

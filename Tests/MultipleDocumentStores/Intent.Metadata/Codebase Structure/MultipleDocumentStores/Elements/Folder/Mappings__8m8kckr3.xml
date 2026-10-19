@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>05ad3928-787b-402d-86c3-46d14f58c8b6</parentFolderId>
+  <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+  <packageName>MultipleDocumentStores</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4f0fc07c-2593-4118-85f8-77d34a3e7349</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

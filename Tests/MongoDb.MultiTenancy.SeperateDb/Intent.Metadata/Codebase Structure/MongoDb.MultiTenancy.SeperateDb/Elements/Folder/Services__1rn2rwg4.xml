@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3030cde6-7660-465b-a4ee-6ce1b87403b2</parentFolderId>
+  <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+  <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f3bc8119-460a-4d95-a69e-595faf387b4f</parentFolderId>
+      <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+      <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

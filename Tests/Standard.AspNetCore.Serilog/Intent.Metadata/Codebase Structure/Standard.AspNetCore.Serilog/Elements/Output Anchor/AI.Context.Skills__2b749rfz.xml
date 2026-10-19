@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8cd3f599-b84e-4ad1-a98c-b7412e18c9c3</parentFolderId>
+  <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+  <packageName>Standard.AspNetCore.Serilog</packageName>
   <stereotypes />
   <metadata />
   <childElements />

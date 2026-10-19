@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</parentFolderId>
+  <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+  <packageName>Standard.AspNetCore.Serilog</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -16,6 +18,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bfbbd071-96e6-4fe2-906f-687e30af1243</parentFolderId>
+      <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+      <packageName>Standard.AspNetCore.Serilog</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -27,6 +31,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bfbbd071-96e6-4fe2-906f-687e30af1243</parentFolderId>
+      <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+      <packageName>Standard.AspNetCore.Serilog</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -38,6 +44,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bfbbd071-96e6-4fe2-906f-687e30af1243</parentFolderId>
+      <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+      <packageName>Standard.AspNetCore.Serilog</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -49,6 +57,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bfbbd071-96e6-4fe2-906f-687e30af1243</parentFolderId>
+      <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+      <packageName>Standard.AspNetCore.Serilog</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -60,6 +70,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bfbbd071-96e6-4fe2-906f-687e30af1243</parentFolderId>
+      <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+      <packageName>Standard.AspNetCore.Serilog</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -71,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bfbbd071-96e6-4fe2-906f-687e30af1243</parentFolderId>
+      <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+      <packageName>Standard.AspNetCore.Serilog</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -82,6 +96,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bfbbd071-96e6-4fe2-906f-687e30af1243</parentFolderId>
+      <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+      <packageName>Standard.AspNetCore.Serilog</packageName>
       <stereotypes />
       <metadata />
       <childElements />

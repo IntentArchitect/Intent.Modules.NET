@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ae9ebe38-8aae-40c8-9946-2566117a58fb</parentFolderId>
+  <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+  <packageName>Entities.PrivateSetters.MongoDb</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>edb0814c-12a7-4dfa-ace0-ab6a8b9b376a</parentFolderId>
+      <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+      <packageName>Entities.PrivateSetters.MongoDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

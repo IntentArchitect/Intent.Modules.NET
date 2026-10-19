@@ -9,11 +9,13 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
 {
     public class IdTesting : IHasDomainEvent
     {
+        private List<Schedule> _schedules = [];
         private string? _identifier;
         public IdTesting()
         {
             Identifier = null!;
             Id = null!;
+            Schedules = null!;
         }
 
         public string Identifier
@@ -23,6 +25,12 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
         }
 
         public string Id { get; private set; }
+
+        public IReadOnlyCollection<Schedule> Schedules
+        {
+            get => _schedules.AsReadOnly();
+            private set => _schedules = new List<Schedule>(value);
+        }
 
         public List<DomainEvent> DomainEvents { get; set; } = [];
     }

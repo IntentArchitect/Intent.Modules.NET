@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>be7b73b6-43db-4dc9-b379-c7ac75afba93</parentFolderId>
+  <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+  <packageName>GraphQL.MongoDb.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f95938b5-c9f6-483f-a898-4ca05833e024</parentFolderId>
+      <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+      <packageName>GraphQL.MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -42,12 +42,17 @@ namespace EfCoreSoftDelete.Domain
 
         protected override IEnumerable<object> GetEqualityComponents()
         {
-            // Using a yield return statement to return each element one at a time
+            // Collections are prefixed with their count so adjacent collections cannot run together
             yield return Line1;
             yield return Line2;
             yield return City;
             yield return Postal;
-            yield return OtherBuildings;
+            yield return OtherBuildings.Count();
+
+            foreach (var item in OtherBuildings)
+            {
+                yield return item;
+            }
             yield return PrimaryBuilding;
         }
     }

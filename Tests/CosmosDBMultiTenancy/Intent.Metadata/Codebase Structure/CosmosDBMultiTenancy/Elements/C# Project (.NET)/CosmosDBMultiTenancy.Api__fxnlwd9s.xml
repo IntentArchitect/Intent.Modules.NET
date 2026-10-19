@@ -169,6 +169,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>acd17f06-2be3-45d8-a81f-50b2efc6c1a3</parentFolderId>
+      <packageId>941894ee-9173-4b5e-aae9-d4fb9d409961</packageId>
+      <packageName>CosmosDBMultiTenancy</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

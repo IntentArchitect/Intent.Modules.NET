@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2a5b991e-c247-48a8-9718-ca9194101553" type="Value Object" typeId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5">
+  <name>Schedule</name>
+  <display>Schedule</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eca90396-0828-43f5-9bbd-32c16ba595e4</parentFolderId>
+  <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+  <packageName>CosmosDB.Domain</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a404b9b3-26cb-4494-9165-d04e7373e159" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0cc2f011-9cf5-47d1-8f24-6a59d316c942">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>2a5b991e-c247-48a8-9718-ca9194101553</parentFolderId>
+      <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+      <packageName>CosmosDB.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" isActive="true" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bfe02125-3ef1-489f-ba53-fcaa84d82cfe" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Slots</name>
+      <display>Slots: ScheduleSlot[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a6551bf2-68b3-45d7-ab86-a65e5c42f0f9">
+        <typeId>334e60a8-86ef-49f3-826c-595d1c24cfff</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CosmosDB.Domain</typePackageName>
+        <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>2a5b991e-c247-48a8-9718-ca9194101553</parentFolderId>
+      <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+      <packageName>CosmosDB.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="90497e71-c22f-4b39-945a-64f898a0d027" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>PrimarySlot</name>
+      <display>PrimarySlot: ScheduleSlot?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5404d7ad-3ca8-4355-82c7-39a5bfc47c2c">
+        <typeId>334e60a8-86ef-49f3-826c-595d1c24cfff</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CosmosDB.Domain</typePackageName>
+        <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>2a5b991e-c247-48a8-9718-ca9194101553</parentFolderId>
+      <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+      <packageName>CosmosDB.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>93f8782d-9b7b-4b20-ad73-0241420d0231</parentFolderId>
+  <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+  <packageName>DynamoDbTests.PrivateSetters</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d44fe681-5d1f-4697-bace-78e59cf61b98</parentFolderId>
+      <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+      <packageName>DynamoDbTests.PrivateSetters</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -53,6 +57,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d44fe681-5d1f-4697-bace-78e59cf61b98</parentFolderId>
+      <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+      <packageName>DynamoDbTests.PrivateSetters</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -67,6 +73,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d44fe681-5d1f-4697-bace-78e59cf61b98</parentFolderId>
+      <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+      <packageName>DynamoDbTests.PrivateSetters</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

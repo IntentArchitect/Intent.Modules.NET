@@ -30,6 +30,18 @@ Or Composite associations...
 
 ![Association based](images/valueobject-association.png)
 
+## Value Objects containing Value Objects
+
+A Value Object can contain other Value Objects, either through an attribute typed as the other Value Object, or through an association drawn from one Value Object to another. Both generate the same kind of member on the Value Object class:
+
+| Modelled as | Generated member |
+| --- | --- |
+| Attribute, or association with a target multiplicity of `1` | Required property |
+| Attribute marked nullable, or association with a target multiplicity of `0..1` | Nullable property |
+| Collection attribute, or association with a target multiplicity of `0..*` | `IEnumerable<T>` property |
+
+Associations from a Value Object to anything other than another Value Object (for example an Entity) are not part of the Value Object and are ignored. Value Objects should not refer back to the Entities which own them.
+
 ## ValueObjects and Primary Keys
 
 > [!NOTE]

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>33321700-6f76-4e17-886f-2bc010ed9da1</parentFolderId>
+  <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+  <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bada9fa9-e28a-4a7d-9900-9955eb6965c8</parentFolderId>
+      <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+      <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bada9fa9-e28a-4a7d-9900-9955eb6965c8</parentFolderId>
+      <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+      <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bada9fa9-e28a-4a7d-9900-9955eb6965c8</parentFolderId>
+      <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+      <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bada9fa9-e28a-4a7d-9900-9955eb6965c8</parentFolderId>
+      <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+      <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

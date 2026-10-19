@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+  <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+  <packageName>AzureFunctions.MongoDb</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>72abdfa3-34ed-4513-aafd-d2c7d24bb269</parentFolderId>
+      <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+      <packageName>AzureFunctions.MongoDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

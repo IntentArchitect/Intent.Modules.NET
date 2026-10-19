@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a5488ef7-b649-44fa-85de-5e35617b881d">
+  <sourceEnd id="cb610a4d-cc3b-4b34-bda4-de09b11be2cb" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Itinerary</name>
+    <display>Itinerary: Itinerary</display>
+    <order>0</order>
+    <typeReference id="db211803-c491-4e96-9217-f4f511c86666">
+      <typeId>0311d47d-5d7b-488b-bb2f-865240bb9ce1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a5488ef7-b649-44fa-85de-5e35617b881d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ExtraLegs</name>
+    <display>ExtraLegs: Coordinates[*]?</display>
+    <order>1</order>
+    <typeReference id="6fd92491-5a3e-4ba3-907f-4752f63c4102">
+      <typeId>aeff913e-2b28-4190-8be9-41366519c0c5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

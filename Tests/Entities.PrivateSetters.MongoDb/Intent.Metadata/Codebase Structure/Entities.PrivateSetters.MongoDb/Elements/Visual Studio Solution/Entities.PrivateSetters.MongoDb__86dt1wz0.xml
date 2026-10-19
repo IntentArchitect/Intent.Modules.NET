@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</parentFolderId>
+  <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+  <packageName>Entities.PrivateSetters.MongoDb</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

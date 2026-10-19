@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cd28c053-dbc2-4064-9019-eb03b6742080</parentFolderId>
+  <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+  <packageName>Redis.Om.Repositories</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>274ffc63-bf71-468a-97df-42c383d9af62</parentFolderId>
+      <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+      <packageName>Redis.Om.Repositories</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

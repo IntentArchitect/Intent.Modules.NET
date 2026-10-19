@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -28,6 +29,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateId);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}Document", @class =>
@@ -37,24 +39,29 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
                         : string.Empty;
 
                     @class.ImplementsInterface($"{this.GetCosmosDBValueObjectDocumentInterfaceName()}{genericTypeArguments}");
+                })
+                .OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
 
                     var attributes = Model.ChildElements
                         .Where(x => x.IsAttributeModel())
                         .Select(x => x.AsAttributeModel())
                         .ToArray();
+                    var associationEnds = this.GetValueObjectAssociationEnds(Model);
 
                     this.AddCosmosDBDocumentProperties(
                         @class: @class,
                         attributes: attributes,
-                        associationEnds: Array.Empty<AssociationEndModel>()
-                        );
+                        associationEnds: associationEnds,
+                        documentInterfaceTemplateId: CosmosDBValueObjectDocumentInterfaceTemplate.TemplateId);
 
                     var valueObjectTypeName = GetTypeName(TemplateRoles.Domain.ValueObject, Model);
 
                     this.AddCosmosDBMappingMethods(
                         @class: @class,
                         attributes: attributes,
-                        associationEnds: Array.Empty<AssociationEndModel>(),
+                        associationEnds: associationEnds,
                         partitionKeyAttribute: null,
                         entityInterfaceTypeName: valueObjectTypeName,
                         entityImplementationTypeName: valueObjectTypeName,
@@ -62,7 +69,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
                         entityRequiresReflectionPropertySetting: true,
                         isAggregate: false,
                         hasBaseType: false);
-                });
+                }, 1000);
         }
 
         [IntentManaged(Mode.Fully)]

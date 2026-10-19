@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5d8fa2b5-22a1-40c7-bec0-d65e4be1e0d1</parentFolderId>
+  <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+  <packageName>CosmosDB.Authentication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1c8a49f9-80f4-49c9-8ab2-e76f30e15a89</parentFolderId>
+      <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+      <packageName>CosmosDB.Authentication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -53,6 +57,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1c8a49f9-80f4-49c9-8ab2-e76f30e15a89</parentFolderId>
+      <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+      <packageName>CosmosDB.Authentication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +95,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1c8a49f9-80f4-49c9-8ab2-e76f30e15a89</parentFolderId>
+      <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+      <packageName>CosmosDB.Authentication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -125,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1c8a49f9-80f4-49c9-8ab2-e76f30e15a89</parentFolderId>
+      <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+      <packageName>CosmosDB.Authentication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -161,6 +171,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1c8a49f9-80f4-49c9-8ab2-e76f30e15a89</parentFolderId>
+      <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+      <packageName>CosmosDB.Authentication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -197,6 +209,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1c8a49f9-80f4-49c9-8ab2-e76f30e15a89</parentFolderId>
+      <packageId>e291764f-3548-482f-bb3a-5cf7fafbd75f</packageId>
+      <packageName>CosmosDB.Authentication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

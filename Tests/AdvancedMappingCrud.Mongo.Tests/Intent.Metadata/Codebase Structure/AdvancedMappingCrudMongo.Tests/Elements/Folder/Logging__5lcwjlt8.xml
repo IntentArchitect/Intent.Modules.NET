@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>83b96862-e1c4-4975-9c2e-11e40f6ff984</parentFolderId>
+  <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+  <packageName>AdvancedMappingCrudMongo.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a118ed50-c640-4c0f-b418-2fd8ee33b83c</parentFolderId>
+      <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+      <packageName>AdvancedMappingCrudMongo.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

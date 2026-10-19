@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a72b040d-7ea7-4621-b854-ed87de9ebf2d">
+  <sourceEnd id="dea79d65-e458-4133-b47c-0bad11fff2ed" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Schedule</name>
+    <display>Schedule: Schedule</display>
+    <order>0</order>
+    <typeReference id="511efc4f-a28d-4c1e-bdfb-2e5f9572f65f">
+      <typeId>2a5b991e-c247-48a8-9718-ca9194101553</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a72b040d-7ea7-4621-b854-ed87de9ebf2d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>PrimaryVenue</name>
+    <display>PrimaryVenue: Venue?</display>
+    <order>3</order>
+    <typeReference id="c389a98e-14a8-469f-81da-3703affb62ba">
+      <typeId>177d4b69-1eac-40e7-94f8-84e5cdc0ef9b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e424ec58-bc70-499e-9ec6-4712e5f30bc4</parentFolderId>
+  <packageId>e424ec58-bc70-499e-9ec6-4712e5f30bc4</packageId>
+  <packageName>OpenTelemetry.Console.Domain</packageName>
   <stereotypes />
   <metadata />
   <childElements />
