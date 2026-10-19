@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<class id="091f8a88-e29b-4980-a26d-26f2c316bfdc" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
-  <name>Security</name>
-  <display>Security</display>
-  <parentFolderId>554d8670-1dd9-4377-977c-0af544d2af3d</parentFolderId>
-  <packageId>554d8670-1dd9-4377-977c-0af544d2af3d</packageId>
-  <packageName>CqrsSpike.Subscriber.Services</packageName>
-</class>

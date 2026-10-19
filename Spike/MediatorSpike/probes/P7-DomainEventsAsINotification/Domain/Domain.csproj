@@ -1,3 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <ItemGroup><PackageReference Include="Mediator.Abstractions" Version="3.0.2" /></ItemGroup>
-</Project>

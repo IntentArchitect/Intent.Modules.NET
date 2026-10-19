@@ -1,6 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <ItemGroup>
-    <PackageReference Include="Mediator.SourceGenerator" Version="3.0.2"><PrivateAssets>all</PrivateAssets><IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets></PackageReference>
-    <PackageReference Include="Mediator.Abstractions" Version="3.0.2" />
-  </ItemGroup>
-</Project>
