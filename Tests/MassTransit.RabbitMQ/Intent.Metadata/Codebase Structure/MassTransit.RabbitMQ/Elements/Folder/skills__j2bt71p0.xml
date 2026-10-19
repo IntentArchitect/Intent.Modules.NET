@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e15f878f-314f-448e-9e4c-5c0b50b2d993</parentFolderId>
+  <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+  <packageName>MassTransit.RabbitMQ</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d3459ae8-ed1c-44ae-91af-fbc2b5a806be</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d3459ae8-ed1c-44ae-91af-fbc2b5a806be</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d3459ae8-ed1c-44ae-91af-fbc2b5a806be</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d3459ae8-ed1c-44ae-91af-fbc2b5a806be</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d3459ae8-ed1c-44ae-91af-fbc2b5a806be</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -87,6 +99,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d3459ae8-ed1c-44ae-91af-fbc2b5a806be</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

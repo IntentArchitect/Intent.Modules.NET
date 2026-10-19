@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f139fc5b-1baf-4c11-8a4d-a3acf5a0f7f1</parentFolderId>
+  <packageId>56c3f032-f07d-4fc1-af0f-55c23c5308e4</packageId>
+  <packageName>CleanArchitecture.QueueStorage</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>53556e88-5251-440f-a554-89e1b3f509d2</parentFolderId>
+      <packageId>56c3f032-f07d-4fc1-af0f-55c23c5308e4</packageId>
+      <packageName>CleanArchitecture.QueueStorage</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

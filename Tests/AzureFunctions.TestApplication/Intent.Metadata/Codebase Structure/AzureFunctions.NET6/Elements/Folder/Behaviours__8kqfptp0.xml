@@ -185,6 +185,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5d97067c-7715-443b-aee9-424e192ffe28</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET6</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

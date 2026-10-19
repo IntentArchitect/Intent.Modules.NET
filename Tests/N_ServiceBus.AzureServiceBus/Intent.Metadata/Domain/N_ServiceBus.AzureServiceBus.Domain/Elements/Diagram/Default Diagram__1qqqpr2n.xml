@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2344d1db-1df7-4366-b08b-5077044b5910</parentFolderId>
+  <packageId>2344d1db-1df7-4366-b08b-5077044b5910</packageId>
+  <packageName>N_ServiceBus.AzureServiceBus.Domain</packageName>
   <diagram>
     <targetPackageId>2344d1db-1df7-4366-b08b-5077044b5910</targetPackageId>
   </diagram>

@@ -81,6 +81,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9546f663-4c75-4624-ba5e-374e0a69227c</parentFolderId>
+      <packageId>8188001b-6643-4f2a-b829-376a4ba8c8fe</packageId>
+      <packageName>Subscribe.MassTransit.OutboxEF</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -105,6 +107,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9546f663-4c75-4624-ba5e-374e0a69227c</parentFolderId>
+      <packageId>8188001b-6643-4f2a-b829-376a4ba8c8fe</packageId>
+      <packageName>Subscribe.MassTransit.OutboxEF</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -129,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9546f663-4c75-4624-ba5e-374e0a69227c</parentFolderId>
+      <packageId>8188001b-6643-4f2a-b829-376a4ba8c8fe</packageId>
+      <packageName>Subscribe.MassTransit.OutboxEF</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1fe74517-dc48-44ce-b851-d03968df356d</parentFolderId>
+  <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+  <packageName>AspNetControllers.SecuredByDefault</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ef63e5dd-9180-42a8-904a-5cb1f678da68</parentFolderId>
+      <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+      <packageName>AspNetControllers.SecuredByDefault</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ef63e5dd-9180-42a8-904a-5cb1f678da68</parentFolderId>
+      <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+      <packageName>AspNetControllers.SecuredByDefault</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ef63e5dd-9180-42a8-904a-5cb1f678da68</parentFolderId>
+      <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+      <packageName>AspNetControllers.SecuredByDefault</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ef63e5dd-9180-42a8-904a-5cb1f678da68</parentFolderId>
+      <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+      <packageName>AspNetControllers.SecuredByDefault</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ef63e5dd-9180-42a8-904a-5cb1f678da68</parentFolderId>
+      <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+      <packageName>AspNetControllers.SecuredByDefault</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

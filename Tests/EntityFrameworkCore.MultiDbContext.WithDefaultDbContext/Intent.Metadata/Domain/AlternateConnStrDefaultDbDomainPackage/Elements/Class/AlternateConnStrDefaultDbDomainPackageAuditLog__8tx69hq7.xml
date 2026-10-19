@@ -8,6 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>b35d0e51-68dd-44e0-bd89-433c44f3356d</parentFolderId>
   <packageId>b35d0e51-68dd-44e0-bd89-433c44f3356d</packageId>
+  <packageName>AlternateConnStrDefaultDbDomainPackage</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="92e433aa-4858-4129-849f-ef0f9f0bf9e6" name="Audit Log">
       <addedByDefault>true</addedByDefault>

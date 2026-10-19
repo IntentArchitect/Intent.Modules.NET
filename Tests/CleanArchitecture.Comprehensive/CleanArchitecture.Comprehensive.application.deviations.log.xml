@@ -2,6 +2,33 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#0e993a94-e4d2-4617-9dc8-416a97cdada0</correlationId>
+      <path>CleanArchitecture.Comprehensive.Application/Implementation/Comments/CommentTestService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-17T06:46:08.5797667Z</updatedAt>
+      <deviationsHash>BB52CEC0783D157175A39B8DB897F0EBA1FD4A6F68E54C78914947861D38922F</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#df86d478-5199-4c38-886d-5e33465d89fd</correlationId>
+      <path>CleanArchitecture.Comprehensive.Application/Implementation/NullableRouteParameters/NullableRouteParameterService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-17T06:46:08.5797705Z</updatedAt>
+      <deviationsHash>1944FD5CF60DDC3E2EE7C6498B4A25083514CBE073F841EC3B3D30AA292BF790</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#fac7c4e9-0a70-47df-94c4-eb0da4d64ced</correlationId>
+      <path>CleanArchitecture.Comprehensive.Application/Implementation/ServiceDispatch/ServiceDispatchService.cs</path>
+      <count>9</count>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-17T06:46:08.5797773Z</updatedAt>
+      <deviationsHash>4F6721A3077916DE23780F0E0D61732C1E31C4D4E19B54B2421547582EFFFFBC</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#5f0d2e6d-25c9-44fc-b7ae-485138f12006</correlationId>
       <path>CleanArchitecture.Comprehensive.Application/Unversioned/Test/TestCommandHandler.cs</path>
       <count>2</count>

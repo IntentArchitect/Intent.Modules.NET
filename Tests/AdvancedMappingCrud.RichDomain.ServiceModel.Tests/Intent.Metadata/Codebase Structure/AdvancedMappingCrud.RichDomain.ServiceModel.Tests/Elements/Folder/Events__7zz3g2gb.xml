@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>61ee8bc4-d54c-475c-937c-9fb1052c4357</parentFolderId>
+  <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4262bd73-8bd1-4acd-a1ac-7452a65219bb</parentFolderId>
+      <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

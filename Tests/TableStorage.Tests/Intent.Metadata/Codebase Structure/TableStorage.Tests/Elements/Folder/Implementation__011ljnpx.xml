@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>eb64e2c0-b031-4c65-9304-acf8ccbe389c</parentFolderId>
+  <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+  <packageName>TableStorage.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7ea57d00-5976-472c-a33a-bba326f488a6</parentFolderId>
+      <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+      <packageName>TableStorage.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

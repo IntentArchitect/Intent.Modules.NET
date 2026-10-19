@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4e188162-14f3-45e8-bdd1-a9c7ccfbfbf7</parentFolderId>
+  <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+  <packageName>TableStorage.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>17c624f1-4c21-4921-9d00-eb2863ca6f89</parentFolderId>
+      <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+      <packageName>TableStorage.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

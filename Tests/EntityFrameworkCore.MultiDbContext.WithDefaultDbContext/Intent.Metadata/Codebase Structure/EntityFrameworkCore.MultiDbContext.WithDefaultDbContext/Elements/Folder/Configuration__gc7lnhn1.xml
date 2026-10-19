@@ -239,6 +239,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3713d1cf-0be6-49b1-94bd-d9d9b3bbea7f</parentFolderId>
+      <packageId>d431f5ce-182f-49ae-bce3-355b0bb892ee</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

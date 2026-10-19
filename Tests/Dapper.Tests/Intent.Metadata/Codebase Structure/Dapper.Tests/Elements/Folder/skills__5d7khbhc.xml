@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b4d1b1e3-e6bf-4c5c-a18f-4bb7a1ed7e75</parentFolderId>
+  <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+  <packageName>Dapper.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dc810f4e-f3ab-40d2-ba40-115e66931363</parentFolderId>
+      <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+      <packageName>Dapper.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dc810f4e-f3ab-40d2-ba40-115e66931363</parentFolderId>
+      <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+      <packageName>Dapper.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dc810f4e-f3ab-40d2-ba40-115e66931363</parentFolderId>
+      <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+      <packageName>Dapper.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dc810f4e-f3ab-40d2-ba40-115e66931363</parentFolderId>
+      <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+      <packageName>Dapper.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dc810f4e-f3ab-40d2-ba40-115e66931363</parentFolderId>
+      <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+      <packageName>Dapper.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -87,6 +99,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dc810f4e-f3ab-40d2-ba40-115e66931363</parentFolderId>
+      <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+      <packageName>Dapper.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

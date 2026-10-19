@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e9681af5-37a5-4e85-b302-d4db779eccdc</parentFolderId>
+  <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+  <packageName>DynamoDbTests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0c5cf6ed-fe5f-4fae-b11e-88a2f82580d1</parentFolderId>
+      <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+      <packageName>DynamoDbTests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0c5cf6ed-fe5f-4fae-b11e-88a2f82580d1</parentFolderId>
+      <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+      <packageName>DynamoDbTests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

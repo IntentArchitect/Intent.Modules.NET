@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>72cf19fa-1b7c-4af6-ade3-10424ddd6634</parentFolderId>
+  <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a9e6645a-de2a-4355-938e-1912229dfa52</parentFolderId>
+      <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

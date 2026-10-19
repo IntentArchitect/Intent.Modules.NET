@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</parentFolderId>
+  <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
+  <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

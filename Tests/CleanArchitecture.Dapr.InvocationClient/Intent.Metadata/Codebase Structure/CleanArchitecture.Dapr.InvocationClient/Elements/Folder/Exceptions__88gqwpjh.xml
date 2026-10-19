@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>061a872c-0125-41ef-aa91-6c69f1dcd493</parentFolderId>
+  <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+  <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a583b577-5945-45f1-b362-4f0fad2f0cae</parentFolderId>
+      <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+      <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

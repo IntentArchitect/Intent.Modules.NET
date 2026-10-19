@@ -55,6 +55,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>03eb9b1e-76f6-4ef5-b1d6-39159bcac3dd</parentFolderId>
+      <packageId>2f02f0ad-70ce-4c2e-bc6b-44498511e261</packageId>
+      <packageName>AspNetCore.AzureServiceBus.GroupA</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

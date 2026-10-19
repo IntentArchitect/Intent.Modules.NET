@@ -97,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>764e7b00-68ff-4802-912b-cd32e5c55c6c</parentFolderId>
+      <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+      <packageName>Entities.PrivateSetters.MongoDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -121,6 +123,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>764e7b00-68ff-4802-912b-cd32e5c55c6c</parentFolderId>
+      <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+      <packageName>Entities.PrivateSetters.MongoDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -145,6 +149,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>764e7b00-68ff-4802-912b-cd32e5c55c6c</parentFolderId>
+      <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+      <packageName>Entities.PrivateSetters.MongoDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -169,6 +175,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>764e7b00-68ff-4802-912b-cd32e5c55c6c</parentFolderId>
+      <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+      <packageName>Entities.PrivateSetters.MongoDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2b975534-17d1-4e94-821d-8243823bda44</parentFolderId>
+  <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+  <packageName>DynamoDbTests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>63c058e0-e063-4eff-9061-caaf02306b81</parentFolderId>
+      <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+      <packageName>DynamoDbTests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

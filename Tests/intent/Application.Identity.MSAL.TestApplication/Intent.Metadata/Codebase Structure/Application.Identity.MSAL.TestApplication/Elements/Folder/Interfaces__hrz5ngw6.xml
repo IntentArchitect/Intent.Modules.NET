@@ -81,6 +81,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>25b65c07-76fa-4b54-a4a7-77b8b68c6b8f</parentFolderId>
+      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
+      <packageName>Application.Identity.MSAL.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

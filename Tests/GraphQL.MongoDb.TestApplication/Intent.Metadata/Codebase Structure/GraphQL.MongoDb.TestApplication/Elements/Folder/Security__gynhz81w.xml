@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8d09ad06-b56c-4f15-ac61-758ec2f477c7</parentFolderId>
+  <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+  <packageName>GraphQL.MongoDb.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f89d69d8-6fae-477c-aef7-7dc8682f8b54</parentFolderId>
+      <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+      <packageName>GraphQL.MongoDb.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4a20c32f-14db-43d6-8d12-7a1938522ffc</parentFolderId>
+  <packageId>448c6202-8f16-4f16-8072-e0fa98559341</packageId>
+  <packageName>DynamoDbTests.EntityInterfaces</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6cda4af7-a5fa-4349-92aa-b1392efe9d53</parentFolderId>
+      <packageId>448c6202-8f16-4f16-8072-e0fa98559341</packageId>
+      <packageName>DynamoDbTests.EntityInterfaces</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -67,6 +71,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bf540b5f-7927-4d98-a4aa-29c067596df6</parentFolderId>
+          <packageId>448c6202-8f16-4f16-8072-e0fa98559341</packageId>
+          <packageName>DynamoDbTests.EntityInterfaces</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -87,6 +93,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>f2fcb15c-98d2-4c46-bb67-f4adc8313890</parentFolderId>
+              <packageId>448c6202-8f16-4f16-8072-e0fa98559341</packageId>
+              <packageName>DynamoDbTests.EntityInterfaces</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -99,6 +107,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>f2fcb15c-98d2-4c46-bb67-f4adc8313890</parentFolderId>
+              <packageId>448c6202-8f16-4f16-8072-e0fa98559341</packageId>
+              <packageName>DynamoDbTests.EntityInterfaces</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -123,6 +133,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>f2fcb15c-98d2-4c46-bb67-f4adc8313890</parentFolderId>
+              <packageId>448c6202-8f16-4f16-8072-e0fa98559341</packageId>
+              <packageName>DynamoDbTests.EntityInterfaces</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />
@@ -137,6 +149,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>f2fcb15c-98d2-4c46-bb67-f4adc8313890</parentFolderId>
+              <packageId>448c6202-8f16-4f16-8072-e0fa98559341</packageId>
+              <packageName>DynamoDbTests.EntityInterfaces</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />
@@ -153,6 +167,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bf540b5f-7927-4d98-a4aa-29c067596df6</parentFolderId>
+          <packageId>448c6202-8f16-4f16-8072-e0fa98559341</packageId>
+          <packageName>DynamoDbTests.EntityInterfaces</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -165,6 +181,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bf540b5f-7927-4d98-a4aa-29c067596df6</parentFolderId>
+          <packageId>448c6202-8f16-4f16-8072-e0fa98559341</packageId>
+          <packageName>DynamoDbTests.EntityInterfaces</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -177,6 +195,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bf540b5f-7927-4d98-a4aa-29c067596df6</parentFolderId>
+          <packageId>448c6202-8f16-4f16-8072-e0fa98559341</packageId>
+          <packageName>DynamoDbTests.EntityInterfaces</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -201,6 +221,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bf540b5f-7927-4d98-a4aa-29c067596df6</parentFolderId>
+          <packageId>448c6202-8f16-4f16-8072-e0fa98559341</packageId>
+          <packageName>DynamoDbTests.EntityInterfaces</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -225,6 +247,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bf540b5f-7927-4d98-a4aa-29c067596df6</parentFolderId>
+          <packageId>448c6202-8f16-4f16-8072-e0fa98559341</packageId>
+          <packageName>DynamoDbTests.EntityInterfaces</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>41536e2a-85e5-4191-97ef-64f4ba571a64</parentFolderId>
+  <packageId>34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</packageId>
+  <packageName>SharedKernel.Consumer.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ad3a763c-3af4-4011-82f1-569e292b76c0</parentFolderId>
+      <packageId>34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</packageId>
+      <packageName>SharedKernel.Consumer.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ad3a763c-3af4-4011-82f1-569e292b76c0</parentFolderId>
+      <packageId>34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</packageId>
+      <packageName>SharedKernel.Consumer.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ad3a763c-3af4-4011-82f1-569e292b76c0</parentFolderId>
+      <packageId>34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</packageId>
+      <packageName>SharedKernel.Consumer.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ad3a763c-3af4-4011-82f1-569e292b76c0</parentFolderId>
+      <packageId>34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</packageId>
+      <packageName>SharedKernel.Consumer.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -113,6 +123,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ad3a763c-3af4-4011-82f1-569e292b76c0</parentFolderId>
+      <packageId>34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</packageId>
+      <packageName>SharedKernel.Consumer.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -137,6 +149,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ad3a763c-3af4-4011-82f1-569e292b76c0</parentFolderId>
+      <packageId>34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</packageId>
+      <packageName>SharedKernel.Consumer.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

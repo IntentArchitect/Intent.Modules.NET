@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6976eb09-ccef-42eb-90b5-cf0e03843d1a</parentFolderId>
+  <packageId>1549d33f-9e99-44ce-afca-8212d90fc297</packageId>
+  <packageName>EntityFrameworkCore.MultiDbContext.DbContextInterface</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d70ff39b-797f-4286-a359-6e7d5734cca6</parentFolderId>
+      <packageId>1549d33f-9e99-44ce-afca-8212d90fc297</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.DbContextInterface</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

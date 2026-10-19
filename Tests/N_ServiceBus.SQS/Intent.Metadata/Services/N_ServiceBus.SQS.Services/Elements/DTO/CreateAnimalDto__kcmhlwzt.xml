@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>5dc40fb4-c824-4f01-b5d6-3eb5f33e3747</parentFolderId>
   <packageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</packageId>
-  <packageName>NServiceBus.SQS.Services</packageName>
+  <packageName>N_ServiceBus.SQS.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -31,7 +31,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>834067fb-12f2-4cb6-8352-68470fd2995e</parentFolderId>
       <packageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</packageId>
-      <packageName>NServiceBus.SQS.Services</packageName>
+      <packageName>N_ServiceBus.SQS.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
           <addedByDefault>true</addedByDefault>
@@ -81,7 +81,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>834067fb-12f2-4cb6-8352-68470fd2995e</parentFolderId>
       <packageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</packageId>
-      <packageName>NServiceBus.SQS.Services</packageName>
+      <packageName>N_ServiceBus.SQS.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
           <addedByDefault>true</addedByDefault>

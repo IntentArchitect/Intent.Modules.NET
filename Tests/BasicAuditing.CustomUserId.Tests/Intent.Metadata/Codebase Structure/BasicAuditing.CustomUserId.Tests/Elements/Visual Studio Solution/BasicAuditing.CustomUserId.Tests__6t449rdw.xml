@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>266990af-580e-4b5b-9d78-54639dd67747</parentFolderId>
+  <packageId>266990af-580e-4b5b-9d78-54639dd67747</packageId>
+  <packageName>BasicAuditing.CustomUserId.Tests</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

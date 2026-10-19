@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>432f6f7c-2f63-4aa0-a90a-7a7bd164a081</parentFolderId>
+  <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5cb50d3b-6e4c-4b9f-90f9-43201a8b4cfa</parentFolderId>
+      <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5cb50d3b-6e4c-4b9f-90f9-43201a8b4cfa</parentFolderId>
+      <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5cb50d3b-6e4c-4b9f-90f9-43201a8b4cfa</parentFolderId>
+      <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5cb50d3b-6e4c-4b9f-90f9-43201a8b4cfa</parentFolderId>
+      <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -113,6 +123,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5cb50d3b-6e4c-4b9f-90f9-43201a8b4cfa</parentFolderId>
+      <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

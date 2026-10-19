@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>72e5033c-7249-437e-8655-8a464184fc25</parentFolderId>
+  <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+  <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
   <stereotypes />
   <metadata />
   <childElements />

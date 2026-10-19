@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b4ed112f-2642-4100-af9b-98bbf331f1bc</parentFolderId>
+  <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+  <packageName>EFCore.Lazy.Loading.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f01c3982-baac-4fe4-aa52-552e5d1348de</parentFolderId>
+      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f01c3982-baac-4fe4-aa52-552e5d1348de</parentFolderId>
+      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f01c3982-baac-4fe4-aa52-552e5d1348de</parentFolderId>
+      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f01c3982-baac-4fe4-aa52-552e5d1348de</parentFolderId>
+      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f01c3982-baac-4fe4-aa52-552e5d1348de</parentFolderId>
+      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -87,6 +99,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f01c3982-baac-4fe4-aa52-552e5d1348de</parentFolderId>
+      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -101,6 +115,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f01c3982-baac-4fe4-aa52-552e5d1348de</parentFolderId>
+      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

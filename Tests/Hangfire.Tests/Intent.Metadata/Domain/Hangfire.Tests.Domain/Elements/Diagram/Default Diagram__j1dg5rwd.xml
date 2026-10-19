@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5bcaad5d-50be-4865-8d43-2a2af022172e</parentFolderId>
+  <packageId>5bcaad5d-50be-4865-8d43-2a2af022172e</packageId>
+  <packageName>Hangfire.Tests.Domain</packageName>
   <stereotypes />
   <metadata />
   <childElements />

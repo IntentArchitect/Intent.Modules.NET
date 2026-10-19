@@ -81,6 +81,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6515f144-fc6e-4e3d-8615-4f3ce022a450</parentFolderId>
+      <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
+      <packageName>AzureKeyVault</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -105,6 +107,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6515f144-fc6e-4e3d-8615-4f3ce022a450</parentFolderId>
+      <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
+      <packageName>AzureKeyVault</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -129,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6515f144-fc6e-4e3d-8615-4f3ce022a450</parentFolderId>
+      <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
+      <packageName>AzureKeyVault</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

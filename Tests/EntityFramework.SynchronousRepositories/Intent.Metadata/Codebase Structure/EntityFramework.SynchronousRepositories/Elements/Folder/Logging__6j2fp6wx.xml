@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>285eaee2-0667-405a-b5e7-f7317bf7e4eb</parentFolderId>
+  <packageId>bc68fc51-ced1-404e-a87d-06a0b513961f</packageId>
+  <packageName>EntityFramework.SynchronousRepositories</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a0cf515e-a10d-4401-a8eb-bcb7954a5719</parentFolderId>
+      <packageId>bc68fc51-ced1-404e-a87d-06a0b513961f</packageId>
+      <packageName>EntityFramework.SynchronousRepositories</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

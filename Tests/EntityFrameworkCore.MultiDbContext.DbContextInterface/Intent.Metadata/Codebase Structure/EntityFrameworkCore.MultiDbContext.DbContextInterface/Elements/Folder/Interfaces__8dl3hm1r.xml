@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7c4c634a-0800-4311-b6a0-436c2844fbcd</parentFolderId>
+  <packageId>1549d33f-9e99-44ce-afca-8212d90fc297</packageId>
+  <packageName>EntityFrameworkCore.MultiDbContext.DbContextInterface</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3978a079-a151-4411-8893-569f98c7622f</parentFolderId>
+      <packageId>1549d33f-9e99-44ce-afca-8212d90fc297</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.DbContextInterface</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3978a079-a151-4411-8893-569f98c7622f</parentFolderId>
+      <packageId>1549d33f-9e99-44ce-afca-8212d90fc297</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.DbContextInterface</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -55,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3978a079-a151-4411-8893-569f98c7622f</parentFolderId>
+      <packageId>1549d33f-9e99-44ce-afca-8212d90fc297</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.DbContextInterface</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -69,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3978a079-a151-4411-8893-569f98c7622f</parentFolderId>
+      <packageId>1549d33f-9e99-44ce-afca-8212d90fc297</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.DbContextInterface</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

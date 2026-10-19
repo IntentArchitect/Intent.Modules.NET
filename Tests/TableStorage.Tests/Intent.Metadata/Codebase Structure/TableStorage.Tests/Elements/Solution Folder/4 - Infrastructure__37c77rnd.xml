@@ -7,6 +7,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>db829627-4127-488d-b9e8-06e5dc81b727</parentFolderId>
+  <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+  <packageName>TableStorage.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -18,6 +20,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6c03d82e-4d00-40e2-b93e-3d3d0ddd2166</parentFolderId>
+      <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+      <packageName>TableStorage.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -63,6 +67,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>14784b90-f6bc-4fd7-aca7-f05fb9e3540e</parentFolderId>
+          <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+          <packageName>TableStorage.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -75,6 +81,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>14784b90-f6bc-4fd7-aca7-f05fb9e3540e</parentFolderId>
+          <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+          <packageName>TableStorage.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -87,6 +95,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>14784b90-f6bc-4fd7-aca7-f05fb9e3540e</parentFolderId>
+          <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+          <packageName>TableStorage.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -109,6 +119,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>14784b90-f6bc-4fd7-aca7-f05fb9e3540e</parentFolderId>
+          <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+          <packageName>TableStorage.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements>
@@ -120,6 +132,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>62d1d47a-89e5-426e-8fa1-865a368c3c63</parentFolderId>
+              <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+              <packageName>TableStorage.Tests</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />

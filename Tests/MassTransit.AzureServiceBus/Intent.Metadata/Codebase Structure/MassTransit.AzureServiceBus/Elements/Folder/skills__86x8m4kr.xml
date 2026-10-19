@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>285a3914-92a1-4855-8adc-64529183ec81</parentFolderId>
+  <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+  <packageName>MassTransit.AzureServiceBus</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>17bafa76-d153-4a91-a14c-62e1d61744d3</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>17bafa76-d153-4a91-a14c-62e1d61744d3</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>17bafa76-d153-4a91-a14c-62e1d61744d3</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>17bafa76-d153-4a91-a14c-62e1d61744d3</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>17bafa76-d153-4a91-a14c-62e1d61744d3</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -87,6 +99,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>17bafa76-d153-4a91-a14c-62e1d61744d3</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

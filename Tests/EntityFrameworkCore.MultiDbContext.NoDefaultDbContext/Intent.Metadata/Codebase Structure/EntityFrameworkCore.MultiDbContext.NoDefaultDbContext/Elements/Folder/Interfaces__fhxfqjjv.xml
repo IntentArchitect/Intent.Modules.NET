@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>fd485427-8e65-402b-aa8e-406cc7be5f86</parentFolderId>
+  <packageId>2bbc16f8-5986-450f-8496-022a8d16bd5e</packageId>
+  <packageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>794087c3-8e9e-4ce3-b826-29e2701f444b</parentFolderId>
+      <packageId>2bbc16f8-5986-450f-8496-022a8d16bd5e</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>794087c3-8e9e-4ce3-b826-29e2701f444b</parentFolderId>
+      <packageId>2bbc16f8-5986-450f-8496-022a8d16bd5e</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -55,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>794087c3-8e9e-4ce3-b826-29e2701f444b</parentFolderId>
+      <packageId>2bbc16f8-5986-450f-8496-022a8d16bd5e</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -69,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>794087c3-8e9e-4ce3-b826-29e2701f444b</parentFolderId>
+      <packageId>2bbc16f8-5986-450f-8496-022a8d16bd5e</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -83,6 +93,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>794087c3-8e9e-4ce3-b826-29e2701f444b</parentFolderId>
+      <packageId>2bbc16f8-5986-450f-8496-022a8d16bd5e</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -107,6 +119,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>794087c3-8e9e-4ce3-b826-29e2701f444b</parentFolderId>
+      <packageId>2bbc16f8-5986-450f-8496-022a8d16bd5e</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -131,6 +145,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>794087c3-8e9e-4ce3-b826-29e2701f444b</parentFolderId>
+      <packageId>2bbc16f8-5986-450f-8496-022a8d16bd5e</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5baa8983-80b5-4180-ba44-6f040317e545</parentFolderId>
+  <packageId>1549d33f-9e99-44ce-afca-8212d90fc297</packageId>
+  <packageName>EntityFrameworkCore.MultiDbContext.DbContextInterface</packageName>
   <stereotypes />
   <metadata />
   <childElements />

@@ -87,6 +87,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3a4a98bb-1fb3-41dd-9f95-f920b6863611</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

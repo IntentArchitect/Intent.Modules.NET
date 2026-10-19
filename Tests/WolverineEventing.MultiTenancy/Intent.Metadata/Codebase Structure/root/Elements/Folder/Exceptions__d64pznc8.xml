@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>45dfd8f7-f22c-48d2-8753-1f2c59ce38b4</parentFolderId>
+  <packageId>b3bf3380-f72f-4e7f-a7aa-24361be6fa7c</packageId>
+  <packageName>root</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a44980b0-24f7-4124-aacf-30f0c87f6ac1</parentFolderId>
+      <packageId>b3bf3380-f72f-4e7f-a7aa-24361be6fa7c</packageId>
+      <packageName>root</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

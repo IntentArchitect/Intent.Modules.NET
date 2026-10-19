@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>56a900e6-3555-411a-944d-ba9cfff81c9a</parentFolderId>
+  <packageId>8774feb9-d75a-4e76-aac9-aa40d984b235</packageId>
+  <packageName>CleanArchitecture.ServiceModelling.ComplexTypes</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c11d275d-0554-4dc8-aee5-6acdbc15c2e2</parentFolderId>
+      <packageId>8774feb9-d75a-4e76-aac9-aa40d984b235</packageId>
+      <packageName>CleanArchitecture.ServiceModelling.ComplexTypes</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

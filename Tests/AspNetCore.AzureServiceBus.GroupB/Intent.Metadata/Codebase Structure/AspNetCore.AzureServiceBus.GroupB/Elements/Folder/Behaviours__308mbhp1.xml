@@ -159,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0f8b892b-138a-4d76-95ec-72bc60bc00d8</parentFolderId>
+      <packageId>97f17e62-39f3-419e-945b-b095624c8c28</packageId>
+      <packageName>AspNetCore.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

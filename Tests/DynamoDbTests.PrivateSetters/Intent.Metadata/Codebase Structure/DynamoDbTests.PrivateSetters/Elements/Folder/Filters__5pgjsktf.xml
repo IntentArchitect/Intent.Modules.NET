@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0df64376-4310-409d-b5c0-932af7f077a9</parentFolderId>
+  <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+  <packageName>DynamoDbTests.PrivateSetters</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fec85d52-1bc2-449b-a468-56f5019276b1</parentFolderId>
+      <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+      <packageName>DynamoDbTests.PrivateSetters</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fec85d52-1bc2-449b-a468-56f5019276b1</parentFolderId>
+      <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+      <packageName>DynamoDbTests.PrivateSetters</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fec85d52-1bc2-449b-a468-56f5019276b1</parentFolderId>
+      <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+      <packageName>DynamoDbTests.PrivateSetters</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fec85d52-1bc2-449b-a468-56f5019276b1</parentFolderId>
+      <packageId>3af989d8-5b41-41da-9354-c0227409416e</packageId>
+      <packageName>DynamoDbTests.PrivateSetters</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

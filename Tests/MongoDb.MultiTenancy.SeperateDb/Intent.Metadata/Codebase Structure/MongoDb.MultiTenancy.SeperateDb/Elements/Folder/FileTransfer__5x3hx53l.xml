@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>dcb171eb-ea2a-4632-bdaa-1b4c8e78b267</parentFolderId>
+  <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+  <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bcaf7755-783c-49e8-a5d4-ce5d532e0278</parentFolderId>
+      <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+      <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

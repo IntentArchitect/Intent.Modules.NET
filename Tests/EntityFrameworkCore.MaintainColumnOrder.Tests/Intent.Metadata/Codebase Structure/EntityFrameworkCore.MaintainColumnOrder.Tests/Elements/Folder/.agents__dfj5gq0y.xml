@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b1016297-f17e-401b-a111-b6eca247598a</parentFolderId>
+  <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+  <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements />

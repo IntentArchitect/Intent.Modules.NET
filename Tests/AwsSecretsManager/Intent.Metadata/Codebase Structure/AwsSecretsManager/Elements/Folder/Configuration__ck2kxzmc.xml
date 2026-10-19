@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e1de9e69-c34c-4e4f-ad04-5db869d3163f</parentFolderId>
+  <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+  <packageName>AwsSecretsManager</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>075522a7-0361-4f49-9ecb-bc5c9f84e5ba</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>075522a7-0361-4f49-9ecb-bc5c9f84e5ba</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>075522a7-0361-4f49-9ecb-bc5c9f84e5ba</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>075522a7-0361-4f49-9ecb-bc5c9f84e5ba</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -113,6 +123,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>075522a7-0361-4f49-9ecb-bc5c9f84e5ba</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -137,6 +149,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>075522a7-0361-4f49-9ecb-bc5c9f84e5ba</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -161,6 +175,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>075522a7-0361-4f49-9ecb-bc5c9f84e5ba</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -175,6 +191,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>075522a7-0361-4f49-9ecb-bc5c9f84e5ba</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -189,6 +207,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>075522a7-0361-4f49-9ecb-bc5c9f84e5ba</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

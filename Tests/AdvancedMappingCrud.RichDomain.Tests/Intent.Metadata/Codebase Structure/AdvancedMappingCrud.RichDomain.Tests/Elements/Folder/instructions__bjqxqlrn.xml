@@ -51,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ab2c8198-621c-421c-a4f7-ac3fcaf83853</parentFolderId>
+      <packageId>61f96572-106d-4f55-ad06-e55a88f60e2d</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

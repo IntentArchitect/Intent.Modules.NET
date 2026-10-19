@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b20a2672-f0fe-41aa-ab40-6e220d530595</parentFolderId>
+  <packageId>75f1ef17-a2ae-4938-a619-51c9702b58a8</packageId>
+  <packageName>Solace.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>088f17eb-30bd-4d14-9598-9d14b88136e9</parentFolderId>
+      <packageId>75f1ef17-a2ae-4938-a619-51c9702b58a8</packageId>
+      <packageName>Solace.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

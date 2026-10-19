@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cf6e1dea-b391-4b09-a66f-f0599f064bc9</parentFolderId>
+  <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+  <packageName>Standard.AspNetCore.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>20906089-933e-401d-bbae-25a5d9ba0f80</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>20906089-933e-401d-bbae-25a5d9ba0f80</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>20906089-933e-401d-bbae-25a5d9ba0f80</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>20906089-933e-401d-bbae-25a5d9ba0f80</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

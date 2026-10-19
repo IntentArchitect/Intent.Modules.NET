@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7c11c871-b177-4451-a46e-53b3a6fe0ccf</parentFolderId>
+  <packageId>b4100c4f-008d-48d9-b763-6048e68c931d</packageId>
+  <packageName>Entities.PrivateSetters.EF.CosmosDb</packageName>
   <stereotypes />
   <metadata />
   <childElements />

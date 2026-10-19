@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e8101248-e0b5-412c-9dec-1ad0dc594204</parentFolderId>
+  <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+  <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3d0d529c-05aa-4dad-a05c-8b5a738ac488</parentFolderId>
+      <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+      <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -64,6 +68,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3030cde6-7660-465b-a4ee-6ce1b87403b2</parentFolderId>
+          <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+          <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -76,6 +82,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3030cde6-7660-465b-a4ee-6ce1b87403b2</parentFolderId>
+          <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+          <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -88,6 +96,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3030cde6-7660-465b-a4ee-6ce1b87403b2</parentFolderId>
+          <packageId>2a799202-62a3-44a8-b75f-73545050c3b3</packageId>
+          <packageName>MongoDb.MultiTenancy.SeperateDb</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>

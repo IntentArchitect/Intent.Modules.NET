@@ -212,6 +212,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8b8994cf-9f49-43e6-a6b7-bebbd41bdda6</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>916c90ca-b19a-47c0-a5e4-ffdc124e9bcf</parentFolderId>
+  <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+  <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2e8c1c8f-61e2-4c0f-8c16-5be792e3b0c8</parentFolderId>
+      <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+      <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2e8c1c8f-61e2-4c0f-8c16-5be792e3b0c8</parentFolderId>
+      <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+      <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -55,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2e8c1c8f-61e2-4c0f-8c16-5be792e3b0c8</parentFolderId>
+      <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+      <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -69,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2e8c1c8f-61e2-4c0f-8c16-5be792e3b0c8</parentFolderId>
+      <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+      <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -83,6 +93,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2e8c1c8f-61e2-4c0f-8c16-5be792e3b0c8</parentFolderId>
+      <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+      <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -107,6 +119,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2e8c1c8f-61e2-4c0f-8c16-5be792e3b0c8</parentFolderId>
+      <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+      <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -131,6 +145,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2e8c1c8f-61e2-4c0f-8c16-5be792e3b0c8</parentFolderId>
+      <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+      <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

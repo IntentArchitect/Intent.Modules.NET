@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</parentFolderId>
+  <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -16,6 +18,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4f115f71-dea4-4993-a462-d4abc520ec09</parentFolderId>
+      <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -27,6 +31,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4f115f71-dea4-4993-a462-d4abc520ec09</parentFolderId>
+      <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -38,6 +44,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4f115f71-dea4-4993-a462-d4abc520ec09</parentFolderId>
+      <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -49,6 +57,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4f115f71-dea4-4993-a462-d4abc520ec09</parentFolderId>
+      <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -60,6 +70,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4f115f71-dea4-4993-a462-d4abc520ec09</parentFolderId>
+      <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -71,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4f115f71-dea4-4993-a462-d4abc520ec09</parentFolderId>
+      <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -82,6 +96,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4f115f71-dea4-4993-a462-d4abc520ec09</parentFolderId>
+      <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
       <stereotypes />
       <metadata />
       <childElements />

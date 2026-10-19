@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ff6c0eb5-1cca-40b0-ae48-8485dd02cb99</parentFolderId>
+  <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+  <packageName>ProxyServiceTests.OriginalServices</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6e97cd8d-ff5b-4b90-bb2e-b57061999e69</parentFolderId>
+      <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+      <packageName>ProxyServiceTests.OriginalServices</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -64,6 +68,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+          <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+          <packageName>ProxyServiceTests.OriginalServices</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -76,6 +82,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+          <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+          <packageName>ProxyServiceTests.OriginalServices</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -100,6 +108,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+          <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+          <packageName>ProxyServiceTests.OriginalServices</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -124,6 +134,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+          <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+          <packageName>ProxyServiceTests.OriginalServices</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -148,6 +160,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+          <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+          <packageName>ProxyServiceTests.OriginalServices</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -172,6 +186,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+          <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+          <packageName>ProxyServiceTests.OriginalServices</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -196,6 +212,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+          <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+          <packageName>ProxyServiceTests.OriginalServices</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -220,6 +238,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+          <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+          <packageName>ProxyServiceTests.OriginalServices</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -244,6 +264,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+          <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+          <packageName>ProxyServiceTests.OriginalServices</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -268,6 +290,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+          <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+          <packageName>ProxyServiceTests.OriginalServices</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -292,6 +316,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+          <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+          <packageName>ProxyServiceTests.OriginalServices</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -316,6 +342,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+          <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+          <packageName>ProxyServiceTests.OriginalServices</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>

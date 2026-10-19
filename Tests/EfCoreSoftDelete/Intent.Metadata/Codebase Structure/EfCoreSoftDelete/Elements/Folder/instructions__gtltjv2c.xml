@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>01a84573-775e-4f3e-850b-b8f1df9d6b12</parentFolderId>
+  <packageId>529bf4ef-debf-44e2-8afd-7f5e214d14a6</packageId>
+  <packageName>EfCoreSoftDelete</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>342685d6-29b0-46f7-873f-cef6a2650340</parentFolderId>
+      <packageId>529bf4ef-debf-44e2-8afd-7f5e214d14a6</packageId>
+      <packageName>EfCoreSoftDelete</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

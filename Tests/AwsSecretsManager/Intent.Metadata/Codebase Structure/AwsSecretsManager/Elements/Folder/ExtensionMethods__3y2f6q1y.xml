@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9f429c8d-8bd4-4ca4-bc3d-b0f7f8f4d9d9</parentFolderId>
+  <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+  <packageName>AwsSecretsManager</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>42c8fa38-2851-4f26-9ef7-eaa86e546a8c</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

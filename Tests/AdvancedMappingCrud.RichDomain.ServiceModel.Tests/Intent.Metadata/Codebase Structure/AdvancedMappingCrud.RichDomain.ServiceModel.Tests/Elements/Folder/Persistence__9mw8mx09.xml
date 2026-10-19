@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>61c71e24-bfab-41c4-89bb-923c2dd28fc3</parentFolderId>
+  <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>314f808b-eb0e-425d-8da2-76de5f206772</parentFolderId>
+      <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d1cda199-3fb2-44a9-933c-7d0f6cfe42b4</parentFolderId>
+  <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+  <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c49c9174-1b55-4f5a-8111-08f919eb7d08</parentFolderId>
+      <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+      <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c49c9174-1b55-4f5a-8111-08f919eb7d08</parentFolderId>
+      <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+      <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c49c9174-1b55-4f5a-8111-08f919eb7d08</parentFolderId>
+      <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+      <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c49c9174-1b55-4f5a-8111-08f919eb7d08</parentFolderId>
+      <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+      <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

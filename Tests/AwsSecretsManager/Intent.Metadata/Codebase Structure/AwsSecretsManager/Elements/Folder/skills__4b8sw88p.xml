@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f5f5bc0c-adc8-43cc-b850-30b88ec2d246</parentFolderId>
+  <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+  <packageName>AwsSecretsManager</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5c34ad3e-6143-4954-95cd-6cd4e7630bc7</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5c34ad3e-6143-4954-95cd-6cd4e7630bc7</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5c34ad3e-6143-4954-95cd-6cd4e7630bc7</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5c34ad3e-6143-4954-95cd-6cd4e7630bc7</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5c34ad3e-6143-4954-95cd-6cd4e7630bc7</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -87,6 +99,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5c34ad3e-6143-4954-95cd-6cd4e7630bc7</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

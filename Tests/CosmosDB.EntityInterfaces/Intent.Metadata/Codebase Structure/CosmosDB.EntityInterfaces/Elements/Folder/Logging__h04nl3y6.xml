@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>07e37433-d16d-4131-a898-e2d85f366b82</parentFolderId>
+  <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+  <packageName>CosmosDB.EntityInterfaces</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5b7e1bd9-2b4a-48d8-a3ff-48b7c7ce5a9e</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB.EntityInterfaces</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

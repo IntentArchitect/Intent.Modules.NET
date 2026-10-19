@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>41e9b58e-a2dc-4eae-b38b-b71b08fe5c6e</parentFolderId>
+  <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+  <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6b272bbc-3a29-422b-928e-256a20080fd1</parentFolderId>
+      <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+      <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6b272bbc-3a29-422b-928e-256a20080fd1</parentFolderId>
+      <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+      <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6b272bbc-3a29-422b-928e-256a20080fd1</parentFolderId>
+      <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+      <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6b272bbc-3a29-422b-928e-256a20080fd1</parentFolderId>
+      <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+      <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

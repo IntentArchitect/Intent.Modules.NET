@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9bd68c6d-9cbc-4fc4-879e-12b337f16cac</parentFolderId>
+  <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+  <packageName>OpenTelemetry.Console</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>20a3d37b-0aad-4059-985b-dc3c55f2c7d4</parentFolderId>
+      <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+      <packageName>OpenTelemetry.Console</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -8,6 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>1413292e-52f8-4923-8660-a960c3b29a1c</parentFolderId>
   <packageId>1413292e-52f8-4923-8660-a960c3b29a1c</packageId>
+  <packageName>AppDbContextDomainPackage</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="92e433aa-4858-4129-849f-ef0f9f0bf9e6" name="Audit Log">
       <addedByDefault>true</addedByDefault>

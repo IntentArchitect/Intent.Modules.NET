@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9234e3b1-1a01-4c4a-a3dd-57eb9040afc4</parentFolderId>
+  <packageId>1549d33f-9e99-44ce-afca-8212d90fc297</packageId>
+  <packageName>EntityFrameworkCore.MultiDbContext.DbContextInterface</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9a0d8bea-e800-419c-9088-e6f55407a325</parentFolderId>
+      <packageId>1549d33f-9e99-44ce-afca-8212d90fc297</packageId>
+      <packageName>EntityFrameworkCore.MultiDbContext.DbContextInterface</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

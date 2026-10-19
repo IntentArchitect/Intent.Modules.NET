@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1a4645da-ddb7-4d47-8eaa-405f7a9431a1</parentFolderId>
+  <packageId>34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</packageId>
+  <packageName>SharedKernel.Consumer.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6fa58e94-cfa3-4404-bf0b-5de802796b75</parentFolderId>
+      <packageId>34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</packageId>
+      <packageName>SharedKernel.Consumer.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6fa58e94-cfa3-4404-bf0b-5de802796b75</parentFolderId>
+      <packageId>34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</packageId>
+      <packageName>SharedKernel.Consumer.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

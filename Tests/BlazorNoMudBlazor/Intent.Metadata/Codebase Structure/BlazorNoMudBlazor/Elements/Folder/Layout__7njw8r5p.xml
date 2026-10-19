@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0d8bd5d1-7d06-4365-add8-2b00f539a184</parentFolderId>
+  <packageId>7d76c0bf-cca8-4ef8-86d0-980c9d5a862d</packageId>
+  <packageName>BlazorNoMudBlazor</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6583df6e-1f5e-41e3-a801-53989d6ec835</parentFolderId>
+      <packageId>7d76c0bf-cca8-4ef8-86d0-980c9d5a862d</packageId>
+      <packageName>BlazorNoMudBlazor</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

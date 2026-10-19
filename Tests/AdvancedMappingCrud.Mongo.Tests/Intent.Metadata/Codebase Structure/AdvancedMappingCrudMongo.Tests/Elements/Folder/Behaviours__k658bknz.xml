@@ -185,6 +185,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5df3daf8-4192-4f75-bcfc-cf75284f074d</parentFolderId>
+      <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+      <packageName>AdvancedMappingCrudMongo.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

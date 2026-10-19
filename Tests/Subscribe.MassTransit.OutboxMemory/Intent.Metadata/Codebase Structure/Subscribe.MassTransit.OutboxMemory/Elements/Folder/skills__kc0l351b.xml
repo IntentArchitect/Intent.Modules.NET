@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7ed86c01-fd8d-4c4f-b23f-44d74fbbf04e</parentFolderId>
+  <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+  <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a4c01908-af8f-40d3-aa36-9e789422679c</parentFolderId>
+      <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+      <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a4c01908-af8f-40d3-aa36-9e789422679c</parentFolderId>
+      <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+      <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a4c01908-af8f-40d3-aa36-9e789422679c</parentFolderId>
+      <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+      <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a4c01908-af8f-40d3-aa36-9e789422679c</parentFolderId>
+      <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+      <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a4c01908-af8f-40d3-aa36-9e789422679c</parentFolderId>
+      <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+      <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -87,6 +99,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a4c01908-af8f-40d3-aa36-9e789422679c</parentFolderId>
+      <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+      <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -101,6 +115,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a4c01908-af8f-40d3-aa36-9e789422679c</parentFolderId>
+      <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+      <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

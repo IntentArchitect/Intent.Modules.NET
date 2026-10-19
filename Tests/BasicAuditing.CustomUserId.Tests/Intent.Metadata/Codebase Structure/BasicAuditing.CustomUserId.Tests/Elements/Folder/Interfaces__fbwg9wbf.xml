@@ -212,6 +212,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0d092ec1-d48c-45a6-855f-c4b471f68feb</parentFolderId>
+      <packageId>266990af-580e-4b5b-9d78-54639dd67747</packageId>
+      <packageName>BasicAuditing.CustomUserId.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>fe0fd886-be7e-4739-94ec-79db831f2e80</parentFolderId>
+  <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+  <packageName>GrpcServer</packageName>
   <stereotypes />
   <metadata />
   <childElements />

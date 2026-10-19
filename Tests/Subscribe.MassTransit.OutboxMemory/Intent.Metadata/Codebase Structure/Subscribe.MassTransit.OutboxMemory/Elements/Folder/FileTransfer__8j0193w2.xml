@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2ebe9977-0553-47f2-8bec-15a6f8bfdead</parentFolderId>
+  <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+  <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8ac3387b-221c-49f1-92ee-02d0776b6258</parentFolderId>
+      <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+      <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

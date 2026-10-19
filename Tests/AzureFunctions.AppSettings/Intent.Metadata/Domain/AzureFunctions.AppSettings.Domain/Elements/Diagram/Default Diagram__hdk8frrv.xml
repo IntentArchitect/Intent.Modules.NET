@@ -5,6 +5,8 @@
   <externalReference>65792618-171d-4fb9-a0e3-cf2a06efc463</externalReference>
   <order>1</order>
   <parentFolderId>c91e1f20-15e6-4301-927e-5bcaa65e2548</parentFolderId>
+  <packageId>c91e1f20-15e6-4301-927e-5bcaa65e2548</packageId>
+  <packageName>AzureFunctions.AppSettings.Domain</packageName>
   <diagram>
     <targetPackageId>c91e1f20-15e6-4301-927e-5bcaa65e2548</targetPackageId>
   </diagram>

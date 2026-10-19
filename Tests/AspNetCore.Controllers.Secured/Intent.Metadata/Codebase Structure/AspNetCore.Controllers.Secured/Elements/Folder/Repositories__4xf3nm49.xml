@@ -133,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>779b2447-2add-48c9-b652-b97019ac8c75</parentFolderId>
+      <packageId>17153b8a-9853-462a-a3a3-3b18b059dd4e</packageId>
+      <packageName>AspNetCore.Controllers.Secured</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -157,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>779b2447-2add-48c9-b652-b97019ac8c75</parentFolderId>
+      <packageId>17153b8a-9853-462a-a3a3-3b18b059dd4e</packageId>
+      <packageName>AspNetCore.Controllers.Secured</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

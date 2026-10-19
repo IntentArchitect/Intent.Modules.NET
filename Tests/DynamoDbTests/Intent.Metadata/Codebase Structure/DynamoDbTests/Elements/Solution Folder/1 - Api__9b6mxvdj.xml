@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7b810c39-3cfc-4ee5-86cf-ce946c1569be</parentFolderId>
+  <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+  <packageName>DynamoDbTests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c662fd86-c5c4-48db-9930-2e1e2e43af96</parentFolderId>
+      <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+      <packageName>DynamoDbTests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -77,6 +81,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>424178f3-a988-4f67-9dc9-5efdb1194346</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -97,6 +103,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>7445cb1d-b10d-45b6-ac37-5739bd6bc47b</parentFolderId>
+              <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+              <packageName>DynamoDbTests</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -111,6 +119,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>424178f3-a988-4f67-9dc9-5efdb1194346</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -123,6 +133,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>424178f3-a988-4f67-9dc9-5efdb1194346</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -135,6 +147,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>424178f3-a988-4f67-9dc9-5efdb1194346</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -159,6 +173,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>424178f3-a988-4f67-9dc9-5efdb1194346</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -183,6 +199,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>424178f3-a988-4f67-9dc9-5efdb1194346</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>

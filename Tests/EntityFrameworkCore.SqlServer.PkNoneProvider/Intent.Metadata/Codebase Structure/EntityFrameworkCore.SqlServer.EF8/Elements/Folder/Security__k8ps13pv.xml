@@ -7,6 +7,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>7658f07b-90c1-452e-9b89-128c0cdcae1e</parentFolderId>
   <packageId>e93314d2-a851-47b0-b3a7-465525ec94fe</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.PkNoneProvider</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +20,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>f8d21008-fc59-4bf8-9832-88c52d9eda90</parentFolderId>
       <packageId>e93314d2-a851-47b0-b3a7-465525ec94fe</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.PkNoneProvider</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

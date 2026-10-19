@@ -151,6 +151,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d884e41d-1721-4138-81a5-b80f61fcf4d6</parentFolderId>
+      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6b33fd3e-9263-4ca8-a555-99e32df4ea03</parentFolderId>
+  <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+  <packageName>Standard.AspNetCore.Serilog</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d4890ea2-8b96-484e-b980-b30cccd3282e</parentFolderId>
+      <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+      <packageName>Standard.AspNetCore.Serilog</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

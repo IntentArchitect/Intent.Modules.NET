@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4c1916a1-a656-487e-aff5-ad4d0ff2868a</parentFolderId>
+  <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+  <packageName>Ardalis</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3aa4bb7c-d323-48c1-85c5-64c5bdfcbf3a</parentFolderId>
+      <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+      <packageName>Ardalis</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3aa4bb7c-d323-48c1-85c5-64c5bdfcbf3a</parentFolderId>
+      <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+      <packageName>Ardalis</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3aa4bb7c-d323-48c1-85c5-64c5bdfcbf3a</parentFolderId>
+      <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+      <packageName>Ardalis</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3aa4bb7c-d323-48c1-85c5-64c5bdfcbf3a</parentFolderId>
+      <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+      <packageName>Ardalis</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -51,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>136bfe55-e6fa-44db-965f-f1d2ee78c541</parentFolderId>
+      <packageId>4af7945e-7095-49cf-b174-d9d381c15521</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.ProjectTo.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

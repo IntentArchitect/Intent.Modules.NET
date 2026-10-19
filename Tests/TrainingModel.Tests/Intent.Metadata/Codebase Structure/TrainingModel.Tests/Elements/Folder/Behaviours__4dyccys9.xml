@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8f6e5f52-ecf2-4ad3-9638-ae38e225f2fe</parentFolderId>
+  <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
+  <packageName>TrainingModel.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a571eb3f-2c70-4388-bd3c-d33a0c45e40d</parentFolderId>
+      <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
+      <packageName>TrainingModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a571eb3f-2c70-4388-bd3c-d33a0c45e40d</parentFolderId>
+      <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
+      <packageName>TrainingModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a571eb3f-2c70-4388-bd3c-d33a0c45e40d</parentFolderId>
+      <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
+      <packageName>TrainingModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a571eb3f-2c70-4388-bd3c-d33a0c45e40d</parentFolderId>
+      <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
+      <packageName>TrainingModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -113,6 +123,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a571eb3f-2c70-4388-bd3c-d33a0c45e40d</parentFolderId>
+      <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
+      <packageName>TrainingModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -137,6 +149,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a571eb3f-2c70-4388-bd3c-d33a0c45e40d</parentFolderId>
+      <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
+      <packageName>TrainingModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -161,6 +175,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a571eb3f-2c70-4388-bd3c-d33a0c45e40d</parentFolderId>
+      <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
+      <packageName>TrainingModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

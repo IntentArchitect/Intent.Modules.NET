@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d42dd854-020c-4590-98cb-25d09ec40921</parentFolderId>
+  <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+  <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c40d8e5c-60a5-4623-bacd-d023d60637ee</parentFolderId>
+      <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+      <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c40d8e5c-60a5-4623-bacd-d023d60637ee</parentFolderId>
+      <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+      <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c40d8e5c-60a5-4623-bacd-d023d60637ee</parentFolderId>
+      <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+      <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c40d8e5c-60a5-4623-bacd-d023d60637ee</parentFolderId>
+      <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+      <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

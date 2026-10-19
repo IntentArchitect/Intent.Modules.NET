@@ -113,6 +113,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8d795e0c-0a42-409b-be0b-c25a1354da0a</parentFolderId>
+      <packageId>137f5938-aeca-428f-8bf9-326c432e2192</packageId>
+      <packageName>Entities.Interfaces.EF</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -137,6 +139,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8d795e0c-0a42-409b-be0b-c25a1354da0a</parentFolderId>
+      <packageId>137f5938-aeca-428f-8bf9-326c432e2192</packageId>
+      <packageName>Entities.Interfaces.EF</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

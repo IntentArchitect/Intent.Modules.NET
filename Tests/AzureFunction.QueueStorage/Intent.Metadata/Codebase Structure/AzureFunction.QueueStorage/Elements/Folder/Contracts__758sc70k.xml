@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ca7dc446-05a7-4c46-9144-e8f73fb68307</parentFolderId>
+  <packageId>670877d6-2f28-424c-b633-d40518e12ede</packageId>
+  <packageName>AzureFunction.QueueStorage</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0002c067-2ee9-4341-8c40-b2b88f721ec7</parentFolderId>
+      <packageId>670877d6-2f28-424c-b633-d40518e12ede</packageId>
+      <packageName>AzureFunction.QueueStorage</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

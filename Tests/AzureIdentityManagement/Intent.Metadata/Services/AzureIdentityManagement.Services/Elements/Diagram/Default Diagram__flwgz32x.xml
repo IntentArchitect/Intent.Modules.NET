@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a0cfcad7-4e87-4069-a16e-421e2227bd6f</parentFolderId>
+  <packageId>a0cfcad7-4e87-4069-a16e-421e2227bd6f</packageId>
+  <packageName>AzureIdentityManagement.Services</packageName>
   <diagram>
     <targetPackageId>a0cfcad7-4e87-4069-a16e-421e2227bd6f</targetPackageId>
   </diagram>

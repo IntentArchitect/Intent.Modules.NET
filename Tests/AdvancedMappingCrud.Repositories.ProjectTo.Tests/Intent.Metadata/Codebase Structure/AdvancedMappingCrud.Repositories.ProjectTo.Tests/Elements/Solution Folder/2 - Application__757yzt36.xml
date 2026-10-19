@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>08d9bf5d-cf9c-48cf-9d27-eba0dc9d0885</parentFolderId>
+  <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>87dabc67-617e-4bf7-ada3-58bfa0f4e391</parentFolderId>
+      <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -64,6 +68,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ed8b13ba-153a-413e-925f-de98ab05f409</parentFolderId>
+          <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -76,6 +82,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ed8b13ba-153a-413e-925f-de98ab05f409</parentFolderId>
+          <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -100,6 +108,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ed8b13ba-153a-413e-925f-de98ab05f409</parentFolderId>
+          <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -124,6 +134,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ed8b13ba-153a-413e-925f-de98ab05f409</parentFolderId>
+          <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -148,6 +160,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ed8b13ba-153a-413e-925f-de98ab05f409</parentFolderId>
+          <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -172,6 +186,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ed8b13ba-153a-413e-925f-de98ab05f409</parentFolderId>
+          <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -196,6 +212,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ed8b13ba-153a-413e-925f-de98ab05f409</parentFolderId>
+          <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -220,6 +238,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ed8b13ba-153a-413e-925f-de98ab05f409</parentFolderId>
+          <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -244,6 +264,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ed8b13ba-153a-413e-925f-de98ab05f409</parentFolderId>
+          <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -268,6 +290,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ed8b13ba-153a-413e-925f-de98ab05f409</parentFolderId>
+          <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -292,6 +316,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ed8b13ba-153a-413e-925f-de98ab05f409</parentFolderId>
+          <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -316,6 +342,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ed8b13ba-153a-413e-925f-de98ab05f409</parentFolderId>
+          <packageId>b7aa01e4-2b05-4d43-8afc-d21f32bbd1a9</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>

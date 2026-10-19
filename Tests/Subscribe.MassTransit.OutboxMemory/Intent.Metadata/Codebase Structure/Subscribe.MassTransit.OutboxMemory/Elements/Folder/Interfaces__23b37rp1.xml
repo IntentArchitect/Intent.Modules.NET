@@ -129,6 +129,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>aa9c7d1e-9d66-4d1f-af11-5bef4a9d799d</parentFolderId>
+      <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+      <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -153,6 +155,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>aa9c7d1e-9d66-4d1f-af11-5bef4a9d799d</parentFolderId>
+      <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+      <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

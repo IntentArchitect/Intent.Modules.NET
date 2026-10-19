@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5e7fa8c4-fa0f-4196-aefb-0003242b1df1</parentFolderId>
+  <packageId>5e7fa8c4-fa0f-4196-aefb-0003242b1df1</packageId>
+  <packageName>WolverineEventing.ErrorPolicy.None.Domain</packageName>
   <diagram>
     <targetPackageId>5e7fa8c4-fa0f-4196-aefb-0003242b1df1</targetPackageId>
   </diagram>

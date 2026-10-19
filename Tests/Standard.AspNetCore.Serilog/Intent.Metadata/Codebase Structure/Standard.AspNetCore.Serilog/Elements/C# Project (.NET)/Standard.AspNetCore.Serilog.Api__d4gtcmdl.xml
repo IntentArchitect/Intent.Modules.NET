@@ -148,6 +148,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5647b8af-7a47-4482-91ba-d04fca2d56bc</parentFolderId>
+      <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+      <packageName>Standard.AspNetCore.Serilog</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

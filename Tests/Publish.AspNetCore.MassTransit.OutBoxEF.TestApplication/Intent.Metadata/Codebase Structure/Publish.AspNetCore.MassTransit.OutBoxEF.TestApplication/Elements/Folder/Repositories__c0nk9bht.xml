@@ -81,6 +81,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>095a789f-0be7-4a2c-a936-c54813387ac5</parentFolderId>
+      <packageId>3666517d-3a27-4747-8c60-5172ece34e91</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

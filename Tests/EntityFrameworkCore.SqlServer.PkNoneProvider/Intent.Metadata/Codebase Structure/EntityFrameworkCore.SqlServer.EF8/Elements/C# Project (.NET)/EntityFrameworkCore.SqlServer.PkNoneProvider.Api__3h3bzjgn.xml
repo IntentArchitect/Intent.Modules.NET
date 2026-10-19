@@ -9,7 +9,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>0719cbe0-b547-4142-a39f-ed66b38f2276</parentFolderId>
   <packageId>e93314d2-a851-47b0-b3a7-465525ec94fe</packageId>
-  <packageName>EntityFrameworkCore.SqlServer.EF8</packageName>
+  <packageName>EntityFrameworkCore.SqlServer.PkNoneProvider</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
       <addedByDefault>true</addedByDefault>
@@ -69,7 +69,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>138a7532-64bb-4a06-b624-94cf62b0f891</parentFolderId>
       <packageId>e93314d2-a851-47b0-b3a7-465525ec94fe</packageId>
-      <packageName>EntityFrameworkCore.SqlServer.EF8</packageName>
+      <packageName>EntityFrameworkCore.SqlServer.PkNoneProvider</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -95,7 +95,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>138a7532-64bb-4a06-b624-94cf62b0f891</parentFolderId>
       <packageId>e93314d2-a851-47b0-b3a7-465525ec94fe</packageId>
-      <packageName>EntityFrameworkCore.SqlServer.EF8</packageName>
+      <packageName>EntityFrameworkCore.SqlServer.PkNoneProvider</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -121,7 +121,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>138a7532-64bb-4a06-b624-94cf62b0f891</parentFolderId>
       <packageId>e93314d2-a851-47b0-b3a7-465525ec94fe</packageId>
-      <packageName>EntityFrameworkCore.SqlServer.EF8</packageName>
+      <packageName>EntityFrameworkCore.SqlServer.PkNoneProvider</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -135,7 +135,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>138a7532-64bb-4a06-b624-94cf62b0f891</parentFolderId>
       <packageId>e93314d2-a851-47b0-b3a7-465525ec94fe</packageId>
-      <packageName>EntityFrameworkCore.SqlServer.EF8</packageName>
+      <packageName>EntityFrameworkCore.SqlServer.PkNoneProvider</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -149,6 +149,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>138a7532-64bb-4a06-b624-94cf62b0f891</parentFolderId>
       <packageId>e93314d2-a851-47b0-b3a7-465525ec94fe</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.PkNoneProvider</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

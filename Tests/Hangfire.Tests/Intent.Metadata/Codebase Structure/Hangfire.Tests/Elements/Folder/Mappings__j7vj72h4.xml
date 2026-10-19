@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a8d86d54-5af0-4b55-aad6-6ed4e2e52a3a</parentFolderId>
+  <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+  <packageName>Hangfire.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a1422ceb-bb0c-4b2e-b536-bb64b31da02d</parentFolderId>
+      <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+      <packageName>Hangfire.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

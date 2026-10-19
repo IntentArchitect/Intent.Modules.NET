@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d5370e2c-60b0-4b3d-a249-305efab634d8</parentFolderId>
+  <packageId>e7e70ce9-e318-4d61-bd4a-9e517fc4116c</packageId>
+  <packageName>OutputCachingRedis.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e7556259-ebd7-4bf0-88b9-aa2ec9639ef0</parentFolderId>
+      <packageId>e7e70ce9-e318-4d61-bd4a-9e517fc4116c</packageId>
+      <packageName>OutputCachingRedis.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e7556259-ebd7-4bf0-88b9-aa2ec9639ef0</parentFolderId>
+      <packageId>e7e70ce9-e318-4d61-bd4a-9e517fc4116c</packageId>
+      <packageName>OutputCachingRedis.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e7556259-ebd7-4bf0-88b9-aa2ec9639ef0</parentFolderId>
+      <packageId>e7e70ce9-e318-4d61-bd4a-9e517fc4116c</packageId>
+      <packageName>OutputCachingRedis.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e7556259-ebd7-4bf0-88b9-aa2ec9639ef0</parentFolderId>
+      <packageId>e7e70ce9-e318-4d61-bd4a-9e517fc4116c</packageId>
+      <packageName>OutputCachingRedis.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

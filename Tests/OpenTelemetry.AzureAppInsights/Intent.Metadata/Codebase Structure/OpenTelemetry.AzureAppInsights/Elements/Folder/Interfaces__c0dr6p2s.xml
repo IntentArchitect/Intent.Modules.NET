@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>02b32f50-21e2-439a-8758-ea81afb368c0</parentFolderId>
+  <packageId>6407e5e4-2aa2-4019-b042-cadd5c6ae80f</packageId>
+  <packageName>OpenTelemetry.AzureAppInsights</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6e405a9f-2900-485c-8bc1-386b964d7e0b</parentFolderId>
+      <packageId>6407e5e4-2aa2-4019-b042-cadd5c6ae80f</packageId>
+      <packageName>OpenTelemetry.AzureAppInsights</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6e405a9f-2900-485c-8bc1-386b964d7e0b</parentFolderId>
+      <packageId>6407e5e4-2aa2-4019-b042-cadd5c6ae80f</packageId>
+      <packageName>OpenTelemetry.AzureAppInsights</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -55,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6e405a9f-2900-485c-8bc1-386b964d7e0b</parentFolderId>
+      <packageId>6407e5e4-2aa2-4019-b042-cadd5c6ae80f</packageId>
+      <packageName>OpenTelemetry.AzureAppInsights</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -69,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6e405a9f-2900-485c-8bc1-386b964d7e0b</parentFolderId>
+      <packageId>6407e5e4-2aa2-4019-b042-cadd5c6ae80f</packageId>
+      <packageName>OpenTelemetry.AzureAppInsights</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

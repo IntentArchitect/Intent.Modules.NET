@@ -133,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>53e1426a-098c-49da-9cdf-7d1745401e8f</parentFolderId>
+      <packageId>0869b96e-b1a4-43f4-892a-c68e14a898a5</packageId>
+      <packageName>SignalR</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

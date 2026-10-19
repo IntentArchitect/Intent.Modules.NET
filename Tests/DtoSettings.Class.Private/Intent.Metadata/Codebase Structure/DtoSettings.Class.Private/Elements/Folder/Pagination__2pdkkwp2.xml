@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f2e86b27-90a0-4051-a6d2-e637083c8286</parentFolderId>
+  <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+  <packageName>DtoSettings.Class.Private</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dbdeed26-365f-428e-9560-72fc0004285b</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dbdeed26-365f-428e-9560-72fc0004285b</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dbdeed26-365f-428e-9560-72fc0004285b</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dbdeed26-365f-428e-9560-72fc0004285b</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -113,6 +123,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dbdeed26-365f-428e-9560-72fc0004285b</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3c5b9588-d063-4f63-8feb-86de98281c4e</parentFolderId>
+  <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+  <packageName>Kafka.Consumer</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c5efc1b4-3588-4ff5-aa3d-277b9fb5996e</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c5efc1b4-3588-4ff5-aa3d-277b9fb5996e</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -55,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c5efc1b4-3588-4ff5-aa3d-277b9fb5996e</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -69,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c5efc1b4-3588-4ff5-aa3d-277b9fb5996e</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -83,6 +93,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c5efc1b4-3588-4ff5-aa3d-277b9fb5996e</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -107,6 +119,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c5efc1b4-3588-4ff5-aa3d-277b9fb5996e</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -131,6 +145,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c5efc1b4-3588-4ff5-aa3d-277b9fb5996e</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

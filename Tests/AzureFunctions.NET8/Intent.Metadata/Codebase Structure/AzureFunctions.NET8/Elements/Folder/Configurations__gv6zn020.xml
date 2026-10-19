@@ -55,6 +55,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8404cfd6-62ac-48f9-a9a1-c2ce851ab290</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET8</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

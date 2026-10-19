@@ -129,6 +129,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5e5eddb2-9ff4-4f55-9c32-a3c7842407a8</parentFolderId>
+      <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+      <packageName>ValueObjects.Record</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -153,6 +155,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5e5eddb2-9ff4-4f55-9c32-a3c7842407a8</parentFolderId>
+      <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+      <packageName>ValueObjects.Record</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

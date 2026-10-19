@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5a3189d4-8f6c-4999-a473-758f2db04669</parentFolderId>
+  <packageId>ee8ae821-fee4-404d-a906-2484474c8576</packageId>
+  <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>eb485ecc-27ab-4e21-9e87-b4ef7621bc45</parentFolderId>
+      <packageId>ee8ae821-fee4-404d-a906-2484474c8576</packageId>
+      <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

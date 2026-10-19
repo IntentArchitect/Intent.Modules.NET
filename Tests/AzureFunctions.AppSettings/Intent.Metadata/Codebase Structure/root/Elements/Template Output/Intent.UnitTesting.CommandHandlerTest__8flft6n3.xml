@@ -4,6 +4,8 @@
   <display>Intent.UnitTesting.CommandHandlerTest</display>
   <externalReference>Intent.UnitTesting</externalReference>
   <parentFolderId>fff9853b-fb74-4809-a2ba-562cba951891</parentFolderId>
+  <packageId>fff9853b-fb74-4809-a2ba-562cba951891</packageId>
+  <packageName>root</packageName>
   <metadata>
     <entry key="status" value="unassigned" />
   </metadata>

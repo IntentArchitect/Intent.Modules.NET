@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d96b2e4f-ecb1-4080-be47-c24b7ece1357</parentFolderId>
+  <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
+  <packageName>Application.Identity.MSAL.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5ae699ab-ce7c-459d-a2be-5b8e067bcdfa</parentFolderId>
+      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
+      <packageName>Application.Identity.MSAL.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

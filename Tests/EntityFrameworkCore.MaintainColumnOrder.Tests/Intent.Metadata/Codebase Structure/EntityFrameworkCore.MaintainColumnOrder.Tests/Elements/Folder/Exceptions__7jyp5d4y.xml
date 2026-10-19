@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a34828fd-4bb6-430d-a106-7e1e57b4044a</parentFolderId>
+  <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+  <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>abe9326d-b822-4abf-8eaa-2d532084b18a</parentFolderId>
+      <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+      <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -133,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2ef09607-1eb6-4f8c-8d06-701fa6bc1b37</parentFolderId>
+      <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
+      <packageName>ProxyServiceTests.Proxy.PTH</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -157,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2ef09607-1eb6-4f8c-8d06-701fa6bc1b37</parentFolderId>
+      <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
+      <packageName>ProxyServiceTests.Proxy.PTH</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

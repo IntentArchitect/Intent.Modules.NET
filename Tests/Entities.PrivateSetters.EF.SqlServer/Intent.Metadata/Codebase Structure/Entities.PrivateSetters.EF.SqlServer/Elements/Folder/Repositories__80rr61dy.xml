@@ -81,6 +81,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>31581c74-7045-42fe-a34c-642703bf7a91</parentFolderId>
+      <packageId>d8556337-c7da-4c53-a299-134f76ed097d</packageId>
+      <packageName>Entities.PrivateSetters.EF.SqlServer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

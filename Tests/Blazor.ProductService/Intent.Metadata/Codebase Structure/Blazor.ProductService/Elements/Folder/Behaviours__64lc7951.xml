@@ -239,6 +239,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ea54f558-0f0c-4003-b6e1-c00169485390</parentFolderId>
+      <packageId>893c768b-cf88-4565-91c0-8fa84157713a</packageId>
+      <packageName>Blazor.ProductService</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

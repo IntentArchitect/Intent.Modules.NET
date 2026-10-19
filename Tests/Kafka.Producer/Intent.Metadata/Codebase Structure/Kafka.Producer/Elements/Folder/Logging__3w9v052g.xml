@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>aaf7fcdf-bef5-4c4b-a48b-ddce8183a4e5</parentFolderId>
+  <packageId>a79b795a-5e40-4aa0-9ee6-1403804372cf</packageId>
+  <packageName>Kafka.Producer</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0a612838-73d8-42d1-9a61-da4a64289b87</parentFolderId>
+      <packageId>a79b795a-5e40-4aa0-9ee6-1403804372cf</packageId>
+      <packageName>Kafka.Producer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>99e33220-a262-4b09-a282-a3fa4f1c97e1</parentFolderId>
+      <packageId>941894ee-9173-4b5e-aae9-d4fb9d409961</packageId>
+      <packageName>CosmosDBMultiTenancy</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

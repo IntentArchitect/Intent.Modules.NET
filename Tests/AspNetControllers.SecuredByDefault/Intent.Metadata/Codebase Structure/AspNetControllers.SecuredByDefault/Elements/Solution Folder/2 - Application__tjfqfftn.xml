@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>30656ab2-8ebf-4c2a-803b-c16480061036</parentFolderId>
+  <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+  <packageName>AspNetControllers.SecuredByDefault</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>308eea0b-b1c1-40c1-803e-71473f222207</parentFolderId>
+      <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+      <packageName>AspNetControllers.SecuredByDefault</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -67,6 +71,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cf0231e4-07e0-48bc-b765-05b5509a569b</parentFolderId>
+          <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+          <packageName>AspNetControllers.SecuredByDefault</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -79,6 +85,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cf0231e4-07e0-48bc-b765-05b5509a569b</parentFolderId>
+          <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+          <packageName>AspNetControllers.SecuredByDefault</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -103,6 +111,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cf0231e4-07e0-48bc-b765-05b5509a569b</parentFolderId>
+          <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+          <packageName>AspNetControllers.SecuredByDefault</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -127,6 +137,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cf0231e4-07e0-48bc-b765-05b5509a569b</parentFolderId>
+          <packageId>26f37117-0ecc-44af-a071-ec064ed9c22f</packageId>
+          <packageName>AspNetControllers.SecuredByDefault</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>

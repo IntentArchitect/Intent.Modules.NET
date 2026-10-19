@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a93ccfcc-7092-4184-b1ae-93ad04aa6b34</parentFolderId>
+  <packageId>a93ccfcc-7092-4184-b1ae-93ad04aa6b34</packageId>
+  <packageName>N_ServiceBus.RabbitMQ.Domain</packageName>
   <diagram>
     <targetPackageId>a93ccfcc-7092-4184-b1ae-93ad04aa6b34</targetPackageId>
   </diagram>

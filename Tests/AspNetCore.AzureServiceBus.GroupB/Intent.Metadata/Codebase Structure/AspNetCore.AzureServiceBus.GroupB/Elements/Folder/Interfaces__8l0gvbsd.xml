@@ -87,6 +87,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6d6c297c-0c26-4e48-955a-59e78438f908</parentFolderId>
+      <packageId>97f17e62-39f3-419e-945b-b095624c8c28</packageId>
+      <packageName>AspNetCore.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -111,6 +113,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6d6c297c-0c26-4e48-955a-59e78438f908</parentFolderId>
+      <packageId>97f17e62-39f3-419e-945b-b095624c8c28</packageId>
+      <packageName>AspNetCore.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5888cd8a-7b21-4436-941c-63f228b71b81</parentFolderId>
+  <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+  <packageName>Ardalis</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7d1b1da1-200b-4335-862c-0e5c5a073bdb</parentFolderId>
+      <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+      <packageName>Ardalis</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -64,6 +68,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8f2dac92-e4b7-47e4-9db6-fd06d04e58dc</parentFolderId>
+          <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+          <packageName>Ardalis</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -76,6 +82,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8f2dac92-e4b7-47e4-9db6-fd06d04e58dc</parentFolderId>
+          <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+          <packageName>Ardalis</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -88,6 +96,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8f2dac92-e4b7-47e4-9db6-fd06d04e58dc</parentFolderId>
+          <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+          <packageName>Ardalis</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -110,6 +120,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8f2dac92-e4b7-47e4-9db6-fd06d04e58dc</parentFolderId>
+          <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+          <packageName>Ardalis</packageName>
           <stereotypes />
           <metadata />
           <childElements>
@@ -121,6 +133,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>261d73b9-3d3a-4c75-8e1c-94a689d1fe5a</parentFolderId>
+              <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+              <packageName>Ardalis</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />

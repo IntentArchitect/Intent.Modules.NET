@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>eb3583a0-4159-472a-a493-6d8c8b4b1cd9</parentFolderId>
+  <packageId>62b340d7-6049-4668-9e56-7f1575ce29ea</packageId>
+  <packageName>CloudBlobStorageClients</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>af9cac0f-fdae-44ef-9273-23825860b66f</parentFolderId>
+      <packageId>62b340d7-6049-4668-9e56-7f1575ce29ea</packageId>
+      <packageName>CloudBlobStorageClients</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>af9cac0f-fdae-44ef-9273-23825860b66f</parentFolderId>
+      <packageId>62b340d7-6049-4668-9e56-7f1575ce29ea</packageId>
+      <packageName>CloudBlobStorageClients</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

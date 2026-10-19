@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8a45e06d-183f-45aa-8997-46cd84239d42</parentFolderId>
+  <packageId>193306bb-2aee-429d-bca0-c521cc52406c</packageId>
+  <packageName>CleanArchitecture.IdentityService</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cc91f0b4-a21a-4e68-82d4-294e4e209604</parentFolderId>
+      <packageId>193306bb-2aee-429d-bca0-c521cc52406c</packageId>
+      <packageName>CleanArchitecture.IdentityService</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cc91f0b4-a21a-4e68-82d4-294e4e209604</parentFolderId>
+      <packageId>193306bb-2aee-429d-bca0-c521cc52406c</packageId>
+      <packageName>CleanArchitecture.IdentityService</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cc91f0b4-a21a-4e68-82d4-294e4e209604</parentFolderId>
+      <packageId>193306bb-2aee-429d-bca0-c521cc52406c</packageId>
+      <packageName>CleanArchitecture.IdentityService</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cc91f0b4-a21a-4e68-82d4-294e4e209604</parentFolderId>
+      <packageId>193306bb-2aee-429d-bca0-c521cc52406c</packageId>
+      <packageName>CleanArchitecture.IdentityService</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -129,6 +129,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c994cefc-7a1a-4ec0-a7dc-3689b419b543</parentFolderId>
+      <packageId>1bf96b99-2de5-4c48-ad41-6cea5f23e96e</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -153,6 +155,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c994cefc-7a1a-4ec0-a7dc-3689b419b543</parentFolderId>
+      <packageId>1bf96b99-2de5-4c48-ad41-6cea5f23e96e</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

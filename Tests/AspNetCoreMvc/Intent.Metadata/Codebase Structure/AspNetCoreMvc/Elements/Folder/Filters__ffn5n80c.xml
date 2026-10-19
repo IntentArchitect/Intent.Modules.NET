@@ -169,6 +169,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3a7078c2-8421-4df9-96e1-2af6f7f002e2</parentFolderId>
+      <packageId>a6f3be8b-db13-47fa-9df8-a1a2a7f5124c</packageId>
+      <packageName>AspNetCoreMvc</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

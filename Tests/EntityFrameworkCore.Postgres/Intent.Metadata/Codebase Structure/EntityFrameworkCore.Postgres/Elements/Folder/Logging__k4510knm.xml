@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e21b9594-321d-4e90-8e0a-d98caaa2661e</parentFolderId>
+  <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+  <packageName>EntityFrameworkCore.Postgres</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e010ebf7-fb09-4b4b-98d0-fe30e66a37c8</parentFolderId>
+      <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+      <packageName>EntityFrameworkCore.Postgres</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e010ebf7-fb09-4b4b-98d0-fe30e66a37c8</parentFolderId>
+      <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+      <packageName>EntityFrameworkCore.Postgres</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

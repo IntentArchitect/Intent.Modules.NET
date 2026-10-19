@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8fcf08de-dc14-4068-9ac9-496575a34c4f</parentFolderId>
+  <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+  <packageName>Kafka.Consumer</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fd204e90-de92-4a63-adcf-ed1699b635e6</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

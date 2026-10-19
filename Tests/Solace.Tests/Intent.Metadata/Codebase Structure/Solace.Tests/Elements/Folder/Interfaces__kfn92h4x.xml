@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b20a2672-f0fe-41aa-ab40-6e220d530595</parentFolderId>
+  <packageId>75f1ef17-a2ae-4938-a619-51c9702b58a8</packageId>
+  <packageName>Solace.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d34459fc-6552-450d-8df1-3c32ff95dc93</parentFolderId>
+      <packageId>75f1ef17-a2ae-4938-a619-51c9702b58a8</packageId>
+      <packageName>Solace.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

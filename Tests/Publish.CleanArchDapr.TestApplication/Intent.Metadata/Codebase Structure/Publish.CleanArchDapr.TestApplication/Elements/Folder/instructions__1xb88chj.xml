@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>952e6522-3f02-4c8b-b7ae-39a78f7bb4f6</parentFolderId>
+  <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
+  <packageName>Publish.CleanArchDapr.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3450b11b-c956-41bd-8b19-5a172dc38dd3</parentFolderId>
+      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
+      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

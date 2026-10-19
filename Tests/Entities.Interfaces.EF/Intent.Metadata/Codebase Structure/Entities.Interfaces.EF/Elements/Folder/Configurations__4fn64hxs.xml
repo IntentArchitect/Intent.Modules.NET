@@ -55,6 +55,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f6963f40-2c9c-4644-8df4-217957cd9904</parentFolderId>
+      <packageId>137f5938-aeca-428f-8bf9-326c432e2192</packageId>
+      <packageName>Entities.Interfaces.EF</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

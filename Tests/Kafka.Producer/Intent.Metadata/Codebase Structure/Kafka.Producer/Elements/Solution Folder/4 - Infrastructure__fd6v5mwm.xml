@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>aa9aabd9-8c0a-406e-9d6f-667cf90207bd</parentFolderId>
+  <packageId>a79b795a-5e40-4aa0-9ee6-1403804372cf</packageId>
+  <packageName>Kafka.Producer</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b08acdc1-d4c0-4860-8341-48aacb59a23b</parentFolderId>
+      <packageId>a79b795a-5e40-4aa0-9ee6-1403804372cf</packageId>
+      <packageName>Kafka.Producer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -64,6 +68,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e32521b1-f291-486a-b18e-bae3b25274c5</parentFolderId>
+          <packageId>a79b795a-5e40-4aa0-9ee6-1403804372cf</packageId>
+          <packageName>Kafka.Producer</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -76,6 +82,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e32521b1-f291-486a-b18e-bae3b25274c5</parentFolderId>
+          <packageId>a79b795a-5e40-4aa0-9ee6-1403804372cf</packageId>
+          <packageName>Kafka.Producer</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -88,6 +96,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e32521b1-f291-486a-b18e-bae3b25274c5</parentFolderId>
+          <packageId>a79b795a-5e40-4aa0-9ee6-1403804372cf</packageId>
+          <packageName>Kafka.Producer</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -110,6 +120,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e32521b1-f291-486a-b18e-bae3b25274c5</parentFolderId>
+          <packageId>a79b795a-5e40-4aa0-9ee6-1403804372cf</packageId>
+          <packageName>Kafka.Producer</packageName>
           <stereotypes />
           <metadata />
           <childElements>
@@ -121,6 +133,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>39ba7c21-33ee-40b3-aa7d-8d0a63cdd6f9</parentFolderId>
+              <packageId>a79b795a-5e40-4aa0-9ee6-1403804372cf</packageId>
+              <packageName>Kafka.Producer</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />

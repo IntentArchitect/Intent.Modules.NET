@@ -169,6 +169,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c5c1936b-9f41-4653-85cb-a7fb915cc34e</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

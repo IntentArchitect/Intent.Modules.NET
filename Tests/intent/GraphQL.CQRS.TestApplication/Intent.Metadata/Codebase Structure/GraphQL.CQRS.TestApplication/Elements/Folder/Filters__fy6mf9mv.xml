@@ -81,6 +81,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c0fbbbc9-37f6-4f39-bce4-9c5c24e15a2d</parentFolderId>
+      <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+      <packageName>GraphQL.CQRS.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -105,6 +107,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c0fbbbc9-37f6-4f39-bce4-9c5c24e15a2d</parentFolderId>
+      <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+      <packageName>GraphQL.CQRS.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -129,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c0fbbbc9-37f6-4f39-bce4-9c5c24e15a2d</parentFolderId>
+      <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+      <packageName>GraphQL.CQRS.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

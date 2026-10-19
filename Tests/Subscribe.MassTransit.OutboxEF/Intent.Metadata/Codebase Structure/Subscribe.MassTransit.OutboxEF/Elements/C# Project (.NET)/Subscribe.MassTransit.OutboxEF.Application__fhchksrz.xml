@@ -407,6 +407,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d2f445c3-2185-4f69-9492-742b7fa349e6</parentFolderId>
+      <packageId>8188001b-6643-4f2a-b829-376a4ba8c8fe</packageId>
+      <packageName>Subscribe.MassTransit.OutboxEF</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

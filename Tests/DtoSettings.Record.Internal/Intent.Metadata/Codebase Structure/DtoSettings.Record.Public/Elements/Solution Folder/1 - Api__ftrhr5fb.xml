@@ -7,6 +7,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>71d6e0dd-b394-4a47-b358-3de19d40a714</parentFolderId>
+  <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+  <packageName>DtoSettings.Record.Public</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -18,6 +20,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>301a1fc8-a3a3-4f65-9844-68955324e080</parentFolderId>
+      <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+      <packageName>DtoSettings.Record.Public</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -73,6 +77,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d845316-1bdc-4166-9788-d39fcc3ee71f</parentFolderId>
+          <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+          <packageName>DtoSettings.Record.Public</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -93,6 +99,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>a66ecc83-bcf4-433d-8176-59f1d73f3642</parentFolderId>
+              <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+              <packageName>DtoSettings.Record.Public</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -107,6 +115,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d845316-1bdc-4166-9788-d39fcc3ee71f</parentFolderId>
+          <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+          <packageName>DtoSettings.Record.Public</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -119,6 +129,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d845316-1bdc-4166-9788-d39fcc3ee71f</parentFolderId>
+          <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+          <packageName>DtoSettings.Record.Public</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -131,6 +143,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d845316-1bdc-4166-9788-d39fcc3ee71f</parentFolderId>
+          <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+          <packageName>DtoSettings.Record.Public</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -155,6 +169,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d845316-1bdc-4166-9788-d39fcc3ee71f</parentFolderId>
+          <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+          <packageName>DtoSettings.Record.Public</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -179,6 +195,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d845316-1bdc-4166-9788-d39fcc3ee71f</parentFolderId>
+          <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+          <packageName>DtoSettings.Record.Public</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>

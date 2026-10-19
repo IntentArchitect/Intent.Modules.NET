@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4c053fe7-3203-4a9e-9623-bce7239a2227</parentFolderId>
+  <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+  <packageName>AwsSecretsManager</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8cb1b321-19f6-489b-aa7a-6950a976443c</parentFolderId>
+      <packageId>56cff4f3-8076-4646-b441-e18f24b1f29d</packageId>
+      <packageName>AwsSecretsManager</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

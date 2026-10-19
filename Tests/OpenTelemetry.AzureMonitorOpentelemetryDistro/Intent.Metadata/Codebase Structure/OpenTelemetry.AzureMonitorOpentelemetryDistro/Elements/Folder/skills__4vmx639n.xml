@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6a61055d-a707-407b-9fa7-7b4448076499</parentFolderId>
+  <packageId>6407e5e4-2aa2-4019-b042-cadd5c6ae80f</packageId>
+  <packageName>OpenTelemetry.AzureMonitorOpentelemetryDistro</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4dcf4f46-a9d9-41ed-88ec-2b30a95e1188</parentFolderId>
+      <packageId>6407e5e4-2aa2-4019-b042-cadd5c6ae80f</packageId>
+      <packageName>OpenTelemetry.AzureMonitorOpentelemetryDistro</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4dcf4f46-a9d9-41ed-88ec-2b30a95e1188</parentFolderId>
+      <packageId>6407e5e4-2aa2-4019-b042-cadd5c6ae80f</packageId>
+      <packageName>OpenTelemetry.AzureMonitorOpentelemetryDistro</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

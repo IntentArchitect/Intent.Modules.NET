@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</parentFolderId>
+  <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+  <packageName>BugSnagTest.AspNetCore</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -16,6 +18,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a1a23590-4d27-41bb-9e1d-b1e5a751cce0</parentFolderId>
+      <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+      <packageName>BugSnagTest.AspNetCore</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -27,6 +31,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a1a23590-4d27-41bb-9e1d-b1e5a751cce0</parentFolderId>
+      <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+      <packageName>BugSnagTest.AspNetCore</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -38,6 +44,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a1a23590-4d27-41bb-9e1d-b1e5a751cce0</parentFolderId>
+      <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+      <packageName>BugSnagTest.AspNetCore</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -49,6 +57,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a1a23590-4d27-41bb-9e1d-b1e5a751cce0</parentFolderId>
+      <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+      <packageName>BugSnagTest.AspNetCore</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -60,6 +70,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a1a23590-4d27-41bb-9e1d-b1e5a751cce0</parentFolderId>
+      <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+      <packageName>BugSnagTest.AspNetCore</packageName>
       <stereotypes />
       <metadata />
       <childElements />

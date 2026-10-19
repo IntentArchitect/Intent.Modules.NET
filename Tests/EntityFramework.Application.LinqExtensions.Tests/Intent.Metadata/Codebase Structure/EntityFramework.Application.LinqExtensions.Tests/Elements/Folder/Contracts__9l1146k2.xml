@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1bd8e5ee-5970-4af8-9d08-0f60c4698340</parentFolderId>
+  <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+  <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>84aca38a-a7eb-4bdf-b013-f8a995d2ef4f</parentFolderId>
+      <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+      <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

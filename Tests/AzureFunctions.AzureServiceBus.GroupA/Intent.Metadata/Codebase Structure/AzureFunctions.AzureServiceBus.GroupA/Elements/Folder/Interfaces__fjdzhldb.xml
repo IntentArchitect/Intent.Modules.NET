@@ -129,6 +129,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7227c3c3-d473-4028-b1d7-dc40a1f010cc</parentFolderId>
+      <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -153,6 +155,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7227c3c3-d473-4028-b1d7-dc40a1f010cc</parentFolderId>
+      <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

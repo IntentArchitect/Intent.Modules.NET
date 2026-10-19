@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>836f82d0-a130-4ce4-b0a3-8e1b246c0185</parentFolderId>
+  <packageId>f66565a4-8414-4e4b-87d5-adf99dbfb61e</packageId>
+  <packageName>SharedKernel.Kernel.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bd9c0a5c-c191-4078-8256-c47b1436b6a8</parentFolderId>
+      <packageId>f66565a4-8414-4e4b-87d5-adf99dbfb61e</packageId>
+      <packageName>SharedKernel.Kernel.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

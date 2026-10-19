@@ -212,6 +212,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d9e3b4ee-9a92-4dea-8dc5-db7c89a05b6a</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4effa3ff-fd48-483b-9078-c952573f4afd</parentFolderId>
+  <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+  <packageName>Application.Identity.Jwt.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7c3aada0-bff8-4588-95e1-f79d2c716dec</parentFolderId>
+      <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+      <packageName>Application.Identity.Jwt.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7c3aada0-bff8-4588-95e1-f79d2c716dec</parentFolderId>
+      <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+      <packageName>Application.Identity.Jwt.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7c3aada0-bff8-4588-95e1-f79d2c716dec</parentFolderId>
+      <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+      <packageName>Application.Identity.Jwt.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7c3aada0-bff8-4588-95e1-f79d2c716dec</parentFolderId>
+      <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+      <packageName>Application.Identity.Jwt.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

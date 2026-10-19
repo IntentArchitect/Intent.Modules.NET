@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e421c7fe-5aeb-4c16-adf1-781942c4f6f4</parentFolderId>
+  <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+  <packageName>Redis.Om.Repositories</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bc9f8d3f-d2d2-4350-aa05-fc4d02906481</parentFolderId>
+      <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+      <packageName>Redis.Om.Repositories</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bc9f8d3f-d2d2-4350-aa05-fc4d02906481</parentFolderId>
+      <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+      <packageName>Redis.Om.Repositories</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bc9f8d3f-d2d2-4350-aa05-fc4d02906481</parentFolderId>
+      <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+      <packageName>Redis.Om.Repositories</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bc9f8d3f-d2d2-4350-aa05-fc4d02906481</parentFolderId>
+      <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+      <packageName>Redis.Om.Repositories</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bc9f8d3f-d2d2-4350-aa05-fc4d02906481</parentFolderId>
+      <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+      <packageName>Redis.Om.Repositories</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -87,6 +99,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bc9f8d3f-d2d2-4350-aa05-fc4d02906481</parentFolderId>
+      <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+      <packageName>Redis.Om.Repositories</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

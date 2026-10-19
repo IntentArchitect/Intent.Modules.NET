@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>48f82faa-76ce-4e02-b346-66d8841391e7</parentFolderId>
+  <packageId>1bf96b99-2de5-4c48-ad41-6cea5f23e96e</packageId>
+  <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>175ef06c-1337-4f07-8309-35d6bab4c2b1</parentFolderId>
+      <packageId>1bf96b99-2de5-4c48-ad41-6cea5f23e96e</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

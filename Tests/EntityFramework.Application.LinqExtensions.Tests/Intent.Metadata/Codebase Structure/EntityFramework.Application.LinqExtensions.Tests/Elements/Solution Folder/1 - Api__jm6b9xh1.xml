@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a860546f-9172-452a-88d7-3c059e94fb8d</parentFolderId>
+  <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+  <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>624878f0-7a62-49d9-a220-64d225ed89fe</parentFolderId>
+      <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+      <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -77,6 +81,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>db089c63-043f-4050-aa05-a39d6f3a7744</parentFolderId>
+          <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+          <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -97,6 +103,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>92a15186-72b2-47a4-8de6-ce9b9ac15f89</parentFolderId>
+              <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+              <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -111,6 +119,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>db089c63-043f-4050-aa05-a39d6f3a7744</parentFolderId>
+          <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+          <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -123,6 +133,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>db089c63-043f-4050-aa05-a39d6f3a7744</parentFolderId>
+          <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+          <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -135,6 +147,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>db089c63-043f-4050-aa05-a39d6f3a7744</parentFolderId>
+          <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+          <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -159,6 +173,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>db089c63-043f-4050-aa05-a39d6f3a7744</parentFolderId>
+          <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+          <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -183,6 +199,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>db089c63-043f-4050-aa05-a39d6f3a7744</parentFolderId>
+          <packageId>16709d37-787b-4be0-b825-81cb8125432e</packageId>
+          <packageName>EntityFramework.Application.LinqExtensions.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</parentFolderId>
+  <packageId>c8ddc1e7-0dba-40ac-8421-edc3d1b10c53</packageId>
+  <packageName>Standard.AspNetCore.Serilog</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

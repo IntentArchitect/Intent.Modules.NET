@@ -185,6 +185,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3b2256b7-af5e-406f-881a-d7f36a69593f</parentFolderId>
+      <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+      <packageName>Redis.Om.Repositories</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

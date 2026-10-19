@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9d7e6677-ee37-4da8-ba46-757f8e8eb286</parentFolderId>
+  <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+  <packageName>ValueObjects.Class</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7e690d7f-637a-40a0-a034-2327de379925</parentFolderId>
+      <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+      <packageName>ValueObjects.Class</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7e690d7f-637a-40a0-a034-2327de379925</parentFolderId>
+      <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+      <packageName>ValueObjects.Class</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7e690d7f-637a-40a0-a034-2327de379925</parentFolderId>
+      <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+      <packageName>ValueObjects.Class</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7e690d7f-637a-40a0-a034-2327de379925</parentFolderId>
+      <packageId>14644780-87bf-4f5b-a4c7-a924424cccf9</packageId>
+      <packageName>ValueObjects.Class</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

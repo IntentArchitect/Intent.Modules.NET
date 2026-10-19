@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>082f3062-cfe8-46d6-b99f-611fd5e4c3ce</parentFolderId>
+  <packageId>56c3f032-f07d-4fc1-af0f-55c23c5308e4</packageId>
+  <packageName>CleanArchitecture.QueueStorage</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b962d6e2-00b8-4a4c-a05a-e810414c58d2</parentFolderId>
+      <packageId>56c3f032-f07d-4fc1-af0f-55c23c5308e4</packageId>
+      <packageName>CleanArchitecture.QueueStorage</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -212,6 +212,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cbecc0c0-f7cc-401b-8c45-faa1cd640550</parentFolderId>
+      <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+      <packageName>MassTransit.RabbitMQ</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

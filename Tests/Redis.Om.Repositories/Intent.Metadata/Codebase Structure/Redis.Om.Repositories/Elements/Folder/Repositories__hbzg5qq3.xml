@@ -123,6 +123,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c0c829de-ff70-4b4f-ae9c-6eeeeb9dccd0</parentFolderId>
+      <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+      <packageName>Redis.Om.Repositories</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -147,6 +149,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c0c829de-ff70-4b4f-ae9c-6eeeeb9dccd0</parentFolderId>
+      <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
+      <packageName>Redis.Om.Repositories</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a82001f4-7b6d-4037-84ce-8350f1716958</parentFolderId>
+  <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+  <packageName>AzureFunctions.NET6</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dd4d67e8-3e02-41c2-8284-eb4763907e88</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET6</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dd4d67e8-3e02-41c2-8284-eb4763907e88</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET6</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dd4d67e8-3e02-41c2-8284-eb4763907e88</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET6</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dd4d67e8-3e02-41c2-8284-eb4763907e88</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET6</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dd4d67e8-3e02-41c2-8284-eb4763907e88</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET6</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -87,6 +99,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dd4d67e8-3e02-41c2-8284-eb4763907e88</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET6</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

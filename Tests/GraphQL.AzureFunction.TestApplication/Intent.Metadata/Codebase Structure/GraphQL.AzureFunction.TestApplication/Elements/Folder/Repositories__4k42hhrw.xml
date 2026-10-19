@@ -133,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>096adf41-3159-4774-b87a-fc3f1c5ef054</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -157,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>096adf41-3159-4774-b87a-fc3f1c5ef054</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

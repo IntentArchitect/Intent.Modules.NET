@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7ec10013-9d9d-4710-beea-68262a98592f</parentFolderId>
+  <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+  <packageName>EfCore.SecondLevelCaching</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

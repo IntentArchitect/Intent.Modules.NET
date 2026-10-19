@@ -159,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e021eec2-adf8-4353-89b3-f6330be07682</parentFolderId>
+      <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
+      <packageName>Application.Identity.AccountController</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

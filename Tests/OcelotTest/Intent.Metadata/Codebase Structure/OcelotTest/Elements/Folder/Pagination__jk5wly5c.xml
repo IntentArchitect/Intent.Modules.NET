@@ -107,6 +107,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9d9a87ef-3586-4354-a0b8-4c6afec8ea2c</parentFolderId>
+      <packageId>62529060-9af2-4e23-8b08-da066f8c4400</packageId>
+      <packageName>OcelotTest</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -131,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9d9a87ef-3586-4354-a0b8-4c6afec8ea2c</parentFolderId>
+      <packageId>62529060-9af2-4e23-8b08-da066f8c4400</packageId>
+      <packageName>OcelotTest</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

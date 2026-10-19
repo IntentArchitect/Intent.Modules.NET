@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</parentFolderId>
+  <packageId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</packageId>
+  <packageName>WebAndWorker.UI</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
       <addedByDefault>true</addedByDefault>
@@ -28,6 +30,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>084a7d3e-3be0-4e25-9e31-d7609a3af078</parentFolderId>
+      <packageId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</packageId>
+      <packageName>WebAndWorker.UI</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
           <addedByDefault>false</addedByDefault>

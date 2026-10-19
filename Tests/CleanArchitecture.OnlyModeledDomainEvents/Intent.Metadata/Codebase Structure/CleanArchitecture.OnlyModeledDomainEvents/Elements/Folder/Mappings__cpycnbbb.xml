@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>92de15cc-9b5d-4ccf-a146-ed2264a003e2</parentFolderId>
+  <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+  <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c29167a9-0bed-4c38-9514-d616022258d2</parentFolderId>
+      <packageId>e1b0cc18-7e15-47c2-8a58-7da5d3a5d71b</packageId>
+      <packageName>CleanArchitecture.OnlyModeledDomainEvents</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

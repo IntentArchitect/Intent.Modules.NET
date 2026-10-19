@@ -61,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0542dee8-3b89-403d-a910-ee408eae82f3</parentFolderId>
+      <packageId>7f5bb63d-0822-4d6a-bdd1-590ed03e253c</packageId>
+      <packageName>Finbuckle.SharedDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

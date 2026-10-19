@@ -159,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c26e5b3f-05b6-4a71-b74d-4032ccf86c31</parentFolderId>
+      <packageId>529bf4ef-debf-44e2-8afd-7f5e214d14a6</packageId>
+      <packageName>EfCoreSoftDelete</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

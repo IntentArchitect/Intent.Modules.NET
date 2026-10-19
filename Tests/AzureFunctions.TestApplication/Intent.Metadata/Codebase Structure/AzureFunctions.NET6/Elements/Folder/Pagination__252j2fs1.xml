@@ -107,6 +107,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8b584f1f-3cff-4885-ab23-6dcd14bae14f</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET6</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -131,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8b584f1f-3cff-4885-ab23-6dcd14bae14f</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET6</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

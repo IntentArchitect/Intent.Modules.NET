@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>040cf9d4-56ec-497c-a6ac-9cc4d459dc81</parentFolderId>
   <packageId>60a22b78-005c-44d9-9a7c-286afa665554</packageId>
-  <packageName>AzureFunctions.AzureEventGrid.GroupA</packageName>
+  <packageName>AzureFunctions.AzureEventGrid.GroupB</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
       <addedByDefault>true</addedByDefault>
@@ -30,7 +30,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>cf5fa52e-95d4-444b-a311-fd478fcec34b</parentFolderId>
       <packageId>60a22b78-005c-44d9-9a7c-286afa665554</packageId>
-      <packageName>AzureFunctions.AzureEventGrid.GroupA</packageName>
+      <packageName>AzureFunctions.AzureEventGrid.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -55,6 +55,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cf5fa52e-95d4-444b-a311-fd478fcec34b</parentFolderId>
+      <packageId>60a22b78-005c-44d9-9a7c-286afa665554</packageId>
+      <packageName>AzureFunctions.AzureEventGrid.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

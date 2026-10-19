@@ -145,6 +145,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3c1ec598-dafc-4ef2-8251-f5e490d70ab4</parentFolderId>
+      <packageId>b4100c4f-008d-48d9-b763-6048e68c931d</packageId>
+      <packageName>Entities.PrivateSetters.EF.CosmosDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

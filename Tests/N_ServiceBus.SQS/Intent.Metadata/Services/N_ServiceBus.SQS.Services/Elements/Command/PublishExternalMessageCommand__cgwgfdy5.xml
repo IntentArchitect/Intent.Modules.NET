@@ -16,7 +16,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>26676bec-a1bd-40a6-8631-f24807d3cb66</parentFolderId>
   <packageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</packageId>
-  <packageName>NServiceBus.SQS.Services</packageName>
+  <packageName>N_ServiceBus.SQS.Services</packageName>
   <traits>
     <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
     <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
@@ -56,7 +56,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>becb1ba6-7bb0-4b63-92dd-335973003428</parentFolderId>
       <packageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</packageId>
-      <packageName>NServiceBus.SQS.Services</packageName>
+      <packageName>N_ServiceBus.SQS.Services</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
           <addedByDefault>true</addedByDefault>

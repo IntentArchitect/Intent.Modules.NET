@@ -185,6 +185,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a6fec8a3-fd2f-4895-b679-9c7d6f6b7ae9</parentFolderId>
+      <packageId>e7bb0f4e-f966-469b-b10f-2e6cafd531df</packageId>
+      <packageName>GraphQL.MongoDb.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2ce2836f-a592-4ba6-a21f-239af9671326</parentFolderId>
+  <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5e14abf2-969a-44bf-a548-6b31e2a10534</parentFolderId>
+      <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

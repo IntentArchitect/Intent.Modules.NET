@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a845628d-51bd-4d7a-b29e-c6e5eeefbebb</parentFolderId>
+  <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+  <packageName>ProxyServiceTests.OriginalServices</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>abc2f486-93cc-4004-bd25-f5f9b0b06670</parentFolderId>
+      <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+      <packageName>ProxyServiceTests.OriginalServices</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

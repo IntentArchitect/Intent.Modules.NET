@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>21b05f5f-f434-477a-98b4-a911cfead889</parentFolderId>
+  <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+  <packageName>GraphQL.CQRS.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>99145500-391c-4f66-af67-1f995ef674da</parentFolderId>
+      <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+      <packageName>GraphQL.CQRS.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

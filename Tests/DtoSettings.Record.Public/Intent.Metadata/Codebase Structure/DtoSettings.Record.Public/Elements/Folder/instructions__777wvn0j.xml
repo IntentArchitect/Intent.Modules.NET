@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>efad18a7-61b8-4294-9a4b-99a29fd75c00</parentFolderId>
+  <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+  <packageName>DtoSettings.Record.Public</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0190ab68-9e54-413f-8489-d1eb24e0875b</parentFolderId>
+      <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+      <packageName>DtoSettings.Record.Public</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -97,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>22a6cd96-765c-4611-acde-2f596d55c4f8</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB.PrivateSetters</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -121,6 +123,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>22a6cd96-765c-4611-acde-2f596d55c4f8</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB.PrivateSetters</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -145,6 +149,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>22a6cd96-765c-4611-acde-2f596d55c4f8</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB.PrivateSetters</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

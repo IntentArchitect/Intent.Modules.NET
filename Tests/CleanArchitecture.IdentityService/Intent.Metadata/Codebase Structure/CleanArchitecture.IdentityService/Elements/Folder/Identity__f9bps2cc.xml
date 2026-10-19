@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>938d6cf7-ebbf-4612-9c4a-e25835d2ab60</parentFolderId>
+  <packageId>193306bb-2aee-429d-bca0-c521cc52406c</packageId>
+  <packageName>CleanArchitecture.IdentityService</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>47f375c0-2ed8-47c8-9ec6-a8d6b6bf5f41</parentFolderId>
+      <packageId>193306bb-2aee-429d-bca0-c521cc52406c</packageId>
+      <packageName>CleanArchitecture.IdentityService</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

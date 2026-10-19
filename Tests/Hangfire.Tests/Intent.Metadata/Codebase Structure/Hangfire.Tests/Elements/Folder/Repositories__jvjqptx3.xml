@@ -81,6 +81,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d8c6e4f3-14b2-46e7-9f4c-bd022f672bc2</parentFolderId>
+      <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+      <packageName>Hangfire.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

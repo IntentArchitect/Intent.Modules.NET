@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>724905e4-11d4-4e82-a8b6-222c65bfbd53</parentFolderId>
+  <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+  <packageName>Ardalis</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>33a0e59f-95af-48da-8bfa-c9dad1f22e98</parentFolderId>
+      <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+      <packageName>Ardalis</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

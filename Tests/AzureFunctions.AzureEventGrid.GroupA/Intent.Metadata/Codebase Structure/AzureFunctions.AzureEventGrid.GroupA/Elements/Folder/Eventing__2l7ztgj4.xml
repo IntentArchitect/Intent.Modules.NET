@@ -61,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a5c87525-4c85-4ddb-81f2-735c1e5a60e9</parentFolderId>
+      <packageId>60a22b78-005c-44d9-9a7c-286afa665554</packageId>
+      <packageName>AzureFunctions.AzureEventGrid.GroupA</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -75,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a5c87525-4c85-4ddb-81f2-735c1e5a60e9</parentFolderId>
+      <packageId>60a22b78-005c-44d9-9a7c-286afa665554</packageId>
+      <packageName>AzureFunctions.AzureEventGrid.GroupA</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

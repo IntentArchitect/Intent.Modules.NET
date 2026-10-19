@@ -165,6 +165,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>36985ab8-5d90-47d7-9502-4d286ced9074</parentFolderId>
+      <packageId>0ab81258-6725-401d-bdd5-f9885802d8f1</packageId>
+      <packageName>Subscribe.CleanArchDapr.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -189,6 +191,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>36985ab8-5d90-47d7-9502-4d286ced9074</parentFolderId>
+      <packageId>0ab81258-6725-401d-bdd5-f9885802d8f1</packageId>
+      <packageName>Subscribe.CleanArchDapr.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -107,6 +107,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>10008be3-2f5a-43fb-9528-ddf8c2114b08</parentFolderId>
+      <packageId>3cbb50b0-c61f-4a0c-a224-0f39d2cffb3b</packageId>
+      <packageName>DtoSettings.Class.Internal</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -131,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>10008be3-2f5a-43fb-9528-ddf8c2114b08</parentFolderId>
+      <packageId>3cbb50b0-c61f-4a0c-a224-0f39d2cffb3b</packageId>
+      <packageName>DtoSettings.Class.Internal</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -155,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>10008be3-2f5a-43fb-9528-ddf8c2114b08</parentFolderId>
+      <packageId>3cbb50b0-c61f-4a0c-a224-0f39d2cffb3b</packageId>
+      <packageName>DtoSettings.Class.Internal</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

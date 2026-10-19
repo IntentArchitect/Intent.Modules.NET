@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d9d59264-ba73-43aa-9e4e-59a2d14f74e6</parentFolderId>
+  <packageId>696850f8-2a02-40f8-834d-f10b94c4fc68</packageId>
+  <packageName>DynamoDbTests.EnumAsStrings</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>06670b44-76e3-4cde-8722-6f9138a95eb3</parentFolderId>
+      <packageId>696850f8-2a02-40f8-834d-f10b94c4fc68</packageId>
+      <packageName>DynamoDbTests.EnumAsStrings</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b2def1c6-33b6-47c7-a701-6523bfb0e154</parentFolderId>
+  <packageId>b2def1c6-33b6-47c7-a701-6523bfb0e154</packageId>
+  <packageName>CleanArchitecture.Dapr.InvocationClient.Domain</packageName>
   <diagram>
     <targetPackageId>b2def1c6-33b6-47c7-a701-6523bfb0e154</targetPackageId>
   </diagram>

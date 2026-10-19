@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d2816f5c-afe8-4261-8708-24ac1287736e</parentFolderId>
+  <packageId>1efb6e83-f955-4a31-8ba3-5d51f7229db6</packageId>
+  <packageName>BlazorServerTests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7b9c8799-9970-47ae-94e2-d9753ca5d2b2</parentFolderId>
+      <packageId>1efb6e83-f955-4a31-8ba3-5d51f7229db6</packageId>
+      <packageName>BlazorServerTests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

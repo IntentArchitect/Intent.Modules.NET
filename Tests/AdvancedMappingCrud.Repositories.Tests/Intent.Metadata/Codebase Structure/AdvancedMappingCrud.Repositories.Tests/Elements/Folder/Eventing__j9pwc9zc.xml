@@ -61,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dd5809ec-1e59-4d07-aede-5df0a8d73c25</parentFolderId>
+      <packageId>e8c23427-3443-420a-b219-bac8e6a8f88b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

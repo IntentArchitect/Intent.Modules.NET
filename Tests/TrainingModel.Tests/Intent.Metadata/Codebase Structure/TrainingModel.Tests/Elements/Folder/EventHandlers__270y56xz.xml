@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>bbc0482f-8f23-46c6-be4e-c7c8c624f383</parentFolderId>
+  <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
+  <packageName>TrainingModel.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>233d3820-7f6d-460d-9f99-a2077ae62744</parentFolderId>
+      <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
+      <packageName>TrainingModel.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>233d3820-7f6d-460d-9f99-a2077ae62744</parentFolderId>
+      <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
+      <packageName>TrainingModel.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>233d3820-7f6d-460d-9f99-a2077ae62744</parentFolderId>
+      <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
+      <packageName>TrainingModel.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

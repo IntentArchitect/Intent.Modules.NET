@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>877aeb61-a495-4542-91e0-92ea56f97d3f</parentFolderId>
+  <packageId>2b40d123-6d46-4759-89e7-a360ec7e29be</packageId>
+  <packageName>MassTransit.RabbitMQ</packageName>
   <stereotypes />
   <metadata />
   <childElements />

@@ -133,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0c401d43-9639-4968-a824-b6d552e4780c</parentFolderId>
+      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+      <packageName>EfCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -157,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0c401d43-9639-4968-a824-b6d552e4780c</parentFolderId>
+      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+      <packageName>EfCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

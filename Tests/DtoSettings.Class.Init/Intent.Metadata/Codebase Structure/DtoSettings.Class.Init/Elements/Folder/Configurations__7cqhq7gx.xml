@@ -55,6 +55,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>54d1c16a-f2fb-47a8-b109-c5e34d205f87</parentFolderId>
+      <packageId>9a3a04f0-fa2e-4239-bf35-d2e480a03267</packageId>
+      <packageName>DtoSettings.Class.Init</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

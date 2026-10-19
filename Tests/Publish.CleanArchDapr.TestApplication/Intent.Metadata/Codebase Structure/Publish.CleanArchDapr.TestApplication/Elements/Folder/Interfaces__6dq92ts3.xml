@@ -155,6 +155,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3f61c05c-533a-4339-a667-92b2c9dad05d</parentFolderId>
+      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
+      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

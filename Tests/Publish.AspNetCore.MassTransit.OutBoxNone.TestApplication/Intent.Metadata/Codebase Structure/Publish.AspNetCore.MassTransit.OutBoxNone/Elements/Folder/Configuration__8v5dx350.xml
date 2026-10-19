@@ -45,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e059f87f-5448-4935-bd98-a0162347fa23</parentFolderId>
+      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

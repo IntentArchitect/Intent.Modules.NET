@@ -81,6 +81,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6a92866-f727-4aea-aefa-527d5a88adbb</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -105,6 +107,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6a92866-f727-4aea-aefa-527d5a88adbb</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -129,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d6a92866-f727-4aea-aefa-527d5a88adbb</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

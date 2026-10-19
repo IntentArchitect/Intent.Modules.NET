@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>aabab5fb-788b-444a-a16f-a18fafc5a25a</parentFolderId>
+  <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fbc57e9f-2c0e-4103-a738-4c79e0dccdb1</parentFolderId>
+      <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -74,6 +78,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>432f6f7c-2f63-4aa0-a90a-7a7bd164a081</parentFolderId>
+          <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -94,6 +100,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>826b2f29-0878-4104-8326-7ae97ab5adcb</parentFolderId>
+              <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+              <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -108,6 +116,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>432f6f7c-2f63-4aa0-a90a-7a7bd164a081</parentFolderId>
+          <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,6 +130,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>432f6f7c-2f63-4aa0-a90a-7a7bd164a081</parentFolderId>
+          <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -132,6 +144,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>432f6f7c-2f63-4aa0-a90a-7a7bd164a081</parentFolderId>
+          <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -156,6 +170,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>432f6f7c-2f63-4aa0-a90a-7a7bd164a081</parentFolderId>
+          <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -180,6 +196,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>432f6f7c-2f63-4aa0-a90a-7a7bd164a081</parentFolderId>
+          <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>

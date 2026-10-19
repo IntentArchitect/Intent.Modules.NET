@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>670877d6-2f28-424c-b633-d40518e12ede</parentFolderId>
+  <packageId>670877d6-2f28-424c-b633-d40518e12ede</packageId>
+  <packageName>AzureFunction.QueueStorage</packageName>
   <stereotypes />
   <metadata />
   <childElements />

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6b187152-548d-4842-984d-4b6cbbb950ce</parentFolderId>
+  <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+  <packageName>TableStorage.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>57a9888f-72c6-46db-94b1-5c19c25ccfda</parentFolderId>
+      <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+      <packageName>TableStorage.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>57a9888f-72c6-46db-94b1-5c19c25ccfda</parentFolderId>
+      <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+      <packageName>TableStorage.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>57a9888f-72c6-46db-94b1-5c19c25ccfda</parentFolderId>
+      <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+      <packageName>TableStorage.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>57a9888f-72c6-46db-94b1-5c19c25ccfda</parentFolderId>
+      <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+      <packageName>TableStorage.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -113,6 +123,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>57a9888f-72c6-46db-94b1-5c19c25ccfda</parentFolderId>
+      <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+      <packageName>TableStorage.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -137,6 +149,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>57a9888f-72c6-46db-94b1-5c19c25ccfda</parentFolderId>
+      <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+      <packageName>TableStorage.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -161,6 +175,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>57a9888f-72c6-46db-94b1-5c19c25ccfda</parentFolderId>
+      <packageId>73585c35-a67b-4ddd-b57c-ca2aeba01d74</packageId>
+      <packageName>TableStorage.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

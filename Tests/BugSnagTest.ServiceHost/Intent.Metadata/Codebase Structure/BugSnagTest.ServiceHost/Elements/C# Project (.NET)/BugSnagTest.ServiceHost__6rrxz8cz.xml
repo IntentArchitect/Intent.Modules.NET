@@ -286,6 +286,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -300,6 +302,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -314,6 +318,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

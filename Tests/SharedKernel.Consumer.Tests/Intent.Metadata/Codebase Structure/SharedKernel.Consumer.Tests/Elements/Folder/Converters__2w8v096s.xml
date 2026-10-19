@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4348cbee-646a-4a38-8a77-a9e3396573c5</parentFolderId>
+  <packageId>34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</packageId>
+  <packageName>SharedKernel.Consumer.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>906cac29-ceef-47f7-b2ab-d2aa3ee306ee</parentFolderId>
+      <packageId>34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</packageId>
+      <packageName>SharedKernel.Consumer.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

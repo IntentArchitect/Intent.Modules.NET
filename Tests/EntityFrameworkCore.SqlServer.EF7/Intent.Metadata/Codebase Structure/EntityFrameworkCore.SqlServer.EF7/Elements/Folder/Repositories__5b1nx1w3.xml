@@ -133,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</parentFolderId>
+      <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -157,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</parentFolderId>
+      <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

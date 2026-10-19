@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0e0463c8-3afd-4689-816f-69d59cc2cb36</parentFolderId>
+  <packageId>0e0463c8-3afd-4689-816f-69d59cc2cb36</packageId>
+  <packageName>AwsLambdaFunction.Sqs.GroupB.Domain</packageName>
   <diagram>
     <targetPackageId>0e0463c8-3afd-4689-816f-69d59cc2cb36</targetPackageId>
   </diagram>

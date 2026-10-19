@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>2083793c-6328-4b6e-a8fb-d5a4ab577918</parentFolderId>
   <packageId>2083793c-6328-4b6e-a8fb-d5a4ab577918</packageId>
-  <packageName>NServiceBus.OutboxPattern.Publish.Services</packageName>
+  <packageName>N_ServiceBus.Persistence.Sql.Publish.Services</packageName>
   <diagram>
     <targetPackageId>2083793c-6328-4b6e-a8fb-d5a4ab577918</targetPackageId>
   </diagram>

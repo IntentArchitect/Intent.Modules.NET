@@ -185,6 +185,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e82a0dcc-1bbb-4759-bf95-fa88667936d1</parentFolderId>
+      <packageId>076efad2-3524-475f-981d-f7bb06ea9c21</packageId>
+      <packageName>RichDomain</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

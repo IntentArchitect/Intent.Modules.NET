@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</parentFolderId>
+  <packageId>3666517d-3a27-4747-8c60-5172ece34e91</packageId>
+  <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>102abcde-e4dd-4fdb-9d51-067f848db512</parentFolderId>
+      <packageId>3666517d-3a27-4747-8c60-5172ece34e91</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

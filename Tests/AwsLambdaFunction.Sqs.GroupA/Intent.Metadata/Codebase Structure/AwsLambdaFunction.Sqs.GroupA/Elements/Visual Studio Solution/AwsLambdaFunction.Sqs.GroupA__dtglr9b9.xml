@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a56c5206-e08c-4777-9e62-abbaf860b673</parentFolderId>
+  <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
+  <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

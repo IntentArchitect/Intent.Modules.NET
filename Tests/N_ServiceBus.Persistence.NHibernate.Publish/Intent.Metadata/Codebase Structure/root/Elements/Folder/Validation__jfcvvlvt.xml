@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>03391a24-a517-4312-8e52-309cd14b0f2c</parentFolderId>
+  <packageId>b1cd9d0c-0399-4820-86a9-f559502725ed</packageId>
+  <packageName>root</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3ab0c0ed-7cb9-4939-9fe3-5aa6cbcea3ba</parentFolderId>
+      <packageId>b1cd9d0c-0399-4820-86a9-f559502725ed</packageId>
+      <packageName>root</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3ab0c0ed-7cb9-4939-9fe3-5aa6cbcea3ba</parentFolderId>
+      <packageId>b1cd9d0c-0399-4820-86a9-f559502725ed</packageId>
+      <packageName>root</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3ab0c0ed-7cb9-4939-9fe3-5aa6cbcea3ba</parentFolderId>
+      <packageId>b1cd9d0c-0399-4820-86a9-f559502725ed</packageId>
+      <packageName>root</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3ab0c0ed-7cb9-4939-9fe3-5aa6cbcea3ba</parentFolderId>
+      <packageId>b1cd9d0c-0399-4820-86a9-f559502725ed</packageId>
+      <packageName>root</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

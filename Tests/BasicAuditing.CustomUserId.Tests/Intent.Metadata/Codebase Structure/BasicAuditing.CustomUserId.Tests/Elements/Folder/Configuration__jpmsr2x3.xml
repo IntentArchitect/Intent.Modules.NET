@@ -55,6 +55,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>77289bf1-b270-4a1c-b174-bf5266b82e49</parentFolderId>
+      <packageId>266990af-580e-4b5b-9d78-54639dd67747</packageId>
+      <packageName>BasicAuditing.CustomUserId.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

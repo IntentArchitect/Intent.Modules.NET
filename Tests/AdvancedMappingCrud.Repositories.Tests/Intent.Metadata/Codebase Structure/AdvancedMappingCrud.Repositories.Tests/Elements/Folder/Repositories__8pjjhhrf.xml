@@ -133,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</parentFolderId>
+      <packageId>e8c23427-3443-420a-b219-bac8e6a8f88b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -157,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</parentFolderId>
+      <packageId>e8c23427-3443-420a-b219-bac8e6a8f88b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

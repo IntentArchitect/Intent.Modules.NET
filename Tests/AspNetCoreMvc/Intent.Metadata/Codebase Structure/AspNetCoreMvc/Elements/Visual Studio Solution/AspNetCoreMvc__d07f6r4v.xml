@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a6f3be8b-db13-47fa-9df8-a1a2a7f5124c</parentFolderId>
+  <packageId>a6f3be8b-db13-47fa-9df8-a1a2a7f5124c</packageId>
+  <packageName>AspNetCoreMvc</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

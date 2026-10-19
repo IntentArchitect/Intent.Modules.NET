@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>201971a5-27da-4b7a-ab93-44ca2fa5ff70</parentFolderId>
+  <packageId>8188001b-6643-4f2a-b829-376a4ba8c8fe</packageId>
+  <packageName>Subscribe.MassTransit.OutboxEF</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f6b006bc-1b78-41c8-9d31-2004490c288c</parentFolderId>
+      <packageId>8188001b-6643-4f2a-b829-376a4ba8c8fe</packageId>
+      <packageName>Subscribe.MassTransit.OutboxEF</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

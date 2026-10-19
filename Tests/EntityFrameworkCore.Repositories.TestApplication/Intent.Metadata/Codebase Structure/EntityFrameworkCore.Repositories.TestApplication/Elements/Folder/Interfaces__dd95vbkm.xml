@@ -129,6 +129,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d4795eb3-262e-4d53-a977-411210f78566</parentFolderId>
+      <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -153,6 +155,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d4795eb3-262e-4d53-a977-411210f78566</parentFolderId>
+      <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

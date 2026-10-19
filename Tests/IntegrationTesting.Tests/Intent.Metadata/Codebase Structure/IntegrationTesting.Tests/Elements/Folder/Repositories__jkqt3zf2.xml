@@ -159,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bd2c8ef-87e5-48ec-aab2-e15aa8773c87</parentFolderId>
+      <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+      <packageName>IntegrationTesting.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3c4eb14b-a1b1-4fae-95db-4e856c956a9c</parentFolderId>
+  <packageId>3c4eb14b-a1b1-4fae-95db-4e856c956a9c</packageId>
+  <packageName>OpenTelemetry.AzureAppInsights.Domain</packageName>
   <stereotypes />
   <metadata />
   <childElements />

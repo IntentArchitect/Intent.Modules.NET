@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7ced466b-68f0-4c76-bf92-c4e6fa08f889</parentFolderId>
+  <packageId>2f02f0ad-70ce-4c2e-bc6b-44498511e261</packageId>
+  <packageName>AspNetCore.AzureServiceBus.GroupA</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1e0d4aa2-83fe-461f-8aeb-5e753570ddb3</parentFolderId>
+      <packageId>2f02f0ad-70ce-4c2e-bc6b-44498511e261</packageId>
+      <packageName>AspNetCore.AzureServiceBus.GroupA</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a6dfc1ac-27ae-4976-8a5f-a47bec135fab</parentFolderId>
+  <packageId>a6dfc1ac-27ae-4976-8a5f-a47bec135fab</packageId>
+  <packageName>BlazorNoMudBlazor.Services</packageName>
   <diagram>
     <targetPackageId>8649a05b-c6b1-4555-ab0f-007a4a85f79a</targetPackageId>
   </diagram>

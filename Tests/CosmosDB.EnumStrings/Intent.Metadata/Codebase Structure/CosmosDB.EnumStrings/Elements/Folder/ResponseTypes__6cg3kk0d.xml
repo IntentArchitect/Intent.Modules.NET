@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>c0560439-791e-40d2-9af5-da630136e1e9</parentFolderId>
+  <packageId>45f78a1c-7845-48c7-954f-a54a99e18313</packageId>
+  <packageName>CosmosDB.EnumStrings</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cf5e295c-8afb-4974-8326-f4c9fb6a0daf</parentFolderId>
+      <packageId>45f78a1c-7845-48c7-954f-a54a99e18313</packageId>
+      <packageName>CosmosDB.EnumStrings</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b4ed112f-2642-4100-af9b-98bbf331f1bc</parentFolderId>
+  <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+  <packageName>EFCore.Lazy.Loading.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8310f9ef-4daf-4c81-880a-d3cd0bddc151</parentFolderId>
+      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

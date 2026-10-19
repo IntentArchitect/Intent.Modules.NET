@@ -81,6 +81,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f9050652-34c2-476c-a22e-f33b12105475</parentFolderId>
+      <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+      <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

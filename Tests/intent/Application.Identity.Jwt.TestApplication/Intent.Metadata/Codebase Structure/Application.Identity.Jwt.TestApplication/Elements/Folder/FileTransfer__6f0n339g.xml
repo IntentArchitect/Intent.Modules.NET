@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f13afa07-2378-4a71-b7f2-6cb6f0ac891c</parentFolderId>
+  <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+  <packageName>Application.Identity.Jwt.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4070e45c-6197-4322-acb0-b9239da59447</parentFolderId>
+      <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+      <packageName>Application.Identity.Jwt.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

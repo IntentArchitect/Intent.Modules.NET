@@ -81,6 +81,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5ef4bcc6-8a93-40ed-842a-44f4dbd4f7b8</parentFolderId>
+      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
+      <packageName>Application.Identity.MSAL.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -105,6 +107,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5ef4bcc6-8a93-40ed-842a-44f4dbd4f7b8</parentFolderId>
+      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
+      <packageName>Application.Identity.MSAL.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -129,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5ef4bcc6-8a93-40ed-842a-44f4dbd4f7b8</parentFolderId>
+      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
+      <packageName>Application.Identity.MSAL.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>59eab0d7-c5ed-4694-b066-bc974bebb386</parentFolderId>
+  <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+  <packageName>root</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>true</addedByDefault>
@@ -33,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>242e6957-5a39-4004-bd81-0a0d5edb98a9</parentFolderId>
+      <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+      <packageName>root</packageName>
       <stereotypes />
       <metadata />
       <childElements>
@@ -44,6 +48,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68bb5a24-7b86-4f10-95fa-6c03076b782b</parentFolderId>
+          <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+          <packageName>root</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
               <addedByDefault>true</addedByDefault>
@@ -103,6 +109,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>2072524e-6e40-4c94-ba63-49bc3f711286</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
                   <addedByDefault>true</addedByDefault>
@@ -123,6 +131,8 @@
                   <genericTypes />
                   <isMapped>false</isMapped>
                   <parentFolderId>c04c80db-8c1b-4609-8dec-233b72443ec3</parentFolderId>
+                  <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+                  <packageName>root</packageName>
                   <stereotypes>
                     <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
                       <addedByDefault>true</addedByDefault>
@@ -146,6 +156,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>2072524e-6e40-4c94-ba63-49bc3f711286</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
                   <addedByDefault>true</addedByDefault>
@@ -167,6 +179,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>2072524e-6e40-4c94-ba63-49bc3f711286</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
                   <addedByDefault>true</addedByDefault>
@@ -188,6 +202,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>2072524e-6e40-4c94-ba63-49bc3f711286</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -212,6 +228,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>2072524e-6e40-4c94-ba63-49bc3f711286</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -236,6 +254,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>2072524e-6e40-4c94-ba63-49bc3f711286</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -264,6 +284,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>242e6957-5a39-4004-bd81-0a0d5edb98a9</parentFolderId>
+      <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+      <packageName>root</packageName>
       <stereotypes />
       <metadata />
       <childElements>
@@ -275,6 +297,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2bd173f2-3b17-4133-bf58-cc98a931ec8b</parentFolderId>
+          <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+          <packageName>root</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
               <addedByDefault>true</addedByDefault>
@@ -326,6 +350,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>df44efc6-af03-4098-84af-11a6e08f7ac9</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
                   <addedByDefault>true</addedByDefault>
@@ -347,6 +373,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>df44efc6-af03-4098-84af-11a6e08f7ac9</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -371,6 +399,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>df44efc6-af03-4098-84af-11a6e08f7ac9</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -395,6 +425,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>df44efc6-af03-4098-84af-11a6e08f7ac9</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -419,6 +451,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>df44efc6-af03-4098-84af-11a6e08f7ac9</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -443,6 +477,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>df44efc6-af03-4098-84af-11a6e08f7ac9</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -467,6 +503,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>df44efc6-af03-4098-84af-11a6e08f7ac9</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -491,6 +529,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>df44efc6-af03-4098-84af-11a6e08f7ac9</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -515,6 +555,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>df44efc6-af03-4098-84af-11a6e08f7ac9</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -539,6 +581,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>df44efc6-af03-4098-84af-11a6e08f7ac9</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -563,6 +607,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>df44efc6-af03-4098-84af-11a6e08f7ac9</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -587,6 +633,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>df44efc6-af03-4098-84af-11a6e08f7ac9</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -615,6 +663,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>242e6957-5a39-4004-bd81-0a0d5edb98a9</parentFolderId>
+      <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+      <packageName>root</packageName>
       <stereotypes />
       <metadata />
       <childElements>
@@ -626,6 +676,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b6f7d525-52f8-4954-9c7d-4d783e7f8e50</parentFolderId>
+          <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+          <packageName>root</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
               <addedByDefault>true</addedByDefault>
@@ -677,6 +729,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>02a57be4-cfa1-4c8c-924c-4985eebe1250</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
                   <addedByDefault>true</addedByDefault>
@@ -697,6 +751,8 @@
                   <genericTypes />
                   <isMapped>false</isMapped>
                   <parentFolderId>7832d6e7-efd3-4726-a770-5320061f64f5</parentFolderId>
+                  <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+                  <packageName>root</packageName>
                   <stereotypes>
                     <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
                       <addedByDefault>true</addedByDefault>
@@ -718,6 +774,8 @@
                   <genericTypes />
                   <isMapped>false</isMapped>
                   <parentFolderId>7832d6e7-efd3-4726-a770-5320061f64f5</parentFolderId>
+                  <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+                  <packageName>root</packageName>
                   <stereotypes>
                     <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                       <addedByDefault>false</addedByDefault>
@@ -742,6 +800,8 @@
                   <genericTypes />
                   <isMapped>false</isMapped>
                   <parentFolderId>7832d6e7-efd3-4726-a770-5320061f64f5</parentFolderId>
+                  <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+                  <packageName>root</packageName>
                   <stereotypes />
                   <metadata>
                     <entry key="status" value="assigned" />
@@ -756,6 +816,8 @@
                   <genericTypes />
                   <isMapped>false</isMapped>
                   <parentFolderId>7832d6e7-efd3-4726-a770-5320061f64f5</parentFolderId>
+                  <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+                  <packageName>root</packageName>
                   <stereotypes />
                   <metadata>
                     <entry key="status" value="assigned" />
@@ -772,6 +834,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>02a57be4-cfa1-4c8c-924c-4985eebe1250</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
                   <addedByDefault>true</addedByDefault>
@@ -793,6 +857,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>02a57be4-cfa1-4c8c-924c-4985eebe1250</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
                   <addedByDefault>true</addedByDefault>
@@ -814,6 +880,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>02a57be4-cfa1-4c8c-924c-4985eebe1250</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -838,6 +906,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>02a57be4-cfa1-4c8c-924c-4985eebe1250</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />
@@ -852,6 +922,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>02a57be4-cfa1-4c8c-924c-4985eebe1250</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -880,6 +952,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>242e6957-5a39-4004-bd81-0a0d5edb98a9</parentFolderId>
+      <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+      <packageName>root</packageName>
       <stereotypes />
       <metadata />
       <childElements>
@@ -891,6 +965,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>75af0274-dda4-4e10-a942-8c3ddecbbe61</parentFolderId>
+          <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+          <packageName>root</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
               <addedByDefault>true</addedByDefault>
@@ -942,6 +1018,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>bac9258b-7d45-49aa-9c7b-29ee5ee13825</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
                   <addedByDefault>true</addedByDefault>
@@ -963,6 +1041,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>bac9258b-7d45-49aa-9c7b-29ee5ee13825</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
                   <addedByDefault>true</addedByDefault>
@@ -984,6 +1064,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>bac9258b-7d45-49aa-9c7b-29ee5ee13825</parentFolderId>
+              <packageId>59eab0d7-c5ed-4694-b066-bc974bebb386</packageId>
+              <packageName>root</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>

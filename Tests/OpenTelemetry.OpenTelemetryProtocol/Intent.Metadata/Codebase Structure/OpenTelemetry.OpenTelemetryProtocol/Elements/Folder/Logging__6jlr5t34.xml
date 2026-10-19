@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>62f5260a-5c14-4cd9-b7d7-460aaf62dd46</parentFolderId>
+  <packageId>6407e5e4-2aa2-4019-b042-cadd5c6ae80f</packageId>
+  <packageName>OpenTelemetry.OpenTelemetryProtocol</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d1a9905e-29cf-4572-8126-2df0629a2c98</parentFolderId>
+      <packageId>6407e5e4-2aa2-4019-b042-cadd5c6ae80f</packageId>
+      <packageName>OpenTelemetry.OpenTelemetryProtocol</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

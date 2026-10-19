@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a54ced3e-a4db-4d85-a2f0-90226e4471be</parentFolderId>
+      <packageId>b7000dca-c61c-4308-b864-74f62d3b2ed8</packageId>
+      <packageName>Application.Identity.MSAL.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

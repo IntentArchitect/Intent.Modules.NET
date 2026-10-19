@@ -107,6 +107,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5b284fe3-cbee-4ae6-bdf3-dbad6753d2d1</parentFolderId>
+      <packageId>b4100c4f-008d-48d9-b763-6048e68c931d</packageId>
+      <packageName>Entities.PrivateSetters.EF.CosmosDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -131,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5b284fe3-cbee-4ae6-bdf3-dbad6753d2d1</parentFolderId>
+      <packageId>b4100c4f-008d-48d9-b763-6048e68c931d</packageId>
+      <packageName>Entities.PrivateSetters.EF.CosmosDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -155,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5b284fe3-cbee-4ae6-bdf3-dbad6753d2d1</parentFolderId>
+      <packageId>b4100c4f-008d-48d9-b763-6048e68c931d</packageId>
+      <packageName>Entities.PrivateSetters.EF.CosmosDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

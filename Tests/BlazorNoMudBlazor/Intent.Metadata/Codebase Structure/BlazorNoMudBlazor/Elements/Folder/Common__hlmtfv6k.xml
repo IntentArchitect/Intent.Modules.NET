@@ -185,6 +185,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cdaebce1-686c-445a-be58-5e9547d95baa</parentFolderId>
+      <packageId>7d76c0bf-cca8-4ef8-86d0-980c9d5a862d</packageId>
+      <packageName>BlazorNoMudBlazor</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

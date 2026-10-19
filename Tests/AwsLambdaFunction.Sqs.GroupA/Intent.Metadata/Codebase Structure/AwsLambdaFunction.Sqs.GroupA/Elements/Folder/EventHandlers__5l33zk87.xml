@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2c55cb50-a007-494f-8134-220bdb5f328b</parentFolderId>
+      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

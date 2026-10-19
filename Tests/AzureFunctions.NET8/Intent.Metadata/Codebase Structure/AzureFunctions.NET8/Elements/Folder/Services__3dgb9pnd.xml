@@ -55,6 +55,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a0643931-373d-4b1d-bfb6-e7a090d0e446</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET8</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

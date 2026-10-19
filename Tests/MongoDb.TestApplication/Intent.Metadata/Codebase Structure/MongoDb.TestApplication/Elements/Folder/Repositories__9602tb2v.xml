@@ -77,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d32e0685-9892-401f-af57-1db9de5a2872</parentFolderId>
+      <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+      <packageName>MongoDb.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -101,6 +103,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d32e0685-9892-401f-af57-1db9de5a2872</parentFolderId>
+      <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+      <packageName>MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -115,6 +119,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d32e0685-9892-401f-af57-1db9de5a2872</parentFolderId>
+      <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+      <packageName>MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -129,6 +135,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d32e0685-9892-401f-af57-1db9de5a2872</parentFolderId>
+      <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+      <packageName>MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

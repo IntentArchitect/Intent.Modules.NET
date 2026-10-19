@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f11a5f42-1bf9-49df-a333-856d5845bc0c</parentFolderId>
+  <packageId>7c8579d5-fafb-49a5-919c-91f4169948cd</packageId>
+  <packageName>root</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>45837a1e-ee11-49ad-8682-91b4074c9554</parentFolderId>
+      <packageId>7c8579d5-fafb-49a5-919c-91f4169948cd</packageId>
+      <packageName>root</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -159,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e2fc3e8b-51af-4792-9e97-b33f30d0b71c</parentFolderId>
+      <packageId>60a22b78-005c-44d9-9a7c-286afa665554</packageId>
+      <packageName>AzureFunctions.AzureEventGrid.GroupA</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

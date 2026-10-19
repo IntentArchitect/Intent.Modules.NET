@@ -107,6 +107,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>497948a4-1de2-489c-a71d-5ce568ddeb08</parentFolderId>
+      <packageId>d8556337-c7da-4c53-a299-134f76ed097d</packageId>
+      <packageName>Entities.PrivateSetters.EF.SqlServer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -131,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>497948a4-1de2-489c-a71d-5ce568ddeb08</parentFolderId>
+      <packageId>d8556337-c7da-4c53-a299-134f76ed097d</packageId>
+      <packageName>Entities.PrivateSetters.EF.SqlServer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -155,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>497948a4-1de2-489c-a71d-5ce568ddeb08</parentFolderId>
+      <packageId>d8556337-c7da-4c53-a299-134f76ed097d</packageId>
+      <packageName>Entities.PrivateSetters.EF.SqlServer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

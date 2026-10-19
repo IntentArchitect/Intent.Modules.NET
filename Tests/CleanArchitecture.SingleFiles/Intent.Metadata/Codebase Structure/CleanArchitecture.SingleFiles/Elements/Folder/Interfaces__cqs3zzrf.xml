@@ -87,6 +87,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1bd5caa9-6fcd-441f-b792-30b8d75ee059</parentFolderId>
+      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+      <packageName>CleanArchitecture.SingleFiles</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

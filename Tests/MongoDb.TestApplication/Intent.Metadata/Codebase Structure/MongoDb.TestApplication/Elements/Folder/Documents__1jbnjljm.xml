@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1b2394a0-7bbe-4d7d-ac33-8ba98398a50e</parentFolderId>
+  <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+  <packageName>MongoDb.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>24fe1816-ef82-4d95-93bf-d6da6b8f0ae5</parentFolderId>
+      <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+      <packageName>MongoDb.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

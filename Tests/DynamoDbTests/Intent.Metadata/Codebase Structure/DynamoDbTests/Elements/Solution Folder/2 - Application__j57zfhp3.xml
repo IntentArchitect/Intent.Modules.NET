@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7b810c39-3cfc-4ee5-86cf-ce946c1569be</parentFolderId>
+  <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+  <packageName>DynamoDbTests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>85d1f5e9-d408-4f82-a4bd-68f458939187</parentFolderId>
+      <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+      <packageName>DynamoDbTests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -67,6 +71,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3599cca4-d383-4335-aa20-e9fe75570280</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -79,6 +85,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3599cca4-d383-4335-aa20-e9fe75570280</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -103,6 +111,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3599cca4-d383-4335-aa20-e9fe75570280</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -127,6 +137,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3599cca4-d383-4335-aa20-e9fe75570280</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -151,6 +163,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3599cca4-d383-4335-aa20-e9fe75570280</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -175,6 +189,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3599cca4-d383-4335-aa20-e9fe75570280</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -199,6 +215,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3599cca4-d383-4335-aa20-e9fe75570280</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -223,6 +241,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3599cca4-d383-4335-aa20-e9fe75570280</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -247,6 +267,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3599cca4-d383-4335-aa20-e9fe75570280</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -271,6 +293,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3599cca4-d383-4335-aa20-e9fe75570280</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -295,6 +319,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3599cca4-d383-4335-aa20-e9fe75570280</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -319,6 +345,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3599cca4-d383-4335-aa20-e9fe75570280</parentFolderId>
+          <packageId>fa3d4d27-b91b-475f-89aa-4e6b7ad4c414</packageId>
+          <packageName>DynamoDbTests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>

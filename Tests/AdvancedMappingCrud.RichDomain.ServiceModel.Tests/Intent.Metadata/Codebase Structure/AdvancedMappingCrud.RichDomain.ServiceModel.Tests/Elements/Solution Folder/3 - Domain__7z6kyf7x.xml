@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>aabab5fb-788b-444a-a16f-a18fafc5a25a</parentFolderId>
+  <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>10ae6273-de00-4a64-8c1c-5b33066cd26f</parentFolderId>
+      <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -64,6 +68,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>61ee8bc4-d54c-475c-937c-9fb1052c4357</parentFolderId>
+          <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -84,6 +90,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>7da1f785-e40a-471b-aa1e-d6fcaf6c3141</parentFolderId>
+              <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+              <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -96,6 +104,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>7da1f785-e40a-471b-aa1e-d6fcaf6c3141</parentFolderId>
+              <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+              <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -120,6 +130,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>7da1f785-e40a-471b-aa1e-d6fcaf6c3141</parentFolderId>
+              <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+              <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />
@@ -134,6 +146,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>7da1f785-e40a-471b-aa1e-d6fcaf6c3141</parentFolderId>
+              <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+              <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />
@@ -150,6 +164,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>61ee8bc4-d54c-475c-937c-9fb1052c4357</parentFolderId>
+          <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -162,6 +178,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>61ee8bc4-d54c-475c-937c-9fb1052c4357</parentFolderId>
+          <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -174,6 +192,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>61ee8bc4-d54c-475c-937c-9fb1052c4357</parentFolderId>
+          <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -198,6 +218,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>61ee8bc4-d54c-475c-937c-9fb1052c4357</parentFolderId>
+          <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -222,6 +244,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>61ee8bc4-d54c-475c-937c-9fb1052c4357</parentFolderId>
+          <packageId>a5e812a5-23c3-4ea1-97d4-de2c2bc33aca</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />

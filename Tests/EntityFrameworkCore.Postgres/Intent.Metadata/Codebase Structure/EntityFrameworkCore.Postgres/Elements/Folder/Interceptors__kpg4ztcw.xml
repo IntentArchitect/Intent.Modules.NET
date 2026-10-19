@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8817d69f-712c-4502-a270-f1fd66d469ee</parentFolderId>
+  <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+  <packageName>EntityFrameworkCore.Postgres</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0388fdff-fbf7-4624-aa04-d3b96c60208f</parentFolderId>
+      <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+      <packageName>EntityFrameworkCore.Postgres</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

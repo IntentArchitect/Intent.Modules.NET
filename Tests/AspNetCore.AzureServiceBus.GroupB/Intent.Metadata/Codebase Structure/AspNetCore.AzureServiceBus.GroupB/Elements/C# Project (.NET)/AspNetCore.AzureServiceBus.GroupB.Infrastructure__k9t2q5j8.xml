@@ -123,6 +123,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a7f20ab5-5f45-4d5c-a915-6f8a9ef021b1</parentFolderId>
+          <packageId>97f17e62-39f3-419e-945b-b095624c8c28</packageId>
+          <packageName>AspNetCore.AzureServiceBus.GroupB</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />

@@ -55,6 +55,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0ad8fa0c-3d1f-4d4e-a17a-4d1a6dec5114</parentFolderId>
+      <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

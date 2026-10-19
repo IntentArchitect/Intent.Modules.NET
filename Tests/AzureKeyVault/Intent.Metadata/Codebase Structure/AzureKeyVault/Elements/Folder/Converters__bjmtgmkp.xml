@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>89bcb6be-c814-4144-b7d9-2aa17184e5e9</parentFolderId>
+  <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
+  <packageName>AzureKeyVault</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cb347598-9f19-4bb2-9868-c8a98664aa3f</parentFolderId>
+      <packageId>8c7739dc-ee05-4ffa-99f5-5dbe9bf42b10</packageId>
+      <packageName>AzureKeyVault</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

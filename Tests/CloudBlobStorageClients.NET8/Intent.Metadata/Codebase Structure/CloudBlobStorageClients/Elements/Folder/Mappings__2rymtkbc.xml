@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6ab9d44f-4b2d-42fe-92e9-671e032c3ec3</parentFolderId>
+  <packageId>62b340d7-6049-4668-9e56-7f1575ce29ea</packageId>
+  <packageName>CloudBlobStorageClients</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>40a61e28-ed7a-4077-9668-08b1f05292e1</parentFolderId>
+      <packageId>62b340d7-6049-4668-9e56-7f1575ce29ea</packageId>
+      <packageName>CloudBlobStorageClients</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

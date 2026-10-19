@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8ac5a948-508f-4b37-adbf-1aa736965152</parentFolderId>
+  <packageId>6e6eaa8b-4cfd-4b19-bdd9-0f6e4c6a7ecc</packageId>
+  <packageName>EntityFrameworkCore.SQLLite</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e739b20a-69d6-4ed4-9de6-1a878b6280cd</parentFolderId>
+      <packageId>6e6eaa8b-4cfd-4b19-bdd9-0f6e4c6a7ecc</packageId>
+      <packageName>EntityFrameworkCore.SQLLite</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

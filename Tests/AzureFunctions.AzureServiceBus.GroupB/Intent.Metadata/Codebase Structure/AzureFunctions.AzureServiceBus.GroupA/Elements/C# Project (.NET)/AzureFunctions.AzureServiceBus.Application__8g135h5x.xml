@@ -9,7 +9,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>b00286e5-216b-484b-a5bb-2919dea4a066</parentFolderId>
   <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-  <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+  <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
       <addedByDefault>true</addedByDefault>
@@ -59,7 +59,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -85,7 +85,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -111,7 +111,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -137,7 +137,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -163,7 +163,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -189,7 +189,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -215,7 +215,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -241,7 +241,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -267,7 +267,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -283,7 +283,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -296,6 +296,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</parentFolderId>
+      <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

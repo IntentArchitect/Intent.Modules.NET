@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>494434ee-0027-47c0-8b22-6852f9e3fc7c</parentFolderId>
+  <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+  <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

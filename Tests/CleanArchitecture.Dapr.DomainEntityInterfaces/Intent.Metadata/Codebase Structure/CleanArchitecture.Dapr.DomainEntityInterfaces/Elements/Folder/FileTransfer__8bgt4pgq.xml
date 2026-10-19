@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3fbcb19d-3412-406c-b6c1-c96990ab64ec</parentFolderId>
+  <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+  <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>eec4a478-9101-4596-b924-d8e45ff2ae18</parentFolderId>
+      <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+      <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d110e403-24d4-43fa-b63a-f175475c915a</parentFolderId>
+  <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+  <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a878adf5-52c9-4c60-8b17-9b43fa5f4b41</parentFolderId>
+      <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+      <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a878adf5-52c9-4c60-8b17-9b43fa5f4b41</parentFolderId>
+      <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+      <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a878adf5-52c9-4c60-8b17-9b43fa5f4b41</parentFolderId>
+      <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+      <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a878adf5-52c9-4c60-8b17-9b43fa5f4b41</parentFolderId>
+      <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+      <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -113,6 +123,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a878adf5-52c9-4c60-8b17-9b43fa5f4b41</parentFolderId>
+      <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+      <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -137,6 +149,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a878adf5-52c9-4c60-8b17-9b43fa5f4b41</parentFolderId>
+      <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+      <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

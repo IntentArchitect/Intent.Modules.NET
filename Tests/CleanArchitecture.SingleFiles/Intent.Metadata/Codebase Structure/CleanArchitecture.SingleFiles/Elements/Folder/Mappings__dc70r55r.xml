@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>addbe589-da5e-46c5-9f4f-61fdcb57f92c</parentFolderId>
+  <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+  <packageName>CleanArchitecture.SingleFiles</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3fa5deb2-4bc2-419c-a7d3-6f6275ce061c</parentFolderId>
+      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+      <packageName>CleanArchitecture.SingleFiles</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3fa5deb2-4bc2-419c-a7d3-6f6275ce061c</parentFolderId>
+      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+      <packageName>CleanArchitecture.SingleFiles</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3a909b8e-15aa-4888-9476-845d9b83d766</parentFolderId>
+  <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>860c199a-bdc3-4336-98fc-cc2b0398f8b7</parentFolderId>
+      <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -74,6 +78,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f29cb25-50c3-4492-bf7b-f6433d0e706a</parentFolderId>
+          <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -94,6 +100,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>9d06566f-033d-48db-83c7-195a3b21a95d</parentFolderId>
+              <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+              <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -108,6 +116,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f29cb25-50c3-4492-bf7b-f6433d0e706a</parentFolderId>
+          <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,6 +130,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f29cb25-50c3-4492-bf7b-f6433d0e706a</parentFolderId>
+          <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -132,6 +144,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f29cb25-50c3-4492-bf7b-f6433d0e706a</parentFolderId>
+          <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -156,6 +170,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f29cb25-50c3-4492-bf7b-f6433d0e706a</parentFolderId>
+          <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -180,6 +196,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f29cb25-50c3-4492-bf7b-f6433d0e706a</parentFolderId>
+          <packageId>75fd74ff-62d1-471d-ad89-612cbbbe4f1d</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>

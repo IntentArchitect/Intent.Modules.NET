@@ -212,6 +212,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>41c04171-d5f0-4bbf-83fd-4fb6ec160c96</parentFolderId>
+      <packageId>ca37b6ee-94c1-4a66-8a5e-f3949507fbbf</packageId>
+      <packageName>root</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

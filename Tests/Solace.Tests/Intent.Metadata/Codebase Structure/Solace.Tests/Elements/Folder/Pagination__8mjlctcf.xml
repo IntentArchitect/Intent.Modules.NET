@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a1be0c69-431e-40b2-9ef1-c37881ac29a9</parentFolderId>
+  <packageId>75f1ef17-a2ae-4938-a619-51c9702b58a8</packageId>
+  <packageName>Solace.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4005df7c-84c3-47e4-9a02-aa3db5096c73</parentFolderId>
+      <packageId>75f1ef17-a2ae-4938-a619-51c9702b58a8</packageId>
+      <packageName>Solace.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4005df7c-84c3-47e4-9a02-aa3db5096c73</parentFolderId>
+      <packageId>75f1ef17-a2ae-4938-a619-51c9702b58a8</packageId>
+      <packageName>Solace.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -65,6 +71,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4005df7c-84c3-47e4-9a02-aa3db5096c73</parentFolderId>
+      <packageId>75f1ef17-a2ae-4938-a619-51c9702b58a8</packageId>
+      <packageName>Solace.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +97,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4005df7c-84c3-47e4-9a02-aa3db5096c73</parentFolderId>
+      <packageId>75f1ef17-a2ae-4938-a619-51c9702b58a8</packageId>
+      <packageName>Solace.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -113,6 +123,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4005df7c-84c3-47e4-9a02-aa3db5096c73</parentFolderId>
+      <packageId>75f1ef17-a2ae-4938-a619-51c9702b58a8</packageId>
+      <packageName>Solace.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

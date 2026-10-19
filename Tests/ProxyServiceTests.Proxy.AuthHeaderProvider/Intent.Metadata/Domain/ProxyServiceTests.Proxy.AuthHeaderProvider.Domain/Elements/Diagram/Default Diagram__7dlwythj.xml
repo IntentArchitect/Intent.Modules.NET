@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>bff174e8-3a28-4eae-bce0-9cbe1d26880c</parentFolderId>
+  <packageId>bff174e8-3a28-4eae-bce0-9cbe1d26880c</packageId>
+  <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Domain</packageName>
   <stereotypes />
   <metadata />
   <childElements />

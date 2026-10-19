@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>df6a73c4-bd34-488f-89ba-efe4df1773a7</parentFolderId>
+  <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+  <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f0483282-6f16-4cf6-89cc-fd07839d182f</parentFolderId>
+      <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+      <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

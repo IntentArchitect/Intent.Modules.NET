@@ -129,6 +129,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1980c7f1-1a78-4582-872d-00efb4799397</parentFolderId>
+      <packageId>96180650-c419-412c-87ba-a67befe3a60a</packageId>
+      <packageName>MudBlazor.ExampleApp</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

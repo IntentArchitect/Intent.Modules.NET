@@ -360,6 +360,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</parentFolderId>
+      <packageId>e8c23427-3443-420a-b219-bac8e6a8f88b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

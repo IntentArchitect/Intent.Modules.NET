@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9cfafeb1-7031-4e35-a70f-a19e618fd716</parentFolderId>
+  <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+  <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c92c5a31-95d9-4a62-a0fc-2d8f3d1e6abc</parentFolderId>
+      <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+      <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

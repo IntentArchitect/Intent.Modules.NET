@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</parentFolderId>
+  <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
+  <packageName>MassTransitFinbuckle.Test</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0bdcfeff-d9f4-4063-8ce3-001b5d7ca657</parentFolderId>
+  <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+  <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>27c16e7e-1a87-4f46-a4ba-2ef3184662a5</parentFolderId>
+      <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+      <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -64,6 +68,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d997d44-5a93-4e39-89d7-4b1cdd9db56d</parentFolderId>
+          <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+          <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -84,6 +90,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>896346c4-2f67-4822-9d24-537f795d692f</parentFolderId>
+              <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+              <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -96,6 +104,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>896346c4-2f67-4822-9d24-537f795d692f</parentFolderId>
+              <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+              <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
                   <addedByDefault>false</addedByDefault>
@@ -120,6 +130,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>896346c4-2f67-4822-9d24-537f795d692f</parentFolderId>
+              <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+              <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />
@@ -134,6 +146,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>896346c4-2f67-4822-9d24-537f795d692f</parentFolderId>
+              <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+              <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
               <stereotypes />
               <metadata>
                 <entry key="status" value="assigned" />
@@ -150,6 +164,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d997d44-5a93-4e39-89d7-4b1cdd9db56d</parentFolderId>
+          <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+          <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -162,6 +178,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d997d44-5a93-4e39-89d7-4b1cdd9db56d</parentFolderId>
+          <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+          <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -174,6 +192,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d997d44-5a93-4e39-89d7-4b1cdd9db56d</parentFolderId>
+          <packageId>896dcc16-33ec-4815-807d-c4a4b258c266</packageId>
+          <packageName>CosmosDB.MultiTenancy.SeperateDB</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>

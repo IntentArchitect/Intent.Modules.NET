@@ -145,6 +145,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>36f5ce7e-0227-40ed-81ec-f52dcb573920</parentFolderId>
+      <packageId>34805a6b-0c48-47ef-aa88-3389c0b4d72b</packageId>
+      <packageName>MongoDb.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

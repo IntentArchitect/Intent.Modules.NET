@@ -146,6 +146,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>660b593c-705a-4e57-94c3-ff918dba4ccd</parentFolderId>
+      <packageId>76e13d0e-3361-4bd7-8238-629326ffdb87</packageId>
+      <packageName>Entities.Constants.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

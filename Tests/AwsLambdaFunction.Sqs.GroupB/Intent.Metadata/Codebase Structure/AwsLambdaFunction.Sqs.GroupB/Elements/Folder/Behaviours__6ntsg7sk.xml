@@ -239,6 +239,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>44c08960-bd8b-4bc4-b2c2-be0a0aaa2090</parentFolderId>
+      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

@@ -84,7 +84,7 @@ A package handle also manages its package references — the packages it depends
 
 ```js
 pkg.getReferences()                    // current references
-pkg.addReference(absolutePath, module?) // add one
+await pkg.addReference(absolutePath, module?) // add one; async, resolves once its types are usable
 pkg.removeReference(idOrNameOrPath)     // remove one
 ```
 
@@ -108,7 +108,7 @@ const cands = await getAvailablePackageReferences();
 const dep   = cands.find(c => c.name === "WTWDemo.Ordering.Domain");   // .find misses as undefined
 const pkg   = lookupPackage("WTWDemo.Ordering.Services");              // lookupPackage misses as null
 if (!dep || !pkg) throw new Error(`Missing — dependency: ${!!dep}, package: ${!!pkg}`);
-pkg.addReference(dep.absolutePath, dep.sourceType === "module" ? dep.source : undefined);
+await pkg.addReference(dep.absolutePath, dep.sourceType === "module" ? dep.source : undefined);
 ```
 
 Reading the *current* references is `getPackageReferences(packageId?)` — see `reads.md`.

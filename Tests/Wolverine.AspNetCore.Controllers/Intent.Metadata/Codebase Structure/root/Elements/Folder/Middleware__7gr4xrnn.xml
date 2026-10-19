@@ -274,6 +274,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bfca2a6c-176f-471b-b33d-4fedd29241b4</parentFolderId>
+      <packageId>2ef2db30-eed3-4db4-b877-ca5092e90b04</packageId>
+      <packageName>root</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

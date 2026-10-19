@@ -129,6 +129,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>700752c7-884c-46c2-9a89-8ca4eae6977b</parentFolderId>
+      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -153,6 +155,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>700752c7-884c-46c2-9a89-8ca4eae6977b</parentFolderId>
+      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

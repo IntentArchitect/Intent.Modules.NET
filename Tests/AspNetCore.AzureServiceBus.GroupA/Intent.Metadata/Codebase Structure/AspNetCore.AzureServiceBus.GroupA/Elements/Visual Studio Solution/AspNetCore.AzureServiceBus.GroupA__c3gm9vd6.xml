@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2f02f0ad-70ce-4c2e-bc6b-44498511e261</parentFolderId>
+  <packageId>2f02f0ad-70ce-4c2e-bc6b-44498511e261</packageId>
+  <packageName>AspNetCore.AzureServiceBus.GroupA</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

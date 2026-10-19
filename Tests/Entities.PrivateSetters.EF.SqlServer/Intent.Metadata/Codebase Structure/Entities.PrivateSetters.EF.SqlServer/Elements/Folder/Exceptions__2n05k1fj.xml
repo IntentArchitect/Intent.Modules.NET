@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>88a24626-9212-42ac-97f8-1adde3f41ed2</parentFolderId>
+      <packageId>d8556337-c7da-4c53-a299-134f76ed097d</packageId>
+      <packageName>Entities.PrivateSetters.EF.SqlServer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

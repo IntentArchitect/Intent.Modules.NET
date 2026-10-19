@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d4038064-0aae-4b78-a7cb-ece989b811f2</parentFolderId>
+  <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+  <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>34dee260-de74-43ff-8456-e9abe7f3653e</parentFolderId>
+      <packageId>fb467dcd-5f52-42d8-ba2a-8aff7d623799</packageId>
+      <packageName>EntityFrameworkCore.Oracle.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

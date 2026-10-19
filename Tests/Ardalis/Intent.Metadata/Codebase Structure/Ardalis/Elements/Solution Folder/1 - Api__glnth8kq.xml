@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5888cd8a-7b21-4436-941c-63f228b71b81</parentFolderId>
+  <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+  <packageName>Ardalis</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1f7148d3-d890-4e02-a239-e6d83d944469</parentFolderId>
+      <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+      <packageName>Ardalis</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -74,6 +78,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4c1916a1-a656-487e-aff5-ad4d0ff2868a</parentFolderId>
+          <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+          <packageName>Ardalis</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -94,6 +100,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>c697213f-404b-4db7-a592-626075a77fc6</parentFolderId>
+              <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+              <packageName>Ardalis</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -108,6 +116,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4c1916a1-a656-487e-aff5-ad4d0ff2868a</parentFolderId>
+          <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+          <packageName>Ardalis</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,6 +130,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4c1916a1-a656-487e-aff5-ad4d0ff2868a</parentFolderId>
+          <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+          <packageName>Ardalis</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -132,6 +144,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4c1916a1-a656-487e-aff5-ad4d0ff2868a</parentFolderId>
+          <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+          <packageName>Ardalis</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -156,6 +170,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4c1916a1-a656-487e-aff5-ad4d0ff2868a</parentFolderId>
+          <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+          <packageName>Ardalis</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>
@@ -180,6 +196,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4c1916a1-a656-487e-aff5-ad4d0ff2868a</parentFolderId>
+          <packageId>b695b5f3-a088-4f5d-bdb1-df2a0de63c81</packageId>
+          <packageName>Ardalis</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
               <addedByDefault>false</addedByDefault>

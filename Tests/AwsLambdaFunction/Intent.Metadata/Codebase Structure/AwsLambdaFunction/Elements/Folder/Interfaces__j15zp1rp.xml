@@ -186,6 +186,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fc3010e8-7d16-4faa-8454-dc3dac660773</parentFolderId>
+      <packageId>981fe5b0-e27f-4763-9e15-1269456523fd</packageId>
+      <packageName>AwsLambdaFunction</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

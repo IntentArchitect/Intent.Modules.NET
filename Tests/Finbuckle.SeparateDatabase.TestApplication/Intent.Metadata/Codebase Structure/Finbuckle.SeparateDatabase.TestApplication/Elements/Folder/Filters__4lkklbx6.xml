@@ -55,6 +55,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a2e28a42-4279-4bde-8f34-29852c108e59</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -79,6 +81,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a2e28a42-4279-4bde-8f34-29852c108e59</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -103,6 +107,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a2e28a42-4279-4bde-8f34-29852c108e59</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -127,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a2e28a42-4279-4bde-8f34-29852c108e59</parentFolderId>
+      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
+      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

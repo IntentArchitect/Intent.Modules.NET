@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f119728e-843e-41cd-9287-37d52711b081</parentFolderId>
+  <packageId>f119728e-843e-41cd-9287-37d52711b081</packageId>
+  <packageName>AzureFunction.QueueStorage.Domain</packageName>
   <diagram>
     <targetPackageId>f119728e-843e-41cd-9287-37d52711b081</targetPackageId>
   </diagram>

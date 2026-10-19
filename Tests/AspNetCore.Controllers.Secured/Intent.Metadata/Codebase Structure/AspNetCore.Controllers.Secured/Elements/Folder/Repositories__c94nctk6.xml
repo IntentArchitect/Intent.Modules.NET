@@ -81,6 +81,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b6726ea3-56d3-4c0a-ba27-857935763c6a</parentFolderId>
+      <packageId>17153b8a-9853-462a-a3a3-3b18b059dd4e</packageId>
+      <packageName>AspNetCore.Controllers.Secured</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

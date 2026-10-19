@@ -107,6 +107,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c4491fcc-07b5-4da4-8ca0-bbed5af30bd1</parentFolderId>
+      <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+      <packageName>IntegrationTesting.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>
@@ -131,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c4491fcc-07b5-4da4-8ca0-bbed5af30bd1</parentFolderId>
+      <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+      <packageName>IntegrationTesting.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
           <addedByDefault>false</addedByDefault>

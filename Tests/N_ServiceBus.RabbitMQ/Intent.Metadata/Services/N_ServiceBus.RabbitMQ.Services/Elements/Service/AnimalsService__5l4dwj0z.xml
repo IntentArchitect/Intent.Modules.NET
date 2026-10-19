@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>26b2f64a-3221-4716-a88a-2f6d6bcad450</parentFolderId>
   <packageId>509ec879-9053-4eec-ba0e-2849e66d1797</packageId>
-  <packageName>NServiceBus.RabbitMQ.Services</packageName>
+  <packageName>N_ServiceBus.RabbitMQ.Services</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
       <addedByDefault>false</addedByDefault>
@@ -38,7 +38,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>414bd050-fa02-48dd-92cf-a081fb539ace</parentFolderId>
       <packageId>509ec879-9053-4eec-ba0e-2849e66d1797</packageId>
-      <packageName>NServiceBus.RabbitMQ.Services</packageName>
+      <packageName>N_ServiceBus.RabbitMQ.Services</packageName>
       <traits>
         <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
         <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
@@ -77,7 +77,7 @@
           <isMapped>false</isMapped>
           <parentFolderId>422befb4-8f86-4f64-8a2f-72c4377ca5e9</parentFolderId>
           <packageId>509ec879-9053-4eec-ba0e-2849e66d1797</packageId>
-          <packageName>NServiceBus.RabbitMQ.Services</packageName>
+          <packageName>N_ServiceBus.RabbitMQ.Services</packageName>
           <stereotypes />
           <metadata />
           <childElements />

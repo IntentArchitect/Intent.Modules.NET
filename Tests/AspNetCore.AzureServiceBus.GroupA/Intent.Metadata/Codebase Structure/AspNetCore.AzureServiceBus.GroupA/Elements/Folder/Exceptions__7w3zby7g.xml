@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ccdd8cc9-9d54-4d40-80c6-bc8a1d3716b0</parentFolderId>
+  <packageId>2f02f0ad-70ce-4c2e-bc6b-44498511e261</packageId>
+  <packageName>AspNetCore.AzureServiceBus.GroupA</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8f32f271-a036-4ecf-893b-3654141625cf</parentFolderId>
+      <packageId>2f02f0ad-70ce-4c2e-bc6b-44498511e261</packageId>
+      <packageName>AspNetCore.AzureServiceBus.GroupA</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
