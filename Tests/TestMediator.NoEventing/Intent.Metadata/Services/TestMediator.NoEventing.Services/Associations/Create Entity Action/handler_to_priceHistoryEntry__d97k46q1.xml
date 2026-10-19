@@ -2,7 +2,6 @@
 <association id="7db5f1b1-ba91-49b0-a4a9-cff6f6e4e462">
   <sourceEnd id="fb562678-d03a-42d8-b420-a2a4ca209748" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
     <display>created by : ProductPriceChangedDomainEventHandler.handler</display>
-    <order>0</order>
     <typeReference id="d6969988-0a26-4595-9c70-a1d69f03c194">
       <typeId>6a278d80-8bd4-470a-b3e8-fd729807593a</typeId>
       <typeName>handler</typeName>

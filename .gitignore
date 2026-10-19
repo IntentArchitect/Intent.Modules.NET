@@ -374,3 +374,9 @@ Modules/Intent.Modules/
 .kiro/skills/using-code-tools/
 .kiro/skills/working-with-modules/
 .kiro/skills/managing-tasks/
+
+.codex/config.toml
+
+.github/mcp.json
+
+opencode.json
