@@ -8,6 +8,7 @@ using TestMediator.Publisher.Application.Orders.DeleteOrder;
 using TestMediator.Publisher.Application.Orders.GetOrderById;
 using TestMediator.Publisher.Application.Orders.GetOrders;
 using TestMediator.Publisher.Application.Orders.MarkOrderShipped;
+using TestMediator.Publisher.Application.Security;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -49,7 +50,7 @@ namespace TestMediator.Publisher.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/orders/{id}")]
-        [Authorize]
+        [Authorize(Roles = Permissions.RoleAdmin)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

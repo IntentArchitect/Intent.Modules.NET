@@ -81,6 +81,7 @@
   <file path="TestMediator.Publisher.Application/Orders/MarkOrderShipped/MarkOrderShippedCommandHandler.cs" deviationsHash="8F36556D8B698025AB3C63EF03816970CB43F7328D4BC13C9E44938D44A8A523" templateId="Intent.Application.Mediator.CommandHandler" />
   <file path="TestMediator.Publisher.Application/Orders/MarkOrderShipped/MarkOrderShippedCommandValidator.cs" templateId="Intent.Application.Mediator.FluentValidation.CommandValidator" />
   <file path="TestMediator.Publisher.Application/Orders/OrderDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TestMediator.Publisher.Application/Security/Permissions.cs" templateId="Intent.AspNetCore.Permissions" />
   <file path="TestMediator.Publisher.Application/TestMediator.Publisher.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.Publisher.Domain/AuditEntry.cs" templateId="Intent.Entities.DomainEntity" />
   <file path="TestMediator.Publisher.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />

@@ -102,12 +102,17 @@ public class PublisherScenarios
         _output = output;
     }
 
-    private HttpClient Client(bool authenticated = false)
+    private HttpClient Client(bool authenticated = false, string? roles = null)
     {
         var client = _fixture.Publisher.CreateClient();
-        if (authenticated)
+        if (authenticated || roles is not null)
         {
             client.DefaultRequestHeaders.Add("X-Test-User", "tester");
+        }
+
+        if (roles is not null)
+        {
+            client.DefaultRequestHeaders.Add("X-Test-Roles", roles);
         }
 
         return client;
@@ -138,8 +143,23 @@ public class PublisherScenarios
         var all = await client.GetFromJsonAsync<List<OrderDto>>("api/orders");
         Assert.Contains(all!, o => o.Id == id);
 
-        Assert.Equal(HttpStatusCode.OK, (await client.DeleteAsync($"api/orders/{id}")).StatusCode);
+        Assert.Equal(HttpStatusCode.OK, (await Client(roles: "Admin").DeleteAsync($"api/orders/{id}")).StatusCode);
         Assert.Equal(HttpStatusCode.NotFound, (await client.GetAsync($"api/orders/{id}")).StatusCode);
+    }
+
+    // Spike S3: the command's Secured stereotype carries Roles = Admin, so ASP.NET Core answers 401 / 403 before Mediator runs.
+    [Fact]
+    public async Task SecuredCommand_RequiresTheAdminRole_AnonymousIs401_WrongRoleIs403_AdminIs200()
+    {
+        var created = await Client(authenticated: true).PostAsJsonAsync("api/orders", new { customerName = "Bob", total = 5m });
+        Assert.Equal(HttpStatusCode.Created, created.StatusCode);
+        var id = await created.Content.ReadFromJsonAsync<Guid>();
+
+        Assert.Equal(HttpStatusCode.Unauthorized, (await Client().DeleteAsync($"api/orders/{id}")).StatusCode);
+        Assert.Equal(HttpStatusCode.Forbidden, (await Client(roles: "Clerk").DeleteAsync($"api/orders/{id}")).StatusCode);
+        Assert.Equal(HttpStatusCode.OK, (await Client(roles: "Admin").DeleteAsync($"api/orders/{id}")).StatusCode);
+
+        Assert.Equal(HttpStatusCode.NotFound, (await Client(authenticated: true).GetAsync($"api/orders/{id}")).StatusCode);
     }
 
     [Fact]
