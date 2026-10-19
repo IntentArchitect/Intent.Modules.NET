@@ -126,7 +126,7 @@
   <file path="MinimalHostingModel.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
   <file path="MinimalHostingModel.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
   <file path="MinimalHostingModel.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
-  <file path="MinimalHostingModel.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="MinimalHostingModel.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="MinimalHostingModel.Infrastructure/Eventing/FinbuckleConsumingFilter.cs" templateId="Intent.Eventing.MassTransit.FinbuckleConsumingFilter" />
   <file path="MinimalHostingModel.Infrastructure/Eventing/FinbuckleMessageHeaderStrategy.cs" templateId="Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy" />
   <file path="MinimalHostingModel.Infrastructure/Eventing/FinbucklePublishingFilter.cs" templateId="Intent.Eventing.MassTransit.FinbucklePublishingFilter" />

@@ -36,7 +36,7 @@
   <file path="HashiCorpVault.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
   <file path="HashiCorpVault.Application/HashiCorpVault.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="HashiCorpVault.Application/VaultTest/VaultTestCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
-  <file path="HashiCorpVault.Application/VaultTest/VaultTestCommandHandler.cs" deviationsHash="FB0C1B84F84A5A5A09E96E4908C39CD3E415397A1B7C132AEADA821C0E8EBBB8" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="HashiCorpVault.Application/VaultTest/VaultTestCommandHandler.cs" deviationsHash="3B6606D96CDD1D60E68B77ECA5AE9ED7EE51BA3A231285F04F24CEEBECC3D886" templateId="Intent.Application.MediatR.CommandHandler" />
   <file path="HashiCorpVault.Domain/HashiCorpVault.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="HashiCorpVault.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="HashiCorpVault.Infrastructure/HashiCorpVault.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />

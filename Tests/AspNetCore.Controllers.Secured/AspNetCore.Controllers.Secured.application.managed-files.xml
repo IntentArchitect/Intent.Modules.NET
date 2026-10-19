@@ -111,7 +111,7 @@
   <file path="AspNetCore.Controllers.Secured.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="AspNetCore.Controllers.Secured.Infrastructure/AspNetCore.Controllers.Secured.Infrastructure.csproj" deviationsHash="597C04C55465B4961C6648AA2E491EC153A7C14DC1FE687E451C8FF6300DAD1D" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AspNetCore.Controllers.Secured.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
-  <file path="AspNetCore.Controllers.Secured.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="AspNetCore.Controllers.Secured.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="AspNetCore.Controllers.Secured.Infrastructure/HttpClients/BuyersServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
   <file path="AspNetCore.Controllers.Secured.Infrastructure/HttpClients/JsonResponse.cs" templateId="Intent.Integration.HttpClients.JsonResponse" />
   <file path="AspNetCore.Controllers.Secured.Infrastructure/HttpClients/ProductsServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />

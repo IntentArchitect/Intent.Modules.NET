@@ -1,5 +1,4 @@
 using CleanArchitecture.Comprehensive.HttpClients.Application.Common.Interfaces;
-using CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Caching;
 using CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Configuration;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
@@ -15,8 +14,6 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure
         [IntentMerge]
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDistributedMemoryCache();
-            services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             services.AddHttpClients(configuration);
             return services;
         }

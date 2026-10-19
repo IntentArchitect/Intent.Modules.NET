@@ -31,13 +31,13 @@
       <correlationId>Intent.Application.MediatR.CommandHandler#bb6f5d37-756f-4127-8c9a-a832472aa945</correlationId>
       <path>WindowsServiceHost.Tests/MyScheduled/MyScheduledCommandHandler.cs</path>
       <count>3</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2026-07-26T18:26:59.4292444Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2026-07-26T18:33:29.2320134Z</approvedAt>
-      <deviationsHash>01B2231E692A3049E62D8F1F201069618F89B65BD0ABA3E4C194864DACA6D1BB</deviationsHash>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-19T07:47:58.6698718Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-10-19T09:37:41.9557348Z</approvedAt>
+      <deviationsHash>EE333E6C975F11C9F99BC531EDB7483E7EE8710A55E6DFDC6C78D2F75CAB509D</deviationsHash>
       <fileHash>9C86BB88C23E69E2937A4AFD8DCAB10F8A2653CC42185249ED559C14691C3862</fileHash>
     </file>
     <file>
@@ -47,6 +47,9 @@
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2026-10-13T16:20:57.034439Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-10-19T11:26:33.7001399Z</approvedAt>
       <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
     </file>
   </files>

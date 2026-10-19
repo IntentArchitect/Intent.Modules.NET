@@ -28,7 +28,7 @@
   <file path="HttpClientLibrary.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
   <file path="HttpClientLibrary.Application/HttpClientLibrary.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="HttpClientLibrary.Domain/HttpClientLibrary.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="HttpClientLibrary.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="HttpClientLibrary.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="HttpClientLibrary.Infrastructure/HttpClientLibrary.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="HttpClientLibrary.Shared/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
   <file path="HttpClientLibrary.Shared/Contracts/CleanArchitecture/SingleFiles/Services/AdvancedMappingCosmosInvoices/CreateCosmosInvoiceCommand.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />

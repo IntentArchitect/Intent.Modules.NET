@@ -105,7 +105,7 @@
   <file path="SecurityConfig.Tests.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="SecurityConfig.Tests.Domain/SecurityConfig.Tests.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="SecurityConfig.Tests.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
-  <file path="SecurityConfig.Tests.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="SecurityConfig.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="SecurityConfig.Tests.Infrastructure/HttpClients/CustomersServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
   <file path="SecurityConfig.Tests.Infrastructure/HttpClients/JsonResponse.cs" templateId="Intent.Integration.HttpClients.JsonResponse" />
   <file path="SecurityConfig.Tests.Infrastructure/HttpClients/ProductsServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />

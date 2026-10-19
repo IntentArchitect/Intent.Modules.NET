@@ -14,13 +14,13 @@
   <file path="AspNetControllers.SecuredByDefault.Application/Common/Exceptions/HttpClientRequestException.cs" templateId="Intent.Integration.HttpClients.HttpClientRequestException" />
   <file path="AspNetControllers.SecuredByDefault.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" templateId="Intent.Integration.HttpClients.ProblemDetailsWithErrors" />
   <file path="AspNetControllers.SecuredByDefault.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
-  <file path="AspNetControllers.SecuredByDefault.Application/Implementation/TestService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="AspNetControllers.SecuredByDefault.Application/Implementation/TestService.cs" deviationsHash="246C29B5EA4095F8A9111E3B5C9743DD21F10AECA7D4B114900A3C49B473311D" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
   <file path="AspNetControllers.SecuredByDefault.Application/IntegrationServices/ITestService.cs" templateId="Intent.Application.Contracts.Clients.ServiceContract" />
   <file path="AspNetControllers.SecuredByDefault.Application/Interfaces/ITestService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
   <file path="AspNetControllers.SecuredByDefault.Domain/AspNetControllers.SecuredByDefault.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AspNetControllers.SecuredByDefault.Infrastructure/AspNetControllers.SecuredByDefault.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AspNetControllers.SecuredByDefault.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
-  <file path="AspNetControllers.SecuredByDefault.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="AspNetControllers.SecuredByDefault.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="AspNetControllers.SecuredByDefault.Infrastructure/HttpClients/TestServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
   <file path="AspNetControllers.SecuredByDefault.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

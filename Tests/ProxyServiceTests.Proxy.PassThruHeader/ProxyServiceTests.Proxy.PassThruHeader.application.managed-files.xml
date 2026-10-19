@@ -115,7 +115,7 @@
   <file path="ProxyServiceTests.Proxy.PTH.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="ProxyServiceTests.Proxy.PTH.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
   <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
-  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/AccountsServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
   <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/ClientsServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
   <file path="ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/DeleteAccountsServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />

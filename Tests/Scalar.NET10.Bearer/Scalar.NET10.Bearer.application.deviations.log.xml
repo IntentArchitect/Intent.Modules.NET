@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#a00bc8fe-4766-4fac-8ace-5077e052f32d</correlationId>
+      <path>Scalar.NET10.Bearer.Application/Implementation/WidgetService.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-19T07:47:26.492721Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-10-19T09:39:09.2205544Z</approvedAt>
+      <deviationsHash>EFAEEE362308AA892F2142DA5B9A5973B312320F1F6B858D4CF481F96397D713</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

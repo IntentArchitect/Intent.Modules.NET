@@ -3,7 +3,6 @@ using AutoMapper;
 using AzureFunctions.NET8.Application.Common.Interfaces;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using AzureFunctions.NET8.Domain.Repositories;
-using AzureFunctions.NET8.Infrastructure.Caching;
 using AzureFunctions.NET8.Infrastructure.Configuration;
 using AzureFunctions.NET8.Infrastructure.Persistence;
 using AzureFunctions.NET8.Infrastructure.Repositories;
@@ -27,8 +26,6 @@ namespace AzureFunctions.NET8.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddDistributedMemoryCache();
-            services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IResponseCodeRepository, ResponseCodeRepository>();

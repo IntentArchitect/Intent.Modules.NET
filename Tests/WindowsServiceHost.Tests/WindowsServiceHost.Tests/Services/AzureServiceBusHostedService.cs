@@ -10,7 +10,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WindowsServiceHost.Tests.Common.Eventing;
-using WindowsServiceHost.Tests.Common.Interfaces;
 using WindowsServiceHost.Tests.Configuration;
 using WindowsServiceHost.Tests.Eventing;
 

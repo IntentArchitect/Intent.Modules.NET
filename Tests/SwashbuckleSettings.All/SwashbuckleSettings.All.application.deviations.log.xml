@@ -2,6 +2,30 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#abb0c14f-6c3d-443d-86bf-50030712783a</correlationId>
+      <path>SwashbuckleSettings.All.Application/CreateWidget/CreateWidgetHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-19T07:47:43.3668858Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-10-19T09:39:21.4233439Z</approvedAt>
+      <deviationsHash>ECEC3C8E396026FAC89CD692864CE17EAC52E0266203BBDBCBFBE8D092FCB251</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#92ecda3f-e548-4062-b68c-b09c24e454c9</correlationId>
+      <path>SwashbuckleSettings.All.Application/ReplaceWidget/ReplaceWidgetHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-19T07:47:43.3669113Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-10-19T09:39:29.1983151Z</approvedAt>
+      <deviationsHash>8C408883A1297389FBF6424C3557A41BCBB2D258A364CA2676672766B0D8BA2A</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#7f4ddf17-6d9d-44d4-abde-709dd16ea791</correlationId>
       <path>SwashbuckleSettings.All.Application/SwashbuckleSettings.All.Application.csproj</path>
       <count>1</count>
@@ -13,6 +37,18 @@
       <approvedAt>2026-07-06T05:53:20.3564787Z</approvedAt>
       <deviationsHash>FB2DB19BF1A6F1073B366FE9FD6A3C7B26D3682138895BF6C88A87BD12B45244</deviationsHash>
       <fileHash>4D85E4187624DCE5F22B53B13578A510C5D49DDFDE5EBF530E524861E5111BAF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#5a939c1b-d7b1-43ea-94de-4605232f2537</correlationId>
+      <path>SwashbuckleSettings.All.Application/UpdateWidget/UpdateWidgetHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-19T07:47:43.3669359Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-10-19T09:39:49.3272143Z</approvedAt>
+      <deviationsHash>1ACC853B21456541880B9D9206AA690B17B7ECD616F25030868A1EA0A93A6F78</deviationsHash>
     </file>
   </files>
 </deviationsLog>

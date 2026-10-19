@@ -19,13 +19,13 @@
   <file path="SwashbuckleSettings.All.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
   <file path="SwashbuckleSettings.All.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
   <file path="SwashbuckleSettings.All.Application/CreateWidget/CreateWidget.cs" templateId="Intent.Application.MediatR.CommandModels" />
-  <file path="SwashbuckleSettings.All.Application/CreateWidget/CreateWidgetHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="SwashbuckleSettings.All.Application/CreateWidget/CreateWidgetHandler.cs" deviationsHash="ECEC3C8E396026FAC89CD692864CE17EAC52E0266203BBDBCBFBE8D092FCB251" templateId="Intent.Application.MediatR.CommandHandler" />
   <file path="SwashbuckleSettings.All.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
   <file path="SwashbuckleSettings.All.Application/ReplaceWidget/ReplaceWidget.cs" templateId="Intent.Application.MediatR.CommandModels" />
-  <file path="SwashbuckleSettings.All.Application/ReplaceWidget/ReplaceWidgetHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="SwashbuckleSettings.All.Application/ReplaceWidget/ReplaceWidgetHandler.cs" deviationsHash="8C408883A1297389FBF6424C3557A41BCBB2D258A364CA2676672766B0D8BA2A" templateId="Intent.Application.MediatR.CommandHandler" />
   <file path="SwashbuckleSettings.All.Application/SwashbuckleSettings.All.Application.csproj" deviationsHash="FB2DB19BF1A6F1073B366FE9FD6A3C7B26D3682138895BF6C88A87BD12B45244" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="SwashbuckleSettings.All.Application/UpdateWidget/UpdateWidget.cs" templateId="Intent.Application.MediatR.CommandModels" />
-  <file path="SwashbuckleSettings.All.Application/UpdateWidget/UpdateWidgetHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="SwashbuckleSettings.All.Application/UpdateWidget/UpdateWidgetHandler.cs" deviationsHash="1ACC853B21456541880B9D9206AA690B17B7ECD616F25030868A1EA0A93A6F78" templateId="Intent.Application.MediatR.CommandHandler" />
   <file path="SwashbuckleSettings.All.Application/WidgetDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
   <file path="SwashbuckleSettings.All.Domain/SwashbuckleSettings.All.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="SwashbuckleSettings.All.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />

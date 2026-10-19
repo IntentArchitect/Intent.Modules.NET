@@ -782,7 +782,7 @@
   <file path="AdvancedMappingCrud.Repositories.Tests.Infrastructure/AdvancedMappingCrud.Repositories.Tests.Infrastructure.csproj" deviationsHash="25565F15AD63B442DA207F0D0ABF46889FDCD5D60B33854AEB1CF4A5B94A84B6" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AdvancedMappingCrud.Repositories.Tests.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
   <file path="AdvancedMappingCrud.Repositories.Tests.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
-  <file path="AdvancedMappingCrud.Repositories.Tests.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="AdvancedMappingCrud.Repositories.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="AdvancedMappingCrud.Repositories.Tests.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
   <file path="AdvancedMappingCrud.Repositories.Tests.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
   <file path="AdvancedMappingCrud.Repositories.Tests.Infrastructure/HttpClients/CustomersServiceProxyHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />

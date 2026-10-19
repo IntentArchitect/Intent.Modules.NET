@@ -8,7 +8,6 @@ using Standard.AspNetCore.TestApplication.Application;
 using Standard.AspNetCore.TestApplication.Application.Common.Interfaces;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
 using Standard.AspNetCore.TestApplication.Domain.Repositories;
-using Standard.AspNetCore.TestApplication.Infrastructure.Caching;
 using Standard.AspNetCore.TestApplication.Infrastructure.Configuration;
 using Standard.AspNetCore.TestApplication.Infrastructure.Persistence;
 using Standard.AspNetCore.TestApplication.Infrastructure.Repositories;
@@ -28,8 +27,6 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddDistributedMemoryCache();
-            services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IClientRepository, ClientRepository>();
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();

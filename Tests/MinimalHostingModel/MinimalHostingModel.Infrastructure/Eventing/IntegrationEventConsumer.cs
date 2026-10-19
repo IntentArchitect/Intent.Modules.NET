@@ -4,7 +4,6 @@ using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using MinimalHostingModel.Application.Common.Eventing;
-using MinimalHostingModel.Application.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.MassTransit.IntegrationEventConsumer", Version = "1.0")]

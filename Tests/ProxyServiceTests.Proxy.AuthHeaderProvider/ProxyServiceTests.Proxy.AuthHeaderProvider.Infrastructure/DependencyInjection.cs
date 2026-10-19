@@ -4,7 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ProxyServiceTests.Proxy.AuthHeaderProvider.Application.Common.Interfaces;
 using ProxyServiceTests.Proxy.AuthHeaderProvider.Domain.Common.Interfaces;
-using ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure.Caching;
 using ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure.Configuration;
 using ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure.HttpClients;
 using ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure.Persistence;
@@ -25,8 +24,6 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
-            services.AddDistributedMemoryCache();
-            services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             services.AddScoped<IAuthorizationHeaderProvider, MyCustomAuthHeaderProvider>();
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IDomainEventService, DomainEventService>();

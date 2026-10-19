@@ -2,7 +2,6 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MinimalHostingModel.Application.Common.Interfaces;
-using MinimalHostingModel.Infrastructure.Caching;
 using MinimalHostingModel.Infrastructure.Configuration;
 using MinimalHostingModel.Infrastructure.Services;
 
@@ -16,8 +15,6 @@ namespace MinimalHostingModel.Infrastructure
         [IntentMerge]
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDistributedMemoryCache();
-            services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddMassTransitConfiguration(configuration);
             services.AddHttpClients(configuration);

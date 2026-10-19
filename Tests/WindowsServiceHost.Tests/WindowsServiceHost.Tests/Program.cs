@@ -5,8 +5,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Configuration;
 using Microsoft.Extensions.Logging.EventLog;
-using WindowsServiceHost.Tests.Caching;
-using WindowsServiceHost.Tests.Common.Interfaces;
 using WindowsServiceHost.Tests.Configuration;
 using WindowsServiceHost.Tests.Services;
 
