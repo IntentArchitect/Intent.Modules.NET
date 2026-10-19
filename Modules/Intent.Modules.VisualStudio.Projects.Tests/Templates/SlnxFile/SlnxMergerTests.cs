@@ -865,6 +865,129 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Templates.SlnxFile
       result.ShouldContain("<BuildType Name=\"Release\" />");
     }
 
+    // ----- Path normalisation (Materialize Folder / dotnet sln add) -----
+
+    // What `dotnet sln add` writes for a project under a materialized src folder.
+    private static string DotnetSlnAddFixture() => Build(m =>
+    {
+      var src = m.AddFolder("/src/");
+      m.AddProject("src/Basket.API/Basket.API.csproj", null, src);
+      var tests = m.AddFolder("/tests/");
+      m.AddProject("tests/Basket.UnitTests/Basket.UnitTests.csproj", null, tests);
+    });
+
+    // What earlier versions of the template generated for the same Materialize Folder projects.
+    private static string DotPrefixedGenerated(Guid basketId, Guid testsId) => $"""
+      <Solution>
+        <Folder Name="/src/">
+          <Project Path="./src/Basket.API/Basket.API.csproj" Id="{basketId}" />
+        </Folder>
+        <Folder Name="/tests/">
+          <Project Path="./tests/Basket.UnitTests/Basket.UnitTests.csproj" Id="{testsId}" />
+        </Folder>
+      </Solution>
+      """;
+
+    [Fact]
+    public void WhenGeneratedPathHasDotPrefix_AndNoPreviousOutput_ExistingFileIsUnchanged()
+    {
+      var existing = DotnetSlnAddFixture();
+
+      var result = SlnxMerger.Merge(DotPrefixedGenerated(Guid.NewGuid(), Guid.NewGuid()), existing, previousOutput: null);
+
+      result.ShouldBe(existing);
+    }
+
+    [Fact]
+    public void WhenGeneratedPathHasDotPrefix_WithPreviousOutput_ExistingFileIsUnchanged()
+    {
+      var basketId = Guid.NewGuid();
+      var testsId = Guid.NewGuid();
+      var existing = DotnetSlnAddFixture();
+      var generated = DotPrefixedGenerated(basketId, testsId);
+
+      var result = SlnxMerger.Merge(generated, existing, previousOutput: generated);
+
+      result.ShouldBe(existing);
+    }
+
+    [Fact]
+    public void WhenExistingPathHasDotPrefix_AndGeneratedDoesNot_ExistingEntryIsKeptAsWritten()
+    {
+      var existing = """
+        <Solution>
+          <Folder Name="/src/">
+            <Project Path="./src/Basket.API/Basket.API.csproj" />
+          </Folder>
+        </Solution>
+        """;
+      var generated = Build(m =>
+      {
+        var src = m.AddFolder("/src/");
+        m.AddProject("src/Basket.API/Basket.API.csproj", null, src);
+      });
+
+      var result = SlnxMerger.Merge(generated, existing, previousOutput: null);
+
+      result.ShouldContain("Path=\"./src/Basket.API/Basket.API.csproj\"");
+      Parse(result).SolutionProjects.Count().ShouldBe(1);
+    }
+
+    [Fact]
+    public void WhenPathsDifferOnlyByParentSegments_TheyMatch()
+    {
+      var existing = DotnetSlnAddFixture();
+      var generated = """
+        <Solution>
+          <Folder Name="/src/">
+            <Project Path="src/other/../Basket.API/Basket.API.csproj" />
+          </Folder>
+          <Folder Name="/tests/">
+            <Project Path="tests/./Basket.UnitTests/Basket.UnitTests.csproj" />
+          </Folder>
+        </Solution>
+        """;
+
+      var result = SlnxMerger.Merge(generated, existing, previousOutput: null);
+
+      result.ShouldBe(existing);
+    }
+
+    [Fact]
+    public void WhenProjectIsOutsideTheSolutionFolder_LeadingParentSegmentsAreKept()
+    {
+      SlnxMerger.NormalizePath(@"..\..\shared\Shared.csproj").ShouldBe("../../shared/Shared.csproj");
+      SlnxMerger.NormalizePath("./../shared/x/../Shared.csproj").ShouldBe("../shared/Shared.csproj");
+      SlnxMerger.NormalizePath("./src//Basket.API/./Basket.API.csproj").ShouldBe("src/Basket.API/Basket.API.csproj");
+
+      var existing = Build(m => m.AddProject("../shared/Shared.csproj", null, null));
+      var generated = Build(m => m.AddProject("./../shared/Shared.csproj", null, null));
+
+      var result = SlnxMerger.Merge(generated, existing, previousOutput: null);
+
+      result.ShouldBe(existing);
+    }
+
+    [Fact]
+    public void WhenAProjectNameClashesWithAnEntryAtADifferentPath_ShouldThrowFriendlyException()
+    {
+      var existing = Build(m =>
+      {
+        var src = m.AddFolder("/src/");
+        m.AddProject("src/Basket.API/Basket.API.csproj", null, src);
+      });
+      var generated = Build(m =>
+      {
+        var src = m.AddFolder("/src/");
+        m.AddProject("elsewhere/Basket.API/Basket.API.csproj", null, src);
+      });
+
+      var ex = Should.Throw<Intent.Exceptions.FriendlyException>(() => SlnxMerger.Merge(generated, existing, previousOutput: null));
+      ex.Message.ShouldContain("Basket.API");
+      ex.Message.ShouldContain("/src/");
+      ex.Message.ShouldContain("different path");
+    }
+
     // ----- Crash / corruption -----
 
     [Fact]

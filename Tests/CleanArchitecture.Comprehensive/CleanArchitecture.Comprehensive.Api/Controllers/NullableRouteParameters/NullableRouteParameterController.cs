@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Transactions;
 using CleanArchitecture.Comprehensive.Application;
 using CleanArchitecture.Comprehensive.Application.Common.Eventing;
-using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
 using CleanArchitecture.Comprehensive.Application.Interfaces.NullableRouteParameters;
 using CleanArchitecture.Comprehensive.Application.NullableRouteParameters;
 using CleanArchitecture.Comprehensive.Domain.Common.Interfaces;
@@ -25,17 +24,14 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.NullableRouteParameter
     public class NullableRouteParameterController : ControllerBase
     {
         private readonly INullableRouteParameterService _appService;
-        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IEventBus _eventBus;
 
         public NullableRouteParameterController(INullableRouteParameterService appService,
-            IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork,
             IUnitOfWork unitOfWork,
             IEventBus eventBus)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
-            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
         }
@@ -54,17 +50,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.NullableRouteParameter
             [FromRoute] NullableRouteParameterEnum? nullableEnum,
             CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.RoutedOperation(nullableString, nullableInt, nullableEnum, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.RoutedOperation(nullableString, nullableInt, nullableEnum, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);

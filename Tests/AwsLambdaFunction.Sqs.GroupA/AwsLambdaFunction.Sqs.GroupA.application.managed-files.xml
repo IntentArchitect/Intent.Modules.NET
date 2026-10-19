@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="734c7d51-1b2c-43a3-9309-5d07a30c6484">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/AssemblyAttributes.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/AwsLambdaFunction.Sqs.GroupA.Api.csproj" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/DefaultFunctions.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/Helpers/ExceptionHandlerHelper.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/Properties/launchSettings.json" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/README.md" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/ResponseTypes/JsonResponse.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/Services/CurrentUserService.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/SpecificTopicMessageConsumer.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/Startup.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/appsettings.json" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/aws-lambda-tools-defaults.json" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Api/samconfig.toml" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/AssemblyAttributes.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/AwsLambdaFunction.Sqs.GroupA.Application.csproj" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Eventing/IEventBus.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Interfaces/ICommand.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Interfaces/IQuery.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Models/Result.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Pagination/PagedResult.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/CreateClient/CreateClientCommand.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/CreateClient/CreateClientCommandHandler.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/CreateClient/CreateClientCommandValidator.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/CreateOrder/CreateOrderCommand.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/CreateOrder/CreateOrderCommandHandler.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/CreateOrder/CreateOrderCommandValidator.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/DependencyInjection.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/IntegrationCommands/CreateOrderCommand.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/IntegrationCommands/SpecificTopicTwoMessage.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/IntegrationEvents/ClientCreatedEvent.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/IntegrationEvents/EventHandlers/SpecificTopicMessageHandler.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Application/IntegrationEvents/SpecificTopicOneMessageEvent.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Domain/AwsLambdaFunction.Sqs.GroupA.Domain.csproj" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/AwsLambdaFunction.Sqs.GroupA.Infrastructure.csproj" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Configuration/AwsConfiguration.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Configuration/SqsConfiguration.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Configuration/SqsPublisherOptions.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Configuration/SqsSubscriptionOptions.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/DependencyInjection.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Eventing/ISqsMessageDispatcher.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Eventing/SqsMessageBus.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Eventing/SqsMessageDispatcher.cs" />
-  <file path="AwsLambdaFunction.Sqs.GroupA.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/AssemblyAttributes.cs" templateId="Intent.Aws.Lambda.Functions.AssemblyAttributes" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/AwsLambdaFunction.Sqs.GroupA.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/DefaultFunctions.cs" templateId="Intent.Aws.Lambda.Functions.LambdaFunctionClassTemplate" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/Helpers/ExceptionHandlerHelper.cs" templateId="Intent.Aws.Lambda.Functions.ExceptionHandlerHelper" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/README.md" templateId="Intent.Aws.Lambda.Functions.AwsLambdaReadMeTemplate" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/ResponseTypes/JsonResponse.cs" templateId="Intent.Aws.Lambda.Functions.JsonResponse" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/SpecificTopicMessageConsumer.cs" templateId="Intent.Aws.Lambda.Functions.Sqs.LambdaFunctionConsumer" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/Startup.cs" templateId="Intent.Aws.Lambda.Functions.StartupTemplate" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/aws-lambda-tools-defaults.json" templateId="Intent.Aws.Lambda.Functions.AwsLambdaToolsDefaultsTemplate" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Api/samconfig.toml" templateId="Intent.Aws.Lambda.Functions.SamConfigTemplate" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/AwsLambdaFunction.Sqs.GroupA.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/CreateClient/CreateClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/CreateClient/CreateClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/CreateClient/CreateClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/CreateOrder/CreateOrderCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/CreateOrder/CreateOrderCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/CreateOrder/CreateOrderCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/IntegrationCommands/CreateOrderCommand.cs" templateId="Intent.Eventing.Contracts.IntegrationCommand" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/IntegrationCommands/SpecificTopicTwoMessage.cs" templateId="Intent.Eventing.Contracts.IntegrationCommand" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/IntegrationEvents/ClientCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/IntegrationEvents/EventHandlers/SpecificTopicMessageHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Application/IntegrationEvents/SpecificTopicOneMessageEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Domain/AwsLambdaFunction.Sqs.GroupA.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/AwsLambdaFunction.Sqs.GroupA.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Configuration/AwsConfiguration.cs" templateId="Intent.Aws.Common.AwsConfiguration" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Configuration/SqsConfiguration.cs" templateId="Intent.Aws.Sqs.SqsConfiguration" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Configuration/SqsPublisherOptions.cs" templateId="Intent.Aws.Sqs.SqsPublisherOptions" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Configuration/SqsSubscriptionOptions.cs" templateId="Intent.Aws.Sqs.SqsSubscriptionOptions" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Eventing/ISqsMessageDispatcher.cs" templateId="Intent.Aws.Sqs.SqsMessageDispatcherInterface" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Eventing/SqsMessageBus.cs" templateId="Intent.Aws.Sqs.SqsMessageBus" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.Infrastructure/Eventing/SqsMessageDispatcher.cs" templateId="Intent.Aws.Sqs.SqsMessageDispatcher" />
+  <file path="AwsLambdaFunction.Sqs.GroupA.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

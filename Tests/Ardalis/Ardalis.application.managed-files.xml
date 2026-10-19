@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="8448a896-d79f-4fe0-9cc3-24130286676f">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="Ardalis.Api/Ardalis.Api.csproj" />
-  <file path="Ardalis.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="Ardalis.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="Ardalis.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="Ardalis.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Ardalis.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="Ardalis.Api/Controllers/ClientsController.cs" />
-  <file path="Ardalis.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="Ardalis.Api/Filters/ExceptionFilter.cs" />
-  <file path="Ardalis.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="Ardalis.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="Ardalis.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="Ardalis.Api/Program.cs" />
-  <file path="Ardalis.Api/Properties/launchSettings.json" />
-  <file path="Ardalis.Api/Services/CurrentUserService.cs" />
-  <file path="Ardalis.Api/Startup.cs" />
-  <file path="Ardalis.Api/appsettings.json" />
-  <file path="Ardalis.Application/Ardalis.Application.csproj" />
-  <file path="Ardalis.Application/Clients/ClientDto.cs" />
-  <file path="Ardalis.Application/Clients/ClientDtoMappingExtensions.cs" />
-  <file path="Ardalis.Application/Clients/CreateClient/CreateClientCommand.cs" />
-  <file path="Ardalis.Application/Clients/CreateClient/CreateClientCommandHandler.cs" />
-  <file path="Ardalis.Application/Clients/CreateClient/CreateClientCommandValidator.cs" />
-  <file path="Ardalis.Application/Clients/DeleteClient/DeleteClientCommand.cs" />
-  <file path="Ardalis.Application/Clients/DeleteClient/DeleteClientCommandHandler.cs" />
-  <file path="Ardalis.Application/Clients/DeleteClient/DeleteClientCommandValidator.cs" />
-  <file path="Ardalis.Application/Clients/GetClientById/GetClientByIdQuery.cs" />
-  <file path="Ardalis.Application/Clients/GetClientById/GetClientByIdQueryHandler.cs" />
-  <file path="Ardalis.Application/Clients/GetClientById/GetClientByIdQueryValidator.cs" />
-  <file path="Ardalis.Application/Clients/GetClients/GetClientsQuery.cs" />
-  <file path="Ardalis.Application/Clients/GetClients/GetClientsQueryHandler.cs" />
-  <file path="Ardalis.Application/Clients/GetClients/GetClientsQueryValidator.cs" />
-  <file path="Ardalis.Application/Clients/GetClientsPaginated/GetClientsPaginatedQuery.cs" />
-  <file path="Ardalis.Application/Clients/GetClientsPaginated/GetClientsPaginatedQueryHandler.cs" />
-  <file path="Ardalis.Application/Clients/GetClientsPaginated/GetClientsPaginatedQueryValidator.cs" />
-  <file path="Ardalis.Application/Clients/UpdateClient/UpdateClientCommand.cs" />
-  <file path="Ardalis.Application/Clients/UpdateClient/UpdateClientCommandHandler.cs" />
-  <file path="Ardalis.Application/Clients/UpdateClient/UpdateClientCommandValidator.cs" />
-  <file path="Ardalis.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="Ardalis.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="Ardalis.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="Ardalis.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="Ardalis.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="Ardalis.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="Ardalis.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="Ardalis.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="Ardalis.Application/Common/Interfaces/ICommand.cs" />
-  <file path="Ardalis.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="Ardalis.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="Ardalis.Application/Common/Interfaces/IQuery.cs" />
-  <file path="Ardalis.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="Ardalis.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="Ardalis.Application/Common/Models/Result.cs" />
-  <file path="Ardalis.Application/Common/Pagination/PagedList.cs" />
-  <file path="Ardalis.Application/Common/Pagination/PagedResult.cs" />
-  <file path="Ardalis.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="Ardalis.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="Ardalis.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Ardalis.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Ardalis.Application/DependencyInjection.cs" />
-  <file path="Ardalis.Domain/Ardalis.Domain.csproj" />
-  <file path="Ardalis.Domain/Common/CollectionExtensions.cs" />
-  <file path="Ardalis.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="Ardalis.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Ardalis.Domain/Common/UpdateHelper.cs" />
-  <file path="Ardalis.Domain/Entities/Client.cs" deviationsHash="8FA55A00D618632F0DFAAE45A74318C1DBDFCEBE20C14E950E1C0B5264433A03" />
-  <file path="Ardalis.Domain/Repositories/IClientReadRepository.cs" />
-  <file path="Ardalis.Domain/Repositories/IClientRepository.cs" />
-  <file path="Ardalis.Domain/Repositories/IEFRepository.cs" />
-  <file path="Ardalis.Domain/Repositories/IPagedList.cs" />
-  <file path="Ardalis.Domain/Repositories/IRepository.cs" />
-  <file path="Ardalis.Domain/Specifications/ClientSpec.cs" />
-  <file path="Ardalis.Infrastructure/Ardalis.Infrastructure.csproj" deviationsHash="E34F1111F75FCE60367A76E1DD6DD8FE432255028C5167F63F0502E98BEC4F52" />
-  <file path="Ardalis.Infrastructure/DependencyInjection.cs" />
-  <file path="Ardalis.Infrastructure/Migrations/README.md" />
-  <file path="Ardalis.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="Ardalis.Infrastructure/Persistence/Configurations/ClientConfiguration.cs" />
-  <file path="Ardalis.Infrastructure/Repositories/ClientRepository.cs" />
-  <file path="Ardalis.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Ardalis.IntegrationTests/Ardalis.IntegrationTests.csproj" />
-  <file path="Ardalis.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="Ardalis.Api/Ardalis.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Ardalis.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="Ardalis.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="Ardalis.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="Ardalis.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Ardalis.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="Ardalis.Api/Controllers/ClientsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="Ardalis.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="Ardalis.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="Ardalis.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="Ardalis.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="Ardalis.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="Ardalis.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Ardalis.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Ardalis.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="Ardalis.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="Ardalis.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Ardalis.Application/Ardalis.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Ardalis.Application/Clients/ClientDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Ardalis.Application/Clients/ClientDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Ardalis.Application/Clients/CreateClient/CreateClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Ardalis.Application/Clients/CreateClient/CreateClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Ardalis.Application/Clients/CreateClient/CreateClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Ardalis.Application/Clients/DeleteClient/DeleteClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Ardalis.Application/Clients/DeleteClient/DeleteClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Ardalis.Application/Clients/DeleteClient/DeleteClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Ardalis.Application/Clients/GetClientById/GetClientByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Ardalis.Application/Clients/GetClientById/GetClientByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Ardalis.Application/Clients/GetClientById/GetClientByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Ardalis.Application/Clients/GetClients/GetClientsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Ardalis.Application/Clients/GetClients/GetClientsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Ardalis.Application/Clients/GetClients/GetClientsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Ardalis.Application/Clients/GetClientsPaginated/GetClientsPaginatedQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Ardalis.Application/Clients/GetClientsPaginated/GetClientsPaginatedQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Ardalis.Application/Clients/GetClientsPaginated/GetClientsPaginatedQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Ardalis.Application/Clients/UpdateClient/UpdateClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Ardalis.Application/Clients/UpdateClient/UpdateClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Ardalis.Application/Clients/UpdateClient/UpdateClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Ardalis.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="Ardalis.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="Ardalis.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="Ardalis.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="Ardalis.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="Ardalis.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="Ardalis.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="Ardalis.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="Ardalis.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="Ardalis.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="Ardalis.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="Ardalis.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="Ardalis.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="Ardalis.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="Ardalis.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="Ardalis.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="Ardalis.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="Ardalis.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="Ardalis.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="Ardalis.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Ardalis.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Ardalis.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Ardalis.Domain/Ardalis.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Ardalis.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Ardalis.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Ardalis.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Ardalis.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Ardalis.Domain/Entities/Client.cs" deviationsHash="8FA55A00D618632F0DFAAE45A74318C1DBDFCEBE20C14E950E1C0B5264433A03" templateId="Intent.Entities.DomainEntity" />
+  <file path="Ardalis.Domain/Repositories/IClientReadRepository.cs" templateId="Intent.Ardalis.Repositories.ReadRepositoryInterface" />
+  <file path="Ardalis.Domain/Repositories/IClientRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Ardalis.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="Ardalis.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Ardalis.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Ardalis.Domain/Specifications/ClientSpec.cs" templateId="Intent.Ardalis.Repositories.Specification" />
+  <file path="Ardalis.Infrastructure/Ardalis.Infrastructure.csproj" deviationsHash="E34F1111F75FCE60367A76E1DD6DD8FE432255028C5167F63F0502E98BEC4F52" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Ardalis.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Ardalis.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="Ardalis.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="Ardalis.Infrastructure/Persistence/Configurations/ClientConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Ardalis.Infrastructure/Repositories/ClientRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Ardalis.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="Ardalis.IntegrationTests/Ardalis.IntegrationTests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Ardalis.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

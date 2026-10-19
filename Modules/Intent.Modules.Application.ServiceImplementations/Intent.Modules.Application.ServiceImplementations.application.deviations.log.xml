@@ -11,16 +11,6 @@
       <deviationsHash>6BFDBA18E512415BF3A0227514ADD34DA93E7B892CADF6222F14D63E08DDA416</deviationsHash>
     </file>
     <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#6ee3dbe9-8403-44cd-82b4-a313433cb6f7</correlationId>
-      <path>Intent.Modules.Application.ServiceImplementations/Intent.Modules.Application.ServiceImplementations.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-08T14:46:57.0682765Z</updatedAt>
-      <deviationsHash>09E64727DFF0B8B308F94AFB69DE961F59EC344F5152D19F4488E896BF8C4674</deviationsHash>
-      <fileHash>51AE13207821835139C4AE285085CC43DAD6BE362437C3E1A0300A362FF9922D</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#d90ec855-e605-4712-923d-9e0c42f10398</correlationId>
       <path>Templates/ServiceImplementation/ServiceImplementationDecorator.cs</path>
       <count>1</count>
@@ -32,23 +22,19 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#18e4bf9f-2cff-41f4-a98a-333dc4c1178a</correlationId>
       <path>Templates/ServiceImplementation/ServiceImplementationTemplatePartial.cs</path>
-      <count>2</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-04-21T17:32:05.7587136Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2026-04-30T13:26:06.6731485Z</approvedAt>
-      <deviationsHash>B0B85F2D43C71C043B4681E73372DF7B1B2B222280F739B7177841E2B4BA6896</deviationsHash>
-      <fileHash>5BB473E3FEB3748E696B6AAD403C399449DF46D5A858EEE95ACB0B7A1DA2515B</fileHash>
+      <count>3</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-13T14:30:17.7112692Z</updatedAt>
+      <deviationsHash>FE7513B643A4AC94C7C926AE5ECF09F792C6DB2AC13112ED62154263FE21AE40</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#809b95af-f0c0-4779-b754-d89d221a960d</correlationId>
       <path>Templates/ServiceImplementationSkill/ServiceImplementationSkillTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:55:51.4110976Z</updatedAt>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-13T14:30:17.7112768Z</updatedAt>
       <deviationsHash>AB9C5BC6CCD6814FF5DE7AE6B001B8D4866095CA4B816C52EB04FC211B3C067F</deviationsHash>
     </file>
   </files>

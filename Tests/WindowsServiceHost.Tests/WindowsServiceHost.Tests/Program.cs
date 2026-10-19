@@ -25,9 +25,6 @@ namespace WindowsServiceHost.Tests
             builder.Services.AddAzureServiceBusConfiguration(builder.Configuration);
             builder.Services.AddHttpClients(builder.Configuration);
             builder.Services.ConfigureQuartz(builder.Configuration);
-
-            // Add services to the container.
-            builder.Services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             builder.Services.AddWindowsService(options =>
                 {
                     options.ServiceName = "WindowsServiceHost.Tests";

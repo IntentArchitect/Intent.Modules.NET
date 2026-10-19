@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#d065ffc7-1701-4c3d-83fa-dbda3fb52c67</correlationId>
+      <path>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/PeopleService.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-15T07:56:50.1235913Z</updatedAt>
+      <deviationsHash>CFB86576FC2B7FF157F25AEC40CF22455E4A30F865D1C0B070BD00A1C10B6379</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation#2fa830ef-492e-4f75-9f27-c76f2ea47bdd</correlationId>
       <path>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/PeopleServiceHandlers/DeletePersonSCH.cs</path>
       <count>2</count>

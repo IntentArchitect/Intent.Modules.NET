@@ -1,70 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="c3933cb3-ca6e-48b1-ade1-334f665d89fe">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="CosmosDB.Authentication.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="CosmosDB.Authentication.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="CosmosDB.Authentication.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="CosmosDB.Authentication.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="CosmosDB.Authentication.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="CosmosDB.Authentication.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="CosmosDB.Authentication.Api/CosmosDB.Authentication.Api.csproj" />
-  <file path="CosmosDB.Authentication.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="CosmosDB.Authentication.Api/Filters/ExceptionFilter.cs" />
-  <file path="CosmosDB.Authentication.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="CosmosDB.Authentication.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="CosmosDB.Authentication.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="CosmosDB.Authentication.Api/Program.cs" />
-  <file path="CosmosDB.Authentication.Api/Properties/launchSettings.json" />
-  <file path="CosmosDB.Authentication.Api/Services/CurrentUserService.cs" />
-  <file path="CosmosDB.Authentication.Api/appsettings.json" />
-  <file path="CosmosDB.Authentication.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Interfaces/ICommand.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Interfaces/IQuery.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Models/Result.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Pagination/PagedResult.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="CosmosDB.Authentication.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="CosmosDB.Authentication.Application/CosmosDB.Authentication.Application.csproj" />
-  <file path="CosmosDB.Authentication.Application/DependencyInjection.cs" />
-  <file path="CosmosDB.Authentication.Domain/Common/CollectionExtensions.cs" />
-  <file path="CosmosDB.Authentication.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="CosmosDB.Authentication.Domain/Common/Interfaces/ICosmosDBUnitOfWork.cs" />
-  <file path="CosmosDB.Authentication.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="CosmosDB.Authentication.Domain/Common/UpdateHelper.cs" />
-  <file path="CosmosDB.Authentication.Domain/CosmosDB.Authentication.Domain.csproj" />
-  <file path="CosmosDB.Authentication.Domain/Entities/Product.cs" />
-  <file path="CosmosDB.Authentication.Domain/Repositories/Documents/IProductDocument.cs" />
-  <file path="CosmosDB.Authentication.Domain/Repositories/ICosmosDBRepository.cs" />
-  <file path="CosmosDB.Authentication.Domain/Repositories/IPagedList.cs" />
-  <file path="CosmosDB.Authentication.Domain/Repositories/IProductRepository.cs" />
-  <file path="CosmosDB.Authentication.Domain/Repositories/IRepository.cs" />
-  <file path="CosmosDB.Authentication.Infrastructure/Configuration/CosmosConfiguration.cs" />
-  <file path="CosmosDB.Authentication.Infrastructure/CosmosDB.Authentication.Infrastructure.csproj" />
-  <file path="CosmosDB.Authentication.Infrastructure/DependencyInjection.cs" />
-  <file path="CosmosDB.Authentication.Infrastructure/Options/CosmosRepositoryOptions.cs" />
-  <file path="CosmosDB.Authentication.Infrastructure/Persistence/CosmosDBUnitOfWork.cs" />
-  <file path="CosmosDB.Authentication.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs" />
-  <file path="CosmosDB.Authentication.Infrastructure/Persistence/Documents/ProductDocument.cs" />
-  <file path="CosmosDB.Authentication.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs" />
-  <file path="CosmosDB.Authentication.Infrastructure/Repositories/CosmosDBRepositoryBase.cs" />
-  <file path="CosmosDB.Authentication.Infrastructure/Repositories/CosmosPagedList.cs" />
-  <file path="CosmosDB.Authentication.Infrastructure/Repositories/ProductCosmosDBRepository.cs" />
-  <file path="CosmosDB.Authentication.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="CosmosDB.Authentication.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="CosmosDB.Authentication.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="CosmosDB.Authentication.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="CosmosDB.Authentication.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="CosmosDB.Authentication.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="CosmosDB.Authentication.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="CosmosDB.Authentication.Api/CosmosDB.Authentication.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CosmosDB.Authentication.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="CosmosDB.Authentication.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="CosmosDB.Authentication.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="CosmosDB.Authentication.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="CosmosDB.Authentication.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="CosmosDB.Authentication.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="CosmosDB.Authentication.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="CosmosDB.Authentication.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="CosmosDB.Authentication.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="CosmosDB.Authentication.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="CosmosDB.Authentication.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="CosmosDB.Authentication.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="CosmosDB.Authentication.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="CosmosDB.Authentication.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="CosmosDB.Authentication.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="CosmosDB.Authentication.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="CosmosDB.Authentication.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="CosmosDB.Authentication.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="CosmosDB.Authentication.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="CosmosDB.Authentication.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="CosmosDB.Authentication.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="CosmosDB.Authentication.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="CosmosDB.Authentication.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="CosmosDB.Authentication.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="CosmosDB.Authentication.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="CosmosDB.Authentication.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="CosmosDB.Authentication.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="CosmosDB.Authentication.Application/CosmosDB.Authentication.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CosmosDB.Authentication.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="CosmosDB.Authentication.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="CosmosDB.Authentication.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="CosmosDB.Authentication.Domain/Common/Interfaces/ICosmosDBUnitOfWork.cs" templateId="Intent.CosmosDB.CosmosDBUnitOfWorkInterface" />
+  <file path="CosmosDB.Authentication.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="CosmosDB.Authentication.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="CosmosDB.Authentication.Domain/CosmosDB.Authentication.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CosmosDB.Authentication.Domain/Entities/Product.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.Authentication.Domain/Repositories/Documents/IProductDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.Authentication.Domain/Repositories/ICosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepositoryInterface" />
+  <file path="CosmosDB.Authentication.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="CosmosDB.Authentication.Domain/Repositories/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.Authentication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="CosmosDB.Authentication.Infrastructure/Configuration/CosmosConfiguration.cs" templateId="Intent.CosmosDB.CosmosDBConfiguration" />
+  <file path="CosmosDB.Authentication.Infrastructure/CosmosDB.Authentication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CosmosDB.Authentication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="CosmosDB.Authentication.Infrastructure/Options/CosmosRepositoryOptions.cs" templateId="Intent.CosmosDB.CosmosDBRepositoryOptions" />
+  <file path="CosmosDB.Authentication.Infrastructure/Persistence/CosmosDBUnitOfWork.cs" templateId="Intent.CosmosDB.CosmosDBUnitOfWork" />
+  <file path="CosmosDB.Authentication.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentOfTInterface" />
+  <file path="CosmosDB.Authentication.Infrastructure/Persistence/Documents/ProductDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.Authentication.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs" templateId="Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods" />
+  <file path="CosmosDB.Authentication.Infrastructure/Repositories/CosmosDBRepositoryBase.cs" templateId="Intent.CosmosDB.CosmosDBRepositoryBase" />
+  <file path="CosmosDB.Authentication.Infrastructure/Repositories/CosmosPagedList.cs" templateId="Intent.CosmosDB.CosmosPagedList" />
+  <file path="CosmosDB.Authentication.Infrastructure/Repositories/ProductCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.Authentication.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

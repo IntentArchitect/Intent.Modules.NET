@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
+using Intent.Modules.Application.ServiceImplementations.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
@@ -75,7 +76,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
                             method.AddOptionalCancellationTokenParameter(this);
                         }
 
-                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
+                        method.AddAttribute(ExecutionContext.GetOperationMethodIntentManagedAttribute());
 
                         method.AddStatement("// IntentInitialGen");
                         method.AddStatement("""throw new NotImplementedException("Implement your business logic for this service call in the <#=ClassName#> (SCH = Service Call Handler) class.");""");

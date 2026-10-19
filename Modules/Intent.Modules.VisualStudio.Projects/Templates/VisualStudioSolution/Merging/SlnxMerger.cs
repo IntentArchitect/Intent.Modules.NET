@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Xml;
+using Intent.Exceptions;
 using Microsoft.VisualStudio.SolutionPersistence.Model;
 using Microsoft.VisualStudio.SolutionPersistence.Serializer;
 
@@ -221,7 +222,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
 
                 foreach (var (generatedFolder, target, resolvedParent) in resolutions)
                 {
-                    var resolved = target ?? existingModel.AddFolder(ChildPath(resolvedParent, generatedFolder.Name));
+                    var resolved = target ?? AddFolder(existingModel, ChildPath(resolvedParent, generatedFolder.Name));
                     if (target != null)
                         ApplyFolderPlacement(resolved, generatedFolder.Name, resolvedParent);
 
@@ -262,8 +263,42 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
                 }
                 else
                 {
-                    existingModel.AddProject(generatedProject.FilePath, null, resolvedParent);
+                    AddProject(existingModel, generatedProject.FilePath, resolvedParent);
                 }
+            }
+        }
+
+        // SolutionPersistence rejects an entry whose name clashes with one already in the file. Paths
+        // are matched first, so reaching here means the clashing entry sits at a different path.
+        private static SolutionFolderModel AddFolder(SolutionModel model, string path)
+        {
+            try
+            {
+                return model.AddFolder(path);
+            }
+            catch (SolutionArgumentException ex)
+            {
+                throw new FriendlyException(
+                    $"Could not add the solution folder \"{path}\" to the existing Visual Studio Solution file ({ex.Message}). " +
+                    "An existing entry with that name has a different path. " +
+                    "Rename or remove that entry in the solution file, or rename the folder in the Codebase Structure designer.");
+            }
+        }
+
+        private static void AddProject(SolutionModel model, string path, SolutionFolderModel? parent)
+        {
+            try
+            {
+                model.AddProject(path, null, parent);
+            }
+            catch (SolutionArgumentException ex)
+            {
+                throw new FriendlyException(
+                    $"Could not add the project \"{Path.GetFileNameWithoutExtension(path)}\" at \"{path}\" " +
+                    $"(solution folder \"{parent?.Path ?? "/"}\") to the existing Visual Studio Solution file ({ex.Message}). " +
+                    "An existing entry with that name has a different path. " +
+                    "Correct or remove that entry in the solution file, or change the project's location in the Codebase Structure designer " +
+                    "(Materialize Folder on its parent folders, or its Relative Location) so the two paths match.");
             }
         }
 
@@ -444,7 +479,33 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Me
             if (a == null || b == null)
                 return a == b;
 
-            return string.Equals(a.Replace('\\', '/'), b.Replace('\\', '/'), StringComparison.OrdinalIgnoreCase);
+            return string.Equals(NormalizePath(a), NormalizePath(b), StringComparison.OrdinalIgnoreCase);
+        }
+
+        /// <summary>
+        /// Reduces a solution-relative path to a canonical form: forward slashes, no empty or
+        /// <c>.</c> segments, and <c>x/..</c> collapsed. A leading <c>..</c> is kept, since it points
+        /// at a project outside the solution's folder. This is what lets <c>./src/X/X.csproj</c> match
+        /// the <c>src/X/X.csproj</c> that <c>dotnet sln add</c> writes.
+        /// </summary>
+        internal static string NormalizePath(string path)
+        {
+            var segments = new List<string>();
+            foreach (var segment in path.Replace('\\', '/').Split('/'))
+            {
+                if (segment.Length == 0 || segment == ".")
+                    continue;
+
+                if (segment == ".." && segments.Count > 0 && segments[^1] != "..")
+                {
+                    segments.RemoveAt(segments.Count - 1);
+                    continue;
+                }
+
+                segments.Add(segment);
+            }
+
+            return string.Join('/', segments);
         }
     }
 }

@@ -1,101 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="42bb3d2c-d940-43c9-8d76-95250d6ee17e">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Eventing/IEventBus.cs" />
-  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/ICommand.cs" />
-  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/IQuery.cs" />
-  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Pagination/PagedResult.cs" />
-  <file path="Intent.Modules.NET.Tests.Application.Core/Intent.Modules.NET.Tests.Application.Core.csproj" />
-  <file path="Intent.Modules.NET.Tests.Domain.Core/Common/Exceptions/NotFoundException.cs" />
-  <file path="Intent.Modules.NET.Tests.Domain.Core/Intent.Modules.NET.Tests.Domain.Core.csproj" />
-  <file path="Intent.Modules.NET.Tests.Host/Configuration/ModuleInstallerFactory.cs" deviationsHash="E92E8A0C42BCC8453838D258CB4657F9991C002B755B2FF796521BEA6666CD37" />
-  <file path="Intent.Modules.NET.Tests.Host/Intent.Modules.NET.Tests.Host.csproj" />
-  <file path="Intent.Modules.NET.Tests.Host/Properties/launchSettings.json" />
-  <file path="Intent.Modules.NET.Tests.Host/appsettings.json" />
-  <file path="Intent.Modules.NET.Tests.Infrastructure.Core/Eventing/MassTransitMessageBus.cs" />
-  <file path="Intent.Modules.NET.Tests.Infrastructure.Core/Intent.Modules.NET.Tests.Infrastructure.Core.csproj" />
-  <file path="Intent.Modules.NET.Tests.sln" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Api/Controllers/AccountsController.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Api/Controllers/MyCustomersController.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Api/Intent.Modules.NET.Tests.Module2.Api.csproj" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Api/ModuleInstaller.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Accounts/AccountDto.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Accounts/CreateAccount/CreateAccountCommand.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Accounts/DeleteAccount/DeleteAccountCommand.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Accounts/GetAccountById/GetAccountByIdQuery.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Accounts/GetAccounts/GetAccountsQuery.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Accounts/UpdateAccount/UpdateAccountCommand.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/IntegrationEvents/AccountCreatedIEEvent.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Intent.Modules.NET.Tests.Module2.Application.Contracts.csproj" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/MyCustomers/GetMyCustomerById/GetMyCustomerByIdQuery.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/MyCustomers/GetMyCustomers/GetMyCustomersQuery.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/MyCustomers/MyCustomerDto.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/CreateAccount/CreateAccountCommandHandler.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/CreateAccount/CreateAccountCommandValidator.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/DeleteAccount/DeleteAccountCommandHandler.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/DeleteAccount/DeleteAccountCommandValidator.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/GetAccountById/GetAccountByIdQueryHandler.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/GetAccountById/GetAccountByIdQueryValidator.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/GetAccounts/GetAccountsQueryHandler.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/GetAccounts/GetAccountsQueryValidator.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/UpdateAccount/UpdateAccountCommandHandler.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/UpdateAccount/UpdateAccountCommandValidator.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/AssemblyAttributes.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Pagination/PagedList.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/DependencyInjection.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/IntegrationEvents/EventHandlers/CustomerCreatedIEHandler.cs" deviationsHash="DB7C8738520DDD4FBD1DD569A64627DA2619C8FA2DCA3FB8BECD21E0ED4A0AFC" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Intent.Modules.NET.Tests.Module2.Application.csproj" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Interfaces/IDomainEventService.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Mappings/Accounts/AccountDtoProfile.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Mappings/MyCustomers/MyCustomerDtoProfile.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/MyCustomers/GetMyCustomerById/GetMyCustomerByIdQueryHandler.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/MyCustomers/GetMyCustomerById/GetMyCustomerByIdQueryValidator.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/MyCustomers/GetMyCustomers/GetMyCustomersQueryHandler.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/MyCustomers/GetMyCustomers/GetMyCustomersQueryValidator.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/PagedResultMappingExtensions.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain.Enums/Intent.Modules.NET.Tests.Module2.Domain.Enums.csproj" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Common/CollectionExtensions.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Common/DomainEvent.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Common/IHasDomainEvent.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Common/UpdateHelper.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Entities/Account.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Entities/Invoice.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Entities/MyCustomer.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Intent.Modules.NET.Tests.Module2.Domain.csproj" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Repositories/IAccountRepository.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Repositories/IEFRepository.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Repositories/IInvoiceRepository.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Repositories/IMyCustomerRepository.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Repositories/IPagedList.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Repositories/IRepository.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Configuration/MassTransitConfiguration.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/DependencyInjection.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Eventing/IntegrationEventConsumer.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Intent.Modules.NET.Tests.Module2.Infrastructure.csproj" deviationsHash="B61DB5F52CCE513F8B634E556194FCE5FB6DB172521B2145D15EC3A906CDBBB7" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Migrations/README.md" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Persistence/Configurations/AccountConfiguration.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Persistence/Configurations/MyCustomerConfiguration.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Persistence/Module2DbContext.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Repositories/AccountRepository.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Repositories/InvoiceRepository.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Repositories/MyCustomerRepository.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Services/DomainEventService.cs" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Intent.Modules.NET.Tests.Application.Core.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Modules.NET.Tests.Domain.Core/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Intent.Modules.NET.Tests.Domain.Core/Intent.Modules.NET.Tests.Domain.Core.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Modules.NET.Tests.Host/Configuration/ModuleInstallerFactory.cs" deviationsHash="E92E8A0C42BCC8453838D258CB4657F9991C002B755B2FF796521BEA6666CD37" templateId="Intent.ModularMonolith.Host.ModuleConfiguration" />
+  <file path="Intent.Modules.NET.Tests.Host/Intent.Modules.NET.Tests.Host.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Modules.NET.Tests.Host/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Intent.Modules.NET.Tests.Host/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Intent.Modules.NET.Tests.Infrastructure.Core/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
+  <file path="Intent.Modules.NET.Tests.Infrastructure.Core/Intent.Modules.NET.Tests.Infrastructure.Core.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Modules.NET.Tests.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Api/Controllers/AccountsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Api/Controllers/MyCustomersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Api/Intent.Modules.NET.Tests.Module2.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Api/ModuleInstaller.cs" templateId="Intent.ModularMonolith.Module.ModuleInstallerTemplate" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Accounts/AccountDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Accounts/CreateAccount/CreateAccountCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Accounts/DeleteAccount/DeleteAccountCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Accounts/GetAccountById/GetAccountByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Accounts/GetAccounts/GetAccountsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Accounts/UpdateAccount/UpdateAccountCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/IntegrationEvents/AccountCreatedIEEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/Intent.Modules.NET.Tests.Module2.Application.Contracts.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/MyCustomers/GetMyCustomerById/GetMyCustomerByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/MyCustomers/GetMyCustomers/GetMyCustomersQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application.Contracts/MyCustomers/MyCustomerDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/CreateAccount/CreateAccountCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/CreateAccount/CreateAccountCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/DeleteAccount/DeleteAccountCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/DeleteAccount/DeleteAccountCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/GetAccountById/GetAccountByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/GetAccountById/GetAccountByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/GetAccounts/GetAccountsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/GetAccounts/GetAccountsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/UpdateAccount/UpdateAccountCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Accounts/UpdateAccount/UpdateAccountCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/IntegrationEvents/EventHandlers/CustomerCreatedIEHandler.cs" deviationsHash="DB7C8738520DDD4FBD1DD569A64627DA2619C8FA2DCA3FB8BECD21E0ED4A0AFC" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Intent.Modules.NET.Tests.Module2.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Mappings/Accounts/AccountDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Mappings/MyCustomers/MyCustomerDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/MyCustomers/GetMyCustomerById/GetMyCustomerByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/MyCustomers/GetMyCustomerById/GetMyCustomerByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/MyCustomers/GetMyCustomers/GetMyCustomersQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/MyCustomers/GetMyCustomers/GetMyCustomersQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain.Enums/Intent.Modules.NET.Tests.Module2.Domain.Enums.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Entities/Account.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Entities/Invoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Entities/MyCustomer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Intent.Modules.NET.Tests.Module2.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Repositories/IAccountRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Repositories/IInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Repositories/IMyCustomerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Intent.Modules.NET.Tests.Module2.Infrastructure.csproj" deviationsHash="B61DB5F52CCE513F8B634E556194FCE5FB6DB172521B2145D15EC3A906CDBBB7" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Persistence/Configurations/AccountConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Persistence/Configurations/MyCustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Persistence/Module2DbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Repositories/AccountRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Repositories/InvoiceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Repositories/MyCustomerRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
 </managedFiles>

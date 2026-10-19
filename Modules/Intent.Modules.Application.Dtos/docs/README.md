@@ -20,6 +20,7 @@ Generates Data Transfer Object (DTO) definitions and contract enums for applicat
 - DTOs serve as application boundary contracts; changes propagate to clients and mapping profiles.
 - Records recommended for immutable intent; use `init` setters for safe mutation during mapping.
 - Private/internal setters reduce accidental mutation post-construction.
+- When a DTO gets a constructor (non-public setters) or a static `Create` method (enabled and the DTO is not abstract), a field's default value is used only if every field after it also has one. This module adds a Services designer warning on any DTO whose fields are ordered otherwise.
 
 ## Integration Points
 - Used by Service Contract interfaces (`Intent.Application.Contracts`).

@@ -8,6 +8,8 @@ This document contains durable architectural decisions, constraints, and pattern
 
 - Command and Query models in Wolverine generate parameterized constructors by default, assigning values to properties (aligning with the MediatR module pattern).
 - If a command/query contains properties that can be constructor-initialized, we map constructor parameters to those properties.
+- A default value is kept only on the trailing run of properties that all have one. The rest are silently dropped, so `designers/Wolverine Services Extensions` adds Command and Query Element Extensions whose Validate Function warns about a property without a default after one with a default. Intent appends an extension's Validate Function to the element's own, so each installed module's check adds its own message. `Intent.Application.MediatR` carries an identical check; keep the two scripts identical. No guard between them is needed because the two modules are alternative dispatch implementations and are never installed together.
+- Version contract with `Intent.Modelers.Services.CQRS`: the floor is 6.0.9 (written against `6.0.9-pre.0`), the first version without its own copy of this check. Until 6.0.8 the check lived there and fired even where no constructor is generated. That module's `<interoperability>` updates this one to 1.1.2 in return.
 
 ### 2. Controller Dispatcher Constructor Mapping
 
@@ -86,6 +88,15 @@ opts.Discovery.IncludeType<CreateOrderCommandHandler>();    // one per Command /
 Both the `opts.Policies.AddMiddleware<MessageBusFlushMiddleware>(...)` and its companion `opts.Services.AddTransient<MessageBusFlushMiddleware>();` statement are tagged with `.AddMetadata("eventbus-flush", true)` — the same tag `Intent.Eventing.MassTransit` and `Intent.Eventing.NServiceBus` already use to strip the generic post-handler flush call out of MediatR/ServiceContract dispatch when a DB-backed transactional outbox is selected (see those modules' `MessageBusInteropExtension`/`NServiceBusMessageBusInteropExtension`). In that scenario the flush is spliced directly into `DbContext.SaveChanges`/`SaveChangesAsync` instead (dispatcher-agnostic, unchanged by this addition), so both eventing modules' `InstallXForWolverineDispatch` methods find the tagged statements in the Wolverine `ApplicationHandlerPolicy` template and remove them the same way they already do for the MediatR config lambda and controller dispatch templates.
 
 **Confirmed accurate, not aspirational.** This paragraph described the intended shape before `Intent.Eventing.Wolverine` actually implemented the DbContext splice — until it did, the strip ran with no replacement and every durable-outbox message was silently discarded (see that module's `CONTEXT.md`, D5 carve-out, for the fix). No change was needed in this module: `ApplicationHandlerPolicyTemplatePartial` and `MessageBusFlushMiddlewareTemplatePartial` were already correct, the gate and the tagging were already correct, and the missing half lived entirely on the eventing-module side of the strip/splice pair.
+
+### `Handle` body mode is keyed to whether `Intent.Application.CQRS.CRUD` is installed
+
+`CommandHandlerTemplate`/`QueryHandlerTemplate` take the `Handle` attribute from `Templates/HandlerBodyModeExtensions.GetHandleMethodIntentManagedAttribute`. With `Intent.Application.CQRS.CRUD` installed it is `Fully` + `Body = Mode.Merge`, unchanged from published versions, and CQRS.CRUD overrides it to `Body = Mode.Fully` on the handlers it implements. Without it, it is `Fully` + `Body = Mode.Ignore`: nothing can ever generate the body, so it belongs to the developer or AI from the first run.
+
+- **Only CQRS.CRUD counts.** It finds handlers by `TemplateRoles.Application.Handler.*`. `Intent.Application.MediatR.CRUD` matches the MediatR `TemplateId` and never touches Wolverine handlers, so checking for it here would leave stubs Merge with nothing to implement them. (The MediatR module checks both.)
+- **Soft lookup, no dependency.** The check is `InstalledModules.Any(...)` by module id.
+- **The skills keep the published rule** ("ALWAYS if you modify `Handle`, make the body `Mode.Ignore`"), which holds in both states. A Merge stub is just "not Ignore yet" to the AI.
+- **Rejected on this branch (never published):** Merge on CRUD-implemented bodies (confused the AI), Fully on every handler (deletes hand-written code in existing apps once the file's output next changes), and Ignore on every unimplemented handler (sticky, so a mapping added later is never implemented). The MediatR `CONTEXT.md` has the reasoning and the RoslynWeaver observations (MediatR handlers and service operations, same mechanics, not re-run on a Wolverine app). The one this design relies on: `Merge`→`Ignore` keeps a hand-written body. `Ignore` is sticky, so installing CQRS.CRUD later does not implement existing handlers until they are switched to `Body = Mode.Fully` by hand.
 
 ---
 

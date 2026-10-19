@@ -32,6 +32,11 @@ For each service operation, generates:
 - Captures and returns response
 - Enables consistent error handling across all operations
 
+### Code Management of Handler Bodies
+The service operation that dispatches to a handler is generated with `Body = Mode.Fully`, so leave it as it is and implement the handler instead. The attribute on each handler's `Handle` method depends on whether a module implements operation bodies from the model:
+- With `Intent.Application.ServiceImplementations.Conventions.CRUD` installed: handlers it implements are `[IntentManaged(Mode.Fully, Body = Mode.Fully)]`, and the rest are `[IntentManaged(Mode.Fully, Body = Mode.Merge)]` with a TODO and `throw new NotImplementedException()` stub. To customise a handler, change it to `Body = Mode.Ignore` first.
+- Without it: `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` from the first run, as nothing can implement the body. It starts as the same stub and is entirely yours.
+
 ## Key Design Patterns
 
 ### Single Responsibility Principle

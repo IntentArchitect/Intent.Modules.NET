@@ -1,3 +1,7 @@
+### Version 4.6.2
+
+- Improvement: The DTO warning for a field without a default value after one with a default value now comes from this module (previously `Intent.Modelers.Services`). It only fires when a constructor or static `Create` method is generated, so it no longer fires for abstract DTOs with public setters.
+
 ### Version 4.6.1
 
 - Improvement: Added default Template Classification and Priorities.

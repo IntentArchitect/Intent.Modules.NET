@@ -52,7 +52,8 @@
   <file path="Migrations/Migration_04_00_01_Pre_00.cs" deviationsHash="D24E3CD23D8CE7615CFAC3C9F5CE217138ED91410EF2926D7EBA3228B4FA7D8A" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
   <file path="Migrations/Migration_04_01_00_Pre_03.cs" deviationsHash="F5DFB83D1970DF8A12727C002DF3160A3A2A9BC7B3F30E693654B8A8840431BD" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
   <file path="Migrations/Migration_04_01_02_Pre_00.cs" deviationsHash="A63B329876C88821DA24DC0D6DB0910ECE5C1528D645B9C0CC4CE12E1247B247" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
-  <file path="Migrations/OnInstallMigration.cs" deviationsHash="253D38F8D317A5EA20E64E4578D6500ADB6457C4E37537E6E78495B9D4A82973" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="Migrations/Migration_04_01_11_Pre_00.cs" deviationsHash="70421C58765A78BEC4D8236F3BF50ECFD565BA87346EEAD589A73E68CF26ADA8" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="D1F1B13B7A7BA657073FFCA7945C61937F8556767DD477BB584BB840E4A2C1BA" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
   <file path="NugetPackages.cs" deviationsHash="B42DF5FD44F5FEBEA7506FC1640EC9DE97197F03E16A8C1D43CDF47CAB660104" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="PackageExtensionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
@@ -67,7 +68,7 @@
   <file path="Templates/CoreWeb/AppSettings/AppSettingsDecorator.cs" deviationsHash="46442CFDC483F4850B4CEDE8C6B0FE81CF89D2B79B65738804CF046EE3FABC0D" templateId="Intent.ModuleBuilder.Templates.TemplateDecoratorContract" />
   <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplate.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed" />
   <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplate.tt" templateId="Intent.ModuleBuilder.Templates.FileTemplateT4" />
-  <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplatePartial.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplatePartial.cs" deviationsHash="3EBB3C79B678CE222B10F9214871E60337DB104BADD3DB8D639B309F0D751D12" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.Custom" />
   <file path="Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplate.cs" deviationsHash="9BDBC534F2A3DC18525E3F5AFAD33CB089A42FA81E38349288AACC9E9DC886C9" templateId="Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation" />
   <file path="Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs" deviationsHash="B67AF53269C35EB52FCD63F0EFD642928FDF4D4DB319098E440F68F2970E7347" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />

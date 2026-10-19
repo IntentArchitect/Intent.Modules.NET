@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.WebApi.Models;
 using JetBrains.Annotations;
@@ -15,6 +16,9 @@ public interface IAzureFunctionModel : IMetadataModel, IHasName, IHasTypeReferen
     [CanBeNull] public bool IncludeMessageEnvelope { get; }
     [CanBeNull] public string QueueName { get; }
     [CanBeNull] public string Connection { get; }
+    // Default implementation so IAzureFunctionModel implementers in separately versioned modules
+    // (e.g. Dispatch.Services, Dispatch.MediatR) keep loading without being rebuilt.
+    [CanBeNull] string SubscriptionName => this.GetStereotypeProperty<string>(OperationModelStereotypeExtensions.AzureFunction.DefinitionId, "Subscription Name");
     [CanBeNull] string ScheduleExpression { get; }
     [CanBeNull] string EventHubName { get; }
     ITypeReference ReturnType { get; }

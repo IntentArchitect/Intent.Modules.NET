@@ -93,7 +93,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 });
         }
 
-        private string GetFunctionName()
+        internal string GetFunctionName()
         {
             if (!ExecutionContext.Settings.GetAzureFunctionsSettings().SimpleFunctionNames())
             {
@@ -117,9 +117,9 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             params string[] additionalFolders)
         {
             return string.Join(".", new[]
-                {
-                    OutputTarget.GetNamespace()
-                }
+            {
+                OutputTarget.GetNamespace()
+            }
                 .Concat(Model.GetParentFolders()
                     .Where(x =>
                     {
@@ -177,7 +177,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 return $"Task<{UseType("Microsoft.AspNetCore.Mvc.IActionResult")}>";
             }
             else if (Model.TriggerType == TriggerType.QueueTrigger &&
-                     AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.InProcess)
+                AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.InProcess)
             {
                 return $"Task";
             }

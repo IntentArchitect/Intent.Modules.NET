@@ -1,3 +1,7 @@
+### Version 4.7.6
+
+- Improvement: Service operation methods are now generated with `Body = Mode.Ignore` when `Intent.Application.ServiceImplementations.Conventions.CRUD` is not installed, as nothing can implement them.
+
 ### Version 4.7.5
 
 - Improvement: Added default Template Classification and Priorities.

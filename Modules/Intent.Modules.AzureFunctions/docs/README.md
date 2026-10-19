@@ -1,24 +1,24 @@
-﻿# Intent.AzureFunctions
+# Intent.AzureFunctions
 
 Azure Functions is a serverless computing service provided by Microsoft Azure that enables developers to build and deploy event-driven, scalable, and cost-effective applications without managing the underlying infrastructure. With Azure Functions, developers can write code in various languages like C#, Python, JavaScript, etc., and trigger its execution in response to events from a wide range of sources, such as HTTP requests, timers, message queues, and more. The service automatically scales to handle increased workloads and charges only for the actual compute resources used during the function execution, making it a flexible and efficient solution for building lightweight microservices, automating tasks, and integrating different services in the cloud.
 
 In the service's designer you can model your services in any of the following ways.
 
-* `Azure Function`.
-* `Command`s and `Query`s' (Expose as `Azure Function`)
-* `Service`s. (Expose the `Operation`s as `Azure Function`)
+- `Azure Function`.
+- `Command`s and `Query`s' (Expose as `Azure Function`)
+- `Service`s. (Expose the `Operation`s as `Azure Function`)
 
 ## Http Triggers
 
 Configure the Azure Function Stereotype:
 
-* Trigger to be `Http Trigger`.
+- Trigger to be `Http Trigger`.
 
 On the `Http Settings` stereotype you can configure the following :
 
-* Verb, the http Verb for the service end point.
-* Route, the http route for the service end point.
-* Return Type Mediatype, the content type of the service response.
+- Verb, the http Verb for the service end point.
+- Route, the http route for the service end point.
+- Return Type Mediatype, the content type of the service response.
 
 For more information on Azure Function Http Triggers, refer to the official [docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger).
 
@@ -26,22 +26,21 @@ For more information on Azure Function Http Triggers, refer to the official [doc
 
 Configure the Azure Function Stereotype:
 
-* Trigger to be `Cosmos DB Trigger`.
+- Trigger to be `Cosmos DB Trigger`.
 
 On the `Cosmos DB Trigger` stereotype configure the following :
 
-* Connection, name of the Cosmos DB connection string configured in your app.settings.
-* Database name, the name of the Azure Cosmos DB database with the container being monitored.
-* Container name, the name of the container being monitored.
-* LeaseContainerName, the name of the container used to store leases.
-* CreateLeaseContainerIfNotExists, when set to true, the leases container is automatically created when it doesn't already exist. The default value is false. When using Azure AD identities if you set the value to true, creating containers is not an allowed operation and your Function won't be able to start.
+- Connection, name of the Cosmos DB connection string configured in your app.settings.
+- Database name, the name of the Azure Cosmos DB database with the container being monitored.
+- Container name, the name of the container being monitored.
+- LeaseContainerName, the name of the container used to store leases.
+- CreateLeaseContainerIfNotExists, when set to true, the leases container is automatically created when it doesn't already exist. The default value is false. When using Azure AD identities if you set the value to true, creating containers is not an allowed operation and your Function won't be able to start.
 
 ![Configured Cosmos DB Trigger](images/cosmosdb-trigger-service.png)
 
 Your generated Azure Function will look similar to this:-
 
 ```csharp
-
 [Function("CustomersCreated")]
 public async Task Run(
     [CosmosDBTrigger(
@@ -56,14 +55,12 @@ public async Task Run(
     var customers = rawCollection.ToList();
     await _appService.CustomersCreated(customers, cancellationToken);
 }
-
 ```
 
 > [!NOTE]
 > If you model a `Command` or a `Service` which accepts a non-collection argument, the dispatching will be batched as per the example below.
 
 ```csharp
-
 [Function("CustomersCreated")]
 public async Task Run(
     [CosmosDBTrigger(
@@ -81,7 +78,6 @@ public async Task Run(
         await _mediator.Send(customer, cancellationToken);
     }
 }
-
 ```
 
 For more information on Azure Function Cosmos DB Triggers, refer to the official [docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-trigger).
@@ -90,8 +86,8 @@ For more information on Azure Function Cosmos DB Triggers, refer to the official
 
 Configure the Azure Function Stereotype:
 
-* Trigger to be `Timer Trigger`.
-* Schedule Expression, the NCRONTAB expressions for the timer interval.
+- Trigger to be `Timer Trigger`.
+- Schedule Expression, the NCRONTAB expressions for the timer interval.
 
 For more information on Azure Function Timer Triggers, refer to the official [docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer).
 
@@ -99,9 +95,9 @@ For more information on Azure Function Timer Triggers, refer to the official [do
 
 Configure the Azure Function Stereotype:
 
-* Trigger to be `Queue Trigger`.
-* Queue Name, the name of the queue consume.
-* Connection, name of the Azure Queue Storage connection string configured in your app.settings.
+- Trigger to be `Queue Trigger`.
+- Queue Name, the name of the queue consume.
+- Connection, name of the Azure Queue Storage connection string configured in your app.settings.
 
 ![Queue Trigger Command](images/queue-trigger-default.png)
 
@@ -154,6 +150,7 @@ public async Task Run(
 ```
 
 ### For Isolated functions:
+
 ```csharp
 [Function("CreateCustomer")]
 [QueueOutput("out-queue")]
@@ -167,6 +164,75 @@ public async Task<CustomerDto> Run(
 }
 ```
 
+## Service Bus Triggers
+
+Configure the Azure Function Stereotype:
+
+- Trigger to be `Service Bus Trigger`.
+- Queue Name, the name of the queue to consume, or the name of the topic when a Subscription Name is set. Defaults to the name of the message type when left blank.
+- Subscription Name (optional), the topic subscription to consume. Leave blank to consume from a queue.
+- Connection, name of the app setting holding the Azure Service Bus connection string. When left blank, Azure Functions uses its default `AzureWebJobsServiceBus` setting.
+
+Without a Subscription Name, an Azure Function consuming from a queue is produced:
+
+```csharp
+[Function("CreateCustomer")]
+public async Task Run(
+    [ServiceBusTrigger("my-queue", Connection = "AzureServiceBus:ConnectionString")] CreateCustomerCommand createCustomerCommand,
+    CancellationToken cancellationToken)
+{
+    await _mediator.Send(createCustomerCommand, cancellationToken);
+}
+```
+
+With a Subscription Name, an Azure Function consuming from a topic subscription is produced:
+
+```csharp
+[Function("CreateCustomer")]
+public async Task Run(
+    [ServiceBusTrigger("my-topic", "my-subscription", Connection = "AzureServiceBus:ConnectionString")] CreateCustomerCommand createCustomerCommand,
+    CancellationToken cancellationToken)
+{
+    await _mediator.Send(createCustomerCommand, cancellationToken);
+}
+```
+
+By default, Queue Name and Subscription Name are emitted as-is. To resolve an individual value from configuration, enter an app setting reference such as `%MyApp:OrdersSubscription%`, which Azure Functions resolves at startup.
+
+## Resolving Trigger Names From App Settings
+
+By default, trigger values such as queue names and schedules are written into the generated attributes as-is. To resolve an individual value from configuration, enter an app setting reference such as `%MyApp:OrdersQueue%` in the designer, which Azure Functions resolves at startup.
+
+To do this for every function, enable the `Trigger Names From App Settings` setting (Application Settings > Azure Functions Settings). Each value is then emitted as a reference to a per-function app setting, and `local.settings.json` is seeded with the modelled value:
+
+```csharp
+[Function("Orders_ProcessOrder")]
+public async Task Run(
+    [ServiceBusTrigger("%AzureFunctions:Orders_ProcessOrder:Topic%", "%AzureFunctions:Orders_ProcessOrder:Subscription%", Connection = "AzureServiceBus:ConnectionString")] ProcessOrderCommand processOrderCommand,
+    CancellationToken cancellationToken)
+```
+
+```json
+"AzureFunctions:Orders_ProcessOrder:Topic": "orders",
+"AzureFunctions:Orders_ProcessOrder:Subscription": "order-processor"
+```
+
+Keys follow `AzureFunctions:{FunctionName}:{Part}`, where `{FunctionName}` matches the `[Function]` name:
+
+| Trigger     | Value                                                          | `{Part}`                 |
+| ----------- | -------------------------------------------------------------- | ------------------------ |
+| Service Bus | Queue Name (or the topic name when a Subscription Name is set) | `Queue` / `Topic`        |
+| Service Bus | Subscription Name                                              | `Subscription`           |
+| Queue       | Queue Name                                                     | `Queue`                  |
+| RabbitMQ    | Queue Name                                                     | `Queue`                  |
+| EventHub    | EventHub Name                                                  | `EventHub`               |
+| Cosmos DB   | Database Name, Container Name                                  | `Database` / `Container` |
+| Timer       | Schedule Expression                                            | `Schedule`               |
+
+Values you already entered as `%...%` references are left untouched and not seeded. Cosmos DB lease settings (lease database, container and prefix) remain as entered. Connection properties are already app setting names; when one is set, an entry for it is also added to `local.settings.json`.
+
+> **Note:** `local.settings.json` is only used for local development. A deployed Function App must define these settings in its application configuration (in Azure, replace `:` with `__` in the setting name, e.g. `AzureFunctions__Orders_ProcessOrder__Topic`), otherwise the trigger cannot bind and the function will not start.
+
 ## Related Modules
 
 ### Intent.AzureFunctions.OpenApi
@@ -175,9 +241,7 @@ This module introduces Swagger generation and Swagger UI support for Http Trigge
 
 ## Local Development
 
-You can use the follow tools to work and test locally for things like QueueStorage
-**[Azurite](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio)**, this is a Azure storage emulator. This is installed and running by default if you are using Visual Studio 2022+.
-**[MS Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer/)**, this tool allows you to browse and interact with Azurite.
+You can use the follow tools to work and test locally for things like QueueStorage **[Azurite](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio)**, this is a Azure storage emulator. This is installed and running by default if you are using Visual Studio 2022+. **[MS Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer/)**, this tool allows you to browse and interact with Azurite.
 
 ## Migrating from In-Process functions
 
@@ -197,29 +261,28 @@ To migrate your Azure Functions applications from the .NET 6 In-Process model to
 
 ### How to use `Newtonsoft.Json` instead of `System.Text.Json` for `HttpTriggers`
 
-The `Http Trigger` Functions will be using the `AzureFunctionHelper` class to delegate the responsibility of deserializing the HTTP Payload to an incoming DTO.
-To configure your Azure Functions to use `Newtonsoft.Json` follow these steps:
+The `Http Trigger` Functions will be using the `AzureFunctionHelper` class to delegate the responsibility of deserializing the HTTP Payload to an incoming DTO. To configure your Azure Functions to use `Newtonsoft.Json` follow these steps:
 
 1. Add the following package references to your `API` project:
-    ```xml
-    <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.23.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
-    </ItemGroup>
-    ```
+   ```xml
+   <ItemGroup>
+       <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.23.0" />
+       <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+   </ItemGroup>
+   ```
 2. Inside the `AzureFunctionHelper` class replace the `SerializationSettings` and `DeserializeJsonContentAsync` members:
-    ```c#
-    [IntentIgnore]
-    private static readonly Newtonsoft.Json.JsonSerializerSettings SerializationSettings = new() { ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver() };
-    
-    [IntentIgnore]
-    public static async Task<T> DeserializeJsonContentAsync<T>(Stream jsonContentStream, CancellationToken cancellationToken)
-    {
-        var requestBody = await new StreamReader(jsonContentStream).ReadToEndAsync(cancellationToken);
-    
-        return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(requestBody) ?? throw new FormatException("Unable to deserialize JSON content.");
-    }
-    ```
+   ```c#
+   [IntentIgnore]
+   private static readonly Newtonsoft.Json.JsonSerializerSettings SerializationSettings = new() { ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver() };
+
+   [IntentIgnore]
+   public static async Task<T> DeserializeJsonContentAsync<T>(Stream jsonContentStream, CancellationToken cancellationToken)
+   {
+       var requestBody = await new StreamReader(jsonContentStream).ReadToEndAsync(cancellationToken);
+
+       return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(requestBody) ?? throw new FormatException("Unable to deserialize JSON content.");
+   }
+   ```
 3. Update the `ConfigureFunctionsWebApplication` in your `Program.cs` file to configure the outbound JSON serialization:
    ```c#
    var host = new HostBuilder()

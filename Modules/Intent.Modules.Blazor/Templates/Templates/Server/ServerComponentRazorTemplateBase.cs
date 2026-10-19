@@ -173,8 +173,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server
             var attributeDirectives = BuildAttributeDirectives();
             var pageTitle = BuildPageTitle();
 
+            // Nothing to emit (a Component or Dialog without a Secured stereotype): leave the file as-is,
+            // except for any "@attribute [Authorize]" left over from when the element was Secured.
             if (string.IsNullOrEmpty(pageDirective) && string.IsNullOrEmpty(pageTitle) && string.IsNullOrEmpty(attributeDirectives))
-                return baseContent;
+                return SecuredHelper.RemoveAuthorizeAttributeDirectives(baseContent);
 
             baseContent = NormalizeLineEndings(baseContent);
             var stripped = RemoveManagedDirectives(baseContent);
@@ -271,14 +273,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server
         private static string RemoveManagedDirectives(string content)
         {
             content = PageTitleRegex().Replace(content, string.Empty);
+            content = SecuredHelper.RemoveAuthorizeAttributeDirectives(content);
 
             var lines = content.Split('\n');
-            var kept = lines.Where(line =>
-            {
-                var t = line.Trim();
-                return !t.StartsWith("@page ") &&
-                    !(t.StartsWith("@attribute [") && t.Contains("Authorize"));
-            });
+            var kept = lines.Where(line => !line.Trim().StartsWith("@page "));
             return string.Join('\n', kept);
         }
 

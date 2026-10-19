@@ -1,249 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="4e2e78cb-a7d2-4b5c-9653-399737bb308f">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Controllers/ConfigurationStoresController.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Controllers/DocumentsController.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Filters/ExceptionFilter.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Filters/JsonMergePatchOperationFilter.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/JsonPatchRfc7396.Swashbuckle.Api.csproj" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Patching/JsonMergePatchExecutor.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Program.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Properties/launchSettings.json" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Services/CurrentUserService.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Services/PatchIgnoreMetadataProvider.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/appsettings.json" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Interfaces/ICommand.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Interfaces/IQuery.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Models/Result.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Pagination/PagedList.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Patching/IPatchExecutor.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Validation/IValidationService.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Validation/ValidationService.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationConfigurationChangeDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationConfigurationChangeKeyDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationConfigurationChangeScopeKeyDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationConfigurationItemDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationConfigurationItemKeyDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationConfigurationItemScopeKeyDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationStoreDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreChangesDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreChangesDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreItemsDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreItemsDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreKeyDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreKeyDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreScopeKeyDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreScopeKeyDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemKeyDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemKeyDto1.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemKeyDto1Validator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemScopeKeyDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemScopeKeyDto1.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemScopeKeyDto1Validator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreChangesDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreChangesDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreItemsDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreItemsDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreKeyDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreKeyDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreScopeKeyDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreScopeKeyDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreChangesDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreChangesDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreItemsDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreItemsDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreKeyDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreKeyDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreScopeKeyDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreScopeKeyDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/DependencyInjection.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocument/CreateDocumentCommand.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocument/CreateDocumentCommandHandler.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocument/CreateDocumentCommandValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandActorDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandActorDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandChangesDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandChangesDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandContentDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandContentDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandPermissionsDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandPermissionsDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandRevisionsDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandRevisionsDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandSessionsDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandSessionsDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentContentDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentContentDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentTitleDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentTitleDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DeleteDocument/DeleteDocumentCommand.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DeleteDocument/DeleteDocumentCommandHandler.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DeleteDocument/DeleteDocumentCommandValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentCollaboratorSessionDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentContentDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDocumentChangeActorDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDocumentChangeDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDocumentPermissionDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDocumentRevisionAuthorDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDocumentRevisionContentDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDocumentRevisionDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentTitleDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/GetDocumentById/GetDocumentByIdQuery.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/GetDocumentById/GetDocumentByIdQueryHandler.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/GetDocumentById/GetDocumentByIdQueryValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/GetDocuments/GetDocumentsQuery.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/GetDocuments/GetDocumentsQueryHandler.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/GetDocuments/GetDocumentsQueryValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocument/PatchDocumentCommand.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocument/PatchDocumentCommandHandler.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocument/PatchDocumentCommandValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentChange/PatchDocumentChangeCommand.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentChange/PatchDocumentChangeCommandHandler.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentChange/PatchDocumentChangeCommandValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentChangeActorDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentChangeActorDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandActorDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandActorDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandChangesDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandChangesDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandContentDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandContentDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandPermissionsDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandPermissionsDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandRevisionsDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandRevisionsDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandSessionsDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandSessionsDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandTitleDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandTitleDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocument/UpdateDocumentCommand.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocument/UpdateDocumentCommandHandler.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocument/UpdateDocumentCommandValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandActorDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandActorDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandChangesDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandChangesDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandContentDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandContentDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandPermissionsDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandPermissionsDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandRevisionsDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandRevisionsDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandSessionsDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandSessionsDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentContentDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentContentDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentTitleDto.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentTitleDtoValidator.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Implementation/ConfigurationStoresService.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Interfaces/IConfigurationStoresService.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/JsonPatchRfc7396.Swashbuckle.Application.csproj" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationConfigurationChangeDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationConfigurationChangeKeyDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationConfigurationChangeScopeKeyDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationConfigurationItemDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationConfigurationItemKeyDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationConfigurationItemScopeKeyDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationStoreDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentCollaboratorSessionDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentContentDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDocumentChangeActorDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDocumentChangeDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDocumentPermissionDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDocumentRevisionAuthorDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDocumentRevisionContentDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDocumentRevisionDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentTitleDtoProfile.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/CollaborativeEditing/Actor.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/CollaborativeEditing/DocumentContent.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/CollaborativeEditing/DocumentRole.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/CollaborativeEditing/DocumentStatus.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/CollaborativeEditing/DocumentTitle.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Common/CollectionExtensions.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Common/Interfaces/IMongoDbUnitOfWork.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Common/UpdateHelper.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Configuration/ConfigurationKey.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Configuration/ConfigurationScope.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Configuration/ConfigurationScopeKey.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Configuration/ConfigurationValueType.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/CollaborativeEditing/CollaboratorSession.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/CollaborativeEditing/Document.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/CollaborativeEditing/DocumentChange.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/CollaborativeEditing/DocumentPermission.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/CollaborativeEditing/DocumentRevision.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/Configuration/ConfigurationChange.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/Configuration/ConfigurationItem.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/Configuration/ConfigurationStore.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/JsonPatchRfc7396.Swashbuckle.Domain.csproj" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/CollaborativeEditing/IDocumentRepository.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/Configuration/IConfigurationStoreRepository.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/Documents/IActor.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/Documents/IDocumentContent.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/Documents/IDocumentTitle.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/IEFRepository.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/IMongoRepository.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/IPagedList.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/IRepository.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Domain/ValueObject.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Configuration/MongoConfigurationExtensions.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/DependencyInjection.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/JsonPatchRfc7396.Swashbuckle.Infrastructure.csproj" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Migrations/README.md" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Configurations/Configuration/ConfigurationChangeConfiguration.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Configurations/Configuration/ConfigurationItemConfiguration.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Configurations/Configuration/ConfigurationStoreConfiguration.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Documents/Actor.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Documents/DocumentContent.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Documents/DocumentTitle.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Mappings/CollaborativeEditing/DocumentMapping.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Mappings/IMongoMappingConfiguration.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/MongoDbUnitOfWork.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Repositories/CollaborativeEditing/DocumentMongoRepository.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Repositories/Configuration/ConfigurationStoreRepository.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Repositories/MongoPagedList.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Repositories/MongoRepositoryBase.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="JsonPatchRfc7396.Swashbuckle.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Controllers/ConfigurationStoresController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Controllers/DocumentsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Filters/JsonMergePatchOperationFilter.cs" templateId="Intent.AspNetCore.Controllers.JsonPatch.Templates.JsonMergePatchOperationFilter" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/JsonPatchRfc7396.Swashbuckle.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Patching/JsonMergePatchExecutor.cs" templateId="Intent.AspNetCore.Controllers.JsonPatch.Templates.JsonMergePatchExecutor" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Services/PatchIgnoreMetadataProvider.cs" templateId="Intent.AspNetCore.Controllers.JsonPatch.Templates.PatchIgnoreMetadataProvider" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Patching/IPatchExecutor.cs" templateId="Intent.AspNetCore.Controllers.JsonPatch.Templates.PatchExecutorInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationConfigurationChangeDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationConfigurationChangeKeyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationConfigurationChangeScopeKeyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationConfigurationItemDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationConfigurationItemKeyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationConfigurationItemScopeKeyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/ConfigurationStoreDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreChangesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreChangesDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreItemsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreItemsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreKeyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreKeyDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreScopeKeyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/CreateConfigurationStoreScopeKeyDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemKeyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemKeyDto1.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemKeyDto1Validator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemScopeKeyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemScopeKeyDto1.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationItemScopeKeyDto1Validator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreChangesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreChangesDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreItemsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreItemsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreKeyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreKeyDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreScopeKeyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/PatchConfigurationStoreScopeKeyDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreChangesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreChangesDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreItemsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreItemsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreKeyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreKeyDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreScopeKeyDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/ConfigurationStores/UpdateConfigurationStoreScopeKeyDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocument/CreateDocumentCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocument/CreateDocumentCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocument/CreateDocumentCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandActorDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandActorDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandChangesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandChangesDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandContentDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandContentDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandPermissionsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandPermissionsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandRevisionsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandRevisionsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandSessionsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentCommandSessionsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentContentDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentContentDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentTitleDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/CreateDocumentTitleDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DeleteDocument/DeleteDocumentCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DeleteDocument/DeleteDocumentCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DeleteDocument/DeleteDocumentCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentCollaboratorSessionDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentContentDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDocumentChangeActorDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDocumentChangeDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDocumentPermissionDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDocumentRevisionAuthorDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDocumentRevisionContentDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDocumentRevisionDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/DocumentTitleDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/GetDocumentById/GetDocumentByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/GetDocumentById/GetDocumentByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/GetDocumentById/GetDocumentByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/GetDocuments/GetDocumentsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/GetDocuments/GetDocumentsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/GetDocuments/GetDocumentsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocument/PatchDocumentCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocument/PatchDocumentCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocument/PatchDocumentCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentChange/PatchDocumentChangeCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentChange/PatchDocumentChangeCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentChange/PatchDocumentChangeCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentChangeActorDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentChangeActorDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandActorDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandActorDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandChangesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandChangesDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandContentDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandContentDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandPermissionsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandPermissionsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandRevisionsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandRevisionsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandSessionsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandSessionsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandTitleDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/PatchDocumentCommandTitleDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocument/UpdateDocumentCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocument/UpdateDocumentCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocument/UpdateDocumentCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandActorDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandActorDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandChangesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandChangesDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandContentDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandContentDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandPermissionsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandPermissionsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandRevisionsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandRevisionsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandSessionsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentCommandSessionsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentContentDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentContentDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentTitleDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Documents/UpdateDocumentTitleDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Implementation/ConfigurationStoresService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Interfaces/IConfigurationStoresService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/JsonPatchRfc7396.Swashbuckle.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationConfigurationChangeDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationConfigurationChangeKeyDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationConfigurationChangeScopeKeyDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationConfigurationItemDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationConfigurationItemKeyDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationConfigurationItemScopeKeyDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/ConfigurationStores/ConfigurationStoreDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentCollaboratorSessionDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentContentDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDocumentChangeActorDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDocumentChangeDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDocumentPermissionDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDocumentRevisionAuthorDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDocumentRevisionContentDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDocumentRevisionDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Application/Mappings/Documents/DocumentTitleDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/CollaborativeEditing/Actor.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/CollaborativeEditing/DocumentContent.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/CollaborativeEditing/DocumentRole.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/CollaborativeEditing/DocumentStatus.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/CollaborativeEditing/DocumentTitle.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Common/Interfaces/IMongoDbUnitOfWork.cs" templateId="Intent.MongoDb.MongoDbUnitOfWorkInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Configuration/ConfigurationKey.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Configuration/ConfigurationScope.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Configuration/ConfigurationScopeKey.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Configuration/ConfigurationValueType.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/CollaborativeEditing/CollaboratorSession.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/CollaborativeEditing/Document.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/CollaborativeEditing/DocumentChange.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/CollaborativeEditing/DocumentPermission.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/CollaborativeEditing/DocumentRevision.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/Configuration/ConfigurationChange.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/Configuration/ConfigurationItem.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Entities/Configuration/ConfigurationStore.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/JsonPatchRfc7396.Swashbuckle.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/CollaborativeEditing/IDocumentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/Configuration/IConfigurationStoreRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/Documents/IActor.cs" templateId="Intent.MongoDb.MongoDbValueObjectDocumentInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/Documents/IDocumentContent.cs" templateId="Intent.MongoDb.MongoDbValueObjectDocumentInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/Documents/IDocumentTitle.cs" templateId="Intent.MongoDb.MongoDbValueObjectDocumentInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/IMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepositoryInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Configuration/MongoConfigurationExtensions.cs" templateId="Intent.MongoDb.MongoConfigurationExtensions" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/JsonPatchRfc7396.Swashbuckle.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Configurations/Configuration/ConfigurationChangeConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Configurations/Configuration/ConfigurationItemConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Configurations/Configuration/ConfigurationStoreConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Documents/Actor.cs" templateId="Intent.MongoDb.MongoDbValueObjectDocument" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Documents/DocumentContent.cs" templateId="Intent.MongoDb.MongoDbValueObjectDocument" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Documents/DocumentTitle.cs" templateId="Intent.MongoDb.MongoDbValueObjectDocument" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Mappings/CollaborativeEditing/DocumentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/Mappings/IMongoMappingConfiguration.cs" templateId="Intent.MongoDb.MongoMappingConfigurationInterface" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Persistence/MongoDbUnitOfWork.cs" templateId="Intent.MongoDb.MongoDbUnitOfWork" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Repositories/CollaborativeEditing/DocumentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Repositories/Configuration/ConfigurationStoreRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Repositories/MongoPagedList.cs" templateId="Intent.MongoDb.MongoDbPagedList" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Repositories/MongoRepositoryBase.cs" templateId="Intent.MongoDb.MongoDbRepositoryBase" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="JsonPatchRfc7396.Swashbuckle.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

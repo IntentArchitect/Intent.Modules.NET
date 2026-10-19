@@ -1,84 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="c3ac2e0f-34c5-4509-9652-5f90a99106e8">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/CleanArchitecture.Comprehensive.HttpClients.Api.csproj" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/Program.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/Properties/launchSettings.json" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/Services/CurrentUserService.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/appsettings.json" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/CleanArchitecture.Comprehensive.HttpClients.Application.csproj" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Exceptions/HttpClientRequestException.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Interfaces/DistributedCacheExtensions.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Interfaces/ICommand.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Interfaces/IQuery.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Models/Result.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Pagination/PagedResult.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallCreateCustomer/CallCreateCustomerCommand.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallCreateCustomer/CallCreateCustomerCommandHandler.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallCreateCustomerName/CallCreateCustomerNameCommand.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallCreateCustomerName/CallCreateCustomerNameCommandHandler.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallDeleteCustomer/CallDeleteCustomerCommand.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallDeleteCustomer/CallDeleteCustomerCommandHandler.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomerById/CallGetCustomerByIdCommand.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomerById/CallGetCustomerByIdCommandHandler.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomerExtraFieldsQuery/CallGetCustomerExtraFieldsQuery.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomerExtraFieldsQuery/CallGetCustomerExtraFieldsQueryHandler.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomers/CallGetCustomersCommand.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomers/CallGetCustomersCommandHandler.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallHasDtoParameter/CallHasDtoParameterQuery.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallHasDtoParameter/CallHasDtoParameterQueryHandler.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallUpdateCustomer/CallUpdateCustomerCommand.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallUpdateCustomer/CallUpdateCustomerCommandHandler.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/GetCustomerByNameEmail/GetCustomerByNameEmailQuery.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/GetCustomerByNameEmail/GetCustomerByNameEmailQueryHandler.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/GetCustomersPaged/GetCustomersPagedQuery.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/GetCustomersPaged/GetCustomersPagedQueryHandler.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/DependencyInjection.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Implementation/Customers/CustomerService.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/PagedResult.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/CreateCustomerAddressDto.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/CreateCustomerCommand.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/CustomerDto.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/GetCustomerByNameEmailQuery.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/GetCustomerExtraFieldsQuery.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/GetCustomersPagedQuery.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/UpdateCustomerAddressDto.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/UpdateCustomerCommand.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/QueryDtoParameter/NestedQueryDto.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/QueryDtoParameter/QueryDtoParameterCriteria.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/ICustomersService.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/IQueryDtoParameterService.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Interfaces/Customers/ICustomerService.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Domain/CleanArchitecture.Comprehensive.HttpClients.Domain.csproj" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs/CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs.csproj" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs/Configuration/StubHttpClientConfiguration.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs/HttpClients/Customers/CustomersServiceHttpClientStub.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs/HttpClients/QueryDtoParameter/QueryDtoParameterServiceHttpClientStub.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/CleanArchitecture.Comprehensive.HttpClients.Infrastructure.csproj" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/Configuration/HttpClientConfiguration.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/DependencyInjection.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/HttpClients/Customers/CustomersServiceHttpClient.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/HttpClients/JsonResponse.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/HttpClients/QueryDtoParameter/QueryDtoParameterServiceHttpClient.cs" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/CleanArchitecture.Comprehensive.HttpClients.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/CleanArchitecture.Comprehensive.HttpClients.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Exceptions/HttpClientRequestException.cs" templateId="Intent.Integration.HttpClients.HttpClientRequestException" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" templateId="Intent.Integration.HttpClients.ProblemDetailsWithErrors" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallCreateCustomer/CallCreateCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallCreateCustomer/CallCreateCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallCreateCustomerName/CallCreateCustomerNameCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallCreateCustomerName/CallCreateCustomerNameCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallDeleteCustomer/CallDeleteCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallDeleteCustomer/CallDeleteCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomerById/CallGetCustomerByIdCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomerById/CallGetCustomerByIdCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomerExtraFieldsQuery/CallGetCustomerExtraFieldsQuery.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomerExtraFieldsQuery/CallGetCustomerExtraFieldsQueryHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomers/CallGetCustomersCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallGetCustomers/CallGetCustomersCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallHasDtoParameter/CallHasDtoParameterQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallHasDtoParameter/CallHasDtoParameterQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallUpdateCustomer/CallUpdateCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/CallUpdateCustomer/CallUpdateCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/GetCustomerByNameEmail/GetCustomerByNameEmailQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/GetCustomerByNameEmail/GetCustomerByNameEmailQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/GetCustomersPaged/GetCustomersPagedQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Customers/GetCustomersPaged/GetCustomersPagedQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Implementation/Customers/CustomerService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/PagedResult.cs" templateId="Intent.Application.Contracts.Clients.PagedResult" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/CreateCustomerAddressDto.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/CreateCustomerCommand.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/CustomerDto.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/GetCustomerByNameEmailQuery.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/GetCustomerExtraFieldsQuery.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/GetCustomersPagedQuery.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/UpdateCustomerAddressDto.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/UpdateCustomerCommand.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/QueryDtoParameter/NestedQueryDto.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/QueryDtoParameter/QueryDtoParameterCriteria.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/ICustomersService.cs" templateId="Intent.Application.Contracts.Clients.ServiceContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/IQueryDtoParameterService.cs" templateId="Intent.Application.Contracts.Clients.ServiceContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Application/Interfaces/Customers/ICustomerService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Domain/CleanArchitecture.Comprehensive.HttpClients.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs/CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs/Configuration/StubHttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.Stubs.StubHttpClientConfiguration" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs/HttpClients/Customers/CustomersServiceHttpClientStub.cs" templateId="Intent.Integration.HttpClients.Stubs.HttpClientStub" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs/HttpClients/QueryDtoParameter/QueryDtoParameterServiceHttpClientStub.cs" templateId="Intent.Integration.HttpClients.Stubs.HttpClientStub" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/CleanArchitecture.Comprehensive.HttpClients.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/HttpClients/Customers/CustomersServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/HttpClients/JsonResponse.cs" templateId="Intent.Integration.HttpClients.JsonResponse" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/HttpClients/QueryDtoParameter/QueryDtoParameterServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

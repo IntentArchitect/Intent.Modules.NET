@@ -1,204 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="535787bb-de12-40cc-bb4c-258d8c1d19b9">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/domain-services/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="TrainingModel.Tests.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="TrainingModel.Tests.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="TrainingModel.Tests.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="TrainingModel.Tests.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="TrainingModel.Tests.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="TrainingModel.Tests.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="TrainingModel.Tests.Api/Controllers/BrandsController.cs" />
-  <file path="TrainingModel.Tests.Api/Controllers/CustomersController.cs" />
-  <file path="TrainingModel.Tests.Api/Controllers/OrdersController.cs" />
-  <file path="TrainingModel.Tests.Api/Controllers/ProductsController.cs" />
-  <file path="TrainingModel.Tests.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="TrainingModel.Tests.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="TrainingModel.Tests.Api/Filters/ExceptionFilter.cs" />
-  <file path="TrainingModel.Tests.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="TrainingModel.Tests.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="TrainingModel.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="TrainingModel.Tests.Api/Program.cs" />
-  <file path="TrainingModel.Tests.Api/Properties/launchSettings.json" />
-  <file path="TrainingModel.Tests.Api/Services/CurrentUserService.cs" />
-  <file path="TrainingModel.Tests.Api/Startup.cs" />
-  <file path="TrainingModel.Tests.Api/TrainingModel.Tests.Api.csproj" />
-  <file path="TrainingModel.Tests.Api/appsettings.json" />
-  <file path="TrainingModel.Tests.Application/Brands/BrandDto.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/BrandDtoMappingExtensions.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/CreateBrand/CreateBrandCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/CreateBrand/CreateBrandCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/CreateBrand/CreateBrandCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/DeactivateBrand/DeactivateBrandCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/DeactivateBrand/DeactivateBrandCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/DeactivateBrand/DeactivateBrandCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/DeleteBrand/DeleteBrandCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/DeleteBrand/DeleteBrandCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/DeleteBrand/DeleteBrandCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/GetBrandById/GetBrandByIdQuery.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/GetBrandById/GetBrandByIdQueryHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/GetBrandById/GetBrandByIdQueryValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/GetBrands/GetBrandsQuery.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/GetBrands/GetBrandsQueryHandler.cs" deviationsHash="C253B691BBC99E61AA2034CAD2BCD71C6EC88BCDC2ABEA3F583561F24089F1E3" />
-  <file path="TrainingModel.Tests.Application/Brands/GetBrands/GetBrandsQueryValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/UpdateBrand/UpdateBrandCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/UpdateBrand/UpdateBrandCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Brands/UpdateBrand/UpdateBrandCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Eventing/IEventBus.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Interfaces/ICommand.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Interfaces/IQuery.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Models/Result.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Pagination/PagedList.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Pagination/PagedResult.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Validation/IValidationService.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Validation/ValidationService.cs" />
-  <file path="TrainingModel.Tests.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/CreateCustomer/CreateCustomerCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/CreateCustomer/CreateCustomerCommandValidator.cs" deviationsHash="1DC1AB8296E6CEBC0C334F882E800FF674858D5C303CD68E649D539871DBBB82" />
-  <file path="TrainingModel.Tests.Application/Customers/CreateCustomerCommandAddressDto.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/CreateCustomerCommandAddressDtoValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/CustomerAddressDto.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/CustomerAddressDtoMappingExtensions.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/CustomerDto.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/CustomerDtoMappingExtensions.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/GetCustomers/GetCustomersQuery.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/GetCustomers/GetCustomersQueryValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/GetCustomersPaginated/GetCustomersPaginatedQuery.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/GetCustomersPaginated/GetCustomersPaginatedQueryHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/GetCustomersPaginated/GetCustomersPaginatedQueryValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/UpdateCustomerCommandAddressDto.cs" />
-  <file path="TrainingModel.Tests.Application/Customers/UpdateCustomerCommandAddressDtoValidator.cs" />
-  <file path="TrainingModel.Tests.Application/DependencyInjection.cs" />
-  <file path="TrainingModel.Tests.Application/EventHandlers/BrandDeactivationEventHandler.cs" deviationsHash="4DA4BA4DCA52F95B2D2C2D63D1D6FB1DA8EC600289B1C983C13E5E2C4345F9C3" />
-  <file path="TrainingModel.Tests.Application/Orders/CreateOrder/CreateOrderCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/CreateOrderCommandOrderItemsDto.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/CreateOrderCommandOrderItemsDtoValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/DeleteOrder/DeleteOrderCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/DeleteOrder/DeleteOrderCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/DeleteOrder/DeleteOrderCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/GetOrderById/GetOrderByIdQuery.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/GetOrderById/GetOrderByIdQueryHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/GetOrderById/GetOrderByIdQueryValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/GetOrders/GetOrdersQuery.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/GetOrders/GetOrdersQueryHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/GetOrders/GetOrdersQueryValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/OrderDto.cs" />
-  <file path="TrainingModel.Tests.Application/Orders/OrderDtoMappingExtensions.cs" />
-  <file path="TrainingModel.Tests.Application/Products/ActivateProduct/ActivateProductCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Products/ActivateProduct/ActivateProductCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Products/ActivateProduct/ActivateProductCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Products/AddPriceProduct/AddPriceProductCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Products/AddPriceProduct/AddPriceProductCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Products/AddPriceProduct/AddPriceProductCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Products/CaptureCategoriesProduct/CaptureCategoriesProductCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Products/CaptureCategoriesProduct/CaptureCategoriesProductCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Products/CaptureCategoriesProduct/CaptureCategoriesProductCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Products/CreateProduct/CreateProductCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Products/CreateProduct/CreateProductCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Products/CreateProduct/CreateProductCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Products/DeleteProduct/DeleteProductCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Products/DeleteProduct/DeleteProductCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Products/DeleteProduct/DeleteProductCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Products/GetProductById/GetProductByIdQuery.cs" />
-  <file path="TrainingModel.Tests.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Products/GetProductById/GetProductByIdQueryValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Products/GetProducts/GetProductsQuery.cs" />
-  <file path="TrainingModel.Tests.Application/Products/GetProducts/GetProductsQueryHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Products/GetProducts/GetProductsQueryValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Products/GetProductsSearch/GetProductsSearchQuery.cs" />
-  <file path="TrainingModel.Tests.Application/Products/GetProductsSearch/GetProductsSearchQueryHandler.cs" deviationsHash="4406E3320EF7E0C13C908ACE7D1D30223A178BF6C3074D0B9C3C5F0A605D1B72" />
-  <file path="TrainingModel.Tests.Application/Products/GetProductsSearch/GetProductsSearchQueryValidator.cs" />
-  <file path="TrainingModel.Tests.Application/Products/ProductDto.cs" />
-  <file path="TrainingModel.Tests.Application/Products/ProductDtoMappingExtensions.cs" />
-  <file path="TrainingModel.Tests.Application/Products/UpdateProduct/UpdateProductCommand.cs" />
-  <file path="TrainingModel.Tests.Application/Products/UpdateProduct/UpdateProductCommandHandler.cs" />
-  <file path="TrainingModel.Tests.Application/Products/UpdateProduct/UpdateProductCommandValidator.cs" />
-  <file path="TrainingModel.Tests.Application/TrainingModel.Tests.Application.csproj" />
-  <file path="TrainingModel.Tests.Domain/AddressType.cs" />
-  <file path="TrainingModel.Tests.Domain/Common/CollectionExtensions.cs" />
-  <file path="TrainingModel.Tests.Domain/Common/DomainEvent.cs" />
-  <file path="TrainingModel.Tests.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="TrainingModel.Tests.Domain/Common/IHasDomainEvent.cs" />
-  <file path="TrainingModel.Tests.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="TrainingModel.Tests.Domain/Common/UpdateHelper.cs" />
-  <file path="TrainingModel.Tests.Domain/Entities/Address.cs" />
-  <file path="TrainingModel.Tests.Domain/Entities/Brand.cs" deviationsHash="34E47F56F0E346125356674007701F78193592C03C1E2E16660F081508867A96" />
-  <file path="TrainingModel.Tests.Domain/Entities/Category.cs" />
-  <file path="TrainingModel.Tests.Domain/Entities/Customer.cs" />
-  <file path="TrainingModel.Tests.Domain/Entities/Order.cs" />
-  <file path="TrainingModel.Tests.Domain/Entities/OrderItem.cs" />
-  <file path="TrainingModel.Tests.Domain/Entities/Preferences.cs" />
-  <file path="TrainingModel.Tests.Domain/Entities/Price.cs" />
-  <file path="TrainingModel.Tests.Domain/Entities/Product.cs" deviationsHash="0B5297F27BB3FF35378A375E6AC96B8608D1FC17B1C10A340531E579A076DA21" />
-  <file path="TrainingModel.Tests.Domain/Events/BrandDeactivationEvent.cs" />
-  <file path="TrainingModel.Tests.Domain/Repositories/IBrandRepository.cs" />
-  <file path="TrainingModel.Tests.Domain/Repositories/ICategoryRepository.cs" />
-  <file path="TrainingModel.Tests.Domain/Repositories/ICustomerRepository.cs" />
-  <file path="TrainingModel.Tests.Domain/Repositories/IEFRepository.cs" />
-  <file path="TrainingModel.Tests.Domain/Repositories/IOrderRepository.cs" />
-  <file path="TrainingModel.Tests.Domain/Repositories/IPagedList.cs" />
-  <file path="TrainingModel.Tests.Domain/Repositories/IProductRepository.cs" />
-  <file path="TrainingModel.Tests.Domain/Repositories/IRepository.cs" />
-  <file path="TrainingModel.Tests.Domain/Services/CategoryService.cs" deviationsHash="249497A41657DB36ACAEA08226864A3EF6B7C39988DED70DAA07F894A8491F4D" />
-  <file path="TrainingModel.Tests.Domain/Services/ICategoryService.cs" />
-  <file path="TrainingModel.Tests.Domain/TrainingModel.Tests.Domain.csproj" />
-  <file path="TrainingModel.Tests.Infrastructure/Configuration/MassTransitConfiguration.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/DependencyInjection.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Eventing/IntegrationEventConsumer.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Eventing/MassTransitMessageBus.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Migrations/README.md" />
-  <file path="TrainingModel.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Persistence/Configurations/BrandConfiguration.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Persistence/Configurations/CategoryConfiguration.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Repositories/BrandRepository.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Repositories/CategoryRepository.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Repositories/CustomerRepository.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Repositories/OrderRepository.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Repositories/ProductRepository.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/Services/DomainEventService.cs" />
-  <file path="TrainingModel.Tests.Infrastructure/TrainingModel.Tests.Infrastructure.csproj" deviationsHash="1628ABA9F6AFA17C86EC6E2A9C8BF9D0DE94DFB94F4C1DD9817BEBB7607C4A1C" />
-  <file path="TrainingModel.Tests.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/domain-services/SKILL.md" templateId="Intent.DomainServices.DomainServiceSkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="TrainingModel.Tests.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="TrainingModel.Tests.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="TrainingModel.Tests.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="TrainingModel.Tests.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="TrainingModel.Tests.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="TrainingModel.Tests.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="TrainingModel.Tests.Api/Controllers/BrandsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="TrainingModel.Tests.Api/Controllers/CustomersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="TrainingModel.Tests.Api/Controllers/OrdersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="TrainingModel.Tests.Api/Controllers/ProductsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="TrainingModel.Tests.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="TrainingModel.Tests.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="TrainingModel.Tests.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="TrainingModel.Tests.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="TrainingModel.Tests.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="TrainingModel.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="TrainingModel.Tests.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="TrainingModel.Tests.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="TrainingModel.Tests.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="TrainingModel.Tests.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="TrainingModel.Tests.Api/TrainingModel.Tests.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TrainingModel.Tests.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="TrainingModel.Tests.Application/Brands/BrandDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TrainingModel.Tests.Application/Brands/BrandDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="TrainingModel.Tests.Application/Brands/CreateBrand/CreateBrandCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Brands/CreateBrand/CreateBrandCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Brands/CreateBrand/CreateBrandCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Brands/DeactivateBrand/DeactivateBrandCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Brands/DeactivateBrand/DeactivateBrandCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Brands/DeactivateBrand/DeactivateBrandCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Brands/DeleteBrand/DeleteBrandCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Brands/DeleteBrand/DeleteBrandCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Brands/DeleteBrand/DeleteBrandCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Brands/GetBrandById/GetBrandByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TrainingModel.Tests.Application/Brands/GetBrandById/GetBrandByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TrainingModel.Tests.Application/Brands/GetBrandById/GetBrandByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TrainingModel.Tests.Application/Brands/GetBrands/GetBrandsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TrainingModel.Tests.Application/Brands/GetBrands/GetBrandsQueryHandler.cs" deviationsHash="C253B691BBC99E61AA2034CAD2BCD71C6EC88BCDC2ABEA3F583561F24089F1E3" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TrainingModel.Tests.Application/Brands/GetBrands/GetBrandsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TrainingModel.Tests.Application/Brands/UpdateBrand/UpdateBrandCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Brands/UpdateBrand/UpdateBrandCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Brands/UpdateBrand/UpdateBrandCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="TrainingModel.Tests.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="TrainingModel.Tests.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />
+  <file path="TrainingModel.Tests.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="TrainingModel.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="TrainingModel.Tests.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="TrainingModel.Tests.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="TrainingModel.Tests.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="TrainingModel.Tests.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="TrainingModel.Tests.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="TrainingModel.Tests.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="TrainingModel.Tests.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="TrainingModel.Tests.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="TrainingModel.Tests.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="TrainingModel.Tests.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="TrainingModel.Tests.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="TrainingModel.Tests.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="TrainingModel.Tests.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="TrainingModel.Tests.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="TrainingModel.Tests.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="TrainingModel.Tests.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="TrainingModel.Tests.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="TrainingModel.Tests.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="TrainingModel.Tests.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="TrainingModel.Tests.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="TrainingModel.Tests.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="TrainingModel.Tests.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="TrainingModel.Tests.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="TrainingModel.Tests.Application/Customers/CreateCustomer/CreateCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Customers/CreateCustomer/CreateCustomerCommandValidator.cs" deviationsHash="1DC1AB8296E6CEBC0C334F882E800FF674858D5C303CD68E649D539871DBBB82" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Customers/CreateCustomerCommandAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TrainingModel.Tests.Application/Customers/CreateCustomerCommandAddressDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="TrainingModel.Tests.Application/Customers/CustomerAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TrainingModel.Tests.Application/Customers/CustomerAddressDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="TrainingModel.Tests.Application/Customers/CustomerDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TrainingModel.Tests.Application/Customers/CustomerDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="TrainingModel.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TrainingModel.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TrainingModel.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TrainingModel.Tests.Application/Customers/GetCustomers/GetCustomersQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TrainingModel.Tests.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TrainingModel.Tests.Application/Customers/GetCustomers/GetCustomersQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TrainingModel.Tests.Application/Customers/GetCustomersPaginated/GetCustomersPaginatedQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TrainingModel.Tests.Application/Customers/GetCustomersPaginated/GetCustomersPaginatedQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TrainingModel.Tests.Application/Customers/GetCustomersPaginated/GetCustomersPaginatedQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TrainingModel.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Customers/UpdateCustomerCommandAddressDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TrainingModel.Tests.Application/Customers/UpdateCustomerCommandAddressDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="TrainingModel.Tests.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="TrainingModel.Tests.Application/EventHandlers/BrandDeactivationEventHandler.cs" deviationsHash="4DA4BA4DCA52F95B2D2C2D63D1D6FB1DA8EC600289B1C983C13E5E2C4345F9C3" templateId="Intent.MediatR.DomainEvents.DefaultDomainEventHandler" />
+  <file path="TrainingModel.Tests.Application/Orders/CreateOrder/CreateOrderCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Orders/CreateOrderCommandOrderItemsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TrainingModel.Tests.Application/Orders/CreateOrderCommandOrderItemsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="TrainingModel.Tests.Application/Orders/DeleteOrder/DeleteOrderCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Orders/DeleteOrder/DeleteOrderCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Orders/DeleteOrder/DeleteOrderCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Orders/GetOrderById/GetOrderByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TrainingModel.Tests.Application/Orders/GetOrderById/GetOrderByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TrainingModel.Tests.Application/Orders/GetOrderById/GetOrderByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TrainingModel.Tests.Application/Orders/GetOrders/GetOrdersQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TrainingModel.Tests.Application/Orders/GetOrders/GetOrdersQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TrainingModel.Tests.Application/Orders/GetOrders/GetOrdersQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TrainingModel.Tests.Application/Orders/OrderDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TrainingModel.Tests.Application/Orders/OrderDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="TrainingModel.Tests.Application/Products/ActivateProduct/ActivateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Products/ActivateProduct/ActivateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Products/ActivateProduct/ActivateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Products/AddPriceProduct/AddPriceProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Products/AddPriceProduct/AddPriceProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Products/AddPriceProduct/AddPriceProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Products/CaptureCategoriesProduct/CaptureCategoriesProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Products/CaptureCategoriesProduct/CaptureCategoriesProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Products/CaptureCategoriesProduct/CaptureCategoriesProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Products/CreateProduct/CreateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Products/CreateProduct/CreateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Products/CreateProduct/CreateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Products/DeleteProduct/DeleteProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Products/DeleteProduct/DeleteProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Products/DeleteProduct/DeleteProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/Products/GetProductById/GetProductByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TrainingModel.Tests.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TrainingModel.Tests.Application/Products/GetProductById/GetProductByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TrainingModel.Tests.Application/Products/GetProducts/GetProductsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TrainingModel.Tests.Application/Products/GetProducts/GetProductsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TrainingModel.Tests.Application/Products/GetProducts/GetProductsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TrainingModel.Tests.Application/Products/GetProductsSearch/GetProductsSearchQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="TrainingModel.Tests.Application/Products/GetProductsSearch/GetProductsSearchQueryHandler.cs" deviationsHash="4406E3320EF7E0C13C908ACE7D1D30223A178BF6C3074D0B9C3C5F0A605D1B72" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="TrainingModel.Tests.Application/Products/GetProductsSearch/GetProductsSearchQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="TrainingModel.Tests.Application/Products/ProductDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TrainingModel.Tests.Application/Products/ProductDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="TrainingModel.Tests.Application/Products/UpdateProduct/UpdateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="TrainingModel.Tests.Application/Products/UpdateProduct/UpdateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="TrainingModel.Tests.Application/Products/UpdateProduct/UpdateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="TrainingModel.Tests.Application/TrainingModel.Tests.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TrainingModel.Tests.Domain/AddressType.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="TrainingModel.Tests.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="TrainingModel.Tests.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="TrainingModel.Tests.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="TrainingModel.Tests.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="TrainingModel.Tests.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="TrainingModel.Tests.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="TrainingModel.Tests.Domain/Entities/Address.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TrainingModel.Tests.Domain/Entities/Brand.cs" deviationsHash="34E47F56F0E346125356674007701F78193592C03C1E2E16660F081508867A96" templateId="Intent.Entities.DomainEntity" />
+  <file path="TrainingModel.Tests.Domain/Entities/Category.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TrainingModel.Tests.Domain/Entities/Customer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TrainingModel.Tests.Domain/Entities/Order.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TrainingModel.Tests.Domain/Entities/OrderItem.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TrainingModel.Tests.Domain/Entities/Preferences.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TrainingModel.Tests.Domain/Entities/Price.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TrainingModel.Tests.Domain/Entities/Product.cs" deviationsHash="0B5297F27BB3FF35378A375E6AC96B8608D1FC17B1C10A340531E579A076DA21" templateId="Intent.Entities.DomainEntity" />
+  <file path="TrainingModel.Tests.Domain/Events/BrandDeactivationEvent.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="TrainingModel.Tests.Domain/Repositories/IBrandRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="TrainingModel.Tests.Domain/Repositories/ICategoryRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="TrainingModel.Tests.Domain/Repositories/ICustomerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="TrainingModel.Tests.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="TrainingModel.Tests.Domain/Repositories/IOrderRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="TrainingModel.Tests.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="TrainingModel.Tests.Domain/Repositories/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="TrainingModel.Tests.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="TrainingModel.Tests.Domain/Services/CategoryService.cs" deviationsHash="249497A41657DB36ACAEA08226864A3EF6B7C39988DED70DAA07F894A8491F4D" templateId="Intent.DomainServices.DomainServiceImplementation" />
+  <file path="TrainingModel.Tests.Domain/Services/ICategoryService.cs" templateId="Intent.DomainServices.DomainServiceInterface" />
+  <file path="TrainingModel.Tests.Domain/TrainingModel.Tests.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TrainingModel.Tests.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
+  <file path="TrainingModel.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="TrainingModel.Tests.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
+  <file path="TrainingModel.Tests.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
+  <file path="TrainingModel.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="TrainingModel.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="TrainingModel.Tests.Infrastructure/Persistence/Configurations/BrandConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="TrainingModel.Tests.Infrastructure/Persistence/Configurations/CategoryConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="TrainingModel.Tests.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="TrainingModel.Tests.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="TrainingModel.Tests.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="TrainingModel.Tests.Infrastructure/Repositories/BrandRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="TrainingModel.Tests.Infrastructure/Repositories/CategoryRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="TrainingModel.Tests.Infrastructure/Repositories/CustomerRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="TrainingModel.Tests.Infrastructure/Repositories/OrderRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="TrainingModel.Tests.Infrastructure/Repositories/ProductRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="TrainingModel.Tests.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="TrainingModel.Tests.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="TrainingModel.Tests.Infrastructure/TrainingModel.Tests.Infrastructure.csproj" deviationsHash="1628ABA9F6AFA17C86EC6E2A9C8BF9D0DE94DFB94F4C1DD9817BEBB7607C4A1C" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TrainingModel.Tests.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

@@ -195,29 +195,29 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
             NeatlyRemove(GetFileItem(xml, relativeFileName));
             NeatlyRemove(GetRemoveItem(xml, relativeFileName));
+        }
 
-            static void NeatlyRemove(XNode node)
+        private static void NeatlyRemove(XNode node)
+        {
+            if (node == null)
             {
-                if (node == null)
-                {
-                    return;
-                }
-
-                // If the parent node only contains this node, remove the parent node
-                if (node.Parent?.Elements().Count() == 1)
-                {
-                    node = node.Parent;
-                }
-
-                // Also delete leading whitespace:
-                var nodeBefore = node.NodesBeforeSelf().LastOrDefault();
-                if (nodeBefore != null && string.IsNullOrWhiteSpace(nodeBefore.ToString()))
-                {
-                    nodeBefore.Remove();
-                }
-
-                node.Remove();
+                return;
             }
+
+            // If the parent node only contains this node, remove the parent node
+            if (node.Parent?.Elements().Count() == 1)
+            {
+                node = node.Parent;
+            }
+
+            // Also delete leading whitespace:
+            var nodeBefore = node.NodesBeforeSelf().LastOrDefault();
+            if (nodeBefore != null && string.IsNullOrWhiteSpace(nodeBefore.ToString()))
+            {
+                nodeBefore.Remove();
+            }
+
+            node.Remove();
         }
 
         private void ProcessAddProjectItem(
@@ -232,6 +232,11 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 throw new Exception($"{nameof(relativeFileName)} is null");
             }
 
+            if (data.LeaveProjectItemsUnchanged)
+            {
+                return;
+            }
+
             var itemElement = GetFileItem(xml, relativeFileName);
             if (ProjectSyncProcessorBase.IsIgnored(itemElement))
             {
@@ -243,7 +248,24 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 data.Elements.Count == 0 &&
                 itemElement?.Descendants().Any(ProjectSyncProcessorBase.IsIgnored) != true)
             {
-                itemElement?.Remove();
+                if (itemElement == null)
+                {
+                    return;
+                }
+
+                // An item of the same type removed and then re-included is the pair written for a
+                // RemoveItemType. Dropping only the re-include would exclude the file altogether (e.g.
+                // appsettings.json no longer copied to the output), so the pair goes together. A Remove
+                // with no matching re-include is a deliberate exclusion and is kept.
+                var pairedRemoveItem = GetRemoveItem(xml, relativeFileName);
+                if (pairedRemoveItem != null &&
+                    pairedRemoveItem.Name == itemElement.Name &&
+                    !pairedRemoveItem.DescendantNodesAndSelf().Any(ProjectSyncProcessorBase.IsIgnored))
+                {
+                    NeatlyRemove(pairedRemoveItem);
+                }
+
+                NeatlyRemove(itemElement);
                 return;
             }
 

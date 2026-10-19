@@ -1,98 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="65b33b65-b7ce-4175-8344-4522f421ec6e">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/AzureFunctionHelper.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/Configuration/GraphQLConfiguration.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/Configuration/OpenApiConfigurationOptions.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/GraphQL.AzureFunction.TestApplication.Api.csproj" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/GraphQL/Mutations/CustomersMutations.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/GraphQL/Mutations/ProductMutations.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/GraphQL/Queries/CustomersQueries.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/GraphQL/Queries/ProductQueries.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/GraphQLFunction.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/ResponseTypes/JsonResponse.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/Services/CurrentUserService.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/Startup.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/host.json" />
-  <file path="GraphQL.AzureFunction.TestApplication.Api/local.settings.json" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICommand.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/IQuery.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Models/Result.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Pagination/PagedList.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Pagination/PagedResult.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Customers/CustomerCreateDto.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Customers/CustomerDto.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Customers/CustomerDtoMappingExtensions.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Customers/CustomerUpdateDto.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/DependencyInjection.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/GraphQL.AzureFunction.TestApplication.Application.csproj" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/IValidationService.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Implementation/CustomersService.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Interfaces/ICustomersService.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/CreateProduct/CreateProductCommand.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/CreateProduct/CreateProductCommandHandler.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/DeleteProduct/DeleteProductCommand.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/DeleteProduct/DeleteProductCommandHandler.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/GetProductById/GetProductByIdQuery.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/GetProducts/GetProductsQuery.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/GetProducts/GetProductsQueryHandler.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/ProductDto.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/ProductDtoMappingExtensions.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/UpdateProduct/UpdateProductCommand.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/UpdateProduct/UpdateProductCommandHandler.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/ResourceLocation.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/ValidationService.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Customers/CustomerCreateDtoValidator.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Customers/CustomerUpdateDtoValidator.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Products/CreateProduct/CreateProductCommandValidator.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Products/DeleteProduct/DeleteProductCommandValidator.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Products/GetProductById/GetProductByIdQueryValidator.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Products/GetProducts/GetProductsQueryValidator.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Products/UpdateProduct/UpdateProductCommandValidator.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Domain/Common/CollectionExtensions.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Domain/Common/UpdateHelper.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Domain/Entities/Customer.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Domain/Entities/Product.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Domain/GraphQL.AzureFunction.TestApplication.Domain.csproj" />
-  <file path="GraphQL.AzureFunction.TestApplication.Domain/Repositories/ICustomerRepository.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Domain/Repositories/IEFRepository.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Domain/Repositories/IPagedList.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Domain/Repositories/IProductRepository.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Domain/Repositories/IRepository.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/DependencyInjection.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/GraphQL.AzureFunction.TestApplication.Infrastructure.csproj" />
-  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Migrations/README.md" />
-  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Repositories/CustomerRepository.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Repositories/ProductRepository.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="GraphQL.AzureFunction.TestApplication.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/AzureFunctionHelper.cs" templateId="Intent.AzureFunctions.AzureFunctionClassHelper" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/Configuration/GraphQLConfiguration.cs" templateId="Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLConfigTemplate" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/Configuration/OpenApiConfigurationOptions.cs" templateId="Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/GraphQL.AzureFunction.TestApplication.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/GraphQL/Mutations/CustomersMutations.cs" templateId="Intent.HotChocolate.GraphQL.MutationType" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/GraphQL/Mutations/ProductMutations.cs" templateId="Intent.HotChocolate.GraphQL.MutationType" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/GraphQL/Queries/CustomersQueries.cs" templateId="Intent.HotChocolate.GraphQL.QueryType" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/GraphQL/Queries/ProductQueries.cs" templateId="Intent.HotChocolate.GraphQL.QueryType" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/GraphQLFunction.cs" templateId="Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLFunctionTemplate" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/ResponseTypes/JsonResponse.cs" templateId="Intent.AzureFunctions.ReturnTypes.JsonResponse" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/Startup.cs" templateId="Intent.AzureFunctions.InProcess.Startup" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/host.json" templateId="Intent.VisualStudio.Projects.AzureFunctions.HostJson" />
+  <file path="GraphQL.AzureFunction.TestApplication.Api/local.settings.json" templateId="Intent.VisualStudio.Projects.AzureFunctions.LocalSettingsJson" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Customers/CustomerCreateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Customers/CustomerDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Customers/CustomerDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Customers/CustomerUpdateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/GraphQL.AzureFunction.TestApplication.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Implementation/CustomersService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Interfaces/ICustomersService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/CreateProduct/CreateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/CreateProduct/CreateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/DeleteProduct/DeleteProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/DeleteProduct/DeleteProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/GetProductById/GetProductByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/GetProducts/GetProductsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/GetProducts/GetProductsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/ProductDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/ProductDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/UpdateProduct/UpdateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Products/UpdateProduct/UpdateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/ResourceLocation.cs" templateId="Intent.AzureFunctions.ReturnTypes.ResourceLocationClass" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Customers/CustomerCreateDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Customers/CustomerUpdateDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Products/CreateProduct/CreateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Products/DeleteProduct/DeleteProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Products/GetProductById/GetProductByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Products/GetProducts/GetProductsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="GraphQL.AzureFunction.TestApplication.Application/Validators/Products/UpdateProduct/UpdateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="GraphQL.AzureFunction.TestApplication.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="GraphQL.AzureFunction.TestApplication.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="GraphQL.AzureFunction.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="GraphQL.AzureFunction.TestApplication.Domain/Entities/Customer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="GraphQL.AzureFunction.TestApplication.Domain/Entities/Product.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="GraphQL.AzureFunction.TestApplication.Domain/GraphQL.AzureFunction.TestApplication.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="GraphQL.AzureFunction.TestApplication.Domain/Repositories/ICustomerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Domain/Repositories/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/GraphQL.AzureFunction.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Repositories/CustomerRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Repositories/ProductRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="GraphQL.AzureFunction.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="GraphQL.AzureFunction.TestApplication.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

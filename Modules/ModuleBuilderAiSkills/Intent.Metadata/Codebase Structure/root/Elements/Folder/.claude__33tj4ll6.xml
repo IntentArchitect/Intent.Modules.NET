@@ -253,5 +253,33 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="7216f847-ef84-4e36-a53d-4bfc1397daee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Workflow.RootPrinciples.CodexInstructionsConfig</name>
+      <display>Intent.ModuleBuilder.AI.Workflow.RootPrinciples.CodexInstructionsConfig</display>
+      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1322312d-da41-4666-8176-1824b19b0d0f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="40f08a94-74f8-4fd8-a7df-7dbf42beecaf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Workflow.RootPrinciples.OpenCodeInstructionsConfig</name>
+      <display>Intent.ModuleBuilder.AI.Workflow.RootPrinciples.OpenCodeInstructionsConfig</display>
+      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1322312d-da41-4666-8176-1824b19b0d0f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

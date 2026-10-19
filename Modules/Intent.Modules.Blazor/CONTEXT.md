@@ -116,3 +116,41 @@ returns early whenever MudBlazor is installed), and the consumer's build fails o
 `.razor.cs` files as static content with the same verbatim-emission property. They are reference samples
 written into `.agents/skills/` for AI consumption — not compiled application code, not part of the build.
 Left alone.
+
+## Invariant: removing `Secured` must remove `@attribute [Authorize]` on every component variant (2026-10-07)
+
+`TransformTextCore()` (Client and Server `*ComponentRazorTemplateBase`) treats an existing `.razor` file as
+user-owned and only rebuilds the directives it manages: `@page`, `<PageTitle>` and the `Secured`-driven
+`@attribute [Authorize]`. It had an early return — when the model emits none of the three, return the file
+verbatim — and that early return skipped `RemoveManagedDirectives`. For a **Page** it never fires (`@page`
+is always emitted), which is why the bug did not reproduce on pages. For a plain **Component** or
+**Dialog**, removing `Secured` made all three empty, so the stale `@attribute [Authorize]` survived every
+regeneration.
+
+The early return now strips only the `@attribute [Authorize]` directives and leaves everything else
+byte-for-byte. Rejected: dropping the
+early return and running the full rebuild path — that normalises line endings and strips `@page` /
+`<PageTitle>` on every non-page component, a one-time churn across every component file plus deleting any
+hand-added `@page` on a Component. Known residual: converting a Page to a Component still leaves its old
+`@page` line behind, by the same reasoning.
+
+**One recogniser for both paths: `SecuredHelper.RemoveAuthorizeAttributeDirectives`.** The Page path
+(`RemoveManagedDirectives`) and the Component/Dialog early return both call it — never re-add a local
+`Authorize` check to either base, or the two paths drift apart again. It was introduced because the original
+`StartsWith("@attribute [") && Contains("Authorize")` test was simultaneously too narrow and too broad:
+
+- *Missed* (so a stale directive survived): `@attribute[Authorize]`, extra spaces/tabs, `[ Authorize ]`,
+  `global::`-prefixed or `AuthorizeAttribute` names, and arguments wrapped across several lines (only the
+  first line was dropped, leaving the rest as broken Razor).
+- *Over-matched* (deleting the developer's own code): any `@attribute` line containing the substring, e.g.
+  `[MyAuthorize]` or `[Route("/Authorize")]`.
+
+Deliberately left alone: combined lists such as `[Authorize, StreamRendering]` — the template never emits
+that form, and removing the line would also delete the other attribute. Commented-out directives
+(`@* ... *@`) are left too. The edge cases were verified against the compiled helper and both bases'
+`RemoveManagedDirectives` (via reflection) — the module has no test project.
+
+Not covered by the template at all, by design: `[Authorize]` on the `.razor.cs` partial class (the
+code-behind is `Mode.Merge` and the template never emits that attribute, so it is never removed), and
+`@attribute [Authorize]` in a folder `_Imports.razor`. Both are hand/LLM-authored and outside what this
+template owns.

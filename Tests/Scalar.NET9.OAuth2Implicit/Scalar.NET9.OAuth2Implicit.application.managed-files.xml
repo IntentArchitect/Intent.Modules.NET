@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="1955332e-854d-46d7-ab61-72c14b1da1b8">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="Scalar.NET9.OAuth2Implicit.Api/Configuration/OpenApiConfiguration.cs" />
-  <file path="Scalar.NET9.OAuth2Implicit.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Scalar.NET9.OAuth2Implicit.Api/Filters/ExceptionFilter.cs" />
-  <file path="Scalar.NET9.OAuth2Implicit.Api/Program.cs" />
-  <file path="Scalar.NET9.OAuth2Implicit.Api/Properties/launchSettings.json" />
-  <file path="Scalar.NET9.OAuth2Implicit.Api/Scalar.NET9.OAuth2Implicit.Api.csproj" />
-  <file path="Scalar.NET9.OAuth2Implicit.Api/Transformers/HideRouteParametersFromBodyOperationTransformer.cs" />
-  <file path="Scalar.NET9.OAuth2Implicit.Api/appsettings.json" />
-  <file path="Scalar.NET9.OAuth2Implicit.Application/DependencyInjection.cs" />
-  <file path="Scalar.NET9.OAuth2Implicit.Application/Scalar.NET9.OAuth2Implicit.Application.csproj" />
-  <file path="Scalar.NET9.OAuth2Implicit.Domain/Scalar.NET9.OAuth2Implicit.Domain.csproj" />
-  <file path="Scalar.NET9.OAuth2Implicit.Infrastructure/DependencyInjection.cs" />
-  <file path="Scalar.NET9.OAuth2Implicit.Infrastructure/Scalar.NET9.OAuth2Implicit.Infrastructure.csproj" />
-  <file path="Scalar.NET9.OAuth2Implicit.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="Scalar.NET9.OAuth2Implicit.Api/Configuration/OpenApiConfiguration.cs" templateId="Intent.AspNetCore.Scalar.OpenApiConfiguration" />
+  <file path="Scalar.NET9.OAuth2Implicit.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Scalar.NET9.OAuth2Implicit.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="Scalar.NET9.OAuth2Implicit.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Scalar.NET9.OAuth2Implicit.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Scalar.NET9.OAuth2Implicit.Api/Scalar.NET9.OAuth2Implicit.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Scalar.NET9.OAuth2Implicit.Api/Transformers/HideRouteParametersFromBodyOperationTransformer.cs" templateId="Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer" />
+  <file path="Scalar.NET9.OAuth2Implicit.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Scalar.NET9.OAuth2Implicit.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Scalar.NET9.OAuth2Implicit.Application/Scalar.NET9.OAuth2Implicit.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Scalar.NET9.OAuth2Implicit.Domain/Scalar.NET9.OAuth2Implicit.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Scalar.NET9.OAuth2Implicit.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Scalar.NET9.OAuth2Implicit.Infrastructure/Scalar.NET9.OAuth2Implicit.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Scalar.NET9.OAuth2Implicit.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

@@ -9,6 +9,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.OutputTargets;
+using Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution.Merging;
 using Intent.Templates;
 using Microsoft.VisualStudio.SolutionPersistence.Model;
 using Microsoft.VisualStudio.SolutionPersistence.Serializer;
@@ -146,10 +147,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
         }
 
         /// <remarks>
-        /// When <paramref name="locationInProject"/> is unset, this reproduces the exact historical
-        /// string format byte-for-byte. It only switches to resolving via absolute paths - which
-        /// normalizes that format - once the .slnx file's own location has actually been shifted away
-        /// from <paramref name="outputRootDirectory"/>, since only then do the two need reconciling.
+        /// When <paramref name="locationInProject"/> is unset, the project's relative location is used
+        /// as-is apart from normalization (<see cref="SlnxMerger.NormalizePath"/>): forward slashes, and
+        /// no <c>./</c> prefix or <c>x/..</c> segments, so a Materialize Folder project is written as
+        /// <c>src/X/X.csproj</c>, the way <c>dotnet sln add</c> writes it. It only switches to resolving
+        /// via absolute paths once the .slnx file's own location has actually been shifted away from
+        /// <paramref name="outputRootDirectory"/>, since only then do the two need reconciling.
         /// </remarks>
         private static string GetProjectRelativePath(IVisualStudioSolutionProject project, string outputRootDirectory, string locationInProject, OutputLocationOptions outputLocationOptions)
         {
@@ -159,7 +162,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
             {
                 return string.IsNullOrEmpty(location)
                     ? $"{project.Name}.{project.FileExtension}"
-                    : $"{location.Replace('\\', '/')}/{project.Name}.{project.FileExtension}";
+                    : SlnxMerger.NormalizePath($"{location}/{project.Name}.{project.FileExtension}");
             }
 
             var solutionDirectory = Path.GetFullPath(Path.Combine(outputRootDirectory, locationInProject));

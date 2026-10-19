@@ -2,16 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.VisualStudio.Projects.Sync;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -27,6 +29,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
         public const string TemplateId = "Intent.VisualStudio.Projects.CoreWeb.AppSettings";
         private readonly IList<AppSettingRegistrationRequest> _appSettings = new List<AppSettingRegistrationRequest>();
         private readonly IList<ConnectionStringRegistrationRequest> _connectionStrings = new List<ConnectionStringRegistrationRequest>();
+        private readonly List<string> _droppedKeys = [];
+        private bool _droppedKeysLogged;
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public AppSettingsTemplate(IOutputTarget outputTarget, AppSettingsModel model = null) : base(TemplateId, outputTarget, model)
@@ -50,16 +54,111 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             return Model.IncludeAspNetCoreLoggingLevel;
         }
 
-        public override string RunTemplate()
+        /// <summary>
+        /// Adds a setting to this file only. Unlike an <see cref="AppSettingRegistrationRequest"/>, which
+        /// every applicable host project claims, it can't land in another project's file. Ignored when
+        /// the template is hands-off.
+        /// </summary>
+        internal void AddSetting(string key, object value)
         {
-            if (!TryGetExistingFileContent(out var content))
+            if (Model.IsHandsOff)
             {
-                content = TransformText();
+                _droppedKeys.Add(key);
+                return;
             }
 
-            var (cleanContent, commentBlocks) = JsonCommentPreserver.ExtractAndStrip(content);
-            var json = JsonConvert.DeserializeObject<JObject>(cleanContent);
+            if (_appSettings.Any(x => x.Key == key))
+            {
+                return;
+            }
 
+            _appSettings.Add(new AppSettingRegistrationRequest(key, value));
+        }
+
+        public override bool CanRunTemplate()
+        {
+            if (Model.IsHandsOff)
+            {
+                // Never create the file. An existing one is still "generated" (unchanged, below) so that
+                // the Software Factory neither rewrites it nor proposes deleting it.
+                LogDroppedKeys();
+                return TryGetExistingFileContent(out _) && base.CanRunTemplate();
+            }
+
+            return base.CanRunTemplate();
+        }
+
+        public override string RunTemplate()
+        {
+            var hasExistingFile = TryGetExistingFileContent(out var existingContent);
+
+            if (Model.IsHandsOff)
+            {
+                LogDroppedKeys();
+                return existingContent;
+            }
+
+            if (hasExistingFile)
+            {
+                return UpdateExistingFile(existingContent, ApplySettings);
+            }
+
+            var settings = GetEditorConfigSettings();
+            return CreateNewFile(
+                content: TransformText(),
+                applySettings: ApplySettings,
+                indentChar: settings["indent_style"].Equals("tab", StringComparison.OrdinalIgnoreCase) ? '\t' : ' ',
+                indentation: int.Parse(settings["indent_size"]));
+        }
+
+        /// <summary>
+        /// An existing file is the developer's: it is returned byte-for-byte when nothing was added, and
+        /// otherwise keeps its own indentation and newlines rather than taking them from .editorconfig.
+        /// </summary>
+        internal static string UpdateExistingFile(string existingContent, Action<JObject> applySettings)
+        {
+            var (cleanContent, commentBlocks) = JsonCommentPreserver.ExtractAndStrip(existingContent);
+            var original = JsonFileFormatting.Parse(cleanContent);
+            var json = (JObject)original.DeepClone();
+
+            applySettings(json);
+
+            if (JToken.DeepEquals(original, json))
+            {
+                return existingContent;
+            }
+
+            var updated = JsonCommentPreserver.Restore(JsonFileFormatting.Serialize(json, cleanContent), commentBlocks);
+            return updated.ReplaceLineEndings(JsonFileFormatting.DetectNewLine(existingContent));
+        }
+
+        internal static string CreateNewFile(string content, Action<JObject> applySettings, char indentChar, int indentation)
+        {
+            var (cleanContent, commentBlocks) = JsonCommentPreserver.ExtractAndStrip(content);
+            var json = JsonFileFormatting.Parse(cleanContent);
+
+            applySettings(json);
+
+            var serialized = JsonFileFormatting.Serialize(json, indentChar, indentation, Environment.NewLine);
+            return JsonCommentPreserver.Restore(serialized, commentBlocks);
+        }
+
+        private void LogDroppedKeys()
+        {
+            if (_droppedKeysLogged || _droppedKeys.Count == 0)
+            {
+                return;
+            }
+
+            _droppedKeysLogged = true;
+            var fileName = $"appsettings{(Model.RuntimeEnvironment != null ? $".{Model.RuntimeEnvironment.Name.ToPascalCase()}" : string.Empty)}.json";
+            Logging.Log.Info(
+                $"\"Generate AppSettings File\" is off for project \"{OutputTarget.GetProject()?.Name ?? OutputTarget.Name}\", " +
+                $"so these settings were not added to its {fileName}: {string.Join(", ", _droppedKeys.Distinct())}");
+        }
+
+        private void ApplySettings(JObject json)
+        {
             foreach (var appSetting in _appSettings)
             {
                 json.SetFieldValue(appSetting.Key, appSetting.Value, false);
@@ -83,24 +182,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             {
                 decorator.UpdateSettings(appSettings);
             }
-
-            string serialized;
-            using (var sw = new StringWriter())
-            {
-                using (var jw = new JsonTextWriter(sw))
-                {
-                    var settings = GetEditorConfigSettings();
-                    jw.Formatting = Formatting.Indented;
-                    jw.Indentation = int.Parse(settings["indent_size"]);
-                    jw.IndentChar = settings["indent_style"].Equals("tab", StringComparison.OrdinalIgnoreCase) ? '\t' : ' '; ;
-
-                    var serializer = new JsonSerializer();
-                    serializer.Serialize(jw, json);
-                    serialized = sw.ToString();
-                }
-            }
-
-            return JsonCommentPreserver.Restore(serialized, commentBlocks);
         }
 
         static Dictionary<string, string> DefaultSettings { get; } = new()
@@ -125,7 +206,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             {
                 try
                 {
-                    ParseEditorConfigToSettings(editorConfig, settings);
+                    ParseEditorConfigToSettings(editorConfig, filePath, settings);
                 }
                 catch (Exception ex)
                 {
@@ -211,23 +292,32 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             return editorConfigFiles;
         }
 
-        private static void ParseEditorConfigToSettings(string content, Dictionary<string, string> settings)
+        /// <summary>
+        /// Applies the properties of every section of an <c>.editorconfig</c> whose glob matches
+        /// <paramref name="filePath"/>, so e.g. a <c>[*.cs]</c> <c>indent_size</c> never reaches JSON.
+        /// </summary>
+        internal static void ParseEditorConfigToSettings(string content, string filePath, Dictionary<string, string> settings)
         {
             var lines = content.ReplaceLineEndings("\n").Split('\n');
 
+            // Properties before the first section (the preamble, e.g. "root = true") apply to no file
+            var sectionMatches = false;
             foreach (var line in lines.Select(l => l.Trim()))
             {
-                if (string.IsNullOrWhiteSpace(line) || line.StartsWith('#'))
+                if (string.IsNullOrWhiteSpace(line) || line.StartsWith('#') || line.StartsWith(';'))
                 {
-                    continue; // Skip comments and section headers
+                    continue;
                 }
-                if (line.StartsWith('['))
+
+                if (line.StartsWith('[') && line.EndsWith(']'))
                 {
-                    var match = line.Substring(1, line.Length - 2); // Remove []
-                    if (match is not "*" or "*.json")
-                    {
-                        continue;
-                    }
+                    sectionMatches = EditorConfigSectionMatches(line[1..^1], filePath);
+                    continue;
+                }
+
+                if (!sectionMatches)
+                {
+                    continue;
                 }
 
                 var keyValue = line.Split(['='], 2);
@@ -235,6 +325,75 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                 {
                     settings[keyValue[0].Trim()] = keyValue[1].Trim();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Matches an <c>.editorconfig</c> section glob (<c>*</c>, <c>**</c>, <c>?</c>, <c>[...]</c>,
+        /// <c>{a,b}</c>) against a file. A glob without a <c>/</c> matches the file name in any folder.
+        /// </summary>
+        internal static bool EditorConfigSectionMatches(string glob, string filePath)
+        {
+            var normalizedPath = filePath.Replace('\\', '/');
+            var pattern = new StringBuilder();
+            var braceDepth = 0;
+
+            for (var i = 0; i < glob.Length; i++)
+            {
+                var c = glob[i];
+                switch (c)
+                {
+                    case '*' when i + 1 < glob.Length && glob[i + 1] == '*':
+                        pattern.Append(".*");
+                        i++;
+                        break;
+                    case '*':
+                        pattern.Append("[^/]*");
+                        break;
+                    case '?':
+                        pattern.Append("[^/]");
+                        break;
+                    case '[':
+                        var closeIndex = glob.IndexOf(']', i + 1);
+                        if (closeIndex < 0)
+                        {
+                            pattern.Append(@"\[");
+                            break;
+                        }
+
+                        var characterClass = glob[(i + 1)..closeIndex];
+                        pattern.Append('[')
+                            .Append(characterClass.StartsWith('!') ? "^" + characterClass[1..] : characterClass)
+                            .Append(']');
+                        i = closeIndex;
+                        break;
+                    case '{':
+                        braceDepth++;
+                        pattern.Append("(?:");
+                        break;
+                    case '}' when braceDepth > 0:
+                        braceDepth--;
+                        pattern.Append(')');
+                        break;
+                    case ',' when braceDepth > 0:
+                        pattern.Append('|');
+                        break;
+                    default:
+                        pattern.Append(Regex.Escape(c.ToString()));
+                        break;
+                }
+            }
+
+            var target = glob.Contains('/') ? normalizedPath : Path.GetFileName(normalizedPath);
+            var prefix = glob.Contains('/') ? "(?:^|.*/)" : "^";
+
+            try
+            {
+                return Regex.IsMatch(target, $"{prefix}{pattern.ToString().TrimStart('/')}$", RegexOptions.IgnoreCase);
+            }
+            catch (ArgumentException)
+            {
+                return false;
             }
         }
 
@@ -249,15 +408,20 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                     fileName: $"appsettings{runtimeEnvironment}",
                     fileExtension: "json",
                     relativeLocation: Model.Location);
-            
-            if (!Model.IncludeAllowHosts && !Model.IncludeAspNetCoreLoggingLevel && !Model.RequiresSpecifiedRole)
+
+            if (Model.IsHandsOff)
+            {
+                // A hands-off file's .csproj items are the developer's too: neither added nor removed
+                templateConfig.CustomMetadata[FileAddedData.LeaveProjectItemsUnchangedKey] = "true";
+            }
+            else if (!Model.IncludeAllowHosts && !Model.IncludeAspNetCoreLoggingLevel && !Model.RequiresSpecifiedRole)
             {
                 templateConfig.WithRemoveItemType("Content");
                 templateConfig.WithCopyToOutputDirectory(CopyToOutputDirectory.CopyIfNewer);
             }
 
             templateConfig.WithDependsOn(dependsOn);
-            
+
             return templateConfig;
         }
 
@@ -273,7 +437,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                 return;
             }
 
+            // Claimed even when hands-off, so it can't fall through to another project's file
             @event.MarkHandled();
+
+            if (Model.IsHandsOff)
+            {
+                _droppedKeys.Add(@event.Key);
+                return;
+            }
 
             if (_appSettings.Any(x => x.Key == @event.Key && x.Value != @event.Value))
             {
@@ -296,6 +467,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             }
 
             @event.MarkHandled();
+
+            if (Model.IsHandsOff)
+            {
+                _droppedKeys.Add($"ConnectionStrings:{@event.Name}");
+                return;
+            }
 
             if (_connectionStrings.Any(x => x.Name == @event.Name && x.ConnectionString != @event.ConnectionString))
             {

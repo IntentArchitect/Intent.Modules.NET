@@ -17,7 +17,7 @@
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
   <file path="Templates/AzureFunctionClass/AzureFunctionClassDecorator.cs" templateId="Intent.ModuleBuilder.Templates.TemplateDecoratorContract" />
-  <file path="Templates/AzureFunctionClass/AzureFunctionClassTemplatePartial.cs" deviationsHash="4D1CFBFF96BCB3DD54C3DD6A274D6BAAB605ACFE0AA2D40393D1914585EC64D7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AzureFunctionClass/AzureFunctionClassTemplatePartial.cs" deviationsHash="1E542114FAA5352E5411681AAA969DE83A791D0A62A6D1CB05E3D6D8143DFE59" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/AzureFunctionClass/AzureFunctionClassTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/AzureFunctionClassHelper/AzureFunctionClassHelperTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed" />
   <file path="Templates/AzureFunctionClassHelper/AzureFunctionClassHelperTemplate.tt" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template" />

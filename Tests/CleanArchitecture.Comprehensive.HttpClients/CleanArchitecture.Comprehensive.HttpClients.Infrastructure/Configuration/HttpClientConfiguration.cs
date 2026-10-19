@@ -14,6 +14,7 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Configurati
     {
         public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddDistributedMemoryCache();
             var clientCredentialsBuilder = services.AddClientCredentialsTokenManagement();
             foreach (var clientCredentials in configuration.GetSection("IdentityClients").GetChildren())
             {

@@ -1,3 +1,8 @@
+### Version 2.0.6
+
+- Fixed: Removing the `Secured` stereotype from a Component or Dialog left its `@attribute [Authorize]` directive in the `.razor` file.
+- Fixed: Hand-edited variants of `@attribute [Authorize]` (e.g. `@attribute[Authorize]`, extra whitespace, a fully-qualified or `AuthorizeAttribute` name, arguments spanning several lines) were not recognised, so they survived removal of the `Secured` stereotype. Other attributes whose name merely contains "Authorize" (e.g. `[MyAuthorize]`) are no longer removed by mistake.
+
 ### Version 2.0.5
 
 - Fixed: `UserMenu.razor.cs` ignoring the application's C# style settings — `Namespace Declaration Style` in particular.

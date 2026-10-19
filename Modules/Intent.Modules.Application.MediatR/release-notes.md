@@ -1,3 +1,8 @@
+### Version 4.7.6
+
+- Improvement: Command and Query handler `Handle` methods are now generated with `Body = Mode.Ignore` when neither `Intent.Application.MediatR.CRUD` nor `Intent.Application.CQRS.CRUD` is installed, as nothing can implement them.
+- Improvement: Commands and Queries now get a Services designer warning when a property without a default value follows one with a default value, as the generated constructor drops that default. The check previously lived in `Intent.Modelers.Services.CQRS`.
+
 ### Version 4.7.5
 
 - Improvement: Added default Template Classification and Priorities.

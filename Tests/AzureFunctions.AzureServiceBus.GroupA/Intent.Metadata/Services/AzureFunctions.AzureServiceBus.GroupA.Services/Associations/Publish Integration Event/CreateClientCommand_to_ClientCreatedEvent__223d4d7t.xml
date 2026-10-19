@@ -21,6 +21,9 @@
   <targetEnd id="d83fec1d-0636-4533-b7eb-bc1b48818a31" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
     <display>[publish] ClientCreatedEvent</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="221e9888-7c01-491a-a520-0a7ef1cc4300">
       <typeId>15910849-8a7b-46ed-af6d-4068859bbb31</typeId>
       <isNavigable>true</isNavigable>

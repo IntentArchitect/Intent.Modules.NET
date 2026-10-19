@@ -8,12 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProxyServiceTests.Application\ProxyServiceTests.Application.csproj" />
-    <ProjectReference Include="..\ProxyServiceTests.Infrastructure\ProxyServiceTests.Infrastructure.csproj" />
-    <ProjectReference Include="..\ProxyServiceTests.Domain\ProxyServiceTests.Domain.csproj" />
     <ProjectReference Include="..\ProxyServiceTests.Proxy.TMS.Application\ProxyServiceTests.Proxy.TMS.Application.csproj" />
-    <ProjectReference Include="..\ProxyServiceTests.Proxy.TMS.Infrastructure\ProxyServiceTests.Proxy.TMS.Infrastructure.csproj" />
     <ProjectReference Include="..\ProxyServiceTests.Proxy.TMS.Domain\ProxyServiceTests.Proxy.TMS.Domain.csproj" />
+    <ProjectReference Include="..\ProxyServiceTests.Proxy.TMS.Infrastructure\ProxyServiceTests.Proxy.TMS.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

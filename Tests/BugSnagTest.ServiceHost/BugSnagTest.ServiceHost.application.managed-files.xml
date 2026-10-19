@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="481b3f15-06af-424a-bd6c-40f99ce14793">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="BugSnagTest.ServiceHost.sln" />
-  <file path="BugSnagTest.ServiceHost/BugSnagTest.ServiceHost.csproj" />
-  <file path="BugSnagTest.ServiceHost/Common/Interfaces/ICommand.cs" />
-  <file path="BugSnagTest.ServiceHost/Common/Interfaces/IQuery.cs" />
-  <file path="BugSnagTest.ServiceHost/Configuration/BugsnagConfiguration.cs" />
-  <file path="BugSnagTest.ServiceHost/Configuration/QuartzConfiguration.cs" />
-  <file path="BugSnagTest.ServiceHost/DependencyInjection.cs" />
-  <file path="BugSnagTest.ServiceHost/Deployment.md" />
-  <file path="BugSnagTest.ServiceHost/Jobs/BugSnagQuartzJobListener.cs" />
-  <file path="BugSnagTest.ServiceHost/Jobs/ScheduledJob.cs" />
-  <file path="BugSnagTest.ServiceHost/Program.cs" />
-  <file path="BugSnagTest.ServiceHost/Properties/launchSettings.json" />
-  <file path="BugSnagTest.ServiceHost/Scheduled/ScheduledCommand.cs" />
-  <file path="BugSnagTest.ServiceHost/Scheduled/ScheduledCommandHandler.cs" />
-  <file path="BugSnagTest.ServiceHost/WindowsBackgroundService.cs" />
-  <file path="BugSnagTest.ServiceHost/appsettings.json" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="BugSnagTest.ServiceHost.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="BugSnagTest.ServiceHost/BugSnagTest.ServiceHost.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="BugSnagTest.ServiceHost/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="BugSnagTest.ServiceHost/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="BugSnagTest.ServiceHost/Configuration/BugsnagConfiguration.cs" templateId="Intent.Bugsnag.BugsnagConfiguration" />
+  <file path="BugSnagTest.ServiceHost/Configuration/QuartzConfiguration.cs" templateId="Intent.QuartzScheduler.QuartzConfiguration" />
+  <file path="BugSnagTest.ServiceHost/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="BugSnagTest.ServiceHost/Deployment.md" templateId="Intent.WindowsServiceHost.DeploymentMD" />
+  <file path="BugSnagTest.ServiceHost/Jobs/BugSnagQuartzJobListener.cs" templateId="Intent.Bugsnag.BugSnagQuartzJobListener" />
+  <file path="BugSnagTest.ServiceHost/Jobs/ScheduledJob.cs" templateId="Intent.QuartzScheduler.ScheduledJob" />
+  <file path="BugSnagTest.ServiceHost/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram" />
+  <file path="BugSnagTest.ServiceHost/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="BugSnagTest.ServiceHost/Scheduled/ScheduledCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="BugSnagTest.ServiceHost/Scheduled/ScheduledCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="BugSnagTest.ServiceHost/WindowsBackgroundService.cs" templateId="Intent.WindowsServiceHost.WindowsBackgroundService" />
+  <file path="BugSnagTest.ServiceHost/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
 </managedFiles>

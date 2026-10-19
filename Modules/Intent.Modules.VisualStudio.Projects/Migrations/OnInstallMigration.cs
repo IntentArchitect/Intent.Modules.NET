@@ -26,6 +26,9 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
         public void OnInstall()
         {
             var application = _persistenceLoader.LoadCurrentApplication();
+
+            // Defaults first: HasLaunchSettings (used below) reads "Generate LaunchSettings File"
+            MigrationHelper.ApplyGenerateSettingsDefaults(application);
             MigrationHelper.ApplyLaunchSettingsStereotype(application, true);
         }
     }

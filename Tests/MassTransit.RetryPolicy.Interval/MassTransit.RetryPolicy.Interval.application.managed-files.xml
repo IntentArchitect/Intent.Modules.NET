@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="b8b8812c-9f81-4c14-bc3c-84779082a68d">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path="MassTransit.RetryPolicy.Interval.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="MassTransit.RetryPolicy.Interval.Api/MassTransit.RetryPolicy.Interval.Api.csproj" />
-  <file path="MassTransit.RetryPolicy.Interval.Api/Program.cs" />
-  <file path="MassTransit.RetryPolicy.Interval.Api/Properties/launchSettings.json" />
-  <file path="MassTransit.RetryPolicy.Interval.Api/Startup.cs" />
-  <file path="MassTransit.RetryPolicy.Interval.Api/appsettings.json" />
-  <file path="MassTransit.RetryPolicy.Interval.Application/Common/Eventing/IEventBus.cs" />
-  <file path="MassTransit.RetryPolicy.Interval.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="MassTransit.RetryPolicy.Interval.Application/MassTransit.RetryPolicy.Interval.Application.csproj" />
-  <file path="MassTransit.RetryPolicy.Interval.Domain/MassTransit.RetryPolicy.Interval.Domain.csproj" />
-  <file path="MassTransit.RetryPolicy.Interval.Infrastructure/Configuration/MassTransitConfiguration.cs" />
-  <file path="MassTransit.RetryPolicy.Interval.Infrastructure/DependencyInjection.cs" />
-  <file path="MassTransit.RetryPolicy.Interval.Infrastructure/Eventing/IntegrationEventConsumer.cs" />
-  <file path="MassTransit.RetryPolicy.Interval.Infrastructure/Eventing/MassTransitMessageBus.cs" />
-  <file path="MassTransit.RetryPolicy.Interval.Infrastructure/MassTransit.RetryPolicy.Interval.Infrastructure.csproj" />
-  <file path="MassTransit.RetryPolicy.Interval.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="MassTransit.RetryPolicy.Interval.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="MassTransit.RetryPolicy.Interval.Api/MassTransit.RetryPolicy.Interval.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MassTransit.RetryPolicy.Interval.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="MassTransit.RetryPolicy.Interval.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="MassTransit.RetryPolicy.Interval.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="MassTransit.RetryPolicy.Interval.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="MassTransit.RetryPolicy.Interval.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="MassTransit.RetryPolicy.Interval.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="MassTransit.RetryPolicy.Interval.Application/MassTransit.RetryPolicy.Interval.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MassTransit.RetryPolicy.Interval.Domain/MassTransit.RetryPolicy.Interval.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MassTransit.RetryPolicy.Interval.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
+  <file path="MassTransit.RetryPolicy.Interval.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="MassTransit.RetryPolicy.Interval.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
+  <file path="MassTransit.RetryPolicy.Interval.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
+  <file path="MassTransit.RetryPolicy.Interval.Infrastructure/MassTransit.RetryPolicy.Interval.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MassTransit.RetryPolicy.Interval.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

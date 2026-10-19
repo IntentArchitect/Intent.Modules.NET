@@ -134,5 +134,13 @@
       <defaultValue>false</defaultValue>
       <isActiveFunction>return Trigger === "Queue Trigger" || Trigger === "RabbitMQ Trigger";</isActiveFunction>
     </property>
+    <property id="17cb8609-f862-4eb1-8506-740690892bf1">
+      <hint>Optional. When set, the function listens to the topic named in Queue Name using this subscription.</hint>
+      <name>Subscription Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <isActiveFunction>return Trigger === "Service Bus Trigger";</isActiveFunction>
+    </property>
   </properties>
 </stereotypeDefinition>

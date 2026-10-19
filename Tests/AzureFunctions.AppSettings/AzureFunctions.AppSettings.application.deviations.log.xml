@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#1c3011b8-8276-40f9-bd77-918461c0fad2</correlationId>
+      <path>AzureFunctions.AppSettings.Application/Implementation/TriggerAppSettingsService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-07T09:01:47.1155636Z</updatedAt>
+      <deviationsHash>16D57C36DD3B38FF278C8268533D7C1E5D5B835C3E279578C7EC186903636046</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

@@ -1,4 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
+using NetTopologySuite.IO.Converters;
 using Serilog;
 using Serilog.Events;
 using WebAndWorker.Api.Configuration;
@@ -7,7 +8,7 @@ using WebAndWorker.Api.Logging;
 using WebAndWorker.Application;
 using WebAndWorker.Infrastructure;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
 namespace WebAndWorker.Api
@@ -32,17 +33,21 @@ namespace WebAndWorker.Api
                     builder.Configuration.ConfigureAzureKeyVault(builder.Configuration);
                 }
 
-                // Add services to the container.
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services)
-                    .Destructure.With(new BoundedLoggingDestructuringPolicy()));
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy())
+                    .Destructure.With(new GeoDestructureSerilogPolicy()));
 
                 builder.Services.AddControllers(
                     opt =>
                     {
                         opt.Filters.Add<ExceptionFilter>();
-                    });
+                    })
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new GeoJsonConverterFactory());
+                });
                 builder.Services.AddApplication(builder.Configuration);
                 builder.Services.ConfigureApplicationSecurity(builder.Configuration);
                 builder.Services.ConfigureHealthChecks(builder.Configuration);
@@ -67,6 +72,7 @@ namespace WebAndWorker.Api
                 logger.Write(LogEventLevel.Information, "Starting web host");
 
                 app.Run();
+
             }
             catch (HostAbortedException)
             {

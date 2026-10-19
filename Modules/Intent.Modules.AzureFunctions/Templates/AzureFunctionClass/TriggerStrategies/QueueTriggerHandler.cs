@@ -45,7 +45,7 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
         method.AddParameter(type: messageType, name: parameterName, configure: param => param
             .AddAttribute("QueueTrigger", attr =>
             {
-                attr.AddArgument($@"""{_model.QueueName}""");
+                attr.AddArgument(TriggerAppSettings.GetBindingValue(_template, "Queue", _model.QueueName));
                 if (string.IsNullOrEmpty(_model.Connection))
                 {
                     return;
@@ -88,7 +88,7 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
             }
         }
         else if (_model.ReturnType != null &&
-                 AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.Isolated)
+            AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.Isolated)
         {
             var outputBinding = _model.InternalElement.GetStereotype("Queue Output Binding");
             method.AddAttribute(_template.UseType("Microsoft.Azure.Functions.Worker.QueueOutput"), attr => attr.AddArgument($@"""{outputBinding.GetProperty<string>("Queue Name")}"""));

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="18aabad1-93a1-45bd-9271-f917bf47b9ee" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>.agents</name>
+  <display>.agents</display>
+  <externalReference>4edadbc7-1233-4be3-8eff-0be2e9a6c176</externalReference>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>fff9853b-fb74-4809-a2ba-562cba951891</parentFolderId>
+  <packageId>fff9853b-fb74-4809-a2ba-562cba951891</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="72ee1a0c-0b66-4d34-ba80-86280a50b315" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>AI.Context</name>
+      <display>AI.Context</display>
+      <externalReference>b112d0de-71d6-4e12-b117-6ebd1eb8058b</externalReference>
+      <parentFolderId>18aabad1-93a1-45bd-9271-f917bf47b9ee</parentFolderId>
+      <packageId>fff9853b-fb74-4809-a2ba-562cba951891</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+  </children>
+</class>

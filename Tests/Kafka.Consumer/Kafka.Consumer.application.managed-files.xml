@@ -1,109 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="Kafka.Consumer.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="Kafka.Consumer.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="Kafka.Consumer.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="Kafka.Consumer.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="Kafka.Consumer.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Kafka.Consumer.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="Kafka.Consumer.Api/Controllers/InvoicesController.cs" />
-  <file path="Kafka.Consumer.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="Kafka.Consumer.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="Kafka.Consumer.Api/Filters/ExceptionFilter.cs" />
-  <file path="Kafka.Consumer.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="Kafka.Consumer.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="Kafka.Consumer.Api/Kafka.Consumer.Api.csproj" />
-  <file path="Kafka.Consumer.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="Kafka.Consumer.Api/Program.cs" />
-  <file path="Kafka.Consumer.Api/Properties/launchSettings.json" />
-  <file path="Kafka.Consumer.Api/Services/CurrentUserService.cs" />
-  <file path="Kafka.Consumer.Api/Startup.cs" />
-  <file path="Kafka.Consumer.Api/appsettings.json" />
-  <file path="Kafka.Consumer.Application/AssemblyAttributes.cs" />
-  <file path="Kafka.Consumer.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="Kafka.Consumer.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="Kafka.Consumer.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" />
-  <file path="Kafka.Consumer.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="Kafka.Consumer.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="Kafka.Consumer.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="Kafka.Consumer.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="Kafka.Consumer.Application/Common/Eventing/IEventBus.cs" />
-  <file path="Kafka.Consumer.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="Kafka.Consumer.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="Kafka.Consumer.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="Kafka.Consumer.Application/Common/Interfaces/ICommand.cs" />
-  <file path="Kafka.Consumer.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="Kafka.Consumer.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="Kafka.Consumer.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="Kafka.Consumer.Application/Common/Interfaces/IQuery.cs" />
-  <file path="Kafka.Consumer.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="Kafka.Consumer.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="Kafka.Consumer.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="Kafka.Consumer.Application/Common/Models/Result.cs" />
-  <file path="Kafka.Consumer.Application/Common/Pagination/PagedList.cs" />
-  <file path="Kafka.Consumer.Application/Common/Pagination/PagedResult.cs" />
-  <file path="Kafka.Consumer.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="Kafka.Consumer.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="Kafka.Consumer.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Kafka.Consumer.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Kafka.Consumer.Application/DependencyInjection.cs" />
-  <file path="Kafka.Consumer.Application/IntegrationEvents/EventHandlers/Invoices/InvoiceIntegrationEventHandler.cs" />
-  <file path="Kafka.Consumer.Application/IntegrationEvents/InvoiceCreatedEvent.cs" />
-  <file path="Kafka.Consumer.Application/IntegrationEvents/InvoiceUpdatedEvent.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandHandler.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/GetInvoices/GetInvoicesQuery.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/InvoiceDto.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/InvoiceDtoMappingExtensions.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/UpdateInvoice/UpdateInvoiceCommand.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandHandler.cs" />
-  <file path="Kafka.Consumer.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs" />
-  <file path="Kafka.Consumer.Application/Kafka.Consumer.Application.csproj" />
-  <file path="Kafka.Consumer.Domain/Common/CollectionExtensions.cs" />
-  <file path="Kafka.Consumer.Domain/Common/DomainEvent.cs" />
-  <file path="Kafka.Consumer.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="Kafka.Consumer.Domain/Common/IHasDomainEvent.cs" />
-  <file path="Kafka.Consumer.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Kafka.Consumer.Domain/Common/UpdateHelper.cs" />
-  <file path="Kafka.Consumer.Domain/Entities/Invoice.cs" />
-  <file path="Kafka.Consumer.Domain/Kafka.Consumer.Domain.csproj" />
-  <file path="Kafka.Consumer.Domain/Repositories/IEFRepository.cs" />
-  <file path="Kafka.Consumer.Domain/Repositories/IInvoiceRepository.cs" />
-  <file path="Kafka.Consumer.Domain/Repositories/IPagedList.cs" />
-  <file path="Kafka.Consumer.Domain/Repositories/IRepository.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Configuration/KafkaConfiguration.cs" />
-  <file path="Kafka.Consumer.Infrastructure/DependencyInjection.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Eventing/IKafkaConsumer.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Eventing/IKafkaEventDispatcher.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Eventing/IKafkaProducer.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Eventing/KafkaConsumer.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Eventing/KafkaConsumerBackgroundService.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Eventing/KafkaEventDispatcher.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Eventing/KafkaMessageBus.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Eventing/KafkaProducer.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Kafka.Consumer.Infrastructure.csproj" deviationsHash="85AF0D4BE1EFCC207572875D8F8C21CE3A7D2AA567AF0631896D57CC0C2AAABA" />
-  <file path="Kafka.Consumer.Infrastructure/Migrations/README.md" />
-  <file path="Kafka.Consumer.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Repositories/InvoiceRepository.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Kafka.Consumer.Infrastructure/Services/DomainEventService.cs" />
-  <file path="Kafka.Consumer.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="Kafka.Consumer.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="Kafka.Consumer.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="Kafka.Consumer.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="Kafka.Consumer.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="Kafka.Consumer.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Kafka.Consumer.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="Kafka.Consumer.Api/Controllers/InvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="Kafka.Consumer.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="Kafka.Consumer.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="Kafka.Consumer.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="Kafka.Consumer.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="Kafka.Consumer.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="Kafka.Consumer.Api/Kafka.Consumer.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Kafka.Consumer.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="Kafka.Consumer.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Kafka.Consumer.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Kafka.Consumer.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="Kafka.Consumer.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="Kafka.Consumer.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Kafka.Consumer.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="Kafka.Consumer.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="Kafka.Consumer.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="Kafka.Consumer.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />
+  <file path="Kafka.Consumer.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="Kafka.Consumer.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="Kafka.Consumer.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="Kafka.Consumer.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="Kafka.Consumer.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="Kafka.Consumer.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="Kafka.Consumer.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="Kafka.Consumer.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="Kafka.Consumer.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="Kafka.Consumer.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="Kafka.Consumer.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="Kafka.Consumer.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="Kafka.Consumer.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="Kafka.Consumer.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="Kafka.Consumer.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="Kafka.Consumer.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="Kafka.Consumer.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="Kafka.Consumer.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="Kafka.Consumer.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="Kafka.Consumer.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="Kafka.Consumer.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="Kafka.Consumer.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Kafka.Consumer.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Kafka.Consumer.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Kafka.Consumer.Application/IntegrationEvents/EventHandlers/Invoices/InvoiceIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Kafka.Consumer.Application/IntegrationEvents/InvoiceCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Kafka.Consumer.Application/IntegrationEvents/InvoiceUpdatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Kafka.Consumer.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Kafka.Consumer.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Kafka.Consumer.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Kafka.Consumer.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Kafka.Consumer.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Kafka.Consumer.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Kafka.Consumer.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Kafka.Consumer.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Kafka.Consumer.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Kafka.Consumer.Application/Invoices/GetInvoices/GetInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Kafka.Consumer.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Kafka.Consumer.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Kafka.Consumer.Application/Invoices/InvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Kafka.Consumer.Application/Invoices/InvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="Kafka.Consumer.Application/Invoices/UpdateInvoice/UpdateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Kafka.Consumer.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Kafka.Consumer.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Kafka.Consumer.Application/Kafka.Consumer.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Kafka.Consumer.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Kafka.Consumer.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="Kafka.Consumer.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Kafka.Consumer.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="Kafka.Consumer.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Kafka.Consumer.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Kafka.Consumer.Domain/Entities/Invoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Kafka.Consumer.Domain/Kafka.Consumer.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Kafka.Consumer.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="Kafka.Consumer.Domain/Repositories/IInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Kafka.Consumer.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Kafka.Consumer.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Kafka.Consumer.Infrastructure/Configuration/KafkaConfiguration.cs" templateId="Intent.Eventing.Kafka.KafkaConfiguration" />
+  <file path="Kafka.Consumer.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Kafka.Consumer.Infrastructure/Eventing/IKafkaConsumer.cs" templateId="Intent.Eventing.Kafka.KafkaConsumerInterface" />
+  <file path="Kafka.Consumer.Infrastructure/Eventing/IKafkaEventDispatcher.cs" templateId="Intent.Eventing.Kafka.KafkaEventDispatcherInterface" />
+  <file path="Kafka.Consumer.Infrastructure/Eventing/IKafkaProducer.cs" templateId="Intent.Eventing.Kafka.KafkaProducerInterface" />
+  <file path="Kafka.Consumer.Infrastructure/Eventing/KafkaConsumer.cs" templateId="Intent.Eventing.Kafka.KafkaConsumer" />
+  <file path="Kafka.Consumer.Infrastructure/Eventing/KafkaConsumerBackgroundService.cs" templateId="Intent.Eventing.Kafka.KafkaConsumerBackgroundService" />
+  <file path="Kafka.Consumer.Infrastructure/Eventing/KafkaEventDispatcher.cs" templateId="Intent.Eventing.Kafka.KafkaEventDispatcher" />
+  <file path="Kafka.Consumer.Infrastructure/Eventing/KafkaMessageBus.cs" templateId="Intent.Eventing.Kafka.KafkaMessageBus" />
+  <file path="Kafka.Consumer.Infrastructure/Eventing/KafkaProducer.cs" templateId="Intent.Eventing.Kafka.KafkaProducer" />
+  <file path="Kafka.Consumer.Infrastructure/Kafka.Consumer.Infrastructure.csproj" deviationsHash="85AF0D4BE1EFCC207572875D8F8C21CE3A7D2AA567AF0631896D57CC0C2AAABA" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Kafka.Consumer.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="Kafka.Consumer.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="Kafka.Consumer.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Kafka.Consumer.Infrastructure/Repositories/InvoiceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Kafka.Consumer.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="Kafka.Consumer.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="Kafka.Consumer.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

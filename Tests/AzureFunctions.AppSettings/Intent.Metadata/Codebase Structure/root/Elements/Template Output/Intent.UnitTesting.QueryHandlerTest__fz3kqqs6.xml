@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="47b227ca-ab40-4c11-85c1-67aa1a5fa071" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.UnitTesting.QueryHandlerTest</name>
+  <display>Intent.UnitTesting.QueryHandlerTest</display>
+  <externalReference>Intent.UnitTesting</externalReference>
+  <parentFolderId>fff9853b-fb74-4809-a2ba-562cba951891</parentFolderId>
+  <metadata>
+    <entry key="status" value="unassigned" />
+  </metadata>
+</class>

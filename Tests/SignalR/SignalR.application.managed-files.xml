@@ -1,85 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="97676be7-09a6-4122-b522-2462fb5b011b">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="SignalR.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="SignalR.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="SignalR.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="SignalR.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="SignalR.Api/Configuration/SignalRConfiguration.cs" />
-  <file path="SignalR.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="SignalR.Api/Controllers/DefaultController.cs" />
-  <file path="SignalR.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="SignalR.Api/Filters/ExceptionFilter.cs" />
-  <file path="SignalR.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="SignalR.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="SignalR.Api/Hubs/NotificationsHub.cs" />
-  <file path="SignalR.Api/Hubs/Services/NotificationsHubService.cs" />
-  <file path="SignalR.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="SignalR.Api/Program.cs" />
-  <file path="SignalR.Api/Properties/launchSettings.json" />
-  <file path="SignalR.Api/Services/CurrentUserService.cs" />
-  <file path="SignalR.Api/SignalR.Api.csproj" />
-  <file path="SignalR.Api/appsettings.json" />
-  <file path="SignalR.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="SignalR.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="SignalR.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="SignalR.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="SignalR.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="SignalR.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="SignalR.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="SignalR.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="SignalR.Application/Common/Interfaces/ICommand.cs" />
-  <file path="SignalR.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="SignalR.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="SignalR.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="SignalR.Application/Common/Interfaces/IQuery.cs" />
-  <file path="SignalR.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="SignalR.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="SignalR.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="SignalR.Application/Common/Models/Result.cs" />
-  <file path="SignalR.Application/Common/Pagination/PagedList.cs" />
-  <file path="SignalR.Application/Common/Pagination/PagedResult.cs" />
-  <file path="SignalR.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="SignalR.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="SignalR.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="SignalR.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="SignalR.Application/DependencyInjection.cs" />
-  <file path="SignalR.Application/IValidationService.cs" />
-  <file path="SignalR.Application/Interfaces/Hubs/INotificationsHub.cs" />
-  <file path="SignalR.Application/MassageToClientDto.cs" />
-  <file path="SignalR.Application/MessageToAllDto.cs" />
-  <file path="SignalR.Application/MessageToClientDto.cs" />
-  <file path="SignalR.Application/MessageToGroupDto.cs" />
-  <file path="SignalR.Application/MessageToGroupsDto.cs" />
-  <file path="SignalR.Application/MessageToUserDto.cs" />
-  <file path="SignalR.Application/MessageToUsersDto.cs" />
-  <file path="SignalR.Application/SignalR.Application.csproj" />
-  <file path="SignalR.Application/TestSendMessage/TestSendMessageCommand.cs" />
-  <file path="SignalR.Application/TestSendMessage/TestSendMessageCommandHandler.cs" deviationsHash="B54945EC4B4A5B43F80615F32955CC7DC5654B7D6E390425322E74DD2828CE8F" />
-  <file path="SignalR.Application/TestSendMessage/TestSendMessageCommandValidator.cs" />
-  <file path="SignalR.Application/ValidationService.cs" />
-  <file path="SignalR.Domain/Common/CollectionExtensions.cs" />
-  <file path="SignalR.Domain/Common/DomainEvent.cs" />
-  <file path="SignalR.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="SignalR.Domain/Common/IHasDomainEvent.cs" />
-  <file path="SignalR.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="SignalR.Domain/Common/UpdateHelper.cs" />
-  <file path="SignalR.Domain/Repositories/IEFRepository.cs" />
-  <file path="SignalR.Domain/Repositories/IPagedList.cs" />
-  <file path="SignalR.Domain/Repositories/IRepository.cs" />
-  <file path="SignalR.Domain/SignalR.Domain.csproj" />
-  <file path="SignalR.Infrastructure/DependencyInjection.cs" />
-  <file path="SignalR.Infrastructure/Migrations/README.md" />
-  <file path="SignalR.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="SignalR.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="SignalR.Infrastructure/Services/DomainEventService.cs" />
-  <file path="SignalR.Infrastructure/SignalR.Infrastructure.csproj" deviationsHash="E6A56C050D7B6AAF4634126227E2F9C8A4F2BFB8A4AD86B0F669880824564542" />
-  <file path="SignalR.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="SignalR.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="SignalR.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="SignalR.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="SignalR.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="SignalR.Api/Configuration/SignalRConfiguration.cs" templateId="Intent.AspNetCore.SignalR.SignalRConfiguration" />
+  <file path="SignalR.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="SignalR.Api/Controllers/DefaultController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="SignalR.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="SignalR.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="SignalR.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="SignalR.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="SignalR.Api/Hubs/NotificationsHub.cs" templateId="Intent.AspNetCore.SignalR.Hub" />
+  <file path="SignalR.Api/Hubs/Services/NotificationsHubService.cs" templateId="Intent.AspNetCore.SignalR.HubService" />
+  <file path="SignalR.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="SignalR.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="SignalR.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="SignalR.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="SignalR.Api/SignalR.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="SignalR.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="SignalR.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="SignalR.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="SignalR.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="SignalR.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="SignalR.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="SignalR.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="SignalR.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="SignalR.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="SignalR.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="SignalR.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="SignalR.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="SignalR.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="SignalR.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="SignalR.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="SignalR.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="SignalR.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="SignalR.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="SignalR.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="SignalR.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="SignalR.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="SignalR.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="SignalR.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="SignalR.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="SignalR.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="SignalR.Application/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="SignalR.Application/Interfaces/Hubs/INotificationsHub.cs" templateId="Intent.AspNetCore.SignalR.HubServiceInterface" />
+  <file path="SignalR.Application/MassageToClientDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="SignalR.Application/MessageToAllDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="SignalR.Application/MessageToClientDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="SignalR.Application/MessageToGroupDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="SignalR.Application/MessageToGroupsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="SignalR.Application/MessageToUserDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="SignalR.Application/MessageToUsersDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="SignalR.Application/SignalR.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="SignalR.Application/TestSendMessage/TestSendMessageCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="SignalR.Application/TestSendMessage/TestSendMessageCommandHandler.cs" deviationsHash="B54945EC4B4A5B43F80615F32955CC7DC5654B7D6E390425322E74DD2828CE8F" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="SignalR.Application/TestSendMessage/TestSendMessageCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="SignalR.Application/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="SignalR.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="SignalR.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="SignalR.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="SignalR.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="SignalR.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="SignalR.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="SignalR.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="SignalR.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="SignalR.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="SignalR.Domain/SignalR.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="SignalR.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="SignalR.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="SignalR.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="SignalR.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="SignalR.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="SignalR.Infrastructure/SignalR.Infrastructure.csproj" deviationsHash="E6A56C050D7B6AAF4634126227E2F9C8A4F2BFB8A4AD86B0F669880824564542" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="SignalR.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

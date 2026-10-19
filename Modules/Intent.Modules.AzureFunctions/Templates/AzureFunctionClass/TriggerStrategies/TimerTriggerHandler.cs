@@ -32,7 +32,7 @@ internal class TimerTriggerHandler : IFunctionTriggerHandler
             {
                 param.AddAttribute("TimerTrigger", attr =>
                 {
-                    attr.AddArgument($@"""{_azureFunctionModel.ScheduleExpression}""");
+                    attr.AddArgument(TriggerAppSettings.GetBindingValue(_template, "Schedule", _azureFunctionModel.ScheduleExpression));
                 });
             });
         method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");

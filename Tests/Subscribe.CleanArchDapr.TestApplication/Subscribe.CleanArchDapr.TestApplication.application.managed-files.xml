@@ -1,94 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="a905a5c6-22ed-4c81-aba6-e2d01e40c02a">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Controllers/DaprEventHandlerController.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Filters/ExceptionFilter.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Program.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Properties/launchSettings.json" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Services/CurrentUserService.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Startup.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Subscribe.CleanArchDapr.TestApplication.Api.csproj" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Api/appsettings.json" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/AssemblyAttributes.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Eventing/IEvent.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Eventing/IEventBus.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Exceptions/HttpClientRequestException.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/ICommand.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/IQuery.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Models/Result.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Pagination/PagedList.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Pagination/PagedResult.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/DependencyInjection.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEventHandlers/CustomerCreatedHandler.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEventHandlers/OrderCreatedEventHandler.cs" deviationsHash="60D36A63CC2A2936C4D3760D04B440D68A997E284E12E6D2E8C62D4792FF3D9F" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEvents/CustomerCreatedEvent.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEvents/OrderCreatedEvent.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/IntegrationServices/IMyProxy.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/IntegrationServices/Publish/CleanArchDapr/TestApplication/Services/Orders/OrderConfirmed.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Subscribe.CleanArchDapr.TestApplication.Application.csproj" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/CollectionExtensions.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/DomainEvent.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/IHasDomainEvent.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/Interfaces/IDaprStateStoreUnitOfWork.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/UpdateHelper.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IDaprStateStoreGenericRepository.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IDaprStateStoreRepository.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IEFRepository.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IPagedList.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IRepository.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Subscribe.CleanArchDapr.TestApplication.Domain.csproj" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Configuration/HttpClientConfiguration.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/DependencyInjection.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Eventing/DaprMessageBus.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/HttpClients/HttpClientDaprExtensions.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/HttpClients/HttpClientHeaderHandler.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/HttpClients/MyProxyHttpClient.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Migrations/README.md" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Persistence/DaprStateStoreUnitOfWork.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Repositories/DaprStateStoreGenericRepository.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Repositories/DaprStateStoreRepositoryBase.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Services/DomainEventService.cs" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Subscribe.CleanArchDapr.TestApplication.Infrastructure.csproj" deviationsHash="342BD7B57BD165FF3F012CAD069331649B4E9F4906131F7B97640EBAD4E44F43" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.sln" />
-  <file path="dapr/components/pubsub.yaml" />
-  <file path="dapr/components/statestore.yaml" />
-  <file path="dapr/config.yaml" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Controllers/DaprEventHandlerController.cs" templateId="Intent.Dapr.AspNetCore.Pubsub.DaprEventHandlerController" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/Subscribe.CleanArchDapr.TestApplication.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Eventing/IEvent.cs" templateId="Intent.Dapr.AspNetCore.Pubsub.EventInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Exceptions/HttpClientRequestException.cs" templateId="Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientRequestException" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" templateId="Intent.Dapr.AspNetCore.ServiceInvocation.ProblemDetailsWithErrors" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEventHandlers/CustomerCreatedHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEventHandlers/OrderCreatedEventHandler.cs" deviationsHash="60D36A63CC2A2936C4D3760D04B440D68A997E284E12E6D2E8C62D4792FF3D9F" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEvents/CustomerCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEvents/OrderCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/IntegrationServices/IMyProxy.cs" templateId="Intent.Application.Contracts.Clients.ServiceContract" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/IntegrationServices/Publish/CleanArchDapr/TestApplication/Services/Orders/OrderConfirmed.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Application/Subscribe.CleanArchDapr.TestApplication.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/Interfaces/IDaprStateStoreUnitOfWork.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWorkInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IDaprStateStoreGenericRepository.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepositoryInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IDaprStateStoreRepository.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Domain/Subscribe.CleanArchDapr.TestApplication.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientConfigurationTemplate" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Eventing/DaprMessageBus.cs" templateId="Intent.Dapr.AspNetCore.Pubsub.DaprMessageBus" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/HttpClients/HttpClientDaprExtensions.cs" templateId="Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientDaprHandlerTemplate" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/HttpClients/HttpClientHeaderHandler.cs" templateId="Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientHeaderHandlerTemplate" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/HttpClients/MyProxyHttpClient.cs" templateId="Intent.Dapr.AspNetCore.ServiceInvocation.HttpClient" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Persistence/DaprStateStoreUnitOfWork.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Repositories/DaprStateStoreGenericRepository.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepository" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Repositories/DaprStateStoreRepositoryBase.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryBase" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Subscribe.CleanArchDapr.TestApplication.Infrastructure.csproj" deviationsHash="342BD7B57BD165FF3F012CAD069331649B4E9F4906131F7B97640EBAD4E44F43" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="dapr/components/pubsub.yaml" templateId="Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration" />
+  <file path="dapr/components/statestore.yaml" templateId="Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration" />
+  <file path="dapr/config.yaml" templateId="Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprFilesStaticContentTemplateRegistration" />
 </managedFiles>

@@ -49,7 +49,7 @@
     </childElement>
     <childElement id="82ff933d-0ba6-4693-83e8-c28e4783529a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>16.2.0</name>
-      <display>16.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>16.2.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -72,33 +72,42 @@
       <childElements>
         <childElement id="684b5668-d353-40a0-8835-023921813895" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>82ff933d-0ba6-4693-83e8-c28e4783529a</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="53cd4d74-44c1-49f7-8bca-429789d27162" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>82ff933d-0ba6-4693-83e8-c28e4783529a</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="fa2e5cd3-d92e-42c3-8190-2125f3223640" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>82ff933d-0ba6-4693-83e8-c28e4783529a</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -107,7 +116,7 @@
     </childElement>
     <childElement id="3b7811ce-d50b-416c-8569-f4e8df63894c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>16.2.0</name>
-      <display>16.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>16.2.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -130,33 +139,42 @@
       <childElements>
         <childElement id="6b54b78a-82b8-4034-908f-9a885622dda9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3b7811ce-d50b-416c-8569-f4e8df63894c</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="5f7c73a1-dd6f-4c6d-96c9-1af1957509b7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3b7811ce-d50b-416c-8569-f4e8df63894c</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="19b7d4b5-a5bc-445c-9d74-017c7615f9b9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3b7811ce-d50b-416c-8569-f4e8df63894c</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -165,7 +183,7 @@
     </childElement>
     <childElement id="180c811b-710e-471b-893c-bc38566dda0c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>16.2.0</name>
-      <display>16.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>16.2.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -188,55 +206,70 @@
       <childElements>
         <childElement id="f4c79b60-187b-4000-a699-3124725bd28b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.HashCode</name>
+          <display>Microsoft.Bcl.HashCode (6.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>180c811b-710e-471b-893c-bc38566dda0c</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="d7ce6725-b5b3-4cf6-9a13-dcb2dd74c3cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>180c811b-710e-471b-893c-bc38566dda0c</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="d22eaa7b-169e-41e1-98ed-b330338cb5aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>180c811b-710e-471b-893c-bc38566dda0c</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="5e36af63-0f43-471f-881e-c2e1e989fcea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>180c811b-710e-471b-893c-bc38566dda0c</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="38c05ad3-c9c3-4a21-a183-ec9d021fbab6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Emit</name>
+          <display>System.Reflection.Emit (4.7.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.7.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>180c811b-710e-471b-893c-bc38566dda0c</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -245,7 +278,7 @@
     </childElement>
     <childElement id="a1ec4b95-4bd7-4f2e-ae2c-81900760ea91" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>16.2.0</name>
-      <display>16.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <display>16.2.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -268,33 +301,42 @@
       <childElements>
         <childElement id="932455ef-064f-47d7-bfce-cc207dfef99d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a1ec4b95-4bd7-4f2e-ae2c-81900760ea91</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="1fc2e01e-8cc3-4468-88bd-68c9fadc3caf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a1ec4b95-4bd7-4f2e-ae2c-81900760ea91</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="67028bad-d1fb-4f32-a14a-5250ff4159c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.JsonWebTokens</name>
+          <display>Microsoft.IdentityModel.JsonWebTokens (8.14.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a1ec4b95-4bd7-4f2e-ae2c-81900760ea91</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />

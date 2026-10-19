@@ -40,5 +40,14 @@
       <deviationsHash>01B2231E692A3049E62D8F1F201069618F89B65BD0ABA3E4C194864DACA6D1BB</deviationsHash>
       <fileHash>9C86BB88C23E69E2937A4AFD8DCAB10F8A2653CC42185249ED559C14691C3862</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram#0da1c5db-f98c-4823-b467-1708a6b3ce35</correlationId>
+      <path>WindowsServiceHost.Tests/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-13T16:20:57.034439Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
   </files>
 </deviationsLog>

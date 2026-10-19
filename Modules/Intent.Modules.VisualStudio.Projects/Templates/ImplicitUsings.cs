@@ -18,6 +18,20 @@ internal static class ImplicitUsings
         "System.Threading.Tasks"
     ];
 
+    // MSTest.Sdk imports Microsoft.NET.Sdk, and its MSTest.TestFramework reference adds the MSTest
+    // namespace when ImplicitUsings is enabled (buildTransitive/MSTest.TestFramework.targets, 4.0.2).
+    public static readonly IReadOnlyCollection<string> ForMSTestSdk =
+    [
+        "System",
+        "System.Collections.Generic",
+        "System.IO",
+        "System.Linq",
+        "System.Net.Http",
+        "System.Threading",
+        "System.Threading.Tasks",
+        "Microsoft.VisualStudio.TestTools.UnitTesting"
+    ];
+
     public static readonly IReadOnlyCollection<string> ForBlazorWebAssemblySdk =
     [
         "System",

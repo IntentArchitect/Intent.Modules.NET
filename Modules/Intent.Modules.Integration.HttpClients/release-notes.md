@@ -1,3 +1,11 @@
+### Version 6.2.0
+
+- Improvement: Removed the dependency on `Intent.AspNetCore.DistributedCaching`. On .NET 8+ the module now registers `AddDistributedMemoryCache()` for Duende token caching itself, unless that module is installed.
+
+> ⚠️ **NOTE**
+>
+> Updating this module does not uninstall `Intent.AspNetCore.DistributedCaching` from existing applications. If your application does not otherwise use distributed caching, uninstall that module manually. Doing so also removes the Unit of Work wrapping it added when the cache was the application's only persistence store.
+
 ### Version 6.1.4
 
 - Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.

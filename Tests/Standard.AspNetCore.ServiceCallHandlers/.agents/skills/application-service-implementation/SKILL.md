@@ -2,7 +2,7 @@
 name: application-service-implementation
 description: Implements business logic in traditional (non-CQRS) application services. MUST load before creating or editing a traditional application service class in the Application layer.
 template-id: Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate
-contentHash: 0B2B828519D0AAFA0361825895A28C62A4363B16278C65BA2CBC3F7719F584D4
+contentHash: 81B04C6CEBC9156CC731A307A70486E5909CE598363EA8EAA271158D291D2251
 ---
 # Traditional Service Implementation
 
@@ -13,6 +13,7 @@ Implement business logic inside an existing traditional application service file
 - Treat the existing service file as the starting point. Update the relevant service operation(s) rather than rewriting unrelated parts.
 - NEVER modify the signature of an existing service operation unless the user explicitly asks for that change.
 - ALWAYS if you modify a service operation body, ensure that the `IntentManaged` attribute indicates that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
+- A service operation that only dispatches to a Service Call Handler (`var sch = ...GetRequiredService(...)`) must stay `Body = Mode.Fully`. Leave it unchanged and implement the handler's `Handle` method instead; the rule above applies to `Handle`.
 - Inject only dependencies from the Domain or Application layers.
 - Never introduce direct dependencies on infrastructure packages or infrastructure types in the service, including Entity Framework, Dapper, concrete DbContexts, SQL clients, or vendor-specific APIs.
 - If data access is required, favor using an existing repository, read service, or domain/application abstraction, but extend them if required.

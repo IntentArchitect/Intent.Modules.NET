@@ -53,5 +53,14 @@
       <deviationsHash>EB7FED21AFFD87A3E89C2BA179BF8E9A3F119D209F6A0CF7393C78E911F3F37F</deviationsHash>
       <fileHash>8F0FE13479815DB52526C14D0FFFE502A8B1B85A87E7016B50A32703EA73303B</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#bfb4302e-5218-4fb3-81f7-95367b7796d0</correlationId>
+      <path>AzureFunctions.NET8.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-06T13:06:53.8411586Z</updatedAt>
+      <deviationsHash>4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B</deviationsHash>
+    </file>
   </files>
 </deviationsLog>

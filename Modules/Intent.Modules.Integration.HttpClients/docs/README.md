@@ -382,6 +382,30 @@ public static void AddHttpClients(this IServiceCollection services, IConfigurati
 }
 ```
 
+On .NET 8 and later, [Duende.AccessTokenManagement](https://docs.duendesoftware.com/accesstokenmanagement/) is used instead:
+
+```csharp
+public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
+{
+    services.AddDistributedMemoryCache();
+    var clientCredentialsBuilder = services.AddClientCredentialsTokenManagement();
+    foreach (var clientCredentials in configuration.GetSection("IdentityClients").GetChildren())
+    {
+        clientCredentialsBuilder.AddClient(clientCredentials.Key, clientCredentials.Bind);
+    }
+
+    services
+        .AddHttpClient<IAccountsService, AccountsServiceHttpClient>(http =>
+        {
+            ApplyAppSettings(http, configuration, "APIApplication.Services", "AccountsService");
+        })
+        .AddClientCredentialsTokenHandler(configuration.GetValue<string>("HttpClients:AccountsService:IdentityClientKey") ?? "default");
+}
+```
+
+> [!NOTE]
+> Duende.AccessTokenManagement caches access tokens in an `IDistributedCache` but does not register one. The module registers an in-memory cache (`services.AddDistributedMemoryCache()`), so tokens are cached per application instance. If the `Intent.AspNetCore.DistributedCaching` module is installed, that line is omitted and the cache it configures (for example Redis) is used instead.
+
 #### Transmittable Access Token
 
 This configuration ensures that the `Authorization` header is passed through from the HTTP context to the API call.

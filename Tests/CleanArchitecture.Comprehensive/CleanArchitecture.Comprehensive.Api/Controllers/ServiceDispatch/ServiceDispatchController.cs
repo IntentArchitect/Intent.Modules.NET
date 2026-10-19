@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Transactions;
 using CleanArchitecture.Comprehensive.Application;
 using CleanArchitecture.Comprehensive.Application.Common.Eventing;
-using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
 using CleanArchitecture.Comprehensive.Application.Interfaces.ServiceDispatch;
 using CleanArchitecture.Comprehensive.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
@@ -24,17 +23,14 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
     public class ServiceDispatchController : ControllerBase
     {
         private readonly IServiceDispatchService _appService;
-        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IEventBus _eventBus;
 
         public ServiceDispatchController(IServiceDispatchService appService,
-            IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork,
-            IUnitOfWork unitOfWork,
-            IEventBus eventBus)
+IUnitOfWork unitOfWork,
+IEventBus eventBus)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
-            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
         }
@@ -47,17 +43,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Mutation1(CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    _appService.Mutation1();
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                _appService.Mutation1();
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);
@@ -73,17 +64,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Mutation2(string param, CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    _appService.Mutation2(param);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                _appService.Mutation2(param);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);
@@ -97,17 +83,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Mutation3Async(CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.Mutation3Async(cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.Mutation3Async(cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);
@@ -123,17 +104,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Mutation4Async(string param, CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.Mutation4Async(param, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.Mutation4Async(param, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, null);
@@ -151,17 +127,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         {
             var result = default(string);
 
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    result = _appService.Query5(param);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                result = _appService.Query5(param);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, result);
@@ -177,17 +148,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         {
             var result = default(string);
 
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    result = _appService.Query6();
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                result = _appService.Query6();
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, result);
@@ -203,17 +169,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         {
             var result = default(string);
 
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    result = await _appService.Query7Async(cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                result = await _appService.Query7Async(cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, result);
@@ -231,17 +192,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         {
             var result = default(string);
 
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    result = await _appService.Query8Async(param, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                result = await _appService.Query8Async(param, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, result);

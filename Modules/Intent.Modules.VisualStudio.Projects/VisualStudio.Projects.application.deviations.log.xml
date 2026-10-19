@@ -255,13 +255,22 @@
       <deviationsHash>A63B329876C88821DA24DC0D6DB0910ECE5C1528D645B9C0CC4CE12E1247B247</deviationsHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#92b0eee4-6d28-4a2a-8d8e-31cfcf96bee8</correlationId>
+      <path>Migrations/Migration_04_01_11_Pre_00.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-13T13:33:04.7467368Z</updatedAt>
+      <deviationsHash>70421C58765A78BEC4D8236F3BF50ECFD565BA87346EEAD589A73E68CF26ADA8</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#e5fe0896-9fae-449b-9131-7c6a229a60cb</correlationId>
       <path>Migrations/OnInstallMigration.cs</path>
       <count>3</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:58:00.7161264Z</updatedAt>
-      <deviationsHash>253D38F8D317A5EA20E64E4578D6500ADB6457C4E37537E6E78495B9D4A82973</deviationsHash>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-13T13:33:04.7466423Z</updatedAt>
+      <deviationsHash>D1F1B13B7A7BA657073FFCA7945C61937F8556767DD477BB584BB840E4A2C1BA</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#1b363e2e-7027-4c88-a488-be51864a8eae</correlationId>
@@ -328,28 +337,20 @@
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#cc3f8b62-c026-49c9-bef2-52cdd44f0ebd</correlationId>
       <path>Templates/CoreWeb/AppSettings/AppSettingsTemplatePartial.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-08-15T11:53:38.6775461Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:30:39.7846587Z</approvedAt>
-      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>610ADAFF01A52BDC684527A124A9B1C69579E0327DA199044583B795E3187837</fileHash>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-13T14:11:35.3061419Z</updatedAt>
+      <deviationsHash>3EBB3C79B678CE222B10F9214871E60337DB104BADD3DB8D639B309F0D751D12</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#cc3f8b62-c026-49c9-bef2-52cdd44f0ebd</correlationId>
       <path>Templates/CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs</path>
       <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-08-15T11:53:38.677588Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:30:39.7876106Z</approvedAt>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-13T13:33:04.746949Z</updatedAt>
       <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>5D678B2DEF8C523020321135A9C63462E674DDB0663ECDF4BF7D458D4F25C3C0</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#807ee533-3ab8-4fe6-a06c-30d45eecf014</correlationId>

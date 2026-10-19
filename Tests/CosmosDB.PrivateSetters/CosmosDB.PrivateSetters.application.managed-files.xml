@@ -1,384 +1,384 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="ba3debc4-493f-447c-bfff-f9dc07bcd2c6">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="CosmosDB.PrivateSetters.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Controllers/ClassContainersController.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Controllers/ClientsController.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Controllers/DerivedOfTSController.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Controllers/InvoicesController.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Controllers/RegionsController.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Controllers/ServiceTesting/ClientsController.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/CosmosDB.PrivateSetters.Api.csproj" />
-  <file path="CosmosDB.PrivateSetters.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Filters/ExceptionFilter.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Program.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Properties/launchSettings.json" />
-  <file path="CosmosDB.PrivateSetters.Api/Services/CurrentUserService.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/Startup.cs" />
-  <file path="CosmosDB.PrivateSetters.Api/appsettings.json" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/ClassContainerDto.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/ClassContainerDtoMappingExtensions.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/CreateClassContainer/CreateClassContainerCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/CreateClassContainer/CreateClassContainerCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/CreateClassContainer/CreateClassContainerCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/DeleteClassContainer/DeleteClassContainerCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/DeleteClassContainer/DeleteClassContainerCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/DeleteClassContainer/DeleteClassContainerCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/GetClassContainerById/GetClassContainerByIdQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/GetClassContainerById/GetClassContainerByIdQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/GetClassContainerById/GetClassContainerByIdQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/GetClassContainers/GetClassContainersQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/GetClassContainers/GetClassContainersQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/GetClassContainers/GetClassContainersQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/UpdateClassContainer/UpdateClassContainerCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/UpdateClassContainer/UpdateClassContainerCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/UpdateClassContainer/UpdateClassContainerCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/ClientDto.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/ClientDtoMappingExtensions.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/CreateClient/CreateClientCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/CreateClient/CreateClientCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/CreateClient/CreateClientCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/CreateClientByCtor/CreateClientByCtorCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/CreateClientByCtor/CreateClientByCtorCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/CreateClientByCtor/CreateClientByCtorCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/DeleteClient/DeleteClientCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/DeleteClient/DeleteClientCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/DeleteClient/DeleteClientCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientById/GetClientByIdQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientById/GetClientByIdQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientById/GetClientByIdQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientByName/GetClientByNameQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientByName/GetClientByNameQueryHandler.cs" deviationsHash="F2EDF7552BF3A88D76032B9822E47064120B19C79D05EE7DF809549D5733E724" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientByName/GetClientByNameQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClients/GetClientsQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClients/GetClientsQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClients/GetClientsQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsByIds/GetClientsByIdsQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsByIds/GetClientsByIdsQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsByIds/GetClientsByIdsQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsFiltered/GetClientsFilteredQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsFiltered/GetClientsFilteredQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsFiltered/GetClientsFilteredQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsPaged/GetClientsPagedQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsPaged/GetClientsPagedQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsPaged/GetClientsPagedQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/UpdateClient/UpdateClientCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/UpdateClient/UpdateClientCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/UpdateClient/UpdateClientCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/UpdateClientByOp/UpdateClientByOpCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/UpdateClientByOp/UpdateClientByOpCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Clients/UpdateClientByOp/UpdateClientByOpCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Interfaces/ICommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Interfaces/IQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Models/Result.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Pagination/PagedResult.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Validation/IValidationService.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Validation/ValidationService.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/CosmosDB.PrivateSetters.Application.csproj" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/CreateDepartment/CreateDepartmentCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/CreateDepartment/CreateDepartmentCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/CreateDepartment/CreateDepartmentCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/DeleteDepartment/DeleteDepartmentCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/DeleteDepartment/DeleteDepartmentCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/DeleteDepartment/DeleteDepartmentCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/DepartmentDto.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/DepartmentDtoMappingExtensions.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/DepartmentUniversityDto.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/DepartmentUniversityDtoMappingExtensions.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/GetDepartmentById/GetDepartmentByIdQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/GetDepartmentById/GetDepartmentByIdQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/GetDepartmentById/GetDepartmentByIdQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/GetDepartments/GetDepartmentsQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/GetDepartments/GetDepartmentsQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/GetDepartments/GetDepartmentsQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/UpdateDepartment/UpdateDepartmentCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/UpdateDepartment/UpdateDepartmentCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Departments/UpdateDepartment/UpdateDepartmentCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DependencyInjection.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/DerivedOfTDto.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/DerivedOfTDtoMappingExtensions.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/EventHandlers/RegionManager.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Implementation/ServiceTesting/ClientsService.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Interfaces/ServiceTesting/IClientsService.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/CreateInvoiceLineItem/CreateInvoiceLineItemCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/CreateInvoiceLineItem/CreateInvoiceLineItemCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/CreateInvoiceLineItem/CreateInvoiceLineItemCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/DeleteInvoiceLineItem/DeleteInvoiceLineItemCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/DeleteInvoiceLineItem/DeleteInvoiceLineItemCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/DeleteInvoiceLineItem/DeleteInvoiceLineItemCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoices/GetInvoicesQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/InvoiceClientDto.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/InvoiceClientDtoMappingExtensions.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/InvoiceDto.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/InvoiceDtoMappingExtensions.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/InvoiceLineItemDto.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/InvoiceLineItemDtoMappingExtensions.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoice/UpdateInvoiceCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoiceByOp/UpdateInvoiceByOpCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoiceByOp/UpdateInvoiceByOpCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoiceByOp/UpdateInvoiceByOpCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/CreateRegion/CreateRegionCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/CreateRegion/CreateRegionCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/CreateRegion/CreateRegionCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/CreateRegionCountryDto.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/CreateRegionCountryDtoValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/DeleteRegion/DeleteRegionCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/DeleteRegion/DeleteRegionCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/DeleteRegion/DeleteRegionCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegionById/GetRegionByIdQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegionById/GetRegionByIdQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegionById/GetRegionByIdQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegions/GetRegionsQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegions/GetRegionsQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegions/GetRegionsQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegionsByName/GetRegionsByNameQuery.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegionsByName/GetRegionsByNameQueryHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegionsByName/GetRegionsByNameQueryValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/RegionDto.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/RegionDtoMappingExtensions.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/UpdateRegion/UpdateRegionCommand.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/UpdateRegion/UpdateRegionCommandHandler.cs" />
-  <file path="CosmosDB.PrivateSetters.Application/Regions/UpdateRegion/UpdateRegionCommandValidator.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Address.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/ClientType.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Common/CollectionExtensions.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Common/DomainEvent.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Common/IHasDomainEvent.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Common/Interfaces/IAuditable.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Common/Interfaces/ICosmosDBUnitOfWork.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Common/Interfaces/ISoftDelete.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Common/UpdateHelper.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/CosmosDB.PrivateSetters.Domain.csproj" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/BaseOfT.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/BaseType.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Category.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/ClassContainer.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Client.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Country.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Customer.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Department.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/DerivedOfT.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/DerivedType.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/DerivedTypeAggregate.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/EntityOfT.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Folder/FolderContainer.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/IdTesting.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Invoice.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/InvoiceLogo.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/LineItem.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/NonStringPartitionKey.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Order.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/OrderItem.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/PackageContainer.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Product.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Region.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Throughput/Autoscale.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Throughput/AutoscaleWithMaxValue.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Throughput/Manual.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Throughput/ManualWithValue.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/Throughput/ServerlessThroughput.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/University.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/WithGuidId.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Entities/WithoutPartitionKey.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Events/RegionChangedDomainEvent.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Folder/IFolderContainerDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IAddressDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IBaseOfTDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IBaseTypeDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/ICategoryDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IClassContainerDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IClientDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/ICountryDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/ICustomerDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IDepartmentDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IDerivedOfTDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IDerivedTypeAggregateDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IDerivedTypeDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IEntityOfTDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IIdTestingDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IInvoiceDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IInvoiceLogoDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/ILineItemDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/INonStringPartitionKeyDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IOrderDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IOrderItemDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IPackageContainerDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IProductDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IRegionDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IUniversityDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IWithGuidIdDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IWithoutPartitionKeyDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Throughput/IAutoscaleDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Throughput/IAutoscaleWithMaxValueDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Throughput/IManualDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Throughput/IManualWithValueDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Throughput/IServerlessThroughputDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Folder/IFolderContainerRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IBaseTypeRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/ICategoryRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IClassContainerRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IClientRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/ICosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/ICustomerRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IDepartmentRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IDerivedOfTRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IDerivedTypeAggregateRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IDerivedTypeRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IEntityOfTRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IIdTestingRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IInvoiceRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/INonStringPartitionKeyRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IOrderRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IPackageContainerRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IPagedList.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IProductRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IRegionRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IUniversityRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IWithGuidIdRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IWithoutPartitionKeyRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Throughput/IAutoscaleRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Throughput/IAutoscaleWithMaxValueRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Throughput/IManualRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Throughput/IManualWithValueRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Throughput/IServerlessThroughputRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Domain/ValueObject.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/CosmosDB.PrivateSetters.Infrastructure.csproj" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/DependencyInjection.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/CosmosDBUnitOfWork.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/AddressDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/BaseOfTDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/BaseTypeDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/CategoryDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/ClassContainerDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/ClientDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/CountryDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/CustomerDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/DepartmentDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/DerivedOfTDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/DerivedTypeAggregateDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/DerivedTypeDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/EntityOfTDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/Folder/FolderContainerDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/IdTestingDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/InvoiceDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/InvoiceLogoDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/LineItemDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/NonStringPartitionKeyDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/OrderDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/OrderItemDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/PackageContainerDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/ProductDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/ReflectionHelper.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/RegionDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/Throughput/AutoscaleDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/Throughput/AutoscaleWithMaxValueDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/Throughput/ManualDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/Throughput/ManualWithValueDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/Throughput/ServerlessThroughputDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/UniversityDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/WithGuidIdDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/WithoutPartitionKeyDocument.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/BaseTypeCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/CategoryCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/ClassContainerCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/ClientCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/CosmosDBRepositoryBase.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/CosmosPagedList.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/CustomerCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/DepartmentCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/DerivedOfTCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/DerivedTypeAggregateCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/DerivedTypeCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/EntityOfTCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/Folder/FolderContainerCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/IdTestingCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/InvoiceCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/NonStringPartitionKeyCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/OrderCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/PackageContainerCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/ProductCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/RegionCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/Throughput/AutoscaleCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/Throughput/AutoscaleWithMaxValueCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/Throughput/ManualCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/Throughput/ManualWithValueCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/Throughput/ServerlessThroughputCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/UniversityCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/WithGuidIdCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/WithoutPartitionKeyCosmosDBRepository.cs" />
-  <file path="CosmosDB.PrivateSetters.Infrastructure/Services/DomainEventService.cs" />
-  <file path="CosmosDB.PrivateSetters.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="CosmosDB.PrivateSetters.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="CosmosDB.PrivateSetters.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="CosmosDB.PrivateSetters.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="CosmosDB.PrivateSetters.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="CosmosDB.PrivateSetters.Api/Controllers/ClassContainersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CosmosDB.PrivateSetters.Api/Controllers/ClientsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CosmosDB.PrivateSetters.Api/Controllers/DerivedOfTSController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CosmosDB.PrivateSetters.Api/Controllers/InvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CosmosDB.PrivateSetters.Api/Controllers/RegionsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CosmosDB.PrivateSetters.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="CosmosDB.PrivateSetters.Api/Controllers/ServiceTesting/ClientsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="CosmosDB.PrivateSetters.Api/CosmosDB.PrivateSetters.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CosmosDB.PrivateSetters.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="CosmosDB.PrivateSetters.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="CosmosDB.PrivateSetters.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="CosmosDB.PrivateSetters.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="CosmosDB.PrivateSetters.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="CosmosDB.PrivateSetters.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="CosmosDB.PrivateSetters.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="CosmosDB.PrivateSetters.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="CosmosDB.PrivateSetters.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="CosmosDB.PrivateSetters.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/ClassContainerDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/ClassContainerDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/CreateClassContainer/CreateClassContainerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/CreateClassContainer/CreateClassContainerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/CreateClassContainer/CreateClassContainerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/DeleteClassContainer/DeleteClassContainerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/DeleteClassContainer/DeleteClassContainerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/DeleteClassContainer/DeleteClassContainerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/GetClassContainerById/GetClassContainerByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/GetClassContainerById/GetClassContainerByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/GetClassContainerById/GetClassContainerByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/GetClassContainers/GetClassContainersQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/GetClassContainers/GetClassContainersQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/GetClassContainers/GetClassContainersQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/UpdateClassContainer/UpdateClassContainerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/UpdateClassContainer/UpdateClassContainerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/ClassContainers/UpdateClassContainer/UpdateClassContainerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/ClientDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/ClientDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/CreateClient/CreateClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/CreateClient/CreateClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/CreateClient/CreateClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/CreateClientByCtor/CreateClientByCtorCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/CreateClientByCtor/CreateClientByCtorCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/CreateClientByCtor/CreateClientByCtorCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/DeleteClient/DeleteClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/DeleteClient/DeleteClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/DeleteClient/DeleteClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientById/GetClientByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientById/GetClientByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientById/GetClientByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientByName/GetClientByNameQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientByName/GetClientByNameQueryHandler.cs" deviationsHash="F2EDF7552BF3A88D76032B9822E47064120B19C79D05EE7DF809549D5733E724" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientByName/GetClientByNameQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClients/GetClientsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClients/GetClientsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClients/GetClientsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsByIds/GetClientsByIdsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsByIds/GetClientsByIdsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsByIds/GetClientsByIdsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsFiltered/GetClientsFilteredQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsFiltered/GetClientsFilteredQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsFiltered/GetClientsFilteredQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsPaged/GetClientsPagedQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsPaged/GetClientsPagedQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/GetClientsPaged/GetClientsPagedQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/UpdateClient/UpdateClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/UpdateClient/UpdateClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/UpdateClient/UpdateClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/UpdateClientByOp/UpdateClientByOpCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/UpdateClientByOp/UpdateClientByOpCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Clients/UpdateClientByOp/UpdateClientByOpCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="CosmosDB.PrivateSetters.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="CosmosDB.PrivateSetters.Application/CosmosDB.PrivateSetters.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/CreateDepartment/CreateDepartmentCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/CreateDepartment/CreateDepartmentCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/CreateDepartment/CreateDepartmentCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/DeleteDepartment/DeleteDepartmentCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/DeleteDepartment/DeleteDepartmentCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/DeleteDepartment/DeleteDepartmentCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/DepartmentDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/DepartmentDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/DepartmentUniversityDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/DepartmentUniversityDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/GetDepartmentById/GetDepartmentByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/GetDepartmentById/GetDepartmentByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/GetDepartmentById/GetDepartmentByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/GetDepartments/GetDepartmentsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/GetDepartments/GetDepartmentsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/GetDepartments/GetDepartmentsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/UpdateDepartment/UpdateDepartmentCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/UpdateDepartment/UpdateDepartmentCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Departments/UpdateDepartment/UpdateDepartmentCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/DerivedOfTDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/DerivedOfTDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/EventHandlers/RegionManager.cs" templateId="Intent.MediatR.DomainEvents.AggregateManager" />
+  <file path="CosmosDB.PrivateSetters.Application/Implementation/ServiceTesting/ClientsService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="CosmosDB.PrivateSetters.Application/Interfaces/ServiceTesting/IClientsService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/CreateInvoiceLineItem/CreateInvoiceLineItemCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/CreateInvoiceLineItem/CreateInvoiceLineItemCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/CreateInvoiceLineItem/CreateInvoiceLineItemCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/DeleteInvoiceLineItem/DeleteInvoiceLineItemCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/DeleteInvoiceLineItem/DeleteInvoiceLineItemCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/DeleteInvoiceLineItem/DeleteInvoiceLineItemCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceById/GetInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoices/GetInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/InvoiceClientDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/InvoiceClientDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/InvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/InvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/InvoiceLineItemDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/InvoiceLineItemDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoice/UpdateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoiceByOp/UpdateInvoiceByOpCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoiceByOp/UpdateInvoiceByOpCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoiceByOp/UpdateInvoiceByOpCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Invoices/UpdateInvoiceLineItem/UpdateInvoiceLineItemCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/CreateRegion/CreateRegionCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/CreateRegion/CreateRegionCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/CreateRegion/CreateRegionCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/CreateRegionCountryDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/CreateRegionCountryDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/DeleteRegion/DeleteRegionCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/DeleteRegion/DeleteRegionCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/DeleteRegion/DeleteRegionCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegionById/GetRegionByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegionById/GetRegionByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegionById/GetRegionByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegions/GetRegionsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegions/GetRegionsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegions/GetRegionsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegionsByName/GetRegionsByNameQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegionsByName/GetRegionsByNameQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/GetRegionsByName/GetRegionsByNameQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/RegionDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/RegionDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/UpdateRegion/UpdateRegionCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/UpdateRegion/UpdateRegionCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="CosmosDB.PrivateSetters.Application/Regions/UpdateRegion/UpdateRegionCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="CosmosDB.PrivateSetters.Domain/Address.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="CosmosDB.PrivateSetters.Domain/ClientType.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="CosmosDB.PrivateSetters.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="CosmosDB.PrivateSetters.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="CosmosDB.PrivateSetters.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="CosmosDB.PrivateSetters.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Common/Interfaces/IAuditable.cs" templateId="Intent.Entities.BasicAuditing.AuditableInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Common/Interfaces/ICosmosDBUnitOfWork.cs" templateId="Intent.CosmosDB.CosmosDBUnitOfWorkInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Common/Interfaces/ISoftDelete.cs" templateId="Intent.Entities.SoftDelete.SoftDeleteInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="CosmosDB.PrivateSetters.Domain/CosmosDB.PrivateSetters.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/BaseOfT.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/BaseType.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Category.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/ClassContainer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Client.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Country.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Customer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Department.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/DerivedOfT.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/DerivedType.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/DerivedTypeAggregate.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/EntityOfT.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Folder/FolderContainer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/IdTesting.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Invoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/InvoiceLogo.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/LineItem.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/NonStringPartitionKey.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Order.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/OrderItem.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/PackageContainer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Product.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Region.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Throughput/Autoscale.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Throughput/AutoscaleWithMaxValue.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Throughput/Manual.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Throughput/ManualWithValue.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/Throughput/ServerlessThroughput.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/University.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/WithGuidId.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Entities/WithoutPartitionKey.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="CosmosDB.PrivateSetters.Domain/Events/RegionChangedDomainEvent.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Folder/IFolderContainerDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IAddressDocument.cs" templateId="Intent.CosmosDB.CosmosDBValueObjectDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IBaseOfTDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IBaseTypeDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/ICategoryDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IClassContainerDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IClientDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/ICountryDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/ICustomerDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IDepartmentDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IDerivedOfTDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IDerivedTypeAggregateDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IDerivedTypeDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IEntityOfTDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IIdTestingDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IInvoiceDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IInvoiceLogoDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/ILineItemDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/INonStringPartitionKeyDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IOrderDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IOrderItemDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IPackageContainerDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IProductDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IRegionDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IUniversityDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IWithGuidIdDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IWithoutPartitionKeyDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Throughput/IAutoscaleDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Throughput/IAutoscaleWithMaxValueDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Throughput/IManualDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Throughput/IManualWithValueDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Throughput/IServerlessThroughputDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Folder/IFolderContainerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IBaseTypeRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/ICategoryRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IClassContainerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IClientRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/ICosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/ICustomerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IDepartmentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IDerivedOfTRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IDerivedTypeAggregateRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IDerivedTypeRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IEntityOfTRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IIdTestingRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/INonStringPartitionKeyRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IOrderRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IPackageContainerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IRegionRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IUniversityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IWithGuidIdRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/IWithoutPartitionKeyRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Throughput/IAutoscaleRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Throughput/IAutoscaleWithMaxValueRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Throughput/IManualRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Throughput/IManualWithValueRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Throughput/IServerlessThroughputRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/CosmosDB.PrivateSetters.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/CosmosDBUnitOfWork.cs" templateId="Intent.CosmosDB.CosmosDBUnitOfWork" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/AddressDocument.cs" templateId="Intent.CosmosDB.CosmosDBValueObjectDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/BaseOfTDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/BaseTypeDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/CategoryDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/ClassContainerDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/ClientDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/CountryDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/CustomerDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/DepartmentDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/DerivedOfTDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/DerivedTypeAggregateDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/DerivedTypeDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/EntityOfTDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/Folder/FolderContainerDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/ICosmosDBDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentOfTInterface" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/IdTestingDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/InvoiceDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/InvoiceLogoDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/LineItemDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/NonStringPartitionKeyDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/OrderDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/OrderItemDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/PackageContainerDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/ProductDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/ReflectionHelper.cs" templateId="Intent.CosmosDB.ReflectionHelper" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/RegionDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/Throughput/AutoscaleDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/Throughput/AutoscaleWithMaxValueDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/Throughput/ManualDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/Throughput/ManualWithValueDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/Throughput/ServerlessThroughputDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs" templateId="Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/UniversityDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/WithGuidIdDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/WithoutPartitionKeyDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/BaseTypeCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/CategoryCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/ClassContainerCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/ClientCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/CosmosDBRepositoryBase.cs" templateId="Intent.CosmosDB.CosmosDBRepositoryBase" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/CosmosPagedList.cs" templateId="Intent.CosmosDB.CosmosPagedList" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/CustomerCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/DepartmentCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/DerivedOfTCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/DerivedTypeAggregateCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/DerivedTypeCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/EntityOfTCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/Folder/FolderContainerCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/IdTestingCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/InvoiceCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/NonStringPartitionKeyCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/OrderCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/PackageContainerCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/ProductCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/RegionCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/Throughput/AutoscaleCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/Throughput/AutoscaleWithMaxValueCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/Throughput/ManualCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/Throughput/ManualWithValueCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/Throughput/ServerlessThroughputCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/UniversityCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/WithGuidIdCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Repositories/WithoutPartitionKeyCosmosDBRepository.cs" templateId="Intent.CosmosDB.CosmosDBRepository" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="CosmosDB.PrivateSetters.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

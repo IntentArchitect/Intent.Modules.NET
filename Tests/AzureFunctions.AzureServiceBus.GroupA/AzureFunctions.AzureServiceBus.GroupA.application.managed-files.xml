@@ -1,102 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="00b3b7e9-f22e-4961-ad56-c9c60f5b1f22">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="AzureFunctions.AzureServiceBus.Api/AzureFunctionHelper.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Api/AzureFunctions.AzureServiceBus.Api.csproj" />
-  <file path="AzureFunctions.AzureServiceBus.Api/Client/CreateClient.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Api/Configuration/OpenApiConfigurationOptions.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Api/Org/CreateOrg.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Api/Program.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Api/ResponseTypes/JsonResponse.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Api/Services/CurrentUserService.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Api/SpecificQueueMessageConsumer.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Api/SpecificTopicMessageConsumer.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Api/host.json" />
-  <file path="AzureFunctions.AzureServiceBus.Api/local.settings.json" />
-  <file path="AzureFunctions.AzureServiceBus.Application/AssemblyAttributes.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/AzureFunctions.AzureServiceBus.Application.csproj" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Client/CreateClient/CreateClientCommand.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Client/CreateClient/CreateClientCommandHandler.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Eventing/IEventBus.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Interfaces/ICommand.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Interfaces/IQuery.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Models/Result.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Pagination/PagedList.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Pagination/PagedResult.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Validation/IValidationService.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Validation/ValidationService.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/CreateOrgCommandDepartmentsDto.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/DependencyInjection.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationCommands/CreateOrgIntegrationCommand.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/ClientCreatedEvent.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/SpecificQueueMessageHandler.cs" deviationsHash="14BE7667A644763A3D6226A46BC037BE89BDADA25CCD2C9F905D96BBE328F14F" />
-  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/SpecificTopicMessageHandler.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/OrgDepartmentDto.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/SpecificQueueOneMessageEvent.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/SpecificQueueTwoMessageEvent.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/SpecificTopicOneMessageEvent.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/SpecificTopicTwoMessageEvent.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Org/CreateOrg/CreateOrgCommand.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Org/CreateOrg/CreateOrgCommandHandler.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/PayloadDto.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/ReceiveOrgCommandDepartmentsDto.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/ResourceLocation.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Validators/Client/CreateClient/CreateClientCommandValidator.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Validators/CreateOrgCommandDepartmentsDtoValidator.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Application/Validators/Org/CreateOrg/CreateOrgCommandValidator.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Domain/AzureFunctions.AzureServiceBus.Domain.csproj" />
-  <file path="AzureFunctions.AzureServiceBus.Domain/Common/CollectionExtensions.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Domain/Common/DomainEvent.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Domain/Common/IHasDomainEvent.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Domain/Common/UpdateHelper.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Domain/OrgType.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Domain/Repositories/IEFRepository.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Domain/Repositories/IPagedList.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Domain/Repositories/IRepository.cs" />
-  <file path="AzureFunctions.AzureServiceBus.GroupA.sln" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/AzureFunctions.AzureServiceBus.Infrastructure.csproj" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Configuration/AzureServiceBusConfiguration.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Configuration/AzureServiceBusPublisherOptions.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Configuration/AzureServiceBusSubscriptionOptions.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/DependencyInjection.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Eventing/AzureServiceBusMessageBus.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Eventing/AzureServiceBusMessageDispatcher.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Eventing/IAzureServiceBusMessageDispatcher.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Migrations/README.md" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Persistence/DesignTimeDbContextFactory.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Services/DomainEventService.cs" />
-  <file path="AzureFunctions.AzureServiceBus.Infrastructure/appsettings.json" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="AzureFunctions.AzureServiceBus.Api/AzureFunctionHelper.cs" templateId="Intent.AzureFunctions.AzureFunctionClassHelper" />
+  <file path="AzureFunctions.AzureServiceBus.Api/AzureFunctions.AzureServiceBus.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunctions.AzureServiceBus.Api/Client/CreateClient.cs" templateId="Intent.AzureFunctions.AzureFunctionClass" />
+  <file path="AzureFunctions.AzureServiceBus.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="AzureFunctions.AzureServiceBus.Api/Configuration/OpenApiConfigurationOptions.cs" templateId="Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate" />
+  <file path="AzureFunctions.AzureServiceBus.Api/Org/CreateOrg.cs" templateId="Intent.AzureFunctions.AzureFunctionClass" />
+  <file path="AzureFunctions.AzureServiceBus.Api/Program.cs" templateId="Intent.AzureFunctions.Isolated.Program" />
+  <file path="AzureFunctions.AzureServiceBus.Api/ResponseTypes/JsonResponse.cs" templateId="Intent.AzureFunctions.ReturnTypes.JsonResponse" />
+  <file path="AzureFunctions.AzureServiceBus.Api/ServiceBusTriggers/ProcessQueueMessage.cs" templateId="Intent.AzureFunctions.AzureFunctionClass" />
+  <file path="AzureFunctions.AzureServiceBus.Api/ServiceBusTriggers/ProcessTopicMessage.cs" templateId="Intent.AzureFunctions.AzureFunctionClass" />
+  <file path="AzureFunctions.AzureServiceBus.Api/ServiceBusTriggers/ServiceBusTriggerService/ProcessQueueMessage.cs" templateId="Intent.AzureFunctions.AzureFunctionClass" />
+  <file path="AzureFunctions.AzureServiceBus.Api/ServiceBusTriggers/ServiceBusTriggerService/ProcessTopicMessage.cs" templateId="Intent.AzureFunctions.AzureFunctionClass" />
+  <file path="AzureFunctions.AzureServiceBus.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="AzureFunctions.AzureServiceBus.Api/SpecificQueueMessageConsumer.cs" templateId="Intent.AzureFunctions.AzureServiceBus.AzureFunctionConsumer" />
+  <file path="AzureFunctions.AzureServiceBus.Api/SpecificTopicMessageConsumer.cs" templateId="Intent.AzureFunctions.AzureServiceBus.AzureFunctionConsumer" />
+  <file path="AzureFunctions.AzureServiceBus.Api/TriggerAppSettings/TriggerAppSettingsService/ProcessCosmosChanges.cs" templateId="Intent.AzureFunctions.AzureFunctionClass" />
+  <file path="AzureFunctions.AzureServiceBus.Api/TriggerAppSettings/TriggerAppSettingsService/ProcessEventHubMessage.cs" templateId="Intent.AzureFunctions.AzureFunctionClass" />
+  <file path="AzureFunctions.AzureServiceBus.Api/TriggerAppSettings/TriggerAppSettingsService/ProcessRabbitMQMessage.cs" templateId="Intent.AzureFunctions.AzureFunctionClass" />
+  <file path="AzureFunctions.AzureServiceBus.Api/TriggerAppSettings/TriggerAppSettingsService/ProcessStorageQueueMessage.cs" templateId="Intent.AzureFunctions.AzureFunctionClass" />
+  <file path="AzureFunctions.AzureServiceBus.Api/TriggerAppSettings/TriggerAppSettingsService/RunSchedule.cs" templateId="Intent.AzureFunctions.AzureFunctionClass" />
+  <file path="AzureFunctions.AzureServiceBus.Api/host.json" templateId="Intent.VisualStudio.Projects.AzureFunctions.HostJson" />
+  <file path="AzureFunctions.AzureServiceBus.Api/local.settings.json" templateId="Intent.VisualStudio.Projects.AzureFunctions.LocalSettingsJson" />
+  <file path="AzureFunctions.AzureServiceBus.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="AzureFunctions.AzureServiceBus.Application/AzureFunctions.AzureServiceBus.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Client/CreateClient/CreateClientCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Client/CreateClient/CreateClientCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="AzureFunctions.AzureServiceBus.Application/CreateOrgCommandDepartmentsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="AzureFunctions.AzureServiceBus.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Implementation/ServiceBusTriggers/ServiceBusTriggerService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Implementation/TriggerAppSettings/TriggerAppSettingsService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationCommands/CreateOrgIntegrationCommand.cs" templateId="Intent.Eventing.Contracts.IntegrationCommand" />
+  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/ClientCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/SpecificQueueMessageHandler.cs" deviationsHash="14BE7667A644763A3D6226A46BC037BE89BDADA25CCD2C9F905D96BBE328F14F" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/SpecificTopicMessageHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/OrgDepartmentDto.cs" templateId="Intent.Eventing.Contracts.IntegrationEventDto" />
+  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/SpecificQueueOneMessageEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/SpecificQueueTwoMessageEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/SpecificTopicOneMessageEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="AzureFunctions.AzureServiceBus.Application/IntegrationEvents/SpecificTopicTwoMessageEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Interfaces/ServiceBusTriggers/IServiceBusTriggerService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Interfaces/TriggerAppSettings/ITriggerAppSettingsService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Org/CreateOrg/CreateOrgCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Org/CreateOrg/CreateOrgCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="AzureFunctions.AzureServiceBus.Application/PayloadDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="AzureFunctions.AzureServiceBus.Application/ReceiveOrgCommandDepartmentsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="AzureFunctions.AzureServiceBus.Application/ResourceLocation.cs" templateId="Intent.AzureFunctions.ReturnTypes.ResourceLocationClass" />
+  <file path="AzureFunctions.AzureServiceBus.Application/ServiceBusTriggers/ProcessQueueMessage/ProcessQueueMessageCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="AzureFunctions.AzureServiceBus.Application/ServiceBusTriggers/ProcessQueueMessage/ProcessQueueMessageCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="AzureFunctions.AzureServiceBus.Application/ServiceBusTriggers/ProcessTopicMessage/ProcessTopicMessageCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="AzureFunctions.AzureServiceBus.Application/ServiceBusTriggers/ProcessTopicMessage/ProcessTopicMessageCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Validators/Client/CreateClient/CreateClientCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Validators/CreateOrgCommandDepartmentsDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Validators/Org/CreateOrg/CreateOrgCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Validators/PayloadDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Validators/ServiceBusTriggers/ProcessQueueMessage/ProcessQueueMessageCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="AzureFunctions.AzureServiceBus.Application/Validators/ServiceBusTriggers/ProcessTopicMessage/ProcessTopicMessageCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="AzureFunctions.AzureServiceBus.Domain/AzureFunctions.AzureServiceBus.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunctions.AzureServiceBus.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="AzureFunctions.AzureServiceBus.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="AzureFunctions.AzureServiceBus.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="AzureFunctions.AzureServiceBus.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="AzureFunctions.AzureServiceBus.Domain/OrgType.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="AzureFunctions.AzureServiceBus.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="AzureFunctions.AzureServiceBus.GroupA.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/AzureFunctions.AzureServiceBus.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Configuration/AzureServiceBusConfiguration.cs" templateId="Intent.Eventing.AzureServiceBus.AzureServiceBusConfiguration" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Configuration/AzureServiceBusPublisherOptions.cs" templateId="Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Configuration/AzureServiceBusSubscriptionOptions.cs" templateId="Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Eventing/AzureServiceBusMessageBus.cs" templateId="Intent.Eventing.AzureServiceBus.AzureServiceBusMessageBus" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Eventing/AzureServiceBusMessageDispatcher.cs" templateId="Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcher" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Eventing/IAzureServiceBusMessageDispatcher.cs" templateId="Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcherInterface" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Persistence/DesignTimeDbContextFactory.cs" templateId="Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="AzureFunctions.AzureServiceBus.Infrastructure/appsettings.json" templateId="Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson" />
 </managedFiles>

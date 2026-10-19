@@ -196,5 +196,14 @@
       <deviationsHash>C004B1B86D237803F313CC6ABF0333D55C06B8EA289451859DE59B45E9FC6F18</deviationsHash>
       <fileHash>4424965486689A292567A0EACCA415330DECF6425CA35AED2469294E6553264E</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#a495c092-cbe9-4d27-a059-c2d1cbdedbb5</correlationId>
+      <path>CleanArchitecture.Comprehensive.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-06T13:05:14.1296508Z</updatedAt>
+      <deviationsHash>4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B</deviationsHash>
+    </file>
   </files>
 </deviationsLog>

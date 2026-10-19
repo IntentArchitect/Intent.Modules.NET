@@ -1,4 +1,3 @@
-using AspNetControllers.SecuredByDefault.Application.Common.Interfaces;
 using AspNetControllers.SecuredByDefault.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
@@ -16,12 +15,10 @@ namespace AspNetControllers.SecuredByDefault.Api.Controllers
     public class TestController : ControllerBase
     {
         private readonly ITestService _appService;
-        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
 
-        public TestController(ITestService appService, IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork)
+        public TestController(ITestService appService)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
-            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
         }
 
         /// <summary>
@@ -36,11 +33,7 @@ namespace AspNetControllers.SecuredByDefault.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Operation(CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
-            {
-                await _appService.Operation(cancellationToken);
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
-            }
+            await _appService.Operation(cancellationToken);
             return Created(string.Empty, null);
         }
     }

@@ -1,0 +1,40 @@
+# Remove Intent.Integration.HttpClients' dependency on Intent.AspNetCore.DistributedCaching
+
+Rich version: `intent/.plans/2026-10-06-httpclients-drop-distributed-caching-dependency.mdx`
+
+## Context / why it was added
+- 6.0.0 swapped IdentityModel.AspNetCore for **Duende.AccessTokenManagement 3.2.0** on .NET 8+. `AddClientCredentialsTokenManagement()` needs an `IDistributedCache` but does not register one, so apps failed at startup.
+- 6.0.1 (commit 7dee4bf117c) fixed that by adding a hard dependency on DistributedCaching, because that module emits `AddDistributedMemoryCache()` by default.
+- The side effect: DistributedCaching generates `IDistributedCacheWithUnitOfWork`. The shared UoW helpers (`Common.UnitOfWork/Shared/PersistenceUnitOfWork.cs`) treat it as a persistence store, so every dispatcher gets `EnableUnitOfWork`/`SaveChangesAsync` wrapping, and `UnitOfWorkBehaviour` is generated even when the app has no database.
+
+## Approach
+HttpClients registers the cache itself, in the Duende branch only, and the dependency is dropped.
+
+1. **Version:** HttpClients goes to **6.2.0-pre.0** through the Module Builder version property, because 6.1.4 is published. Stubs does not need to move.
+2. **`NugetPackages.cs`:** register `Microsoft.Extensions.Caching.Memory` per framework (8/9/10), matching the caching module's versions.
+3. **`FactoryExtensions/HttpClientHeaderConfiguratorExtension.cs`:** in the `>= 8` branch, when `Intent.AspNetCore.DistributedCaching` is not installed (`application.InstalledModules.Any(...)`), add the NuGet package and `InsertStatement(0, "services.AddDistributedMemoryCache();")`.
+4. **`.imodspec`:** remove the dependency. Then run `dotnet build --no-incremental`.
+5. **Proof app `ProxyServiceTests.Proxy.TokenMgmtSvc`:** install the new HttpClients, uninstall DistributedCaching, then run the Software Factory. Expect:
+   - the `AddDistributedMemoryCache` line and the Caching.Memory package to be added
+   - the three caching files to be deleted
+   - the cache UoW wrapping to be removed
+
+   Leave the other 14 test apps unchanged.
+6. **Close out:** run the dependency audit, add a release note, add the README note under Client Access Token Management, and create `CONTEXT.md` recording why the dependency must not return.
+
+## Problems / trade-offs
+- **Redis coexistence is safe.** Memory registration uses TryAdd and Redis uses Add, so Redis wins in either order.
+- **The guard means no diff for existing apps** that keep DistributedCaching, and no duplicate line.
+- **Existing apps keep DistributedCaching.** Removing a dependency does not uninstall it, so they must uninstall it themselves. The release note should say so.
+- **Apps may have used it implicitly.** If their own code uses `IDistributedCacheWithUnitOfWork` or the extensions, it breaks only if they uninstall the module. EF SecondLevelCaching declares its own dependency, so it is unaffected.
+- **Visible UoW diff.** In apps where the cache was the only "persistence store", uninstalling it removes UoW wrapping and `UnitOfWorkBehaviour`. That is intended, but it is a visible diff.
+- **Tokens are cached per process instance.** This is Duende's documented default.
+- **The pre-.NET 8 IdentityModel path is untouched.** It worked before 6.0.1, and leaving it avoids netstandard2.1 package issues.
+- **Risk: NuGet added inside `OnBuild`.** This follows the existing Duende pattern. If the package does not appear in the generated `.csproj`, move both registrations to the HttpClientConfiguration template constructor.
+- **Deferred:** Duende 4.x / HybridCache.
+
+## Verification
+- The module builds and produces 6.2.0-pre.0.imod, and it appears in the `.cache` folder.
+- The proof app regenerates with the expected diff, builds, and starts with no `IDistributedCache` resolution error.
+- An app with DistributedCaching still installed shows no HttpClientConfiguration diff.
+- The dependency audit is clean.

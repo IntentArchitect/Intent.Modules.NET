@@ -14,5 +14,14 @@
       <deviationsHash>597C04C55465B4961C6648AA2E491EC153A7C14DC1FE687E451C8FF6300DAD1D</deviationsHash>
       <fileHash>EA595E28254D6F3F3F6FAB2A5F34B8E44434EDF7986F182268C6E6817D6297D9</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#8b41b951-698b-478c-971f-ee6b3e63271a</correlationId>
+      <path>AspNetCore.Controllers.Secured.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-06T13:12:12.8484444Z</updatedAt>
+      <deviationsHash>4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B</deviationsHash>
+    </file>
   </files>
 </deviationsLog>

@@ -8,7 +8,7 @@
   <file path="Intent.Application.ServiceImplementations.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Application.ServiceImplementations.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Templates/ServiceImplementation/ServiceImplementationDecorator.cs" deviationsHash="BA685F7DB469CD5F7CA43343634435C89A455D04FF2DC0E73687443B57A69962" templateId="Intent.ModuleBuilder.Templates.TemplateDecoratorContract" />
-  <file path="Templates/ServiceImplementation/ServiceImplementationTemplatePartial.cs" deviationsHash="B0B85F2D43C71C043B4681E73372DF7B1B2B222280F739B7177841E2B4BA6896" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ServiceImplementation/ServiceImplementationTemplatePartial.cs" deviationsHash="FE7513B643A4AC94C7C926AE5ECF09F792C6DB2AC13112ED62154263FE21AE40" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ServiceImplementation/ServiceImplementationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/ServiceImplementationSkill/ServiceImplementationSkillTemplatePartial.cs" deviationsHash="AB9C5BC6CCD6814FF5DE7AE6B001B8D4866095CA4B816C52EB04FC211B3C067F" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/ServiceImplementationSkill/ServiceImplementationSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />

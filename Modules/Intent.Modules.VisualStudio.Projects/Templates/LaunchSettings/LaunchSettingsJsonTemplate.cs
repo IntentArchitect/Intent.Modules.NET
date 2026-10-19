@@ -13,7 +13,11 @@ using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Persistence;
 using Intent.SdkEvolutionHelpers;
+using Intent.Modules.VisualStudio.Projects.Sync;
 using Intent.Templates;
+using Intent.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,13 +39,26 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         private readonly List<EnvironmentVariableRegistrationRequest> _environmentVariables = new();
         private bool _noDefaultLaunchSettingsFile;
 
+        /// <summary>
+        /// <c>Generate LaunchSettings File</c> is off for a host project: an existing file is left exactly
+        /// as it is, none is created, and profiles, environment variables and ports are not added.
+        /// </summary>
+        private readonly bool _isHandsOff;
+
         public const string Identifier = "Intent.VisualStudio.Projects.CoreWeb.LaunchSettings";
 
         public LaunchSettingsJsonTemplate(IOutputTarget outputTarget, IApplicationEventDispatcher applicationEventDispatcher, IApplication application,
             IPersistenceLoader persistenceLoader)
+            : this(outputTarget, applicationEventDispatcher, application, persistenceLoader, isHandsOff: false)
+        {
+        }
+
+        public LaunchSettingsJsonTemplate(IOutputTarget outputTarget, IApplicationEventDispatcher applicationEventDispatcher, IApplication application,
+            IPersistenceLoader persistenceLoader, bool isHandsOff)
             : base(Identifier, outputTarget, null)
         {
             _persistenceLoader = persistenceLoader;
+            _isHandsOff = isHandsOff;
             _model = ExecutionContext.MetadataManager.GetAllProjectModels(application).FirstOrDefault(m => m.Id == OutputTarget.Id);
 
             ExecutionContext.EventDispatcher.Subscribe<EnvironmentVariableRegistrationRequest>(HandleEnvironmentVariable);
@@ -115,7 +132,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         
         public override bool CanRunTemplate()
         {
-            return !_noDefaultLaunchSettingsFile;
+            if (_noDefaultLaunchSettingsFile)
+            {
+                return false;
+            }
+
+            // Hands-off never creates the file. An existing one is still "generated" (unchanged, see
+            // TransformText) so that the Software Factory neither rewrites it nor proposes deleting it.
+            return !_isHandsOff || TryGetExistingFileContent(out _);
         }
 
         private void HandleLaunchProfileRegistration(LaunchProfileRegistrationRequest request)
@@ -192,8 +216,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
             _randomPort = new Random().Next(56600, 65535);
             _randomSslPort = new Random().Next(44300, 44399);
 
-            if (!TryGetExistingFileContent(out var content))
+            if (!TryGetExistingFileContent(out var content) || string.IsNullOrWhiteSpace(content))
             {
+                if (_isHandsOff)
+                {
+                    // No file will be created, so there are no ports to announce or record
+                    return;
+                }
+
                 if (!string.IsNullOrWhiteSpace(_defaultApplicationUrl))
                 {
                     _randomSslPort = new Uri(_defaultApplicationUrl).Port;
@@ -205,24 +235,48 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                 return;
             }
 
-            var launchSettingsParsed = LaunchSettings.FromJson(content);
-            
-            SetBaseUrlSteroetypeValue(launchSettingsParsed?.Profiles?.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Value.ApplicationUrl)).Value?.ApplicationUrl);
+            // Read as a JSON tree rather than the typed LaunchSettings classes, which throw on values they
+            // don't model (e.g. an unrecognized commandName).
+            var launchSettings = ParseExistingFile(content);
 
-            var iisExpress = launchSettingsParsed.IisSettings?.IisExpress;
-            if (iisExpress?.ApplicationUrl == null ||
-                !iisExpress.SslPort.HasValue)
+            var profiles = (launchSettings["profiles"] as JObject)?.PropertyValues().OfType<JObject>() ?? [];
+            SetBaseUrlSteroetypeValue(profiles
+                .Select(profile => GetString(profile, "applicationUrl"))
+                .FirstOrDefault(applicationUrl => !string.IsNullOrWhiteSpace(applicationUrl)));
+
+            var iisExpress = (launchSettings["iisSettings"] as JObject)?["iisExpress"] as JObject;
+            if (!Uri.TryCreate(GetString(iisExpress, "applicationUrl"), UriKind.Absolute, out var iisExpressApplicationUrl) ||
+                iisExpress?["sslPort"] is not JValue { Type: JTokenType.Integer } sslPort)
             {
                 return;
             }
 
-            _randomPort = iisExpress.ApplicationUrl.Scheme == Uri.UriSchemeHttps ? _randomPort : iisExpress.ApplicationUrl.Port;
-            _randomSslPort = iisExpress.SslPort.Value;
+            _randomPort = iisExpressApplicationUrl.Scheme == Uri.UriSchemeHttps ? _randomPort : iisExpressApplicationUrl.Port;
+            _randomSslPort = (int)sslPort;
 
             ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent(
-                applicationUrl: iisExpress.ApplicationUrl.ToString(),
+                applicationUrl: iisExpressApplicationUrl.ToString(),
                 port: _randomPort,
                 sslPort: _randomSslPort));
+        }
+
+        private JObject ParseExistingFile(string content)
+        {
+            try
+            {
+                return LaunchSettingsMerger.Parse(content);
+            }
+            catch (JsonReaderException e)
+            {
+                throw new FriendlyException(
+                    $"The existing launchSettings.json at {GetMetadata().GetFilePath()} could not be parsed: {e.Message} " +
+                    "Correct the JSON, or delete the file to have it regenerated.");
+            }
+        }
+
+        private static string GetString(JObject jObject, string propertyName)
+        {
+            return (jObject?[propertyName] as JValue)?.Value as string;
         }
 
         private void SetBaseUrlSteroetypeValue(string baseUrl)
@@ -279,95 +333,49 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
         public override string TransformText()
         {
-            var launchSettings = TryGetExistingFileContent(out var content)
-                ? LaunchSettings.FromJson(content)
-                : GetDefaultLaunchSettings();
-
-            foreach (var (key, profile) in Profiles)
+            if (_isHandsOff)
             {
-                launchSettings.Profiles ??= new Dictionary<string, Profile>();
-                launchSettings.Profiles.TryAdd(key, profile);
+                LogDroppedRegistrations();
+                return TryGetExistingFileContent(out var existingContent) ? existingContent : string.Empty;
             }
 
-            if (_launchProfileHttpPortRequired)
-            {
-                foreach (var profile in launchSettings.Profiles.Values)
-                {
-                    var split = profile.ApplicationUrl?.Split(';');
-                    if (split?.Length != 1 ||
-                        !split[0].StartsWith("https://", StringComparison.OrdinalIgnoreCase))
-                    {
-                        continue;
-                    }
-
-                    profile.ApplicationUrl = string.Join(";", split.Append($"http://localhost:{_randomPort}"));
-                }
-            }
-
-            //Ensure the API profile ends in /swagger or /scalar/v1 esp. if you swap modules.
-            // We dont have a way to know which profiles are for WebApI vs which are for the WebApp for example.
-            foreach (var kvp in launchSettings.Profiles)
-            {
-                var key = kvp.Key;
-                var profile = kvp.Value;
-                if (!key.EndsWith(".Api"))
-                {
-                    continue;
-                }
-                if (!string.IsNullOrWhiteSpace(_defaultLaunchUrlPath) && !profile.LaunchUrl.Contains(_defaultLaunchUrlPath))
-                {
-                    string newPath = _defaultLaunchUrlPath;
-                    if (!newPath.StartsWith("/"))
-                        newPath = "/" + newPath;
-
-                    var uri = new Uri(profile.LaunchUrl);
-
-                    // Build the new URL with the same scheme, host, and port
-                    var builder = new UriBuilder(uri)
-                    {
-                        Path = newPath,
-                        Query = string.Empty // clear any query params if present
-                    };
-                    profile.LaunchUrl = builder.Uri.ToString();
-                }
-            }
-
-            if (IsMicrosoftNETSdkWorker())
+            var environmentVariables = new List<EnvironmentVariableRegistrationRequest>
             {
                 // In case has not been set through an event, sets this be default.
-                _environmentVariables.Insert(0, new EnvironmentVariableRegistrationRequest(
-                    "DOTNET_ENVIRONMENT", "Development", new[] { Project.Name }));
-            }
-            else
-            {
-                // In case has not been set through an event, sets this be default.
-                _environmentVariables.Insert(0, new EnvironmentVariableRegistrationRequest(
-                    "ASPNETCORE_ENVIRONMENT", "Development",
-                    new[]
-                    {
-                        "IIS Express",
-                        Project.Name
-                    }));
-            }
-            foreach (var environmentVariable in _environmentVariables)
-            {
-                var keys = environmentVariable.TargetProfiles ??= launchSettings.Profiles.Keys;
-                foreach (var key in keys)
-                {
-                    if (!launchSettings.Profiles.TryGetValue(key, out var profile))
-                    {
-                        continue;
-                    }
+                IsMicrosoftNETSdkWorker()
+                ? new EnvironmentVariableRegistrationRequest("DOTNET_ENVIRONMENT", "Development", new[] { Project.Name })
+                : new EnvironmentVariableRegistrationRequest("ASPNETCORE_ENVIRONMENT", "Development", new[] { "IIS Express", Project.Name })
+            };
+            environmentVariables.AddRange(_environmentVariables);
 
-                    profile.EnvironmentVariables ??= new Dictionary<string, string>();
-                    if (!profile.EnvironmentVariables.ContainsKey(environmentVariable.Key))
-                    {
-                        profile.EnvironmentVariables[environmentVariable.Key] = environmentVariable.Value as string;
-                    }
-                }
+            var registrations = new LaunchSettingsRegistrations(
+                Profiles: Profiles,
+                EnvironmentVariables: environmentVariables,
+                HttpPortRequired: _launchProfileHttpPortRequired,
+                HttpPort: _randomPort,
+                DefaultLaunchUrlPath: _defaultLaunchUrlPath);
+
+            // An existing file is only ever added to, never rewritten - see LaunchSettingsMerger
+            return LaunchSettingsMerger.Merge(
+                existingContent: TryGetExistingFileContent(out var content) ? content : null,
+                createDefaultLaunchSettings: GetDefaultLaunchSettings,
+                registrations: registrations);
+        }
+
+        private void LogDroppedRegistrations()
+        {
+            var dropped = Profiles.Keys.Select(name => $"profile \"{name}\"")
+                .Concat(_environmentVariables.Select(x => $"environment variable \"{x.Key}\""))
+                .Distinct()
+                .ToArray();
+            if (dropped.Length == 0)
+            {
+                return;
             }
 
-            return launchSettings.ToJson();
+            Logging.Log.Info(
+                $"\"Generate LaunchSettings File\" is off for project \"{Project.Name}\", " +
+                $"so these were not added to its launchSettings.json: {string.Join(", ", dropped)}");
         }
 
         private bool IsMicrosoftNETSdkWorker()
@@ -476,13 +484,21 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
-            return new TemplateFileConfig(
+            var config = new TemplateFileConfig(
                 overwriteBehaviour: OverwriteBehaviour.Always,
                 codeGenType: CodeGenType.Basic,
                 fileName: "launchSettings",
                 fileExtension: "json",
                 relativeLocation: "Properties"
             );
+
+            if (_isHandsOff)
+            {
+                // A hands-off file's .csproj items are the developer's too: neither added nor removed
+                config.CustomMetadata[FileAddedData.LeaveProjectItemsUnchangedKey] = "true";
+            }
+
+            return config;
         }
     }
 }

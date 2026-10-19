@@ -1,285 +1,285 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="5a489c24-afd9-43d1-bb80-25be7266b05c">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="AzureFunctions.MongoDb.Api/AzureFunctionHelper.cs" />
-  <file path="AzureFunctions.MongoDb.Api/AzureFunctions.MongoDb.Api.csproj" />
-  <file path="AzureFunctions.MongoDb.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="AzureFunctions.MongoDb.Api/Configuration/AzureKeyVaultConfiguration.cs" />
-  <file path="AzureFunctions.MongoDb.Api/Configuration/OpenApiConfigurationOptions.cs" />
-  <file path="AzureFunctions.MongoDb.Api/Program.cs" />
-  <file path="AzureFunctions.MongoDb.Api/ResponseTypes/JsonResponse.cs" />
-  <file path="AzureFunctions.MongoDb.Api/Services/CurrentUserService.cs" />
-  <file path="AzureFunctions.MongoDb.Api/host.json" />
-  <file path="AzureFunctions.MongoDb.Api/local.settings.json" />
-  <file path="AzureFunctions.MongoDb.Application/AzureFunctions.MongoDb.Application.csproj" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Interfaces/ICommand.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Interfaces/IQuery.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Models/Result.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Pagination/PagedResult.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="AzureFunctions.MongoDb.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="AzureFunctions.MongoDb.Application/DependencyInjection.cs" />
-  <file path="AzureFunctions.MongoDb.Application/ResourceLocation.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/AzureFunctions.MongoDb.Domain.csproj" />
-  <file path="AzureFunctions.MongoDb.Domain/Common/CollectionExtensions.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Common/Interfaces/IMongoDbUnitOfWork.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Common/UpdateHelper.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/A_OptionalDependent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/A_RequiredComposite.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/B_OptionalAggregate.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/B_OptionalDependent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/C_MultipleDependent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/C_RequireComposite.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/D_MultipleDependent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/D_OptionalAggregate.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/E_RequiredCompositeNav.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/E_RequiredDependent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/F_OptionalAggregateNav.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/F_OptionalDependent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/G_MultipleDependent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/G_RequiredCompositeNav.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/H_MultipleDependent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/H_OptionalAggregateNav.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/I_MultipleAggregate.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/I_RequiredDependent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/J_MultipleAggregate.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/J_MultipleDependent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/K_MultipleAggregateNav.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/K_MultipleDependent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/BaseType.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/BaseTypeOfT.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Collections/CustomCollectionEntityA.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Collections/CustomCollectionEntityB.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Collections/FolderCollection/FolderCollectionEntityA.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Collections/FolderCollection/FolderCollectionEntityB.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Derived.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/DerivedOfT.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/IdTypes/IdTypeGuid.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/IdTypes/IdTypeOjectIdStr.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/CompoundIndexEntity.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/CompoundIndexEntityMultiChild.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/CompoundIndexEntityMultiParent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/CompoundIndexEntitySingleChild.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/CompoundIndexEntitySingleParent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/MultikeyIndexEntity.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/MultikeyIndexEntityMultiChild.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/MultikeyIndexEntityMultiParent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/MultikeyIndexEntitySingleChild.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/MultikeyIndexEntitySingleParent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/SingleIndexEntity.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/SingleIndexEntityMultiChild.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/SingleIndexEntityMultiParent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/SingleIndexEntitySingleChild.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/SingleIndexEntitySingleParent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/TextIndexEntity.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/TextIndexEntityMultiChild.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/TextIndexEntityMultiParent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/TextIndexEntitySingleChild.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/TextIndexEntitySingleParent.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/MapperM2M.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapAggChild.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapAggPeer.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapAggPeerAgg.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapAggPeerAggMore.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapCompChild.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapCompChildAgg.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapCompOptional.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapImplyOptional.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapMapMe.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapPeerCompChild.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapPeerCompChildAgg.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapperRoot.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/NestedAssociations/AggregateA.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/NestedAssociations/AggregateB.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/NestedAssociations/NestedCompositionA.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/ToManyIds/ToManyGuid.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/ToManyIds/ToManyInt.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/ToManyIds/ToManyLong.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Entities/ToManyIds/ToManySource.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IA_RequiredCompositeRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IB_OptionalAggregateRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IB_OptionalDependentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IC_RequireCompositeRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/ID_MultipleDependentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/ID_OptionalAggregateRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IE_RequiredCompositeNavRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IF_OptionalAggregateNavRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IF_OptionalDependentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IG_RequiredCompositeNavRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IH_MultipleDependentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IH_OptionalAggregateNavRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/II_MultipleAggregateRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/II_RequiredDependentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IJ_MultipleAggregateRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IJ_MultipleDependentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IK_MultipleAggregateNavRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IK_MultipleDependentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Collections/FolderCollection/IFolderCollectionEntityARepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Collections/FolderCollection/IFolderCollectionEntityBRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Collections/ICustomCollectionEntityARepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Collections/ICustomCollectionEntityBRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/IDerivedOfTRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/IDerivedRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/IMapperM2MRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/IMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/IPagedList.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/IRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/IdTypes/IIdTypeGuidRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/IdTypes/IIdTypeOjectIdStrRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ICompoundIndexEntityMultiParentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ICompoundIndexEntityRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ICompoundIndexEntitySingleParentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/IMultikeyIndexEntityMultiParentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/IMultikeyIndexEntityRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/IMultikeyIndexEntitySingleParentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ISingleIndexEntityMultiParentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ISingleIndexEntityRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ISingleIndexEntitySingleParentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ITextIndexEntityMultiParentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ITextIndexEntityRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ITextIndexEntitySingleParentRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapAggChildRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapAggPeerAggMoreRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapAggPeerAggRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapAggPeerRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapCompChildAggRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapImplyOptionalRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapMapMeRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapPeerCompChildAggRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapperRootRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/NestedAssociations/IAggregateARepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/NestedAssociations/IAggregateBRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Domain/Repositories/ToManyIds/IToManySourceRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/AzureFunctions.MongoDb.Infrastructure.csproj" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Configuration/MongoConfigurationExtensions.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/DependencyInjection.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/A_RequiredCompositeMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/B_OptionalAggregateMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/B_OptionalDependentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/C_RequireCompositeMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/D_MultipleDependentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/D_OptionalAggregateMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/E_RequiredCompositeNavMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/F_OptionalAggregateNavMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/F_OptionalDependentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/G_RequiredCompositeNavMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/H_MultipleDependentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/H_OptionalAggregateNavMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/I_MultipleAggregateMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/I_RequiredDependentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/J_MultipleAggregateMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/J_MultipleDependentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/K_MultipleAggregateNavMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/K_MultipleDependentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/BaseTypeMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/BaseTypeOfTMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Collections/CustomCollectionEntityAMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Collections/CustomCollectionEntityBMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Collections/FolderCollection/FolderCollectionEntityAMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Collections/FolderCollection/FolderCollectionEntityBMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/DerivedMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/DerivedOfTMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/IMongoMappingConfiguration.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/IdTypes/IdTypeGuidMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/IdTypes/IdTypeOjectIdStrMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/CompoundIndexEntityMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/CompoundIndexEntityMultiParentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/CompoundIndexEntitySingleParentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/MultikeyIndexEntityMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/MultikeyIndexEntityMultiParentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/MultikeyIndexEntitySingleParentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/SingleIndexEntityMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/SingleIndexEntityMultiParentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/SingleIndexEntitySingleParentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/TextIndexEntityMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/TextIndexEntityMultiParentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/TextIndexEntitySingleParentMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/MapperM2MMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapAggChildMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapAggPeerAggMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapAggPeerAggMoreMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapAggPeerMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapCompChildAggMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapImplyOptionalMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapMapMeMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapPeerCompChildAggMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapperRootMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/NestedAssociations/AggregateAMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/NestedAssociations/AggregateBMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/ToManyIds/ToManySourceMapping.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/MongoDbUnitOfWork.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/A_RequiredCompositeMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/B_OptionalAggregateMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/B_OptionalDependentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/C_RequireCompositeMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/D_MultipleDependentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/D_OptionalAggregateMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/E_RequiredCompositeNavMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/F_OptionalAggregateNavMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/F_OptionalDependentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/G_RequiredCompositeNavMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/H_MultipleDependentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/H_OptionalAggregateNavMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/I_MultipleAggregateMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/I_RequiredDependentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/J_MultipleAggregateMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/J_MultipleDependentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/K_MultipleAggregateNavMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/K_MultipleDependentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Collections/CustomCollectionEntityAMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Collections/CustomCollectionEntityBMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Collections/FolderCollection/FolderCollectionEntityAMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Collections/FolderCollection/FolderCollectionEntityBMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/DerivedMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/DerivedOfTMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/IdTypes/IdTypeGuidMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/IdTypes/IdTypeOjectIdStrMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/CompoundIndexEntityMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/CompoundIndexEntityMultiParentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/CompoundIndexEntitySingleParentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/MultikeyIndexEntityMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/MultikeyIndexEntityMultiParentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/MultikeyIndexEntitySingleParentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/SingleIndexEntityMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/SingleIndexEntityMultiParentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/SingleIndexEntitySingleParentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/TextIndexEntityMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/TextIndexEntityMultiParentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/TextIndexEntitySingleParentMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/MapperM2MMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapAggChildMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapAggPeerAggMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapAggPeerAggMoreMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapAggPeerMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapCompChildAggMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapImplyOptionalMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapMapMeMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapPeerCompChildAggMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapperRootMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/MongoPagedList.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/MongoRepositoryBase.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/NestedAssociations/AggregateAMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/NestedAssociations/AggregateBMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/ToManyIds/ToManySourceMongoRepository.cs" />
-  <file path="AzureFunctions.MongoDb.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="AzureFunctions.MongoDb.Api/AzureFunctionHelper.cs" templateId="Intent.AzureFunctions.AzureFunctionClassHelper" />
+  <file path="AzureFunctions.MongoDb.Api/AzureFunctions.MongoDb.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunctions.MongoDb.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="AzureFunctions.MongoDb.Api/Configuration/AzureKeyVaultConfiguration.cs" templateId="Intent.Azure.KeyVault.AzureKeyVaultConfiguration" />
+  <file path="AzureFunctions.MongoDb.Api/Configuration/OpenApiConfigurationOptions.cs" templateId="Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate" />
+  <file path="AzureFunctions.MongoDb.Api/Program.cs" templateId="Intent.AzureFunctions.Isolated.Program" />
+  <file path="AzureFunctions.MongoDb.Api/ResponseTypes/JsonResponse.cs" templateId="Intent.AzureFunctions.ReturnTypes.JsonResponse" />
+  <file path="AzureFunctions.MongoDb.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="AzureFunctions.MongoDb.Api/host.json" templateId="Intent.VisualStudio.Projects.AzureFunctions.HostJson" />
+  <file path="AzureFunctions.MongoDb.Api/local.settings.json" templateId="Intent.VisualStudio.Projects.AzureFunctions.LocalSettingsJson" />
+  <file path="AzureFunctions.MongoDb.Application/AzureFunctions.MongoDb.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="AzureFunctions.MongoDb.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="AzureFunctions.MongoDb.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="AzureFunctions.MongoDb.Application/ResourceLocation.cs" templateId="Intent.AzureFunctions.ReturnTypes.ResourceLocationClass" />
+  <file path="AzureFunctions.MongoDb.Domain/AzureFunctions.MongoDb.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunctions.MongoDb.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="AzureFunctions.MongoDb.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="AzureFunctions.MongoDb.Domain/Common/Interfaces/IMongoDbUnitOfWork.cs" templateId="Intent.MongoDb.MongoDbUnitOfWorkInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/A_OptionalDependent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/A_RequiredComposite.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/B_OptionalAggregate.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/B_OptionalDependent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/C_MultipleDependent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/C_RequireComposite.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/D_MultipleDependent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/D_OptionalAggregate.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/E_RequiredCompositeNav.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/E_RequiredDependent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/F_OptionalAggregateNav.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/F_OptionalDependent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/G_MultipleDependent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/G_RequiredCompositeNav.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/H_MultipleDependent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/H_OptionalAggregateNav.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/I_MultipleAggregate.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/I_RequiredDependent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/J_MultipleAggregate.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/J_MultipleDependent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/K_MultipleAggregateNav.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Associations/K_MultipleDependent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/BaseType.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/BaseTypeOfT.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Collections/CustomCollectionEntityA.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Collections/CustomCollectionEntityB.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Collections/FolderCollection/FolderCollectionEntityA.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Collections/FolderCollection/FolderCollectionEntityB.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Derived.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/DerivedOfT.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/IdTypes/IdTypeGuid.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/IdTypes/IdTypeOjectIdStr.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/CompoundIndexEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/CompoundIndexEntityMultiChild.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/CompoundIndexEntityMultiParent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/CompoundIndexEntitySingleChild.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/CompoundIndexEntitySingleParent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/MultikeyIndexEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/MultikeyIndexEntityMultiChild.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/MultikeyIndexEntityMultiParent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/MultikeyIndexEntitySingleChild.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/MultikeyIndexEntitySingleParent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/SingleIndexEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/SingleIndexEntityMultiChild.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/SingleIndexEntityMultiParent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/SingleIndexEntitySingleChild.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/SingleIndexEntitySingleParent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/TextIndexEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/TextIndexEntityMultiChild.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/TextIndexEntityMultiParent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/TextIndexEntitySingleChild.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Indexes/TextIndexEntitySingleParent.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/MapperM2M.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapAggChild.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapAggPeer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapAggPeerAgg.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapAggPeerAggMore.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapCompChild.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapCompChildAgg.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapCompOptional.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapImplyOptional.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapMapMe.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapPeerCompChild.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapPeerCompChildAgg.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/Mappings/MapperRoot.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/NestedAssociations/AggregateA.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/NestedAssociations/AggregateB.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/NestedAssociations/NestedCompositionA.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/ToManyIds/ToManyGuid.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/ToManyIds/ToManyInt.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/ToManyIds/ToManyLong.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Entities/ToManyIds/ToManySource.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IA_RequiredCompositeRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IB_OptionalAggregateRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IB_OptionalDependentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IC_RequireCompositeRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/ID_MultipleDependentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/ID_OptionalAggregateRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IE_RequiredCompositeNavRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IF_OptionalAggregateNavRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IF_OptionalDependentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IG_RequiredCompositeNavRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IH_MultipleDependentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IH_OptionalAggregateNavRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/II_MultipleAggregateRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/II_RequiredDependentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IJ_MultipleAggregateRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IJ_MultipleDependentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IK_MultipleAggregateNavRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Associations/IK_MultipleDependentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Collections/FolderCollection/IFolderCollectionEntityARepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Collections/FolderCollection/IFolderCollectionEntityBRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Collections/ICustomCollectionEntityARepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Collections/ICustomCollectionEntityBRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/IDerivedOfTRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/IDerivedRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/IMapperM2MRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/IMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/IdTypes/IIdTypeGuidRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/IdTypes/IIdTypeOjectIdStrRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ICompoundIndexEntityMultiParentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ICompoundIndexEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ICompoundIndexEntitySingleParentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/IMultikeyIndexEntityMultiParentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/IMultikeyIndexEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/IMultikeyIndexEntitySingleParentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ISingleIndexEntityMultiParentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ISingleIndexEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ISingleIndexEntitySingleParentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ITextIndexEntityMultiParentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ITextIndexEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Indexes/ITextIndexEntitySingleParentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapAggChildRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapAggPeerAggMoreRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapAggPeerAggRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapAggPeerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapCompChildAggRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapImplyOptionalRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapMapMeRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapPeerCompChildAggRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/Mappings/IMapperRootRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/NestedAssociations/IAggregateARepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/NestedAssociations/IAggregateBRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Domain/Repositories/ToManyIds/IToManySourceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/AzureFunctions.MongoDb.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Configuration/MongoConfigurationExtensions.cs" templateId="Intent.MongoDb.MongoConfigurationExtensions" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/A_RequiredCompositeMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/B_OptionalAggregateMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/B_OptionalDependentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/C_RequireCompositeMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/D_MultipleDependentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/D_OptionalAggregateMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/E_RequiredCompositeNavMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/F_OptionalAggregateNavMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/F_OptionalDependentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/G_RequiredCompositeNavMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/H_MultipleDependentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/H_OptionalAggregateNavMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/I_MultipleAggregateMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/I_RequiredDependentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/J_MultipleAggregateMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/J_MultipleDependentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/K_MultipleAggregateNavMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Associations/K_MultipleDependentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/BaseTypeMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/BaseTypeOfTMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Collections/CustomCollectionEntityAMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Collections/CustomCollectionEntityBMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Collections/FolderCollection/FolderCollectionEntityAMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Collections/FolderCollection/FolderCollectionEntityBMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/DerivedMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/DerivedOfTMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/IMongoMappingConfiguration.cs" templateId="Intent.MongoDb.MongoMappingConfigurationInterface" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/IdTypes/IdTypeGuidMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/IdTypes/IdTypeOjectIdStrMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/CompoundIndexEntityMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/CompoundIndexEntityMultiParentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/CompoundIndexEntitySingleParentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/MultikeyIndexEntityMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/MultikeyIndexEntityMultiParentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/MultikeyIndexEntitySingleParentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/SingleIndexEntityMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/SingleIndexEntityMultiParentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/SingleIndexEntitySingleParentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/TextIndexEntityMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/TextIndexEntityMultiParentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Indexes/TextIndexEntitySingleParentMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/MapperM2MMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapAggChildMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapAggPeerAggMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapAggPeerAggMoreMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapAggPeerMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapCompChildAggMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapImplyOptionalMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapMapMeMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapPeerCompChildAggMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/Mappings/MapperRootMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/NestedAssociations/AggregateAMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/NestedAssociations/AggregateBMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/Mappings/ToManyIds/ToManySourceMapping.cs" templateId="Intent.MongoDb.MongoDbMapping" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Persistence/MongoDbUnitOfWork.cs" templateId="Intent.MongoDb.MongoDbUnitOfWork" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/A_RequiredCompositeMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/B_OptionalAggregateMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/B_OptionalDependentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/C_RequireCompositeMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/D_MultipleDependentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/D_OptionalAggregateMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/E_RequiredCompositeNavMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/F_OptionalAggregateNavMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/F_OptionalDependentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/G_RequiredCompositeNavMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/H_MultipleDependentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/H_OptionalAggregateNavMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/I_MultipleAggregateMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/I_RequiredDependentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/J_MultipleAggregateMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/J_MultipleDependentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/K_MultipleAggregateNavMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Associations/K_MultipleDependentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Collections/CustomCollectionEntityAMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Collections/CustomCollectionEntityBMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Collections/FolderCollection/FolderCollectionEntityAMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Collections/FolderCollection/FolderCollectionEntityBMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/DerivedMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/DerivedOfTMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/IdTypes/IdTypeGuidMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/IdTypes/IdTypeOjectIdStrMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/CompoundIndexEntityMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/CompoundIndexEntityMultiParentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/CompoundIndexEntitySingleParentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/MultikeyIndexEntityMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/MultikeyIndexEntityMultiParentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/MultikeyIndexEntitySingleParentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/SingleIndexEntityMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/SingleIndexEntityMultiParentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/SingleIndexEntitySingleParentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/TextIndexEntityMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/TextIndexEntityMultiParentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Indexes/TextIndexEntitySingleParentMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/MapperM2MMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapAggChildMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapAggPeerAggMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapAggPeerAggMoreMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapAggPeerMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapCompChildAggMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapImplyOptionalMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapMapMeMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapPeerCompChildAggMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/Mappings/MapperRootMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/MongoPagedList.cs" templateId="Intent.MongoDb.MongoDbPagedList" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/MongoRepositoryBase.cs" templateId="Intent.MongoDb.MongoDbRepositoryBase" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/NestedAssociations/AggregateAMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/NestedAssociations/AggregateBMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.Infrastructure/Repositories/ToManyIds/ToManySourceMongoRepository.cs" templateId="Intent.MongoDb.MongoDbRepository" />
+  <file path="AzureFunctions.MongoDb.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

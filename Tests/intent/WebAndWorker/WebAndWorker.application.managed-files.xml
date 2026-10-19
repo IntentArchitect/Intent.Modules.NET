@@ -86,7 +86,7 @@
   <file path="BlazorWebApp/wwwroot/ux-components.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
   <file path="BlazorWebApp/wwwroot/ux-mudblazor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
   <file path="BlazorWebApp/wwwroot/ux-tokens.css" templateId="Intent.Modules.Blazor.Templates.Templates.Common.StaticContentTemplateRegistrations.ThemeStylesheetsStaticContentTemplateRegistration" />
-  <file path="WebAndWorker.AdditionalWorker/Program.cs" templateId="Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram" />
+  <file path="WebAndWorker.AdditionalWorker/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram" />
   <file path="WebAndWorker.AdditionalWorker/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="WebAndWorker.AdditionalWorker/WebAndWorker.AdditionalWorker.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="WebAndWorker.AdditionalWorker/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
@@ -103,10 +103,12 @@
   <file path="WebAndWorker.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
   <file path="WebAndWorker.Api/Filters/BinaryContentFilter.cs" templateId="Intent.AspNetCore.Controllers.BinaryContentFilter" />
   <file path="WebAndWorker.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="WebAndWorker.Api/Filters/GeoJsonSchemaFilter.cs" templateId="Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter" />
   <file path="WebAndWorker.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="WebAndWorker.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="WebAndWorker.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="WebAndWorker.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="WebAndWorker.Api/Logging/GeoDestructureSerilogPolicy.cs" templateId="Intent.NetTopologySuite.GeoDestructureSerilogPolicy" />
+  <file path="WebAndWorker.Api/Program.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.AspNetCore.Program" />
   <file path="WebAndWorker.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="WebAndWorker.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="WebAndWorker.Api/WebAndWorker.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
@@ -186,9 +188,11 @@
   <file path="WebAndWorker.Mobile.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/BinaryContentFilter.cs" templateId="Intent.AspNetCore.Controllers.BinaryContentFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="WebAndWorker.Mobile.Api/Filters/GeoJsonSchemaFilter.cs" templateId="Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="WebAndWorker.Mobile.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="WebAndWorker.Mobile.Api/Logging/GeoDestructureSerilogPolicy.cs" templateId="Intent.NetTopologySuite.GeoDestructureSerilogPolicy" />
   <file path="WebAndWorker.Mobile.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
   <file path="WebAndWorker.Mobile.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="WebAndWorker.Mobile.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
@@ -197,7 +201,7 @@
   <file path="WebAndWorker.QuartzWorker/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
   <file path="WebAndWorker.QuartzWorker/Configuration/QuartzConfiguration.cs" templateId="Intent.QuartzScheduler.QuartzConfiguration" />
   <file path="WebAndWorker.QuartzWorker/Jobs/TestJob.cs" templateId="Intent.QuartzScheduler.ScheduledJob" />
-  <file path="WebAndWorker.QuartzWorker/Program.cs" templateId="Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram" />
+  <file path="WebAndWorker.QuartzWorker/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram" />
   <file path="WebAndWorker.QuartzWorker/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="WebAndWorker.QuartzWorker/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="WebAndWorker.QuartzWorker/WebAndWorker.QuartzWorker.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />

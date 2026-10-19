@@ -27,6 +27,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         public ServiceImplementationSkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             WithContentHashing = true;
+            var dispatcherRule = outputTarget.ExecutionContext.GetServiceCallHandlerDispatcherSkillRule();
             MarkdownFile = new MarkdownFile($"SKILL", relativeLocation: SkillName)
                 .FromMarkdown($"""
 ---
@@ -43,7 +44,7 @@ Implement business logic inside an existing traditional application service file
 
 - Treat the existing service file as the starting point. Update the relevant service operation(s) rather than rewriting unrelated parts.
 - NEVER modify the signature of an existing service operation unless the user explicitly asks for that change.
-- ALWAYS if you modify a service operation body, ensure that the `IntentManaged` attribute indicates that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
+- ALWAYS if you modify a service operation body, ensure that the `IntentManaged` attribute indicates that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).{dispatcherRule}
 - Inject only dependencies from the Domain or Application layers.
 - Never introduce direct dependencies on infrastructure packages or infrastructure types in the service, including Entity Framework, Dapper, concrete DbContexts, SQL clients, or vendor-specific APIs.
 - If data access is required, favor using an existing repository, read service, or domain/application abstraction, but extend them if required.

@@ -157,9 +157,57 @@ Adding an `IntentIgnore="true"` attribute to a `PackageReference` will cause thi
 > [!NOTE]
 > In applications which have the `Intent.ModuleBuilder` module installed, its _Dependency version overwrite behavior_ setting also applies to NuGet packages, allowing the default upgrade behaviour described above (_If newer_) to be changed to _Always_ or _Never_.
 
+## Launch Settings
+
+For projects with _Generate LaunchSettings File_ enabled on the _.NET Settings_ stereotype, this module generates `Properties/launchSettings.json`, including launch profiles and environment variables which other modules register (e.g. a `Docker` profile). _Generate LaunchSettings File_ is on by default for Web, Worker and Blazor WebAssembly projects (see [Generate AppSettings File and Generate LaunchSettings File](#generate-appsettings-file-and-generate-launchsettings-file)).
+
+Once the file exists, it is only ever added to:
+
+- A registered profile is appended when no profile with that name exists. A profile which already exists is never changed.
+- A registered environment variable is added to a profile which does not have it. Existing values are never changed.
+- When an HTTP endpoint is required (e.g. _Enable HTTPS Redirect_ is disabled), `http://localhost:{port}` is added to an `applicationUrl` which only has `https://` entries.
+- On `*.Api` profiles, a `launchUrl` pointing at `swagger` or `scalar/v1` is updated when you switch between Swashbuckle and Scalar. Any other `launchUrl` is left as you set it.
+
+Everything else in the file is preserved as written, including `$schema`, property order, unrecognized properties and `commandName` values, indentation, line endings, and the trailing newline. When nothing needs adding, the file is left untouched.
+
+## App Settings
+
+For projects with _Generate AppSettings File_ enabled on the _.NET Settings_ stereotype, this module generates `appsettings.json` (and `appsettings.{Environment}.json` for each modelled runtime environment), adding the settings and connection strings which other modules register.
+
+An existing file is only ever added to: a setting that is already present keeps its value. When nothing needs adding, the file is left byte-for-byte as it is. When something is added, the file keeps its own indentation, line endings and comments, and date- and number-like values are kept exactly as written.
+
+A new file is indented according to the `.editorconfig` that applies to it, honouring only the `[*]` section and sections whose glob matches the file (e.g. `[*.json]`), so a `[*.cs]` `indent_size` does not reach JSON files. Without one, it is indented with 2 spaces.
+
 ## Stereotype details
 
 ### The _.NET Settings_ stereotype
+
+#### The `SDK` property
+
+Sets the `Sdk` attribute of the `.csproj` file. Besides the `Microsoft.NET.Sdk.*` SDKs, `Aspire.AppHost.Sdk` (written with its _Aspire SDK Version_) and `MSTest.Sdk` are available.
+
+For `MSTest.Sdk`, the optional _MSTest SDK Version_ property is written as `Sdk="MSTest.Sdk/{version}"`. Leave it empty to resolve the version from `global.json` (`"msbuild-sdks": { "MSTest.Sdk": "4.0.2" }`). An empty value also keeps any version already in the `.csproj`.
+
+When the existing `.csproj` uses an SDK that isn't one of these options (e.g. `Microsoft.Build.NoTargets/3.7.0` or `Uno.Sdk`), its `Sdk` attribute is never changed, whatever the model says. An SDK which is one of the options is always made to match the model. For example, an `MSTest.Sdk` project modelled as `Microsoft.NET.Sdk` is rewritten to `Microsoft.NET.Sdk`.
+
+#### Target frameworks
+
+The _Target Framework_ / _Target Frameworks_ properties set the `.csproj` file's `<TargetFramework>` / `<TargetFrameworks>`. An existing value is only rewritten when it is a single, unconditional element holding plain monikers (e.g. `net8.0`) whose set differs from the model. It is left untouched when:
+
+- there is more than one `TargetFramework`/`TargetFrameworks` element, or a `Condition` on the element or its `PropertyGroup`, or the value uses an MSBuild property (`$(...)`);
+- it holds the same frameworks as the model, in any order;
+- it holds platform-specific frameworks (e.g. `net10.0-android;net10.0-ios`) which reduce to the modelled framework.
+
+The model can't represent platform-specific frameworks. When those of a multi-platform project (e.g. .NET MAUI) no longer match the model, the `.csproj` is left untouched and the Software Factory logs a warning naming the project, so the change has to be made by hand.
+
+#### Generate AppSettings File and Generate LaunchSettings File
+
+These control whether this module manages the project's `appsettings.json` (see [App Settings](#app-settings)) and `Properties/launchSettings.json` (see [Launch Settings](#launch-settings)). They are available for `Microsoft.NET.Sdk`, Web, Worker and Blazor WebAssembly projects:
+
+- **Web, Worker and Blazor WebAssembly projects:** turning a flag off makes Intent hands-off for that file: an existing file and its `.csproj` items (e.g. `<Content Include="appsettings.json">`) are left exactly as they are (never rewritten, added or deleted), none is created, and settings, launch profiles or ports which other modules request for the project are not written. The Software Factory log lists what was not written.
+- **`Microsoft.NET.Sdk` projects** default to off. With _Generate AppSettings File_ off, settings registered for the project are handled by the host projects that reference it.
+
+When this module is installed, or upgraded from an earlier version, both flags are turned on for the application's existing Web, Worker and Blazor WebAssembly projects, which always had both files generated. From then on, the flags are whatever you set them to.
 
 #### The `Suppress Warnings` property
 
@@ -175,6 +223,21 @@ When enabled the `Program.cs` will no longer generate a class and instead use [t
 
 > [!NOTE]
 > Requires at least version `6.0.0` of the `Intent.Modules.AspNetCore` to be installed in order for changes to take effect.
+
+#### Worker projects' `Program.cs`
+
+For `Microsoft.NET.Sdk.Worker` projects, this module generates `Program.cs` with `[assembly: DefaultIntentManaged(Mode.Merge)]`, so statements you add are kept. _Use top-level statements_ decides between top-level statements and a `Main` method: set it to match an existing `Program.cs`, since switching an existing file between the two styles isn't supported.
+
+When `Program.cs` already exists, the template adapts to it rather than adding statements that duplicate yours:
+
+- Its builder declaration is kept as written: `var builder = WebApplication.CreateBuilder(args);` or `Host.CreateApplicationBuilder(args)` (generated as `HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);` for a new file).
+- Its run call is kept: `app.Run();`, or `await app.RunAsync();`, in which case a generated `Main` method is `async Task`.
+
+With top-level statements, `using {project namespace};` is only added when Intent generates types in that namespace (or a namespace nested under it), so a project whose code lives under a different root namespace still compiles.
+
+An existing `Program.cs` in any other shape is left untouched, and the Software Factory logs a warning. This includes `Host.CreateDefaultBuilder(args).ConfigureServices(...)`, different variable names than `builder` and `app`, or more than one run call. Startup code that other modules add to `Program.cs` (e.g. Serilog or Windows Service hosting) is then not applied.
+
+The logging settings a `Main`-method Worker adds (`Logging:EventLog:*`) are written to that project's own `appsettings.json` only.
 
 #### Use minimal hosting model
 
@@ -228,6 +291,18 @@ This stereotype is applied to **Solution Folder** elements.
 ### Materialize Folder
 
 When checked, this option will materialize your logical **Visual Studio Solution** folders as actual folders on disk.
+
+Projects under a materialized folder are written to an `.slnx` file the way `dotnet sln add` writes them (e.g. `src/Basket.API/Basket.API.csproj`). Paths are compared after normalisation, so an existing entry written as `src/...` or `./src/...` is matched and kept exactly as written.
+
+## Adopting an existing (brownfield) repository
+
+When modelling projects that already exist on disk, model them to match the repository so that the Software Factory leaves existing files alone:
+
+- Turn on _Materialize Folder_ for solution folders that are folders on disk (e.g. `src`, `tests`).
+- Set _SDK_ to what each `.csproj` uses, including `MSTest.Sdk` for MSTest projects. Leave _MSTest SDK Version_ empty when `global.json` supplies it.
+- Set _Target Framework_ to each project's base framework (e.g. `net10.0` for a .NET MAUI app targeting `net10.0-android;net10.0-ios`).
+- Set _Use top-level statements_ to match each Worker project's existing `Program.cs`.
+- Untick _Generate AppSettings File_ and _Generate LaunchSettings File_ on Web, Worker and Blazor WebAssembly projects whose `appsettings.json` and `launchSettings.json` should stay hands-off.
 
 ### Central Package Management
 

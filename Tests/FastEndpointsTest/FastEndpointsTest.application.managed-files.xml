@@ -1,449 +1,449 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/domain-services/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="FastEndpointsTest.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="FastEndpointsTest.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="FastEndpointsTest.Api/Configuration/HealthChecksConfiguration.cs" />
-  <file path="FastEndpointsTest.Api/Configuration/OpenApiConfiguration.cs" />
-  <file path="FastEndpointsTest.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AccountHolders/OlderMappingUpdateAccountNoteCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AccountHolders/UpdateNoteAccountCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AccountHolders/UpdateNoteAccountNoResultCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AccountHolders/UpdateNoteAccountStringCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/CreateAggregateRootCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/CreateAggregateRootCompositeManyBCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/DeleteAggregateRootCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/DeleteAggregateRootCompositeManyBCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/GetAggregateRootByIdQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/GetAggregateRootCompositeManyBByIdQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/GetAggregateRootCompositeManyBSQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/GetAggregateRootsQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/UpdateAggregateRootCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/UpdateAggregateRootCompositeManyBCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexElements/CreateAggregateWithUniqueConstraintIndexElementCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexElements/DeleteAggregateWithUniqueConstraintIndexElementCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementByIdQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexElements/UpdateAggregateWithUniqueConstraintIndexElementCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexStereotypes/CreateAggregateWithUniqueConstraintIndexStereotypeCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexStereotypes/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexStereotypes/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ExceptionProcessor.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Headers/HeaderFieldCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Headers/ServiceWithHeaderField/DoHeaderFieldEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/NamedQueryStrings/NamedQueryStringsCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/NamedQueryStrings/ServiceWithNamedQueryString/DoNamedQueryStringEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Pagination/GetLogEntriesQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Pagination/GetPeopleByFirstNamePaginatedQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Pagination/GetPeopleByNullableFirstNamePaginatedQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Pagination/GetPeoplePaginatedQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ResponseTypes/JsonResponse.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ScalarCollectionReturnType/CommandWithCollectionReturnEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ScalarCollectionReturnType/QueryWithCollectionReturnEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ScalarCollectionReturnType/ServiceWithScalarWithCollectionReturn/DoScalarWithCollectionReturnEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/SecureServices/SecureCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/SecuredService/SecuredCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/SecuredService/SecuredServiceWithAndRolesEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Mutation1Endpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Mutation2Endpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Mutation3AsyncEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Mutation4AsyncEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Query5Endpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Query6Endpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Query7AsyncEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Query8AsyncEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/MutationNoImpl1Endpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/MutationNoImpl2AsyncEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/MutationNoImpl3AsyncEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/MutationNoImpl8Endpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/QueryNoImpl4Endpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/QueryNoImpl5Endpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/QueryNoImpl6AsyncEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/QueryNoImpl7AsyncEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/CreateSimpleProductEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/DeleteSimpleProductEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/FindSimpleProductByIdEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/FindSimpleProductsEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/UpdateSimpleProductEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Unversioned/TestCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Unversioned/TestQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Validation/InboundValidationCommandEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Validation/InboundValidationQueryEndpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Versioned/TestCommandV1Endpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Versioned/TestCommandV2Endpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Versioned/TestQueryV1Endpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpoints/Versioned/TestQueryV2Endpoint.cs" />
-  <file path="FastEndpointsTest.Api/FastEndpointsTest.Api.csproj" />
-  <file path="FastEndpointsTest.Api/Filters/HideRouteParametersFromBodyOperationTransformer.cs" />
-  <file path="FastEndpointsTest.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="FastEndpointsTest.Api/Program.cs" />
-  <file path="FastEndpointsTest.Api/Properties/launchSettings.json" />
-  <file path="FastEndpointsTest.Api/Services/CurrentUserService.cs" />
-  <file path="FastEndpointsTest.Api/Startup.cs" />
-  <file path="FastEndpointsTest.Api/appsettings.json" />
-  <file path="FastEndpointsTest.Application/AccountHolders/OlderMappingUpdateAccountNote/OlderMappingUpdateAccountNoteCommand.cs" />
-  <file path="FastEndpointsTest.Application/AccountHolders/OlderMappingUpdateAccountNote/OlderMappingUpdateAccountNoteCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AccountHolders/OlderMappingUpdateAccountNote/OlderMappingUpdateAccountNoteCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccount/UpdateNoteAccountCommand.cs" />
-  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccount/UpdateNoteAccountCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccount/UpdateNoteAccountCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountNoResult/UpdateNoteAccountNoResultCommand.cs" />
-  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountNoResult/UpdateNoteAccountNoResultCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountNoResult/UpdateNoteAccountNoResultCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountString/UpdateNoteAccountStringCommand.cs" />
-  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountString/UpdateNoteAccountStringCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountString/UpdateNoteAccountStringCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/AggregateRootLongCompositeOfAggrLongDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/AggregateRootLongCompositeOfAggrLongDtoMappingExtensions.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/AggregateRootLongDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/AggregateRootLongDtoMappingExtensions.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/CreateAggregateRootLong/CreateAggregateRootLongCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/CreateAggregateRootLong/CreateAggregateRootLongCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/CreateAggregateRootLong/CreateAggregateRootLongCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/CreateAggregateRootLongCommandCompositeOfAggrLongDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/CreateAggregateRootLongCommandCompositeOfAggrLongDtoValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/DeleteAggregateRootLong/DeleteAggregateRootLongCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/DeleteAggregateRootLong/DeleteAggregateRootLongCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/DeleteAggregateRootLong/DeleteAggregateRootLongCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/GetAggregateRootLongById/GetAggregateRootLongByIdQuery.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/GetAggregateRootLongById/GetAggregateRootLongByIdQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/GetAggregateRootLongById/GetAggregateRootLongByIdQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/GetAggregateRootLongs/GetAggregateRootLongsQuery.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/GetAggregateRootLongs/GetAggregateRootLongsQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/GetAggregateRootLongs/GetAggregateRootLongsQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/UpdateAggregateRootLong/UpdateAggregateRootLongCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/UpdateAggregateRootLong/UpdateAggregateRootLongCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/UpdateAggregateRootLong/UpdateAggregateRootLongCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/UpdateAggregateRootLongCommandCompositeOfAggrLongDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRootLongs/UpdateAggregateRootLongCommandCompositeOfAggrLongDtoValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/AggregateRootCompositeManyBDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/AggregateRootCompositeManyBDtoMappingExtensions.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/AggregateRootDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/AggregateRootDtoMappingExtensions.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRoot/CreateAggregateRootCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRoot/CreateAggregateRootCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRoot/CreateAggregateRootCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandAggregateDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositeDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositeDto1.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositeDto2.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositeDto4.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositeDto5.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto1.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto2.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto3.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto3Validator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto4.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto4Validator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto5.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyB/CreateAggregateRootCompositeManyBCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyB/CreateAggregateRootCompositeManyBCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyB/CreateAggregateRootCompositeManyBCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyBCommandCompositeDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyBCommandCompositeDtoValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyBCommandCompositesDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyBCommandCompositesDtoValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/DeleteAggregateRoot/DeleteAggregateRootCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/DeleteAggregateRoot/DeleteAggregateRootCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/DeleteAggregateRoot/DeleteAggregateRootCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/DeleteAggregateRootCompositeManyB/DeleteAggregateRootCompositeManyBCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/DeleteAggregateRootCompositeManyB/DeleteAggregateRootCompositeManyBCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/DeleteAggregateRootCompositeManyB/DeleteAggregateRootCompositeManyBCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootById/GetAggregateRootByIdQuery.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootById/GetAggregateRootByIdQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootById/GetAggregateRootByIdQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootCompositeManyBById/GetAggregateRootCompositeManyBByIdQuery.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootCompositeManyBById/GetAggregateRootCompositeManyBByIdQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootCompositeManyBById/GetAggregateRootCompositeManyBByIdQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootCompositeManyBS/GetAggregateRootCompositeManyBSQuery.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootCompositeManyBS/GetAggregateRootCompositeManyBSQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootCompositeManyBS/GetAggregateRootCompositeManyBSQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRoots/GetAggregateRootsQuery.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRoots/GetAggregateRootsQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRoots/GetAggregateRootsQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandAggregateDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandAggregateDto1.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositeDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositeDto1.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositeDto2.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositeDto6.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositeDto7.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto1.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto2.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto3.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto3Validator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto4.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto4Validator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto5.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCompositeManyB/UpdateAggregateRootCompositeManyBCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCompositeManyB/UpdateAggregateRootCompositeManyBCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCompositeManyB/UpdateAggregateRootCompositeManyBCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/AggregateWithUniqueConstraintIndexElementDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/AggregateWithUniqueConstraintIndexElementDtoMappingExtensions.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQuery.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQuery.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/AggregateWithUniqueConstraintIndexStereotypeDto.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/AggregateWithUniqueConstraintIndexStereotypeDtoMappingExtensions.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQuery.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommand.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="FastEndpointsTest.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="FastEndpointsTest.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="FastEndpointsTest.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="FastEndpointsTest.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="FastEndpointsTest.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="FastEndpointsTest.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="FastEndpointsTest.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="FastEndpointsTest.Application/Common/Interfaces/ICommand.cs" />
-  <file path="FastEndpointsTest.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="FastEndpointsTest.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="FastEndpointsTest.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="FastEndpointsTest.Application/Common/Interfaces/IQuery.cs" />
-  <file path="FastEndpointsTest.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="FastEndpointsTest.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="FastEndpointsTest.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="FastEndpointsTest.Application/Common/Models/Result.cs" />
-  <file path="FastEndpointsTest.Application/Common/Pagination/PagedList.cs" />
-  <file path="FastEndpointsTest.Application/Common/Pagination/PagedResult.cs" />
-  <file path="FastEndpointsTest.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="FastEndpointsTest.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="FastEndpointsTest.Application/Common/Validation/IValidationService.cs" />
-  <file path="FastEndpointsTest.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="FastEndpointsTest.Application/Common/Validation/ValidationService.cs" />
-  <file path="FastEndpointsTest.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="FastEndpointsTest.Application/DependencyInjection.cs" />
-  <file path="FastEndpointsTest.Application/EventHandlers/DDD/AccountHolderManager.cs" deviationsHash="3A645AFDCD526D514EDE8B5DCEE99DD114B061F1D5C347AC60D308E73ABB11CB" />
-  <file path="FastEndpointsTest.Application/EventHandlers/DDD/DataContractDomainEventHandler.cs" />
-  <file path="FastEndpointsTest.Application/FastEndpointsTest.Application.csproj" />
-  <file path="FastEndpointsTest.Application/Headers/HeaderField/HeaderFieldCommand.cs" />
-  <file path="FastEndpointsTest.Application/Headers/HeaderField/HeaderFieldCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/Headers/HeaderField/HeaderFieldCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/Implementation/Headers/ServiceWithHeaderFieldService.cs" />
-  <file path="FastEndpointsTest.Application/Implementation/NamedQueryStrings/ServiceWithNamedQueryStringService.cs" />
-  <file path="FastEndpointsTest.Application/Implementation/ScalarCollectionReturnType/ServiceWithScalarWithCollectionReturnService.cs" />
-  <file path="FastEndpointsTest.Application/Implementation/ServiceDispatch/ServiceDispatchService.cs" />
-  <file path="FastEndpointsTest.Application/Implementation/SimpleProductsService.cs" />
-  <file path="FastEndpointsTest.Application/Interfaces/Headers/IServiceWithHeaderFieldService.cs" />
-  <file path="FastEndpointsTest.Application/Interfaces/ISimpleProductsService.cs" />
-  <file path="FastEndpointsTest.Application/Interfaces/NamedQueryStrings/IServiceWithNamedQueryStringService.cs" />
-  <file path="FastEndpointsTest.Application/Interfaces/ScalarCollectionReturnType/IServiceWithScalarWithCollectionReturnService.cs" />
-  <file path="FastEndpointsTest.Application/Interfaces/ServiceDispatch/IServiceDispatchService.cs" />
-  <file path="FastEndpointsTest.Application/Interfaces/ServiceDispatch/IServiceDispatchWithoutImplementationService.cs" />
-  <file path="FastEndpointsTest.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommand.cs" />
-  <file path="FastEndpointsTest.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/GetLogEntries/GetLogEntriesQuery.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/GetLogEntries/GetLogEntriesQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/GetLogEntries/GetLogEntriesQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/GetPeopleByFirstNamePaginated/GetPeopleByFirstNamePaginatedQuery.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/GetPeopleByFirstNamePaginated/GetPeopleByFirstNamePaginatedQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/GetPeopleByFirstNamePaginated/GetPeopleByFirstNamePaginatedQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/GetPeopleByNullableFirstNamePaginated/GetPeopleByNullableFirstNamePaginatedQuery.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/GetPeopleByNullableFirstNamePaginated/GetPeopleByNullableFirstNamePaginatedQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/GetPeopleByNullableFirstNamePaginated/GetPeopleByNullableFirstNamePaginatedQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/GetPeoplePaginated/GetPeoplePaginatedQuery.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/GetPeoplePaginated/GetPeoplePaginatedQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/GetPeoplePaginated/GetPeoplePaginatedQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/LogEntryDto.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/LogEntryDtoMappingExtensions.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/PersonEntryDto.cs" />
-  <file path="FastEndpointsTest.Application/Pagination/PersonEntryDtoMappingExtensions.cs" />
-  <file path="FastEndpointsTest.Application/ScalarCollectionReturnType/CommandWithCollectionReturn/CommandWithCollectionReturn.cs" />
-  <file path="FastEndpointsTest.Application/ScalarCollectionReturnType/CommandWithCollectionReturn/CommandWithCollectionReturnHandler.cs" />
-  <file path="FastEndpointsTest.Application/ScalarCollectionReturnType/CommandWithCollectionReturn/CommandWithCollectionReturnValidator.cs" />
-  <file path="FastEndpointsTest.Application/ScalarCollectionReturnType/QueryWithCollectionReturn/QueryWithCollectionReturn.cs" />
-  <file path="FastEndpointsTest.Application/ScalarCollectionReturnType/QueryWithCollectionReturn/QueryWithCollectionReturnHandler.cs" />
-  <file path="FastEndpointsTest.Application/ScalarCollectionReturnType/QueryWithCollectionReturn/QueryWithCollectionReturnValidator.cs" />
-  <file path="FastEndpointsTest.Application/SecureServices/Secure/SecureCommand.cs" />
-  <file path="FastEndpointsTest.Application/SecureServices/Secure/SecureCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/SecureServices/Secure/SecureCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/SecuredService/Secured/SecuredCommand.cs" />
-  <file path="FastEndpointsTest.Application/SecuredService/Secured/SecuredCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/SecuredService/Secured/SecuredCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/SecuredService/SecuredServiceWithAndRoles/SecuredServiceWithAndRoles.cs" />
-  <file path="FastEndpointsTest.Application/SecuredService/SecuredServiceWithAndRoles/SecuredServiceWithAndRolesHandler.cs" />
-  <file path="FastEndpointsTest.Application/SecuredService/SecuredServiceWithAndRoles/SecuredServiceWithAndRolesValidator.cs" />
-  <file path="FastEndpointsTest.Application/Security/Permissions.cs" />
-  <file path="FastEndpointsTest.Application/SimpleProducts/SimpleProductCreateDto.cs" />
-  <file path="FastEndpointsTest.Application/SimpleProducts/SimpleProductCreateDtoValidator.cs" />
-  <file path="FastEndpointsTest.Application/SimpleProducts/SimpleProductDto.cs" />
-  <file path="FastEndpointsTest.Application/SimpleProducts/SimpleProductDtoMappingExtensions.cs" />
-  <file path="FastEndpointsTest.Application/SimpleProducts/SimpleProductUpdateDto.cs" />
-  <file path="FastEndpointsTest.Application/SimpleProducts/SimpleProductUpdateDtoValidator.cs" />
-  <file path="FastEndpointsTest.Application/Unversioned/Test/TestCommand.cs" />
-  <file path="FastEndpointsTest.Application/Unversioned/Test/TestCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/Unversioned/Test/TestCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/Unversioned/Test/TestQuery.cs" />
-  <file path="FastEndpointsTest.Application/Unversioned/Test/TestQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/Unversioned/Test/TestQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/Validation/DummyResultDto.cs" />
-  <file path="FastEndpointsTest.Application/Validation/EnumDescriptions.cs" />
-  <file path="FastEndpointsTest.Application/Validation/InboundValidation/InboundValidationCommand.cs" />
-  <file path="FastEndpointsTest.Application/Validation/InboundValidation/InboundValidationCommandHandler.cs" />
-  <file path="FastEndpointsTest.Application/Validation/InboundValidation/InboundValidationCommandValidator.cs" />
-  <file path="FastEndpointsTest.Application/Validation/InboundValidation/InboundValidationQuery.cs" />
-  <file path="FastEndpointsTest.Application/Validation/InboundValidation/InboundValidationQueryHandler.cs" />
-  <file path="FastEndpointsTest.Application/Validation/InboundValidation/InboundValidationQueryValidator.cs" />
-  <file path="FastEndpointsTest.Application/Versioned/TestCommandV1/TestCommandV1.cs" />
-  <file path="FastEndpointsTest.Application/Versioned/TestCommandV1/TestCommandV1Handler.cs" />
-  <file path="FastEndpointsTest.Application/Versioned/TestCommandV1/TestCommandV1Validator.cs" />
-  <file path="FastEndpointsTest.Application/Versioned/TestCommandV2/TestCommandV2.cs" />
-  <file path="FastEndpointsTest.Application/Versioned/TestCommandV2/TestCommandV2Handler.cs" />
-  <file path="FastEndpointsTest.Application/Versioned/TestCommandV2/TestCommandV2Validator.cs" />
-  <file path="FastEndpointsTest.Application/Versioned/TestQueryV1/TestQueryV1.cs" />
-  <file path="FastEndpointsTest.Application/Versioned/TestQueryV1/TestQueryV1Handler.cs" />
-  <file path="FastEndpointsTest.Application/Versioned/TestQueryV1/TestQueryV1Validator.cs" />
-  <file path="FastEndpointsTest.Application/Versioned/TestQueryV2/TestQueryV2.cs" />
-  <file path="FastEndpointsTest.Application/Versioned/TestQueryV2/TestQueryV2Handler.cs" />
-  <file path="FastEndpointsTest.Application/Versioned/TestQueryV2/TestQueryV2Validator.cs" />
-  <file path="FastEndpointsTest.Domain/Common/CollectionExtensions.cs" />
-  <file path="FastEndpointsTest.Domain/Common/DomainEvent.cs" />
-  <file path="FastEndpointsTest.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="FastEndpointsTest.Domain/Common/IHasDomainEvent.cs" />
-  <file path="FastEndpointsTest.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="FastEndpointsTest.Domain/Common/UpdateHelper.cs" />
-  <file path="FastEndpointsTest.Domain/Contracts/DDD/DataContractObject.cs" />
-  <file path="FastEndpointsTest.Domain/DDD/Address.cs" />
-  <file path="FastEndpointsTest.Domain/DDD/Money.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/CRUD/AggregateRoot.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/CRUD/AggregateRootLong.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/CRUD/AggregateSingleC.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/CRUD/AggregateTestNoIdReturn.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeManyAA.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeManyB.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeManyBB.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeOfAggrLong.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeSingleA.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeSingleAA.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeSingleBB.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/CRUD/SimpleProduct.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/DDD/Account.cs" deviationsHash="D0D1C871B36CB6109045872AE5839631494416B5923EA92FE577287E9BC366E1" />
-  <file path="FastEndpointsTest.Domain/Entities/DDD/AccountHolder.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/DDD/Camera.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/DDD/Customer.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/DDD/DataContractClass.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/DDD/Person.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/DDD/Transaction.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/Enums/ClassWithEnums.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/Pagination/LogEntry.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/Pagination/PersonEntry.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexElement.cs" />
-  <file path="FastEndpointsTest.Domain/Entities/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexStereotype.cs" />
-  <file path="FastEndpointsTest.Domain/Enums/EnumWithDefaultLiteral.cs" />
-  <file path="FastEndpointsTest.Domain/Enums/EnumWithoutDefaultLiteral.cs" />
-  <file path="FastEndpointsTest.Domain/Enums/EnumWithoutValues.cs" />
-  <file path="FastEndpointsTest.Domain/Events/DDD/AccountTransferStarted.cs" />
-  <file path="FastEndpointsTest.Domain/Events/DDD/DataContractDomainEvent.cs" />
-  <file path="FastEndpointsTest.Domain/FastEndpointsTest.Domain.csproj" />
-  <file path="FastEndpointsTest.Domain/Repositories/CRUD/IAggregateRootLongRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/CRUD/IAggregateRootRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/CRUD/IAggregateSingleCRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/CRUD/IAggregateTestNoIdReturnRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/CRUD/ISimpleProductRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/DDD/IAccountHolderRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/DDD/ICameraRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/DDD/ICustomerRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/DDD/IDataContractClassRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/DDD/IPersonRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/DDD/ITransactionRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/Enums/IClassWithEnumsRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/IEFRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/IPagedList.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/IRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/Pagination/ILogEntryRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/Pagination/IPersonEntryRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/UniqueIndexConstraint/IAggregateWithUniqueConstraintIndexElementRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Repositories/UniqueIndexConstraint/IAggregateWithUniqueConstraintIndexStereotypeRepository.cs" />
-  <file path="FastEndpointsTest.Domain/Services/DDD/AccountingDomainService.cs" />
-  <file path="FastEndpointsTest.Domain/Services/DDD/DataContractDomainService.cs" />
-  <file path="FastEndpointsTest.Domain/Services/DDD/IAccountingDomainService.cs" />
-  <file path="FastEndpointsTest.Domain/Services/DDD/IContractOnlyDomainService.cs" />
-  <file path="FastEndpointsTest.Domain/Services/DDD/IDataContractDomainService.cs" />
-  <file path="FastEndpointsTest.Domain/ValueObject.cs" />
-  <file path="FastEndpointsTest.Infrastructure/DependencyInjection.cs" />
-  <file path="FastEndpointsTest.Infrastructure/FastEndpointsTest.Infrastructure.csproj" />
-  <file path="FastEndpointsTest.Infrastructure/Migrations/README.md" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/AggregateRootConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/AggregateRootLongConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/AggregateSingleCConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/AggregateTestNoIdReturnConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/CompositeManyBConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/CompositeSingleAAConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/CompositeSingleAConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/CompositeSingleBBConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/SimpleProductConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/AccountConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/AccountHolderConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/CameraConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/CustomerConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/DataContractClassConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/PersonConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/TransactionConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/Enums/ClassWithEnumsConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/Pagination/LogEntryConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/Pagination/PersonEntryConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexElementConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexStereotypeConfiguration.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/CRUD/AggregateRootLongRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/CRUD/AggregateRootRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/CRUD/AggregateSingleCRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/CRUD/AggregateTestNoIdReturnRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/CRUD/SimpleProductRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/DDD/AccountHolderRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/DDD/CameraRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/DDD/CustomerRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/DDD/DataContractClassRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/DDD/PersonRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/DDD/TransactionRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/Enums/ClassWithEnumsRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/Pagination/LogEntryRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/Pagination/PersonEntryRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexElementRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Repositories/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexStereotypeRepository.cs" />
-  <file path="FastEndpointsTest.Infrastructure/Services/DomainEventService.cs" />
-  <file path="FastEndpointsTest.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/domain-services/SKILL.md" templateId="Intent.DomainServices.DomainServiceSkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="FastEndpointsTest.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.FastEndpoints.ApiVersioningConfiguration" />
+  <file path="FastEndpointsTest.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="FastEndpointsTest.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="FastEndpointsTest.Api/Configuration/OpenApiConfiguration.cs" templateId="Intent.AspNetCore.Scalar.OpenApiConfiguration" />
+  <file path="FastEndpointsTest.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AccountHolders/OlderMappingUpdateAccountNoteCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AccountHolders/UpdateNoteAccountCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AccountHolders/UpdateNoteAccountNoResultCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AccountHolders/UpdateNoteAccountStringCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/CreateAggregateRootCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/CreateAggregateRootCompositeManyBCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/DeleteAggregateRootCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/DeleteAggregateRootCompositeManyBCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/GetAggregateRootByIdQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/GetAggregateRootCompositeManyBByIdQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/GetAggregateRootCompositeManyBSQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/GetAggregateRootsQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/UpdateAggregateRootCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/UpdateAggregateRootCompositeManyBCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexElements/CreateAggregateWithUniqueConstraintIndexElementCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexElements/DeleteAggregateWithUniqueConstraintIndexElementCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementByIdQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexElements/UpdateAggregateWithUniqueConstraintIndexElementCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexStereotypes/CreateAggregateWithUniqueConstraintIndexStereotypeCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexStereotypes/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexStereotypes/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ExceptionProcessor.cs" templateId="Intent.FastEndpoints.ExceptionProcessorTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Headers/HeaderFieldCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Headers/ServiceWithHeaderField/DoHeaderFieldEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/NamedQueryStrings/NamedQueryStringsCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/NamedQueryStrings/ServiceWithNamedQueryString/DoNamedQueryStringEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Pagination/GetLogEntriesQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Pagination/GetPeopleByFirstNamePaginatedQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Pagination/GetPeopleByNullableFirstNamePaginatedQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Pagination/GetPeoplePaginatedQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ResponseTypes/JsonResponse.cs" templateId="Intent.FastEndpoints.JsonResponseTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ScalarCollectionReturnType/CommandWithCollectionReturnEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ScalarCollectionReturnType/QueryWithCollectionReturnEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ScalarCollectionReturnType/ServiceWithScalarWithCollectionReturn/DoScalarWithCollectionReturnEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/SecureServices/SecureCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/SecuredService/SecuredCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/SecuredService/SecuredServiceWithAndRolesEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Mutation1Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Mutation2Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Mutation3AsyncEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Mutation4AsyncEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Query5Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Query6Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Query7AsyncEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchService/Query8AsyncEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/MutationNoImpl1Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/MutationNoImpl2AsyncEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/MutationNoImpl3AsyncEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/MutationNoImpl8Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/QueryNoImpl4Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/QueryNoImpl5Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/QueryNoImpl6AsyncEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/QueryNoImpl7AsyncEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/CreateSimpleProductEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/DeleteSimpleProductEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/FindSimpleProductByIdEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/FindSimpleProductsEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/UpdateSimpleProductEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Unversioned/TestCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Unversioned/TestQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Validation/InboundValidationCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Validation/InboundValidationQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Versioned/TestCommandV1Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Versioned/TestCommandV2Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Versioned/TestQueryV1Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/Versioned/TestQueryV2Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpointsTest.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="FastEndpointsTest.Api/Filters/HideRouteParametersFromBodyOperationTransformer.cs" templateId="Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer" />
+  <file path="FastEndpointsTest.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="FastEndpointsTest.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="FastEndpointsTest.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="FastEndpointsTest.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="FastEndpointsTest.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="FastEndpointsTest.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="FastEndpointsTest.Application/AccountHolders/OlderMappingUpdateAccountNote/OlderMappingUpdateAccountNoteCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AccountHolders/OlderMappingUpdateAccountNote/OlderMappingUpdateAccountNoteCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AccountHolders/OlderMappingUpdateAccountNote/OlderMappingUpdateAccountNoteCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccount/UpdateNoteAccountCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccount/UpdateNoteAccountCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccount/UpdateNoteAccountCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountNoResult/UpdateNoteAccountNoResultCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountNoResult/UpdateNoteAccountNoResultCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountNoResult/UpdateNoteAccountNoResultCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountString/UpdateNoteAccountStringCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountString/UpdateNoteAccountStringCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AccountHolders/UpdateNoteAccountString/UpdateNoteAccountStringCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/AggregateRootLongCompositeOfAggrLongDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/AggregateRootLongCompositeOfAggrLongDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/AggregateRootLongDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/AggregateRootLongDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/CreateAggregateRootLong/CreateAggregateRootLongCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/CreateAggregateRootLong/CreateAggregateRootLongCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/CreateAggregateRootLong/CreateAggregateRootLongCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/CreateAggregateRootLongCommandCompositeOfAggrLongDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/CreateAggregateRootLongCommandCompositeOfAggrLongDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/DeleteAggregateRootLong/DeleteAggregateRootLongCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/DeleteAggregateRootLong/DeleteAggregateRootLongCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/DeleteAggregateRootLong/DeleteAggregateRootLongCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/GetAggregateRootLongById/GetAggregateRootLongByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/GetAggregateRootLongById/GetAggregateRootLongByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/GetAggregateRootLongById/GetAggregateRootLongByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/GetAggregateRootLongs/GetAggregateRootLongsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/GetAggregateRootLongs/GetAggregateRootLongsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/GetAggregateRootLongs/GetAggregateRootLongsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/UpdateAggregateRootLong/UpdateAggregateRootLongCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/UpdateAggregateRootLong/UpdateAggregateRootLongCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/UpdateAggregateRootLong/UpdateAggregateRootLongCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/UpdateAggregateRootLongCommandCompositeOfAggrLongDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRootLongs/UpdateAggregateRootLongCommandCompositeOfAggrLongDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/AggregateRootCompositeManyBDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/AggregateRootCompositeManyBDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/AggregateRootDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/AggregateRootDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRoot/CreateAggregateRootCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRoot/CreateAggregateRootCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRoot/CreateAggregateRootCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandAggregateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositeDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositeDto1.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositeDto2.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositeDto4.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositeDto5.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto1.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto2.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto3.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto3Validator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto4.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto4Validator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCommandCompositesDto5.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyB/CreateAggregateRootCompositeManyBCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyB/CreateAggregateRootCompositeManyBCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyB/CreateAggregateRootCompositeManyBCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyBCommandCompositeDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyBCommandCompositeDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyBCommandCompositesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/CreateAggregateRootCompositeManyBCommandCompositesDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/DeleteAggregateRoot/DeleteAggregateRootCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/DeleteAggregateRoot/DeleteAggregateRootCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/DeleteAggregateRoot/DeleteAggregateRootCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/DeleteAggregateRootCompositeManyB/DeleteAggregateRootCompositeManyBCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/DeleteAggregateRootCompositeManyB/DeleteAggregateRootCompositeManyBCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/DeleteAggregateRootCompositeManyB/DeleteAggregateRootCompositeManyBCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootById/GetAggregateRootByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootById/GetAggregateRootByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootById/GetAggregateRootByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootCompositeManyBById/GetAggregateRootCompositeManyBByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootCompositeManyBById/GetAggregateRootCompositeManyBByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootCompositeManyBById/GetAggregateRootCompositeManyBByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootCompositeManyBS/GetAggregateRootCompositeManyBSQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootCompositeManyBS/GetAggregateRootCompositeManyBSQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRootCompositeManyBS/GetAggregateRootCompositeManyBSQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRoots/GetAggregateRootsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRoots/GetAggregateRootsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRoots/GetAggregateRootsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandAggregateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandAggregateDto1.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositeDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositeDto1.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositeDto2.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositeDto6.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositeDto7.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto1.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto2.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto3.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto3Validator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto4.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto4Validator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCommandCompositesDto5.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCompositeManyB/UpdateAggregateRootCompositeManyBCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCompositeManyB/UpdateAggregateRootCompositeManyBCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRootCompositeManyB/UpdateAggregateRootCompositeManyBCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/AggregateWithUniqueConstraintIndexElementDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/AggregateWithUniqueConstraintIndexElementDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/CreateAggregateWithUniqueConstraintIndexElement/CreateAggregateWithUniqueConstraintIndexElementCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/DeleteAggregateWithUniqueConstraintIndexElement/DeleteAggregateWithUniqueConstraintIndexElementCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementById/GetAggregateWithUniqueConstraintIndexElementByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElements/GetAggregateWithUniqueConstraintIndexElementsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexElements/UpdateAggregateWithUniqueConstraintIndexElement/UpdateAggregateWithUniqueConstraintIndexElementCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/AggregateWithUniqueConstraintIndexStereotypeDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/AggregateWithUniqueConstraintIndexStereotypeDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/CreateAggregateWithUniqueConstraintIndexStereotype/CreateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/DeleteAggregateWithUniqueConstraintIndexStereotype/DeleteAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypeById/GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypes/GetAggregateWithUniqueConstraintIndexStereotypesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/AggregateWithUniqueConstraintIndexStereotypes/UpdateAggregateWithUniqueConstraintIndexStereotype/UpdateAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="FastEndpointsTest.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="FastEndpointsTest.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="FastEndpointsTest.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="FastEndpointsTest.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="FastEndpointsTest.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="FastEndpointsTest.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="FastEndpointsTest.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="FastEndpointsTest.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="FastEndpointsTest.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="FastEndpointsTest.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="FastEndpointsTest.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="FastEndpointsTest.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="FastEndpointsTest.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="FastEndpointsTest.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="FastEndpointsTest.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="FastEndpointsTest.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="FastEndpointsTest.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="FastEndpointsTest.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="FastEndpointsTest.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="FastEndpointsTest.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="FastEndpointsTest.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="FastEndpointsTest.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="FastEndpointsTest.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="FastEndpointsTest.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="FastEndpointsTest.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="FastEndpointsTest.Application/EventHandlers/DDD/AccountHolderManager.cs" deviationsHash="3A645AFDCD526D514EDE8B5DCEE99DD114B061F1D5C347AC60D308E73ABB11CB" templateId="Intent.MediatR.DomainEvents.AggregateManager" />
+  <file path="FastEndpointsTest.Application/EventHandlers/DDD/DataContractDomainEventHandler.cs" templateId="Intent.MediatR.DomainEvents.DefaultDomainEventHandler" />
+  <file path="FastEndpointsTest.Application/FastEndpointsTest.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="FastEndpointsTest.Application/Headers/HeaderField/HeaderFieldCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/Headers/HeaderField/HeaderFieldCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/Headers/HeaderField/HeaderFieldCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/Implementation/Headers/ServiceWithHeaderFieldService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="FastEndpointsTest.Application/Implementation/NamedQueryStrings/ServiceWithNamedQueryStringService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="FastEndpointsTest.Application/Implementation/ScalarCollectionReturnType/ServiceWithScalarWithCollectionReturnService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="FastEndpointsTest.Application/Implementation/ServiceDispatch/ServiceDispatchService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="FastEndpointsTest.Application/Implementation/SimpleProductsService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="FastEndpointsTest.Application/Interfaces/Headers/IServiceWithHeaderFieldService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="FastEndpointsTest.Application/Interfaces/ISimpleProductsService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="FastEndpointsTest.Application/Interfaces/NamedQueryStrings/IServiceWithNamedQueryStringService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="FastEndpointsTest.Application/Interfaces/ScalarCollectionReturnType/IServiceWithScalarWithCollectionReturnService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="FastEndpointsTest.Application/Interfaces/ServiceDispatch/IServiceDispatchService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="FastEndpointsTest.Application/Interfaces/ServiceDispatch/IServiceDispatchWithoutImplementationService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="FastEndpointsTest.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/Pagination/GetLogEntries/GetLogEntriesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/Pagination/GetLogEntries/GetLogEntriesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/Pagination/GetLogEntries/GetLogEntriesQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/Pagination/GetPeopleByFirstNamePaginated/GetPeopleByFirstNamePaginatedQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/Pagination/GetPeopleByFirstNamePaginated/GetPeopleByFirstNamePaginatedQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/Pagination/GetPeopleByFirstNamePaginated/GetPeopleByFirstNamePaginatedQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/Pagination/GetPeopleByNullableFirstNamePaginated/GetPeopleByNullableFirstNamePaginatedQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/Pagination/GetPeopleByNullableFirstNamePaginated/GetPeopleByNullableFirstNamePaginatedQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/Pagination/GetPeopleByNullableFirstNamePaginated/GetPeopleByNullableFirstNamePaginatedQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/Pagination/GetPeoplePaginated/GetPeoplePaginatedQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/Pagination/GetPeoplePaginated/GetPeoplePaginatedQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/Pagination/GetPeoplePaginated/GetPeoplePaginatedQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/Pagination/LogEntryDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/Pagination/LogEntryDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="FastEndpointsTest.Application/Pagination/PersonEntryDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/Pagination/PersonEntryDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="FastEndpointsTest.Application/ScalarCollectionReturnType/CommandWithCollectionReturn/CommandWithCollectionReturn.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/ScalarCollectionReturnType/CommandWithCollectionReturn/CommandWithCollectionReturnHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/ScalarCollectionReturnType/CommandWithCollectionReturn/CommandWithCollectionReturnValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/ScalarCollectionReturnType/QueryWithCollectionReturn/QueryWithCollectionReturn.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/ScalarCollectionReturnType/QueryWithCollectionReturn/QueryWithCollectionReturnHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/ScalarCollectionReturnType/QueryWithCollectionReturn/QueryWithCollectionReturnValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/SecureServices/Secure/SecureCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/SecureServices/Secure/SecureCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/SecureServices/Secure/SecureCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/SecuredService/Secured/SecuredCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/SecuredService/Secured/SecuredCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/SecuredService/Secured/SecuredCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/SecuredService/SecuredServiceWithAndRoles/SecuredServiceWithAndRoles.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/SecuredService/SecuredServiceWithAndRoles/SecuredServiceWithAndRolesHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/SecuredService/SecuredServiceWithAndRoles/SecuredServiceWithAndRolesValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/Security/Permissions.cs" templateId="Intent.AspNetCore.Permissions" />
+  <file path="FastEndpointsTest.Application/SimpleProducts/SimpleProductCreateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/SimpleProducts/SimpleProductCreateDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FastEndpointsTest.Application/SimpleProducts/SimpleProductDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/SimpleProducts/SimpleProductDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="FastEndpointsTest.Application/SimpleProducts/SimpleProductUpdateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/SimpleProducts/SimpleProductUpdateDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="FastEndpointsTest.Application/Unversioned/Test/TestCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/Unversioned/Test/TestCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/Unversioned/Test/TestCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/Unversioned/Test/TestQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/Unversioned/Test/TestQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/Unversioned/Test/TestQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/Validation/DummyResultDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="FastEndpointsTest.Application/Validation/EnumDescriptions.cs" templateId="Intent.Application.Dtos.ContractEnumModel" />
+  <file path="FastEndpointsTest.Application/Validation/InboundValidation/InboundValidationCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/Validation/InboundValidation/InboundValidationCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/Validation/InboundValidation/InboundValidationCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/Validation/InboundValidation/InboundValidationQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/Validation/InboundValidation/InboundValidationQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/Validation/InboundValidation/InboundValidationQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/Versioned/TestCommandV1/TestCommandV1.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/Versioned/TestCommandV1/TestCommandV1Handler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/Versioned/TestCommandV1/TestCommandV1Validator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/Versioned/TestCommandV2/TestCommandV2.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="FastEndpointsTest.Application/Versioned/TestCommandV2/TestCommandV2Handler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="FastEndpointsTest.Application/Versioned/TestCommandV2/TestCommandV2Validator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="FastEndpointsTest.Application/Versioned/TestQueryV1/TestQueryV1.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/Versioned/TestQueryV1/TestQueryV1Handler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/Versioned/TestQueryV1/TestQueryV1Validator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/Versioned/TestQueryV2/TestQueryV2.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/Versioned/TestQueryV2/TestQueryV2Handler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/Versioned/TestQueryV2/TestQueryV2Validator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="FastEndpointsTest.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="FastEndpointsTest.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="FastEndpointsTest.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="FastEndpointsTest.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="FastEndpointsTest.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="FastEndpointsTest.Domain/Contracts/DDD/DataContractObject.cs" templateId="Intent.Entities.DataContract" />
+  <file path="FastEndpointsTest.Domain/DDD/Address.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="FastEndpointsTest.Domain/DDD/Money.cs" templateId="Intent.ValueObjects.ValueObject" />
+  <file path="FastEndpointsTest.Domain/Entities/CRUD/AggregateRoot.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/CRUD/AggregateRootLong.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/CRUD/AggregateSingleC.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/CRUD/AggregateTestNoIdReturn.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeManyAA.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeManyB.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeManyBB.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeOfAggrLong.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeSingleA.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeSingleAA.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/CRUD/CompositeSingleBB.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/CRUD/SimpleProduct.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/DDD/Account.cs" deviationsHash="D0D1C871B36CB6109045872AE5839631494416B5923EA92FE577287E9BC366E1" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/DDD/AccountHolder.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/DDD/Camera.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/DDD/Customer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/DDD/DataContractClass.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/DDD/Person.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/DDD/Transaction.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/Enums/ClassWithEnums.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/Pagination/LogEntry.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/Pagination/PersonEntry.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexElement.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Entities/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexStereotype.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="FastEndpointsTest.Domain/Enums/EnumWithDefaultLiteral.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="FastEndpointsTest.Domain/Enums/EnumWithoutDefaultLiteral.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="FastEndpointsTest.Domain/Enums/EnumWithoutValues.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="FastEndpointsTest.Domain/Events/DDD/AccountTransferStarted.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="FastEndpointsTest.Domain/Events/DDD/DataContractDomainEvent.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="FastEndpointsTest.Domain/FastEndpointsTest.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="FastEndpointsTest.Domain/Repositories/CRUD/IAggregateRootLongRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/CRUD/IAggregateRootRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/CRUD/IAggregateSingleCRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/CRUD/IAggregateTestNoIdReturnRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/CRUD/ISimpleProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/DDD/IAccountHolderRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/DDD/ICameraRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/DDD/ICustomerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/DDD/IDataContractClassRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/DDD/IPersonRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/DDD/ITransactionRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/Enums/IClassWithEnumsRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/Pagination/ILogEntryRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/Pagination/IPersonEntryRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/UniqueIndexConstraint/IAggregateWithUniqueConstraintIndexElementRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Repositories/UniqueIndexConstraint/IAggregateWithUniqueConstraintIndexStereotypeRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="FastEndpointsTest.Domain/Services/DDD/AccountingDomainService.cs" templateId="Intent.DomainServices.DomainServiceImplementation" />
+  <file path="FastEndpointsTest.Domain/Services/DDD/DataContractDomainService.cs" templateId="Intent.DomainServices.DomainServiceImplementation" />
+  <file path="FastEndpointsTest.Domain/Services/DDD/IAccountingDomainService.cs" templateId="Intent.DomainServices.DomainServiceInterface" />
+  <file path="FastEndpointsTest.Domain/Services/DDD/IContractOnlyDomainService.cs" templateId="Intent.DomainServices.DomainServiceInterface" />
+  <file path="FastEndpointsTest.Domain/Services/DDD/IDataContractDomainService.cs" templateId="Intent.DomainServices.DomainServiceInterface" />
+  <file path="FastEndpointsTest.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="FastEndpointsTest.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="FastEndpointsTest.Infrastructure/FastEndpointsTest.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="FastEndpointsTest.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/AggregateRootConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/AggregateRootLongConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/AggregateSingleCConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/AggregateTestNoIdReturnConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/CompositeManyBConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/CompositeSingleAAConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/CompositeSingleAConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/CompositeSingleBBConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/SimpleProductConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/AccountConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/AccountHolderConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/CameraConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/DataContractClassConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/PersonConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/TransactionConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/Enums/ClassWithEnumsConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/Pagination/LogEntryConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/Pagination/PersonEntryConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexElementConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Persistence/Configurations/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexStereotypeConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/CRUD/AggregateRootLongRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/CRUD/AggregateRootRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/CRUD/AggregateSingleCRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/CRUD/AggregateTestNoIdReturnRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/CRUD/SimpleProductRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/DDD/AccountHolderRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/DDD/CameraRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/DDD/CustomerRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/DDD/DataContractClassRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/DDD/PersonRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/DDD/TransactionRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/Enums/ClassWithEnumsRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/Pagination/LogEntryRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/Pagination/PersonEntryRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexElementRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Repositories/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexStereotypeRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="FastEndpointsTest.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="FastEndpointsTest.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

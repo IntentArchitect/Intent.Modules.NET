@@ -1,131 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="38950864-1930-4a7f-9a21-57f1b4043ad1">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="RichDomain.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="RichDomain.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="RichDomain.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="RichDomain.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="RichDomain.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="RichDomain.Api/Controllers/PeopleController.cs" />
-  <file path="RichDomain.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="RichDomain.Api/Filters/ExceptionFilter.cs" />
-  <file path="RichDomain.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="RichDomain.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="RichDomain.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="RichDomain.Api/Program.cs" />
-  <file path="RichDomain.Api/Properties/launchSettings.json" />
-  <file path="RichDomain.Api/RichDomain.Api.csproj" />
-  <file path="RichDomain.Api/Services/CurrentUserService.cs" />
-  <file path="RichDomain.Api/Startup.cs" />
-  <file path="RichDomain.Api/appsettings.json" />
-  <file path="RichDomain.Application.Tests/RichDomain.Application.Tests.csproj" />
-  <file path="RichDomain.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="RichDomain.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="RichDomain.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="RichDomain.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="RichDomain.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="RichDomain.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="RichDomain.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="RichDomain.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="RichDomain.Application/Common/Interfaces/ICommand.cs" />
-  <file path="RichDomain.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="RichDomain.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="RichDomain.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="RichDomain.Application/Common/Interfaces/IQuery.cs" />
-  <file path="RichDomain.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="RichDomain.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="RichDomain.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="RichDomain.Application/Common/Models/Result.cs" />
-  <file path="RichDomain.Application/Common/Pagination/PagedList.cs" />
-  <file path="RichDomain.Application/Common/Pagination/PagedResult.cs" />
-  <file path="RichDomain.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="RichDomain.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="RichDomain.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="RichDomain.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="RichDomain.Application/DependencyInjection.cs" />
-  <file path="RichDomain.Application/EventHandlers/PersonUpdatedEventHandler.cs" />
-  <file path="RichDomain.Application/People/CreatePerson/CreatePersonCommand.cs" />
-  <file path="RichDomain.Application/People/CreatePerson/CreatePersonCommandHandler.cs" />
-  <file path="RichDomain.Application/People/CreatePerson/CreatePersonCommandValidator.cs" />
-  <file path="RichDomain.Application/People/DeletePerson/DeletePersonCommand.cs" />
-  <file path="RichDomain.Application/People/DeletePerson/DeletePersonCommandHandler.cs" />
-  <file path="RichDomain.Application/People/DeletePerson/DeletePersonCommandValidator.cs" />
-  <file path="RichDomain.Application/People/GetPeople/GetPeopleQuery.cs" />
-  <file path="RichDomain.Application/People/GetPeople/GetPeopleQueryHandler.cs" />
-  <file path="RichDomain.Application/People/GetPeople/GetPeopleQueryValidator.cs" />
-  <file path="RichDomain.Application/People/GetPersonById/GetPersonByIdQuery.cs" />
-  <file path="RichDomain.Application/People/GetPersonById/GetPersonByIdQueryHandler.cs" />
-  <file path="RichDomain.Application/People/GetPersonById/GetPersonByIdQueryValidator.cs" />
-  <file path="RichDomain.Application/People/PersonDto.cs" />
-  <file path="RichDomain.Application/People/PersonDtoMappingExtensions.cs" />
-  <file path="RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommand.cs" />
-  <file path="RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommandHandler.cs" />
-  <file path="RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommandValidator.cs" />
-  <file path="RichDomain.Application/RichDomain.Application.csproj" deviationsHash="AB86F3C5463234CF8C242817ADCFD8DF0237C6E57BCE85723AF2D9A413308C6B" />
-  <file path="RichDomain.Domain/Common/CollectionExtensions.cs" />
-  <file path="RichDomain.Domain/Common/DomainEvent.cs" />
-  <file path="RichDomain.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="RichDomain.Domain/Common/IHasDomainEvent.cs" />
-  <file path="RichDomain.Domain/Common/Interfaces/IAuditable.cs" />
-  <file path="RichDomain.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="RichDomain.Domain/Common/UpdateHelper.cs" />
-  <file path="RichDomain.Domain/Contracts/Inheritance/BaseContract.cs" />
-  <file path="RichDomain.Domain/Contracts/Inheritance/SuperContract.cs" />
-  <file path="RichDomain.Domain/Entities/AbstractBaseClass.cs" />
-  <file path="RichDomain.Domain/Entities/AbstractBaseClassState.cs" />
-  <file path="RichDomain.Domain/Entities/BaseClass.cs" />
-  <file path="RichDomain.Domain/Entities/BaseClassState.cs" />
-  <file path="RichDomain.Domain/Entities/Department.cs" />
-  <file path="RichDomain.Domain/Entities/DepartmentState.cs" />
-  <file path="RichDomain.Domain/Entities/DerivedClass.cs" />
-  <file path="RichDomain.Domain/Entities/DerivedClassState.cs" />
-  <file path="RichDomain.Domain/Entities/DerivedFromAbstractClass.cs" />
-  <file path="RichDomain.Domain/Entities/DerivedFromAbstractClassState.cs" />
-  <file path="RichDomain.Domain/Entities/EntityWithAutoAppliedNewFields.cs" />
-  <file path="RichDomain.Domain/Entities/EntityWithAutoAppliedNewFieldsState.cs" />
-  <file path="RichDomain.Domain/Entities/IAbstractBaseClass.cs" />
-  <file path="RichDomain.Domain/Entities/IBaseClass.cs" />
-  <file path="RichDomain.Domain/Entities/IDepartment.cs" />
-  <file path="RichDomain.Domain/Entities/IDerivedClass.cs" />
-  <file path="RichDomain.Domain/Entities/IDerivedFromAbstractClass.cs" />
-  <file path="RichDomain.Domain/Entities/IEntityWithAutoAppliedNewFields.cs" />
-  <file path="RichDomain.Domain/Entities/IPerson.cs" />
-  <file path="RichDomain.Domain/Entities/Person.cs" />
-  <file path="RichDomain.Domain/Entities/PersonState.cs" />
-  <file path="RichDomain.Domain/Events/PersonUpdatedEvent.cs" />
-  <file path="RichDomain.Domain/Repositories/IBaseClassRepository.cs" />
-  <file path="RichDomain.Domain/Repositories/IDepartmentRepository.cs" />
-  <file path="RichDomain.Domain/Repositories/IDerivedClassRepository.cs" />
-  <file path="RichDomain.Domain/Repositories/IDerivedFromAbstractClassRepository.cs" />
-  <file path="RichDomain.Domain/Repositories/IEFRepository.cs" />
-  <file path="RichDomain.Domain/Repositories/IEntityWithAutoAppliedNewFieldsRepository.cs" />
-  <file path="RichDomain.Domain/Repositories/IPagedList.cs" />
-  <file path="RichDomain.Domain/Repositories/IPersonRepository.cs" />
-  <file path="RichDomain.Domain/Repositories/IRepository.cs" />
-  <file path="RichDomain.Domain/RichDomain.Domain.csproj" />
-  <file path="RichDomain.Infrastructure/DependencyInjection.cs" />
-  <file path="RichDomain.Infrastructure/Migrations/README.md" />
-  <file path="RichDomain.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="RichDomain.Infrastructure/Persistence/Configurations/BaseClassConfiguration.cs" />
-  <file path="RichDomain.Infrastructure/Persistence/Configurations/DepartmentConfiguration.cs" />
-  <file path="RichDomain.Infrastructure/Persistence/Configurations/DerivedClassConfiguration.cs" />
-  <file path="RichDomain.Infrastructure/Persistence/Configurations/DerivedFromAbstractClassConfiguration.cs" />
-  <file path="RichDomain.Infrastructure/Persistence/Configurations/EntityWithAutoAppliedNewFieldsConfiguration.cs" />
-  <file path="RichDomain.Infrastructure/Persistence/Configurations/PersonConfiguration.cs" />
-  <file path="RichDomain.Infrastructure/Repositories/BaseClassRepository.cs" />
-  <file path="RichDomain.Infrastructure/Repositories/DepartmentRepository.cs" />
-  <file path="RichDomain.Infrastructure/Repositories/DerivedClassRepository.cs" />
-  <file path="RichDomain.Infrastructure/Repositories/DerivedFromAbstractClassRepository.cs" />
-  <file path="RichDomain.Infrastructure/Repositories/EntityWithAutoAppliedNewFieldsRepository.cs" />
-  <file path="RichDomain.Infrastructure/Repositories/PersonRepository.cs" />
-  <file path="RichDomain.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="RichDomain.Infrastructure/RichDomain.Infrastructure.csproj" deviationsHash="AB04BF44B6D3D60D3A768C8632A72E1F0B38960259403CCD9B415F73FDE1D80B" />
-  <file path="RichDomain.Infrastructure/Services/DomainEventService.cs" />
-  <file path="RichDomain.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="RichDomain.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="RichDomain.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="RichDomain.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="RichDomain.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="RichDomain.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="RichDomain.Api/Controllers/PeopleController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="RichDomain.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="RichDomain.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="RichDomain.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="RichDomain.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="RichDomain.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="RichDomain.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="RichDomain.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="RichDomain.Api/RichDomain.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="RichDomain.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="RichDomain.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="RichDomain.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="RichDomain.Application.Tests/RichDomain.Application.Tests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="RichDomain.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="RichDomain.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="RichDomain.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="RichDomain.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="RichDomain.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="RichDomain.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="RichDomain.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="RichDomain.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="RichDomain.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="RichDomain.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="RichDomain.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="RichDomain.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="RichDomain.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="RichDomain.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="RichDomain.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="RichDomain.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="RichDomain.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="RichDomain.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="RichDomain.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="RichDomain.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="RichDomain.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="RichDomain.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="RichDomain.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="RichDomain.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="RichDomain.Application/EventHandlers/PersonUpdatedEventHandler.cs" templateId="Intent.MediatR.DomainEvents.DefaultDomainEventHandler" />
+  <file path="RichDomain.Application/People/CreatePerson/CreatePersonCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="RichDomain.Application/People/CreatePerson/CreatePersonCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="RichDomain.Application/People/CreatePerson/CreatePersonCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="RichDomain.Application/People/DeletePerson/DeletePersonCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="RichDomain.Application/People/DeletePerson/DeletePersonCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="RichDomain.Application/People/DeletePerson/DeletePersonCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="RichDomain.Application/People/GetPeople/GetPeopleQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="RichDomain.Application/People/GetPeople/GetPeopleQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="RichDomain.Application/People/GetPeople/GetPeopleQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="RichDomain.Application/People/GetPersonById/GetPersonByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="RichDomain.Application/People/GetPersonById/GetPersonByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="RichDomain.Application/People/GetPersonById/GetPersonByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="RichDomain.Application/People/PersonDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="RichDomain.Application/People/PersonDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="RichDomain.Application/RichDomain.Application.csproj" deviationsHash="AB86F3C5463234CF8C242817ADCFD8DF0237C6E57BCE85723AF2D9A413308C6B" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="RichDomain.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="RichDomain.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="RichDomain.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="RichDomain.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="RichDomain.Domain/Common/Interfaces/IAuditable.cs" templateId="Intent.Entities.BasicAuditing.AuditableInterface" />
+  <file path="RichDomain.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="RichDomain.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="RichDomain.Domain/Contracts/Inheritance/BaseContract.cs" templateId="Intent.Entities.DataContract" />
+  <file path="RichDomain.Domain/Contracts/Inheritance/SuperContract.cs" templateId="Intent.Entities.DataContract" />
+  <file path="RichDomain.Domain/Entities/AbstractBaseClass.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="RichDomain.Domain/Entities/AbstractBaseClassState.cs" templateId="Intent.Entities.DomainEntityState" />
+  <file path="RichDomain.Domain/Entities/BaseClass.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="RichDomain.Domain/Entities/BaseClassState.cs" templateId="Intent.Entities.DomainEntityState" />
+  <file path="RichDomain.Domain/Entities/Department.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="RichDomain.Domain/Entities/DepartmentState.cs" templateId="Intent.Entities.DomainEntityState" />
+  <file path="RichDomain.Domain/Entities/DerivedClass.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="RichDomain.Domain/Entities/DerivedClassState.cs" templateId="Intent.Entities.DomainEntityState" />
+  <file path="RichDomain.Domain/Entities/DerivedFromAbstractClass.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="RichDomain.Domain/Entities/DerivedFromAbstractClassState.cs" templateId="Intent.Entities.DomainEntityState" />
+  <file path="RichDomain.Domain/Entities/EntityWithAutoAppliedNewFields.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="RichDomain.Domain/Entities/EntityWithAutoAppliedNewFieldsState.cs" templateId="Intent.Entities.DomainEntityState" />
+  <file path="RichDomain.Domain/Entities/IAbstractBaseClass.cs" templateId="Intent.Entities.DomainEntityInterface" />
+  <file path="RichDomain.Domain/Entities/IBaseClass.cs" templateId="Intent.Entities.DomainEntityInterface" />
+  <file path="RichDomain.Domain/Entities/IDepartment.cs" templateId="Intent.Entities.DomainEntityInterface" />
+  <file path="RichDomain.Domain/Entities/IDerivedClass.cs" templateId="Intent.Entities.DomainEntityInterface" />
+  <file path="RichDomain.Domain/Entities/IDerivedFromAbstractClass.cs" templateId="Intent.Entities.DomainEntityInterface" />
+  <file path="RichDomain.Domain/Entities/IEntityWithAutoAppliedNewFields.cs" templateId="Intent.Entities.DomainEntityInterface" />
+  <file path="RichDomain.Domain/Entities/IPerson.cs" templateId="Intent.Entities.DomainEntityInterface" />
+  <file path="RichDomain.Domain/Entities/Person.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="RichDomain.Domain/Entities/PersonState.cs" templateId="Intent.Entities.DomainEntityState" />
+  <file path="RichDomain.Domain/Events/PersonUpdatedEvent.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="RichDomain.Domain/Repositories/IBaseClassRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="RichDomain.Domain/Repositories/IDepartmentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="RichDomain.Domain/Repositories/IDerivedClassRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="RichDomain.Domain/Repositories/IDerivedFromAbstractClassRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="RichDomain.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="RichDomain.Domain/Repositories/IEntityWithAutoAppliedNewFieldsRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="RichDomain.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="RichDomain.Domain/Repositories/IPersonRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="RichDomain.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="RichDomain.Domain/RichDomain.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="RichDomain.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="RichDomain.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="RichDomain.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="RichDomain.Infrastructure/Persistence/Configurations/BaseClassConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="RichDomain.Infrastructure/Persistence/Configurations/DepartmentConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="RichDomain.Infrastructure/Persistence/Configurations/DerivedClassConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="RichDomain.Infrastructure/Persistence/Configurations/DerivedFromAbstractClassConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="RichDomain.Infrastructure/Persistence/Configurations/EntityWithAutoAppliedNewFieldsConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="RichDomain.Infrastructure/Persistence/Configurations/PersonConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="RichDomain.Infrastructure/Repositories/BaseClassRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="RichDomain.Infrastructure/Repositories/DepartmentRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="RichDomain.Infrastructure/Repositories/DerivedClassRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="RichDomain.Infrastructure/Repositories/DerivedFromAbstractClassRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="RichDomain.Infrastructure/Repositories/EntityWithAutoAppliedNewFieldsRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="RichDomain.Infrastructure/Repositories/PersonRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="RichDomain.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="RichDomain.Infrastructure/RichDomain.Infrastructure.csproj" deviationsHash="AB04BF44B6D3D60D3A768C8632A72E1F0B38960259403CCD9B415F73FDE1D80B" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="RichDomain.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="RichDomain.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

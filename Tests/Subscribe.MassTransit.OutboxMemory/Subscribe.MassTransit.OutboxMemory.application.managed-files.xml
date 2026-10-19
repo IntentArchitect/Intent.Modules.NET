@@ -1,98 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="d3231941-3f20-462d-86ca-a32d4c05484b">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Configuration/ApplicationSecurityConfiguration.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Filters/AuthorizeCheckOperationFilter.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Filters/ExceptionFilter.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Program.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Properties/launchSettings.json" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Services/CurrentUserService.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Startup.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/Subscribe.MassTransit.OutboxMemory.Api.csproj" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Api/appsettings.json" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/AssemblyAttributes.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/AuthorizationBehaviour.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/LoggingBehaviour.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/PerformanceBehaviour.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Eventing/IEventBus.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Exceptions/ForbiddenAccessException.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/ICommand.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/ICurrentUser.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/ICurrentUserService.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/IDomainEventService.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/IQuery.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Models/Result.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Pagination/PagedList.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Pagination/PagedResult.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Security/AuthorizeAttribute.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/DependencyInjection.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/BasketItems/BasketItemCreatedEvent.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/BasketItems/BasketItemDeletedEvent.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/BasketItems/BasketItemUpdatedEvent.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Baskets/BasketCreatedEvent.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Baskets/BasketDeletedEvent.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Baskets/BasketItemDto.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Baskets/BasketUpdatedEvent.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketCreatedEventHandler.cs" deviationsHash="508A83BB744BBBB6C63AE0F49B9324EB6FDE5EBA8C8F21709824F56919D7F2FA" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketDeletedEventHandler.cs" deviationsHash="EAD0582B42FE4B3D633A70B8056F770A55F0ABEB4E2CBE91BF81B4C6E43F0F1D" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketItemCreatedEventHandler.cs" deviationsHash="F3E36AE6C241910760F02695246B8FD8B8205F8DFF372C13597C297255B99A6F" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketItemDeletedEventHandler.cs" deviationsHash="23C2EF655BC797CBED8F03082E45DEB1C8F65282AB8888B2C844E87576375C94" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketItemUpdatedEventHandler.cs" deviationsHash="73B610BA02A3AF980AF3CC38AAFFEB9E89251EA50146324BF66C6A1CB9049334" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketUpdatedEventHandler.cs" deviationsHash="6E93F1CAB58175E6D78119A93E43FD8F835EF370BB074F8D51B366693F47438D" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/DelayedNotificationEventHandler.cs" deviationsHash="3BBFBDDB45B0BBDCA42C3B2AFACDCAAFE829871C8F7E1BFDD0E436A08D6842EC" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/RoleCreatedEventHandler.cs" deviationsHash="B4B035FB697BB71B5C9E506BFA6A96B0554E611716FC02D4742D41BF403FE5A5" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/RoleDeletedEventHandler.cs" deviationsHash="8FFC0F788B49F8FCB661C3716BB00C31B638BA8A44B5626369E373B8A5A72B13" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/RoleUpdatedEventHandler.cs" deviationsHash="68DD53AC691F9EEFD93D2747C0CFA847CDC77704E118844CF1FB9AE15578CBEC" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/PriviledgeDto.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/RoleCreatedEvent.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/RoleDeletedEvent.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/RoleUpdatedEvent.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Scheduled/DelayedNotificationEvent.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Application/Subscribe.MassTransit.OutboxMemory.Application.csproj" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Common/CollectionExtensions.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Common/DomainEvent.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Common/IHasDomainEvent.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Common/UpdateHelper.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Repositories/IEFRepository.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Repositories/IPagedList.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Repositories/IRepository.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Subscribe.MassTransit.OutboxMemory.Domain.csproj" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Configuration/MassTransitConfiguration.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/DependencyInjection.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Eventing/IntegrationEventConsumer.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Eventing/MassTransitMessageBus.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Migrations/README.md" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Services/DomainEventService.cs" />
-  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Subscribe.MassTransit.OutboxMemory.Infrastructure.csproj" deviationsHash="BB1C9FF417B8C3E626E06C7DD6939770036420AC39308CA38B04964184574796" />
-  <file path="Subscribe.MassTransit.OutboxMemory.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/Subscribe.MassTransit.OutboxMemory.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/BasketItems/BasketItemCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/BasketItems/BasketItemDeletedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/BasketItems/BasketItemUpdatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Baskets/BasketCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Baskets/BasketDeletedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Baskets/BasketItemDto.cs" templateId="Intent.Eventing.Contracts.IntegrationEventDto" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Baskets/BasketUpdatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketCreatedEventHandler.cs" deviationsHash="508A83BB744BBBB6C63AE0F49B9324EB6FDE5EBA8C8F21709824F56919D7F2FA" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketDeletedEventHandler.cs" deviationsHash="EAD0582B42FE4B3D633A70B8056F770A55F0ABEB4E2CBE91BF81B4C6E43F0F1D" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketItemCreatedEventHandler.cs" deviationsHash="F3E36AE6C241910760F02695246B8FD8B8205F8DFF372C13597C297255B99A6F" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketItemDeletedEventHandler.cs" deviationsHash="23C2EF655BC797CBED8F03082E45DEB1C8F65282AB8888B2C844E87576375C94" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketItemUpdatedEventHandler.cs" deviationsHash="73B610BA02A3AF980AF3CC38AAFFEB9E89251EA50146324BF66C6A1CB9049334" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketUpdatedEventHandler.cs" deviationsHash="6E93F1CAB58175E6D78119A93E43FD8F835EF370BB074F8D51B366693F47438D" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/DelayedNotificationEventHandler.cs" deviationsHash="3BBFBDDB45B0BBDCA42C3B2AFACDCAAFE829871C8F7E1BFDD0E436A08D6842EC" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/RoleCreatedEventHandler.cs" deviationsHash="B4B035FB697BB71B5C9E506BFA6A96B0554E611716FC02D4742D41BF403FE5A5" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/RoleDeletedEventHandler.cs" deviationsHash="8FFC0F788B49F8FCB661C3716BB00C31B638BA8A44B5626369E373B8A5A72B13" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/RoleUpdatedEventHandler.cs" deviationsHash="68DD53AC691F9EEFD93D2747C0CFA847CDC77704E118844CF1FB9AE15578CBEC" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/PriviledgeDto.cs" templateId="Intent.Eventing.Contracts.IntegrationEventDto" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/RoleCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/RoleDeletedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Roles/RoleUpdatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/Scheduled/DelayedNotificationEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Application/Subscribe.MassTransit.OutboxMemory.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Domain/Subscribe.MassTransit.OutboxMemory.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
+  <file path="Subscribe.MassTransit.OutboxMemory.Infrastructure/Subscribe.MassTransit.OutboxMemory.Infrastructure.csproj" deviationsHash="BB1C9FF417B8C3E626E06C7DD6939770036420AC39308CA38B04964184574796" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.MassTransit.OutboxMemory.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

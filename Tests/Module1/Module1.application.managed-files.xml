@@ -1,127 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="4d989763-0499-4e06-a75d-af159dea70cd">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path=".gitignore" />
-  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Eventing/IEventBus.cs" />
-  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Eventing/IIntegrationEventHandler.cs" />
-  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/ICommand.cs" />
-  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/IQuery.cs" />
-  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Pagination/PagedResult.cs" />
-  <file path="Intent.Modules.NET.Tests.Application.Core/Intent.Modules.NET.Tests.Application.Core.csproj" />
-  <file path="Intent.Modules.NET.Tests.Domain.Core/Common/Exceptions/NotFoundException.cs" />
-  <file path="Intent.Modules.NET.Tests.Domain.Core/Intent.Modules.NET.Tests.Domain.Core.csproj" />
-  <file path="Intent.Modules.NET.Tests.Host/Configuration/ModuleInstallerFactory.cs" deviationsHash="DC22D2647C9BE6F32304D259790177DB471061B55AB9C4773F543ABD684FFC3A" />
-  <file path="Intent.Modules.NET.Tests.Host/Intent.Modules.NET.Tests.Host.csproj" />
-  <file path="Intent.Modules.NET.Tests.Host/Properties/launchSettings.json" />
-  <file path="Intent.Modules.NET.Tests.Host/appsettings.json" />
-  <file path="Intent.Modules.NET.Tests.Infrastructure.Core/Eventing/MassTransitMessageBus.cs" />
-  <file path="Intent.Modules.NET.Tests.Infrastructure.Core/Intent.Modules.NET.Tests.Infrastructure.Core.csproj" />
-  <file path="Intent.Modules.NET.Tests.sln" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Api/Controllers/CustomersController.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Api/Controllers/OrdersController.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Api/Controllers/ResponseTypes/JsonResponse.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Api/Intent.Modules.NET.Tests.Module1.Api.csproj" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Api/ModuleInstaller.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/CreateOrderOrderItemsDto.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Customers/CreateCustomer/CreateCustomerCommand.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Customers/CustomerDto.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Customers/DeleteCustomer/DeleteCustomerCommand.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Customers/GetCustomerById/GetCustomerByIdQuery.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Customers/GetCustomers/GetCustomersQuery.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Customers/UpdateCustomer/UpdateCustomerCommand.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/IntegrationEvents/CustomerCreatedIECustomerDto.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/IntegrationEvents/CustomerCreatedIEEvent.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/IntegrationEvents/ProductCreatedIEEvent.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Intent.Modules.NET.Tests.Module1.Application.Contracts.csproj" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Interfaces/IOrdersService.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Orders/OrderCreateDto.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Orders/OrderDto.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Orders/OrderOrderItemDto.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Orders/OrderUpdateDto.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/CreateProduct/CreateProductCommand.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/DeleteProduct/DeleteProductCommand.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/GetProductById/GetProductByIdQuery.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/GetProducts/GetProductsQuery.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/ProductDto.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/UpdateProduct/UpdateProductCommand.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/AssemblyAttributes.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Behaviours/ValidationBehaviour.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Interfaces/IBypassPipelineValidation.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Models/DomainEventNotification.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Pagination/PagedList.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Validation/IValidationService.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Validation/IValidatorProvider.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Validation/ValidationService.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Validation/ValidatorProvider.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/CreateCustomer/CreateCustomerCommandValidator.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/GetCustomers/GetCustomersQueryValidator.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/DependencyInjection.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/EventHandlers/Customers/CustomerCreatedHandler.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Implementation/OrdersService.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Intent.Modules.NET.Tests.Module1.Application.csproj" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Interfaces/IDomainEventService.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Mappings/Customers/CustomerDtoProfile.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Mappings/Orders/OrderDtoProfile.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Mappings/Orders/OrderOrderItemDtoProfile.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Mappings/Products/ProductDtoProfile.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Orders/OrderCreateDtoValidator.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Orders/OrderUpdateDtoValidator.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/PagedResultMappingExtensions.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/CreateProduct/CreateProductCommandHandler.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/CreateProduct/CreateProductCommandValidator.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/DeleteProduct/DeleteProductCommandHandler.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/DeleteProduct/DeleteProductCommandValidator.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/GetProductById/GetProductByIdQueryValidator.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/GetProducts/GetProductsQueryHandler.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/GetProducts/GetProductsQueryValidator.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/UpdateProduct/UpdateProductCommandHandler.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/UpdateProduct/UpdateProductCommandValidator.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain.Enums/Intent.Modules.NET.Tests.Module1.Domain.Enums.csproj" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/CollectionExtensions.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/DomainEvent.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/IHasDomainEvent.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/UpdateHelper.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Entities/Customer.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Entities/Order.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Entities/OrderItem.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Entities/Product.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Events/CustomerCreated.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Intent.Modules.NET.Tests.Module1.Domain.csproj" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/ICustomerRepository.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IEFRepository.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IOrderRepository.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IPagedList.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IProductRepository.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IRepository.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Configuration/MassTransitConfiguration.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/DependencyInjection.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Eventing/IntegrationEventConsumer.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Intent.Modules.NET.Tests.Module1.Infrastructure.csproj" deviationsHash="7F763F60B5DF5D6717FED7617583C269354D8690575286DD4349CA6B15DAAA1C" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Migrations/README.md" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Persistence/Module1DbContext.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Repositories/CustomerRepository.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Repositories/OrderRepository.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Repositories/ProductRepository.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Services/DomainEventService.cs" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="Intent.Modules.NET.Tests.Application.Core/Intent.Modules.NET.Tests.Application.Core.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Modules.NET.Tests.Domain.Core/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="Intent.Modules.NET.Tests.Domain.Core/Intent.Modules.NET.Tests.Domain.Core.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Modules.NET.Tests.Host/Configuration/ModuleInstallerFactory.cs" deviationsHash="DC22D2647C9BE6F32304D259790177DB471061B55AB9C4773F543ABD684FFC3A" templateId="Intent.ModularMonolith.Host.ModuleConfiguration" />
+  <file path="Intent.Modules.NET.Tests.Host/Intent.Modules.NET.Tests.Host.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Modules.NET.Tests.Host/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="Intent.Modules.NET.Tests.Host/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="Intent.Modules.NET.Tests.Infrastructure.Core/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
+  <file path="Intent.Modules.NET.Tests.Infrastructure.Core/Intent.Modules.NET.Tests.Infrastructure.Core.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Modules.NET.Tests.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Api/Controllers/CustomersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Api/Controllers/OrdersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Api/Intent.Modules.NET.Tests.Module1.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Api/ModuleInstaller.cs" templateId="Intent.ModularMonolith.Module.ModuleInstallerTemplate" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/CreateOrderOrderItemsDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Customers/CreateCustomer/CreateCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Customers/CustomerDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Customers/DeleteCustomer/DeleteCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Customers/GetCustomerById/GetCustomerByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Customers/GetCustomers/GetCustomersQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Customers/UpdateCustomer/UpdateCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/IntegrationEvents/CustomerCreatedIECustomerDto.cs" templateId="Intent.Eventing.Contracts.IntegrationEventDto" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/IntegrationEvents/CustomerCreatedIEEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/IntegrationEvents/ProductCreatedIEEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Intent.Modules.NET.Tests.Module1.Application.Contracts.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Interfaces/IOrdersService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Orders/OrderCreateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Orders/OrderDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Orders/OrderOrderItemDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Orders/OrderUpdateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/CreateProduct/CreateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/DeleteProduct/DeleteProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/GetProductById/GetProductByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/GetProducts/GetProductsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/ProductDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/UpdateProduct/UpdateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Models/DomainEventNotification.cs" templateId="Intent.MediatR.DomainEvents.DomainEventNotification" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Validation/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Validation/ValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationService" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/CreateCustomer/CreateCustomerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/GetCustomers/GetCustomersQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/EventHandlers/Customers/CustomerCreatedHandler.cs" templateId="Intent.MediatR.DomainEvents.DomainEventHandler" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Implementation/OrdersService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Intent.Modules.NET.Tests.Module1.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Mappings/Customers/CustomerDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Mappings/Orders/OrderDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Mappings/Orders/OrderOrderItemDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Mappings/Products/ProductDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Orders/OrderCreateDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Orders/OrderUpdateDtoValidator.cs" templateId="Intent.Application.FluentValidation.Dtos.DTOValidator" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/CreateProduct/CreateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/CreateProduct/CreateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/DeleteProduct/DeleteProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/DeleteProduct/DeleteProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/GetProductById/GetProductByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/GetProducts/GetProductsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/GetProducts/GetProductsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/UpdateProduct/UpdateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/UpdateProduct/UpdateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain.Enums/Intent.Modules.NET.Tests.Module1.Domain.Enums.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Entities/Customer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Entities/Order.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Entities/OrderItem.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Entities/Product.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Events/CustomerCreated.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Intent.Modules.NET.Tests.Module1.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/ICustomerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IOrderRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Intent.Modules.NET.Tests.Module1.Infrastructure.csproj" deviationsHash="7F763F60B5DF5D6717FED7617583C269354D8690575286DD4349CA6B15DAAA1C" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Persistence/Configurations/ProductConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Persistence/Module1DbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Repositories/CustomerRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Repositories/OrderRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Repositories/ProductRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
 </managedFiles>

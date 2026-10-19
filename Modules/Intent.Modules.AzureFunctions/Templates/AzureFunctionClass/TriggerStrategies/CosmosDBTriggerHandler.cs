@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.AzureFunctions.Api;
@@ -47,17 +47,21 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStra
                 {
                     param.AddAttribute("CosmosDBTrigger", attr =>
                     {
-                        attr.AddArgument($@"databaseName: ""{cosmosConfig.DatabaseName()}""");
-                        attr.AddArgument($@"containerName: ""{cosmosConfig.ContainerName()}""");
+                        // Lease names are deliberately left literal: app setting resolution is only documented for the
+                        // database and container names.
+                        attr.AddArgument($@"databaseName: {TriggerAppSettings.GetBindingValue(_template, "Database", cosmosConfig.DatabaseName())}");
+                        attr.AddArgument($@"containerName: {TriggerAppSettings.GetBindingValue(_template, "Container", cosmosConfig.ContainerName())}");
                         if (!string.IsNullOrEmpty(cosmosConfig.Connection()))
                         {
                             attr.AddArgument($@"Connection = ""{cosmosConfig.Connection()}""");
+                            TriggerAppSettings.SeedConnection(_template, cosmosConfig.Connection());
                         }
                         attr.AddArgument($@"CreateLeaseContainerIfNotExists = {cosmosConfig.CreateLeaseContainerIfNotExists().ToString().ToLower()}");
 
                         if (!string.IsNullOrEmpty(cosmosConfig.LeaseConnection()))
                         {
                             attr.AddArgument($@"LeaseConnection  = ""{cosmosConfig.LeaseConnection()}""");
+                            TriggerAppSettings.SeedConnection(_template, cosmosConfig.LeaseConnection());
                         }
                         if (cosmosConfig.LeasesContainerThroughput() != null)
                         {

@@ -75,7 +75,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                         method.RegisterAsProcessingHandlerForModel(model);
                         method.TryAddXmlDocComments(model.InternalElement);
                         method.Async();
-                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
+                        method.AddAttribute(template.ExecutionContext.GetHandleMethodIntentManagedAttribute());
                         method.AddParameter(GetQueryModelName(template, model), "request");
                         method.AddParameter("CancellationToken", "cancellationToken");
 

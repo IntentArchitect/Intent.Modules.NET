@@ -34,6 +34,7 @@
         <option>Microsoft.NET.Sdk.Worker</option>
         <option>Microsoft.NET.Sdk.WindowsDesktop</option>
         <option>Aspire.AppHost.Sdk</option>
+        <option>MSTest.Sdk</option>
       </valueOptions>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
@@ -211,6 +212,7 @@ return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunctio
       </valueOptions>
     </property>
     <property id="a811d3f2-253e-46de-ae72-bd6ec9f30d54">
+      <hint>Generate and manage this project's `appsettings.json`. For Web, Worker and Blazor WebAssembly projects, turning it off makes Intent hands-off: an existing `appsettings.json` and its `.csproj` items are left exactly as they are, none is created, and settings other modules request for this project are not written.</hint>
       <name>Generate AppSettings File</name>
       <type>string</type>
       <controlType>checkbox</controlType>
@@ -219,12 +221,16 @@ return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunctio
       <defaultValue>false</defaultValue>
       <isActiveFunction>switch (SDK) {
     case "Microsoft.NET.Sdk":
+    case "Microsoft.NET.Sdk.Web":
+    case "Microsoft.NET.Sdk.Worker":
+    case "Microsoft.NET.Sdk.BlazorWebAssembly":
         return true;
     default:
         return false;
 }</isActiveFunction>
     </property>
     <property id="4fe561b9-333e-4341-8243-d569db8cd8f4">
+      <hint>Generate and manage this project's `Properties/launchSettings.json`. For Web, Worker and Blazor WebAssembly projects, turning it off makes Intent hands-off: an existing `launchSettings.json` and its `.csproj` items are left exactly as they are, none is created, and launch profiles other modules request are not added.</hint>
       <name>Generate LaunchSettings File</name>
       <type>string</type>
       <controlType>checkbox</controlType>
@@ -233,10 +239,21 @@ return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunctio
       <defaultValue>false</defaultValue>
       <isActiveFunction>switch (SDK) {
     case "Microsoft.NET.Sdk":
+    case "Microsoft.NET.Sdk.Web":
+    case "Microsoft.NET.Sdk.Worker":
+    case "Microsoft.NET.Sdk.BlazorWebAssembly":
         return true;
     default:
         return false;
 }</isActiveFunction>
+    </property>
+    <property id="0aca4b00-3558-46c4-abcc-e4d9b8b17090">
+      <hint>Written to the `.csproj` as `Sdk="MSTest.Sdk/{version}"`. Leave empty to resolve the version from `global.json` (`msbuild-sdks`), or to keep a version already in the `.csproj`.</hint>
+      <name>MSTest SDK Version</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <isActiveFunction>return properties["SDK"].value == "MSTest.Sdk";</isActiveFunction>
     </property>
   </properties>
 </stereotypeDefinition>

@@ -1,115 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="08952368-69ef-41f9-8cb3-9e6009b7602f">
-  <file path=".agents/instructions/csharp-guidelines.md" />
-  <file path=".agents/skills/application-service-implementation/SKILL.md" />
-  <file path=".agents/skills/domain-entity/SKILL.md" />
-  <file path=".agents/skills/ef-repository/SKILL.md" />
-  <file path=".agents/skills/mediatr-command-handler/SKILL.md" />
-  <file path=".agents/skills/mediatr-query-handler/SKILL.md" />
-  <file path="DtoSettings.Class.Private.Api/Configuration/ApiVersionSwaggerGenOptions.cs" />
-  <file path="DtoSettings.Class.Private.Api/Configuration/ApiVersioningConfiguration.cs" />
-  <file path="DtoSettings.Class.Private.Api/Configuration/ProblemDetailsConfiguration.cs" />
-  <file path="DtoSettings.Class.Private.Api/Configuration/SwashbuckleConfiguration.cs" />
-  <file path="DtoSettings.Class.Private.Api/Controllers/InvoicesController.cs" />
-  <file path="DtoSettings.Class.Private.Api/DtoSettings.Class.Private.Api.csproj" />
-  <file path="DtoSettings.Class.Private.Api/Filters/ExceptionFilter.cs" />
-  <file path="DtoSettings.Class.Private.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" />
-  <file path="DtoSettings.Class.Private.Api/Filters/TypeSchemaFilter.cs" />
-  <file path="DtoSettings.Class.Private.Api/Logging/BoundedLoggingDestructuringPolicy.cs" />
-  <file path="DtoSettings.Class.Private.Api/Program.cs" />
-  <file path="DtoSettings.Class.Private.Api/Properties/launchSettings.json" />
-  <file path="DtoSettings.Class.Private.Api/Startup.cs" />
-  <file path="DtoSettings.Class.Private.Api/appsettings.json" />
-  <file path="DtoSettings.Class.Private.Application/Common/Interfaces/ICommand.cs" />
-  <file path="DtoSettings.Class.Private.Application/Common/Interfaces/IQuery.cs" />
-  <file path="DtoSettings.Class.Private.Application/Common/Mappings/IMapFrom.cs" />
-  <file path="DtoSettings.Class.Private.Application/Common/Mappings/MappingProfile.cs" />
-  <file path="DtoSettings.Class.Private.Application/Common/Pagination/PagedList.cs" />
-  <file path="DtoSettings.Class.Private.Application/Common/Pagination/PagedResult.cs" />
-  <file path="DtoSettings.Class.Private.Application/Common/Pagination/PagedResultMappingExtensions.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/CreateCustomer/CreateCustomerCommand.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/CustomerDto.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/CustomerDtoMappingExtensions.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/DeleteCustomer/DeleteCustomerCommand.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/GetCustomers/GetCustomersQuery.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/PersonDto.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/PersonDtoMappingExtensions.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/UpdateCustomer/UpdateCustomerCommand.cs" />
-  <file path="DtoSettings.Class.Private.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs" />
-  <file path="DtoSettings.Class.Private.Application/DefaultValues/DefaultValue/DefaultValueCommand.cs" />
-  <file path="DtoSettings.Class.Private.Application/DefaultValues/DefaultValue/DefaultValueCommandHandler.cs" />
-  <file path="DtoSettings.Class.Private.Application/DefaultValues/DefaultValue/DefaultValueQuery.cs" />
-  <file path="DtoSettings.Class.Private.Application/DefaultValues/DefaultValue/DefaultValueQueryHandler.cs" />
-  <file path="DtoSettings.Class.Private.Application/DefaultValues/DefaultValueDto.cs" />
-  <file path="DtoSettings.Class.Private.Application/Defaults/AllDefaults.cs" />
-  <file path="DtoSettings.Class.Private.Application/Defaults/CollectionDefaults.cs" />
-  <file path="DtoSettings.Class.Private.Application/Defaults/CollectionInput/CollectionInputCommand.cs" />
-  <file path="DtoSettings.Class.Private.Application/Defaults/CollectionInput/CollectionInputCommandHandler.cs" />
-  <file path="DtoSettings.Class.Private.Application/Defaults/EndDefaults.cs" />
-  <file path="DtoSettings.Class.Private.Application/Defaults/StartDefaults.cs" />
-  <file path="DtoSettings.Class.Private.Application/DependencyInjection.cs" />
-  <file path="DtoSettings.Class.Private.Application/DtoSettings.Class.Private.Application.csproj" />
-  <file path="DtoSettings.Class.Private.Application/Implementation/InvoicesService.cs" />
-  <file path="DtoSettings.Class.Private.Application/Interfaces/IInvoicesService.cs" />
-  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceCreateDto.cs" />
-  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceDto.cs" />
-  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceDtoMappingExtensions.cs" />
-  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceLineCreateDto.cs" />
-  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceLineDto.cs" />
-  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceLineDtoMappingExtensions.cs" />
-  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceUpdateDto.cs" />
-  <file path="DtoSettings.Class.Private.Application/Invoices/NewDto.cs" />
-  <file path="DtoSettings.Class.Private.Application/Invoices/NewDtoOfT.cs" />
-  <file path="DtoSettings.Class.Private.Application/Invoices/OtherNewDtoOfTAndT1.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/CreateInvoice/CreateInvoiceCommand.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/CreateInvoice/CreateInvoiceCommandHandler.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/CreateInvoiceCommandInvoiceLinesDto.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/DeleteInvoice/DeleteInvoiceCommand.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/DeleteInvoice/DeleteInvoiceCommandHandler.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/GetInvoiceById/GetInvoiceByIdQuery.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/GetInvoices/GetInvoicesQuery.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/GetInvoices/GetInvoicesQueryHandler.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/InvoiceDto.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/InvoiceDtoMappingExtensions.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/UpdateInvoice/UpdateInvoiceCommand.cs" />
-  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/UpdateInvoice/UpdateInvoiceCommandHandler.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Common/CollectionExtensions.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Common/Exceptions/NotFoundException.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Common/Interfaces/IUnitOfWork.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Common/UpdateHelper.cs" />
-  <file path="DtoSettings.Class.Private.Domain/DefaultValueEnum.cs" />
-  <file path="DtoSettings.Class.Private.Domain/DtoSettings.Class.Private.Domain.csproj" />
-  <file path="DtoSettings.Class.Private.Domain/Entities/CollectionEntity.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Entities/Customer.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Entities/DefaultValueEntity.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Entities/Invoice.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Entities/InvoiceLine.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Entities/Person.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Repositories/ICollectionEntityRepository.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Repositories/ICustomerRepository.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Repositories/IDefaultValueEntityRepository.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Repositories/IEFRepository.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Repositories/IInvoiceRepository.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Repositories/IPagedList.cs" />
-  <file path="DtoSettings.Class.Private.Domain/Repositories/IRepository.cs" />
-  <file path="DtoSettings.Class.Private.Infrastructure/DependencyInjection.cs" />
-  <file path="DtoSettings.Class.Private.Infrastructure/DtoSettings.Class.Private.Infrastructure.csproj" deviationsHash="97DB2276702EE4F7DE82655C4F0C8201646EF15BB9D2AD9893C3FDEF14463B42" />
-  <file path="DtoSettings.Class.Private.Infrastructure/Migrations/README.md" />
-  <file path="DtoSettings.Class.Private.Infrastructure/Persistence/ApplicationDbContext.cs" />
-  <file path="DtoSettings.Class.Private.Infrastructure/Persistence/Configurations/CollectionEntityConfiguration.cs" />
-  <file path="DtoSettings.Class.Private.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" />
-  <file path="DtoSettings.Class.Private.Infrastructure/Persistence/Configurations/DefaultValueEntityConfiguration.cs" />
-  <file path="DtoSettings.Class.Private.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" />
-  <file path="DtoSettings.Class.Private.Infrastructure/Repositories/CollectionEntityRepository.cs" />
-  <file path="DtoSettings.Class.Private.Infrastructure/Repositories/CustomerRepository.cs" />
-  <file path="DtoSettings.Class.Private.Infrastructure/Repositories/DefaultValueEntityRepository.cs" />
-  <file path="DtoSettings.Class.Private.Infrastructure/Repositories/InvoiceRepository.cs" />
-  <file path="DtoSettings.Class.Private.Infrastructure/Repositories/RepositoryBase.cs" />
-  <file path="DtoSettings.Class.Private.sln" />
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
+  <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
+  <file path="DtoSettings.Class.Private.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
+  <file path="DtoSettings.Class.Private.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
+  <file path="DtoSettings.Class.Private.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="DtoSettings.Class.Private.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="DtoSettings.Class.Private.Api/Controllers/InvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="DtoSettings.Class.Private.Api/DtoSettings.Class.Private.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="DtoSettings.Class.Private.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="DtoSettings.Class.Private.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="DtoSettings.Class.Private.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="DtoSettings.Class.Private.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="DtoSettings.Class.Private.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="DtoSettings.Class.Private.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="DtoSettings.Class.Private.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
+  <file path="DtoSettings.Class.Private.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="DtoSettings.Class.Private.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
+  <file path="DtoSettings.Class.Private.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
+  <file path="DtoSettings.Class.Private.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
+  <file path="DtoSettings.Class.Private.Application/Common/Mappings/MappingProfile.cs" templateId="Intent.Application.AutoMapper.MappingProfile" />
+  <file path="DtoSettings.Class.Private.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="DtoSettings.Class.Private.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="DtoSettings.Class.Private.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="DtoSettings.Class.Private.Application/Customers/CreateCustomer/CreateCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="DtoSettings.Class.Private.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="DtoSettings.Class.Private.Application/Customers/CustomerDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Customers/CustomerDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="DtoSettings.Class.Private.Application/Customers/DeleteCustomer/DeleteCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="DtoSettings.Class.Private.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="DtoSettings.Class.Private.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="DtoSettings.Class.Private.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="DtoSettings.Class.Private.Application/Customers/GetCustomers/GetCustomersQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="DtoSettings.Class.Private.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="DtoSettings.Class.Private.Application/Customers/PersonDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Customers/PersonDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="DtoSettings.Class.Private.Application/Customers/UpdateCustomer/UpdateCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="DtoSettings.Class.Private.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="DtoSettings.Class.Private.Application/DefaultValues/DefaultValue/DefaultValueCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="DtoSettings.Class.Private.Application/DefaultValues/DefaultValue/DefaultValueCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="DtoSettings.Class.Private.Application/DefaultValues/DefaultValue/DefaultValueQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="DtoSettings.Class.Private.Application/DefaultValues/DefaultValue/DefaultValueQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="DtoSettings.Class.Private.Application/DefaultValues/DefaultValueDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Defaults/AllDefaults.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Defaults/CollectionDefaults.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Defaults/CollectionInput/CollectionInputCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="DtoSettings.Class.Private.Application/Defaults/CollectionInput/CollectionInputCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="DtoSettings.Class.Private.Application/Defaults/EndDefaults.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Defaults/StartDefaults.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="DtoSettings.Class.Private.Application/DtoSettings.Class.Private.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="DtoSettings.Class.Private.Application/Implementation/InvoicesService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="DtoSettings.Class.Private.Application/Interfaces/IInvoicesService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceCreateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceLineCreateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceLineDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceLineDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="DtoSettings.Class.Private.Application/Invoices/InvoiceUpdateDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Invoices/NewDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Invoices/NewDtoOfT.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/Invoices/OtherNewDtoOfTAndT1.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/CreateInvoice/CreateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/CreateInvoice/CreateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/CreateInvoiceCommandInvoiceLinesDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/DeleteInvoice/DeleteInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/DeleteInvoice/DeleteInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/GetInvoiceById/GetInvoiceByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/GetInvoiceById/GetInvoiceByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/GetInvoices/GetInvoicesQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/GetInvoices/GetInvoicesQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/InvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/InvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/UpdateInvoice/UpdateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
+  <file path="DtoSettings.Class.Private.Application/InvoicesAdvanced/UpdateInvoice/UpdateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="DtoSettings.Class.Private.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="DtoSettings.Class.Private.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="DtoSettings.Class.Private.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="DtoSettings.Class.Private.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="DtoSettings.Class.Private.Domain/DefaultValueEnum.cs" templateId="Intent.Entities.DomainEnum" />
+  <file path="DtoSettings.Class.Private.Domain/DtoSettings.Class.Private.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="DtoSettings.Class.Private.Domain/Entities/CollectionEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="DtoSettings.Class.Private.Domain/Entities/Customer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="DtoSettings.Class.Private.Domain/Entities/DefaultValueEntity.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="DtoSettings.Class.Private.Domain/Entities/Invoice.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="DtoSettings.Class.Private.Domain/Entities/InvoiceLine.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="DtoSettings.Class.Private.Domain/Entities/Person.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="DtoSettings.Class.Private.Domain/Repositories/ICollectionEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="DtoSettings.Class.Private.Domain/Repositories/ICustomerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="DtoSettings.Class.Private.Domain/Repositories/IDefaultValueEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="DtoSettings.Class.Private.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="DtoSettings.Class.Private.Domain/Repositories/IInvoiceRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="DtoSettings.Class.Private.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="DtoSettings.Class.Private.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="DtoSettings.Class.Private.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="DtoSettings.Class.Private.Infrastructure/DtoSettings.Class.Private.Infrastructure.csproj" deviationsHash="97DB2276702EE4F7DE82655C4F0C8201646EF15BB9D2AD9893C3FDEF14463B42" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="DtoSettings.Class.Private.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="DtoSettings.Class.Private.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="DtoSettings.Class.Private.Infrastructure/Persistence/Configurations/CollectionEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="DtoSettings.Class.Private.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="DtoSettings.Class.Private.Infrastructure/Persistence/Configurations/DefaultValueEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="DtoSettings.Class.Private.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="DtoSettings.Class.Private.Infrastructure/Repositories/CollectionEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="DtoSettings.Class.Private.Infrastructure/Repositories/CustomerRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="DtoSettings.Class.Private.Infrastructure/Repositories/DefaultValueEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="DtoSettings.Class.Private.Infrastructure/Repositories/InvoiceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="DtoSettings.Class.Private.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="DtoSettings.Class.Private.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

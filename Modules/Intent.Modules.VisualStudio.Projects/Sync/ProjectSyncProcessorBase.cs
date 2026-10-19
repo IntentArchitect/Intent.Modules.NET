@@ -209,6 +209,11 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 throw new Exception($"{nameof(relativeFileName)} is null");
             }
 
+            if (data.LeaveProjectItemsUnchanged)
+            {
+                return;
+            }
+
             var itemGroup = FindItemGroup(xml, data.ItemType) ?? AddItemGroup(xml);
 
             var itemElement = GetProjectItem(xml, relativeFileName);
@@ -331,6 +336,11 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 if (key == CustomMetadataKeys.MsBuildFileItemGenerationBehaviour)
                 {
                     data.MsBuildFileItemGenerationBehaviour = Enum.Parse<MsBuildFileItemGenerationBehaviour>(value);
+                }
+
+                if (key == FileAddedData.LeaveProjectItemsUnchangedKey)
+                {
+                    data.LeaveProjectItemsUnchanged = bool.TryParse(value, out var leaveUnchanged) && leaveUnchanged;
                 }
             }
 

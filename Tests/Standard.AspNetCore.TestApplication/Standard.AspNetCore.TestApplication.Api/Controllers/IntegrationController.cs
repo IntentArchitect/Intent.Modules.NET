@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Standard.AspNetCore.TestApplication.Api.Controllers.ResponseTypes;
 using Standard.AspNetCore.TestApplication.Application;
-using Standard.AspNetCore.TestApplication.Application.Common.Interfaces;
 using Standard.AspNetCore.TestApplication.Application.Integration;
 using Standard.AspNetCore.TestApplication.Application.Interfaces;
 using Standard.AspNetCore.TestApplication.Domain.Common.Interfaces;
@@ -28,17 +27,14 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
     {
         private readonly IIntegrationService _appService;
         private readonly IValidationService _validationService;
-        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
 
         public IntegrationController(IIntegrationService appService,
             IValidationService validationService,
-            IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork,
             IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
-            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
@@ -82,17 +78,12 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             [FromHeader(Name = "MY-HEADER")] string param1,
             CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.HeaderParamOp(param1, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.HeaderParamOp(param1, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             return Created(string.Empty, null);
         }
@@ -114,17 +105,12 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             [FromForm] int param2,
             CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.FormParamOp(param1, param2, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.FormParamOp(param1, param2, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             return Created(string.Empty, null);
         }
@@ -145,17 +131,12 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             [FromRoute] string param1,
             CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.RouteParamOp(param1, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.RouteParamOp(param1, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             return Created(string.Empty, null);
         }
@@ -178,17 +159,12 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         {
             await _validationService.Handle(param1, cancellationToken);
 
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.BodyParamOp(param1, cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.BodyParamOp(param1, cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             return Created(string.Empty, null);
         }
@@ -205,17 +181,12 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> ThrowsException(CancellationToken cancellationToken = default)
         {
-            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
-                {
-                    await _appService.ThrowsException(cancellationToken);
-                    await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    transaction.Complete();
-                }
-
-                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+                await _appService.ThrowsException(cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
             }
             return Created(string.Empty, null);
         }

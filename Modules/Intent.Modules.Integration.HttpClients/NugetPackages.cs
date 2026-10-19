@@ -16,6 +16,7 @@ namespace Intent.Modules.Integration.HttpClients
         public const string MicrosoftAspNetCoreHttpPackageName = "Microsoft.AspNetCore.Http";
         public const string MicrosoftAspNetCoreHttpExtensionsPackageName = "Microsoft.AspNetCore.Http.Extensions";
         public const string MicrosoftAspNetCoreWebUtilitiesPackageName = "Microsoft.AspNetCore.WebUtilities";
+        public const string MicrosoftExtensionsCachingMemoryPackageName = "Microsoft.Extensions.Caching.Memory";
         public const string MicrosoftExtensionsHttpPackageName = "Microsoft.Extensions.Http";
         public const string SystemTextJsonPackageName = "System.Text.Json";
 
@@ -90,6 +91,30 @@ namespace Intent.Modules.Integration.HttpClients
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreWebUtilitiesPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(MicrosoftExtensionsCachingMemoryPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 10, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "10.0.9"),
+                        ( >= 9, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "10.0.9"),
+                        ( >= 8, >= 0) => new PackageVersion("10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "10.0.9")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "10.0.9"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsCachingMemoryPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(MicrosoftExtensionsHttpPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
@@ -155,6 +180,8 @@ namespace Intent.Modules.Integration.HttpClients
         public static NugetPackageInfo MicrosoftAspNetCoreHttpExtensions(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreHttpExtensionsPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftAspNetCoreWebUtilities(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreWebUtilitiesPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftExtensionsCachingMemory(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftExtensionsCachingMemoryPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftExtensionsHttp(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftExtensionsHttpPackageName, outputTarget.GetMaxNetAppVersion());
 

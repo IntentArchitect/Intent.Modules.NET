@@ -34,19 +34,16 @@
   <file path="MinimalHostingModel.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />
   <file path="MinimalHostingModel.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
   <file path="MinimalHostingModel.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour" />
-  <file path="MinimalHostingModel.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour" />
   <file path="MinimalHostingModel.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" />
   <file path="MinimalHostingModel.Application/Common/Eventing/IEventBus.cs" templateId="Intent.Eventing.Contracts.EventBusInterface" />
   <file path="MinimalHostingModel.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
   <file path="MinimalHostingModel.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
   <file path="MinimalHostingModel.Application/Common/Exceptions/HttpClientRequestException.cs" templateId="Intent.Integration.HttpClients.HttpClientRequestException" />
   <file path="MinimalHostingModel.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" templateId="Intent.Integration.HttpClients.ProblemDetailsWithErrors" />
-  <file path="MinimalHostingModel.Application/Common/Interfaces/DistributedCacheExtensions.cs" templateId="Intent.AspNetCore.DistributedCaching.IDistributedCacheExtensions" />
   <file path="MinimalHostingModel.Application/Common/Interfaces/IBypassPipelineValidation.cs" templateId="Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface" />
   <file path="MinimalHostingModel.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
   <file path="MinimalHostingModel.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
   <file path="MinimalHostingModel.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
-  <file path="MinimalHostingModel.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs" templateId="Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWorkInterface" />
   <file path="MinimalHostingModel.Application/Common/Interfaces/IDomainEventService.cs" templateId="Intent.DomainEvents.DomainEventServiceInterface" />
   <file path="MinimalHostingModel.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
   <file path="MinimalHostingModel.Application/Common/Mappings/IMapFrom.cs" templateId="Intent.Application.AutoMapper.MapFromInterface" />
@@ -127,10 +124,9 @@
   <file path="MinimalHostingModel.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="MinimalHostingModel.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="MinimalHostingModel.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
-  <file path="MinimalHostingModel.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" templateId="Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWork" />
   <file path="MinimalHostingModel.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
   <file path="MinimalHostingModel.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
-  <file path="MinimalHostingModel.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="MinimalHostingModel.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="MinimalHostingModel.Infrastructure/Eventing/FinbuckleConsumingFilter.cs" templateId="Intent.Eventing.MassTransit.FinbuckleConsumingFilter" />
   <file path="MinimalHostingModel.Infrastructure/Eventing/FinbuckleMessageHeaderStrategy.cs" templateId="Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy" />
   <file path="MinimalHostingModel.Infrastructure/Eventing/FinbucklePublishingFilter.cs" templateId="Intent.Eventing.MassTransit.FinbucklePublishingFilter" />
