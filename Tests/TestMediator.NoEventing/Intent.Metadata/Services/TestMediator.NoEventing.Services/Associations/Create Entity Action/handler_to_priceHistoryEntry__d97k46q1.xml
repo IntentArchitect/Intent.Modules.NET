@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7db5f1b1-ba91-49b0-a4a9-cff6f6e4e462">
+  <sourceEnd id="fb562678-d03a-42d8-b420-a2a4ca209748" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : ProductPriceChangedDomainEventHandler.handler</display>
+    <order>0</order>
+    <typeReference id="d6969988-0a26-4595-9c70-a1d69f03c194">
+      <typeId>6a278d80-8bd4-470a-b3e8-fd729807593a</typeId>
+      <typeName>handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>TestMediator.NoEventing.Services</typePackageName>
+      <typePackageId>204b9228-16e6-4c83-882a-3c5788bd6dc2</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="7db5f1b1-ba91-49b0-a4a9-cff6f6e4e462" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>priceHistoryEntry</name>
+    <display>[create] priceHistoryEntry: PriceHistoryEntry</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="06e937db-8ade-4583-b812-d76ce9772554">
+      <typeId>860a0c73-35cf-4514-9893-419de2ad3492</typeId>
+      <typeName>PriceHistoryEntry</typeName>
+      <typePackageName>TestMediator.NoEventing.Domain</typePackageName>
+      <typePackageId>22ac01cb-1145-4688-afeb-918e45e2b9bc</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+</association>

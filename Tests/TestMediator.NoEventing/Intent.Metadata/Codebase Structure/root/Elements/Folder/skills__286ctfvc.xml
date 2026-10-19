@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0fb2c420-1ae4-4947-b4a4-3d8d8d9a15b5" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>skills</name>
+  <display>skills</display>
+  <externalReference>a2c20692-eee9-43c8-8ae5-578fd1b8bbdf</externalReference>
+  <parentFolderId>4db2c723-ca34-4a12-8331-7f67083e1524</parentFolderId>
+  <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="d5721ebb-8208-48c1-9e26-9964989f17bf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Mediator.DomainEvents.DomainEventHandlerSkill</name>
+      <display>Intent.Application.Mediator.DomainEvents.DomainEventHandlerSkill</display>
+      <externalReference>Intent.Application.Mediator.DomainEvents</externalReference>
+      <parentFolderId>0fb2c420-1ae4-4947-b4a4-3d8d8d9a15b5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="fa567155-b590-42ce-9088-1707ebba69d0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Mediator.CommandHandlerSkill</name>
+      <display>Intent.Application.Mediator.CommandHandlerSkill</display>
+      <externalReference>Intent.Application.Mediator</externalReference>
+      <parentFolderId>0fb2c420-1ae4-4947-b4a4-3d8d8d9a15b5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="4d8dbaed-df76-445d-9b63-5200f52bdc00" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Mediator.IntegrationEventHandlerSkill</name>
+      <display>Intent.Application.Mediator.IntegrationEventHandlerSkill</display>
+      <externalReference>Intent.Application.Mediator</externalReference>
+      <parentFolderId>0fb2c420-1ae4-4947-b4a4-3d8d8d9a15b5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="19d387aa-b57b-4e84-9962-cc74b0691f98" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Mediator.QueryHandlerSkill</name>
+      <display>Intent.Application.Mediator.QueryHandlerSkill</display>
+      <externalReference>Intent.Application.Mediator</externalReference>
+      <parentFolderId>0fb2c420-1ae4-4947-b4a4-3d8d8d9a15b5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

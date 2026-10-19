@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4db2c723-ca34-4a12-8331-7f67083e1524" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>.codex</name>
+  <display>.codex</display>
+  <externalReference>bc1949f3-0b35-4854-a4b2-49e1e4e3ec72</externalReference>
+  <parentFolderId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</parentFolderId>
+  <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+  <packageName>root</packageName>
+</class>

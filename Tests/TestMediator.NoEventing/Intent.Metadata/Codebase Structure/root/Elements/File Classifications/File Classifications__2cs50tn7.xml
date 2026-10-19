@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1ab16f22-99ca-4890-9b01-8dde2a49aae5" type="File Classifications" typeId="81b0c54f-8f28-47f0-b0c1-6e8fe1212f50">
+  <name>File Classifications</name>
+  <display>File Classifications</display>
+  <parentFolderId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</parentFolderId>
+  <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="dd8b3d79-4cd9-43fa-a52d-ee0d0f56156f" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>App Composition</name>
+      <display>App Composition</display>
+      <parentFolderId>1ab16f22-99ca-4890-9b01-8dde2a49aae5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="8a2dfdda-684a-4212-afdf-d681fd1bce0f" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>API Contract</name>
+      <display>API Contract</display>
+      <parentFolderId>1ab16f22-99ca-4890-9b01-8dde2a49aae5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="36fb4639-14b4-46a5-84a2-0e4ef8e0d07b" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Object Mapping</name>
+      <display>Object Mapping</display>
+      <parentFolderId>1ab16f22-99ca-4890-9b01-8dde2a49aae5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="6b16619b-d4ab-442e-9a10-8e512767ae88" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Validation</name>
+      <display>Validation</display>
+      <parentFolderId>1ab16f22-99ca-4890-9b01-8dde2a49aae5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="bafbce19-4922-4bfd-bc56-8be0fec985d0" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Security</name>
+      <display>Security</display>
+      <parentFolderId>1ab16f22-99ca-4890-9b01-8dde2a49aae5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="704d2a3a-81a9-45a8-8046-ed364368c35f" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Request Pipeline</name>
+      <display>Request Pipeline</display>
+      <parentFolderId>1ab16f22-99ca-4890-9b01-8dde2a49aae5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="71d1cdda-afbc-4753-b66a-d44475107572" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Persistence Schema</name>
+      <display>Persistence Schema</display>
+      <parentFolderId>1ab16f22-99ca-4890-9b01-8dde2a49aae5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="59ab8a36-4788-442b-a0a7-1df4a8babb36" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Business Logic</name>
+      <display>Business Logic</display>
+      <parentFolderId>1ab16f22-99ca-4890-9b01-8dde2a49aae5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="778d3ce3-4721-4780-9554-6ebb23548998" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Data Access</name>
+      <display>Data Access</display>
+      <parentFolderId>1ab16f22-99ca-4890-9b01-8dde2a49aae5</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+    </element>
+  </children>
+</class>

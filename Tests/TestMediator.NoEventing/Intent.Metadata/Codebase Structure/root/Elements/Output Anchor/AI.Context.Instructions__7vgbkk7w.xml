@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7468aa03-f06e-40fc-9076-170f9efe7533" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+  <name>AI.Context.Instructions</name>
+  <display>AI.Context.Instructions</display>
+  <externalReference>18dcf656-5310-4d44-8607-ac52fb4d4797</externalReference>
+  <parentFolderId>8b0e330e-13d0-47f5-b568-07515d2a7f07</parentFolderId>
+  <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+  <packageName>root</packageName>
+</class>

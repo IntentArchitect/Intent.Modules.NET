@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.Mediator.DomainEvents.DomainEventHandler#0dff5ec7-88a5-468d-9a4a-aa49f8bea634</correlationId>
+      <path>TestMediator.NoEventing.Application/EventHandlers/Products/ProductPriceChangedDomainEventHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-19T16:28:10.139576Z</updatedAt>
+      <deviationsHash>DB25EDF5B3E6C794A744183DAD65E6F0AEF265604E3D2D2493DD695CBBF351DD</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Mediator.CommandHandler#1a3d403f-4294-4438-9744-136ea13a4bf6</correlationId>
+      <path>TestMediator.NoEventing.Application/Products/ChangeProductPrice/ChangeProductPriceCommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-19T16:28:10.139414Z</updatedAt>
+      <deviationsHash>B2A5CF448CDBFAB7EB5527E8BC7683DFC0276AB0030971B91A4038C7DF7B7C4A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Mediator.CommandHandler#a9053e4f-67d6-48da-9bf9-3318171ebd7c</correlationId>
+      <path>TestMediator.NoEventing.Application/Products/CreateProduct/CreateProductCommandHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-19T16:28:10.1395021Z</updatedAt>
+      <deviationsHash>9EC23E596B28A647B65F1310B5C459ABCA98E1DA876E7019E0825C8631A255E1</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Mediator.QueryHandler#fb22b057-8a1c-4fac-aec5-2b1820e506d9</correlationId>
+      <path>TestMediator.NoEventing.Application/Products/GetProductById/GetProductByIdQueryHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-19T16:28:10.1395248Z</updatedAt>
+      <deviationsHash>CCB8F4BC89B8C5CB043AAF04BB4A2745A018707D5321FB523BD9C671BE49BCF9</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Mediator.QueryHandler#2a2a186c-33e2-438b-bfba-f440400e9baa</correlationId>
+      <path>TestMediator.NoEventing.Application/Products/GetProductPriceHistory/GetProductPriceHistoryQueryHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-19T16:28:10.1395321Z</updatedAt>
+      <deviationsHash>7DADC2ACC9D43DB014F3FD3430819AF7C30F682DB0FF3FB138ECCED12B71929C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#561ee379-12e7-4a47-a006-164bdba3638b</correlationId>
+      <path>TestMediator.NoEventing.Domain/Products/PriceHistoryEntry.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-19T16:28:10.139589Z</updatedAt>
+      <deviationsHash>BB076D3A7D666FD3515E8F38B98A6156F506AF08F44D6B3E74B95C5D8F62C574</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#c13d5b1f-3066-4543-8acd-8df1a6569cf7</correlationId>
+      <path>TestMediator.NoEventing.Domain/Products/Product.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-19T16:29:10.2766127Z</updatedAt>
+      <deviationsHash>D8C159E39BF1AB7FC95415E5656742B02FFB47682B5F847E9DD73C03C8E4851F</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

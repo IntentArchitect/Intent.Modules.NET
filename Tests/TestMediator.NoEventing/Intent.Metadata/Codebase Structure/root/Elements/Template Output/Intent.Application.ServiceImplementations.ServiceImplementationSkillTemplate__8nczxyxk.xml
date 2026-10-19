@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ddcb447d-820e-4bae-a4b8-335c73bae5cb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate</name>
+  <display>Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate</display>
+  <externalReference>Intent.Application.ServiceImplementations</externalReference>
+  <parentFolderId>0fb2c420-1ae4-4947-b4a4-3d8d8d9a15b5</parentFolderId>
+  <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+  <packageName>root</packageName>
+  <metadata>
+    <entry key="status" value="assigned" />
+  </metadata>
+</class>

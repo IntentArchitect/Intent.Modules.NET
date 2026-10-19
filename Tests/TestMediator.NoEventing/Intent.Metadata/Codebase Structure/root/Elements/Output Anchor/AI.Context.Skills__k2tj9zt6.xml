@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3d154bf7-ff72-4a6c-9e3b-8bb8db049d33" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+  <name>AI.Context.Skills</name>
+  <display>AI.Context.Skills</display>
+  <externalReference>ec122670-c8af-4c8b-82e8-71734537bd4a</externalReference>
+  <parentFolderId>e2cc74ec-a5d7-4005-b284-dc89a8d5fca5</parentFolderId>
+  <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+  <packageName>root</packageName>
+</class>
