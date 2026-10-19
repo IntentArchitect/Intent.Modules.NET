@@ -430,6 +430,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AI", "AI", "{CAB5CB9C-88B3-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleBuilder.AI.DotNet", "ModuleBuilder.AI.DotNet\ModuleBuilder.AI.DotNet.csproj", "{90855A41-BBD5-4CAE-85B7-E4F81886EE9B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Mediator", "Intent.Modules.Application.Mediator\Intent.Modules.Application.Mediator.csproj", "{5F04E25F-4D08-42AC-B320-CB642FC302FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Mediator.DomainEvents", "Intent.Modules.Application.Mediator.DomainEvents\Intent.Modules.Application.Mediator.DomainEvents.csproj", "{CE07AF87-AE65-41EC-BB72-AFD96606082B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Mediator.FluentValidation", "Intent.Modules.Application.Mediator.FluentValidation\Intent.Modules.Application.Mediator.FluentValidation.csproj", "{5462B515-987B-44D9-AE77-0CA608A7210F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers.Dispatch.Mediator", "Intent.Modules.AspNetCore.Controllers.Dispatch.Mediator\Intent.Modules.AspNetCore.Controllers.Dispatch.Mediator.csproj", "{D503FD15-D38E-4FB2-B008-822CC305D6F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.FastEndpoints.Dispatch.Mediator", "Intent.Modules.FastEndpoints.Dispatch.Mediator\Intent.Modules.FastEndpoints.Dispatch.Mediator.csproj", "{C33BD28F-A268-4150-A282-8FF77D7DE73E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1132,6 +1142,26 @@ Global
 		{90855A41-BBD5-4CAE-85B7-E4F81886EE9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90855A41-BBD5-4CAE-85B7-E4F81886EE9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90855A41-BBD5-4CAE-85B7-E4F81886EE9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F04E25F-4D08-42AC-B320-CB642FC302FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F04E25F-4D08-42AC-B320-CB642FC302FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F04E25F-4D08-42AC-B320-CB642FC302FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F04E25F-4D08-42AC-B320-CB642FC302FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE07AF87-AE65-41EC-BB72-AFD96606082B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE07AF87-AE65-41EC-BB72-AFD96606082B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE07AF87-AE65-41EC-BB72-AFD96606082B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE07AF87-AE65-41EC-BB72-AFD96606082B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5462B515-987B-44D9-AE77-0CA608A7210F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5462B515-987B-44D9-AE77-0CA608A7210F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5462B515-987B-44D9-AE77-0CA608A7210F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5462B515-987B-44D9-AE77-0CA608A7210F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D503FD15-D38E-4FB2-B008-822CC305D6F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D503FD15-D38E-4FB2-B008-822CC305D6F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D503FD15-D38E-4FB2-B008-822CC305D6F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D503FD15-D38E-4FB2-B008-822CC305D6F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C33BD28F-A268-4150-A282-8FF77D7DE73E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C33BD28F-A268-4150-A282-8FF77D7DE73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C33BD28F-A268-4150-A282-8FF77D7DE73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C33BD28F-A268-4150-A282-8FF77D7DE73E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
