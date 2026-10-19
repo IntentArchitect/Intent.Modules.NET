@@ -2,13 +2,16 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection#1c33236f-16da-4a77-8965-e48bace53372</correlationId>
-      <path>AspNetControllers.SecuredByDefault.Infrastructure/DependencyInjection.cs</path>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#a6daea4b-84e9-4b4b-847d-376de264200f</correlationId>
+      <path>AspNetControllers.SecuredByDefault.Application/Implementation/TestService.cs</path>
       <count>1</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-10-06T13:12:01.3344361Z</updatedAt>
-      <deviationsHash>4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B</deviationsHash>
+      <updatedAt>2026-10-19T07:42:35.9741848Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-10-19T09:37:07.3845437Z</approvedAt>
+      <deviationsHash>246C29B5EA4095F8A9111E3B5C9743DD21F10AECA7D4B114900A3C49B473311D</deviationsHash>
     </file>
   </files>
 </deviationsLog>

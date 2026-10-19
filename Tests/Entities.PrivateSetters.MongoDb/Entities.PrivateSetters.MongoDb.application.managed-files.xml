@@ -22,8 +22,8 @@
   <file path="Entities.PrivateSetters.MongoDb.Application/CreateTagDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
   <file path="Entities.PrivateSetters.MongoDb.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
   <file path="Entities.PrivateSetters.MongoDb.Application/Entities.PrivateSetters.MongoDb.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="Entities.PrivateSetters.MongoDb.Application/Implementation/InvoiceService.cs" deviationsHash="2AED27E5C9DF4B92B554B0D7D9530B992ABA3640EAE7B485E849B31990E67255" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
-  <file path="Entities.PrivateSetters.MongoDb.Application/Implementation/TagService.cs" deviationsHash="95A1DB4FC5A72672417FF44A0C96F4FAB4A60FF13EE76CFC6A38E816D5385752" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/Implementation/InvoiceService.cs" deviationsHash="BD6F36DDCA41A836132F5E09EBD3A27807A834D0FBFA622F4048DD89D02690C5" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="Entities.PrivateSetters.MongoDb.Application/Implementation/TagService.cs" deviationsHash="8B5BF31BDF829B4BB0060DD479EACF06379BD8EF44957E56F3F3DF2BE45AE17C" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
   <file path="Entities.PrivateSetters.MongoDb.Application/Interfaces/IInvoiceService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
   <file path="Entities.PrivateSetters.MongoDb.Application/Interfaces/ITagService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
   <file path="Entities.PrivateSetters.MongoDb.Application/InvoiceDto.cs" templateId="Intent.Application.Dtos.DtoModel" />

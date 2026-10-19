@@ -24,11 +24,11 @@
   <file path="BugSnagTest.AspNetCore.Application/Common/Interfaces/ICommand.cs" templateId="Intent.Application.MediatR.CommandInterface" />
   <file path="BugSnagTest.AspNetCore.Application/Common/Interfaces/IQuery.cs" templateId="Intent.Application.MediatR.QueryInterface" />
   <file path="BugSnagTest.AspNetCore.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
-  <file path="BugSnagTest.AspNetCore.Application/Implementation/TestService.cs" deviationsHash="70E2E3B6D3DC4900CC83DB682564DEDFAFA60B9F23CACBC279C628F256F321BB" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="BugSnagTest.AspNetCore.Application/Implementation/TestService.cs" deviationsHash="9A4F28CB2D01936616B79CCDF2240B3D649AC0B9CAB91ED7C448B21F6C203AA0" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
   <file path="BugSnagTest.AspNetCore.Application/Interfaces/ITestService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
   <file path="BugSnagTest.AspNetCore.Application/RequestDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
   <file path="BugSnagTest.AspNetCore.Application/Scheduled/ScheduledCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
-  <file path="BugSnagTest.AspNetCore.Application/Scheduled/ScheduledCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="BugSnagTest.AspNetCore.Application/Scheduled/ScheduledCommandHandler.cs" deviationsHash="92816D5491586B49A5266A87F46AAB3F6292A8A51BA6AACF35039E83D4DBDD5B" templateId="Intent.Application.MediatR.CommandHandler" />
   <file path="BugSnagTest.AspNetCore.Domain/BugSnagTest.AspNetCore.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="BugSnagTest.AspNetCore.Infrastructure/BugSnagTest.AspNetCore.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="BugSnagTest.AspNetCore.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />

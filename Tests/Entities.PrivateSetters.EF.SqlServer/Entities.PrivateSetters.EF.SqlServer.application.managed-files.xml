@@ -32,9 +32,9 @@
   <file path="Entities.PrivateSetters.EF.SqlServer.Application/CreateTagDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
   <file path="Entities.PrivateSetters.EF.SqlServer.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
   <file path="Entities.PrivateSetters.EF.SqlServer.Application/Entities.PrivateSetters.EF.SqlServer.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Implementation/AuditedService.cs" deviationsHash="8391467F538129A6434D67879F8AF7A0957E247915CED40B01FF7986589901D8" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
-  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Implementation/InvoiceService.cs" deviationsHash="2AED27E5C9DF4B92B554B0D7D9530B992ABA3640EAE7B485E849B31990E67255" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
-  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Implementation/TagService.cs" deviationsHash="95A1DB4FC5A72672417FF44A0C96F4FAB4A60FF13EE76CFC6A38E816D5385752" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Implementation/AuditedService.cs" deviationsHash="521E6E4D8F0A075D09CC23107A9EA4D6F8740AE0210C5FFDC7C3E981277AF339" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Implementation/InvoiceService.cs" deviationsHash="BD6F36DDCA41A836132F5E09EBD3A27807A834D0FBFA622F4048DD89D02690C5" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Application/Implementation/TagService.cs" deviationsHash="8B5BF31BDF829B4BB0060DD479EACF06379BD8EF44957E56F3F3DF2BE45AE17C" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
   <file path="Entities.PrivateSetters.EF.SqlServer.Application/Interfaces/IAuditedService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
   <file path="Entities.PrivateSetters.EF.SqlServer.Application/Interfaces/IInvoiceService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
   <file path="Entities.PrivateSetters.EF.SqlServer.Application/Interfaces/ITagService.cs" templateId="Intent.Application.Contracts.ServiceContract" />

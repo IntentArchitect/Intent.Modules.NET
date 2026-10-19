@@ -234,7 +234,7 @@
   <file path="AzureFunctions.NET8.Domain/Repositories/ISampleDomainRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="AzureFunctions.NET8.Infrastructure/AzureFunctions.NET8.Infrastructure.csproj" deviationsHash="EB7FED21AFFD87A3E89C2BA179BF8E9A3F119D209F6A0CF7393C78E911F3F37F" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AzureFunctions.NET8.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
-  <file path="AzureFunctions.NET8.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="AzureFunctions.NET8.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="AzureFunctions.NET8.Infrastructure/HttpClients/CustomersServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
   <file path="AzureFunctions.NET8.Infrastructure/HttpClients/EnumServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
   <file path="AzureFunctions.NET8.Infrastructure/HttpClients/IgnoresServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />

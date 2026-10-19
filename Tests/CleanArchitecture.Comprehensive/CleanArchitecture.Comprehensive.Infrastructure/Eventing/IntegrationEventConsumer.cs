@@ -2,7 +2,6 @@ using System;
 using System.Threading.Tasks;
 using System.Transactions;
 using CleanArchitecture.Comprehensive.Application.Common.Eventing;
-using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
 using CleanArchitecture.Comprehensive.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;

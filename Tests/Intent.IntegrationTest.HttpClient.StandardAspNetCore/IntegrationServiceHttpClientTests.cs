@@ -1,5 +1,4 @@
 ﻿using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
-using CleanArchitecture.Comprehensive.Infrastructure.Caching;
 using IdentityServer4.Models;
 using Intent.IntegrationTest.HttpClient.Common;
 using Intent.IntegrationTest.HttpClient.StandardAspNetCore.TestUtils;
@@ -189,7 +188,6 @@ public class IntegrationServiceHttpClientTests
                 .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
                 .AddTransient<IValidationService, ValidationService>()
                 .AddDistributedMemoryCache()
-                .AddSingleton<Standard.AspNetCore.TestApplication.Application.Common.Interfaces.IDistributedCacheWithUnitOfWork, Standard.AspNetCore.TestApplication.Infrastructure.Caching.DistributedCacheWithUnitOfWork>()
                 .ConfigureApiVersioning();
     }
 

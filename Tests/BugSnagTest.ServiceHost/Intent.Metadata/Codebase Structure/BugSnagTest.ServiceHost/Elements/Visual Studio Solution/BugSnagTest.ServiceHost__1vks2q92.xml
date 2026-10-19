@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ee92094a-40b1-4395-84d1-94de082dfe06</parentFolderId>
+  <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+  <packageName>BugSnagTest.ServiceHost</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

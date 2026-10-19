@@ -2,7 +2,6 @@ using System;
 using System.Threading.Tasks;
 using System.Transactions;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Eventing;
-using AdvancedMappingCrud.Repositories.Tests.Application.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;

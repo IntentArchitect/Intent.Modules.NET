@@ -115,7 +115,7 @@
   <file path="Standard.AspNetCore.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="Standard.AspNetCore.TestApplication.Domain/Standard.AspNetCore.TestApplication.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Standard.AspNetCore.TestApplication.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
-  <file path="Standard.AspNetCore.TestApplication.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="Standard.AspNetCore.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="Standard.AspNetCore.TestApplication.Infrastructure/HttpClients/IntegrationServiceProxyHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
   <file path="Standard.AspNetCore.TestApplication.Infrastructure/HttpClients/InvoiceServiceProxyHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
   <file path="Standard.AspNetCore.TestApplication.Infrastructure/HttpClients/JsonResponse.cs" templateId="Intent.Integration.HttpClients.JsonResponse" />

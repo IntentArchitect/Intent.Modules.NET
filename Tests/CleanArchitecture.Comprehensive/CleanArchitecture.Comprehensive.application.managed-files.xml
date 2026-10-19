@@ -709,9 +709,9 @@
   <file path="CleanArchitecture.Comprehensive.Application/GlobalUsingsTesting/Dto.cs" templateId="Intent.Application.Dtos.DtoModel" />
   <file path="CleanArchitecture.Comprehensive.Application/GlobalUsingsTesting/SubNamespace/Transaction.cs" templateId="Intent.Application.Dtos.DtoModel" />
   <file path="CleanArchitecture.Comprehensive.Application/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
-  <file path="CleanArchitecture.Comprehensive.Application/Implementation/Comments/CommentTestService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
-  <file path="CleanArchitecture.Comprehensive.Application/Implementation/NullableRouteParameters/NullableRouteParameterService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
-  <file path="CleanArchitecture.Comprehensive.Application/Implementation/ServiceDispatch/ServiceDispatchService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="CleanArchitecture.Comprehensive.Application/Implementation/Comments/CommentTestService.cs" deviationsHash="BB52CEC0783D157175A39B8DB897F0EBA1FD4A6F68E54C78914947861D38922F" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="CleanArchitecture.Comprehensive.Application/Implementation/NullableRouteParameters/NullableRouteParameterService.cs" deviationsHash="1944FD5CF60DDC3E2EE7C6498B4A25083514CBE073F841EC3B3D30AA292BF790" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="CleanArchitecture.Comprehensive.Application/Implementation/ServiceDispatch/ServiceDispatchService.cs" deviationsHash="4F6721A3077916DE23780F0E0D61732C1E31C4D4E19B54B2421547582EFFFFBC" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
   <file path="CleanArchitecture.Comprehensive.Application/Inheritance/ConcreteClasses/ConcreteClassDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
   <file path="CleanArchitecture.Comprehensive.Application/Inheritance/ConcreteClasses/ConcreteClassDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
   <file path="CleanArchitecture.Comprehensive.Application/Inheritance/ConcreteClasses/CreateConcreteClass/CreateConcreteClassCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
@@ -1247,7 +1247,7 @@
   <file path="CleanArchitecture.Comprehensive.Infrastructure/CleanArchitecture.Comprehensive.Infrastructure.csproj" deviationsHash="C004B1B86D237803F313CC6ABF0333D55C06B8EA289451859DE59B45E9FC6F18" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
-  <file path="CleanArchitecture.Comprehensive.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.Comprehensive.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/HttpClients/BugFixesServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />

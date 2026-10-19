@@ -71,13 +71,25 @@
       <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
       <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
           <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
           <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;ac8c1f54-1789-4973-8b10-66b25ca6f27e&quot;]" isActive="true" />
-            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" isActive="true" />
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[High - App Composition] **/*&quot;]" isActive="true">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" isActive="true" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" isActive="true" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;ac8c1f54-1789-4973-8b10-66b25ca6f27e&quot;]" isActive="true" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
           </properties>
         </stereotype>
       </stereotypes>
@@ -97,13 +109,25 @@
       <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
       <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
           <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
           <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;36ade097-5519-4c07-9af4-c0e917b547af&quot;]" isActive="true" />
-            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="2 - Medium" isActive="true" />
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Medium - Business Logic] **/*&quot;]" isActive="true">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" isActive="true" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" isActive="true" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;36ade097-5519-4c07-9af4-c0e917b547af&quot;]" isActive="true" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
           </properties>
         </stereotype>
       </stereotypes>
@@ -123,13 +147,25 @@
       <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
       <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
           <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
           <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;4725e185-61ed-45c4-9a9a-68b31569c121&quot;,&quot;aba23e44-bcaa-49c8-bae0-9dc024e371b8&quot;]" isActive="true" />
-            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" isActive="true" />
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[High - API Contract, Security] **/*&quot;]" isActive="true">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" isActive="true" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" isActive="true" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;4725e185-61ed-45c4-9a9a-68b31569c121&quot;,&quot;aba23e44-bcaa-49c8-bae0-9dc024e371b8&quot;]" isActive="true" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
           </properties>
         </stereotype>
       </stereotypes>
@@ -149,13 +185,25 @@
       <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
       <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
           <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
           <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;36ade097-5519-4c07-9af4-c0e917b547af&quot;]" isActive="true" />
-            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="2 - Medium" isActive="true" />
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Medium - Business Logic] **/*&quot;]" isActive="true">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" isActive="true" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" isActive="true" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;36ade097-5519-4c07-9af4-c0e917b547af&quot;]" isActive="true" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
           </properties>
         </stereotype>
       </stereotypes>
@@ -175,13 +223,25 @@
       <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
       <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
           <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
           <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;4725e185-61ed-45c4-9a9a-68b31569c121&quot;,&quot;aba23e44-bcaa-49c8-bae0-9dc024e371b8&quot;]" isActive="true" />
-            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" isActive="true" />
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[High - API Contract, Security] **/*&quot;]" isActive="true">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" isActive="true" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" isActive="true" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;4725e185-61ed-45c4-9a9a-68b31569c121&quot;,&quot;aba23e44-bcaa-49c8-bae0-9dc024e371b8&quot;]" isActive="true" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
           </properties>
         </stereotype>
       </stereotypes>
@@ -286,6 +346,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -300,6 +362,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -314,6 +378,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

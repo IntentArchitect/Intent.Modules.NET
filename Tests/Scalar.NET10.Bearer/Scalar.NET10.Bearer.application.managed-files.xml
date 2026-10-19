@@ -13,7 +13,7 @@
   <file path="Scalar.NET10.Bearer.Api/Transformers/HideRouteParametersFromBodyOperationTransformer.cs" templateId="Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer" />
   <file path="Scalar.NET10.Bearer.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
   <file path="Scalar.NET10.Bearer.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
-  <file path="Scalar.NET10.Bearer.Application/Implementation/WidgetService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="Scalar.NET10.Bearer.Application/Implementation/WidgetService.cs" deviationsHash="EFAEEE362308AA892F2142DA5B9A5973B312320F1F6B858D4CF481F96397D713" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
   <file path="Scalar.NET10.Bearer.Application/Interfaces/IWidgetService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
   <file path="Scalar.NET10.Bearer.Application/Scalar.NET10.Bearer.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Scalar.NET10.Bearer.Application/WidgetDto.cs" templateId="Intent.Application.Dtos.DtoModel" />

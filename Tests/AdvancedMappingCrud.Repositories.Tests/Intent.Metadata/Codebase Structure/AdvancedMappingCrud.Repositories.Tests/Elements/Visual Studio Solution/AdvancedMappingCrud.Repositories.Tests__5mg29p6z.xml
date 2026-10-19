@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e8c23427-3443-420a-b219-bac8e6a8f88b</parentFolderId>
+  <packageId>e8c23427-3443-420a-b219-bac8e6a8f88b</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

@@ -5,26 +5,26 @@
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#a73ec8e9-cb37-4274-82c2-e63449e28ab4</correlationId>
       <path>Entities.PrivateSetters.MongoDb.Application/Implementation/InvoiceService.cs</path>
       <count>4</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2026-07-26T18:17:51.3703991Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2026-07-26T18:33:23.0403623Z</approvedAt>
-      <deviationsHash>2AED27E5C9DF4B92B554B0D7D9530B992ABA3640EAE7B485E849B31990E67255</deviationsHash>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-19T07:45:11.1975061Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-10-19T09:38:28.3611589Z</approvedAt>
+      <deviationsHash>BD6F36DDCA41A836132F5E09EBD3A27807A834D0FBFA622F4048DD89D02690C5</deviationsHash>
       <fileHash>85C998AE1367FB3ABBFDDBE070313B1DA2B1BFEAA0A8B8F4D084711B6FA0AEE5</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#006f0a75-21d7-4619-858e-10eac2a2e832</correlationId>
       <path>Entities.PrivateSetters.MongoDb.Application/Implementation/TagService.cs</path>
       <count>4</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2026-07-26T18:17:51.3704148Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2026-07-26T18:33:23.0735958Z</approvedAt>
-      <deviationsHash>95A1DB4FC5A72672417FF44A0C96F4FAB4A60FF13EE76CFC6A38E816D5385752</deviationsHash>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-19T07:45:11.1976745Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-10-19T09:38:46.1450056Z</approvedAt>
+      <deviationsHash>8B5BF31BDF829B4BB0060DD479EACF06379BD8EF44957E56F3F3DF2BE45AE17C</deviationsHash>
       <fileHash>052B6DEFF3FAF872EC6634C3AC3D132B195CE00DEB1E2FFFFC71D11621E9C22A</fileHash>
     </file>
     <file>

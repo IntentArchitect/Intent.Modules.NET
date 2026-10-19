@@ -72,7 +72,7 @@
   <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure.Stubs/HttpClients/QueryDtoParameter/QueryDtoParameterServiceHttpClientStub.cs" templateId="Intent.Integration.HttpClients.Stubs.HttpClientStub" />
   <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/CleanArchitecture.Comprehensive.HttpClients.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
-  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/DependencyInjection.cs" deviationsHash="4BA5572C84C0C32C0E5095428B8F7EB3D00EB2D3A489401C9DA79F50DA76127B" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/HttpClients/Customers/CustomersServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />
   <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/HttpClients/JsonResponse.cs" templateId="Intent.Integration.HttpClients.JsonResponse" />
   <file path="CleanArchitecture.Comprehensive.HttpClients.Infrastructure/HttpClients/QueryDtoParameter/QueryDtoParameterServiceHttpClient.cs" templateId="Intent.Integration.HttpClients.HttpClient" />

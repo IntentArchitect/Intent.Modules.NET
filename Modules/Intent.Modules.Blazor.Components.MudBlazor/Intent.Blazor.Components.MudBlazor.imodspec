@@ -114,7 +114,7 @@
     <dependency id="Intent.Common" version="3.11.6" />
     <dependency id="Intent.Common.CSharp" version="3.10.9" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Modelers.UI" version="1.1.5" />
+    <dependency id="Intent.Modelers.UI" version="1.1.6" />
     <dependency id="Intent.Modelers.UI.Core" version="1.0.4" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
