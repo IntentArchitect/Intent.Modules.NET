@@ -83,9 +83,9 @@ namespace TestMediator.Nsb.Infrastructure.Configuration
             where THandler : class, IHandleMessages<TMessage>
             where TMessage : class
         {
-            var settings = global::NServiceBus.Configuration.AdvancedExtensibility.AdvancedExtensibilityExtensions.GetSettings(endpointConfiguration);
-            var messageHandlerRegistry = settings.GetOrCreate<global::NServiceBus.Unicast.MessageHandlerRegistry>();
-            var messageMetadataRegistry = settings.GetOrCreate<global::NServiceBus.Unicast.Messages.MessageMetadataRegistry>();
+            var settings = NServiceBus.Configuration.AdvancedExtensibility.AdvancedExtensibilityExtensions.GetSettings(endpointConfiguration);
+            var messageHandlerRegistry = settings.GetOrCreate<NServiceBus.Unicast.MessageHandlerRegistry>();
+            var messageMetadataRegistry = settings.GetOrCreate<NServiceBus.Unicast.Messages.MessageMetadataRegistry>();
             messageHandlerRegistry.AddMessageHandlerForMessage<THandler, TMessage>();
             messageMetadataRegistry.RegisterMessageTypeWithHierarchy(typeof(TMessage), Array.Empty<Type>());
         }
