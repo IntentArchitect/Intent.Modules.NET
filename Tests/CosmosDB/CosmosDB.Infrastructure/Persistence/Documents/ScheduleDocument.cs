@@ -16,7 +16,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         public List<ScheduleSlotDocument> Slots { get; set; } = default!;
         IReadOnlyList<IScheduleSlotDocument> IScheduleDocument.Slots => Slots;
         public ScheduleSlotDocument? PrimarySlot { get; set; }
-        IScheduleSlotDocument IScheduleDocument.PrimarySlot => PrimarySlot;
+        IScheduleSlotDocument? IScheduleDocument.PrimarySlot => PrimarySlot;
 
         public Schedule ToEntity(Schedule? entity = default)
         {

@@ -29,7 +29,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
         public List<ChildDocument>? Children { get; set; }
         IReadOnlyList<IChildDocument> IParentDocument.Children => Children;
         public ParentDetailsDocument? ParentDetails { get; set; }
-        IParentDetailsDocument IParentDocument.ParentDetails => ParentDetails;
+        IParentDetailsDocument? IParentDocument.ParentDetails => ParentDetails;
 
         public Parent ToEntity(Parent? entity = default)
         {

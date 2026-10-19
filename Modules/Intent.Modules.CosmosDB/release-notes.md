@@ -1,7 +1,7 @@
 ### Version 2.0.2
 
 - Fixed: Software Factory failed with `Could not find template from dependency: TemplateId / Role = ` when a Value Object had an attribute typed as another Value Object (single or collection). Nested Value Objects now generate their own `{Name}Document` properties, explicit `I{Name}Document` accessors and `ToEntity`/`PopulateFromEntity` mappings, the same as Value Objects on entities.
-- Fixed: Nullable Value Object properties on documents now generate a nullable explicit interface accessor (e.g. `IAddressDocument? ICustomerDocument.BillingAddress`), removing a `CS8603` warning.
+- Fixed: Nullable Value Object properties and nullable single-valued composite associations on documents now generate a nullable explicit interface accessor (e.g. `IAddressDocument? ICustomerDocument.BillingAddress`, `IParentDetailsDocument? IParentDocument.ParentDetails`), matching the document interface and removing a `CS8603` warning.
 
 ### Version 2.0.1
 

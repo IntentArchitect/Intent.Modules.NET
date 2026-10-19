@@ -15,7 +15,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
         public string DetailsLine1 { get; set; } = default!;
         public string DetailsLine2 { get; set; } = default!;
         public ParentSubDetailsDocument? ParentSubDetails { get; set; }
-        IParentSubDetailsDocument IParentDetailsDocument.ParentSubDetails => ParentSubDetails;
+        IParentSubDetailsDocument? IParentDetailsDocument.ParentSubDetails => ParentSubDetails;
         public List<ParentDetailsTagsDocument>? ParentDetailsTags { get; set; }
         IReadOnlyList<IParentDetailsTagsDocument> IParentDetailsDocument.ParentDetailsTags => ParentDetailsTags;
 
