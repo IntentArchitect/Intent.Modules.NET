@@ -2,7 +2,7 @@
 name: mediator-query-handler
 description: Implements the whole body of a Mediator query handler from the interactions modelled on the query. MUST load before creating, editing or revisiting any query handler e.g. *QueryHandler.cs, and after any Software Factory run that generates a new query handler stub.
 template-id: Intent.Application.Mediator.QueryHandlerSkill
-contentHash: E8D150E987689CA63CF0802E4D92EE39F564D7AF6BCF7F0822B1334FEF8ED3A8
+contentHash: 863FFC10DB2C52AEC907BAD98385350B730A52C2CD652C3D2644BAC77F96E09C
 ---
 # Mediator Query Handler
 
@@ -19,7 +19,7 @@ Nothing raises a task or a reminder for a new or outdated handler. Find the work
 
 - Treat the existing handler file as the starting point. Write the `Handle` method body rather than rewriting unrelated code.
 - The handler implements `IQueryHandler<TQuery, TResponse>` from the `Mediator` library. `Handle` returns `ValueTask<TResponse>`.
-- NEVER change the name, return type or parameters of `Handle`. They are generated. If the stub is not `async` and your body awaits, add only the `async` modifier.
+- NEVER change the name, return type or parameters of `Handle`. They are generated. The stub is always generated `async`. Keep `async` even when the body awaits nothing: removing it is a signature change, which the next Software Factory run reverts and reports as destructive.
 - ALWAYS, when you write a `Handle` body, put `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` on the `Handle` method so regeneration keeps your body.
 - Inject only dependencies from the Domain or Application layers.
 - Never introduce direct dependencies on infrastructure packages or infrastructure types in the handler, including Entity Framework, Dapper, concrete DbContexts, SQL clients, or vendor-specific read/query APIs.
@@ -39,7 +39,7 @@ The associations drawn from the query to other elements are the specification. R
 3. List every association on the query in the order the designer shows them. That order is the order the work happens in.
 4. Implement each association in that order. Later steps may use the result of earlier ones.
 
-Field mappings are NOT modelled. The designer may show a minimal mapping on an association because it insists on one, but it carries no intent. Decide which query field filters which entity attribute, and which entity attribute fills which response property, by name and meaning, using the query's fields, the entity's attributes and the response type's properties.
+Field mappings are NOT modelled. The designer may show a minimal mapping on an association because it insists on one, or warn that an association has no mappings. Neither carries intent: leave the warning, and do not add mappings to silence it, because the generator ignores them. Decide which query field filters which entity attribute, and which entity attribute fills which response property, by name and meaning, using the query's fields, the entity's attributes and the response type's properties.
 
 ### What each interaction means
 

@@ -52,7 +52,7 @@ Nothing raises a task or a reminder for a new or outdated handler. Find the work
 - Treat the existing handler file as the starting point. Write the `Handle` method bodies rather than rewriting unrelated parts of the file.
 - The handler implements `INotificationHandler<TNotification>` from the `Mediator` library, once per handled domain event. `TNotification` is the generated `<DomainEvent>Notification` class (for example `OrderPlacedDomainEventNotification`). Each `Handle` returns `ValueTask`.
 - The domain event is `notification.DomainEvent`. Read its data from there, for example `var domainEvent = notification.DomainEvent;`.
-- NEVER change the name, return type or parameters of `Handle`, and never change which notification type it accepts. They are generated. If the stub is not `async` and your body awaits, add only the `async` modifier.
+- NEVER change the name, return type or parameters of `Handle`, and never change which notification type it accepts. They are generated. The stub is always generated `async`. Keep `async` even when the body awaits nothing: removing it is a signature change, which the next Software Factory run reverts and reports as destructive.
 - NEVER edit the `DomainEventNotification` base class, the `<DomainEvent>Notification` classes or `DomainEventNotificationFactory`. They are generated from the domain events.
 - ALWAYS, when you write a `Handle` body, put `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` on the `Handle` method so regeneration keeps your body.
 - Several handlers can react to the same event. Do not assume yours is the only one, and do not assume an order between handlers.
@@ -85,7 +85,7 @@ The interactions drawn from the handled domain event to other elements are the s
 
 A handler may handle several domain events. Each has its own `Handle` method and its own list of interactions. A domain event with a comment and no interactions still tells you what the handler is for: implement the intent of the comment.
 
-Field mappings are NOT modelled. The designer may show a minimal mapping on an association because it insists on one, but it carries no intent. Decide which domain event data populates which entity attribute, constructor argument, command field or message property by name and meaning, using the domain event's properties and the target's attributes and constructors. When a name or meaning is genuinely ambiguous, search the codebase for a similar handler before asking.
+Field mappings are NOT modelled. The designer may show a minimal mapping on an association because it insists on one, or warn that an association has no mappings. Neither carries intent: leave the warning, and do not add mappings to silence it, because the generator ignores them. Decide which domain event data populates which entity attribute, constructor argument, command field or message property by name and meaning, using the domain event's properties and the target's attributes and constructors. When a name or meaning is genuinely ambiguous, search the codebase for a similar handler before asking.
 
 ### What each interaction means
 

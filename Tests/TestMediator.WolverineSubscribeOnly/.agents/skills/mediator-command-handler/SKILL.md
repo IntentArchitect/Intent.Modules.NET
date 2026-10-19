@@ -2,7 +2,7 @@
 name: mediator-command-handler
 description: Implements the whole body of a Mediator command handler from the interactions modelled on the command. MUST load before creating, editing or revisiting any command handler e.g. *CommandHandler.cs, and after any Software Factory run that generates a new command handler stub.
 template-id: Intent.Application.Mediator.CommandHandlerSkill
-contentHash: 0E3510BD2FAA3B9C18E90DEA5BF14FF956EDA8EC8E0D2BE4FD60ED7DBB4D3988
+contentHash: 6D0A92754FB74C5CAABF4C2DB2232E70A1280B01569617A5850F16085B286BEA
 ---
 # Mediator Command Handler
 
@@ -20,7 +20,7 @@ Nothing raises a task or a reminder for a new or outdated handler. Find the work
 - Treat the existing handler file as the starting point. Write the `Handle` method body rather than rewriting unrelated parts of the file.
 - The handler implements `ICommandHandler<TCommand, TResponse>` from the `Mediator` library (or `ICommandHandler<TCommand>` for a command with no response). `Handle` returns `ValueTask<TResponse>`.
 - A command with no response returns `ValueTask<Unit>`. The body MUST end with `return Unit.Value;` on every path that completes normally.
-- NEVER change the name, return type or parameters of `Handle`. They are generated. If the stub is not `async` and your body awaits, add only the `async` modifier.
+- NEVER change the name, return type or parameters of `Handle`. They are generated. The stub is always generated `async`. Keep `async` even when the body awaits nothing: removing it is a signature change, which the next Software Factory run reverts and reports as destructive.
 - ALWAYS, when you write a `Handle` body, put `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` on the `Handle` method so regeneration keeps your body.
 - Inject only dependencies from the Domain or Application layers.
 - Never introduce direct dependencies on infrastructure packages or infrastructure types in the handler, including Entity Framework, Dapper, concrete DbContexts, SQL clients, or vendor-specific data access abstractions.
@@ -40,7 +40,7 @@ The associations drawn from the command to other elements are the specification.
 3. List every association on the command in the order the designer shows them. That order is the order the work happens in.
 4. Implement each association in that order. Later steps may use the entity loaded or created by an earlier one.
 
-Field mappings are NOT modelled. The designer may show a minimal mapping on an association because it insists on one, but it carries no intent. Decide which command field populates which entity attribute, constructor argument or message property by name and meaning, using the command's fields and the target's attributes and constructors. When a name or meaning is genuinely ambiguous, search the codebase for a similar handler before asking.
+Field mappings are NOT modelled. The designer may show a minimal mapping on an association because it insists on one, or warn that an association has no mappings. Neither carries intent: leave the warning, and do not add mappings to silence it, because the generator ignores them. Decide which command field populates which entity attribute, constructor argument or message property by name and meaning, using the command's fields and the target's attributes and constructors. When a name or meaning is genuinely ambiguous, search the codebase for a similar handler before asking.
 
 ### What each interaction means
 
