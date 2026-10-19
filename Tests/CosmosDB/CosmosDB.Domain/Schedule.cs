@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -32,8 +33,9 @@ namespace CosmosDB.Domain
 
         protected override IEnumerable<object> GetEqualityComponents()
         {
-            // Using a yield return statement to return each element one at a time
+            // Collections are prefixed with their count so adjacent collections cannot run together
             yield return Name;
+            yield return Slots.Count();
 
             foreach (var item in Slots)
             {
@@ -41,6 +43,7 @@ namespace CosmosDB.Domain
             }
             yield return PrimarySlot!;
             yield return PrimaryVenue!;
+            yield return Waypoints?.Count() ?? 0;
 
             if (Waypoints != null)
             {

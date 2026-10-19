@@ -62,6 +62,12 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
 
                 var associationEnds = GetValueObjectAssociationEnds();
                 var nullableEnabled = outputTarget.GetProject().IsNullableAwareContext() && outputTarget.GetProject().NullableEnabled;
+                var hasCollections = Model.Attributes.Any(x => x.TypeReference.IsCollection) || associationEnds.Any(x => x.IsCollection);
+                if (hasCollections)
+                {
+                    // Count() is used in GetEqualityComponents; the builder drops this where implicit usings cover it
+                    CSharpFile.AddUsing("System.Linq");
+                }
 
                 @class.AddConstructor(ctor =>
                 {
@@ -70,8 +76,12 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                         name: "GetEqualityComponents", method =>
                         {
                             method.Protected()
-                                .Override()
-                                .AddStatement("// Using a yield return statement to return each element one at a time");
+                                .Override();
+                            if (hasCollections)
+                            {
+                                method.AddStatement("// Collections are prefixed with their count so adjacent collections cannot run together");
+                            }
+
                             if (!Model.Attributes.Any() && !associationEnds.Any())
                             {
                                 method.AddStatement("yield break;");
@@ -182,12 +192,18 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
 
             // Yield the elements rather than the collection itself, otherwise two Value Objects holding equal
             // collections are never equal (collections compare by reference).
+            // Prefix the elements with the count: without it, items from adjacent collections run together and
+            // [a, b] + [c] equals [a] + [b, c]. It also guarantees at least one component per collection, so
+            // ValueObject.GetHashCode (Aggregate without a seed) does not throw when every collection is empty.
+            // A null collection counts as empty, matching the previous behaviour.
             if (typeReference.IsNullable)
             {
+                method.AddStatement($"yield return {propertyName}?.Count() ?? 0;");
                 method.AddIfStatement($"{propertyName} != null", @if => @if.AddForEachStatement("item", propertyName, forEach => forEach.AddStatement("yield return item;")));
             }
             else
             {
+                method.AddStatement($"yield return {propertyName}.Count();");
                 method.AddForEachStatement("item", propertyName, forEach => forEach.AddStatement("yield return item;"));
             }
         }

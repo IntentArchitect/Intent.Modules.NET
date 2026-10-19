@@ -252,6 +252,7 @@
   <file path="CosmosDB.PrivateSetters.Domain/Entities/WithGuidId.cs" templateId="Intent.Entities.DomainEntity" />
   <file path="CosmosDB.PrivateSetters.Domain/Entities/WithoutPartitionKey.cs" templateId="Intent.Entities.DomainEntity" />
   <file path="CosmosDB.PrivateSetters.Domain/Events/RegionChangedDomainEvent.cs" templateId="Intent.DomainEvents.DomainEvent" />
+  <file path="CosmosDB.PrivateSetters.Domain/Itinerary.cs" templateId="Intent.ValueObjects.ValueObject" />
   <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/Folder/IFolderContainerDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
   <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IAddressDocument.cs" templateId="Intent.CosmosDB.CosmosDBValueObjectDocumentInterface" />
   <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IBaseOfTDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
@@ -270,6 +271,7 @@
   <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IIdTestingDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
   <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IInvoiceDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
   <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IInvoiceLogoDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
+  <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IItineraryDocument.cs" templateId="Intent.CosmosDB.CosmosDBValueObjectDocumentInterface" />
   <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/ILineItemDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
   <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/INonStringPartitionKeyDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
   <file path="CosmosDB.PrivateSetters.Domain/Repositories/Documents/IOrderDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocumentInterface" />
@@ -343,6 +345,7 @@
   <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/IdTestingDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
   <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/InvoiceDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
   <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/InvoiceLogoDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
+  <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/ItineraryDocument.cs" templateId="Intent.CosmosDB.CosmosDBValueObjectDocument" />
   <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/LineItemDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
   <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/NonStringPartitionKeyDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
   <file path="CosmosDB.PrivateSetters.Infrastructure/Persistence/Documents/OrderDocument.cs" templateId="Intent.CosmosDB.CosmosDBDocument" />
