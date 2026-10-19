@@ -17,7 +17,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
         public ParentSubDetailsDocument? ParentSubDetails { get; set; }
         IParentSubDetailsDocument? IParentDetailsDocument.ParentSubDetails => ParentSubDetails;
         public List<ParentDetailsTagsDocument>? ParentDetailsTags { get; set; }
-        IReadOnlyList<IParentDetailsTagsDocument> IParentDetailsDocument.ParentDetailsTags => ParentDetailsTags;
+        IReadOnlyList<IParentDetailsTagsDocument>? IParentDetailsDocument.ParentDetailsTags => ParentDetailsTags;
 
         public ParentDetails ToEntity(ParentDetails? entity = default)
         {

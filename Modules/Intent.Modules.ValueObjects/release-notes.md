@@ -1,3 +1,9 @@
+### Version 4.3.0
+
+- Improvement: A Value Object can now contain other Value Objects through associations, not only through attributes. Each navigable association from a Value Object to another Value Object generates a property, a constructor parameter and an equality component (`1` required, `0..1` nullable, `0..*` a collection). Previously these associations were accepted by the designer but silently produced nothing.
+- Fixed: Value Objects holding a collection were never equal to each other, because `GetEqualityComponents` yielded the collection itself (compared by reference). The elements are now yielded.
+- Fixed: `CS8603` warning in `GetEqualityComponents` for nullable properties.
+
 ### Version 4.2.10
 
 - Improvement: Updated output path of some templates to be more consistant with other templates.

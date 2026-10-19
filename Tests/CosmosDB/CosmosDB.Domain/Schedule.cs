@@ -8,11 +8,13 @@ namespace CosmosDB.Domain
 {
     public class Schedule : ValueObject
     {
-        public Schedule(string name, IEnumerable<ScheduleSlot> slots, ScheduleSlot? primarySlot)
+        public Schedule(string name, IEnumerable<ScheduleSlot> slots, ScheduleSlot? primarySlot, Venue? primaryVenue, IEnumerable<Coordinates>? waypoints)
         {
             Name = name;
             Slots = slots;
             PrimarySlot = primarySlot;
+            PrimaryVenue = primaryVenue;
+            Waypoints = waypoints;
         }
 
         [IntentMerge]
@@ -25,13 +27,28 @@ namespace CosmosDB.Domain
         public string Name { get; private set; }
         public IEnumerable<ScheduleSlot> Slots { get; private set; }
         public ScheduleSlot? PrimarySlot { get; private set; }
+        public Venue? PrimaryVenue { get; private set; }
+        public IEnumerable<Coordinates>? Waypoints { get; private set; }
 
         protected override IEnumerable<object> GetEqualityComponents()
         {
             // Using a yield return statement to return each element one at a time
             yield return Name;
-            yield return Slots;
-            yield return PrimarySlot;
+
+            foreach (var item in Slots)
+            {
+                yield return item;
+            }
+            yield return PrimarySlot!;
+            yield return PrimaryVenue!;
+
+            if (Waypoints != null)
+            {
+                foreach (var item in Waypoints)
+                {
+                    yield return item;
+                }
+            }
         }
     }
 }

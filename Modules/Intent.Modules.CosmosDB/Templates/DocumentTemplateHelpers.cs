@@ -131,7 +131,9 @@ namespace Intent.Modules.CosmosDB.Templates
             {
                 typeName = template.UseType($"System.Collections.Generic.IReadOnlyList<{typeName}>");
             }
-            else if (typeReference.IsNullable && template.OutputTarget.GetProject().NullableEnabled)
+
+            // Must match the nullability the document interface declares, collections included
+            if (typeReference.IsNullable && template.OutputTarget.GetProject().NullableEnabled)
             {
                 typeName = $"{typeName}?";
             }

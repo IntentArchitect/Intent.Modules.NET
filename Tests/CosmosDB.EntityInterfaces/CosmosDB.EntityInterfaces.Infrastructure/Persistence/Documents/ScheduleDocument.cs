@@ -17,6 +17,10 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
         IReadOnlyList<IScheduleSlotDocument> IScheduleDocument.Slots => Slots;
         public ScheduleSlotDocument? PrimarySlot { get; set; }
         IScheduleSlotDocument? IScheduleDocument.PrimarySlot => PrimarySlot;
+        public VenueDocument? PrimaryVenue { get; set; }
+        IVenueDocument? IScheduleDocument.PrimaryVenue => PrimaryVenue;
+        public List<CoordinatesDocument>? Waypoints { get; set; }
+        IReadOnlyList<ICoordinatesDocument>? IScheduleDocument.Waypoints => Waypoints;
 
         public Schedule ToEntity(Schedule? entity = default)
         {
@@ -25,6 +29,8 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             ReflectionHelper.ForceSetProperty(entity, nameof(Name), Name ?? throw new Exception($"{nameof(entity.Name)} is null"));
             ReflectionHelper.ForceSetProperty(entity, nameof(Slots), Slots.Select(x => x.ToEntity()).ToList() ?? throw new Exception($"{nameof(entity.Slots)} is null"));
             ReflectionHelper.ForceSetProperty(entity, nameof(PrimarySlot), PrimarySlot?.ToEntity());
+            ReflectionHelper.ForceSetProperty(entity, nameof(PrimaryVenue), PrimaryVenue?.ToEntity());
+            ReflectionHelper.ForceSetProperty(entity, nameof(Waypoints), Waypoints?.Select(x => x.ToEntity()).ToList());
 
             return entity;
         }
@@ -34,6 +40,8 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             Name = entity.Name;
             Slots = entity.Slots.Select(x => ScheduleSlotDocument.FromEntity(x)!).ToList();
             PrimarySlot = ScheduleSlotDocument.FromEntity(entity.PrimarySlot);
+            PrimaryVenue = VenueDocument.FromEntity(entity.PrimaryVenue);
+            Waypoints = entity.Waypoints?.Select(x => CoordinatesDocument.FromEntity(x)!).ToList();
 
             return this;
         }

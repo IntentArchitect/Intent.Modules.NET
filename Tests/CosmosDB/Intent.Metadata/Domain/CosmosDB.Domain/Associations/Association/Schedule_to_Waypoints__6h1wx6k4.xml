@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fb3cd85d-95e4-49de-a165-9575dbe9bd24">
+  <sourceEnd id="eeaa8d98-78c5-455f-9fdc-cbb6e4742f98" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Schedule</name>
+    <display>Schedule: Schedule</display>
+    <order>0</order>
+    <typeReference id="97471ff4-27c8-4476-8f68-e613f8057e09">
+      <typeId>2a5b991e-c247-48a8-9718-ca9194101553</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fb3cd85d-95e4-49de-a165-9575dbe9bd24" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Waypoints</name>
+    <display>Waypoints: Coordinates[*]?</display>
+    <order>4</order>
+    <typeReference id="e42dad1a-8482-4ff2-b35b-8f86c32adb37">
+      <typeId>aeff913e-2b28-4190-8be9-41366519c0c5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

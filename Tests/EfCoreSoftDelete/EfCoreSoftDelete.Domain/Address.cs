@@ -47,7 +47,11 @@ namespace EfCoreSoftDelete.Domain
             yield return Line2;
             yield return City;
             yield return Postal;
-            yield return OtherBuildings;
+
+            foreach (var item in OtherBuildings)
+            {
+                yield return item;
+            }
             yield return PrimaryBuilding;
         }
     }

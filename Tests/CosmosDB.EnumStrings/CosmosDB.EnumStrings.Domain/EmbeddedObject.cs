@@ -30,7 +30,7 @@ namespace CosmosDB.EnumStrings.Domain
             // Using a yield return statement to return each element one at a time
             yield return Name;
             yield return EnumExample;
-            yield return NullableEnumExample;
+            yield return NullableEnumExample!;
         }
     }
 }

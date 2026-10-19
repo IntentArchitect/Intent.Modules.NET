@@ -11,5 +11,7 @@ namespace CosmosDB.PrivateSetters.Domain.Repositories.Documents
         string Name { get; }
         IReadOnlyList<IScheduleSlotDocument> Slots { get; }
         IScheduleSlotDocument? PrimarySlot { get; }
+        IVenueDocument? PrimaryVenue { get; }
+        IReadOnlyList<ICoordinatesDocument>? Waypoints { get; }
     }
 }

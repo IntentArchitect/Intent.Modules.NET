@@ -39,16 +39,21 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
                         : string.Empty;
 
                     @class.ImplementsInterface($"{this.GetCosmosDBValueObjectDocumentInterfaceName()}{genericTypeArguments}");
+                })
+                .OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
 
                     var attributes = Model.ChildElements
                         .Where(x => x.IsAttributeModel())
                         .Select(x => x.AsAttributeModel())
                         .ToArray();
+                    var associationEnds = this.GetValueObjectAssociationEnds(Model);
 
                     this.AddCosmosDBDocumentProperties(
                         @class: @class,
                         attributes: attributes,
-                        associationEnds: Array.Empty<AssociationEndModel>(),
+                        associationEnds: associationEnds,
                         documentInterfaceTemplateId: CosmosDBValueObjectDocumentInterfaceTemplate.TemplateId);
 
                     var valueObjectTypeName = GetTypeName(TemplateRoles.Domain.ValueObject, Model);
@@ -56,7 +61,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
                     this.AddCosmosDBMappingMethods(
                         @class: @class,
                         attributes: attributes,
-                        associationEnds: Array.Empty<AssociationEndModel>(),
+                        associationEnds: associationEnds,
                         partitionKeyAttribute: null,
                         entityInterfaceTypeName: valueObjectTypeName,
                         entityImplementationTypeName: valueObjectTypeName,
@@ -64,7 +69,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
                         entityRequiresReflectionPropertySetting: true,
                         isAggregate: false,
                         hasBaseType: false);
-                });
+                }, 1000);
         }
 
         [IntentManaged(Mode.Fully)]

@@ -35,7 +35,7 @@ namespace MudBlazor.ExampleApp.Domain
         {
             // Using a yield return statement to return each element one at a time
             yield return Line1;
-            yield return Line2;
+            yield return Line2!;
             yield return City;
             yield return Country;
             yield return Postal;
