@@ -2,15 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.AspNetCore.Program#bf20590e-1b1f-4df8-bad0-0eba33b03833</correlationId>
-      <path>AdvancedMapping.Repositories.Mapperly.Tests.Api/Program.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-10-20T11:53:41.9689583Z</updatedAt>
-      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
-    </file>
-    <file>
       <correlationId>Intent.Entities.DomainEntity#337519c7-8aeb-481f-aa3b-93d8ac11dc74</correlationId>
       <path>AdvancedMapping.Repositories.Mapperly.Tests.Domain/Entities/Sales/Order.cs</path>
       <count>2</count>

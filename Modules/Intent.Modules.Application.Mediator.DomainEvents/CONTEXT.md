@@ -107,8 +107,8 @@ in `Spike/MediatorSpike/DECISIONS.md`).
 ## Module Interactions
 
 - **Intent.Application.Mediator (core)** — owns the Mediator configuration, pipeline and the sequential notification
-  publisher (D22). Its `.imodspec` interoperability installs this module at `1.0.0-pre.0` when `Intent.DomainEvents` is
-  detected. This module declares the core as a dependency at `1.0.0-pre.0` and references its project for one constant
+  publisher (D22). Its `.imodspec` interoperability installs this module at `1.0.0-pre.1` when `Intent.DomainEvents` is
+  detected. This module declares the core as a dependency at `1.0.0-pre.1` and references its project for one constant
   (see above).
 - **Intent.DomainEvents** — written against role names, not against a version contract. The declared floor is 5.1.0; the
   copy in this repository is 5.1.2. Its interoperability detects MediatR and Wolverine but not this module's core.

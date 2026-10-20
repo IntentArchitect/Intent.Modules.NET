@@ -45,7 +45,8 @@ metadata tag differ.
 
 - **Intent.FastEndpoints** - supplies `EndpointTemplate`, `IEndpointModel` and the `handle` method metadata the extension
   hooks. Built against `Intent.FastEndpoints` `1.2.1`.
-- **Intent.Application.Mediator** - written against `1.0.0-pre.0`. Its imodspec interoperability installs this module when
+- **Intent.Application.Mediator** - written against `1.0.0-pre.0`, declared at `1.0.0-pre.1` to keep the family's
+  versions together. Its imodspec interoperability installs this module when
   `Intent.FastEndpoints` is detected.
 - **Intent.FastEndpoints.Dispatch.Wolverine / .MediatR** - siblings; mutually exclusive (above).
 

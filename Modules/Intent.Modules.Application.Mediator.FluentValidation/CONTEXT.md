@@ -74,7 +74,8 @@ G1, G5, D20, D21).
 
 ## Module Interactions
 
-- **Intent.Application.Mediator** - written against `1.0.0-pre.0`. Supplies the pipeline list, `CommandModels` /
+- **Intent.Application.Mediator** - declared at `1.0.0-pre.1`, the first core with the Infrastructure
+  `ValidationBehaviour` role this module fills; never pair this module with an older core. Supplies the pipeline list, `CommandModels` /
   `QueryModels` templates and `UnhandledExceptionBehaviour`. Its imodspec interoperability installs this module when
   `Intent.Application.FluentValidation` is detected.
 - **Intent.Application.FluentValidation** - floor `3.12.2`. Versions up to `3.12.0` generated the custom validation skill at

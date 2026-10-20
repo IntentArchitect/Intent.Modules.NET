@@ -150,7 +150,10 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   modules use string ids. The ids other modules depend on are listed in the plan under "Template ids other modules
   depend on"; renaming or moving any of those elements in the Module Builder breaks them silently.
 - **imodspec interoperability.** Detects Controllers, FastEndpoints, FluentValidation and DomainEvents and installs the
-  matching satellite at `1.0.0-pre.0`. Seam modules are pinned to the pre-release that carries the seam (EF Core
+  matching satellite at `1.0.0-pre.1`, and every satellite declares the core at `1.0.0-pre.1`. These family links are
+  hand-maintained, and the Software Factory keeps a raised version. Move them together: FluentValidation `pre.1` fills
+  the `Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour` role, and a `pre.0` core looks for the old one,
+  so a mixed pair silently loses validation (found 2026-10-20, when they were all still at `pre.0`). Seam modules are pinned to the pre-release that carries the seam (EF Core
   5.2.1-pre.0, MassTransit 7.2.4-pre.0, NServiceBus 1.0.4-pre.0, Eventing.Wolverine 1.0.1-pre.0). These must match
   those modules' versions in their own packages; they were bumped for the seams. EF Core Repositories 4.8.2,
   AutoMapper 5.3.10 and Mapperly 1.1.4 are minimum-compatible pins copied from Wolverine's imodspec.

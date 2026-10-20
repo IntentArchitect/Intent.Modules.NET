@@ -2,15 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.AspNetCore.Program#cd7adb1e-6233-44d7-ab0a-ba8fa7baf022</correlationId>
-      <path>TestMediator.NoEventing.Api/Program.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-10-20T12:08:47.6284528Z</updatedAt>
-      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.Mediator.DomainEvents.DomainEventHandler#0dff5ec7-88a5-468d-9a4a-aa49f8bea634</correlationId>
       <path>TestMediator.NoEventing.Application/EventHandlers/Products/ProductPriceChangedDomainEventHandler.cs</path>
       <count>3</count>

@@ -7,7 +7,7 @@ using TestMediator.NoEventing.Api.Logging;
 using TestMediator.NoEventing.Application;
 using TestMediator.NoEventing.Infrastructure;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
 namespace TestMediator.NoEventing.Api
