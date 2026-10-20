@@ -27,7 +27,6 @@ namespace ValueObjects.Record.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
-            services.AddTransient<IJourneyRepository, JourneyRepository>();
             services.AddTransient<ITestEntityRepository, TestEntityRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
