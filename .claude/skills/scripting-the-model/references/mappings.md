@@ -9,7 +9,7 @@ A mapping links a source element to target element(s) — e.g. a Command's field
 
 The mapping-type name is **DESIGNER-SPECIFIC**. There is no universal name — it is NOT always "Map to Domain"; one designer's types might be "Query Entity Mapping" / "Update Entity Mapping". `"Mapping Type Name"` below is a PLACEHOLDER, not a literal to copy.
 
-Get the real names from `getDesignerSchema()`'s **"Mappings"** block — it lists, per element AND association type, the exact names to pass to `createAdvancedMapping` / `getAdvancedMapping`. Passing one that doesn't exist THROWS, listing the valid names. `getElementDetails(...)` shows what an element is ALREADY mapped to (`mapping` = basic, `mappings` = advanced). Create both endpoints (and any child fields you map) BEFORE mapping between them.
+Get the real names from `getDesignerSchema()`'s **"Mappings"** block (or `(await getSettings()).mappings` when the compact schema points there) — it lists, per element AND association type, the exact names to pass to `createAdvancedMapping` / `getAdvancedMapping`. Passing one that doesn't exist THROWS, listing the valid names. `getElementDetails(...)` shows what an element is ALREADY mapped to (`mapping` = basic, `mappings` = advanced). Create both endpoints (and any child fields you map) BEFORE mapping between them.
 
 ## Basic (projection) — a single path to one target
 

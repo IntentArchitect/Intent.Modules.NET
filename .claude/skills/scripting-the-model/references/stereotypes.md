@@ -11,7 +11,7 @@ If a stereotype's apply mode is `Always` it is applied automatically — don't a
 
 ## Property values must be valid
 
-`getDesignerSchema()` lists each property as `Name: allowed`. Use a listed value **exactly**; an off-list value throws listing the allowed ones.
+`getStereotypeDefinitions()` lists each property as `Name: allowed` (the compact `getDesignerSchema()` names stereotypes only). Use a listed value **exactly**; an off-list value throws listing the allowed ones.
 
 - `ref to <Types>` → set the **id** of an element of one of those types.
 - `(multiple)` → pass a JSON array of ids, e.g. `st.setProperty("Security Roles", [roleId])`.

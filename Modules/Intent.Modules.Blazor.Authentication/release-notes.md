@@ -1,3 +1,7 @@
+### Version 2.0.4
+
+- Fixed: With the built-in ASP.NET Core Identity login, `app.MapAdditionalIdentityEndpoints();` is now added to `Program.cs` when the host is started with a call other than `app.Run();`, such as `await app.RunAsync();`. Previously it was silently left out.
+
 ### Version 2.0.3
 
 - Improvement: `PersistingServerAuthenticationStateProvider` no longer implements `IAccessTokenProvider` and no longer throws from its persist callback when no authentication state was set. `ServerAuthorizationMessageHandler` has moved to the server project (its template id is now `Intent.Blazor.Authentication.Templates.Server.ServerAuthorizationMessageHandlerTemplate`).

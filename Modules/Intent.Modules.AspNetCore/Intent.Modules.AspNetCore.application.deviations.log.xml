@@ -40,12 +40,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4801c180-6756-4496-a4e0-d9b08a8f6674</correlationId>
       <path>Templates/Program/ProgramTemplatePartial.cs</path>
-      <count>3</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-31T18:30:47.3460096Z</updatedAt>
-      <deviationsHash>5F259B367B43C25CA4E5329D8472D22F6874ACEFEC7DCDF58B48AC29748FE179</deviationsHash>
-      <fileHash>8CDC0BF4D09F721E5B5B3F04E184E549BA7145544CCF5C7A99A67226D099850D</fileHash>
+      <count>4</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T08:08:48.2256633Z</updatedAt>
+      <deviationsHash>A7ED06C2D9D65F7D9FF542323FF1242BF15CD42BE15E8F0CE93147D2C06C9ACA</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4801c180-6756-4496-a4e0-d9b08a8f6674</correlationId>

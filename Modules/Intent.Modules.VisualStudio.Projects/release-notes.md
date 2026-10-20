@@ -1,3 +1,7 @@
+### Version 4.1.12
+
+- Fixed: Comments in a `.csproj` were moved away from the `PackageReference` or `Using` they described, or deleted, when Intent sorted those items. The `ItemGroup` holding `Using` items also lost attributes such as `Condition` and `Label`. Comments now stay with their item, including when several packages are installed at once, attributes are kept, and an already-sorted group is left untouched. Removing a package keeps the comment above it.
+
 ### Version 4.1.11
 
 - Fixed: An existing `launchSettings.json` is no longer rewritten on every Software Factory run (which dropped `$schema`, reordered properties, stripped the trailing newline, overwrote custom `launchUrl` values, and could crash on an unrecognized `commandName` or a missing `profiles` section) - it is now only added to, and left untouched when nothing is missing.

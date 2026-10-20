@@ -12,12 +12,14 @@ Solution-level reads are a different tool with a disjoint API — `run_solution_
 ## Model globals
 
 ```ts
-/** EVERYTHING below in one object: settings, stereotype definitions, reference types, current diagram, packages.
+/** COMPACT by default, one line per item: `elementTypes` (the containment block),
+ *  `associationTypes` (`Type: Sources → Targets`), `packages`, `stereotypes` (`Name → applicable types`), short
+ *  `mappings`, and `designerRules` (a pointer to `get_designer_rules`) when the designer has rules. No property contracts or reference types — take those slices. `{ full: true }` returns everything.
  *  Read it for a designer you are about to EDIT and are unfamiliar with — not for every designer you discover. */
-declare function getDesignerSchema(): Promise<DesignerSchemaSnapshot>;
+declare function getDesignerSchema(options?: { full?: boolean }): Promise<CompactDesignerSchemaSnapshot>;
 
-/** The containment block (what each element type accepts as children, and which require a type), headed by the
- *  designer's module rules. Those rules are binding — e.g. which associations a Command/Query must carry. */
+/** The containment block: what each element type accepts as children, and which require a type. The designer's
+ *  binding module rules are not here — they come only from the `get_designer_rules` tool. */
 declare function getElementTypes(): string;
 
 /** Just the type NAMES `setType` accepts (generics carry their `<...>` signature). */
@@ -32,10 +34,11 @@ declare function getDesignerModelStructure(options?: {
     specializations?: string[], includeComments?: boolean, includeAssociations?: boolean,
 }): Promise<DesignerStructureSnapshot>;
 
-/** Every validation error/warning in the designer, each addressed by `path`, `elementId` or `associationId`. */
+/** Every validation error/warning in the designer, each addressed by `path`, `elementId` or `associationId`.
+ *  A `run_designer_script` result already carries these (capped), so you rarely need it after a mutation. */
 declare function getDesignerValidationErrors(): Promise<DesignerValidationErrorsSnapshot>;
 
-/** Just the stereotype DEFINITIONS (applicability + property contracts) — a slice of the schema. */
+/** The stereotype DEFINITIONS in full — ids, applicability, every property's allowed values and authored hint. */
 declare function getStereotypeDefinitions(): Promise<any>;
 
 /** Current package references, per package (all packages when packageId is omitted). Name/module/path only —
@@ -54,29 +57,32 @@ declare function getElementDetails(pathOrNameOrId: string): Promise<ElementDetai
 /** The current diagram: visuals with their positions/sizes and the routed association edges. */
 declare function getDiagramSnapshot(): Promise<any>;
 
-/** The designer's own settings block (a slice of the schema): rules, elementTypes, mappings, associationTypes. */
+/** The designer's own settings block (a slice of the schema): elementTypes, mappings, associationTypes. */
 declare function getSettings(): Promise<any>;
 
 /** SHOWS THE USER how elements fit together: opens an unsaved, auto-laid-out diagram of the elements plus their
- *  first-level neighbours (muted unless in `highlightIds`). Changes nothing in the model, is never saved, and replaces
- *  the designer's previous generated diagram. Returns the diagram API — `getDiagramSnapshot()` then reads its layout. */
+ *  first-level neighbours (passing `highlightIds` mutes the rest, for a diff). Changes nothing in the model, is never saved, and replaces
+ *  the designer's previous generated diagram. Returns the diagram API — `getDiagramSnapshot()` then reads its layout.
+ *  Throws when none of the elements has a shape on this designer's diagrams (e.g. DTOs in Services). */
 declare function showDynamicDiagram(elementIds: string | string[] | IElementApi | IElementApi[],
     options?: { label?: string, highlightIds?: (string | IElementApi)[] }): Promise<IDiagramApi>;
 ```
 
-**Composing the slices costs ONE call, same as the bare schema** — this is a script, not a tool per read:
+**Composing the compact schema with a slice costs ONE call** — this is a script, not a tool per read:
 
 ```js
-return { types: getElementTypes(), stereos: await getStereotypeDefinitions() };
+return { schema: await getDesignerSchema(), stereos: await getStereotypeDefinitions() };
 ```
 
-So prefer the slices. If you need "what can I create where", `getElementTypes()` is the call — and it carries the designer's rules, so read and follow them before you edit. When you will create associations, add `(await getSettings()).associationTypes` for their allowed sources and targets (not the whole `getSettings()`, which repeats the rules).
+(A promise you forget to `await` inside the returned object is resolved too.)
+
+So start from the compact schema and add the slice for what you will set: `getStereotypeDefinitions()` before setting stereotype property values, `getReferenceTypes()` when unsure a type name exists. If you need only "what can I create where", `getElementTypes()` is the call. The designer's module and association rules come only from the `get_designer_rules` tool — call it before you edit.
 
 Notes:
 
 - **An empty field is OMITTED, not returned empty — this holds for EVERY optional field of `getElementDetails`** (`members`, `stereotypes`, `associations`, `comment`, `value`, `mapping`, `mappings`, `suggestions`, `codeFiles`, …). A missing `members` means "no children"; a missing `stereotypes` means "none applied". It is never "not reported". Don't read absence as "I couldn't see it" — a small response IS the answer.
 - `getElementDetails` throws for an element that lives in a **referenced** package owned by another designer; the message names the owning application and designer, so re-issue the query against that `designerId`.
-- `getDiagramSnapshot()` returns no elements until something has been PLACED — a freshly scripted designer has nothing on its diagram and no sizes yet. Don't read it before the first layout; call `apply_change_diagram_layout`, which reports the resulting positions and sizes.
+- `getDiagramSnapshot()` returns no elements until something has been PLACED — a freshly scripted designer has nothing on its diagram and no sizes yet. To show your changes, use `showDynamicDiagram`, which lays itself out. Place elements on a saved diagram with `apply_change_diagram_layout` only when the user asks; it reports the resulting positions and sizes.
 - `searchElements`'s `matches[].path` is package-rooted (`Package/Folder/Name`). Prefer it over a bare name when feeding `getElementDetails` or `lookupByPath`.
 - The finders (`findElements`, `lookupByName`, `lookupByPath`, `lookupById`, `lookupPackage`, `getPackages`, `getUnloadedPackages`, `resolveType`) are documented in `elements.md` / `packages.md` / `types.md` and are equally available in a query.
 
@@ -89,7 +95,10 @@ Notes:
 declare function getApplicationSettings(options?: { search?: string }): {
     id: string, name: string, description: string,
     metadataLocation: string, outputLocation: string,
-    moduleSettingGroups: { id: string, title: string, module: string, settings: any[] }[],
+    moduleSettingGroups: { title: string, module: string, settings: {
+        id: string, title: string, hint?: string, controlType: string, value?: string,
+        options?: Record<string, string>,   // option value → description; pass the value back
+    }[] }[],
 };
 
 declare function listInstalledModules(applicationId: string, searchString?: string):

@@ -110,7 +110,8 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
 
         content = ApplyAdditionalTransforms(content);
 
-        var doc = XDocument.Parse(content);
+        // Line info lets SyncUsings' sort tell a same-line comment from one on the next line
+        var doc = XDocument.Parse(content, LoadOptions.SetLineInfo);
 
         var hasChange = ApplySettings(doc);
 
@@ -287,12 +288,13 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
             hasChange = true;
         }
 
-        // Sort alphabetically:
+        // Sort alphabetically, keeping comments with their items and the group's attributes
         if (hasChange)
         {
-            var elements = usingGroup.Elements().OrderBy(x => x.Name).ThenBy(x => x.Attribute("Include")?.Value).Cast<object>().ToArray();
-            usingGroup.RemoveAll();
-            usingGroup.Add(elements);
+            XmlItemSorter.SortChildren(
+                container: usingGroup,
+                isSortable: _ => true,
+                order: elements => elements.OrderBy(x => x.Name.LocalName).ThenBy(x => x.Attribute("Include")?.Value));
         }
 
         return hasChange;

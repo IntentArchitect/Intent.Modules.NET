@@ -171,5 +171,61 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
 </Project>",
                 actual: result);
         }
+
+        [Fact]
+        public void SortingKeepsCommentsWithTheirPackageReferences()
+        {
+            // Arrange
+            var sut = new NetFrameworkPackageReferencesSchemeProcessor();
+            var project = TestFixtureHelper.CreateNuGetProject(
+                scheme: VisualStudioProjectScheme.FrameworkWithPackageReference,
+                processor: sut,
+                testVersion: TestVersion.Low,
+                testPackage: TestPackage.One,
+                nugetPackagesToInstall: new Dictionary<string, string>());
+
+            // Act
+            var result = sut.InstallPackages(
+                solutionModelId: null,
+                projectStereotypes: Enumerable.Empty<IStereotype>(),
+                projectPath: null,
+                projectContent:
+@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Project xmlns=""http://schemas.microsoft.com/developer/msbuild/2003"">
+  <ItemGroup>
+    <PackageReference Include=""TestPackage.Two"">
+      <Version>1.0.0</Version>
+    </PackageReference> <!-- about Two -->
+    <!-- about One -->
+    <PackageReference Include=""TestPackage.One"">
+      <Version>1.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>",
+                requestedPackages: project.RequestedPackages,
+                installedPackages: project.InstalledPackages,
+                toRemovePackages: new List<string>(),
+                projectName: project.Name,
+                tracing: new TestTracing(),
+                dependencyVersionOverwriteBehavior: DependencyVersionOverwriteBehaviorOption.IfNewer);
+
+            // Assert
+            Assert.Equal(
+                expected:
+@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Project xmlns=""http://schemas.microsoft.com/developer/msbuild/2003"">
+  <ItemGroup>
+    <!-- about One -->
+    <PackageReference Include=""TestPackage.One"">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include=""TestPackage.Two"">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <!-- about Two -->
+  </ItemGroup>
+</Project>".ReplaceLineEndings(),
+                actual: result.ReplaceLineEndings());
+        }
     }
 }
