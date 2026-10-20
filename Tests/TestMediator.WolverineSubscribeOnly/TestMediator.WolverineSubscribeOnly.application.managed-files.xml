@@ -37,7 +37,6 @@
   <file path="TestMediator.WolverineSubscribeOnly.Domain/Common/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
   <file path="TestMediator.WolverineSubscribeOnly.Domain/TestMediator.WolverineSubscribeOnly.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.WolverineSubscribeOnly.Infrastructure/Configuration/MediatorConfiguration.cs" templateId="Intent.Application.Mediator.MediatorConfiguration" />
-  <file path="TestMediator.WolverineSubscribeOnly.Infrastructure/Configuration/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.WolverineSubscribeOnly.Infrastructure/Configuration/WolverineConfiguration.cs" templateId="Intent.Wolverine.Common.WolverineConfiguration" />
   <file path="TestMediator.WolverineSubscribeOnly.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="TestMediator.WolverineSubscribeOnly.Infrastructure/Dispatch/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.Mediator.AuthorizationBehaviour" />
@@ -45,6 +44,7 @@
   <file path="TestMediator.WolverineSubscribeOnly.Infrastructure/Dispatch/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.Mediator.MessageBusPublishBehaviour" />
   <file path="TestMediator.WolverineSubscribeOnly.Infrastructure/Dispatch/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.Mediator.PerformanceBehaviour" />
   <file path="TestMediator.WolverineSubscribeOnly.Infrastructure/Dispatch/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.Mediator.UnhandledExceptionBehaviour" />
+  <file path="TestMediator.WolverineSubscribeOnly.Infrastructure/Dispatch/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.WolverineSubscribeOnly.Infrastructure/Eventing/WolverineMessageBus.cs" templateId="Intent.Eventing.Wolverine.WolverineMessageBus" />
   <file path="TestMediator.WolverineSubscribeOnly.Infrastructure/TestMediator.WolverineSubscribeOnly.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.WolverineSubscribeOnly.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />

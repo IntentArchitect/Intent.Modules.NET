@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f64c0e5f-f7a3-4829-a193-1a195acb56f4">
+  <sourceEnd id="05d46d24-45c6-481a-8078-60d2f19763ef" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Route</name>
+    <display>Route: Route</display>
+    <order>0</order>
+    <typeReference id="45af1f45-528d-42e0-95ff-9152924ec474">
+      <typeId>b1b38115-8d41-4bfb-a947-28b75b0f3a71</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ValueObjects.Record.Domain</typePackageName>
+      <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f64c0e5f-f7a3-4829-a193-1a195acb56f4" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ZeroOrOneToZeroOrOne</name>
+    <display>ZeroOrOneToZeroOrOne: Waypoint?</display>
+    <order>9</order>
+    <typeReference id="6bff08ca-ccf8-49d6-8fdb-dad7f653239b">
+      <typeId>1f490078-c450-4607-951b-a0868173d37a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ValueObjects.Record.Domain</typePackageName>
+      <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

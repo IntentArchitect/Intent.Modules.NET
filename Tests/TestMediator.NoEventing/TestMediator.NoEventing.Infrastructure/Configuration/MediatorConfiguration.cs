@@ -2,6 +2,7 @@ using Intent.RoslynWeaver.Attributes;
 using Mediator;
 using Microsoft.Extensions.DependencyInjection;
 using TestMediator.NoEventing.Application;
+using TestMediator.NoEventing.Infrastructure.Dispatch;
 using TestMediator.NoEventing.Infrastructure.Dispatch.Behaviours;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

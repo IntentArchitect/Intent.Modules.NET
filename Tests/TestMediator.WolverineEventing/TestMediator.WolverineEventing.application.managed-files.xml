@@ -62,7 +62,6 @@
   <file path="TestMediator.WolverineEventing.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="TestMediator.WolverineEventing.Domain/TestMediator.WolverineEventing.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Configuration/MediatorConfiguration.cs" templateId="Intent.Application.Mediator.MediatorConfiguration" />
-  <file path="TestMediator.WolverineEventing.Infrastructure/Configuration/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Configuration/WolverineConfiguration.cs" templateId="Intent.Wolverine.Common.WolverineConfiguration" />
   <file path="TestMediator.WolverineEventing.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.Mediator.AuthorizationBehaviour" />
@@ -72,6 +71,7 @@
   <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.Mediator.UnhandledExceptionBehaviour" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
+  <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Eventing/WolverineMessageBus.cs" templateId="Intent.Eventing.Wolverine.WolverineMessageBus" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

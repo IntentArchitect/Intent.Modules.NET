@@ -6,7 +6,8 @@
 - Fixed: `GetHashCode` no longer throws `InvalidOperationException: Sequence contains no elements` for a Value Object whose only members are empty collections.
 - Fixed: `CS8603` warning in `GetEqualityComponents` for nullable properties.
 - Improvement: Removed the boilerplate `// Using a yield return statement...` comment from `GetEqualityComponents`.
-- Known limitation: Record Value Objects (Value Object Type = Record) use compiler-generated equality, which compares collection members by reference, so two records holding equal collections are never equal. This now also applies to collection associations on records.
+- Improvement: Value Objects now have a `New Association` context menu option in the Domain designer, so associations to other Value Objects can be drawn from the Value Object itself.- Known limitation: Record Value Objects (Value Object Type = Record) use compiler-generated equality, which compares collection members by reference, so two records holding equal collections are never equal. This now also applies to collection associations on records.
+- Known limitation: EF Core cannot load a record Value Object that holds another Value Object (through an attribute or an association). Use Value Object Type = Class for nested Value Objects with EF Core.
 
 ### Version 4.2.10
 

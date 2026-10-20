@@ -66,7 +66,7 @@ public class PipelineShapeChecks
     {
         using var provider = Services().BuildServiceProvider();
         using var scope = provider.CreateScope();
-        Assert.IsType<TestMediator.Publisher.Infrastructure.Configuration.SequentialNotificationPublisher>(
+        Assert.IsType<TestMediator.Publisher.Infrastructure.Dispatch.SequentialNotificationPublisher>(
             scope.ServiceProvider.GetRequiredService<INotificationPublisher>());
     }
 

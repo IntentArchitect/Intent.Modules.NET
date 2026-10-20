@@ -23,6 +23,8 @@ namespace ValueObjects.Record.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
+        public DbSet<Journey> Journeys { get; set; }
+
         public DbSet<TestEntity> TestEntities { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -46,6 +48,7 @@ namespace ValueObjects.Record.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new JourneyConfiguration());
             modelBuilder.ApplyConfiguration(new TestEntityConfiguration());
         }
 

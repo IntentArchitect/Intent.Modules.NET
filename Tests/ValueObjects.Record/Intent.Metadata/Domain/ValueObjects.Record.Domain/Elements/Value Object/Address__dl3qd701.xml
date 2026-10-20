@@ -9,6 +9,9 @@
   <parentFolderId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</parentFolderId>
   <packageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</packageId>
   <packageName>ValueObjects.Record.Domain</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
@@ -163,7 +166,7 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>ValueObjects.Class.Domain</typePackageName>
+        <typePackageName>ValueObjects.Record.Domain</typePackageName>
         <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
         <stereotypes />
         <genericTypeParameters />

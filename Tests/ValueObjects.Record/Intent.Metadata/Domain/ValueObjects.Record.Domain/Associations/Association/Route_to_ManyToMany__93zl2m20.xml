@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a5401584-4d1b-465e-a678-54a853be845a">
+  <sourceEnd id="b93f1314-a6bc-445d-8365-b8878adff23b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Route</name>
+    <display>Route: Route</display>
+    <order>0</order>
+    <typeReference id="6aa69625-ddff-4ea9-9f48-5fbafe80ad94">
+      <typeId>b1b38115-8d41-4bfb-a947-28b75b0f3a71</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ValueObjects.Record.Domain</typePackageName>
+      <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a5401584-4d1b-465e-a678-54a853be845a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ManyToMany</name>
+    <display>ManyToMany: Waypoint[*]</display>
+    <order>6</order>
+    <typeReference id="ab0990df-2596-4fb0-8d6c-d2e5ebe811a2">
+      <typeId>1f490078-c450-4607-951b-a0868173d37a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ValueObjects.Record.Domain</typePackageName>
+      <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

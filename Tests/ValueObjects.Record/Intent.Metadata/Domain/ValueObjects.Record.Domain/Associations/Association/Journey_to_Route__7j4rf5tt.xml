@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="05d5d26c-5aab-4bc3-b2fb-f89e973e9a11">
+  <sourceEnd id="eeaac53e-65b6-4872-98ea-065c81a7f7a5" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Journey</name>
+    <display>Journey: Journey</display>
+    <order>0</order>
+    <typeReference id="89ed291b-63dc-46c3-a38c-6c92fef314a9">
+      <typeId>3e08801a-5b45-4872-b87c-7919686d2f8f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ValueObjects.Record.Domain</typePackageName>
+      <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="05d5d26c-5aab-4bc3-b2fb-f89e973e9a11" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Route</name>
+    <display>Route: Route</display>
+    <order>2</order>
+    <typeReference id="fdfbc9b5-fa45-45f0-8065-fef7383c86e6">
+      <typeId>b1b38115-8d41-4bfb-a947-28b75b0f3a71</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ValueObjects.Record.Domain</typePackageName>
+      <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

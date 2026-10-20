@@ -106,7 +106,6 @@
   <file path="TestMediator.NoEventing.Domain/Repositories/Products/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="TestMediator.NoEventing.Domain/TestMediator.NoEventing.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.NoEventing.Infrastructure/Configuration/MediatorConfiguration.cs" templateId="Intent.Application.Mediator.MediatorConfiguration" />
-  <file path="TestMediator.NoEventing.Infrastructure/Configuration/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.NoEventing.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="TestMediator.NoEventing.Infrastructure/Dispatch/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.Mediator.AuthorizationBehaviour" />
   <file path="TestMediator.NoEventing.Infrastructure/Dispatch/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.Mediator.LoggingBehaviour" />
@@ -114,6 +113,7 @@
   <file path="TestMediator.NoEventing.Infrastructure/Dispatch/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.Mediator.UnhandledExceptionBehaviour" />
   <file path="TestMediator.NoEventing.Infrastructure/Dispatch/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
   <file path="TestMediator.NoEventing.Infrastructure/Dispatch/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
+  <file path="TestMediator.NoEventing.Infrastructure/Dispatch/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.NoEventing.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="TestMediator.NoEventing.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="TestMediator.NoEventing.Infrastructure/Persistence/Configurations/Products/PriceHistoryEntryConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

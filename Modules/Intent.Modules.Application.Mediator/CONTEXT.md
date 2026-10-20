@@ -37,6 +37,11 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   FluentValidation) is unaffected. Rejected: MediatR's placement in `Application.Common` (`Common/Behaviours`), which
   this module copied until then. `MessageBusFlushOwner` is not a behaviour and stays at `Common/Eventing` in
   Application.
+  - `SequentialNotificationPublisher` sits beside them, at role `Infrastructure.Mediator.Dispatch.SequentialNotificationPublisher`
+    and location `Dispatch` (developer decision, 2026-10-20, in `1.0.0-pre.2`). It is dispatch machinery, not
+    configuration; `MediatorConfiguration` alone stays in `Configuration`. Its template id did not change, and no module
+    outside the core looks it up, so the move touches nothing else. Existing applications keep the file in
+    `Configuration` until its Template Output is moved; the merge then adds the `...Infrastructure.Dispatch` using itself.
   - In Infrastructure the `TRequest` constraint is written `global::Mediator.IMessage`. The NServiceBus package adds
     `global using NServiceBus;` to that project, and its `IMessage` made the bare name ambiguous (CS0104, found in
     `Tests/TestMediator.Nsb`). `UseType` cannot see global usings that come from a package, so it would not qualify
@@ -124,17 +129,15 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   is resolved optionally (`TryGetTypeName`, `DoNotThrow`, `CanRunTemplate`), so neither is a dependency.
   `Intent.Modules.Constants`, `Intent.Modules.Common.UnitOfWork` and the `Intent.Modules.Security.Shared` shared
   project compile into the module; `Intent.Common.UnitOfWork` is declared because its behaviour is applied at generation.
-- **Domain, Eventing and Services.EventInteractions modelers are in the imodspec but not needed by the code.** They
-  appear because they are in `modules.config` (installed for designer context), and the Software Factory re-adds them
-  while they are there. No C# reference to them exists. They only matter for the Integration Event Handler skill and
-  task, which are gated at runtime on the Eventing.Contracts role and do not need the modelers installed by this
-  module. To stop shipping them, uninstall them from the module application (never edit `modules.config` by hand).
+- **Domain and Eventing modelers are in the imodspec but not needed.** They appear because they are in
+  `modules.config` (installed for designer context), and the Software Factory re-adds them while they are there. No
+  C# or designer-settings reference to them exists. To stop shipping them, uninstall them from the module application
+  (never edit `modules.config` by hand). `Intent.Modelers.Services.EventInteractions` **is** needed: the
+  `Mediator Services Extensions` designer settings extend its Integration Event Handler element type.
 - **Settings and designer rules are the only AI guidance the model carries.** The element extensions on Command
   and Query hold `AI Settings` rules (G22); the skills carry the same rule from the other side. An agent that edits
-  the model without reading the element's rules misses it — accepted, documented in the README.
-  **Known gap against the plan:** G22 also puts a rule on Integration Event Handler when Eventing.Contracts is
-  present. The `Mediator Services Extensions` designer settings file only extends Command and Query. The README says
-  so. Adding it needs a Module Builder change (not a code change).
+  the model without reading the element's rules misses it — accepted, documented in the README. Integration Event
+  Handler carries the same kind of rule (see "The Integration Event Handler rule is back").
 - **No settings.** The three opt-in behaviour switches were removed (see Architectural Decisions). The
   `Create implicit domain event handlers` switch (G18) belongs to Mediator.DomainEvents, not the core.
 
@@ -153,7 +156,9 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   matching satellite at `1.0.0-pre.1`, and every satellite declares the core at `1.0.0-pre.1`. These family links are
   hand-maintained, and the Software Factory keeps a raised version. Move them together: FluentValidation `pre.1` fills
   the `Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour` role, and a `pre.0` core looks for the old one,
-  so a mixed pair silently loses validation (found 2026-10-20, when they were all still at `pre.0`). Seam modules are pinned to the pre-release that carries the seam (EF Core
+  so a mixed pair silently loses validation (found 2026-10-20, when they were all still at `pre.0`). A satellite's
+  pin on the core is a minimum, so it moves only when a contract the satellite uses changes: core `pre.2` (the
+  publisher move) changes none, so the satellites still declare `pre.1`. Seam modules are pinned to the pre-release that carries the seam (EF Core
   5.2.1-pre.0, MassTransit 7.2.4-pre.0, NServiceBus 1.0.4-pre.0, Eventing.Wolverine 1.0.1-pre.0). These must match
   those modules' versions in their own packages; they were bumped for the seams. EF Core Repositories 4.8.2,
   AutoMapper 5.3.10 and Mapperly 1.1.4 are minimum-compatible pins copied from Wolverine's imodspec.

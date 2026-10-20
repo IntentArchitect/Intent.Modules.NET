@@ -63,7 +63,6 @@
   <file path="TestMediator.Nsb.Domain/TestMediator.Nsb.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.Nsb.Infrastructure/Configuration/MediatorConfiguration.cs" templateId="Intent.Application.Mediator.MediatorConfiguration" />
   <file path="TestMediator.Nsb.Infrastructure/Configuration/NServiceBusConfiguration.cs" templateId="Intent.Eventing.NServiceBus.NServiceBusConfiguration" />
-  <file path="TestMediator.Nsb.Infrastructure/Configuration/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.Nsb.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="TestMediator.Nsb.Infrastructure/Dispatch/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.Mediator.AuthorizationBehaviour" />
   <file path="TestMediator.Nsb.Infrastructure/Dispatch/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.Mediator.LoggingBehaviour" />
@@ -72,6 +71,7 @@
   <file path="TestMediator.Nsb.Infrastructure/Dispatch/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.Mediator.UnhandledExceptionBehaviour" />
   <file path="TestMediator.Nsb.Infrastructure/Dispatch/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
   <file path="TestMediator.Nsb.Infrastructure/Dispatch/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
+  <file path="TestMediator.Nsb.Infrastructure/Dispatch/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.Nsb.Infrastructure/Eventing/NServiceBusMessageBus.cs" templateId="Intent.Eventing.NServiceBus.NServiceBusMessageBus" />
   <file path="TestMediator.Nsb.Infrastructure/Eventing/NServiceBusMessageHandler.cs" templateId="Intent.Eventing.NServiceBus.NServiceBusMessageHandler" />
   <file path="TestMediator.Nsb.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />

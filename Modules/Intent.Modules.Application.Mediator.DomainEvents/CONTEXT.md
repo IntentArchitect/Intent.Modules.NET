@@ -101,7 +101,7 @@ in `Spike/MediatorSpike/DECISIONS.md`).
 - **NuGet dependencies are declared in template constructors**, never in `OnBuild`. `NugetPackages` locks
   `Mediator.Abstractions` at 3.0.2, matching the core.
 - **Handlers must not flush the bus or call `SaveChangesAsync`, and must not publish domain events by hand.** This is
-  guidance carried by the skill and the task text, not enforced by generated code.
+  guidance carried by the skill and the designer rule, not enforced by generated code.
 - **Do not add a dependency on `Intent.Application.DomainInteractions`** (plan decision for this module).
 
 ## Module Interactions

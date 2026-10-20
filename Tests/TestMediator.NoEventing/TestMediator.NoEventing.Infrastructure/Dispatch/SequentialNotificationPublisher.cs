@@ -4,7 +4,7 @@ using Mediator;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Mediator.SequentialNotificationPublisher", Version = "1.0")]
 
-namespace TestMediator.WolverineSubscribeOnly.Infrastructure.Configuration
+namespace TestMediator.NoEventing.Infrastructure.Dispatch
 {
     /// <summary>
     /// Runs notification handlers one at a time and stops at the first failure, rethrowing the
