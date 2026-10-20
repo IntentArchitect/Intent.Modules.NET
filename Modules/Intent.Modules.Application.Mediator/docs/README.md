@@ -100,7 +100,7 @@ The module generates these skills into the application's AI context.
 
 | Skill | Purpose |
 |---|---|
-| `mediator-command-handler` | How to implement a command handler: read the associations from the designer in order, what each interaction type means, `return Unit.Value;` for commands with no response, no flushing the message bus from a handler, when `SaveChangesAsync` is and is not needed, never change the signature, and mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`. |
+| `mediator-command-handler` | How to implement a command handler: read the associations from the designer in order, what each interaction type means, `return Unit.Value;` for commands with no response, no flushing the message bus from a handler, when `SaveChangesAsync` is and is not needed, never change the signature, and mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`. When `Intent.Application.Mediator.FluentValidation` is installed, that module adds a Validator section covering the command's validation rules. |
 | `mediator-query-handler` | The same for queries: read-only handling, no saving. |
 | `mediator-integration-event-handler` | Generated only when the application has integration event handlers (from `Intent.Eventing.Contracts`). See [Integration event handlers](#integration-event-handlers). |
 

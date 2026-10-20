@@ -18,11 +18,11 @@ It also adjusts the core's `UnhandledExceptionBehaviour` when that behaviour is 
 
 Installing `Intent.Application.FluentValidation` into an application that already has `Intent.Application.Mediator` installs this module as well (the core module declares it as interoperability). It requires `Intent.Application.Mediator`; install the core first if you add this module by hand.
 
-The module has no settings of its own. The unique constraint validation default is read from the `Intent.Application.FluentValidation` application settings.
+The module has no settings of its own.
 
 ## Validators
 
-Command and query validators are built on the same shared validator base used by the MediatR and Wolverine FluentValidation modules, so the rules generated from the designer (required, length, ranges, unique constraints and so on) match those modules. Validators may inject repositories (for example for unique constraint checks), and the custom validation hook is enabled so you can add bespoke rules that survive regeneration. In the generated rules, the lambda parameter is named `command` for commands and `query` for queries.
+Command and query validators are built on the same shared validator base used by the MediatR and Wolverine FluentValidation modules, but, like the handlers in this module family, most of their rules are written by an AI agent rather than generated. The module generates the rules modelled explicitly on a field with the validation stereotype, plus `NotNull`, enum and nested DTO checks. Rules derived from the target entity's constraints, such as maximum lengths, are generated only where the shared base can still reach the entity through the command's own associations, and unique constraint checks are never generated, so the unique constraint validation setting of `Intent.Application.FluentValidation` has no effect here. This module adds a Validator section to the `mediator-command-handler` skill from `Intent.Application.Mediator`, telling the agent to write those rules from the entity the command creates or updates, and to protect them with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` on `ConfigureValidationRules`. The custom validation hook is enabled so you can add bespoke rules that survive regeneration. In the generated rules, the lambda parameter is named `command` for commands and `query` for queries.
 
 The custom validation AI skill (`fluent-validation-custom-validation`) is owned by `Intent.Application.FluentValidation` and is shared by every transport; this module does not generate its own copy.
 

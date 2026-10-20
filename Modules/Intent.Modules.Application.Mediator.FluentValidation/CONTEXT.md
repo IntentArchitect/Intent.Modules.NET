@@ -26,8 +26,15 @@ G1, G5, D20, D21).
 - **Validators reuse `DtoValidatorTemplateBase` from `Intent.Modules.FluentValidation.Shared`** (a shared project
   imported into this csproj, as in the Wolverine module), keyed to the Mediator `CommandModels` / `QueryModels` template
   ids. Rejected: copying generation logic from a sibling module. All three transports must stay in sync through the
-  shared base. Repository injection and custom validation are both enabled; disabling either removes capability
-  developers expect.
+  shared base. `sourceElementAdvancedMappings` is `null`, so the base never injects a repository and emits no
+  unique-constraint checks; it still emits explicit field-stereotype rules and whatever domain-constraint rules it can
+  reach through the command's own associations. That is accepted, not a gap to fix: as with handlers, rule
+  derivation belongs to the AI, guided by a Validator section that this module's `AISkillsExtension` injects into the
+  core's `mediator-command-handler` skill, before its `Workflow` section, so the guidance exists only when this module
+  is installed (developer decision, 2026-10-20). Only the command handler skill gets it: query validation rarely has
+  entity constraints to derive. Rejected: passing the command's `AssociatedElements` as MediatR does, which would
+  rebuild the deterministic path this family deliberately leaves behind. Whatever the base still generates by default
+  is left alone.
 - **`modelParameterName` is `"command"` for commands and `"query"` for queries.** This is what the Wolverine module's
   own CONTEXT.md documents for its validators (see the note under Module Interactions about that module's code). It
   only affects the lambda parameter name in the generated rules.

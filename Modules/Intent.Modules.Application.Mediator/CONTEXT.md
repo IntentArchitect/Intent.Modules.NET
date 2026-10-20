@@ -48,12 +48,28 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   handlers, check for a `HandleAsync` without `Body = Mode.Ignore` whose subscription has an Invoke or an unmapped
   Publish/Send. Accepted cost: nothing proactively flags an unwritten handler; an agent that neither edits the model
   nor loads the skill will not find it. The skill text alone is the rule for that agent.
+- **Satellites add their own guidance to the core's skills; the core's skill text names no satellite.** The
+  `mediator-command-handler` skill has no Validator section of its own. `Intent.Application.Mediator.FluentValidation`
+  injects one with a factory extension (`BeforeSection("Workflow", ...)`), so it appears only when that module is
+  installed (developer decision, 2026-10-20). Rejected: unconditional text in the core ("when the command has a
+  validator"), which tells an agent in an app without validation about files that do not exist. The skill is generated
+  once per AI harness, so a satellite must use `FindTemplateInstances`, not `FindTemplateInstance` (which throws on the
+  duplicates). The core's section titles (`Workflow`, `Output expectations`) are anchors for these injections; renaming
+  one silently moves injected sections to the end of the file.
 - **The Integration Event Handler rule is back.** It was first removed to keep the core free of the EventInteractions
   modeler, but the Software Factory re-adds that modeler to the imodspec from `modules.config` regardless, and with
   the Finish task gone the rule is the only model-side carrier of the takeover check.
 - **No registration factory extension in the core.** A scaffolded `MediatorRegistrationFactoryExtension` was removed
   from the model: the `MediatorConfiguration` template registers `AddMediatorConfiguration` itself through a
   `ServiceConfigurationRequest`. A stale element would keep its id in the imodspec.
+- **One icon for the whole family** (developer decision, 2026-10-20). The upstream library has no logo, so all five
+  Mediator modules share the same icon: a teal circular badge with a central hub joined to four parts that only
+  connect through it, which is the mediator pattern itself. A bolt in the hub (fast, source-generated dispatch) is
+  hidden by an SVG media query below 30px, where it would only blot the hub. The Dispatch modules share it too,
+  unlike MediatR's dispatch modules, which each have their own. Rejected: code brackets around a diamond (applied
+  first, then replaced: it said "fast generated code", not "mediator", and blurred at list size), an "M" monogram
+  (easy to confuse with MediatR), a three-node hub (reads as the "share" icon) and six spokes (busy at 16px).
+  Teal keeps it apart from MediatR's blue and Intent's own. A new Mediator module should reuse this icon.
 
 ## Invariants & Constraints
 
