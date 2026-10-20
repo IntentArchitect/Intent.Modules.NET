@@ -1375,10 +1375,13 @@ Global
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{48e0fa03-08a9-4d9c-a439-129909ece486}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{4f03f39e-aac1-4b43-8cf7-03c4ea2e945f}*SharedItemsImports = 5
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{4faf05b4-370f-4929-9631-c0dd42a63c8b}*SharedItemsImports = 5
+		Intent.Modules.Application.Shared\Intent.Modules.Application.Shared.projitems*{5462b515-987b-44d9-ae77-0ca608a7210f}*SharedItemsImports = 5
+		Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems*{5462b515-987b-44d9-ae77-0ca608a7210f}*SharedItemsImports = 5
 		Intent.Modules.ApiHosting.Shared\Intent.Modules.ApiHosting.Shared.projitems*{558d0e7a-9b9e-4eea-85aa-10c6466425dd}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{558d0e7a-9b9e-4eea-85aa-10c6466425dd}*SharedItemsImports = 5
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{558f5562-d714-4264-a02d-350300a2c956}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{5cd69b39-bff1-4713-86c7-d5d7d7f397ea}*SharedItemsImports = 5
+		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{5f04e25f-4d08-42ac-b320-cb642fc302fc}*SharedItemsImports = 5
 		Intent.Modules.Dapr.Shared\Intent.Modules.Dapr.Shared.projitems*{66e8a974-5617-4dd2-8d46-a35bf0587a20}*SharedItemsImports = 5
 		Intent.Modules.Contracts.Clients.Http.Shared\Intent.Modules.Contracts.Clients.Http.Shared.projitems*{677abc38-c23b-4ca4-9117-f470dd3ea997}*SharedItemsImports = 5
 		Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems*{677abc38-c23b-4ca4-9117-f470dd3ea997}*SharedItemsImports = 5
