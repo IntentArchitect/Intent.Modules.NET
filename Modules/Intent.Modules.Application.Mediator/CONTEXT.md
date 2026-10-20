@@ -37,9 +37,15 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   FluentValidation) is unaffected. Rejected: MediatR's placement in `Application.Common` (`Common/Behaviours`), which
   this module copied until then. `MessageBusFlushOwner` is not a behaviour and stays at `Common/Eventing` in
   Application.
+  - In Infrastructure the `TRequest` constraint is written `global::Mediator.IMessage`. The NServiceBus package adds
+    `global using NServiceBus;` to that project, and its `IMessage` made the bare name ambiguous (CS0104, found in
+    `Tests/TestMediator.Nsb`). `UseType` cannot see global usings that come from a package, so it would not qualify
+    the name itself. The FluentValidation `ValidationBehaviour` does the same.
   - An output, once placed, stays put on a reinstall. An application that installed an earlier pre-release keeps its
     behaviours in `Application/Common/Behaviours` until their Template Outputs are moved to the Infrastructure
-    project (or the module is uninstalled and reinstalled).
+    project (or the module is uninstalled and reinstalled). After the move, the merge keeps the old
+    `using {App}.Application.Common.Behaviours;` in `MediatorConfiguration.cs`, which no longer compiles; delete that
+    line once and regeneration leaves it out (seen in `Tests/TestMediator.Nsb`, 2026-10-20).
 - **Logging, UnhandledException, Performance and Authorization are always generated** (developer decision,
   2026-10-20), as Wolverine's middleware is. Rejected: the plan's opt-in settings (D9, the three `Enable ...
   behaviour` switches, removed with their Mediator Settings group) and gating Authorization on Identity plus a

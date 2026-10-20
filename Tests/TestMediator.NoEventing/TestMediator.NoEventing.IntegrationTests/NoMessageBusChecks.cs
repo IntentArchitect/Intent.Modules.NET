@@ -6,7 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Xunit;
-using TestMediator.NoEventing.Application.Common.Behaviours;
+using TestMediator.NoEventing.Infrastructure.Dispatch.Behaviours;
+using TestMediator.NoEventing.Application.Common.Interfaces;
 using TestMediator.NoEventing.Application.Products.ChangeProductPrice;
 using TestMediator.NoEventing.Application.Products.CreateProduct;
 using TestMediator.NoEventing.Application.Products.GetProductPriceHistory;
@@ -43,7 +44,7 @@ public class NoMessageBusChecks
     }
 
     [Fact]
-    public async Task Pipeline_HasNoFlushStep_OnlyValidationThenUnitOfWork()
+    public async Task Pipeline_HasNoFlushStep()
     {
         await using var provider = InProcessApp.Build();
         await using var scope = provider.CreateAsyncScope();
@@ -53,7 +54,16 @@ public class NoMessageBusChecks
             .Select(b => b.GetType().GetGenericTypeDefinition())
             .ToList();
 
-        Assert.Equal([typeof(ValidationBehaviour<,>), typeof(UnitOfWorkBehaviour<,>)], pipeline);
+        Assert.Equal(
+            [
+            typeof(LoggingBehaviour<,>),
+            typeof(UnhandledExceptionBehaviour<,>),
+            typeof(PerformanceBehaviour<,>),
+            typeof(AuthorizationBehaviour<,>),
+            typeof(ValidationBehaviour<,>),
+            typeof(UnitOfWorkBehaviour<,>)
+            ],
+            pipeline);
     }
 
     [Fact]
@@ -109,6 +119,8 @@ internal static class InProcessApp
         var services = new ServiceCollection();
         services.AddLogging();
         services.AddSingleton<IConfiguration>(configuration);
+        // The Api registers the real one; the always-generated Logging and Authorization behaviours need a user.
+        services.AddSingleton<ICurrentUserService, AnonymousCurrentUserService>();
         Application.DependencyInjection.AddApplication(services, configuration);
         Infrastructure.DependencyInjection.AddInfrastructure(services, configuration);
 
@@ -119,5 +131,12 @@ internal static class InProcessApp
         services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase(database).UseLazyLoadingProxies());
 
         return services.BuildServiceProvider();
+    }
+
+    private sealed class AnonymousCurrentUserService : ICurrentUserService
+    {
+        public Task<ICurrentUser?> GetAsync() => Task.FromResult<ICurrentUser?>(null);
+        public Task<bool> IsInRoleAsync(string role) => Task.FromResult(false);
+        public Task<bool> AuthorizeAsync(string policy) => Task.FromResult(false);
     }
 }

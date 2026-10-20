@@ -10,7 +10,7 @@ using TestMediator.NoEventing.Application.Common.Interfaces;
 namespace TestMediator.NoEventing.Infrastructure.Dispatch.Behaviours
 {
     public class LoggingBehaviour<TRequest, TResponse> : MessagePreProcessor<TRequest, TResponse>
-        where TRequest : IMessage
+        where TRequest : global::Mediator.IMessage
     {
         private readonly ILogger<LoggingBehaviour<TRequest, TResponse>> _logger;
         private readonly ICurrentUserService _currentUserService;

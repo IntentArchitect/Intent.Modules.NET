@@ -11,7 +11,7 @@ using TestMediator.NoEventing.Application.Common.Security;
 namespace TestMediator.NoEventing.Infrastructure.Dispatch.Behaviours
 {
     public class AuthorizationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IMessage
+        where TRequest : global::Mediator.IMessage
     {
         private readonly ICurrentUserService _currentUserService;
 

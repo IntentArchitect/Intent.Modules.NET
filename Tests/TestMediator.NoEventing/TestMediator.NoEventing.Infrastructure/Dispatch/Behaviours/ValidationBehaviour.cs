@@ -10,7 +10,7 @@ using TestMediator.NoEventing.Application.Common.Interfaces;
 namespace TestMediator.NoEventing.Infrastructure.Dispatch.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IMessage
+        where TRequest : global::Mediator.IMessage
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 

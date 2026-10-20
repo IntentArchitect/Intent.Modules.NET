@@ -3,7 +3,7 @@
   <name>TestMediator.Publisher.Infrastructure</name>
   <display>TestMediator.Publisher.Infrastructure</display>
   <externalReference>6c18c234-6c17-4288-a6e4-a95e3ba5037d</externalReference>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <parentFolderId>e54f3e60-a08f-4875-82f8-9e5272ebd7e1</parentFolderId>
   <packageId>8627adce-bbab-4adc-a8ff-7eeadf59eda4</packageId>
   <packageName>root</packageName>
@@ -34,6 +34,7 @@
         <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" />
         <property name="a811d3f2-253e-46de-ae72-bd6ec9f30d54" display="Generate AppSettings File" value="false" />
         <property name="4fe561b9-333e-4341-8243-d569db8cd8f4" display="Generate LaunchSettings File" value="false" />
+        <property name="0aca4b00-3558-46c4-abcc-e4d9b8b17090" display="MSTest SDK Version" isActive="false" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -49,6 +50,36 @@
     </stereotype>
   </stereotypes>
   <children>
+    <element id="477c0886-a734-476b-a4e9-2dce727aa4ed" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Infrastructure.DependencyInjection.DependencyInjection</name>
+      <display>Intent.Infrastructure.DependencyInjection.DependencyInjection</display>
+      <externalReference>Intent.Infrastructure.DependencyInjection</externalReference>
+      <parentFolderId>394a70b9-67b5-4d0a-bab1-6b80743ab863</parentFolderId>
+      <packageId>8627adce-bbab-4adc-a8ff-7eeadf59eda4</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" />
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;e2c436c8-65a6-4d7a-871d-0bc2fd2e15f3&quot;]" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
     <element id="d4f533b3-37cb-4496-b036-92192d68ab66" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Infrastructure</name>
       <display>Infrastructure</display>
@@ -84,27 +115,6 @@
           </properties>
         </stereotype>
       </stereotypes>
-    </element>
-    <element id="477c0886-a734-476b-a4e9-2dce727aa4ed" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Infrastructure.DependencyInjection.DependencyInjection</name>
-      <display>Intent.Infrastructure.DependencyInjection.DependencyInjection</display>
-      <externalReference>Intent.Infrastructure.DependencyInjection</externalReference>
-      <parentFolderId>394a70b9-67b5-4d0a-bab1-6b80743ab863</parentFolderId>
-      <packageId>8627adce-bbab-4adc-a8ff-7eeadf59eda4</packageId>
-      <packageName>root</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;e2c436c8-65a6-4d7a-871d-0bc2fd2e15f3&quot;]" />
-            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
     </element>
   </children>
 </class>

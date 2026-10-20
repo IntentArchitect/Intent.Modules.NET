@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="16ddabe0-70d6-4259-9295-6b1bb0c19d30" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Dispatch</name>
+  <display>Dispatch</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>8586ef79-0ad0-4254-a3f3-1039f4317ac3</parentFolderId>
+  <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</class>

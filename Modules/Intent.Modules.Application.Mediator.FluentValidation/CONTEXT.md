@@ -13,7 +13,8 @@ G1, G5, D20, D21).
   `Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour`, and is generated into Infrastructure
   `Dispatch/Behaviours` beside the core's behaviours (developer decision, 2026-10-20, mirroring Wolverine, whose
   `ValidationMiddleware` sits in Infrastructure; it was `Application.Common.ValidationBehaviour` at `Common/Behaviours`
-  until then, MediatR's placement). The core's `MediatorConfiguration` resolves that role and adds the
+  until then, MediatR's placement). Its `TRequest` constraint is `global::Mediator.IMessage`, as in the core's
+  behaviours, because NServiceBus's global using brings its own `IMessage` into that project. The core's `MediatorConfiguration` resolves that role and adds the
   Validation item to its literal `PipelineBehaviors` array (order: ... MessageBusPublish, Validation, UnitOfWork).
   Rejected: inserting the item from this module, as the MediatR FluentValidation module does for its own pipeline. The
   Mediator source generator reads `PipelineBehaviors` as a literal at compile time and `CSharpCollectionExpression` has

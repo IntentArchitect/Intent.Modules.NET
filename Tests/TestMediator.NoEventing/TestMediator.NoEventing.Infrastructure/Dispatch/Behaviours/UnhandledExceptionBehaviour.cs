@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace TestMediator.NoEventing.Infrastructure.Dispatch.Behaviours
 {
     public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IMessage
+        where TRequest : global::Mediator.IMessage
     {
         private readonly ILogger<UnhandledExceptionBehaviour<TRequest, TResponse>> _logger;
         private readonly bool _logRequestPayload;

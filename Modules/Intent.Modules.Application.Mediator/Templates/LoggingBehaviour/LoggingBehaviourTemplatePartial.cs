@@ -35,7 +35,8 @@ namespace Intent.Modules.Application.Mediator.Templates.LoggingBehaviour
                     @class.AddGenericParameter("TRequest", out var tRequest);
                     @class.AddGenericParameter("TResponse", out var tResponse);
                     @class.WithBaseType(UseType($"Mediator.MessagePreProcessor<{tRequest}, {tResponse}>"));
-                    @class.AddGenericTypeConstraint(tRequest, c => c.AddType(UseType("Mediator.IMessage")));
+                    // Qualified because the Infrastructure project can also import NServiceBus.IMessage (a global using).
+                    @class.AddGenericTypeConstraint(tRequest, c => c.AddType("global::Mediator.IMessage"));
 
                     @class.AddConstructor(ctor =>
                     {

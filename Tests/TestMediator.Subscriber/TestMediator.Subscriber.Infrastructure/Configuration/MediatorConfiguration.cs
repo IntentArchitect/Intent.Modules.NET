@@ -2,7 +2,7 @@ using Intent.RoslynWeaver.Attributes;
 using Mediator;
 using Microsoft.Extensions.DependencyInjection;
 using TestMediator.Subscriber.Application;
-using TestMediator.Subscriber.Application.Common.Behaviours;
+using TestMediator.Subscriber.Infrastructure.Dispatch.Behaviours;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Mediator.MediatorConfiguration", Version = "1.0")]
@@ -19,6 +19,10 @@ namespace TestMediator.Subscriber.Infrastructure.Configuration
                 options.Assemblies = [typeof(Application.DependencyInjection)];
                 options.NotificationPublisherType = typeof(SequentialNotificationPublisher);
                 options.PipelineBehaviors = [
+                    typeof(LoggingBehaviour<,>),
+                    typeof(UnhandledExceptionBehaviour<,>),
+                    typeof(PerformanceBehaviour<,>),
+                    typeof(AuthorizationBehaviour<,>),
                     typeof(MessageBusPublishBehaviour<,>),
                     typeof(ValidationBehaviour<,>),
                     typeof(UnitOfWorkBehaviour<,>)

@@ -3,7 +3,7 @@
   <name>TestMediator.Outbox.Api</name>
   <display>TestMediator.Outbox.Api</display>
   <externalReference>5f9b980c-8d87-479d-8ae3-40d830777dc8</externalReference>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <parentFolderId>29f73def-9d3a-417a-bd65-453a8259190f</parentFolderId>
   <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
   <packageName>root</packageName>
@@ -34,6 +34,7 @@
         <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" />
         <property name="a811d3f2-253e-46de-ae72-bd6ec9f30d54" display="Generate AppSettings File" value="true" />
         <property name="4fe561b9-333e-4341-8243-d569db8cd8f4" display="Generate LaunchSettings File" value="true" />
+        <property name="0aca4b00-3558-46c4-abcc-e4d9b8b17090" display="MSTest SDK Version" isActive="false" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -56,43 +57,95 @@
     </stereotype>
   </stereotypes>
   <children>
-    <element id="ca2b22e8-3da8-4240-99d4-0037841a20af" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-      <name>ClientApp</name>
-      <display>ClientApp</display>
-      <externalReference>060a63b7-71dc-488a-8c31-3e0e32c9e87d</externalReference>
+    <element id="1247443e-8132-4758-89f3-7ece08b46dcd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Program</name>
+      <display>Intent.AspNetCore.Program</display>
+      <externalReference>Intent.AspNetCore</externalReference>
       <parentFolderId>87307768-b883-43af-a88e-58c6f7741469</parentFolderId>
       <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
       <packageName>root</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
-          <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
           <properties>
-            <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" />
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;13436b14-b8a7-4944-a5c5-51a68a7621e2&quot;]" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
           </properties>
         </stereotype>
       </stereotypes>
-      <children>
-        <element id="0f53b6c1-e813-4b53-9e61-5adf48d8b4c2" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-          <name>Front End</name>
-          <display>Front End</display>
-          <externalReference>164d4bd8-c4f0-4ca1-baa1-2549cc348c20</externalReference>
-          <parentFolderId>ca2b22e8-3da8-4240-99d4-0037841a20af</parentFolderId>
-          <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
-          <packageName>root</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-              <properties>
-                <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-        </element>
-      </children>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="84722ff7-c479-4364-99dd-7f4a82457c29" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProgramPartial</name>
+      <display>Intent.AspNetCore.ProgramPartial</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <parentFolderId>87307768-b883-43af-a88e-58c6f7741469</parentFolderId>
+      <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="2 - Medium" />
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;13436b14-b8a7-4944-a5c5-51a68a7621e2&quot;]" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="b1b3168b-ae3f-459e-afd9-8e3f7469cc0d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Startup</name>
+      <display>Intent.AspNetCore.Startup</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <parentFolderId>87307768-b883-43af-a88e-58c6f7741469</parentFolderId>
+      <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="2 - Medium" />
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;13436b14-b8a7-4944-a5c5-51a68a7621e2&quot;]" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
     </element>
     <element id="871dc90a-26e1-4425-9ba6-fa93d6dbe911" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Distribution</name>
@@ -129,69 +182,6 @@
           </properties>
         </stereotype>
       </stereotypes>
-    </element>
-    <element id="1247443e-8132-4758-89f3-7ece08b46dcd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Program</name>
-      <display>Intent.AspNetCore.Program</display>
-      <externalReference>Intent.AspNetCore</externalReference>
-      <parentFolderId>87307768-b883-43af-a88e-58c6f7741469</parentFolderId>
-      <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
-      <packageName>root</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;13436b14-b8a7-4944-a5c5-51a68a7621e2&quot;]" />
-            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-    <element id="84722ff7-c479-4364-99dd-7f4a82457c29" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.ProgramPartial</name>
-      <display>Intent.AspNetCore.ProgramPartial</display>
-      <externalReference>Intent.AspNetCore</externalReference>
-      <parentFolderId>87307768-b883-43af-a88e-58c6f7741469</parentFolderId>
-      <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
-      <packageName>root</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;13436b14-b8a7-4944-a5c5-51a68a7621e2&quot;]" />
-            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="2 - Medium" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-    <element id="b1b3168b-ae3f-459e-afd9-8e3f7469cc0d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Startup</name>
-      <display>Intent.AspNetCore.Startup</display>
-      <externalReference>Intent.AspNetCore</externalReference>
-      <parentFolderId>87307768-b883-43af-a88e-58c6f7741469</parentFolderId>
-      <packageId>4c092292-dc85-49c9-8f6d-628039f96667</packageId>
-      <packageName>root</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;13436b14-b8a7-4944-a5c5-51a68a7621e2&quot;]" />
-            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="2 - Medium" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
     </element>
   </children>
 </class>

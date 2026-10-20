@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
-using TestMediator.Publisher.Application.Common.Behaviours;
+using TestMediator.Publisher.Infrastructure.Dispatch.Behaviours;
 using TestMediator.Publisher.Application.Common.Eventing;
 using TestMediator.Publisher.Application.Orders;
 using TestMediator.Publisher.Application.Orders.CreateOrder;

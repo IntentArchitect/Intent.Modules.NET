@@ -14,7 +14,7 @@ using Testcontainers.MsSql;
 using Testcontainers.RabbitMq;
 using Xunit;
 using Xunit.Abstractions;
-using TestMediator.Subscriber.Application.Common.Behaviours;
+using TestMediator.Subscriber.Infrastructure.Dispatch.Behaviours;
 using TestMediator.Subscriber.Application.Shipments;
 using TestMediator.Subscriber.Application.Shipments.CreateShipment;
 using TestMediator.Subscriber.Application.Shipments.GetShipments;
@@ -132,7 +132,7 @@ public sealed class FixtureCollection : ICollectionFixture<Fixture>
     public const string Name = "subscriber";
 }
 
-/// <summary>The defaults pipeline: the opt-in behaviours are off and nothing is secured, so there is no Authorization item.</summary>
+/// <summary>The defaults pipeline: Logging, UnhandledException, Performance and Authorization are always present.</summary>
 public class PipelineShapeChecks
 {
     [Fact]
@@ -145,11 +145,17 @@ public class PipelineShapeChecks
             services.Where(d => d.ServiceType == typeof(IPipelineBehavior<TMessage, TResponse>))
                 .Select(d => d.ImplementationType!.GetGenericTypeDefinition()).ToArray();
 
+        Type[] alwaysOn =
+            [
+            typeof(LoggingBehaviour<,>), typeof(UnhandledExceptionBehaviour<,>), typeof(PerformanceBehaviour<,>),
+            typeof(AuthorizationBehaviour<,>)
+            ];
+
         Assert.Equal(
-            new[] { typeof(MessageBusPublishBehaviour<,>), typeof(ValidationBehaviour<,>), typeof(UnitOfWorkBehaviour<,>) },
+            [.. alwaysOn, typeof(MessageBusPublishBehaviour<,>), typeof(ValidationBehaviour<,>), typeof(UnitOfWorkBehaviour<,>)],
             PipelineOf<CreateShipmentCommand, Guid>());
         Assert.Equal(
-            new[] { typeof(MessageBusPublishBehaviour<,>), typeof(ValidationBehaviour<,>) },
+            [.. alwaysOn, typeof(MessageBusPublishBehaviour<,>), typeof(ValidationBehaviour<,>)],
             PipelineOf<GetShipmentsQuery, List<ShipmentDto>>());
     }
 }

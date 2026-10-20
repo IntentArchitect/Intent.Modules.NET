@@ -11,7 +11,7 @@ using TestMediator.NoEventing.Application.Common.Interfaces;
 namespace TestMediator.NoEventing.Infrastructure.Dispatch.Behaviours
 {
     public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IMessage
+        where TRequest : global::Mediator.IMessage
     {
         private readonly ILogger<PerformanceBehaviour<TRequest, TResponse>> _logger;
         private readonly ICurrentUserService _currentUserService;

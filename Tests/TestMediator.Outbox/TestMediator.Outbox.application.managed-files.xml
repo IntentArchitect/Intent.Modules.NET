@@ -28,9 +28,6 @@
   <file path="TestMediator.Outbox.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
   <file path="TestMediator.Outbox.Application.UnitTests/TestMediator.Outbox.Application.UnitTests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.Outbox.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
-  <file path="TestMediator.Outbox.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.Mediator.MessageBusPublishBehaviour" />
-  <file path="TestMediator.Outbox.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
-  <file path="TestMediator.Outbox.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
   <file path="TestMediator.Outbox.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
   <file path="TestMediator.Outbox.Application/Common/Eventing/IMessageBus.cs" templateId="Intent.Eventing.Contracts.MessageBusInterface" />
   <file path="TestMediator.Outbox.Application/Common/Eventing/MessageBusFlushOwner.cs" templateId="Intent.Application.Mediator.MessageBusFlushOwner" />
@@ -68,6 +65,13 @@
   <file path="TestMediator.Outbox.Infrastructure/Configuration/MediatorConfiguration.cs" templateId="Intent.Application.Mediator.MediatorConfiguration" />
   <file path="TestMediator.Outbox.Infrastructure/Configuration/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.Outbox.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="TestMediator.Outbox.Infrastructure/Dispatch/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.Mediator.AuthorizationBehaviour" />
+  <file path="TestMediator.Outbox.Infrastructure/Dispatch/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.Mediator.LoggingBehaviour" />
+  <file path="TestMediator.Outbox.Infrastructure/Dispatch/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.Mediator.MessageBusPublishBehaviour" />
+  <file path="TestMediator.Outbox.Infrastructure/Dispatch/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.Mediator.PerformanceBehaviour" />
+  <file path="TestMediator.Outbox.Infrastructure/Dispatch/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.Mediator.UnhandledExceptionBehaviour" />
+  <file path="TestMediator.Outbox.Infrastructure/Dispatch/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
+  <file path="TestMediator.Outbox.Infrastructure/Dispatch/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
   <file path="TestMediator.Outbox.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
   <file path="TestMediator.Outbox.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
   <file path="TestMediator.Outbox.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
