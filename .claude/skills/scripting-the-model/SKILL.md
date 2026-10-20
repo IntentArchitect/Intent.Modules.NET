@@ -44,11 +44,13 @@ Scripts are plain JavaScript with top-level `await`. Hold references in local va
 
 ## Mutating: statement order IS operation order
 
+- **Read the designer's rules first.** Call `get_designer_rules` for every designer you will change, in the same response as your first schema read. `run_designer_script` refuses a designer with rules until you have.
+
 - Create a **parent before its children**; both **endpoints before an association** between them; the **element before a stereotype**, and the stereotype before setting its properties.
 - A **name resolves to an id at call time**, so a type must already exist before it is referenced. If one script both creates and references a type, create it first.
 - The whole script runs inside **ONE undo composite** (Ctrl+Z reverts it as one action). A mid-script throw still commits the steps before it — read `changes` to see what landed before writing the follow-up.
 - Write **one cohesive script per designer**, not one per aggregate. After running, read `errors[]` — what your change introduced (on what you touched first, then elsewhere in the designer, capped); fix those in a short follow-up script — the result is the verification, so don't follow it with a validation or structure query.
-- **Never lay out a diagram from a script.** No `layoutVisuals`, no positioning visuals, no opening a diagram to place things. To show the user your changes, call `showDynamicDiagram` from a `run_designer_query` at the end; saved diagrams change only when the user asks. See the **changing-the-model** skill.
+- **Never lay out a diagram from a script.** No `layoutVisuals`, no positioning visuals, no opening a diagram to place things. `run_designer_script` shows your changes on an Explorer Diagram automatically; saved diagrams change only when the user asks.
 
 ## Where the signatures are
 

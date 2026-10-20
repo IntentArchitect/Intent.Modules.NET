@@ -1,3 +1,7 @@
+### Version 7.1.16
+
+- Improvement: `ExceptionFilter.OnException` is now generated with `[IntentManaged(Mode.Fully, Body = Mode.Merge)]`, so you can add your own `case` blocks to the exception `switch` and they are kept when the Software Factory runs again. This requires `Intent.OutputManager.RoslynWeaver` 5.0.2 or later, which is now a dependency: earlier versions added a second copy of the generated `switch` below one you had edited.
+
 ### Version 7.1.15
 
 - Improvement: Added default Template Classification and Priorities.

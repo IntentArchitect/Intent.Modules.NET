@@ -1,3 +1,9 @@
+### Version 6.1.7
+
+- Improvement: `Program.cs` is now generated in Merge mode (`[assembly: DefaultIntentManaged(Mode.Merge)]`), so service registrations and other statements you add to it are kept when the Software Factory runs again. 
+- Improvement: `Program.cs` keeps the host run call you have written instead of putting `app.Run();` back. `app.Run(...)`, `await app.RunAsync(...)` (optionally with `.ConfigureAwait(...)`), `app.RunAsync(...).GetAwaiter().GetResult()` and `app.RunAsync(...).Wait()` are recognised, as are the same calls on `CreateHostBuilder(args).Build()` for the generic hosting model. 
+- Improvement: Now requires `Intent.OutputManager.RoslynWeaver` 5.0.2 or later, which the Merge-mode `Program.cs` relies on.
+
 ### Version 6.1.6
 
 - Improvement: Added default Template Classification and Priorities.

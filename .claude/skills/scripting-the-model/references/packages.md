@@ -84,7 +84,7 @@ A package handle also manages its package references — the packages it depends
 
 ```js
 pkg.getReferences()                    // current references
-await pkg.addReference(absolutePath, module?) // add one; async, resolves once its types are usable
+await pkg.addReference(absolutePath, module?) // add one; async, resolves once its types are usable; idempotent (an existing reference is returned)
 pkg.removeReference(idOrNameOrPath)     // remove one
 ```
 

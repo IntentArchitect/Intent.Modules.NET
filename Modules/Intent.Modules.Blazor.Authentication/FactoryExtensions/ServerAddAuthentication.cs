@@ -218,11 +218,13 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
                     }
 
-                    if (statements.Statements.FirstOrDefault(s => s.Text == "app.Run();") != null)
+                    // Matched on metadata rather than text as the run call can be e.g. "await app.RunAsync();"
+                    var hostRunStatement = statements.Statements.FirstOrDefault(s => s.HasMetadata("host-run"));
+                    if (hostRunStatement != null)
                     {
                         if (securityType.IsBuiltInLoginASPNETIdentity())
                         {
-                            statements.InsertStatement(statements.Statements.IndexOf(statements.Statements.First(s => s.Text == "app.Run();")),
+                            statements.InsertStatement(statements.Statements.IndexOf(hostRunStatement),
                                 new CSharpStatement("app.MapAdditionalIdentityEndpoints();"));
                         }
                     }

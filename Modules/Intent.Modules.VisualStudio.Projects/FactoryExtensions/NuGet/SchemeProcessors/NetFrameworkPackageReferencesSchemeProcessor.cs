@@ -62,7 +62,8 @@ internal class NetFrameworkPackageReferencesSchemeProcessor : INuGetSchemeProces
         ITracing tracing,
         DependencyVersionOverwriteBehaviorOption dependencyVersionOverwriteBehavior)
     {
-        var document = XDocument.Parse(projectContent);
+        // Line info lets the sorter tell a same-line comment from one on the next line
+        var document = XDocument.Parse(projectContent, LoadOptions.SetLineInfo);
         var (prefix, namespaceManager, namespaceName) = document.GetNamespaceManager();
 
         var packageReferenceItemGroup = document.XPathSelectElement($"/{prefix}:Project/{prefix}:ItemGroup[{prefix}:PackageReference]", namespaceManager);
@@ -122,7 +123,7 @@ internal class NetFrameworkPackageReferencesSchemeProcessor : INuGetSchemeProces
 
         SortAlphabetically(packageReferenceItemGroup);
 
-        if (!packageReferenceItemGroup.Descendants().Any())
+        if (!packageReferenceItemGroup.Nodes().Any(x => x is XElement or XComment))
         {
             packageReferenceItemGroup.Remove();
             packageReferenceItemGroup = null;
@@ -133,16 +134,10 @@ internal class NetFrameworkPackageReferencesSchemeProcessor : INuGetSchemeProces
 
     private static void SortAlphabetically(XElement packageReferenceItemGroup)
     {
-        // Remove and re-add the elements in alphabetical order
-        var packageReferenceElements = packageReferenceItemGroup
-            .Elements()
-            .OrderBy(x => x.Attributes("Include").Single().Value);
-
-        foreach (var packageReferenceElement in packageReferenceElements)
-        {
-            packageReferenceElement.Remove();
-            packageReferenceItemGroup.Add(packageReferenceElement);
-        }
+        XmlItemSorter.SortChildren(
+            container: packageReferenceItemGroup,
+            isSortable: _ => true,
+            order: elements => elements.OrderBy(x => x.Attributes("Include").Single().Value));
     }
 
     private static string Format(XDocument document)

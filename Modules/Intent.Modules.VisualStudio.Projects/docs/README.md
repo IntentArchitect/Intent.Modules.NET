@@ -147,6 +147,24 @@ Adding an `IntentIgnore="true"` attribute to a `PackageReference` will cause thi
 > [!WARNING]
 > Because the minimum version is no longer applied to an ignored reference, pinning a version lower than an installed module requires may result in generated code which does not compile.
 
+### Ordering and comments
+
+`PackageReference`s in an `ItemGroup` that holds nothing else are kept in alphabetical order, and so are the `Using` items this module adds for the project's custom implicit usings. A group that is already in order is left exactly as it is.
+
+Comments you write in these groups stay with the item they describe when it moves: a comment on the line(s) above an item, and a comment at the end of the item's own line. A comment after the last item stays at the end of the group. When a package is no longer requested and its `PackageReference` is removed, a comment above it is kept, and so is the `ItemGroup` holding it.
+
+```xml
+<ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.13.0" />
+    <!-- Pinned: 9.x breaks our custom converters, see #412 -->
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Serilog" Version="4.0.0" /> <!-- keep in step with Serilog.Sinks.* -->
+</ItemGroup>
+```
+
+> [!NOTE]
+> For SDK-style projects, all of the above holds. For `.NET Framework` projects using `PackageReference`, and for `Using` items, the file is re-indented whenever Intent changes it, so a comment at the end of an item's line moves to its own line just below that item.
+
 ### Module settings
 
 | Setting                                   | Default | Description                                                                                                                                                                         |

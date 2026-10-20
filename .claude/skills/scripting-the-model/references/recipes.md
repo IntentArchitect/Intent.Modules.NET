@@ -8,7 +8,7 @@
 const orders = await searchElements("^Order", { specializations: ["Class"] });
 const first  = orders.matches[0];                          // searchElements can return NO matches
 return {
-    elementTypes: getElementTypes(),                        // carries the designer's rules — don't drop them
+    elementTypes: getElementTypes(),                        // containment; the rules come from get_designer_rules
     matches: orders.matches.map(m => m.path),
     order: first ? await getElementDetails(first.path) : null,
 };
@@ -68,7 +68,7 @@ return lookupByName("Customer")?.findChildren({ specialization: "Attribute" }).m
 const customer = createElementUnder("Domain", "Class", "Customer");
 const order    = createElementUnder("Domain", "Class", "Order");
 createAssociation("Association", customer.id, order.id, { targetMultiplicity: "0..*", sourceMultiplicity: "1" });
-// ...no layout here. Show the changes at the end with showDynamicDiagram in a run_designer_query.
+// ...no layout here: run_designer_script shows the changes on an Explorer Diagram itself.
 ```
 
 After running, inspect the returned `errors[]` — what your change introduced, anywhere in the designer. If non-empty, fix those in a follow-up script.

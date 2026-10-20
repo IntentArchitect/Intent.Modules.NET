@@ -35,6 +35,7 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
                 @class.ImplementsInterface("Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter");
                 @class.AddMethod("void", "OnException", method =>
                 {
+                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                     method.AddParameter("ExceptionContext", "context");
                     method.AddSwitchStatement("context.Exception",
                         stmt => stmt.AddMetadata("exception-switch", true));

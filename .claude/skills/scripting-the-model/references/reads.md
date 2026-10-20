@@ -12,14 +12,14 @@ Solution-level reads are a different tool with a disjoint API — `run_solution_
 ## Model globals
 
 ```ts
-/** COMPACT by default, one line per item: `elementTypes` (the containment block, headed by the module rules),
+/** COMPACT by default, one line per item: `elementTypes` (the containment block),
  *  `associationTypes` (`Type: Sources → Targets`), `packages`, `stereotypes` (`Name → applicable types`), short
- *  `mappings`. No property contracts or reference types — take those slices. `{ full: true }` returns everything.
+ *  `mappings`, and `designerRules` (a pointer to `get_designer_rules`) when the designer has rules. No property contracts or reference types — take those slices. `{ full: true }` returns everything.
  *  Read it for a designer you are about to EDIT and are unfamiliar with — not for every designer you discover. */
 declare function getDesignerSchema(options?: { full?: boolean }): Promise<CompactDesignerSchemaSnapshot>;
 
-/** The containment block (what each element type accepts as children, and which require a type), headed by the
- *  designer's module rules. Those rules are binding — e.g. which associations a Command/Query must carry. */
+/** The containment block: what each element type accepts as children, and which require a type. The designer's
+ *  binding module rules are not here — they come only from the `get_designer_rules` tool. */
 declare function getElementTypes(): string;
 
 /** Just the type NAMES `setType` accepts (generics carry their `<...>` signature). */
@@ -57,7 +57,7 @@ declare function getElementDetails(pathOrNameOrId: string): Promise<ElementDetai
 /** The current diagram: visuals with their positions/sizes and the routed association edges. */
 declare function getDiagramSnapshot(): Promise<any>;
 
-/** The designer's own settings block (a slice of the schema): rules, elementTypes, mappings, associationTypes. */
+/** The designer's own settings block (a slice of the schema): elementTypes, mappings, associationTypes. */
 declare function getSettings(): Promise<any>;
 
 /** SHOWS THE USER how elements fit together: opens an unsaved, auto-laid-out diagram of the elements plus their
@@ -76,7 +76,7 @@ return { schema: await getDesignerSchema(), stereos: await getStereotypeDefiniti
 
 (A promise you forget to `await` inside the returned object is resolved too.)
 
-So start from the compact schema and add the slice for what you will set: `getStereotypeDefinitions()` before setting stereotype property values, `getReferenceTypes()` when unsure a type name exists, `(await getSettings()).associationTypes` for an association type the compact schema marks `has rules`. If you need only "what can I create where", `getElementTypes()` is the call — and it carries the designer's rules, so read and follow them before you edit.
+So start from the compact schema and add the slice for what you will set: `getStereotypeDefinitions()` before setting stereotype property values, `getReferenceTypes()` when unsure a type name exists. If you need only "what can I create where", `getElementTypes()` is the call. The designer's module and association rules come only from the `get_designer_rules` tool — call it before you edit.
 
 Notes:
 

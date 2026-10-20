@@ -128,7 +128,9 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
             var parent = item.Parent;
             parent.RemoveChild(item);
 
-            if (parent.Count != 0)
+            // A comment that described the removed package is the developer's, so it stays, and
+            // with it the group that holds it.
+            if (parent.Count != 0 || HasComments(project, parent))
             {
                 continue;
             }
@@ -136,6 +138,7 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
             parent.Parent.RemoveChild(parent);
         }
 
+        var addedPackageIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach (var (packageId, package) in requestedPackages)
         {
             var existingProjectReference = project.Items
@@ -153,6 +156,7 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
             {
                 tracing.Info($"Installing {packageId} {requestedVersion} into project {projectName}");
                 packageReferenceItem = project.AddItem("PackageReference", packageId);
+                addedPackageIds.Add(packageId);
             }
 
             var currentVersions = new List<VersionInfo>(2);
@@ -259,8 +263,7 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
             }
         }
 
-        SortAlphabetically(project);
-        return project.RawXml;
+        return SortAlphabetically(project.RawXml, projectContent, addedPackageIds);
     }
 
     private static void ApplyProjectCpmSettings(
@@ -305,20 +308,80 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
         }
     }
 
-    private static void SortAlphabetically(ProjectRootElement project)
+    /// <summary>
+    /// Sorts the <c>PackageReference</c>s of each top-level <c>ItemGroup</c> holding nothing else.
+    /// </summary>
+    /// <remarks>
+    /// Done on the XML rather than through <see cref="ProjectRootElement"/>, whose construction
+    /// model only exposes elements, so comments can't be moved with the items they describe.
+    /// Returns <paramref name="projectXml"/> as is when every group is already in order.
+    /// </remarks>
+    private static string SortAlphabetically(string projectXml, string originalContent, ISet<string> addedPackageIds)
     {
-        var groups = project.ItemGroups.Where(x => x.Items.Any() &&
-                                                   x.Items.All(y => string.Equals(y.ItemType, "PackageReference")));
-        foreach (var group in groups)
-        {
-            // Remove and re-add the elements in alphabetical order
-            var items = group.Items.OrderBy(x => x.Include).ToArray();
-            group.RemoveAllChildren();
+        var document = XDocument.Parse(projectXml, LoadOptions.PreserveWhitespace);
 
-            foreach (var item in items)
-            {
-                group.AppendChild(item);
-            }
+        // AddItem puts each new item next to an existing one, possibly between it and its comment,
+        // so the sorter is told which items are new and places them itself.
+        var addedItems = document.Root!.Descendants()
+            .Where(x => IsPackageReference(x) &&
+                        x.Attribute("Include")?.Value is { } include &&
+                        addedPackageIds.Contains(include))
+            .ToArray();
+
+        var sortedGroups = document.Root.Elements()
+            .Where(x => x.Name.LocalName == "ItemGroup" &&
+                        x.Elements().Any() &&
+                        x.Elements().All(IsPackageReference))
+            .ToArray();
+
+        var hasChange = false;
+        foreach (var group in sortedGroups)
+        {
+            hasChange |= XmlItemSorter.SortChildren(
+                container: group,
+                isSortable: IsPackageReference,
+                order: items => items.OrderBy(x => x.Attribute("Include")?.Value ?? string.Empty),
+                added: addedItems);
         }
+
+        // A group holding other items too isn't sorted, but a new item in it still mustn't land on a comment
+        foreach (var group in addedItems.Select(x => x.Parent).Distinct().Except(sortedGroups))
+        {
+            hasChange |= XmlItemSorter.SortChildren(
+                container: group!,
+                isSortable: IsPackageReference,
+                order: items => items,
+                added: addedItems);
+        }
+
+        if (!hasChange)
+        {
+            return projectXml;
+        }
+
+        // Parsing normalizes line endings to "\n", so restore the file's own
+        var newLine = originalContent.Contains("\r\n") ? "\r\n" : "\n";
+        return (document.Declaration + document.ToString(SaveOptions.DisableFormatting)).ReplaceLineEndings(newLine);
+    }
+
+    private static bool IsPackageReference(XElement element) => element.Name.LocalName == "PackageReference";
+
+    private static bool HasComments(ProjectRootElement project, ProjectElementContainer container)
+    {
+        // Find the container's XML element by its position among its ancestors' child elements,
+        // each of which is a ProjectElement.
+        var path = new Stack<int>();
+        for (ProjectElement current = container; current.Parent != null; current = current.Parent)
+        {
+            path.Push(current.Parent.Children.TakeWhile(x => x != current).Count());
+        }
+
+        var element = XDocument.Parse(project.RawXml).Root!;
+        while (path.Count > 0)
+        {
+            element = element.Elements().ElementAt(path.Pop());
+        }
+
+        return element.Nodes().OfType<XComment>().Any();
     }
 }

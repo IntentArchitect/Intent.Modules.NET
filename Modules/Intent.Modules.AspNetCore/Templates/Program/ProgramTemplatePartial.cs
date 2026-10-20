@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Settings;
 using Intent.Modules.Common;
@@ -12,6 +13,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -31,15 +33,33 @@ namespace Intent.Modules.AspNetCore.Templates.Program
         {
             var useTopLevelStatements = OutputTarget.GetProject().InternalElement.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
 
-            CSharpFile = useTopLevelStatements
-                ? new CSharpFile(string.Empty, this.GetFolderPath()).AddUsing(this.GetNamespace())
-                : new CSharpFile(this.GetNamespace(), this.GetFolderPath());
+            // Merge mode so that registrations and other statements added by hand are kept
+            CSharpFile = (useTopLevelStatements
+                    ? new CSharpFile(string.Empty, this.GetFolderPath()).AddUsing(this.GetNamespace())
+                    : new CSharpFile(this.GetNamespace(), this.GetFolderPath()))
+                .IntentManagedMerge();
             ProgramFile = new ProgramFile(this);
 
             if (UseMinimalHostingModel)
             {
                 _startupFile = new AppStartupFile(this);
             }
+
+            // Keep the developer's run call (e.g. "await app.RunAsync();") rather than re-adding the default one
+            var existingRunCall = ExistingProgramRunCall.Detect(ReadExistingProgramFile(), UseMinimalHostingModel);
+            var runStatement = existingRunCall.GetStatementOrDefault(UseMinimalHostingModel);
+            if (existingRunCall.Kind == ExistingProgramRunCallKind.Unrecognised)
+            {
+                var receiver = UseMinimalHostingModel
+                    ? ExistingProgramRunCall.MinimalHostingReceiver
+                    : ExistingProgramRunCall.GenericHostingReceiver;
+                Logging.Log.Warning(
+                    $"The existing Program.cs of project \"{OutputTarget.GetProject().Name}\" doesn't have exactly one recognised host run call, " +
+                    $"so \"{runStatement}\" is being added. Recognised run calls are \"{receiver}.Run(...);\", \"await {receiver}.RunAsync(...);\" " +
+                    $"(optionally with \".ConfigureAwait(...)\"), \"{receiver}.RunAsync(...).GetAwaiter().GetResult();\" and \"{receiver}.RunAsync(...).Wait();\".");
+            }
+
+            var mainReturnType = existingRunCall.UsesAsyncMain ? "Task" : "void";
 
             switch (UseMinimalHostingModel, useTopLevelStatements)
             {
@@ -51,11 +71,16 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                             .AddUsing("Microsoft.Extensions.Hosting")
                             .AddClass("Program", @class =>
                             {
-                                @class.AddMethod("void", "Main", method =>
+                                @class.AddMethod(mainReturnType, "Main", method =>
                                 {
                                     method.Static();
+                                    if (existingRunCall.UsesAsyncMain)
+                                    {
+                                        method.Async();
+                                    }
+
                                     method.AddParameter("string[]", "args");
-                                    AddGenericModelMainStatements(method);
+                                    AddGenericModelMainStatements(method, runStatement);
                                 });
                                 @class.AddMethod("IHostBuilder", "CreateHostBuilder", method =>
                                 {
@@ -74,7 +99,7 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                             .AddUsing("Microsoft.Extensions.Hosting")
                             .AddTopLevelStatements(tls =>
                             {
-                                AddGenericModelMainStatements(tls);
+                                AddGenericModelMainStatements(tls, runStatement);
                                 tls.AddLocalMethod("IHostBuilder", "CreateHostBuilder", method =>
                                 {
                                     method.Static();
@@ -93,12 +118,17 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                             .AddUsing("Microsoft.Extensions.Hosting")
                             .AddClass("Program", @class =>
                             {
-                                @class.AddMethod("void", "Main", method =>
+                                @class.AddMethod(mainReturnType, "Main", method =>
                                 {
                                     method.Static();
+                                    if (existingRunCall.UsesAsyncMain)
+                                    {
+                                        method.Async();
+                                    }
+
                                     method.AddParameter("string[]", "args");
 
-                                    ApplyMinimalHostingModelStatements(_startupFile!, CSharpFile);
+                                    ApplyMinimalHostingModelStatements(_startupFile!, CSharpFile, runStatement);
                                 });
                             }, priority: int.MinValue);
                         break;
@@ -112,10 +142,15 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                             .AddUsing("Microsoft.Extensions.Hosting")
                             .AddTopLevelStatements();
 
-                        ApplyMinimalHostingModelStatements(_startupFile!, CSharpFile);
+                        ApplyMinimalHostingModelStatements(_startupFile!, CSharpFile, runStatement);
 
                         break;
                     }
+            }
+
+            if (existingRunCall.UsesAsyncMain && !useTopLevelStatements)
+            {
+                CSharpFile.AddUsing("System.Threading.Tasks");
             }
         }
 
@@ -135,7 +170,7 @@ namespace Intent.Modules.AspNetCore.Templates.Program
             }
         }
 
-        private static void ApplyMinimalHostingModelStatements(IAppStartupFile startupFile, CSharpFile cSharpFile)
+        private static void ApplyMinimalHostingModelStatements(IAppStartupFile startupFile, CSharpFile cSharpFile, string runStatement)
         {
             startupFile.ConfigureServices((hasStatements, _) =>
             {
@@ -172,16 +207,26 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                     .AddMetadata("is-configure-request-pipeline-comment", true)
                     .SeparatedFromPrevious());
 
-                hasStatements.AddStatement("app.Run();", s => s
+                hasStatements.AddStatement(runStatement, s => s
                     .AddMetadata("host-run", true)
                     .SeparatedFromPrevious());
             });
         }
 
-        private static void AddGenericModelMainStatements(IHasCSharpStatements hasStatements)
+        private static void AddGenericModelMainStatements(IHasCSharpStatements hasStatements, string runStatement)
         {
-            hasStatements.AddStatement("CreateHostBuilder(args).Build().Run();",
+            hasStatements.AddStatement(runStatement,
                 stmt => stmt.AddMetadata("host-run", true));
+        }
+
+        private string? ReadExistingProgramFile()
+        {
+            // TryGetExistingFileContent needs FileMetadata, which isn't configured until after the constructor.
+            // System.IO rather than ExecutionContext.FileSystem, which needs a newer SDK than this module targets.
+            var path = Path.Combine(OutputTarget.Location, this.GetFolderPath(), "Program.cs");
+            return File.Exists(path)
+                ? File.ReadAllText(path)
+                : null;
         }
 
         private CSharpStatement GetGenericModelCreateHostStatement()

@@ -139,7 +139,49 @@ Management (CPM) for a solution.
   Worker project's own base (no runtime environment) instance, found with `FindTemplateInstances`
   from the `AddClass` callback, by which point every template is registered.
 
+- **Every `.csproj` item sort goes through `XmlItemSorter`, which sorts units, not elements.** A unit
+  is an element plus its leading comments (all comments since the previous element) and its
+  same-line trailing comments. The whitespace between units stays put, so layout doesn't change,
+  and an already-ordered container is left untouched (`false`). It serves `SdkSchemeProcessor`,
+  `NetFrameworkPackageReferencesSchemeProcessor` and `VisualStudioProjectTemplateBase.SyncUsings`.
+  Before this, the SDK sort moved only MSBuild `ProjectElement`s, bunching comments at the top of
+  the group on every run. The .NET Framework sort did the same through `XElement.Elements()`.
+  `SyncUsings` used `RemoveAll()`, which deleted comments and the `ItemGroup`'s attributes.
+
+- **The SDK sort runs on `project.RawXml`, not through `ProjectRootElement`.** MSBuild's construction
+  model only exposes elements, so it can't move a comment. Package add, remove and version edits
+  still go through MSBuild. Only the final sort re-parses the XML with `PreserveWhitespace`. If
+  anything moved, the sort writes the result back with the XML declaration and the original file's
+  newline style. Otherwise it returns `RawXml` unchanged.
+
+- **`AddItem` places a new item next to an existing sibling, which can land it between that sibling
+  and its comment.** A new item can't have comments of its own. So `SdkSchemeProcessor` passes the
+  items added in this run to `XmlItemSorter.SortChildren` (`added`). The sorter detaches them, appends
+  them after the last existing unit with that unit's indent, and sorts them like the rest. That also
+  covers a group that holds other items and so isn't sorted: it gets the same placement with an
+  unchanged order. If the result is text-identical to MSBuild's placement, it reports no change.
+  Rejected: repairing each new item where `AddItem` put it (the first version, `MoveOutsideComments`).
+  Several packages installed in one run all go next to the same sibling, so only the last of them was
+  next to the comment and got moved, and the one before it took the comment over. Module installs
+  usually add several packages at once.
+
+- **Removing a package keeps the comment above it, and an `ItemGroup` that still holds comments
+  isn't removed** (`HasComments` in the SDK processor, the `XComment` check in the .NET Framework
+  one). User-written text is never deleted.
+
 ## Invariants & Constraints
+
+- **Sort keys use the default (culture-sensitive) string comparison, as `OrderBy` did before.** Changing
+  to ordinal would sort upper case before lower case (`xunit` after every `Microsoft.*`) and reorder
+  existing files on the next run.
+
+- **Same-line trailing comments only stay on their line where whitespace is preserved.** That is
+  the SDK `PackageReference` path. The .NET Framework processor and the `.csproj` template's settings
+  sync (which includes `<Using>`) parse without whitespace and re-indent the whole file whenever
+  they change anything. There, a same-line comment still moves with its element but lands on its own
+  line beneath it. The unit is found from line info (`LoadOptions.SetLineInfo`), assuming a
+  multi-line element closes on the line after its last child. Making those paths preserve
+  whitespace would change how every rewrite of those files is formatted, so it was deferred.
 
 - **`TargetFrameworksSync` only rewrites a single, unconditional, plain-moniker value whose set
   differs from the model.** Multiple `TargetFramework(s)` elements, a `Condition` on the element or
