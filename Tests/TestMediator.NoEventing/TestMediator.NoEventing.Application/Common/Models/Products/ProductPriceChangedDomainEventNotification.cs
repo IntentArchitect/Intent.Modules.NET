@@ -1,5 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
-using TestMediator.NoEventing.Domain.Products;
+using TestMediator.NoEventing.Domain.Events.Products;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Mediator.DomainEvents.TypedDomainEventNotification", Version = "1.0")]

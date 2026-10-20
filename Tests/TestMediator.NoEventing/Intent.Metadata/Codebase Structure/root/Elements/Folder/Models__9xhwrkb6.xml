@@ -2,9 +2,20 @@
 <class id="47d1878f-0d95-4521-8728-927db508a3f8" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
   <name>Models</name>
   <display>Models</display>
+  <sort-children>by-type-then-by-name</sort-children>
   <parentFolderId>d0b1e6d2-7a9c-4c47-9da5-50feb5175277</parentFolderId>
   <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
   <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <children>
     <element id="7a9b748e-9ec2-46e5-a2af-0932e2d3fc5c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Identity.ResultModel</name>
@@ -13,11 +24,22 @@
       <parentFolderId>47d1878f-0d95-4521-8728-927db508a3f8</parentFolderId>
       <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
       <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
     </element>
-    <element id="a7ba6e62-e56a-46d3-b68e-cd510cd2ef32" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <element id="ca00f113-efc6-47ff-89fe-f779d44e0496" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Mediator.DomainEvents.DomainEventNotification</name>
       <display>Intent.Application.Mediator.DomainEvents.DomainEventNotification</display>
       <externalReference>Intent.Application.Mediator.DomainEvents</externalReference>
@@ -44,12 +66,21 @@
             </property>
           </properties>
         </stereotype>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
       </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
     </element>
-    <element id="ca112fa4-ade3-45f2-afb2-f2b400fa743d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <element id="df92e4c7-3abf-4f55-800e-cfae523ee694" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Mediator.DomainEvents.DomainEventNotificationFactory</name>
       <display>Intent.Application.Mediator.DomainEvents.DomainEventNotificationFactory</display>
       <externalReference>Intent.Application.Mediator.DomainEvents</externalReference>
@@ -76,12 +107,21 @@
             </property>
           </properties>
         </stereotype>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
       </stereotypes>
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
     </element>
-    <element id="ad761225-91f2-40c0-9784-9d79e2dffc22" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <element id="0b3a73c1-4f8a-4b1a-99a1-af329068f5fd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Mediator.DomainEvents.TypedDomainEventNotification</name>
       <display>Intent.Application.Mediator.DomainEvents.TypedDomainEventNotification</display>
       <externalReference>Intent.Application.Mediator.DomainEvents</externalReference>
@@ -106,6 +146,15 @@
                 </item>
               </itemList>
             </property>
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
           </properties>
         </stereotype>
       </stereotypes>

@@ -55,8 +55,6 @@
   <file path="TestMediator.NoEventing.Api/TestMediator.NoEventing.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.NoEventing.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
   <file path="TestMediator.NoEventing.Application.UnitTests/TestMediator.NoEventing.Application.UnitTests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="TestMediator.NoEventing.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
-  <file path="TestMediator.NoEventing.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
   <file path="TestMediator.NoEventing.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
   <file path="TestMediator.NoEventing.Application/Common/Interfaces/IBypassValidation.cs" templateId="Intent.Application.Mediator.FluentValidation.BypassValidationInterface" />
   <file path="TestMediator.NoEventing.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
@@ -98,9 +96,9 @@
   <file path="TestMediator.NoEventing.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
   <file path="TestMediator.NoEventing.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
   <file path="TestMediator.NoEventing.Domain/Common/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="TestMediator.NoEventing.Domain/Events/Products/ProductPriceChangedDomainEvent.cs" templateId="Intent.DomainEvents.DomainEvent" />
   <file path="TestMediator.NoEventing.Domain/Products/PriceHistoryEntry.cs" deviationsHash="BB076D3A7D666FD3515E8F38B98A6156F506AF08F44D6B3E74B95C5D8F62C574" templateId="Intent.Entities.DomainEntity" />
   <file path="TestMediator.NoEventing.Domain/Products/Product.cs" deviationsHash="D8C159E39BF1AB7FC95415E5656742B02FFB47682B5F847E9DD73C03C8E4851F" templateId="Intent.Entities.DomainEntity" />
-  <file path="TestMediator.NoEventing.Domain/Products/ProductPriceChangedDomainEvent.cs" templateId="Intent.DomainEvents.DomainEvent" />
   <file path="TestMediator.NoEventing.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
   <file path="TestMediator.NoEventing.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="TestMediator.NoEventing.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
@@ -110,6 +108,12 @@
   <file path="TestMediator.NoEventing.Infrastructure/Configuration/MediatorConfiguration.cs" templateId="Intent.Application.Mediator.MediatorConfiguration" />
   <file path="TestMediator.NoEventing.Infrastructure/Configuration/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.NoEventing.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="TestMediator.NoEventing.Infrastructure/Dispatch/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.Mediator.AuthorizationBehaviour" />
+  <file path="TestMediator.NoEventing.Infrastructure/Dispatch/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.Mediator.LoggingBehaviour" />
+  <file path="TestMediator.NoEventing.Infrastructure/Dispatch/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.Mediator.PerformanceBehaviour" />
+  <file path="TestMediator.NoEventing.Infrastructure/Dispatch/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.Mediator.UnhandledExceptionBehaviour" />
+  <file path="TestMediator.NoEventing.Infrastructure/Dispatch/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
+  <file path="TestMediator.NoEventing.Infrastructure/Dispatch/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
   <file path="TestMediator.NoEventing.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="TestMediator.NoEventing.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="TestMediator.NoEventing.Infrastructure/Persistence/Configurations/Products/PriceHistoryEntryConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

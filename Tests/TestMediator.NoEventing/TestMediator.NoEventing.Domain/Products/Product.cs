@@ -1,5 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using TestMediator.NoEventing.Domain.Common;
+using TestMediator.NoEventing.Domain.Events.Products;
 
 [assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 

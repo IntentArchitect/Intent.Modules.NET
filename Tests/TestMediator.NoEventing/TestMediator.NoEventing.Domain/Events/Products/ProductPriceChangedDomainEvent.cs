@@ -4,7 +4,7 @@ using TestMediator.NoEventing.Domain.Common;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.DomainEvents.DomainEvent", Version = "1.0")]
 
-namespace TestMediator.NoEventing.Domain.Products
+namespace TestMediator.NoEventing.Domain.Events.Products
 {
     public class ProductPriceChangedDomainEvent : DomainEvent
     {

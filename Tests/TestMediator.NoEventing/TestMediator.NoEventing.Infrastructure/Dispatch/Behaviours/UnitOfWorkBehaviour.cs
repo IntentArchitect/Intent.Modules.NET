@@ -6,7 +6,7 @@ using TestMediator.NoEventing.Domain.Common.Interfaces;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Mediator.UnitOfWorkBehaviour", Version = "1.0")]
 
-namespace TestMediator.NoEventing.Application.Common.Behaviours
+namespace TestMediator.NoEventing.Infrastructure.Dispatch.Behaviours
 {
     /// <summary>
     /// Ensures that all operations processed as part of handling a <see cref="IBaseCommand"/> either

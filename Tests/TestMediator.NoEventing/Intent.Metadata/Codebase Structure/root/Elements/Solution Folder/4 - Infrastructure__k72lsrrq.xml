@@ -3,7 +3,7 @@
   <name>4 - Infrastructure</name>
   <display>4 - Infrastructure</display>
   <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
-  <order>3</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <parentFolderId>4124055f-f6f7-4fa3-b271-d39af9e7ca0d</parentFolderId>
   <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
   <packageName>root</packageName>

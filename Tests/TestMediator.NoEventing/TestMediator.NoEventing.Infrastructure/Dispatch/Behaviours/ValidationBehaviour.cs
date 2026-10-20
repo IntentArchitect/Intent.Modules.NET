@@ -7,7 +7,7 @@ using TestMediator.NoEventing.Application.Common.Interfaces;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Mediator.FluentValidation.ValidationBehaviour", Version = "1.0")]
 
-namespace TestMediator.NoEventing.Application.Common.Behaviours
+namespace TestMediator.NoEventing.Infrastructure.Dispatch.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IMessage
