@@ -133,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ed19bc66-f4ae-460d-82d9-af12886c6c8a</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -23,7 +23,7 @@
   <file path="JsonPatchRfc7396.Swashbuckle.Api/JsonPatchRfc7396.Swashbuckle.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="JsonPatchRfc7396.Swashbuckle.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
   <file path="JsonPatchRfc7396.Swashbuckle.Api/Patching/JsonMergePatchExecutor.cs" templateId="Intent.AspNetCore.Controllers.JsonPatch.Templates.JsonMergePatchExecutor" />
-  <file path="JsonPatchRfc7396.Swashbuckle.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="JsonPatchRfc7396.Swashbuckle.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="JsonPatchRfc7396.Swashbuckle.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="JsonPatchRfc7396.Swashbuckle.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="JsonPatchRfc7396.Swashbuckle.Api/Services/PatchIgnoreMetadataProvider.cs" templateId="Intent.AspNetCore.Controllers.JsonPatch.Templates.PatchIgnoreMetadataProvider" />

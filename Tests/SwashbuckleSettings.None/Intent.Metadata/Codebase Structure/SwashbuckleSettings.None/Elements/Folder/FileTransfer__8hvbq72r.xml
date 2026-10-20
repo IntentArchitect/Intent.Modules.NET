@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>863e1787-388b-47f8-98b9-88bf37809e7a</parentFolderId>
+  <packageId>9b6248f6-00e0-482d-ada0-4a6456f63a59</packageId>
+  <packageName>SwashbuckleSettings.None</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cda9267b-ef74-430c-a04b-359703566d37</parentFolderId>
+      <packageId>9b6248f6-00e0-482d-ada0-4a6456f63a59</packageId>
+      <packageName>SwashbuckleSettings.None</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

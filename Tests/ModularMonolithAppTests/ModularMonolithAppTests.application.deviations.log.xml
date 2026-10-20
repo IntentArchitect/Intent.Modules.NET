@@ -14,5 +14,14 @@
       <deviationsHash>7033EDAC466FDC9598BAE7AF0F2C180C51CF877B7D5D2EA0C6DF8AE60D0FAF6C</deviationsHash>
       <fileHash>2B50E45CBBF004BAB2583539522F0433939582964BD03D5F8DA205FCD8D7B131</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.AspNetCore.Program#e2d51d6e-f81c-4953-8193-cf4715803de6</correlationId>
+      <path>Intent.Modules.NET.Tests.Host/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:06:57.9160148Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
   </files>
 </deviationsLog>

@@ -26,7 +26,7 @@
   <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />

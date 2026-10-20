@@ -1,0 +1,947 @@
+[
+  {
+    "id": "3bf3dc59-97c7-4633-b5f2-147e9c2ee45c",
+    "name": "AdvancedMapping.Repositories.Mapperly.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AdvancedMapping.Repositories.Mapperly.Tests"
+  },
+  {
+    "id": "a0f944aa-6954-42a5-9b76-df879ecdc886",
+    "name": "AdvancedMappingCrud.Cosmos.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Cosmos.Tests"
+  },
+  {
+    "id": "f2e84d04-0ca7-4e10-aec7-3a2e2d4950ee",
+    "name": "AdvancedMappingCrud.DbContext.ProjectTo.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.DbContext.ProjectTo.Tests"
+  },
+  {
+    "id": "0e3734cb-dd6e-4824-94b4-0596d33525be",
+    "name": "AdvancedMappingCrud.DbContext.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.DbContext.Tests"
+  },
+  {
+    "id": "2528e32a-a0c8-4e88-b1ef-5131f49d12a5",
+    "name": "AdvancedMappingCrud.Mongo.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Mongo.Tests"
+  },
+  {
+    "id": "e931eb22-645c-475d-91b2-4e37a92b5f77",
+    "name": "AdvancedMappingCrud.Repositories.ProjectTo.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.ProjectTo.Tests"
+  },
+  {
+    "id": "090169cc-05b9-4267-81d7-81ad5bb954a2",
+    "name": "AdvancedMappingCrud.Repositories.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests"
+  },
+  {
+    "id": "0abfdbe8-eba7-4178-b806-07d9c96991f7",
+    "name": "AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests"
+  },
+  {
+    "id": "d4aae382-a4dd-4163-8a36-0d70e2881262",
+    "name": "AdvancedMappingCrud.RichDomain.ServiceModel.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.RichDomain.ServiceModel.Tests"
+  },
+  {
+    "id": "91975b7f-f3f4-44bd-8ace-27eadcebc3cc",
+    "name": "AdvancedMappingCrud.RichDomain.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.RichDomain.Tests"
+  },
+  {
+    "id": "997b0d31-c393-4b42-9652-3bf4a12e9633",
+    "name": "Application.Identity.AccountController",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Application.Identity.AccountController"
+  },
+  {
+    "id": "b2a57b08-b2ce-420a-b5c8-f4c4abbd720a",
+    "name": "Application.Identity.AccountController.UserIdentity",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Application.Identity.AccountController.UserIdentity"
+  },
+  {
+    "id": "8448a896-d79f-4fe0-9cc3-24130286676f",
+    "name": "Ardalis",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Ardalis"
+  },
+  {
+    "id": "90057001-3f88-4be0-8a65-cc23cafbf6a6",
+    "name": "AspNetControllers.SecuredByDefault",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AspNetControllers.SecuredByDefault"
+  },
+  {
+    "id": "6aa59527-73f3-4d76-9157-7dd26fe48db3",
+    "name": "AspNetCore.AzureServiceBus.GroupA",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AspNetCore.AzureServiceBus.GroupA"
+  },
+  {
+    "id": "16bf1a1d-fd8e-4797-a81e-bbe58bf9cc08",
+    "name": "AspNetCore.AzureServiceBus.GroupB",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AspNetCore.AzureServiceBus.GroupB"
+  },
+  {
+    "id": "e4251ba7-1036-4a2b-b23d-22d286ea81d2",
+    "name": "AspNetCore.Controllers.Secured",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AspNetCore.Controllers.Secured"
+  },
+  {
+    "id": "55cacffd-66c7-463c-879d-bb3ce5c3fbd1",
+    "name": "AspNetCoreMvc",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AspNetCoreMvc"
+  },
+  {
+    "id": "2cb9a48b-f484-4d52-918e-54a8be38b3d1",
+    "name": "AspNetCoreNoAuth",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AspNetCoreNoAuth"
+  },
+  {
+    "id": "bab54172-f442-450b-adcc-c3f83edd7579",
+    "name": "AwsSecretsManager",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AwsSecretsManager"
+  },
+  {
+    "id": "e4c57f5d-51d8-409d-ab16-3379db38995c",
+    "name": "AzureIdentityManagement",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AzureIdentityManagement"
+  },
+  {
+    "id": "4eea3781-4b3c-4146-959d-d7ebf26039c6",
+    "name": "AzureKeyVault",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/AzureKeyVault"
+  },
+  {
+    "id": "75cf5e5a-53b1-4fa4-8f66-a81e38fc3356",
+    "name": "BasicAuditing.CustomUserId.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/BasicAuditing.CustomUserId.Tests"
+  },
+  {
+    "id": "16f05361-898d-4ed2-ad51-0e12259508c7",
+    "name": "Blazor.ProductService",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Blazor.ProductService"
+  },
+  {
+    "id": "bd67a59e-8751-44ee-bca2-175e5fcc7d2e",
+    "name": "BugSnagTest.AspNetCore",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/BugSnagTest"
+  },
+  {
+    "id": "9534342e-b577-43f8-86d3-ad489ac18b60",
+    "name": "CentralPackageManagement",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CentralPackageManagement"
+  },
+  {
+    "id": "83f258e8-1f5c-4785-9c9b-c679a771126f",
+    "name": "CleanArchitecture.Comprehensive",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CleanArchitecture.Comprehensive"
+  },
+  {
+    "id": "d4e2dacd-90bd-4d8e-829b-bed69f1b8631",
+    "name": "CleanArchitecture.Dapr",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CleanArchitecture.Dapr"
+  },
+  {
+    "id": "7bab7f92-fc1f-48ea-b44e-ce8530d75e88",
+    "name": "CleanArchitecture.Dapr.DomainEntityInterfaces",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CleanArchitecture.Dapr.DomainEntityInterfaces"
+  },
+  {
+    "id": "9e282f05-7636-4f1f-8d76-c849d13508c3",
+    "name": "CleanArchitecture.Dapr.InvocationClient",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CleanArchitecture.Dapr.InvocationClient"
+  },
+  {
+    "id": "2ab52206-4c2d-44cb-87dd-14898ae43e4d",
+    "name": "CleanArchitecture.IdentityService",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CleanArchitecture.IdentityService"
+  },
+  {
+    "id": "aaf53608-ca0b-4cc7-a2ea-8e8a19c7fd67",
+    "name": "CleanArchitecture.OnlyModeledDomainEvents",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CleanArchitecture.OnlyModeledDomainEvents"
+  },
+  {
+    "id": "fac734d9-84f4-4b63-b59b-2b95f286a230",
+    "name": "CleanArchitecture.QueueStorage",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CleanArchitecture.QueueStorage"
+  },
+  {
+    "id": "b652a876-21ab-4187-b535-60639f452925",
+    "name": "CleanArchitecture.ServiceModelling.ComplexTypes",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CleanArchitecture.ServiceModelling.ComplexTypes"
+  },
+  {
+    "id": "5370419a-032b-47fb-a618-e03898c0eee4",
+    "name": "CleanArchitecture.SingleFiles",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CleanArchitecture.SingleFiles"
+  },
+  {
+    "id": "1ba0fd66-402d-4cd5-af9c-7e6da7de1a98",
+    "name": "CloudBlobStorageClients.NET6",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CloudBlobStorageClients.NET6"
+  },
+  {
+    "id": "7f3699ed-e203-4f0b-998e-5f8b125d1de4",
+    "name": "CloudBlobStorageClients.NET7",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CloudBlobStorageClients.NET7"
+  },
+  {
+    "id": "c4bd27ec-7d97-477b-87a5-1225ae33f695",
+    "name": "CloudBlobStorageClients.NET8",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CloudBlobStorageClients.NET8"
+  },
+  {
+    "id": "eeaa8b97-ea61-4ab1-9902-fbcc201b4855",
+    "name": "CompositeMessageBus",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CompositeMessageBus"
+  },
+  {
+    "id": "b0cfe26a-d338-4d6d-a8df-a97c4e78f647",
+    "name": "CosmosDB",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CosmosDB"
+  },
+  {
+    "id": "c3933cb3-ca6e-48b1-ade1-334f665d89fe",
+    "name": "CosmosDB.Authentication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CosmosDB.Authentication"
+  },
+  {
+    "id": "eb8a85e0-59cb-434e-9c7d-56a07d44261f",
+    "name": "CosmosDB.EntityInterfaces",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CosmosDB.EntityInterfaces"
+  },
+  {
+    "id": "b045eba4-3b96-458d-b12f-62678792b09f",
+    "name": "CosmosDB.EnumStrings",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CosmosDB.EnumStrings"
+  },
+  {
+    "id": "c2454583-1a5c-4a5a-8b45-e67cb3c6da9a",
+    "name": "CosmosDB.MultiTenancy.SeperateDB",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CosmosDB.MultiTenancy.SeperateDB"
+  },
+  {
+    "id": "ba3debc4-493f-447c-bfff-f9dc07bcd2c6",
+    "name": "CosmosDB.PrivateSetters",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CosmosDB.PrivateSetters"
+  },
+  {
+    "id": "2f4d3218-3dd2-46df-bba6-d00d7098a2b6",
+    "name": "CosmosDBMultiTenancy",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/CosmosDBMultiTenancy"
+  },
+  {
+    "id": "38ca8ada-51c1-497d-81a9-e405417c0709",
+    "name": "Dapper.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Dapper.Tests"
+  },
+  {
+    "id": "48652ca2-a60b-441f-b593-0eca38b87399",
+    "name": "DtoSettings.Class.Init",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DtoSettings.Class.Init"
+  },
+  {
+    "id": "911db950-d9d5-4e0a-a0a2-33b988afcc64",
+    "name": "DtoSettings.Class.Internal",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DtoSettings.Class.Internal"
+  },
+  {
+    "id": "08952368-69ef-41f9-8cb3-9e6009b7602f",
+    "name": "DtoSettings.Class.Private",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DtoSettings.Class.Private"
+  },
+  {
+    "id": "681cbcf0-f052-42f6-bb3c-fa06c3a93484",
+    "name": "DtoSettings.Class.Protected",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DtoSettings.Class.Protected"
+  },
+  {
+    "id": "ff8f718e-4941-4ade-b17b-a34d5061b780",
+    "name": "DtoSettings.Record.Init",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DtoSettings.Record.Init"
+  },
+  {
+    "id": "65c392ab-89f2-4223-b88c-a1c829e3c609",
+    "name": "DtoSettings.Record.Internal",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DtoSettings.Record.Internal"
+  },
+  {
+    "id": "7300340b-0f97-4454-84ec-f75cb292bd84",
+    "name": "DtoSettings.Record.Private",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DtoSettings.Record.Private"
+  },
+  {
+    "id": "4258acfe-c95e-4737-8c21-abbca52b6d62",
+    "name": "DtoSettings.Record.Protected",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DtoSettings.Record.Protected"
+  },
+  {
+    "id": "9cae4a38-dab6-4550-bb2f-56aded674e59",
+    "name": "DtoSettings.Record.Public",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DtoSettings.Record.Public"
+  },
+  {
+    "id": "e234187a-41d5-439b-96eb-d0f74ab0e5ae",
+    "name": "DynamoDbTests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DynamoDbTests"
+  },
+  {
+    "id": "3cb9add1-3f80-4669-87fd-9abd5ebf5c86",
+    "name": "DynamoDbTests.EntityInterfaces",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DynamoDbTests.EntityInterfaces"
+  },
+  {
+    "id": "4feec6cb-26d5-4bda-987b-f87763af2c59",
+    "name": "DynamoDbTests.EnumAsStrings",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DynamoDbTests.EnumAsStrings"
+  },
+  {
+    "id": "efc75c2a-553c-417d-8519-9a100cad3a4f",
+    "name": "DynamoDbTests.PrivateSetters",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/DynamoDbTests.PrivateSetters"
+  },
+  {
+    "id": "e27f2734-1034-404d-ac7d-f75f7e4c226f",
+    "name": "EFCore.Lazy.Loading.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EFCore.Lazy.Loading.Tests"
+  },
+  {
+    "id": "f829f9a9-22e7-4c53-b644-4254eacfb4e8",
+    "name": "EfCore.SecondLevelCaching",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EfCore.SecondLevelCaching"
+  },
+  {
+    "id": "ec449965-5357-4c9d-971a-ff0dcce48c52",
+    "name": "EfCoreSoftDelete",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EfCoreSoftDelete"
+  },
+  {
+    "id": "ffccab6d-dd24-4eb8-b4a4-907665740f35",
+    "name": "Entities.Constants.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Entities.Constants.TestApplication"
+  },
+  {
+    "id": "200bbefa-5b4e-430e-ac37-9bb7f9b12604",
+    "name": "Entities.Interfaces.EF",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Entities.Interfaces.EF"
+  },
+  {
+    "id": "c2da5748-bfe9-4bb3-8abc-2805a19fb50e",
+    "name": "Entities.PrivateSetters.EF.CosmosDb",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Entities.PrivateSetters.EF.CosmosDb"
+  },
+  {
+    "id": "71903893-a1ac-4813-b542-56a8a7b93fa8",
+    "name": "Entities.PrivateSetters.EF.SqlServer",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Entities.PrivateSetters.EF.SqlServer"
+  },
+  {
+    "id": "fd35607d-60bc-40aa-a91c-c7fad672ee3b",
+    "name": "Entities.PrivateSetters.MongoDb",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Entities.PrivateSetters.MongoDb"
+  },
+  {
+    "id": "d0a966f2-9858-4ae8-810d-5ceb1379d7eb",
+    "name": "Entities.PrivateSetters.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Entities.PrivateSetters.TestApplication"
+  },
+  {
+    "id": "6ee95f25-fa06-4768-88ae-56edabd68494",
+    "name": "EntityFramework.Application.LinqExtensions.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFramework.Application.LinqExtensions.Tests"
+  },
+  {
+    "id": "aacfb551-bef9-4cef-9737-2a1cf4e83254",
+    "name": "EntityFramework.SynchronousRepositories",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFramework.SynchronousRepositories"
+  },
+  {
+    "id": "794893b1-0854-4d56-ab58-82e53b116290",
+    "name": "EntityFrameworkCore.CosmosDb.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.CosmosDb.TestApplication"
+  },
+  {
+    "id": "71818a31-10de-47a0-b6c8-30c34717ee01",
+    "name": "EntityFrameworkCore.MaintainColumnOrder.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.MaintainColumnOrder.Tests"
+  },
+  {
+    "id": "e7456ee2-9246-463c-8bb7-92b3baad3dc7",
+    "name": "EntityFrameworkCore.MultiDbContext.DbContextInterface",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.MultiDbContext.DbContextInterface"
+  },
+  {
+    "id": "52adfd77-8ba4-4570-940a-61cf3d6c85f6",
+    "name": "EntityFrameworkCore.MultiDbContext.NoDefaultDbContext",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.MultiDbContext.NoDefaultDbContext"
+  },
+  {
+    "id": "f307217e-62d5-4ad2-8cd6-2f601ca8bdc5",
+    "name": "EntityFrameworkCore.MultiDbContext.WithDefaultDbContext",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.MultiDbContext.WithDefaultDbContext"
+  },
+  {
+    "id": "02808467-d0f1-40b4-877a-9206ff897be8",
+    "name": "EntityFrameworkCore.MySql",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.MySql"
+  },
+  {
+    "id": "d5d7e68e-cf2f-4bb3-9931-b357bf1094a3",
+    "name": "EntityFrameworkCore.Oracle.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.Oracle.TestApplication"
+  },
+  {
+    "id": "91b6bf45-10fb-405d-874c-851233e4fc37",
+    "name": "EntityFrameworkCore.Postgres",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.Postgres"
+  },
+  {
+    "id": "91f282fa-515e-4580-b0ea-4c849d546cdc",
+    "name": "EntityFrameworkCore.Repositories.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.Repositories.TestApplication"
+  },
+  {
+    "id": "40f7b22d-fc98-4c06-8957-ef909a03365a",
+    "name": "EntityFrameworkCore.SplitQueries.MySql",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.SplitQueries.MySql"
+  },
+  {
+    "id": "887384b0-1607-4815-a01f-fabdb108e39f",
+    "name": "EntityFrameworkCore.SplitQueries.PostgreSQL",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.SplitQueries.PostgreSQL"
+  },
+  {
+    "id": "35e30096-1762-47c3-b25f-008a4d9895b3",
+    "name": "EntityFrameworkCore.SplitQueries.SqlServer",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.SplitQueries.SqlServer"
+  },
+  {
+    "id": "c6bdb9c8-c162-46ae-b50b-4d7b54f84569",
+    "name": "EntityFrameworkCore.SQLLite",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.SQLLite"
+  },
+  {
+    "id": "71645763-b306-4429-971a-8567d89d3b14",
+    "name": "EntityFrameworkCore.SqlServer.EF10",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.SqlServer.EF10"
+  },
+  {
+    "id": "6533a96e-1ae3-47fb-8637-9e4768f42103",
+    "name": "EntityFrameworkCore.SqlServer.EF7",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.SqlServer.EF7"
+  },
+  {
+    "id": "d9d69a96-1190-44a7-bc7d-8a992b0218b4",
+    "name": "EntityFrameworkCore.SqlServer.EF8",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.SqlServer.EF8"
+  },
+  {
+    "id": "61758231-3283-475f-9f65-f2f2d1ef2b55",
+    "name": "EntityFrameworkCore.SqlServer.PkNoneProvider",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/EntityFrameworkCore.SqlServer.PkNoneProvider"
+  },
+  {
+    "id": "8ebf5599-97b8-49b0-9b9a-7ade23c96882",
+    "name": "Finbuckle.SeparateDatabase.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Finbuckle.SeparateDatabase.TestApplication"
+  },
+  {
+    "id": "8913a8a9-4b21-4c49-8bd1-bc4ab2ef443b",
+    "name": "Finbuckle.SharedDatabase.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Finbuckle.SharedDatabase.TestApplication"
+  },
+  {
+    "id": "05b9e9af-b4b0-4123-bf41-20f81b07930b",
+    "name": "FluentValidationTest",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/FluentValidationTest"
+  },
+  {
+    "id": "45185cf9-43a9-43e6-9d1e-78afadb97f44",
+    "name": "Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests"
+  },
+  {
+    "id": "23798812-f78d-459a-bfcc-22283674988e",
+    "name": "GraphQL.MongoDb.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/GraphQL.MongoDb.TestApplication"
+  },
+  {
+    "id": "407767b0-b856-43cd-9935-6bfee08058c9",
+    "name": "Hangfire.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Hangfire.Tests"
+  },
+  {
+    "id": "7f57e139-b7d4-40b6-96ca-624ec08d719f",
+    "name": "HashiCorpVault",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/HashiCorpVault"
+  },
+  {
+    "id": "baf6bef2-6185-4c0d-945c-8a4da5859aaa",
+    "name": "IntegrationTesting.SQLLite.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/IntegrationTesting.SQLLite.Tests"
+  },
+  {
+    "id": "2d1629af-eb4d-4434-b187-03ea5c1ca294",
+    "name": "IntegrationTesting.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/IntegrationTesting.Tests"
+  },
+  {
+    "id": "f2ff474a-74a0-4594-8e15-91ab2099d335",
+    "name": "Application.Identity.Jwt.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/intent/Application.Identity.Jwt.TestApplication"
+  },
+  {
+    "id": "4188da7c-c7fc-4d6a-9d0c-522a695bfe1f",
+    "name": "Application.Identity.MSAL.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/intent/Application.Identity.MSAL.TestApplication"
+  },
+  {
+    "id": "33b2e15a-2501-436c-938f-382242d367f3",
+    "name": "EntityFrameworkCore.CustomPrimaryConnectionString",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/intent/EntityFrameworkCore.CustomPrimaryConnectionString"
+  },
+  {
+    "id": "96524c15-c348-4dce-8274-e62c5773ac50",
+    "name": "GraphQL.CQRS.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/intent/GraphQL.CQRS.TestApplication"
+  },
+  {
+    "id": "a9c0a7d2-76c4-408d-9d6b-26cfc0c30128",
+    "name": "GrpcServer",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/intent/GrpcServer"
+  },
+  {
+    "id": "5f842e69-c59b-43e7-b132-33858a9fa3eb",
+    "name": "WebAndWorker",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/intent/WebAndWorker"
+  },
+  {
+    "id": "935d7481-7030-4594-9d73-d00f99484a4e",
+    "name": "JsonPatchRfc7396.Scalar",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/JsonPatchRfc7396.Scalar"
+  },
+  {
+    "id": "4e2e78cb-a7d2-4b5c-9653-399737bb308f",
+    "name": "JsonPatchRfc7396.Swashbuckle",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/JsonPatchRfc7396.Swashbuckle"
+  },
+  {
+    "id": "6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3",
+    "name": "Kafka.Consumer",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Kafka.Consumer"
+  },
+  {
+    "id": "95a85ee6-e01b-438f-8749-3e4da534d9a6",
+    "name": "Kafka.Producer",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Kafka.Producer"
+  },
+  {
+    "id": "947683f4-e363-421d-b7dc-387173a9aaea",
+    "name": "MassTransit.AzureServiceBus",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/MassTransit.AzureServiceBus"
+  },
+  {
+    "id": "f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4",
+    "name": "MassTransit.RabbitMQ",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/MassTransit.RabbitMQ"
+  },
+  {
+    "id": "4f5687ca-1e59-4826-998d-9c6e907721c8",
+    "name": "MassTransit.RequestResponse.Client",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/MassTransit.RequestResponse.Client"
+  },
+  {
+    "id": "99d9853b-ec11-46cc-aa5c-f9341252f75f",
+    "name": "MassTransitFinbuckle.Test",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/MassTransitFinbuckle.Test"
+  },
+  {
+    "id": "51d44bee-1a4b-4c0a-897e-41261c2bfb9c",
+    "name": "MinimalHostingModel",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/MinimalHostingModel"
+  },
+  {
+    "id": "85910570-7e99-4f58-8f6c-38f0342ec8bc",
+    "name": "ModularMonolithAppTests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/ModularMonolithAppTests"
+  },
+  {
+    "id": "53c3cfa0-1a1c-4f2f-be99-0b1c3f52f2a1",
+    "name": "MongoDb.MultiTenancy.SeperateDb",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/MongoDb.MultiTenancy.SeperateDb"
+  },
+  {
+    "id": "be4b0466-617b-4d2d-beb1-5ef601d11ec9",
+    "name": "MongoDb.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/MongoDb.TestApplication"
+  },
+  {
+    "id": "00727c17-aeb5-470b-991f-68c0b481117e",
+    "name": "MudBlazor.ExampleApp",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/MudBlazor.ExampleApp"
+  },
+  {
+    "id": "34dbc504-75a2-418a-825a-85c6bb5d234e",
+    "name": "MultipleDocumentStores",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/MultipleDocumentStores"
+  },
+  {
+    "id": "c9e96aa7-003d-479b-9463-c3eba62a5617",
+    "name": "N_ServiceBus.AzureServiceBus",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/N_ServiceBus.AzureServiceBus"
+  },
+  {
+    "id": "d69bfc1f-2e5b-4609-b1da-c715bf152c84",
+    "name": "N_ServiceBus.LearnerTransport",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/N_ServiceBus.LearnerTransport"
+  },
+  {
+    "id": "82822186-8d93-43fa-902f-d9df61307077",
+    "name": "N_ServiceBus.Persistence.NHibernate.Publish",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/N_ServiceBus.Persistence.NHibernate.Publish"
+  },
+  {
+    "id": "b4fb5e18-a007-4d13-a2dd-492d6c393dc7",
+    "name": "N_ServiceBus.Persistence.NHibernate.Subscribe",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/N_ServiceBus.Persistence.NHibernate.Subscribe"
+  },
+  {
+    "id": "3ea966d0-b6c8-4478-82b7-27652ec1cb89",
+    "name": "N_ServiceBus.Persistence.Sql.Publish",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/N_ServiceBus.Persistence.Sql.Publish"
+  },
+  {
+    "id": "e82d01d3-006c-431b-8f3d-8f6d823c14ec",
+    "name": "N_ServiceBus.Persistence.Sql.Subscribe",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/N_ServiceBus.Persistence.Sql.Subscribe"
+  },
+  {
+    "id": "d5971438-3fe8-4d7b-abb3-01978c0f447b",
+    "name": "N_ServiceBus.RabbitMQ",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/N_ServiceBus.RabbitMQ"
+  },
+  {
+    "id": "9a70e843-df93-406b-9619-d4b264619d72",
+    "name": "N_ServiceBus.SqlServer",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/N_ServiceBus.SqlServer"
+  },
+  {
+    "id": "d49a4f09-2df2-4b45-8069-7d331a523704",
+    "name": "N_ServiceBus.SQS",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/N_ServiceBus.SQS"
+  },
+  {
+    "id": "71a75efe-e817-42a1-9ed8-13a5c09e18b5",
+    "name": "ObjectMapping.Lenient",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/ObjectMapping.Lenient"
+  },
+  {
+    "id": "1c34282d-3bcc-4b29-9853-56e36f7e4fa2",
+    "name": "ObjectMapping.Strict",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/ObjectMapping.Strict"
+  },
+  {
+    "id": "05c06fb4-1c1b-4a08-99e5-5d4b81551d3f",
+    "name": "OcelotTest",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/OcelotTest"
+  },
+  {
+    "id": "d6651822-7211-49b3-85ac-882768d56d09",
+    "name": "OpenTelemetry.AzureAppInsights",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/OpenTelemetry.AzureAppInsights"
+  },
+  {
+    "id": "8004c429-98dc-4b90-beb3-09b8a297c96c",
+    "name": "OpenTelemetry.AzureMonitorOpentelemetryDistro",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/OpenTelemetry.AzureMonitorOpentelemetryDistro"
+  },
+  {
+    "id": "37917353-50eb-4e6f-a64c-241e49dd5cc6",
+    "name": "OpenTelemetry.Console",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/OpenTelemetry.Console"
+  },
+  {
+    "id": "ed6e4565-5571-4334-8b10-b6d9a9a63d0c",
+    "name": "OpenTelemetry.OpenTelemetryProtocol",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/OpenTelemetry.OpenTelemetryProtocol"
+  },
+  {
+    "id": "555d779f-5d5d-49fd-b0eb-598c02922aeb",
+    "name": "OutputCachingRedis.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/OutputCachingRedis.Tests"
+  },
+  {
+    "id": "a2574e70-3bcd-42d0-82ea-d08c81f825ac",
+    "name": "ProxyServiceTests.OriginalServices",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/ProxyServiceTests.OriginalServices"
+  },
+  {
+    "id": "5c1095ee-898d-46ed-8537-34217f14c8fb",
+    "name": "ProxyServiceTests.Proxy.AuthHeaderProvider",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/ProxyServiceTests.Proxy.AuthHeaderProvider"
+  },
+  {
+    "id": "3e3ebc36-8b69-453a-a151-faad8c1ac9bd",
+    "name": "ProxyServiceTests.Proxy.PassThruHeader",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/ProxyServiceTests.Proxy.PassThruHeader"
+  },
+  {
+    "id": "511a26e8-f292-4ea8-b07e-ca9f37b297ae",
+    "name": "ProxyServiceTests.Proxy.TokenMgmtSvc",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/ProxyServiceTests.Proxy.TokenMgmtSvc"
+  },
+  {
+    "id": "71eac626-755a-4c5d-89f1-e66511d4df64",
+    "name": "Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication"
+  },
+  {
+    "id": "5ffa2a75-821a-41f2-8232-af7df2460b0b",
+    "name": "Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication"
+  },
+  {
+    "id": "cb6c20ce-8d48-4013-ae35-4e3310784497",
+    "name": "Publish.CleanArch.MassTransit.OutboxEF.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Publish.CleanArch.MassTransit.OutboxEF.TestApplication"
+  },
+  {
+    "id": "dbd2618d-2650-47a1-9fdc-1a1c18aecf53",
+    "name": "Publish.CleanArch.MassTransit.OutboxNone.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Publish.CleanArch.MassTransit.OutboxNone.TestApplication"
+  },
+  {
+    "id": "11c8cc47-1133-4a1f-84a2-cbf0c097e62c",
+    "name": "Publish.CleanArchDapr.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Publish.CleanArchDapr.TestApplication"
+  },
+  {
+    "id": "eb23fe9b-a294-4fa6-88ea-1f869a01910b",
+    "name": "Redis.Om.Repositories",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Redis.Om.Repositories"
+  },
+  {
+    "id": "38950864-1930-4a7f-9a21-57f1b4043ad1",
+    "name": "RichDomain",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/RichDomain"
+  },
+  {
+    "id": "5159fdd6-5f13-4cb5-ac2e-3ccabd837119",
+    "name": "Scalar.NET10.AuthCode",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Scalar.NET10.AuthCode"
+  },
+  {
+    "id": "4809e1b4-751a-40d5-9259-a67f228d11dd",
+    "name": "Scalar.NET10.Bearer",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Scalar.NET10.Bearer"
+  },
+  {
+    "id": "08faffbb-9f31-42d2-bbc4-cdf37b00cc77",
+    "name": "Scalar.NET10.OAuth2Implicit",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Scalar.NET10.OAuth2Implicit"
+  },
+  {
+    "id": "2fc52b83-de44-46be-9ee0-bfb16405021e",
+    "name": "Scalar.NET9.Bearer",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Scalar.NET9.Bearer"
+  },
+  {
+    "id": "1955332e-854d-46d7-ab61-72c14b1da1b8",
+    "name": "Scalar.NET9.OAuth2Implicit",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Scalar.NET9.OAuth2Implicit"
+  },
+  {
+    "id": "ae7dbedc-1ada-4fbe-8b75-c1c56540c79b",
+    "name": "SecurityConfig.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/SecurityConfig.Tests"
+  },
+  {
+    "id": "308319b1-d886-4593-8cba-2be4c6795f85",
+    "name": "SharedKernel.Consumer.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/SharedKernel.Consumer.Tests"
+  },
+  {
+    "id": "97676be7-09a6-4122-b522-2462fb5b011b",
+    "name": "SignalR",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/SignalR"
+  },
+  {
+    "id": "0185b841-fb5e-4f25-a564-7e86a8293c46",
+    "name": "Solace.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Solace.Tests"
+  },
+  {
+    "id": "6e5e03eb-f608-4392-9a67-c392120303a3",
+    "name": "Standard.AspNetCore.Serilog",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Standard.AspNetCore.Serilog"
+  },
+  {
+    "id": "082fa5cd-1a81-468f-b7ce-46c47709d532",
+    "name": "Standard.AspNetCore.ServiceCallHandlers",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Standard.AspNetCore.ServiceCallHandlers"
+  },
+  {
+    "id": "a3039e69-7ab0-4ab4-8784-54706aa3fcd8",
+    "name": "Standard.AspNetCore.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Standard.AspNetCore.TestApplication"
+  },
+  {
+    "id": "a905a5c6-22ed-4c81-aba6-e2d01e40c02a",
+    "name": "Subscribe.CleanArchDapr.TestApplication",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Subscribe.CleanArchDapr.TestApplication"
+  },
+  {
+    "id": "50b9ab59-4419-476b-82a9-d1c3b86dfec2",
+    "name": "Subscribe.MassTransit.DomainInteractionsRepro",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Subscribe.MassTransit.DomainInteractionsRepro"
+  },
+  {
+    "id": "c4e959b3-b652-4224-a8a0-aaf2a2a14942",
+    "name": "Subscribe.MassTransit.OutboxEF",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Subscribe.MassTransit.OutboxEF"
+  },
+  {
+    "id": "d3231941-3f20-462d-86ca-a32d4c05484b",
+    "name": "Subscribe.MassTransit.OutboxMemory",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Subscribe.MassTransit.OutboxMemory"
+  },
+  {
+    "id": "a26894fb-e873-47c8-b57a-5646890e1fcb",
+    "name": "SwashbuckleSettings.All",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/SwashbuckleSettings.All"
+  },
+  {
+    "id": "258a4504-901d-4cc2-94b0-7b23ae69050f",
+    "name": "SwashbuckleSettings.None",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/SwashbuckleSettings.None"
+  },
+  {
+    "id": "add3b1ec-3004-4cb3-b2c2-1f5ad0a94c98",
+    "name": "SwashbuckleSettings.NonNullableMandatory",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/SwashbuckleSettings.NonNullableMandatory"
+  },
+  {
+    "id": "3da3e00d-d69c-4e7d-bcd0-820d9d44f19e",
+    "name": "SwashbuckleSettings.SimpleSchemaId",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/SwashbuckleSettings.SimpleSchemaId"
+  },
+  {
+    "id": "3d450dd7-4b01-4641-9828-8ba27fcdd370",
+    "name": "TableStorage.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/TableStorage.Tests"
+  },
+  {
+    "id": "ee7c7265-7de1-4ce5-a279-f70f0642ab41",
+    "name": "TestMediator.NoEventing",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/TestMediator.NoEventing"
+  },
+  {
+    "id": "5673a202-49eb-4ece-bd12-b4978161e029",
+    "name": "TestMediator.Nsb",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/TestMediator.Nsb"
+  },
+  {
+    "id": "063681bc-4246-4578-a6cc-89bf030daa4f",
+    "name": "TestMediator.Outbox",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/TestMediator.Outbox"
+  },
+  {
+    "id": "fc70cb37-b1d7-4f31-9c0e-c340553ce45d",
+    "name": "TestMediator.Publisher",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/TestMediator.Publisher"
+  },
+  {
+    "id": "83c27fc4-ec66-4873-b98a-2df856d62669",
+    "name": "TestMediator.WolverineEventing",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/TestMediator.WolverineEventing"
+  },
+  {
+    "id": "504bd045-6c51-4f5d-996e-c199c8e64748",
+    "name": "TestMediator.WolverineSubscribeOnly",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/TestMediator.WolverineSubscribeOnly"
+  },
+  {
+    "id": "535787bb-de12-40cc-bb4c-258d8c1d19b9",
+    "name": "TrainingModel.Tests",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/TrainingModel.Tests"
+  },
+  {
+    "id": "0f20f746-bcad-4e1e-b944-7df6806d0f40",
+    "name": "ValueObjects.Class",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/ValueObjects.Class"
+  },
+  {
+    "id": "57cbc783-32a2-4c58-ae6d-13990cf7482c",
+    "name": "ValueObjects.Record",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/ValueObjects.Record"
+  },
+  {
+    "id": "31f3d32d-2ed8-435d-a8e4-39120b18b177",
+    "name": "Wolverine.AspNetCore.Controllers",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Wolverine.AspNetCore.Controllers"
+  },
+  {
+    "id": "23307d96-67ee-4702-a826-f5fab766c536",
+    "name": "Wolverine.Mapperly",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/Wolverine.Mapperly"
+  },
+  {
+    "id": "5c019738-3b1b-4dc2-97f7-823afc13e5a6",
+    "name": "WolverineEventing.Coexist.Cqrs",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/WolverineEventing.Coexist.Cqrs"
+  },
+  {
+    "id": "da81a2b6-d49b-42d8-a697-bd5bc52d7abc",
+    "name": "WolverineEventing.ErrorPolicy.None",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/WolverineEventing.ErrorPolicy.None"
+  },
+  {
+    "id": "73cb4815-ebe5-4efb-9480-9f4861f7dbd1",
+    "name": "WolverineEventing.ErrorPolicy.Retry",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/WolverineEventing.ErrorPolicy.Retry"
+  },
+  {
+    "id": "6d5e25a7-0442-4af9-8a11-6408c5481f6f",
+    "name": "WolverineEventing.ErrorPolicy.RetryWithCooldown",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/WolverineEventing.ErrorPolicy.RetryWithCooldown"
+  },
+  {
+    "id": "fedf767d-8498-4d84-b438-5b00d5141f9f",
+    "name": "WolverineEventing.ErrorPolicy.ScheduleRetry",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/WolverineEventing.ErrorPolicy.ScheduleRetry"
+  },
+  {
+    "id": "02a65ae8-0792-4857-b5ee-1eb2f053eb54",
+    "name": "WolverineEventing.MultiTenancy",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/WolverineEventing.MultiTenancy"
+  },
+  {
+    "id": "ea8b6d11-7281-454d-9919-a7dce1f26317",
+    "name": "WolverineEventing.Outbox.SqlServer.Publish",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/WolverineEventing.Outbox.SqlServer.Publish"
+  },
+  {
+    "id": "81fcf61f-8477-4c3b-8718-4624b226f6e1",
+    "name": "WolverineEventing.Outbox.SqlServer.Subscribe",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/WolverineEventing.Outbox.SqlServer.Subscribe"
+  },
+  {
+    "id": "21dfb9c9-1678-45ce-a9ce-f13fd3b5ac9a",
+    "name": "WolverineEventing.Publish.RabbitMQ",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/WolverineEventing.Publish.RabbitMQ"
+  },
+  {
+    "id": "e74b3878-7b44-403c-a208-ec678c431940",
+    "name": "WolverineEventing.Subscribe.RabbitMQ",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/WolverineEventing.Subscribe.RabbitMQ"
+  },
+  {
+    "id": "f92670bb-bad7-4c03-b90f-be850e57e479",
+    "name": "WolverineEventing.Transport.AmazonSqs",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/WolverineEventing.Transport.AmazonSqs"
+  },
+  {
+    "id": "9e8527c8-8d57-45a9-a82b-f90af34b26e5",
+    "name": "WolverineEventing.Transport.AzureServiceBus",
+    "dir": "D:/Dev/Intent.Modules.NET/Tests/WolverineEventing.Transport.AzureServiceBus"
+  }
+]

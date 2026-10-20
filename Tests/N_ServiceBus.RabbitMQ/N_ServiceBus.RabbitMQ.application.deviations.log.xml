@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#faab142e-2f27-42be-9a01-b789e4f7bff6</correlationId>
+      <path>N_ServiceBus.RabbitMQ.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:13:28.0714143Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#28cb765f-a610-4733-8fb8-714627f8a707</correlationId>
       <path>N_ServiceBus.RabbitMQ.Application/IntegrationEvents/EventHandlers/OrderAnimalHandler.cs</path>
       <count>4</count>

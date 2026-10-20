@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#260d77b1-f5d7-4068-94f9-385c22d3f311</correlationId>
+      <path>CleanArchitecture.ServiceModelling.ComplexTypes.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:15:31.6202624Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Entities.DomainEntity#498614a7-bfd0-4011-be4a-eaaaa0ee46d2</correlationId>
       <path>CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Entities/CustomerRich.cs</path>
       <count>3</count>

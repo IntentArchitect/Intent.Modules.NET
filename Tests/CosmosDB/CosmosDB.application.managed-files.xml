@@ -21,7 +21,7 @@
   <file path="CosmosDB.Api/CosmosDB.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CosmosDB.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
   <file path="CosmosDB.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="CosmosDB.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="CosmosDB.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="CosmosDB.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="CosmosDB.Api/Services/CurrentUserService.cs" deviationsHash="52854E362061F84EA28B67EE80FC7EB755F9DB97A20757D4196A1AC90E52348C" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="CosmosDB.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />

@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#fb6ab055-2e22-4423-8c32-7eafadb8002c</correlationId>
+      <path>EntityFrameworkCore.CosmosDb.TestApplication.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:09:19.1314946Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#6392f072-8f5f-4330-b46a-00c9b02f5185</correlationId>
       <path>EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.csproj</path>
       <count>1</count>

@@ -10,7 +10,7 @@
   <file path="Entities.PrivateSetters.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
   <file path="Entities.PrivateSetters.TestApplication.Api/Entities.PrivateSetters.TestApplication.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Entities.PrivateSetters.TestApplication.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
-  <file path="Entities.PrivateSetters.TestApplication.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Entities.PrivateSetters.TestApplication.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="Entities.PrivateSetters.TestApplication.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="Entities.PrivateSetters.TestApplication.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="Entities.PrivateSetters.TestApplication.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />

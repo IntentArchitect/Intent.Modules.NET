@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#6f405970-2c16-4aa7-8beb-54da17bd40ac</correlationId>
+      <path>EntityFrameworkCore.SQLLite.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:17:17.6843988Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#2628206e-e983-454a-be6d-6d4ba123201f</correlationId>
       <path>EntityFrameworkCore.SQLLite.Infrastructure/EntityFrameworkCore.SQLLite.Infrastructure.csproj</path>
       <count>1</count>

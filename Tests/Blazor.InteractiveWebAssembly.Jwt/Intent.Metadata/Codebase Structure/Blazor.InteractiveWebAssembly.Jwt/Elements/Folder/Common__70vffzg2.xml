@@ -133,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5b98ae65-e67a-49cc-a524-70532fbfa4ec</parentFolderId>
+      <packageId>c29b67eb-386e-4877-99db-2bb3d9c281c8</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.Jwt</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

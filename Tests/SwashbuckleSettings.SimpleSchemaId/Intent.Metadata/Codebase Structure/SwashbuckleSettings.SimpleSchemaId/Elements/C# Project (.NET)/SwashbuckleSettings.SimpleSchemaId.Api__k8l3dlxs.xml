@@ -170,6 +170,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3e6bfbf9-0b5d-407d-be75-96c1bfcf50a1</parentFolderId>
+      <packageId>99c66dd9-19cc-4484-aefc-7a365367d7f8</packageId>
+      <packageName>SwashbuckleSettings.SimpleSchemaId</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

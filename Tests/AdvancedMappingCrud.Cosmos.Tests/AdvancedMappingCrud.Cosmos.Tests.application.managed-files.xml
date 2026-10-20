@@ -36,7 +36,7 @@
   <file path="AdvancedMappingCrud.Cosmos.Tests.Api/Jobs/NewScheduledJob.cs" templateId="Intent.QuartzScheduler.ScheduledJob" />
   <file path="AdvancedMappingCrud.Cosmos.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
   <file path="AdvancedMappingCrud.Cosmos.Tests.Api/Program.Partial.cs" templateId="Intent.AspNetCore.ProgramPartial" />
-  <file path="AdvancedMappingCrud.Cosmos.Tests.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="AdvancedMappingCrud.Cosmos.Tests.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="AdvancedMappingCrud.Cosmos.Tests.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="AdvancedMappingCrud.Cosmos.Tests.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="AdvancedMappingCrud.Cosmos.Tests.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#4341f5cd-663d-4ff7-ae00-df33459362a9</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:25:49.1115417Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#d662cfcd-ef05-4c57-97a6-71a35226f97a</correlationId>
       <path>IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/CreateCustomerTests.cs</path>
       <count>1</count>

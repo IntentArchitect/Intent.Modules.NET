@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#700bd1fd-1ade-49a0-8326-1f9fa62b476f</correlationId>
+      <path>Subscribe.MassTransit.OutboxMemory.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:06:19.7399067Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#1444f4aa-02e0-4b6a-868f-7c901270c81f</correlationId>
       <path>Subscribe.MassTransit.OutboxMemory.Application/IntegrationEvents/EventHandlers/BasketCreatedEventHandler.cs</path>
       <count>3</count>

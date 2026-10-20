@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#82c55953-80fe-48c7-a949-714784b881aa</correlationId>
+      <path>HashiCorpVault.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:25:13.9043165Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#f253e863-c39c-477b-896d-0fbc3999f0df</correlationId>
       <path>HashiCorpVault.Application/VaultTest/VaultTestCommandHandler.cs</path>
       <count>3</count>

@@ -129,6 +129,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>74d97899-2098-4126-b9bb-088bbe5d2a88</parentFolderId>
+      <packageId>7109cb5c-8ab7-45d6-b48c-2c0042d46bdb</packageId>
+      <packageName>Blazor.InteractiveServer.Oidc</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

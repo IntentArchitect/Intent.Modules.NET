@@ -13,6 +13,15 @@
       <approvedAt>2026-08-27T09:24:06.5220238Z</approvedAt>
       <deviationsHash>999A06FE0CC888A8B87C8FB527B0BE76573F94DD28745127C437D815CBBB1989</deviationsHash>
     </file>
+    <file>
+      <correlationId>Intent.AspNetCore.Program#04f2b82b-a67a-4dbc-92fc-5aae5772c54d</correlationId>
+      <path>WolverineEventing.Transport.AmazonSqs.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:21:42.7011562Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
   </files>
   <customFiles>
     <customFile>

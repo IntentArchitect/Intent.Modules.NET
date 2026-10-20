@@ -14,5 +14,14 @@
       <deviationsHash>D7B7A7A375203E17C51E2325E9517D2072627C1C7835C41318790492E2B495A2</deviationsHash>
       <fileHash>866B69129F862AFF072F040455DE613DCC5AED53B64B809C7DF9B39ABC989C88</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.AspNetCore.Program#98461a0d-4ff0-4e0b-b875-dc7ada839077</correlationId>
+      <path>CosmosDB.MultiTenancy.SeperateDB.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:22:57.4849678Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
   </files>
 </deviationsLog>

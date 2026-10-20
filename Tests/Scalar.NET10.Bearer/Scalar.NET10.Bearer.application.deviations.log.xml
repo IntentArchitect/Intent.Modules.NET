@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#68203cae-805b-4dec-a199-2c1c2b3ad246</correlationId>
+      <path>Scalar.NET10.Bearer.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:00:08.2571124Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#a00bc8fe-4766-4fac-8ace-5077e052f32d</correlationId>
       <path>Scalar.NET10.Bearer.Application/Implementation/WidgetService.cs</path>
       <count>2</count>

@@ -27,7 +27,7 @@
   <file path="GraphQL.CQRS.TestApplication.Api/GraphQL/Queries/Query.cs" deviationsHash="216176936CB122A624A88578FAEFDAF78F03C01EEB69EDFE113F37E522017112" templateId="Intent.HotChocolate.GraphQL.QueryType" />
   <file path="GraphQL.CQRS.TestApplication.Api/GraphQL/Subscriptions/Subscription.cs" templateId="Intent.HotChocolate.GraphQL.SubscriptionType" />
   <file path="GraphQL.CQRS.TestApplication.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="GraphQL.CQRS.TestApplication.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="GraphQL.CQRS.TestApplication.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="GraphQL.CQRS.TestApplication.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="GraphQL.CQRS.TestApplication.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="GraphQL.CQRS.TestApplication.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />

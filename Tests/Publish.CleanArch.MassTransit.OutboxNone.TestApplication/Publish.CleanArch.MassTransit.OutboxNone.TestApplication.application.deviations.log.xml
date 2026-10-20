@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#f5516786-3079-4cb8-b696-06c269df7626</correlationId>
+      <path>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:24:42.1417397Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#de788e31-dfbf-441f-a18a-df6d5ae9b5da</correlationId>
       <path>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Scheduled/PublishDelayedNotification/PublishDelayedNotificationCommandHandler.cs</path>
       <count>1</count>

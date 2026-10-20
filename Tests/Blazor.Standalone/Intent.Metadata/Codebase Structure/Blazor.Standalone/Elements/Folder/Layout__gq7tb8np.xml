@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2ba56ac7-5483-4607-8751-5f33c50d681b</parentFolderId>
+  <packageId>824d72a1-91a3-4b47-9209-068bba31da2d</packageId>
+  <packageName>Blazor.Standalone</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4b43f4d4-c44c-4c3b-8306-8a512c5e43d3</parentFolderId>
+      <packageId>824d72a1-91a3-4b47-9209-068bba31da2d</packageId>
+      <packageName>Blazor.Standalone</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

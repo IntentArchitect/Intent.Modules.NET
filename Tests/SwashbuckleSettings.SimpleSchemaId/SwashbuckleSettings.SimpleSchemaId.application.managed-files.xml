@@ -8,7 +8,7 @@
   <file path="SwashbuckleSettings.SimpleSchemaId.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
   <file path="SwashbuckleSettings.SimpleSchemaId.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="SwashbuckleSettings.SimpleSchemaId.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
-  <file path="SwashbuckleSettings.SimpleSchemaId.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="SwashbuckleSettings.SimpleSchemaId.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="SwashbuckleSettings.SimpleSchemaId.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="SwashbuckleSettings.SimpleSchemaId.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
   <file path="SwashbuckleSettings.SimpleSchemaId.Api/SwashbuckleSettings.SimpleSchemaId.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />

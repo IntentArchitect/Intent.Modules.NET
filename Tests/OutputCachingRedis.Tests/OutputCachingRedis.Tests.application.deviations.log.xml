@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#ff8c9915-99c5-4112-866e-b8eb6ac4715e</correlationId>
+      <path>OutputCachingRedis.Tests.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:19:25.7146807Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#ef1d8324-00d9-4916-b4e0-c42e7684e91b</correlationId>
       <path>OutputCachingRedis.Tests.Application/Files/CreateFiles/CreateFilesCommandHandler.cs</path>
       <count>1</count>

@@ -24,7 +24,7 @@
   <file path="MongoDb.MultiTenancy.SeperateDb.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="MongoDb.MultiTenancy.SeperateDb.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
   <file path="MongoDb.MultiTenancy.SeperateDb.Api/MongoDb.MultiTenancy.SeperateDb.Api.csproj" deviationsHash="9A63818147C20F20F5A1ECCA65EC1883DD1AC3A8348B3D9E751E44EF4142BFA0" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="MongoDb.MultiTenancy.SeperateDb.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="MongoDb.MultiTenancy.SeperateDb.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="MongoDb.MultiTenancy.SeperateDb.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="MongoDb.MultiTenancy.SeperateDb.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="MongoDb.MultiTenancy.SeperateDb.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />

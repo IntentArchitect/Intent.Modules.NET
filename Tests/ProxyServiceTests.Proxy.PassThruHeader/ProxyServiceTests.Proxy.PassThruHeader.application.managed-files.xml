@@ -26,7 +26,7 @@
   <file path="ProxyServiceTests.Proxy.PTH.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="ProxyServiceTests.Proxy.PTH.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="ProxyServiceTests.Proxy.PTH.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="ProxyServiceTests.Proxy.PTH.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="ProxyServiceTests.Proxy.PTH.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="ProxyServiceTests.Proxy.PTH.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="ProxyServiceTests.Proxy.PTH.Api/ProxyServiceTests.Proxy.PTH.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="ProxyServiceTests.Proxy.PTH.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />

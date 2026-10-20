@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#734204c8-abd4-4a51-aa27-856118b76df6</correlationId>
+      <path>WolverineEventing.Outbox.SqlServer.Subscribe.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:19:52.5213542Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#09f0033f-d5df-4d6f-9c1d-07baa721d599</correlationId>
       <path>WolverineEventing.Outbox.SqlServer.Subscribe.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs</path>
       <count>3</count>

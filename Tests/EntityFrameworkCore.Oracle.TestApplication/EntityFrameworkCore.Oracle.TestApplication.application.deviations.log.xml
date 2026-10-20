@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#a31c457a-b048-449a-a27e-82e68c14ea7d</correlationId>
+      <path>EntityFrameworkCore.Oracle.TestApplication.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:13:15.3822935Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#48d284c2-d41e-47eb-b2b1-09b8f16a2d51</correlationId>
       <path>EntityFrameworkCore.Oracle.TestApplication.Infrastructure/EntityFrameworkCore.Oracle.TestApplication.Infrastructure.csproj</path>
       <count>1</count>

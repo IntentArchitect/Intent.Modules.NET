@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#a5e4c737-0fee-43c9-afc3-dc6d9ded554d</correlationId>
+      <path>EfCoreSoftDelete.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:04:12.7741226Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#861a62e8-4371-4cb5-880a-489c140c6eab</correlationId>
       <path>EfCoreSoftDelete.Infrastructure/EfCoreSoftDelete.Infrastructure.csproj</path>
       <count>1</count>

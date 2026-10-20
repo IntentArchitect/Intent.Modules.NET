@@ -6,7 +6,7 @@
   <file path="Scalar.NET10.OAuth2Implicit.Api/Configuration/OpenApiConfiguration.cs" templateId="Intent.AspNetCore.Scalar.OpenApiConfiguration" />
   <file path="Scalar.NET10.OAuth2Implicit.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
   <file path="Scalar.NET10.OAuth2Implicit.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
-  <file path="Scalar.NET10.OAuth2Implicit.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Scalar.NET10.OAuth2Implicit.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="Scalar.NET10.OAuth2Implicit.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="Scalar.NET10.OAuth2Implicit.Api/Scalar.NET10.OAuth2Implicit.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Scalar.NET10.OAuth2Implicit.Api/Transformers/HideRouteParametersFromBodyOperationTransformer.cs" templateId="Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer" />

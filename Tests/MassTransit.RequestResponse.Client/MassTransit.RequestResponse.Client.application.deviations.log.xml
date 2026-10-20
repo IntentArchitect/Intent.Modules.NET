@@ -15,6 +15,15 @@
       <fileHash>D7F6210CACA47347DBCC6458213C16D8A594B24314D5EAF9BB0E7AE3E197EEB0</fileHash>
     </file>
     <file>
+      <correlationId>Intent.AspNetCore.Program#22f417d1-dff0-4d00-98bb-f01ddd0b926e</correlationId>
+      <path>MassTransit.RequestResponse.Client.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:05:32.7086341Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#edc5dbfb-95c3-4c24-9744-7554aba6daa8</correlationId>
       <path>MassTransit.RequestResponse.Client.Application/TestCommands/RabbitMqTest/RabbitMqTestCommandHandler.cs</path>
       <count>3</count>

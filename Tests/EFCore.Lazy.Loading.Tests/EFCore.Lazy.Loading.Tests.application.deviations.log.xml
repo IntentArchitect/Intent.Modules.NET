@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#8f4da568-0cbd-4133-aec1-7aa80a0d270b</correlationId>
+      <path>EFCore.Lazy.Loading.Tests.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:03:19.385615Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#201055d9-cb0f-48c1-9cf6-a80523c5666d</correlationId>
       <path>EFCore.Lazy.Loading.Tests.Infrastructure/EFCore.Lazy.Loading.Tests.Infrastructure.csproj</path>
       <count>1</count>

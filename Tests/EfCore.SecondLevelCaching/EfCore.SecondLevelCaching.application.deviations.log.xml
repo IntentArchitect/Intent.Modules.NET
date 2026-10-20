@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#2d48eec4-ac7d-4343-8ba2-4dddb0f5df7e</correlationId>
+      <path>EfCore.SecondLevelCaching.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:03:50.5031317Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#1ed6ced4-2fa2-4126-a5de-743b1288fe7b</correlationId>
       <path>EfCore.SecondLevelCaching.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs</path>
       <count>1</count>

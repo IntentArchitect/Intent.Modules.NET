@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#b8c9c488-6e13-4654-8d8c-91db795740a4</correlationId>
+      <path>WolverineEventing.ErrorPolicy.Retry.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:16:52.2919364Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#b5db9098-c4bb-498a-aa67-90db225e7354</correlationId>
       <path>WolverineEventing.ErrorPolicy.Retry.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs</path>
       <count>3</count>

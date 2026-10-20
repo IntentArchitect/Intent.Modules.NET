@@ -11,7 +11,7 @@
   <file path="CleanArchitecture.Dapr.DomainEntityInterfaces.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
   <file path="CleanArchitecture.Dapr.DomainEntityInterfaces.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
   <file path="CleanArchitecture.Dapr.DomainEntityInterfaces.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
-  <file path="CleanArchitecture.Dapr.DomainEntityInterfaces.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="CleanArchitecture.Dapr.DomainEntityInterfaces.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="CleanArchitecture.Dapr.DomainEntityInterfaces.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="CleanArchitecture.Dapr.DomainEntityInterfaces.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="CleanArchitecture.Dapr.DomainEntityInterfaces.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

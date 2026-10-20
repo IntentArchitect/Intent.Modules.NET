@@ -15,6 +15,15 @@
       <fileHash>A6308777473CEAB75170CA6B70B3F593583DD426A40AD2A8F3D4260159883776</fileHash>
     </file>
     <file>
+      <correlationId>Intent.AspNetCore.Program#d63eb29b-acb5-4002-8d41-c6403e1b78dc</correlationId>
+      <path>AspNetCoreMvc.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:05:50.9126047Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#1dd61f4d-054f-4669-b2a2-0db2436f0ccd</correlationId>
       <path>AspNetCoreMvc.Infrastructure/AspNetCoreMvc.Infrastructure.csproj</path>
       <count>1</count>

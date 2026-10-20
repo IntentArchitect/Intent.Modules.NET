@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6a9c01d0-8ba6-4468-85a7-3c03b9bd7ad7</parentFolderId>
+  <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+  <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8ce59950-eaf2-479a-a2a7-6be703d1bf33</parentFolderId>
+      <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+      <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -74,6 +78,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aff5d001-2e0d-44db-a040-15cd5560480f</parentFolderId>
+          <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+          <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -94,6 +100,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>be83812a-5f6b-473c-af53-8454b75d0eb7</parentFolderId>
+              <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+              <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -108,6 +116,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aff5d001-2e0d-44db-a040-15cd5560480f</parentFolderId>
+          <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+          <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,6 +130,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aff5d001-2e0d-44db-a040-15cd5560480f</parentFolderId>
+          <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+          <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -132,6 +144,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aff5d001-2e0d-44db-a040-15cd5560480f</parentFolderId>
+          <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+          <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -168,6 +182,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aff5d001-2e0d-44db-a040-15cd5560480f</parentFolderId>
+          <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+          <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -204,6 +220,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aff5d001-2e0d-44db-a040-15cd5560480f</parentFolderId>
+          <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+          <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

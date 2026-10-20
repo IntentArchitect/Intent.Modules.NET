@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#d975df21-feb1-43d4-8aa9-dc72c4a6e694</correlationId>
+      <path>N_ServiceBus.AzureServiceBus.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:10:16.8163367Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#5aa2948f-6a1c-4c45-8f0f-8979f2ee1952</correlationId>
       <path>N_ServiceBus.AzureServiceBus.Application/IntegrationEvents/EventHandlers/OrderAnimalHandler.cs</path>
       <count>4</count>

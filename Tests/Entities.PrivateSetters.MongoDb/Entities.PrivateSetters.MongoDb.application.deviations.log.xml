@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#32a7291f-a38a-404d-9121-c1d05708a170</correlationId>
+      <path>Entities.PrivateSetters.MongoDb.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:06:39.1103335Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#a73ec8e9-cb37-4274-82c2-e63449e28ab4</correlationId>
       <path>Entities.PrivateSetters.MongoDb.Application/Implementation/InvoiceService.cs</path>
       <count>4</count>

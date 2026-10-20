@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#7bd0d101-c10f-4775-9bac-c51a3ceb1ada</correlationId>
+      <path>Ardalis.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:03:24.9319605Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Entities.DomainEntity#bea45036-f306-433e-99e0-abeebfe8180f</correlationId>
       <path>Ardalis.Domain/Entities/Client.cs</path>
       <count>2</count>

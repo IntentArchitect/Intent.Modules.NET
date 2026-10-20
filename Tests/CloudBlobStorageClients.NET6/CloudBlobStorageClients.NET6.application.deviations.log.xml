@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#df0d7ec6-997a-4ed7-84d7-3a645d164512</correlationId>
+      <path>CloudBlobStorageClients.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:16:56.1678513Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#0ba5eb08-edcc-4bb1-b333-62ea858c23df</correlationId>
       <path>CloudBlobStorageClients.Application/Tests/TestAwsS3/TestAwsS3CommandHandler.cs</path>
       <count>3</count>

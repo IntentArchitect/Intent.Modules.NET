@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#03d0bb38-2167-4cc6-9349-a79d93684456</correlationId>
+      <path>EntityFrameworkCore.SplitQueries.PostgreSQL.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:16:05.9968337Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#12f9c4e2-88a2-49f9-9e82-63e4b917749a</correlationId>
       <path>EntityFrameworkCore.SplitQueries.PostgreSQL.Application/Implementation/Geometry/GeometryService.cs</path>
       <count>3</count>

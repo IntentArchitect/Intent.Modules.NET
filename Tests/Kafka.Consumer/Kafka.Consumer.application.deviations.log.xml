@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#e9238275-100d-47ef-9fca-602a2c03cc0b</correlationId>
+      <path>Kafka.Consumer.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:03:17.6353354Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#fa987292-61ec-4c58-a1e0-96a58ca49c3e</correlationId>
       <path>Kafka.Consumer.Infrastructure/Kafka.Consumer.Infrastructure.csproj</path>
       <count>1</count>

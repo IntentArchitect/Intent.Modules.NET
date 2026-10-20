@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>45efb7b0-17f3-4ce4-888a-4560e9e1bc80</parentFolderId>
+  <packageId>9b6248f6-00e0-482d-ada0-4a6456f63a59</packageId>
+  <packageName>SwashbuckleSettings.None</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7e9943ed-d7e2-43ee-978d-02a69e224896</parentFolderId>
+      <packageId>9b6248f6-00e0-482d-ada0-4a6456f63a59</packageId>
+      <packageName>SwashbuckleSettings.None</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -53,6 +57,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7e9943ed-d7e2-43ee-978d-02a69e224896</parentFolderId>
+      <packageId>9b6248f6-00e0-482d-ada0-4a6456f63a59</packageId>
+      <packageName>SwashbuckleSettings.None</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +95,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7e9943ed-d7e2-43ee-978d-02a69e224896</parentFolderId>
+      <packageId>9b6248f6-00e0-482d-ada0-4a6456f63a59</packageId>
+      <packageName>SwashbuckleSettings.None</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -125,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7e9943ed-d7e2-43ee-978d-02a69e224896</parentFolderId>
+      <packageId>9b6248f6-00e0-482d-ada0-4a6456f63a59</packageId>
+      <packageName>SwashbuckleSettings.None</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

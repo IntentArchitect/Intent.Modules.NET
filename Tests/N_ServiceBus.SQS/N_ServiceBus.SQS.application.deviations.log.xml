@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#7cfa0e5a-b470-41e4-961c-fa2904e87f7f</correlationId>
+      <path>N_ServiceBus.SQS.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:14:54.8797171Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#10cc409e-9a54-402f-883b-afb8b9e6011e</correlationId>
       <path>N_ServiceBus.SQS.Application/IntegrationEvents/EventHandlers/CatchAllHandler.cs</path>
       <count>4</count>

@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#0cb20949-75d6-447f-b3f9-bccb0a545497</correlationId>
+      <path>TableStorage.Tests.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:08:22.9037697Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#440f408b-9796-4f8f-8781-a18645425ddc</correlationId>
       <path>TableStorage.Tests.Application/Orders/GetOrdersFiltered/GetOrdersFilteredQueryHandler.cs</path>
       <count>1</count>

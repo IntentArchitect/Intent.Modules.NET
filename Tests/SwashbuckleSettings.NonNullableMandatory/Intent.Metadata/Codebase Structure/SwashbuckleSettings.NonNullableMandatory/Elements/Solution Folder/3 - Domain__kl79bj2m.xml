@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6a9c01d0-8ba6-4468-85a7-3c03b9bd7ad7</parentFolderId>
+  <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+  <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>13a17cfe-8ee6-4e07-83d9-a4c292d96df2</parentFolderId>
+      <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+      <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -64,6 +68,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ea8f099-84de-4332-a6d9-3710b4a50b2a</parentFolderId>
+          <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+          <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -84,6 +90,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>51a9780b-d979-4065-83ed-cfb7b77c3ff3</parentFolderId>
+              <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+              <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -98,6 +106,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ea8f099-84de-4332-a6d9-3710b4a50b2a</parentFolderId>
+          <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+          <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -110,6 +120,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ea8f099-84de-4332-a6d9-3710b4a50b2a</parentFolderId>
+          <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+          <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
           <stereotypes />
           <metadata />
           <childElements />

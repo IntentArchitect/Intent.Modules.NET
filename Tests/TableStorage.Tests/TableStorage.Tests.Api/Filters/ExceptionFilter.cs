@@ -14,6 +14,7 @@ namespace TableStorage.Tests.Api.Filters
 {
     public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
     {
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void OnException(ExceptionContext context)
         {
             switch (context.Exception)

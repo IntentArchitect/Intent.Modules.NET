@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5754b04c-6d03-4195-9584-d028ff658d73</parentFolderId>
+  <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+  <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

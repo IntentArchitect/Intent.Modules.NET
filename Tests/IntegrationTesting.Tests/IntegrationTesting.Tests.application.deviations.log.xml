@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#6cfd0cd9-5b39-4fc5-90df-99cae124faee</correlationId>
+      <path>IntegrationTesting.Tests.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:26:34.7188496Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.UnitTesting.CommandHandlerTest#f09e30c7-857f-4a6b-942a-fbdabec0233c</correlationId>
       <path>IntegrationTesting.Tests.Application.UnitTests/Brands/CreateBrandCommandHandlerTests.cs</path>
       <count>1</count>

@@ -13,6 +13,15 @@
       <approvedAt>2026-08-27T09:24:07.3630257Z</approvedAt>
       <deviationsHash>B8A95146B8F4CEE88B02026A1F0EA12B80C2111A7A05E6BBBA4EBDA8F6E98049</deviationsHash>
     </file>
+    <file>
+      <correlationId>Intent.AspNetCore.Program#e1460c01-caab-4450-a720-148c136f88a5</correlationId>
+      <path>WolverineEventing.Transport.AzureServiceBus.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:22:17.7131298Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
   </files>
   <customFiles>
     <customFile>

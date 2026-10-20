@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#fb89ca18-eef0-4322-9e8b-46362dd133f4</correlationId>
+      <path>MassTransit.AzureServiceBus.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:04:18.5133165Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#8f20bcf3-e37f-4ff9-90f7-6b4453c0ca5d</correlationId>
       <path>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/TestMessageHandler.cs</path>
       <count>3</count>

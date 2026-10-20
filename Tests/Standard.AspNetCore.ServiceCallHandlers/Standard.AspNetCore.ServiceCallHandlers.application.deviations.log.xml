@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#1a96db69-c451-452d-8c19-6fbee38b145d</correlationId>
+      <path>Standard.AspNetCore.ServiceCallHandlers.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:03:43.7282331Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#d065ffc7-1701-4c3d-83fa-dbda3fb52c67</correlationId>
       <path>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/PeopleService.cs</path>
       <count>2</count>
