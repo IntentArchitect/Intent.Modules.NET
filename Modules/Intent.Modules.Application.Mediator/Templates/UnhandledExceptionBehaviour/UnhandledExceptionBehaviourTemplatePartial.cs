@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
-using Intent.Modules.Application.Mediator.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -73,18 +72,8 @@ namespace Intent.Modules.Application.Mediator.Templates.UnhandledExceptionBehavi
                 });
         }
 
-        public override bool CanRunTemplate()
-        {
-            return base.CanRunTemplate() && ExecutionContext.Settings.GetMediatorSettings().EnableUnhandledExceptionBehaviour();
-        }
-
         public override void BeforeTemplateExecution()
         {
-            if (!CanRunTemplate())
-            {
-                return;
-            }
-
             this.ApplyAppSetting("CqrsSettings:LogRequestPayload", true);
         }
 

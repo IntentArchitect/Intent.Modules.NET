@@ -31,7 +31,7 @@
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
-            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Create a default handler stub for every domain event that has no modelled Domain Event Handler. Off by default: with no handler, publishing the event is a no-op. Every default handler is an AI-written stub." />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Generate a handler stub for each domain event that has no modelled handler." />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" />
             <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" />

@@ -1,14 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Metadata.Security.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -40,6 +36,20 @@ namespace Intent.Modules.Application.Mediator.Templates.AuthorizationBehaviour
                     @class.AddGenericParameter("TResponse", out var tResponse);
                     @class.ImplementsInterface(UseType($"Mediator.IPipelineBehavior<{tRequest}, {tResponse}>"));
                     @class.AddGenericTypeConstraint(tRequest, c => c.AddType(UseType("Mediator.IMessage")));
+
+                    if (!IdentityIsInstalled())
+                    {
+                        // Without Intent.Application.Identity no request can be secured (CqrsModelTemplateHelpers
+                        // raises an ElementException for one that is), so the behaviour passes every request through.
+                        @class.AddMethod($"{UseType("System.Threading.Tasks.ValueTask")}<{tResponse}>", "Handle", method =>
+                        {
+                            method.AddParameter(tRequest, "request");
+                            method.AddParameter(UseType($"Mediator.MessageHandlerDelegate<{tRequest}, {tResponse}>"), "next");
+                            method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
+                            method.AddStatement("return next(request, cancellationToken);");
+                        });
+                        return;
+                    }
 
                     @class.AddConstructor(ctor =>
                     {
@@ -121,24 +131,11 @@ namespace Intent.Modules.Application.Mediator.Templates.AuthorizationBehaviour
                 });
         }
 
-        public override bool CanRunTemplate()
-        {
-            return base.CanRunTemplate() && IdentityIsInstalled() && AnyRequestIsSecured();
-        }
-
         private bool IdentityIsInstalled()
         {
             return TryGetTypeName(CurrentUserServiceInterfaceTemplateId, out _) &&
                    TryGetTypeName(AuthorizeAttributeTemplateId, out _) &&
                    TryGetTypeName(ForbiddenAccessExceptionTemplateId, out _);
-        }
-
-        private bool AnyRequestIsSecured()
-        {
-            var services = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id);
-
-            return services.GetCommandModels().Any(command => SecurityModelHelpers.GetSecurityModels(command.InternalElement).Any()) ||
-                   services.GetQueryModels().Any(query => SecurityModelHelpers.GetSecurityModels(query.InternalElement).Any());
         }
 
         [IntentManaged(Mode.Fully)]

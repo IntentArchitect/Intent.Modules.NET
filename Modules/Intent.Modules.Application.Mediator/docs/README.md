@@ -14,7 +14,7 @@ Generates a CQRS dispatch stack for an Intent-managed .NET application on the so
 | Query handler stub | Each Query | `IQueryHandler<TQuery, TResponse>` with a `ValueTask<TResponse>` `Handle` stub. |
 | `MediatorConfiguration` | Once | `AddMediatorConfiguration`, registered into the Infrastructure service configuration. Calls `AddMediator` with transient lifetime, the Application assembly, the notification publisher and the pipeline (below). |
 | `SequentialNotificationPublisher` | Once | Runs notification handlers one at a time, stops at the first failure and rethrows that handler's own exception (Mediator's built-in publisher keeps going and wraps failures in an `AggregateException`). |
-| Pipeline behaviours | Once each, when applicable | Logging, UnhandledException, Performance, Authorization, MessageBusPublish and UnitOfWork. See [The pipeline](#the-pipeline). |
+| Pipeline behaviours | Once each, in the Infrastructure layer (`Dispatch/Behaviours`) | Logging, UnhandledException, Performance and Authorization always; MessageBusPublish and UnitOfWork when applicable. See [The pipeline](#the-pipeline). |
 | `MessageBusFlushOwner` | When a message bus interface exists | Scoped. Lets the outermost unit of work own flushing the message bus, so a nested command cannot send messages before the outer work commits. |
 | Skills | See [Skills](#skills) | `mediator-command-handler`, `mediator-query-handler` and, when the application has integration event handlers, `mediator-integration-event-handler`. |
 
@@ -47,37 +47,27 @@ The class and `Handle` signature stay in sync with the model on every Software F
 
 ## The pipeline
 
-`MediatorConfiguration` sets `options.PipelineBehaviors` to a single literal array. The Mediator source generator reads that array at compile time, so the order is fixed and nothing else may insert, reorder or compute items. The behaviours, outermost first:
+`MediatorConfiguration` sets `options.PipelineBehaviors` to a single literal array. The Mediator source generator reads that array at compile time, so the order is fixed and nothing else may insert, reorder or compute items. The behaviours live in the Infrastructure layer under `Dispatch/Behaviours`, beside the configuration that lists them, as Wolverine's middleware does. Outermost first:
 
 | # | Behaviour | Included when |
 |---|---|---|
-| 1 | `LoggingBehaviour` (a message pre-processor) | The **Enable logging behaviour** setting is on |
-| 2 | `UnhandledExceptionBehaviour` | The **Enable unhandled exception behaviour** setting is on |
-| 3 | `PerformanceBehaviour` | The **Enable performance behaviour** setting is on |
-| 4 | `AuthorizationBehaviour` | `Intent.Application.Identity` is installed **and** at least one command or query has a Security stereotype |
+| 1 | `LoggingBehaviour` (a message pre-processor) | Always. Logs every command and query before it is handled, with the current user when `Intent.Application.Identity` is installed. |
+| 2 | `UnhandledExceptionBehaviour` | Always. Logs unhandled exceptions from commands and queries (validation exceptions are rethrown unlogged when FluentValidation is installed). |
+| 3 | `PerformanceBehaviour` | Always. Logs a warning when a command or query takes longer than 500 ms to handle. |
+| 4 | `AuthorizationBehaviour` | Always. Checks `[Authorize]` when `Intent.Application.Identity` is installed, and passes every request through when it is not (see [Authorization and Identity](#authorization-and-intentapplicationidentity)). |
 | 5 | `MessageBusPublishBehaviour` | A message bus interface exists (see [Eventing](#eventing)). Flushes the bus after the handler returns, if it is the outermost owner. |
-| 6 | `ValidationBehaviour` | `Intent.Application.Mediator.FluentValidation` is installed (it fills the `Application.Common.ValidationBehaviour` role) |
+| 6 | `ValidationBehaviour` | `Intent.Application.Mediator.FluentValidation` is installed (it fills the `Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour` role) |
 | 7 | `UnitOfWorkBehaviour` | The application persists through a unit of work. Constrained to Mediator's `IBaseCommand`, so queries are not wrapped. |
 
-Each item is included only if that behaviour's own template will actually be generated, so the pipeline never references a class that does not exist.
+Each conditional item is included only if that behaviour's own template will actually be generated, so the pipeline never references a class that does not exist.
 
 Other modules that need to change the pipeline do so by **removing** an item, never by adding one. Each item carries metadata naming its behaviour, and the flush item is additionally tagged `eventbus-flush`. This is how the eventing modules take the flush out when a transactional outbox does the sending instead.
 
-A pipeline can legitimately be empty (all opt-ins off, no Identity, no FluentValidation, no bus, no persistence). The module is written on the understanding that the Mediator source generator accepts an empty `PipelineBehaviors` array.
+The module adds a `CqrsSettings:LogRequestPayload` entry to `appsettings.json` (value `true`). The logging, unhandled exception and performance behaviours read it to decide whether to include the request payload in their log messages.
 
 ## Settings
 
-All three are on the **Mediator Settings** group in the application settings, and all three are off by default.
-
-| Setting | Default | Effect |
-|---|---|---|
-| Enable logging behaviour | Off | Logs every command and query, with the current user, before it is handled. Logs without a user when `Intent.Application.Identity` is not installed. |
-| Enable performance behaviour | Off | Logs a warning when a command or query takes longer than 500 ms to handle. Logs without a user when Identity is not installed. |
-| Enable unhandled exception behaviour | Off | Logs unhandled exceptions from commands and queries (validation exceptions are rethrown unlogged when FluentValidation is installed). |
-
-When any of the three is on, the module adds a `CqrsSettings:LogRequestPayload` entry to `appsettings.json` (value `true`). The behaviours read it to decide whether to include the request payload in their log messages.
-
-Settings that belong to the companion modules (for example `Intent.Application.Mediator.DomainEvents`' "Create implicit domain event handlers", off by default) are documented with those modules.
+This module has no settings. Settings that belong to the companion modules (for example `Intent.Application.Mediator.DomainEvents`' "Create implicit domain event handlers", off by default) are documented with those modules.
 
 ## AI-written handlers
 
@@ -135,7 +125,7 @@ Handlers inject only Domain and Application layer dependencies, never infrastruc
 
 This module has no hard dependency on `Intent.Application.Identity`.
 
-- **Authorization.** A command or query with a Security stereotype gets `[Authorize]` and the `AuthorizationBehaviour` runs for it. If a command or query is secured in an application that does not have Identity, the Software Factory stops with an error on that element telling you to install `Intent.Application.Identity` or remove the stereotype. Authorization is never silently left off.
+- **Authorization.** A command or query with a Security stereotype gets `[Authorize]`, which the `AuthorizationBehaviour` checks. If a command or query is secured in an application that does not have Identity, the Software Factory stops with an error on that element telling you to install `Intent.Application.Identity` or remove the stereotype. Authorization is never silently left off. Without Identity no request can be secured, so the behaviour is still generated but passes every request through.
 - **Logging and Performance** degrade gracefully: they log without the current user when Identity is not installed.
 
 ## How it fits with other modules

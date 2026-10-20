@@ -43,8 +43,8 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Common.ValidationBehaviour</role>
-      <location>Common/Behaviours</location>
+      <role>Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour</role>
+      <location>Dispatch/Behaviours</location>
       <severity>high</severity>
       <classifications>Validation,Request Pipeline</classifications>
     </template>

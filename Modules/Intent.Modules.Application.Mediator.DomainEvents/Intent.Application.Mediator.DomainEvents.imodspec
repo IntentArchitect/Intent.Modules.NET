@@ -79,7 +79,7 @@
     <group id="f4b28e5f-12f3-409e-b6df-e1d6963c25fe" title="Domain Event Settings" type="application-settings" externalReference="f4b28e5f-12f3-409e-b6df-e1d6963c25fe">
       <settings>
         <setting id="5f32789b-dd8d-4c23-a0d5-0e090e7d1b4a" title="Create implicit domain event handlers" type="switch">
-          <hint>Create a default handler stub for every domain event that has no modelled Domain Event Handler. Off by default: with no handler, publishing the event is a no-op. Every default handler is an AI-written stub.</hint>
+          <hint>Generate a handler stub for each domain event that has no modelled handler.</hint>
           <defaultValue>false</defaultValue>
         </setting>
       </settings>

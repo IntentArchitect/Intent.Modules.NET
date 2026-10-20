@@ -10,7 +10,10 @@ G1, G5, D20, D21).
 ## Architectural Decisions
 
 - **The module fills roles; the core places the behaviour.** `ValidationBehaviour` only fulfils
-  `Application.Common.ValidationBehaviour`. The core's `MediatorConfiguration` resolves that role and adds the
+  `Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour`, and is generated into Infrastructure
+  `Dispatch/Behaviours` beside the core's behaviours (developer decision, 2026-10-20, mirroring Wolverine, whose
+  `ValidationMiddleware` sits in Infrastructure; it was `Application.Common.ValidationBehaviour` at `Common/Behaviours`
+  until then, MediatR's placement). The core's `MediatorConfiguration` resolves that role and adds the
   Validation item to its literal `PipelineBehaviors` array (order: ... MessageBusPublish, Validation, UnitOfWork).
   Rejected: inserting the item from this module, as the MediatR FluentValidation module does for its own pipeline. The
   Mediator source generator reads `PipelineBehaviors` as a literal at compile time and `CSharpCollectionExpression` has
@@ -44,7 +47,8 @@ G1, G5, D20, D21).
 - **The unhandled-exception patch is a factory extension on the core's template, found by id.**
   `UnhandledExceptionBehaviourExtension` looks up `Intent.Application.Mediator.UnhandledExceptionBehaviour` with
   `FindTemplateInstance` and inserts `catch (ValidationException) { throw; }` above the general `catch (Exception)`. The
-  lookup is null-safe because the core only runs that template when its opt-in setting is on. Without the patch every
+  core now always generates that behaviour (its opt-in setting was removed, 2026-10-20); the lookup stays null-safe
+  so a core that stops generating it does not break this module. Without the patch every
   400-class failure would be logged as an unhandled error. Mirrors the MediatR module's `UnhandledExceptionBahaviorExtension`.
 
 ## Invariants & Constraints
@@ -54,8 +58,9 @@ G1, G5, D20, D21).
   constant in the extension; `CommandModelsTemplate.TemplateId` and `QueryModelsTemplate.TemplateId` are used as inlined
   constants. Renaming or moving any of those File Templates in the core's Module Builder breaks this module silently.
 - **The `ValidationBehaviour` and `BypassValidationInterface` template ids and roles are a contract with the core.**
-  The core finds `Application.Common.ValidationBehaviour` by role; changing the role here removes validation from the
-  pipeline without any error.
+  The core finds `Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour` by role (its
+  `ValidationBehaviourRole` constant); changing the role on either side removes validation from the pipeline without
+  any error. The two must move together, as they did when the behaviour moved to Infrastructure.
 - **The patch depends on the core's catch block shape.** It matches a `CSharpCatchBlock` whose `ExceptionType` is
   exactly `"Exception"` and silently does nothing if the core changes it (the method is found with `FindMethod("Handle")`
   and `FindStatement`, both of which return null rather than throw). If the core's behaviour changes shape, re-check

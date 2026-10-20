@@ -9,10 +9,10 @@ Adds [FluentValidation](https://fluentvalidation.net/) to the commands and queri
 |---|---|
 | `CommandValidator` | An `AbstractValidator<TCommand>` for each Command in the Services designer. |
 | `QueryValidator` | An `AbstractValidator<TQuery>` for each Query in the Services designer. |
-| `ValidationBehaviour<TRequest, TResponse>` | A Mediator pipeline behaviour (`Common/Behaviours`) that runs the validators registered for the request. |
+| `ValidationBehaviour<TRequest, TResponse>` | A Mediator pipeline behaviour (Infrastructure layer, `Dispatch/Behaviours`, beside the core's behaviours) that runs the validators registered for the request. |
 | `IBypassValidation` | A marker interface (`Common/Interfaces`) that lets a request opt out of validation. |
 
-It also adjusts the core's `UnhandledExceptionBehaviour` when that behaviour is enabled (see below).
+It also adjusts the core's `UnhandledExceptionBehaviour` (see below).
 
 ## Installation
 
@@ -39,7 +39,7 @@ A request with no registered validators is passed through untouched.
 
 ### Where it sits in the pipeline
 
-You do not register this behaviour yourself. `Intent.Application.Mediator` owns the whole ordered list of pipeline behaviours and adds the validation step when it finds the `Application.Common.ValidationBehaviour` template role, which this module fills. The fixed order is, outermost first: Logging, UnhandledException, Performance, Authorization, MessageBusPublish, Validation, UnitOfWork. Validation therefore runs after authorization and before the unit of work is opened, so an invalid command never starts a transaction.
+You do not register this behaviour yourself. `Intent.Application.Mediator` owns the whole ordered list of pipeline behaviours and adds the validation step when it finds the `Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour` template role, which this module fills. The fixed order is, outermost first: Logging, UnhandledException, Performance, Authorization, MessageBusPublish, Validation, UnitOfWork. Validation therefore runs after authorization and before the unit of work is opened, so an invalid command never starts a transaction.
 
 ### Validators run one at a time
 
@@ -51,7 +51,7 @@ The validators for a request run sequentially, never in parallel. Asynchronous r
 
 ## Validation Failures Are Not Logged As Unhandled Errors
 
-If the core's optional `UnhandledExceptionBehaviour` is enabled (a setting in `Intent.Application.Mediator`), this module inserts a `catch (ValidationException) { throw; }` block ahead of the behaviour's general `catch (Exception)`. Validation failures are expected request failures, so without this block every rejected request would be logged as an unhandled exception. The exception is still rethrown, so it propagates up the pipeline to the caller unchanged. If the setting is off, the behaviour does not exist and nothing is changed.
+This module inserts a `catch (ValidationException) { throw; }` block ahead of the general `catch (Exception)` in the core's `UnhandledExceptionBehaviour`. Validation failures are expected request failures, so without this block every rejected request would be logged as an unhandled exception. The exception is still rethrown, so it propagates up the pipeline to the caller unchanged.
 
 ## Dependencies
 

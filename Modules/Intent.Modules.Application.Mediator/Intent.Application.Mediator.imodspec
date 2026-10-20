@@ -13,8 +13,8 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Common.Behaviours.AuthorizationBehaviour</role>
-      <location>Common/Behaviours</location>
+      <role>Infrastructure.Mediator.Dispatch.Behaviours.AuthorizationBehaviour</role>
+      <location>Dispatch/Behaviours</location>
       <severity>high</severity>
       <classifications>Security,Request Pipeline</classifications>
     </template>
@@ -51,8 +51,8 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Common.Behaviours.LoggingBehaviour</role>
-      <location>Common/Behaviours</location>
+      <role>Infrastructure.Mediator.Dispatch.Behaviours.LoggingBehaviour</role>
+      <location>Dispatch/Behaviours</location>
       <severity>low</severity>
       <classifications>Request Pipeline</classifications>
     </template>
@@ -81,8 +81,8 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Common.Behaviours.MessageBusPublishBehaviour</role>
-      <location>Common/Behaviours</location>
+      <role>Infrastructure.Mediator.Dispatch.Behaviours.MessageBusPublishBehaviour</role>
+      <location>Dispatch/Behaviours</location>
       <severity>medium</severity>
       <classifications>Request Pipeline</classifications>
     </template>
@@ -91,8 +91,8 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Common.Behaviours.PerformanceBehaviour</role>
-      <location>Common/Behaviours</location>
+      <role>Infrastructure.Mediator.Dispatch.Behaviours.PerformanceBehaviour</role>
+      <location>Dispatch/Behaviours</location>
       <severity>low</severity>
       <classifications>Request Pipeline</classifications>
     </template>
@@ -135,8 +135,8 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Common.Behaviours.UnhandledExceptionBehaviour</role>
-      <location>Common/Behaviours</location>
+      <role>Infrastructure.Mediator.Dispatch.Behaviours.UnhandledExceptionBehaviour</role>
+      <location>Dispatch/Behaviours</location>
       <severity>low</severity>
       <classifications>Request Pipeline</classifications>
     </template>
@@ -145,32 +145,15 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Common.Behaviours.UnitOfWorkBehaviour</role>
-      <location>Common/Behaviours</location>
+      <role>Infrastructure.Mediator.Dispatch.Behaviours.UnitOfWorkBehaviour</role>
+      <location>Dispatch/Behaviours</location>
       <severity>high</severity>
       <classifications>Request Pipeline,Persistence Schema</classifications>
     </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions />
-  <moduleSettings>
-    <group id="ad217e62-f3f2-4ec8-8ccf-62272a3e31e4" title="Mediator Settings" type="application-settings" externalReference="ad217e62-f3f2-4ec8-8ccf-62272a3e31e4">
-      <settings>
-        <setting id="17fd2373-eaca-4109-846d-2f55123ad2c5" title="Enable logging behaviour" type="switch">
-          <hint>Log every command and query, with the current user, before it is handled. Opt in; the behaviour logs without a user when Intent.Application.Identity is not installed.</hint>
-          <defaultValue>false</defaultValue>
-        </setting>
-        <setting id="a6ffb57a-8f07-445a-affd-0b0a4341bd8d" title="Enable performance behaviour" type="switch">
-          <hint>Warn when a command or query takes longer than 500 ms to handle. Opt in.</hint>
-          <defaultValue>false</defaultValue>
-        </setting>
-        <setting id="e2428551-ac90-4ba3-9357-cd7fbb9da3f4" title="Enable unhandled exception behaviour" type="switch">
-          <hint>Log unhandled exceptions from commands and queries (validation exceptions are rethrown unlogged). Opt in.</hint>
-          <defaultValue>false</defaultValue>
-        </setting>
-      </settings>
-    </group>
-  </moduleSettings>
+  <moduleSettings />
   <dependencies>
     <dependency id="Intent.Application.DependencyInjection" version="4.1.14" />
     <dependency id="Intent.Common" version="3.11.2" />

@@ -27,7 +27,26 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   not a valid check: a template of this always-installed module resolves its type name even when it would be
   skipped, so the pipeline would reference a class that is never generated. `GetPipelineBehaviours` finds the
   instance and asks it. The Validation item is the one exception to "in this module": it is resolved through the
-  `Application.Common.ValidationBehaviour` role, which FluentValidation fills.
+  `Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour` role, which FluentValidation fills.
+- **The behaviours live in Infrastructure, as Wolverine's middleware does** (developer decision, 2026-10-20). All
+  seven, FluentValidation's included, have role `Infrastructure.Mediator.Dispatch.Behaviours.{Name}` and location
+  `Dispatch/Behaviours`, mirroring Wolverine's `Infrastructure.Wolverine.Dispatch.Middleware.{Name}` at
+  `Dispatch/Middleware`. They sit beside `MediatorConfiguration`, which lists them; Infrastructure references
+  Application, so they still reach `ICommand`, `ICurrentUserService`, the bus and unit-of-work interfaces. The
+  template ids did not change, so every module that finds a behaviour by id (EF Core, Eventing.Wolverine,
+  FluentValidation) is unaffected. Rejected: MediatR's placement in `Application.Common` (`Common/Behaviours`), which
+  this module copied until then. `MessageBusFlushOwner` is not a behaviour and stays at `Common/Eventing` in
+  Application.
+  - An output, once placed, stays put on a reinstall. An application that installed an earlier pre-release keeps its
+    behaviours in `Application/Common/Behaviours` until their Template Outputs are moved to the Infrastructure
+    project (or the module is uninstalled and reinstalled).
+- **Logging, UnhandledException, Performance and Authorization are always generated** (developer decision,
+  2026-10-20), as Wolverine's middleware is. Rejected: the plan's opt-in settings (D9, the three `Enable ...
+  behaviour` switches, removed with their Mediator Settings group) and gating Authorization on Identity plus a
+  secured request. Without Identity, `AuthorizationBehaviour` is a pass-through (`return next(request,
+  cancellationToken);`): no request can be secured there, because `CqrsModelTemplateHelpers` raises an
+  `ElementException` for one that is. Wolverine's equivalent is an empty middleware class; Mediator needs a `Handle`
+  to be a valid `IPipelineBehavior`.
 - **`MessageBusFlushOwner` lives in the core** (G12), registered scoped, beside `MessageBusPublishBehaviour`.
   The flush owner lets a unit of work that spans a nested command (an integration handler Invoking a command)
   defer the flush to whoever owns the transaction, so messages never leave before the commit.
@@ -81,16 +100,15 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
     statement search never reaches inside the `PipelineBehaviors` assignment. Do not "simplify" a seam to
     `statement.Remove()`.
   - Seams run in `AfterBuild` at priority 1000; the items are added in an `OnBuild` of this template, so they exist.
-- **An empty pipeline is legal.** Probe (throwaway project, `PipelineBehaviors = []`): the source generator
-  accepts an empty literal array. A subscribe-only Eventing.Wolverine app with every opt-in off ends up with one:
-  `Tests/TestMediator.WolverineSubscribeOnly` generates `options.PipelineBehaviors = []`, builds, and dispatches
-  commands (directly and from an integration handler). Putting the flush behaviour back makes all its tests fail.
-  If a future generator version rejects it, the fix is to remove the assignment in an `AfterBuild` at priority
-  2000, after the seams' 1000.
+- **An empty pipeline is legal, but no longer arises.** Probe (throwaway project, `PipelineBehaviors = []`): the
+  source generator accepts an empty literal array, and `Tests/TestMediator.WolverineSubscribeOnly` generated one and
+  ran while Logging, UnhandledException and Performance were opt-in. Those three and Authorization are now always in
+  the list, so the pipeline always has at least four items. A subscribe-only Eventing.Wolverine app must still not
+  get the flush item: putting it back made all that app's tests fail.
 - **`NugetPackages` declares Mediator.SourceGenerator with `PrivateAssets=all`.** Declare every NuGet dependency in
   the template constructor, never in an `OnBuild`.
-- **Logging, Performance and UnhandledException are opt-in** (module settings, off by default). Authorization is
-  never silently off: a secured command or query in an app without Identity raises an `ElementException`.
+- **Authorization is never silently off:** a secured command or query in an app without Identity raises an
+  `ElementException`. That error is what makes the pass-through `AuthorizationBehaviour` safe.
 - **Hard-resolved ids and what they mean for the imodspec.** `MediatorConfiguration` calls the throwing
   `GetTypeName("Intent.Application.DependencyInjection.DependencyInjection")` for the assembly marker, so
   `Intent.Application.DependencyInjection` is a real dependency. `CqrsModelTemplateHelpers` / `AuthorizationBehaviour`
@@ -111,8 +129,8 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   **Known gap against the plan:** G22 also puts a rule on Integration Event Handler when Eventing.Contracts is
   present. The `Mediator Services Extensions` designer settings file only extends Command and Query. The README says
   so. Adding it needs a Module Builder change (not a code change).
-- **No settings except three opt-in behaviour switches.** The `Create implicit domain event handlers` switch (G18)
-  belongs to Mediator.DomainEvents, not the core.
+- **No settings.** The three opt-in behaviour switches were removed (see Architectural Decisions). The
+  `Create implicit domain event handlers` switch (G18) belongs to Mediator.DomainEvents, not the core.
 
 ## Module Interactions
 
