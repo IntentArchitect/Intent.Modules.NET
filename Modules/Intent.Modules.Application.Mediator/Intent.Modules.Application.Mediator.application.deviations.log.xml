@@ -5,10 +5,10 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a6e986a8-41f1-4686-82bb-6c0e55a0d66c</correlationId>
       <path>Templates/AuthorizationBehaviour/AuthorizationBehaviourTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-10-13T21:13:03.4880343Z</updatedAt>
-      <deviationsHash>853226033AE253F2FF6B5B6B050D3AF3F3DD846661E2F9E6EFD634A864D213A4</deviationsHash>
+      <updatedAt>2026-10-20T11:37:51.8191776Z</updatedAt>
+      <deviationsHash>253EFF4E7789B370E3E3426E65CBB51161400C7CEF8B54531370D49BCAB30F50</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#061aa6b4-bd6b-4445-8c54-aba775068e78</correlationId>
@@ -41,19 +41,19 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e9358d17-76fe-4fd8-96b3-3fcd5bc5dd6c</correlationId>
       <path>Templates/LoggingBehaviour/LoggingBehaviourTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-10-13T21:13:03.4880566Z</updatedAt>
-      <deviationsHash>129931F4E8EA84E6B45560FD3BC9686989E240ECBB670B14DA7D98901AFECA94</deviationsHash>
+      <updatedAt>2026-10-20T11:37:51.8192424Z</updatedAt>
+      <deviationsHash>8748326986444AC651C3EE851639996FD2D27A82AB9741724FB1C6E154C55B52</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c3f8eedf-6d50-4fe7-8c4f-1bf05e79b4ac</correlationId>
       <path>Templates/MediatorConfiguration/MediatorConfigurationTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-10-14T03:37:00.581408Z</updatedAt>
-      <deviationsHash>016E15DCA277C7F6919AB6E292FDD125CB9DC2C982C10091109D73ACE9443317</deviationsHash>
+      <updatedAt>2026-10-20T11:37:51.8192476Z</updatedAt>
+      <deviationsHash>754F2CD51FE306875BA104050720195B0FC76FEC6E7AD52231F7D7B454880A3F</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6e386970-4580-4230-81cf-fa5821cf596e</correlationId>
@@ -77,10 +77,10 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4be771b6-464e-4aa4-9c21-42bc5cbbcfa6</correlationId>
       <path>Templates/PerformanceBehaviour/PerformanceBehaviourTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-10-13T21:13:03.4880788Z</updatedAt>
-      <deviationsHash>E140FAFF9B99D6DB08167EF4571B69026580E769C6D0BDC09C18B8F052B68E37</deviationsHash>
+      <updatedAt>2026-10-20T11:37:51.8192549Z</updatedAt>
+      <deviationsHash>798C913468E8B9309C545EF21F57B1D545C5131379395F07DFD658D02BB04DB7</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4e3aeed6-7a02-4d9e-9c5c-e962dee46609</correlationId>
@@ -104,10 +104,10 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5dad7538-c077-40c8-9836-c954f3c84863</correlationId>
       <path>Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-10-13T21:13:03.4880998Z</updatedAt>
-      <deviationsHash>3442E5A19A0830189282A3913C430B6A38032EBF27F6A346FCCB755F8B5E4376</deviationsHash>
+      <updatedAt>2026-10-20T11:37:51.819263Z</updatedAt>
+      <deviationsHash>5562155FFCB263CE912E0C67571DC23F28938EF0A15AC49FA861DF675737768F</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1c78c882-abb5-4d97-9ce0-b7a90ba7d136</correlationId>

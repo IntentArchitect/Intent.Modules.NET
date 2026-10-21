@@ -9,7 +9,7 @@ using TestMediator.Subscriber.Application;
 using TestMediator.Subscriber.Infrastructure;
 using Mode = Intent.RoslynWeaver.Attributes.Mode;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
 namespace TestMediator.Subscriber.Api

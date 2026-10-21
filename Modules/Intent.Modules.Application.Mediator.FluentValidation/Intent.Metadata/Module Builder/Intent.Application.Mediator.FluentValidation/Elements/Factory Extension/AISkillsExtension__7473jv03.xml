@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e5134267-ed75-4e2a-85f9-b359d46afef7" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AISkillsExtension</name>
+  <display>AISkillsExtension</display>
+  <parentFolderId>20c08111-1e99-4915-a33e-5cda913e0508</parentFolderId>
+  <packageId>20c08111-1e99-4915-a33e-5cda913e0508</packageId>
+  <packageName>Intent.Application.Mediator.FluentValidation</packageName>
+</class>

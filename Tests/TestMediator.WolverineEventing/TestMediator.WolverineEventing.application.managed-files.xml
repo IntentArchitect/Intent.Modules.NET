@@ -21,16 +21,13 @@
   <file path="TestMediator.WolverineEventing.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="TestMediator.WolverineEventing.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="TestMediator.WolverineEventing.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="TestMediator.WolverineEventing.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
+  <file path="TestMediator.WolverineEventing.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
   <file path="TestMediator.WolverineEventing.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="TestMediator.WolverineEventing.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="TestMediator.WolverineEventing.Api/TestMediator.WolverineEventing.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.WolverineEventing.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
   <file path="TestMediator.WolverineEventing.Application.UnitTests/TestMediator.WolverineEventing.Application.UnitTests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.WolverineEventing.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
-  <file path="TestMediator.WolverineEventing.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.Mediator.MessageBusPublishBehaviour" />
-  <file path="TestMediator.WolverineEventing.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
-  <file path="TestMediator.WolverineEventing.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
   <file path="TestMediator.WolverineEventing.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
   <file path="TestMediator.WolverineEventing.Application/Common/Eventing/IMessageBus.cs" templateId="Intent.Eventing.Contracts.MessageBusInterface" />
   <file path="TestMediator.WolverineEventing.Application/Common/Eventing/MessageBusFlushOwner.cs" templateId="Intent.Application.Mediator.MessageBusFlushOwner" />
@@ -65,9 +62,16 @@
   <file path="TestMediator.WolverineEventing.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="TestMediator.WolverineEventing.Domain/TestMediator.WolverineEventing.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Configuration/MediatorConfiguration.cs" templateId="Intent.Application.Mediator.MediatorConfiguration" />
-  <file path="TestMediator.WolverineEventing.Infrastructure/Configuration/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Configuration/WolverineConfiguration.cs" templateId="Intent.Wolverine.Common.WolverineConfiguration" />
   <file path="TestMediator.WolverineEventing.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.Mediator.AuthorizationBehaviour" />
+  <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.Mediator.LoggingBehaviour" />
+  <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.Mediator.MessageBusPublishBehaviour" />
+  <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.Mediator.PerformanceBehaviour" />
+  <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.Mediator.UnhandledExceptionBehaviour" />
+  <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
+  <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
+  <file path="TestMediator.WolverineEventing.Infrastructure/Dispatch/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Eventing/WolverineMessageBus.cs" templateId="Intent.Eventing.Wolverine.WolverineMessageBus" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="TestMediator.WolverineEventing.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

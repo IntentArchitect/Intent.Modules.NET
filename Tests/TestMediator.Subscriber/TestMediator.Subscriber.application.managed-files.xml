@@ -26,9 +26,6 @@
   <file path="TestMediator.Subscriber.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
   <file path="TestMediator.Subscriber.Application.UnitTests/TestMediator.Subscriber.Application.UnitTests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.Subscriber.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
-  <file path="TestMediator.Subscriber.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.Mediator.MessageBusPublishBehaviour" />
-  <file path="TestMediator.Subscriber.Application/Common/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
-  <file path="TestMediator.Subscriber.Application/Common/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
   <file path="TestMediator.Subscriber.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
   <file path="TestMediator.Subscriber.Application/Common/Eventing/IMessageBus.cs" templateId="Intent.Eventing.Contracts.MessageBusInterface" />
   <file path="TestMediator.Subscriber.Application/Common/Eventing/MessageBusFlushOwner.cs" templateId="Intent.Application.Mediator.MessageBusFlushOwner" />
@@ -77,8 +74,15 @@
   <file path="TestMediator.Subscriber.Domain/TestMediator.Subscriber.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TestMediator.Subscriber.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
   <file path="TestMediator.Subscriber.Infrastructure/Configuration/MediatorConfiguration.cs" templateId="Intent.Application.Mediator.MediatorConfiguration" />
-  <file path="TestMediator.Subscriber.Infrastructure/Configuration/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.Subscriber.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.Mediator.AuthorizationBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.Mediator.LoggingBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.Mediator.MessageBusPublishBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.Mediator.PerformanceBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.Mediator.UnhandledExceptionBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
   <file path="TestMediator.Subscriber.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
   <file path="TestMediator.Subscriber.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
   <file path="TestMediator.Subscriber.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />

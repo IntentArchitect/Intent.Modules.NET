@@ -42,7 +42,8 @@ the call differ.
 
 - **Intent.AspNetCore.Controllers** - supplies `ControllerTemplate`, `IControllerModel` and `FileTransferHelper`. Built against `7.1.10`.
 - **Intent.Metadata.WebApi** - `4.6.4` declared (as the Wolverine counterpart); supplies the HTTP settings models.
-- **Intent.Application.Mediator** - written against `1.0.0-pre.0`. Its imodspec interoperability installs this module when
+- **Intent.Application.Mediator** - written against `1.0.0-pre.0`, declared at `1.0.0-pre.1` to keep the family's
+  versions together. Its imodspec interoperability installs this module when
   `Intent.AspNetCore.Controllers` is detected.
 - **Intent.AspNetCore.Controllers.Dispatch.Wolverine / .MediatR** - siblings; mutually exclusive (above).
 

@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#e5134267-ed75-4e2a-85f9-b359d46afef7</correlationId>
+      <path>FactoryExtensions/AISkillsExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-20T11:38:01.094838Z</updatedAt>
+      <deviationsHash>1E257A9C8B95C1EF05AE25D51B290B50DB9E86A38FE1F284E5AE41819CD00BB9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#2f9fa230-9b10-4eea-b0d8-3a231b17c9aa</correlationId>
       <path>FactoryExtensions/UnhandledExceptionBehaviourExtension.cs</path>
       <count>1</count>

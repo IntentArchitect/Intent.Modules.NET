@@ -32,7 +32,8 @@ namespace Intent.Modules.Application.Mediator.Templates.MessageBusPublishBehavio
                     @class.AddGenericParameter("TRequest", out var tRequest);
                     @class.AddGenericParameter("TResponse", out var tResponse);
                     @class.ImplementsInterface(UseType($"Mediator.IPipelineBehavior<{tRequest}, {tResponse}>"));
-                    @class.AddGenericTypeConstraint(tRequest, c => c.AddType(UseType("Mediator.IMessage")));
+                    // Qualified because the Infrastructure project can also import NServiceBus.IMessage (a global using).
+                    @class.AddGenericTypeConstraint(tRequest, c => c.AddType("global::Mediator.IMessage"));
 
                     var busVariableName = GetBusVariableName();
 

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
-using Intent.Modules.Application.Mediator.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -36,7 +35,8 @@ namespace Intent.Modules.Application.Mediator.Templates.LoggingBehaviour
                     @class.AddGenericParameter("TRequest", out var tRequest);
                     @class.AddGenericParameter("TResponse", out var tResponse);
                     @class.WithBaseType(UseType($"Mediator.MessagePreProcessor<{tRequest}, {tResponse}>"));
-                    @class.AddGenericTypeConstraint(tRequest, c => c.AddType(UseType("Mediator.IMessage")));
+                    // Qualified because the Infrastructure project can also import NServiceBus.IMessage (a global using).
+                    @class.AddGenericTypeConstraint(tRequest, c => c.AddType("global::Mediator.IMessage"));
 
                     @class.AddConstructor(ctor =>
                     {
@@ -95,18 +95,8 @@ namespace Intent.Modules.Application.Mediator.Templates.LoggingBehaviour
                 });
         }
 
-        public override bool CanRunTemplate()
-        {
-            return base.CanRunTemplate() && ExecutionContext.Settings.GetMediatorSettings().EnableLoggingBehaviour();
-        }
-
         public override void BeforeTemplateExecution()
         {
-            if (!CanRunTemplate())
-            {
-                return;
-            }
-
             this.ApplyAppSetting("CqrsSettings:LogRequestPayload", true);
         }
 

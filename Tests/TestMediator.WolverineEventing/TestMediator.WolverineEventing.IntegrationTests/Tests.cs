@@ -12,7 +12,7 @@ using Testcontainers.MsSql;
 using Wolverine;
 using Xunit;
 using Xunit.Abstractions;
-using TestMediator.WolverineEventing.Application.Common.Behaviours;
+using TestMediator.WolverineEventing.Infrastructure.Dispatch.Behaviours;
 using TestMediator.WolverineEventing.Application.Common.Eventing;
 using TestMediator.WolverineEventing.Application.Orders.AcceptOrder;
 using TestMediator.WolverineEventing.Domain.Common.Interfaces;
@@ -216,7 +216,7 @@ public class PipelineShapeChecks
     {
         Assert.True(Mode.HasIntegrationMiddleware, "This test belongs to the Outbox None generation.");
         Assert.Equal(
-            new[] { typeof(MessageBusPublishBehaviour<,>), typeof(ValidationBehaviour<,>), typeof(UnitOfWorkBehaviour<,>) },
+            [.. AlwaysOn, typeof(MessageBusPublishBehaviour<,>), typeof(ValidationBehaviour<,>), typeof(UnitOfWorkBehaviour<,>)],
             PipelineOf());
     }
 
@@ -225,8 +225,14 @@ public class PipelineShapeChecks
     public void Durable_PipelineHasNoFlushItem_AndThereIsNoIntegrationMiddleware()
     {
         Assert.False(Mode.HasIntegrationMiddleware, "This test belongs to the Durable generation.");
-        Assert.Equal(new[] { typeof(ValidationBehaviour<,>), typeof(UnitOfWorkBehaviour<,>) }, PipelineOf());
+        Assert.Equal([.. AlwaysOn, typeof(ValidationBehaviour<,>), typeof(UnitOfWorkBehaviour<,>)], PipelineOf());
     }
+
+    private static readonly Type[] AlwaysOn =
+        [
+        typeof(LoggingBehaviour<,>), typeof(UnhandledExceptionBehaviour<,>), typeof(PerformanceBehaviour<,>),
+        typeof(AuthorizationBehaviour<,>)
+        ];
 }
 
 [Collection(FixtureCollection.Name)]

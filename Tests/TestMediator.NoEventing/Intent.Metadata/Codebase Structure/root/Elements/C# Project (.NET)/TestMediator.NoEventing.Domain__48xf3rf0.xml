@@ -3,7 +3,7 @@
   <name>TestMediator.NoEventing.Domain</name>
   <display>TestMediator.NoEventing.Domain</display>
   <externalReference>2df1abc0-1bf8-4f28-8819-fd522fcfdae2</externalReference>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <parentFolderId>6c5afa3e-43bb-46e7-ba8f-2a614d3c36e8</parentFolderId>
   <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
   <packageName>root</packageName>
@@ -34,6 +34,7 @@
         <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" />
         <property name="a811d3f2-253e-46de-ae72-bd6ec9f30d54" display="Generate AppSettings File" value="false" />
         <property name="4fe561b9-333e-4341-8243-d569db8cd8f4" display="Generate LaunchSettings File" value="false" />
+        <property name="0aca4b00-3558-46c4-abcc-e4d9b8b17090" display="MSTest SDK Version" isActive="false" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -49,6 +50,214 @@
     </stereotype>
   </stereotypes>
   <children>
+    <element id="82eed852-af17-4a9a-bd1d-1d58c066b236" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DataContract</name>
+      <display>Intent.Entities.DataContract</display>
+      <externalReference>Intent.Entities</externalReference>
+      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Medium - Persistence Schema] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;71d1cdda-afbc-4753-b66a-d44475107572&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="76a2826b-cf5d-4a70-b50e-642e9f6e44bd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntity</name>
+      <display>Intent.Entities.DomainEntity</display>
+      <externalReference>Intent.Entities</externalReference>
+      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[High - Business Logic] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;59ab8a36-4788-442b-a0a7-1df4a8babb36&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="a2423653-8a07-4854-90e7-eab47fc34eae" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntityInterface</name>
+      <display>Intent.Entities.DomainEntityInterface</display>
+      <externalReference>Intent.Entities</externalReference>
+      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="597a2b96-43cb-4f25-bb4c-66df75c50e53" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntityState</name>
+      <display>Intent.Entities.DomainEntityState</display>
+      <externalReference>Intent.Entities</externalReference>
+      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="a5726c58-5964-4f50-a279-d96e7e7444ee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEnum</name>
+      <display>Intent.Entities.DomainEnum</display>
+      <externalReference>Intent.Entities</externalReference>
+      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Medium - Business Logic] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;59ab8a36-4788-442b-a0a7-1df4a8babb36&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="3db8329c-f8b6-4c31-96f3-82e03d0a6338" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ValueObjects.ValueObject</name>
+      <display>Intent.ValueObjects.ValueObject</display>
+      <externalReference>Intent.ValueObjects</externalReference>
+      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
+      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Medium - Business Logic] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;59ab8a36-4788-442b-a0a7-1df4a8babb36&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
     <element id="e8eab7a9-6916-42aa-88bd-813734aaae64" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Domain</name>
       <display>Domain</display>
@@ -102,167 +311,6 @@
           </properties>
         </stereotype>
       </stereotypes>
-    </element>
-    <element id="82eed852-af17-4a9a-bd1d-1d58c066b236" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.DataContract</name>
-      <display>Intent.Entities.DataContract</display>
-      <externalReference>Intent.Entities</externalReference>
-      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
-      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
-      <packageName>root</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Medium - Persistence Schema] **/*&quot;]">
-              <itemList>
-                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
-                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-                  <properties>
-                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
-                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
-                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;71d1cdda-afbc-4753-b66a-d44475107572&quot;]" />
-                  </properties>
-                </item>
-              </itemList>
-            </property>
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-    <element id="76a2826b-cf5d-4a70-b50e-642e9f6e44bd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.DomainEntity</name>
-      <display>Intent.Entities.DomainEntity</display>
-      <externalReference>Intent.Entities</externalReference>
-      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
-      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
-      <packageName>root</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[High - Business Logic] **/*&quot;]">
-              <itemList>
-                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
-                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-                  <properties>
-                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
-                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
-                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;59ab8a36-4788-442b-a0a7-1df4a8babb36&quot;]" />
-                  </properties>
-                </item>
-              </itemList>
-            </property>
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-    <element id="a2423653-8a07-4854-90e7-eab47fc34eae" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.DomainEntityInterface</name>
-      <display>Intent.Entities.DomainEntityInterface</display>
-      <externalReference>Intent.Entities</externalReference>
-      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
-      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
-      <packageName>root</packageName>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-    <element id="597a2b96-43cb-4f25-bb4c-66df75c50e53" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.DomainEntityState</name>
-      <display>Intent.Entities.DomainEntityState</display>
-      <externalReference>Intent.Entities</externalReference>
-      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
-      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
-      <packageName>root</packageName>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-    <element id="a5726c58-5964-4f50-a279-d96e7e7444ee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.DomainEnum</name>
-      <display>Intent.Entities.DomainEnum</display>
-      <externalReference>Intent.Entities</externalReference>
-      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
-      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
-      <packageName>root</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Medium - Business Logic] **/*&quot;]">
-              <itemList>
-                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
-                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-                  <properties>
-                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
-                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
-                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;59ab8a36-4788-442b-a0a7-1df4a8babb36&quot;]" />
-                  </properties>
-                </item>
-              </itemList>
-            </property>
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-    <element id="77e9decc-f642-44cf-9949-162b741d2ede" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.DomainEvents.DomainEvent</name>
-      <display>Intent.DomainEvents.DomainEvent</display>
-      <externalReference>Intent.DomainEvents</externalReference>
-      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
-      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
-      <packageName>root</packageName>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-    </element>
-    <element id="3db8329c-f8b6-4c31-96f3-82e03d0a6338" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ValueObjects.ValueObject</name>
-      <display>Intent.ValueObjects.ValueObject</display>
-      <externalReference>Intent.ValueObjects</externalReference>
-      <parentFolderId>53db093e-ab5a-4159-8b79-1142a0a80bea</parentFolderId>
-      <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
-      <packageName>root</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Medium - Business Logic] **/*&quot;]">
-              <itemList>
-                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
-                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-                  <properties>
-                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
-                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
-                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;59ab8a36-4788-442b-a0a7-1df4a8babb36&quot;]" />
-                  </properties>
-                </item>
-              </itemList>
-            </property>
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
     </element>
   </children>
 </class>

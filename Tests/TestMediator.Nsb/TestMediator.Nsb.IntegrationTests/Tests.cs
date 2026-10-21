@@ -12,7 +12,7 @@ using NServiceBus;
 using Testcontainers.MsSql;
 using Xunit;
 using Xunit.Abstractions;
-using TestMediator.Nsb.Application.Common.Behaviours;
+using TestMediator.Nsb.Infrastructure.Dispatch.Behaviours;
 using TestMediator.Nsb.Application.Common.Eventing;
 using TestMediator.Nsb.Application.Orders.AcceptOrder;
 using TestMediator.Nsb.Domain.Common.Interfaces;
@@ -258,7 +258,12 @@ public class PipelineShapeChecks
             .ToArray();
 
         Assert.Equal(
-            new[] { typeof(MessageBusPublishBehaviour<,>), typeof(ValidationBehaviour<,>), typeof(UnitOfWorkBehaviour<,>) },
+            new[]
+            {
+                typeof(LoggingBehaviour<,>), typeof(UnhandledExceptionBehaviour<,>), typeof(PerformanceBehaviour<,>),
+                typeof(AuthorizationBehaviour<,>), typeof(MessageBusPublishBehaviour<,>), typeof(ValidationBehaviour<,>),
+                typeof(UnitOfWorkBehaviour<,>)
+            },
             pipeline);
     }
 
@@ -280,7 +285,13 @@ public class PipelineShapeChecks
             .Select(d => d.ImplementationType!.GetGenericTypeDefinition())
             .ToArray();
 
-        Assert.Equal(new[] { typeof(ValidationBehaviour<,>), typeof(UnitOfWorkBehaviour<,>) }, pipeline);
+        Assert.Equal(
+            new[]
+            {
+                typeof(LoggingBehaviour<,>), typeof(UnhandledExceptionBehaviour<,>), typeof(PerformanceBehaviour<,>),
+                typeof(AuthorizationBehaviour<,>), typeof(ValidationBehaviour<,>), typeof(UnitOfWorkBehaviour<,>)
+            },
+            pipeline);
     }
 }
 

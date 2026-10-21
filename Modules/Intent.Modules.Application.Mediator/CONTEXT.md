@@ -27,7 +27,37 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   not a valid check: a template of this always-installed module resolves its type name even when it would be
   skipped, so the pipeline would reference a class that is never generated. `GetPipelineBehaviours` finds the
   instance and asks it. The Validation item is the one exception to "in this module": it is resolved through the
-  `Application.Common.ValidationBehaviour` role, which FluentValidation fills.
+  `Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour` role, which FluentValidation fills.
+- **The behaviours live in Infrastructure, as Wolverine's middleware does** (developer decision, 2026-10-20). All
+  seven, FluentValidation's included, have role `Infrastructure.Mediator.Dispatch.Behaviours.{Name}` and location
+  `Dispatch/Behaviours`, mirroring Wolverine's `Infrastructure.Wolverine.Dispatch.Middleware.{Name}` at
+  `Dispatch/Middleware`. They sit beside `MediatorConfiguration`, which lists them; Infrastructure references
+  Application, so they still reach `ICommand`, `ICurrentUserService`, the bus and unit-of-work interfaces. The
+  template ids did not change, so every module that finds a behaviour by id (EF Core, Eventing.Wolverine,
+  FluentValidation) is unaffected. Rejected: MediatR's placement in `Application.Common` (`Common/Behaviours`), which
+  this module copied until then. `MessageBusFlushOwner` is not a behaviour and stays at `Common/Eventing` in
+  Application.
+  - `SequentialNotificationPublisher` sits beside them, at role `Infrastructure.Mediator.Dispatch.SequentialNotificationPublisher`
+    and location `Dispatch` (developer decision, 2026-10-20, in `1.0.0-pre.2`). It is dispatch machinery, not
+    configuration; `MediatorConfiguration` alone stays in `Configuration`. Its template id did not change, and no module
+    outside the core looks it up, so the move touches nothing else. Existing applications keep the file in
+    `Configuration` until its Template Output is moved; the merge then adds the `...Infrastructure.Dispatch` using itself.
+  - In Infrastructure the `TRequest` constraint is written `global::Mediator.IMessage`. The NServiceBus package adds
+    `global using NServiceBus;` to that project, and its `IMessage` made the bare name ambiguous (CS0104, found in
+    `Tests/TestMediator.Nsb`). `UseType` cannot see global usings that come from a package, so it would not qualify
+    the name itself. The FluentValidation `ValidationBehaviour` does the same.
+  - An output, once placed, stays put on a reinstall. An application that installed an earlier pre-release keeps its
+    behaviours in `Application/Common/Behaviours` until their Template Outputs are moved to the Infrastructure
+    project (or the module is uninstalled and reinstalled). After the move, the merge keeps the old
+    `using {App}.Application.Common.Behaviours;` in `MediatorConfiguration.cs`, which no longer compiles; delete that
+    line once and regeneration leaves it out (seen in `Tests/TestMediator.Nsb`, 2026-10-20).
+- **Logging, UnhandledException, Performance and Authorization are always generated** (developer decision,
+  2026-10-20), as Wolverine's middleware is. Rejected: the plan's opt-in settings (D9, the three `Enable ...
+  behaviour` switches, removed with their Mediator Settings group) and gating Authorization on Identity plus a
+  secured request. Without Identity, `AuthorizationBehaviour` is a pass-through (`return next(request,
+  cancellationToken);`): no request can be secured there, because `CqrsModelTemplateHelpers` raises an
+  `ElementException` for one that is. Wolverine's equivalent is an empty middleware class; Mediator needs a `Handle`
+  to be a valid `IPipelineBehavior`.
 - **`MessageBusFlushOwner` lives in the core** (G12), registered scoped, beside `MessageBusPublishBehaviour`.
   The flush owner lets a unit of work that spans a nested command (an integration handler Invoking a command)
   defer the flush to whoever owns the transaction, so messages never leave before the commit.
@@ -48,12 +78,28 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   handlers, check for a `HandleAsync` without `Body = Mode.Ignore` whose subscription has an Invoke or an unmapped
   Publish/Send. Accepted cost: nothing proactively flags an unwritten handler; an agent that neither edits the model
   nor loads the skill will not find it. The skill text alone is the rule for that agent.
+- **Satellites add their own guidance to the core's skills; the core's skill text names no satellite.** The
+  `mediator-command-handler` skill has no Validator section of its own. `Intent.Application.Mediator.FluentValidation`
+  injects one with a factory extension (`BeforeSection("Workflow", ...)`), so it appears only when that module is
+  installed (developer decision, 2026-10-20). Rejected: unconditional text in the core ("when the command has a
+  validator"), which tells an agent in an app without validation about files that do not exist. The skill is generated
+  once per AI harness, so a satellite must use `FindTemplateInstances`, not `FindTemplateInstance` (which throws on the
+  duplicates). The core's section titles (`Workflow`, `Output expectations`) are anchors for these injections; renaming
+  one silently moves injected sections to the end of the file.
 - **The Integration Event Handler rule is back.** It was first removed to keep the core free of the EventInteractions
   modeler, but the Software Factory re-adds that modeler to the imodspec from `modules.config` regardless, and with
   the Finish task gone the rule is the only model-side carrier of the takeover check.
 - **No registration factory extension in the core.** A scaffolded `MediatorRegistrationFactoryExtension` was removed
   from the model: the `MediatorConfiguration` template registers `AddMediatorConfiguration` itself through a
   `ServiceConfigurationRequest`. A stale element would keep its id in the imodspec.
+- **One icon for the whole family** (developer decision, 2026-10-20). The upstream library has no logo, so all five
+  Mediator modules share the same icon: a teal circular badge with a central hub joined to four parts that only
+  connect through it, which is the mediator pattern itself. A bolt in the hub (fast, source-generated dispatch) is
+  hidden by an SVG media query below 30px, where it would only blot the hub. The Dispatch modules share it too,
+  unlike MediatR's dispatch modules, which each have their own. Rejected: code brackets around a diamond (applied
+  first, then replaced: it said "fast generated code", not "mediator", and blurred at list size), an "M" monogram
+  (easy to confuse with MediatR), a three-node hub (reads as the "share" icon) and six spokes (busy at 16px).
+  Teal keeps it apart from MediatR's blue and Intent's own. A new Mediator module should reuse this icon.
 
 ## Invariants & Constraints
 
@@ -65,16 +111,15 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
     statement search never reaches inside the `PipelineBehaviors` assignment. Do not "simplify" a seam to
     `statement.Remove()`.
   - Seams run in `AfterBuild` at priority 1000; the items are added in an `OnBuild` of this template, so they exist.
-- **An empty pipeline is legal.** Probe (throwaway project, `PipelineBehaviors = []`): the source generator
-  accepts an empty literal array. A subscribe-only Eventing.Wolverine app with every opt-in off ends up with one:
-  `Tests/TestMediator.WolverineSubscribeOnly` generates `options.PipelineBehaviors = []`, builds, and dispatches
-  commands (directly and from an integration handler). Putting the flush behaviour back makes all its tests fail.
-  If a future generator version rejects it, the fix is to remove the assignment in an `AfterBuild` at priority
-  2000, after the seams' 1000.
+- **An empty pipeline is legal, but no longer arises.** Probe (throwaway project, `PipelineBehaviors = []`): the
+  source generator accepts an empty literal array, and `Tests/TestMediator.WolverineSubscribeOnly` generated one and
+  ran while Logging, UnhandledException and Performance were opt-in. Those three and Authorization are now always in
+  the list, so the pipeline always has at least four items. A subscribe-only Eventing.Wolverine app must still not
+  get the flush item: putting it back made all that app's tests fail.
 - **`NugetPackages` declares Mediator.SourceGenerator with `PrivateAssets=all`.** Declare every NuGet dependency in
   the template constructor, never in an `OnBuild`.
-- **Logging, Performance and UnhandledException are opt-in** (module settings, off by default). Authorization is
-  never silently off: a secured command or query in an app without Identity raises an `ElementException`.
+- **Authorization is never silently off:** a secured command or query in an app without Identity raises an
+  `ElementException`. That error is what makes the pass-through `AuthorizationBehaviour` safe.
 - **Hard-resolved ids and what they mean for the imodspec.** `MediatorConfiguration` calls the throwing
   `GetTypeName("Intent.Application.DependencyInjection.DependencyInjection")` for the assembly marker, so
   `Intent.Application.DependencyInjection` is a real dependency. `CqrsModelTemplateHelpers` / `AuthorizationBehaviour`
@@ -84,19 +129,17 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   is resolved optionally (`TryGetTypeName`, `DoNotThrow`, `CanRunTemplate`), so neither is a dependency.
   `Intent.Modules.Constants`, `Intent.Modules.Common.UnitOfWork` and the `Intent.Modules.Security.Shared` shared
   project compile into the module; `Intent.Common.UnitOfWork` is declared because its behaviour is applied at generation.
-- **Domain, Eventing and Services.EventInteractions modelers are in the imodspec but not needed by the code.** They
-  appear because they are in `modules.config` (installed for designer context), and the Software Factory re-adds them
-  while they are there. No C# reference to them exists. They only matter for the Integration Event Handler skill and
-  task, which are gated at runtime on the Eventing.Contracts role and do not need the modelers installed by this
-  module. To stop shipping them, uninstall them from the module application (never edit `modules.config` by hand).
+- **Domain and Eventing modelers are in the imodspec but not needed.** They appear because they are in
+  `modules.config` (installed for designer context), and the Software Factory re-adds them while they are there. No
+  C# or designer-settings reference to them exists. To stop shipping them, uninstall them from the module application
+  (never edit `modules.config` by hand). `Intent.Modelers.Services.EventInteractions` **is** needed: the
+  `Mediator Services Extensions` designer settings extend its Integration Event Handler element type.
 - **Settings and designer rules are the only AI guidance the model carries.** The element extensions on Command
   and Query hold `AI Settings` rules (G22); the skills carry the same rule from the other side. An agent that edits
-  the model without reading the element's rules misses it — accepted, documented in the README.
-  **Known gap against the plan:** G22 also puts a rule on Integration Event Handler when Eventing.Contracts is
-  present. The `Mediator Services Extensions` designer settings file only extends Command and Query. The README says
-  so. Adding it needs a Module Builder change (not a code change).
-- **No settings except three opt-in behaviour switches.** The `Create implicit domain event handlers` switch (G18)
-  belongs to Mediator.DomainEvents, not the core.
+  the model without reading the element's rules misses it — accepted, documented in the README. Integration Event
+  Handler carries the same kind of rule (see "The Integration Event Handler rule is back").
+- **No settings.** The three opt-in behaviour switches were removed (see Architectural Decisions). The
+  `Create implicit domain event handlers` switch (G18) belongs to Mediator.DomainEvents, not the core.
 
 ## Module Interactions
 
@@ -110,7 +153,12 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   modules use string ids. The ids other modules depend on are listed in the plan under "Template ids other modules
   depend on"; renaming or moving any of those elements in the Module Builder breaks them silently.
 - **imodspec interoperability.** Detects Controllers, FastEndpoints, FluentValidation and DomainEvents and installs the
-  matching satellite at `1.0.0-pre.0`. Seam modules are pinned to the pre-release that carries the seam (EF Core
+  matching satellite at `1.0.0-pre.1`, and every satellite declares the core at `1.0.0-pre.1`. These family links are
+  hand-maintained, and the Software Factory keeps a raised version. Move them together: FluentValidation `pre.1` fills
+  the `Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour` role, and a `pre.0` core looks for the old one,
+  so a mixed pair silently loses validation (found 2026-10-20, when they were all still at `pre.0`). A satellite's
+  pin on the core is a minimum, so it moves only when a contract the satellite uses changes: core `pre.2` (the
+  publisher move) changes none, so the satellites still declare `pre.1`. Seam modules are pinned to the pre-release that carries the seam (EF Core
   5.2.1-pre.0, MassTransit 7.2.4-pre.0, NServiceBus 1.0.4-pre.0, Eventing.Wolverine 1.0.1-pre.0). These must match
   those modules' versions in their own packages; they were bumped for the seams. EF Core Repositories 4.8.2,
   AutoMapper 5.3.10 and Mapperly 1.1.4 are minimum-compatible pins copied from Wolverine's imodspec.

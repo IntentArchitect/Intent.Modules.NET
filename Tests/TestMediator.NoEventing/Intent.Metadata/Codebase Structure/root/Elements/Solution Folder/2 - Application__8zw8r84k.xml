@@ -3,7 +3,7 @@
   <name>2 - Application</name>
   <display>2 - Application</display>
   <externalReference>b44dfcb9-e9e9-43a2-855e-abf9c45a0359</externalReference>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <parentFolderId>4124055f-f6f7-4fa3-b271-d39af9e7ca0d</parentFolderId>
   <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
   <packageName>root</packageName>

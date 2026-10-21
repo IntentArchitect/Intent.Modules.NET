@@ -2,7 +2,7 @@ using Intent.RoslynWeaver.Attributes;
 using Mediator;
 using TestMediator.NoEventing.Application.Common.Models.Products;
 using TestMediator.NoEventing.Domain.Common;
-using TestMediator.NoEventing.Domain.Products;
+using TestMediator.NoEventing.Domain.Events.Products;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Mediator.DomainEvents.DomainEventNotificationFactory", Version = "1.0")]

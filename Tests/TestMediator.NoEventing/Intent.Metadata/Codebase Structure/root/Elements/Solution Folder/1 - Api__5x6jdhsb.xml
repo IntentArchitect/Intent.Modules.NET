@@ -3,7 +3,7 @@
   <name>1 - Api</name>
   <display>1 - Api</display>
   <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <parentFolderId>4124055f-f6f7-4fa3-b271-d39af9e7ca0d</parentFolderId>
   <packageId>f5a3a67d-033e-469f-be92-0c92ea2a5bef</packageId>
   <packageName>root</packageName>

@@ -9,20 +9,20 @@ Adds [FluentValidation](https://fluentvalidation.net/) to the commands and queri
 |---|---|
 | `CommandValidator` | An `AbstractValidator<TCommand>` for each Command in the Services designer. |
 | `QueryValidator` | An `AbstractValidator<TQuery>` for each Query in the Services designer. |
-| `ValidationBehaviour<TRequest, TResponse>` | A Mediator pipeline behaviour (`Common/Behaviours`) that runs the validators registered for the request. |
+| `ValidationBehaviour<TRequest, TResponse>` | A Mediator pipeline behaviour (Infrastructure layer, `Dispatch/Behaviours`, beside the core's behaviours) that runs the validators registered for the request. |
 | `IBypassValidation` | A marker interface (`Common/Interfaces`) that lets a request opt out of validation. |
 
-It also adjusts the core's `UnhandledExceptionBehaviour` when that behaviour is enabled (see below).
+It also adjusts the core's `UnhandledExceptionBehaviour` (see below).
 
 ## Installation
 
 Installing `Intent.Application.FluentValidation` into an application that already has `Intent.Application.Mediator` installs this module as well (the core module declares it as interoperability). It requires `Intent.Application.Mediator`; install the core first if you add this module by hand.
 
-The module has no settings of its own. The unique constraint validation default is read from the `Intent.Application.FluentValidation` application settings.
+The module has no settings of its own.
 
 ## Validators
 
-Command and query validators are built on the same shared validator base used by the MediatR and Wolverine FluentValidation modules, so the rules generated from the designer (required, length, ranges, unique constraints and so on) match those modules. Validators may inject repositories (for example for unique constraint checks), and the custom validation hook is enabled so you can add bespoke rules that survive regeneration. In the generated rules, the lambda parameter is named `command` for commands and `query` for queries.
+Command and query validators are built on the same shared validator base used by the MediatR and Wolverine FluentValidation modules, but, like the handlers in this module family, most of their rules are written by an AI agent rather than generated. The module generates the rules modelled explicitly on a field with the validation stereotype, plus `NotNull`, enum and nested DTO checks. Rules derived from the target entity's constraints, such as maximum lengths, are generated only where the shared base can still reach the entity through the command's own associations, and unique constraint checks are never generated, so the unique constraint validation setting of `Intent.Application.FluentValidation` has no effect here. This module adds a Validator section to the `mediator-command-handler` skill from `Intent.Application.Mediator`, telling the agent to write those rules from the entity the command creates or updates, and to protect them with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` on `ConfigureValidationRules`. The custom validation hook is enabled so you can add bespoke rules that survive regeneration. In the generated rules, the lambda parameter is named `command` for commands and `query` for queries.
 
 The custom validation AI skill (`fluent-validation-custom-validation`) is owned by `Intent.Application.FluentValidation` and is shared by every transport; this module does not generate its own copy.
 
@@ -39,7 +39,7 @@ A request with no registered validators is passed through untouched.
 
 ### Where it sits in the pipeline
 
-You do not register this behaviour yourself. `Intent.Application.Mediator` owns the whole ordered list of pipeline behaviours and adds the validation step when it finds the `Application.Common.ValidationBehaviour` template role, which this module fills. The fixed order is, outermost first: Logging, UnhandledException, Performance, Authorization, MessageBusPublish, Validation, UnitOfWork. Validation therefore runs after authorization and before the unit of work is opened, so an invalid command never starts a transaction.
+You do not register this behaviour yourself. `Intent.Application.Mediator` owns the whole ordered list of pipeline behaviours and adds the validation step when it finds the `Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour` template role, which this module fills. The fixed order is, outermost first: Logging, UnhandledException, Performance, Authorization, MessageBusPublish, Validation, UnitOfWork. Validation therefore runs after authorization and before the unit of work is opened, so an invalid command never starts a transaction.
 
 ### Validators run one at a time
 
@@ -51,7 +51,7 @@ The validators for a request run sequentially, never in parallel. Asynchronous r
 
 ## Validation Failures Are Not Logged As Unhandled Errors
 
-If the core's optional `UnhandledExceptionBehaviour` is enabled (a setting in `Intent.Application.Mediator`), this module inserts a `catch (ValidationException) { throw; }` block ahead of the behaviour's general `catch (Exception)`. Validation failures are expected request failures, so without this block every rejected request would be logged as an unhandled exception. The exception is still rethrown, so it propagates up the pipeline to the caller unchanged. If the setting is off, the behaviour does not exist and nothing is changed.
+This module inserts a `catch (ValidationException) { throw; }` block ahead of the general `catch (Exception)` in the core's `UnhandledExceptionBehaviour`. Validation failures are expected request failures, so without this block every rejected request would be logged as an unhandled exception. The exception is still rethrown, so it propagates up the pipeline to the caller unchanged.
 
 ## Dependencies
 

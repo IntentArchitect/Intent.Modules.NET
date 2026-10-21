@@ -7,7 +7,7 @@ using TestMediator.Outbox.Api.Logging;
 using TestMediator.Outbox.Application;
 using TestMediator.Outbox.Infrastructure;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
 namespace TestMediator.Outbox.Api

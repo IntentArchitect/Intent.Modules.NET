@@ -9,7 +9,7 @@ using TestMediator.WolverineEventing.Infrastructure;
 using TestMediator.WolverineEventing.Infrastructure.Configuration;
 using Wolverine;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
 namespace TestMediator.WolverineEventing.Api

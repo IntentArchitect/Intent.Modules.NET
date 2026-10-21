@@ -9,6 +9,9 @@
   <parentFolderId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</parentFolderId>
   <packageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</packageId>
   <packageName>ValueObjects.Record.Domain</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
@@ -38,7 +41,6 @@
           <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
-            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
             <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
           </properties>
         </stereotype>
@@ -94,7 +96,7 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>ValueObjects.Class.Domain</typePackageName>
+        <typePackageName>ValueObjects.Record.Domain</typePackageName>
         <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -118,7 +120,7 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>ValueObjects.Class.Domain</typePackageName>
+        <typePackageName>ValueObjects.Record.Domain</typePackageName>
         <typePackageId>518a8ec9-8e33-42c1-8b93-bb4a52b5e22b</typePackageId>
         <stereotypes />
         <genericTypeParameters />

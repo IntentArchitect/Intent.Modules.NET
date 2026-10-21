@@ -32,7 +32,7 @@ namespace Intent.Modules.Application.Mediator.Templates.MediatorConfiguration
         public const string BehaviourMetadataKey = "mediator-behaviour";
         public const string FlushMetadataKey = "eventbus-flush";
 
-        private const string ValidationBehaviourRole = "Application.Common.ValidationBehaviour";
+        private const string ValidationBehaviourRole = "Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MediatorConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
-using TestMediator.Outbox.Application.Common.Behaviours;
+using TestMediator.Outbox.Infrastructure.Dispatch.Behaviours;
 using TestMediator.Outbox.Application.Orders.AcceptOrder;
 using TestMediator.Outbox.Eventing.Messages;
 using TestMediator.Outbox.Infrastructure.Persistence;
@@ -26,7 +26,13 @@ public class PipelineShapeChecks
             .Select(d => d.ImplementationType!.GetGenericTypeDefinition())
             .ToArray();
 
-        Assert.Equal(new[] { typeof(ValidationBehaviour<,>), typeof(UnitOfWorkBehaviour<,>) }, pipeline);
+        Assert.Equal(
+            new[]
+            {
+                typeof(LoggingBehaviour<,>), typeof(UnhandledExceptionBehaviour<,>), typeof(PerformanceBehaviour<,>),
+                typeof(AuthorizationBehaviour<,>), typeof(ValidationBehaviour<,>), typeof(UnitOfWorkBehaviour<,>)
+            },
+            pipeline);
         Assert.DoesNotContain(typeof(MessageBusPublishBehaviour<,>), pipeline);
     }
 }

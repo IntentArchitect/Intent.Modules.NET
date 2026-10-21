@@ -3,7 +3,7 @@
   <name>3 - Domain</name>
   <display>3 - Domain</display>
   <externalReference>9bb4214b-c7f4-4a07-ba31-0c8d9d826541</externalReference>
-  <order>2</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <parentFolderId>68bb2aec-4826-4d8a-b1ba-fca2b1ac4f88</parentFolderId>
   <packageId>8627adce-bbab-4adc-a8ff-7eeadf59eda4</packageId>
   <packageName>root</packageName>

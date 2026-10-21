@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Xunit;
-using TestMediator.Publisher.Application.Common.Behaviours;
+using TestMediator.Publisher.Infrastructure.Dispatch.Behaviours;
 using TestMediator.Publisher.Application.Common.Eventing;
 using TestMediator.Publisher.Application.Common.Interfaces;
 using TestMediator.Publisher.Application.Common.Models;

@@ -90,21 +90,27 @@
   <file path="ValueObjects.Class.Domain/Common/IHasDomainEvent.cs" templateId="Intent.DomainEvents.HasDomainEventInterface" />
   <file path="ValueObjects.Class.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
   <file path="ValueObjects.Class.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="ValueObjects.Class.Domain/Entities/Journey.cs" templateId="Intent.Entities.DomainEntity" />
   <file path="ValueObjects.Class.Domain/Entities/TestEntity.cs" templateId="Intent.Entities.DomainEntity" />
   <file path="ValueObjects.Class.Domain/Events/TestEvent.cs" templateId="Intent.DomainEvents.DomainEvent" />
   <file path="ValueObjects.Class.Domain/Money.cs" templateId="Intent.ValueObjects.ValueObject" />
   <file path="ValueObjects.Class.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="ValueObjects.Class.Domain/Repositories/IJourneyRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="ValueObjects.Class.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="ValueObjects.Class.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="ValueObjects.Class.Domain/Repositories/ITestEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="ValueObjects.Class.Domain/Route.cs" templateId="Intent.ValueObjects.ValueObject" />
   <file path="ValueObjects.Class.Domain/Services/ITestDomainService.cs" templateId="Intent.DomainServices.DomainServiceInterface" />
   <file path="ValueObjects.Class.Domain/Services/TestDomainService.cs" templateId="Intent.DomainServices.DomainServiceImplementation" />
   <file path="ValueObjects.Class.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
   <file path="ValueObjects.Class.Domain/ValueObjects.Class.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ValueObjects.Class.Domain/Waypoint.cs" templateId="Intent.ValueObjects.ValueObject" />
   <file path="ValueObjects.Class.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="ValueObjects.Class.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="ValueObjects.Class.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="ValueObjects.Class.Infrastructure/Persistence/Configurations/JourneyConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
   <file path="ValueObjects.Class.Infrastructure/Persistence/Configurations/TestEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="ValueObjects.Class.Infrastructure/Repositories/JourneyRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="ValueObjects.Class.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="ValueObjects.Class.Infrastructure/Repositories/TestEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="ValueObjects.Class.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
