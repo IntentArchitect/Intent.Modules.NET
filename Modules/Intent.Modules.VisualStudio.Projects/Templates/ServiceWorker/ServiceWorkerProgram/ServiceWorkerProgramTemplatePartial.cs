@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
@@ -22,16 +23,27 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
         public const string TemplateId = "Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram";
         private readonly IAppStartupFile _startupFile;
         private readonly ExistingProgramShape _existingProgramShape;
+        private readonly bool _isHandsOff;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ServiceWorkerProgramTemplate(IOutputTarget outputTarget, CSharpProjectNETModel model) : base(TemplateId, outputTarget, model)
         {
             var useTopLevelStatements = OutputTarget.GetProject().InternalElement.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
 
+            // Still registered when off, so that other modules resolving the Program template keep working
+            // and a previously generated file isn't proposed for deletion
+            _isHandsOff = IsHandsOff(model.GetStereotype(CSharpProjectNETModelStereotypeExtensions.NETSettings.DefinitionId));
+
             // Statement style comes from the setting above. From an existing file only the builder
             // declaration and run call are taken, so that Merge mode doesn't duplicate them.
             _existingProgramShape = ExistingProgramShape.Detect(ReadExistingProgramFile());
-            if (_existingProgramShape.Kind == ExistingProgramShapeKind.Unrecognised)
+            if (_isHandsOff)
+            {
+                Logging.Log.Info(
+                    $"\"Generate Program File\" is off for Worker project \"{model.Name}\", so its Program.cs was not " +
+                    "created or changed. Startup code that other modules add to Program.cs (e.g. Serilog, Windows Service hosting) was not applied.");
+            }
+            else if (_existingProgramShape.Kind == ExistingProgramShapeKind.Unrecognised)
             {
                 Logging.Log.Warning(
                     $"The existing Program.cs of Worker project \"{model.Name}\" was left untouched: it doesn't have exactly one " +
@@ -42,8 +54,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
             }
 
             CSharpFile = (useTopLevelStatements
-                    ? new CSharpFile(string.Empty, this.GetFolderPath())
-                    : new CSharpFile(this.GetNamespace(), this.GetFolderPath()))
+                ? new CSharpFile(string.Empty, this.GetFolderPath())
+                : new CSharpFile(this.GetNamespace(), this.GetFolderPath()))
                 .IntentManagedMerge();
 
             if (useTopLevelStatements)
@@ -60,7 +72,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
                 });
             }
 
-            if (_existingProgramShape.Kind == ExistingProgramShapeKind.Unrecognised)
+            if (_isHandsOff || _existingProgramShape.Kind == ExistingProgramShapeKind.Unrecognised)
             {
                 // Leave the existing file untouched
                 CSharpFile.WithOverwriteBehaviour(OverwriteBehaviour.OnceOff);
@@ -131,6 +143,32 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
                 $"the role \"{IAppStartupTemplate.RoleName}\" to get the correct template.");
 
         public bool HasStartupFile => _startupFile is not null;
+
+        public override bool CanRunTemplate()
+        {
+            return ShouldRunFor(_isHandsOff, _existingProgramShape.Kind) && base.CanRunTemplate();
+        }
+
+        /// <summary>
+        /// Hands-off never creates the file. An existing one is still "generated" (as <c>OnceOff</c>, so
+        /// unchanged) so that the Software Factory neither rewrites it nor proposes deleting it.
+        /// </summary>
+        internal static bool ShouldRunFor(bool isHandsOff, ExistingProgramShapeKind existingProgramShape)
+        {
+            return !isHandsOff || existingProgramShape != ExistingProgramShapeKind.None;
+        }
+
+        /// <summary>
+        /// Only an explicit "Generate Program File" of false is hands-off. A project saved before the property
+        /// existed has no value for it, and Worker projects always had Program.cs generated, so a missing
+        /// value (or a missing stereotype) means on. The generated <c>GenerateProgramFile()</c> accessor
+        /// can't be used here, since it reads a missing value as false.
+        /// </summary>
+        internal static bool IsHandsOff(IStereotype netSettings)
+        {
+            return netSettings != null && !netSettings.GetProperty("Generate Program File", true);
+        }
+
 
         /// <summary>
         /// Whether <c>using <paramref name="namespace"/>;</c> would compile: something is declared in that
@@ -203,6 +241,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
         /// </summary>
         private void AddApplicationLoggingConfig()
         {
+            if (_isHandsOff)
+            {
+                // They configure the logging this template sets up, which a hands-off Program.cs doesn't get
+                return;
+            }
+
             var appSettings = ExecutionContext.FindTemplateInstances<AppSettingsTemplate>(AppSettingsTemplate.TemplateId)
                 .FirstOrDefault(x => x.OutputTarget.GetProject()?.Id == OutputTarget.GetProject()?.Id && x.Model.RuntimeEnvironment == null);
             if (appSettings == null)

@@ -257,6 +257,12 @@ An existing `Program.cs` in any other shape is left untouched, and the Software 
 
 The logging settings a `Main`-method Worker adds (`Logging:EventLog:*`) are written to that project's own `appsettings.json` only.
 
+##### Generate Program File
+
+_Generate Program File_ on the _.NET Settings_ stereotype is shown only for `Microsoft.NET.Sdk.Worker` projects, and is on by default. Turning it off makes Intent hands-off for `Program.cs`: an existing file is left exactly as it is, none is created, and startup code that other modules add to `Program.cs` (e.g. Serilog or Windows Service hosting), along with the `Logging:EventLog:*` settings above, is not applied. The Software Factory logs this for each such project.
+
+Worker projects created before this setting existed have no value for it, and are treated as on, so they keep generating `Program.cs`.
+
 #### Use minimal hosting model
 
 When enabled `Startup.cs` will no longer be generated, and all start-up will be performed in `Program.cs` by of the [new minimal hosting model](https://learn.microsoft.com/aspnet/core/migration/50-to-60#use-startup-with-the-new-minimal-hosting-model) introduced with .NET 6.
@@ -321,6 +327,7 @@ When modelling projects that already exist on disk, model them to match the repo
 - Set _Target Framework_ to each project's base framework (e.g. `net10.0` for a .NET MAUI app targeting `net10.0-android;net10.0-ios`).
 - Set _Use top-level statements_ to match each Worker project's existing `Program.cs`.
 - Untick _Generate AppSettings File_ and _Generate LaunchSettings File_ on Web, Worker and Blazor WebAssembly projects whose `appsettings.json` and `launchSettings.json` should stay hands-off.
+- Untick _Generate Program File_ on Worker projects whose `Program.cs` should stay hands-off.
 
 ### Central Package Management
 
