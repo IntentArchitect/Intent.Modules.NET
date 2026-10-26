@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d1b06837-852d-4218-8833-37d9c0552d1d" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <comment>Stereotypes for Intent.Modelers.Domain.Events elements. They use filter-function targeting (by element type id) so this module has no dependency on that module, and no typed accessors are generated: templates read them by definition id.</comment>
+  <name>Optional Modeler Elements</name>
+  <display>Optional Modeler Elements</display>
+  <parentFolderId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</parentFolderId>
+  <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+  <packageName>Intent.Services.Guardrails.Contracts</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</class>

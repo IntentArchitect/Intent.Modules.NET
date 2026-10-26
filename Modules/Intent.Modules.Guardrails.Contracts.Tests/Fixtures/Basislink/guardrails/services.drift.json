@@ -1,0 +1,53 @@
+// The Services recipes for BasislinkService (ASP.NET Core controllers), written the way configure-drift-check asks.
+{
+  "files": "Basislink.API/Controllers/**/*.cs",
+  "facts": {
+    "service.route": {
+      "find": "class:{Service}",
+      "read": [
+        { "part": "declaration", "match": "\\[Route\\(\"([^\"]*)\"" },
+        { "part": "declaration", "match": "\\[Route\\((?!\"|Name=|Order=)[^\\]]*\\]", "unreadable": true }
+      ],
+      "replace": [{ "match": "\\[controller\\]", "with": "{Service|trimEnd:Controller}" }],
+      "default": ""
+    },
+    "operation.verb": {
+      "find": "class:{Service} > method:{Operation}",
+      "read": [{ "part": "declaration", "match": "\\[Http(Get|Post|Put|Delete|Patch)\\b", "case": "upper" }]
+    },
+    "operation.route": {
+      "find": "class:{Service} > method:{Operation}",
+      "read": [
+        { "part": "declaration", "match": "\\[Route\\(\"([^\"]*)\"" },
+        { "part": "declaration", "match": "\\[Http\\w+\\(\"([^\"]*)\"" },
+        { "part": "declaration", "match": "\\[(?:Route|Http\\w+)\\((?!\"|Name=|Order=)[^\\]]*\\]", "unreadable": true }
+      ],
+      "replace": [{ "match": "\\[action\\]", "with": "{Operation}" }],
+      "default": ""
+    },
+    "security": {
+      "find": "class:{Service} > method:{Operation}",
+      "read": [
+        { "part": "declaration", "match": "\\[AllowAnonymous\\b", "value": "Unsecured" },
+        { "part": "declaration", "match": "\\[(Authorize|Authorization)\\b", "value": "Secured" }
+      ],
+      "inherit": "class",
+      "default": "None"
+    },
+    "parameter.source": {
+      "find": "class:{Service} > method:{Operation} > parameter:{Parameter}",
+      "read": [
+        { "match": "\\[From(Body|Route|Query|Form|Header)\\b", "value": "From $1" },
+        { "in": "method", "part": "declaration", "match": "(?i)\\{{Parameter}(:[^}]*)?\\??\\}", "value": "From Route" },
+        { "match": "^(?:string|int|long|bool|decimal|double|DateTime|Guid)\\??\\s", "value": "From Query" }
+      ],
+      "default": "From Body"
+    }
+  },
+  "own": [
+    { "kind": "endpoint", "find": "class with \\[ApiController\\] > method with \\[Http(Get|Post|Put|Delete|Patch)\\b", "name": "{Class}.{Method}" }
+  ],
+  "exceptions": [
+    { "match": "Basislink.API/Controllers/HealthController.cs", "reason": "load-balancer probe" }
+  ]
+}

@@ -1,0 +1,11 @@
+# The BasislinkService Services model's HTTP and security facts for FeatureController, as the 2026-10-20 authority audit dumped them:
+# S|service|route|security and O|service|operation|verb|route|security|parameter:source,...
+S|FeatureController|v1/Feature|sec
+O|FeatureController|ApplyBasisLinkRoles|GET|Premiums/ApplyRole|-|
+O|FeatureController|ApplyLimit|GET|Limits/Apply|-|
+O|FeatureController|ClearCache|DELETE|Cache/Clear/{CacheKey}/{cacheKey}|-|CacheKey:From Route
+O|FeatureController|GetEventLog|GET|EventLog/Get|-|
+O|FeatureController|GetDocuments|GET|Documents/Get|-|
+O|FeatureController|GetLogDocuments|GET|Documents/Log/Get/{OneId}/{oneId}|-|OneId:From Route
+O|FeatureController|CreateLogDocuments|POST|Documents/Log/Create|-|logsDto:From Body
+O|FeatureController|UpdateLogDocuments|PUT|Documents/Log/Update|-|logsDto:From Body

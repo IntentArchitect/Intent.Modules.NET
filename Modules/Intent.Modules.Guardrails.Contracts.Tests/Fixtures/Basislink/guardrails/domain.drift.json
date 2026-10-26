@@ -1,0 +1,113 @@
+// The Domain recipes for BasislinkService (EF Core, database-first), written the way configure-drift-check asks.
+{
+  "files": "Basislink.Data/Model/**/*.cs",
+  "facts": {
+    "table.name": {
+      "find": "statement:Entity<{Entity}>",
+      "read": [
+        { "match": "To(?:Table|View)\\(\"([^\"]+)\"" },
+        { "match": "DbSet<{Entity}>(\\w+)\\{", "note": "No ToTable: EF names the table after the DbSet." }
+      ],
+      "inherit": "property with DbSet<{Entity}>"
+    },
+    "table.schema": {
+      "find": "statement:Entity<{Entity}>",
+      "read": [{ "match": "To(?:Table|View)\\(\"[^\"]+\",\"([^\"]+)\"" }],
+      "default": ""
+    },
+    "table.kind": {
+      "find": "statement:Entity<{Entity}>",
+      "read": [{ "match": "\\.ToView\\(", "value": "View" }],
+      "default": "Table"
+    },
+    "key": {
+      "find": "statement:Entity<{Entity}>",
+      "read": [
+        { "match": "HasKey\\(\\w+=>new\\{([^}]*)\\}" },
+        { "match": "HasKey\\(\\w+=>\\w+\\.(\\w+)\\)" },
+        { "match": "HasNoKey\\(\\)", "value": "" }
+      ],
+      "replace": [{ "match": "\\b\\w+\\.", "with": "" }],
+      "default": "id"
+    },
+    "column.name": {
+      "find": "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+      "read": [{ "match": "HasColumnName\\(\"([^\"]+)\"" }],
+      "default": "",
+      "absent": ""
+    },
+    "column.type": {
+      "find": "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+      "read": [{ "match": "HasColumnType\\(\"(?!decimal|numeric)([^\"]+)\"" }],
+      "default": "",
+      "absent": ""
+    },
+    "column.textType": {
+      "find": "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+      "read": [
+        { "match": "IsUnicode\\(false\\).*IsFixedLength\\(\\)|IsFixedLength\\(\\).*IsUnicode\\(false\\)", "value": "CHAR" },
+        { "match": "IsFixedLength\\(\\)", "value": "NCHAR" },
+        { "match": "HasColumnType\\(\"(n?(?:var)?char|n?text)", "case": "upper" },
+        { "match": "IsUnicode\\(false\\)", "value": "VARCHAR" }
+      ],
+      "default": "DEFAULT",
+      "absent": "DEFAULT"
+    },
+    "column.maxLength": {
+      "find": "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+      "read": [{ "match": "HasMaxLength\\((\\d+)\\)" }],
+      "default": "",
+      "absent": ""
+    },
+    "column.required": {
+      "find": [
+        "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "statement:Entity<{Entity}> > chain with HasKey\\([^)]*\\.{Attribute}\\b"
+      ],
+      "read": [
+        { "match": "IsRequired\\(\\)", "value": "true" },
+        { "match": "HasKey\\([^)]*\\.{Attribute}\\b", "value": "true", "note": "EF Core always requires a key column." }
+      ],
+      "inherit": "statement:Entity<{Entity}> > chain with HasKey\\([^)]*\\.{Attribute}\\b",
+      "default": "false",
+      "absent": "false"
+    },
+    "column.precision": {
+      "find": "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+      "read": [{ "match": "HasColumnType\\(\"(?:decimal|numeric)\\((\\d+)," }],
+      "default": "",
+      "absent": ""
+    },
+    "column.scale": {
+      "find": "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+      "read": [{ "match": "HasColumnType\\(\"(?:decimal|numeric)\\(\\d+,\\s?(\\d+)\\)" }],
+      "default": "",
+      "absent": ""
+    },
+    "column.default": {
+      "find": "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+      "read": [{ "match": "HasDefaultValueSql\\(\"([^\"]*)\"" }],
+      "default": "",
+      "absent": ""
+    },
+    "index.columns": {
+      "find": "statement:Entity<{Entity}> > chain with HasIndex\\([^;]*,\"{Index}\"\\)",
+      "read": [
+        { "match": "HasIndex\\(\\w+=>new\\{([^}]*)\\}" },
+        { "match": "HasIndex\\(\\w+=>\\w+\\.(\\w+)" }
+      ],
+      "replace": [{ "match": "\\b\\w+\\.", "with": "" }],
+      "absent": ""
+    },
+    "index.unique": {
+      "find": "statement:Entity<{Entity}> > chain with HasIndex\\([^;]*,\"{Index}\"\\)",
+      "read": [{ "match": "\\.IsUnique\\((?:true)?\\)", "value": "true" }],
+      "default": "false",
+      "absent": ""
+    }
+  },
+  "own": [
+    { "kind": "entity configuration", "find": "statement with modelBuilder\\.Entity<(\\w+)>", "name": "$1" },
+    { "kind": "index", "find": "statement with modelBuilder\\.Entity<\\w+> > chain with HasIndex\\([^;]*?\"(\\w+)\"\\)", "name": "$1" }
+  ]
+}

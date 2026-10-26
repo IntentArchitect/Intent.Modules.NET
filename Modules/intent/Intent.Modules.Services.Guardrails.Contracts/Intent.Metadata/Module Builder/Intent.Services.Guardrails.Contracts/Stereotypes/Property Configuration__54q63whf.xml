@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="50038c4a-c01d-472b-96d8-0cadf5d751db" version="3.1.0">
+  <comment>Overrides how the guardrail contract declares this field's property. Required adds the C# required modifier, as the code declares it.</comment>
+  <name>Property Configuration</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="7baed1fd-469b-4980-8fd9-4cefb8331eb2">DTO-Field</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAALR0lEQVR4AdxZDYwcVR3//9/M7N5H7ywtO3u0hbTQUm73SA2UVrAmFBKjfBgFUcFQjAZQDIWA2EJiaBVriWL4CB9V0bT4gYgYLaBGSmMoBdtaS+juUnstWEp7u9tey/Vu73a+/v7fdmduZm5ub7aFmDiZN+//9f7v/3tv5n2NgP+T60MDoucNikofVrudFJApb1ZO/6ACm/EutZ6MrxMCMnVXZbqeM9aoitKbzld7TiYAt2x1wHwhla+u7yoMz3RlzeRNAZGtlsqbyxRLKQDCTQCYsAEfhJO8uDG+hAiLEfAK2xZ5PVddMfNtamnGbWwgesG8sHrM3IVAqwGxw62EHVyayluXAZFI542PpXPmPXre/L2rD+d6znw2VTDvTueMhbUyb1A7F/2ha4cCW9n/vZVhc2cqZ33alU+UcxwTmdT1lroXiT5S57zMsQGG++h3+pvGfgJ4jZC+D0BXeQZhAulq9rOKEF7X89Z/QDH+BkgzwmbMn4WCujmPdccGUjoXiwjifqhfxAAG31Pg8E4NBg+obZV+5bS6Kn7GAEjghVEFuFEKpSH1kShdlCw2EFm4I6E+wHmvMYBwOK9CpShAAmIZDB1UwLEk9cEkQXgrzEczrremgPTuB9sYoP6jvSo4JgbqkIAqfYL7CX7DH+5NwoEFQtP0UkVLyCRpQbBQ6siBp/n7OBZwEGT2FEvq34OixlwkkFTO/FQqZ3yVK/P0tRErbfwh0YkLtEnc8T6/QgVoP82Bti7HshXrrmJ34qd9PYmtfXOwXGtVbllJ92UTW6Su3JO4Vh1OdHFT3MhuejmF77NSuvWcrNNT8IggY0pxbJ7MR3iBurLZuymJSA9zyz2p582tPFpdBBtJrR4znkEeHqVdxwxueGSKU3uXA1N7TAZiAwNKKpZ6B2smvA/Mx0oxk/gZ91aGAJcTUdVfiGO4sjpg/VbWfWrBOD+VMzbJmADo0aiheQyQActaxg7ncAJAOA8cZ5OumzmsgwC+1DaCNt2yTpljQfs0G9DnhUetm6ftolPZLN7NvVXOaPejEJcQQNFfSIJJd5nbhENbsD4oIMKZlWHrLr+dpH0hAEzLDZ9B5EggUnc8ITIGOPs4c/xJBDtbZjrz1En07nHJ6JON203buG1UEo8qdWubNbIXSN/+EszPA8RAnATOchmr3y5gYAn1AQ6kzW8QpmWr2Y51Wf+cZF4Ayu+IRUErJFg6+V80OSidmDuQbd2ngX05hXomXFLGaAv1R365cJk0z7Bg0yyXj8qJaAQRP9d/blutJ4oZ7SUifHKMLWJnMmHdMkYeQyDBoMCrua5qI3Oy6cxazHUjD0hxHg6VstoClt9ACCXOx9zcw6v4FXjNr7CT2p3M7+MUuB1w7kjlaFJAGJMpnaO9CkKsjDanfgS4nWNdKGN2bTwgNQGiU8ok1pkj2lxeU22rydwH0UE01R+7rJv3z8EBJBzzinHPTRVo3ujaNZunHPUBItjrL0fk7FSVxFwe7R4CRNuvCwKpa45+FI6RI0JLDvyuvwXqprWsmNU2gKCf1Bjfg4C+PbPJVaxbPJ9FAwV4SyIpRxSdB86GfkmHUySQdMG8gAOb7hkTHVOHtXUeH0GgkZSv2J6gCrsqFfMrQVl8Dg3tVzxvDPpKnNGVN+f7eI+MBAKEl3gWkkB8Xk5gkhwvFefhkBB4IxC/ED4j7pXHeMM0mMobG9OFkSt9qglJ+QYg4It+QxtxsZ936Ugg/LGf7xrIHBE2ynyi1HeOthEQH/PbobwA2xHgYl5l/ClVqPIy32/RmOZmedlvgQjj94geOiiA0H6CP6sdfmeNaLTplYZ6wnu68sYtqZy5SPYQ172EN2S36bnqinTBeIj5ddyD6/XcyCamc9VBuL+0XQM3HSkon2d54GBD1hfZI1LhT0LT3vbzDWlB32ioZ6UD8CgivSJ7iNm1PAE+yD15L7f+UuavR7kcQvFxpjNqAgObufG2CrGATLZggJ3Gugkx8FrGKtTASGgM06d3LPRxo2QsIKPm/wMqiGPcAGIBOapC57geQgoCDE6kIX2zbHgDF+4h118sII5lnukWmCjnze8aoImslFuI8BOIzmfY8gZ+WW7nYXslIjzM/FM8ZD8P5LzKdN4y6X3OvVsoHhkgakB4WYL+BIDPge8iAfN8bEOSEK8Ajmw8Iw7yvlJGebyc1TYVu1vWc73r5JKjlE2u4N3jbcwvKWeSV5ayLYuYziYnwTL9PBPcdEq3/SzLQ/EC1ICEKyWEwOvBRz7BCTJcoM7r+epngeDLdbaWceA8SNEgg3vZAXEFB/mdmiLmAwVe6jclCsbm6iKB8I4sNAnR5dO2UcN9StduShHiGtexmwuE60uZZEepO3HpoYz6giuPk6d49eyQc5nflgRt8PMuHQmkmNG2AuF+1wgQO+w28zqPjyAc03oCCfSQqrfYl3gmJIvNojCvQ14V+ArsOzRX2+7jPTISyOQd0MkfYp9nxQQBLINtpDE55k7JE5fQaqBu9D1YjFadbiqThyDkwHJ/IX6t3p/2b5jil7l0EAhPtTz9L9FazF0EGF7TzE61WWNOSKa8UZmBSPLgzvXp5ntKRe3XLtNsfsyw7uRRLLBjZf5cyzZ2pfN8JkAUGL88IHLbqOfMLVzh2ohXhMV8k7NSL5gXMXX8JhKKqvLyHicfF4w+ufVWnWhvpHgdRujcO+rNT+EUAniQY/2HjNnVeEDkkhkUbLimQsQkr9Kfc08w0gVzKSJELav3pUD7pVtJM3nNN9KzwL8soMGFCu6txVy38YBIXnWsO3m4rEh6vIQAaROUF7reGl7sOLQqyo7B3Sd3eFG6RjIJwkDlRVlHIzsZo+JY3/LbBIDUTjBQBLaXwF0ABLv8hTjQniO9iZesimj1y+v0vqmOtrZOx87k62QKZSsHlA0V2sEx8Fw0KkUQq2Ws4Lu4nI9jslNVJZDdTAID2A5CLCqVtB4iXF+T8WPksIDqUSGO7FZh6IACPLqw1LtXN9MbmRwl0jnzHkRnA4aGbwfwj6Vubb4jcAE5VDu9IYK9ba2q92PIrXUMkN45WCXCpUTwtVJGu4AdbQYeQpOd6heJwRCfXQxy8DUH/NUN9YnaP5L6b4VSW6v2i5pugkeKJzu9YNxUBvMtqv0cwoS/iATR0qFeC3xacqg78c9yNrGIOCYA/OY7s3AEQtcYIFJfzmp/4YI/ZyeO5GXafzoOl0vqVSNHxV7HlJLR5PBMMXRQQPUIThkeNtfqOePmdM5YyKOKLltcJklLGeu+zoPEM4BGH/f4Gn5NZ4168qjeQ93q1bJOT8JdJmOSsXkyHxEJxKcPkCm9OrNlij198mwLwstptZWgNUUqd9IXAOEJQnidNLN4CM2qTJKWMtY9zp/dNQjYHnAeZGan89bFQVFjrikgAvEhREwmOgmmZixoSzuA9Wmp43S7cU1Nah2kR8ZbSUS5ig0kzUc5BOgt4CSASdNtmJo1oeMMe3/UyXxUhSEZH7XS5pCsxiJAt95u3VpjYjxiAyFQDP7Y3gn7RJWGtFOMi8rd2kz5a40Q7wZEntDClnWeddwgywX/muOBZBaaiU+Cf4FaN+NsDzlY4DzWHRsIV/pXnq3nckvdzuPyoOtdgPhB7XSeP8Y+/rXGgFaz7TWuPpxLXZl/7MhfcwzYkbMzF73LteNhdhiIVvLo11POqn925RPlsYFIR3J+kLs5W7HPYf4p7qG9ra1q1IKR1fHvYib5NPvayDP284riZErZ5IqoIbaRx6aAuI4Oz217r5RJLLFatPOardD1Ec6TndrlZd7i9nW3jnl9w7ZR/AkBcR0dOQsDBwOu/ETywJxxAg5OCkij+rjHAgcELt+ozMno/gsAAP//AaqclAAAAAZJREFUAwDgcZ+hYiYtmgAAAABJRU5ErkJggg==" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</parentFolderId>
+  <order>0</order>
+  <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+  <packageName>Intent.Services.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="8d626064-2c64-4d2e-bf1a-522694d96113">
+      <hint>Tick when the code declares this property required (C# 11), e.g. public required string Name { get; init; }. On its first merge into an existing file, Merge replaces a property's modifiers with the generated ones, so an unmodelled required is dropped. Ignored on a positional record's fields, which are constructor parameters.</hint>
+      <name>Required</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+    </property>
+    <property id="055a970c-d865-4689-9591-4d20c2b9e1a1">
+      <hint>The property's access modifier as the code declares it. none writes no access modifier (C#'s private). Empty means public. On its first merge into an existing file, Merge replaces a property's modifiers with the generated ones, so an unmodelled access modifier becomes public. Ignored on a positional record's fields, which are constructor parameters.</hint>
+      <name>Access Modifier</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>public</defaultValue>
+      <valueOptions>
+        <option>public</option>
+        <option>protected</option>
+        <option>internal</option>
+        <option>private</option>
+        <option>protected internal</option>
+        <option>none</option>
+      </valueOptions>
+    </property>
+  </properties>
+</stereotypeDefinition>

@@ -440,6 +440,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.FastEndpoints.Dispatch.Mediator", "Intent.Modules.FastEndpoints.Dispatch.Mediator\Intent.Modules.FastEndpoints.Dispatch.Mediator.csproj", "{C33BD28F-A268-4150-A282-8FF77D7DE73E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Domain.Guardrails.Contracts", "Intent.Modules.Domain.Guardrails.Contracts\Intent.Modules.Domain.Guardrails.Contracts.csproj", "{F4966CBC-0E0E-438A-A6B4-8934A6EFCF91}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Services.Guardrails.Contracts", "Intent.Modules.Services.Guardrails.Contracts\Intent.Modules.Services.Guardrails.Contracts.csproj", "{32C36D22-3DFA-43F2-B829-9C1E82C8C693}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.Modules.Guardrails.Contracts.Tests", "Intent.Modules.Guardrails.Contracts.Tests\Intent.Modules.Guardrails.Contracts.Tests.csproj", "{C60A5A0C-5F9C-4BC6-8AA2-B39FA0E5986E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1162,6 +1168,18 @@ Global
 		{C33BD28F-A268-4150-A282-8FF77D7DE73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C33BD28F-A268-4150-A282-8FF77D7DE73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C33BD28F-A268-4150-A282-8FF77D7DE73E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4966CBC-0E0E-438A-A6B4-8934A6EFCF91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4966CBC-0E0E-438A-A6B4-8934A6EFCF91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4966CBC-0E0E-438A-A6B4-8934A6EFCF91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4966CBC-0E0E-438A-A6B4-8934A6EFCF91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32C36D22-3DFA-43F2-B829-9C1E82C8C693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32C36D22-3DFA-43F2-B829-9C1E82C8C693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32C36D22-3DFA-43F2-B829-9C1E82C8C693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32C36D22-3DFA-43F2-B829-9C1E82C8C693}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C60A5A0C-5F9C-4BC6-8AA2-B39FA0E5986E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C60A5A0C-5F9C-4BC6-8AA2-B39FA0E5986E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C60A5A0C-5F9C-4BC6-8AA2-B39FA0E5986E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C60A5A0C-5F9C-4BC6-8AA2-B39FA0E5986E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

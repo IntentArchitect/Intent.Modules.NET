@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="858f8df8-3697-428a-b559-90f90b0ea6f7" version="3.1.0">
+  <comment>Overrides how the guardrail contract declares this property (an attribute, or a navigable association end). Required adds the C# required modifier, as the code declares it.</comment>
+  <name>Property Configuration</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="0090fb93-483e-41af-a11d-5ad2dc796adf">Attribute</type>
+    <type id="0a66489f-30aa-417b-a75d-b945863366fd">Association Target End</type>
+    <type id="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">Association Source End</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="asterisk" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>11aae230-6dfe-414e-bf5f-18280aad6ae2</parentFolderId>
+  <order>0</order>
+  <packageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</packageId>
+  <packageName>Intent.Domain.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="874c3d1f-9cf8-42e7-bf94-42c6e4f1f713">
+      <hint>Tick when the code declares this property required (C# 11), e.g. public required string Name { get; init; }. On its first merge into an existing file, Merge replaces a property's modifiers with the generated ones, so an unmodelled required is dropped. Ignored on a positional record's fields, which are constructor parameters.</hint>
+      <name>Required</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+    </property>
+    <property id="94dd0e17-215e-4177-877b-66bda9b3444e">
+      <hint>The property's access modifier as the code declares it. none writes no access modifier (C#'s private). Empty means public. On its first merge into an existing file, Merge replaces a property's modifiers with the generated ones, so an unmodelled access modifier becomes public. Ignored on a positional record's fields, which are constructor parameters.</hint>
+      <name>Access Modifier</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>public</defaultValue>
+      <valueOptions>
+        <option>public</option>
+        <option>protected</option>
+        <option>internal</option>
+        <option>private</option>
+        <option>protected internal</option>
+        <option>none</option>
+      </valueOptions>
+    </property>
+  </properties>
+</stereotypeDefinition>

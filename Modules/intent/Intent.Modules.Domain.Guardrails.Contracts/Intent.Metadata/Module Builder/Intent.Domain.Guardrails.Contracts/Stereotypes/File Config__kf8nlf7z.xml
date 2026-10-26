@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="88722cfc-8f4e-4cc2-96f5-3635f5b520d1" version="3.1.0">
+  <comment>Optional overrides for the file the guardrail contract is merged into. Set only what differs from the convention: Filename when the existing file's name differs from the type name or the file holds several types; Namespace when the file's namespace differs from the one derived from its folders.</comment>
+  <name>File Config</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="04e12b51-ed12-42a3-9667-a6aa81bb6d10">Class</type>
+    <type id="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5">Value Object</type>
+    <type id="96ffceb2-a70a-4b69-869b-0df436c470c3">Repository</type>
+    <type id="4464fabe-c59e-4d90-81fc-c9245bdd1afd">Data Contract</type>
+    <type id="07f936ea-3756-48c8-babd-24ac7271daac">Domain Service</type>
+    <type id="85fba0e9-9161-4c85-a603-a229ef312beb">Enum</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACGUlEQVR4AeyWS04DMQxA7SKYHRQJOlyBAhv+52KBhPhJ/ITYcAkOUX5XYEVbrsB0xbKDNCauNP2onTBummZUJaoVJ3FiP1vTpAQz0jxI0QqprUilEdMkBZ6I+qVzdr39EzbiQ9PEaEFMD8+1H3GRiGphPT7IZZ9h5B6EA0NcIqDntXq8z8NxpBggHLmCSYBe1j7jPR5KRQQSVRfQRCrbv9AvQHQ1EDDDlMaDEYEMOJ3AINoILgHoevAoLCcKZuUr3h2c14+cgnBoUTW4UN/HDes9wXIpodeVZrwDOZtzEI6zVQ3OFcwt6z3B8hwpmEa8DTlaIUA4TgVzRkh3rKdCgMtISS1strfSuay+MCAcYGs9OEWie9ZTQSytJgm9h432Zjo3qi8UCAf4vRGcqP5RSffXgQF8606MUAoHwjFG1YUj9W/2wHoqCBCm+qjeKUhF85YDwOPoYx76BTTNKYgmLvGSBxGnzPKGqVZEfcSit1r/u4x1XS4mCaLzY33Ng1hPsdCBcUV0d4FkTRj3kLkxyNCJjiY8iKPEZ7o1roj0bsiyz4ww54IxSE4/1s08iPUUCx0YV0RyV+hshXEPmRuDDJ3oaMKDOEp8plvjimTdC9L5zAhzLhiD5PRj3cyDWE+x0IGviDBhUnOxva+IOGWWN4gqonsr2ViTsItAJAdP29aDTDvj//nTVkT6XrJtr4PRgug2Fm1tZkD+AAAA///pXTLrAAAABklEQVQDAB745nTiP4jlAAAAAElFTkSuQmCC" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>11aae230-6dfe-414e-bf5f-18280aad6ae2</parentFolderId>
+  <order>0</order>
+  <packageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</packageId>
+  <packageName>Intent.Domain.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="11d2548c-4d37-4c5d-ab7b-ba60b4bc61be">
+      <hint>Optional. The existing file's name, with or without .cs; the file stays in this element's folder. With .cs the name is used exactly as written, so include it when the name starts or ends with a space (e.g. abc .cs); without it, surrounding spaces are trimmed. Elements with the same Filename in the same folder are generated into one file.</hint>
+      <name>Filename</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. orderEntities</placeholder>
+    </property>
+    <property id="e9476ee3-2e32-427f-95b2-938c8fb8397b">
+      <hint>Optional. Overrides the namespace derived from the element's folders. Every type sharing a file must have the same namespace.</hint>
+      <name>Namespace</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. Basislink.Domain</placeholder>
+    </property>
+    <property id="df085ba5-b5b5-44f2-9690-51f3c8053736">
+      <hint>Optional. Tick when the type is declared in the global namespace (no namespace declaration in the file). Leave Namespace empty.</hint>
+      <name>No Namespace</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>false</defaultValue>
+    </property>
+  </properties>
+</stereotypeDefinition>
