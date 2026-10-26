@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.Application.Wolverine.Templates.ValidationMiddleware;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -33,7 +34,12 @@ namespace Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolic
                     var commandType = GetTypeName("Intent.Application.Wolverine.CommandInterface");
                     var queryType = GetTypeName("Intent.Application.Wolverine.QueryInterface");
                     var authMiddleware = GetTypeName("Intent.Application.Wolverine.AuthorizationMiddleware");
-                    var valMiddleware = GetTypeName("Intent.Application.Wolverine.ValidationMiddleware");
+                    // Same reason as hasBusFlush below: ValidationMiddleware's type name resolves even when its
+                    // CanRunTemplate() skips it, so check the condition itself rather than the type name.
+                    var hasValidation = ValidationMiddlewareTemplate.IsValidationAvailable(ExecutionContext);
+                    var valMiddleware = hasValidation
+                        ? GetTypeName("Intent.Application.Wolverine.ValidationMiddleware")
+                        : null;
                     var logMiddleware = GetTypeName("Intent.Application.Wolverine.LoggingMiddleware");
                     var perfMiddleware = GetTypeName("Intent.Application.Wolverine.PerformanceMiddleware");
                     var errMiddleware = GetTypeName("Intent.Application.Wolverine.UnhandledExceptionMiddleware");
@@ -61,7 +67,10 @@ namespace Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolic
                         {
                             method.AddStatement($"opts.Policies.AddMiddleware<{authMiddleware}>(IsApplicationMessage);");
                         }
-                        method.AddStatement($"opts.Policies.AddMiddleware<{valMiddleware}>(IsApplicationMessage);");
+                        if (hasValidation)
+                        {
+                            method.AddStatement($"opts.Policies.AddMiddleware<{valMiddleware}>(IsApplicationMessage);");
+                        }
                         method.AddStatement($"opts.Policies.AddMiddleware<{logMiddleware}>(IsApplicationMessage);");
                         method.AddStatement($"opts.Policies.AddMiddleware<{perfMiddleware}>(IsApplicationMessage);");
                         method.AddStatement($"opts.Policies.AddMiddleware<{errMiddleware}>(IsApplicationMessage);");
@@ -77,7 +86,10 @@ namespace Intent.Modules.Application.Wolverine.Templates.ApplicationHandlerPolic
                         {
                             method.AddStatement($"opts.Services.AddTransient<{authMiddleware}>();");
                         }
-                        method.AddStatement($"opts.Services.AddTransient<{valMiddleware}>();");
+                        if (hasValidation)
+                        {
+                            method.AddStatement($"opts.Services.AddTransient<{valMiddleware}>();");
+                        }
                         method.AddStatement($"opts.Services.AddTransient<{logMiddleware}>();");
                         method.AddStatement($"opts.Services.AddTransient<{perfMiddleware}>();");
                         method.AddStatement($"opts.Services.AddTransient<{errMiddleware}>();");

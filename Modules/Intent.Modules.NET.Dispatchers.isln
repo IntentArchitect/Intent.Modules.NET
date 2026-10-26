@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.cache/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.2.17" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.2.19" />
   <applications>
     <application id="cece4e6c-f47b-4af0-8f8f-9581465e9792" name="Intent.Modules.Application.AutoMapper" solutionFolder="Modules/Mapping" relativePath="Intent.Modules.Application.AutoMapper/Intent.Modules.Application.AutoMapper.application.config" />
     <application id="07b5dc37-49fd-416e-8330-49c9a83331f2" name="Intent.Modules.EntityFrameworkCore" solutionFolder="Modules/Support" relativePath="Intent.Modules.EntityFrameworkCore/Intent.Modules.EntityFrameworkCore.application.config" />
@@ -54,5 +54,6 @@
     <application id="9dec0d3e-91c3-4fdd-845e-e5f80176f4d5" name="Intent.Modules.Application.Mediator.FluentValidation" solutionFolder="Modules/Mediator" relativePath="Intent.Modules.Application.Mediator.FluentValidation/Intent.Modules.Application.Mediator.FluentValidation.application.config" />
     <application id="4ac61c4c-6c85-4e30-bd7c-a6ffac178828" name="Intent.Modules.AspNetCore.Controllers.Dispatch.Mediator" solutionFolder="Modules/Mediator" relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.Mediator/Intent.Modules.AspNetCore.Controllers.Dispatch.Mediator.application.config" />
     <application id="adf24a23-8181-4d60-9189-39fe0004d04c" name="Intent.Modules.FastEndpoints.Dispatch.Mediator" solutionFolder="Modules/Mediator" relativePath="Intent.Modules.FastEndpoints.Dispatch.Mediator/Intent.Modules.FastEndpoints.Dispatch.Mediator.application.config" />
+    <application id="6ac2a696-1f8f-4176-b11c-2b359a000825" name="Intent.Modules.Application.Interop.CRUD" solutionFolder="Modules/Support" relativePath="Intent.Modules.Application.Interop.CRUD/Intent.Modules.Application.Interop.CRUD.application.config" />
   </applications>
 </solution>

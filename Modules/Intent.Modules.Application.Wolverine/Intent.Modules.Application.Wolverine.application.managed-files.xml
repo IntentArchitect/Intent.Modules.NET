@@ -39,7 +39,7 @@
   <file path="Templates/UnhandledExceptionMiddleware/UnhandledExceptionMiddlewareTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/UnitOfWorkMiddleware/UnitOfWorkMiddlewareTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/UnitOfWorkMiddleware/UnitOfWorkMiddlewareTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/ValidationMiddleware/ValidationMiddlewareTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ValidationMiddleware/ValidationMiddlewareTemplatePartial.cs" deviationsHash="E4B379C3C6DF24946C67D1C1A308067E8BFD663F9DFC7C7834728DAA2E0D7EF3" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ValidationMiddleware/ValidationMiddlewareTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="modelers/Wolverine Services Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
   <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />

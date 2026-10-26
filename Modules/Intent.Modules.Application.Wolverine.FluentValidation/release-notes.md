@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Fixed: The Software Factory failed in a Wolverine application without `Intent.Application.FluentValidation.Dtos`, for example one without Application Services. This module now depends on `Intent.Application.FluentValidation.Dtos`, whose validator provider both `Intent.Application.Wolverine`'s `ValidationMiddleware` and validation rules for nested DTOs need.
+
 ### Version 1.0.2
 
 - Improvement: Added default Template Classification and Priorities.

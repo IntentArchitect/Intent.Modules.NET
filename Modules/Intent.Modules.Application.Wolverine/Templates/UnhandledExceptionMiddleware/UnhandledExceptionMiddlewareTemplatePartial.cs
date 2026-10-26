@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.Application.Wolverine.Templates.ValidationMiddleware;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -51,10 +52,13 @@ namespace Intent.Modules.Application.Wolverine.Templates.UnhandledExceptionMiddl
                         method.AddParameter("object?", "request");
                         method.AddParameter(UseType("Microsoft.Extensions.Logging.ILogger"), "logger");
 
-                        method.AddIfStatement($"exception is {UseType("FluentValidation.ValidationException")}", @if =>
+                        if (ValidationMiddlewareTemplate.IsValidationAvailable(ExecutionContext))
                         {
-                            @if.AddStatement("return;");
-                        });
+                            method.AddIfStatement($"exception is {UseType("FluentValidation.ValidationException")}", @if =>
+                            {
+                                @if.AddStatement("return;");
+                            });
+                        }
 
                         method.AddStatement("var requestName = request?.GetType().Name;");
                         method.AddIfStatement("_logRequestPayload", @if =>

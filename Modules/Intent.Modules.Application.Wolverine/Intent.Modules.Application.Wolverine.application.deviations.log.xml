@@ -64,6 +64,15 @@
       <updatedAt>2026-10-13T13:04:09.7856529Z</updatedAt>
       <deviationsHash>F54E6F0B079DC4E383C538BD07E9AF270D98A57798F6C76C9A4627B69CC366F4</deviationsHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6b27b8cb-ae1b-422a-a359-5a5bdc537ef1</correlationId>
+      <path>Templates/ValidationMiddleware/ValidationMiddlewareTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-26T13:32:48.4190404Z</updatedAt>
+      <deviationsHash>E4B379C3C6DF24946C67D1C1A308067E8BFD663F9DFC7C7834728DAA2E0D7EF3</deviationsHash>
+    </file>
   </files>
   <customFiles>
     <customFile>
