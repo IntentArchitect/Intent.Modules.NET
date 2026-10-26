@@ -73,7 +73,7 @@ Then call `advance_spec_phase(slug, artifact: "design", toPhase: "verification")
 
 ## 7. Verify and resolve suspected bugs
 
-`use_skill` **sdd-verify** and follow it in as-built mode.
+`use_skill` **sdd-verify** and follow it in as-built mode. This verify is full: it reads the code for every requirement, untested criteria included, and has every citing test judged clause by clause. It is the spec's one full audit, and later verifies judge only what changes.
 
 - If it finds gaps, reword each misdescribed criterion to match the gap's `actual`, using `write_spec` (searchBlock/replaceBlock). Clear the links the reword made stale with one `record_spec_traceability(slug, taskId: "*", requirementIds: [the reworded ids], restamp: true)` call, then verify again. Re-record with full targets only for a gap that changed which files or elements realise the requirement.
 - Once the verdict passes, put the step 3 **suspected bugs** to the user, up to four per `ask_user_question` call. Give each bug three options:

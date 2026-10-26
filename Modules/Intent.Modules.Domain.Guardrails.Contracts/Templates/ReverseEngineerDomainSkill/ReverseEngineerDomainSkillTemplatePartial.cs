@@ -27,14 +27,14 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates.ReverseEngineerDo
             MarkdownFile = new MarkdownFile("SKILL", relativeLocation: "reverse-engineer-domain")
                 .FromMarkdown("""
 ---
-description: Reverse-engineer an existing C# domain layer (entities, value objects, enums, repositories, EF Core configuration) into the Intent Architect Domain designer so the model mirrors the code and the Intent.Domain.Guardrails.Contracts module adopts the existing files in place, installing Intent.Metadata.RDBMS or Intent.Metadata.DocumentDB to match the code's persistence technology. Use when the user has installed the Domain Guardrails module (or asks to "align / model / reverse-engineer the domain") on a brownfield codebase.
+description: Reverse-engineer an existing C# domain layer (entities, value objects, enums, repositories, EF Core configuration) into the Intent Architect Domain designer so the model mirrors the code and the Intent.Domain.Guardrails.Contracts module adopts the existing files in place, installing Intent.Metadata.RDBMS or Intent.Metadata.DocumentDB to match the code's persistence technology, and configures the drift check that compares the model with the code on every Software Factory run. Use when the user has installed the Domain Guardrails module (or asks to "align / model / reverse-engineer the domain") on a brownfield codebase.
 short-description: Model an existing domain layer in the Domain designer and adopt its files with the Domain Guardrails module.
 argument-hint: "[application name]"
 ---
 
 # Reverse-engineer the Domain
 
-Goal: the Domain designer describes the code **as it is**, and a Software Factory (SF) run against the existing files changes **nothing but the Intent file headers and the code's formatting**: what the code does stays exactly the same. You are aligning the model to the code, not the code to the model. Business logic, method bodies and EF configuration code stay hand-written.
+Goal: the Domain designer describes the code **as it is**, and a Software Factory (SF) run against the existing files changes **nothing but the Intent file headers and the code's formatting**: what the code does stays exactly the same. You are aligning the model to the code, not the code to the model. Business logic, method bodies and EF configuration code stay hand-written. The last step configures the drift check, so every Software Factory run compares the model with the code, and the adoption ends with the run reporting no drift.
 
 Load **scripting-the-model**, **exploring-the-model** and **changing-the-model** before you start, and **generating-and-applying-code** / **resolve-destructive-changes** before the first SF run. Follow them for _how_ to script, lay out and generate; this skill only adds what is specific to reverse-engineering.
 
@@ -82,6 +82,16 @@ Dispatch read-only `Explore` sub-agents in **one** message, with non-overlapping
   - Keys: `HasKey` (single or composite, with key types), `HasPrincipalKey` (FKs onto a non-primary key), `HasNoKey`, and which classes the `DbContext` doesn't map. These decide the key mode in §4a.
   - Delete behaviour.
   - `HasMaxLength`, `HasColumnType("decimal(p,s)")`, `HasDefaultValue`, `HasIndex(...).IsUnique()`, row-version and concurrency tokens.
+- **How the code states each database fact:** where each class's persistence is configured (e.g. `OrderConfiguration.Configure`, the owner's helper method for an owned type, a Mongo class map registration, a Cosmos container setup or indexing policy file; in database-first code, the class's `modelBuilder.Entity<T>(…)` statement inside the context's `OnModelCreating`), and the calls that state each fact (`ToTable`, `HasKey`, `HasMaxLength`, `IsUnicode(false)`, `HasColumnType`, `IsRequired`, `HasDefaultValueSql`, `HasOne(…).WithMany(…)`). Note every style the code uses, with one verbatim example of each, and the facts it states by saying nothing (EF conventions: a table named after its `DbSet`, a key named `Id`). The recipes below are written from this.
+- **The convention of each element type:** for each type of element you will model (entity, value object, enum, repository, domain service, domain event), whether all of its code shares something a new one would have too: a folder with a name pattern (every `*Repository` in `Infrastructure/Repositories`), a base class (`: Entity`), an interface (`IAggregateRoot`), an attribute, or a member. Report it with one verbatim example, or report that there is none.
+
+**Then write the drift check's recipes, before modelling anything.** The sub-agents have just read every configuration, and a file outlives this conversation's context, so don't leave this to the end. Load **configure-drift-check** for the format and write `guardrails/domain.drift.json` from the sub-agents' reports, without re-reading the code:
+- a recipe for each database fact the code states, with one `find` per style;
+- `absent` or `default` for what the code states by saying nothing;
+- an `own` entry for each kind of code the model must describe (every `Entity<T>` configuration, class map or container);
+- an `own` entry for each element type that follows a convention, which finds every type following it, with `kind` naming the element type. An element type without a convention gets none: its new types can't be told apart from helpers, so they aren't detected.
+
+Ask a sub-agent only about a style the reports don't cover. Writing the file turns the check on: from now on every Software Factory run compares the model with the code, and fails until they match. During adoption that is expected, and the report lists what isn't modelled yet. §6 step 8 finishes the check.
 
 ## 2. Align the Codebase Structure
 
@@ -139,6 +149,7 @@ Create one designer `Folder` per code folder **below** the template output (e.g.
   - **Constructors** are `public` unless the **`Constructor Configuration`** stereotype sets `Access Modifier`, e.g. `protected` for a constructor only EF Core uses. A constructor declared without an access modifier is private, so model it as `private`; the generated code then spells it out. It's ignored on a `Primary Constructor`.
   - A combination C# rejects (e.g. `static` with `virtual`, `sealed` without `override`, or a `private` `virtual`) is an error on the element. `private protected` can't be reproduced; leave that member unmodelled and report it.
 - **Required properties:** where a property (an attribute, a navigation property or a Domain Event property) is declared `required`, apply the **`Property Configuration`** stereotype and tick `Required`. On its first merge, Merge mode replaces a property's modifiers with the generated ones, so an unmodelled `required` is dropped. Accessors need nothing: Merge keeps an existing `init`, `private set` or get-only accessor as written. A positional record's fields are constructor parameters, so `Required` is ignored on them.
+- **Property access modifiers:** a property (an attribute, a navigation property or a Domain Event property) is `public` unless the **`Property Configuration`** stereotype sets `Access Modifier` (`public`, `protected`, `internal`, `private`, `protected internal`, or `none` for a property declared without one). Model the code's own modifier: on its first merge, Merge mode replaces a property's modifiers with the generated ones, so an unmodelled `protected` or `internal` becomes `public`. Ignored on a positional record's fields.
 - **Default values and initializers:** where a constructor or operation parameter has a default (`string area = "Basislink"`, `bool forceCreate = false`, `Exception ex = null`), or an attribute's property has an initializer, set the element's Value (`el.setValue("Basislink")`). Otherwise Merge mode drops the default from the existing signature.
   - Strings are quoted for you, and an already quoted value stays as it is. `null`, `default`, numbers, `true` and `false` are used as written.
   - An enum literal name gets its enum type (`Info` becomes `EventTypeEnum.Info`), and a bare `DateTime` member gets its type (`Now` becomes `DateTime.Now`).
@@ -256,7 +267,7 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
    - one `PackageReference Intent.RoslynWeaver.Attributes` per csproj
    - and formatting from RoslynWeaver's Auto Format, anywhere in the file (step 5).
 
-   The only other exception is an equivalent type rewrite the user accepts (step 4).
+   The only other exception is an equivalent type rewrite the user accepts (step 4). While there is drift, a run also lists the drift report, `<<DriftReport>>` (in the solution's git-ignored `.cache` folder), as a new file; it isn't code and needs no review. Until step 8, its drift lines fail the run, so the Software Factory applies nothing by itself (step 6 applies by path anyway). They aren't for step 2; read its rows that say something is modelled but not in the code, or isn't modelled, as a second view of what is still mismatched or missing.
 2. **Diagnose anything else:**
    - **`create`** means a path or name mismatch. Fix the folder, Template Output location or element name, or add `File Config` for a type that lives in another file or a differently named one. Never apply it.
    - **Inserted members** mean the model has something the code doesn't (wrong name, type or nullability). Fix the model.
@@ -301,7 +312,12 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
    - **Reviewing a large diff:** read past the whitespace. What is left must be the header changes from step 1 or equivalent type rewrites (step 4). If the files are under git and had no other uncommitted changes, `git diff -w -- <file>` after applying shows exactly what is left; revert any file that shows more, and diagnose it under step 2.
    - **In the final report,** say how many files were reformatted, so the user expects the whitespace changes in their commit.
 6. **Apply** only the files you reviewed (`apply_staged_file_changes` with explicit paths): files whose only changes are the headers and formatting, plus files whose equivalent rewrites the user accepted (step 4).
-7. **Verify:** `dotnet build`, the test suite, and a final SF run that proposes **zero** changes, apart from files the user chose not to adopt yet (step 4, option 3).
+7. **Verify:** `dotnet build`, the test suite, and a final SF run that proposes **zero** changes to the code, apart from files the user chose not to adopt yet (step 4, option 3). Its drift lines are step 8's.
+8. **Finish the drift check (required).** §1 wrote `guardrails/domain.drift.json`, so every run already compares the Domain model's database facts, and the types the Guardrails templates generate, with the code. Load **configure-drift-check** and do its steps 4 to 9 for the Domain designer: fix the recipes until no fact is reported as can't be verified (a kind of fact with no recipe, or a style §1 missed) and validate-drift-recipes shows every recipe reading the code, then resolve the rest. Save the designer first: the check reads the saved model.
+   - No recipe file (the adoption began before §1 wrote one): do all of configure-drift-check's steps.
+   - The adoption isn't finished until a run finds no drift and no warnings, so it writes no `<<DriftReport>>`, and the user has approved the model changes (configure-drift-check's step 9).
+   - A contradiction it finds is a recipe misreading the code, a modelling slip or real drift. Check the code at its location first (configure-drift-check's step 6): fix a recipe that misreads it, and otherwise fix the model to match the code, never the code. Where the code looks wrong, say so in the final report; setting up the check never changes the code. A fact the model can't state the way the code does (e.g. a fixed-length `char` column, which `Text Constraints` can't express) is modelled with `Column` → `Type` instead.
+   - Code the model doesn't describe (e.g. a generic repository's methods, an unmodelled `Entity<T>` configuration): model what §3 should have covered; add an exception for helpers and plumbing, asking the user about anything that isn't clearly one.
 
 ## Gotchas
 
@@ -309,7 +325,7 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
 - **Blocking dialogs.** After a module install, a designer tab may show a dialog that blocks every tool ("A dialog is currently showing…"). Ask the user to resolve it, then retry.
 - **Concurrent edits.** The user may be editing the model while you work. Elements you didn't create (new classes, attributes, changed multiplicities) are theirs. Don't modify them and don't apply their generated output. Report them instead.
 - **No hand edits.** Beyond the merge directives, never hand-edit adopted files to make the diff clean, and never turn off Auto Format to make it smaller (§6 step 5). Fix the model.
-""");
+""".Replace("<<DriftReport>>", ModelSyncGuidance.ReportPath(outputTarget.ExecutionContext, "Domain")));
         }
 
         [IntentManaged(Mode.Fully)]

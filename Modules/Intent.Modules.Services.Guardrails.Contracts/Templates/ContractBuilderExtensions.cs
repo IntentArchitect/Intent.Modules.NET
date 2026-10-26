@@ -85,6 +85,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                     property.RepresentsModel(field);
                     property.WithContractInitialValue(template, field.Value, field.TypeReference);
                     property.WithContractRequired(field.GetPropertyConfiguration()?.Required() == true);
+                    property.ApplyContractAccessModifier(field.InternalElement, field.GetPropertyConfiguration()?.AccessModifier().Value);
                 });
             }
         }
@@ -218,6 +219,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                     property.RepresentsModel(field);
                     property.WithContractInitialValue(template, field.Value, field.TypeReference);
                     property.WithContractRequired(field.IsOptionalModelerPropertyRequired());
+                    property.ApplyContractAccessModifier(field, field.GetOptionalModelerPropertyAccessModifier());
                 });
             }
         }

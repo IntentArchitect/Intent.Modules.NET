@@ -62,6 +62,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                     property.RepresentsModel(attribute);
                     property.WithContractInitialValue(template, attribute.Value, attribute.TypeReference);
                     property.WithContractRequired(attribute.GetPropertyConfiguration()?.Required() == true);
+                    property.ApplyContractAccessModifier(attribute.InternalElement, attribute.GetPropertyConfiguration()?.AccessModifier().Value);
                 });
             }
         }
@@ -78,6 +79,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                     p.RepresentsModel(property);
                     p.WithContractInitialValue(template, property.Value, property.TypeReference);
                     p.WithContractRequired(property.IsRequiredDomainEventProperty());
+                    p.ApplyContractAccessModifier(property, property.GetDomainEventPropertyAccessModifier());
                 });
             }
         }
@@ -90,6 +92,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 {
                     property.RepresentsModel(associationEnd);
                     property.WithContractRequired(associationEnd.IsContractRequired());
+                    property.ApplyContractAccessModifier(associationEnd.InternalAssociationEnd, associationEnd.GetContractAccessModifier());
                 });
             }
         }
@@ -119,6 +122,17 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 AssociationTargetEndModel targetEnd => targetEnd.GetPropertyConfiguration()?.Required() == true,
                 AssociationSourceEndModel sourceEnd => sourceEnd.GetPropertyConfiguration()?.Required() == true,
                 _ => false
+            };
+        }
+
+        /// <summary>A navigation property's Property Configuration Access Modifier, or null when not set.</summary>
+        private static string GetContractAccessModifier(this AssociationEndModel associationEnd)
+        {
+            return associationEnd switch
+            {
+                AssociationTargetEndModel targetEnd => targetEnd.GetPropertyConfiguration()?.AccessModifier().Value,
+                AssociationSourceEndModel sourceEnd => sourceEnd.GetPropertyConfiguration()?.AccessModifier().Value,
+                _ => null
             };
         }
 

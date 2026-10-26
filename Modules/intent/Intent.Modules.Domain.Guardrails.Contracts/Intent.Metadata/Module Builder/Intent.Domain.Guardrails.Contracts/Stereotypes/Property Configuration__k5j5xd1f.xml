@@ -30,5 +30,21 @@
       <optionsSource>n/a</optionsSource>
       <defaultValue>false</defaultValue>
     </property>
+    <property id="94dd0e17-215e-4177-877b-66bda9b3444e">
+      <hint>The property's access modifier as the code declares it. none writes no access modifier (C#'s private). Empty means public. On its first merge into an existing file, Merge replaces a property's modifiers with the generated ones, so an unmodelled access modifier becomes public. Ignored on a positional record's fields, which are constructor parameters.</hint>
+      <name>Access Modifier</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>public</defaultValue>
+      <valueOptions>
+        <option>public</option>
+        <option>protected</option>
+        <option>internal</option>
+        <option>private</option>
+        <option>protected internal</option>
+        <option>none</option>
+      </valueOptions>
+    </property>
   </properties>
 </stereotypeDefinition>

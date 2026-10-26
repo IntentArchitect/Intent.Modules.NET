@@ -20,6 +20,12 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
     {
         private const string ServiceProxyConfigurationName = "Service Proxy Configuration";
 
+        /// <summary>What Type Configuration can declare a type as: a positional record is a record.</summary>
+        private static readonly string[] TypeConfigurationKinds = { "class", "record" };
+
+        /// <summary>What Service Proxy Configuration can declare a proxy as.</summary>
+        private static readonly string[] ServiceProxyKinds = { "class", "interface" };
+
         /// <summary>
         /// Dispatches on the element's type to the matching builder.
         /// </summary>
@@ -84,6 +90,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 @class.RepresentsModel(model);
                 @class.AddStubbedOperations(template, model.Operations);
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
+                AddModellable(@class, TypeConfigurationKinds, methods: true);
             });
         }
 
@@ -99,6 +106,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 @class.RepresentsModel(model);
                 @class.AddContractFields(template, kind, model.Properties);
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
+                AddModellable(@class, TypeConfigurationKinds, parameterList: kind.IsRecord(), properties: true);
             });
         }
 
@@ -113,6 +121,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 @class.RepresentsModel(model);
                 @class.AddContractFields(template, kind, model.Properties);
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
+                AddModellable(@class, TypeConfigurationKinds, parameterList: kind.IsRecord(), properties: true);
             });
         }
 
@@ -148,6 +157,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 }
 
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), template.IsInheritedByAnyDto(model));
+                AddModellable(@class, TypeConfigurationKinds, typeParameters: true, parameterList: kind.IsRecord(), properties: true);
             });
         }
 
@@ -207,6 +217,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 }
 
                 @class.ApplyContractModifiers(template, element, element.GetOptionalModelerTypeConfiguration()?.Modifiers(), element.IsInheritedByAnyEventingDto());
+                AddModellable(@class, TypeConfigurationKinds, typeParameters: true, parameterList: kind.IsRecord(), properties: true);
             });
         }
 
@@ -249,6 +260,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                     @interface.RepresentsModel(element);
                     @interface.AddStubbedProxyOperations(template, element.GetServiceProxyOperations());
                     @interface.ApplyContractModifiers(template, element, configuration.Modifiers(), ServiceProxyConfigurationName);
+                    AddModellable(@interface, ServiceProxyKinds, methods: true);
                 });
                 return;
             }
@@ -258,6 +270,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 @class.RepresentsModel(element);
                 @class.AddStubbedProxyOperations(template, element.GetServiceProxyOperations());
                 @class.ApplyContractModifiers(template, element, configuration?.Modifiers(), isInherited: false, ServiceProxyConfigurationName);
+                AddModellable(@class, ServiceProxyKinds, methods: true);
             });
         }
 
@@ -269,15 +282,36 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 @class.RepresentsModel(element);
                 @class.AddContractFields(template, kind, element.GetEventingProperties());
                 @class.ApplyContractModifiers(template, element, element.GetOptionalModelerTypeConfiguration()?.Modifiers(), isInherited: false);
+                AddModellable(@class, TypeConfigurationKinds, parameterList: kind.IsRecord(), properties: true);
             });
         }
 
+        /// <summary>A handler states its modifiers only: it is always a class, and its members aren't modelled.</summary>
         private static void AddHandler(CSharpFile file, ICSharpTemplate template, IElement element)
         {
             file.AddClass(element.Name, @class =>
             {
                 @class.RepresentsModel(element);
                 @class.ApplyContractModifiers(template, element, element.GetHandlerModifiers(), isInherited: false);
+                AddModellable(@class, new[] { "class" });
+            });
+        }
+
+        /// <summary>
+        /// Records on a type what its element can state (<see cref="Drift.Modellable"/>), the only parts the drift check
+        /// compares. Only a positional record puts parameters on the type, so a class's primary constructor, which holds a
+        /// Service's, handler's or proxy's injected dependencies, is nothing the model can state. No element has constructors.
+        /// </summary>
+        private static void AddModellable(CSharpMetadataBase type, string[] kinds, bool typeParameters = false, bool parameterList = false,
+            bool properties = false, bool methods = false)
+        {
+            type.AddMetadata(Drift.Modellable.MetadataKey, new Drift.Modellable
+            {
+                Kinds = kinds,
+                TypeParameters = typeParameters,
+                ParameterList = parameterList,
+                Properties = properties,
+                Methods = methods
             });
         }
 
@@ -285,6 +319,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         {
             file.AddEnum(model.Name, @enum =>
             {
+                AddModellable(@enum, new[] { "enum" });
+
                 // No RepresentsModel here: Intent.Modules.Common.CSharp (3.10.5-3.10.11) throws for CSharpEnum and CSharpEnumLiteral.
                 foreach (var literal in model.Literals)
                 {

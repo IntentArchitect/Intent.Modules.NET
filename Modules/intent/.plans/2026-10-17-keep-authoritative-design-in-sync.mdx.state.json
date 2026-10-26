@@ -1,0 +1,29 @@
+{
+  "answers:open-questions": {
+    "delivery": {
+      "selected": [
+        "modules"
+      ],
+      "freeform": ""
+    },
+    "ci-repair": {
+      "selected": [
+        "dev"
+      ],
+      "freeform": ""
+    },
+    "intent": {
+      "selected": [
+        "later"
+      ],
+      "freeform": ""
+    },
+    "tool": {
+      "selected": [
+        "dotnet-tool"
+      ],
+      "freeform": ""
+    }
+  },
+  "answered:open-questions": "2026-10-19T09:26:43.423Z"
+}

@@ -27,5 +27,21 @@ return ["bde29850-5fb9-4f47-9941-b9e182fd9bdc", "93eea5d7-a6a6-4fb8-9c87-d2e4c91
       <optionsSource>n/a</optionsSource>
       <defaultValue>false</defaultValue>
     </property>
+    <property id="cf8e622c-f8c4-411d-99a9-6455ee678ee0">
+      <hint>The property's access modifier as the code declares it. none writes no access modifier (C#'s private). Empty means public. On its first merge into an existing file, Merge replaces a property's modifiers with the generated ones, so an unmodelled access modifier becomes public. Ignored on a positional record's fields, which are constructor parameters.</hint>
+      <name>Access Modifier</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>public</defaultValue>
+      <valueOptions>
+        <option>public</option>
+        <option>protected</option>
+        <option>internal</option>
+        <option>private</option>
+        <option>protected internal</option>
+        <option>none</option>
+      </valueOptions>
+    </property>
   </properties>
 </stereotypeDefinition>

@@ -116,6 +116,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 }
 
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), template.IsInheritedByAnyClass(model));
+                AddModellable(@class, typeParameters: true, parameterList: true, properties: true, methods: true, constructors: true);
             },
                 baseKind: model.ParentClass?.GetContractTypeKind());
         }
@@ -124,6 +125,8 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         {
             file.AddEnum(model.Name, @enum =>
             {
+                @enum.AddMetadata(Drift.Modellable.MetadataKey, new Drift.Modellable { Kinds = new[] { "enum" } });
+
                 // No RepresentsModel here: Intent.Modules.Common.CSharp (3.10.5-3.10.11) throws for CSharpEnum and CSharpEnumLiteral.
                 foreach (var literal in model.Literals)
                 {
@@ -142,6 +145,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 @class.RepresentsModel(model);
                 @class.AddContractAttributes(template, kind, model.Attributes);
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
+                AddModellable(@class, parameterList: kind.IsRecord(), properties: true);
             });
         }
 
@@ -152,6 +156,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 @class.RepresentsModel(model);
                 @class.AddStubbedMethods(template, model.Operations);
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
+                AddModellable(@class, methods: true);
             });
         }
 
@@ -180,6 +185,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 }
 
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), template.IsInheritedByAnyDataContract(model));
+                AddModellable(@class, typeParameters: true, parameterList: kind.IsRecord(), properties: true);
             },
                 baseKind: model.BaseDataContract?.GetContractTypeKind());
         }
@@ -219,6 +225,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 }
 
                 @class.ApplyContractModifiers(template, model, model.GetDomainEventModifiers(), template.IsInheritedByAnyDomainEvent(model));
+                AddModellable(@class, typeParameters: true, parameterList: kind.IsRecord(), properties: true);
             },
                 baseKind: baseEvent?.GetDomainEventContractTypeKind());
         }
@@ -245,6 +252,27 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
                 @class.RepresentsModel(model);
                 @class.AddStubbedMethods(template, model.Operations);
                 @class.ApplyContractModifiers(template, model.InternalElement, model.GetTypeConfiguration()?.Modifiers(), isInherited: false);
+                AddModellable(@class, methods: true);
+            });
+        }
+
+        /// <summary>
+        /// Records on a type what its element can state (<see cref="Drift.Modellable"/>), the only parts the drift check
+        /// compares. Type Configuration declares a class or a record; only a Class has constructors and a Primary
+        /// Constructor, and otherwise only a positional record puts parameters on the type. A Repository's or Domain
+        /// Service's primary constructor, which holds its injected dependencies, is nothing the model can state.
+        /// </summary>
+        private static void AddModellable(CSharpClass type, bool typeParameters = false, bool parameterList = false, bool properties = false,
+            bool methods = false, bool constructors = false)
+        {
+            type.AddMetadata(Drift.Modellable.MetadataKey, new Drift.Modellable
+            {
+                Kinds = new[] { "class", "record" },
+                TypeParameters = typeParameters,
+                ParameterList = parameterList,
+                Properties = properties,
+                Methods = methods,
+                Constructors = constructors
             });
         }
     }

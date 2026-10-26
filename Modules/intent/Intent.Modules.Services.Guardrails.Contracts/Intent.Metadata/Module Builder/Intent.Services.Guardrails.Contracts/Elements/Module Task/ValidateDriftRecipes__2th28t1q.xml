@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="197bd528-9a36-4138-9ac6-6bcda5c02a21" type="Module Task" typeId="ad38ef37-45b8-4a6a-96de-f8d41da3cfe0">
+  <comment>Validates the Services drift recipe file (guardrails/services.drift.json) against the code on demand: what each recipe reads, and the recipe probe's warnings, returned as JSON. Argument: { "applicationId": "..." }.</comment>
+  <name>ValidateDriftRecipes</name>
+  <display>ValidateDriftRecipes</display>
+  <parentFolderId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</parentFolderId>
+  <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+  <packageName>Intent.Services.Guardrails.Contracts</packageName>
+</class>

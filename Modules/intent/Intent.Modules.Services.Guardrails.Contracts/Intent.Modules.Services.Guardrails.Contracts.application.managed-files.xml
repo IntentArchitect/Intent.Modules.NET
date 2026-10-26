@@ -11,12 +11,17 @@
   <file path="Api/QueryModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/ServiceModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Intent.Modules.Services.Guardrails.Contracts.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="Intent.Services.Guardrails.Contracts.imodspec" deviationsHash="1D987FCE2BA8D55EA9A9808E280D039BC9AD8AC2E6194D6C23498F7C5384B4BC" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Services.Guardrails.Contracts.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Tasks/ValidateDriftRecipes.cs" deviationsHash="FD3E540347752ABF624D026D60BD95DB279C5E94604B8A9310FB879EA99670A2" templateId="Intent.ModuleBuilder.Templates.ModuleTask" />
   <file path="Templates/CommandContract/CommandContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/CommandContract/CommandContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplatePartial.cs" deviationsHash="9A8305A061D5483250FB47B56EF49A0C06F474508688BFFA153AD703408A1CDB" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/DomainEventHandlerContract/DomainEventHandlerContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/DomainEventHandlerContract/DomainEventHandlerContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/DriftReport/DriftReportTemplatePartial.cs" deviationsHash="FBE6F6E70D0DFD94788EB74FB78D8C341A18D508EE66C5AC1F1E6ECB6CF3CA49" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/DriftReport/DriftReportTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/DtoContract/DtoContractTemplatePartial.cs" deviationsHash="258D86DD548506C3C0C873412669A420FB5E405FEEA9B8A6798EB468974E46D3" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/DtoContract/DtoContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/EnumContract/EnumContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
@@ -29,6 +34,8 @@
   <file path="Templates/IntegrationEventContract/IntegrationEventContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/IntegrationEventHandlerContract/IntegrationEventHandlerContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/IntegrationEventHandlerContract/IntegrationEventHandlerContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/ModelSyncRule/ModelSyncRuleTemplatePartial.cs" deviationsHash="45B23CD2E3C4880EC986027A65C25CA4FBC62B0611E64CAB6C4ACA156CF20CB1" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ModelSyncRule/ModelSyncRuleTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/QueryContract/QueryContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/QueryContract/QueryContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/ReverseEngineerServicesSkill/ReverseEngineerServicesSkillTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
@@ -37,5 +44,9 @@
   <file path="Templates/ServiceContract/ServiceContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/ServiceProxyContract/ServiceProxyContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ServiceProxyContract/ServiceProxyContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/SyncModelSkill/SyncModelSkillTemplatePartial.cs" deviationsHash="F2F421B3D73AED20ACCFF6F95F84088459C6AEE86392630066F98C40334D101A" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/SyncModelSkill/SyncModelSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/ValidateDriftRecipesSkill/ValidateDriftRecipesSkillTemplatePartial.cs" deviationsHash="40B2C6B5D23B46D7735A65CF382646A7E4663939F2E8EC8E0D385BCC7080664A" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ValidateDriftRecipesSkill/ValidateDriftRecipesSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
 </managedFiles>

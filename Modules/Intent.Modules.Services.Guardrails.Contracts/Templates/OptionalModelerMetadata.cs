@@ -104,6 +104,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         private const string ModifiersProperty = "Modifiers";
         private const string CustomFormatProperty = "Custom Format";
         private const string RequiredProperty = "Required";
+        private const string AccessModifierProperty = "Access Modifier";
         private const string ValueProperty = "Value";
 
 
@@ -240,6 +241,12 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         public static bool IsOptionalModelerPropertyRequired(this IElement element)
         {
             return element.GetStereotype(PropertyConfigurationStereotypeId)?.GetProperty<bool>(RequiredProperty) == true;
+        }
+
+        /// <summary>A Property's or Eventing DTO-Field's Property Configuration Access Modifier, or null when not set.</summary>
+        public static string GetOptionalModelerPropertyAccessModifier(this IElement element)
+        {
+            return element.GetStereotype(PropertyConfigurationStereotypeId)?.GetProperty<string>(AccessModifierProperty);
         }
 
         /// <summary>A Message's, Integration Command's or Eventing DTO's Type Configuration, or null when the stereotype is not applied.</summary>

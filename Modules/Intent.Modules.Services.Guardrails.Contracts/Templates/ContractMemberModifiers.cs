@@ -6,7 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 namespace Intent.Modules.Services.Guardrails.Contracts.Templates
 {
     /// <summary>
-    /// The modifiers of a method or constructor contract, from Operation Configuration or Constructor Configuration. Constructor
+    /// The modifiers of a method, constructor or property contract, from Operation, Constructor or Property Configuration. Constructor
     /// and method signatures are fully managed under Merge, so these replace the existing modifiers and must match the code.
     /// The builder silently drops a modifier that conflicts with a later one, so every combination C# rejects is an error on the
     /// element here instead. An empty Access Modifier means public, the stereotype's default; none writes no access modifier.
@@ -104,6 +104,39 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                     throw new ElementException(element,
                         $"Constructor '{element.Name}' has a Constructor Configuration Access Modifier of '{accessModifier}', which isn't valid. " +
                         "Choose public, protected, internal, private or protected internal.");
+            }
+        }
+
+        /// <summary>
+        /// Applies a property's access modifier, from Property Configuration. Under Merge a property's own modifiers follow the
+        /// generated ones, so an unmodelled access modifier would be rewritten to public on the first merge.
+        /// </summary>
+        public static void ApplyContractAccessModifier(this CSharpProperty property, IElement element, string accessModifier)
+        {
+            switch (accessModifier)
+            {
+                case null or "" or "public":
+                    property.Public();
+                    break;
+                case "protected":
+                    property.Protected();
+                    break;
+                case "internal":
+                    property.Internal();
+                    break;
+                case "private":
+                    property.Private();
+                    break;
+                case "protected internal":
+                    property.ProtectedInternal();
+                    break;
+                case "none":
+                    property.WithoutAccessModifier();
+                    break;
+                default:
+                    throw new ElementException(element,
+                        $"Property '{element.Name}' has a Property Configuration Access Modifier of '{accessModifier}', which isn't valid. " +
+                        "Choose public, protected, internal, private, protected internal or none.");
             }
         }
 

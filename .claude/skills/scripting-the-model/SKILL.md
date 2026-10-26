@@ -1,6 +1,6 @@
 ---
 description: The designer scripting API — the map for reading a model with run_designer_query and mutating it with run_designer_script. Naming conventions, editable-first lookup, the result channel, and a per-aspect index into references/ for the real signatures (elements, types, stereotypes, associations, mappings, packages, reads, recipes). REQUIRED before calling either script tool.
-short-description: The designer scripting API: conventions, which tool to use, and an index into the per-aspect signature references.
+short-description: "The designer scripting API: conventions, which tool to use, and an index into the per-aspect signature references."
 requiredTools:
   - run_designer_query
   - run_designer_script
@@ -24,7 +24,7 @@ Scripts are plain JavaScript with top-level `await`. Hold references in local va
 - **Call exactly the members in `references/`.** They are the real ones. Do NOT guess (there is no `el.findElements`, no `node.children.find`, no `stereotype.remove`). If a member you need genuinely is not documented, the full declarations are on disk under `wwwroot/App/Api/TypeDefinitions/` (`designer-macro.api.d.ts`, `designer-common.api.d.ts`, `core.context.types.d.ts`) — read those rather than inventing a method, but not otherwise.
 - **Bind, then guard.** Every lookup can miss: `lookup*` and `getChild` / `getType` answer `null`, `find*` answers `[]`, `.find(...)` answers `undefined`. Never chain onto one — assign it, check it, then use it. The handle a `create*` / `add*` returned is the only one that cannot miss.
 - **Never re-find something by the name you just supplied.** The designer may normalise it (you pass `"SKU"`, it stores `Sku`), so keep the returned handle instead of looking it up again.
-- **`console.log` / `warn` / `error`** are captured and returned as `output`. A throw comes back with source-mapped stack frames and `executed: false`.
+- **`console.log` / `warn` / `error`** are captured and returned as `output`. A throw comes back once, as the failure message, with source-mapped stack frames and `executed: false`.
 
 ## Naming conventions — learn these once, they hold across the whole API
 
@@ -44,18 +44,21 @@ Scripts are plain JavaScript with top-level `await`. Hold references in local va
 
 ## Mutating: statement order IS operation order
 
+- **Read the designer's rules first.** Call `get_designer_rules` for every designer you will change, in the same response as your first schema read. `run_designer_script` refuses a designer with rules until you have.
+
 - Create a **parent before its children**; both **endpoints before an association** between them; the **element before a stereotype**, and the stereotype before setting its properties.
 - A **name resolves to an id at call time**, so a type must already exist before it is referenced. If one script both creates and references a type, create it first.
 - The whole script runs inside **ONE undo composite** (Ctrl+Z reverts it as one action). A mid-script throw still commits the steps before it — read `changes` to see what landed before writing the follow-up.
-- After running, read `errors[]` (scoped to what you touched) and fix in a short follow-up script until clean.
-- **Never lay out a diagram from a script.** No `layoutVisuals`, no positioning visuals, no opening a diagram to place things. Layout is a separate step afterwards with `apply_change_diagram_layout` — see the **changing-the-model** skill.
+- Write **one cohesive script per designer**, not one per aggregate. After running, read `errors[]` — what your change introduced (on what you touched first, then elsewhere in the designer, capped); fix those in a short follow-up script — the result is the verification, so don't follow it with a validation or structure query.
+- **Never lay out a diagram from a script.** No `layoutVisuals`, no positioning visuals, no opening a diagram to place things. `run_designer_script` shows your changes on an Explorer Diagram automatically; saved diagrams change only when the user asks.
 
 ## Where the signatures are
 
-`read_file` the one you need; don't read them all.
+For a typical build, `read_file` **`references/common-path.md` first**. It covers packages, Domain classes, enums, value objects, associations, constructors and operations, then Services DTOs, commands and queries with HTTP endpoints, entity actions and mappings, the result channel and common pitfalls, in one example script per designer. Read the files below only for what it doesn't cover, never all of them.
 
 | Aspect | Reference |
 | --- | --- |
+| **The common path: one end-to-end Domain + Services build, plus pitfalls — read this first** | `references/common-path.md` |
 | Reads: the query globals and what each returns (incl. `getElementTypes`, `getReferenceTypes`, `getApplicationSettings({ search })`) | `references/reads.md` |
 | Finding, creating, navigating and editing elements (the `IElementApi` surface) | `references/elements.md` |
 | Setting types, collections, nullability, generics | `references/types.md` |

@@ -1,0 +1,217 @@
+# Fix what the adversarial test found in the Guardrails drift check
+
+## Context
+
+The adversarial test (<FileRef path="D:/Dev/basislink_poc2/BasisLinkSolution/intent/.plans/2026-10-20-guardrails-adversarial-test.md" label="test report" />) ran 10 agent cases against BasislinkService:
+
+- **The agents passed.** In all 10 cases the model ended up matching the code, checked against the tester's own Roslyn oracle, not the drift reports.
+- **The drift check failed.** It missed 4 of 30 planted mutations and reported a correct model as contradicted once.
+
+So today "No drift" does not yet mean "the model is right", which is the system's whole promise.
+
+**One example, before and after.** Someone adds `MillSummaryDTO.cs` beside the modelled DTOs in `Basislink.DTO/Ssb/` and doesn't model it.
+
+- **Today:** both reports say **No drift.**
+- **After this plan:** the Services report has, under *Wrong: code the model doesn't describe*:
+
+`` `MillSummaryDTO` (class): not modelled. Location: `Basislink.DTO/Ssb/MillSummaryDTO.cs:5` ``
+
+What each finding needs:
+
+| # | Finding | Fix |
+| --- | --- | --- |
+| F1, F2 | A new unmodelled DTO or business class is invisible | Detect new classes in the expected locations, plus recipe patterns (your decision) |
+| F3 | Index changes are invisible | New index facts from the model's `Index` stereotypes |
+| F6 | A route read from a constant is reported as contradicted ("code (none)") | A read case can say "stated, but unreadable", which makes the fact can't-be-verified |
+| F7 | A key column is reported as optional | The skill's EF example reads key membership |
+| F5, F9 | The report on disk is stale after a failing run, and it isn't where the guidance says | The check writes the reports itself, every run, into the solution's git-ignored `.cache` folder (your decision) |
+| F4 | A second `[Route]` on an action is invisible | Not addressed: the model can't express several routes on one action (your call) |
+| — | Old `guardrails/*.sync.json` files confuse agents | The rule says they're obsolete and can be deleted |
+
+## Approach
+
+Every fix stays inside the two Guardrails modules: the shared engine (identical in both, enforced by `SharedCodeTests`), the Domain model reader, the report template and the guidance. There are no Module Builder model changes, because no templates are added or removed. The version stays at 1.0.0-pre.0 (your earlier decision).
+
+```mermaid
+flowchart LR
+  classDef added fill:#1f7a4d,stroke:#34d399,color:#ffffff
+  classDef changed fill:#8a6d1f,stroke:#fbbf24,color:#ffffff
+  classDef existing fill:#3f4b5b,stroke:#94a3b8,color:#ffffff
+  G[Generated types]:::existing --> S[Structure check]:::existing
+  G --> X[Expected-location scan]:::added
+  G --> O[Own patterns]:::changed
+  R[Recipes]:::existing --> RC[Read cases]:::changed
+  M[Model facts]:::changed --> RC
+  S --> REP[Drift report]:::changed
+  X --> REP
+  O --> REP
+  RC --> REP
+  REP --> C[Solution .cache folder]:::added
+  ```
+  *Green: new. Amber: changed. Grey: unchanged. Model facts gain indexes; read cases gain `unreadable`; own patterns now treat generated types as described; the check writes the reports itself into the solution's git-ignored `.cache` folder.*
+
+### 1. New classes in expected locations (F1, F2)
+
+- **Expected locations, automatic.** An expected location is a folder that one of the module's own contract templates writes a file into. Every top-level type (class, record, struct, interface or enum) in a C# file there is reported as not modelled, unless:
+  - a template in this run generates its file (any template, so another designer's types in a shared folder aren't reported); or
+  - it has the same name as a generated type (another part of a partial type).
+- **Patterns, from the recipe.** An `own` entry can name types anywhere, for example:
+  - `file:Basislink.DTO/**/*.cs > class` (every class in the DTO project);
+  - `class with :BaseBusinessObject\\b` (every business class).
+
+  Today such an entry would report every modelled type too, because only code a fact located counts as described. Types the Guardrails templates generate will now count as described, so only unmodelled ones are reported.
+- **Exceptions** cover both, by file pattern or type name.
+
+<Callout id="expected-folders-scope" tone="warning" title="Folders only, not their subfolders">
+
+Brand-new folders are only covered by an `own` pattern. A class in a new `Basislink.DTO/Mills/` folder is found by `file:Basislink.DTO/**/*.cs > class`, not by the automatic scan. That's accepted because a recursive scan of each template's output root would sweep in whole projects (DbContexts, migrations, infrastructure) and bury the real lines. configure-drift-check will tell the AI to add a pattern for each kind of type that can appear in a new folder.
+
+</Callout>
+
+<Callout id="helpers-beside-types" tone="warning" title="Helpers kept beside modelled types are reported once">
+
+The first run after upgrading will report any existing unmodelled class in those folders. The AI resolves each as normal: model it, add an exception for a helper, or ask. That's the intended behaviour, not noise.
+
+</Callout>
+
+### 2. "Stated but unreadable" (F6)
+- **`unreadable` read case.** A new read case property: `{ "match": "\\[Route\\((?!\")", "unreadable": true }` means the code states the fact, but not in a form the recipe can read, such as a constant or a helper. It is reported under *can't be verified*, quoting the code. Without it, the recipe's `default` stood in, and an identical route read from a constant became "code (none)". A case with both `unreadable` and `value` is a recipe error.
+- **The skill** tells the AI to give every recipe that has a `default` an `unreadable` case for other forms of the same declaration. The controllers example shows it for routes.
+
+
+
+### 3. Index facts (F3, Domain)
+
+- **Two new facts per index**, read from the `Index` stereotypes on a persisted class's attributes (`UniqueKey`, `Order`, `IsUnique`; the form Basislink's model uses):
+  - `index.columns`: the attribute names in `Order`, joined with commas;
+  - `index.unique`: `true` or `false`.
+- **Placeholders:** `Entity` and `Index` (the index name).
+- **Newer `Index` elements:** if the RDBMS module also models indexes as elements, those are read too. Confirm their shape by decompiling the `GetIndexes` extension in `Intent.Modules.Metadata.RDBMS` during implementation; don't guess it.
+- The configure-drift-check fact table is generated from `FactKinds`, so it lists the new facts automatically. The EF example gains an index recipe and an `own` entry for `HasIndex` chains.
+
+<Callout id="index-scope" tone="warning" title="Sort direction, filters and included columns aren't checked yet">
+
+The planted mutation was a rename plus `IsUnique`, which columns, name and uniqueness cover. Descending columns, filters and included columns are deferred. Basislink will show one "no recipe" line per index fact until its recipe is extended; that line is what sends the AI back to configure-drift-check.
+
+</Callout>
+
+### 4. Reports in the solution's `.cache` folder (F5, F9)
+
+- **Where:** `intent/.cache/guardrails/<application>/DomainDriftReport.md` and `ServicesDriftReport.md`, in the `.cache` folder beside the solution's `.isln`. Every Intent solution's own `.gitignore` already ignores `.cache/`, so configure-drift-check no longer adds `*DriftReport.md` to `.gitignore`.
+- **How:** the check writes the file itself on every run, failing runs included, so the report always matches the latest run. It doesn't write on CI, as today.
+- **The template stays.** The `DriftReport` template is still where the check runs (the after-build step), but it no longer outputs a codebase file. Its `CanRunTemplate()` returns false once the check has run: the switch CI uses today, now applied everywhere. No Module Builder change.
+- **The path** comes from the solution's configuration; confirm the SDK property during implementation. The drift error and the "check is off" warning name it. The rule and skills are generated per application, so they state the actual path rather than "the root of the application's output".
+
+<Callout id="old-report-copies" tone="warning" title="The first run after upgrading deletes the old report copies">
+
+Because the template no longer outputs them, the Software Factory proposes deleting the copies it generated before (in Basislink, `Basislink.API/DomainDriftReport.md` and `ServicesDriftReport.md`). That deletion is applied once. If that run also has drift errors, the deletion is left unticked like everything else.
+
+</Callout>
+
+<Callout id="write-outside-staging" tone="warning" title="The report is written before anything is applied">
+
+The file is written while the Software Factory runs, not staged for review. That's accepted because it's a git-ignored diagnostic in Intent's own cache folder, not code, and writing it directly is what keeps it current after a failing run.
+
+</Callout>
+
+### 5. Guidance (F7, old sync files)
+- **Key columns:** the EF example's `column.required` recipe gets a case that reads `HasKey` membership as `true`.
+- **Old sync files:** the rule says `guardrails/*.sync.json` belong to the old drift check, nothing reads them, and they can be deleted. configure-drift-check deletes them.
+
+## Model changes
+
+None. No templates are added or removed.
+
+## Code changes
+
+<FileTree id="files" title="Domain shown; the Services module mirrors the shared engine and guidance" entries={[
+  { path: "Modules/Intent.Modules.Domain.Guardrails.Contracts/Drift/StructureComparer.cs", change: "modified", note: "Expected-location scan; exposes the code type matched to each generated type" },
+  { path: "Modules/Intent.Modules.Domain.Guardrails.Contracts/Drift/RecipeEngine.cs", change: "modified", note: "The unreadable read case; generated types count as described" },
+  { path: "Modules/Intent.Modules.Domain.Guardrails.Contracts/Drift/DriftReport.cs", change: "modified", note: "Input gains every template's output path; report path in the messages" },
+  { path: "Modules/Intent.Modules.Domain.Guardrails.Contracts/Drift/FactKinds.cs", change: "modified", note: "index.columns and index.unique" },
+  { path: "Modules/Intent.Modules.Domain.Guardrails.Contracts/Drift/DriftModel.cs", change: "modified", note: "Reads index facts (Domain only)" },
+  { path: "Modules/Intent.Modules.Domain.Guardrails.Contracts/Templates/DriftReport/DriftReportTemplatePartial.cs", change: "modified", note: "Writes the report into the solution's .cache folder, outputs no codebase file, passes every template's output path" },
+  { path: "Modules/Intent.Modules.Domain.Guardrails.Contracts/Templates/ModelSyncGuidance.cs", change: "modified", note: "Report path, no .gitignore step, unreadable cases, type patterns, index and key examples, old sync files" },
+  { path: "Modules/Intent.Modules.Domain.Guardrails.Contracts/Templates/ReverseEngineerDomainSkill/ReverseEngineerDomainSkillTemplatePartial.cs", change: "modified", note: "Report location wording" },
+  { path: "Modules/Intent.Modules.Services.Guardrails.Contracts/Templates/ReverseEngineerServicesSkill/ReverseEngineerServicesSkillTemplatePartial.cs", change: "modified", note: "Report location wording" },
+  { path: "Modules/Intent.Modules.Guardrails.Contracts.Tests/BasislinkRegressionTests.cs", change: "modified", note: "The missed C0 mutations as regression cases" },
+]} />
+
+## Steps
+
+1. **Unreadable read case** in the shared engine (`RecipeEngine.ReadCases` and read-case parsing in `RecipeFile.Parse`), with a test for the C0 mutation M22 (a route from a constant).
+2. **Expected locations and type patterns.**
+   - `StructureComparer` returns the code type matched to each generated type, and scans the generated files' folders.
+   - `DriftCheckInput` gains the output paths of every template in the run.
+   - `RecipeEngine.IsDescribed` counts generated types as described.
+   - Tests for M16 (a new DTO) and M17 (a new business class, found by a base-type pattern), plus: a partial part, another template's file, an exception, and a folder shared with the other designer.
+3. **Index facts:** `FactKinds` (shared) and the Domain `DriftModel`, with a model-reader test and an EF recipe test for M20 (index renamed and made unique).
+4. **Reports in the solution's `.cache` folder:**
+    - `BuildAndCheck` resolves `intent/.cache/guardrails/<application>/` from the solution configuration and writes the report there (not on CI);
+    - `CanRunTemplate()` returns false once the check has run;
+    - the drift error and the "check is off" warning name the path.
+
+    `DriftReportTemplateTests` covers it: the report is written to the cache folder with no codebase output, and on CI nothing is written.
+5. **Guidance:**
+    - the reports' actual path, in the rule and all four skills;
+    - the `.gitignore` step removed;
+    - the old-sync-files line;
+    - the skill's examples: an unreadable route case, type patterns, an index recipe, key-required.
+
+    `GuidanceTests` re-parses every example.
+6. **Docs:** README and CONTEXT.md for both modules, recording the decisions below.
+7. **Close out:**
+   - build;
+   - all tests, including `SharedCodeTests`;
+   - a clean module Software Factory run on both module apps;
+   - repackage and publish both modules to `D:\Dev\.intent-modules`.
+
+## Not addressed, and why
+
+<Callout id="f8" tone="info" title="F8: the Software Factory rewrote hand-written DTO members">
+
+That was a planted *model* change (a field's type changed, a field removed). Regenerating DTO members from the model is what the Guardrails contract templates exist to do. The drift check flagged both, and its errors stopped the changes being applied, which is the guard working. Whether member removal should be marked destructive is the Software Factory's classification, not the module's.
+
+</Callout>
+
+<Callout id="f4" tone="decision" title="F4: a second [Route] on an action">
+
+Your call: the model can't express several routes on one action, so a check for it would report drift nobody could fix in the model. A recipe still reads the first route.
+
+</Callout>
+
+<Callout id="f10" tone="info" title="F10: a report-only run leaves git dirty">
+
+Every Software Factory run rewrites `application.deviations.log.xml` and `application.managed-files.xml`. That's platform behaviour, outside these modules. The reports themselves no longer add to it: they're written to the ignored `.cache` folder.
+
+</Callout>
+
+<Callout id="hand-edits" tone="decision" title="Hand-edit contradictions keep asking the developer">
+
+Your decision: sync-model keeps asking one question for contradictions the AI's own work didn't cause.
+
+</Callout>
+
+<Callout id="root-guidance" tone="risk" title="Basislink's agents don't load the generated guidance">
+
+The rule and skills are generated into `Service/BasislinkService/.claude/`, but agents load the workspace root's `.claude/`. The tester copied them across by hand. Until Basislink's AI-context outputs land in the root `.claude/` (an application setup change, not a module change), every module update to the guidance needs that copy repeated.
+
+</Callout>
+
+## Verification
+
+<Checklist id="verify" items={[
+  { id: "a", label: "Regression tests reproduce each C0 miss and now report it: M16, M17, M20, and M22 as can't be verified" },
+  { id: "b", label: "All existing tests still pass, including SharedCodeTests (engine copies identical) and GuidanceTests (every skill example parses)" },
+  { id: "c", label: "The real template writes the report to the solution's .cache folder, outputs no codebase file, and writes nothing on CI" },
+  { id: "d", label: "Both modules build with no warnings; both module apps regenerate with nothing staged; both modules published" },
+  { id: "e", label: "In Basislink (yours): reinstall, run the Software Factory, apply the one-time deletion of the old report copies, find the reports under intent/.cache/guardrails/BasislinkService/, expect the index 'no recipe' lines and any unmodelled types in expected folders, then run /configure-drift-check" },
+  { id: "f", label: "Re-run the tester's C0 (plant-c0.js in %TEMP%\\grtest2): expect 29 of 30 caught (M21, the second route, is out of scope), with M22 as can't be verified" },
+]} />
+
+## Open questions resolved
+
+- **Q:** How should new unmodelled classes be caught? **A:** In expected locations automatically, plus recipe patterns (you).
+- **Q:** Hand-edit contradictions: code wins, or ask? **A:** Keep asking the developer (you).
+- **Q:** Where do the reports go? **A:** Somewhere not committed to version control: the solution's `.cache` folder, which every Intent solution already ignores (you). Being outside the codebase, they're written by the check itself, not staged. This replaces your earlier "keep it staged".
+- **Q:** A second `[Route]` on an action? **A:** Not addressed; the model can't express several routes on one action (you).

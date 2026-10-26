@@ -42,6 +42,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         private const string ModifiersProperty = "Modifiers";
         private const string CustomFormatProperty = "Custom Format";
         private const string RequiredProperty = "Required";
+        private const string AccessModifierProperty = "Access Modifier";
 
         public static bool IsDomainEvent(this IElement element)
         {
@@ -120,6 +121,12 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         public static bool IsRequiredDomainEventProperty(this IElement property)
         {
             return property.GetStereotype(PropertyConfigurationDefinitionId)?.GetProperty<bool>(RequiredProperty) == true;
+        }
+
+        /// <summary>A Domain Event Property's Property Configuration Access Modifier, or null when not set.</summary>
+        public static string GetDomainEventPropertyAccessModifier(this IElement property)
+        {
+            return property.GetStereotype(PropertyConfigurationDefinitionId)?.GetProperty<string>(AccessModifierProperty);
         }
 
         /// <summary>

@@ -202,6 +202,77 @@ namespace Intent.Services.Guardrails.Contracts.Api
                 return _stereotype.GetProperty<bool>("Required");
             }
 
+            public AccessModifierOptions AccessModifier()
+            {
+                return new AccessModifierOptions(_stereotype.GetProperty<string>("Access Modifier"));
+            }
+
+            public class AccessModifierOptions
+            {
+                public readonly string Value;
+
+                public AccessModifierOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public AccessModifierOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "public":
+                            return AccessModifierOptionsEnum.Public;
+                        case "protected":
+                            return AccessModifierOptionsEnum.Protected;
+                        case "internal":
+                            return AccessModifierOptionsEnum.Internal;
+                        case "private":
+                            return AccessModifierOptionsEnum.Private;
+                        case "protected internal":
+                            return AccessModifierOptionsEnum.ProtectedInternal;
+                        case "none":
+                            return AccessModifierOptionsEnum.None;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsPublic()
+                {
+                    return Value == "public";
+                }
+                public bool IsProtected()
+                {
+                    return Value == "protected";
+                }
+                public bool IsInternal()
+                {
+                    return Value == "internal";
+                }
+                public bool IsPrivate()
+                {
+                    return Value == "private";
+                }
+                public bool IsProtectedInternal()
+                {
+                    return Value == "protected internal";
+                }
+                public bool IsNone()
+                {
+                    return Value == "none";
+                }
+            }
+
+            public enum AccessModifierOptionsEnum
+            {
+                Public,
+                Protected,
+                Internal,
+                Private,
+                ProtectedInternal,
+                None
+            }
+
         }
 
     }

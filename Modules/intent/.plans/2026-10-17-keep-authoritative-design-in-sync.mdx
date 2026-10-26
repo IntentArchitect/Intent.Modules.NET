@@ -1,0 +1,185 @@
+# Keep the model true to the code in guarded applications
+
+## Decided so far
+
+- **Part 1's rule is shipped by the Guardrails modules** (user decision).
+- **Drift is repaired by the developer running `/sync-model` locally** (user decision).
+- **Drift detection must be deterministic and fast**, so the AI and developers can run it any time; **CI is a nice-to-have** (user decision).
+- **The drift check is a module task**: a C# algorithm in each Guardrails module, started from a designer script (user decision).
+- **The first cut covers types, HTTP, security and database; intent comes later** (user decision).
+- **The check deals only with Guardrails concepts**, and doesn't read, report or mention any other code (user direction).
+- **It returns only differences.** When nothing has drifted, the result is just `No drift`, so a clean check costs the AI almost no tokens (user direction).
+- **It must work for any technology**: any endpoint framework, and any database (EF, Mongo, Cosmos…), including ones no Intent module supports (user direction).
+- **Drift belongs to the Guardrails modules.** `initialize-brown-field` stays independent of them; the Guardrails reverse-engineer skills record the links and save the first sync (user direction).
+
+## The two problems
+
+1. **Prevention.** When an AI changes code in a guarded application, it should update the model in the same change.
+2. **Detection and repair.** Some changes will still slip through: an AI misses something, or a person edits the code directly. We need to notice, and bring the model back in line.
+
+There are two kinds of model content, and they need different handling:
+
+| | Enforced by the Software Factory | Descriptive only |
+| --- | --- | --- |
+| **Examples** | Classes, methods and their signatures, DTO fields, enums, commands, queries, service proxies | HTTP routes and verbs; security; database tables, columns, keys and indexes; intent (which handler saves which entity, calls which service, publishes which event) |
+| **If code and model disagree** | The next Software Factory run proposes a change | **Nothing notices today** |
+
+## Part 1: a rule that keeps the AI modelling
+
+An **always-on rule** shipped with the Guardrails modules, like the existing `spec-sync.md` rule. In plain terms:
+
+> In this application the code is hand-written and the model describes it. Whenever you change code here, update the model in the same piece of work. Before you finish, run the drift check, fix anything it reports, and save the sync.
+
+| If you change… | Also update in the model |
+| --- | --- |
+| A class, method, DTO, enum, command or query | The element itself |
+| An endpoint's route or verb, or its authorization | Http Settings, and Secured or Unsecured |
+| A database table, collection, column, key or index | The Domain designer's database stereotypes |
+| What a handler or service does: saves an entity, calls a service or client, publishes an event | The intent associations |
+| Where a modelled fact is defined in the code | Its link, when you save the sync |
+
+<Callout id="rule-delivery" tone="risk" title="Open: modules can ship skills, not yet always-on rules">
+
+A skill is only read when it's asked for, and this rule must be read every time. The Guardrails modules need a way to output a rule file. If Intent can't do that yet, it's a small platform addition to request.
+
+</Callout>
+
+## Part 2: the drift check
+
+### The idea
+
+A deterministic tool can't understand every technology: a route can be written in a dozen frameworks, and a key in EF, Mongo, Cosmos or something nobody has a module for. So the check doesn't try to understand the code. It only detects **change since the last sync**:
+
+- **Understanding is done by the AI**, once, when the element is modelled: it records a **link** from each model element to the code that defines it, whatever the technology.
+- **The check is plain fingerprinting.** It fingerprints each linked piece of code and each model element, and compares them with the fingerprints saved at the last sync. Anything that changed is reported; everything else is silent.
+- **The AI then looks only at what changed**, in `/sync-model`.
+
+The check needs to know nothing about frameworks or databases, only how to find a C# member and fingerprint it.
+
+### Links
+
+A link ties a model element to the code member that defines its facts, and says whether the facts are in the member's **declaration** (attributes and signature) or its **body**:
+
+```text
+Element         Backs      Linked code                                   Part
+GetOrderQuery   HTTP       OrdersController.GetOrder                     declaration
+GetInvoice      HTTP       GetInvoiceEndpoint.Configure                  body
+Order           database   OrderConfiguration.Configure                  body
+Customer        database   MongoMaps.RegisterCustomer                    body
+Invoice         database   deploy/cosmos/invoices-indexing-policy.json   whole file
+```
+
+- A controller action is linked by its **declaration**, so editing its body doesn't count as a change to the route.
+- A FastEndpoints `Configure()`, an EF configuration or a Mongo class map is linked by its **body**, because that's where the facts are.
+- A file that isn't C#, such as a Cosmos indexing policy, is linked as a **whole file**.
+
+Elements the model owns the file for (commands, queries, DTOs, entities, enums, API clients) are linked to their own type automatically, from the last Software Factory run.
+
+The links and fingerprints are kept in a **sync file** in the repository, one per designer. Only the module task writes it.
+
+### How it works
+
+**Check** (reads only the linked code):
+
+1. Read the sync file.
+2. Fingerprint every element in the saved model: its properties and stereotypes, whatever they are.
+3. Parse only the linked files, with Roslyn, syntax only, with no build. Fingerprint each linked member (or file), ignoring whitespace and comments.
+4. Compare with the sync file, and return only what differs.
+
+**Save the sync** (after a clean check, or at the end of `/sync-model`): the AI passes in any new or changed links, and the task records the current fingerprints.
+
+The same model and code always give the same result. There's no AI, no network and nothing random in the check.
+
+### What it reports
+
+| Result | Meaning | What the AI does in `/sync-model` |
+| --- | --- | --- |
+| **code changed** | A linked piece of code changed since the sync | Reads that member, compares it with the element, updates the model if needed |
+| **model changed** | An element changed, its code didn't | Updates the code to match |
+| **both changed** | Both changed | Asks the developer which is right |
+| **not linked** | A modelled element has descriptive facts but no link | Finds the code that defines them and links it |
+| **link broken** | The linked file or member no longer exists | Finds where it went, or updates the model if it was removed |
+| **code only** | A new public member in a linked or model-owned type, such as a new controller action or a new DTO property | Models it, or confirms it isn't a Guardrails concept |
+
+When nothing differs, the whole result is:
+
+```text
+No drift
+```
+
+Otherwise, one line per item and nothing more:
+
+```text
+code changed   GetOrderQuery   HTTP      OrdersController.GetOrder (declaration)
+code changed   Customer        database  MongoMaps.RegisterCustomer (body)
+model changed  Order           database
+link broken    PaymentDto      type      PaymentDto not found in Dtos/PaymentDto.cs
+code only      OrdersController          new public member CancelOrder
+```
+
+### New concepts added straight to the code
+
+They surface through the code that's linked:
+
+- a new action on a linked controller, or a new property on a modelled DTO: **code only**;
+- a new `MapPost` inside a linked endpoint-registration method, or a new index inside a linked EF configuration or Mongo map: **code changed** on the elements linked there, and the AI finds the new concept when it reads that member.
+
+<Callout id="unlinked-code" tone="warning" title="Limit: code nothing is linked to isn't seen">
+
+A new endpoint in a brand-new file, or a new type nothing links to, isn't reported. The Part 1 rule covers it: the AI models the new concept and links it in the same piece of work.
+
+</Callout>
+
+<Callout id="change-not-meaning" tone="info" title="It detects change, not meaning">
+
+"Code changed" means the linked code is different, not that a fact is wrong. A refactor of an EF configuration body that keeps every setting reports code changed; the AI confirms nothing moved and saves the sync. Linking the narrowest member, and the declaration rather than the body where the facts allow, keeps this rare.
+
+</Callout>
+
+<Callout id="intent-later" tone="info" title="Intent comes after the first cut">
+
+"This handler saves an Order" needs links to calls inside handler bodies, which change far more often. It's added once types, HTTP, security and database are proven on a real codebase.
+
+</Callout>
+
+### Who runs it
+
+- **Developers**, any time, from a **Check drift with code** context-menu item on the Domain or Services package.
+- **The AI**, through the same script call: at the end of every session, as the Part 1 rule requires, and as the first step of `/sync-model`.
+- **CI, later.** A module task needs Intent Architect running, so CI can't call it directly. The check is plain C#, so a small console wrapper around the same code could run it in CI. Not in the first cut.
+
+The task reads the **saved** model, so the script asks the developer to save any unsaved designer changes first.
+
+## Repair: `/sync-model`
+
+The developer runs it, or the AI runs it when its own check finds drift:
+
+1. Run the check.
+2. For each item, do what the table above says. The AI reads only the members named in the report.
+3. Save the sync, with any new or changed links.
+4. Run the check again: it must return `No drift`. Confirm the Software Factory proposes nothing.
+
+## What gets built
+
+Modules changed: `Intent.Services.Guardrails.Contracts` and `Intent.Domain.Guardrails.Contracts`. Each goes through the version gate before work starts.
+
+1. **The rule** (Part 1), shipped by both Guardrails modules.
+2. **A module task in each Guardrails module** with two operations, **check** and **save the sync**, plus the **Check drift with code** context-menu script. The fingerprinting code is shared, the way the two modules already share their builder helpers.
+3. **The sync file:** links and fingerprints, one per designer, written only by the task.
+4. **The `/sync-model` skill.**
+5. **The reverse-engineer skills own the first sync.** `reverse-engineer-domain` and `reverse-engineer-services` ship with the Guardrails modules. Each one records links as it models each endpoint and database configuration, and saves its designer's first sync as its last step, after its zero-change Software Factory run. Whatever calls them, such as `initialize-brown-field`, needs no change and knows nothing about drift.
+6. **Later, optional:** the console wrapper for CI.
+
+## Verification
+
+- With nothing changed since the sync, the whole result is `No drift`, and running it twice gives the same result.
+- It opens only linked files and finishes in seconds on a real brownfield codebase (Basislink).
+- Changing a route attribute on a controller action reports **code changed** for that request only; editing the action's body reports nothing.
+- Changing a Mongo class map, an EF configuration or a linked JSON file reports **code changed** for the elements linked there. Nothing in the task is specific to Mongo or EF.
+- Changing an element's Http Settings or database stereotype in the model reports **model changed**.
+- Renaming a linked member reports **link broken**.
+- Adding a public action to a linked controller reports **code only**.
+- Modelling a new request with Http Settings and no link reports **not linked**.
+- A new handler, validator or helper class produces no output at all.
+- Straight after `reverse-engineer-domain` or `reverse-engineer-services` finishes, the check on that designer returns `No drift`.
+- After `/sync-model`, the check returns `No drift` and the Software Factory proposes nothing.
