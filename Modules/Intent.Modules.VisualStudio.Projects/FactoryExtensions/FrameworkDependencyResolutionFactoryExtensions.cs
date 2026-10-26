@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.Utils;
 
@@ -32,14 +34,18 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             {
                 var project = outputTarget.GetTargetPath()[0]; // root is the project itself
 
-                var frameworkDependencies = outputTarget.TemplateInstances
-                    .SelectMany(ti => ti.GetAllFrameworkDependencies());
-
-                foreach (var frameworkDependency in frameworkDependencies)
+                foreach (var frameworkDependency in GetAllTemplateFrameworkDependencies(outputTarget))
                 {
                     project.AddFrameworkDependency(frameworkDependency);
                 }
             }
+        }
+
+        internal static IEnumerable<string> GetAllTemplateFrameworkDependencies(IOutputTarget outputTarget)
+        {
+            return outputTarget.TemplateInstances
+                .ExceptHandsOff()
+                .SelectMany(ti => ti.GetAllFrameworkDependencies());
         }
     }
 }

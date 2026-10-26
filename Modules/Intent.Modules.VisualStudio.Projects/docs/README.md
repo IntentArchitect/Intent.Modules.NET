@@ -253,13 +253,13 @@ When `Program.cs` already exists, the template adapts to it rather than adding s
 
 With top-level statements, `using {project namespace};` is only added when Intent generates types in that namespace (or a namespace nested under it), so a project whose code lives under a different root namespace still compiles.
 
-An existing `Program.cs` in any other shape is left untouched, and the Software Factory logs a warning. This includes `Host.CreateDefaultBuilder(args).ConfigureServices(...)`, different variable names than `builder` and `app`, or more than one run call. Startup code that other modules add to `Program.cs` (e.g. Serilog or Windows Service hosting) is then not applied.
+An existing `Program.cs` in any other shape is left untouched, and the Software Factory logs a warning. This includes `Host.CreateDefaultBuilder(args).ConfigureServices(...)`, different variable names than `builder` and `app`, or more than one run call. Startup code that other modules add to `Program.cs` (e.g. Windows Service hosting) is then not applied.
 
 The logging settings a `Main`-method Worker adds (`Logging:EventLog:*`) are written to that project's own `appsettings.json` only.
 
 ##### Generate Program File
 
-_Generate Program File_ on the _.NET Settings_ stereotype is shown only for `Microsoft.NET.Sdk.Worker` projects, and is on by default. Turning it off makes Intent hands-off for `Program.cs`: an existing file is left exactly as it is, none is created, and startup code that other modules add to `Program.cs` (e.g. Serilog or Windows Service hosting), along with the `Logging:EventLog:*` settings above, is not applied. The Software Factory logs this for each such project.
+_Generate Program File_ on the _.NET Settings_ stereotype is shown only for `Microsoft.NET.Sdk.Worker` projects, and is on by default. Turning it off makes Intent hands-off for `Program.cs`: an existing file and its `.csproj` item are left exactly as they are, none is created, and startup code that other modules add to `Program.cs` (e.g. Windows Service hosting), along with the `Logging:EventLog:*` settings above, is not applied. No packages, framework references or project references are added on its account either: not the ones a generated `Program.cs` needs (`Microsoft.Extensions.Hosting`, `Intent.RoslynWeaver.Attributes`), and not the ones other modules attach for the startup code they would have added (e.g. `Microsoft.Extensions.Hosting.WindowsServices`). The project's own `Program.cs` already references whatever it uses. Packages that other modules request for their other generated files in the project are still added, and `Intent.RoslynWeaver.Attributes` is still added whenever Intent generates any other C# file into it. Packages already in the project are never removed, though one that another generated file requests can still be upgraded. The Software Factory logs this for each such project.
 
 Worker projects created before this setting existed have no value for it, and are treated as on, so they keep generating `Program.cs`.
 

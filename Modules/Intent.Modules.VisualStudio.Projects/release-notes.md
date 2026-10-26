@@ -1,6 +1,6 @@
 ### Version 4.1.12
 
-- New Feature: Added _Generate Program File_ to the _.NET Settings_ stereotype, shown for Worker (`Microsoft.NET.Sdk.Worker`) projects. Turning it off leaves an existing `Program.cs` exactly as it is and creates none, and startup code other modules add to it is not applied. Existing Worker projects are treated as on, so they keep generating `Program.cs`.
+- New Feature: Added _Generate Program File_ to the _.NET Settings_ stereotype, shown for Worker (`Microsoft.NET.Sdk.Worker`) projects. Turning it off leaves an existing `Program.cs` and its `.csproj` item exactly as they are and creates none, startup code other modules add to it is not applied, and no packages, framework references or project references are added on its account, including those other modules attach for that startup code (e.g. `Microsoft.Extensions.Hosting.WindowsServices`). Existing Worker projects are treated as on, so they keep generating `Program.cs`.
 - Fixed: Comments in a `.csproj` were moved away from the `PackageReference` or `Using` they described, or deleted, when Intent sorted those items. The `ItemGroup` holding `Using` items also lost attributes such as `Condition` and `Label`. Comments now stay with their item, including when several packages are installed at once, attributes are kept, and an already-sorted group is left untouched. Removing a package keeps the comment above it.
 
 ### Version 4.1.11

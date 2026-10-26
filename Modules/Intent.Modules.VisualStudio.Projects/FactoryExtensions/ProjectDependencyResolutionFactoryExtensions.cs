@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
+using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.Utils;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
@@ -48,14 +49,16 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 //var p = project.TemplateInstances.Select(x => new { x, deps = x.GetAllTemplateDependencies().ToList() }).Where(x => x.deps.Any()).ToList();
                 var project = outputTarget.GetTargetPath()[0]; // root is the project itself
 
-                var nullDependencies = outputTarget.TemplateInstances.Where(x => x.GetAllTemplateDependencies().Any(d => d == null)).ToList();
+                var templateInstances = outputTarget.TemplateInstances.ExceptHandsOff().ToList();
+
+                var nullDependencies = templateInstances.Where(x => x.GetAllTemplateDependencies().Any(d => d == null)).ToList();
                 if (nullDependencies.Any())
                 {
                     var templates = nullDependencies.First().Id;
                     throw new Exception($"The following template is returning a 'null' template dependency [{templates}]. Please check your GetTemplateDependencies() method.");
                 }
 
-                var templateDependencies = outputTarget.TemplateInstances
+                var templateDependencies = templateInstances
                     .SelectMany(ti => ti.GetAllTemplateDependencies(), (template, dependency) => (Template: template, Dependency: dependency))
                     .Distinct()
                     .GroupBy(x => x.Dependency)

@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.VisualStudio.Projects.Sync;
 using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -18,7 +19,7 @@ using Intent.Utils;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWorkerProgram
 {
-    public partial class ServiceWorkerProgramTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate, IProgramTemplate, IAppStartupTemplate
+    public partial class ServiceWorkerProgramTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate, IProgramTemplate, IAppStartupTemplate, IHandsOffTemplate
     {
         public const string TemplateId = "Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram";
         private readonly IAppStartupFile _startupFile;
@@ -41,7 +42,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
             {
                 Logging.Log.Info(
                     $"\"Generate Program File\" is off for Worker project \"{model.Name}\", so its Program.cs was not " +
-                    "created or changed. Startup code that other modules add to Program.cs (e.g. Serilog, Windows Service hosting) was not applied.");
+                    "created or changed. Startup code that other modules add to Program.cs (e.g. Windows Service hosting), " +
+                    "and the packages and references it needs, were not applied.");
             }
             else if (_existingProgramShape.Kind == ExistingProgramShapeKind.Unrecognised)
             {
@@ -50,7 +52,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
                     $"\"var builder = WebApplication.CreateBuilder(args);\" or \"Host.CreateApplicationBuilder(args)\" declaration, " +
                     $"one \"{ExistingProgramShape.BuildStatement}\" and one \"{ExistingProgramShape.RunStatement}\" or " +
                     $"\"{ExistingProgramShape.RunAsyncStatement}\", so it can't be merged into without duplicating statements. " +
-                    "Startup code that other modules add to Program.cs (e.g. Serilog, Windows Service hosting) was not applied.");
+                    "Startup code that other modules add to Program.cs (e.g. Windows Service hosting) was not applied.");
             }
 
             CSharpFile = (useTopLevelStatements
@@ -88,6 +90,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
                 usesMinimalHostingModel: true,
                 usesTopLevelStatements: useTopLevelStatements);
 
+            // Hands-off, the dependency collectors skip this template, along with everything other modules attach to it
             AddNugetDependency(NugetPackages.MicrosoftExtensionsHosting(outputTarget));
 
             if (_existingProgramShape.UsesWebApplicationBuilder)
@@ -144,6 +147,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
 
         public bool HasStartupFile => _startupFile is not null;
 
+        bool IHandsOffTemplate.IsHandsOff => _isHandsOff;
+
         public override bool CanRunTemplate()
         {
             return ShouldRunFor(_isHandsOff, _existingProgramShape.Kind) && base.CanRunTemplate();
@@ -167,6 +172,36 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ServiceWorker.ServiceWo
         internal static bool IsHandsOff(IStereotype netSettings)
         {
             return netSettings != null && !netSettings.GetProperty("Generate Program File", true);
+        }
+
+        public override ITemplateFileConfig GetTemplateFileConfig()
+        {
+            return GetFileConfig(base.GetTemplateFileConfig(), _isHandsOff);
+        }
+
+        /// <summary>
+        /// Hands-off, the file is described as <see cref="Intent.Modules.Common.CodeGenType.Basic"/> rather than
+        /// RoslynWeaver. The RoslynWeaver module adds <c>Intent.RoslynWeaver.Attributes</c> to every project with a
+        /// RoslynWeaver template, whether or not it writes anything, and a hands-off file is never written.
+        /// </summary>
+        internal static ITemplateFileConfig GetFileConfig(ITemplateFileConfig config, bool isHandsOff)
+        {
+            if (!isHandsOff)
+            {
+                return config;
+            }
+
+            var basicConfig = new TemplateFileConfig(config.FileName, config.FileExtension, config.LocationInProject,
+                config.OverwriteBehaviour, Intent.Modules.Common.CodeGenType.Basic);
+            foreach (var (key, value) in config.CustomMetadata)
+            {
+                basicConfig.CustomMetadata[key] = value;
+            }
+
+            // A hands-off file's .csproj items are the developer's too: neither added nor removed
+            basicConfig.CustomMetadata[FileAddedData.LeaveProjectItemsUnchangedKey] = "true";
+
+            return basicConfig;
         }
 
 
