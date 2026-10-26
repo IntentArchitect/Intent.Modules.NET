@@ -80,7 +80,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 | --- | --- |
                 | Exception matches nothing | `Basislink.API/Controllers/HealthController.cs` (load-balancer probe): remove it from `guardrails/services.drift.json`. |
 
-                """);
+                """.ReplaceLineEndings("\n"));
             report.FailureMessage(@"intent\.cache\guardrails\BasislinkService\ServicesDriftReport.mdx", listLines: false).ShouldBe(
                 "The Services model and the code have drifted: 2 drifts detected and listed in the drift report (intent/.cache/guardrails/BasislinkService/ServicesDriftReport.mdx).");
             report.FailureMessage("unused on CI", listLines: true).ShouldStartWith(

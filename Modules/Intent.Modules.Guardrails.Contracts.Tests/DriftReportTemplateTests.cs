@@ -80,7 +80,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 | <ModelRef application="Acme" elementId="Class:Order" designer="Domain" /> | <FileRef path="src/Infrastructure/AppDbContext.cs" line={5} /> | `Order` table name: model `Orders`, code `Order` |
                 | `OrderStatus.Closed` | <FileRef path="src/Domain/OrderStatus.cs" /> | `OrderStatus.Closed` (literal) is modelled, but not in the code |
 
-                """);
+                """.ReplaceLineEndings("\n"));
             enumTemplate.CSharpFile.ToString().ShouldContain("Closed");
             // One error, naming the report and how many drifts it lists, on the first drifted model element, so Intent
             // offers to fix it with AI.
