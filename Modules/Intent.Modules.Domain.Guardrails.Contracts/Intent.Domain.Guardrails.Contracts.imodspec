@@ -148,5 +148,6 @@
   <metadata>
     <install target="Domain" src="../intent/Intent.Modules.Domain.Guardrails.Contracts/Intent.Metadata/Module Builder/Intent.Domain.Guardrails.Contracts/Intent.Domain.Guardrails.Contracts.pkg.config" externalReference="11aae230-6dfe-414e-bf5f-18280aad6ae2" />
   </metadata>
+  <releaseNotes>release-notes.md</releaseNotes>
   <migrations />
 </package>
