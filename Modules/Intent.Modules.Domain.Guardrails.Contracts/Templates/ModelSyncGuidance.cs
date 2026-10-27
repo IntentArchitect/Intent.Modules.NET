@@ -158,7 +158,7 @@ short-description: Write the drift check's recipes for this codebase's technolog
 
 Once a designer has a recipe file, every Software Factory run compares its model with the code; without one, the check is off. The model side is fixed: the facts listed below, read from the model's own stereotypes. The code side is yours to describe, once, in a **recipe file** per designer: for each kind of fact, where it is in the code and how to read its value in the model's vocabulary. The module knows no technology, and your recipes do, so they work for controllers, minimal APIs, FastEndpoints, EF Core, Mongo, Cosmos or anything else the code uses.
 
-You are done when **validate-drift-recipes** shows every recipe reading the code, a Software Factory run reports no drift and no warnings, and the developer has approved the model changes the setup made (step 9). A report (
+You are done when **validate-drift-recipes** shows every recipe reading the code, a Software Factory run reports no drift and no warnings, and the developer has approved the model changes the setup made, unless an orchestrating skill leaves that review to the end (step 9). A report (
 """ + Reports(context, designers) + """
 , in the `.cache` folder beside the solution's `.isln` file) is only written while there is something to act on: drift, a kind of fact that isn't checked, an exception that matches nothing, or the check being off.
 
@@ -201,6 +201,8 @@ public async Task<IActionResult> Get(int id, [FromQuery] string expand = null)
 reads `[HttpGet("{id}")]public async Task<IActionResult>Get(int id,[FromQuery]string expand=null)`. String contents are kept as written. Any other file (JSON, YAML) is read with each run of whitespace removed, or reduced to one space between two words.
 
 Regular expressions are .NET's, case-sensitive unless they start with `(?i)`, and are matched against that text. In JSON every backslash is doubled: `\\[HttpGet\\(`.
+
+Write and edit the recipe file with a file tool, or with a `node` script that holds each regular expression in `String.raw`. Never write it through a shell heredoc, `echo` or `sed`: their escaping strips the backslashes.
 
 ## A recipe
 
@@ -320,9 +322,9 @@ A recipe that misreads the code fails loudly (a contradiction the code doesn't b
 6. **Check each contradiction against the code before you touch the model.** Open the code at the row's location and confirm that it states what the row says. Several contradictions of one kind with the same code value (every one `code (none)`, say) mean the recipe is misreading the code: fix the recipe, not the model. Then resolve the rest by fixing the model to match the code, never the code. A recipe that reads the code correctly and disagrees with the model has found a modelling slip. Where the code itself looks wrong, list it for the developer; don't change it.
 7. **Resolve the code the model doesn't describe:** model it, or add an exception, asking the developer unless it is clearly a helper. If a convention entry reports many helpers, the convention is wrong: narrow it, or remove it.
 8. **Delete any `guardrails/*.sync.json`.** They belong to the old drift check, and nothing reads them.
-9. **Have the developer approve the model changes.** In one `ask_user_question`, list every model change the setup made, for the developer to approve.
+9. **Have the developer approve the model changes.** In one `ask_user_question`, list every model change the setup made, for the developer to approve. Skip the question when an orchestrating skill records a **User decision** to skip it, such as a single review at the end of the run: list the model changes in your final report instead.
 
-**Exit condition:** validate-drift-recipes has no probe warnings and no sample the code doesn't bear out; a Software Factory run reports no drift and no warnings, so it writes no drift report; and the developer has approved the model changes the setup made.
+**Exit condition:** validate-drift-recipes has no probe warnings and no sample the code doesn't bear out; a Software Factory run reports no drift and no warnings, so it writes no drift report; and the developer has approved the model changes the setup made, or, where step 9's question was skipped, your final report lists them.
 
 ## Examples
 

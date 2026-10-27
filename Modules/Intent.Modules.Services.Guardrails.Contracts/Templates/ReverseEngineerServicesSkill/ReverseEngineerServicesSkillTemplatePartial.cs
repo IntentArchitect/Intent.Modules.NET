@@ -55,7 +55,6 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
                     | API clients: typed `HttpClient` wrappers, Refit, NSwag or Kiota clients, or any other class whose job is calling an API | `Intent.Modelers.Types.ServiceProxies`, version 5.5.8-pre.0 or later, so include prereleases in the search (earlier versions open a mapping dialog when a proxy is created, which blocks the tools, and can't create a proxy at the Services package root). Every client is modelled (§3), whatever API it calls. **Never** install `Intent.Application.Contracts.Clients` or `Intent.Integration.HttpClients` alongside it: they fail on the unmapped proxies this skill models. |
 
                     - Get the exact current version with `searchAvailableModules(id)`, then call `install_or_update_modules` and state in one line what you installed and why.
-                    - After installing, a designer tab may open a dialog that blocks tools. Ask the user to close it, then continue.
                     - Ask only when the evidence is ambiguous (e.g. gRPC or a custom transport).
 
                     3. Decompile the installed template (see **reverse-engineer-domain** §0) to confirm:
@@ -120,6 +119,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
 
                     - **One template, several locations.** A template is not limited to one Template Output. When a template's existing files live in more than one project or root folder (e.g. enums in both the DTO and Business projects), **duplicate the Template Output**, one copy per location. Give each copy a **Registration Filter** (on its `Template Output Settings` stereotype) that selects which model instances generate there.
                     - The filter is a Dynamic LINQ expression over the template's model (e.g. `EnumModel`, `DTOModel`, `ServiceModel`, `ClassModel`) and must return `bool`. `Folder.Name` is usually the simplest discriminator. Use `np(...)` for anything that can be null. Example: `np(Folder.Name) == "BusinessObject"` on the Business copy and `np(Folder.Name) != "BusinessObject"` on the DTO copy.
+                    - When each service has its own package, filter on the package instead: `np(InternalElement.Package.Name) == "Ordering.Services"` for a template with a typed model (e.g. `DtoContract`, `ServiceContract`), and `np(Package.Name) == "Ordering.Eventing"` for one whose model is a raw element (e.g. `IntegrationEventContract`, `EventingDtoContract`).
                     - **Filters must be mutually exclusive.** An instance matching two outputs fails the SF. An empty filter matches everything, so when you add a filtered copy, also give the original the complementary filter.
                     - Script it: `project.addChild("Template Output", "<TemplateId>")`, then `ensureStereotype("Template Output Settings").setProperty("Registration Filter", "<expr>")`.
                     - Model those elements in a designer folder that the filter selects on, and combine with `File Config` (`Filename` / `Namespace`) to land each type in its exact existing file.
@@ -312,14 +312,13 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
                     - **An ambiguous name after adoption** (CS0104, e.g. `Order` from two namespaces the global usings import): add a using alias for the type the file means at the top of the file (`using Order = eShop.Ordering.Domain.AggregatesModel.OrderAggregate.Order;`). An alias outranks every namespace import, global ones included, and later runs keep it. Don't leave the file unadopted.
                     8. **Finish the drift check (required).** §1 wrote `guardrails/services.drift.json`, so every run already compares the Services model's HTTP and security facts, and the types the Guardrails templates generate, with the code. Load **configure-drift-check** and do its steps 4 to 9 for the Services designer: fix the recipes until no fact is reported as can't be verified (a kind of fact with no recipe, or a style §1 missed) and validate-drift-recipes shows every recipe reading the code, then resolve the rest. Save the designer first: the check reads the saved model.
                     - No recipe file (the adoption began before §1 wrote one): do all of configure-drift-check's steps.
-                    - The adoption isn't finished until a run finds no drift and no warnings, so it writes no `<<DriftReport>>`, and the user has approved the model changes (configure-drift-check's step 9).
+                    - The adoption isn't finished until a run finds no drift and no warnings, so it writes no `<<DriftReport>>`, and the user has approved the model changes (configure-drift-check's step 9). The exception is an orchestrating skill's **User decision** to skip that approval: then list the model changes in your final report instead.
                     - A contradiction it finds is a recipe misreading the code, a modelling slip or real drift. Check the code at its location first (configure-drift-check's step 6): fix a recipe that misreads it, and otherwise fix the model to match the code, never the code. Where the code looks wrong, say so in the final report; setting up the check never changes the code.
                     - Code the model doesn't describe: model what §3 should have covered; add an exception for helpers and plumbing, asking the user about anything that isn't clearly one.
 
                     ## Gotchas
 
                     - **Concurrent edits.** Elements, associations or stereotypes you didn't create are the user's in-progress work. Leave them, don't apply their output, and report them.
-                    - **Blocking dialogs.** A dialog in a designer tab blocks all tools. Ask the user to close it.
                     - **Disabling templates.** Disabling a Template Output after its files were applied makes the SF propose deleting them all. Don't use it as a workaround after adoption.
                     - **Check a merge risk on the staged diff first.** Before excluding a file from generation or asking the user about something the merge might lose, stage it and read its diff. Ask only about a loss the diff shows.
                     - **Auto Format.** Never turn it off to make adoption diffs smaller (§7 step 5).

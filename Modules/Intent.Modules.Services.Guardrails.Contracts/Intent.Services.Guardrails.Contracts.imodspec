@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Services.Guardrails.Contracts</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-pre.1</version>
   <supportedClientVersions>[5.4.0-beta.6,6.0.0)</supportedClientVersions>
   <summary>Guards Services designer elements (services, commands, queries, DTOs, enums, integration events and their handlers, and API clients as service proxies) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</summary>
   <description>Guards Services designer elements (services, commands, queries, DTOs, enums, integration events and their handlers, and API clients as service proxies) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</description>
@@ -177,7 +177,7 @@
     <dependency id="Intent.Common.Types" version="4.1.4" />
     <dependency id="Intent.Modelers.Services" version="4.0.17" />
     <dependency id="Intent.Modelers.Services.CQRS" version="6.0.9" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="5.0.3-pre.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="5.0.3-pre.2" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
