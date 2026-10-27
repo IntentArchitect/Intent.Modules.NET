@@ -35,11 +35,10 @@ Guards a brownfield codebase's application layer. Each Services designer element
     - query-string API versions (§4);
     - a using alias for an ambiguous name after adoption (§7 step 7);
     - the gotcha to check a merge risk on the staged diff first.
-  - **Lessons from the eShop brownfield initialization (user decisions, 2026-10-27).** Same change as the Domain skill; its CONTEXT.md records why. Here it:
-    - added the exception to the exit condition's approval (§7 step 8), after the sentence `GuidanceTests` pins, for an orchestrating skill's **User decision** to skip it;
-    - removed the reload-dialog notes from §0 and the gotchas, keeping the ServiceProxies version note;
-    - added the package forms of a Registration Filter to "One template, several locations".
   - **Editing gotcha:** edit the skill text with a plain-text editor. Intent's `patch_file`/`write_file` formatter flattens the indentation inside the raw string, which changes the rendered markdown.
+  - **Cutting the eShop6 run's time (user decisions, 2026-10-27).** Same changes as the Domain skill (its CONTEXT.md has the reasons): §0 step 3 states what the templates do instead of a decompile step, the approval in §7 step 8 can be skipped by an orchestrating skill's User decision, and the reload-dialog notes are gone. Also:
+    - **Size budget: the rendered SKILL.md stays under about 48 KB.** At 53 KB the tool result was saved to a file and paged through. It was cut to about 47.7 KB by tightening wording and removing gotchas that repeated a rule stated in a section (service proxy limits, Intent's own client generators, Auto Format), version history, and the fallback for a module without `Type Configuration`. No rule was dropped. Check the size when adding text.
+    - **DTO inheritance gotcha.** With the Eventing modeler installed, `createAssociation("Generalization", …)` resolves to the Eventing DTO's Generalization, so a DTO's base is created by the DTO Generalization's type id (`5ba12bbf-122f-4c3e-af3c-4a88dc554597`, Intent.Modelers.Services' `GeneralizationModel`). eShop6 lost about 4 minutes finding this.
 
 - **File Config stereotype: renamed and multi-type files (user decision).** `File Config.Filename` (Service, Command, Query, DTO, Enum) handles code that isn't one type per file named after it, e.g. `psMembersDTO.cs` holding `PsMembersDTO`, or several DTOs in one file. Mechanism:
   - **Renamed file:** `CSharpFile.WithFileName`. Type resolution reads the class name from config metadata, not the file name, so references still resolve. The value is a file name only; `.cs` is stripped, and a path separator or invalid character raises an `ElementException`. With `.cs` the name is taken verbatim, so `abc .cs` keeps its space; without it, it is trimmed (same as the Domain module; its CONTEXT.md has the trace and probe).
