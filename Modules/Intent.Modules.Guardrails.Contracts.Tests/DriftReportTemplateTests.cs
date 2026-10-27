@@ -44,8 +44,13 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         private readonly string _root = Path.Combine(Path.GetTempPath(), $"guardrails-drift-{Guid.NewGuid():N}");
         private readonly ITracing _tracing = Substitute.For<ITracing>();
 
+        // Azure Pipelines sets TF_BUILD on the agent that runs these tests, so each test starts as a developer machine's
+        // run, without it, and the agent's value is put back afterwards.
+        private readonly string _tfBuild = Environment.GetEnvironmentVariable("TF_BUILD");
+
         public DriftReportTemplateTests()
         {
+            Environment.SetEnvironmentVariable("TF_BUILD", null);
             Directory.CreateDirectory(Path.Combine(_root, "guardrails"));
             Directory.CreateDirectory(Path.Combine(_root, "src", "Domain"));
             Directory.CreateDirectory(Path.Combine(_root, "src", "Infrastructure"));
@@ -211,6 +216,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
         public void Dispose()
         {
+            Environment.SetEnvironmentVariable("TF_BUILD", _tfBuild);
             Directory.Delete(_root, recursive: true);
         }
 

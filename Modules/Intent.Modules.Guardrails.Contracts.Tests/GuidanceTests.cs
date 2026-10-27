@@ -146,7 +146,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 return module;
             }).ToList();
             var solution = Substitute.For<ISolutionConfig>();
-            solution.SolutionRootLocation.Returns(@"C:\Repos\Acme\intent\");
+            // A path as this OS writes it, as Intent Architect gives it: on the Linux CI agent a backslash isn't a separator.
+            solution.SolutionRootLocation.Returns(Path.Combine(Path.GetPathRoot(Path.GetTempPath()), "Repos", "Acme", "intent") + Path.DirectorySeparatorChar);
             var application = Substitute.For<IApplicationConfig>();
             application.Name.Returns("Acme");
             var context = Substitute.For<ISoftwareFactoryExecutionContext>();
