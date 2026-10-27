@@ -6,6 +6,10 @@
   <file path="Api/DTOFieldModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/DTOModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/EnumModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
+  <file path="Api/IntegrationCommandSubscriptionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModel" />
+  <file path="Api/IntegrationCommandSubscriptionModelAssociationExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions" />
+  <file path="Api/IntegrationEventSubscriptionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModel" />
+  <file path="Api/IntegrationEventSubscriptionModelAssociationExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions" />
   <file path="Api/OperationModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/ParameterModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/QueryModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
@@ -49,5 +53,6 @@
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
   <file path="Templates/ValidateDriftRecipesSkill/ValidateDriftRecipesSkillTemplatePartial.cs" deviationsHash="40B2C6B5D23B46D7735A65CF382646A7E4663939F2E8EC8E0D385BCC7080664A" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/ValidateDriftRecipesSkill/ValidateDriftRecipesSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="modelers/Guardrails Eventing Extension.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
   <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

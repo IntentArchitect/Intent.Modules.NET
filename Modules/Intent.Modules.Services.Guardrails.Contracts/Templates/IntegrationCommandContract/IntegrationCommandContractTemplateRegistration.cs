@@ -35,9 +35,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.IntegrationComm
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IElement> GetModels(IApplication application)
         {
-            // Raw elements by type id: no dependency on Intent.Modelers.Eventing (see OptionalModelerMetadata).
-            // Without that modeler installed there are no such elements, so this is empty. Only this application's
-            // own packages: an application that sends a command references the receiver's eventing package.
+            // Raw elements by type id (see OptionalModelerMetadata). Only this application's own packages: an
+            // application that sends a command references the receiver's eventing package.
             return _metadataManager.Services(application).GetElementsOfType(OptionalModelerMetadata.IntegrationCommandTypeId)
                 .Where(x => x.IsOwnedBy(application));
         }

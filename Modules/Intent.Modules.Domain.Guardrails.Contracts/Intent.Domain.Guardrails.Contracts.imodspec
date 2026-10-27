@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Domain.Guardrails.Contracts</id>
-  <version>1.0.0-pre.1</version>
+  <version>1.0.0-pre.2</version>
   <supportedClientVersions>[5.4.0-beta.6,6.0.0)</supportedClientVersions>
   <summary>Guards Domain designer elements (entities, enums, value objects, repositories, data contracts, domain services) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</summary>
   <description>Guards Domain designer elements (entities, enums, value objects, repositories, data contracts, domain services) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</description>

@@ -14,9 +14,11 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
     /// (Intent.Modelers.Eventing), Integration Event Handlers (Intent.Modelers.Services.EventInteractions), and Service
     /// Proxies with their Operations and Parameters (Intent.Modelers.Types.ServiceProxies).
     /// <para>
-    /// Deliberate, documented exception to "typed accessors only" (user decision): this module takes no dependency on
-    /// those modelers, so their typed models are not available. The reverse-engineering skill installs a modeler in a
-    /// consumer only when the code needs it; without it there are no such elements and nothing is generated. The
+    /// Deliberate, documented exception to "typed accessors only" (user decision): this module was built with no
+    /// dependency on those modelers, so their typed models are not used. Intent.Modelers.Eventing has since become a
+    /// dependency, for this module's subscription associations, but its elements are still read raw. The
+    /// reverse-engineering skill installs the other modelers in a consumer only when the code needs them; without one
+    /// there are no such elements and nothing is generated. The
     /// elements are therefore read as raw <see cref="IElement"/>s by specialization type id, and this module's own
     /// File Config, Type Configuration and Collection Type stereotypes for them ("Optional Modeler Elements" folder,
     /// targeted by filter function, so the Module Builder generates no typed accessors) by definition id and property

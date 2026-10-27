@@ -4,16 +4,16 @@ Guards the Services designer's model in existing C# code. Each modelled element 
 
 Install it into an application whose existing code has been modelled in the Services designer, by hand, with Intent's C# importer, or with the AI skill below. Set the Default Type Modifiers module setting to the code's convention, and apply the Type Configuration and Async Configuration stereotypes wherever the code differs from the defaults described below.
 
-It needs Intent Architect 5.4.0-beta.6 or later. Where the application already has them, installing it also brings Intent.VisualStudio.Projects up to 4.1.12-pre.1, Intent.Modelers.Types.ServiceProxies up to 5.5.8-pre.0, Intent.Metadata.WebApi up to 4.7.22-pre.1, and Intent.Modelers.CodebaseStructure up to 1.3.0-pre.0, the versions the AI skill relies on.
+It needs Intent Architect 5.4.0-beta.6 or later. Where the application already has them, installing it also brings Intent.VisualStudio.Projects up to 4.1.12-pre.1, Intent.Modelers.Types.ServiceProxies up to 5.5.8-pre.0, Intent.Metadata.WebApi up to 4.7.22-pre.1, and Intent.Modelers.CodebaseStructure up to 1.3.0-pre.0, the versions the AI skill relies on. It depends on Intent.Modelers.Eventing, so the Services designer always offers integration events, integration commands and eventing DTOs.
 
 ## AI skill: reverse-engineer-services
 
 The module generates `skills/reverse-engineer-services/SKILL.md` into the application's agents folder (the `AI.Context.Skills` output). An AI agent working in Intent Architect uses it to:
 
 - model existing commands, queries, DTOs and services in the Services designer, mirroring the code's folders and record/class kinds;
-- model integration events, integration commands, eventing DTOs and their handlers when the code has messaging;
+- model integration events, integration commands, eventing DTOs and their handlers when the code has messaging, and link the code's own copy of another application's message to the message it copies (see Integration eventing);
 - model the code's API clients as Service Proxies, with no mappings (see Service proxies);
-- install the CQRS, WebApi, Security, DomainInteractions, Eventing, EventInteractions and Service Proxies modules when the code calls for them;
+- install the CQRS, WebApi, Security, DomainInteractions, EventInteractions and Service Proxies modules when the code calls for them;
 - capture the HTTP surface and its security on commands, queries and publicly exposed service operations alike;
 - model the intent of every command, query and service operation, public or internal: the entity actions it performs, the services, commands, queries and API client methods it invokes, and the integration events and commands it publishes or sends;
 - run the Software Factory until it changes nothing but the Intent file headers and the code's formatting, then adopt the existing files;
@@ -69,9 +69,9 @@ Limits: recipes read the code's text, not its meaning, so a value built in a hel
 | DtoContract                     | DTO                           | Type with fields as properties and its base DTO                                                                                                               | `Guardrails.Contracts.Services.Dto`                     |
 | EnumContract                    | Enum                          | `enum` with its literals and values                                                                                                                           | `Guardrails.Contracts.Services.Enum`                    |
 | DomainEventHandlerContract      | Domain Event Handler          | Class only, no members. Handle methods and handler interfaces stay in the code. Generated only when `Intent.Modelers.Domain.Events` is installed              | `Guardrails.Contracts.Services.DomainEventHandler`      |
-| IntegrationEventContract        | Message ("Integration Event") | Type with its properties; no base type or interfaces. Generated only when `Intent.Modelers.Eventing` is installed                                             | `Guardrails.Contracts.Services.IntegrationEvent`        |
-| IntegrationCommandContract      | Integration Command           | Type with its properties; no base type or interfaces. Generated only when `Intent.Modelers.Eventing` is installed                                             | `Guardrails.Contracts.Services.IntegrationCommand`      |
-| EventingDtoContract             | Eventing DTO                  | Type with fields as properties and its base Eventing DTO. Generated only when `Intent.Modelers.Eventing` is installed                                         | `Guardrails.Contracts.Services.EventingDto`             |
+| IntegrationEventContract        | Message ("Integration Event") | Type with its properties; no base type or interfaces                                                                                                          | `Guardrails.Contracts.Services.IntegrationEvent`        |
+| IntegrationCommandContract      | Integration Command           | Type with its properties; no base type or interfaces                                                                                                          | `Guardrails.Contracts.Services.IntegrationCommand`      |
+| EventingDtoContract             | Eventing DTO                  | Type with fields as properties and its base Eventing DTO                                                                                                      | `Guardrails.Contracts.Services.EventingDto`             |
 | IntegrationEventHandlerContract | Integration Event Handler     | Class only, no members. Handle methods and handler interfaces stay in the code. Generated only when `Intent.Modelers.Services.EventInteractions` is installed | `Guardrails.Contracts.Services.IntegrationEventHandler` |
 | ServiceProxyContract            | Service Proxy                 | The client class (or interface) with its operations, empty bodies. Generated only when `Intent.Modelers.Types.ServiceProxies` is installed                    | `Guardrails.Contracts.Services.ServiceProxy`            |
 
@@ -79,9 +79,10 @@ Put an Output Anchor carrying these roles at the Application project's root. Des
 
 ## Integration eventing
 
-Integration events, integration commands, eventing DTOs and integration event handlers are guarded the same way as commands, DTOs and domain event handlers. The module has no dependency on `Intent.Modelers.Eventing` or `Intent.Modelers.Services.EventInteractions`: the four templates generate nothing until those modelers are installed and the elements are modelled.
+Integration events, integration commands, eventing DTOs and integration event handlers are guarded the same way as commands, DTOs and domain event handlers. The module depends on `Intent.Modelers.Eventing`, which adds integration events, integration commands and eventing DTOs to the Services designer. Handlers need `Intent.Modelers.Services.EventInteractions`, which it doesn't depend on: without it, there are no handlers to generate.
 
 - **Only this application's own packages.** A subscriber normally references the publisher's eventing package, so its Services designer shows the publisher's messages, eventing DTOs and enums too. The eventing templates, and EnumContract, generate only elements in packages the application owns.
+- **A subscriber's own copy of a message.** When the subscriber's code keeps its own class for a message another application publishes, model that copy in the subscriber's own eventing package, where it is generated and guarded like any other message, and link it to the published message. Right-click the copy and choose **Link To Published Integration Event** (the Integration Event Subscription association) for an integration event, or **Link To Sent Integration Command** (Integration Command Subscription) for an integration command, and pick the message in the publisher's referenced package. The copy's eventing package must reference the publisher's eventing package, so add that package reference first if it's missing. The link always runs from the copy to the published or sent message, joins an event only to an event and a command only to a command, and documents the flow between the applications; nothing is generated from it.
 - **Names** are used verbatim; no `Event` suffix is added.
 - **Handlers are class-only.** Handle methods and handler interfaces depend on the message broker (`IConsumer<T>`, `IHandleMessages<T>`, â€¦), so Merge keeps the existing ones. The Subscribe Integration Event and Subscribe Integration Command associations document the subscription; the template doesn't read them.
 
@@ -90,7 +91,6 @@ Positional records (`record OrderPlaced(Guid OrderId)`) use Type Configuration â
 Not supported yet:
 
 - **Property initializers on messages:** the Eventing designer has no Value on a Message or Integration Command property. Eventing DTO fields do have one.
-- **A subscriber's own copy of a message** that is modelled in another application's package: it is never generated in the subscriber.
 - **Accessors:** every property is emitted as `{ get; set; }`, as for DTOs. Merge leaves an existing property's accessors alone, so `init`, `private set` and get-only properties in the code stay as written; only a newly added property gets `{ get; set; }`.
 
 ## Service proxies
@@ -144,7 +144,7 @@ Every template except EnumContract emits a `class` by default. Apply **Type Conf
 - The Type must match the kind of the existing type on disk. Otherwise the merge adds a second declaration with the same name and the project won't compile.
 - A DTO and its base DTO must both be records (record or positional record) or both be classes, because C# doesn't allow a record and a class to inherit from each other. A mismatch raises an error on the DTO.
 - **Type = positional record** emits a record whose fields are its primary constructor's positional parameters, in model order: `public record CancelOrderCommand(int OrderNumber);`. A field's Value becomes the parameter's default, and Collection Type applies as for properties. It applies to Commands, Queries, DTOs, integration events, integration commands and Eventing DTOs, not to a Service. A positional record whose base is a positional record must declare the base's parameters among its own fields; they are passed on by name (`record ChildDto(int Id, string Name) : BaseDto(Id)`). A record with both a parameter list and body properties isn't supported.
-- Integration events, integration commands and eventing DTOs have their own **Type Configuration** with the same Type and Modifiers, because the module doesn't depend on the Eventing modeler. An eventing DTO and its base eventing DTO must also have the same Type.
+- Integration events, integration commands and eventing DTOs have their own **Type Configuration** with the same Type and Modifiers. An eventing DTO and its base eventing DTO must also have the same Type.
 - Structs are not supported, because Intent's C# file builder can't declare them.
 
 ## Type modifiers

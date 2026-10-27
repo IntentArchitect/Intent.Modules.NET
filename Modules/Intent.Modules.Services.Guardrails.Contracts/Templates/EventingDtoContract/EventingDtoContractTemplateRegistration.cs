@@ -35,9 +35,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.EventingDtoCont
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IElement> GetModels(IApplication application)
         {
-            // Raw elements by type id: no dependency on Intent.Modelers.Eventing (see OptionalModelerMetadata).
-            // Without that modeler installed there are no such elements, so this is empty. Only this application's
-            // own packages, as for messages: referenced eventing packages belong to the application that owns them.
+            // Raw elements by type id (see OptionalModelerMetadata). Only this application's own packages, as for messages: referenced eventing packages belong to the application that owns them.
             return _metadataManager.Services(application).GetElementsOfType(OptionalModelerMetadata.EventingDtoTypeId)
                 .Where(x => x.IsOwnedBy(application));
         }

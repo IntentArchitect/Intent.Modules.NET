@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Services.Guardrails.Contracts</id>
-  <version>1.0.0-pre.1</version>
+  <version>1.0.0-pre.2</version>
   <supportedClientVersions>[5.4.0-beta.6,6.0.0)</supportedClientVersions>
   <summary>Guards Services designer elements (services, commands, queries, DTOs, enums, integration events and their handlers, and API clients as service proxies) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</summary>
   <description>Guards Services designer elements (services, commands, queries, DTOs, enums, integration events and their handlers, and API clients as service proxies) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</description>
@@ -175,6 +175,7 @@
     <dependency id="Intent.Common" version="3.11.9-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.10.13-pre.0" />
     <dependency id="Intent.Common.Types" version="4.1.4" />
+    <dependency id="Intent.Modelers.Eventing" version="6.0.5" />
     <dependency id="Intent.Modelers.Services" version="4.0.17" />
     <dependency id="Intent.Modelers.Services.CQRS" version="6.0.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="5.0.3-pre.2" />
@@ -187,6 +188,7 @@
   <moduleSettingsExtensions />
   <metadata>
     <install target="Services" src="../intent/Intent.Modules.Services.Guardrails.Contracts/Intent.Metadata/Module Builder/Intent.Services.Guardrails.Contracts/Intent.Services.Guardrails.Contracts.pkg.config" externalReference="5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d" />
+    <install target="Services" src="modelers/Guardrails Eventing Extension.designer.settings" externalReference="2c15e6e8-7fb3-4b80-b038-46772482baf5" />
   </metadata>
   <releaseNotes>release-notes.md</releaseNotes>
   <migrations />
