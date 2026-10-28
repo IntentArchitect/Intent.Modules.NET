@@ -748,7 +748,7 @@ The SDK has no registration per document type for an `own` entry to find. Add a 
         public const string DomainEvents = """"
 # Domain events: the Domain recipe for the events entities raise
 
-Add this recipe to `guardrails/domain.drift.json` when the Domain model links constructors or operations to the Domain Events they raise (`Domain Event Origin`, from Intent.Modelers.Domain.Events). It is tested against entities in each style below. Copy its `facts` into the recipe file you started from the database guide, then adapt it to this codebase's own conventions. Don't write it again from scratch.
+Add this recipe to `guardrails/domain.drift.json` when the Domain model links constructors or operations to the Domain Events they raise (`Domain Event Origin`, from Intent.Modelers.Domain.Events). It is tested against entities in each style below. Copy its `facts` into the recipe file you started from the database guide, then adapt it to this codebase's own conventions. Don't write it again from scratch. The recipe has its own `files`, so it searches only the entities' project, whatever the recipe file's top-level `files` covers.
 
 ## Recognise it
 
@@ -763,16 +763,16 @@ Domain event classes (`OrderStartedDomainEvent`, often implementing `INotificati
 
 | Question | How to tell | What to change |
 | --- | --- | --- |
-| Do the entities live where the recipe file's `files` looks? | The database recipes may look only at the configuration | Give the recipe its own `files` naming the entities' project |
+| Where do the entities live? | The project holding the classes the model's Classes are | Set the recipe's `files` to it (here `src/*.Domain/**/*.cs`). Leave out projects with no entities (application, infrastructure, tests): each linked constructor or operation searches every file in `files`, so a wider scope slows every run, and a test's own class of the same name would be found too |
 | Are events built by a factory, or raised by a helper named otherwise? | `OrderEvents.Started(this)`, `RaiseStarted()` | A case for that call, value `{DomainEvent}` |
 
 ## The recipe file
 
 ```json
 {
-  "files": "src/**/*.cs",
   "facts": {
     "intent.raises": {
+      "files": "src/*.Domain/**/*.cs",
       "find": "class:{Entity} > method:{Member}",
       "read": [
         { "part": "body", "match": "\\bnew ({DomainEvent})\\b" },
@@ -805,7 +805,6 @@ The recipe reads the entities in the Domain designer's terms, so the model must 
 - Whether the event is dispatched, only that the member's code adds it.
 - An event raised by another class the member calls (a child entity, a domain service): it reads as missing. Link the event to the member that raises it.
 - An event the code raises and the model doesn't link: no fact states it, so nothing reports it. Link it when you see it.
-- The same event added twice in one member: the probe changes the first and warns that the second still reads the same. The reading is right; tell the developer rather than weakening the recipe.
 """";
     }
 }

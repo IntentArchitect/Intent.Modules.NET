@@ -421,7 +421,7 @@ The `own` entry reports every endpoint class the model doesn't describe.
         public const string HandlerIntent = """"
 # Handler intent: the Services recipes for what each handler does
 
-Add these recipes to `guardrails/services.drift.json` when the Services model has intent: entity actions, invocations, published integration events or sent integration commands, modelled on Commands, Queries, Service operations or event handlers' subscriptions. They are tested against handlers in each style below. Copy the `facts` into the recipe file you started from the HTTP guide, make the decisions below, then adapt them to this codebase's own conventions. Don't write them again from scratch.
+Add these recipes to `guardrails/services.drift.json` when the Services model has intent: entity actions, invocations, published integration events or sent integration commands, modelled on Commands, Queries, Service operations or event handlers' subscriptions. They are tested against handlers in each style below. Copy the `facts` into the recipe file you started from the HTTP guide, make the decisions below, then adapt them to this codebase's own conventions. Don't write them again from scratch. Each recipe has its own `files`, so it searches only the folders that hold handlers, whatever the recipe file's top-level `files` covers.
 
 ## Recognise it
 
@@ -435,7 +435,7 @@ The model's interaction associations, each one fact about its handler: `intent.c
 
 | Question | How to tell | What to change |
 | --- | --- | --- |
-| Do the handlers live where the recipe file's `files` looks? | The HTTP recipes often look only at the API project | Give each recipe below its own `files` naming the application projects |
+| Where do the handlers live? | The folders of the request handlers, service classes, and integration and domain event handlers the extraction found | Set every recipe's `files` to those folders, the same value in each. Leave out projects with no handlers (domain, infrastructure, tests): each Command, Query, Service operation and subscription searches every file in `files`, so a wider scope slows every run, and a test double of a handler would be found too |
 | How does a handler reach an entity? | A repository field named after the entity (`IOrderRepository _orderRepository`), or a `DbContext` with a `DbSet<Order> Orders` | Repository fields named otherwise, or irregular `DbSet` plurals: see Adapting to house style |
 | Are request handlers found another way? | A base handler class (`IdentifiedCommandHandler<T, R>`), or Wolverine-style `Handle(CreateOrderCommand command)` methods in plain classes | Add a find path for that style before the last: `class with :IdentifiedCommandHandler<{Operation}[,>] > method with \\bHandle\\({Operation} ` |
 
@@ -443,9 +443,9 @@ The model's interaction associations, each one fact about its handler: `intent.c
 
 ```json
 {
-  "files": "src/**/*.cs",
   "facts": {
     "intent.creates": {
+      "files": ["src/*.Application/**/*.cs", "src/*.Api/**/*.cs"],
       "find": [
         "class:{Service} > method:{Operation}",
         "class:{Service} > method with [(<]{Operation}[ >]",
@@ -460,6 +460,7 @@ The model's interaction associations, each one fact about its handler: `intent.c
       "unstated": "no `new {Entity}`, factory call or `Add{Entity}(…)` in the handler"
     },
     "intent.updates": {
+      "files": ["src/*.Application/**/*.cs", "src/*.Api/**/*.cs"],
       "find": [
         "class:{Service} > method:{Operation}",
         "class:{Service} > method with [(<]{Operation}[ >]",
@@ -474,6 +475,7 @@ The model's interaction associations, each one fact about its handler: `intent.c
       "unstated": "the handler neither calls the operation the action targets nor loads a `{Entity}` to change"
     },
     "intent.deletes": {
+      "files": ["src/*.Application/**/*.cs", "src/*.Api/**/*.cs"],
       "find": [
         "class:{Service} > method:{Operation}",
         "class:{Service} > method with [(<]{Operation}[ >]",
@@ -488,6 +490,7 @@ The model's interaction associations, each one fact about its handler: `intent.c
       "unstated": "no `Remove(…)` of a `{Entity}` in the handler"
     },
     "intent.queries": {
+      "files": ["src/*.Application/**/*.cs", "src/*.Api/**/*.cs"],
       "find": [
         "class:{Service} > method:{Operation}",
         "class:{Service} > method with [(<]{Operation}[ >]",
@@ -502,6 +505,7 @@ The model's interaction associations, each one fact about its handler: `intent.c
       "unstated": "the handler doesn't read a `{Entity}` through its repository or `DbSet`"
     },
     "intent.invokes": {
+      "files": ["src/*.Application/**/*.cs", "src/*.Api/**/*.cs"],
       "find": [
         "class:{Service} > method:{Operation}",
         "class:{Service} > method with [(<]{Operation}[ >]",
@@ -516,6 +520,7 @@ The model's interaction associations, each one fact about its handler: `intent.c
       "unstated": "no call of `{Invoked}` and no `new {Invoked}` in the handler"
     },
     "intent.publishes": {
+      "files": ["src/*.Application/**/*.cs", "src/*.Api/**/*.cs"],
       "find": [
         "class:{Service} > method:{Operation}",
         "class:{Service} > method with [(<]{Operation}[ >]",
@@ -529,6 +534,7 @@ The model's interaction associations, each one fact about its handler: `intent.c
       "unstated": "no `new {Message}` or `Publish<{Message}>` in the handler"
     },
     "intent.sends": {
+      "files": ["src/*.Application/**/*.cs", "src/*.Api/**/*.cs"],
       "find": [
         "class:{Service} > method:{Operation}",
         "class:{Service} > method with [(<]{Operation}[ >]",
@@ -544,6 +550,8 @@ The model's interaction associations, each one fact about its handler: `intent.c
   }
 }
 ```
+
+Every recipe has the same `files`: here the application and API projects, which hold the handlers. Replace them with this codebase's handler folders (above).
 
 The find paths are tried in order: a Service operation's method, then an event handler's method taking the message, then a Command's or Query's handler. `{Service}` is empty for a Command or Query, so the first two find nothing for one.
 
@@ -578,7 +586,6 @@ The recipes read the handlers in the Services designer's terms, so the model mus
 - Whether an interaction happens, only that the handler's code states it: a `new Order(…)` that is never saved, or an event that is built but not published, reads as done.
 - An interaction performed by another class the handler calls (a domain operation that publishes, a helper service): it reads as missing. Model the invocation of that class's operation instead, or widen the find to it as above.
 - An interaction the code performs and the model doesn't show: no fact states it, so nothing reports it. Model it when you see it.
-- The same interaction twice in one handler: the probe changes the first and warns that the second still reads the same. The reading is right; tell the developer rather than weakening the recipe.
 - A `Query Entity Action`'s multiplicity, an action's mappings, and the order of a handler's interactions aren't checked.
 """";
     }

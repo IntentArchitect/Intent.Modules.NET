@@ -180,6 +180,43 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 .ShouldStartWith("`Invoice.MarkPaid` raises: model `InvoicePaidDomainEvent`, code (none) (no `new InvoicePaidDomainEvent` or `AddInvoicePaidDomainEvent(…)` in `MarkPaid`)");
         }
 
+        /// <summary>
+        /// eShop's <c>Buyer.VerifyOrAddPaymentMethod</c> raises the same event in both branches. The probe changes the first
+        /// and the recipe reads the second: that is the event stated twice, not a case misreading the code.
+        /// </summary>
+        [Fact]
+        public void An_event_raised_in_two_branches_passes_the_probe()
+        {
+            var files = new Dictionary<string, string>
+            {
+                ["src/Ordering.Domain/AggregatesModel/BuyerAggregate/Buyer.cs"] = """
+                    namespace Ordering.Domain.AggregatesModel.BuyerAggregate;
+
+                    public class Buyer : Entity, IAggregateRoot
+                    {
+                        public PaymentMethod VerifyOrAddPaymentMethod(int cardTypeId, string alias, int orderId)
+                        {
+                            var existingPayment = _paymentMethods.SingleOrDefault(p => p.IsEqualTo(cardTypeId));
+                            if (existingPayment != null)
+                            {
+                                AddDomainEvent(new BuyerAndPaymentMethodVerifiedDomainEvent(this, existingPayment, orderId));
+                                return existingPayment;
+                            }
+
+                            var payment = new PaymentMethod(cardTypeId, alias);
+                            _paymentMethods.Add(payment);
+                            AddDomainEvent(new BuyerAndPaymentMethodVerifiedDomainEvent(this, payment, orderId));
+                            return payment;
+                        }
+                    }
+                    """
+            };
+            var model = new List<ModelFact> { Raises("Buyer", "VerifyOrAddPaymentMethod", "BuyerAndPaymentMethodVerifiedDomainEvent", "cardTypeId", "alias", "orderId") };
+
+            ShouldValidate(Domain, EntitiesRecipe, model, files).Sources(FactKinds.IntentRaises).ShouldBe((1, 0, 0));
+            Check(Domain, EntitiesRecipe, model, files).ShouldBeClean();
+        }
+
         private static ModelFact Raises(string entity, string member, string domainEvent, params string[] parameterNames)
         {
             return new ModelFact

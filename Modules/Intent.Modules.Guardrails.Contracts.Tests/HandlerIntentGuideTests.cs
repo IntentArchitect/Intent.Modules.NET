@@ -438,6 +438,73 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             });
         }
 
+        [Fact]
+        public void The_intent_recipes_search_only_the_handlers_projects()
+        {
+            // A test double of a handler, in a project with no handlers: outside the recipes' files, so never searched.
+            var files = new Dictionary<string, string>(Handlers)
+            {
+                ["src/Ordering.UnitTests/Fakes/FakeCreateOrderCommandHandler.cs"] = """
+                    namespace Ordering.UnitTests.Fakes;
+
+                    public class FakeCreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, bool>
+                    {
+                        public Task<bool> Handle(CreateOrderCommand request, CancellationToken cancellationToken) => Task.FromResult(true);
+                    }
+                    """
+            };
+
+            Check(Services, HandlersRecipe, HandlersModel(), files).ShouldBeClean();
+
+            // Searching every file instead finds the double too, so the command's facts can't be verified.
+            const string scope = "\"files\": [\"src/*.Application/**/*.cs\", \"src/*.Api/**/*.cs\"],";
+            HandlersRecipe.ShouldContain(scope);
+            var unverifiable = Check(Services, HandlersRecipe.Replace(scope, ""), HandlersModel(), files).Wrong(DriftSection.Unverifiable);
+            unverifiable.Select(x => x[..x.IndexOf(':')]).ShouldBe(new[] { "`CreateOrderCommand` creates", "`CreateOrderCommand` publishes" }, ignoreOrder: true);
+            unverifiable.ShouldAllBe(x => x.Contains("matches 2 places") && x.Contains("src/Ordering.UnitTests/Fakes/FakeCreateOrderCommandHandler.cs"));
+        }
+
+        /// <summary>
+        /// eShop's <c>OrdersApi.CreateOrderAsync</c> builds the command and then wraps it in its idempotency wrapper, and a
+        /// house-style case reads the wrapper. The probe changes the <c>new</c> and the recipe reads the wrapper: the
+        /// invocation stated twice, not a case misreading the code.
+        /// </summary>
+        [Fact]
+        public void A_command_built_and_then_wrapped_passes_the_probe()
+        {
+            const string newCase = """{ "part": "body", "match": "\\bnew ({Invoked})\\b" },""";
+            HandlersRecipe.ShouldContain(newCase);
+            var recipe = HandlersRecipe.Replace(newCase, newCase + """ { "part": "body", "match": "\\bIdentifiedCommand<({Invoked})[,>]" },""");
+            var files = new Dictionary<string, string>
+            {
+                ["src/Ordering.API/Apis/OrdersApi.cs"] = """
+                    namespace Ordering.API.Apis;
+
+                    public static class OrdersApi
+                    {
+                        public static async Task<Results<Ok, BadRequest<string>>> CreateOrderAsync(
+                            [FromHeader(Name = "x-requestid")] Guid requestId,
+                            CreateOrderRequest request,
+                            [AsParameters] OrderServices services)
+                        {
+                            var createOrderCommand = new CreateOrderCommand(request.Items, request.UserId, request.City);
+                            var requestCreateOrder = new IdentifiedCommand<CreateOrderCommand, bool>(createOrderCommand, requestId);
+                            var result = await services.Mediator.Send(requestCreateOrder);
+                            return result ? TypedResults.Ok() : TypedResults.BadRequest("The order wasn't created");
+                        }
+                    }
+                    """
+            };
+            var model = new List<ModelFact>
+            {
+                ServiceOperation(FactKinds.IntentInvokes, "OrdersApi", "CreateOrderAsync", new[] { "requestId", "request", "services" }, "CreateOrderCommand",
+                    ("Invoked", "CreateOrderCommand"), ("InvokedOwner", ""))
+            };
+
+            ShouldValidate(Services, recipe, model, files).Sources(FactKinds.IntentInvokes).ShouldBe((1, 0, 0));
+            Check(Services, recipe, model, files).ShouldBeClean();
+        }
+
         /// <summary>A Command's or Query's fact, its handler found through its request type.</summary>
         private static ModelFact Request(FactKind kind, string request, string value, params (string Name, string Value)[] target) =>
             Intent(kind, request, value, "", request, null, target);

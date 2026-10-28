@@ -288,9 +288,11 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
     /// Checks that each recipe reads the code where it says it does. For one fact per find path and read case that read a
     /// value from the code, it changes the text the case matched, in memory, and reads the fact again: a value the case
     /// captured gets a suffix, and a match the case maps to a fixed value has its first word changed so that it no
-    /// longer matches. If the same case, in the same code or nearer, still reads the same value, the recipe isn't reading
-    /// the code there. A value that then falls back to the recipe's <c>default</c>, or to one inherited from further out
-    /// (an action's security that its controller states too), still counts as read. The probe can't prove that a recipe
+    /// longer matches. If the recipe still reads the same value from the text that was changed, in the same code or
+    /// nearer, the recipe isn't reading the code there. A value that then falls back to the recipe's <c>default</c>, to one
+    /// inherited from further out (an action's security that its controller states too), or to the same value stated
+    /// somewhere else (an event raised in two branches, a command built and then wrapped), still counts as read: the
+    /// changed text no longer gives it. The probe can't prove that a recipe
     /// reads the right code, only that it reads some; nor can it change a value from <c>default</c> or <c>absent</c>,
     /// which have no matched text.
     /// </summary>
@@ -350,7 +352,23 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
             var offset = reading.Match.Offset + end;
             var position = end > start ? file.Canonical.PositionAt(offset - 1) + 1 : file.Canonical.PositionAt(offset);
             var again = engine.WithText(file.RelativePath, file.Text.Insert(Math.Min(position, file.Text.Length), suffix)).Read(recipe, fact);
-            return !(again.Verified && again.From == ValueSource.Code && again.Value == reading.Value && again.Level <= reading.Level);
+            return !(again.Verified && again.From == ValueSource.Code && again.Value == reading.Value && again.Level <= reading.Level &&
+                     Spans(again.Match, file, offset));
+        }
+
+        /// <summary>
+        /// Whether a reading's match takes in the changed text: it is in the same file and starts at or before the change and
+        /// ends at or after it. Text before the change keeps its position in the changed file's canonical text.
+        /// </summary>
+        private static bool Spans(ReadMatch match, CodeFile file, int offset)
+        {
+            if (match?.File == null || match.File.RelativePath != file.RelativePath)
+            {
+                return false;
+            }
+
+            var start = match.Offset + match.Match.Index;
+            return start <= offset && offset <= start + match.Match.Length;
         }
 
         /// <summary>The group whose text becomes the value: group 1 or the whole match without a <c>value</c>, else the first one it uses.</summary>

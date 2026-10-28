@@ -190,7 +190,7 @@ Where one designer's code uses two technologies, combine their recipe files fact
 }
 ```
 
-- `files`: the files searched, as a pattern or a list. Default `**/*.cs`; narrow it to where the code lives. `*` matches within one folder, `**` across folders and `?` one character. `bin`, `obj` and hidden folders are never read.
+- `files`: the files searched, as a pattern or a list. Default `**/*.cs`; narrow it to where the code lives. `*` matches within one folder, `**` across folders and `?` one character. `bin`, `obj` and hidden folders are never read. Set it to the code most recipes read (the endpoints, the persistence layer). Give recipes that read other code their own `files`, the same value on each, as the handler intent and domain events guides do: every fact's `find` searches each file in its scope, so a wider one slows every run.
 - `facts`: one recipe per kind of fact. Every kind the model states needs one; a kind with no recipe isn't checked, and the report lists it in its **Warnings** table (a warning, not a failure).
 - `own`: the kinds of code the model must describe.
 - `exceptions`: code that may stay unmodelled.
@@ -315,7 +315,7 @@ A type or `Type.Member` exception covers that declaration, and a type its member
 
 ## Checking the recipes
 
-A recipe that misreads the code fails loudly (a contradiction the code doesn't bear out) or silently (it agrees with the model by accident). The drift report can't tell which, so check the recipes with **validate-drift-recipes** whenever you write or change them. It reads every fact through its recipe and shows, per kind of fact, where the values came from, with samples to open, and what each convention finds. Its **probe** changes, in memory, the code each read case matched, and warns when the case still reads the same value: that case isn't reading the code it seems to. It also warns about a read case that reads some facts from code naming another element and not their own, such as another attribute's configuration.
+A recipe that misreads the code fails loudly (a contradiction the code doesn't bear out) or silently (it agrees with the model by accident). The drift report can't tell which, so check the recipes with **validate-drift-recipes** whenever you write or change them. It reads every fact through its recipe and shows, per kind of fact, where the values came from, with samples to open, and what each convention finds. Its **probe** changes, in memory, the code each read case matched, and warns when the recipe still reads the same value from that changed code: that case isn't reading the code it seems to. The same value stated somewhere else as well (an event raised in two branches) isn't a warning. It also warns about a read case that reads some facts from code naming another element and not their own, such as another attribute's configuration.
 
 ## Steps
 
