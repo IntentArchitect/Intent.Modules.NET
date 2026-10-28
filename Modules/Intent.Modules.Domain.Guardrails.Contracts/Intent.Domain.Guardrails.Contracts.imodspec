@@ -12,6 +12,10 @@
       <role>AI.Context.Skills</role>
       <location></location>
     </template>
+    <template id="Intent.Domain.Guardrails.Contracts.CosmosDbRecipeGuide" externalReference="0e41aa73-a0cf-401e-83f0-e48e32d0213b">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Domain.Guardrails.Contracts.DomainContract" externalReference="8dc3e17e-80c0-4475-ab51-661c8a5b28c2">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -40,6 +44,10 @@
       <role>Default</role>
       <location></location>
     </template>
+    <template id="Intent.Domain.Guardrails.Contracts.EfCoreRecipeGuide" externalReference="ef3480de-e037-4c83-9fb2-7df18e359b7c">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Domain.Guardrails.Contracts.EntityContract" externalReference="1b6622ea-9910-42d1-ab04-2c98f65abc13">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -58,6 +66,10 @@
     </template>
     <template id="Intent.Domain.Guardrails.Contracts.ModelSyncRule" externalReference="1fc2b4af-d77e-41b2-918d-c185f6a88e2b">
       <role>AI.Context.Instructions</role>
+      <location></location>
+    </template>
+    <template id="Intent.Domain.Guardrails.Contracts.MongoDbRecipeGuide" externalReference="4eaab880-0411-4db5-add9-ec16105b5859">
+      <role>AI.Context.Skills</role>
       <location></location>
     </template>
     <template id="Intent.Domain.Guardrails.Contracts.RepositoryContract" externalReference="e0f8d916-d89f-46e2-9621-4d4b2e21a9a9">

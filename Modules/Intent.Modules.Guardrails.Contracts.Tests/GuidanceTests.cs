@@ -6,9 +6,12 @@ using System.Text.RegularExpressions;
 using Intent.Configuration;
 using Intent.Engine;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Domain.Guardrails.Contracts.Drift;
 using Intent.Modules.Domain.Guardrails.Contracts.Templates;
 using NSubstitute;
+using DomainGuides = Intent.Modules.Domain.Guardrails.Contracts.Templates.DriftRecipeGuides;
+using ServicesGuides = Intent.Modules.Services.Guardrails.Contracts.Templates.DriftRecipeGuides;
 using Shouldly;
 using Xunit;
 
@@ -25,7 +28,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             var examples = Regex.Matches(skill, "```json\n(.*?)\n```", RegexOptions.Singleline).Select(x => x.Groups[1].Value)
                 .Where(x => !x.Contains("\"...\"") && !x.Contains("<fact>"))
                 .ToList();
-            examples.Count.ShouldBeGreaterThan(8);
+            examples.Count.ShouldBeGreaterThan(2);
             foreach (var example in examples)
             {
                 var json = example.TrimStart().StartsWith("{")
@@ -33,6 +36,67 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                     : example.TrimStart().StartsWith("\"own\"") || example.TrimStart().StartsWith("\"exceptions\"") ? $"{{{example}}}" : $"{{\"facts\":{{{example}}}}}";
                 var problems = new[] { FactKinds.Domain, FactKinds.Services }.Select(x => RecipeFile.Parse(json, x).Problems).ToList();
                 problems.ShouldContain(x => x.Count == 0, $"Example isn't a valid recipe for either designer:\n{example}\n{string.Join("\n", problems.SelectMany(x => x).Select(x => $"{x.Subject}: {x.Message}"))}");
+            }
+        }
+
+        [Fact]
+        public void Every_JSON_block_in_the_technology_guides_is_a_valid_recipe_for_its_designer()
+        {
+            foreach (var (designer, guide) in new[]
+            {
+                (FactKinds.Domain, DomainGuides.EfCore), (FactKinds.Domain, DomainGuides.MongoDb), (FactKinds.Domain, DomainGuides.CosmosDb),
+                (FactKinds.Services, ServicesGuides.AspNetCoreControllers), (FactKinds.Services, ServicesGuides.MinimalApis), (FactKinds.Services, ServicesGuides.FastEndpoints)
+            })
+            {
+                var blocks = Guides.JsonBlocks(guide);
+                blocks.Count(x => x.TrimStart().StartsWith("{")).ShouldBe(1, "each guide has one recipe file");
+                foreach (var block in blocks)
+                {
+                    var json = block.TrimStart().StartsWith("{") ? block : $"{{\"facts\":{{{block}}}}}";
+                    var problems = RecipeFile.Parse(json, designer).Problems;
+                    problems.ShouldBeEmpty($"{string.Join("\n", problems.Select(x => $"{x.Subject}: {x.Message}"))}\n{block}");
+                }
+            }
+        }
+
+        [Fact]
+        public void The_skill_indexes_the_guides_of_each_installed_designer()
+        {
+            var both = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts")));
+            foreach (var guide in new[] { "ef-core", "mongodb", "cosmos-db", "aspnetcore-controllers", "minimal-apis", "fastendpoints" })
+            {
+                both.ShouldContain($"[references/{guide}.md](references/{guide}.md)");
+            }
+
+            var servicesOnly = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context("Intent.Services.Guardrails.Contracts")));
+            servicesOnly.ShouldContain("[references/minimal-apis.md](references/minimal-apis.md)");
+            servicesOnly.ShouldNotContain("references/ef-core.md");
+        }
+
+        [Fact]
+        public void Each_technology_guide_is_written_beside_the_configure_drift_check_skill()
+        {
+            var context = Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts");
+            var outputTarget = Substitute.For<IOutputTarget>();
+            outputTarget.ExecutionContext.Returns(context);
+            outputTarget.Metadata.Returns(new Dictionary<string, object>());
+            var templates = new (string File, string Guide, MarkdownBaseTemplate<object> Template)[]
+            {
+                ("ef-core", DomainGuides.EfCore, new Domain.Guardrails.Contracts.Templates.EfCoreRecipeGuide.EfCoreRecipeGuideTemplate(outputTarget)),
+                ("mongodb", DomainGuides.MongoDb, new Domain.Guardrails.Contracts.Templates.MongoDbRecipeGuide.MongoDbRecipeGuideTemplate(outputTarget)),
+                ("cosmos-db", DomainGuides.CosmosDb, new Domain.Guardrails.Contracts.Templates.CosmosDbRecipeGuide.CosmosDbRecipeGuideTemplate(outputTarget)),
+                ("aspnetcore-controllers", ServicesGuides.AspNetCoreControllers, new Services.Guardrails.Contracts.Templates.AspNetCoreControllersRecipeGuide.AspNetCoreControllersRecipeGuideTemplate(outputTarget)),
+                ("minimal-apis", ServicesGuides.MinimalApis, new Services.Guardrails.Contracts.Templates.MinimalApisRecipeGuide.MinimalApisRecipeGuideTemplate(outputTarget)),
+                ("fastendpoints", ServicesGuides.FastEndpoints, new Services.Guardrails.Contracts.Templates.FastEndpointsRecipeGuide.FastEndpointsRecipeGuideTemplate(outputTarget))
+            };
+
+            foreach (var (file, guide, template) in templates)
+            {
+                var config = template.GetTemplateFileConfig();
+                config.FileName.ShouldBe(file);
+                config.FileExtension.ShouldBe("md");
+                config.LocationInProject.Replace('\\', '/').ShouldBe("configure-drift-check/references");
+                template.MarkdownFile.ToString().Replace("\r\n", "\n").ShouldBe(Guides.Render(guide));
             }
         }
 

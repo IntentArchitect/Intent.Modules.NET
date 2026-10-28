@@ -166,6 +166,16 @@ You are done when **validate-drift-recipes** shows every recipe reading the code
 
 Load **generating-and-applying-code** before running the Software Factory, and **sync-model** for the drift your recipes find.
 
+## Start from a technology guide
+
+For each technology below, a guide beside this skill has a recipe file tested against code in every style it covers, the decisions that change it, how each form of the code is modelled, and how to adapt the recipes to a codebase's own conventions. Find every technology each designer's code uses (a codebase often uses several, such as EF Core and MongoDB, or controllers and minimal APIs), read each one's guide, and start the recipe file from them.
+
+| Designer | Technology | Recognise it by | Guide |
+| --- | --- | --- | --- |
+""" + "\n" + string.Concat(designers.Select(x => x.Guides)) + """
+
+Where one designer's code uses two technologies, combine their recipe files fact by fact: list both guides' find paths and read cases, and keep their `default`, `absent` and `unstated` where they agree. Where they differ, keep one, and turn the other into a read case on the code its own find paths reach. For a technology no guide covers, write the recipes from the format below, with the closest guide as a model of a complete recipe file.
+
 ## Recipe files
 """ + "\n\n" + files + """
 , in the folder that holds the application's `.application.config` (not the code's folder). Commit them with the code. Paths inside a recipe file are relative to the application's output location (the codebase root), with forward slashes.
@@ -310,251 +320,19 @@ A recipe that misreads the code fails loudly (a contradiction the code doesn't b
 
 ## Steps
 
-**While reverse-engineering**, the reverse-engineer skill sends you here straight after its extraction, before anything is modelled: do steps 2 and 3 from the extraction's reports, without re-reading the code, and go back. Its last step brings you back for steps 4 to 9.
+**While reverse-engineering**, the reverse-engineer skill sends you here straight after its extraction, before anything is modelled: do steps 2 and 3 from the extraction's reports, without re-reading the code, and go back. Model each form of the code as its guide's **How each form is modelled** says, so that the model and the recipes use the same terms. The reverse-engineer skill's last step brings you back for steps 4 to 9.
 
 1. **List the facts the model states.** Each designer's are listed above. To see which this model uses, write the recipe file as `{}` and run the Software Factory: the report lists each kind of fact that has no recipe, with its count, in its **Warnings** table. That run turns the check on, so the structure and ownership checks can fail the run from then on; a run with errors applies nothing by itself, so apply the changes you expect with `apply_staged_file_changes`.
-2. **Find how this codebase states each kind of fact**, in whatever technology it uses. Read a few examples of each, such as two controllers and two entity configurations, and look for every style the code uses (some entities configured in `OnModelCreating`, others in `IEntityTypeConfiguration` classes). Give a recipe one `find` path per style. Also find each element type's convention, if it has one (above).
-3. **Write the recipes**, plus an `own` entry for each kind of code the model must describe: every endpoint, every entity configuration, every class map, every index, and one per element type that follows a convention. Give every recipe with a `default` an `unreadable` case for the other forms of the same declaration, such as a route attribute whose template isn't a string literal, and every recipe with a `default` or `absent` an `unstated` that names what's missing and what the technology then does.
+2. **Start from the technology guides** (above). For each technology the code uses, make its guide's decisions from the code, copy its recipe file, and keep the find paths for the styles this codebase uses. For a technology no guide covers, read a few examples of each kind of fact, such as two controllers and two entity configurations, look for every style the code uses (some entities configured in `OnModelCreating`, others in `IEntityTypeConfiguration` classes), and give a recipe one `find` path per style. Also find each element type's convention, if it has one (above).
+3. **Write the recipes.** From a guide, apply its **Adapting to house style** rows to whatever this codebase does its own way (a base class, a helper method, its own attribute). Add an `own` entry for each kind of code the model must describe that no guide's entries cover: every endpoint, every entity configuration, every class map, every index, and one per element type that follows a convention. Give every recipe with a `default` an `unreadable` case for the other forms of the same declaration, such as a route attribute whose template isn't a string literal, and every recipe with a `default` or `absent` an `unstated` that names what's missing and what the technology then does.
 4. **Run the Software Factory** and read the reports, then load **validate-drift-recipes** and run it.
-5. **Fix the recipes until no fact is reported as can't be verified, no kind of fact is warned about as having no recipe, and validate-drift-recipes has no probe or wrong-element warnings and no sample the code doesn't bear out.** After writing or changing a recipe, look at its fact with validate-drift-recipes §4: every element it covers should read its own code. A fact that can't be verified is a recipe that doesn't read this code yet: widen its `find`, add a case, or add `default` or `absent` where saying nothing states a value (no `ToTable` means the `DbSet`'s name; no `[Authorize]` means `None`). If no recipe can read a fact (a value built in a helper method, or a form an `unreadable` case reports), list it for the developer; don't change the code or the model.
+5. **Fix the recipes until no fact is reported as can't be verified, no kind of fact is warned about as having no recipe, and validate-drift-recipes has no probe or wrong-element warnings and no sample the code doesn't bear out.** After writing or changing a recipe, look at its fact with validate-drift-recipes §4: every element it covers should read its own code. Compare each kind of fact's counts with its guide's **Values come from** column: values from `default` or `absent` where the guide says code mean the recipe doesn't read this codebase's form yet. A fact that can't be verified is a recipe that doesn't read this code yet: widen its `find`, add a case, or add `default` or `absent` where saying nothing states a value (no `ToTable` means the `DbSet`'s name; no `[Authorize]` means `None`). If no recipe can read a fact (a value built in a helper method, or a form an `unreadable` case reports), list it for the developer; don't change the code or the model.
 6. **Check each contradiction against the code before you touch the model.** Open the code at the row's location and confirm that it states what the row says. Several contradictions of one kind with the same code value (every one `code (none)`, say) mean the recipe is misreading the code: fix the recipe, not the model. Then resolve the rest by fixing the model to match the code, never the code. A recipe that reads the code correctly and disagrees with the model has found a modelling slip. Where the code itself looks wrong, list it for the developer; don't change it.
 7. **Resolve the code the model doesn't describe:** model it, or add an exception, asking the developer unless it is clearly a helper. If a convention entry reports many helpers, the convention is wrong: narrow it, or remove it.
 8. **Delete any `guardrails/*.sync.json`.** They belong to the old drift check, and nothing reads them.
 9. **Have the developer approve the model changes.** In one `ask_user_question`, list every model change the setup made, for the developer to approve. Skip this step, and the approval in the exit condition, when an orchestrating skill's **User decision** says so.
 
 **Exit condition:** validate-drift-recipes has no probe or wrong-element warnings and no sample the code doesn't bear out; a Software Factory run reports no drift and no warnings, so it writes no drift report; and the developer has approved the model changes the setup made.
-
-## Examples
-
-These are starting points to adapt, not presets: read the code first.
-
-ASP.NET Core controllers. Actions take their security from the controller unless they say otherwise; the route token `[controller]` is the Service's name without `Controller`. A route attribute whose template isn't a string literal (`[Route(Routes.Orders)]`) is `unreadable`, so it isn't taken as the empty `default`:
-
-```json
-{
-  "files": "src/Api/Controllers/**/*.cs",
-  "facts": {
-    "service.route": {
-      "find": "class:{Service}",
-      "read": [
-        { "part": "declaration", "match": "\\[Route\\(\"([^\"]*)\"" },
-        { "part": "declaration", "match": "\\[Route\\((?!\"|Name=|Order=)[^\\]]*\\]", "unreadable": true }
-      ],
-      "replace": [{ "match": "\\[controller\\]", "with": "{Service|trimEnd:Controller}" }],
-      "default": "",
-      "unstated": "no `[Route]` on the controller"
-    },
-    "operation.verb": {
-      "find": "class:{Service} > method:{Operation}",
-      "read": [{ "part": "declaration", "match": "\\[Http(Get|Post|Put|Delete|Patch)\\b", "case": "upper" }]
-    },
-    "operation.route": {
-      "find": "class:{Service} > method:{Operation}",
-      "read": [
-        { "part": "declaration", "match": "\\[Route\\(\"([^\"]*)\"" },
-        { "part": "declaration", "match": "\\[Http\\w+\\(\"([^\"]*)\"" },
-        { "part": "declaration", "match": "\\[(?:Route|Http\\w+)\\((?!\"|Name=|Order=)[^\\]]*\\]", "unreadable": true }
-      ],
-      "replace": [{ "match": "\\[action\\]", "with": "{Operation}" }],
-      "default": "",
-      "unstated": "no route template on the action"
-    },
-    "security": {
-      "find": "class:{Service} > method:{Operation}",
-      "read": [
-        { "part": "declaration", "match": "\\[AllowAnonymous\\b", "value": "Unsecured" },
-        { "part": "declaration", "match": "\\[Authorize\\b", "value": "Secured" }
-      ],
-      "inherit": "class",
-      "default": "None",
-      "unstated": "no `[Authorize]` or `[AllowAnonymous]` on the action or its controller"
-    },
-    "security.roles": {
-      "find": "class:{Service} > method:{Operation}",
-      "read": [{ "part": "declaration", "match": "Roles=\"([^\"]*)\"" }],
-      "replace": [{ "match": "\\s", "with": "" }],
-      "inherit": "class"
-    },
-    "parameter.source": {
-      "find": "class:{Service} > method:{Operation} > parameter:{Parameter}",
-      "read": [
-        { "match": "\\[From(Body|Route|Query|Form|Header)\\b", "value": "From $1" },
-        { "in": "method", "part": "declaration", "match": "(?i)\\{{Parameter}(:[^}]*)?\\??\\}", "value": "From Route" },
-        { "match": "^(?:string|int|long|bool|decimal|double|DateTime|Guid)\\??\\s", "value": "From Query" }
-      ],
-      "default": "From Body",
-      "unstated": "no `[From…]` attribute and nothing for `[ApiController]` to infer from, so it binds from the body"
-    }
-  },
-  "own": [
-    { "kind": "endpoint", "find": "class with \\[ApiController\\] > method with \\[Http(Get|Post|Put|Delete|Patch)\\b", "name": "{Class}.{Method}" }
-  ]
-}
-```
-
-Minimal APIs registered in `Program.cs` (`app.MapGet("/orders/{id}", GetOrder)`):
-
-```json
-"operation.route": {
-  "find": "file:src/Api/Program.cs > statement with Map\\w+\\(\"[^\"]*\",{Operation}\\)",
-  "read": [{ "match": "Map\\w+\\(\"([^\"]*)\"" }]
-}
-```
-
-FastEndpoints, where each endpoint class handles one request:
-
-```json
-"operation.route": {
-  "find": "class with Endpoint<{Operation}\\b > method:Configure",
-  "read": [{ "match": "\\b(?:Get|Post|Put|Delete|Patch)\\(\"([^\"]+)\"" }]
-},
-"security": {
-  "find": "class with Endpoint<{Operation}\\b > method:Configure",
-  "read": [{ "match": "AllowAnonymous\\(\\)", "value": "Unsecured" }],
-  "default": "Secured",
-  "unstated": "no `AllowAnonymous()` in `Configure`, so FastEndpoints secures it"
-}
-```
-
-EF Core, database-first, with every entity configured in one `OnModelCreating`. A table without `ToTable` is named after its `DbSet`. A key column is always required, whether or not it says `IsRequired()`. Indexes are found by their name:
-
-```json
-{
-  "files": "src/Data/**/*.cs",
-  "facts": {
-    "table.name": {
-      "find": "statement:Entity<{Entity}>",
-      "read": [
-        { "match": "To(?:Table|View)\\(\"([^\"]+)\"" },
-        { "match": "DbSet<{Entity}>(\\w+)\\{" }
-      ],
-      "inherit": "property with DbSet<{Entity}>"
-    },
-    "table.schema": {
-      "find": "statement:Entity<{Entity}>",
-      "read": [{ "match": "To(?:Table|View)\\(\"[^\"]+\",\"([^\"]+)\"" }],
-      "default": "",
-      "unstated": "no schema in `ToTable`, so the database's default schema"
-    },
-    "key": {
-      "find": "statement:Entity<{Entity}>",
-      "read": [
-        { "match": "HasKey\\(\\w+=>new\\{([^}]*)\\}" },
-        { "match": "HasKey\\(\\w+=>\\w+\\.(\\w+)\\)" },
-        { "match": "HasNoKey\\(\\)", "value": "" }
-      ],
-      "replace": [{ "match": "\\b\\w+\\.", "with": "" }],
-      "default": "Id",
-      "unstated": "no `HasKey`, so EF Core's convention: the `Id` property"
-    },
-    "column.textType": {
-      "find": "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
-      "read": [
-        { "match": "IsUnicode\\(false\\).*IsFixedLength\\(\\)|IsFixedLength\\(\\).*IsUnicode\\(false\\)", "value": "CHAR" },
-        { "match": "HasColumnType\\(\"(n?(?:var)?char|n?text)", "case": "upper" },
-        { "match": "IsUnicode\\(false\\)", "value": "VARCHAR" }
-      ],
-      "default": "DEFAULT",
-      "absent": "DEFAULT",
-      "unstated": "no `IsUnicode` or `HasColumnType` for `{Attribute}` in EF Core, so SQL Server's default, nvarchar"
-    },
-    "column.maxLength": {
-      "find": "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
-      "read": [{ "match": "HasMaxLength\\((\\d+)\\)" }],
-      "default": "",
-      "absent": "",
-      "unstated": "no `HasMaxLength` for `{Attribute}` in EF Core, so no maximum length"
-    },
-    "column.required": {
-      "find": [
-        "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
-        "statement:Entity<{Entity}> > chain with HasKey\\([^)]*\\.{Attribute}\\b"
-      ],
-      "read": [
-        { "match": "IsRequired\\(\\)", "value": "true" },
-        { "match": "HasKey\\([^)]*\\.{Attribute}\\b", "value": "true" }
-      ],
-      "inherit": "statement:Entity<{Entity}> > chain with HasKey\\([^)]*\\.{Attribute}\\b",
-      "default": "false",
-      "absent": "false",
-      "unstated": "no `IsRequired()` for `{Attribute}` in EF Core, which maps a string as nullable"
-    },
-    "relationship.multiplicity": {
-      "find": [
-        "statement:Entity<{Source}> > chain with HasOne\\(\\w+=>\\w+\\.{TargetEnd}\\)",
-        "statement:Entity<{Target}> > chain with HasMany\\(\\w+=>\\w+\\.{SourceEnd}\\)"
-      ],
-      "read": [
-        { "match": "HasOne\\([^)]*\\)\\.WithMany\\(", "value": "*->1" },
-        { "match": "HasMany\\([^)]*\\)\\.WithOne\\(", "value": "*->1" }
-      ]
-    },
-    "index.columns": {
-      "find": [
-        "statement:Entity<{Entity}> > chain with HasIndex\\([^;]*,\"{Index}\"\\)",
-        "statement:Entity<{Entity}> > chain with HasDatabaseName\\(\"{Index}\"\\)"
-      ],
-      "read": [
-        { "match": "HasIndex\\(\\w+=>new\\{([^}]*)\\}" },
-        { "match": "HasIndex\\(\\w+=>\\w+\\.(\\w+)" }
-      ],
-      "replace": [{ "match": "\\b\\w+\\.", "with": "" }],
-      "absent": "",
-      "unstated": "no index named `{Index}` in EF Core"
-    },
-    "index.unique": {
-      "find": [
-        "statement:Entity<{Entity}> > chain with HasIndex\\([^;]*,\"{Index}\"\\)",
-        "statement:Entity<{Entity}> > chain with HasDatabaseName\\(\"{Index}\"\\)"
-      ],
-      "read": [{ "match": "\\.IsUnique\\((?:true)?\\)", "value": "true" }],
-      "default": "false",
-      "absent": "",
-      "unstated": "no `IsUnique()` on an index named `{Index}` in EF Core"
-    }
-  },
-  "own": [
-    { "kind": "entity configuration", "find": "statement with modelBuilder\\.Entity<(\\w+)>", "name": "$1" },
-    { "kind": "index", "find": "statement with modelBuilder\\.Entity<\\w+> > chain with HasIndex\\([^;]*?\"(\\w+)\"\\)", "name": "$1" }
-  ]
-}
-```
-
-EF Core with one `IEntityTypeConfiguration<T>` class per entity:
-
-```json
-"column.maxLength": {
-  "find": "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
-  "read": [{ "match": "HasMaxLength\\((\\d+)\\)" }],
-  "default": "",
-  "absent": ""
-}
-```
-
-Nullable reference types on, where an optional string is `string?` on the entity rather than configured:
-
-```json
-"column.required": {
-  "find": "class:{Entity} > property:{Attribute}",
-  "read": [{ "part": "declaration", "match": "\\?{Attribute}\\b", "value": "false" }],
-  "default": "true"
-}
-```
-
-A Mongo class map, and a Cosmos container's partition key in its JSON definition:
-
-```json
-"column.name": {
-  "find": "statement:RegisterClassMap<{Entity}> > chain with MapMember\\(\\w+=>\\w+\\.{Attribute}\\)",
-  "read": [{ "match": "SetElementName\\(\"([^\"]+)\"" }],
-  "default": "",
-  "absent": ""
-},
-"key": {
-  "find": "file:deploy/cosmos/{Entity|lower}s.json",
-  "read": [{ "match": "\"partitionKey\":\\{\"paths\":\\[\"/(\\w+)\"" }]
-}
-```
 """;
         }
 
@@ -682,7 +460,11 @@ A kind of fact with many elements returns many readings, so narrow it with `elem
             return context.InstalledModules.Any(x => x.ModuleId == moduleId);
         }
 
-        private sealed record DesignerGuidance(string Name, string ModuleId, string FactsText, string RuleRows)
+        /// <param name="Guides">
+        /// The configure-drift-check skill's index rows for the designer's technology guides, which its own module writes
+        /// beside the skill (<c>DriftRecipeGuides</c>).
+        /// </param>
+        private sealed record DesignerGuidance(string Name, string ModuleId, string FactsText, string RuleRows, string Guides)
         {
             public static readonly DesignerGuidance Domain = new(
                 Name: FactKinds.Domain,
@@ -691,6 +473,12 @@ A kind of fact with many elements returns many readings, so narrow it with `elem
                 RuleRows: """
 | An entity, value object, data contract, enum, repository, domain service or domain event: the type, a property, a method or its signature | That element in the Domain designer |
 | A database table, collection, column, key or relationship | The Domain designer's database stereotypes and associations |
+
+""",
+                Guides: """
+| Domain | EF Core | A `Microsoft.EntityFrameworkCore` package and a class deriving from `DbContext` | [references/ef-core.md](references/ef-core.md) |
+| Domain | MongoDB | A `MongoDB.Driver` package: `IMongoCollection<T>`, `BsonClassMap`, `[BsonId]` | [references/mongodb.md](references/mongodb.md) |
+| Domain | Azure Cosmos DB | A `Microsoft.Azure.Cosmos` package (`CosmosClient`, `Container`), or EF Core's `UseCosmos` | [references/cosmos-db.md](references/cosmos-db.md) |
 
 """);
 
@@ -701,6 +489,12 @@ A kind of fact with many elements returns many readings, so narrow it with `elem
                 RuleRows: """
 | A command, query, DTO, service, enum, message, handler or API client: the type, a field, a method or its signature | That element in the Services designer |
 | An endpoint's route, verb or parameter binding, or its authorization | Its `Http Settings` and `Parameter Settings`, and `Secured` or `Unsecured` |
+
+""",
+                Guides: """
+| Services | ASP.NET Core controllers | Classes deriving from `ControllerBase` or `Controller`, with `[ApiController]` or `[HttpGet]` | [references/aspnetcore-controllers.md](references/aspnetcore-controllers.md) |
+| Services | Minimal APIs | `app.MapGet(…)`, `MapPost(…)` or `MapGroup(…)` | [references/minimal-apis.md](references/minimal-apis.md) |
+| Services | FastEndpoints | A `FastEndpoints` package: classes deriving from `Endpoint<TRequest>` | [references/fastendpoints.md](references/fastendpoints.md) |
 
 """);
         }

@@ -153,6 +153,17 @@ Guards a brownfield codebase's application layer. Each Services designer element
   - **One drift error (user decision, 2026-10-22):** as in the Domain module, an element error on the first drifted element, so Intent offers Try fix with AI.
   - **reverse-engineer-services:** §1 records how the code states each HTTP and security fact and every style it uses, with a verbatim example of each, and then writes `guardrails/services.drift.json` from those reports before modelling (the Domain CONTEXT.md records why); §7 step 8 (required) finishes the check with configure-drift-check's steps 4 to 9, and adoption isn't finished until a run finds no drift and no warnings, writing no Services report or one with only its Recipe check table (its actual path replaces a `<<DriftReport>>` token, as in the Domain skill).
   - **Fixes from the adversarial re-test (plan `2026-10-21-fix-guardrails-retest-findings`, built 2026-10-21)** are in the shared engine, so the Domain CONTEXT.md records them: memory additions date-checked against the code file (MEM9b), a removed type compared with all its remembered members (MEM5b), type and `Type.Member` exceptions covering declarations only (C8b, found here: an exception on the method that maps minimal API endpoints hid every new endpoint), the both-changed note across a signature change (MEM7), accessors left to the code (MEM1d), and the recipe probe and Recipe check table (`Drift/RecipeCheck.cs`, `.cache/guardrails/<application>/Services.recipe.json`).
+  - **Technology guides (user decisions, 2026-10-28).** The Domain CONTEXT.md records the design: why, the sections, the tests, the regex rules and what was rejected. This module writes the Services designer's three guides beside the shared configure-drift-check skill: `references/aspnetcore-controllers.md`, `minimal-apis.md` and `fastendpoints.md` (File Templates `AspNetCoreControllersRecipeGuide`, `MinimalApisRecipeGuide` and `FastEndpointsRecipeGuide`, text in `Templates/DriftRecipeGuides.cs`). The Services templates are written even when the Domain module writes the skill, since only this module knows them. The mapping decisions they fix:
+    - **Controllers:** a controller is a Service named as its class, with `[controller]` in a route standing for that name without `Controller`. A route, `[Authorize]` and `[AllowAnonymous]` are read from the action, then its class, then its base classes. Attributes are matched after `[` or `,`, so `[HttpDelete("{id}"), AllowAnonymous]` reads (Basislink's `[\[,]` fix, M22).
+    - **Minimal APIs:**
+      - A class of handler methods is a Service, its `MapGroup` prefix the Service's route, and each handler or `WithName` lambda an operation whose route is relative, without a leading `/`.
+      - A lambda taking a Command or Query makes that Command or Query the endpoint, with its full route read from its group's prefix and its own route in one match over the method.
+      - A body-bound Command's fields are `From Body`, and an `[AsParameters]` one's are bound field by field.
+    - **FastEndpoints:**
+      - Each endpoint is a Command or Query (the request type), or for `EndpointWithoutRequest` a Query named after the class without `Endpoint`.
+      - Security defaults to `Secured`, as FastEndpoints does.
+      - A field with no attribute or route parameter is `From Query` on a GET or DELETE, and `From Body` otherwise.
+      - A `Group<T>` route is `unreadable`.
 
 ## Invariants & Constraints
 
