@@ -45,7 +45,9 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             foreach (var (designer, guide) in new[]
             {
                 (FactKinds.Domain, DomainGuides.EfCore), (FactKinds.Domain, DomainGuides.MongoDb), (FactKinds.Domain, DomainGuides.CosmosDb),
-                (FactKinds.Services, ServicesGuides.AspNetCoreControllers), (FactKinds.Services, ServicesGuides.MinimalApis), (FactKinds.Services, ServicesGuides.FastEndpoints)
+                (FactKinds.Domain, DomainGuides.DomainEvents),
+                (FactKinds.Services, ServicesGuides.AspNetCoreControllers), (FactKinds.Services, ServicesGuides.MinimalApis), (FactKinds.Services, ServicesGuides.FastEndpoints),
+                (FactKinds.Services, ServicesGuides.HandlerIntent)
             })
             {
                 var blocks = Guides.JsonBlocks(guide);
@@ -63,14 +65,16 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         public void The_skill_indexes_the_guides_of_each_installed_designer()
         {
             var both = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts")));
-            foreach (var guide in new[] { "ef-core", "mongodb", "cosmos-db", "aspnetcore-controllers", "minimal-apis", "fastendpoints" })
+            foreach (var guide in new[] { "ef-core", "mongodb", "cosmos-db", "domain-events", "aspnetcore-controllers", "minimal-apis", "fastendpoints", "handler-intent" })
             {
                 both.ShouldContain($"[references/{guide}.md](references/{guide}.md)");
             }
 
             var servicesOnly = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context("Intent.Services.Guardrails.Contracts")));
             servicesOnly.ShouldContain("[references/minimal-apis.md](references/minimal-apis.md)");
+            servicesOnly.ShouldContain("[references/handler-intent.md](references/handler-intent.md)");
             servicesOnly.ShouldNotContain("references/ef-core.md");
+            servicesOnly.ShouldNotContain("references/domain-events.md");
         }
 
         [Fact]
@@ -85,9 +89,11 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 ("ef-core", DomainGuides.EfCore, new Domain.Guardrails.Contracts.Templates.EfCoreRecipeGuide.EfCoreRecipeGuideTemplate(outputTarget)),
                 ("mongodb", DomainGuides.MongoDb, new Domain.Guardrails.Contracts.Templates.MongoDbRecipeGuide.MongoDbRecipeGuideTemplate(outputTarget)),
                 ("cosmos-db", DomainGuides.CosmosDb, new Domain.Guardrails.Contracts.Templates.CosmosDbRecipeGuide.CosmosDbRecipeGuideTemplate(outputTarget)),
+                ("domain-events", DomainGuides.DomainEvents, new Domain.Guardrails.Contracts.Templates.DomainEventsRecipeGuide.DomainEventsRecipeGuideTemplate(outputTarget)),
                 ("aspnetcore-controllers", ServicesGuides.AspNetCoreControllers, new Services.Guardrails.Contracts.Templates.AspNetCoreControllersRecipeGuide.AspNetCoreControllersRecipeGuideTemplate(outputTarget)),
                 ("minimal-apis", ServicesGuides.MinimalApis, new Services.Guardrails.Contracts.Templates.MinimalApisRecipeGuide.MinimalApisRecipeGuideTemplate(outputTarget)),
-                ("fastendpoints", ServicesGuides.FastEndpoints, new Services.Guardrails.Contracts.Templates.FastEndpointsRecipeGuide.FastEndpointsRecipeGuideTemplate(outputTarget))
+                ("fastendpoints", ServicesGuides.FastEndpoints, new Services.Guardrails.Contracts.Templates.FastEndpointsRecipeGuide.FastEndpointsRecipeGuideTemplate(outputTarget)),
+                ("handler-intent", ServicesGuides.HandlerIntent, new Services.Guardrails.Contracts.Templates.HandlerIntentRecipeGuide.HandlerIntentRecipeGuideTemplate(outputTarget))
             };
 
             foreach (var (file, guide, template) in templates)

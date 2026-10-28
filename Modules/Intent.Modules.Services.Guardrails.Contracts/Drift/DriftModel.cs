@@ -2,16 +2,38 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modules.Services.Guardrails.Contracts.Templates;
 
 namespace Intent.Modules.Services.Guardrails.Contracts.Drift
 {
     /// <summary>
     /// The Services designer's HTTP and security facts, read from the model's own stereotypes
-    /// (Intent.Metadata.WebApi and Intent.Metadata.Security, by name, so neither is a dependency). Only this
-    /// application's packages count.
+    /// (Intent.Metadata.WebApi and Intent.Metadata.Security, by name, so neither is a dependency), and its intent facts,
+    /// read from the interaction associations by type id (so none of the modelers that define them is a dependency).
+    /// Only this application's packages count.
     /// </summary>
     internal static class DriftModel
     {
+        /// <summary>Each interaction association type and the kind of fact it states.</summary>
+        private static readonly IReadOnlyDictionary<string, FactKind> Intents = new Dictionary<string, FactKind>(StringComparer.OrdinalIgnoreCase)
+        {
+            [OptionalModelerMetadata.CreateEntityActionTypeId] = FactKinds.IntentCreates,
+            [OptionalModelerMetadata.UpdateEntityActionTypeId] = FactKinds.IntentUpdates,
+            [OptionalModelerMetadata.DeleteEntityActionTypeId] = FactKinds.IntentDeletes,
+            [OptionalModelerMetadata.QueryEntityActionTypeId] = FactKinds.IntentQueries,
+            [OptionalModelerMetadata.PerformInvocationTypeId] = FactKinds.IntentInvokes,
+            [OptionalModelerMetadata.PublishIntegrationEventTypeId] = FactKinds.IntentPublishes,
+            [OptionalModelerMetadata.SendIntegrationCommandTypeId] = FactKinds.IntentSends
+        };
+
+        /// <summary>The subscriptions an event handler's interactions are drawn from.</summary>
+        private static readonly HashSet<string> Subscriptions = new(StringComparer.OrdinalIgnoreCase)
+        {
+            OptionalModelerMetadata.SubscribeIntegrationEventTypeId,
+            OptionalModelerMetadata.SubscribeIntegrationCommandTypeId,
+            OptionalModelerMetadata.DomainEventHandlerAssociationTypeId
+        };
+
         public static IReadOnlyList<ModelFact> Read(IDesigner designer, string applicationId)
         {
             var packages = designer.Packages.Where(x => x.ApplicationId == applicationId).ToList();
@@ -32,17 +54,87 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
                         foreach (var operation in element.ChildElements.Where(x => x.SpecializationType == "Operation"))
                         {
                             AddEndpoint(operation, element, "Parameter", usesSecurity, facts);
+                            AddIntents(operation, element, operation.Name, $"{element.Name}.{operation.Name}",
+                                operation.ChildElements.Where(x => x.SpecializationType == "Parameter").Select(x => x.Name).ToList(), facts, element.Id, operation.Id);
                         }
 
                         break;
                     case "Command":
                     case "Query":
                         AddEndpoint(element, null, "DTO-Field", usesSecurity, facts);
+                        AddIntents(element, null, element.Name, element.Name, null, facts, element.Id);
                         break;
+                }
+
+                // An event handler's interactions are drawn from each subscription, the association's end under the handler.
+                foreach (var subscription in Ends(element, Subscriptions))
+                {
+                    var message = subscription.TypeReference?.Element?.Name ?? string.Empty;
+                    AddIntents(subscription, element, message, $"{element.Name}({message})", null, facts, element.Id);
                 }
             }
 
             return facts;
+        }
+
+        /// <summary>
+        /// One intent fact per interaction modelled on the handler (a Command, Query, Service operation or subscription):
+        /// the handler's placeholders, as for an endpoint, then the target's. The handler's element ids, so the report opens it.
+        /// </summary>
+        private static void AddIntents(IElement handler, IElement owner, string operation, string display, IReadOnlyList<string> parameterNames, List<ModelFact> facts, params string[] elementIds)
+        {
+            var folderOf = owner ?? handler;
+            foreach (var end in Ends(handler, Intents.Keys).OrderBy(x => x.Association?.Id ?? x.Id, StringComparer.Ordinal))
+            {
+                var kind = Intents[end.Association.SpecializationTypeId];
+                var target = end.TypeReference?.Element as IElement;
+                if (target == null)
+                {
+                    continue;
+                }
+
+                var placeholders = new Dictionary<string, string>
+                {
+                    ["Service"] = owner?.Name ?? string.Empty,
+                    ["Operation"] = operation,
+                    ["Folder"] = folderOf.ParentElement is { SpecializationType: "Folder" } folder ? folder.Name : string.Empty
+                };
+                string value;
+                if (kind == FactKinds.IntentInvokes)
+                {
+                    // An operation belongs to its Service, Domain Service, Repository or Service Proxy; a Command, Query or
+                    // stored procedure to nothing a call names.
+                    value = target.Name;
+                    placeholders["Invoked"] = target.Name;
+                    placeholders["InvokedOwner"] = target.SpecializationType == "Operation" && target.ParentElement is { } parent && parent.SpecializationType != "Folder" ? parent.Name : string.Empty;
+                }
+                else if (kind == FactKinds.IntentPublishes || kind == FactKinds.IntentSends)
+                {
+                    value = target.Name;
+                    placeholders["Message"] = target.Name;
+                }
+                else
+                {
+                    // An entity action targets the class, or one of its constructors or operations.
+                    var entity = target.SpecializationType == "Class" ? target : target.ParentElement;
+                    value = entity?.Name ?? string.Empty;
+                    placeholders["Entity"] = value;
+                    if (kind.Placeholders.Contains("Member"))
+                    {
+                        placeholders["Member"] = target.SpecializationType == "Class" ? string.Empty : target.SpecializationType == "Class Constructor" ? value : target.Name;
+                    }
+                }
+
+                facts.Add(Fact(kind, display, value, placeholders, parameterNames, elementIds));
+            }
+        }
+
+        /// <summary>The far ends of the element's associations of these types that it is the source of.</summary>
+        private static IEnumerable<IAssociationEnd> Ends(IElement element, IEnumerable<string> associationTypeIds)
+        {
+            var types = associationTypeIds as ICollection<string> ?? associationTypeIds.ToList();
+            return (element.AssociatedElements ?? Enumerable.Empty<IAssociationEnd>())
+                .Where(x => x.Association?.SpecializationTypeId is { } type && types.Contains(type) && x.IsTargetEnd());
         }
 
         private static void AddEndpoint(IElement element, IElement service, string parameterType, bool usesSecurity, List<ModelFact> facts)

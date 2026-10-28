@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modules.Domain.Guardrails.Contracts.Templates;
 
 namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
 {
     /// <summary>
     /// The Domain designer's database facts, read from the model's own stereotypes (Intent.Metadata.RDBMS and
-    /// Intent.Metadata.DocumentDB, by name, so neither is a dependency). Only this application's packages count.
+    /// Intent.Metadata.DocumentDB, by name, so neither is a dependency), and the domain events each constructor or
+    /// operation raises, read from Intent.Modelers.Domain.Events' Domain Event Origin associations by type id. Only this
+    /// application's packages count.
     /// </summary>
     internal static class DriftModel
     {
@@ -112,7 +115,47 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
                 facts.Add(Fact(FactKinds.RelationshipForeignKey, element, string.Join(",", keys), placeholders, association.SourceEnd.TypeReference.Element.Id));
             }
 
+            foreach (var @class in classes)
+            {
+                AddRaisedEvents(@class, facts);
+            }
+
             return facts;
+        }
+
+        /// <summary>
+        /// One <c>intent.raises</c> fact per Domain Event Origin from the class's constructors and operations. A constructor's
+        /// member is the class's name, as in C#; the parameter names choose between overloads.
+        /// </summary>
+        private static void AddRaisedEvents(IElement @class, List<ModelFact> facts)
+        {
+            foreach (var member in @class.ChildElements.Where(x => x.SpecializationType is "Class Constructor" or "Operation"))
+            {
+                var name = member.SpecializationType == "Class Constructor" ? @class.Name : member.Name;
+                var parameterNames = member.ChildElements.Where(x => x.SpecializationType == "Parameter").Select(x => x.Name).ToList();
+                var origins = (member.AssociatedElements ?? Enumerable.Empty<IAssociationEnd>())
+                    .Where(x => string.Equals(x.Association?.SpecializationTypeId, DomainEventsMetadata.OriginAssociationTypeId, StringComparison.OrdinalIgnoreCase) && x.IsTargetEnd())
+                    .OrderBy(x => x.Association?.Id ?? x.Id, StringComparer.Ordinal);
+                foreach (var origin in origins)
+                {
+                    var domainEvent = origin.TypeReference?.Element?.Name;
+                    if (string.IsNullOrEmpty(domainEvent))
+                    {
+                        continue;
+                    }
+
+                    var placeholders = new Dictionary<string, string> { ["Entity"] = @class.Name, ["Member"] = name, ["DomainEvent"] = domainEvent };
+                    facts.Add(new ModelFact
+                    {
+                        Kind = FactKinds.IntentRaises,
+                        Element = $"{@class.Name}.{name}",
+                        ElementIds = new[] { @class.Id, member.Id },
+                        Value = domainEvent,
+                        Placeholders = placeholders,
+                        ParameterNames = parameterNames
+                    });
+                }
+            }
         }
 
         /// <summary>

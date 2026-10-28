@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Services.Guardrails.Contracts</id>
-  <version>1.0.0-pre.2</version>
+  <version>1.0.0-pre.3</version>
   <supportedClientVersions>[5.4.0-beta.6,6.0.0)</supportedClientVersions>
   <summary>Guards Services designer elements (services, commands, queries, DTOs, enums, integration events and their handlers, and API clients as service proxies) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</summary>
   <description>Guards Services designer elements (services, commands, queries, DTOs, enums, integration events and their handlers, and API clients as service proxies) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</description>
@@ -61,6 +61,10 @@
       <location></location>
     </template>
     <template id="Intent.Services.Guardrails.Contracts.FastEndpointsRecipeGuide" externalReference="6cb47c81-042f-4ca9-8ab0-549f527e6d39">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
+    <template id="Intent.Services.Guardrails.Contracts.HandlerIntentRecipeGuide" externalReference="81510cd4-40df-4b3c-9d71-7715823e3d64">
       <role>AI.Context.Skills</role>
       <location></location>
     </template>

@@ -49,6 +49,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             element.SpecializationType.Returns(specialization);
             element.Stereotypes.Returns(stereotypes.ToList());
             element.ChildElements.Returns(new List<IElement>());
+            element.AssociatedElements.Returns(new List<IAssociationEnd>());
 
             // NSubstitute would otherwise answer with a new fake, so walking up the parents would never end.
             element.ParentElement.Returns((IElement)null);
@@ -108,6 +109,41 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             association.SourceEnd.Returns(sourceEndElement);
             association.TargetEnd.Returns(targetEndElement);
             return association;
+        }
+
+        /// <summary>
+        /// An association of the given type id from <paramref name="source"/> (an element, or an association end such as an
+        /// event handler's subscription) to <paramref name="target"/>, seen from the source: its target end, added to the
+        /// source's associated elements. The end is returned, so an interaction can be drawn from it in turn.
+        /// </summary>
+        public static IAssociationEnd Interaction(IElement source, string associationTypeId, IElement target, string specializationType = null)
+        {
+            var association = Substitute.For<IAssociation>();
+            association.Id.Returns($"{associationTypeId}:{source.Id}->{target.Id}");
+            association.SpecializationTypeId.Returns(associationTypeId);
+            association.SpecializationType.Returns(specializationType ?? associationTypeId);
+            var reference = Reference(target);
+            var end = Substitute.For<IAssociationEnd>();
+            end.Id.Returns($"{association.Id}:target");
+            end.Name.Returns(string.Empty);
+            end.Association.Returns(association);
+            end.IsTargetEnd().Returns(true);
+            end.IsSourceEnd().Returns(false);
+            end.TypeReference.Returns(reference);
+            end.Stereotypes.Returns(new List<IStereotype>());
+            end.ChildElements.Returns(new List<IElement>());
+            end.AssociatedElements.Returns(new List<IAssociationEnd>());
+            end.ParentElement.Returns((IElement)null);
+            association.TargetEnd.Returns(end);
+            ((List<IAssociationEnd>)source.AssociatedElements).Add(end);
+            return end;
+        }
+
+        private static ITypeReference Reference(IElement element)
+        {
+            var reference = Substitute.For<ITypeReference>();
+            reference.Element.Returns(element);
+            return reference;
         }
 
         public static IDesigner Designer(IEnumerable<IPackage> packages, IEnumerable<IAssociation> associations = null)

@@ -29,6 +29,9 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
         public const string PropertyTypeId = "b4d69073-5abb-4968-b41b-545b2f7408ed";
         public const string GeneralizationTypeId = "fa57ec52-536d-46a8-8aa0-4589812665c1";
 
+        /// <summary>"Domain Event Origin Association": from a class's constructor or operation to the Domain Event it raises.</summary>
+        public const string OriginAssociationTypeId = "4c0cc50b-8a9d-43cd-b731-9f354f69f3c9";
+
         // This module's stereotypes for Domain Events and their properties (the "Domain Events" folder of its package).
         public const string FileConfigDefinitionId = "42c50d5f-97a1-47b2-b76a-f7bb5936650f";
         public const string TypeConfigurationDefinitionId = "41304368-35ef-4063-ae8a-017587f7c8ac";

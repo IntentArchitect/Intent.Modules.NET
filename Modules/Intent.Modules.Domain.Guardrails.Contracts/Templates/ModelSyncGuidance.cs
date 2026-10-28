@@ -91,7 +91,7 @@ Load **scripting-the-model** and **changing-the-model** before changing the mode
 
 - **Facts**
 """ + " (" + string.Join("; ", designers.Select(x => $"{x.Name}: {x.FactsText}")) + ")" + """
- are read from the model's stereotypes, and compared with the values that the recipes in `guardrails/<designer>.drift.json`, beside the application's `.application.config`, read from the code. A recipe says where a kind of fact is in the code and how to read its value, for whatever technology the code uses. The **configure-drift-check** skill describes them.
+ are read from the model's stereotypes and associations, and compared with the values that the recipes in `guardrails/<designer>.drift.json`, beside the application's `.application.config`, read from the code. A recipe says where a kind of fact is in the code and how to read its value, for whatever technology the code uses. The **configure-drift-check** skill describes them.
 - **Structure:** each type the Guardrails templates generate is compared with its file on disk, on what its element can state: kind, modifiers, generic parameters, parameters on the type (a positional record, a Class's Primary Constructor), the base types the model names, and the members its element can model, with their types and signatures. What the designer can't express is never compared: a Service's, handler's or repository's primary constructor holding its injected dependencies, a DTO's or command's methods, a Service's properties, a handler's members, any field, event or indexer. A member the model doesn't describe is reported only when it's public: whether a protected, internal or private one belongs in the model is a judgement call, and once modelled it's compared like any other. These rows come from what the templates generate, not from the recipe file: no recipe adds or removes them, and an exception only covers an "isn't modelled" row. Spellings that mean the same type agree (`Nullable<int>` and `int?`, `System.String` and `string`, a qualified name and its last part).
 - **Ownership:** the recipes' `own` lists say which code the model must describe, such as every controller action, every `Entity<T>` configuration, and every type that follows the convention of a modelled element type (every `*DTO` class in the DTO project, every class deriving from the business base class). Types the templates generate count as modelled. Members of a generated type count too, at the access levels the model uses for that kind of member.
 - **Exceptions:** the recipe file's `exceptions` list code that may stay unmodelled. A type or member exception covers that declaration, and a type its members, but not code a convention finds inside a member. They never cover a contradicted or unverifiable fact.
@@ -468,32 +468,36 @@ A kind of fact with many elements returns many readings, so narrow it with `elem
             public static readonly DesignerGuidance Domain = new(
                 Name: FactKinds.Domain,
                 ModuleId: DomainModuleId,
-                FactsText: "database tables, keys, columns and relationships",
+                FactsText: "database tables, keys, columns and relationships, and the domain events constructors and operations raise",
                 RuleRows: """
 | An entity, value object, data contract, enum, repository, domain service or domain event: the type, a property, a method or its signature | That element in the Domain designer |
 | A database table, collection, column, key or relationship | The Domain designer's database stereotypes and associations |
+| A domain event a constructor or operation raises | Its `Domain Event Origin` to the Domain Event |
 
 """,
                 Guides: """
 | Domain | EF Core | A `Microsoft.EntityFrameworkCore` package and a class deriving from `DbContext` | [references/ef-core.md](references/ef-core.md) |
 | Domain | MongoDB | A `MongoDB.Driver` package: `IMongoCollection<T>`, `BsonClassMap`, `[BsonId]` | [references/mongodb.md](references/mongodb.md) |
 | Domain | Azure Cosmos DB | A `Microsoft.Azure.Cosmos` package (`CosmosClient`, `Container`), or EF Core's `UseCosmos` | [references/cosmos-db.md](references/cosmos-db.md) |
+| Domain | Domain events | A `Domain Event Origin` in the model, from a constructor or operation to the Domain Event it raises | [references/domain-events.md](references/domain-events.md) |
 
 """);
 
             public static readonly DesignerGuidance Services = new(
                 Name: FactKinds.Services,
                 ModuleId: ServicesModuleId,
-                FactsText: "HTTP routes, verbs and parameter binding, and security",
+                FactsText: "HTTP routes, verbs and parameter binding, security, and what each handler does: the entities it acts on, what it invokes, and the integration events and commands it publishes and sends",
                 RuleRows: """
 | A command, query, DTO, service, enum, message, handler or API client: the type, a field, a method or its signature | That element in the Services designer |
 | An endpoint's route, verb or parameter binding, or its authorization | Its `Http Settings` and `Parameter Settings`, and `Secured` or `Unsecured` |
+| What a command, query, service operation or event handler does: the entities it creates, updates, deletes or reads, what it calls, the events it publishes and the commands it sends | Its entity actions, `Perform Invocation`, `Publish Integration Event` and `Send Integration Command` |
 
 """,
                 Guides: """
 | Services | ASP.NET Core controllers | Classes deriving from `ControllerBase` or `Controller`, with `[ApiController]` or `[HttpGet]` | [references/aspnetcore-controllers.md](references/aspnetcore-controllers.md) |
 | Services | Minimal APIs | `app.MapGet(…)`, `MapPost(…)` or `MapGroup(…)` | [references/minimal-apis.md](references/minimal-apis.md) |
 | Services | FastEndpoints | A `FastEndpoints` package: classes deriving from `Endpoint<TRequest>` | [references/fastendpoints.md](references/fastendpoints.md) |
+| Services | Handler intent | Entity actions, invocations, published integration events or sent integration commands in the model, on MediatR handlers, service classes or event handlers | [references/handler-intent.md](references/handler-intent.md) |
 
 """);
         }

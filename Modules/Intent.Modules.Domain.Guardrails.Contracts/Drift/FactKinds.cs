@@ -6,7 +6,8 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
 {
     /// <summary>
     /// A kind of fact the model states: what it is called in a recipe file, how the report labels it, the
-    /// placeholders its recipes can use, and the model's vocabulary for its value.
+    /// placeholders its recipes can use, and the model's vocabulary for its value. <paramref name="Own"/> names the
+    /// placeholders that name the fact's own element, where the rule in <see cref="FactKinds.OwnPlaceholders"/> doesn't.
     /// </summary>
     internal sealed record FactKind(
         string Key,
@@ -14,7 +15,8 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
         string Label,
         IReadOnlyList<string> Placeholders,
         string Values,
-        string Source);
+        string Source,
+        IReadOnlyList<string> Own = null);
 
     /// <summary>One fact the model states about one element.</summary>
     internal sealed class ModelFact
@@ -54,6 +56,13 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
         private static readonly string[] AttributePlaceholders = { "Entity", "Attribute" };
         private static readonly string[] RelationshipPlaceholders = { "Source", "Target", "SourceEnd", "TargetEnd" };
         private static readonly string[] IndexPlaceholders = { "Entity", "Index" };
+        private static readonly string[] RaisesPlaceholders = { "Entity", "Member", "DomainEvent" };
+        private static readonly string[] EntityActionPlaceholders = { "Service", "Operation", "Folder", "Entity", "Member" };
+        private static readonly string[] EntityPlaceholders = { "Service", "Operation", "Folder", "Entity" };
+        private static readonly string[] InvocationPlaceholders = { "Service", "Operation", "Folder", "Invoked", "InvokedOwner" };
+        private static readonly string[] MessagePlaceholders = { "Service", "Operation", "Folder", "Message" };
+
+        private const string Handlers = "a Command, Query or Service operation, or an event handler's subscription to an integration event, integration command or domain event";
 
         public static readonly FactKind ServiceRoute = new("service.route", Services, "route", new[] { "Service" },
             "the route exactly as modelled, or empty",
@@ -147,11 +156,53 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
             "`true` or `false`",
             "`Index` → `IsUnique` on the index's first attribute, or the `Index` element's `Unique`, for every named index.");
 
+        public static readonly FactKind IntentRaises = new("intent.raises", Domain, "raises", RaisesPlaceholders,
+            "the domain event's name",
+            "Each `Domain Event Origin` from a class's constructor or operation to a Domain Event: one fact per link. An operation's parameter names choose between overloads.",
+            Own: new[] { "DomainEvent" });
+
+        public static readonly FactKind IntentCreates = new("intent.creates", Services, "creates", EntityActionPlaceholders,
+            "the entity's class name",
+            $"Each `Create Entity Action` from {Handlers}: one fact per action. `{{Member}}` is the constructor or factory operation it targets, if any.",
+            Own: new[] { "Entity", "Member" });
+
+        public static readonly FactKind IntentUpdates = new("intent.updates", Services, "updates", EntityActionPlaceholders,
+            "the entity's class name",
+            $"Each `Update Entity Action` from {Handlers}: one fact per action. `{{Member}}` is the operation it targets, if any.",
+            Own: new[] { "Entity", "Member" });
+
+        public static readonly FactKind IntentDeletes = new("intent.deletes", Services, "deletes", EntityPlaceholders,
+            "the entity's class name",
+            $"Each `Delete Entity Action` from {Handlers}: one fact per action.",
+            Own: new[] { "Entity" });
+
+        public static readonly FactKind IntentQueries = new("intent.queries", Services, "queries", EntityPlaceholders,
+            "the entity's class name",
+            $"Each `Query Entity Action` from {Handlers}: one fact per action. Its multiplicity isn't stated.",
+            Own: new[] { "Entity" });
+
+        public static readonly FactKind IntentInvokes = new("intent.invokes", Services, "invokes", InvocationPlaceholders,
+            "the invoked element's name",
+            $"Each `Perform Invocation` (once called `Call Service Operation`) from {Handlers}, to a Service, Domain Service, Repository or Service Proxy operation, a Command, a Query or a stored procedure: one fact per invocation.",
+            Own: new[] { "Invoked", "InvokedOwner" });
+
+        public static readonly FactKind IntentPublishes = new("intent.publishes", Services, "publishes", MessagePlaceholders,
+            "the integration event's name",
+            $"Each `Publish Integration Event` from {Handlers}: one fact per event.",
+            Own: new[] { "Message" });
+
+        public static readonly FactKind IntentSends = new("intent.sends", Services, "sends", MessagePlaceholders,
+            "the integration command's name",
+            $"Each `Send Integration Command` from {Handlers}: one fact per command.",
+            Own: new[] { "Message" });
+
         public static readonly IReadOnlyList<FactKind> All = new[]
         {
             TableName, TableSchema, TableKind, Key, ColumnName, ColumnType, ColumnTextType, ColumnMaxLength, ColumnRequired,
             ColumnPrecision, ColumnScale, ColumnDefault, RelationshipMultiplicity, RelationshipForeignKey, IndexColumns, IndexUnique,
-            ServiceRoute, OperationVerb, OperationRoute, Security, SecurityRoles, SecurityPolicy, ParameterSource
+            IntentRaises,
+            ServiceRoute, OperationVerb, OperationRoute, Security, SecurityRoles, SecurityPolicy, ParameterSource,
+            IntentCreates, IntentUpdates, IntentDeletes, IntentQueries, IntentInvokes, IntentPublishes, IntentSends
         };
 
         public static IReadOnlyList<FactKind> For(string designer) => All.Where(x => x.Designer == designer).ToList();
@@ -159,10 +210,16 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
         /// <summary>
         /// The placeholders that name the element a fact is about, as opposed to what it belongs to: a column fact's
         /// attribute rather than its class, an endpoint fact's operation rather than its Service, a relationship's target
-        /// and ends rather than its source. The kind's other placeholders name the element's owner.
+        /// and ends rather than its source, an intent fact's target rather than the handler or member it is modelled on.
+        /// The kind's other placeholders name the element's owner.
         /// </summary>
         public static IReadOnlyList<string> OwnPlaceholders(FactKind kind)
         {
+            if (kind.Own != null)
+            {
+                return kind.Own;
+            }
+
             foreach (var own in new[] { "Parameter", "Operation", "Attribute", "Index" })
             {
                 if (kind.Placeholders.Contains(own))
@@ -179,11 +236,16 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
         /// <summary>The placeholders an element's own recipe placeholders are documented with.</summary>
         public static string Describe(string placeholder) => placeholder switch
         {
-            "Service" => "the Service's name (empty for a Command or Query)",
-            "Operation" => "the operation's name, or the Command's or Query's",
-            "Folder" => "the name of the folder the endpoint is in (empty at the package root)",
+            "Service" => "the Service's name (empty for a Command or Query), or an event handler's name for its subscription",
+            "Operation" => "the operation's name, or the Command's or Query's, or the message or domain event an event handler's subscription handles",
+            "Folder" => "the name of the folder the endpoint, Service or handler is in (empty at the package root)",
             "Parameter" => "the parameter's or field's name",
-            "Entity" => "the class's name",
+            "Entity" => "the class's name: an entity action's entity, or the class whose constructor or operation raises a domain event",
+            "Member" => "the constructor's or operation's name, the class's name for a constructor; for an entity action, the one it targets, else empty",
+            "Invoked" => "the invoked operation's, Command's, Query's or stored procedure's name",
+            "InvokedOwner" => "the name of the Service, Domain Service, Repository or Service Proxy the invoked operation belongs to (empty for a Command, Query or stored procedure)",
+            "Message" => "the integration event's or integration command's name",
+            "DomainEvent" => "the domain event's name",
             "Attribute" => "the attribute's name",
             "Source" => "the source class's name",
             "Target" => "the target class's name",

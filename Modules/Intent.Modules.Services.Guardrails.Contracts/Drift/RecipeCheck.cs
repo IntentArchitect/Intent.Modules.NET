@@ -393,7 +393,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
         {
             var owned = facts
                 .GroupBy(x => (x.Kind.Key, Owner(x)))
-                .ToDictionary(x => x.Key, x => x.Select(fact => (fact.Element, Names: OwnNames(fact))).ToList());
+                .ToDictionary(x => x.Key, x => x.Select(fact => (Fact: fact, Names: OwnNames(fact))).ToList());
             var warnings = new List<string>();
             var suspect = readings
                 .Where(x => x.Reading.Verified && x.Reading.From == ValueSource.Code && x.Reading.Level == 0 && x.Reading.Match?.File?.Syntax != null)
@@ -412,7 +412,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
         }
 
         /// <summary>The names of the fact's siblings that the code it was read from names, when it doesn't name the fact's own element.</summary>
-        private static IReadOnlyList<string> OthersNamed(ModelFact fact, FactReading reading, IReadOnlyDictionary<(string, string), List<(string Element, IReadOnlyList<string> Names)>> owned)
+        private static IReadOnlyList<string> OthersNamed(ModelFact fact, FactReading reading, IReadOnlyDictionary<(string, string), List<(ModelFact Fact, IReadOnlyList<string> Names)>> owned)
         {
             var own = OwnNames(fact);
             if (own.Count == 0 || !owned.TryGetValue((fact.Kind.Key, Owner(fact)), out var siblings))
@@ -420,8 +420,9 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
                 return Array.Empty<string>();
             }
 
+            // By the fact, not its element's name: a handler's intent facts all name the handler, one per target.
             var others = siblings
-                .Where(x => x.Element != fact.Element)
+                .Where(x => !ReferenceEquals(x.Fact, fact))
                 .SelectMany(x => x.Names)
                 .Where(x => !own.Contains(x))
                 .ToHashSet(StringComparer.Ordinal);

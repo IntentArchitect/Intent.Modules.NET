@@ -89,7 +89,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         {
             JsonDocument.Parse(Task().Execute(JsonSerializer.Serialize(new { applicationId = Fakes.ApplicationId, fact = "operation.route" }))).RootElement
                 .GetProperty("errorMessage").GetString()
-                .ShouldBe("No Domain fact is called operation.route. They are: table.name, table.schema, table.kind, key, column.name, column.type, column.textType, column.maxLength, column.required, column.precision, column.scale, column.default, relationship.multiplicity, relationship.foreignKey, index.columns, index.unique.");
+                .ShouldBe("No Domain fact is called operation.route. They are: table.name, table.schema, table.kind, key, column.name, column.type, column.textType, column.maxLength, column.required, column.precision, column.scale, column.default, relationship.multiplicity, relationship.foreignKey, index.columns, index.unique, intent.raises.");
         }
 
         private ValidateDriftRecipes Task()

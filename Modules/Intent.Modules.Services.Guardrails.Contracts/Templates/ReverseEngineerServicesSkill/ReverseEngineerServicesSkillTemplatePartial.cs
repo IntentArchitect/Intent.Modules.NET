@@ -46,8 +46,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
                     | Evidence in the code | Install (if not already installed) |
                     |---|---|
                     | MediatR-style requests (`IRequest<T>`, `ICommand` / `IQuery`, `*Command` / `*Query` classes) | `Intent.Modelers.Services.CQRS` |
-                    | HTTP endpoints: `[ApiController]` / `ControllerBase`, minimal APIs (`app.MapGet/MapPost…`), FastEndpoints, Azure Functions HTTP triggers | `Intent.Metadata.WebApi` 4.7.22-pre.1 or later, so include prereleases in the search (earlier versions add a duplicate route segment on every change for some route parameters) |
-                    | Authorization: `[Authorize(...)]`, `[AllowAnonymous]`, `RequireAuthorization(...)`, policies or roles | `Intent.Metadata.Security` (WebApi normally brings it as a dependency; install explicitly if missing) |
+                    | HTTP endpoints: `[ApiController]` / `ControllerBase`, minimal APIs (`app.MapGet/MapPost…`), FastEndpoints, Azure Functions HTTP triggers | `Intent.Metadata.WebApi` 4.7.22-pre.1 or later, so include prereleases in the search (earlier ones duplicate some route segments) |
+                    | Authorization: `[Authorize(...)]`, `[AllowAnonymous]`, `RequireAuthorization(...)`, policies or roles | `Intent.Metadata.Security` (usually a WebApi dependency) |
                     | Handlers or service methods that load, create, update or delete Domain entities via repositories or a DbContext, and a Domain designer exists | `Intent.Modelers.Services.DomainInteractions` |
                     | Pagination types (`PagedResult<T>`, `PagedList`) | none; reference the `Intent.Modelers.Services.Pagination` package (§3) |
                     | Integration events / messaging: consumers or handlers (`IConsumer<T>`, `IHandleMessages<T>`, `IIntegrationEventHandler<T>`), publish or send calls (`IEventBus`, `IMessageBus`, `IPublishEndpoint`, `ISendEndpointProvider`), MassTransit, NServiceBus, Azure Service Bus | `Intent.Modelers.Services.EventInteractions` |
@@ -79,14 +79,14 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
                     - Each method's intent, as for a command's handler.
                     - **Nullable context:** per project, whether the csproj sets `<Nullable>` (and to what); per file, any `#nullable` directives.
                     - **Each enum:** path, namespace, access modifier (`public`, `internal` or none), and literals with explicit values.
-                    - **Each domain event handler:** path, namespace, class name, declaration modifiers, and the domain event(s) it handles.
+                    - **Each domain event handler:** path, namespace, class name, declaration modifiers, and the domain event(s) it handles, each with its intent (§5).
                     - **Each integration event and integration command (message):**
                     - Path, namespace, name, kind (`class`, `record`, or positional `record OrderPlaced(Guid OrderId)`) and declaration modifiers.
                     - Whether it is published (an event) or sent to one receiver (a command), and from where.
                     - Whether it is this code's own copy of another application's message (handled, never published or sent here), and whose.
                     - Every property as for commands, plus its accessors as spelled (`{ get; set; }`, `{ get; init; }`, get-only).
                     - **Each nested type a message uses (an eventing DTO):** as for DTOs, plus its base type.
-                    - **Each integration event handler or consumer:** path, namespace, class name, declaration modifiers, and the messages it handles (from `IConsumer<T>`, `IHandleMessages<T>`, `IIntegrationEventHandler<T>` or equivalent).
+                    - **Each integration event handler or consumer:** path, namespace, class name, declaration modifiers, and the messages it handles (from `IConsumer<T>`, `IHandleMessages<T>`, `IIntegrationEventHandler<T>` or equivalent), each with its intent (§5).
                     - **Each API client** (a typed `HttpClient` wrapper, a Refit, NSwag or Kiota client, or any other class whose job is calling an API):
                     - Which type to model (§3 "Service proxies"), its path, namespace, name, `class` or `interface`, and declaration modifiers.
                     - Every method as spelled: name, return type, each parameter's type and default, the CancellationToken's name and whether it has `= default`, whether it is `async`, and its modifiers and each parameter's (`ref`, `out`, `in`, `params`) as written; and anything §3 can't reproduce (explicit interface implementations, generic methods).
@@ -102,6 +102,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
                     **Then write the drift check's recipes, before modelling anything,** while the reports are fresh: load **configure-drift-check** for the format and write `guardrails/services.drift.json` from the reports, without re-reading the code:
                     - a recipe for each HTTP and security fact the code states (route, verb, binding, security), with one `find` per style;
                     - `inherit` where an action takes a value from its controller, and `default` for what the code states by saying nothing (no `[Authorize]`);
+                    - the intent recipes from configure-drift-check's handler-intent guide, adapted to how the handlers reach entities, services and the bus;
                     - an `own` entry for each kind of endpoint the model must describe (every controller action, minimal API mapping or endpoint class);
                     - an `own` entry, with `kind` naming the element type, for each element type that follows a convention, finding every type that follows it. An element type without one gets none: its new types can't be told apart from helpers.
 
@@ -219,7 +220,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
 
                     ## 5. Intent (DomainInteractions and EventInteractions installed in §0)
 
-                    Model the **intent** of each command, query and service operation, for public **and** internal services alike: what it does, as interaction associations from it. Follow the designer's own rules; read them in `getDesignerSchema()`.
+                    Model the **intent** of each command, query and service operation, for public **and** internal services alike, and of each event handler's subscription (the association end under the handler for each message or domain event it handles): what it does, as interaction associations from it. The drift check verifies each against the handler's code. Follow the designer's own rules; read them in `getDesignerSchema()`.
 
                     | What the code does | Association (context menu) | Target |
                     |---|---|---|
@@ -263,7 +264,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
 
                     Same as **reverse-engineer-domain** §6:
 
-                    1. **Every change must be a header or formatting change:** `using` + `IntentTemplate`, the two merge directives, the csproj package reference, and Auto Format's formatting anywhere in the file (step 5), or an equivalent type rewrite the user accepts (step 4). While there is drift, a run also lists the drift report, `<<DriftReport>>` (in the solution's git-ignored `.cache` folder), as a new file needing no review. Until step 8 its drift lines fail the run, so nothing is applied by itself (step 6 applies by path anyway). Its "modelled but not in the code" and "isn't modelled" rows are a second view of what is still mismatched or missing.
+                    1. **Every change must be a header or formatting change:** `using` + `IntentTemplate`, the two merge directives, the csproj package reference, and Auto Format's formatting anywhere in the file (step 5), or an equivalent type rewrite the user accepts (step 4). While there is drift, a run also lists the drift report, `<<DriftReport>>` (in the solution's git-ignored `.cache` folder), as a new file needing no review. Until step 8 its drift lines fail the run, so nothing is applied by itself (step 6 applies by path anyway). Its "isn't modelled" rows show what is still missing.
                     2. **Diagnose anything else:** `create` means a path or name mismatch, or a type in another file without `File Config` (§3). Member inserts mean model drift. Deletes, and changed lines that aren't just formatting (step 5), mean destructive drift (**resolve-destructive-changes**). A duplicate type means the record/class kind is wrong. A rewritten type declaration (`internal sealed class` → `public class`) means wrong modifiers: fix `Default Type Modifiers`, or that element's `Type Configuration` → `Modifiers` (`Enum Configuration` → `Access Modifier` for an enum; §3). **A type spelled differently on an existing member** (`Nullable<DateTime>` → `DateTime?`, `string?` → `string`): see step 4. Don't remove the member.
                     3. **Merge directives:** every adopted file needs both of these lines, in this order:
 
@@ -298,7 +299,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
                     6. **Apply** the reviewed files only (`apply_staged_file_changes` with explicit paths): files whose only changes are the headers and formatting, plus files whose equivalent rewrites the user accepted (step 4).
                     7. **Finish with:** `dotnet build`, tests, and a final SF run proposing **zero** changes to the code, apart from files the user chose not to adopt yet (step 4, option 3). Its drift lines are step 8's.
                     - **An ambiguous name after adoption** (CS0104, e.g. `Order` from two namespaces the global usings import): add a using alias at the top of the file for the type it means (`using Order = eShop.Ordering.Domain.AggregatesModel.OrderAggregate.Order;`). An alias outranks every namespace import, global ones included, and later runs keep it. Don't leave the file unadopted.
-                    8. **Finish the drift check (required).** §1 wrote `guardrails/services.drift.json`, so every run already compares the model's HTTP and security facts, and the types the Guardrails templates generate, with the code. Save the designer (the check reads the saved model), load **configure-drift-check** and do its steps 4 to 9 for the Services designer: fix the recipes until no fact is reported as can't be verified (a kind of fact with no recipe, or a style §1 missed) and validate-drift-recipes shows every recipe reading the code, then resolve the rest.
+                    8. **Finish the drift check (required).** §1 wrote `guardrails/services.drift.json`, so every run already compares the model's facts and generated types with the code. Save the designer (the check reads the saved model), load **configure-drift-check** and do its steps 4 to 9 for the Services designer: fix the recipes until no fact is reported as can't be verified (a kind of fact with no recipe, or a style §1 missed) and validate-drift-recipes shows every recipe reading the code, then resolve the rest.
                     - No recipe file (the adoption began before §1 wrote one): do all of configure-drift-check's steps.
                     - The adoption isn't finished until a run finds no drift and no warnings, so it writes no `<<DriftReport>>`, and the user has approved the model changes (configure-drift-check's step 9). Skip that approval when an orchestrating skill's **User decision** says so.
                     - A contradiction is a recipe misreading the code, a modelling slip or real drift: check the code at its location first (configure-drift-check's step 6), fix a recipe that misreads it, and otherwise fix the model, never the code. Where the code looks wrong, say so in the final report.
@@ -311,7 +312,6 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
                     - **Check a merge risk on the staged diff first.** Before excluding a file from generation or asking the user about something the merge might lose, stage it and read its diff. Ask only about a loss the diff shows.
                     - **DTO inheritance.** With `Intent.Modelers.Eventing` installed, `createAssociation("Generalization", …)` resolves to the Eventing DTO's Generalization, not the DTO's. Create a DTO's Generalization by its type id instead: `5ba12bbf-122f-4c3e-af3c-4a88dc554597`.
                     - **A concrete client's interface isn't guarded.** When a `Service Proxy` is the class, the interface it implements stays hand-written. A later signature change in the model changes only the class, so edit the interface by hand to match.
-                    - **Proxy designer errors (not verified).** The Service Proxies modeler re-syncs proxy parameters from their mappings, so it may show an error on these unmapped proxies; it stops before touching any parameter. Report any such error; never add a mapping to silence it.
                     """.Replace("<<DriftReport>>", ModelSyncGuidance.ReportPath(outputTarget.ExecutionContext, "Services")));
         }
 

@@ -70,6 +70,44 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         /// </summary>
         public const string ServiceProxyParameterTypeId = "f11273c1-217f-4f42-b690-3d8b488f95a8";
 
+        // The interaction associations the drift check reads as intent facts (Drift/DriftModel.cs), drawn from a
+        // Command, Query, Service Operation or event handler subscription to what it acts on.
+
+        /// <summary>"Create Entity Action" association type (Intent.Modelers.Services.DomainInteractions).</summary>
+        public const string CreateEntityActionTypeId = "7a3f0474-3cf8-4249-baac-8c07c49465e0";
+
+        /// <summary>"Update Entity Action" association type (Intent.Modelers.Services.DomainInteractions).</summary>
+        public const string UpdateEntityActionTypeId = "9ea0382a-4617-412a-a8c8-af987bbce226";
+
+        /// <summary>"Delete Entity Action" association type (Intent.Modelers.Services.DomainInteractions).</summary>
+        public const string DeleteEntityActionTypeId = "bfc823fb-60ab-451d-ba62-12671fe7e28e";
+
+        /// <summary>"Query Entity Action" association type (Intent.Modelers.Services.DomainInteractions).</summary>
+        public const string QueryEntityActionTypeId = "47ab5888-a258-4bec-a9fc-a83de69eb79d";
+
+        /// <summary>
+        /// "Perform Invocation" association type (Intent.Modelers.Services). Intent.Modelers.Services.DomainInteractions
+        /// calls the same type "Call Service Operation", its earlier name.
+        /// </summary>
+        public const string PerformInvocationTypeId = "3e69085c-fa2f-44bd-93eb-41075fd472f8";
+
+        /// <summary>"Publish Integration Event" association type (Intent.Modelers.Services.EventInteractions).</summary>
+        public const string PublishIntegrationEventTypeId = "580b6b26-eab5-4602-a408-e76e2d292d2c";
+
+        /// <summary>"Send Integration Command" association type (Intent.Modelers.Services.EventInteractions).</summary>
+        public const string SendIntegrationCommandTypeId = "389a7478-a8f1-4acc-adff-a73ce4aa7e6d";
+
+        // The subscriptions an event handler's interactions are drawn from: the association's target end, under the handler.
+
+        /// <summary>"Subscribe Integration Event" association type, from an Integration Event Handler (Intent.Modelers.Services.EventInteractions).</summary>
+        public const string SubscribeIntegrationEventTypeId = "80aa7f6d-64e5-4d24-a81e-6bc212925ca7";
+
+        /// <summary>"Subscribe Integration Command" association type, from an Integration Event Handler (Intent.Modelers.Services.EventInteractions).</summary>
+        public const string SubscribeIntegrationCommandTypeId = "f485e4aa-a032-4b9a-aa85-5d2c62d75799";
+
+        /// <summary>"Domain Event Handler Association" type, from a Domain Event Handler (Intent.Modelers.Domain.Events).</summary>
+        public const string DomainEventHandlerAssociationTypeId = "90831494-f069-44eb-b488-ab2dba7518ea";
+
 
         /// <summary>This module's shared "File Config" stereotype for every optional modeler element above.</summary>
         public const string FileConfigStereotypeId = "a8268032-90eb-4ec9-9bf7-5ab5aa60886f";

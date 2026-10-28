@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Domain.Guardrails.Contracts</id>
-  <version>1.0.0-pre.2</version>
+  <version>1.0.0-pre.3</version>
   <supportedClientVersions>[5.4.0-beta.6,6.0.0)</supportedClientVersions>
   <summary>Guards Domain designer elements (entities, enums, value objects, repositories, data contracts, domain services) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</summary>
   <description>Guards Domain designer elements (entities, enums, value objects, repositories, data contracts, domain services) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</description>
@@ -30,6 +30,10 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Guardrails.Contracts.Domain.DomainEvent</role>
+      <location></location>
+    </template>
+    <template id="Intent.Domain.Guardrails.Contracts.DomainEventsRecipeGuide" externalReference="38b6a3a4-d2b3-4796-8f40-d3425f2bddf1">
+      <role>AI.Context.Skills</role>
       <location></location>
     </template>
     <template id="Intent.Domain.Guardrails.Contracts.DomainServiceContract" externalReference="c341668d-9c46-4929-b2a3-c151e3e0f157">
