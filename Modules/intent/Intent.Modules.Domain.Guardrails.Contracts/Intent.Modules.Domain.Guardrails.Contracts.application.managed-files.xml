@@ -28,7 +28,7 @@
   <file path="Templates/DomainEventContract/DomainEventContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/DomainServiceContract/DomainServiceContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/DomainServiceContract/DomainServiceContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
-  <file path="Templates/DriftReport/DriftReportTemplatePartial.cs" deviationsHash="A5269F9E0D2B38798336EB1381EA6208E3E35A9319E3BCC9B92FFEA88EA6F60B" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/DriftReport/DriftReportTemplatePartial.cs" deviationsHash="6FFE76192DD7D5DFDAC4BB137145E908F56BD6F29D1AAAA27A0297DF5B2BC506" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/DriftReport/DriftReportTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/EfCoreRecipeGuide/EfCoreRecipeGuideTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/EfCoreRecipeGuide/EfCoreRecipeGuideTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />

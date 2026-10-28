@@ -55,7 +55,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             Directory.CreateDirectory(Path.Combine(_root, "src", "Domain"));
             Directory.CreateDirectory(Path.Combine(_root, "src", "Infrastructure"));
             File.WriteAllText(Path.Combine(_root, "guardrails", "domain.drift.json"), Recipe);
-            File.WriteAllText(Path.Combine(_root, "src", "Domain", "OrderStatus.cs"), "namespace Acme.Domain\n{\n    public enum OrderStatus\n    {\n        Open\n    }\n}\n");
+            // The code lacks the modelled Closed, which the Software Factory is adding, and has Archived, which isn't modelled.
+            File.WriteAllText(Path.Combine(_root, "src", "Domain", "OrderStatus.cs"), "namespace Acme.Domain\n{\n    public enum OrderStatus\n    {\n        Open,\n        Archived\n    }\n}\n");
             File.WriteAllText(Path.Combine(_root, "src", "Infrastructure", "AppDbContext.cs"), "class AppDbContext\n{\n    void OnModelCreating(ModelBuilder modelBuilder)\n    {\n        modelBuilder.Entity<Order>(e => e.ToTable(\"Order\"));\n    }\n}\n");
             Logging.SetTracing(_tracing);
         }
@@ -83,7 +84,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 | Model element | Code file | Drift |
                 | --- | --- | --- |
                 | <ModelRef application="Acme" elementId="Class:Order" designer="Domain" /> | <FileRef path="src/Infrastructure/AppDbContext.cs" line={5} /> | `Order` table name: model `Orders`, code `Order` |
-                | `OrderStatus.Closed` | <FileRef path="src/Domain/OrderStatus.cs" /> | `OrderStatus.Closed` (literal) is modelled, but not in the code |
+                | `OrderStatus` | <FileRef path="src/Domain/OrderStatus.cs" line={6} /> | `OrderStatus.Archived` (public literal) isn't modelled |
 
                 """.ReplaceLineEndings("\n"));
             enumTemplate.CSharpFile.ToString().ShouldContain("Closed");
@@ -97,7 +98,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
             // The model as of this run, for the next run on this machine, beside the report.
             var baseline = ModelBaseline.Parse(File.ReadAllText(Path.Combine(Path.GetDirectoryName(ReportPath), "Domain.model.json")));
-            baseline.Aspects.Keys.ShouldContain("OrderStatus.Closed");
+            baseline.Aspects.Keys.ShouldContain("OrderStatus.Open");
         }
 
         [Fact]
@@ -116,7 +117,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         [Fact]
         public void A_drift_with_no_model_element_is_a_friendly_error()
         {
-            // Only the enum literal the code lacks, whose row names no model element.
+            // Only the enum literal the model lacks, whose row names no model element.
             File.WriteAllText(Path.Combine(_root, "src", "Infrastructure", "AppDbContext.cs"), "class AppDbContext\n{\n    void OnModelCreating(ModelBuilder modelBuilder)\n    {\n        modelBuilder.Entity<Order>(e => e.ToTable(\"Orders\"));\n    }\n}\n");
             var (report, _) = Build();
 

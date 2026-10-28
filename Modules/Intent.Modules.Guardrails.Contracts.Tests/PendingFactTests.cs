@@ -53,9 +53,6 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         private const string GetMill = "public IActionResult GetMill(int id) { }";
         private const string Ping = "public IActionResult Ping() { }";
 
-        /// <summary>When every baseline in these tests was saved. The code was last written before it.</summary>
-        private static readonly DateTime SavedAt = new(2026, 10, 21, 9, 0, 0, DateTimeKind.Utc);
-
         private static readonly Dictionary<string, string> Ids = new()
         {
             ["MillsController"] = "mills-id",
@@ -131,12 +128,11 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 Designer = "Services",
                 RecipePath = "guardrails/services.drift.json",
                 RecipeJson = Recipe,
-                Code = new CodeFiles(files, files.Keys.ToDictionary(x => x, _ => SavedAt.AddHours(-1))),
+                Code = new CodeFiles(files),
                 Facts = facts,
                 Generated = model == null ? Array.Empty<GeneratedFile>() : new[] { new GeneratedFile { RelativePath = Path, Text = model, ElementIds = Ids } },
                 Application = "Acme",
-                Baseline = baseline,
-                BaselineSavedAt = baseline == null ? null : SavedAt
+                Baseline = baseline
             });
         }
 

@@ -137,8 +137,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.DriftReport
                     Generated = generated,
                     OutputPaths = templates.Select(x => code.ToRelative(x.GetMetadata().GetFilePath())).ToList(),
                     Application = config.Name,
-                    Baseline = File.Exists(baselinePath) ? ModelBaseline.Parse(File.ReadAllText(baselinePath)) : null,
-                    BaselineSavedAt = File.Exists(baselinePath) ? File.GetLastWriteTimeUtc(baselinePath) : null
+                    Baseline = File.Exists(baselinePath) ? ModelBaseline.Parse(File.ReadAllText(baselinePath)) : null
                 });
                 SaveMemory(baselinePath);
             }

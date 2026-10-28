@@ -26,7 +26,7 @@
   <file path="Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/DomainEventHandlerContract/DomainEventHandlerContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/DomainEventHandlerContract/DomainEventHandlerContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
-  <file path="Templates/DriftReport/DriftReportTemplatePartial.cs" deviationsHash="FBE6F6E70D0DFD94788EB74FB78D8C341A18D508EE66C5AC1F1E6ECB6CF3CA49" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/DriftReport/DriftReportTemplatePartial.cs" deviationsHash="04AC5337C139EC5AF98E06CB62C6099D432608F7E9AB8E383A3804B07DF74FFC" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/DriftReport/DriftReportTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/DtoContract/DtoContractTemplatePartial.cs" deviationsHash="258D86DD548506C3C0C873412669A420FB5E405FEEA9B8A6798EB468974E46D3" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/DtoContract/DtoContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />

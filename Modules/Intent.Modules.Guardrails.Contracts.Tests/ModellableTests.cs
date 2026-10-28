@@ -178,9 +178,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
             Compare(generated, "namespace Ordering.API\n{\n    public record OrderDraftDTO(decimal Total);\n}\n", "OrderDraftDTO", RecordDto).WrongLines.ShouldBe(new[]
             {
-                "`OrderDraftDTO.Total` (property): modelled, not in the code. Expected in `src/Ordering.cs`",
                 "`OrderDraftDTO` parameters: model (none), code `(decimal Total)`. Location: `src/Ordering.cs:3`"
-            }, ignoreOrder: true);
+            });
         }
 
         [Fact]

@@ -20,9 +20,6 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
         public string RelativePath { get; init; }
         public string Text { get; init; }
 
-        /// <summary>When the file was last written, in UTC; <see cref="DateTime.MinValue"/> for a file held in memory without one.</summary>
-        public DateTime LastWriteTime { get; init; }
-
         /// <summary>The parsed file, or <see langword="null"/> when it isn't C#.</summary>
         public CompilationUnitSyntax Syntax { get; init; }
 
@@ -68,7 +65,6 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
 
         private readonly Dictionary<string, CodeFile> _files = new(StringComparer.OrdinalIgnoreCase);
         private readonly IReadOnlyDictionary<string, string> _inMemory;
-        private readonly IReadOnlyDictionary<string, DateTime> _lastWriteTimes;
         private readonly CodeFiles _base;
         private readonly IReadOnlyDictionary<string, string> _changed;
         private IReadOnlyList<string> _all;
@@ -78,12 +74,11 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
             Root = Path.GetFullPath(root);
         }
 
-        /// <summary>Files held in memory, keyed by relative path, instead of a folder on disk, with when each was last written, in UTC.</summary>
-        public CodeFiles(IReadOnlyDictionary<string, string> files, IReadOnlyDictionary<string, DateTime> lastWriteTimes = null)
+        /// <summary>Files held in memory, keyed by relative path, instead of a folder on disk.</summary>
+        public CodeFiles(IReadOnlyDictionary<string, string> files)
         {
             Root = Path.GetFullPath(Path.Combine(Path.GetTempPath(), "in-memory-codebase"));
             _inMemory = files.ToDictionary(x => Normalize(x.Key), x => x.Value, StringComparer.OrdinalIgnoreCase);
-            _lastWriteTimes = lastWriteTimes?.ToDictionary(x => Normalize(x.Key), x => x.Value, StringComparer.OrdinalIgnoreCase);
         }
 
         private CodeFiles(CodeFiles @base, IReadOnlyDictionary<string, string> changed)
@@ -129,23 +124,16 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
                 return _base.Get(relativePath);
             }
 
-            var lastWriteTime = DateTime.MinValue;
-            if (_base != null)
-            {
-                lastWriteTime = _base.Get(relativePath)?.LastWriteTime ?? DateTime.MinValue;
-            }
-            else if (_inMemory != null)
+            if (_base == null && _inMemory != null)
             {
                 _inMemory.TryGetValue(relativePath, out text);
-                _lastWriteTimes?.TryGetValue(relativePath, out lastWriteTime);
             }
-            else
+            else if (_base == null)
             {
                 var fullPath = Path.GetFullPath(Path.Combine(Root, relativePath));
                 if (File.Exists(fullPath))
                 {
                     text = File.ReadAllText(fullPath);
-                    lastWriteTime = File.GetLastWriteTimeUtc(fullPath);
                 }
             }
 
@@ -155,7 +143,6 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
                 {
                     RelativePath = relativePath,
                     Text = text,
-                    LastWriteTime = lastWriteTime,
                     Syntax = IsCSharp(relativePath)
                     ? (CompilationUnitSyntax)CSharpSyntaxTree.ParseText(text, ParseOptions, relativePath).GetRoot()
                     : null

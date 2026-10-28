@@ -144,31 +144,26 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         }
 
         [Fact]
-        public void A_modelled_member_or_type_missing_from_the_code_is_reported()
+        public void A_modelled_member_or_type_missing_from_the_code_is_left_to_the_Software_Factory()
         {
+            // The Software Factory writes it, and its Changes pane shows that (user decision, 2026-10-28).
             var report = Compare(OnDisk
                 .Replace("        protected string Notes { get; set; }\n", string.Empty)
                 .Replace("        protected string Notes { get; set; }\r\n", string.Empty)
                 .Replace("enum OrderStatus", "enum OrderState"));
 
-            report.Wrong(DriftSection.Missing).ShouldBe(new[]
-            {
-                "`Order.Notes` (property): modelled, not in the code. Expected in `src/Domain/Order.cs`",
-                "`OrderStatus` (enum): modelled, not in `src/Domain/Order.cs`"
-            });
+            report.Wrong(DriftSection.Missing).ShouldBeEmpty();
+            report.PendingCount.ShouldBe(2);
         }
 
         [Fact]
-        public void A_file_that_does_not_exist_yet_is_reported_as_missing()
+        public void A_file_that_does_not_exist_yet_is_left_to_the_Software_Factory()
         {
             var report = Check("Domain", "{}", new List<ModelFact>(), new Dictionary<string, string>(),
                 new[] { new GeneratedFile { RelativePath = Path, Text = Generated } });
 
-            report.Wrong(DriftSection.Missing).ShouldBe(new[]
-            {
-                "`OrderStatus` (enum): modelled, not in `src/Domain/Order.cs`",
-                "`Order` (class): modelled, not in `src/Domain/Order.cs`"
-            });
+            report.WrongLines.ShouldBeEmpty();
+            report.PendingCount.ShouldBe(2);
         }
 
         [Fact]

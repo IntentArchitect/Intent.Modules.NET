@@ -406,15 +406,11 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
         /// <summary>The application's name, for the report's links to model elements; none when <see langword="null"/>.</summary>
         public string Application { get; init; }
 
-        /// <summary>The model as of the last run on this machine, or <see langword="null"/> when there is none (nothing is skipped).</summary>
-        public ModelBaseline Baseline { get; init; }
-
         /// <summary>
-        /// When <see cref="Baseline"/> was saved, in UTC. Something the model has that neither the baseline nor the code has
-        /// is only left to the Software Factory when its file hasn't been written since; when this is <see langword="null"/>,
-        /// it never is.
+        /// The model as of the last run on this machine, or <see langword="null"/> when there is none: then only what the
+        /// code lacks is left to the Software Factory.
         /// </summary>
-        public DateTime? BaselineSavedAt { get; init; }
+        public ModelBaseline Baseline { get; init; }
     }
 
     /// <summary>
@@ -556,10 +552,11 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
                 new DriftRow(null, Array.Empty<string>(), owned.Hit.File.RelativePath, owned.Hit.Line, $"{own.Kind} `{owned.Name}` isn't modelled")));
 
         /// <summary>
-        /// Splits the structure lines into those to report and those the Software Factory is applying. A difference is
-        /// left until the code agrees only when the model changed it since the model and the code last agreed (or added
-        /// it since) and the code is exactly as it was then: applying it overwrites nothing. A difference the code made is
-        /// reported, and so is one where both changed. Without a baseline nothing is skipped. Returns the next baseline.
+        /// Splits the structure lines into those to report and those the Software Factory is applying. A type or member the
+        /// code lacks is always left to it. Any other difference is left until the code agrees only when the model changed
+        /// it since the model and the code last agreed and the code is exactly as it was then: applying it overwrites
+        /// nothing. A difference the code made is reported, and so is one where both changed. Without a baseline, only what
+        /// the code lacks is skipped. Returns the next baseline.
         /// </summary>
         private static (List<Finding> Report, PendingChanges Pending, ModelBaseline Baseline) ApplyBaseline(StructureResult structure, DriftCheckInput input)
         {
@@ -601,15 +598,16 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
                     (key, before) = (old.Key, old.Value);
                 }
 
-                // Not in the baseline and not in the code: the model added it since, unless its file has been written since
-                // the baseline was saved. Then the code may have deleted it after both gained it (a pull, a branch switch)
-                // on a machine whose baseline predates it, so it is reported.
-                var codeUnchanged = code == null ? before == null && !WrittenSince(differences[0].File, input) : before?.Code == code.Fingerprint;
+                // Something the model has and the code doesn't is always the Software Factory's to write, and its Changes
+                // pane already shows it: whether the model added it or the code removed it, whether or not it's applied, and
+                // with or without a baseline (user decision, 2026-10-28).
+                var added = differences.FirstOrDefault(x => x.Section == DriftSection.Missing);
+                var codeUnchanged = code != null && before?.Code == code.Fingerprint;
                 var modelChanged = before == null ? model != null : before.Model != null && before.Model != model;
-                if (previous != null && codeUnchanged && modelChanged)
+                if (added != null || previous != null && codeUnchanged && modelChanged)
                 {
                     pending.Add(differences);
-                    if (differences.FirstOrDefault(x => x.Section == DriftSection.Missing) is { } added)
+                    if (added != null)
                     {
                         pending.Additions.Add(new PendingAddition(aspect, added.File, added.OwnElementId));
                     }
@@ -661,16 +659,6 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
             var prefix = aspect[..(signature + 1)];
             var old = previous.Aspects.Where(x => x.Key.StartsWith(prefix, StringComparison.Ordinal) && !model.ContainsKey(x.Key) && !codeKeys.Contains(x.Key)).Take(2).ToList();
             return old.Count == 1 ? old[0] : null;
-        }
-
-        /// <summary>
-        /// Whether a code file may have changed since the baseline was saved: it exists, and was written since then or
-        /// it isn't known when that was.
-        /// </summary>
-        private static bool WrittenSince(string path, DriftCheckInput input)
-        {
-            var file = path == null ? null : input.Code.Get(path);
-            return file != null && (input.BaselineSavedAt is not { } saved || file.LastWriteTime > saved);
         }
 
         /// <summary>

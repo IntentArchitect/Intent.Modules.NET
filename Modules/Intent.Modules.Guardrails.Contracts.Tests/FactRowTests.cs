@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Intent.Modules.Domain.Guardrails.Contracts.Drift;
 using Shouldly;
@@ -73,8 +72,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 Facts = facts,
                 Generated = new[] { new GeneratedFile { RelativePath = "src/Order.cs", Text = model, ElementIds = Ids } },
                 Application = "Acme",
-                Baseline = baseline,
-                BaselineSavedAt = baseline == null ? null : DateTime.UtcNow
+                Baseline = baseline
             });
         }
 
@@ -92,6 +90,11 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             staging.PendingCount.ShouldBe(1);
             staging.WrongLines.ShouldBe(new[] { required });
             staging.PendingMessage().ShouldEndWith("until the changes are applied.");
+
+            // The same with no memory (a machine's first run, or CI), and when the model removed it and added it back.
+            Run(model, before, baseline: null, new[] { TestRequired }).WrongLines.ShouldBe(new[] { required });
+            var removing = Run(before, model, Run(model, model, baseline: null, new List<ModelFact>()).Baseline, new List<ModelFact>());
+            Run(model, before, removing.Baseline, new[] { TestRequired }).WrongLines.ShouldBe(new[] { required });
 
             // Applied: the same gap, until the code is fixed.
             Run(model, model, staging.Baseline, new[] { TestRequired }).WrongLines.ShouldBe(new[] { required });
