@@ -92,6 +92,10 @@
       <role>Guardrails.Contracts.Services.IntegrationEventHandler</role>
       <location></location>
     </template>
+    <template id="Intent.Services.Guardrails.Contracts.IntentDriftReference" externalReference="f99fe1b0-5515-481c-8ff1-e66e98e9d5bc">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Services.Guardrails.Contracts.MinimalApisRecipeGuide" externalReference="594cec49-54ac-4cab-873b-7741562d0ae0">
       <role>AI.Context.Skills</role>
       <location></location>

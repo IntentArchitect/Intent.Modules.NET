@@ -68,6 +68,10 @@
       <role>Guardrails.Contracts.Domain.Enum</role>
       <location></location>
     </template>
+    <template id="Intent.Domain.Guardrails.Contracts.IntentDriftReference" externalReference="0ef9eefd-24c2-475f-ba23-5c50d961d9bb">
+      <role>AI.Context.Skills</role>
+      <location></location>
+    </template>
     <template id="Intent.Domain.Guardrails.Contracts.ModelSyncRule" externalReference="1fc2b4af-d77e-41b2-918d-c185f6a88e2b">
       <role>AI.Context.Instructions</role>
       <location></location>

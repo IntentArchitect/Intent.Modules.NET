@@ -49,8 +49,8 @@ For example:
 
 The module also generates four files for AI agents, when Intent.Domain.Guardrails.Contracts isn't installed (otherwise that module writes them):
 
-- `guardrails-model-sync.md` into the application's rules folder (the `AI.Context.Instructions` output): an always-on rule to update the model in the same change as the code, run the Software Factory and resolve the drift it reports.
-- `skills/sync-model/SKILL.md` (the `AI.Context.Skills` output): the `/sync-model` skill, which resolves each Wrong line by updating the model, the code, a recipe or the exceptions.
+- `guardrails-model-sync.md` into the application's rules folder (the `AI.Context.Instructions` output): an always-on rule to update the model in the same change as the code, including the interactions the check never reports when the code gains one, run the Software Factory and resolve the drift it reports.
+- `skills/sync-model/SKILL.md` (the `AI.Context.Skills` output): the `/sync-model` skill, which resolves each drift row by updating the model, the code, a recipe or the exceptions. Beside it, `skills/sync-model/references/intent-drift.md` says how to resolve a row about a modelled interaction, such as an event a handler publishes: whether the code stopped doing it, does it somewhere else, or does it in a form the recipe doesn't read.
 - `skills/configure-drift-check/SKILL.md`: the `/configure-drift-check` skill, which writes and extends the recipe files for whatever technology the code uses, starting from a technology guide where there is one.
 - `skills/validate-drift-recipes/SKILL.md`: the `/validate-drift-recipes` skill, which runs each designer's ValidateDriftRecipes module task and checks what each recipe reads against the code.
 

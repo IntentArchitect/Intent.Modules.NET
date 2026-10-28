@@ -44,6 +44,8 @@
   <file path="Templates/IntegrationEventContract/IntegrationEventContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/IntegrationEventHandlerContract/IntegrationEventHandlerContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/IntegrationEventHandlerContract/IntegrationEventHandlerContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/IntentDriftReference/IntentDriftReferenceTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/IntentDriftReference/IntentDriftReferenceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/MinimalApisRecipeGuide/MinimalApisRecipeGuideTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/MinimalApisRecipeGuide/MinimalApisRecipeGuideTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/ModelSyncRule/ModelSyncRuleTemplatePartial.cs" deviationsHash="45B23CD2E3C4880EC986027A65C25CA4FBC62B0611E64CAB6C4ACA156CF20CB1" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />

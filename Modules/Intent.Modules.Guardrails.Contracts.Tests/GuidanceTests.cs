@@ -197,6 +197,55 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         }
 
         [Fact]
+        public void The_intent_drift_reference_is_written_beside_the_sync_model_skill_which_points_its_intent_rows_at_it()
+        {
+            var context = Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts");
+            var outputTarget = Substitute.For<IOutputTarget>();
+            outputTarget.ExecutionContext.Returns(context);
+            outputTarget.Metadata.Returns(new Dictionary<string, object>());
+
+            foreach (var template in new MarkdownBaseTemplate<object>[]
+            {
+                new Domain.Guardrails.Contracts.Templates.IntentDriftReference.IntentDriftReferenceTemplate(outputTarget),
+                new Services.Guardrails.Contracts.Templates.IntentDriftReference.IntentDriftReferenceTemplate(outputTarget)
+            })
+            {
+                var config = template.GetTemplateFileConfig();
+                config.FileName.ShouldBe("intent-drift");
+                config.FileExtension.ShouldBe("md");
+                config.LocationInProject.Replace('\\', '/').ShouldBe("sync-model/references");
+                template.MarkdownFile.ToString().Replace("\r\n", "\n").ShouldBe(Render(ModelSyncGuidance.IntentDrift(context)));
+            }
+
+            var skill = Render(ModelSyncGuidance.Skill(context));
+            skill.ShouldContain("\n| `<element>` *raises*, *creates*, *updates*, *deletes*, *queries*, *invokes*, *publishes*, *sends*: model `…`, code (none) (…), or can't be verified | ");
+            skill.ShouldContain("follow [references/intent-drift.md](references/intent-drift.md) before changing either side |\n| `<element>` *fact*: model `…`, code `…` |");
+
+            var reference = Render(ModelSyncGuidance.IntentDrift(context));
+            reference.ShouldStartWith("# Resolving intent drift\n\nAn intent row (*raises*, *creates*, *updates*, *deletes*, *queries*, *invokes*, *publishes*, *sends*) is about one association the model gives an element: a `Domain Event Origin`, from a constructor or operation to a Domain Event it raises; an entity action");
+            reference.ShouldContain("modelling that element first if the model doesn't have it. If this element now calls that one (sends its Command, calls its Service operation), add a `Perform Invocation` to it too. The next run checks it there, which confirms the move |\n");
+            reference.ShouldContain("such as a domain event a constructor or operation starts raising, or something a handler starts doing (an entity it acts on, a call, an event it publishes or a command it sends). When the work moved");
+
+            var domainOnly = Render(ModelSyncGuidance.IntentDrift(Context("Intent.Domain.Guardrails.Contracts")));
+            domainOnly.ShouldContain("An intent row (*raises*) is about one association the model gives an element: a `Domain Event Origin`, from a constructor or operation to a Domain Event it raises. It says");
+            domainOnly.ShouldContain("modelling that element first if the model doesn't have it. The next run checks it there");
+            domainOnly.ShouldNotContain("Perform Invocation");
+            domainOnly.ShouldNotContain("handler starts doing");
+        }
+
+        [Fact]
+        public void The_rule_says_a_new_interaction_is_never_reported()
+        {
+            var both = Render(ModelSyncGuidance.Rule(Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts")));
+            both.ShouldContain("| Its entity actions, `Perform Invocation`, `Publish Integration Event` and `Send Integration Command` |\n\nThe check reports a modelled interaction the code no longer performs, but never a new one, such as a domain event a constructor or operation starts raising, or something a handler starts doing (an entity it acts on, a call, an event it publishes or a command it sends): add it to the model as you write the code.\n\n## The Software Factory checks it");
+            both.ShouldContain("1. Check that the model shows what the code you changed now does, including anything new it does: nothing reports that.\n2. Save every designer");
+
+            var servicesOnly = Render(ModelSyncGuidance.Rule(Context("Intent.Services.Guardrails.Contracts")));
+            servicesOnly.ShouldContain("but never a new one, such as something a handler starts doing (an entity it acts on, a call, an event it publishes or a command it sends): add it");
+            servicesOnly.ShouldNotContain("Domain Event Origin");
+        }
+
+        [Fact]
         public void No_guidance_mentions_the_recipe_check_table_any_more()
         {
             var context = Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts");
