@@ -71,15 +71,16 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             Operation(FactKinds.Security, "OrdersController", "Create", "Unsecured")
         };
 
-        private static RecipeValidation Validate(string recipe, IReadOnlyList<ModelFact> facts, IReadOnlyDictionary<string, string> code = null)
+        private static RecipeValidation Validate(string recipe, IReadOnlyList<ModelFact> facts, IReadOnlyDictionary<string, string> code = null, RecipeFilter filter = null, string designer = FactKinds.Services)
         {
             return RecipeValidation.Run(new RecipeValidationInput
             {
-                Designer = "Services",
-                RecipePath = "guardrails/services.drift.json",
+                Designer = designer,
+                RecipePath = $"guardrails/{designer.ToLowerInvariant()}.drift.json",
                 RecipeJson = recipe,
                 Code = new CodeFiles(code ?? Code),
-                Facts = facts
+                Facts = facts,
+                Filter = filter
             });
         }
 
@@ -94,6 +95,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             validation.RecipeFileExists.ShouldBeTrue();
             validation.Problems.ShouldBeEmpty();
             validation.ProbeWarnings.ShouldBeEmpty();
+            // Each action's own attributes, and the controller's [Authorize] inherited by both actions.
+            validation.WrongElementWarnings.ShouldBeEmpty();
             var route = Kind(validation, FactKinds.OperationRoute);
             route.Facts.ShouldBe(2);
             route.ReadFromCode.Count.ShouldBe(1);
@@ -181,6 +184,104 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 "OrdersController.Create (src/Api/OrdersController.cs:9)",
                 "OrdersController.Ping (src/Api/OrdersController.cs:13)"
             });
+        }
+
+        [Fact]
+        public void A_fact_read_from_code_that_names_another_element_and_not_its_own_is_warned_about()
+        {
+            var code = new Dictionary<string, string>
+            {
+                ["src/AppDbContext.cs"] = """
+                class AppDbContext
+                {
+                    void OnModelCreating(ModelBuilder modelBuilder)
+                    {
+                        modelBuilder.HasDefaultSchema("dbo");
+                        modelBuilder.Entity<Order>(e =>
+                        {
+                            e.Property(x => x.Reference).HasMaxLength(20);
+                            e.Property(x => x.Notes).HasMaxLength(500);
+                            e.Property(x => x.Status);
+                        });
+                        modelBuilder.Entity<Customer>(e => e.Property(x => x.Name).HasMaxLength(100));
+                    }
+                }
+                """
+            };
+            var facts = new List<ModelFact>
+            {
+                Column(FactKinds.ColumnMaxLength, "Order", "Reference", "20"),
+                Column(FactKinds.ColumnMaxLength, "Order", "Notes", "500"),
+                Column(FactKinds.ColumnMaxLength, "Order", "Status", ""),
+                Column(FactKinds.ColumnMaxLength, "Customer", "Name", "100"),
+                Table(FactKinds.TableSchema, "Order", "dbo"),
+                Table(FactKinds.TableSchema, "Customer", "dbo")
+            };
+            // The configure-drift-check example finds each attribute's own chain. Without that, the case reads the first
+            // HasMaxLength in the class's configuration for every attribute: Reference's, for Notes and for Status, which has
+            // none of its own. The schema is one global setting that names no class, so sharing it is fine.
+            const string recipe = """
+            {
+              "files": "src/**/*.cs",
+              "facts": {
+                "column.maxLength": {
+                  "find": "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+                  "read": [{ "match": "HasMaxLength\\((\\d+)\\)" }],
+                  "default": "",
+                  "absent": ""
+                },
+                "table.schema": { "find": "statement:HasDefaultSchema", "read": [{ "match": "HasDefaultSchema\\(\"(\\w+)\"" }] }
+              }
+            }
+            """;
+            var unanchored = recipe.Replace(""" > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)""", "");
+
+            var anchored = Validate(recipe, facts, code, designer: FactKinds.Domain);
+            anchored.Problems.ShouldBeEmpty();
+            anchored.WrongElementWarnings.ShouldBeEmpty();
+            var validation = Validate(unanchored, facts, code, designer: FactKinds.Domain);
+
+            validation.WrongElementWarnings.ShouldBe(new[]
+            {
+                "`column.maxLength` (read case 1): 2 facts read code that names another element and not their own, e.g. `Order.Notes` read `HasMaxLength(20)` at `src/AppDbContext.cs:8`, in code that names `Reference`"
+            });
+            // The probe can't tell: changing Reference's HasMaxLength(20) changes what Notes reads.
+            validation.ProbeWarnings.ShouldBeEmpty();
+        }
+
+        [Fact]
+        public void A_filter_lists_every_reading_it_selects_and_leaves_the_rest_out()
+        {
+            var byFact = Validate(Recipe, Model, filter: RecipeFilter.Of("operation.route", null, null));
+
+            byFact.Facts.Select(x => x.Kind).ShouldBe(new[] { "operation.route" });
+            byFact.Conventions.ShouldBeEmpty();
+            byFact.Readings.ShouldBe(new[]
+            {
+                new ReadingDetail("operation.route", "OrdersController.GetOrder", "{id}", "{id}", "code", false, 1, 1, 0, "[HttpGet(\"{id}\"", "src/Api/OrdersController.cs:6", null, null),
+                new ReadingDetail("operation.route", "OrdersController.Create", "", "", "default", false, 1, null, null, null, "src/Api/OrdersController.cs:9", null, null)
+            });
+
+            // An element selects its own facts and those of the elements it holds; security is inherited from the controller.
+            var byElement = Validate(Recipe, Model, filter: RecipeFilter.Of(null, "OrdersController.GetOrder", null));
+            byElement.Readings.Select(x => (x.Kind, x.From, x.Level, x.Matched)).ShouldBe(new (string, string, int?, string)[]
+            {
+                ("operation.route", "code", 0, "[HttpGet(\"{id}\""),
+                ("operation.verb", "code", 0, "[HttpGet"),
+                ("security", "code", 1, "[Authorize")
+            });
+            Validate(Recipe, Model, filter: RecipeFilter.Of(null, "OrdersController", null)).Readings.Count.ShouldBe(6);
+
+            // A file by its path or the end of it.
+            Validate(Recipe, Model, filter: RecipeFilter.Of(null, null, "OrdersController.cs")).Readings.Count.ShouldBe(6);
+            Validate(Recipe, Model, filter: RecipeFilter.Of(null, null, "src/Api/Other.cs")).Readings.ShouldBeEmpty();
+
+            // Without a filter, no readings; with one, the filter is echoed.
+            JsonDocument.Parse(Validate(Recipe, Model).ToJson()).RootElement.TryGetProperty("readings", out _).ShouldBeFalse();
+            var json = JsonDocument.Parse(byFact.ToJson()).RootElement;
+            json.GetProperty("filter").GetProperty("fact").GetString().ShouldBe("operation.route");
+            json.GetProperty("readings")[0].GetProperty("findPath").GetInt32().ShouldBe(1);
+            RecipeFilter.Of(" ", null, "").ShouldBeNull();
         }
 
         [Fact]

@@ -72,6 +72,26 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             JsonDocument.Parse(Task().Execute("""{ "applicationId": "nope" }""")).RootElement.GetProperty("errorMessage").GetString().ShouldBe("No application has the id nope.");
         }
 
+        [Fact]
+        public void A_fact_element_or_file_narrows_it_to_every_reading_there()
+        {
+            var result = JsonDocument.Parse(Task().Execute(JsonSerializer.Serialize(new { applicationId = Fakes.ApplicationId, fact = "table.name", file = "AppDbContext.cs" }))).RootElement;
+
+            result.GetProperty("filter").GetProperty("file").GetString().ShouldBe("AppDbContext.cs");
+            result.GetProperty("conventions").GetArrayLength().ShouldBe(0);
+            var reading = result.GetProperty("readings").EnumerateArray().Single();
+            (reading.GetProperty("element").GetString(), reading.GetProperty("model").GetString(), reading.GetProperty("code").GetString(), reading.GetProperty("matched").GetString())
+                .ShouldBe(("Order", "Orders", "Order", "ToTable(\"Order\""));
+        }
+
+        [Fact]
+        public void It_returns_an_error_message_for_a_fact_the_designer_does_not_state()
+        {
+            JsonDocument.Parse(Task().Execute(JsonSerializer.Serialize(new { applicationId = Fakes.ApplicationId, fact = "operation.route" }))).RootElement
+                .GetProperty("errorMessage").GetString()
+                .ShouldBe("No Domain fact is called operation.route. They are: table.name, table.schema, table.kind, key, column.name, column.type, column.textType, column.maxLength, column.required, column.precision, column.scale, column.default, relationship.multiplicity, relationship.foreignKey, index.columns, index.unique.");
+        }
+
         private ValidateDriftRecipes Task()
         {
             var package = Package();

@@ -156,6 +156,26 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
 
         public static IReadOnlyList<FactKind> For(string designer) => All.Where(x => x.Designer == designer).ToList();
 
+        /// <summary>
+        /// The placeholders that name the element a fact is about, as opposed to what it belongs to: a column fact's
+        /// attribute rather than its class, an endpoint fact's operation rather than its Service, a relationship's target
+        /// and ends rather than its source. The kind's other placeholders name the element's owner.
+        /// </summary>
+        public static IReadOnlyList<string> OwnPlaceholders(FactKind kind)
+        {
+            foreach (var own in new[] { "Parameter", "Operation", "Attribute", "Index" })
+            {
+                if (kind.Placeholders.Contains(own))
+                {
+                    return new[] { own };
+                }
+            }
+
+            return kind.Placeholders.Contains("SourceEnd")
+                ? new[] { "Target", "SourceEnd", "TargetEnd" }
+                : kind.Placeholders;
+        }
+
         /// <summary>The placeholders an element's own recipe placeholders are documented with.</summary>
         public static string Describe(string placeholder) => placeholder switch
         {

@@ -111,7 +111,12 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             both.ShouldStartWith("---\ndescription: ");
             both.ShouldContain("| Domain | `guardrails/domain.drift.json` | `Intent.Domain.Guardrails.Contracts.ValidateDriftRecipes` |\n| Services | `guardrails/services.drift.json` | `Intent.Services.Guardrails.Contracts.ValidateDriftRecipes` |\n");
             both.ShouldContain("await executeModuleTask(");
-            foreach (var key in new[] { "errorMessage", "recipeFileExists", "problems", "notChecked", "readFromCode", "fromDefault", "fromAbsent", "unverifiable", "contradicted", "readCasesMatchingNothing", "conventions", "found", "samples", "probeWarnings" })
+            foreach (var key in new[]
+            {
+                "errorMessage", "recipeFileExists", "problems", "notChecked", "readFromCode", "fromDefault", "fromAbsent", "unverifiable", "contradicted",
+                "readCasesMatchingNothing", "conventions", "found", "samples", "probeWarnings", "wrongElementWarnings",
+                "fact", "element", "file", "readings", "from", "findPath", "readCase", "level", "matched"
+            })
             {
                 both.ShouldContain($"`{key}`", customMessage: "the skill describes every field the task returns");
             }

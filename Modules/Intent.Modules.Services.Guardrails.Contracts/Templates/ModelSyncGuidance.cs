@@ -105,7 +105,7 @@ Run the Software Factory, or read the reports of the last run. A failing run's e
 | The Drift column says | What to do |
 | --- | --- |
 | Any row ending (the model and the code have both changed since they last agreed) | Each side changed it since they last agreed, so the Software Factory's change would overwrite the code's. Don't apply that change, or touch either side, until you know which is right: a change made in this piece of work, or one the developer asked for, is right; otherwise ask the developer in one `ask_user_question` covering every such row, showing both versions. Then resolve it as its row below says |
-| `<element>` *fact*: model `…`, code `…` | First check the recipe read the code: open the code at the row's location. If it doesn't say what the row says (the value comes from another line, or from the recipe's default where the code does state the fact), the recipe is wrong: load **validate-drift-recipes** to see what it reads for every fact of that kind, fix it with **configure-drift-check**, and touch neither side. Otherwise decide which side is right. A code value followed by a bracket comes from the code saying nothing: the bracket says what's missing and what the technology then does, and the row points at where the code would say it (the entity's configuration, the controller). A change made in this piece of work, or one the developer asked for, is right: update the other side. Otherwise ask the developer in one `ask_user_question` covering every such line, recommending the code where its change looks deliberate. Then update the model, or change the code to match it |
+| `<element>` *fact*: model `…`, code `…` | First check the recipe read the code: open the code at the row's location, or look at the row's element and fact with **validate-drift-recipes** (its §4), which shows the text the value was read from. If it doesn't say what the row says (the value comes from another line, or from the recipe's default where the code does state the fact), the recipe is wrong: look at that fact for every element the same way, fix it with **configure-drift-check**, and touch neither side. Otherwise decide which side is right. A code value followed by a bracket comes from the code saying nothing: the bracket says what's missing and what the technology then does, and the row points at where the code would say it (the entity's configuration, the controller). A change made in this piece of work, or one the developer asked for, is right: update the other side. Otherwise ask the developer in one `ask_user_question` covering every such line, recommending the code where its change looks deliberate. Then update the model, or change the code to match it |
 | `<element>` *fact* can't be verified: … | The recipe couldn't read the fact. Load **configure-drift-check** and fix the recipe until it reads the value. Never change the code so that a recipe can read it, and never make a recipe return a fixed value to get past it. If no recipe can read it (a value built in a helper method, or a line that says the code states it in a form the recipe can't read, such as a route from a constant), tell the developer which facts and why, and leave the model as it is |
 | … isn't modelled | Decide what it is. A concept the model describes (an endpoint, a service operation, a DTO, a business class, an entity, a property of a request, DTO or entity, an entity configuration, an index): model it. Clear helpers and framework plumbing: add an exception. Anything else: ask the developer in one `ask_user_question` listing each item with what you think it is, and offer per item: model it, or add an exception |
 | … is modelled, but not in the code | If you modelled it first (reported only on a machine's first run, or on CI), apply the Software Factory's output (a run with errors leaves it unticked) and run it again. Otherwise the code removed or renamed it. If that was deliberate, update the model (rename the element rather than deleting it and creating another); if not, restore the code. Ask when unsure |
@@ -115,7 +115,7 @@ Never change a recipe to make a contradiction pass: a recipe that reads the code
 
 The **Warnings** table only warns, but resolve it too. **No recipe**: a kind of fact the recipe file doesn't cover, such as one a module upgrade added; load **configure-drift-check** and add its recipe. **Exception matches nothing**: a stale exception; remove it from the recipe file.
 
-When several rows look wrong in the same way, or you changed a recipe, load **validate-drift-recipes**: it shows what each recipe reads and warns about read cases that don't read the code.
+When several rows look wrong in the same way, or you changed a recipe, load **validate-drift-recipes**: it shows what each recipe reads and warns about read cases that don't read the code, or that read another element's.
 
 ## Exceptions
 
@@ -306,7 +306,7 @@ A type or `Type.Member` exception covers that declaration, and a type its member
 
 ## Checking the recipes
 
-A recipe that misreads the code fails loudly (a contradiction the code doesn't bear out) or silently (it agrees with the model by accident). The drift report can't tell which, so check the recipes with **validate-drift-recipes** whenever you write or change them. It reads every fact through its recipe and shows, per kind of fact, where the values came from, with samples to open, and what each convention finds. Its **probe** changes, in memory, the code each read case matched, and warns when the case still reads the same value: that case isn't reading the code it seems to.
+A recipe that misreads the code fails loudly (a contradiction the code doesn't bear out) or silently (it agrees with the model by accident). The drift report can't tell which, so check the recipes with **validate-drift-recipes** whenever you write or change them. It reads every fact through its recipe and shows, per kind of fact, where the values came from, with samples to open, and what each convention finds. Its **probe** changes, in memory, the code each read case matched, and warns when the case still reads the same value: that case isn't reading the code it seems to. It also warns about a read case that reads some facts from code naming another element and not their own, such as another attribute's configuration.
 
 ## Steps
 
@@ -316,13 +316,13 @@ A recipe that misreads the code fails loudly (a contradiction the code doesn't b
 2. **Find how this codebase states each kind of fact**, in whatever technology it uses. Read a few examples of each, such as two controllers and two entity configurations, and look for every style the code uses (some entities configured in `OnModelCreating`, others in `IEntityTypeConfiguration` classes). Give a recipe one `find` path per style. Also find each element type's convention, if it has one (above).
 3. **Write the recipes**, plus an `own` entry for each kind of code the model must describe: every endpoint, every entity configuration, every class map, every index, and one per element type that follows a convention. Give every recipe with a `default` an `unreadable` case for the other forms of the same declaration, such as a route attribute whose template isn't a string literal, and every recipe with a `default` or `absent` an `unstated` that names what's missing and what the technology then does.
 4. **Run the Software Factory** and read the reports, then load **validate-drift-recipes** and run it.
-5. **Fix the recipes until no fact is reported as can't be verified, no kind of fact is warned about as having no recipe, and validate-drift-recipes has no probe warnings and no sample the code doesn't bear out.** A fact that can't be verified is a recipe that doesn't read this code yet: widen its `find`, add a case, or add `default` or `absent` where saying nothing states a value (no `ToTable` means the `DbSet`'s name; no `[Authorize]` means `None`). If no recipe can read a fact (a value built in a helper method, or a form an `unreadable` case reports), list it for the developer; don't change the code or the model.
+5. **Fix the recipes until no fact is reported as can't be verified, no kind of fact is warned about as having no recipe, and validate-drift-recipes has no probe or wrong-element warnings and no sample the code doesn't bear out.** After writing or changing a recipe, look at its fact with validate-drift-recipes §4: every element it covers should read its own code. A fact that can't be verified is a recipe that doesn't read this code yet: widen its `find`, add a case, or add `default` or `absent` where saying nothing states a value (no `ToTable` means the `DbSet`'s name; no `[Authorize]` means `None`). If no recipe can read a fact (a value built in a helper method, or a form an `unreadable` case reports), list it for the developer; don't change the code or the model.
 6. **Check each contradiction against the code before you touch the model.** Open the code at the row's location and confirm that it states what the row says. Several contradictions of one kind with the same code value (every one `code (none)`, say) mean the recipe is misreading the code: fix the recipe, not the model. Then resolve the rest by fixing the model to match the code, never the code. A recipe that reads the code correctly and disagrees with the model has found a modelling slip. Where the code itself looks wrong, list it for the developer; don't change it.
 7. **Resolve the code the model doesn't describe:** model it, or add an exception, asking the developer unless it is clearly a helper. If a convention entry reports many helpers, the convention is wrong: narrow it, or remove it.
 8. **Delete any `guardrails/*.sync.json`.** They belong to the old drift check, and nothing reads them.
 9. **Have the developer approve the model changes.** In one `ask_user_question`, list every model change the setup made, for the developer to approve. Skip this step, and the approval in the exit condition, when an orchestrating skill's **User decision** says so.
 
-**Exit condition:** validate-drift-recipes has no probe warnings and no sample the code doesn't bear out; a Software Factory run reports no drift and no warnings, so it writes no drift report; and the developer has approved the model changes the setup made.
+**Exit condition:** validate-drift-recipes has no probe or wrong-element warnings and no sample the code doesn't bear out; a Software Factory run reports no drift and no warnings, so it writes no drift report; and the developer has approved the model changes the setup made.
 
 ## Examples
 
@@ -564,7 +564,7 @@ A Mongo class map, and a Cosmos container's partition key in its JSON definition
             var tasks = string.Concat(designers.Select(x => $"| {x.Name} | `guardrails/{x.Name.ToLowerInvariant()}.drift.json` | `{x.ModuleId}.ValidateDriftRecipes` |\n"));
             return """
 ---
-description: Check that the Guardrails drift check's recipe files read the code. Runs each Guardrails designer's ValidateDriftRecipes module task, which reads every fact the model states through its recipe and returns what it read, then checks the samples against the code. Use after writing or changing a recipe file, when drift rows look wrong in the same way (contradictions or can't-be-verified facts the code doesn't bear out), or when the developer questions what the drift check reports.
+description: Check that the Guardrails drift check's recipe files read the right code. Runs each Guardrails designer's ValidateDriftRecipes module task, which reads every fact the model states through its recipe and returns what it read, then checks it against the code; or narrows it to one kind of fact, element or code file and lists every reading there. Use after writing or changing a recipe file, when drift rows look wrong in the same way (contradictions or can't-be-verified facts the code doesn't bear out), before changing the model for a contradiction, or when the developer questions what the drift check reports.
 short-description: Check what each drift recipe reads from the code.
 ---
 
@@ -595,19 +595,41 @@ It reads only the recipe file and the code on disk as they are now (save the rec
 - `facts`: per kind of fact, how many facts the model states, and how many were `readFromCode`, `fromDefault`, `fromAbsent`, `unverifiable`, and `contradicted` (the code's value differs from the model's, wherever it came from). Each has up to three `samples`: the `element`, the `model` and `code` values, and the `location` the value was read at, or the place `near` which the code would state it, or the `problem`. `readCasesMatchingNothing` lists the read cases no fact matched.
 - `conventions`: per `own` entry, how much code it `found`, and the first few `samples`, named as the drift report would name them, with their locations.
 - `probeWarnings`: read cases whose reading didn't change when the code they matched was changed in memory: the case isn't reading the code it seems to.
+- `wrongElementWarnings`: read cases that read some facts from code that names another element of the same kind and not their own (another attribute's configuration, another action's attributes): the case takes whichever such code comes first.
 
 ## 3. Check the recipes against the code
 
 Open the code at the samples' locations, and check that each states what its sample says. A recipe is wrong when:
 
 - the probe warns about one of its read cases: make the case's `match` cover the code that states the fact;
+- a wrong-element warning names one of its read cases: tie its `find` or `match` to the element, usually with the element's placeholder (`{Attribute}`, `{Operation}`), so that each fact reads its own code;
 - a sample's value comes from another line, or from `default` or `absent` where the code does state the fact;
 - most of a kind's facts come from `default` or `absent`, or many can't be verified;
 - its `contradicted` facts share one code value (every one `(none)`, say): it misreads the code. A contradiction the code bears out is drift, for **sync-model**, not a recipe fault;
 - a read case matches nothing, when the code does use that form;
 - a convention finds code that isn't of its element type (helpers, base classes), or finds far more or fewer than the model has of that element type.
 
-Fix the recipe file with **configure-drift-check**, then run the task again until none of these is left. The probe proves that a case reads some code, not the right code, and a value from `default` or `absent` has no code to change, so the samples are what show that a recipe reads the right code. Never change the code, or make a recipe return a fixed value, to make a finding go away.
+Fix the recipe file with **configure-drift-check**, then run the task again until none of these is left. The probe proves that a case reads some code, and the wrong-element warnings catch a case that reads a sibling's, but neither proves it reads the right code, and a value from `default` or `absent` has no code to change: the samples, and the readings in §4, are what show that a recipe reads the right code. Never change the code, or make a recipe return a fixed value, to make a finding go away.
+
+## 4. Look at one recipe, element or file
+
+To see everything one recipe reads, or how one element's facts or one file were read, add any of these to the argument:
+
+```js
+return JSON.parse(await executeModuleTask("<task>", JSON.stringify({ applicationId: "<the application's id>", fact: "column.maxLength", element: "Order" })));
+```
+
+- `fact`: a kind of fact, as the recipe file names it. One the designer doesn't state returns an `errorMessage` listing those it does.
+- `element`: an element as the drift report names it. `Order` also selects `Order.Notes`.
+- `file`: a code file's path relative to the codebase, or its end (`AppDbContext.cs`). It selects the facts read there, or that would be stated there.
+
+It returns the same, for those facts only and without `conventions`, plus `readings`: every fact selected, not just samples. Each has its `kind`, `element`, `model` and `code` values, `from` (`code`, `default`, `absent` or `unverifiable`), whether it is `contradicted`, the `findPath` and `readCase` that produced it (counted from 1, as the recipe file lists them), for a value read from the code its `level` (0 for the code its `find` found, 1 or more for code inherited from further out) and the text it `matched`, and its `location`, `near` or `problem`. Use it:
+
+- after adding or changing a recipe, with `fact`, to check that every element it covers reads its own code;
+- before changing the model for a contradiction, with the row's `element` and `fact`, to see the code the value was read from;
+- after a wrong-element warning, with its `fact`, to see which elements read whose code.
+
+A kind of fact with many elements returns many readings, so narrow it with `element` or `file` where you can.
 """;
         }
 

@@ -17,7 +17,7 @@
   <file path="Intent.Domain.Guardrails.Contracts.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Domain.Guardrails.Contracts.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
-  <file path="Tasks/ValidateDriftRecipes.cs" deviationsHash="FD3E540347752ABF624D026D60BD95DB279C5E94604B8A9310FB879EA99670A2" templateId="Intent.ModuleBuilder.Templates.ModuleTask" />
+  <file path="Tasks/ValidateDriftRecipes.cs" deviationsHash="447B2C7A29074E9A52C804DFA517506806B2D2FB1E91D3163C7E6CB91B44D228" templateId="Intent.ModuleBuilder.Templates.ModuleTask" />
   <file path="Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/DomainContract/DomainContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
