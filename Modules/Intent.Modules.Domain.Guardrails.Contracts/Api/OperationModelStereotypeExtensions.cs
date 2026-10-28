@@ -183,6 +183,8 @@ namespace Intent.Domain.Guardrails.Contracts.Api
                             return TaskTypeOptionsEnum.Task;
                         case "ValueTask":
                             return TaskTypeOptionsEnum.ValueTask;
+                        case "void":
+                            return TaskTypeOptionsEnum.Void;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -196,12 +198,17 @@ namespace Intent.Domain.Guardrails.Contracts.Api
                 {
                     return Value == "ValueTask";
                 }
+                public bool IsVoid()
+                {
+                    return Value == "void";
+                }
             }
 
             public enum TaskTypeOptionsEnum
             {
                 Task,
-                ValueTask
+                ValueTask,
+                Void
             }
 
         }

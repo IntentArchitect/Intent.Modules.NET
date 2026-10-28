@@ -33,6 +33,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         private const string AsyncModeSync = "sync";
         private const string TaskTypeTask = "Task";
         private const string TaskTypeValueTask = "ValueTask";
+        private const string TaskTypeVoid = "void";
 
         // Read raw: a stereotype applied before this property existed has no stored value, which must keep "= default".
         private const string CancellationTokenDefaultProperty = "Cancellation Token Default";
@@ -49,7 +50,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             CancellationTokenHasDefault = cancellationTokenHasDefault;
         }
 
-        /// <summary>A Task or ValueTask return type: Async Mode async or no async keyword.</summary>
+        /// <summary>A Task or ValueTask return type: Async Mode async or no async keyword, except Task Type void (async void).</summary>
         public bool IsAwaitable { get; }
 
         /// <summary>The async modifier: Async Mode async.</summary>
@@ -150,19 +151,33 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             }
 
             var taskType = settings.TaskType;
-            bool? asValueTask;
-            if (string.IsNullOrWhiteSpace(taskType))
-            {
-                asValueTask = null;
-            }
-            else if (taskType == TaskTypeTask || taskType == TaskTypeValueTask)
+            bool? asValueTask = null;
+            var isAsyncVoid = taskType == TaskTypeVoid;
+            if (taskType == TaskTypeTask || taskType == TaskTypeValueTask)
             {
                 asValueTask = taskType == TaskTypeValueTask;
             }
-            else
+            else if (isAsyncVoid)
+            {
+                // async void: the async keyword on a method that returns nothing, e.g. an event handler.
+                if (!hasAsyncKeyword)
+                {
+                    throw new ElementException(operation,
+                        $"Operation '{operation.Name}' has an Async Configuration Task Type of void with Async Mode '{mode}'. void writes async void, so it needs Async Mode async. " +
+                        "For a method that returns nothing and isn't declared async, choose Async Mode sync.");
+                }
+
+                if (operation.TypeReference?.Element != null)
+                {
+                    throw new ElementException(operation,
+                        $"Operation '{operation.Name}' has an Async Configuration Task Type of void, but returns {operation.TypeReference.Element.Name}. An async void method returns nothing: " +
+                        "remove the return type, or choose Task or ValueTask.");
+                }
+            }
+            else if (!string.IsNullOrWhiteSpace(taskType))
             {
                 throw new ElementException(operation,
-                    $"Operation '{operation.Name}' has an Async Configuration Task Type of '{taskType}', which isn't valid. Choose Task or ValueTask, or clear it.");
+                    $"Operation '{operation.Name}' has an Async Configuration Task Type of '{taskType}', which isn't valid. Choose Task, ValueTask or void, or clear it.");
             }
 
             var configuredName = settings.CancellationTokenName;
@@ -176,7 +191,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
 
             var hasDefault = !string.Equals(settings.StoredCancellationTokenDefault?.Trim(), "false", StringComparison.OrdinalIgnoreCase);
 
-            return new ContractAsync(isAwaitable: true, hasAsyncKeyword, asValueTask, settings.IncludeCancellationToken, tokenName, hasDefault);
+            return new ContractAsync(isAwaitable: !isAsyncVoid, hasAsyncKeyword, asValueTask, settings.IncludeCancellationToken, tokenName, hasDefault);
         }
 
         /// <summary>
@@ -258,6 +273,12 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             if (HasAsyncKeyword)
             {
                 method.Async(asValueTask: method.ReturnTypeInfo.IsValueTask());
+
+                // Async() wraps a void return type in Task, so async void puts it back.
+                if (!IsAwaitable)
+                {
+                    method.WithReturnType("void");
+                }
             }
         }
 

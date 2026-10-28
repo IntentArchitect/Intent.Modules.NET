@@ -167,7 +167,7 @@ Create one designer `Folder` per code folder **below** the template output (e.g.
   - Linking the raising operation or constructor to the event (the Domain Event Origin association) is optional. It documents intent and generates nothing.
   - Domain Events take the same `File Config` and `Type Configuration` stereotypes (record events are common), and their properties take `Collection Type` and `Property Configuration`.
 - **Comments:** copy XML-doc summaries into element comments where they help.
-- **Constructors and methods:** model only behaviour you need. Unmodelled members survive in Merge mode.
+- **Which members to model:** each type's public members. Model a protected, internal or private member only when it's part of the design (a protected method subclasses override, a private constructor EF Core needs), never just because it exists: helpers and plumbing stay out. The drift check reports an unmodelled member only when it's public, and Merge keeps a member left out as written, so it needs no `[IntentIgnore]`.
 - **Records and primary constructors:** set `Type Configuration` → `Type` to `record` for a record.
   - **Positional record** (`record Money(decimal Amount, string Currency)`, nothing but a parameter list): set `Type` to `positional record`. The attributes, in model order, are the positional parameters, and an attribute's Value is the parameter's default. This works on Class, Value Object, Data Contract and Domain Event.
   - **Primary constructor** (`class OrderService(IOrderRepository repository)`, or a record whose parameter list isn't all of its attributes): model a Constructor with those parameters and apply the **`Primary Constructor`** stereotype. Model it whenever the code has one. At most one per Class, and not together with `positional record`. On a record, attributes named like its parameters aren't declared again; the others stay body properties.
@@ -188,7 +188,7 @@ A sync operation's return type is emitted exactly as modelled, with no token. A 
 The stereotype's properties:
 
 - `Async Mode` (default `async`): `async` is the keyword plus a task return type; `no async keyword` is the same return type and token without the keyword, for a method that returns its task directly; `sync` is the return type exactly as modelled, with no token.
-- `Task Type`: `Task` or `ValueTask`. Empty means `Task`, or `ValueTask` when the return type is modelled as one. An explicit value converts a modelled `Task` / `ValueTask` to the other. Not used for `sync`.
+- `Task Type`: `Task`, `ValueTask` or `void`. Empty means `Task`, or `ValueTask` when the return type is modelled as one. An explicit `Task` or `ValueTask` converts a modelled `Task` / `ValueTask` to the other. `void` writes `async void`, only with `Async Mode = async` and no return type; anything else is an error on the element. Not used for `sync`.
 - `Include Cancellation Token` (default `true`) adds the trailing token parameter. Not used for `sync`.
 - `Cancellation Token Name`: the token's name when the code doesn't call it `cancellationToken`, e.g. `ct`. Empty means `cancellationToken`.
 - `Cancellation Token Default` (default `true`) writes `= default`. Untick it when the code's token has no default.
@@ -206,6 +206,7 @@ Applying the stereotype with its defaults therefore gives the conventional async
 | `async Task<T> LoadAsync(…)` with no `CancellationToken` parameter | `Async Mode = async`, `Include Cancellation Token = false`, return type `T` |
 | `Task<T> FindAsync(…, CancellationToken ct) => _inner.FindAsync(…, ct)`: returns its task without `async` | `Async Mode = no async keyword`, `Cancellation Token Name = ct`, return type `T` |
 | `async ValueTask<T> GetAsync(…, CancellationToken cancellationToken)`: `ValueTask`, and a token with no default | `Async Mode = async`, `Task Type = ValueTask`, `Cancellation Token Default = false`, return type `T` |
+| `async void OnChanged(…)`: `async void`, e.g. an event handler | `Async Mode = async`, `Task Type = void`, `Include Cancellation Token = false`, no return type |
 
 ```js
 const st = op.ensureStereotype("Async Configuration");

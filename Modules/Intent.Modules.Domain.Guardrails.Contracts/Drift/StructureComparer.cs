@@ -125,8 +125,9 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
     /// <summary>
     /// Compares each contract template's output with its file on disk: the types and members the model owns.
     /// Type spellings are compared by meaning (<c>Nullable&lt;int&gt;</c> is <c>int?</c>, <c>System.String</c> is
-    /// <c>string</c>, a qualified name is its last part). Code members the model doesn't describe are reported at
-    /// the access levels the model uses for that kind of member.
+    /// <c>string</c>, a qualified name is its last part). A code member the model doesn't describe is reported only when
+    /// it is public: modelling a protected, internal or private member is a judgement call, so leaving one out is never
+    /// drift. A non-public member that is modelled is compared like any other.
     /// </summary>
     internal static class StructureComparer
     {
@@ -166,7 +167,6 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
                     x.Text,
                     Modellable: x.ModellableTypes ?? new Dictionary<string, Modellable>()))
                 .ToList();
-            var levels = LevelsInPlay(files.SelectMany(x => x.Types));
             generatedTypes.AddOutputFiles((outputPaths ?? Array.Empty<string>()).Select(code.ToRelative).Concat(files.Select(x => x.RelativePath)));
 
             foreach (var (path, types, ids, text, modellable) in files.OrderBy(x => x.RelativePath, StringComparer.Ordinal))
@@ -203,7 +203,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
                     generatedTypes.AddDeclarations(diskTypes);
                     var context = new TypeContext(typeName, disk, ids, findings, codeFingerprints, modellable.GetValueOrDefault(typeName) ?? Modellable.Everything);
                     CompareDeclaration(type, diskTypes, context);
-                    CompareMembers(type, members, diskTypes, context, levels);
+                    CompareMembers(type, members, diskTypes, context);
                 }
             }
 
@@ -347,8 +347,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
             BaseTypeDeclarationSyntax generated,
             IReadOnlyList<Member> modelMembers,
             IReadOnlyList<BaseTypeDeclarationSyntax> disk,
-            TypeContext context,
-            AccessLevels levels)
+            TypeContext context)
         {
             var (typeName, file, findings) = (context.TypeName, context.File, context.Findings);
             var codeMembers = disk.SelectMany(x => Members(x, typeName)).ToList();
@@ -389,15 +388,18 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
 
             // A code member the model doesn't describe is only reported when the element could model it: a DTO's ToString()
             // or a handler's Handle method is nothing its designer can state, and neither is any field, event or indexer.
+            // And only when it is public: whether a protected, internal or private member belongs in the model is a
+            // judgement call, so one left out is never drift.
             var modellable = context.Modellable;
             var typeHasConstructors = modelMembers.Any(x => x.Group == "constructor");
             foreach (var member in codeMembers.Where(x => !matched.Contains(x)))
             {
+                var isPublic = member.Access == CodeLocator.Public;
                 var inPlay = member.Group switch
                 {
-                    "method" => modellable.Methods && levels.Methods.Contains(member.Access),
-                    "property" when member.Kind == "property" => modellable.Properties && levels.Properties.Contains(member.Access),
-                    "constructor" => modellable.Constructors && typeHasConstructors && levels.Constructors.Contains(member.Access),
+                    "method" => modellable.Methods && isPublic,
+                    "property" when member.Kind == "property" => modellable.Properties && isPublic,
+                    "constructor" => modellable.Constructors && typeHasConstructors && isPublic,
                     "literal" => true,
                     _ => false
                 };
@@ -546,28 +548,6 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
             return result;
         }
 
-        private static AccessLevels LevelsInPlay(IEnumerable<BaseTypeDeclarationSyntax> generatedTypes)
-        {
-            var levels = new AccessLevels();
-            foreach (var member in generatedTypes.SelectMany(x => Members(x, CodeLocator.TypePath(x))))
-            {
-                switch (member.Group)
-                {
-                    case "method":
-                        levels.Methods.Add(member.Access);
-                        break;
-                    case "constructor":
-                        levels.Constructors.Add(member.Access);
-                        break;
-                    case "property" when member.Kind == "property":
-                        levels.Properties.Add(member.Access);
-                        break;
-                }
-            }
-
-            return levels;
-        }
-
         private static string KindOf(BaseTypeDeclarationSyntax type) => type switch
         {
             RecordDeclarationSyntax record => record.ClassOrStructKeyword.IsKind(SyntaxKind.StructKeyword) ? "record struct" : "record",
@@ -637,13 +617,6 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
         };
 
         private static string Code(string value) => string.IsNullOrEmpty(value) ? "(none)" : $"`{value}`";
-
-        private sealed class AccessLevels
-        {
-            public HashSet<string> Methods { get; } = new(StringComparer.Ordinal) { CodeLocator.Public };
-            public HashSet<string> Properties { get; } = new(StringComparer.Ordinal) { CodeLocator.Public };
-            public HashSet<string> Constructors { get; } = new(StringComparer.Ordinal) { CodeLocator.Public };
-        }
 
         private sealed class Member
         {

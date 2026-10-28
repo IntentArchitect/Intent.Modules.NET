@@ -172,10 +172,11 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         }
 
         [Fact]
-        public void Unmodelled_members_are_reported_at_the_access_levels_the_model_uses()
+        public void Only_unmodelled_public_members_are_reported()
         {
-            // The model has public and protected methods and properties, and public constructors. A field isn't reported:
-            // no designer models one.
+            // The model has public and protected methods and properties, and public constructors. Only a public member it
+            // doesn't describe is reported: whether a protected, internal or private one belongs in the model is a judgement
+            // call, even where the model has modelled others like it. A field isn't reported: no designer models one.
             var report = Compare(OnDisk
                 .Replace("protected string Notes { get; set; }", """
                 protected string Notes { get; set; }
@@ -193,8 +194,6 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
             report.Wrong(DriftSection.Undescribed).ShouldBe(new[]
             {
-                "`Order.Audit` (protected property): not modelled. Location: `src/Domain/Order.cs:27`",
-                "`Order.Log()` (protected method): not modelled. Location: `src/Domain/Order.cs:31`",
                 "`Order.Order(string)` (public constructor): not modelled. Location: `src/Domain/Order.cs:34`",
                 "`Order.Reference` (public property): not modelled. Location: `src/Domain/Order.cs:26`",
                 "`Order.Ship()` (public method): not modelled. Location: `src/Domain/Order.cs:30`",

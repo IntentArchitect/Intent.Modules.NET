@@ -41,7 +41,7 @@ return ["aee6811e-b2f6-4562-a8eb-502029f63bc8"].indexOf(element.specializationId
       </valueOptions>
     </property>
     <property id="9a2d0802-e9ae-4f1b-a64b-74599d35050a">
-      <hint>Task or ValueTask. Empty means Task, or ValueTask when the return type is modelled as one. An explicit value also converts a return type modelled as Task or ValueTask. Not used when Async Mode is sync.</hint>
+      <hint>Task, ValueTask or void. Empty means Task, or ValueTask when the return type is modelled as one. An explicit Task or ValueTask also converts a return type modelled as Task or ValueTask. void writes async void, e.g. for an event handler: only with Async Mode async, on an operation with no return type. Not used when Async Mode is sync.</hint>
       <name>Task Type</name>
       <type>string</type>
       <controlType>select</controlType>
@@ -49,6 +49,7 @@ return ["aee6811e-b2f6-4562-a8eb-502029f63bc8"].indexOf(element.specializationId
       <valueOptions>
         <option>Task</option>
         <option>ValueTask</option>
+        <option>void</option>
       </valueOptions>
     </property>
     <property id="32bcde4b-4a9c-4da6-a83e-02b644c28cd3">

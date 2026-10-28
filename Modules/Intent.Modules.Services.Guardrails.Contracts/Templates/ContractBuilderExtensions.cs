@@ -275,9 +275,10 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         }
 
         /// <summary>
-        /// A concrete Service Proxy's Operations (raw elements, see <see cref="OptionalModelerMetadata"/>): a public method with
-        /// an empty body for each, name used verbatim, plus the async keyword for Async Mode async. Method modifiers other than
-        /// async aren't modelled for proxies (a documented limitation). Must be called from within a builder callback.
+        /// A concrete Service Proxy's Operations (raw elements, see <see cref="OptionalModelerMetadata"/>): a method with an
+        /// empty body for each, name used verbatim, with the modifiers its Operation Configuration declares (public without
+        /// it), as for a service operation, plus the async keyword for Async Mode async. Must be called from within a builder
+        /// callback.
         /// </summary>
         public static void AddStubbedProxyOperations(this CSharpClass @class, ICSharpTemplate template, IEnumerable<IElement> operations)
         {
@@ -288,7 +289,14 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                 @class.AddMethod(async.GetReturnType(template.GetProxyOperationReturnType(operation), template), operation.Name, method =>
                 {
                     method.RepresentsModel(operation);
-                    method.Public();
+                    var configuration = operation.GetServiceProxyOperationConfiguration();
+                    method.ApplyContractModifiers(operation, configuration?.AccessModifier(),
+                        isStatic: configuration?.Static() == true,
+                        isAbstract: false,
+                        isVirtual: configuration?.Virtual() == true,
+                        isOverride: configuration?.Override() == true,
+                        isSealed: configuration?.Sealed() == true,
+                        isNew: configuration?.New() == true);
                     AddProxyParameters(template, parameters, representsModel: true, (type, name, configure) => method.AddParameter(type, name, configure));
                     async.AddCancellationTokenParameter(method, template);
                     async.ApplyAsyncKeyword(method);
@@ -297,13 +305,21 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         }
 
         /// <summary>
-        /// The same for a Service Proxy whose Type is interface: interface methods have no access modifier and no body, so they
-        /// never get the async keyword; the return type and CancellationToken follow the same async rules.
+        /// The same for a Service Proxy whose Type is interface: interface methods have no modifiers and no body, so they never
+        /// get the async keyword, and an Operation Configuration that declares modifiers is an error; the return type and
+        /// CancellationToken follow the same async rules.
         /// </summary>
         public static void AddStubbedProxyOperations(this CSharpInterface @interface, ICSharpTemplate template, IEnumerable<IElement> operations)
         {
             foreach (var operation in operations)
             {
+                if (operation.GetServiceProxyOperationConfiguration()?.DeclaresModifiers() == true)
+                {
+                    throw new ElementException(operation,
+                        $"Operation '{operation.Name}' has an Operation Configuration that declares modifiers, but its Service Proxy is an interface " +
+                        "(Service Proxy Configuration Type interface), whose methods take none. Remove the Operation Configuration stereotype.");
+                }
+
                 var parameters = operation.GetServiceProxyParameters();
                 var async = ContractAsync.For(operation, operation.GetServiceProxyAsyncConfiguration(), parameters.Select(x => x.Name));
                 @interface.AddMethod(async.GetReturnType(template.GetProxyOperationReturnType(operation), template), operation.Name, method =>
@@ -333,16 +349,17 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         }
 
         /// <summary>
-        /// Each Parameter by name and type, verbatim, with its Collection Type and its Default Value stereotype as the default
-        /// (formatted like a service operation parameter's Value, see <see cref="ContractDefaultValues"/>). Proxy Parameters
-        /// have no Parameter Modifier.
+        /// Each Parameter by name and type, verbatim, with its Collection Type, its Parameter Modifier (see
+        /// <see cref="ContractParameterModifiers"/>), and its Default Value stereotype as the default (formatted like a service
+        /// operation parameter's Value, see <see cref="ContractDefaultValues"/>).
         /// </summary>
         private static void AddProxyParameters(ICSharpTemplate template, IEnumerable<IElement> parameters, bool representsModel, Action<string, string, Action<CSharpParameter>> addParameter)
         {
             foreach (var parameter in parameters)
             {
                 var collectionType = parameter.GetOptionalModelerCollectionType();
-                var typeName = template.GetContractTypeName(parameter.TypeReference, parameter, collectionType?.Kind, collectionType?.CustomFormat);
+                var modifier = parameter.GetServiceProxyParameterModifier();
+                var typeName = template.GetContractTypeName(parameter.TypeReference, parameter, collectionType?.Kind, collectionType?.CustomFormat).WithModifierPrefix(modifier);
                 addParameter(typeName, parameter.Name, param =>
                 {
                     if (representsModel)
@@ -350,7 +367,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
                         param.RepresentsModel(parameter);
                     }
 
-                    param.WithContractDefaultValue(template, parameter, parameter.GetServiceProxyDefaultValue(), parameter.TypeReference, modifier: null);
+                    param.ApplyModifier(modifier);
+                    param.WithContractDefaultValue(template, parameter, parameter.GetServiceProxyDefaultValue(), parameter.TypeReference, modifier);
                 });
             }
         }

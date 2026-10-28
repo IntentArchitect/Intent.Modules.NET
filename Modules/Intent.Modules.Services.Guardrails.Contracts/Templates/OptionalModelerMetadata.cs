@@ -98,6 +98,18 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         /// <summary>This module's "Default Value" stereotype for Service Proxy Parameters, which have no Value of their own.</summary>
         public const string DefaultValueStereotypeId = "7eb59935-6069-4d59-bbbe-15231c53aeae";
 
+        /// <summary>
+        /// This module's "Operation Configuration" stereotype for Service Proxy Operations, with the same properties and options
+        /// as the typed one on Services Operations (see <see cref="ContractMemberModifiers"/>).
+        /// </summary>
+        public const string ServiceProxyOperationConfigurationStereotypeId = "47002d39-239c-416d-a0ab-3bac1b88d786";
+
+        /// <summary>
+        /// This module's "Parameter Modifier" stereotype for Service Proxy Parameters, with the same property and options as the
+        /// typed one on Services Parameters (see <see cref="ContractParameterModifiers"/>).
+        /// </summary>
+        public const string ServiceProxyParameterModifierStereotypeId = "9fa9dc48-2ab8-4583-a898-48f9571dcaf4";
+
 
         private const string FilenameProperty = "Filename";
         private const string NamespaceProperty = "Namespace";
@@ -108,6 +120,12 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         private const string RequiredProperty = "Required";
         private const string AccessModifierProperty = "Access Modifier";
         private const string ValueProperty = "Value";
+        private const string StaticProperty = "Static";
+        private const string VirtualProperty = "Virtual";
+        private const string OverrideProperty = "Override";
+        private const string SealedProperty = "Sealed";
+        private const string NewProperty = "New";
+        private const string ModifierProperty = "Modifier";
 
 
         public static bool IsDomainEventHandler(this ICanBeReferencedType element) => IsOfType(element, DomainEventHandlerTypeId);
@@ -172,6 +190,33 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             }
 
             return value;
+        }
+
+        /// <summary>A Service Proxy Operation's Operation Configuration, or null when the stereotype is not applied.</summary>
+        public static ServiceProxyOperationConfiguration GetServiceProxyOperationConfiguration(this IElement operation)
+        {
+            var stereotype = operation.GetStereotype(ServiceProxyOperationConfigurationStereotypeId);
+            return stereotype != null ? new ServiceProxyOperationConfiguration(stereotype) : null;
+        }
+
+        /// <summary>
+        /// A Service Proxy Parameter's Parameter Modifier (ref, out, in, ref readonly or params), or null when the stereotype is
+        /// not applied or its Modifier is empty. The options are the typed Parameter Modifier's.
+        /// </summary>
+        public static string GetServiceProxyParameterModifier(this IElement parameter)
+        {
+            var modifier = parameter.GetStereotype(ServiceProxyParameterModifierStereotypeId)?.GetProperty<string>(ModifierProperty);
+            if (string.IsNullOrWhiteSpace(modifier))
+            {
+                return null;
+            }
+
+            if (modifier is "ref" or "out" or "in" or "ref readonly" or "params")
+            {
+                return modifier;
+            }
+
+            throw new InvalidOperationException($"Unsupported Parameter Modifier option: {modifier}");
         }
 
 
@@ -391,6 +436,53 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
             public string Modifiers()
             {
                 return _stereotype.GetProperty<string>(ModifiersProperty);
+            }
+        }
+
+        public sealed class ServiceProxyOperationConfiguration
+        {
+            private readonly IStereotype _stereotype;
+
+            public ServiceProxyOperationConfiguration(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            /// <summary>Empty means public, as for the typed Operation Configuration.</summary>
+            public string AccessModifier()
+            {
+                return _stereotype.GetProperty<string>(AccessModifierProperty);
+            }
+
+            public bool Static()
+            {
+                return _stereotype.GetProperty<bool>(StaticProperty);
+            }
+
+            public bool Virtual()
+            {
+                return _stereotype.GetProperty<bool>(VirtualProperty);
+            }
+
+            public bool Override()
+            {
+                return _stereotype.GetProperty<bool>(OverrideProperty);
+            }
+
+            public bool Sealed()
+            {
+                return _stereotype.GetProperty<bool>(SealedProperty);
+            }
+
+            public bool New()
+            {
+                return _stereotype.GetProperty<bool>(NewProperty);
+            }
+
+            /// <summary>True when it declares anything but its defaults: public, with nothing ticked.</summary>
+            public bool DeclaresModifiers()
+            {
+                return AccessModifier() is not (null or "" or "public") || Static() || Virtual() || Override() || Sealed() || New();
             }
         }
     }
