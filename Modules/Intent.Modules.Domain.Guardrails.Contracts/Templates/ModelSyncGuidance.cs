@@ -64,8 +64,6 @@ A type or member the code lacks is never a row: the Software Factory writes it, 
 4. If code you wrote states a fact in a way the recipes don't read yet (a new technology, or a new way of declaring it), the fact is reported as can't be verified. Load **configure-drift-check** and extend the recipes, then check them with **validate-drift-recipes**.
 
 Never edit a drift report: it is rewritten on every run.
-
-Any `guardrails/*.sync.json` files belong to the old drift check. Nothing reads them, and they can be deleted.
 """;
         }
 
@@ -157,7 +155,7 @@ short-description: Write the drift check's recipes for this codebase's technolog
 
 Once a designer has a recipe file, every Software Factory run compares its model with the code; without one, the check is off. The model side is fixed: the facts listed below, read from the model's own stereotypes. The code side is yours to describe, once, in a **recipe file** per designer: for each kind of fact, where it is in the code and how to read its value in the model's vocabulary. The module knows no technology, and your recipes do, so they work for controllers, minimal APIs, FastEndpoints, EF Core, Mongo, Cosmos or anything else the code uses.
 
-You are done when **validate-drift-recipes** shows every recipe reading the code, a Software Factory run reports no drift and no warnings, and the developer has approved the model changes the setup made (step 9). A report (
+You are done when **validate-drift-recipes** shows every recipe reading the code, a Software Factory run reports no drift and no warnings, and the developer has approved the model changes the setup made (step 8). A report (
 """ + Reports(context, designers) + """
 , in the `.cache` folder beside the solution's `.isln` file) is only written while there is something to act on: drift, a kind of fact that isn't checked, an exception that matches nothing, or the check being off.
 
@@ -319,7 +317,7 @@ A recipe that misreads the code fails loudly (a contradiction the code doesn't b
 
 ## Steps
 
-**While reverse-engineering**, the reverse-engineer skill sends you here straight after its extraction, before anything is modelled: do steps 2 and 3 from the extraction's reports, without re-reading the code, and go back. Model each form of the code as its guide's **How each form is modelled** says, so that the model and the recipes use the same terms. The reverse-engineer skill's last step brings you back for steps 4 to 9.
+**While reverse-engineering**, the reverse-engineer skill sends you here straight after its extraction, before anything is modelled: do steps 2 and 3 from the extraction's reports, without re-reading the code, and go back. Model each form of the code as its guide's **How each form is modelled** says, so that the model and the recipes use the same terms. The reverse-engineer skill's last step brings you back for steps 4 to 8.
 
 1. **List the facts the model states.** Each designer's are listed above. To see which this model uses, write the recipe file as `{}` and run the Software Factory: the report lists each kind of fact that has no recipe, with its count, in its **Warnings** table. That run turns the check on, so the structure and ownership checks can fail the run from then on; a run with errors applies nothing by itself, so apply the changes you expect with `apply_staged_file_changes`.
 2. **Start from the technology guides** (above). For each technology the code uses, make its guide's decisions from the code, copy its recipe file, and keep the find paths for the styles this codebase uses. For a technology no guide covers, read a few examples of each kind of fact, such as two controllers and two entity configurations, look for every style the code uses (some entities configured in `OnModelCreating`, others in `IEntityTypeConfiguration` classes), and give a recipe one `find` path per style. Also find each element type's convention, if it has one (above).
@@ -328,8 +326,7 @@ A recipe that misreads the code fails loudly (a contradiction the code doesn't b
 5. **Fix the recipes until no fact is reported as can't be verified, no kind of fact is warned about as having no recipe, and validate-drift-recipes has no probe or wrong-element warnings and no sample the code doesn't bear out.** After writing or changing a recipe, look at its fact with validate-drift-recipes §4: every element it covers should read its own code. Compare each kind of fact's counts with its guide's **Values come from** column: values from `default` or `absent` where the guide says code mean the recipe doesn't read this codebase's form yet. A fact that can't be verified is a recipe that doesn't read this code yet: widen its `find`, add a case, or add `default` or `absent` where saying nothing states a value (no `ToTable` means the `DbSet`'s name; no `[Authorize]` means `None`). If no recipe can read a fact (a value built in a helper method, or a form an `unreadable` case reports), list it for the developer; don't change the code or the model.
 6. **Check each contradiction against the code before you touch the model.** Open the code at the row's location and confirm that it states what the row says. Several contradictions of one kind with the same code value (every one `code (none)`, say) mean the recipe is misreading the code: fix the recipe, not the model. Then resolve the rest by fixing the model to match the code, never the code. A recipe that reads the code correctly and disagrees with the model has found a modelling slip. Where the code itself looks wrong, list it for the developer; don't change it.
 7. **Resolve the code the model doesn't describe:** model it, or add an exception, asking the developer unless it is clearly a helper. If a convention entry reports many helpers, the convention is wrong: narrow it, or remove it.
-8. **Delete any `guardrails/*.sync.json`.** They belong to the old drift check, and nothing reads them.
-9. **Have the developer approve the model changes.** In one `ask_user_question`, list every model change the setup made, for the developer to approve. Skip this step, and the approval in the exit condition, when an orchestrating skill's **User decision** says so.
+8. **Have the developer approve the model changes.** In one `ask_user_question`, list every model change the setup made, for the developer to approve. Skip this step, and the approval in the exit condition, when an orchestrating skill's **User decision** says so.
 
 **Exit condition:** validate-drift-recipes has no probe or wrong-element warnings and no sample the code doesn't bear out; a Software Factory run reports no drift and no warnings, so it writes no drift report; and the developer has approved the model changes the setup made.
 """;
