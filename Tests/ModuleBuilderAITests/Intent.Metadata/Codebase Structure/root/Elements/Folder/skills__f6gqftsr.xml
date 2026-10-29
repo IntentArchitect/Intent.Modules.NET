@@ -78,5 +78,38 @@
         </stereotype>
       </stereotypes>
     </element>
+    <element id="102d5f0a-9dc3-4b87-9647-60f61f65fc85" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesAspnetcoreMd_Agents</name>
+      <display>Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesAspnetcoreMd_Agents</display>
+      <externalReference>Intent.ModuleBuilder.AI.DotNet</externalReference>
+      <parentFolderId>3d4a2a06-bf25-4041-8743-b41363a1f829</parentFolderId>
+      <packageId>7edd7392-4048-468d-83f3-2094660b3a0d</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="a2f59eff-84ff-4994-816b-8d9858365a61" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesEntitiesRepositoriesApiMd_Agents</name>
+      <display>Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesEntitiesRepositoriesApiMd_Agents</display>
+      <externalReference>Intent.ModuleBuilder.AI.DotNet</externalReference>
+      <parentFolderId>3d4a2a06-bf25-4041-8743-b41363a1f829</parentFolderId>
+      <packageId>7edd7392-4048-468d-83f3-2094660b3a0d</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="a4b45888-b3f4-4995-b6eb-3f730a20013c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesEntityframeworkcoreMd_Agents</name>
+      <display>Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesEntityframeworkcoreMd_Agents</display>
+      <externalReference>Intent.ModuleBuilder.AI.DotNet</externalReference>
+      <parentFolderId>3d4a2a06-bf25-4041-8743-b41363a1f829</parentFolderId>
+      <packageId>7edd7392-4048-468d-83f3-2094660b3a0d</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
   </children>
 </class>
