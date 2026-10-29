@@ -1164,5 +1164,53 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="dc4bf086-78d5-43dd-aa13-688c372c3328" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesAspnetcoreMd_Agents</name>
+      <display>Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesAspnetcoreMd_Agents</display>
+      <externalReference>Intent.ModuleBuilder.AI.DotNet</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7e11e37-d054-4adf-a2be-d5f6cd44b7dc</parentFolderId>
+      <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
+      <packageName>root</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ede07e84-e1fb-4b43-997c-7fa4d46fd3ca" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesEntitiesRepositoriesApiMd_Agents</name>
+      <display>Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesEntitiesRepositoriesApiMd_Agents</display>
+      <externalReference>Intent.ModuleBuilder.AI.DotNet</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7e11e37-d054-4adf-a2be-d5f6cd44b7dc</parentFolderId>
+      <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
+      <packageName>root</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="186d6be3-ea81-442e-bfb8-a55163103a50" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesEntityframeworkcoreMd_Agents</name>
+      <display>Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesEntityframeworkcoreMd_Agents</display>
+      <externalReference>Intent.ModuleBuilder.AI.DotNet</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7e11e37-d054-4adf-a2be-d5f6cd44b7dc</parentFolderId>
+      <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
+      <packageName>root</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

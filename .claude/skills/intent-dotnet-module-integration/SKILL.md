@@ -1,21 +1,24 @@
 ---
 name: intent-dotnet-module-integration
-description: "Look up how to integrate with a specific runtime .NET module in this repo — its dependency identity, template inventory, generated shape, metadata contract, and extension points — before writing a module that hooks into its generated output. USE ONLY WHEN a module needs to reference, enrich, or dispatch into another .NET module's generated code (e.g. ASP.NET Core Controllers). DO NOT USE FOR generic cross-module wiring mechanics (see intent-module-orchestrator) or designer/model integration (see intent-modelers-integration). REQUIRES knowing which target .NET module(s) the change touches."
+description: "Look up how to integrate with a specific runtime .NET module in this repo — its dependency identity, template inventory, generated shape, metadata contract, and extension points — before writing a module that hooks into its generated output. USE ONLY WHEN a module needs to reference, enrich, or dispatch into another .NET module's generated code (the ASP.NET Core host, ASP.NET Core Controllers, Entity Framework Core, or the repository interfaces). DO NOT USE FOR generic cross-module wiring mechanics (see intent-module-orchestrator) or designer/model integration (see intent-modelers-integration). REQUIRES knowing which target .NET module(s) the change touches."
 template-id: Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_SkillMd_Agents
-contentHash: 3CA489E717FE51FC000F789AA875E7E7B4E61E8DD6E0B8EB4B1B868F23284449
+contentHash: 80054914C0E35FDF4850FB63683392E49C83AED22AC0F8D2AE651214DADAB57E
 ---
 # Intent Dotnet Module Integration
 
 > [!TIP]
 > **Read more if you want to know about** a specific .NET module's dependency identity, template inventory, generated shape, metadata contract, and extension points in full:
+> *   [ASP.NET Core host — Program, Startup, middleware and services](./resources/aspnetcore.md)
 > *   [ASP.NET Core Controllers](./resources/aspnetcore-controllers.md)
+> *   [Entity Framework Core — DbContexts, entity configurations, DI registration](./resources/entityframeworkcore.md)
+> *   [Repository interfaces — for persistence modules that implement them and modules that inject them](./resources/entities-repositories-api.md)
 > *(To conserve tokens, only read the resource file(s) for the module(s) your change actually touches.)*
 
 ## Musts
 
 1. **This skill documents the target module's facts — not the mechanics of wiring a module together.** For callback priorities, the request-publishing vs FileBuilder-mutation split, the `"model"` metadata bridge, and DI/config registration patterns, load `intent-module-orchestrator` first; this skill's resource files assume you already know those mechanics and state only what is specific to the target module.
-2. **Take the dependency on the typed route**: reference the target module's own NuGet package (never a bare role-string integration) so you get its typed model interfaces (e.g. `IControllerModel`), not an untyped `ICSharpFileBuilderTemplate` plus a raw `modelId` string.
-3. **Correlate generated members by metadata, never by name.** Every reference file states the exact `TryGetMetadata` keys a target module's generated class/method/parameter carry — names are transformed, de-duplicated, and overloaded, so a name match silently breaks the moment either side changes.
+2. **Take the dependency the target's resource file says to take.** By default that is the typed route: reference the target module's own NuGet package so you get its typed model interfaces (e.g. `IControllerModel`), not an untyped `ICSharpFileBuilderTemplate` plus a raw `modelId` string. Each resource file's §2 states what the reference actually gives you; where the typed API lives in another package (for the ASP.NET Core host, `Intent.Modules.Common.CSharp`), it says so.
+3. **Find generated code through the target's own link to it, never by name.** Each resource file's §5 states which link its module uses: metadata keys read with `TryGetMetadata` (Controllers), `RepresentedModel`, the template's own `Model`, or statement metadata (the ASP.NET Core host). Names are transformed, de-duplicated, and overloaded, so a name match silently breaks the moment either side changes. Don't carry one module's link over to another — code that reads Controllers' `"model"` key finds nothing in a module that doesn't set it.
 4. **Read the resource file's "Traps" section before writing code** — it records failure modes already hit by a module built against that target (multi-host duplication, folder off-by-ones, obsolete constants) that are not visible from the target module's public API alone.
 5. **Check a resource file's "Version compatibility" section against the target module's actually-installed version before trusting a fact flagged there as version-gated.** A resource file records what held at the version it was verified against; some facts (an extension point added, changed, or removed) only hold within that stated range.
 
