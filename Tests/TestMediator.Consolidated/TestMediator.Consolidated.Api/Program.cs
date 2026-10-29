@@ -4,7 +4,7 @@ using TestMediator.Consolidated.Api.Filters;
 using TestMediator.Consolidated.Application;
 using TestMediator.Consolidated.Infrastructure;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
 namespace TestMediator.Consolidated.Api
