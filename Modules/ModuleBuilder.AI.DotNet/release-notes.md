@@ -1,4 +1,4 @@
-### Version 1.1.0
+### Version 1.0.1
 
 - Improvement: Added integration guides for the ASP.NET Core host (`Intent.AspNetCore`), Entity Framework Core (`Intent.EntityFrameworkCore`) and the repository interfaces (`Intent.Entities.Repositories.Api`), alongside the existing ASP.NET Core Controllers guide.
 - Improvement: The skill no longer assumes every module works like Controllers. Each guide now states which dependency to take and how that module's generated code links back to the designer model.
