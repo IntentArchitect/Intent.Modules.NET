@@ -5,6 +5,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Drift;
 using Intent.Modules.Common.Types.Api;
 using Intent.Services.Guardrails.Contracts.Api;
 
@@ -298,14 +299,14 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
         }
 
         /// <summary>
-        /// Records on a type what its element can state (<see cref="Drift.Modellable"/>), the only parts the drift check
+        /// Records on a type what its element can state (<see cref="Modellable"/>), the only parts the drift check
         /// compares. Only a positional record puts parameters on the type, so a class's primary constructor, which holds a
         /// Service's, handler's or proxy's injected dependencies, is nothing the model can state. No element has constructors.
         /// </summary>
         private static void AddModellable(CSharpMetadataBase type, string[] kinds, bool typeParameters = false, bool parameterList = false,
             bool properties = false, bool methods = false)
         {
-            type.AddMetadata(Drift.Modellable.MetadataKey, new Drift.Modellable
+            type.AddMetadata(Modellable.MetadataKey, new Modellable
             {
                 Kinds = kinds,
                 TypeParameters = typeParameters,

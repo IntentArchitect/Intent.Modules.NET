@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Intent.Modules.Domain.Guardrails.Contracts.Drift;
+using Intent.Modules.Common.Drift;
 using Shouldly;
 using Xunit;
 using static Intent.Modules.Guardrails.Contracts.Tests.Drift;
@@ -71,6 +71,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             var report = DriftCheck.Run(new DriftCheckInput
             {
                 Designer = "Services",
+                Kinds = FactKinds.For(FactKinds.Services),
                 RecipePath = "guardrails/services.drift.json",
                 RecipeFile = "D:/Acme/intent/Acme/guardrails/services.drift.json",
                 RecipeJson = "{ \"facts\": ",

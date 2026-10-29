@@ -4,20 +4,20 @@
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.ModuleTask#efb4528d-8002-4da8-a218-b991dce8c371</correlationId>
       <path>Tasks/ValidateDriftRecipes.cs</path>
-      <count>7</count>
+      <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-10-28T10:23:28.1118319Z</updatedAt>
-      <deviationsHash>447B2C7A29074E9A52C804DFA517506806B2D2FB1E91D3163C7E6CB91B44D228</deviationsHash>
+      <updatedAt>2026-10-29T09:11:36.4939587Z</updatedAt>
+      <deviationsHash>54D03F90153FFD725B5B8B2EB3F267D35933ECAEE4B89B55A0991034090B01C1</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#7505cdb6-3ea8-49d8-9f7e-2fc7d473bddd</correlationId>
       <path>Templates/DriftReport/DriftReportTemplatePartial.cs</path>
-      <count>9</count>
+      <count>4</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-10-28T13:25:36.7322612Z</updatedAt>
-      <deviationsHash>6FFE76192DD7D5DFDAC4BB137145E908F56BD6F29D1AAAA27A0297DF5B2BC506</deviationsHash>
+      <updatedAt>2026-10-29T09:11:36.4942799Z</updatedAt>
+      <deviationsHash>9E7DDA69271861A37247AA7F341234B4A76A7280C752EF5B325B820C81D1B52E</deviationsHash>
     </file>
   </files>
 </deviationsLog>

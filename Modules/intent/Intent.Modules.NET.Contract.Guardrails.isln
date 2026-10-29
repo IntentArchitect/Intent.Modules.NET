@@ -6,11 +6,12 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.cache/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.2.17" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.2.19" />
   <applications>
     <application id="5b7f0f29-ed8a-419c-83ba-43d51a5acddb" name="ModuleBuilderAiSkills" relativePath="../ModuleBuilderAiSkills/ModuleBuilderAiSkills.application.config" />
     <application id="869625ba-a8d7-4cb8-86df-9e75414b4276" name="Intent.Modules.Domain.Guardrails.Contracts" relativePath="Intent.Modules.Domain.Guardrails.Contracts/Intent.Modules.Domain.Guardrails.Contracts.application.config" />
     <application id="37e88672-a6b1-4352-a6bd-c0bb275fbb45" name="Intent.Modules.Services.Guardrails.Contracts" relativePath="Intent.Modules.Services.Guardrails.Contracts/Intent.Modules.Services.Guardrails.Contracts.application.config" />
+    <application id="d751d77e-dd44-4a5f-9925-eb358b35c46f" name="Intent.Modules.Common.Drift" relativePath="Intent.Modules.Common.Drift/Intent.Modules.Common.Drift.application.config" />
   </applications>
   <workspaceRoot>..</workspaceRoot>
 </solution>

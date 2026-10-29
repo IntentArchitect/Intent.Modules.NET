@@ -1,0 +1,9 @@
+# Services drift report
+
+## Model and code drift
+
+| Model element | Code file | Drift |
+| --- | --- | --- |
+| <ModelRef application="Acme" elementId="Service:OrdersController" designer="Services" /> › <ModelRef application="Acme" elementId="Operation:GetOrder" designer="Services" /> › <ModelRef application="Acme" elementId="Parameter:id" designer="Services" /> | <FileRef path="src/Api/OrdersController.cs" line={5} /> | `OrdersController.GetOrder(id)` binding: model `From Query`, code `From Route` |
+| <ModelRef application="Acme" elementId="Service:OrdersController" designer="Services" /> | <FileRef path="src/Api/OrdersController.cs" line={1} /> | `OrdersController` route: model `api/orders`, code `api/order` |
+| — | <FileRef path="src/Api/OrdersController.cs" line={7} /> | endpoint `OrdersController.Delete` isn't modelled |

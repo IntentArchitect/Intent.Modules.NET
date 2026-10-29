@@ -9,8 +9,8 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Drift;
 using Intent.Modules.Common.FileBuilders;
-using Intent.Modules.Domain.Guardrails.Contracts.Drift;
 using Intent.Templates;
 using NSubstitute;
 using Shouldly;
@@ -18,10 +18,7 @@ using Xunit;
 using static Intent.Modules.Guardrails.Contracts.Tests.Drift;
 using static Intent.Modules.Guardrails.Contracts.Tests.Fakes;
 using DomainBuilders = Intent.Modules.Domain.Guardrails.Contracts.Templates.ContractTypeBuilders;
-using DomainReportTemplate = Intent.Modules.Domain.Guardrails.Contracts.Templates.DriftReport.DriftReportTemplate;
 using ServicesBuilders = Intent.Modules.Services.Guardrails.Contracts.Templates.ContractTypeBuilders;
-using ServicesDrift = Intent.Modules.Services.Guardrails.Contracts.Drift;
-using ServicesReportTemplate = Intent.Modules.Services.Guardrails.Contracts.Templates.DriftReport.DriftReportTemplate;
 
 namespace Intent.Modules.Guardrails.Contracts.Tests
 {
@@ -303,14 +300,15 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             }
             """;
 
-            var report = ServicesDrift.DriftCheck.Run(new ServicesDrift.DriftCheckInput
+            var report = DriftCheck.Run(new DriftCheckInput
             {
                 Designer = "Services",
+                Kinds = FactKinds.For(FactKinds.Services),
                 RecipePath = "guardrails/services.drift.json",
                 RecipeJson = "{}",
-                Code = new ServicesDrift.CodeFiles(new Dictionary<string, string> { [Path] = onDisk }),
-                Facts = Array.Empty<ServicesDrift.ModelFact>(),
-                Generated = new[] { new ServicesDrift.GeneratedFile { RelativePath = Path, Text = file.ToString(), ModellableTypes = ServicesReportTemplate.ModellableTypes(file) } }
+                Code = new CodeFiles(new Dictionary<string, string> { [Path] = onDisk }),
+                Facts = Array.Empty<ModelFact>(),
+                Generated = new[] { new GeneratedFile { RelativePath = Path, Text = file.ToString(), ModellableTypes = DriftReportRunner.ModellableTypes(file) } }
             });
 
             // No row for a primary constructor, a Service's or proxy's property, a command's method or anything on a handler.
@@ -356,7 +354,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             """;
 
             var report = Check("Domain", "{}", new List<ModelFact>(), new Dictionary<string, string> { [Path] = onDisk },
-                new[] { new GeneratedFile { RelativePath = Path, Text = file.ToString(), ModellableTypes = DomainReportTemplate.ModellableTypes(file) } });
+                new[] { new GeneratedFile { RelativePath = Path, Text = file.ToString(), ModellableTypes = DriftReportRunner.ModellableTypes(file) } });
 
             // No row for the repository's primary constructor or property, or the value object's method.
             report.WrongLines.ShouldBe(new[]
@@ -377,7 +375,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             file.Interfaces[0].AddMetadata(Modellable.MetadataKey, repository);
             file.Enums[0].AddMetadata(Modellable.MetadataKey, status);
 
-            var read = DomainReportTemplate.ModellableTypes(file);
+            var read = DriftReportRunner.ModellableTypes(file);
 
             read.Count.ShouldBe(3);
             read["Order"].ShouldBeSameAs(order);

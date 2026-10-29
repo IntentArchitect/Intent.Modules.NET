@@ -4,8 +4,10 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Drift;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Domain.Guardrails.Contracts.Drift;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -328,7 +330,7 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
 - **Concurrent edits.** The user may be editing the model while you work. Elements you didn't create (new classes, attributes, changed multiplicities) are theirs. Don't modify them and don't apply their generated output. Report them instead.
 - **No hand edits.** Beyond the merge directives and a using alias for an ambiguous name (§6 step 7), never hand-edit adopted files to make the diff clean, and never turn off Auto Format to make it smaller (§6 step 5). Fix the model.
 - **Check a merge risk on the staged diff first.** Before excluding a file from generation or asking the user about something the merge might lose, stage it and read its diff. Ask only about a loss the diff shows.
-""".Replace("<<DriftReport>>", ModelSyncGuidance.ReportPath(outputTarget.ExecutionContext, "Domain")));
+""".Replace("<<DriftReport>>", DriftReportRunner.ReportPath(outputTarget.ExecutionContext, DomainDrift.Name)));
         }
 
         [IntentManaged(Mode.Fully)]

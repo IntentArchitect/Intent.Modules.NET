@@ -17,9 +17,7 @@
   <file path="Intent.Domain.Guardrails.Contracts.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Domain.Guardrails.Contracts.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
-  <file path="Tasks/ValidateDriftRecipes.cs" deviationsHash="447B2C7A29074E9A52C804DFA517506806B2D2FB1E91D3163C7E6CB91B44D228" templateId="Intent.ModuleBuilder.Templates.ModuleTask" />
-  <file path="Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
-  <file path="Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Tasks/ValidateDriftRecipes.cs" deviationsHash="54D03F90153FFD725B5B8B2EB3F267D35933ECAEE4B89B55A0991034090B01C1" templateId="Intent.ModuleBuilder.Templates.ModuleTask" />
   <file path="Templates/CosmosDbRecipeGuide/CosmosDbRecipeGuideTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/CosmosDbRecipeGuide/CosmosDbRecipeGuideTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/DomainContract/DomainContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
@@ -30,7 +28,7 @@
   <file path="Templates/DomainEventsRecipeGuide/DomainEventsRecipeGuideTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/DomainServiceContract/DomainServiceContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/DomainServiceContract/DomainServiceContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
-  <file path="Templates/DriftReport/DriftReportTemplatePartial.cs" deviationsHash="6FFE76192DD7D5DFDAC4BB137145E908F56BD6F29D1AAAA27A0297DF5B2BC506" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/DriftReport/DriftReportTemplatePartial.cs" deviationsHash="9E7DDA69271861A37247AA7F341234B4A76A7280C752EF5B325B820C81D1B52E" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/DriftReport/DriftReportTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/EfCoreRecipeGuide/EfCoreRecipeGuideTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/EfCoreRecipeGuide/EfCoreRecipeGuideTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
@@ -38,21 +36,13 @@
   <file path="Templates/EntityContract/EntityContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/EnumContract/EnumContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/EnumContract/EnumContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
-  <file path="Templates/IntentDriftReference/IntentDriftReferenceTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
-  <file path="Templates/IntentDriftReference/IntentDriftReferenceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/ModelSyncRule/ModelSyncRuleTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
-  <file path="Templates/ModelSyncRule/ModelSyncRuleTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/MongoDbRecipeGuide/MongoDbRecipeGuideTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/MongoDbRecipeGuide/MongoDbRecipeGuideTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/RepositoryContract/RepositoryContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/RepositoryContract/RepositoryContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/ReverseEngineerDomainSkill/ReverseEngineerDomainSkillTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/ReverseEngineerDomainSkill/ReverseEngineerDomainSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/SyncModelSkill/SyncModelSkillTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
-  <file path="Templates/SyncModelSkill/SyncModelSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
-  <file path="Templates/ValidateDriftRecipesSkill/ValidateDriftRecipesSkillTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
-  <file path="Templates/ValidateDriftRecipesSkill/ValidateDriftRecipesSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/ValueObjectContract/ValueObjectContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ValueObjectContract/ValueObjectContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />

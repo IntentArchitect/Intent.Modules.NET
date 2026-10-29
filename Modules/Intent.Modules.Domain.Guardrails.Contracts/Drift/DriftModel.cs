@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.Drift;
 using Intent.Modules.Domain.Guardrails.Contracts.Templates;
 
 namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
@@ -33,14 +34,14 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
                 var table = Stereotype(@class, "Table") ?? Stereotype(@class, "View");
                 if (table != null)
                 {
-                    facts.Add(Fact(FactKinds.TableName, @class.Name, Property(table, "Name"), placeholders, @class.Id));
-                    facts.Add(Fact(FactKinds.TableSchema, @class.Name, Property(table, "Schema") is { Length: > 0 } schema ? schema : InheritedSchema(@class), placeholders, @class.Id));
-                    facts.Add(Fact(FactKinds.TableKind, @class.Name, table.Name, placeholders, @class.Id));
+                    facts.Add(Fact(DomainDrift.TableName, @class.Name, Property(table, "Name"), placeholders, @class.Id));
+                    facts.Add(Fact(DomainDrift.TableSchema, @class.Name, Property(table, "Schema") is { Length: > 0 } schema ? schema : InheritedSchema(@class), placeholders, @class.Id));
+                    facts.Add(Fact(DomainDrift.TableKind, @class.Name, table.Name, placeholders, @class.Id));
                 }
 
                 var attributes = @class.ChildElements.Where(x => x.SpecializationType == "Attribute").ToList();
                 var keys = attributes.Where(x => Stereotype(x, "Primary Key") != null).Select(x => x.Name);
-                facts.Add(Fact(FactKinds.Key, @class.Name, string.Join(",", keys), placeholders, @class.Id));
+                facts.Add(Fact(DomainDrift.Key, @class.Name, string.Join(",", keys), placeholders, @class.Id));
 
                 foreach (var attribute in attributes)
                 {
@@ -50,34 +51,34 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
                     var isKey = Stereotype(attribute, "Primary Key") != null;
                     var column = Stereotype(attribute, "Column");
                     var columnName = Property(column, "Name") is { Length: > 0 } name ? name : Property(Stereotype(attribute, "Field Setting"), "Name");
-                    facts.Add(Fact(FactKinds.ColumnName, element, columnName, attributePlaceholders, @class.Id, attribute.Id));
-                    facts.Add(Fact(FactKinds.ColumnType, element, Property(column, "Type"), attributePlaceholders, @class.Id, attribute.Id));
-                    facts.Add(Fact(FactKinds.ColumnDefault, element, Property(Stereotype(attribute, "Default Constraint"), "Value"), attributePlaceholders, @class.Id, attribute.Id));
+                    facts.Add(Fact(DomainDrift.ColumnName, element, columnName, attributePlaceholders, @class.Id, attribute.Id));
+                    facts.Add(Fact(DomainDrift.ColumnType, element, Property(column, "Type"), attributePlaceholders, @class.Id, attribute.Id));
+                    facts.Add(Fact(DomainDrift.ColumnDefault, element, Property(Stereotype(attribute, "Default Constraint"), "Value"), attributePlaceholders, @class.Id, attribute.Id));
                     if (typeName == "string")
                     {
                         var text = Stereotype(attribute, "Text Constraints");
-                        facts.Add(Fact(FactKinds.ColumnTextType, element, Property(text, "SQL Data Type") is { Length: > 0 } sqlType ? sqlType : "DEFAULT", attributePlaceholders, @class.Id, attribute.Id));
-                        facts.Add(Fact(FactKinds.ColumnMaxLength, element, Property(text, "MaxLength"), attributePlaceholders, @class.Id, attribute.Id));
+                        facts.Add(Fact(DomainDrift.ColumnTextType, element, Property(text, "SQL Data Type") is { Length: > 0 } sqlType ? sqlType : "DEFAULT", attributePlaceholders, @class.Id, attribute.Id));
+                        facts.Add(Fact(DomainDrift.ColumnMaxLength, element, Property(text, "MaxLength"), attributePlaceholders, @class.Id, attribute.Id));
                     }
 
                     if (typeName is "string" or "binary" && !isKey)
                     {
-                        facts.Add(Fact(FactKinds.ColumnRequired, element, attribute.TypeReference.IsNullable ? "false" : "true", attributePlaceholders, @class.Id, attribute.Id));
+                        facts.Add(Fact(DomainDrift.ColumnRequired, element, attribute.TypeReference.IsNullable ? "false" : "true", attributePlaceholders, @class.Id, attribute.Id));
                     }
 
                     if (typeName == "decimal")
                     {
                         var @decimal = Stereotype(attribute, "Decimal Constraints");
-                        facts.Add(Fact(FactKinds.ColumnPrecision, element, Property(@decimal, "Precision"), attributePlaceholders, @class.Id, attribute.Id));
-                        facts.Add(Fact(FactKinds.ColumnScale, element, Property(@decimal, "Scale"), attributePlaceholders, @class.Id, attribute.Id));
+                        facts.Add(Fact(DomainDrift.ColumnPrecision, element, Property(@decimal, "Precision"), attributePlaceholders, @class.Id, attribute.Id));
+                        facts.Add(Fact(DomainDrift.ColumnScale, element, Property(@decimal, "Scale"), attributePlaceholders, @class.Id, attribute.Id));
                     }
                 }
 
                 foreach (var (name, columns, unique) in Indexes(@class, attributes))
                 {
                     var indexPlaceholders = new Dictionary<string, string> { ["Entity"] = @class.Name, ["Index"] = name };
-                    facts.Add(Fact(FactKinds.IndexColumns, $"{@class.Name}.{name}", string.Join(",", columns), indexPlaceholders, @class.Id));
-                    facts.Add(Fact(FactKinds.IndexUnique, $"{@class.Name}.{name}", unique ? "true" : "false", indexPlaceholders, @class.Id));
+                    facts.Add(Fact(DomainDrift.IndexColumns, $"{@class.Name}.{name}", string.Join(",", columns), indexPlaceholders, @class.Id));
+                    facts.Add(Fact(DomainDrift.IndexUnique, $"{@class.Name}.{name}", unique ? "true" : "false", indexPlaceholders, @class.Id));
                 }
             }
 
@@ -108,11 +109,11 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
                 var element = !string.IsNullOrEmpty(association.TargetEnd.Name)
                     ? $"{source}.{association.TargetEnd.Name}"
                     : !string.IsNullOrEmpty(association.SourceEnd.Name) ? $"{target}.{association.SourceEnd.Name}" : $"{source} → {target}";
-                facts.Add(Fact(FactKinds.RelationshipMultiplicity, element, $"{Multiplicity(association.SourceEnd)}->{Multiplicity(association.TargetEnd)}", placeholders, association.SourceEnd.TypeReference.Element.Id));
+                facts.Add(Fact(DomainDrift.RelationshipMultiplicity, element, $"{Multiplicity(association.SourceEnd)}->{Multiplicity(association.TargetEnd)}", placeholders, association.SourceEnd.TypeReference.Element.Id));
 
                 var ids = new[] { association.Id, association.SourceEnd.Id, association.TargetEnd.Id };
                 var keys = foreignKeys.Where(x => ids.Contains(x.Association, StringComparer.Ordinal)).Select(x => x.Attribute.Name);
-                facts.Add(Fact(FactKinds.RelationshipForeignKey, element, string.Join(",", keys), placeholders, association.SourceEnd.TypeReference.Element.Id));
+                facts.Add(Fact(DomainDrift.RelationshipForeignKey, element, string.Join(",", keys), placeholders, association.SourceEnd.TypeReference.Element.Id));
             }
 
             foreach (var @class in classes)
@@ -147,7 +148,7 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Drift
                     var placeholders = new Dictionary<string, string> { ["Entity"] = @class.Name, ["Member"] = name, ["DomainEvent"] = domainEvent };
                     facts.Add(new ModelFact
                     {
-                        Kind = FactKinds.IntentRaises,
+                        Kind = DomainDrift.IntentRaises,
                         Element = $"{@class.Name}.{name}",
                         ElementIds = new[] { @class.Id, member.Id },
                         Value = domainEvent,

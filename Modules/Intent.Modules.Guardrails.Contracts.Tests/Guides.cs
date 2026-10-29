@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
-using Intent.Modules.Domain.Guardrails.Contracts.Drift;
+using Intent.Modules.Common.Drift;
 using Shouldly;
 using static Intent.Modules.Guardrails.Contracts.Tests.Drift;
 
@@ -71,6 +71,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             var validation = RecipeValidation.Run(new RecipeValidationInput
             {
                 Designer = designer,
+                Kinds = FactKinds.For(designer),
                 RecipePath = $"guardrails/{designer.ToLowerInvariant()}.drift.json",
                 RecipeJson = recipe,
                 Code = new CodeFiles(files),

@@ -4,29 +4,20 @@
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.ModuleTask#197bd528-9a36-4138-9ac6-6bcda5c02a21</correlationId>
       <path>Tasks/ValidateDriftRecipes.cs</path>
-      <count>7</count>
+      <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-10-28T10:23:33.6381822Z</updatedAt>
-      <deviationsHash>447B2C7A29074E9A52C804DFA517506806B2D2FB1E91D3163C7E6CB91B44D228</deviationsHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#4b071ec2-998b-47f9-a0d5-26983cd8260b</correlationId>
-      <path>Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplatePartial.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-10-20T12:35:26.0577164Z</updatedAt>
-      <deviationsHash>9A8305A061D5483250FB47B56EF49A0C06F474508688BFFA153AD703408A1CDB</deviationsHash>
+      <updatedAt>2026-10-29T09:12:03.7003936Z</updatedAt>
+      <deviationsHash>54D03F90153FFD725B5B8B2EB3F267D35933ECAEE4B89B55A0991034090B01C1</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#a1f14cf2-6f9a-4bd6-8197-4c0f893f5039</correlationId>
       <path>Templates/DriftReport/DriftReportTemplatePartial.cs</path>
-      <count>9</count>
+      <count>4</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-10-28T13:25:39.9329142Z</updatedAt>
-      <deviationsHash>04AC5337C139EC5AF98E06CB62C6099D432608F7E9AB8E383A3804B07DF74FFC</deviationsHash>
+      <updatedAt>2026-10-29T09:12:03.7007147Z</updatedAt>
+      <deviationsHash>8A9206E8C786D4937686C03E38DA62499A266DA3313CA64B68A4B60E814B97EA</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#134c4e3a-eca5-4e31-a467-543b65040e20</correlationId>
@@ -36,33 +27,6 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2026-10-13T08:50:43.1134751Z</updatedAt>
       <deviationsHash>258D86DD548506C3C0C873412669A420FB5E405FEEA9B8A6798EB468974E46D3</deviationsHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#6067c2c1-1996-4860-9aff-020010746f58</correlationId>
-      <path>Templates/ModelSyncRule/ModelSyncRuleTemplatePartial.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-10-19T11:28:51.9336936Z</updatedAt>
-      <deviationsHash>45B23CD2E3C4880EC986027A65C25CA4FBC62B0611E64CAB6C4ACA156CF20CB1</deviationsHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#7e5ed632-8626-4097-a02e-e0ec5f91b11f</correlationId>
-      <path>Templates/SyncModelSkill/SyncModelSkillTemplatePartial.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-10-19T11:28:51.9337211Z</updatedAt>
-      <deviationsHash>F2F421B3D73AED20ACCFF6F95F84088459C6AEE86392630066F98C40334D101A</deviationsHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#4f0dd391-5aa6-47e1-b98c-72bfbd5cbc5f</correlationId>
-      <path>Templates/ValidateDriftRecipesSkill/ValidateDriftRecipesSkillTemplatePartial.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-10-22T09:05:56.5792194Z</updatedAt>
-      <deviationsHash>40B2C6B5D23B46D7735A65CF382646A7E4663939F2E8EC8E0D385BCC7080664A</deviationsHash>
     </file>
   </files>
 </deviationsLog>

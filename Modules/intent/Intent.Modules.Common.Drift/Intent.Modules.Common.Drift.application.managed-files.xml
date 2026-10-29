@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="d751d77e-dd44-4a5f-9925-eb358b35c46f">
+  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.Contract.Guardrails.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Common.Drift.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Common.Drift.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplatePartial.cs" deviationsHash="1C146175F140EDB7905F73DBB1C6E67616863D4634CF52541A6A65B58067C9C0" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/IntentDriftReference/IntentDriftReferenceTemplatePartial.cs" deviationsHash="61E8C054EFD1D896DD5D0534F1B1552A039076D355B319DAEAACB8C123B5869C" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/IntentDriftReference/IntentDriftReferenceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ModelSyncRule/ModelSyncRuleTemplatePartial.cs" deviationsHash="87B1E6520FA62A2B7E92125EDED7B3D6FD72A4124801E0644EF6B36454D80DA6" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ModelSyncRule/ModelSyncRuleTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/SyncModelSkill/SyncModelSkillTemplatePartial.cs" deviationsHash="8F134B32C9236F003CFCCBD259108E4B3218806199ED14990473537D58DE777A" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/SyncModelSkill/SyncModelSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/ValidateDriftRecipesSkill/ValidateDriftRecipesSkillTemplatePartial.cs" deviationsHash="79A8EA5809EF4DB57E4AD3FB21BE8A72783EC4EE4E9A84F1AE500A65F50A9862" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/ValidateDriftRecipesSkill/ValidateDriftRecipesSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

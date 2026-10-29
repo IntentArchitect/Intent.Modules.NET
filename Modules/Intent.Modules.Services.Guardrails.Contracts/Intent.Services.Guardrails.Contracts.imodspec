@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Services.Guardrails.Contracts</id>
-  <version>1.0.0-pre.3</version>
+  <version>1.0.0-pre.4</version>
   <supportedClientVersions>[5.4.0-beta.6,6.0.0)</supportedClientVersions>
   <summary>Guards Services designer elements (services, commands, queries, DTOs, enums, integration events and their handlers, and API clients as service proxies) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</summary>
   <description>Guards Services designer elements (services, commands, queries, DTOs, enums, integration events and their handlers, and API clients as service proxies) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</description>
@@ -18,10 +18,6 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Guardrails.Contracts.Services.Command</role>
-      <location></location>
-    </template>
-    <template id="Intent.Services.Guardrails.Contracts.ConfigureDriftCheckSkill" externalReference="4b071ec2-998b-47f9-a0d5-26983cd8260b">
-      <role>AI.Context.Skills</role>
       <location></location>
     </template>
     <template id="Intent.Services.Guardrails.Contracts.DomainEventHandlerContract" externalReference="851247d1-0ca6-4d65-afc7-f412530dbbd3">
@@ -92,16 +88,8 @@
       <role>Guardrails.Contracts.Services.IntegrationEventHandler</role>
       <location></location>
     </template>
-    <template id="Intent.Services.Guardrails.Contracts.IntentDriftReference" externalReference="f99fe1b0-5515-481c-8ff1-e66e98e9d5bc">
-      <role>AI.Context.Skills</role>
-      <location></location>
-    </template>
     <template id="Intent.Services.Guardrails.Contracts.MinimalApisRecipeGuide" externalReference="594cec49-54ac-4cab-873b-7741562d0ae0">
       <role>AI.Context.Skills</role>
-      <location></location>
-    </template>
-    <template id="Intent.Services.Guardrails.Contracts.ModelSyncRule" externalReference="6067c2c1-1996-4860-9aff-020010746f58">
-      <role>AI.Context.Instructions</role>
       <location></location>
     </template>
     <template id="Intent.Services.Guardrails.Contracts.QueryContract" externalReference="f2898b69-c14b-4bc8-9b78-e58ed19c2049">
@@ -130,14 +118,6 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Guardrails.Contracts.Services.ServiceProxy</role>
-      <location></location>
-    </template>
-    <template id="Intent.Services.Guardrails.Contracts.SyncModelSkill" externalReference="7e5ed632-8626-4097-a02e-e0ec5f91b11f">
-      <role>AI.Context.Skills</role>
-      <location></location>
-    </template>
-    <template id="Intent.Services.Guardrails.Contracts.ValidateDriftRecipesSkill" externalReference="4f0dd391-5aa6-47e1-b98c-72bfbd5cbc5f">
-      <role>AI.Context.Skills</role>
       <location></location>
     </template>
   </templates>
@@ -194,6 +174,7 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.11.9-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.10.13-pre.0" />
+    <dependency id="Intent.Common.Drift" version="1.0.0-pre.0" />
     <dependency id="Intent.Common.Types" version="4.1.4" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.5" />
     <dependency id="Intent.Modelers.Services" version="4.0.17" />

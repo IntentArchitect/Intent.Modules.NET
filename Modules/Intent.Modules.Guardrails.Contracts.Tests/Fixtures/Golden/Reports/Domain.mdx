@@ -1,0 +1,20 @@
+# Domain drift report
+
+## Model and code drift
+
+| Model element | Code file | Drift |
+| --- | --- | --- |
+| <ModelRef application="Acme" elementId="Class:Order" designer="Domain" /> | <FileRef path="src/Infrastructure/AppDbContext.cs" line={5} /> | `Order` table name: model `Orders`, code `Order` |
+| <ModelRef application="Acme" elementId="Class:Invoice" designer="Domain" /> | — | `Invoice` primary key can't be verified: no code found (find `statement:Entity<Invoice>`) |
+| <ModelRef application="Acme" elementId="Class:Invoice" designer="Domain" /> | — | `Invoice` schema can't be verified: no code found (find `statement:Entity<Invoice>`) |
+| <ModelRef application="Acme" elementId="Class:Invoice" designer="Domain" /> | — | `Invoice` table name can't be verified: no code found (find `statement:Entity<Invoice>`) |
+| <ModelRef application="Acme" elementId="Class:Invoice" designer="Domain" /> | — | `Invoice` table or view can't be verified: no code found (find `statement:Entity<Invoice>`) |
+| — | <FileRef path="src/Domain/Helper.cs" line={3} /> | Entity `Helper` isn't modelled |
+| — | <FileRef path="src/Domain/Order.cs" line={3} /> | Entity `Order` isn't modelled |
+| `OrderStatus` | <FileRef path="src/Domain/OrderStatus.cs" line={6} /> | `OrderStatus.Archived` (public literal) isn't modelled |
+
+## Warnings
+
+| Warning | Detail |
+| --- | --- |
+| Exception matches nothing | `Unused` (matches nothing): remove it from `guardrails/domain.drift.json`. |

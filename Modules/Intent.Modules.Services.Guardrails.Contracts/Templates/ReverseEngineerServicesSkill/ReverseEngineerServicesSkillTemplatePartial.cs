@@ -4,8 +4,10 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Drift;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Services.Guardrails.Contracts.Drift;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -312,7 +314,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
                     - **Check a merge risk on the staged diff first.** Before excluding a file from generation or asking the user about something the merge might lose, stage it and read its diff. Ask only about a loss the diff shows.
                     - **DTO inheritance.** With `Intent.Modelers.Eventing` installed, `createAssociation("Generalization", …)` resolves to the Eventing DTO's Generalization, not the DTO's. Create a DTO's Generalization by its type id instead: `5ba12bbf-122f-4c3e-af3c-4a88dc554597`.
                     - **A concrete client's interface isn't guarded.** When a `Service Proxy` is the class, the interface it implements stays hand-written. A later signature change in the model changes only the class, so edit the interface by hand to match.
-                    """.Replace("<<DriftReport>>", ModelSyncGuidance.ReportPath(outputTarget.ExecutionContext, "Services")));
+                    """.Replace("<<DriftReport>>", DriftReportRunner.ReportPath(outputTarget.ExecutionContext, ServicesDrift.Name)));
         }
 
         [IntentManaged(Mode.Fully)]

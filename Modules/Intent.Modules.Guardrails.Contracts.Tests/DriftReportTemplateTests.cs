@@ -10,7 +10,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.FileBuilders;
 using Intent.Modules.Common.Types.Api;
-using Intent.Modules.Domain.Guardrails.Contracts.Drift;
+using Intent.Modules.Common.Drift;
 using Intent.Modules.Domain.Guardrails.Contracts.Templates.DriftReport;
 using Intent.Modules.Domain.Guardrails.Contracts.Templates.EnumContract;
 using Intent.Templates;
@@ -25,8 +25,10 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 {
     /// <summary>
     /// The real Domain drift report template, built the way the Software Factory builds file builder templates,
-    /// next to a real contract template whose output it compares with the code.
+    /// next to a real contract template whose output it compares with the code. It shares its collection with every test
+    /// that sets the global tracing or <c>TF_BUILD</c>, so they don't run at the same time.
     /// </summary>
+    [Collection(nameof(DriftReportTemplateTests))]
     public sealed class DriftReportTemplateTests : IDisposable
     {
         private const string Recipe = """
@@ -140,7 +142,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             var file = new CSharpFile("Acme", "src").AddClass("Order");
             file.Classes.Single().RepresentsModel(order).AddProperty("decimal", "Total", property => property.RepresentsModel(total));
 
-            DriftReportTemplate.ElementIds(file).ShouldBe(new Dictionary<string, string> { ["Order"] = "order-id", ["Order.Total"] = "total-id" }, ignoreOrder: true);
+            DriftReportRunner.ElementIds(file).ShouldBe(new Dictionary<string, string> { ["Order"] = "order-id", ["Order.Total"] = "total-id" }, ignoreOrder: true);
         }
 
         [Fact]

@@ -5,7 +5,9 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Drift;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Domain.Guardrails.Contracts.Drift;
 
 namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
 {
@@ -14,10 +16,13 @@ namespace Intent.Modules.Domain.Guardrails.Contracts.Templates
     /// file can find each other. Declared on a hand-written partial of each template, because the base
     /// list of the designer-generated partial is Signature-Fully managed.
     /// </summary>
-    public interface IDomainContractTemplate : ICSharpFileBuilderTemplate
+    public interface IDomainContractTemplate : IDriftStructureSource
     {
         /// <summary>The designer element this template generates a type for.</summary>
         IElement ContractElement { get; }
+
+        /// <summary>The Domain drift check compares this template's output with the code.</summary>
+        string IDriftStructureSource.Designer => DomainDrift.Name;
     }
 
     /// <summary>

@@ -1,0 +1,23 @@
+# Fix the broken project link on Intent.Application.CQRS.CRUD
+
+## Context
+
+The `<projectUrl>` in `Intent.Application.CQRS.CRUD.imodspec` points at GitHub and leaves out the `docs/` folder, so the link returns a 404. The published docs page exists (checked 2026-10-29).
+
+## Change
+
+<Diff
+  id="project-url"
+  filename="Modules/Intent.Modules.Application.CQRS.CRUD/Intent.Application.CQRS.CRUD.imodspec"
+  before={`<projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.CQRS.CRUD/README.md</projectUrl>`}
+  after={`<projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-application-cqrs-crud/intent-application-cqrs-crud.html</projectUrl>`}
+/>
+
+## Steps
+
+1. Replace the `projectUrl` line shown above.
+2. Run the version gate. 1.0.0 is published, so this means a patch bump to 1.0.1, plus a "Fixed: project link" line in `release-notes.md`.
+
+## Verification
+
+The new URL opens the module's docs page, and the module builds.

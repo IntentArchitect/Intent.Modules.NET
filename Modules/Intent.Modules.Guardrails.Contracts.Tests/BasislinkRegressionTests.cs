@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Intent.Modules.Domain.Guardrails.Contracts.Drift;
+using Intent.Modules.Common.Drift;
 using Shouldly;
 using Xunit;
 using static Intent.Modules.Guardrails.Contracts.Tests.Drift;

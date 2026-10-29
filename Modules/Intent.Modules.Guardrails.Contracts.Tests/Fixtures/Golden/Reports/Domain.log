@@ -1,0 +1,3 @@
+Info: The Domain drift check left 1 difference to this run's changes: the model changed that type or member since it last agreed with the code, so it isn't checked until the changes are applied.
+Failure: ElementException on Class:Order: The Domain model and the code have drifted: 8 drifts detected and listed in the drift report (<root>/intent/.cache/guardrails/Acme/DomainDriftReport.mdx).
+Warning: 1 exception in guardrails/domain.drift.json matches nothing; remove it: Unused (matches nothing). Report: <root>/intent/.cache/guardrails/Acme/DomainDriftReport.mdx

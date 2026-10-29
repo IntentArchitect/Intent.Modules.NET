@@ -18,6 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Supplied at run time by the installed Intent.Common.Drift module (an .imodspec dependency), so it isn't shipped: a second copy in this module's .imod could load instead of the drift module's, and then this module's contribution would implement interfaces the drift module doesn't know. -->
+    <ProjectReference Include="..\Intent.Modules.Common.Drift\Intent.Modules.Common.Drift.csproj" Private="false" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.11.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.12-pre.2" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="6.0.5" />

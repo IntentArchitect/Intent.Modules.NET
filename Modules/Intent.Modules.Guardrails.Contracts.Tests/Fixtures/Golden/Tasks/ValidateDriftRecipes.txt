@@ -1,0 +1,500 @@
+{
+  "designer": "Domain",
+  "recipePath": "guardrails/domain.drift.json",
+  "recipeFileExists": true,
+  "problems": [],
+  "notChecked": [],
+  "facts": [
+    {
+      "kind": "key",
+      "facts": 1,
+      "readFromCode": {
+        "count": 0,
+        "samples": []
+      },
+      "fromDefault": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Order",
+            "model": "",
+            "code": "",
+            "location": "src/Infrastructure/AppDbContext.cs:5"
+          }
+        ]
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 0,
+        "samples": []
+      },
+      "readCasesMatchingNothing": []
+    },
+    {
+      "kind": "table.kind",
+      "facts": 1,
+      "readFromCode": {
+        "count": 0,
+        "samples": []
+      },
+      "fromDefault": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Order",
+            "model": "Table",
+            "code": "Table",
+            "location": "src/Infrastructure/AppDbContext.cs:5"
+          }
+        ]
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 0,
+        "samples": []
+      },
+      "readCasesMatchingNothing": []
+    },
+    {
+      "kind": "table.name",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Order",
+            "model": "Orders",
+            "code": "Order",
+            "location": "src/Infrastructure/AppDbContext.cs:5"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Order",
+            "model": "Orders",
+            "code": "Order",
+            "location": "src/Infrastructure/AppDbContext.cs:5"
+          }
+        ]
+      },
+      "readCasesMatchingNothing": []
+    },
+    {
+      "kind": "table.schema",
+      "facts": 1,
+      "readFromCode": {
+        "count": 0,
+        "samples": []
+      },
+      "fromDefault": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Order",
+            "model": "",
+            "code": "",
+            "location": "src/Infrastructure/AppDbContext.cs:5"
+          }
+        ]
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 0,
+        "samples": []
+      },
+      "readCasesMatchingNothing": []
+    }
+  ],
+  "conventions": [
+    {
+      "kind": "Entity",
+      "found": 2,
+      "samples": [
+        "Helper (src/Domain/Helper.cs:3)",
+        "Order (src/Domain/Order.cs:3)"
+      ]
+    }
+  ],
+  "probeWarnings": [],
+  "wrongElementWarnings": []
+}
+{
+  "designer": "Domain",
+  "recipePath": "guardrails/domain.drift.json",
+  "recipeFileExists": true,
+  "filter": {
+    "fact": "table.name",
+    "file": "AppDbContext.cs"
+  },
+  "problems": [],
+  "notChecked": [],
+  "facts": [
+    {
+      "kind": "table.name",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Order",
+            "model": "Orders",
+            "code": "Order",
+            "location": "src/Infrastructure/AppDbContext.cs:5"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Order",
+            "model": "Orders",
+            "code": "Order",
+            "location": "src/Infrastructure/AppDbContext.cs:5"
+          }
+        ]
+      },
+      "readCasesMatchingNothing": []
+    }
+  ],
+  "conventions": [],
+  "probeWarnings": [],
+  "wrongElementWarnings": [],
+  "readings": [
+    {
+      "kind": "table.name",
+      "element": "Order",
+      "model": "Orders",
+      "code": "Order",
+      "from": "code",
+      "contradicted": true,
+      "findPath": 1,
+      "readCase": 1,
+      "level": 0,
+      "matched": "ToTable(\u0022Order\u0022",
+      "location": "src/Infrastructure/AppDbContext.cs:5"
+    }
+  ]
+}
+{"errorMessage":"No Domain fact is called operation.route. They are: table.name, table.schema, table.kind, key, column.name, column.type, column.textType, column.maxLength, column.required, column.precision, column.scale, column.default, relationship.multiplicity, relationship.foreignKey, index.columns, index.unique, intent.raises."}
+{"errorMessage":"Expected one argument: { \u0022applicationId\u0022: \u0022\u003Cthe application\u0027s id\u003E\u0022 }."}
+{"errorMessage":"No application has the id nope."}
+{
+  "designer": "Services",
+  "recipePath": "guardrails/services.drift.json",
+  "recipeFileExists": true,
+  "problems": [],
+  "notChecked": [],
+  "facts": [
+    {
+      "kind": "operation.route",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "OrdersController.GetOrder",
+            "model": "{id}",
+            "code": "{id}",
+            "location": "src/Api/OrdersController.cs:4"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 0,
+        "samples": []
+      },
+      "readCasesMatchingNothing": []
+    },
+    {
+      "kind": "operation.verb",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "OrdersController.GetOrder",
+            "model": "GET",
+            "code": "GET",
+            "location": "src/Api/OrdersController.cs:4"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 0,
+        "samples": []
+      },
+      "readCasesMatchingNothing": []
+    },
+    {
+      "kind": "parameter.source",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "OrdersController.GetOrder(id)",
+            "model": "From Query",
+            "code": "From Route",
+            "location": "src/Api/OrdersController.cs:5"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "OrdersController.GetOrder(id)",
+            "model": "From Query",
+            "code": "From Route",
+            "location": "src/Api/OrdersController.cs:5"
+          }
+        ]
+      },
+      "readCasesMatchingNothing": []
+    },
+    {
+      "kind": "service.route",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "OrdersController",
+            "model": "api/orders",
+            "code": "api/order",
+            "location": "src/Api/OrdersController.cs:1"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "OrdersController",
+            "model": "api/orders",
+            "code": "api/order",
+            "location": "src/Api/OrdersController.cs:1"
+          }
+        ]
+      },
+      "readCasesMatchingNothing": []
+    }
+  ],
+  "conventions": [
+    {
+      "kind": "endpoint",
+      "found": 2,
+      "samples": [
+        "OrdersController.GetOrder (src/Api/OrdersController.cs:4)",
+        "OrdersController.Delete (src/Api/OrdersController.cs:7)"
+      ]
+    }
+  ],
+  "probeWarnings": [],
+  "wrongElementWarnings": []
+}
+{
+  "designer": "Services",
+  "recipePath": "guardrails/services.drift.json",
+  "recipeFileExists": true,
+  "filter": {
+    "element": "OrdersController.GetOrder"
+  },
+  "problems": [],
+  "notChecked": [],
+  "facts": [
+    {
+      "kind": "operation.route",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "OrdersController.GetOrder",
+            "model": "{id}",
+            "code": "{id}",
+            "location": "src/Api/OrdersController.cs:4"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 0,
+        "samples": []
+      },
+      "readCasesMatchingNothing": []
+    },
+    {
+      "kind": "operation.verb",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "OrdersController.GetOrder",
+            "model": "GET",
+            "code": "GET",
+            "location": "src/Api/OrdersController.cs:4"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 0,
+        "samples": []
+      },
+      "readCasesMatchingNothing": []
+    }
+  ],
+  "conventions": [],
+  "probeWarnings": [],
+  "wrongElementWarnings": [],
+  "readings": [
+    {
+      "kind": "operation.route",
+      "element": "OrdersController.GetOrder",
+      "model": "{id}",
+      "code": "{id}",
+      "from": "code",
+      "contradicted": false,
+      "findPath": 1,
+      "readCase": 1,
+      "level": 0,
+      "matched": "[HttpGet(\u0022{id}\u0022)]",
+      "location": "src/Api/OrdersController.cs:4"
+    },
+    {
+      "kind": "operation.verb",
+      "element": "OrdersController.GetOrder",
+      "model": "GET",
+      "code": "GET",
+      "from": "code",
+      "contradicted": false,
+      "findPath": 1,
+      "readCase": 1,
+      "level": 0,
+      "matched": "[HttpGet",
+      "location": "src/Api/OrdersController.cs:4"
+    }
+  ]
+}
+{"errorMessage":"No Services fact is called table.name. They are: service.route, operation.verb, operation.route, security, security.roles, security.policy, parameter.source, intent.creates, intent.updates, intent.deletes, intent.queries, intent.invokes, intent.publishes, intent.sends."}
