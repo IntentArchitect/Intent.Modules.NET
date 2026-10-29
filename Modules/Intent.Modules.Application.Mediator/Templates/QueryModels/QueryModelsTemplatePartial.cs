@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.Mediator.Templates.QueryHandler;
+using Intent.Modules.Application.Mediator.Templates.QueryHandlerSkill;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
@@ -34,7 +36,7 @@ namespace Intent.Modules.Application.Mediator.Templates.QueryModels
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
 
-            CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), this.GetFolderPath(additionalFolders: Model.GetConceptName()))
+            CSharpFile = new CSharpFile(this.GetCqrsNamespace(), this.GetCqrsFolderPath())
                 .AddUsing("System")
                 .AddClass(Model.Name, @class =>
                 {
@@ -113,15 +115,29 @@ namespace Intent.Modules.Application.Mediator.Templates.QueryModels
                         });
                     }
                 });
+
+            // The handler template still registers (its type name resolves here), but it does not run.
+            if (ExecutionContext.ConsolidateIntoSingleFile())
+            {
+                FulfillsRole(TemplateRoles.Application.Handler.Query);
+                QueryHandlerTemplate.Configure(this);
+            }
         }
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return CSharpFile.GetConfig();
+            return ExecutionContext.ConsolidateIntoSingleFile()
+                ? CSharpFile.GetConfig()
+                    .WithAISummary("Mediator query " + Model.Name + " with its handler implementation.")
+                    .WithAIContext(
+                        $"""
+                        Use the `{QueryHandlerSkillTemplate.SkillName}` skill when modifying the handler in this file.
+                        """)
+                : CSharpFile.GetConfig();
         }
 
         [IntentManaged(Mode.Fully)]

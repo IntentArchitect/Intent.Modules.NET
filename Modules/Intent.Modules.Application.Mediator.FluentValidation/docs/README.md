@@ -18,7 +18,7 @@ It also adjusts the core's `UnhandledExceptionBehaviour` (see below).
 
 Installing `Intent.Application.FluentValidation` into an application that already has `Intent.Application.Mediator` installs this module as well (the core module declares it as interoperability). It requires `Intent.Application.Mediator`; install the core first if you add this module by hand.
 
-The module has no settings of its own.
+The module has no settings of its own. It follows `Intent.Application.Mediator`'s "Consolidate Command/Query associated files into single file" setting: when it is on, each validator is generated into its command's or query's own file rather than into a `*Validator.cs` file of its own.
 
 ## Validators
 

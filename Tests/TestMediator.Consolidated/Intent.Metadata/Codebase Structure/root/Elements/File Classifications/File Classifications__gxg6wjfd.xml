@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="98dfd9d7-a3df-4b14-b7cc-321fac8b43ce" type="File Classifications" typeId="81b0c54f-8f28-47f0-b0c1-6e8fe1212f50">
+  <name>File Classifications</name>
+  <display>File Classifications</display>
+  <parentFolderId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</parentFolderId>
+  <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="339bc1b5-10b8-48cd-90ae-8f2b274c0504" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>App Composition</name>
+      <display>App Composition</display>
+      <parentFolderId>98dfd9d7-a3df-4b14-b7cc-321fac8b43ce</parentFolderId>
+      <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="6cfcd65f-7e2f-43c1-aa2d-0c84d19de0e9" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>API Contract</name>
+      <display>API Contract</display>
+      <parentFolderId>98dfd9d7-a3df-4b14-b7cc-321fac8b43ce</parentFolderId>
+      <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="841a1b53-de26-4920-ab5e-7f754d5bad57" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Persistence Schema</name>
+      <display>Persistence Schema</display>
+      <parentFolderId>98dfd9d7-a3df-4b14-b7cc-321fac8b43ce</parentFolderId>
+      <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="530810db-7fee-4a93-b701-e43eb1453592" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Business Logic</name>
+      <display>Business Logic</display>
+      <parentFolderId>98dfd9d7-a3df-4b14-b7cc-321fac8b43ce</parentFolderId>
+      <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="6c495414-4a57-4e63-8cbc-423d14d1c472" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Data Access</name>
+      <display>Data Access</display>
+      <parentFolderId>98dfd9d7-a3df-4b14-b7cc-321fac8b43ce</parentFolderId>
+      <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="9e238071-17db-46f8-89a0-392ffc758b89" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Request Pipeline</name>
+      <display>Request Pipeline</display>
+      <parentFolderId>98dfd9d7-a3df-4b14-b7cc-321fac8b43ce</parentFolderId>
+      <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="d5448a77-2106-41f8-95bb-286d270ad8c5" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Security</name>
+      <display>Security</display>
+      <parentFolderId>98dfd9d7-a3df-4b14-b7cc-321fac8b43ce</parentFolderId>
+      <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+      <packageName>root</packageName>
+    </element>
+    <element id="a270a36f-0fa9-4543-ab49-685a88685ce8" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Validation</name>
+      <display>Validation</display>
+      <parentFolderId>98dfd9d7-a3df-4b14-b7cc-321fac8b43ce</parentFolderId>
+      <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+      <packageName>root</packageName>
+    </element>
+  </children>
+</class>

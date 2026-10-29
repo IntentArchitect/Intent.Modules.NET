@@ -101,6 +101,22 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   (easy to confuse with MediatR), a three-node hub (reads as the "share" icon) and six spokes (busy at 16px).
   Teal keeps it apart from MediatR's blue and Intent's own. A new Mediator module should reuse this icon.
 
+- **Consolidating a command or query with its handler and validator follows MediatR's mechanism.** With the setting on,
+  `CommandModels` / `QueryModels` drop the per-request sub-folder and namespace (`CqrsModelTemplateHelpers.GetCqrs*`),
+  fulfil the `Application.Command.Handler` / `Application.Query.Handler` role and call the handler template's static
+  `Configure` to build the handler class into their own file. The handler templates still register, so their type names
+  resolve, but `CanRunTemplate()` is false. The handler skills and the models file's AI context change their wording with
+  the setting, so an agent searches `*Command.cs` / `*Query.cs` instead of `*Handler.cs`.
+  - **The setting is the core's own, not MediatR's** (developer decision, 2026-10-29). A MediatR value therefore does not
+    carry over on a swap; the README's migration steps say to turn it on. Rejected: reusing MediatR's `CQRS Settings`
+    group id, which would keep the value. A group's id is its Module Builder element id, a designer script cannot create
+    an element with a chosen id, and a hand edit of `<moduleSettings>` in the imodspec is overwritten on the next run.
+    Also rejected: an on-install migration copying MediatR's value (more code for a one-off switch), reading MediatR's
+    group id directly (the value disappears once MediatR is uninstalled), and putting it in Mediator.DomainEvents' group
+    (it would only exist with that module installed).
+  - Changing the setting in an application with written handlers moves the handler classes to other files, and the
+    merge does not carry a body across. Same as MediatR; documented in the README rather than migrated.
+
 ## Invariants & Constraints
 
 - **The seam contract is metadata, not text.** `MediatorConfiguration` tags the `AddMediator` invocation with
@@ -138,8 +154,12 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   and Query hold `AI Settings` rules (G22); the skills carry the same rule from the other side. An agent that edits
   the model without reading the element's rules misses it — accepted, documented in the README. Integration Event
   Handler carries the same kind of rule (see "The Integration Event Handler rule is back").
-- **No settings.** The three opt-in behaviour switches were removed (see Architectural Decisions). The
-  `Create implicit domain event handlers` switch (G18) belongs to Mediator.DomainEvents, not the core.
+- **One setting: "Consolidate Command/Query associated files into single file"** in a "Mediator Settings" group
+  (added in `1.0.0-pre.3` at a client's request, 2026-10-29). The three opt-in behaviour switches stay removed (see
+  Architectural Decisions), and the `Create implicit domain event handlers` switch (G18) belongs to
+  Mediator.DomainEvents, not the core. The FluentValidation satellite reads this group by its ids, so the group and
+  setting ids are a contract with it: recreating either element in the Module Builder gives it a new id and silently
+  stops validators folding in.
 
 ## Module Interactions
 
@@ -153,7 +173,9 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   modules use string ids. The ids other modules depend on are listed in the plan under "Template ids other modules
   depend on"; renaming or moving any of those elements in the Module Builder breaks them silently.
 - **imodspec interoperability.** Detects Controllers, FastEndpoints, FluentValidation and DomainEvents and installs the
-  matching satellite at `1.0.0-pre.1`, and every satellite declares the core at `1.0.0-pre.1`. These family links are
+  matching satellite at `1.0.0-pre.1` (FluentValidation at `1.0.0-pre.2`, the first that folds validators into the
+  command or query file), and every satellite declares the core at `1.0.0-pre.1` (FluentValidation at `1.0.0-pre.3`,
+  the first core with the Mediator Settings group it reads). These family links are
   hand-maintained, and the Software Factory keeps a raised version. Move them together: FluentValidation `pre.1` fills
   the `Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour` role, and a `pre.0` core looks for the old one,
   so a mixed pair silently loses validation (found 2026-10-20, when they were all still at `pre.0`). A satellite's

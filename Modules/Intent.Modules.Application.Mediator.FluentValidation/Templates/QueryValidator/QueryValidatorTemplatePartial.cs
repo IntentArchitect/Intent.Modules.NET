@@ -39,10 +39,34 @@ namespace Intent.Modules.Application.Mediator.FluentValidation.Templates.QueryVa
                 repositoryInjectionEnabled: true,
                 customValidationEnabled: true,
                 sourceElementAdvancedMappings: null,
-                additionalFolders: new[] { model.GetConceptName() })
+                additionalFolders: outputTarget.ExecutionContext.ConsolidateIntoSingleFile()
+                    ? []
+                    : new[] { model.GetConceptName() })
         {
             FulfillsRole(TemplateRoles.Application.Validation.Query);
             FulfillsRole("Application.Validation");
+        }
+
+        // With the setting on, CombineWithModelsExtension builds the validator into the query's own file.
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && !ExecutionContext.ConsolidateIntoSingleFile();
+        }
+
+        public static void Configure(CSharpTemplateBase<QueryModel> queryTemplate)
+        {
+            queryTemplate.AddNugetDependency(NugetPackages.FluentValidation(queryTemplate.OutputTarget));
+            queryTemplate.ConfigureForValidation(
+                dtoModel: new DTOModel(queryTemplate.Model.InternalElement),
+                toValidateTemplateId: QueryModelsTemplate.TemplateId,
+                modelParameterName: "query",
+                dtoTemplateId: TemplateRoles.Application.Contracts.Dto,
+                dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
+                validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
+                uniqueConstraintValidationEnabled: queryTemplate.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
+                repositoryInjectionEnabled: true,
+                customValidationEnabled: true,
+                associationedElements: null);
         }
     }
 }

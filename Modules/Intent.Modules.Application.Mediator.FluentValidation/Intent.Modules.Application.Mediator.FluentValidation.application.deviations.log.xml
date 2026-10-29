@@ -7,8 +7,17 @@
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-10-20T11:38:01.094838Z</updatedAt>
-      <deviationsHash>1E257A9C8B95C1EF05AE25D51B290B50DB9E86A38FE1F284E5AE41819CD00BB9</deviationsHash>
+      <updatedAt>2026-10-29T13:37:25.6052812Z</updatedAt>
+      <deviationsHash>D99ACB927C0736DFC8EFB8BC86BB73D683B1096317007B8AAF0FF8A078599429</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#632e2ac7-f75b-4b5d-b41a-b687c9922929</correlationId>
+      <path>FactoryExtensions/CombineWithModelsExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-29T13:37:25.6053641Z</updatedAt>
+      <deviationsHash>22A3BF85F546CEEA43BBB75BC151D1CECD3256E1D2C3D0ED3CB845CC79882BFE</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#2f9fa230-9b10-4eea-b0d8-3a231b17c9aa</correlationId>
@@ -23,19 +32,19 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a288ffaf-91c1-478e-9b9a-a227cc71f370</correlationId>
       <path>Templates/CommandValidator/CommandValidatorTemplatePartial.cs</path>
       <count>4</count>
-      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-10-13T21:18:48.3108503Z</updatedAt>
-      <deviationsHash>6F29545A82FF0E63DC16E622CD91B818F257692F25FFF7AA8CD3783008722333</deviationsHash>
+      <updatedAt>2026-10-29T13:37:25.6053854Z</updatedAt>
+      <deviationsHash>0EE26D2D32AA3D795D58AE6E076FB53A66861FF3385D8A5D7F8CAA7C35E98817</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6c2ba0d0-cb18-4bbb-88a4-344b8737362c</correlationId>
       <path>Templates/QueryValidator/QueryValidatorTemplatePartial.cs</path>
       <count>4</count>
-      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-10-13T21:18:48.3108549Z</updatedAt>
-      <deviationsHash>A868A819C510A195E61027DCE3D6A2496A2047FB4B5ED67A69960377DDF38EC7</deviationsHash>
+      <updatedAt>2026-10-29T13:37:25.605401Z</updatedAt>
+      <deviationsHash>4114916D74588C71D28014A5F7C94E0F46801EA4582E6E32AFD969E91A077435</deviationsHash>
     </file>
   </files>
 </deviationsLog>

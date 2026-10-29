@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{7F7D0E91-3DB4-4F06-9F48-6E437C4D5D69}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMediator.Consolidated.Api", "TestMediator.Consolidated.Api\TestMediator.Consolidated.Api.csproj", "{31478403-5F9A-48B0-895A-05B4BC9FBA46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{A580ABAD-6DE3-497B-A793-B0B062597BDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMediator.Consolidated.Application", "TestMediator.Consolidated.Application\TestMediator.Consolidated.Application.csproj", "{7398B66A-CBEB-4D6D-9E69-1CDF1E9B0463}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{6DD84AAE-A1D1-478E-9614-0BBA3A784A4B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMediator.Consolidated.Domain", "TestMediator.Consolidated.Domain\TestMediator.Consolidated.Domain.csproj", "{F82CC4C2-4B68-4F26-9B7B-02D826B5D6EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{C24B0C7C-AF97-499D-A12A-A0B4CE43FC73}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMediator.Consolidated.Infrastructure", "TestMediator.Consolidated.Infrastructure\TestMediator.Consolidated.Infrastructure.csproj", "{B0820CBE-4B2E-492A-8E98-050A91A27BFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{31478403-5F9A-48B0-895A-05B4BC9FBA46} = {7F7D0E91-3DB4-4F06-9F48-6E437C4D5D69}
+		{7398B66A-CBEB-4D6D-9E69-1CDF1E9B0463} = {A580ABAD-6DE3-497B-A793-B0B062597BDB}
+		{F82CC4C2-4B68-4F26-9B7B-02D826B5D6EB} = {6DD84AAE-A1D1-478E-9614-0BBA3A784A4B}
+		{B0820CBE-4B2E-492A-8E98-050A91A27BFC} = {C24B0C7C-AF97-499D-A12A-A0B4CE43FC73}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31478403-5F9A-48B0-895A-05B4BC9FBA46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31478403-5F9A-48B0-895A-05B4BC9FBA46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31478403-5F9A-48B0-895A-05B4BC9FBA46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31478403-5F9A-48B0-895A-05B4BC9FBA46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7398B66A-CBEB-4D6D-9E69-1CDF1E9B0463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7398B66A-CBEB-4D6D-9E69-1CDF1E9B0463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7398B66A-CBEB-4D6D-9E69-1CDF1E9B0463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7398B66A-CBEB-4D6D-9E69-1CDF1E9B0463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F82CC4C2-4B68-4F26-9B7B-02D826B5D6EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F82CC4C2-4B68-4F26-9B7B-02D826B5D6EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F82CC4C2-4B68-4F26-9B7B-02D826B5D6EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F82CC4C2-4B68-4F26-9B7B-02D826B5D6EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0820CBE-4B2E-492A-8E98-050A91A27BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0820CBE-4B2E-492A-8E98-050A91A27BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0820CBE-4B2E-492A-8E98-050A91A27BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0820CBE-4B2E-492A-8E98-050A91A27BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

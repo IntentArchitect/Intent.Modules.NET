@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1fc9fe26-2baa-4389-bdbc-cf2f56c16310" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Security</name>
+  <display>Security</display>
+  <parentFolderId>7398b66a-cbeb-4d6d-9e69-1cdf1e9b0463</parentFolderId>
+  <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="e8d6a517-2f0a-4b28-9929-5df42593a48e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Permissions</name>
+      <display>Intent.AspNetCore.Permissions</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <parentFolderId>1fc9fe26-2baa-4389-bdbc-cf2f56c16310</parentFolderId>
+      <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="98cff892-b03e-4d9c-b1dc-031cb0c900ee" name="Output Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="0acdff86-3981-4950-921c-f5642a3e2374" display="Classification" value="[&quot;d5448a77-2106-41f8-95bb-286d270ad8c5&quot;]" />
+            <property name="277dec79-e6f2-4e4a-ab8e-1849990889a1" display="Severity" value="3 - High" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

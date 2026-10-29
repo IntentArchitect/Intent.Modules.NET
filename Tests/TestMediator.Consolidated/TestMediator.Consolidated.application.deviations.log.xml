@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.Mediator.CommandModels#5b80d552-cc00-43a5-8df6-5d47b1d039f4</correlationId>
+      <path>TestMediator.Consolidated.Application/Customers/CreateCustomerCommand.cs</path>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-29T13:35:22.4434584Z</updatedAt>
+      <deviationsHash>34D88EF3EF9DC85F5F5AB7E9C5CADAE3A2E1DD34B24C10E6FC5E408986D6C392</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Mediator.CommandModels#530f613a-31d0-442b-ad28-6d422c9892a9</correlationId>
+      <path>TestMediator.Consolidated.Application/Customers/DeleteCustomerCommand.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-29T13:35:22.4434654Z</updatedAt>
+      <deviationsHash>7AC9A56330B5B0665EB326015D5BFB46718B918D980B44652CFD6DE6C6D1A07E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Mediator.QueryModels#19f18393-30fa-4874-a860-cd6adff6cbcf</correlationId>
+      <path>TestMediator.Consolidated.Application/Customers/GetCustomerByIdQuery.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-29T13:35:22.4434704Z</updatedAt>
+      <deviationsHash>6B691B01E74BB4B545FB28C7B528242BCA5AADCF6E3CED0E2DB233DB0B8B4481</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.Mediator.QueryModels#8cde1c3f-0f59-4be4-bc45-5ddf5904fe69</correlationId>
+      <path>TestMediator.Consolidated.Application/Customers/GetCustomersQuery.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-10-29T13:35:22.4434753Z</updatedAt>
+      <deviationsHash>817196E4F8B26608D3A32E5888A98DE39DC741C30A2BCDA6D74CE2D19DAF1905</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

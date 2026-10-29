@@ -1,4 +1,5 @@
 using Intent.Engine;
+using Intent.Modules.Application.Mediator.FluentValidation.Templates;
 using Intent.Modules.Application.Mediator.Templates.CommandHandlerSkill;
 using Intent.Modules.Common;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
@@ -24,17 +25,20 @@ namespace Intent.Modules.Application.Mediator.FluentValidation.FactoryExtensions
             // The core generates the skill; only this module knows a validator exists, so the guidance
             // for writing its rules is added here and is absent when this module is not installed.
             // One instance is generated per AI harness (.claude, .codex, .github, .opencode, ...).
+            var validatorLocation = application.Settings.ConsolidateIntoSingleFile()
+                ? "the `*CommandValidator` class in the command's own `*Command.cs` file"
+                : "`*CommandValidator.cs`";
             foreach (var skill in application.FindTemplateInstances<IMarkdownFileBuilderTemplate>(CommandHandlerSkillTemplate.TemplateId))
             {
-                skill.MarkdownFile.OnBuild(AddValidatorGuidance);
+                skill.MarkdownFile.OnBuild(file => AddValidatorGuidance(file, validatorLocation));
             }
         }
 
-        private static void AddValidatorGuidance(IMarkdownFile file)
+        private static void AddValidatorGuidance(IMarkdownFile file, string validatorLocation)
         {
             file.BeforeSection("Workflow", "Validator", section =>
             {
-                section.WithText("Every command has a generated validator (`*CommandValidator.cs`), and its rules are also yours to write. The generator emits only the rules modelled explicitly on the command's fields, plus `NotNull`, enum and nested DTO checks. It does not reliably derive rules from the entities the command touches, so write them when you write the handler.");
+                section.WithText($"Every command has a generated validator ({validatorLocation}), and its rules are also yours to write. The generator emits only the rules modelled explicitly on the command's fields, plus `NotNull`, enum and nested DTO checks. It does not reliably derive rules from the entities the command touches, so write them when you write the handler.");
                 section.WithListItems("""
                     - Load the `fluent-validation-custom-validation` skill before editing the validator, and follow its rules.
                     - Write the rules in `ConfigureValidationRules`. Derive them from the entity the command creates or updates, found through the Create Entity and Update Entity associations, and match each command field to an entity attribute by name and meaning, as for the handler.
