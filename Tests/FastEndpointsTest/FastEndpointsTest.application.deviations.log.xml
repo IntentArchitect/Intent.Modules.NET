@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#6f43abb6-87e1-423d-a1c7-9176e4baf992</correlationId>
+      <path>FastEndpointsTest.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-29T13:06:53.2079773Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.MediatR.DomainEvents.AggregateManager#a893b893-0782-4407-897a-57bb1305b67c</correlationId>
       <path>FastEndpointsTest.Application/EventHandlers/DDD/AccountHolderManager.cs</path>
       <count>1</count>

@@ -9,7 +9,7 @@
   <file path="HttpClientLibrary.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
   <file path="HttpClientLibrary.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
   <file path="HttpClientLibrary.Api/HttpClientLibrary.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="HttpClientLibrary.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="HttpClientLibrary.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="HttpClientLibrary.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="HttpClientLibrary.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="HttpClientLibrary.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
