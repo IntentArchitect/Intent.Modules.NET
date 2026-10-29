@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="4eda1fe7-d2ad-402d-a3d2-421e9cf11810" type="Visual Studio Solution" typeId="769a45a2-119f-434f-8c27-bd4a399b915c">
-  <name>Intent.Modules.NET.Contract.Guardrails</name>
-  <display>Intent.Modules.NET.Contract.Guardrails</display>
+  <name>Intent.Modules.NET</name>
+  <display>Intent.Modules.NET</display>
   <externalReference>9ac6a323-bfe9-4612-874c-0a0d7de8bf77</externalReference>
   <sort-children>by-type-then-by-name</sort-children>
   <parentFolderId>802518cd-2903-4e7b-9621-406beb52566a</parentFolderId>

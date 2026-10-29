@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="d751d77e-dd44-4a5f-9925-eb358b35c46f">
   <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
-  <file path="../Intent.Modules.NET.Contract.Guardrails.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="Intent.Common.Drift.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Common.Drift.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplatePartial.cs" deviationsHash="1C146175F140EDB7905F73DBB1C6E67616863D4634CF52541A6A65B58067C9C0" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
