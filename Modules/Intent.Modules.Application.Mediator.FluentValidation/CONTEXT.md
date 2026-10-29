@@ -52,6 +52,18 @@ G1, G5, D20, D21).
   so a core that stops generating it does not break this module. Without the patch every
   400-class failure would be logged as an unhandled error. Mirrors the MediatR module's `UnhandledExceptionBahaviorExtension`.
 
+- **Validators fold into the command or query file when the core's consolidate setting is on** (`1.0.0-pre.2`).
+  `CombineWithModelsExtension` (after template registration) finds each validator's `CommandModels` / `QueryModels`
+  template by the core's template id and calls the validator's static `Configure` on it; the validator templates then
+  return false from `CanRunTemplate()` and drop their sub-folder, so their type names match the file they were folded
+  into. This mirrors `Intent.Application.MediatR.FluentValidation`'s `CombineWithModelsTemplateFactoryExtension`. The
+  models templates are handled as `CSharpTemplateBase<CommandModel>` / `<QueryModel>` (SDK types), never as the core's
+  classes.
+  - **The setting is read by its group and setting ids** (`Templates/MediatorCoreSettings.cs`), not through the core's
+    generated `GetMediatorSettings()`. That accessor is a method in the core's assembly, and the core is referenced with
+    `PrivateAssets=All`, where only inlined constants are safe (see Invariants). The ids must match the core's
+    `Settings/ModuleSettingsExtensions.cs`; a missing group (an older core) reads as off.
+
 ## Invariants & Constraints
 
 - **Reference the core by constants, not types.** The core project is referenced with `PrivateAssets=All`, so only
@@ -74,8 +86,9 @@ G1, G5, D20, D21).
 
 ## Module Interactions
 
-- **Intent.Application.Mediator** - declared at `1.0.0-pre.1`, the first core with the Infrastructure
-  `ValidationBehaviour` role this module fills; never pair this module with an older core. Supplies the pipeline list, `CommandModels` /
+- **Intent.Application.Mediator** - declared at `1.0.0-pre.3`, the first core with the Mediator Settings group whose
+  consolidate switch this module follows (`pre.1` was the first with the Infrastructure `ValidationBehaviour` role this
+  module fills); never pair this module with an older core. Supplies the pipeline list, `CommandModels` /
   `QueryModels` templates and `UnhandledExceptionBehaviour`. Its imodspec interoperability installs this module when
   `Intent.Application.FluentValidation` is detected.
 - **Intent.Application.FluentValidation** - floor `3.12.2`. Versions up to `3.12.0` generated the custom validation skill at

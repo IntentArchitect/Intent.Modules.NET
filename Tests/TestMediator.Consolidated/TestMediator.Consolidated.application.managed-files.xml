@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="73e5d8aa-fba0-4efe-8945-609a652e0a2c">
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediator-command-handler/SKILL.md" templateId="Intent.Application.Mediator.CommandHandlerSkill" />
+  <file path=".agents/skills/mediator-query-handler/SKILL.md" templateId="Intent.Application.Mediator.QueryHandlerSkill" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="TestMediator.Consolidated.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="TestMediator.Consolidated.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="TestMediator.Consolidated.Api/Controllers/CustomersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="TestMediator.Consolidated.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="TestMediator.Consolidated.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="TestMediator.Consolidated.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
+  <file path="TestMediator.Consolidated.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="TestMediator.Consolidated.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="TestMediator.Consolidated.Api/TestMediator.Consolidated.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TestMediator.Consolidated.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="TestMediator.Consolidated.Application/Common/Interfaces/IBypassValidation.cs" templateId="Intent.Application.Mediator.FluentValidation.BypassValidationInterface" />
+  <file path="TestMediator.Consolidated.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="TestMediator.Consolidated.Application/Customers/CreateCustomerCommand.cs" deviationsHash="34D88EF3EF9DC85F5F5AB7E9C5CADAE3A2E1DD34B24C10E6FC5E408986D6C392" templateId="Intent.Application.Mediator.CommandModels" />
+  <file path="TestMediator.Consolidated.Application/Customers/CustomerDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TestMediator.Consolidated.Application/Customers/DeleteCustomerCommand.cs" deviationsHash="7AC9A56330B5B0665EB326015D5BFB46718B918D980B44652CFD6DE6C6D1A07E" templateId="Intent.Application.Mediator.CommandModels" />
+  <file path="TestMediator.Consolidated.Application/Customers/GetCustomerByIdQuery.cs" deviationsHash="6B691B01E74BB4B545FB28C7B528242BCA5AADCF6E3CED0E2DB233DB0B8B4481" templateId="Intent.Application.Mediator.QueryModels" />
+  <file path="TestMediator.Consolidated.Application/Customers/GetCustomersQuery.cs" deviationsHash="817196E4F8B26608D3A32E5888A98DE39DC741C30A2BCDA6D74CE2D19DAF1905" templateId="Intent.Application.Mediator.QueryModels" />
+  <file path="TestMediator.Consolidated.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="TestMediator.Consolidated.Application/TestMediator.Consolidated.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TestMediator.Consolidated.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="TestMediator.Consolidated.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="TestMediator.Consolidated.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="TestMediator.Consolidated.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="TestMediator.Consolidated.Domain/Customers/Customer.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TestMediator.Consolidated.Domain/Repositories/Customers/ICustomerRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="TestMediator.Consolidated.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="TestMediator.Consolidated.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="TestMediator.Consolidated.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="TestMediator.Consolidated.Domain/TestMediator.Consolidated.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TestMediator.Consolidated.Infrastructure/Configuration/MediatorConfiguration.cs" templateId="Intent.Application.Mediator.MediatorConfiguration" />
+  <file path="TestMediator.Consolidated.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="TestMediator.Consolidated.Infrastructure/Dispatch/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.Mediator.AuthorizationBehaviour" />
+  <file path="TestMediator.Consolidated.Infrastructure/Dispatch/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.Mediator.LoggingBehaviour" />
+  <file path="TestMediator.Consolidated.Infrastructure/Dispatch/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.Mediator.PerformanceBehaviour" />
+  <file path="TestMediator.Consolidated.Infrastructure/Dispatch/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.Mediator.UnhandledExceptionBehaviour" />
+  <file path="TestMediator.Consolidated.Infrastructure/Dispatch/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
+  <file path="TestMediator.Consolidated.Infrastructure/Dispatch/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
+  <file path="TestMediator.Consolidated.Infrastructure/Dispatch/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
+  <file path="TestMediator.Consolidated.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="TestMediator.Consolidated.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="TestMediator.Consolidated.Infrastructure/Persistence/Configurations/Customers/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="TestMediator.Consolidated.Infrastructure/Repositories/Customers/CustomerRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="TestMediator.Consolidated.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="TestMediator.Consolidated.Infrastructure/TestMediator.Consolidated.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TestMediator.Consolidated.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+</managedFiles>

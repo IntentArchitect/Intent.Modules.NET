@@ -67,7 +67,17 @@ The module adds a `CqrsSettings:LogRequestPayload` entry to `appsettings.json` (
 
 ## Settings
 
-This module has no settings. Settings that belong to the companion modules (for example `Intent.Application.Mediator.DomainEvents`' "Create implicit domain event handlers", off by default) are documented with those modules.
+The **Mediator Settings** group has one setting:
+
+| Setting | Default | What it does |
+|---|---|---|
+| Consolidate Command/Query associated files into single file | Off | Generates each command's or query's handler (and, with `Intent.Application.Mediator.FluentValidation`, its validator) into the command or query file itself, instead of into separate files. |
+
+With the setting off, each command and query gets its own folder (for example `Orders/CreateOrder/`) holding `CreateOrderCommand.cs`, `CreateOrderCommandHandler.cs` and `CreateOrderCommandValidator.cs`. With it on, there is no per-command folder: `Orders/CreateOrderCommand.cs` holds the command, `CreateOrderCommandHandler` and `CreateOrderCommandValidator`, all in the `Orders` namespace. This is the same layout as the MediatR module's setting of the same name. The handler skills follow the setting, so the agent looks for handlers in the right files.
+
+Changing the setting in an application that already has written handlers moves the handler classes into other files. The Software Factory does not carry a handler body you wrote across to the new file, so copy the bodies over before you accept the change.
+
+Settings that belong to the companion modules (for example `Intent.Application.Mediator.DomainEvents`' "Create implicit domain event handlers", off by default) are documented with those modules.
 
 ## AI-written handlers
 
@@ -167,7 +177,7 @@ MediatR's CRUD module marks every handler body it fills as fully generated. If y
    - **Command and query handlers:** mark the `Handle` body `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`. The method still matches the Mediator one (same name, same parameter), so the Software Factory rewrites the signature to return `ValueTask` and keeps the body.
    - **Domain-event handlers:** mark the whole method `[IntentManaged(Mode.Ignore)]`. Their parameter type changes (`DomainEventNotification<X>` becomes `XDomainEventNotification`), so a body-only Ignore no longer matches and the method would be replaced by a stub. With the whole method ignored, the old method survives next to the new stub; move the body across and delete the old method.
    - **Fields and constructors of every handler:** mark them `[IntentManaged(Mode.Ignore)]` too. MediatR's CRUD module injected dependencies (`_orderRepository`, `_messageBus` and so on); the Mediator stub's constructor takes nothing, and on a merge-managed class the Software Factory removes members it previously generated, so the bodies would survive but no longer compile.
-2. **Swap the modules and run the Software Factory.** It rewrites the signatures itself, because they are fully generated.
+2. **Swap the modules and run the Software Factory.** It rewrites the signatures itself, because they are fully generated. If the MediatR application had "Consolidate Command/Query associated files into single file" on, turn on the setting of the same name under **Mediator Settings** before you run it: the value is not carried across, and with it off the handlers and validators would move into separate files.
 3. **Fix the bodies:** void command handlers must end with `return Unit.Value;`, and any leftover `using MediatR` lines must go.
 
 There is no automatic migration. The path above is not yet confirmed by running it against a migrated application.

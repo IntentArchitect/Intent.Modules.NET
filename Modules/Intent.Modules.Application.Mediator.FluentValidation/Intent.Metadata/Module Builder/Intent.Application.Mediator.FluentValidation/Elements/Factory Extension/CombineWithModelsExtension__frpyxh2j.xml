@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="632e2ac7-f75b-4b5d-b41a-b687c9922929" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>CombineWithModelsExtension</name>
+  <display>CombineWithModelsExtension</display>
+  <parentFolderId>20c08111-1e99-4915-a33e-5cda913e0508</parentFolderId>
+  <packageId>20c08111-1e99-4915-a33e-5cda913e0508</packageId>
+  <packageName>Intent.Application.Mediator.FluentValidation</packageName>
+</class>

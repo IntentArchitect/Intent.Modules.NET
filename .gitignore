@@ -380,3 +380,5 @@ Modules/Intent.Modules/
 .github/mcp.json
 
 opencode.json
+
+.kiro/settings/mcp.json

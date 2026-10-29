@@ -26,11 +26,21 @@ namespace Intent.Modules.Application.Mediator.Templates.QueryHandlerSkill
         public QueryHandlerSkillTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             WithContentHashing = true;
+            var consolidated = ExecutionContext.ConsolidateIntoSingleFile();
+            var handlerExample = consolidated
+                ? "the *QueryHandler class inside a *Query.cs file"
+                : "*QueryHandler.cs";
+            var handlerFiles = consolidated
+                ? "`*Query.cs` files (each query's `*QueryHandler` class is in the query's own file)"
+                : "`*QueryHandler.cs` files";
+            var fileLayoutRule = consolidated
+                ? "\n- Each query, its handler and its validator share one file, the query's own `*Query.cs`. Keep them there: never move the handler or validator into a file of its own."
+                : "";
             MarkdownFile = new MarkdownFile($"SKILL", relativeLocation: SkillName)
                 .FromMarkdown($$"""
 ---
 name: {{SkillName}}
-description: Implements the whole body of a Mediator query handler from the interactions modelled on the query. MUST load before creating, editing or revisiting any query handler e.g. *QueryHandler.cs, and after any Software Factory run that generates a new query handler stub.
+description: Implements the whole body of a Mediator query handler from the interactions modelled on the query. MUST load before creating, editing or revisiting any query handler e.g. {{handlerExample}}, and after any Software Factory run that generates a new query handler stub.
 template-id: {{TemplateId}}
 ---
 
@@ -42,12 +52,12 @@ Write the business logic of a query handler. In this solution the handler body i
 
 Nothing raises a task or a reminder for a new or outdated handler. Find the work yourself:
 
-- After every Software Factory run, search the Application project for `*QueryHandler.cs` files whose `Handle` body still holds the `// IntentInitialGen` marker and `throw new NotImplementedException`. Each one is a query handler nobody has written yet. Write every one you find.
+- After every Software Factory run, search the Application project for {{handlerFiles}} whose `Handle` body still holds the `// IntentInitialGen` marker and `throw new NotImplementedException`. Each one is a query handler nobody has written yet. Write every one you find.
 - When you add, remove, reorder or change an association on a query in the designer, its handler is out of date even though no generated file changed. Update it in the same piece of work.
 
 ## Core rules
 
-- Treat the existing handler file as the starting point. Write the `Handle` method body rather than rewriting unrelated code.
+- Treat the existing handler file as the starting point. Write the `Handle` method body rather than rewriting unrelated code.{{fileLayoutRule}}
 - The handler implements `IQueryHandler<TQuery, TResponse>` from the `Mediator` library. `Handle` returns `ValueTask<TResponse>`.
 - NEVER change the name, return type or parameters of `Handle`. They are generated. The stub is always generated `async`. Keep `async` even when the body awaits nothing: removing it is a signature change, which the next Software Factory run reverts and reports as destructive.
 - ALWAYS, when you write a `Handle` body, put `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` on the `Handle` method so regeneration keeps your body.

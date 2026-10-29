@@ -39,10 +39,34 @@ namespace Intent.Modules.Application.Mediator.FluentValidation.Templates.Command
                 repositoryInjectionEnabled: true,
                 customValidationEnabled: true,
                 sourceElementAdvancedMappings: null,
-                additionalFolders: new[] { model.GetConceptName() })
+                additionalFolders: outputTarget.ExecutionContext.ConsolidateIntoSingleFile()
+                    ? []
+                    : new[] { model.GetConceptName() })
         {
             FulfillsRole(TemplateRoles.Application.Validation.Command);
             FulfillsRole("Application.Validation");
+        }
+
+        // With the setting on, CombineWithModelsExtension builds the validator into the command's own file.
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && !ExecutionContext.ConsolidateIntoSingleFile();
+        }
+
+        public static void Configure(CSharpTemplateBase<CommandModel> commandTemplate)
+        {
+            commandTemplate.AddNugetDependency(NugetPackages.FluentValidation(commandTemplate.OutputTarget));
+            commandTemplate.ConfigureForValidation(
+                dtoModel: new DTOModel(commandTemplate.Model.InternalElement),
+                toValidateTemplateId: CommandModelsTemplate.TemplateId,
+                modelParameterName: "command",
+                dtoTemplateId: TemplateRoles.Application.Contracts.Dto,
+                dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
+                validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
+                uniqueConstraintValidationEnabled: commandTemplate.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
+                repositoryInjectionEnabled: true,
+                customValidationEnabled: true,
+                associationedElements: null);
         }
     }
 }
