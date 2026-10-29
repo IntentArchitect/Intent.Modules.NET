@@ -123,6 +123,7 @@ namespace Intent.Modules.Application.Mediator.Templates.CommandModels
             if (ExecutionContext.ConsolidateIntoSingleFile())
             {
                 FulfillsRole(TemplateRoles.Application.Handler.Command);
+                FulfillsRole(TemplateRoles.Application.Validation.Command);
                 CommandHandlerTemplate.Configure(this);
             }
         }

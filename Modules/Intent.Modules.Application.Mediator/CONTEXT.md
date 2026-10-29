@@ -103,7 +103,9 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
 
 - **Consolidating a command or query with its handler and validator follows MediatR's mechanism.** With the setting on,
   `CommandModels` / `QueryModels` drop the per-request sub-folder and namespace (`CqrsModelTemplateHelpers.GetCqrs*`),
-  fulfil the `Application.Command.Handler` / `Application.Query.Handler` role and call the handler template's static
+  fulfil the `Application.Command.Handler` / `Application.Query.Handler` and `Application.Validation.Command` /
+  `Application.Validation.Query` roles (as MediatR's do, so a role lookup filtered on `CanRunTemplate()` still finds the
+  file the class is written to; the handler and validator templates keep their roles too) and call the handler template's static
   `Configure` to build the handler class into their own file. The handler templates still register, so their type names
   resolve, but `CanRunTemplate()` is false. The handler skills and the models file's AI context change their wording with
   the setting, so an agent searches `*Command.cs` / `*Query.cs` instead of `*Handler.cs`.

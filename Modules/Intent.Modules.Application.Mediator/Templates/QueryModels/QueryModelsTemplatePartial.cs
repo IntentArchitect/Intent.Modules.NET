@@ -120,6 +120,7 @@ namespace Intent.Modules.Application.Mediator.Templates.QueryModels
             if (ExecutionContext.ConsolidateIntoSingleFile())
             {
                 FulfillsRole(TemplateRoles.Application.Handler.Query);
+                FulfillsRole(TemplateRoles.Application.Validation.Query);
                 QueryHandlerTemplate.Configure(this);
             }
         }
