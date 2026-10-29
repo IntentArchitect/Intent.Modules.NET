@@ -244,6 +244,6 @@
     <application id="504bd045-6c51-4f5d-996e-c199c8e64748" name="TestMediator.WolverineSubscribeOnly" solutionFolder="Mediator" relativePath="TestMediator.WolverineSubscribeOnly/TestMediator.WolverineSubscribeOnly.application.config" />
     <application id="5673a202-49eb-4ece-bd12-b4978161e029" name="TestMediator.Nsb" solutionFolder="Mediator" relativePath="TestMediator.Nsb/TestMediator.Nsb.application.config" />
     <application id="ee7c7265-7de1-4ce5-a279-f70f0642ab41" name="TestMediator.NoEventing" solutionFolder="Mediator" relativePath="TestMediator.NoEventing/TestMediator.NoEventing.application.config" />
-    <application id="73e5d8aa-fba0-4efe-8945-609a652e0a2c" name="TestMediator.Consolidated" relativePath="TestMediator.Consolidated/TestMediator.Consolidated.application.config" />
+    <application id="73e5d8aa-fba0-4efe-8945-609a652e0a2c" name="TestMediator.Consolidated" solutionFolder="Mediator" relativePath="TestMediator.Consolidated/TestMediator.Consolidated.application.config" />
   </applications>
 </solution>
