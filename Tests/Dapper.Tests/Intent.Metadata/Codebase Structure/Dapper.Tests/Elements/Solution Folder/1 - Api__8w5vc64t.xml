@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0753fb7f-ca84-43b3-99b4-267eed3f819b</parentFolderId>
+  <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+  <packageName>Dapper.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d8827180-47d4-4388-bdf1-fd5c6a1ae688</parentFolderId>
+      <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+      <packageName>Dapper.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -74,6 +78,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>851d211c-3146-4371-86b4-14145f3c4e1d</parentFolderId>
+          <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+          <packageName>Dapper.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -94,6 +100,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>6dcad03b-d1d6-4cfa-8e0f-ec4b1cd5f917</parentFolderId>
+              <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+              <packageName>Dapper.Tests</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -108,6 +116,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>851d211c-3146-4371-86b4-14145f3c4e1d</parentFolderId>
+          <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+          <packageName>Dapper.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,6 +130,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>851d211c-3146-4371-86b4-14145f3c4e1d</parentFolderId>
+          <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+          <packageName>Dapper.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -132,6 +144,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>851d211c-3146-4371-86b4-14145f3c4e1d</parentFolderId>
+          <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+          <packageName>Dapper.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -168,6 +182,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>851d211c-3146-4371-86b4-14145f3c4e1d</parentFolderId>
+          <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+          <packageName>Dapper.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -204,6 +220,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>851d211c-3146-4371-86b4-14145f3c4e1d</parentFolderId>
+          <packageId>c5245984-7627-4fbb-82a8-e2752b3e1314</packageId>
+          <packageName>Dapper.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

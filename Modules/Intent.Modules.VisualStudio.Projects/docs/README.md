@@ -147,6 +147,24 @@ Adding an `IntentIgnore="true"` attribute to a `PackageReference` will cause thi
 > [!WARNING]
 > Because the minimum version is no longer applied to an ignored reference, pinning a version lower than an installed module requires may result in generated code which does not compile.
 
+### Ordering and comments
+
+`PackageReference`s in an `ItemGroup` that holds nothing else are kept in alphabetical order, and so are the `Using` items this module adds for the project's custom implicit usings. A group that is already in order is left exactly as it is.
+
+Comments you write in these groups stay with the item they describe when it moves: a comment on the line(s) above an item, and a comment at the end of the item's own line. A comment after the last item stays at the end of the group. When a package is no longer requested and its `PackageReference` is removed, a comment above it is kept, and so is the `ItemGroup` holding it.
+
+```xml
+<ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.13.0" />
+    <!-- Pinned: 9.x breaks our custom converters, see #412 -->
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Serilog" Version="4.0.0" /> <!-- keep in step with Serilog.Sinks.* -->
+</ItemGroup>
+```
+
+> [!NOTE]
+> For SDK-style projects, all of the above holds. For `.NET Framework` projects using `PackageReference`, and for `Using` items, the file is re-indented whenever Intent changes it, so a comment at the end of an item's line moves to its own line just below that item.
+
 ### Module settings
 
 | Setting                                   | Default | Description                                                                                                                                                                         |
@@ -235,9 +253,15 @@ When `Program.cs` already exists, the template adapts to it rather than adding s
 
 With top-level statements, `using {project namespace};` is only added when Intent generates types in that namespace (or a namespace nested under it), so a project whose code lives under a different root namespace still compiles.
 
-An existing `Program.cs` in any other shape is left untouched, and the Software Factory logs a warning. This includes `Host.CreateDefaultBuilder(args).ConfigureServices(...)`, different variable names than `builder` and `app`, or more than one run call. Startup code that other modules add to `Program.cs` (e.g. Serilog or Windows Service hosting) is then not applied.
+An existing `Program.cs` in any other shape is left untouched, and the Software Factory logs a warning. This includes `Host.CreateDefaultBuilder(args).ConfigureServices(...)`, different variable names than `builder` and `app`, or more than one run call. Startup code that other modules add to `Program.cs` (e.g. Windows Service hosting) is then not applied.
 
 The logging settings a `Main`-method Worker adds (`Logging:EventLog:*`) are written to that project's own `appsettings.json` only.
+
+##### Generate Program File
+
+_Generate Program File_ on the _.NET Settings_ stereotype is shown only for `Microsoft.NET.Sdk.Worker` projects, and is on by default. Turning it off makes Intent hands-off for `Program.cs`: an existing file and its `.csproj` item are left exactly as they are, none is created, and startup code that other modules add to `Program.cs` (e.g. Windows Service hosting), along with the `Logging:EventLog:*` settings above, is not applied. No packages, framework references or project references are added on its account either: not the ones a generated `Program.cs` needs (`Microsoft.Extensions.Hosting`, `Intent.RoslynWeaver.Attributes`), and not the ones other modules attach for the startup code they would have added (e.g. `Microsoft.Extensions.Hosting.WindowsServices`). The project's own `Program.cs` already references whatever it uses. Packages that other modules request for their other generated files in the project are still added, and `Intent.RoslynWeaver.Attributes` is still added whenever Intent generates any other C# file into it. Packages already in the project are never removed, though one that another generated file requests can still be upgraded. The Software Factory logs this for each such project.
+
+Worker projects created before this setting existed have no value for it, and are treated as on, so they keep generating `Program.cs`.
 
 #### Use minimal hosting model
 
@@ -303,6 +327,7 @@ When modelling projects that already exist on disk, model them to match the repo
 - Set _Target Framework_ to each project's base framework (e.g. `net10.0` for a .NET MAUI app targeting `net10.0-android;net10.0-ios`).
 - Set _Use top-level statements_ to match each Worker project's existing `Program.cs`.
 - Untick _Generate AppSettings File_ and _Generate LaunchSettings File_ on Web, Worker and Blazor WebAssembly projects whose `appsettings.json` and `launchSettings.json` should stay hands-off.
+- Untick _Generate Program File_ on Worker projects whose `Program.cs` should stay hands-off.
 
 ### Central Package Management
 

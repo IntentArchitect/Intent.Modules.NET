@@ -96,6 +96,22 @@ app.MapControllers();
 app.Run();
 ```
 
+`Program.cs` is generated in Merge mode (`[assembly: DefaultIntentManaged(Mode.Merge)]`). You can add your own service registrations, middleware or methods to it, and they are kept when the Software Factory runs again. Intent still adds, updates and removes the statements it generates.
+
+The host run call is kept as you write it. For example, you can change `app.Run();` to `await app.RunAsync();` and Intent won't add `app.Run();` back. These forms are recognised:
+
+| Form | Example |
+|---|---|
+| Synchronous | `app.Run();`, `app.Run("http://localhost:5000");` |
+| Awaited | `await app.RunAsync();`, `await app.RunAsync(url);`, `await app.RunAsync().ConfigureAwait(false);` |
+| Blocking on the task | `app.RunAsync().GetAwaiter().GetResult();`, `app.RunAsync().Wait();` |
+
+With the generic hosting model, the same calls are recognised on `CreateHostBuilder(args).Build()`, e.g. `await CreateHostBuilder(args).Build().RunAsync();`.
+
+When the project uses a `Main` method rather than top-level statements, `Main` is generated as `public static async Task Main(string[] args)` if the run call is awaited. It is also kept as `async Task` if you have already declared it that way, for example because you `await` something of your own in it. Otherwise it is generated as `void`.
+
+There must be exactly one recognised run call, and it must use the `app` variable (or `CreateHostBuilder(args).Build()`). Otherwise, for example when you start the host with `StartAsync` and `WaitForShutdownAsync` or call `Run` once in each branch of an `if`, Intent generates the default `app.Run();` and logs a warning in the Software Factory output.
+
 ### Generated Launch Settings
 
 Intent creates `launchSettings.json` with development profiles:

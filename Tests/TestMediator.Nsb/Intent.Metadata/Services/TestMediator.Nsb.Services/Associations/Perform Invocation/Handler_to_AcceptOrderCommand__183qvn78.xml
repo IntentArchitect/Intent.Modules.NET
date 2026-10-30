@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5a674212-b95d-405b-acd5-263d2d96a564">
+  <sourceEnd id="751b42ac-f1dc-43e6-9d63-8699a5151fc1" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderPlacedEventHandler.Handler</display>
+    <typeReference id="2f9cbcc7-80d6-4f97-82ff-33a52158d06d">
+      <typeId>4517a45a-9c87-42e3-a999-bbeac81a2693</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>TestMediator.NServiceBus.Services</typePackageName>
+      <typePackageId>1d280e50-d41f-4f9b-b807-7b4d39cc4ce8</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="5a674212-b95d-405b-acd5-263d2d96a564" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] AcceptOrderCommand(...): void</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="827c312f-e359-4758-860c-f000dfa84877">
+      <typeId>7ea88f11-ecbd-4c77-bb0c-0295b756e098</typeId>
+      <typeName>AcceptOrderCommand</typeName>
+      <typePackageName>TestMediator.NServiceBus.Services</typePackageName>
+      <typePackageId>1d280e50-d41f-4f9b-b807-7b4d39cc4ce8</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

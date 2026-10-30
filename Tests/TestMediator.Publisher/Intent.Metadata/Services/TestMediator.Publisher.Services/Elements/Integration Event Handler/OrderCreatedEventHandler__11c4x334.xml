@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d0981a0f-e4fe-4ab7-a20c-151d60d23e78" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>OrderCreatedEventHandler</name>
+  <display>OrderCreatedEventHandler</display>
+  <parentFolderId>e2861d24-b5ce-4dc8-a837-9032a6f6956c</parentFolderId>
+  <packageId>9d0412d0-a390-4560-93c3-37636d3d83f6</packageId>
+  <packageName>TestMediator.Publisher.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <association id="ff2193d5-cd04-4f09-b7e4-d468204e3430">
+      <sourceEnd id="66fc5ed7-e5a2-46e3-ba10-249208a3dbf0" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+        <display>handled by: IntegrationEventHandlers.OrderCreatedEventHandler</display>
+        <typeReference id="f80efa00-9e06-4336-a515-6189eddbcf37">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="ff2193d5-cd04-4f09-b7e4-d468204e3430" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+        <name>Handler</name>
+        <display>[handles] OrderCreatedEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="2e31fd70-57d7-4b3a-b937-6ab549008b50">
+          <typeId>ce7b0121-2f50-4de3-901a-5eebe6b90822</typeId>
+          <typeName>OrderCreatedEvent</typeName>
+          <typePackageName>TestMediator.Publisher.Eventing.Messages</typePackageName>
+          <typePackageId>5b0471b8-6c38-4116-886b-2225d5177dd4</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Subscribe Integration Event</associationType>
+      <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+    </association>
+  </children>
+</class>

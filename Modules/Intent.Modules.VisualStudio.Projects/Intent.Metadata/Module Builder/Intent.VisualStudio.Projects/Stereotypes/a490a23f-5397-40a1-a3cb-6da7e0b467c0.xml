@@ -255,5 +255,14 @@ return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunctio
       <optionsSource>n/a</optionsSource>
       <isActiveFunction>return properties["SDK"].value == "MSTest.Sdk";</isActiveFunction>
     </property>
+    <property id="4b817fc6-d866-481a-bdc8-1fa9aa3bb97a">
+      <hint>Generate and manage this Worker project's `Program.cs`. Turning it off makes Intent hands-off: an existing `Program.cs` is left exactly as it is, none is created, and startup code other modules add to `Program.cs` (e.g. Serilog, Windows Service hosting) is not applied.</hint>
+      <name>Generate Program File</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>true</defaultValue>
+      <isActiveFunction>return properties["SDK"].value == "Microsoft.NET.Sdk.Worker";</isActiveFunction>
+    </property>
   </properties>
 </stereotypeDefinition>

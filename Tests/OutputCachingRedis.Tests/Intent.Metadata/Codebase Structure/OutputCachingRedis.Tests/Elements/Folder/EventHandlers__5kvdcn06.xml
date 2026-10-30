@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b47ab40c-3e60-4441-9e11-49dce158014c</parentFolderId>
+  <packageId>e7e70ce9-e318-4d61-bd4a-9e517fc4116c</packageId>
+  <packageName>OutputCachingRedis.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5d8aad50-0f7c-4514-97c4-d10d84a30734</parentFolderId>
+      <packageId>e7e70ce9-e318-4d61-bd4a-9e517fc4116c</packageId>
+      <packageName>OutputCachingRedis.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5d8aad50-0f7c-4514-97c4-d10d84a30734</parentFolderId>
+      <packageId>e7e70ce9-e318-4d61-bd4a-9e517fc4116c</packageId>
+      <packageName>OutputCachingRedis.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5d8aad50-0f7c-4514-97c4-d10d84a30734</parentFolderId>
+      <packageId>e7e70ce9-e318-4d61-bd4a-9e517fc4116c</packageId>
+      <packageName>OutputCachingRedis.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f4d6f37c-6e6c-4b64-94ff-bb2c5de2b7ab</parentFolderId>
+  <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+  <packageName>AzureFunctions.MongoDb</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bcdb5d33-85ed-491f-8dc9-c270a52814c7</parentFolderId>
+      <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+      <packageName>AzureFunctions.MongoDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -67,6 +71,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+          <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+          <packageName>AzureFunctions.MongoDb</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -87,6 +93,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>2b788359-08fd-4730-aa41-9943ac3ad095</parentFolderId>
+              <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+              <packageName>AzureFunctions.MongoDb</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -99,6 +107,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>2b788359-08fd-4730-aa41-9943ac3ad095</parentFolderId>
+              <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+              <packageName>AzureFunctions.MongoDb</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
                   <addedByDefault>false</addedByDefault>
@@ -135,6 +145,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>2b788359-08fd-4730-aa41-9943ac3ad095</parentFolderId>
+              <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+              <packageName>AzureFunctions.MongoDb</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
                   <addedByDefault>false</addedByDefault>
@@ -171,6 +183,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>2b788359-08fd-4730-aa41-9943ac3ad095</parentFolderId>
+              <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+              <packageName>AzureFunctions.MongoDb</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
                   <addedByDefault>false</addedByDefault>
@@ -209,6 +223,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+          <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+          <packageName>AzureFunctions.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -221,6 +237,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+          <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+          <packageName>AzureFunctions.MongoDb</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -257,6 +275,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+          <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+          <packageName>AzureFunctions.MongoDb</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -293,6 +313,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+          <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+          <packageName>AzureFunctions.MongoDb</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -329,6 +351,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+          <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+          <packageName>AzureFunctions.MongoDb</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -365,6 +389,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+          <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+          <packageName>AzureFunctions.MongoDb</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -379,6 +405,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+          <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+          <packageName>AzureFunctions.MongoDb</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -415,6 +443,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+          <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+          <packageName>AzureFunctions.MongoDb</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -451,6 +481,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+          <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+          <packageName>AzureFunctions.MongoDb</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -487,6 +519,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+          <packageId>23be055a-f72a-4551-9d5e-67ca5cc2342f</packageId>
+          <packageName>AzureFunctions.MongoDb</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

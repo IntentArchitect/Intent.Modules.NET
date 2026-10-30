@@ -16,7 +16,7 @@
   <file path="EntityFrameworkCore.CustomPrimaryConnectionString.Api/EntityFrameworkCore.CustomPrimaryConnectionString.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.CustomPrimaryConnectionString.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
   <file path="EntityFrameworkCore.CustomPrimaryConnectionString.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="EntityFrameworkCore.CustomPrimaryConnectionString.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="EntityFrameworkCore.CustomPrimaryConnectionString.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="EntityFrameworkCore.CustomPrimaryConnectionString.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="EntityFrameworkCore.CustomPrimaryConnectionString.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="EntityFrameworkCore.CustomPrimaryConnectionString.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

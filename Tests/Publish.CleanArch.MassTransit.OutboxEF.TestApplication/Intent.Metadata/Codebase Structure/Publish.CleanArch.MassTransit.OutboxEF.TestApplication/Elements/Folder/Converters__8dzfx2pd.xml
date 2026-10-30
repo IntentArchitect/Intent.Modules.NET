@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>c35a1d0a-4abb-490a-986b-819c79313e09</parentFolderId>
+  <packageId>3fe47d94-1efe-4443-b2c9-0a13a61875b6</packageId>
+  <packageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1e04d079-8fbb-41ca-9c31-0b514463e9cf</parentFolderId>
+      <packageId>3fe47d94-1efe-4443-b2c9-0a13a61875b6</packageId>
+      <packageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

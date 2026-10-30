@@ -11,7 +11,7 @@
   <file path="Templates/Permissions/PermissionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/ProblemDetailsConfiguration/ProblemDetailsConfigurationTemplatePartial.cs" deviationsHash="249BFB98063FC1EA75E2B0727A8A787F0CDACE4E1085C300B98C2C4FC37139AA" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ProblemDetailsConfiguration/ProblemDetailsConfigurationTemplateRegistration.cs" deviationsHash="B19C06D19FDB7CAD8C5F9FA1331D496567B4F148987CD8CC4E23D1B4C57C5ECB" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/Program/ProgramTemplatePartial.cs" deviationsHash="5F259B367B43C25CA4E5329D8472D22F6874ACEFEC7DCDF58B48AC29748FE179" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Program/ProgramTemplatePartial.cs" deviationsHash="A7ED06C2D9D65F7D9FF542323FF1242BF15CD42BE15E8F0CE93147D2C06C9ACA" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/Program/ProgramTemplateRegistration.cs" deviationsHash="D96009DC4A42F58B86E4BA1F25E293748C7DF01563CAE46CC7DD3EC1D90F8986" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/ProgramPartial/ProgramPartialTemplatePartial.cs" deviationsHash="0EA69FFD96066CB3115BB7E60BC286AA7ACEABA5FC4B9864DB68B3C35D3499D5" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ProgramPartial/ProgramPartialTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />

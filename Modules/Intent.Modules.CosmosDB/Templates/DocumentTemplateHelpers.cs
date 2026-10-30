@@ -9,6 +9,7 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.CosmosDB.Settings;
@@ -50,13 +51,16 @@ namespace Intent.Modules.CosmosDB.Templates
                         property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonConverter")}(typeof({template.GetEnumJsonConverterName()}))");
                     }
 
-                    if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                    if (attribute.TypeReference?.Element?.SpecializationType == "Value Object" && documentInterfaceTemplateId != null)
                     {
                         template.AddDocumentInterfaceAccessor(@class, documentInterfaceTemplateId, attribute.TypeReference, attribute.Name.ToPascalCase());
                     }
                 });
 
-                if (attribute.TypeReference.IsCollection)
+                // Value Object collections get their explicit interface accessor from AddDocumentInterfaceAccessor above
+                if (attribute.TypeReference.IsCollection &&
+                    attribute.TypeReference.Element?.SpecializationType != "Value Object" &&
+                    documentInterfaceTemplateId != null)
                 {
                     @class.AddProperty(
                         type: $"{template.UseType("System.Collections.Generic.IReadOnlyList")}<{template.GetTypeName((IElement)attribute.TypeReference.Element)}>",
@@ -126,6 +130,12 @@ namespace Intent.Modules.CosmosDB.Templates
             if (typeReference.IsCollection)
             {
                 typeName = template.UseType($"System.Collections.Generic.IReadOnlyList<{typeName}>");
+            }
+
+            // Must match the nullability the document interface declares, collections included
+            if (typeReference.IsNullable && template.OutputTarget.GetProject().NullableEnabled)
+            {
+                typeName = $"{typeName}?";
             }
 
             return typeName;

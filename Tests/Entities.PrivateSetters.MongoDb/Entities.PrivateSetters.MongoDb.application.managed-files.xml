@@ -11,7 +11,7 @@
   <file path="Entities.PrivateSetters.MongoDb.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
   <file path="Entities.PrivateSetters.MongoDb.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="Entities.PrivateSetters.MongoDb.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
-  <file path="Entities.PrivateSetters.MongoDb.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Entities.PrivateSetters.MongoDb.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="Entities.PrivateSetters.MongoDb.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="Entities.PrivateSetters.MongoDb.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
   <file path="Entities.PrivateSetters.MongoDb.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="33ff404e-730a-411d-b82f-39c9b9981935" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <parentFolderId>d892abdc-aade-41bf-89b4-7dfea0259f3b</parentFolderId>
+  <packageId>d892abdc-aade-41bf-89b4-7dfea0259f3b</packageId>
+  <packageName>TestMediator.Publisher.Domain</packageName>
+  <diagram>
+    <targetPackageId>d892abdc-aade-41bf-89b4-7dfea0259f3b</targetPackageId>
+  </diagram>
+</class>

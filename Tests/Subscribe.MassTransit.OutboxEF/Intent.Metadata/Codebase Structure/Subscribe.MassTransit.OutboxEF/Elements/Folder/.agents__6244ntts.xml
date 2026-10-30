@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8188001b-6643-4f2a-b829-376a4ba8c8fe</parentFolderId>
+  <packageId>8188001b-6643-4f2a-b829-376a4ba8c8fe</packageId>
+  <packageName>Subscribe.MassTransit.OutboxEF</packageName>
   <stereotypes />
   <metadata />
   <childElements />

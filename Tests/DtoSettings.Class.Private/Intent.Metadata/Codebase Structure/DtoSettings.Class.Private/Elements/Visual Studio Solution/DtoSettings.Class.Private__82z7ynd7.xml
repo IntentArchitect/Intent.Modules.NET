@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d016d896-e110-4f82-8d05-10a4f24c4182</parentFolderId>
+  <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+  <packageName>DtoSettings.Class.Private</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

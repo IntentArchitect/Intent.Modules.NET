@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="12565b9c-51de-4970-98a1-dd1412f70177" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>97b3feab-26dc-4faa-ad20-4aca4de98976</parentFolderId>
+  <packageId>97b3feab-26dc-4faa-ad20-4aca4de98976</packageId>
+  <packageName>Intent.Application.Mediator</packageName>
+</class>

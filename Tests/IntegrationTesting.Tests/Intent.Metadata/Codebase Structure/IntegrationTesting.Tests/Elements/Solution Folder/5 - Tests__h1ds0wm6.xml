@@ -21,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8b3eb2d9-526a-4e6e-af51-96a53e354d7f</parentFolderId>
+      <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+      <packageName>IntegrationTesting.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>false</addedByDefault>
@@ -41,6 +43,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+          <packageName>IntegrationTesting.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -53,6 +57,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+          <packageName>IntegrationTesting.Tests</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -67,6 +73,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+          <packageName>IntegrationTesting.Tests</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -81,6 +89,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+          <packageName>IntegrationTesting.Tests</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -95,6 +105,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+          <packageName>IntegrationTesting.Tests</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -109,6 +121,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+          <packageName>IntegrationTesting.Tests</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -123,6 +137,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
+          <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+          <packageName>IntegrationTesting.Tests</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />

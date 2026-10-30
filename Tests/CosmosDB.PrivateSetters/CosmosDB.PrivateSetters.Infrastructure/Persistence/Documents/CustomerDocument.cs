@@ -28,7 +28,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         public AddressDocument DeliveryAddress { get; set; } = default!;
         IAddressDocument ICustomerDocument.DeliveryAddress => DeliveryAddress;
         public AddressDocument? BillingAddress { get; set; }
-        IAddressDocument ICustomerDocument.BillingAddress => BillingAddress;
+        IAddressDocument? ICustomerDocument.BillingAddress => BillingAddress;
 
         public Customer ToEntity(Customer? entity = default)
         {

@@ -9,7 +9,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>4622dc7f-1d60-449b-8c35-c1783d910e42</parentFolderId>
   <packageId>4622dc7f-1d60-449b-8c35-c1783d910e42</packageId>
-  <packageName>Wolverine.Transport.AzureServiceBus.Eventing.Messages</packageName>
+  <packageName>WolverineEventing.Transport.AzureServiceBus.Eventing.Messages</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="292b1227-a311-4bc1-bbf5-5f0ba070b0b1" name="Wolverine Message">
       <addedByDefault>false</addedByDefault>
@@ -39,7 +39,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>5cfd9ac8-e093-4718-9598-2076f12f7d99</parentFolderId>
       <packageId>4622dc7f-1d60-449b-8c35-c1783d910e42</packageId>
-      <packageName>Wolverine.Transport.AzureServiceBus.Eventing.Messages</packageName>
+      <packageName>WolverineEventing.Transport.AzureServiceBus.Eventing.Messages</packageName>
       <stereotypes />
       <metadata />
       <childElements />

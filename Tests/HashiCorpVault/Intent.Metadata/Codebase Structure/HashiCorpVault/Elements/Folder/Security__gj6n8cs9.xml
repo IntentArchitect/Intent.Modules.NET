@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0b24e966-4191-440c-9379-c1ccac85ae91</parentFolderId>
+  <packageId>1dc33871-c2c5-4459-933a-2d96297ef8a9</packageId>
+  <packageName>HashiCorpVault</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>39db22d2-5bd8-4ff2-9f44-21d31190da71</parentFolderId>
+      <packageId>1dc33871-c2c5-4459-933a-2d96297ef8a9</packageId>
+      <packageName>HashiCorpVault</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

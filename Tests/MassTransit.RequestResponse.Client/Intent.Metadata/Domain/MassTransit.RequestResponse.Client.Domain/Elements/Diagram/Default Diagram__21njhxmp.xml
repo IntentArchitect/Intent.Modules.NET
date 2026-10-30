@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a1fc0fb1-3ba5-4c69-bb68-b9c16b36c87c</parentFolderId>
+  <packageId>a1fc0fb1-3ba5-4c69-bb68-b9c16b36c87c</packageId>
+  <packageName>MassTransit.RequestResponse.Client.Domain</packageName>
   <diagram>
     <targetPackageId>a1fc0fb1-3ba5-4c69-bb68-b9c16b36c87c</targetPackageId>
   </diagram>

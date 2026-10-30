@@ -5,10 +5,10 @@
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#fdeb5fbe-21ee-4545-a874-df29642b61aa</correlationId>
       <path>FactoryExtensions/NServiceBusMessageBusInteropExtension.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:57:24.3179269Z</updatedAt>
-      <deviationsHash>D061FEAC98DBABACF42D7471A5B88733E97B198663D8360470D79722CB27ACDD</deviationsHash>
+      <updatedAt>2026-10-15T14:24:11.014606Z</updatedAt>
+      <deviationsHash>FC43454CAA00CFF92B5704625729665B3378CE60860FCCE223E54E38D8E0D208</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#99e6d024-7e01-4b4c-a56a-9dbb2aa8b836</correlationId>

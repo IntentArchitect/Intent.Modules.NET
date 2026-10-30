@@ -99,11 +99,10 @@
   <file path="Blazor.InteractiveWebAssembly.Jwt/Components/Account/Shared/AccountLayout.razor.cs" templateId="Intent.Blazor.Authentication.Templates.Server.AccountLayoutCodeBehindTemplate" />
   <file path="Blazor.InteractiveWebAssembly.Jwt/Components/Account/Shared/StatusMessage.razor" templateId="Intent.Blazor.Templates.Server.RazorServerComponentTemplate" />
   <file path="Blazor.InteractiveWebAssembly.Jwt/Components/Account/Shared/StatusMessage.razor.cs" templateId="Intent.Blazor.Templates.Server.RazorServerComponentCodeBehindTemplate" />
-  <file path="Blazor.InteractiveWebAssembly.Jwt/Components/Account/Shared/_Imports.razor" templateId="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration" />
   <file path="Blazor.InteractiveWebAssembly.Jwt/Components/App.razor" templateId="Intent.Blazor.Templates.Server.AppRazorTemplate" />
   <file path="Blazor.InteractiveWebAssembly.Jwt/Components/_Imports.razor" templateId="Intent.Blazor.Templates.Server.ServerImportsRazorTemplate" />
   <file path="Blazor.InteractiveWebAssembly.Jwt/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
-  <file path="Blazor.InteractiveWebAssembly.Jwt/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Blazor.InteractiveWebAssembly.Jwt/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="Blazor.InteractiveWebAssembly.Jwt/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="Blazor.InteractiveWebAssembly.Jwt/Startup.cs" templateId="Intent.AspNetCore.Startup" />
   <file path="Blazor.InteractiveWebAssembly.Jwt/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

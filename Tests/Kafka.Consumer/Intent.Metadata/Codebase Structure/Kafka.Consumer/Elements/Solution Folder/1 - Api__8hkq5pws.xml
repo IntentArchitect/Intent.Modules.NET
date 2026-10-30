@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>489409e9-7774-4c83-ae98-1ec80a5d9787</parentFolderId>
+  <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+  <packageName>Kafka.Consumer</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3466057b-2ded-468a-bf08-53f0cb5337bb</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -74,6 +78,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d443f015-cee5-46b0-ab6a-c99f83af09bb</parentFolderId>
+          <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+          <packageName>Kafka.Consumer</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -94,6 +100,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>2ed3f8cf-ce89-4e0e-ab0e-5ee729901d96</parentFolderId>
+              <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+              <packageName>Kafka.Consumer</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -108,6 +116,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d443f015-cee5-46b0-ab6a-c99f83af09bb</parentFolderId>
+          <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+          <packageName>Kafka.Consumer</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,6 +130,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d443f015-cee5-46b0-ab6a-c99f83af09bb</parentFolderId>
+          <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+          <packageName>Kafka.Consumer</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -132,6 +144,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d443f015-cee5-46b0-ab6a-c99f83af09bb</parentFolderId>
+          <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+          <packageName>Kafka.Consumer</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -168,6 +182,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d443f015-cee5-46b0-ab6a-c99f83af09bb</parentFolderId>
+          <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+          <packageName>Kafka.Consumer</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -204,6 +220,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d443f015-cee5-46b0-ab6a-c99f83af09bb</parentFolderId>
+          <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+          <packageName>Kafka.Consumer</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>54d1c16a-f2fb-47a8-b109-c5e34d205f87</parentFolderId>
+  <packageId>9a3a04f0-fa2e-4239-bf35-d2e480a03267</packageId>
+  <packageName>DtoSettings.Class.Init</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7c25890c-85d6-4da0-b2dd-e14d4106b455</parentFolderId>
+      <packageId>9a3a04f0-fa2e-4239-bf35-d2e480a03267</packageId>
+      <packageName>DtoSettings.Class.Init</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

@@ -144,7 +144,7 @@
   <file path="BlazorNoMudBlazor.Api/Configuration/IdentityServiceCollectionExtensions.cs" templateId="Intent.AspNetCore.Identity.IdentityServiceCollectionExtensions" />
   <file path="BlazorNoMudBlazor.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
   <file path="BlazorNoMudBlazor.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="BlazorNoMudBlazor.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="BlazorNoMudBlazor.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="BlazorNoMudBlazor.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="BlazorNoMudBlazor.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="BlazorNoMudBlazor.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

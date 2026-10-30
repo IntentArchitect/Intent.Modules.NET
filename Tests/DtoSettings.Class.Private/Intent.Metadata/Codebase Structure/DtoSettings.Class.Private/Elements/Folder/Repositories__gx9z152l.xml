@@ -105,6 +105,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c87ac9d7-dbe4-4228-aa59-28f1a954b87d</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

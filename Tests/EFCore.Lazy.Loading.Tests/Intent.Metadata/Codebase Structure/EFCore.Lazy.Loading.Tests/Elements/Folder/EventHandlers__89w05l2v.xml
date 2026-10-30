@@ -61,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e8485c78-be8f-46c8-8034-51c026ad5a3d</parentFolderId>
+      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

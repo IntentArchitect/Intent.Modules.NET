@@ -248,6 +248,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>13798ab4-d370-47e4-a239-e255efe3bb33</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

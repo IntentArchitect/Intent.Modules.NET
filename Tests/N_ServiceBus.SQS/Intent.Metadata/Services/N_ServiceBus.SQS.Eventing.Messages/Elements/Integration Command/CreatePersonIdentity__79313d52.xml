@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>32ae7689-5afc-4176-ba9a-11e09d48564e</parentFolderId>
   <packageId>32ae7689-5afc-4176-ba9a-11e09d48564e</packageId>
-  <packageName>NServiceBus.SQS.Eventing.Messages</packageName>
+  <packageName>N_ServiceBus.SQS.Eventing.Messages</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="c45c1bba-04ce-4ba3-88e6-c69b6ce3d1ca" name="NServiceBus">
       <addedByDefault>false</addedByDefault>
@@ -40,7 +40,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>07cb8769-af6f-40b9-83b6-f16ca8f29c76</parentFolderId>
       <packageId>32ae7689-5afc-4176-ba9a-11e09d48564e</packageId>
-      <packageName>NServiceBus.SQS.Eventing.Messages</packageName>
+      <packageName>N_ServiceBus.SQS.Eventing.Messages</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -64,7 +64,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>07cb8769-af6f-40b9-83b6-f16ca8f29c76</parentFolderId>
       <packageId>32ae7689-5afc-4176-ba9a-11e09d48564e</packageId>
-      <packageName>NServiceBus.SQS.Eventing.Messages</packageName>
+      <packageName>N_ServiceBus.SQS.Eventing.Messages</packageName>
       <stereotypes />
       <metadata />
       <childElements />

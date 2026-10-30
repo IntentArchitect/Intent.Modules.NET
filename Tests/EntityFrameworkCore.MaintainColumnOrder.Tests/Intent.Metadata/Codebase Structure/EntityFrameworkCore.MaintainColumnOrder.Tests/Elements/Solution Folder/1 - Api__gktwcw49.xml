@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e59a6969-283a-41f3-a29e-6e18996fb1a6</parentFolderId>
+  <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+  <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3f76e4d2-6c6c-4854-824e-6da35c5eea44</parentFolderId>
+      <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+      <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -74,6 +78,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3ed91ddc-157f-49cf-a43e-cdcc8f62327a</parentFolderId>
+          <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+          <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -94,6 +100,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>f73b8d33-5071-4837-b24d-74e436d0438f</parentFolderId>
+              <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+              <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -108,6 +116,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3ed91ddc-157f-49cf-a43e-cdcc8f62327a</parentFolderId>
+          <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+          <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,6 +130,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3ed91ddc-157f-49cf-a43e-cdcc8f62327a</parentFolderId>
+          <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+          <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -132,6 +144,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3ed91ddc-157f-49cf-a43e-cdcc8f62327a</parentFolderId>
+          <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+          <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -168,6 +182,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3ed91ddc-157f-49cf-a43e-cdcc8f62327a</parentFolderId>
+          <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+          <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -204,6 +220,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3ed91ddc-157f-49cf-a43e-cdcc8f62327a</parentFolderId>
+          <packageId>b1016297-f17e-401b-a111-b6eca247598a</packageId>
+          <packageName>EntityFrameworkCore.MaintainColumnOrder.Tests</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

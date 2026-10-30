@@ -8,7 +8,7 @@
 const orders = await searchElements("^Order", { specializations: ["Class"] });
 const first  = orders.matches[0];                          // searchElements can return NO matches
 return {
-    elementTypes: getElementTypes(),                        // carries the designer's rules — don't drop them
+    elementTypes: getElementTypes(),                        // containment; the rules come from get_designer_rules
     matches: orders.matches.map(m => m.path),
     order: first ? await getElementDetails(first.path) : null,
 };
@@ -68,10 +68,10 @@ return lookupByName("Customer")?.findChildren({ specialization: "Attribute" }).m
 const customer = createElementUnder("Domain", "Class", "Customer");
 const order    = createElementUnder("Domain", "Class", "Order");
 createAssociation("Association", customer.id, order.id, { targetMultiplicity: "0..*", sourceMultiplicity: "1" });
-// ...then lay the diagram out as a SEPARATE step with apply_change_diagram_layout — not in this script.
+// ...no layout here: run_designer_script shows the changes on an Explorer Diagram itself.
 ```
 
-After running, inspect the returned `errors[]` (scoped to what you changed). If non-empty, fix the issues in a follow-up script and re-run until clear.
+After running, inspect the returned `errors[]` — what your change introduced, anywhere in the designer. If non-empty, fix those in a follow-up script.
 
 ## (h) Advanced-map a command's fields onto a domain entity (discover → create → map → verify)
 

@@ -67,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4427e521-c424-4e69-adc9-82b9ef203571</parentFolderId>
+      <packageId>ca8e7db5-54da-4f00-aa50-68c424acf855</packageId>
+      <packageName>CleanArchitecture.SingleFiles</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

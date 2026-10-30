@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5b414a8e-5dd6-4141-8c08-f57a6c24f6d5</parentFolderId>
+  <packageId>7f5bb63d-0822-4d6a-bdd1-590ed03e253c</packageId>
+  <packageName>Finbuckle.SharedDatabase.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>56c187c1-41af-4097-86e1-026d9cfe1916</parentFolderId>
+      <packageId>7f5bb63d-0822-4d6a-bdd1-590ed03e253c</packageId>
+      <packageName>Finbuckle.SharedDatabase.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

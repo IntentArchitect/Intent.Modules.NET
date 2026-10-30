@@ -9,7 +9,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>162ca54a-5b2e-4949-afc5-3d5f9d307fca</parentFolderId>
   <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-  <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+  <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
       <addedByDefault>true</addedByDefault>
@@ -31,7 +31,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>62e81e59-ee3e-4be6-9f7c-f380da051144</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -69,7 +69,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>62e81e59-ee3e-4be6-9f7c-f380da051144</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -85,7 +85,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>62e81e59-ee3e-4be6-9f7c-f380da051144</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -101,7 +101,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>62e81e59-ee3e-4be6-9f7c-f380da051144</parentFolderId>
       <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-      <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata />
       <childElements />

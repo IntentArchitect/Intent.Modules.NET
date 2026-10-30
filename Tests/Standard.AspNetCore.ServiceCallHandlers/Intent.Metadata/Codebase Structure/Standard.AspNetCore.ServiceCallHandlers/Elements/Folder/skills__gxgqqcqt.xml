@@ -129,6 +129,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>96d7dbd7-d7c6-4408-aa53-71074f096c03</parentFolderId>
+      <packageId>98edc616-5f17-4fce-b93f-fe01230d91c6</packageId>
+      <packageName>Standard.AspNetCore.ServiceCallHandlers</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

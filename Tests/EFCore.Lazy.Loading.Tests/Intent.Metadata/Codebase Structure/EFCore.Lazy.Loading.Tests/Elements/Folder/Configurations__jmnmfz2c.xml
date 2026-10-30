@@ -67,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4461aff0-bde3-4bad-8e3e-8627bf6a8e37</parentFolderId>
+      <packageId>40672f49-153a-4ae4-a587-55b4a9fceca2</packageId>
+      <packageName>EFCore.Lazy.Loading.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

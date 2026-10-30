@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#484f6c17-347c-463d-8ce2-65be4777dac1</correlationId>
+      <path>N_ServiceBus.Persistence.Sql.Subscribe.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:12:48.9722527Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#067ff374-d1e4-47bd-b796-d82ff8150361</correlationId>
       <path>N_ServiceBus.Persistence.Sql.Subscribe.Application/IntegrationEvents/EventHandlers/AnotherTestMessageHandler.cs</path>
       <count>1</count>

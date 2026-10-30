@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>757e3f0f-4821-4f32-b9cf-10ed3840deea</parentFolderId>
+  <packageId>6e6eaa8b-4cfd-4b19-bdd9-0f6e4c6a7ecc</packageId>
+  <packageName>EntityFrameworkCore.SQLLite</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d2e3a0a1-2315-4911-a567-b15e4702199b</parentFolderId>
+      <packageId>6e6eaa8b-4cfd-4b19-bdd9-0f6e4c6a7ecc</packageId>
+      <packageName>EntityFrameworkCore.SQLLite</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

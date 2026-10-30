@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f679ac82-9f74-44bc-a570-813237cc00e0</parentFolderId>
+  <packageId>d8556337-c7da-4c53-a299-134f76ed097d</packageId>
+  <packageName>Entities.PrivateSetters.EF.SqlServer</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a415d79e-2cbe-47df-a330-ed0d799194de</parentFolderId>
+      <packageId>d8556337-c7da-4c53-a299-134f76ed097d</packageId>
+      <packageName>Entities.PrivateSetters.EF.SqlServer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

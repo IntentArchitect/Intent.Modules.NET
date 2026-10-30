@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3e20fbb4-446c-4ec8-a8c9-85b9b8890c26">
+  <sourceEnd id="33a337d2-c343-49aa-a8f7-bada0a1b2517" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderPlacedEventHandler.Handler</display>
+    <typeReference id="96025fa0-c447-40db-8f78-182586a80a52">
+      <typeId>4aeba828-5abe-4fcf-bd86-ff3d960e47dc</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>TestMediator.WolverineSubscribeOnly.Services</typePackageName>
+      <typePackageId>0e22549b-9bbd-4ed9-bbfe-e1462cbd0262</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="3e20fbb4-446c-4ec8-a8c9-85b9b8890c26" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] RecordOrderCommand(...): void</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="d3a54303-2f2d-4213-af67-524de627bb80">
+      <typeId>2f824ef5-2e9b-47e2-bb2f-289baa3fd701</typeId>
+      <typeName>RecordOrderCommand</typeName>
+      <typePackageName>TestMediator.WolverineSubscribeOnly.Services</typePackageName>
+      <typePackageId>0e22549b-9bbd-4ed9-bbfe-e1462cbd0262</typePackageId>
+    </typeReference>
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="504bd045-6c51-4f5d-996e-c199c8e64748" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4aeba828-5abe-4fcf-bd86-ff3d960e47dc" location="[TestMediator.WolverineSubscribeOnly].[Services].[Handler]" />
+        <target applicationId="504bd045-6c51-4f5d-996e-c199c8e64748" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2f824ef5-2e9b-47e2-bb2f-289baa3fd701" location="[TestMediator.WolverineSubscribeOnly].[Services].[RecordOrderCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Handler}</expression>
+            <path>
+              <target id="2f824ef5-2e9b-47e2-bb2f-289baa3fd701" name="RecordOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="Handler" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="4aeba828-5abe-4fcf-bd86-ff3d960e47dc" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

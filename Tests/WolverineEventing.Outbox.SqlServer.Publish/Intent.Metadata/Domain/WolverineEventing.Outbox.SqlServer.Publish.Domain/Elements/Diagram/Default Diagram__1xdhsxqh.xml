@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b4bc0152-7836-4624-bf72-b12bec0e8856</parentFolderId>
+  <packageId>b4bc0152-7836-4624-bf72-b12bec0e8856</packageId>
+  <packageName>WolverineEventing.Outbox.SqlServer.Publish.Domain</packageName>
   <diagram>
     <targetPackageId>b4bc0152-7836-4624-bf72-b12bec0e8856</targetPackageId>
   </diagram>

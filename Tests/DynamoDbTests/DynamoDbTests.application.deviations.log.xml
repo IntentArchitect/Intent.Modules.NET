@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#46a3b7a7-a247-4646-bf53-d0e38f26114a</correlationId>
+      <path>DynamoDbTests.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:01:05.8832874Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.MediatR.DomainEvents.AggregateManager#faa3d820-00cf-41a9-b041-79d7caa7162d</correlationId>
       <path>DynamoDbTests.Application/EventHandlers/RegionManager.cs</path>
       <count>1</count>

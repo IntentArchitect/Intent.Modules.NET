@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</parentFolderId>
+  <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+  <packageName>root</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>true</addedByDefault>
@@ -33,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1f716fc7-fb2d-4bc2-ac06-155c947ebd27</parentFolderId>
+      <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+      <packageName>root</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -92,6 +96,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e21d9a26-cf34-4dcf-9558-ede441dae914</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
               <addedByDefault>true</addedByDefault>
@@ -113,6 +119,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e21d9a26-cf34-4dcf-9558-ede441dae914</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
               <addedByDefault>true</addedByDefault>
@@ -134,6 +142,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e21d9a26-cf34-4dcf-9558-ede441dae914</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -170,6 +180,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e21d9a26-cf34-4dcf-9558-ede441dae914</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -206,6 +218,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e21d9a26-cf34-4dcf-9558-ede441dae914</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -244,6 +258,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1f716fc7-fb2d-4bc2-ac06-155c947ebd27</parentFolderId>
+      <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+      <packageName>root</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -303,6 +319,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
               <addedByDefault>true</addedByDefault>
@@ -324,6 +342,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -338,6 +358,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -352,6 +374,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -366,6 +390,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -380,6 +406,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -394,6 +422,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -408,6 +438,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -422,6 +454,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -436,6 +470,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -450,6 +486,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -464,6 +502,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -478,6 +518,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -492,6 +534,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -506,6 +550,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -520,6 +566,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
@@ -534,6 +582,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>10b84cfe-708e-4d8e-8a1d-b5f8d6bfb0df</parentFolderId>
+          <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+          <packageName>root</packageName>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />

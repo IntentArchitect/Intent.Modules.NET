@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5b199425-882f-4d26-a903-54f8756b8b0c</parentFolderId>
+  <packageId>3fddae1e-674f-4645-89ef-de2eebca967d</packageId>
+  <packageName>Scalar.NET10.Bearer</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ccd07f28-8e09-4953-a47a-21d121b46449</parentFolderId>
+      <packageId>3fddae1e-674f-4645-89ef-de2eebca967d</packageId>
+      <packageName>Scalar.NET10.Bearer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

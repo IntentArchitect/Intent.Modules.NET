@@ -24,10 +24,10 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="97f790bd-1dcb-4501-a450-b2af464ff59d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.ClaudeSettings</name>
-      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.ClaudeSettings</display>
-      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+    <childElement id="dbed708f-df05-479e-aac8-f4ad0039d485" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Guidelines.Hooks.ClaudeSettings</name>
+      <display>Intent.ModuleBuilder.AI.Guidelines.Hooks.ClaudeSettings</display>
+      <externalReference>Intent.ModuleBuilder.AI.Guidelines</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -50,10 +50,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="131883f4-3f14-4e73-acf6-c2359e45e018" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.CopilotHooks</name>
-      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.CopilotHooks</display>
-      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+    <childElement id="47f7de94-01b7-415c-a4ae-b467358464b1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Guidelines.Hooks.CopilotHooks</name>
+      <display>Intent.ModuleBuilder.AI.Guidelines.Hooks.CopilotHooks</display>
+      <externalReference>Intent.ModuleBuilder.AI.Guidelines</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -76,10 +76,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3de1131e-9db5-4999-8853-f67ac3cef1e5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.CursorHooks</name>
-      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.CursorHooks</display>
-      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+    <childElement id="72fe3e52-8d20-40ca-b58b-f6ba4f49988a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Guidelines.Hooks.CursorHooks</name>
+      <display>Intent.ModuleBuilder.AI.Guidelines.Hooks.CursorHooks</display>
+      <externalReference>Intent.ModuleBuilder.AI.Guidelines</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -102,10 +102,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="1b12fa1d-a5b7-44b9-a9f0-c5d426582a0c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.GateScripts</name>
-      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.GateScripts</display>
-      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+    <childElement id="48ba60bf-cab8-497f-8d09-bce8cad9cf61" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Guidelines.Hooks.GateScripts</name>
+      <display>Intent.ModuleBuilder.AI.Guidelines.Hooks.GateScripts</display>
+      <externalReference>Intent.ModuleBuilder.AI.Guidelines</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -128,10 +128,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3f3a4f23-c953-4c3b-9685-1f7173f7db9f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.HooksJson</name>
-      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.HooksJson</display>
-      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+    <childElement id="a2524a96-0e96-4c79-bf51-f87042d286bb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Guidelines.Hooks.HooksJson</name>
+      <display>Intent.ModuleBuilder.AI.Guidelines.Hooks.HooksJson</display>
+      <externalReference>Intent.ModuleBuilder.AI.Guidelines</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -154,10 +154,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="aa0f5ea1-6948-40da-8fb3-7805283e3d65" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.KiroHooks</name>
-      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.KiroHooks</display>
-      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+    <childElement id="c40b836a-d6d1-4436-bb45-4fcb642bdefa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Guidelines.Hooks.KiroHooks</name>
+      <display>Intent.ModuleBuilder.AI.Guidelines.Hooks.KiroHooks</display>
+      <externalReference>Intent.ModuleBuilder.AI.Guidelines</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -180,10 +180,62 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="4faf48e5-99ac-4d18-aea4-d36f464e407a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.AI.Workflow.Hooks.OpenCodePlugin</name>
-      <display>Intent.ModuleBuilder.AI.Workflow.Hooks.OpenCodePlugin</display>
-      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
+    <childElement id="540150e6-cc68-4435-acf7-1ade7bb07914" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Guidelines.Hooks.OpenCodePlugin</name>
+      <display>Intent.ModuleBuilder.AI.Guidelines.Hooks.OpenCodePlugin</display>
+      <externalReference>Intent.ModuleBuilder.AI.Guidelines</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6779215-8f4b-47b1-8ceb-d9279ac848d2</parentFolderId>
+      <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="613554b3-a2a4-46fc-98dd-bab3ccb3df4e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Guidelines.RootPrinciples.CodexInstructionsConfig</name>
+      <display>Intent.ModuleBuilder.AI.Guidelines.RootPrinciples.CodexInstructionsConfig</display>
+      <externalReference>Intent.ModuleBuilder.AI.Guidelines</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6779215-8f4b-47b1-8ceb-d9279ac848d2</parentFolderId>
+      <packageId>2f94913a-fa84-48e9-a83e-8749ee6e1298</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ec22855b-7e6e-46f9-b07c-ab035c4b66b9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.AI.Guidelines.RootPrinciples.OpenCodeInstructionsConfig</name>
+      <display>Intent.ModuleBuilder.AI.Guidelines.RootPrinciples.OpenCodeInstructionsConfig</display>
+      <externalReference>Intent.ModuleBuilder.AI.Guidelines</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -226,34 +278,6 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="fda08ce4-40e0-4968-85d9-b8ccdb1b7db6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.AI.Workflow.RootPrinciples.CodexInstructionsConfig</name>
-      <display>Intent.ModuleBuilder.AI.Workflow.RootPrinciples.CodexInstructionsConfig</display>
-      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b6779215-8f4b-47b1-8ceb-d9279ac848d2</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="80fa3e5d-8d3b-4f24-bf91-a66232a78290" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.AI.Workflow.RootPrinciples.OpenCodeInstructionsConfig</name>
-      <display>Intent.ModuleBuilder.AI.Workflow.RootPrinciples.OpenCodeInstructionsConfig</display>
-      <externalReference>Intent.ModuleBuilder.AI.Workflow</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b6779215-8f4b-47b1-8ceb-d9279ac848d2</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
       <childElements />
     </childElement>
   </childElements>

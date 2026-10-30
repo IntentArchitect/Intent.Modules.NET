@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>40c15df7-3456-46cb-9474-5e006616f1d9</parentFolderId>
+      <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
+      <packageName>Application.Identity.Jwt.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

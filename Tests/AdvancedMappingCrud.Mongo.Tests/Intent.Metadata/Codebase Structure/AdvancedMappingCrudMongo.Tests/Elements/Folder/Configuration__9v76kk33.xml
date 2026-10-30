@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b891ab0e-cd77-4785-82cf-35b807d40c37</parentFolderId>
+  <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+  <packageName>AdvancedMappingCrudMongo.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>685f778e-af91-4594-a147-b74a382c4c1d</parentFolderId>
+      <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+      <packageName>AdvancedMappingCrudMongo.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

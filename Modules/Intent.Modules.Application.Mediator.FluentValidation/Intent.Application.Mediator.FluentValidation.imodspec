@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Application.Mediator.FluentValidation</id>
+  <version>1.0.0-pre.2</version>
+  <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
+  <summary>FluentValidation support for Mediator command and query handlers.</summary>
+  <description>FluentValidation support for Mediator command and query handlers.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDUwIDUwIj4KICA8c3R5bGU+CiAgICAvKiBCZWxvdyAzMHB4IHRoZSBib2x0IGlzIHRvbyBzbWFsbCB0byByZWFkIGFuZCBibG90cyB0aGUgaHViLCBzbyB0aGUgZ2x5cGggZmFsbHMgYmFjayB0byBwbGFpbiBodWItYW5kLXNwb2tlICovCiAgICBAbWVkaWEgKG1heC13aWR0aDogMzBweCkgeyAuYm9sdCB7IGRpc3BsYXk6IG5vbmU7IH0gfQogIDwvc3R5bGU+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Im1lZGlhdG9yQmFja2dyb3VuZCIgeDE9IjI1IiB5MT0iLjYiIHgyPSIyNSIgeTI9IjQ5LjQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMTRiOGE2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiMwZDk0ODgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMGY3NjZlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8ZyBpZD0iTGF5ZXJfMSI+CiAgICA8Y2lyY2xlIGN4PSIyNSIgY3k9IjI1IiByPSIyNC40IiBmaWxsPSJ1cmwoI21lZGlhdG9yQmFja2dyb3VuZCkiLz4KCiAgICA8IS0tIENvbGxlYWd1ZXMgdGFsayBvbmx5IHRocm91Z2ggdGhlIG1lZGlhdG9yLCBuZXZlciB0byBlYWNoIG90aGVyIC0tPgogICAgPGcgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICAgICAgPGxpbmUgeDE9IjE1IiB5MT0iMTUiIHgyPSIzNSIgeTI9IjM1Ii8+CiAgICAgIDxsaW5lIHgxPSIzNSIgeTE9IjE1IiB4Mj0iMTUiIHkyPSIzNSIvPgogICAgPC9nPgogICAgPGcgZmlsbD0iI2ZmZiI+CiAgICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjQuMyIvPgogICAgICA8Y2lyY2xlIGN4PSIzNSIgY3k9IjE1IiByPSI0LjMiLz4KICAgICAgPGNpcmNsZSBjeD0iMTUiIGN5PSIzNSIgcj0iNC4zIi8+CiAgICAgIDxjaXJjbGUgY3g9IjM1IiBjeT0iMzUiIHI9IjQuMyIvPgogICAgICA8Y2lyY2xlIGN4PSIyNSIgY3k9IjI1IiByPSI3LjQiLz4KICAgIDwvZz4KCiAgICA8IS0tIFRoZSBtZWRpYXRvcjogZmFzdCwgc291cmNlLWdlbmVyYXRlZCBkaXNwYXRjaCAtLT4KICAgIDxwYXRoIGNsYXNzPSJib2x0IiBkPSJNMjUuOSwxOS42TDIyLjIsMjUuNkgyNC42TDIzLjksMzAuNEwyNy44LDI0LjRIMjUuNFoiIGZpbGw9IiMwZjc2NmUiLz4KICA8L2c+Cjwvc3ZnPgo=</iconUrl>
+  <templates>
+    <template id="Intent.Application.Mediator.FluentValidation.BypassValidationInterface" externalReference="cc9f61ed-a5c3-4661-a00c-342db5c3f480">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.BypassValidationInterface</role>
+      <location>Common/Interfaces</location>
+      <severity>medium</severity>
+      <classifications>Validation</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.FluentValidation.CommandValidator" externalReference="a288ffaf-91c1-478e-9b9a-a227cc71f370">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Validation.Command</role>
+      <location></location>
+      <severity>medium</severity>
+      <classifications>Validation</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.FluentValidation.QueryValidator" externalReference="6c2ba0d0-cb18-4bbb-88a4-344b8737362c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Validation.Query</role>
+      <location></location>
+      <severity>medium</severity>
+      <classifications>Validation</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" externalReference="82fad179-3279-432a-9c90-c98a8223641b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Mediator.Dispatch.Behaviours.ValidationBehaviour</role>
+      <location>Dispatch/Behaviours</location>
+      <severity>high</severity>
+      <classifications>Validation,Request Pipeline</classifications>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Application.Mediator.FluentValidation.AISkillsExtension" externalReference="e5134267-ed75-4e2a-85f9-b359d46afef7" />
+    <factoryExtension id="Intent.Application.Mediator.FluentValidation.CombineWithModelsExtension" externalReference="632e2ac7-f75b-4b5d-b41a-b687c9922929" />
+    <factoryExtension id="Intent.Application.Mediator.FluentValidation.UnhandledExceptionBehaviourExtension" externalReference="2f9fa230-9b10-4eea-b0d8-3a231b17c9aa" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Application.FluentValidation" version="3.12.2" />
+    <dependency id="Intent.Application.Mediator" version="1.0.0-pre.3" />
+    <dependency id="Intent.Common" version="3.11.2" />
+    <dependency id="Intent.Common.CSharp" version="3.10.10" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Modelers.Domain" version="3.13.2" />
+    <dependency id="Intent.Modelers.Services" version="4.0.16" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="6.0.8" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags>mediator fluentvalidation validation cqrs dotnet</tags>
+  <moduleSettingsExtensions />
+  <metadata />
+  <releaseNotes>release-notes.md</releaseNotes>
+  <migrations />
+</package>

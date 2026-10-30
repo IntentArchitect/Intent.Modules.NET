@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>407ce5b0-40cf-4813-9e59-efb4cf402226</parentFolderId>
+  <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+  <packageName>EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9a45b53e-fe4f-47f5-b133-f7f522d7e37a</parentFolderId>
+      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

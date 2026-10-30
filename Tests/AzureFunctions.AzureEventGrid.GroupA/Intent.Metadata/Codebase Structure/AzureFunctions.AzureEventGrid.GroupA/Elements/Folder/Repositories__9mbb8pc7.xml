@@ -219,6 +219,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e2fc3e8b-51af-4792-9e97-b33f30d0b71c</parentFolderId>
+      <packageId>60a22b78-005c-44d9-9a7c-286afa665554</packageId>
+      <packageName>AzureFunctions.AzureEventGrid.GroupA</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

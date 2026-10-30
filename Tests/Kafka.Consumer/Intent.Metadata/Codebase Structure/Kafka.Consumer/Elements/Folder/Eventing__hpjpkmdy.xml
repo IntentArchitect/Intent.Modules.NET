@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>fa987292-61ec-4c58-a1e0-96a58ca49c3e</parentFolderId>
+  <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+  <packageName>Kafka.Consumer</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -87,6 +99,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -101,6 +115,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -115,6 +131,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -129,6 +147,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -143,6 +163,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -157,6 +179,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>481917e3-f8cb-4acd-afdd-1ec4af3e2515</parentFolderId>
+      <packageId>916a7bc1-96ee-4697-9d5b-da8a9a752ff1</packageId>
+      <packageName>Kafka.Consumer</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

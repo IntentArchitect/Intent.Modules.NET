@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>42a1998d-e83e-4a09-842b-595de939995e</parentFolderId>
   <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
-  <packageName>AzureFunctions.AzureServiceBus.GroupA</packageName>
+  <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
       <addedByDefault>true</addedByDefault>
@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6164cffc-ee61-4d1c-ac6a-067c8585c2e8</parentFolderId>
+      <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

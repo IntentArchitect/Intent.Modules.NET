@@ -67,6 +67,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.IdentityS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.IdentityService.Infrastructure", "CleanArchitecture.IdentityService\CleanArchitecture.IdentityService.Infrastructure\CleanArchitecture.IdentityService.Infrastructure.csproj", "{FDD63EE7-BCAF-50FC-60F4-CFFE45A9C311}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Tests", "Intent.Modules.AspNetCore.Tests\Intent.Modules.AspNetCore.Tests.csproj", "{4027FFF6-02CA-49E6-8129-956C68548514}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -185,6 +187,10 @@ Global
 		{FDD63EE7-BCAF-50FC-60F4-CFFE45A9C311}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDD63EE7-BCAF-50FC-60F4-CFFE45A9C311}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDD63EE7-BCAF-50FC-60F4-CFFE45A9C311}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4027FFF6-02CA-49E6-8129-956C68548514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4027FFF6-02CA-49E6-8129-956C68548514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4027FFF6-02CA-49E6-8129-956C68548514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4027FFF6-02CA-49E6-8129-956C68548514}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

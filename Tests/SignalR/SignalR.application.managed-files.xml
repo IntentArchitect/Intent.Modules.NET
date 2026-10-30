@@ -22,7 +22,7 @@
   <file path="SignalR.Api/Hubs/NotificationsHub.cs" templateId="Intent.AspNetCore.SignalR.Hub" />
   <file path="SignalR.Api/Hubs/Services/NotificationsHubService.cs" templateId="Intent.AspNetCore.SignalR.HubService" />
   <file path="SignalR.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="SignalR.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="SignalR.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="SignalR.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="SignalR.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="SignalR.Api/SignalR.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />

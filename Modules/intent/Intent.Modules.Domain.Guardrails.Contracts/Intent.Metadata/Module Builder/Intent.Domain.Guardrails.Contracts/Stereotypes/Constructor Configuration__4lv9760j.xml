@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="2189ac42-f723-4663-9673-80ad2cdd9f51" version="3.1.0">
+  <comment>The constructor's access modifier as the code declares it, e.g. protected for a constructor only EF Core uses. Without it, a constructor is public. Constructor signatures are fully managed under Merge, so it must match the code. Ignored on a Primary Constructor, which has no access modifier of its own.</comment>
+  <name>Constructor Configuration</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">Class Constructor</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="lock" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>11aae230-6dfe-414e-bf5f-18280aad6ae2</parentFolderId>
+  <order>0</order>
+  <packageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</packageId>
+  <packageName>Intent.Domain.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="1ece30f0-2390-47ff-84e4-06ca2681d174">
+      <hint>The constructor's access modifier as the code declares it. A constructor declared without one is private, so model it as private. Empty means public.</hint>
+      <name>Access Modifier</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>public</defaultValue>
+      <valueOptions>
+        <option>public</option>
+        <option>protected</option>
+        <option>internal</option>
+        <option>private</option>
+        <option>protected internal</option>
+      </valueOptions>
+    </property>
+  </properties>
+</stereotypeDefinition>

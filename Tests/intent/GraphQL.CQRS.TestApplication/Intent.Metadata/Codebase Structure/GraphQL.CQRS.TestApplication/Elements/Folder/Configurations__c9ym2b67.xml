@@ -67,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>72a5cea3-eb18-4387-9f1e-bc4dde5d89e1</parentFolderId>
+      <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+      <packageName>GraphQL.CQRS.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

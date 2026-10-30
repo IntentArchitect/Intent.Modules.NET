@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#31dc39a5-50f4-4fb2-808c-faa1c0a8b289</correlationId>
+      <path>ProxyServiceTests.Proxy.AuthHeaderProvider.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:20:48.3965682Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#8fd36463-2971-43aa-a9cb-d26a35a64679</correlationId>
       <path>ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure.csproj</path>
       <count>1</count>

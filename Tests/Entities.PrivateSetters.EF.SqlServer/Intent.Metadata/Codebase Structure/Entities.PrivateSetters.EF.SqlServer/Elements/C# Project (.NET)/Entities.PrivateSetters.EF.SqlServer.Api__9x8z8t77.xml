@@ -169,6 +169,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>80266d8f-72be-4f41-8b6b-650edc0d10c1</parentFolderId>
+      <packageId>d8556337-c7da-4c53-a299-134f76ed097d</packageId>
+      <packageName>Entities.PrivateSetters.EF.SqlServer</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

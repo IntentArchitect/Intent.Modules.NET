@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>847e875e-3023-427c-9d2a-cc24c918f980</parentFolderId>
+  <packageId>847e875e-3023-427c-9d2a-cc24c918f980</packageId>
+  <packageName>N_ServiceBus.LearnerTransport.Domain</packageName>
   <diagram>
     <targetPackageId>847e875e-3023-427c-9d2a-cc24c918f980</targetPackageId>
   </diagram>

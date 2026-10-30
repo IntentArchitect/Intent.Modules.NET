@@ -206,6 +206,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return _stereotype.GetProperty<string>("MSTest SDK Version");
             }
 
+            public bool GenerateProgramFile()
+            {
+                return _stereotype.GetProperty<bool>("Generate Program File");
+            }
+
             public class SDKOptions
             {
                 public readonly string Value;

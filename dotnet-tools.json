@@ -8,6 +8,13 @@
         "intent-cli"
       ],
       "rollForward": false
+    },
+    "intent.softwarefactory.cli.nightly": {
+      "version": "5.4.999-nightly.2026-10-16-1531-UTC.6325af2",
+      "commands": [
+        "intent-cli"
+      ],
+      "rollForward": false
     }
   }
 }

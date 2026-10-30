@@ -15,6 +15,15 @@
       <fileHash>14A3957C2B6F9D7880F1E7F26DE906815AB600BAED56D8AE1DCE3FD05EE4AAD5</fileHash>
     </file>
     <file>
+      <correlationId>Intent.AspNetCore.Program#4f19eb02-4b96-4275-b14a-e56f1c3f7ae7</correlationId>
+      <path>MudBlazor.ExampleApp.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:09:09.7942622Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#03d22c9a-2ea7-4c62-a54b-addae3c7f0b5</correlationId>
       <path>MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceForm.razor.cs</path>
       <count>3</count>

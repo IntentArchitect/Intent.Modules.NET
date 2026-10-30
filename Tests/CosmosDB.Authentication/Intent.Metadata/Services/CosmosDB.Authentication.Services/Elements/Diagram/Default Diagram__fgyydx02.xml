@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6fc0183c-05f3-469f-8670-99c9debf0d29</parentFolderId>
+  <packageId>6fc0183c-05f3-469f-8670-99c9debf0d29</packageId>
+  <packageName>CosmosDB.Authentication.Services</packageName>
   <diagram>
     <targetPackageId>6fc0183c-05f3-469f-8670-99c9debf0d29</targetPackageId>
   </diagram>

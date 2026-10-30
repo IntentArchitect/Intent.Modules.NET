@@ -67,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d1ac07df-4e47-48f9-8ab5-e1492c23694e</parentFolderId>
+      <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
+      <packageName>MassTransitFinbuckle.Test</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

@@ -5,10 +5,10 @@
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#2a4017ae-c90e-458e-ab77-342d36a450c0</correlationId>
       <path>FactoryExtensions/WolverineEventingRegistrationExtension.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-11T09:44:00.8610981Z</updatedAt>
-      <deviationsHash>0A19EBB62FDE8552BE6DB858DE4B1E3BE9D0EED734D29CB421BC545AF81170C8</deviationsHash>
+      <updatedAt>2026-10-15T14:24:31.6844612Z</updatedAt>
+      <deviationsHash>6E8C57547B28F7BB85BE45D0754D3015445CFDA6F86A005358EEE25CED0F7480</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#ef6ebd2c-9819-46a9-87c6-79bdedaffca9</correlationId>
@@ -26,10 +26,10 @@
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#fbce3e2d-4b6a-4a9d-8a17-1b235098a9cf</correlationId>
       <path>FactoryExtensions/WolverineMessageBusInteropExtension.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-10T10:26:23.2526857Z</updatedAt>
-      <deviationsHash>8CF382050E24168515072B086F4A580C72CFB2040059C0804C0C5D9490D5F631</deviationsHash>
+      <updatedAt>2026-10-15T14:24:31.6845091Z</updatedAt>
+      <deviationsHash>DC42BFEEDC0162E146D4A264DE4EFBB412C5FF04142D38445351BA416A09AA01</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#1d7c539a-1b3f-4440-adee-c0d75a8ea418</correlationId>

@@ -159,6 +159,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>31f67ec3-43c0-454e-88b2-c37327d5548e</parentFolderId>
+      <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+      <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

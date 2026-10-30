@@ -77,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ebee53f9-70c5-417b-9e09-e8344c4e8438</parentFolderId>
+      <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+      <packageName>Entities.PrivateSetters.MongoDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -113,6 +115,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ebee53f9-70c5-417b-9e09-e8344c4e8438</parentFolderId>
+      <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+      <packageName>Entities.PrivateSetters.MongoDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -127,6 +131,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ebee53f9-70c5-417b-9e09-e8344c4e8438</parentFolderId>
+      <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+      <packageName>Entities.PrivateSetters.MongoDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -141,6 +147,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ebee53f9-70c5-417b-9e09-e8344c4e8438</parentFolderId>
+      <packageId>172c7f13-c7ba-41a9-b36f-5bcf6d76c60c</packageId>
+      <packageName>Entities.PrivateSetters.MongoDb</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

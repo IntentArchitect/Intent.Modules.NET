@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="e6cb9b73-8c83-42b0-b30b-2e498bd2aef5">
+  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.codex/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.cursor/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.github/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../Intent.Modules.NET.Dispatchers.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="Intent.Application.Mediator.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Intent.Modules.Application.Mediator.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
+  <file path="Templates/AuthorizationBehaviour/AuthorizationBehaviourTemplatePartial.cs" deviationsHash="253EFF4E7789B370E3E3426E65CBB51161400C7CEF8B54531370D49BCAB30F50" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/AuthorizationBehaviour/AuthorizationBehaviourTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CommandHandler/CommandHandlerTemplatePartial.cs" deviationsHash="8DB4D8A0443688F72B2E81FEF5EE63A81E0DE2EBD607C7F7C02354276FC37B51" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CommandHandler/CommandHandlerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/CommandHandlerSkill/CommandHandlerSkillTemplatePartial.cs" deviationsHash="9980972AA78830782631B87D441E156D7C3D26891C1EA985EEA4ACB63CD43900" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/CommandHandlerSkill/CommandHandlerSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/CommandModels/CommandModelsTemplatePartial.cs" deviationsHash="E680E12080FDDDE5D3DF6A622B231D9C7443EC8DE552BC68A824337EE0ADC193" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/CommandModels/CommandModelsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/IntegrationEventHandlerSkill/IntegrationEventHandlerSkillTemplatePartial.cs" deviationsHash="9943525F2AE002053E1FC85876C5AF8F535BD3975D71401A2D1E9F648A30C77A" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/IntegrationEventHandlerSkill/IntegrationEventHandlerSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/LoggingBehaviour/LoggingBehaviourTemplatePartial.cs" deviationsHash="8748326986444AC651C3EE851639996FD2D27A82AB9741724FB1C6E154C55B52" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/LoggingBehaviour/LoggingBehaviourTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MediatorConfiguration/MediatorConfigurationTemplatePartial.cs" deviationsHash="754F2CD51FE306875BA104050720195B0FC76FEC6E7AD52231F7D7B454880A3F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MediatorConfiguration/MediatorConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MessageBusFlushOwner/MessageBusFlushOwnerTemplatePartial.cs" deviationsHash="89CDC844DEC42DC3CC2DB078A2F7C662EF498BCDF61923AFBA125F166FA9728F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MessageBusFlushOwner/MessageBusFlushOwnerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/MessageBusPublishBehaviour/MessageBusPublishBehaviourTemplatePartial.cs" deviationsHash="B4911B9DA8B537B518DE0A584F0C7CFE30D7664A91C86C4ADD1C02C1914EF79F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/MessageBusPublishBehaviour/MessageBusPublishBehaviourTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/PerformanceBehaviour/PerformanceBehaviourTemplatePartial.cs" deviationsHash="798C913468E8B9309C545EF21F57B1D545C5131379395F07DFD658D02BB04DB7" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/PerformanceBehaviour/PerformanceBehaviourTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/QueryHandler/QueryHandlerTemplatePartial.cs" deviationsHash="4437542F62E4E92193B2A189E043C93EBFB9CBA28DC9E456513C728E645961A2" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/QueryHandler/QueryHandlerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/QueryHandlerSkill/QueryHandlerSkillTemplatePartial.cs" deviationsHash="A7ADF3D33FC37B9914B5CE6C54F4ED9218597577F5C74A46300FDFB0A74FA3A8" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/QueryHandlerSkill/QueryHandlerSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/QueryModels/QueryModelsTemplatePartial.cs" deviationsHash="0F48D1020AB5448718EAE08F252C76F81924AA91303018BA49FE62C881864957" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/QueryModels/QueryModelsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
+  <file path="Templates/SequentialNotificationPublisher/SequentialNotificationPublisherTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/SequentialNotificationPublisher/SequentialNotificationPublisherTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplatePartial.cs" deviationsHash="5562155FFCB263CE912E0C67571DC23F28938EF0A15AC49FA861DF675737768F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplatePartial.cs" deviationsHash="D5431C7D5725EF4A16061D7CF61401281D0234797B2213DA4CDEB8F4CF8F8C65" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="modelers/Mediator Services Extensions.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
+  <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
+</managedFiles>

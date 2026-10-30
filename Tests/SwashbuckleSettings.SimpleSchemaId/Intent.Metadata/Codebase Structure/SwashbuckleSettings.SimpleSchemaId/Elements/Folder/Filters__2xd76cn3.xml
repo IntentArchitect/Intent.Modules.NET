@@ -68,6 +68,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>abfd302a-09e4-4e67-876e-431d443278a2</parentFolderId>
+      <packageId>99c66dd9-19cc-4484-aefc-7a365367d7f8</packageId>
+      <packageName>SwashbuckleSettings.SimpleSchemaId</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -104,6 +106,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>abfd302a-09e4-4e67-876e-431d443278a2</parentFolderId>
+      <packageId>99c66dd9-19cc-4484-aefc-7a365367d7f8</packageId>
+      <packageName>SwashbuckleSettings.SimpleSchemaId</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -140,6 +144,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>abfd302a-09e4-4e67-876e-431d443278a2</parentFolderId>
+      <packageId>99c66dd9-19cc-4484-aefc-7a365367d7f8</packageId>
+      <packageName>SwashbuckleSettings.SimpleSchemaId</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

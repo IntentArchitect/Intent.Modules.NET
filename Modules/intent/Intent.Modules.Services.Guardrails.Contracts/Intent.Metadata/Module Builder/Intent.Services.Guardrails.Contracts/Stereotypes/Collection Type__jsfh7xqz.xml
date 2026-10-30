@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" version="3.1.0">
+  <comment>Overrides the collection type the guardrail contract emits for this collection, where the code doesn't use the template default (List&lt;T&gt;). Ignored when the type isn't a collection.</comment>
+  <name>Collection Type</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="7baed1fd-469b-4980-8fd9-4cefb8331eb2">DTO-Field</type>
+    <type id="00208d20-469d-41cb-8501-768fd5eb796b">Parameter</type>
+    <type id="e030c97a-e066-40a7-8188-808c275df3cb">Operation</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,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" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</parentFolderId>
+  <order>0</order>
+  <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+  <packageName>Intent.Services.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="c2d2f207-be03-4dfc-a5c1-995fcb7cce97">
+      <hint>The collection type in the code. Array emits T[]. Custom uses Custom Format.</hint>
+      <name>Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <valueOptions>
+        <option>IEnumerable</option>
+        <option>ICollection</option>
+        <option>IList</option>
+        <option>IReadOnlyCollection</option>
+        <option>IReadOnlyList</option>
+        <option>List</option>
+        <option>HashSet</option>
+        <option>ISet</option>
+        <option>IQueryable</option>
+        <option>Array</option>
+        <option>Custom</option>
+      </valueOptions>
+    </property>
+    <property id="7a58d9ff-2d8d-4adb-84da-c37548b02931">
+      <hint>Used only when Type is Custom. {0} is replaced by the element type. Use the fully qualified type name so the right using is added.</hint>
+      <name>Custom Format</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. System.Collections.ObjectModel.ObservableCollection&lt;{0}&gt;</placeholder>
+    </property>
+  </properties>
+</stereotypeDefinition>

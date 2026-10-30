@@ -664,6 +664,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>58436585-9bd9-4608-815e-fd35c3362e19</parentFolderId>
+      <packageId>f2bd840d-ba01-42e7-8fb2-a8437f253287</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -678,6 +680,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>58436585-9bd9-4608-815e-fd35c3362e19</parentFolderId>
+      <packageId>f2bd840d-ba01-42e7-8fb2-a8437f253287</packageId>
+      <packageName>Blazor.InteractiveWebAssembly.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

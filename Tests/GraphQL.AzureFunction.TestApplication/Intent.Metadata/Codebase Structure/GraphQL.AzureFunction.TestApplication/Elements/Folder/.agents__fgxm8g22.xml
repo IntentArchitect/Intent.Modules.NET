@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8ab04101-bcc2-4325-baab-7570faf71b83</parentFolderId>
+  <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+  <packageName>GraphQL.AzureFunction.TestApplication</packageName>
   <stereotypes />
   <metadata />
   <childElements />

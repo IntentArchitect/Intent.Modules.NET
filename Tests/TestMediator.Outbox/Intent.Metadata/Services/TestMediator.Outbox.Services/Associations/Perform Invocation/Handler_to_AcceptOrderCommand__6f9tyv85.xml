@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="73db075d-c98a-42a5-8273-6621d3489d1f">
+  <sourceEnd id="23e6dc6f-6dc7-4969-a0db-853f9c2418ae" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderPlacedEventHandler.Handler</display>
+    <typeReference id="02e5cf06-c971-4804-bece-ebd2a3bfc77a">
+      <typeId>880f1b26-f6f1-4734-8890-0c4293ab3f2d</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>TestMediator.Outbox.Services</typePackageName>
+      <typePackageId>a4c22fcc-6560-4542-9888-fec8d0441b26</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="73db075d-c98a-42a5-8273-6621d3489d1f" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] AcceptOrderCommand(...): void</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="de28a721-8a20-4816-98ae-dfec60c4b670">
+      <typeId>b012c895-3b1d-447c-af14-314a448eb46f</typeId>
+      <typeName>AcceptOrderCommand</typeName>
+      <typePackageName>TestMediator.Outbox.Services</typePackageName>
+      <typePackageId>a4c22fcc-6560-4542-9888-fec8d0441b26</typePackageId>
+    </typeReference>
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="063681bc-4246-4578-a6cc-89bf030daa4f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="880f1b26-f6f1-4734-8890-0c4293ab3f2d" location="[TestMediator.Outbox].[Services].[Handler]" />
+        <target applicationId="063681bc-4246-4578-a6cc-89bf030daa4f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b012c895-3b1d-447c-af14-314a448eb46f" location="[TestMediator.Outbox].[Services].[AcceptOrderCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Handler}</expression>
+            <path>
+              <target id="b012c895-3b1d-447c-af14-314a448eb46f" name="AcceptOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="Handler" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="880f1b26-f6f1-4734-8890-0c4293ab3f2d" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

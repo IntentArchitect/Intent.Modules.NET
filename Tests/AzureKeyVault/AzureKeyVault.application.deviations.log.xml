@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#0de5ef29-c7a8-4988-9e06-57474ab1ef7b</correlationId>
+      <path>AzureKeyVault.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:07:38.7975944Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#d9bcbcd0-2c66-4a7e-8349-8f5d2dcbb499</correlationId>
       <path>AzureKeyVault.Application/GetKeyValues/GetKeyValuesHandler.cs</path>
       <count>3</count>

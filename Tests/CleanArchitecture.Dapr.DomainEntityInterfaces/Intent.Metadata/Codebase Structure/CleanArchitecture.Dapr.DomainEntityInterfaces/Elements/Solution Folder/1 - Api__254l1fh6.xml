@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>07b2c093-12f6-4668-9941-2147242e1303</parentFolderId>
+  <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+  <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a24c571f-75bc-40cc-891e-57511c78d3f1</parentFolderId>
+      <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+      <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -77,6 +81,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f6865de7-f1d0-4eb2-836c-97cd23ac766f</parentFolderId>
+          <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+          <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -97,6 +103,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>f729d11f-274c-4c9e-b706-3cbfd7e24df7</parentFolderId>
+              <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+              <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -111,6 +119,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f6865de7-f1d0-4eb2-836c-97cd23ac766f</parentFolderId>
+          <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+          <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -123,6 +133,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f6865de7-f1d0-4eb2-836c-97cd23ac766f</parentFolderId>
+          <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+          <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -135,6 +147,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f6865de7-f1d0-4eb2-836c-97cd23ac766f</parentFolderId>
+          <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+          <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -171,6 +185,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f6865de7-f1d0-4eb2-836c-97cd23ac766f</parentFolderId>
+          <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+          <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -207,6 +223,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f6865de7-f1d0-4eb2-836c-97cd23ac766f</parentFolderId>
+          <packageId>50cf010a-dd49-4285-bdb4-b2c7f9d85886</packageId>
+          <packageName>CleanArchitecture.Dapr.DomainEntityInterfaces</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

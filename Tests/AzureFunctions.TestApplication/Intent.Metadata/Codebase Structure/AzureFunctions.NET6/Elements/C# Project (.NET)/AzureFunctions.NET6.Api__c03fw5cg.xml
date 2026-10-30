@@ -162,6 +162,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9466369f-8619-418f-972f-413e1ba6cf0e</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET6</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

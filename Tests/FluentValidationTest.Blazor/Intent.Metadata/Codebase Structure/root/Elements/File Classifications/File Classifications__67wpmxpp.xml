@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</parentFolderId>
+  <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+  <packageName>root</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -16,6 +18,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e4c67f5a-d198-4750-b34d-9bb5c0b0c384</parentFolderId>
+      <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+      <packageName>root</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -27,6 +31,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e4c67f5a-d198-4750-b34d-9bb5c0b0c384</parentFolderId>
+      <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+      <packageName>root</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -38,6 +44,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e4c67f5a-d198-4750-b34d-9bb5c0b0c384</parentFolderId>
+      <packageId>cc6f0858-744d-4f64-9fc3-58e082b1e48b</packageId>
+      <packageName>root</packageName>
       <stereotypes />
       <metadata />
       <childElements />

@@ -21,7 +21,7 @@
   <file path="MassTransit.RequestResponse.Client.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="MassTransit.RequestResponse.Client.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
   <file path="MassTransit.RequestResponse.Client.Api/MassTransit.RequestResponse.Client.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="MassTransit.RequestResponse.Client.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="MassTransit.RequestResponse.Client.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="MassTransit.RequestResponse.Client.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="MassTransit.RequestResponse.Client.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="MassTransit.RequestResponse.Client.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

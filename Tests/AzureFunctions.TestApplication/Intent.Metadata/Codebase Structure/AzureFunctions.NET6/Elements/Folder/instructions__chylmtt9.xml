@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a82001f4-7b6d-4037-84ce-8350f1716958</parentFolderId>
+  <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+  <packageName>AzureFunctions.NET6</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d2839ba6-82b1-42e5-b284-c725113ecdab</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET6</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

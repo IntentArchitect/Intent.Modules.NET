@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cf806c41-d3cb-47f2-aa4a-d1e5769e3ad5</parentFolderId>
+  <packageId>cf806c41-d3cb-47f2-aa4a-d1e5769e3ad5</packageId>
+  <packageName>WolverineEventing.Publish.RabbitMQ.Domain</packageName>
   <diagram>
     <targetPackageId>cf806c41-d3cb-47f2-aa4a-d1e5769e3ad5</targetPackageId>
   </diagram>

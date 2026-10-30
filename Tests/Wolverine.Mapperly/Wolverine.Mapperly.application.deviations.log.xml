@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#68c80cd8-92ea-4aab-8884-b50489f0874a</correlationId>
+      <path>Wolverine.Mapperly.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:15:08.5415203Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#e2c12bdc-0920-4f2c-8861-28c8e858f4f6</correlationId>
       <path>Wolverine.Mapperly.Api/Wolverine.Mapperly.Api.csproj</path>
       <count>1</count>

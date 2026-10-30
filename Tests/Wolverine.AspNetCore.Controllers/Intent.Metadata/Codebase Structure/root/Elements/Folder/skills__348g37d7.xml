@@ -209,6 +209,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>45d7662d-5395-44a9-a8b5-974ae096a945</parentFolderId>
+      <packageId>2ef2db30-eed3-4db4-b877-ca5092e90b04</packageId>
+      <packageName>root</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

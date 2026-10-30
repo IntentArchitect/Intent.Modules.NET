@@ -20,7 +20,7 @@
   <file path="Wolverine.Mapperly.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="Wolverine.Mapperly.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="Wolverine.Mapperly.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="Wolverine.Mapperly.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Wolverine.Mapperly.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="Wolverine.Mapperly.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="Wolverine.Mapperly.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="Wolverine.Mapperly.Api/Wolverine.Mapperly.Api.csproj" deviationsHash="F1D7A8FC8913AEF9F0FD4B2C608DFB5C19B29B43B2BA04EC3A42B8CC00113A3B" templateId="Intent.VisualStudio.Projects.CSharpProject" />

@@ -115,6 +115,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7b482276-fdbf-4116-9c3c-73cec48d95e9</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB.PrivateSetters</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -151,6 +153,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7b482276-fdbf-4116-9c3c-73cec48d95e9</parentFolderId>
+      <packageId>b2b770fb-ba9f-4ad7-ae67-a09278526c40</packageId>
+      <packageName>CosmosDB.PrivateSetters</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>9616aacd-32d9-47fe-ae62-4ec7956deb01</parentFolderId>
   <packageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</packageId>
-  <packageName>NServiceBus.LearnerTransport.Eventing.Messages</packageName>
+  <packageName>N_ServiceBus.LearnerTransport.Eventing.Messages</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="c45c1bba-04ce-4ba3-88e6-c69b6ce3d1ca" name="NServiceBus">
       <addedByDefault>false</addedByDefault>
@@ -40,7 +40,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>658c593d-a468-4edc-8cde-d6e57c5ea9d1</parentFolderId>
       <packageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</packageId>
-      <packageName>NServiceBus.LearnerTransport.Eventing.Messages</packageName>
+      <packageName>N_ServiceBus.LearnerTransport.Eventing.Messages</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -64,7 +64,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>658c593d-a468-4edc-8cde-d6e57c5ea9d1</parentFolderId>
       <packageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</packageId>
-      <packageName>NServiceBus.LearnerTransport.Eventing.Messages</packageName>
+      <packageName>N_ServiceBus.LearnerTransport.Eventing.Messages</packageName>
       <stereotypes />
       <metadata />
       <childElements />

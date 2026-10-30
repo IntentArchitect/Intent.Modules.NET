@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8482f9ba-0f84-4ca3-a8dc-bdc64ad42aa6">
+  <sourceEnd id="fd163751-3871-4237-9ccf-0d256e96338c" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Venue</name>
+    <display>Venue: Venue</display>
+    <order>0</order>
+    <typeReference id="01d32fe4-a7d7-4633-a0a5-9792d45fa9e5">
+      <typeId>177d4b69-1eac-40e7-94f8-84e5cdc0ef9b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8482f9ba-0f84-4ca3-a8dc-bdc64ad42aa6" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Location</name>
+    <display>Location: Coordinates</display>
+    <order>2</order>
+    <typeReference id="fc889f31-28d5-4c9a-98f5-e92964f01274">
+      <typeId>aeff913e-2b28-4190-8be9-41366519c0c5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

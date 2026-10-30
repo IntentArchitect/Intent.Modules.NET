@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4eccf5a0-5425-4dc1-9adb-987cb3b712de" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <parentFolderId>bdd309d7-c533-4a26-997c-83f497ef4b20</parentFolderId>
+  <packageId>bdd309d7-c533-4a26-997c-83f497ef4b20</packageId>
+  <packageName>TestMediator.WolverineEventing.Domain</packageName>
+  <diagram>
+    <targetPackageId>bdd309d7-c533-4a26-997c-83f497ef4b20</targetPackageId>
+  </diagram>
+</class>

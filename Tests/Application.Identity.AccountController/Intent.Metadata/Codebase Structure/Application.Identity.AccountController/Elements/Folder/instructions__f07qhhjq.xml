@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9333d296-8213-40fc-814e-7336a393cbc0</parentFolderId>
+  <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
+  <packageName>Application.Identity.AccountController</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c11737bc-bc95-41b5-b8af-41c2dfc573ac</parentFolderId>
+      <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
+      <packageName>Application.Identity.AccountController</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>fe0fd886-be7e-4739-94ec-79db831f2e80</parentFolderId>
+  <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+  <packageName>GrpcServer</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -16,6 +18,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>004f7314-a3cc-4e3c-af37-c0dcda0949de</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -27,6 +31,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>004f7314-a3cc-4e3c-af37-c0dcda0949de</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -38,6 +44,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>004f7314-a3cc-4e3c-af37-c0dcda0949de</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -49,6 +57,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>004f7314-a3cc-4e3c-af37-c0dcda0949de</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -60,6 +70,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>004f7314-a3cc-4e3c-af37-c0dcda0949de</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -71,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>004f7314-a3cc-4e3c-af37-c0dcda0949de</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -82,6 +96,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>004f7314-a3cc-4e3c-af37-c0dcda0949de</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -93,6 +109,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>004f7314-a3cc-4e3c-af37-c0dcda0949de</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -104,6 +122,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>004f7314-a3cc-4e3c-af37-c0dcda0949de</parentFolderId>
+      <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+      <packageName>GrpcServer</packageName>
       <stereotypes />
       <metadata />
       <childElements />

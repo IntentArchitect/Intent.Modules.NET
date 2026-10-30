@@ -1,3 +1,7 @@
+### Version 7.2.4
+
+- Improvement: Applications dispatching through `Intent.Application.Mediator` are now supported: the EF outbox strips the Mediator message-bus flush behaviour, and outside the EF outbox the integration event consumer claims flush ownership so commands it sends do not flush the bus early.
+
 ### Version 7.2.3
 
 - Improvement: Pre-commercial version apply across modules.

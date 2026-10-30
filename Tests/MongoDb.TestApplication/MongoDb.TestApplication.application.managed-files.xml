@@ -29,7 +29,7 @@
   <file path="MongoDb.TestApplication.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="MongoDb.TestApplication.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
   <file path="MongoDb.TestApplication.Api/MongoDb.TestApplication.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="MongoDb.TestApplication.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="MongoDb.TestApplication.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="MongoDb.TestApplication.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="MongoDb.TestApplication.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
   <file path="MongoDb.TestApplication.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

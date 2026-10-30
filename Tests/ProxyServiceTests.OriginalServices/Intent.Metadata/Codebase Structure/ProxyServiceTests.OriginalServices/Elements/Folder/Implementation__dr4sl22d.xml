@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5ab9d0e6-9717-4653-a67f-99a676886874</parentFolderId>
+  <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+  <packageName>ProxyServiceTests.OriginalServices</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>34e46fb8-b7f1-4187-91f5-66df9eae21f7</parentFolderId>
+      <packageId>e4628c4d-89ec-4d49-94e4-c616f3aa8afc</packageId>
+      <packageName>ProxyServiceTests.OriginalServices</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

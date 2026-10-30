@@ -6,7 +6,7 @@
   <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
   <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/EntityFrameworkCore.SplitQueries.SqlServer.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
   <file path="EntityFrameworkCore.SplitQueries.SqlServer.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

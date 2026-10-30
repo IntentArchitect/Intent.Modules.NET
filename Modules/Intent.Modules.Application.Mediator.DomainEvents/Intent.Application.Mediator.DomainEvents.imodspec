@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Application.Mediator.DomainEvents</id>
+  <version>1.0.0-pre.1</version>
+  <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
+  <summary>Domain event dispatch for the Mediator library, with AI-written handlers.</summary>
+  <description>Domain event dispatch for the Mediator library, with AI-written handlers.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDUwIDUwIj4KICA8c3R5bGU+CiAgICAvKiBCZWxvdyAzMHB4IHRoZSBib2x0IGlzIHRvbyBzbWFsbCB0byByZWFkIGFuZCBibG90cyB0aGUgaHViLCBzbyB0aGUgZ2x5cGggZmFsbHMgYmFjayB0byBwbGFpbiBodWItYW5kLXNwb2tlICovCiAgICBAbWVkaWEgKG1heC13aWR0aDogMzBweCkgeyAuYm9sdCB7IGRpc3BsYXk6IG5vbmU7IH0gfQogIDwvc3R5bGU+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Im1lZGlhdG9yQmFja2dyb3VuZCIgeDE9IjI1IiB5MT0iLjYiIHgyPSIyNSIgeTI9IjQ5LjQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMTRiOGE2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiMwZDk0ODgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMGY3NjZlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8ZyBpZD0iTGF5ZXJfMSI+CiAgICA8Y2lyY2xlIGN4PSIyNSIgY3k9IjI1IiByPSIyNC40IiBmaWxsPSJ1cmwoI21lZGlhdG9yQmFja2dyb3VuZCkiLz4KCiAgICA8IS0tIENvbGxlYWd1ZXMgdGFsayBvbmx5IHRocm91Z2ggdGhlIG1lZGlhdG9yLCBuZXZlciB0byBlYWNoIG90aGVyIC0tPgogICAgPGcgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICAgICAgPGxpbmUgeDE9IjE1IiB5MT0iMTUiIHgyPSIzNSIgeTI9IjM1Ii8+CiAgICAgIDxsaW5lIHgxPSIzNSIgeTE9IjE1IiB4Mj0iMTUiIHkyPSIzNSIvPgogICAgPC9nPgogICAgPGcgZmlsbD0iI2ZmZiI+CiAgICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjQuMyIvPgogICAgICA8Y2lyY2xlIGN4PSIzNSIgY3k9IjE1IiByPSI0LjMiLz4KICAgICAgPGNpcmNsZSBjeD0iMTUiIGN5PSIzNSIgcj0iNC4zIi8+CiAgICAgIDxjaXJjbGUgY3g9IjM1IiBjeT0iMzUiIHI9IjQuMyIvPgogICAgICA8Y2lyY2xlIGN4PSIyNSIgY3k9IjI1IiByPSI3LjQiLz4KICAgIDwvZz4KCiAgICA8IS0tIFRoZSBtZWRpYXRvcjogZmFzdCwgc291cmNlLWdlbmVyYXRlZCBkaXNwYXRjaCAtLT4KICAgIDxwYXRoIGNsYXNzPSJib2x0IiBkPSJNMjUuOSwxOS42TDIyLjIsMjUuNkgyNC42TDIzLjksMzAuNEwyNy44LDI0LjRIMjUuNFoiIGZpbGw9IiMwZjc2NmUiLz4KICA8L2c+Cjwvc3ZnPgo=</iconUrl>
+  <templates>
+    <template id="Intent.Application.Mediator.DomainEvents.DefaultDomainEventHandler" externalReference="7bc019a7-e086-40de-b807-0961b06a601e">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.DomainEventHandler.Default</role>
+      <location>EventHandlers</location>
+      <severity>medium</severity>
+      <classifications>Business Logic</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.DomainEvents.DomainEventHandler" externalReference="d2e35f07-c7c9-4b6f-b403-d5eac1b60737">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.DomainEventHandler.Explicit</role>
+      <location>EventHandlers</location>
+      <severity>medium</severity>
+      <classifications>Business Logic</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.DomainEvents.DomainEventHandlerSkill" externalReference="6d7c60ad-d446-4d35-896a-75479fb1e474">
+      <role>AI.Context.Skills.Handler</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.Mediator.DomainEvents.DomainEventNotification" externalReference="48bf71c3-8245-4a2b-afb5-c798deee1184">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.DomainEventNotification</role>
+      <location>Common/Models</location>
+      <severity>medium</severity>
+      <classifications>Business Logic</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.DomainEvents.DomainEventNotificationFactory" externalReference="66091ce3-2431-4a0c-a381-02cd4f4d4744">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.DomainEventNotificationFactory</role>
+      <location>Common/Models</location>
+      <severity>medium</severity>
+      <classifications>Business Logic</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.DomainEvents.DomainEventService" externalReference="131e0039-3b2d-4aed-940d-7e8c0d59c08c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Services</role>
+      <location>Services</location>
+      <severity>medium</severity>
+      <classifications>Business Logic</classifications>
+    </template>
+    <template id="Intent.Application.Mediator.DomainEvents.TypedDomainEventNotification" externalReference="4d0a025c-5219-47cb-97b7-36e33ec27547">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.TypedDomainEventNotification</role>
+      <location>Common/Models</location>
+      <severity>medium</severity>
+      <classifications>Business Logic</classifications>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions />
+  <moduleSettings>
+    <group id="f4b28e5f-12f3-409e-b6df-e1d6963c25fe" title="Domain Event Settings" type="application-settings" externalReference="f4b28e5f-12f3-409e-b6df-e1d6963c25fe">
+      <settings>
+        <setting id="5f32789b-dd8d-4c23-a0d5-0e090e7d1b4a" title="Create implicit domain event handlers" type="switch">
+          <hint>Generate a handler stub for each domain event that has no modelled handler.</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Application.Mediator" version="1.0.0-pre.1" />
+    <dependency id="Intent.Common" version="3.11.2" />
+    <dependency id="Intent.Common.CSharp" version="3.10.10" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.DomainEvents" version="5.1.0" />
+    <dependency id="Intent.Modelers.Domain" version="3.13.2" />
+    <dependency id="Intent.Modelers.Domain.Events" version="4.4.7" />
+    <dependency id="Intent.Modelers.Services" version="4.0.16" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="6.0.8" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags>mediator domain-events ddd notifications ai-handlers csharp dotnet</tags>
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="Services" src="modelers/Mediator Domain Events Services Extensions.designer.settings" externalReference="b3db3c15-2ad8-4b70-a48f-1a96b6678152" />
+  </metadata>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <migrations />
+</package>

@@ -22,6 +22,7 @@ using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.Wolverine.Settings;
 using Intent.Modules.Eventing.Wolverine.Templates;
 using Intent.Modules.Eventing.Wolverine.Templates.WolverineCompositeConfiguration;
+using Intent.Modules.Eventing.Wolverine.Templates.WolverineIntegrationEventMiddleware;
 using Intent.Modules.Eventing.Wolverine.Templates.WolverineMessageBus;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -273,7 +274,7 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                     AddApplyTransactionalOutboxMethod(@class, ctx);
                     method.AddStatement("ApplyTransactionalOutbox(opts, configuration);", s => s.SeparatedFromPrevious());
                 }
-                else if (ctx.SubscribedMessages.Count > 0 || ctx.ReceivedCommands.Count > 0)
+                else if ((ctx.SubscribedMessages.Count > 0 || ctx.ReceivedCommands.Count > 0) && IntegrationEventMiddlewareIsGenerated(ctx))
                 {
                     // Outbox = None: a subscriber's handler otherwise has no unit-of-work safety net
                     // at all - see WolverineIntegrationEventMiddleware and CONTEXT.md. Durable already
@@ -742,7 +743,7 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
 
                 // Eager (the default) calls Database.BeginTransactionAsync() before the handler runs,
                 // which throws "An ambient transaction has been detected" against the TransactionScope
-                // either UnitOfWorkMiddleware (Wolverine dispatch) or UnitOfWorkBehaviour (MediatR)
+                // either UnitOfWorkMiddleware (Wolverine dispatch) or UnitOfWorkBehaviour (MediatR, Mediator)
                 // already opened. Lightweight makes SaveChangesAsync() the transactional boundary
                 // instead, which enlists in that ambient scope cleanly - outbox atomicity is unaffected,
                 // since Wolverine persists outgoing envelopes on the DbContext's own connection as part
@@ -755,6 +756,17 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                 method.AddStatement("opts.Policies.UseDurableOutboxOnAllSendingEndpoints();");
                 method.AddStatement("opts.Policies.UseDurableInboxOnAllListeners();");
             });
+        }
+
+        /// <summary>
+        /// The middleware template skips itself when the application has neither a message bus nor a persistence
+        /// unit of work to protect (a subscribe-only application without a database). Registering it anyway
+        /// references a class that is never generated, so the policy must agree with the template's own gate.
+        /// </summary>
+        private static bool IntegrationEventMiddlewareIsGenerated(EventingContext ctx)
+        {
+            var middleware = ctx.Template.ExecutionContext.FindTemplateInstance<IIntentTemplate>(WolverineIntegrationEventMiddlewareTemplate.TemplateId);
+            return middleware != null && middleware.CanRunTemplate();
         }
 
         /// <summary>
@@ -771,6 +783,23 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                 method.AddParameter("WolverineOptions", "opts");
 
                 method.AddStatement($"opts.Policies.AddMiddleware<{ctx.Template.GetWolverineIntegrationEventMiddlewareName()}>(IsIntegrationMessage);");
+
+                // Mediator dispatch (D18): WolverineIntegrationEventMiddleware claims MessageBusFlushOwner and flushes
+                // the bus, while the commands the handler sends reach the SAME owner and bus through Mediator, which
+                // resolves them from the DI scope. Wolverine's generated handler code would otherwise construct
+                // concrete-registered services itself, giving the middleware its own bus and owner: the nested
+                // command's messages would be buffered on one bus and the middleware would flush another, silently
+                // losing them. Forcing service location for both makes every consumer take the scope's instance.
+                if (ctx.Template.TryGetMediatorFlushOwner(out _))
+                {
+                    var busInterfaceName = ctx.Template.GetFullyQualifiedTypeName(ctx.Template.GetBusInterfaceTemplateId());
+                    var ownerName = ctx.Template.UseType(ctx.Template.GetFullyQualifiedTypeName(MediatorFlushOwnerExtensions.MessageBusFlushOwnerTemplateId));
+
+                    method.AddStatement("// The middleware and the nested Mediator commands must share one message bus and one flush owner.", s => s.SeparatedFromPrevious());
+                    // Fully qualified: Wolverine's own IMessageBus lives in a namespace this file imports.
+                    method.AddStatement($"opts.CodeGeneration.AlwaysUseServiceLocationFor<{busInterfaceName}>();");
+                    method.AddStatement($"opts.CodeGeneration.AlwaysUseServiceLocationFor<{ownerName}>();");
+                }
             });
 
             var emitted = new HashSet<string>();
@@ -1001,8 +1030,8 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
 
             /// <summary>
             /// True when either dispatch stack's unit-of-work opens a <c>TransactionScope</c> around
-            /// the handler - Wolverine's own <c>UnitOfWorkMiddleware</c>, or MediatR's
-            /// <c>UnitOfWorkBehaviour</c>. Both collide with Wolverine's Eager EF transactional
+            /// the handler - Wolverine's own <c>UnitOfWorkMiddleware</c>, or MediatR's or
+            /// Mediator's <c>UnitOfWorkBehaviour</c>. All collide with Wolverine's Eager EF transactional
             /// middleware the same way, so ApplyTransactionalOutbox probes for either.
             /// </summary>
             public bool HasUnitOfWorkTransactionScope { get; private set; }
@@ -1041,7 +1070,8 @@ namespace Intent.Modules.Eventing.Wolverine.FactoryExtensions
                     ctx.ConnectionStringName = template.ExecutionContext.Settings.GetDatabaseSettings().ConnectionStringName();
                     ctx.HasUnitOfWorkTransactionScope =
                         template.OutputTarget.Application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.Wolverine.UnitOfWorkMiddleware") != null ||
-                        template.OutputTarget.Application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour") != null;
+                        template.OutputTarget.Application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour") != null ||
+                        template.OutputTarget.Application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.Mediator.UnitOfWorkBehaviour") != null;
                 }
 
                 ctx.SubscribedHandlers = GetWolverineDesignatedSubscribedHandlers(template);

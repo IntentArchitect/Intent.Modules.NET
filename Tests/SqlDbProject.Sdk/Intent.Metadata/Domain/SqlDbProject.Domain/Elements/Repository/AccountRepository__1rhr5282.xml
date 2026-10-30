@@ -16,7 +16,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</parentFolderId>
   <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-  <packageName>SqlDbProject.Domain</packageName>
+  <packageName>SqlDbProject.Sdk.Domain</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -40,7 +40,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>66007119-5ffc-459f-a901-db86f1aa6b2d</parentFolderId>
       <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
+      <packageName>SqlDbProject.Sdk.Domain</packageName>
       <traits>
         <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
       </traits>
@@ -83,7 +83,7 @@
           <isMapped>false</isMapped>
           <parentFolderId>77d92363-ccf5-48d1-98fd-4de373940ea6</parentFolderId>
           <packageId>01c581e9-8fc3-47bc-b9a9-aadc1284b12e</packageId>
-          <packageName>SqlDbProject.Domain</packageName>
+          <packageName>SqlDbProject.Sdk.Domain</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
               <addedByDefault>true</addedByDefault>

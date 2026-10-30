@@ -181,6 +181,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>53b8a5f7-411e-46f0-a8d8-4179c9715d8b</parentFolderId>
+      <packageId>17153b8a-9853-462a-a3a3-3b18b059dd4e</packageId>
+      <packageName>AspNetCore.Controllers.Secured</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

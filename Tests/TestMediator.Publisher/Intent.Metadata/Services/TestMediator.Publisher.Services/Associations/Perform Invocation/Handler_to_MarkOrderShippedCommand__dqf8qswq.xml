@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ac1f19b8-abaf-47cc-ae0a-ec11d5f43a34">
+  <sourceEnd id="98c0dd52-183c-4423-a838-f19157d0d0f3" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderCreatedEventHandler.Handler</display>
+    <typeReference id="82b3739f-2df7-4e9a-87c6-ff784b4d0852">
+      <typeId>ff2193d5-cd04-4f09-b7e4-d468204e3430</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>TestMediator.Publisher.Services</typePackageName>
+      <typePackageId>9d0412d0-a390-4560-93c3-37636d3d83f6</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="ac1f19b8-abaf-47cc-ae0a-ec11d5f43a34" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] MarkOrderShippedCommand(...): void</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="6738f131-eead-4e91-b4a8-dc512029cec5">
+      <typeId>23cada8a-00fc-42dc-9128-56dd02f1e121</typeId>
+      <typeName>MarkOrderShippedCommand</typeName>
+      <typePackageName>TestMediator.Publisher.Services</typePackageName>
+      <typePackageId>9d0412d0-a390-4560-93c3-37636d3d83f6</typePackageId>
+    </typeReference>
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="fc70cb37-b1d7-4f31-9c0e-c340553ce45d" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ff2193d5-cd04-4f09-b7e4-d468204e3430" location="[TestMediator.Publisher].[Services].[Handler]" />
+        <target applicationId="fc70cb37-b1d7-4f31-9c0e-c340553ce45d" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="23cada8a-00fc-42dc-9128-56dd02f1e121" location="[TestMediator.Publisher].[Services].[MarkOrderShippedCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Handler}</expression>
+            <path>
+              <target id="23cada8a-00fc-42dc-9128-56dd02f1e121" name="MarkOrderShippedCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="Handler" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="ff2193d5-cd04-4f09-b7e4-d468204e3430" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.Utils;
 
@@ -56,6 +57,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 project.AddNugetPackageInstalls(GetAllTemplateNuGetInstalls(outputTarget));
 
                 var assemblyDependencies = outputTarget.TemplateInstances
+                        .ExceptHandsOff()
                         .SelectMany(ti => ti.GetAllAssemblyDependencies())
                         .Distinct()
                         .ToList();
@@ -67,9 +69,10 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             }
         }
 
-        private static IEnumerable<NuGetInstall> GetAllTemplateNuGetInstalls(IOutputTarget outputTarget)
+        internal static IEnumerable<NuGetInstall> GetAllTemplateNuGetInstalls(IOutputTarget outputTarget)
         {
             return outputTarget.TemplateInstances
+                    .ExceptHandsOff()
                     .SelectMany(ti => ti.GetAllNuGetInstalls())
                     .Distinct()
                     .ToList();

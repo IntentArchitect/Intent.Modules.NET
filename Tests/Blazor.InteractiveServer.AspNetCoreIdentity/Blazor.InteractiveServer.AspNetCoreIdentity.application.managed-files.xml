@@ -136,7 +136,7 @@
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Data/ApplicationDbContext.cs" templateId="Intent.Blazor.Authentication.Templates.Server.ApplicationDbContextTemplate" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Data/ApplicationUser.cs" templateId="Intent.Blazor.Authentication.Templates.Server.ApplicationUserTemplate" />
-  <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Services/IScopedExecutor.cs" templateId="Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate" />
   <file path="Blazor.InteractiveServer.AspNetCoreIdentity/Services/ISetUserContext.cs" templateId="Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface" />

@@ -219,6 +219,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f847721a-b720-4482-bba8-6e81d55e51f7</parentFolderId>
+      <packageId>1dc33871-c2c5-4459-933a-2d96297ef8a9</packageId>
+      <packageName>HashiCorpVault</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

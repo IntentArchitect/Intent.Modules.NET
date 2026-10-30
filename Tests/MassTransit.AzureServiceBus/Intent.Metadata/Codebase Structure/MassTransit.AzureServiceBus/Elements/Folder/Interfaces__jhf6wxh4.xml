@@ -248,6 +248,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d9e3b4ee-9a92-4dea-8dc5-db7c89a05b6a</parentFolderId>
+      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
+      <packageName>MassTransit.AzureServiceBus</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

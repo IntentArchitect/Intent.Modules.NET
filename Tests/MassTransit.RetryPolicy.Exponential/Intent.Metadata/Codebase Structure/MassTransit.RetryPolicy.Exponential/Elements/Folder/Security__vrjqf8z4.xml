@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0a2da56b-6ea8-4cc1-8787-08138e501d24</parentFolderId>
+  <packageId>c05aba94-2ef9-4d33-b6d5-c55775781493</packageId>
+  <packageName>MassTransit.RetryPolicy.Exponential</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>82657d0c-932a-4cfb-b0f3-2dfa90d45835</parentFolderId>
+      <packageId>c05aba94-2ef9-4d33-b6d5-c55775781493</packageId>
+      <packageName>MassTransit.RetryPolicy.Exponential</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

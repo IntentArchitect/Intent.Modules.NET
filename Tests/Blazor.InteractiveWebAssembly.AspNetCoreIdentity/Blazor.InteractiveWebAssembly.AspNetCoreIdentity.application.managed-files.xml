@@ -159,7 +159,7 @@
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity/Data/ApplicationDbContext.cs" templateId="Intent.Blazor.Authentication.Templates.Server.ApplicationDbContextTemplate" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity/Data/ApplicationUser.cs" templateId="Intent.Blazor.Authentication.Templates.Server.ApplicationUserTemplate" />
-  <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity/Startup.cs" templateId="Intent.AspNetCore.Startup" />
   <file path="Blazor.InteractiveWebAssembly.AspNetCoreIdentity/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

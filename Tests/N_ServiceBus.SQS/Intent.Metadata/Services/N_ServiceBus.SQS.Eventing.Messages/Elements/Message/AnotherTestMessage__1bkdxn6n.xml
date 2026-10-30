@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>32ae7689-5afc-4176-ba9a-11e09d48564e</parentFolderId>
   <packageId>32ae7689-5afc-4176-ba9a-11e09d48564e</packageId>
-  <packageName>NServiceBus.SQS.Eventing.Messages</packageName>
+  <packageName>N_ServiceBus.SQS.Eventing.Messages</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -31,7 +31,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c51a6613-1f61-4243-b7d2-5c6a2bcbaa8e</parentFolderId>
       <packageId>32ae7689-5afc-4176-ba9a-11e09d48564e</packageId>
-      <packageName>NServiceBus.SQS.Eventing.Messages</packageName>
+      <packageName>N_ServiceBus.SQS.Eventing.Messages</packageName>
       <stereotypes />
       <metadata />
       <childElements />

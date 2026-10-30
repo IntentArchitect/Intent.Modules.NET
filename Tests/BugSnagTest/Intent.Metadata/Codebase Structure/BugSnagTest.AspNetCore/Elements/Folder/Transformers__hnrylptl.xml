@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ec86453e-3687-49ef-bc6b-89cebfb86d04</parentFolderId>
+  <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+  <packageName>BugSnagTest.AspNetCore</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7397bbe2-37ea-414a-bcc9-8e38a908e18d</parentFolderId>
+      <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+      <packageName>BugSnagTest.AspNetCore</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

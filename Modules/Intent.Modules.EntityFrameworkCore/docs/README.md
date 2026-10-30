@@ -514,6 +514,10 @@ This automatically:
 - **Deserializes** JSON when loading from the database
 - **Stores** in each database's native or optimized JSON type
 
+## Mediator dispatch
+
+When the application dispatches through `Intent.Application.Mediator`, its `UnitOfWorkBehaviour` receives the same existing-transaction guard as the MediatR `UnitOfWorkBehaviour` and the Wolverine `UnitOfWorkMiddleware`: if an external party has already started an EF transaction (`HasDbTransaction()` is `true`), the behaviour runs the handler and saves without opening a `TransactionScope`, which avoids MSDTC escalation. No setting is involved; the guard is only added when the behaviour is generated and a primary `ApplicationDbContext` provides the unit of work.
+
 ## Related Modules
 
 ### Intent.Metadata.RDBMS

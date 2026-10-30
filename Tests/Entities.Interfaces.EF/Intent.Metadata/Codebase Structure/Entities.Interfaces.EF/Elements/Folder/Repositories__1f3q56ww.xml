@@ -181,6 +181,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e0c09714-c5d0-48c9-8227-7d11309a40fb</parentFolderId>
+      <packageId>137f5938-aeca-428f-8bf9-326c432e2192</packageId>
+      <packageName>Entities.Interfaces.EF</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -217,6 +219,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e0c09714-c5d0-48c9-8227-7d11309a40fb</parentFolderId>
+      <packageId>137f5938-aeca-428f-8bf9-326c432e2192</packageId>
+      <packageName>Entities.Interfaces.EF</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

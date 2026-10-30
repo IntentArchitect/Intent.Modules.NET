@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e811043e-ff5f-423f-b1fd-d908cd416cbd">
+  <sourceEnd id="4c736764-84a5-4134-b648-28b79819abf4" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderShippedEventHandler.Handler</display>
+    <typeReference id="13841b60-8d17-4c32-81f8-9f0da3c4a6f3">
+      <typeId>1308a8f4-1c12-4912-9c4d-6c48a7cfd4b8</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>TestMediator.Subscriber.Services</typePackageName>
+      <typePackageId>157bc27d-4dd4-4d92-95f5-6f5aa23cc4e0</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="e811043e-ff5f-423f-b1fd-d908cd416cbd" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] CompleteShipmentCommand(...): void</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="7b4b0089-41bc-4d6b-9e18-a29b0a0d1c61">
+      <typeId>d4d0fb30-a731-4eb2-a05d-acc41aebd039</typeId>
+      <typeName>CompleteShipmentCommand</typeName>
+      <typePackageName>TestMediator.Subscriber.Services</typePackageName>
+      <typePackageId>157bc27d-4dd4-4d92-95f5-6f5aa23cc4e0</typePackageId>
+    </typeReference>
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="c9d3382b-b73c-4bca-9e84-a44325ff1cbe" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1308a8f4-1c12-4912-9c4d-6c48a7cfd4b8" location="[TestMediator.Subscriber].[Services].[Handler]" />
+        <target applicationId="c9d3382b-b73c-4bca-9e84-a44325ff1cbe" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d4d0fb30-a731-4eb2-a05d-acc41aebd039" location="[TestMediator.Subscriber].[Services].[CompleteShipmentCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Handler}</expression>
+            <path>
+              <target id="d4d0fb30-a731-4eb2-a05d-acc41aebd039" name="CompleteShipmentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="Handler" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="1308a8f4-1c12-4912-9c4d-6c48a7cfd4b8" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#179ad11b-7931-4d05-9a5f-625eb1fc8d03</correlationId>
+      <path>Entities.PrivateSetters.TestApplication.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:07:31.9620796Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#6da9c9ad-6b12-4316-8dfd-49e8c055312f</correlationId>
       <path>Entities.PrivateSetters.TestApplication.Infrastructure/Entities.PrivateSetters.TestApplication.Infrastructure.csproj</path>
       <count>1</count>

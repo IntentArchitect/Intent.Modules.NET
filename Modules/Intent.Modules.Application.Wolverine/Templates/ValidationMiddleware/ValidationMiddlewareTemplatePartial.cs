@@ -26,7 +26,13 @@ namespace Intent.Modules.Application.Wolverine.Templates.ValidationMiddleware
                 .AddUsing("System.Linq")
                 .AddClass("ValidationMiddleware", @class =>
                 {
-                    var validatorProvider = GetTypeName("Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface");
+                    // Without FluentValidation's validator provider there is nothing to validate with, and
+                    // CanRunTemplate() keeps this file from being written, so leave the class empty.
+                    if (!IsValidationAvailable(ExecutionContext))
+                    {
+                        return;
+                    }
+                    var validatorProvider = GetTypeName(ValidatorProviderInterfaceTemplateId);
                     // Prefer the transport-agnostic shared role; fall back to the MediatR-specific one for backwards compatibility
                     var hasBypassInterface = TryGetTypeName("Application.Common.BypassValidationInterface", out var bypassInterface)
                         || TryGetTypeName("Intent.Application.MediatR.FluentValidation.BypassPipelineValidationInterface", out bypassInterface);
@@ -94,6 +100,26 @@ namespace Intent.Modules.Application.Wolverine.Templates.ValidationMiddleware
         protected override CSharpFileConfig DefineFileConfig()
         {
             return CSharpFile.GetConfig();
+        }
+
+        private const string ValidatorProviderInterfaceTemplateId = "Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface";
+
+        /// <summary>
+        /// Validation is only generated when <c>Intent.Application.FluentValidation.Dtos</c> supplies the
+        /// validator provider. The FluentValidation package the generated code needs comes from
+        /// <c>Intent.Application.FluentValidation</c>, which that module depends on.
+        /// <c>ApplicationHandlerPolicy</c> and <c>UnhandledExceptionMiddleware</c> use this same check.
+        /// It is an existence check, not <c>TryGetTypeName</c>, because resolving the type from those
+        /// templates would add an unused using for the provider's namespace to their output.
+        /// </summary>
+        internal static bool IsValidationAvailable(ISoftwareFactoryExecutionContext executionContext)
+        {
+            return executionContext.TemplateExists(ValidatorProviderInterfaceTemplateId);
+        }
+
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && IsValidationAvailable(ExecutionContext);
         }
 
         [IntentManaged(Mode.Fully)]

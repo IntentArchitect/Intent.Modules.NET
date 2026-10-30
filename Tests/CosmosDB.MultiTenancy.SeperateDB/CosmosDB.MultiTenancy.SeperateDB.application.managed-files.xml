@@ -23,7 +23,7 @@
   <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
   <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Middleware/CosmosDBMultiTenantMiddleware.cs" templateId="Intent.CosmosDB.CosmosDBMultiTenantMiddleware" />
-  <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />

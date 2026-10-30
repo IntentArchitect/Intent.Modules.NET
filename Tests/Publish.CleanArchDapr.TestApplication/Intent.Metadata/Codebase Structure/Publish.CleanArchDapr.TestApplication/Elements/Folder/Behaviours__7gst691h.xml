@@ -257,6 +257,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d62a316c-7bb0-4e0e-b552-9654e11f5c64</parentFolderId>
+      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
+      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

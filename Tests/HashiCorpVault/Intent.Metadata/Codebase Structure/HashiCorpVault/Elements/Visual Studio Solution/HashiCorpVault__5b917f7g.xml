@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1dc33871-c2c5-4459-933a-2d96297ef8a9</parentFolderId>
+  <packageId>1dc33871-c2c5-4459-933a-2d96297ef8a9</packageId>
+  <packageName>HashiCorpVault</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

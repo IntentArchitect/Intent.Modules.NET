@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="def585dc-4000-4215-969b-fcf9afd61c34" version="3.1.0">
+  <comment>Overrides the collection type the guardrail contract emits for this Integration Event, Integration Command or Eventing DTO property, Service Proxy Operation return type or Service Proxy Parameter, where the code doesn't use the template default (List&lt;T&gt;). Ignored when the type isn't a collection.</comment>
+  <name>Collection Type</name>
+  <targetMode>filter-function</targetMode>
+  <targetFilterFunction>// Property (on a Message or Integration Command), Eventing DTO-Field, Operation (on a Service Proxy, for its return type), Parameter (on a Service Proxy Operation)
+return ["bde29850-5fb9-4f47-9941-b9e182fd9bdc", "93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7", "aee6811e-b2f6-4562-a8eb-502029f63bc8", "f11273c1-217f-4f42-b690-3d8b488f95a8"].indexOf(element.specializationId) &gt;= 0;</targetFilterFunction>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="list" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>d1b06837-852d-4218-8833-37d9c0552d1d</parentFolderId>
+  <order>0</order>
+  <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+  <packageName>Intent.Services.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="0221edd9-aa90-48a3-83c4-240cf9bfbf3a">
+      <hint>The collection type in the code. Array emits T[]. Custom uses Custom Format.</hint>
+      <name>Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <valueOptions>
+        <option>IEnumerable</option>
+        <option>ICollection</option>
+        <option>IList</option>
+        <option>IReadOnlyCollection</option>
+        <option>IReadOnlyList</option>
+        <option>List</option>
+        <option>HashSet</option>
+        <option>ISet</option>
+        <option>IQueryable</option>
+        <option>Array</option>
+        <option>Custom</option>
+      </valueOptions>
+    </property>
+    <property id="5109b1b3-81a6-418e-b1e8-b39ea18821c5">
+      <hint>Used only when Type is Custom. {0} is replaced by the element type. Use the fully qualified type name so the right using is added.</hint>
+      <name>Custom Format</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. System.Collections.ObjectModel.ObservableCollection&lt;{0}&gt;</placeholder>
+    </property>
+  </properties>
+</stereotypeDefinition>

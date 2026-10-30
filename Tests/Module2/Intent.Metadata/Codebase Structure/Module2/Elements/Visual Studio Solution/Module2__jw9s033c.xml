@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7483bc51-4845-4361-8ea5-95051d12d710</parentFolderId>
+  <packageId>7483bc51-4845-4361-8ea5-95051d12d710</packageId>
+  <packageName>Module2</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

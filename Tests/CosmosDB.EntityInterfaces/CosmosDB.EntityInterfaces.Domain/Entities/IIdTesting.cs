@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using CosmosDB.EntityInterfaces.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,5 +12,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
         string Identifier { get; set; }
 
         string Id { get; set; }
+
+        ICollection<Schedule> Schedules { get; set; }
     }
 }

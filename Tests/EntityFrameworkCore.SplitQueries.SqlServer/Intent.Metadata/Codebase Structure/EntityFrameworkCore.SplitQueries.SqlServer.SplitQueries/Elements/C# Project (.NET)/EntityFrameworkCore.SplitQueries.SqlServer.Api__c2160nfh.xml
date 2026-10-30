@@ -170,6 +170,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7db01ca0-64a2-4a48-960d-d7bd60012905</parentFolderId>
+      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

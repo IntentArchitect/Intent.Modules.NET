@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1449b79a-ae2d-45dc-a664-d3016d9171d4</parentFolderId>
+  <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+  <packageName>OpenTelemetry.Console</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>193de80c-1d86-4f35-88eb-e4208b041f41</parentFolderId>
+      <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+      <packageName>OpenTelemetry.Console</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -64,6 +68,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>216aa99d-d19b-46f9-84ce-e6b7a6a2f0fa</parentFolderId>
+          <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+          <packageName>OpenTelemetry.Console</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -76,6 +82,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>216aa99d-d19b-46f9-84ce-e6b7a6a2f0fa</parentFolderId>
+          <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+          <packageName>OpenTelemetry.Console</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -112,6 +120,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>216aa99d-d19b-46f9-84ce-e6b7a6a2f0fa</parentFolderId>
+          <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+          <packageName>OpenTelemetry.Console</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -148,6 +158,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>216aa99d-d19b-46f9-84ce-e6b7a6a2f0fa</parentFolderId>
+          <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+          <packageName>OpenTelemetry.Console</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -184,6 +196,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>216aa99d-d19b-46f9-84ce-e6b7a6a2f0fa</parentFolderId>
+          <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+          <packageName>OpenTelemetry.Console</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -220,6 +234,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>216aa99d-d19b-46f9-84ce-e6b7a6a2f0fa</parentFolderId>
+          <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+          <packageName>OpenTelemetry.Console</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -256,6 +272,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>216aa99d-d19b-46f9-84ce-e6b7a6a2f0fa</parentFolderId>
+          <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+          <packageName>OpenTelemetry.Console</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -292,6 +310,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>216aa99d-d19b-46f9-84ce-e6b7a6a2f0fa</parentFolderId>
+          <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+          <packageName>OpenTelemetry.Console</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>
@@ -328,6 +348,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>216aa99d-d19b-46f9-84ce-e6b7a6a2f0fa</parentFolderId>
+          <packageId>8bdd6047-323b-44ec-8d71-20ff6af0eb6e</packageId>
+          <packageName>OpenTelemetry.Console</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

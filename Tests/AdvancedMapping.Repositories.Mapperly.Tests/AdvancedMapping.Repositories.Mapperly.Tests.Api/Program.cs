@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 using Serilog;
 using Serilog.Events;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
 namespace AdvancedMapping.Repositories.Mapperly.Tests.Api

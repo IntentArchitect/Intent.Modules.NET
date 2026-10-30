@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b80530db-16d1-41dc-b100-ab61849b63dd</parentFolderId>
+  <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.EF8</packageName>
   <stereotypes />
   <metadata />
   <childElements />

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="c9d3382b-b73c-4bca-9e84-a44325ff1cbe">
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/instructions/unit-test-guidelines.md" templateId="Intent.UnitTesting.UnitTestInstructionTemplate" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/mediator-command-handler/SKILL.md" templateId="Intent.Application.Mediator.CommandHandlerSkill" />
+  <file path=".agents/skills/mediator-integration-event-handler/SKILL.md" templateId="Intent.Application.Mediator.IntegrationEventHandlerSkill" />
+  <file path=".agents/skills/mediator-query-handler/SKILL.md" templateId="Intent.Application.Mediator.QueryHandlerSkill" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="TestMediator.Subscriber.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.FastEndpoints.ApiVersioningConfiguration" />
+  <file path="TestMediator.Subscriber.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
+  <file path="TestMediator.Subscriber.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
+  <file path="TestMediator.Subscriber.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="TestMediator.Subscriber.Api/FastEndpoints/ExceptionProcessor.cs" templateId="Intent.FastEndpoints.ExceptionProcessorTemplate" />
+  <file path="TestMediator.Subscriber.Api/FastEndpoints/ResponseTypes/JsonResponse.cs" templateId="Intent.FastEndpoints.JsonResponseTemplate" />
+  <file path="TestMediator.Subscriber.Api/FastEndpoints/Shipments/CreateShipmentCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="TestMediator.Subscriber.Api/FastEndpoints/Shipments/GetShipmentsQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="TestMediator.Subscriber.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="TestMediator.Subscriber.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="TestMediator.Subscriber.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="TestMediator.Subscriber.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
+  <file path="TestMediator.Subscriber.Api/TestMediator.Subscriber.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TestMediator.Subscriber.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="TestMediator.Subscriber.Application.UnitTests/TestMediator.Subscriber.Application.UnitTests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TestMediator.Subscriber.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
+  <file path="TestMediator.Subscriber.Application/Common/Eventing/IIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandlerInterface" />
+  <file path="TestMediator.Subscriber.Application/Common/Eventing/IMessageBus.cs" templateId="Intent.Eventing.Contracts.MessageBusInterface" />
+  <file path="TestMediator.Subscriber.Application/Common/Eventing/MessageBusFlushOwner.cs" templateId="Intent.Application.Mediator.MessageBusFlushOwner" />
+  <file path="TestMediator.Subscriber.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
+  <file path="TestMediator.Subscriber.Application/Common/Interfaces/IBypassValidation.cs" templateId="Intent.Application.Mediator.FluentValidation.BypassValidationInterface" />
+  <file path="TestMediator.Subscriber.Application/Common/Interfaces/ICurrentUser.cs" templateId="Intent.Application.Identity.CurrentUserInterface" />
+  <file path="TestMediator.Subscriber.Application/Common/Interfaces/ICurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserServiceInterface" />
+  <file path="TestMediator.Subscriber.Application/Common/Models/Result.cs" templateId="Intent.Application.Identity.ResultModel" />
+  <file path="TestMediator.Subscriber.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="TestMediator.Subscriber.Application/Common/Pagination/PagedResult.cs" templateId="Intent.Application.Dtos.Pagination.PagedResult" />
+  <file path="TestMediator.Subscriber.Application/Common/Pagination/PagedResultMappingExtensions.cs" templateId="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" />
+  <file path="TestMediator.Subscriber.Application/Common/Security/AuthorizeAttribute.cs" templateId="Intent.Application.Identity.AuthorizeAttribute" />
+  <file path="TestMediator.Subscriber.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
+  <file path="TestMediator.Subscriber.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
+  <file path="TestMediator.Subscriber.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="TestMediator.Subscriber.Application/IntegrationEvents/EventHandlers/IntegrationEventHandlers/OrderCreatedEventHandler.cs" deviationsHash="C9C81BF04190428E430647B80588002C8E01772C4B7F33B2A8B4DE4D357E50FC" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="TestMediator.Subscriber.Application/IntegrationEvents/EventHandlers/IntegrationEventHandlers/OrderRelayHandler.cs" deviationsHash="6B3FB97402A5F33905A21838F98E6A96B297A5DA79D552F283DAC9D0A232E745" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="TestMediator.Subscriber.Application/IntegrationEvents/EventHandlers/IntegrationEventHandlers/OrderShippedEventHandler.cs" deviationsHash="FC8DDF876D469EC980A2C25BB7881581DE3FD68B3405D10C480D206670E726B8" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
+  <file path="TestMediator.Subscriber.Application/IntegrationEvents/OrderCancelledEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="TestMediator.Subscriber.Application/IntegrationEvents/OrderCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="TestMediator.Subscriber.Application/IntegrationEvents/OrderRelayedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="TestMediator.Subscriber.Application/IntegrationEvents/OrderShippedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="TestMediator.Subscriber.Application/IntegrationEvents/ShipmentCreatedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="TestMediator.Subscriber.Application/IntegrationEvents/ShipmentDispatchedEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
+  <file path="TestMediator.Subscriber.Application/Shipments/CompleteShipment/CompleteShipmentCommand.cs" templateId="Intent.Application.Mediator.CommandModels" />
+  <file path="TestMediator.Subscriber.Application/Shipments/CompleteShipment/CompleteShipmentCommandHandler.cs" deviationsHash="5E486D3F361E2F22E09DFA3E82D0481C27C39A265B724F92859752564FAA9636" templateId="Intent.Application.Mediator.CommandHandler" />
+  <file path="TestMediator.Subscriber.Application/Shipments/CompleteShipment/CompleteShipmentCommandValidator.cs" templateId="Intent.Application.Mediator.FluentValidation.CommandValidator" />
+  <file path="TestMediator.Subscriber.Application/Shipments/CreateShipment/CreateShipmentCommand.cs" templateId="Intent.Application.Mediator.CommandModels" />
+  <file path="TestMediator.Subscriber.Application/Shipments/CreateShipment/CreateShipmentCommandHandler.cs" deviationsHash="42460BABBFD45797074E4F708B61083B5164525E62D655F032FCD3F00773F8D0" templateId="Intent.Application.Mediator.CommandHandler" />
+  <file path="TestMediator.Subscriber.Application/Shipments/CreateShipment/CreateShipmentCommandValidator.cs" templateId="Intent.Application.Mediator.FluentValidation.CommandValidator" />
+  <file path="TestMediator.Subscriber.Application/Shipments/GetShipments/GetShipmentsQuery.cs" templateId="Intent.Application.Mediator.QueryModels" />
+  <file path="TestMediator.Subscriber.Application/Shipments/GetShipments/GetShipmentsQueryHandler.cs" deviationsHash="01F7E61E12E485FD4D5CA4B680D95041D10D9A2B39BDD815785653B52325921D" templateId="Intent.Application.Mediator.QueryHandler" />
+  <file path="TestMediator.Subscriber.Application/Shipments/GetShipments/GetShipmentsQueryValidator.cs" templateId="Intent.Application.Mediator.FluentValidation.QueryValidator" />
+  <file path="TestMediator.Subscriber.Application/Shipments/ShipmentDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="TestMediator.Subscriber.Application/TestMediator.Subscriber.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TestMediator.Subscriber.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="TestMediator.Subscriber.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="TestMediator.Subscriber.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="TestMediator.Subscriber.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="TestMediator.Subscriber.Domain/Common/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
+  <file path="TestMediator.Subscriber.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="TestMediator.Subscriber.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="TestMediator.Subscriber.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="TestMediator.Subscriber.Domain/Repositories/IShipmentRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="TestMediator.Subscriber.Domain/Shipment.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="TestMediator.Subscriber.Domain/TestMediator.Subscriber.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TestMediator.Subscriber.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
+  <file path="TestMediator.Subscriber.Infrastructure/Configuration/MediatorConfiguration.cs" templateId="Intent.Application.Mediator.MediatorConfiguration" />
+  <file path="TestMediator.Subscriber.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.Mediator.AuthorizationBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.Mediator.LoggingBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.Mediator.MessageBusPublishBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.Mediator.PerformanceBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/UnhandledExceptionBehaviour.cs" templateId="Intent.Application.Mediator.UnhandledExceptionBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/UnitOfWorkBehaviour.cs" templateId="Intent.Application.Mediator.UnitOfWorkBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/Behaviours/ValidationBehaviour.cs" templateId="Intent.Application.Mediator.FluentValidation.ValidationBehaviour" />
+  <file path="TestMediator.Subscriber.Infrastructure/Dispatch/SequentialNotificationPublisher.cs" templateId="Intent.Application.Mediator.SequentialNotificationPublisher" />
+  <file path="TestMediator.Subscriber.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
+  <file path="TestMediator.Subscriber.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
+  <file path="TestMediator.Subscriber.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="TestMediator.Subscriber.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="TestMediator.Subscriber.Infrastructure/Persistence/Configurations/ShipmentConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="TestMediator.Subscriber.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="TestMediator.Subscriber.Infrastructure/Repositories/ShipmentRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="TestMediator.Subscriber.Infrastructure/TestMediator.Subscriber.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TestMediator.Subscriber.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+</managedFiles>

@@ -46,6 +46,16 @@ This was not obvious the first time around: a duplicate `CustomValidationSkillTe
 
 The dependency floor is pinned at `3.12.2` (not the lower `3.11.6` this module's `.csproj` compiles against) because `3.12.0` and earlier generated the skill file at a different, since-renamed output path (`custom-fluent-validation` instead of `fluent-validation-custom-validation`). A lower floor resolves to a version whose template deletes/recreates the file at the wrong path on install. If bumping this dependency in the future, verify the resolved base-module version still uses `fluent-validation-custom-validation` before lowering the floor.
 
+### `Intent.Application.FluentValidation.Dtos` is a hand-added dependency (1.0.3)
+
+From `Intent.Application.Wolverine` 1.1.3, its `ValidationMiddleware` is generated only when `.Dtos` supplies the validator provider (see that module's `CONTEXT.md`). Before this module declared `.Dtos`, a Wolverine app with FluentValidation but without Application Services had no `.Dtos`: `Intent.Application.FluentValidation`'s interop installs it only for the MediatR and Services dispatchers. With Wolverine 1.1.2 such an app failed the Software Factory run. With 1.1.3 alone it would have generated validators that were registered but never run, which was verified in a throwaway Clean Architecture app with Wolverine Dispatch, Fluent Validation and no Application Services (developer decision, 2026-10-26).
+
+There is a second, independent reason: this module's validators pass `Application.Common.ValidatorProviderInterface` to `DtoValidatorTemplateBase`, and a rule that validates a nested DTO resolves that provider with a throwing `GetTypeName` (`ValidationRulesExtensions` in `Intent.Modules.FluentValidation.Shared`). So these validators already needed `.Dtos` for nested DTOs.
+
+- **This module owns the dependency, not `Intent.Application.Wolverine`.** Installing this module is what means "Wolverine with validation". A dependency on the core would force FluentValidation on every Wolverine app.
+- **Hand-added, floor `3.12.7`**, matching the floor `Intent.Application.FluentValidation`'s interop installs. `.Dtos` is not in this application's `modules.config`, so the Software Factory never adds it, and never removes a hand-added entry.
+- Rejected: Wolverine-dispatcher detects in `Intent.Application.FluentValidation`'s interop. They would only cover the Controllers and FastEndpoints dispatchers and would need a version bump in a module outside the Wolverine family.
+
 ---
 
 ## Interactions with Other Modules
@@ -53,7 +63,8 @@ The dependency floor is pinned at `3.12.2` (not the lower `3.11.6` this module's
 | Module | Relationship |
 |---|---|
 | `Intent.Modules.FluentValidation.Shared` | Provides `DtoValidatorTemplateBase` — the only base class for both validators. |
-| `Intent.Application.Wolverine` | Consumes the template roles (`TemplateRoles.Application.Validation.Command/.Query`) to wire validation middleware. |
+| `Intent.Application.Wolverine` | Its `ValidationMiddleware` runs these validators, resolving them through the `.Dtos` validator provider, and is generated only when `.Dtos` is installed. It also reads this module's `Application.Common.BypassValidationInterface` role. |
+| `Intent.Application.FluentValidation.Dtos` | Hand-added dependency. Supplies the validator provider that `Intent.Application.Wolverine`'s validation middleware and this module's own nested-DTO validation rules need. (The FluentValidation NuGet package comes from `Intent.Application.FluentValidation`, not from `.Dtos`.) |
 | `Intent.Application.MediatR.FluentValidation` | Sibling module that uses the same shared base. Keep both in sync via the shared package — never diverge their base class strategy. |
 | `Intent.Application.FluentValidation` | Declared as an imodspec dependency solely to inherit the `CustomValidationSkill` AI agent skill template — not for validator generation logic. |
 

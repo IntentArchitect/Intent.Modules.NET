@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</parentFolderId>
+  <packageId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</packageId>
+  <packageName>WebAndWorker.UI</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
       <addedByDefault>true</addedByDefault>
@@ -28,6 +30,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>850107ea-0291-424b-831f-4a7658cd625d</parentFolderId>
+      <packageId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</packageId>
+      <packageName>WebAndWorker.UI</packageName>
       <stereotypes />
       <mappings>
         <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
@@ -122,6 +126,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>162e6f9e-6d59-4cc3-b90a-b5a0e232af53</parentFolderId>
+          <packageId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</packageId>
+          <packageName>WebAndWorker.UI</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -134,6 +140,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>162e6f9e-6d59-4cc3-b90a-b5a0e232af53</parentFolderId>
+          <packageId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</packageId>
+          <packageName>WebAndWorker.UI</packageName>
           <stereotypes />
           <metadata />
           <childElements>
@@ -145,6 +153,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>d58ca795-f9aa-4768-bd92-a8464477f840</parentFolderId>
+              <packageId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</packageId>
+              <packageName>WebAndWorker.UI</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="a7de29e5-4bee-4e5d-93f0-740569ac6130" name="Interaction">
                   <addedByDefault>true</addedByDefault>
@@ -180,6 +190,8 @@
                   <genericTypes />
                   <isMapped>false</isMapped>
                   <parentFolderId>77605772-4b19-4d6f-b1d6-26424b1a985a</parentFolderId>
+                  <packageId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</packageId>
+                  <packageName>WebAndWorker.UI</packageName>
                   <stereotypes />
                   <metadata />
                   <childElements />
@@ -194,6 +206,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>d58ca795-f9aa-4768-bd92-a8464477f840</parentFolderId>
+              <packageId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</packageId>
+              <packageName>WebAndWorker.UI</packageName>
               <stereotypes />
               <metadata />
               <childElements />
@@ -208,6 +222,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>162e6f9e-6d59-4cc3-b90a-b5a0e232af53</parentFolderId>
+          <packageId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</packageId>
+          <packageName>WebAndWorker.UI</packageName>
           <stereotypes />
           <metadata />
           <childElements>
@@ -219,6 +235,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>4b6a26f3-3434-433a-b363-a62b8133ae6d</parentFolderId>
+              <packageId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</packageId>
+              <packageName>WebAndWorker.UI</packageName>
               <stereotypes />
               <metadata />
               <childElements>
@@ -230,6 +248,8 @@
                   <genericTypes />
                   <isMapped>false</isMapped>
                   <parentFolderId>e4fb73f1-cf56-477c-b503-4bd445da7db1</parentFolderId>
+                  <packageId>e3c9b602-b2d5-4118-adc8-f95c5145ff8a</packageId>
+                  <packageName>WebAndWorker.UI</packageName>
                   <stereotypes>
                     <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
                       <addedByDefault>false</addedByDefault>

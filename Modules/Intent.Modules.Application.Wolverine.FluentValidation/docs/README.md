@@ -7,6 +7,8 @@ Extends the Wolverine CQRS module with FluentValidation support, generating one 
 - `CommandValidator` — `AbstractValidator<TCommand>` for each Command element; follows the `DtoValidatorTemplateBase` infrastructure.
 - `QueryValidator` — `AbstractValidator<TQuery>` for each Query element; follows the `DtoValidatorTemplateBase` infrastructure.
 
+Installing this module also installs `Intent.Application.FluentValidation.Dtos`. Its validator provider is what `Intent.Application.Wolverine`'s `ValidationMiddleware` uses to run these validators before each handler, so the middleware is generated whenever this module is installed.
+
 ## Generated Validators
 
 Each Command and Query element produces a dedicated validator class. The `modelParameterName` is set to `"command"` or `"query"` respectively, so validation rule references read naturally.

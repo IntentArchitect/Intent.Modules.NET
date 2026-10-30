@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>90605a66-3dd0-4586-889a-8ab72b9a3fc9</parentFolderId>
+  <packageId>90605a66-3dd0-4586-889a-8ab72b9a3fc9</packageId>
+  <packageName>WindowsServiceHost.Tests</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -16,6 +18,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d990469b-16ad-4180-9a5b-b1b23445c52f</parentFolderId>
+      <packageId>90605a66-3dd0-4586-889a-8ab72b9a3fc9</packageId>
+      <packageName>WindowsServiceHost.Tests</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -27,6 +31,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d990469b-16ad-4180-9a5b-b1b23445c52f</parentFolderId>
+      <packageId>90605a66-3dd0-4586-889a-8ab72b9a3fc9</packageId>
+      <packageName>WindowsServiceHost.Tests</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -38,6 +44,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d990469b-16ad-4180-9a5b-b1b23445c52f</parentFolderId>
+      <packageId>90605a66-3dd0-4586-889a-8ab72b9a3fc9</packageId>
+      <packageName>WindowsServiceHost.Tests</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -49,6 +57,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d990469b-16ad-4180-9a5b-b1b23445c52f</parentFolderId>
+      <packageId>90605a66-3dd0-4586-889a-8ab72b9a3fc9</packageId>
+      <packageName>WindowsServiceHost.Tests</packageName>
       <stereotypes />
       <metadata />
       <childElements />

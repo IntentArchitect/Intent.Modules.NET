@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4c969c1c-6b5f-43c5-8f17-97f9b1695cdf</parentFolderId>
+  <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+  <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -19,6 +21,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ea78ab0f-e457-44bd-bf2c-ffb4018997d3</parentFolderId>
+      <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+      <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
           <addedByDefault>true</addedByDefault>
@@ -67,6 +71,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d42dd854-020c-4590-98cb-25d09ec40921</parentFolderId>
+          <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+          <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
               <addedByDefault>true</addedByDefault>
@@ -87,6 +93,8 @@
               <genericTypes />
               <isMapped>false</isMapped>
               <parentFolderId>380ca6ff-67fd-4f43-ae7a-15672835e795</parentFolderId>
+              <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+              <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
                   <addedByDefault>true</addedByDefault>
@@ -110,6 +118,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d42dd854-020c-4590-98cb-25d09ec40921</parentFolderId>
+          <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+          <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -122,6 +132,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d42dd854-020c-4590-98cb-25d09ec40921</parentFolderId>
+          <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+          <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -134,6 +146,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d42dd854-020c-4590-98cb-25d09ec40921</parentFolderId>
+          <packageId>33b9e138-1785-48e4-b541-2666ba0ca643</packageId>
+          <packageName>CleanArchitecture.Dapr.InvocationClient</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
               <addedByDefault>false</addedByDefault>

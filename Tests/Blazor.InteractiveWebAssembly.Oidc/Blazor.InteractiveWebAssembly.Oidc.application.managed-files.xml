@@ -90,7 +90,7 @@
   <file path="Blazor.InteractiveWebAssembly.Oidc/Components/_Imports.razor" templateId="Intent.Blazor.Templates.Server.ServerImportsRazorTemplate" />
   <file path="Blazor.InteractiveWebAssembly.Oidc/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
   <file path="Blazor.InteractiveWebAssembly.Oidc/OidcAuthenticationOptions.cs" templateId="Intent.Blazor.Authentication.Templates.Server.OidcAuthenticationOptionsTemplate" />
-  <file path="Blazor.InteractiveWebAssembly.Oidc/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Blazor.InteractiveWebAssembly.Oidc/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="Blazor.InteractiveWebAssembly.Oidc/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="Blazor.InteractiveWebAssembly.Oidc/Startup.cs" templateId="Intent.AspNetCore.Startup" />
   <file path="Blazor.InteractiveWebAssembly.Oidc/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

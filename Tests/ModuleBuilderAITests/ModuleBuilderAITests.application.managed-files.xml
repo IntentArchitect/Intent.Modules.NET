@@ -3,7 +3,13 @@
   <file path=".claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path=".claude/skills/intent-dotnet-module-integration/SKILL.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_SkillMd_Agents" />
   <file path=".claude/skills/intent-dotnet-module-integration/resources/aspnetcore-controllers.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_Agents" />
+  <file path=".claude/skills/intent-dotnet-module-integration/resources/aspnetcore.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesAspnetcoreMd_Agents" />
+  <file path=".claude/skills/intent-dotnet-module-integration/resources/entities-repositories-api.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesEntitiesRepositoriesApiMd_Agents" />
+  <file path=".claude/skills/intent-dotnet-module-integration/resources/entityframeworkcore.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesEntityframeworkcoreMd_Agents" />
   <file path=".opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path=".opencode/skills/intent-dotnet-module-integration/SKILL.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_SkillMd_Agents" />
   <file path=".opencode/skills/intent-dotnet-module-integration/resources/aspnetcore-controllers.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesAspnetcoreControllersMd_Agents" />
+  <file path=".opencode/skills/intent-dotnet-module-integration/resources/aspnetcore.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesAspnetcoreMd_Agents" />
+  <file path=".opencode/skills/intent-dotnet-module-integration/resources/entities-repositories-api.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesEntitiesRepositoriesApiMd_Agents" />
+  <file path=".opencode/skills/intent-dotnet-module-integration/resources/entityframeworkcore.md" templateId="Intent.ModuleBuilder.AI.DotNet.Skills.IntentDotnetModuleIntegration_ResourcesEntityframeworkcoreMd_Agents" />
 </managedFiles>

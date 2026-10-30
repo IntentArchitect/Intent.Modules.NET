@@ -55,6 +55,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>4e4587c2-cd6b-42ea-a5a4-6a07b3fcaf65</parentFolderId>
+      <packageId>a6f3be8b-db13-47fa-9df8-a1a2a7f5124c</packageId>
+      <packageName>AspNetCoreMvc</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

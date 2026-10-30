@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.AspNetCore.Controllers.Dispatch.Mediator</id>
+  <version>1.0.0-pre.1</version>
+  <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
+  <summary>Dispatches ASP.NET Core controller actions to Mediator commands and queries.</summary>
+  <description>Dispatches ASP.NET Core controller actions to Mediator commands and queries.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDUwIDUwIj4KICA8c3R5bGU+CiAgICAvKiBCZWxvdyAzMHB4IHRoZSBib2x0IGlzIHRvbyBzbWFsbCB0byByZWFkIGFuZCBibG90cyB0aGUgaHViLCBzbyB0aGUgZ2x5cGggZmFsbHMgYmFjayB0byBwbGFpbiBodWItYW5kLXNwb2tlICovCiAgICBAbWVkaWEgKG1heC13aWR0aDogMzBweCkgeyAuYm9sdCB7IGRpc3BsYXk6IG5vbmU7IH0gfQogIDwvc3R5bGU+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Im1lZGlhdG9yQmFja2dyb3VuZCIgeDE9IjI1IiB5MT0iLjYiIHgyPSIyNSIgeTI9IjQ5LjQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMTRiOGE2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiMwZDk0ODgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMGY3NjZlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8ZyBpZD0iTGF5ZXJfMSI+CiAgICA8Y2lyY2xlIGN4PSIyNSIgY3k9IjI1IiByPSIyNC40IiBmaWxsPSJ1cmwoI21lZGlhdG9yQmFja2dyb3VuZCkiLz4KCiAgICA8IS0tIENvbGxlYWd1ZXMgdGFsayBvbmx5IHRocm91Z2ggdGhlIG1lZGlhdG9yLCBuZXZlciB0byBlYWNoIG90aGVyIC0tPgogICAgPGcgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICAgICAgPGxpbmUgeDE9IjE1IiB5MT0iMTUiIHgyPSIzNSIgeTI9IjM1Ii8+CiAgICAgIDxsaW5lIHgxPSIzNSIgeTE9IjE1IiB4Mj0iMTUiIHkyPSIzNSIvPgogICAgPC9nPgogICAgPGcgZmlsbD0iI2ZmZiI+CiAgICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjQuMyIvPgogICAgICA8Y2lyY2xlIGN4PSIzNSIgY3k9IjE1IiByPSI0LjMiLz4KICAgICAgPGNpcmNsZSBjeD0iMTUiIGN5PSIzNSIgcj0iNC4zIi8+CiAgICAgIDxjaXJjbGUgY3g9IjM1IiBjeT0iMzUiIHI9IjQuMyIvPgogICAgICA8Y2lyY2xlIGN4PSIyNSIgY3k9IjI1IiByPSI3LjQiLz4KICAgIDwvZz4KCiAgICA8IS0tIFRoZSBtZWRpYXRvcjogZmFzdCwgc291cmNlLWdlbmVyYXRlZCBkaXNwYXRjaCAtLT4KICAgIDxwYXRoIGNsYXNzPSJib2x0IiBkPSJNMjUuOSwxOS42TDIyLjIsMjUuNkgyNC42TDIzLjksMzAuNEwyNy44LDI0LjRIMjUuNFoiIGZpbGw9IiMwZjc2NmUiLz4KICA8L2c+Cjwvc3ZnPgo=</iconUrl>
+  <templates></templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.AspNetCore.Controllers.Dispatch.Mediator.MediatorControllerDispatchExtension" externalReference="9e57fc30-713f-48e3-b07c-8c885661c302" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Application.Mediator" version="1.0.0-pre.1" />
+    <dependency id="Intent.AspNetCore.Controllers" version="7.1.10" />
+    <dependency id="Intent.Common" version="3.11.2" />
+    <dependency id="Intent.Common.CSharp" version="3.10.10" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Metadata.WebApi" version="4.6.4" />
+    <dependency id="Intent.Modelers.Services" version="4.0.16" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="6.0.8" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags>mediator aspnetcore controllers dispatch cqrs</tags>
+  <moduleSettingsExtensions />
+  <metadata />
+  <releaseNotes>release-notes.md</releaseNotes>
+  <migrations />
+</package>

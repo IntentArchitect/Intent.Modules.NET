@@ -75,7 +75,7 @@
   <file path="BlazorWebApp/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="BlazorWebApp/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="BlazorWebApp/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="BlazorWebApp/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="BlazorWebApp/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="BlazorWebApp/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="BlazorWebApp/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="BlazorWebApp/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
@@ -108,7 +108,7 @@
   <file path="WebAndWorker.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="WebAndWorker.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
   <file path="WebAndWorker.Api/Logging/GeoDestructureSerilogPolicy.cs" templateId="Intent.NetTopologySuite.GeoDestructureSerilogPolicy" />
-  <file path="WebAndWorker.Api/Program.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.AspNetCore.Program" />
+  <file path="WebAndWorker.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
   <file path="WebAndWorker.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="WebAndWorker.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="WebAndWorker.Api/WebAndWorker.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
@@ -193,7 +193,7 @@
   <file path="WebAndWorker.Mobile.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="WebAndWorker.Mobile.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
   <file path="WebAndWorker.Mobile.Api/Logging/GeoDestructureSerilogPolicy.cs" templateId="Intent.NetTopologySuite.GeoDestructureSerilogPolicy" />
-  <file path="WebAndWorker.Mobile.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="WebAndWorker.Mobile.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="WebAndWorker.Mobile.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="WebAndWorker.Mobile.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="WebAndWorker.Mobile.Api/WebAndWorker.Mobile.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />

@@ -13,5 +13,14 @@
       <approvedAt>2026-08-20T05:56:40.0972266Z</approvedAt>
       <deviationsHash>DF48A3628537F26C81C1550318B36E6DCBB60FF6764FD0C83744F3B96753AFA5</deviationsHash>
     </file>
+    <file>
+      <correlationId>Intent.AspNetCore.Program#de771fb2-2285-475c-9e46-3aa774fa5739</correlationId>
+      <path>Blazor.InteractiveAuto.AspNetCoreIdentity/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-29T13:03:29.0653147Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
   </files>
 </deviationsLog>

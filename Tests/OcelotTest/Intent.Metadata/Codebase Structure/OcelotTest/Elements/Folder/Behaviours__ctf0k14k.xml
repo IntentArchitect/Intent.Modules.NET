@@ -257,6 +257,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>597706ab-94a3-4e30-ba7d-450608bd03f7</parentFolderId>
+      <packageId>62529060-9af2-4e23-8b08-da066f8c4400</packageId>
+      <packageName>OcelotTest</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

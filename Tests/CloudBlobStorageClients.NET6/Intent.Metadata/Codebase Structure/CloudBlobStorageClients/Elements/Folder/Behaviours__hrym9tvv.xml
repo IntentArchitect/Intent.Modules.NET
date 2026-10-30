@@ -257,6 +257,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8ee637e4-1399-47e1-aed8-c990590ef4ec</parentFolderId>
+      <packageId>62b340d7-6049-4668-9e56-7f1575ce29ea</packageId>
+      <packageName>CloudBlobStorageClients</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

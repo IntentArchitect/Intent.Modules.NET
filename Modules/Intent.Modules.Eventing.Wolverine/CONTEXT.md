@@ -26,7 +26,7 @@ one. The prose sections below (D1 onward) explain the *why*; this table is the *
 | Subscriber queue naming | convention (kebab-case app+message name) / explicit override | `GetSubscriberQueueName` → `{appName-kebab}-{message-kebab}`, or the `Wolverine Subscription` stereotype's `Subscriber Queue Name` (see below) | Was never overridable prior to `1.0.0-pre.1`'s AWS runtime testing — see the dedicated section below for why that changed |
 | AmazonSqs fan-out shape | published+subscribed / publish-only / subscribe-only | `AddAmazonSqsBody`'s `ConfigurePublishing` | See D7 below |
 | OpenTelemetry tracing | wired / not wired | `WolverineTelemetryConfiguratorExtension` | Gated on `Intent.OpenTelemetry.OpenTelemetryConfiguration` being installed **and** the `telemetry-tracing`-tagged statement being enabled; appends `AddSource("Wolverine")`. Not mentioned elsewhere in this file — the only place this axis is documented |
-| Eventing/dispatch interop (Durable outbox only) | ServiceContract/Controller / Wolverine CQRS / MediatR | `WolverineMessageBusInteropExtension`'s three `InstallMessageBusFor*Dispatch` methods | Strips `eventbus-flush`-tagged statements from three different foreign templates when the outbox makes the generic post-handler flush redundant — this module actively *removes* code another module generated, not just abstains from generating its own (see D5) |
+| Eventing/dispatch interop (Durable outbox, and for Mediator also no registered bus) | ServiceContract/Controller / Wolverine CQRS / MediatR / Mediator | `WolverineMessageBusInteropExtension`'s three `InstallMessageBusFor*Dispatch` methods | Strips `eventbus-flush`-tagged statements from three different foreign templates when the outbox makes the generic post-handler flush redundant — this module actively *removes* code another module generated, not just abstains from generating its own (see D5) |
 | Appsettings defaults | additive-only | `PublishAppSettings` | Per-transport connection defaults and per-error-policy delay defaults are registered via `AppSettingRegistrationRequest`, which cannot remove a previously-registered key — same additive-only constraint documented for this repo's other modules |
 
 **Sanity check before trusting version numbers in this file:** `Intent.Eventing.Wolverine.imodspec`
@@ -490,6 +490,84 @@ Azure Service Bus namespace (`dandre-test`) and a real SQL Server instance:
 This is the combination (ASB + Durable outbox + a real subscriber) that had never been generated or
 run before this work, and it is what the four publish-side defects were hiding in.
 
+## Mediator dispatch seam (`Intent.Application.Mediator`)
+
+Five changes, in `WolverineMessageBusInteropExtension`, `WolverineEventingRegistrationExtension` and
+`WolverineIntegrationEventMiddleware`. The Mediator core is referenced by **string id only**
+(`Intent.Application.Mediator.MediatorConfiguration`, `.MessageBusFlushOwner`, `.UnitOfWorkBehaviour`;
+metadata keys `mediator-config`, `mediator-pipeline`, `eventbus-flush`): no project reference, no
+`.imodspec` dependency. Generated and run in `Tests/TestMediator.WolverineEventing` (Durable and Outbox None)
+and `Tests/TestMediator.WolverineSubscribeOnly` (subscribe-only).
+
+**1. Strip the flush item under the Durable outbox** (`InstallMessageBusForMediatorDispatch`).
+Same effect as the MediatR branch: the Mediator pipeline's `eventbus-flush` item is removed from the
+collection published as `mediator-pipeline` metadata (`AfterBuild`, priority 1000) and the existing
+`DbContext.SaveChanges` splice (D5 carve-out) flushes instead. The collection is removed from
+directly because `AddItem` does not set `Parent`, so `CSharpStatement.Remove()` throws and a
+recursive search never reaches inside it.
+
+**2. Also strip it when no Wolverine bus is registered (subscribe-only).** Eventing.Contracts always
+generates the bus interface, so the core adds the flush item whenever the interface role resolves.
+A subscribe-only application registers no `IMessageBus` (`RegisterWolverineMessageBus`'s own gate; see
+"The DbContext flush splice must agree with the bus-registration gate"), so without this strip
+every `ISender.Send` would throw at resolve time. This is a second instance of the invariant stated
+there: anything that injects the bus interface must agree with the registration gate. The check
+(`!IsTransactionalOutboxPatternSelected(application) && template.WolverineMessageBusIsRegistered()`
+-> leave the item alone) is evaluated **inside the `AfterBuild` callback**, not when the extension
+runs, because whether a bus is registered depends on template instances that are not all registered
+yet at that point.
+
+**3. `UseEntityFrameworkCoreTransactions(Lightweight)` also triggers on the Mediator
+`UnitOfWorkBehaviour`.** `HasUnitOfWorkTransactionScope` now probes for the Mediator behaviour next to
+the Wolverine middleware and the MediatR behaviour. Eager mode would call `BeginTransactionAsync()`
+against the `TransactionScope` the unit of work already opened and throw "An ambient transaction has
+been detected" (same reasoning as the existing comment for the other two).
+
+**4. `WolverineIntegrationEventMiddleware` claims `MessageBusFlushOwner` (D18).** The middleware only
+exists under Outbox = None (under Durable `AutoApplyTransactions` supplies the seam and change 1
+removes the flush item). Its `TransactionScope` wraps the integration event handler; if a handler sends
+a command through Mediator, that command's `MessageBusPublishBehaviour` would otherwise flush the bus
+inside the middleware's scope, before it commits. So:
+- Claimed only when `TryGetMediatorFlushOwner` is true: the owner template exists **and**
+  `CanRunTemplate()` (the owner template of the always-installed core resolves a type name even when it
+  skips itself) **and** this app registers a Wolverine bus. A subscribe-only app has no buffer to guard.
+- `_flushOwner.Enter()` in `Before`, `Exit()` in `FinallyAsync`; with no ambient transaction (no
+  `wrapInTransaction`) it adds a plain `Before()` / `Finally()` pair just for the claim. In the
+  transactional path `Exit()` is placed **before** the middleware's own `FlushAllAsync`, so a failing
+  broker publish cannot leave the owner claimed.
+- The generated output of MediatR and Wolverine dispatch applications is unchanged.
+
+**Owner and bus must be the same instances as the nested command sees.** The middleware and the nested
+command's behaviours must share one scoped `MessageBusFlushOwner` **and** one `IMessageBus`. Wolverine's
+generated handler code can construct concrete-registered dependencies itself
+(`AddScoped<IMessageBus, WolverineMessageBus>`), whereas Mediator resolves from the DI scope; each
+`WolverineMessageBus` has its own buffer. A shared owner with separate buses would silently lose the
+nested command's messages (the behaviour defers, the middleware flushes an empty bus). When the owner
+is claimed, `ApplyIntegrationEventPolicy` therefore also emits
+`opts.CodeGeneration.AlwaysUseServiceLocationFor<IMessageBus>()` and `...<MessageBusFlushOwner>()`
+(the bus type fully qualified, because Wolverine's own `IMessageBus` is in a namespace the file imports).
+- **Rejected: a flush-owner claim without service location.** It compiles and passes a "did the nested
+  dispatch not flush" check, and still loses messages whenever the two buses differ.
+- **Observed (2026-10-15, `Tests/TestMediator.WolverineEventing`, Outbox None):** `AlwaysUseServiceLocationFor`
+  exists in the referenced WolverineFx and makes the middleware and the nested command share the scope's bus
+  and owner. The ownership test fails when the `Enter()` claim is removed, so it does not pass vacuously.
+
+**5. The Outbox None policy is registered only when the middleware template runs.** The middleware's
+`CanRunTemplate()` skips it when the app has neither a registered bus nor a persistence unit of work. The
+registration used to be gated on "has subscribed messages" alone, so a subscribe-only app without a database
+emitted `AddMiddleware<WolverineIntegrationEventMiddleware>` for a class that was never generated (`CS0246`).
+This is the same invariant as the DbContext splice above, a third time: anything that references the
+middleware must agree with the template's own gate. `IntegrationEventMiddlewareIsGenerated` asks the template
+instance rather than re-deriving the condition, so the two cannot drift. Found by
+`Tests/TestMediator.WolverineSubscribeOnly` (subscribe-only, Outbox None, no persistence); it is not specific to
+Mediator, any dispatcher hit it. The same app is the empty-pipeline case: the flush item is stripped (change 2),
+so `options.PipelineBehaviors = []`.
+
+**Ordering invariant, Mediator.** The "LOAD-BEARING INVARIANT" below depends on the flush seam wrapping the
+unit of work. The Mediator core's pipeline order (D20, outermost first) puts `MessageBusPublish` before
+`UnitOfWork`, which gives the same shape as the MediatR row. That is a property of the core's template as
+planned, not something this module enforces, and it has not been observed in generated output.
+
 ## LOAD-BEARING INVARIANT — the flush seam must stay OUTSIDE the unit-of-work `TransactionScope`
 
 `WolverineMessageBus.FlushAllAsync` does **not** wrap its dispatch in a suppressing
@@ -580,6 +658,7 @@ wrapper around the unit of work, so the broker call always happens after `tx.Com
 |---|---|---|
 | Wolverine | `AddMiddleware<MessageBusFlushMiddleware>` **then** `AddMiddleware<UnitOfWorkMiddleware>` | flush wraps the UoW; send happens after the scope closes |
 | MediatR | `AddOpenBehavior(MessageBusPublishBehaviour<,>)` **then** `AddOpenBehavior(UnitOfWorkBehaviour<,>)` | same shape |
+| Mediator | pipeline collection item order, `MessageBusPublish` before `UnitOfWork` (core's D20 order; see the Mediator section above) | same shape, as planned; not yet observed |
 
 **Break the ordering and you get a runtime failure no build or generated-output diff will show** —
 and only on a transport that enlists (ASB), only when the handler also wrote to SQL in the same

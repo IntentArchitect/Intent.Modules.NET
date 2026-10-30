@@ -7,7 +7,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>cc92f4b9-6d31-4d0e-8fd1-cffa26aad7f0</parentFolderId>
   <packageId>509ec879-9053-4eec-ba0e-2849e66d1797</packageId>
-  <packageName>NServiceBus.RabbitMQ.Services</packageName>
+  <packageName>N_ServiceBus.RabbitMQ.Services</packageName>
   <diagram>
     <targetPackageId>05fc4c68-30da-45f8-a96e-ab3a3f561afb</targetPackageId>
   </diagram>

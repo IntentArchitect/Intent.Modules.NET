@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ea8daac5-4d76-46d2-91b4-ebb5e7ab0c76" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>20c08111-1e99-4915-a33e-5cda913e0508</parentFolderId>
+  <packageId>20c08111-1e99-4915-a33e-5cda913e0508</packageId>
+  <packageName>Intent.Application.Mediator.FluentValidation</packageName>
+</class>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b9a40d5d-1284-4cb7-826e-cf69a9867b63" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>Mediator.Abstractions</name>
+  <display>Mediator.Abstractions [locked]</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>be2f3522-ed7f-402b-9e41-6cf532320323</parentFolderId>
+  <packageId>a40d606c-d7ed-4b2a-9992-b496f68dfbc1</packageId>
+  <packageName>Intent.Application.Mediator.DomainEvents</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="c60f6069-3139-4823-8685-f9b2202e446a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.0.2</name>
+      <display>3.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <parentFolderId>b9a40d5d-1284-4cb7-826e-cf69a9867b63</parentFolderId>
+      <packageId>a40d606c-d7ed-4b2a-9992-b496f68dfbc1</packageId>
+      <packageName>Intent.Application.Mediator.DomainEvents</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+  </children>
+</class>

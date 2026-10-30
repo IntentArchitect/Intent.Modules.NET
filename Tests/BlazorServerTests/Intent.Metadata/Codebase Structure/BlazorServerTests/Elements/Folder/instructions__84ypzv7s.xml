@@ -155,6 +155,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>37451176-fd29-4104-8923-bf4d27f54064</parentFolderId>
+      <packageId>1efb6e83-f955-4a31-8ba3-5d51f7229db6</packageId>
+      <packageName>BlazorServerTests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

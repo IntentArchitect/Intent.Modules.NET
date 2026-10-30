@@ -31,6 +31,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
         {
             InstallMessageBusForServiceContractDispatch(application);
             InstallMessageBusForMediatRDispatch(application);
+            InstallMessageBusForMediatorDispatch(application);
             InstallMessageBusForWolverineDispatch(application);
         }
 
@@ -68,6 +69,40 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                     return;
                 }
                 statementToMove.Remove();
+            }, 1000);
+        }
+
+        /// <summary>
+        /// Sibling of the MediatR branch for the Mediator dispatch stack. Mediator's pipeline is a literal
+        /// <c>typeof(...)</c> array the source generator reads, so the flush behaviour is removed as an
+        /// item from the collection published on the <c>AddMediator</c> invocation, never edited in place.
+        /// </summary>
+        private void InstallMessageBusForMediatorDispatch(IApplication application)
+        {
+            if (!IsTransactionalOutboxPatternSelected(application))
+            {
+                return;
+            }
+
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.Mediator.MediatorConfiguration");
+            if (template == null)
+            {
+                return;
+            }
+
+            template.CSharpFile.AfterBuild(file =>
+            {
+                var addMediatorMethod = file.Classes.First().FindMethod("AddMediatorConfiguration");
+                var configInvocation = addMediatorMethod?.FindStatement(stmt => stmt.HasMetadata("mediator-config"));
+                if (configInvocation == null || !configInvocation.TryGetMetadata<CSharpCollectionExpression>("mediator-pipeline", out var pipeline))
+                {
+                    return;
+                }
+
+                foreach (var item in pipeline.Statements.Where(stmt => stmt.HasMetadata("eventbus-flush")).ToList())
+                {
+                    pipeline.Statements.Remove(item);
+                }
             }, 1000);
         }
 

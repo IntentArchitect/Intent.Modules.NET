@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#158e5f94-e74b-4ecd-85c2-6ec1071b4951</correlationId>
+      <path>AdvancedMappingCrud.Cosmos.Tests.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T11:53:56.5122914Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#15993c7a-81ca-444f-a754-70f5b6220ce9</correlationId>
       <path>AdvancedMappingCrud.Cosmos.Tests.Application/Concurrency/UpdateEntityAfterEtagWasChangedByPreviousOperationTest/UpdateEntityAfterEtagWasChangedByPreviousOperationTestHandler.cs</path>
       <count>3</count>

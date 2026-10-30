@@ -87,7 +87,7 @@
   <file path="FastEndpointsTest.Api/FastEndpointsTest.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="FastEndpointsTest.Api/Filters/HideRouteParametersFromBodyOperationTransformer.cs" templateId="Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer" />
   <file path="FastEndpointsTest.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="FastEndpointsTest.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="FastEndpointsTest.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="FastEndpointsTest.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="FastEndpointsTest.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="FastEndpointsTest.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />

@@ -32,7 +32,7 @@
   <file path="Intent.Modules.NET.Tests.Host/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="Intent.Modules.NET.Tests.Host/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="Intent.Modules.NET.Tests.Host/Intent.Modules.NET.Tests.Host.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="Intent.Modules.NET.Tests.Host/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Intent.Modules.NET.Tests.Host/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="Intent.Modules.NET.Tests.Host/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="Intent.Modules.NET.Tests.Host/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="Intent.Modules.NET.Tests.Host/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

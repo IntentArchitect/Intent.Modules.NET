@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b21d3a19-acf9-40b1-8e3c-b891201863e5</parentFolderId>
+  <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+  <packageName>AdvancedMappingCrudMongo.Tests</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

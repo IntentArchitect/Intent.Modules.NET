@@ -29,6 +29,7 @@ namespace BugSnagTest.AspNetCore.Api.Filters
             });
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void OnException(ExceptionContext context)
         {
             switch (context.Exception)

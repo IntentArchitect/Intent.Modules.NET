@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Improvement: The existing-transaction guard (`HasDbTransaction()`) is now also injected into the `Intent.Application.Mediator` `UnitOfWorkBehaviour`, so a handler running inside an externally-managed EF transaction no longer opens a `TransactionScope`.
+
 ### Version 5.2.0
 
 - New Feature: `UnitOfWorkMiddleware.Before` (Wolverine dispatch) now detects an externally-managed EF transaction via `HasDbTransaction()` and skips its own `TransactionScope`, bringing Wolverine to parity with the existing MediatR `UnitOfWorkBehaviour` guard (added in 5.0.46) and preventing MSDTC escalation.

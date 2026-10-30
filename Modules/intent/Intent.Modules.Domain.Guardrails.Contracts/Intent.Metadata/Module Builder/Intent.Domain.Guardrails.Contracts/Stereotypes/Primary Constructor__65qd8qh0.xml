@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="d95d7c59-fe11-4f0a-84a9-d17a8c097cc1" version="3.1.0">
+  <comment>Marks this constructor as the class's primary constructor (C# 12): its parameters are declared on the type itself, e.g. class OrderService(IOrderRepository repository), and it has no body. At most one per class. On a record the parameters are the positional properties, so attributes with the same names aren't declared again.</comment>
+  <name>Primary Constructor</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">Class Constructor</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="star" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>11aae230-6dfe-414e-bf5f-18280aad6ae2</parentFolderId>
+  <order>0</order>
+  <packageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</packageId>
+  <packageName>Intent.Domain.Guardrails.Contracts</packageName>
+</stereotypeDefinition>

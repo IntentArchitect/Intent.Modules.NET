@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>6ada38bc-eb52-4e66-baf9-750369c1f931</parentFolderId>
   <packageId>6ada38bc-eb52-4e66-baf9-750369c1f931</packageId>
-  <packageName>NServiceBus.AzureServiceBus.Services</packageName>
+  <packageName>N_ServiceBus.AzureServiceBus.Services</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
       <addedByDefault>true</addedByDefault>

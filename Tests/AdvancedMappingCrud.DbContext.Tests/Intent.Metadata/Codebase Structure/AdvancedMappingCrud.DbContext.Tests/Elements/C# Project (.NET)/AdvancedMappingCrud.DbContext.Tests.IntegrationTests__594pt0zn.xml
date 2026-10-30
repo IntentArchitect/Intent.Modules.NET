@@ -480,6 +480,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d2049e4c-ea02-43c8-9986-8749080e35ec</parentFolderId>
+      <packageId>1f431e6e-b70a-4bb6-a0ef-7458f32b5512</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

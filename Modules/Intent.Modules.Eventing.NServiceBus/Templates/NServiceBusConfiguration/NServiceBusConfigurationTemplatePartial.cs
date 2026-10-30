@@ -421,7 +421,11 @@ namespace Intent.Modules.Eventing.NServiceBus.Templates.NServiceBusConfiguration
                         "rawStoragePath is not null",
                         "Environment.ExpandEnvironmentVariables(rawStoragePath)",
                         @"Path.Combine(Path.GetTempPath(), ""nservicebus-learning"")")).WithSemicolon().SeparatedFromPrevious());
-                method.AddStatement($"{varPrefix}endpointConfiguration.UseTransport(new LearningTransport {{ StorageDirectory = storageDirectory }});");
+                // The outbox requires the transport to run in ReceiveOnly mode; the learning transport defaults to SendsAtomicWithReceive.
+                var learningTransportMode = ExecutionContext.Settings.GetNServiceBusSettings().EnableOutbox()
+                    ? ", TransportTransactionMode = TransportTransactionMode.ReceiveOnly"
+                    : string.Empty;
+                method.AddStatement($"{varPrefix}endpointConfiguration.UseTransport(new LearningTransport {{ StorageDirectory = storageDirectory{learningTransportMode} }});");
             }
             else if (transport.IsSqlServer())
             {

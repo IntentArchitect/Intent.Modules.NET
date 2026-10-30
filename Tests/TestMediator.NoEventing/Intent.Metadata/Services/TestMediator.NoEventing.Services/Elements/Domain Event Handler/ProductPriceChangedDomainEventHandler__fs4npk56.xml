@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0dff5ec7-88a5-468d-9a4a-aa49f8bea634" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>ProductPriceChangedDomainEventHandler</name>
+  <display>ProductPriceChangedDomainEventHandler</display>
+  <parentFolderId>c013d73a-1834-4d5a-a880-a1205bd6059d</parentFolderId>
+  <packageId>204b9228-16e6-4c83-882a-3c5788bd6dc2</packageId>
+  <packageName>TestMediator.NoEventing.Services</packageName>
+  <children>
+    <association id="6a278d80-8bd4-470a-b3e8-fd729807593a">
+      <sourceEnd id="0d3b9790-ce21-45f3-8abb-4127c67a8347" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+        <display>: ProductPriceChangedDomainEventHandler</display>
+        <typeReference id="ddbb5eff-a2b2-4bb5-a06a-8998636db689">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="6a278d80-8bd4-470a-b3e8-fd729807593a" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+        <name>handler</name>
+        <display>[handles] ProductPriceChangedDomainEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="e9b696c4-8e62-4ca0-82b2-5390f1ddee1c">
+          <typeId>fb1548dd-a216-4bdc-9950-a465bc9ae4bd</typeId>
+          <typeName>ProductPriceChangedDomainEvent</typeName>
+          <typePackageName>TestMediator.NoEventing.Domain</typePackageName>
+          <typePackageId>22ac01cb-1145-4688-afeb-918e45e2b9bc</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Domain Event Handler Association</associationType>
+      <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+    </association>
+  </children>
+</class>

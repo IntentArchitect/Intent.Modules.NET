@@ -108,6 +108,10 @@ Not a module setting — if `NServiceBus:LicensePath` is present in `appsettings
 
 `LicensePath`, `AuditQueue`, `AuditTimeToBeReceived` and `InstanceId` are only written when their corresponding setting is enabled. The `ConnectionStrings:NServiceBus` entry is only relevant to the SQL Server transport, whose `EnableInstallers()` call creates the queue tables on first run — no manual schema setup required.
 
+## Mediator dispatch
+
+When the application dispatches through `Intent.Application.Mediator` and **Enable Outbox** is on, the Mediator message-bus flush behaviour is removed from the pipeline and the flush happens inside `DbContext.SaveChanges`, the same as for MediatR. Without the outbox the flush behaviour stays in the pipeline. No setting is involved.
+
 ## Working with Multiple Message Bus Providers
 
 This module coexists with other message bus providers — MassTransit, Kafka, and the rest — in the same application. With only `Intent.Eventing.NServiceBus` installed, every message automatically routes through it, no configuration required.

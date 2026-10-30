@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3d91288a-32a7-460e-ab9d-4a75a2eb6696" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetShipmentsQuery</name>
+  <display>GetShipmentsQuery: ShipmentDto[*]</display>
+  <typeReference id="37a7e929-fe68-49b7-9e67-354cadc8c3e9">
+    <typeId>47ac7455-2d36-4dce-8e74-c324f34f40b2</typeId>
+    <typeName>ShipmentDto</typeName>
+    <isCollection>true</isCollection>
+    <typePackageName>TestMediator.Subscriber.Services</typePackageName>
+    <typePackageId>157bc27d-4dd4-4d92-95f5-6f5aa23cc4e0</typePackageId>
+  </typeReference>
+  <parentFolderId>6c086f59-9506-4858-b055-a46d76d0d6a9</parentFolderId>
+  <packageId>157bc27d-4dd4-4d92-95f5-6f5aa23cc4e0</packageId>
+  <packageName>TestMediator.Subscriber.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/shipments" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <association id="0368c81b-5141-4131-93f5-70a7b5625e7f">
+      <sourceEnd id="49d0149a-e2ef-4160-9f62-1ba77533cb3b" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+        <display>: GetShipmentsQuery</display>
+        <typeReference id="5f909a8a-3b72-4712-bb80-204e8c70676f">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="0368c81b-5141-4131-93f5-70a7b5625e7f" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+        <name>shipments</name>
+        <display>[query] shipments: Shipment[*]</display>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="8e1820db-d43b-43be-83b6-73939c84cf4c">
+          <typeId>202b2a67-41a8-45d7-84d4-a0358afa37fd</typeId>
+          <typeName>Shipment</typeName>
+          <isCollection>true</isCollection>
+          <typePackageName>TestMediator.Subscriber.Domain</typePackageName>
+          <typePackageId>ff08f5c2-9291-4fac-a360-a5d1e5388882</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Query Entity Action</associationType>
+      <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+    </association>
+  </children>
+</class>

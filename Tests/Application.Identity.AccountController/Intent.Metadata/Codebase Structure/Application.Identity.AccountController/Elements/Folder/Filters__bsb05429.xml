@@ -181,6 +181,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>57440b9c-d57d-45bf-a2f9-4c03a6ba5ecb</parentFolderId>
+      <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
+      <packageName>Application.Identity.AccountController</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

@@ -115,6 +115,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6b41c887-6eb2-4dc0-81b6-0c40dde5e5ba</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -151,6 +153,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6b41c887-6eb2-4dc0-81b6-0c40dde5e5ba</parentFolderId>
+      <packageId>d6b1ee2c-b65f-4edd-8b70-4ced1335c0c4</packageId>
+      <packageName>MultipleDocumentStores</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

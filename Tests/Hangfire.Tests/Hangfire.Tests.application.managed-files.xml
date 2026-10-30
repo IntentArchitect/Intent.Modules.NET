@@ -25,7 +25,7 @@
   <file path="Hangfire.Tests.Api/HangfireJobs/PublishCommandJob.cs" templateId="Intent.Hangfire.HangfireJobs" />
   <file path="Hangfire.Tests.Api/HangfireJobs/Recurring.cs" templateId="Intent.Hangfire.HangfireJobs" />
   <file path="Hangfire.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="Hangfire.Tests.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="Hangfire.Tests.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="Hangfire.Tests.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="Hangfire.Tests.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="Hangfire.Tests.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

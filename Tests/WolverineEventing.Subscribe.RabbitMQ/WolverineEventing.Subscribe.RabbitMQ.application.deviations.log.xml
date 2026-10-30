@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#b7b18abc-5d6f-4feb-a776-ba3e89ea746b</correlationId>
+      <path>WolverineEventing.Subscribe.RabbitMQ.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:21:00.3787659Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.Wolverine.QueryHandler#32ed925f-b855-46f7-86ef-ce97326911ff</correlationId>
       <path>WolverineEventing.Subscribe.RabbitMQ.Application/GetShippedOrderRecords/GetShippedOrderRecordsQueryHandler.cs</path>
       <count>3</count>

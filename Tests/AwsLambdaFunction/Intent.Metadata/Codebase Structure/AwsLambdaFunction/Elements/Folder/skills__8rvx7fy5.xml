@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>24033fbe-a447-4cab-89ba-1d012d9e3421</parentFolderId>
+  <packageId>981fe5b0-e27f-4763-9e15-1269456523fd</packageId>
+  <packageName>AwsLambdaFunction</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>37bde47e-ac49-4a5d-91d3-fa6c5ad55aec</parentFolderId>
+      <packageId>981fe5b0-e27f-4763-9e15-1269456523fd</packageId>
+      <packageName>AwsLambdaFunction</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>37bde47e-ac49-4a5d-91d3-fa6c5ad55aec</parentFolderId>
+      <packageId>981fe5b0-e27f-4763-9e15-1269456523fd</packageId>
+      <packageName>AwsLambdaFunction</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>37bde47e-ac49-4a5d-91d3-fa6c5ad55aec</parentFolderId>
+      <packageId>981fe5b0-e27f-4763-9e15-1269456523fd</packageId>
+      <packageName>AwsLambdaFunction</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>37bde47e-ac49-4a5d-91d3-fa6c5ad55aec</parentFolderId>
+      <packageId>981fe5b0-e27f-4763-9e15-1269456523fd</packageId>
+      <packageName>AwsLambdaFunction</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>37bde47e-ac49-4a5d-91d3-fa6c5ad55aec</parentFolderId>
+      <packageId>981fe5b0-e27f-4763-9e15-1269456523fd</packageId>
+      <packageName>AwsLambdaFunction</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -87,6 +99,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>37bde47e-ac49-4a5d-91d3-fa6c5ad55aec</parentFolderId>
+      <packageId>981fe5b0-e27f-4763-9e15-1269456523fd</packageId>
+      <packageName>AwsLambdaFunction</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

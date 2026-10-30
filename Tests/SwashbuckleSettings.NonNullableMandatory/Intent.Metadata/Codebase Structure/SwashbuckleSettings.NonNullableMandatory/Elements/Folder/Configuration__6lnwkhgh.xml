@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>aff5d001-2e0d-44db-a040-15cd5560480f</parentFolderId>
+  <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+  <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>04e4875f-04c7-438d-875d-609d001bf8f8</parentFolderId>
+      <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+      <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -53,6 +57,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>04e4875f-04c7-438d-875d-609d001bf8f8</parentFolderId>
+      <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+      <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -89,6 +95,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>04e4875f-04c7-438d-875d-609d001bf8f8</parentFolderId>
+      <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+      <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>
@@ -125,6 +133,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>04e4875f-04c7-438d-875d-609d001bf8f8</parentFolderId>
+      <packageId>5754b04c-6d03-4195-9584-d028ff658d73</packageId>
+      <packageName>SwashbuckleSettings.NonNullableMandatory</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

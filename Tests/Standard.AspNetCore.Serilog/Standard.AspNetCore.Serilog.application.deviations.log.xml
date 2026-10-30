@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#20fd9aeb-93b7-4a1e-9a4e-7ba8087ab8d1</correlationId>
+      <path>Standard.AspNetCore.Serilog.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:03:07.665473Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#74588452-13aa-421a-8433-c34e720119e2</correlationId>
       <path>Standard.AspNetCore.Serilog.Application/Testing/PerformLargeObjectLogging/PerformLargeObjectLoggingHandler.cs</path>
       <count>3</count>

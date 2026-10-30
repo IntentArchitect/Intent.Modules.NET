@@ -11,7 +11,7 @@ If a stereotype's apply mode is `Always` it is applied automatically — don't a
 
 ## Property values must be valid
 
-`getDesignerSchema()` lists each property as `Name: allowed`. Use a listed value **exactly**; an off-list value throws listing the allowed ones.
+`getStereotypeDefinitions()` lists each property as `Name: allowed` (the compact `getDesignerSchema()` names stereotypes only). Use a listed value **exactly**; an off-list value throws listing the allowed ones.
 
 - `ref to <Types>` → set the **id** of an element of one of those types.
 - `(multiple)` → pass a JSON array of ids, e.g. `st.setProperty("Security Roles", [roleId])`.
@@ -22,7 +22,7 @@ If a stereotype's apply mode is `Always` it is applied automatically — don't a
 
 ## Item lists
 
-A property that holds a repeating list of ROWS rather than one value (e.g. one glob rule per row, each with its own severity). The schema shows one as `Name: item-list of '<Row Type>'` and lists that row type's own properties under the stereotype's `itemTypes`.
+A property that holds a repeating list of ROWS rather than one value (e.g. one glob rule per row, each with its own review importance). The schema shows one as `Name: item-list of '<Row Type>'` and lists that row type's own properties under the stereotype's `itemTypes`.
 
 `setValue` / `setProperty` do **NOT** work on one: its `value` is only a cache of the row labels, so writing it stores labels and no rows — and reading it back gives you the stale label cache, not the rows. Use the item members:
 
@@ -31,7 +31,7 @@ const prop = st.getProperty("Entries");
 prop.isItemList()                                 // true for this shape; the members below throw on any other
 const row = prop.addItem();                       // append a row, returns its handle
 row.setProperty("Glob", "**/*.cs");               // the row's own properties (schema: `itemTypes`)
-row.setProperty("Severity", "3 - High");
+row.setProperty("Review Importance", "3 - High");
 prop.getItems()                                   // the rows, in order
 prop.getItems()[0].getProperty("Glob").getValue() // read one back
 row.remove();  prop.removeItem(0);  prop.clearItems();   // drop one row (handle or index) / all rows
@@ -40,7 +40,7 @@ prop.moveItem(2, 0);  row.moveTo(0);              // re-order a row to a new pos
 
 A row handle's `delete()` drops the ROW, not the owning element's stereotype.
 
-Rows are **ORDERED and the order is significant**: where several rows match, the **LAST matching row wins**. Add the broad rule first and the specific overrides after it. (For a stereotype applicable to nested containers — e.g. `Custom File Classification` on a project and again on a folder inside it — the DEEPEST container holding the file wins outright, and only then does last-row-wins decide between that container's own rows. A module states any rule of its own in the stereotype's `description`.)
+Rows are **ORDERED and the order is significant**: where several rows match, the **LAST matching row wins**. Add the broad rule first and the specific overrides after it. (For a stereotype applicable to nested containers — e.g. the `File Classification` stereotype (named `Custom File Classification` before Codebase Structure 1.2.0; not to be confused with the `File Classification` element type it references) on a project and again on a folder inside it — the DEEPEST container holding the file wins outright, and only then does last-row-wins decide between that container's own rows. A module states any rule of its own in the stereotype's `description`. From Codebase Structure 1.2.0 that stereotype also applies to a `Template Output` — its globs are relative to the Template Output's folder and classify only the files that template generates — and supersedes the legacy `Output Classification`, which should not be added.)
 
 ## Removing
 

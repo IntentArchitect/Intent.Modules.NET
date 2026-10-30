@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f514a1e4-5f3f-4fff-8da6-fd13d5bc847c</parentFolderId>
+  <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8072d6d7-990c-475e-a9a4-875c2e50ae81</parentFolderId>
+      <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

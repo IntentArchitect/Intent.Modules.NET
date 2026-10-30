@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>9616aacd-32d9-47fe-ae62-4ec7956deb01</parentFolderId>
   <packageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</packageId>
-  <packageName>NServiceBus.LearnerTransport.Eventing.Messages</packageName>
+  <packageName>N_ServiceBus.LearnerTransport.Eventing.Messages</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -31,7 +31,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>5ed1b81f-8e78-4695-943d-49b83660841d</parentFolderId>
       <packageId>9616aacd-32d9-47fe-ae62-4ec7956deb01</packageId>
-      <packageName>NServiceBus.LearnerTransport.Eventing.Messages</packageName>
+      <packageName>N_ServiceBus.LearnerTransport.Eventing.Messages</packageName>
       <stereotypes />
       <metadata />
       <childElements />

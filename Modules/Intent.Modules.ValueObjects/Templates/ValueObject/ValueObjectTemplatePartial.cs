@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.ValueObjects.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -58,6 +60,15 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                     @class.AddMetadata("serialization", Model.GetSerializationSettings().Type().Value);
                 }
 
+                var associationEnds = GetValueObjectAssociationEnds();
+                var nullableEnabled = outputTarget.GetProject().IsNullableAwareContext() && outputTarget.GetProject().NullableEnabled;
+                var hasCollections = Model.Attributes.Any(x => x.TypeReference.IsCollection) || associationEnds.Any(x => x.IsCollection);
+                if (hasCollections)
+                {
+                    // Count() is used in GetEqualityComponents; the builder drops this where implicit usings cover it
+                    CSharpFile.AddUsing("System.Linq");
+                }
+
                 @class.AddConstructor(ctor =>
                 {
                     @class.AddMethod(
@@ -65,9 +76,13 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                         name: "GetEqualityComponents", method =>
                         {
                             method.Protected()
-                                .Override()
-                                .AddStatement("// Using a yield return statement to return each element one at a time");
-                            if (!Model.Attributes.Any())
+                                .Override();
+                            if (hasCollections)
+                            {
+                                method.AddStatement("// Collections are prefixed with their count so adjacent collections cannot run together");
+                            }
+
+                            if (!Model.Attributes.Any() && !associationEnds.Any())
                             {
                                 method.AddStatement("yield break;");
                             }
@@ -80,14 +95,29 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                                     {
                                         prop.RepresentsModel(attribute);
                                         prop.PrivateSetter();
-                                        method.AddStatement($"yield return {prop.Name};");
+                                        AddEqualityComponent(method, prop.Name, attribute.TypeReference, nullableEnabled);
+                                    });
+                                });
+                            }
+
+                            foreach (var associationEnd in associationEnds)
+                            {
+                                ctor.AddParameter(GetTypeName(associationEnd), associationEnd.Name.ToCamelCase(), param =>
+                                {
+                                    param.IntroduceProperty(prop =>
+                                    {
+                                        prop.RepresentsModel(associationEnd);
+                                        // Read by other modules (e.g. Intent.CosmosDB) to know which association ends the class exposes
+                                        prop.AddMetadata("model", associationEnd);
+                                        prop.PrivateSetter();
+                                        AddEqualityComponent(method, prop.Name, associationEnd, nullableEnabled);
                                     });
                                 });
                             }
                         });
                 });
 
-                if (Model.Attributes.Any())
+                if (Model.Attributes.Any() || associationEnds.Any())
                 {
                     var ctorCount = @class.Constructors.Count;
                     if (outputTarget.GetProject().IsNullableAwareContext() && outputTarget.GetProject().NullableEnabled)
@@ -128,8 +158,54 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                     {
                         ctor.AddParameter(GetTypeName(modelAttribute), modelAttribute.Name);
                     }
+
+                    foreach (var associationEnd in GetValueObjectAssociationEnds())
+                    {
+                        ctor.AddParameter(GetTypeName(associationEnd), associationEnd.Name.ToPascalCase());
+                    }
                 });
             });
+        }
+
+        /// <summary>
+        /// The navigable association ends from this Value Object to other Value Objects. Associations to
+        /// anything other than a Value Object are not part of the Value Object's shape and are skipped.
+        /// </summary>
+        private IReadOnlyList<AssociationEndModel> GetValueObjectAssociationEnds()
+        {
+            return Model.InternalElement.AssociatedElements
+                .Where(x => x.IsAssociationEndModel())
+                .Select(x => x.AsAssociationEndModel())
+                .Where(x => x.IsTargetEnd() && x.IsNavigable && x.Element.IsValueObjectModel())
+                .ToList();
+        }
+
+        private static void AddEqualityComponent(CSharpClassMethod method, string propertyName, ITypeReference typeReference, bool nullableEnabled)
+        {
+            if (!typeReference.IsCollection)
+            {
+                method.AddStatement(typeReference.IsNullable && nullableEnabled
+                    ? $"yield return {propertyName}!;"
+                    : $"yield return {propertyName};");
+                return;
+            }
+
+            // Yield the elements rather than the collection itself, otherwise two Value Objects holding equal
+            // collections are never equal (collections compare by reference).
+            // Prefix the elements with the count: without it, items from adjacent collections run together and
+            // [a, b] + [c] equals [a] + [b, c]. It also guarantees at least one component per collection, so
+            // ValueObject.GetHashCode (Aggregate without a seed) does not throw when every collection is empty.
+            // A null collection counts as empty, matching the previous behaviour.
+            if (typeReference.IsNullable)
+            {
+                method.AddStatement($"yield return {propertyName}?.Count() ?? 0;");
+                method.AddIfStatement($"{propertyName} != null", @if => @if.AddForEachStatement("item", propertyName, forEach => forEach.AddStatement("yield return item;")));
+            }
+            else
+            {
+                method.AddStatement($"yield return {propertyName}.Count();");
+                method.AddForEachStatement("item", propertyName, forEach => forEach.AddStatement("yield return item;"));
+            }
         }
 
         private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)

@@ -248,6 +248,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0d092ec1-d48c-45a6-855f-c4b471f68feb</parentFolderId>
+      <packageId>266990af-580e-4b5b-9d78-54639dd67747</packageId>
+      <packageName>BasicAuditing.CustomUserId.Tests</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

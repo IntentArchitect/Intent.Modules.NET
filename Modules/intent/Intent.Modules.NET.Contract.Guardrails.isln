@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<solution id="11ead73c-6c11-4016-8c6b-9ba5fba10f00">
+  <name>Intent.Modules.NET.Contract.Guardrails</name>
+  <version>3.3.0</version>
+  <icon>./img/logo-blue.svg</icon>
+  <iconType>UrlImagePath</iconType>
+  <metadataRelativePath>Intent.Metadata</metadataRelativePath>
+  <modulesCacheRelativePath>.cache/modules</modulesCacheRelativePath>
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.2.17" />
+  <applications>
+    <application id="5b7f0f29-ed8a-419c-83ba-43d51a5acddb" name="ModuleBuilderAiSkills" relativePath="../ModuleBuilderAiSkills/ModuleBuilderAiSkills.application.config" />
+    <application id="869625ba-a8d7-4cb8-86df-9e75414b4276" name="Intent.Modules.Domain.Guardrails.Contracts" relativePath="Intent.Modules.Domain.Guardrails.Contracts/Intent.Modules.Domain.Guardrails.Contracts.application.config" />
+    <application id="37e88672-a6b1-4352-a6bd-c0bb275fbb45" name="Intent.Modules.Services.Guardrails.Contracts" relativePath="Intent.Modules.Services.Guardrails.Contracts/Intent.Modules.Services.Guardrails.Contracts.application.config" />
+  </applications>
+  <workspaceRoot>..</workspaceRoot>
+</solution>

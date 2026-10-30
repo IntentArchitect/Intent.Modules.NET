@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -9,5 +10,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Repositories.Documents
     {
         string Identifier { get; }
         string Id { get; }
+        IReadOnlyList<IScheduleDocument> Schedules { get; }
     }
 }

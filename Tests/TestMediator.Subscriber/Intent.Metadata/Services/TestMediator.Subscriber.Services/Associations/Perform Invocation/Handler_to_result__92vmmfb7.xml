@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1a8a8e83-edcb-4f03-b679-3361f1c514a8">
+  <sourceEnd id="1f2b8e32-0a63-4a8f-a543-2a917c82a462" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderCreatedEventHandler.Handler</display>
+    <typeReference id="11a439e8-01ab-4af9-88d5-ee35df4f631a">
+      <typeId>40ec1066-7783-477d-b536-c7aaf15914dd</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>TestMediator.Subscriber.Services</typePackageName>
+      <typePackageId>157bc27d-4dd4-4d92-95f5-6f5aa23cc4e0</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="1a8a8e83-edcb-4f03-b679-3361f1c514a8" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = CreateShipmentCommand(...): guid</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="baa21112-4ed1-4c06-8ff2-6b7f4ef0854b">
+      <typeId>5e224e3c-d4da-42c7-8806-4b44467a356d</typeId>
+      <typeName>CreateShipmentCommand</typeName>
+      <typePackageName>TestMediator.Subscriber.Services</typePackageName>
+      <typePackageId>157bc27d-4dd4-4d92-95f5-6f5aa23cc4e0</typePackageId>
+    </typeReference>
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="c9d3382b-b73c-4bca-9e84-a44325ff1cbe" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="40ec1066-7783-477d-b536-c7aaf15914dd" location="[TestMediator.Subscriber].[Services].[Handler]" />
+        <target applicationId="c9d3382b-b73c-4bca-9e84-a44325ff1cbe" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5e224e3c-d4da-42c7-8806-4b44467a356d" location="[TestMediator.Subscriber].[Services].[CreateShipmentCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Handler}</expression>
+            <path>
+              <target id="5e224e3c-d4da-42c7-8806-4b44467a356d" name="CreateShipmentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="Handler" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="40ec1066-7783-477d-b536-c7aaf15914dd" name="Handler" type="association" specialization="Subscribe Integration Event Target End" specializationId="16fa2952-79e6-4150-b5ab-45aa4c106de4" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

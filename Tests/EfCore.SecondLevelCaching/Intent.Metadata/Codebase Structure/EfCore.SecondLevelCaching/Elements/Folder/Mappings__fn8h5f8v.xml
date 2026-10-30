@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a985fc56-b25c-46f5-a6af-06ff47bf1647</parentFolderId>
+  <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+  <packageName>EfCore.SecondLevelCaching</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>73c78fc5-bbcc-4a4c-b6a6-ccf4fb3fdd5e</parentFolderId>
+      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+      <packageName>EfCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

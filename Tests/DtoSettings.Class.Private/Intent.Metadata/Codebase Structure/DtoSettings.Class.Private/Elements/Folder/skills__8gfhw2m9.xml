@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f3af0906-1fbc-4547-96c8-79204a6bb722</parentFolderId>
+  <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+  <packageName>DtoSettings.Class.Private</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b6b57d7a-8f14-4337-9d41-c822be67154e</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +35,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b6b57d7a-8f14-4337-9d41-c822be67154e</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b6b57d7a-8f14-4337-9d41-c822be67154e</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +67,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b6b57d7a-8f14-4337-9d41-c822be67154e</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +83,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b6b57d7a-8f14-4337-9d41-c822be67154e</parentFolderId>
+      <packageId>d016d896-e110-4f82-8d05-10a4f24c4182</packageId>
+      <packageName>DtoSettings.Class.Private</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

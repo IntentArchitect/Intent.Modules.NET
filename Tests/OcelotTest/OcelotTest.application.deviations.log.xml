@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#eef4a5a6-ab14-43d4-be82-2992dd97a25a</correlationId>
+      <path>OcelotTest.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:16:29.0151147Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#46b6d6df-2675-44bc-a723-59e166cdd1a6</correlationId>
       <path>OcelotTest.Infrastructure/OcelotTest.Infrastructure.csproj</path>
       <count>1</count>

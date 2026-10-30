@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#7bac5bf9-cabe-4e0e-a16a-51cf6341a1d5</correlationId>
+      <path>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:00:38.8871979Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Entities.DomainEntity#5a61799b-65bd-41cc-a32b-5312d2dc0734</correlationId>
       <path>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/Order.cs</path>
       <count>2</count>

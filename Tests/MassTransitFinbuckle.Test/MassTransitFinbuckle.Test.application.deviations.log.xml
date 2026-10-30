@@ -15,6 +15,15 @@
       <fileHash>8E20C4898EAA0ED4AFC18F2EEC409C12515CCAE069E1E1A8788BEA2CEFEE379C</fileHash>
     </file>
     <file>
+      <correlationId>Intent.AspNetCore.Program#4dca087f-72c3-40e1-94d0-8b54ba4c1116</correlationId>
+      <path>MassTransitFinbuckle.Test.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:05:58.4350467Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#2204336b-62f6-4ab7-9e95-ec6134ca1d62</correlationId>
       <path>MassTransitFinbuckle.Test.Application/MassTransitFinbuckle.Test.Application.csproj</path>
       <count>1</count>

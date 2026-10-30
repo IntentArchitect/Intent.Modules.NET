@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d352ec30-da6b-48b9-b552-7e170e3aac54</parentFolderId>
+  <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+  <packageName>Blazor.InteractiveAuto.Jwt</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -16,6 +18,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b74079c5-a9fa-48de-bd28-2f9c729bd68e</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -27,6 +31,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b74079c5-a9fa-48de-bd28-2f9c729bd68e</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
       <stereotypes />
       <metadata />
       <childElements />
@@ -38,6 +44,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b74079c5-a9fa-48de-bd28-2f9c729bd68e</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
       <stereotypes />
       <metadata />
       <childElements />

@@ -17,11 +17,20 @@ extension points — so an AI agent can wire a new module against, say,
   resource files below.
 - **One resource file per target .NET module** — a deep reference for that specific module, covering
   what to reference and how (NuGet package vs project reference), its template inventory and generated
-  shape, the metadata keys used to correlate generated members back to the designer model, the
-  complete public member surface of the model types those keys hand back (so an agent never has to
-  reflect over or decompile the target assembly), its extension points, and traps already hit by
-  modules built against it. The first (and so far only)
-  resource file covers ASP.NET Core Controllers (`Intent.AspNetCore.Controllers`).
+  shape, how its generated code links back to the designer model (metadata keys, `RepresentedModel`,
+  or the template's own model), the complete public member surface of the types a consumer calls (so
+  an agent never has to reflect over or decompile the target assembly), its extension points, and
+  traps already hit by modules built against it.
+
+| Resource file | Target module | Covers |
+|---|---|---|
+| `aspnetcore.md` | `Intent.AspNetCore` | `Program.cs` / `Startup.cs`: adding services, middleware, endpoints and host-builder configuration |
+| `aspnetcore-controllers.md` | `Intent.AspNetCore.Controllers` | enriching controller actions and dispatching from them |
+| `entityframeworkcore.md` | `Intent.EntityFrameworkCore` | DbContexts, entity type configurations, `SaveChanges` hooks and `AddDbContext` registration |
+| `entities-repositories-api.md` | `Intent.Entities.Repositories.Api` | implementing the repository interfaces in a persistence module, and injecting them from a handler module |
+
+Only modules published on nuget.org are covered, so an integrating module can take a typed
+`PackageReference` wherever the guide recommends one.
 
 ## Module Settings
 

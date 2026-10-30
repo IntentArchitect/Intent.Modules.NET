@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fb1548dd-a216-4bdc-9950-a465bc9ae4bd" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>ProductPriceChangedDomainEvent</name>
+  <display>ProductPriceChangedDomainEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>011d6826-c91b-4b64-ada8-188f653e103a</parentFolderId>
+  <packageId>22ac01cb-1145-4688-afeb-918e45e2b9bc</packageId>
+  <packageName>TestMediator.NoEventing.Domain</packageName>
+  <children>
+    <element id="4b2b942a-4b34-4a3c-a045-abadfd1773a9" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>ProductId</name>
+      <display>ProductId: guid</display>
+      <typeReference id="422d310a-2792-4735-9241-fd4e399e6f69">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>fb1548dd-a216-4bdc-9950-a465bc9ae4bd</parentFolderId>
+      <packageId>22ac01cb-1145-4688-afeb-918e45e2b9bc</packageId>
+      <packageName>TestMediator.NoEventing.Domain</packageName>
+    </element>
+    <element id="af944a4a-8c11-4123-9785-682d1df9f6ef" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>OldPrice</name>
+      <display>OldPrice: decimal</display>
+      <typeReference id="28876f33-e339-4c37-b853-9fd8e8056b17">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>fb1548dd-a216-4bdc-9950-a465bc9ae4bd</parentFolderId>
+      <packageId>22ac01cb-1145-4688-afeb-918e45e2b9bc</packageId>
+      <packageName>TestMediator.NoEventing.Domain</packageName>
+    </element>
+    <element id="64d5499e-e60b-4d08-870d-179ef402a3ca" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>NewPrice</name>
+      <display>NewPrice: decimal</display>
+      <typeReference id="b9dca530-b102-45d8-907c-5770a77558c9">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>fb1548dd-a216-4bdc-9950-a465bc9ae4bd</parentFolderId>
+      <packageId>22ac01cb-1145-4688-afeb-918e45e2b9bc</packageId>
+      <packageName>TestMediator.NoEventing.Domain</packageName>
+    </element>
+  </children>
+</class>

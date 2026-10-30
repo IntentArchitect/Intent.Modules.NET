@@ -207,6 +207,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5290b42c-7cd5-4bd3-9a9e-d5d0518ef096</parentFolderId>
+      <packageId>8750a0dd-82b4-4aa3-88c9-896ed342ba24</packageId>
+      <packageName>Module1</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

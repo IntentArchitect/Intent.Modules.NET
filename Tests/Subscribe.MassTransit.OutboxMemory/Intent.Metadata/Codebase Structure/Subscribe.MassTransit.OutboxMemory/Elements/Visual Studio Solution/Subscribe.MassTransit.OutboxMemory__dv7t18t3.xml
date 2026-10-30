@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d8fd623c-89bd-4f09-9c9a-41f4db054184</parentFolderId>
+  <packageId>d8fd623c-89bd-4f09-9c9a-41f4db054184</packageId>
+  <packageName>Subscribe.MassTransit.OutboxMemory</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

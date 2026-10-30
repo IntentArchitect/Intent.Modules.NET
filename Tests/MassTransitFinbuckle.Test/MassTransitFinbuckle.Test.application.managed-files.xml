@@ -23,7 +23,7 @@
   <file path="MassTransitFinbuckle.Test.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="MassTransitFinbuckle.Test.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
   <file path="MassTransitFinbuckle.Test.Api/MassTransitFinbuckle.Test.Api.csproj" deviationsHash="0F7022FC92AE0F2348F1879F31B8E198E749D79F9C8AE9B37C74429E23806D09" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="MassTransitFinbuckle.Test.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="MassTransitFinbuckle.Test.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="MassTransitFinbuckle.Test.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="MassTransitFinbuckle.Test.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="MassTransitFinbuckle.Test.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />

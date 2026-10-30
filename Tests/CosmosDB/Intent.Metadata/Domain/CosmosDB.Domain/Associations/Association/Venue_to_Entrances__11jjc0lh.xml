@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e64a2f0f-fcc0-4c4b-aa00-e6ea1b4fdfd7">
+  <sourceEnd id="ab1d179e-1407-4327-811b-cc8abb6d44de" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Venue</name>
+    <display>Venue: Venue</display>
+    <order>0</order>
+    <typeReference id="a648acf0-e50b-4927-b1fc-92f583c10bea">
+      <typeId>177d4b69-1eac-40e7-94f8-84e5cdc0ef9b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e64a2f0f-fcc0-4c4b-aa00-e6ea1b4fdfd7" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Entrances</name>
+    <display>Entrances: Coordinates[*]?</display>
+    <order>4</order>
+    <typeReference id="a0337c1e-eb2e-4d5e-98b0-5c63801057a9">
+      <typeId>aeff913e-2b28-4190-8be9-41366519c0c5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

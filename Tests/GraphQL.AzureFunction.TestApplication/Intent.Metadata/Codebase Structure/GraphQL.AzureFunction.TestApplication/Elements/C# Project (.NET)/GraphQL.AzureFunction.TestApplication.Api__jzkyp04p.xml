@@ -134,6 +134,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -148,6 +150,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -162,6 +166,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</parentFolderId>
+      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
+      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

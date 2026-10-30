@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>46c121a7-16a1-4fdb-9a91-058dbe71c9a5</parentFolderId>
+  <packageId>46c121a7-16a1-4fdb-9a91-058dbe71c9a5</packageId>
+  <packageName>WolverineEventing.Transport.AmazonSqs.Domain</packageName>
   <diagram>
     <targetPackageId>46c121a7-16a1-4fdb-9a91-058dbe71c9a5</targetPackageId>
   </diagram>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9e57fc30-713f-48e3-b07c-8c885661c302" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MediatorControllerDispatchExtension</name>
+  <display>MediatorControllerDispatchExtension</display>
+  <parentFolderId>45017249-06b6-44f9-a0cb-d760d233ae8c</parentFolderId>
+  <packageId>45017249-06b6-44f9-a0cb-d760d233ae8c</packageId>
+  <packageName>Intent.AspNetCore.Controllers.Dispatch.Mediator</packageName>
+</class>

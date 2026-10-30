@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f5dea6b9-084e-4ac4-8901-b0c93f9a25af" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
+  <name>Domain Event Handler Extension</name>
+  <display>Domain Event Handler Extension: Domain Event Handler</display>
+  <typeReference id="42641e02-4997-42b4-ab7c-7bd42c578752">
+    <typeId>d80e61c5-7e4c-4175-9df1-0413f664824c</typeId>
+    <typeName>Domain Event Handler</typeName>
+    <typePackageName>Intent.Modelers.Domain.Events</typePackageName>
+    <typePackageId>31710880-215c-4fed-9c79-a129a4b9cdb1</typePackageId>
+  </typeReference>
+  <parentFolderId>b3db3c15-2ad8-4b70-a48f-1a96b6678152</parentFolderId>
+  <packageId>a40d606c-d7ed-4b2a-9992-b496f68dfbc1</packageId>
+  <packageName>Intent.Application.Mediator.DomainEvents</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="159cbc8e-a910-40f7-8e45-3edadbb863c2" name="Type Reference Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="35226a83-3965-4224-8aef-20c68a0c5180" display="Mode" value="Inherit" />
+        <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
+        <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
+        <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
+        <property name="08ec0581-c90a-489b-858f-ee265327c948" display="Target Traits" />
+        <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
+        <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
+        <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="312eab00-f6db-492e-bbb4-e41383c8d3d8" name="Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" />
+        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="14441454-bfe0-4d5d-8dba-d86d74d33a3b" name="AI Settings">
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="17477a69-d9a5-4251-9329-0963e8121b5f" display="Rules" value="In this application, the handler for this Domain Event Handler is written by an AI agent, never by the Software Factory (Intent.Application.Mediator.DomainEvents). The Software Factory generates only a stub whose Handle body throws NotImplementedException. The associations modelled on this Domain Event Handler (Create Entity, Update Entity, Delete Entity, Query Entity, Invoke, Publish Integration Event, Send Integration Command and so on) are the specification for that body, in model order. Field mappings are not modelled. Whenever you create this Domain Event Handler, or add, remove, reorder or change any association on it, find its handler once the Software Factory has generated it and write or update the handler body in the same piece of work, using the mediator-domain-event-handler skill. Nothing else will prompt you: a new stub raises no task, and a changed association changes no generated file." />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</class>

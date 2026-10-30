@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#c2026c87-5157-41c6-9734-13ed690e9e89</correlationId>
+      <path>SignalR.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:02:12.6455278Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#0057290f-7adb-4ab5-a6cd-e5e45b2de9d4</correlationId>
       <path>SignalR.Application/TestSendMessage/TestSendMessageCommandHandler.cs</path>
       <count>3</count>

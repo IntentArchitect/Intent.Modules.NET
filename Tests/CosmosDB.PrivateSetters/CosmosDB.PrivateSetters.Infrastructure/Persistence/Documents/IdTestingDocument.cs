@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using CosmosDB.PrivateSetters.Domain.Entities;
 using CosmosDB.PrivateSetters.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
@@ -28,6 +30,8 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         public string Identifier { get; set; } = default!;
         [JsonProperty("@id")]
         public string Id { get; set; } = default!;
+        public List<ScheduleDocument> Schedules { get; set; } = default!;
+        IReadOnlyList<IScheduleDocument> IIdTestingDocument.Schedules => Schedules;
 
         public IdTesting ToEntity(IdTesting? entity = default)
         {
@@ -35,6 +39,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
 
             ReflectionHelper.ForceSetProperty(entity, nameof(Identifier), Identifier ?? throw new Exception($"{nameof(entity.Identifier)} is null"));
             ReflectionHelper.ForceSetProperty(entity, nameof(Id), Id ?? throw new Exception($"{nameof(entity.Id)} is null"));
+            ReflectionHelper.ForceSetProperty(entity, nameof(Schedules), Schedules.Select(x => x.ToEntity()).ToList() ?? throw new Exception($"{nameof(entity.Schedules)} is null"));
 
             return entity;
         }
@@ -43,6 +48,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         {
             Identifier = entity.Identifier;
             Id = entity.Id;
+            Schedules = entity.Schedules.Select(x => ScheduleDocument.FromEntity(x)!).ToList();
 
             return this;
         }

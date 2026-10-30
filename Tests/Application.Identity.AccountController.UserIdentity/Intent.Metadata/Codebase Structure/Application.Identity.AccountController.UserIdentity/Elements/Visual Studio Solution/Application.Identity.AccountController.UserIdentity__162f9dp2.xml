@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>47b321f9-5e9d-413f-9115-a63dbdf2982f</parentFolderId>
+  <packageId>47b321f9-5e9d-413f-9115-a63dbdf2982f</packageId>
+  <packageName>Application.Identity.AccountController.UserIdentity</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

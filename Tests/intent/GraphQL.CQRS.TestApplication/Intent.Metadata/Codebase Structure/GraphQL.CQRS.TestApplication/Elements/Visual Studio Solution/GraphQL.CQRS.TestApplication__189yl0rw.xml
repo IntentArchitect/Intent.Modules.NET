@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0856bf34-b8ca-4b71-b85d-9f328d486e41</parentFolderId>
+  <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+  <packageName>GraphQL.CQRS.TestApplication</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

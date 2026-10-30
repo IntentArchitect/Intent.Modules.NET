@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="0a9a8e86-b11e-4a1d-9af5-5050dd6fef89" version="3.1.0">
+  <comment>Explicitly sets the operation's async shape: Async Mode (async, no async keyword or sync), Task Type, and the CancellationToken parameter. Without it, an operation is async when its name ends in Async: the async keyword, a Task return type and CancellationToken cancellationToken = default.</comment>
+  <name>Async Configuration</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="e042bb67-a1df-480c-9935-b26210f78591">Operation</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,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" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>11aae230-6dfe-414e-bf5f-18280aad6ae2</parentFolderId>
+  <order>0</order>
+  <packageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</packageId>
+  <packageName>Intent.Domain.Guardrails.Contracts</packageName>
+  <properties>
+    <property id="26ff8b12-6cae-463a-82bc-c155d4d3c2e5">
+      <hint>Append a CancellationToken parameter. Not used when Async Mode is sync.</hint>
+      <name>Include Cancellation Token</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>true</defaultValue>
+    </property>
+    <property id="2bd977a8-dae8-44ed-903e-d1c06a51dcff">
+      <hint>async: the async keyword and a Task or ValueTask return type. no async keyword: the same return type without async, for a method that returns the task directly, e.g. =&gt; _inner.FindAsync(id). sync: the return type exactly as modelled, with no CancellationToken.</hint>
+      <name>Async Mode</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>async</defaultValue>
+      <valueOptions>
+        <option>async</option>
+        <option>no async keyword</option>
+        <option>sync</option>
+      </valueOptions>
+    </property>
+    <property id="045873bb-fcfd-4c59-a158-23ce36911e87">
+      <hint>Task, ValueTask or void. Empty means Task, or ValueTask when the return type is modelled as one. An explicit Task or ValueTask also converts a return type modelled as Task or ValueTask. void writes async void, e.g. for an event handler: only with Async Mode async, on an operation with no return type. Not used when Async Mode is sync.</hint>
+      <name>Task Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <valueOptions>
+        <option>Task</option>
+        <option>ValueTask</option>
+        <option>void</option>
+      </valueOptions>
+    </property>
+    <property id="fa4791fb-7fea-4c98-88ec-7457d3c72a7f">
+      <hint>The CancellationToken parameter's name when the code doesn't call it cancellationToken, e.g. ct. Empty means cancellationToken. Method signatures are fully managed, so any other name in the code is otherwise renamed.</hint>
+      <name>Cancellation Token Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>cancellationToken</placeholder>
+    </property>
+    <property id="3b10c9b2-9134-45c7-8f60-ac03b4a23422">
+      <hint>Write = default on the CancellationToken parameter. Untick when the code declares it without a default.</hint>
+      <name>Cancellation Token Default</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <defaultValue>true</defaultValue>
+    </property>
+  </properties>
+</stereotypeDefinition>

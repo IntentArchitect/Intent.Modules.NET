@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cd8b6b6a-27cd-4afd-9f7f-251c41e10ccb</parentFolderId>
+  <packageId>cd8b6b6a-27cd-4afd-9f7f-251c41e10ccb</packageId>
+  <packageName>WolverineEventing.ErrorPolicy.RetryWithCooldown.Domain</packageName>
   <diagram>
     <targetPackageId>cd8b6b6a-27cd-4afd-9f7f-251c41e10ccb</targetPackageId>
   </diagram>

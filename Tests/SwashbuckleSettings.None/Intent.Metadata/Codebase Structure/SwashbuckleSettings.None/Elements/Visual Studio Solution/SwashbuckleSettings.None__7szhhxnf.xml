@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9b6248f6-00e0-482d-ada0-4a6456f63a59</parentFolderId>
+  <packageId>9b6248f6-00e0-482d-ada0-4a6456f63a59</packageId>
+  <packageName>SwashbuckleSettings.None</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
       <addedByDefault>false</addedByDefault>

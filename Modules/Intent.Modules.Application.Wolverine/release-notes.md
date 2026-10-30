@@ -1,3 +1,7 @@
+### Version 1.1.3
+
+- Fixed: The Software Factory failed with "Could not find template from dependency: Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" in a Wolverine application without `Intent.Application.FluentValidation.Dtos`, for example one without Application Services. `ValidationMiddleware` and its pipeline registration are now generated only when that module is installed.
+
 ### Version 1.1.2
 
 - Improvement: Command and Query handler `Handle` methods are now generated with `Body = Mode.Ignore` when `Intent.Application.CQRS.CRUD` is not installed, as nothing can implement them.

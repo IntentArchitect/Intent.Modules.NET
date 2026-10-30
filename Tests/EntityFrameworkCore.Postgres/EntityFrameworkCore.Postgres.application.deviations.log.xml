@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#a50be1fa-aea2-4c01-a380-a9e4a30e66c9</correlationId>
+      <path>EntityFrameworkCore.Postgres.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:14:18.9863012Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.CSharpProject#8817d69f-712c-4502-a270-f1fd66d469ee</correlationId>
       <path>EntityFrameworkCore.Postgres.Infrastructure/EntityFrameworkCore.Postgres.Infrastructure.csproj</path>
       <count>1</count>

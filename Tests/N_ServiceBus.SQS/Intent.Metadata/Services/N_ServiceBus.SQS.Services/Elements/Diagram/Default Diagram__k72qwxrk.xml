@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>64af3760-4e7a-48fc-9595-57c84fa57ea7</parentFolderId>
   <packageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</packageId>
-  <packageName>NServiceBus.SQS.Services</packageName>
+  <packageName>N_ServiceBus.SQS.Services</packageName>
   <diagram>
     <targetPackageId>64af3760-4e7a-48fc-9595-57c84fa57ea7</targetPackageId>
   </diagram>

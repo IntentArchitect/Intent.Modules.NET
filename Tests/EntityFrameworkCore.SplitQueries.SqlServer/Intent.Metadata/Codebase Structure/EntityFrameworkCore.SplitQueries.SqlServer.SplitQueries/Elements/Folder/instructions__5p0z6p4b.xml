@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9b234333-eceb-4b48-85df-2d483649fb54</parentFolderId>
+  <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+  <packageName>EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fd7d2952-1a6d-426b-9c11-7369018e7bfc</parentFolderId>
+      <packageId>d2e54b7b-8eeb-4cab-93ea-a1b10493be4d</packageId>
+      <packageName>EntityFrameworkCore.SplitQueries.SqlServer.SplitQueries</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

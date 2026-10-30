@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>69bce983-42bc-437b-a8b3-04a9a5d07562</parentFolderId>
+  <packageId>69bce983-42bc-437b-a8b3-04a9a5d07562</packageId>
+  <packageName>AwsSecretsManager.Domain</packageName>
   <diagram>
     <targetPackageId>69bce983-42bc-437b-a8b3-04a9a5d07562</targetPackageId>
   </diagram>

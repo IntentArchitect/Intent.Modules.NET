@@ -8,7 +8,7 @@
   <file path="FactoryExtensions/ChangeRenderMode.cs" deviationsHash="17C367317FA4726CA056F2FA0A0026F3690A7CF4F74D1FD48525443FB14FE00D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/ClientAddAuthentication.cs" deviationsHash="59FEC1FE625010F6E47B71F47B105CD4A66044E76FE465CE813F4F9C9F4AFA69" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/CurrentUserServiceImplementation.cs" deviationsHash="2DA625D395335E8621766EAFDC7661762C3E3CBD90159D950107171956FEBAF5" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/ServerAddAuthentication.cs" deviationsHash="5ADC73B36BB3BCD4CC3888B9F88DD4ED0591932D7918FB48CCDAF2323B818D11" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/ServerAddAuthentication.cs" deviationsHash="FAE6EF7814EE3F50594235F5494067DBE9BCF766C893E623B426D2AD10C59495" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/WireupAccountCssExtension.cs" deviationsHash="3E8C145E8B72D6A92D9EE4C0A48DB88AD96F51C61D4A6D0BE2602B1F09C82BEA" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Blazor.Authentication.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Blazor.Authentication.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />

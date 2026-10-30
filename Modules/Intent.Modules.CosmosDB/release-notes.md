@@ -1,3 +1,9 @@
+### Version 2.1.0
+
+- Improvement: Value Object documents now include the associations a Value Object has to other Value Objects (single, nullable `0..1` and collection), alongside its attributes. Each gets a document property, an explicit `I{Name}Document` accessor and `ToEntity`/`PopulateFromEntity` mappings, the same as a Value Object typed attribute. Only associations the domain Value Object class exposes are included, so this takes effect together with `Intent.ValueObjects` 4.3.0.
+- Fixed: Software Factory failed with `Could not find template from dependency: TemplateId / Role = ` when a Value Object had an attribute typed as another Value Object (single or collection). Nested Value Objects now generate their own `{Name}Document` properties, explicit `I{Name}Document` accessors and `ToEntity`/`PopulateFromEntity` mappings, the same as Value Objects on entities.
+- Fixed: Nullable Value Object properties and nullable single-valued composite associations on documents now generate a nullable explicit interface accessor (e.g. `IAddressDocument? ICustomerDocument.BillingAddress`, `IParentDetailsDocument? IParentDocument.ParentDetails`), matching the document interface and removing a `CS8603` warning. The same now applies to nullable collections (e.g. `IReadOnlyList<IChildDocument>? IParentDocument.Children`).
+
 ### Version 2.0.1
 
 - Fixed: Pinned an explicit `Azure.Identity` dependency (1.21.0) instead of relying solely on `IEvangelist.Azure.CosmosRepository`'s own transitive `Azure.Identity 1.13.1`. Older `Azure.Identity` releases ship a full `DefaultAzureCredential` implementation that collides (`CS0433`) with the copy `Azure.Core 1.53.0+` now embeds internally; `Azure.Identity 1.21.0` is a thin facade over that same implementation and does not conflict.

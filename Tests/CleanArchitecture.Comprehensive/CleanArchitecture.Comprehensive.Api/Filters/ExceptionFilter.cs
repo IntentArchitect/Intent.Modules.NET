@@ -14,6 +14,7 @@ namespace CleanArchitecture.Comprehensive.Api.Filters;
 
 public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public void OnException(ExceptionContext context)
     {
         switch (context.Exception)
@@ -25,7 +26,7 @@ public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
                 }
 
                 context.Result = new BadRequestObjectResult(new ValidationProblemDetails(context.ModelState))
-                .AddContextInformation(context);
+                    .AddContextInformation(context);
                 context.ExceptionHandled = true;
                 break;
             case ForbiddenAccessException:
@@ -41,7 +42,7 @@ public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
                 {
                     Detail = exception.Message
                 })
-                .AddContextInformation(context);
+                    .AddContextInformation(context);
                 context.ExceptionHandled = true;
                 break;
             default:

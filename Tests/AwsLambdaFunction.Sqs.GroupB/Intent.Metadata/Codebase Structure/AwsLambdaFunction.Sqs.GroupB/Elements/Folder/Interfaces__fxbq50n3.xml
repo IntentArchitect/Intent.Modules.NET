@@ -175,6 +175,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f44054c9-27b7-4127-95c1-dae2d59b43c9</parentFolderId>
+      <packageId>8e852e06-5210-402f-9eca-815be03ce0b7</packageId>
+      <packageName>AwsLambdaFunction.Sqs.GroupB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
           <addedByDefault>false</addedByDefault>

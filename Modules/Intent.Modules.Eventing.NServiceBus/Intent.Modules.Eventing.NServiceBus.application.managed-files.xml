@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="52e77c5c-d9ed-416c-8e1c-7414f149924c">
-  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="Api/IntegrationCommandModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/MessageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
-  <file path="FactoryExtensions/NServiceBusMessageBusInteropExtension.cs" deviationsHash="D061FEAC98DBABACF42D7471A5B88733E97B198663D8360470D79722CB27ACDD" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/NServiceBusMessageBusInteropExtension.cs" deviationsHash="FC43454CAA00CFF92B5704625729665B3378CE60860FCCE223E54E38D8E0D208" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/NServiceBusRegistrationExtension.cs" deviationsHash="E214E63DC3705EDE57D9446E30DA5198D781399174153EA496174C7C7B504498" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Eventing.NServiceBus.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Eventing.NServiceBus.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />

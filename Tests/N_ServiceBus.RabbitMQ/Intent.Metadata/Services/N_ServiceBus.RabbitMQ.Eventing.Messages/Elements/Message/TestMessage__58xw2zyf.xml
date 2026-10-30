@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>b9539c66-d73d-4fc7-819f-bd94b43a94e5</parentFolderId>
   <packageId>b9539c66-d73d-4fc7-819f-bd94b43a94e5</packageId>
-  <packageName>NServiceBus.RabbitMQ.Eventing.Messages</packageName>
+  <packageName>N_ServiceBus.RabbitMQ.Eventing.Messages</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -31,7 +31,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>0cb2834c-d4d7-42a1-be23-fec21dce96fa</parentFolderId>
       <packageId>b9539c66-d73d-4fc7-819f-bd94b43a94e5</packageId>
-      <packageName>NServiceBus.RabbitMQ.Eventing.Messages</packageName>
+      <packageName>N_ServiceBus.RabbitMQ.Eventing.Messages</packageName>
       <stereotypes />
       <metadata />
       <childElements />

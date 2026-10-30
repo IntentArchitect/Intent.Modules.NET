@@ -20,7 +20,7 @@
   <file path="N_ServiceBus.Persistence.NHibernate.Subscribe.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="N_ServiceBus.Persistence.NHibernate.Subscribe.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
   <file path="N_ServiceBus.Persistence.NHibernate.Subscribe.Api/N_ServiceBus.Persistence.NHibernate.Subscribe.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="N_ServiceBus.Persistence.NHibernate.Subscribe.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="N_ServiceBus.Persistence.NHibernate.Subscribe.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="N_ServiceBus.Persistence.NHibernate.Subscribe.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="N_ServiceBus.Persistence.NHibernate.Subscribe.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="N_ServiceBus.Persistence.NHibernate.Subscribe.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />

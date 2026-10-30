@@ -1,3 +1,8 @@
+### Version 1.0.4
+
+- Improvement: Applications dispatching through `Intent.Application.Mediator` now have the Mediator message-bus flush behaviour removed from the pipeline when the outbox is enabled, as already done for MediatR, so messages are not flushed twice.
+- Fixed: with the transactional outbox enabled, the generated Learning Transport now runs in `ReceiveOnly` transaction mode. The outbox requires it, and the Learning Transport defaults to a mode the outbox rejects at startup.
+
 ### Version 1.0.3
 
 - Fixed: Now that `Intent.Application.Wolverine` generates its own message bus flush middleware, selecting NServiceBus's transactional outbox in a Wolverine-dispatched application would have double-flushed events (once via the middleware, once via the `DbContext.SaveChanges` splice). `NServiceBusMessageBusInteropExtension` now strips the Wolverine flush middleware when the outbox is enabled, matching the existing behaviour for MediatR and ServiceContract dispatch.

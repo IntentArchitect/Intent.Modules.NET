@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.Program#ba38ba3f-80d2-4f9a-883a-85eb2b7ada6f</correlationId>
+      <path>CleanArchitecture.QueueStorage.Api/Program.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-10-20T12:14:41.0463058Z</updatedAt>
+      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#0cf8eb47-836a-488a-befe-832160c19e8c</correlationId>
       <path>CleanArchitecture.QueueStorage.Application/IntegrationEvents/EventHandlers/CreateStockForProductCommandHandler.cs</path>
       <count>1</count>

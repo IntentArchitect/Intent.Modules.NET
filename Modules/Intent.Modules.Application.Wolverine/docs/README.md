@@ -13,7 +13,7 @@ Configures and wires Wolverine as the CQRS dispatcher for an Intent-managed .NET
 - `WolverineConfiguration` — configures `builder.Host.UseWolverine(...)`, sets up assembly discovery, and applies the `ApplicationHandlerPolicy`.
 - `ApplicationHandlerPolicy` — `IHandlerPolicy` implementation that registers middleware and adds each middleware type as a transient service.
 - `AuthorizationMiddleware` — uses an `Envelope` parameter to avoid broad convention conflicts.
-- `ValidationMiddleware` — validates the incoming command or query before the handler runs.
+- `ValidationMiddleware` — validates the incoming command or query with FluentValidation before the handler runs. Generated only when `Intent.Application.FluentValidation.Dtos` is installed; see [Middleware Pipeline](#middleware-pipeline).
 - `UnitOfWorkMiddleware` — wraps handler execution in a unit-of-work scope.
 - `LoggingMiddleware` — logs entry and exit of each handler invocation.
 - `PerformanceMiddleware` — records handler execution duration.
@@ -105,6 +105,8 @@ public class ApplicationHandlerPolicy : IHandlerPolicy
     }
 }
 ```
+
+Validation is optional. `ValidationMiddleware` and its registration in `ApplicationHandlerPolicy` are generated only when `Intent.Application.FluentValidation.Dtos` is installed, because the middleware resolves validators through that module's validator provider. `Intent.Application.Wolverine.FluentValidation` depends on that module, so installing FluentValidation support for Wolverine always brings the middleware. Without it, the pipeline has no validation step, and `UnhandledExceptionMiddleware` does not reference `FluentValidation.ValidationException`.
 
 ## Property Default Values
 

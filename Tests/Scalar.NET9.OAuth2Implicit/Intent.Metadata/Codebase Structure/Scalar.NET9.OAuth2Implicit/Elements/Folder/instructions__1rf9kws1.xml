@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>afa18a1b-1015-48d2-ab8a-9b169c3aabb1</parentFolderId>
+  <packageId>7ac5ae64-c08a-4cff-9b3a-19005167f0cf</packageId>
+  <packageName>Scalar.NET9.OAuth2Implicit</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -17,6 +19,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7b9a6719-6294-41b7-8be2-29d47b3b5b12</parentFolderId>
+      <packageId>7ac5ae64-c08a-4cff-9b3a-19005167f0cf</packageId>
+      <packageName>Scalar.NET9.OAuth2Implicit</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

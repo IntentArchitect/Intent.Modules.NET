@@ -8,6 +8,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1c0be3bc-3feb-4228-b1ac-fb3493df90d1</parentFolderId>
+  <packageId>1c0be3bc-3feb-4228-b1ac-fb3493df90d1</packageId>
+  <packageName>CompositeMessageBus.Domain</packageName>
   <diagram>
     <targetPackageId>1c0be3bc-3feb-4228-b1ac-fb3493df90d1</targetPackageId>
   </diagram>

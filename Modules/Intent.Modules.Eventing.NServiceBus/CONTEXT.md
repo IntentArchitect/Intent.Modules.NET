@@ -24,7 +24,7 @@ inventory a comparable module tends to need, cross-referenced to where each bran
 | Instance identification | on/off | `Enable Instance Identification` setting | Reads `NServiceBus:InstanceId` (required) |
 | Multi-broker coexistence | single broker / composite (≥2 broker modules installed) | `MessageBusExtensions.RequiresCompositeMessageBus()` / `FilterMessagesForThisMessageBroker(...)` (shared in `Eventing.Contracts`) | In composite mode this is a **hard failure mode, not a soft convention**: any Integration Command/Event with no broker stereotype at all throws once ≥2 broker modules are installed — see Coexistence below |
 | Multi-tenancy | **not supported** | — | No `Finbuckle`/`MultiTenan*` reference anywhere in this module, confirmed by full read + grep. Not a hidden gap — genuinely out of scope today. If a similar module needs tenancy, look at `Intent.Eventing.MassTransit`'s or `Intent.Eventing.Wolverine`'s Finbuckle wiring instead |
-| Dispatcher coverage (outbox flush stripping) | MediatR / ServiceContract controllers / Wolverine | `NServiceBusMessageBusInteropExtension.InstallNServiceBusFor{MediatR,ServiceContract,Wolverine}Dispatch` | Strips the generic post-handler flush wherever the outbox is active, since the flush is already spliced into `DbContext.SaveChanges`/`SaveChangesAsync` — see Dispatcher Coverage below |
+| Dispatcher coverage (outbox flush stripping) | MediatR / Mediator / ServiceContract controllers / Wolverine | `NServiceBusMessageBusInteropExtension.InstallNServiceBusFor{MediatR,Mediator,ServiceContract,Wolverine}Dispatch` | Strips the generic post-handler flush wherever the outbox is active, since the flush is already spliced into `DbContext.SaveChanges`/`SaveChangesAsync` — see Dispatcher Coverage below |
 
 ---
 
@@ -175,6 +175,15 @@ approach.
   in `OnBuild` / `AfterBuild`, not in the template constructor
 - `FindTemplateInstances<NServiceBusMessageHandlerTemplate>(...)` is safe from `CSharpFile.OnBuild`
   because template instances have already been registered by then
+
+### Test applications must not have an `NServiceBus` segment in their namespace
+
+The generated `RegisterHandler` helper reaches NServiceBus's internal registries through names qualified from
+`NServiceBus` (`NServiceBus.Configuration.AdvancedExtensibility...`, `NServiceBus.Unicast...`). If an application's own
+namespace has an `NServiceBus` segment, `NServiceBus` resolves to that namespace and the file does not compile
+(CS0234). This is why the golden samples are named `N_ServiceBus.*`. Decision (developer, 2026-10-15): the template is
+not changed (a `global::` prefix was tried and reverted); test applications are named without an `NServiceBus` segment.
+A `Test` prefix is not enough, since the collision happens for any segment, not only the first.
 
 ---
 
@@ -330,7 +339,8 @@ that happens to be top of mind.
 
 When the outbox is selected, `NServiceBusMessageBusInteropExtension.InstallNServiceBusForXDispatch`
 strips the generic post-handler `IMessageBus.FlushAllAsync()` call out of whichever dispatcher is
-installed — MediatR (`InstallNServiceBusForMediatRDispatch`), ServiceContract controllers
+installed — MediatR (`InstallNServiceBusForMediatRDispatch`), Mediator
+(`InstallNServiceBusForMediatorDispatch`, see "Mediator Dispatch Seam" below), ServiceContract controllers
 (`InstallNServiceBusForServiceContractDispatch`), and Wolverine
 (`InstallNServiceBusForWolverineDispatch`, added alongside `Intent.Application.Wolverine`'s
 `MessageBusFlushMiddleware` — see that module's `CONTEXT.md`) — since the flush is already spliced
@@ -338,6 +348,45 @@ into `DbContext.SaveChanges`/`SaveChangesAsync` and must not run twice. The Wolv
 target by the `"eventbus-flush"` metadata tag on the `ApplicationHandlerPolicy` template's
 `AddMiddleware`/`AddTransient` statements, the same tag convention the other two dispatchers already
 use on their own flush statements.
+
+### Mediator Dispatch Seam (`Intent.Application.Mediator`)
+
+`InstallNServiceBusForMediatorDispatch` is the Mediator sibling of the MediatR branch, with the same
+gate (`Enable Outbox` and SQL Persistence or NHibernate). Mediator's pipeline is a literal collection
+expression its source generator reads, so the flush is not edited in place: the item tagged
+`eventbus-flush` is removed from the collection published as `mediator-pipeline` metadata on the
+`mediator-config` invocation of `Intent.Application.Mediator.MediatorConfiguration`, in an `AfterBuild`
+at priority 1000 (the core's own empty-pipeline cleanup runs later, at 2000). The `DbContext`
+splice (path 1 above) is unchanged and does the flush. The core is referenced by string id only: no
+project reference and no `.imodspec` dependency.
+
+**No flush-owner claim, with or without the outbox.** The MassTransit consumer and the Eventing.Wolverine
+middleware claim the core's `MessageBusFlushOwner` so a command sent from an integration event handler
+does not flush the bus ahead of the consumer's unit of work (D18). This module generates no such
+claim.
+- **With the outbox:** the flush item is stripped, so no nested dispatch flushes at all. This much
+  follows from the code in this module.
+- **Without the outbox (observed 2026-10-15, `Tests/TestMediator.NServiceBus`, outbox off, Learning Transport,
+  SQL persistence):** the pipeline keeps the flush item (`MessageBusPublish, Validation, UnitOfWork`).
+  `NServiceBusMessageBus.FlushAllAsync` dispatches through the `IMessageHandlerContext` while a handler is active
+  (path 3 above), and NServiceBus batches those outgoing messages until the handler completes. Proved by two runs of
+  one handler that sends a publishing command: when the handler completes, the message is delivered exactly once, after
+  the nested command's row has committed; when the handler throws after the nested command's flush has run, nothing
+  is delivered. So a nested command's flush is deferred and no ownership claim is needed. This rests on the
+  transport's `SendsAtomicWithReceive` batching (the Learning Transport default; the outbox forces `ReceiveOnly`
+  and then does not rely on it). A transport that dispatches immediately would not give this guarantee; that has not
+  been tried.
+
+**Status:** generated and run. Both configurations are covered by the integration tests in
+`Tests/TestMediator.NServiceBus/TestMediator.NServiceBus.IntegrationTests` (`Outbox=On` and `Outbox=Off` traits).
+
+### Learning Transport needs `ReceiveOnly` when the outbox is enabled
+
+The outbox requires the transport to run in `ReceiveOnly` mode and the Learning Transport defaults to
+`SendsAtomicWithReceive`, so the endpoint threw at start-up ("Outbox requires transport to be running in `ReceiveOnly`
+mode"). The Learning Transport statement now sets `TransportTransactionMode = TransportTransactionMode.ReceiveOnly`
+when the outbox is enabled. The SQL Server transport defaults to a non-`ReceiveOnly` mode too and is likely to need the
+same; that branch is unchanged and unverified.
 
 ---
 

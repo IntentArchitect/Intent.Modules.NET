@@ -133,6 +133,15 @@ The is what the Business logic Integration Event handler looks like:
 
 ```
 
+## Mediator dispatch
+
+When the application dispatches through `Intent.Application.Mediator`:
+
+- **Outbox Pattern = Entity Framework:** the Mediator message-bus flush behaviour is removed from the pipeline, and the flush happens inside `DbContext.SaveChanges`, as it does for MediatR.
+- **Outbox Pattern = None or In Memory:** the generated consumer claims the Mediator `MessageBusFlushOwner` for the whole `Consume` call. A command sent from an integration event handler therefore does not flush the message bus itself; the consumer flushes once, after its unit of work.
+
+No setting is involved; both behaviours apply when the Mediator modules are installed.
+
 ## Working with Multiple Message Bus Providers
 
 This module can coexist with other message bus implementations in the same application. When multiple providers are installed, Intent Architect automatically generates a **Composite Message Bus** that intelligently routes messages based on configuration.
