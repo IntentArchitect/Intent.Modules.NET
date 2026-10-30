@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6ac1f14e-6141-4d14-9766-616786fc3ae7" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>OrderStatusChangedToStockConfirmedIntegrationEventHandler</name>
+  <display>OrderStatusChangedToStockConfirmedIntegrationEventHandler</display>
+  <parentFolderId>5f3a0131-f3a6-4ae9-ad7a-deeb3f5d0278</parentFolderId>
+  <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+  <packageName>WebApp</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="a8268032-90eb-4ec9-9bf7-5ab5aa60886f" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c7b26cd6-fc4b-40ad-9f6e-888090700814" display="Filename" />
+        <property name="9a07d677-d2bc-4280-b624-1f75c202400d" display="Namespace" value="eShop.WebApp.Services.OrderStatus.IntegrationEvents" />
+        <property name="f0309c6d-985e-48ef-8ef0-89c60bdaab01" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <association id="0d7ae6b8-42e2-4fe5-84be-b714cbc8ddbf">
+      <sourceEnd id="d2549a34-f7a8-43e6-8d45-b934d09e5f47" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+        <display>handled by: EventHandling.OrderStatusChangedToStockConfirmedIntegrationEventHandler</display>
+        <typeReference id="fe563c83-a509-4198-96b3-cf64e48a7a6d">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="0d7ae6b8-42e2-4fe5-84be-b714cbc8ddbf" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+        <name>Handler</name>
+        <display>[handles] OrderStatusChangedToStockConfirmedIntegrationEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="34167c12-b4a0-44b2-8778-0a697f554916">
+          <typeId>dcc65758-5a36-455e-9be9-6ef3254c97f9</typeId>
+          <typeName>OrderStatusChangedToStockConfirmedIntegrationEvent</typeName>
+          <typePackageName>WebApp.Eventing</typePackageName>
+          <typePackageId>ef659f8f-5ed1-438e-89fe-b1084786fbe1</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Subscribe Integration Event</associationType>
+      <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+    </association>
+  </children>
+</class>

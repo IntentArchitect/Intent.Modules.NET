@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="5cd3bf65-29dd-40f5-ad7c-f3df9d9fba37" zIndex="0">
+  <name>SetStockRejectedOrderStatusCommand</name>
+  <position x="800" y="570" />
+  <size width="200" height="60" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

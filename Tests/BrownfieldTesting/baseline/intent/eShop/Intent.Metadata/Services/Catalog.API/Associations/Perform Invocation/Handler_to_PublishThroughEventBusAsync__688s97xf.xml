@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="afd9ec02-e134-4d1b-bce2-30c8dc9543ee">
+  <sourceEnd id="30360a6d-15ae-4681-ab0a-a6945e82df25" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderStatusChangedToAwaitingValidationIntegrationEventHandler.Handler</display>
+    <typeReference id="a6bd590b-0c2a-442f-b71c-f3d9d5c2de6c">
+      <typeId>f2d1f327-c213-4ada-8d15-b84db9a73c57</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Catalog.API</typePackageName>
+      <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="afd9ec02-e134-4d1b-bce2-30c8dc9543ee" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] PublishThroughEventBusAsync(...): void</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="42b4d6c0-f554-417b-8d0b-1edef6260fd4">
+      <typeId>dc497cc0-e161-42bd-a430-3962dbe07b61</typeId>
+      <typeName>PublishThroughEventBusAsync</typeName>
+      <typePackageName>Catalog.API</typePackageName>
+      <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

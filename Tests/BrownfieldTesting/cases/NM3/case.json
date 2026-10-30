@@ -1,0 +1,14 @@
+{
+  "id": "NM3",
+  "title": "Unmodellable: a lambda endpoint in Webhooks.API",
+  "lane": "ai",
+  "prompt": "Let users change the destination URL of an existing webhook subscription: `PUT /api/webhooks/{id}`, validated the same way as on create.",
+  "done": "PUT /api/webhooks/{id} updates the destination URL of the caller's own subscription, validated the same way as on create",
+  "expect": [
+    {
+      "id": "no-stray-method",
+      "net": "visible",
+      "text": "The Software Factory inserts no method the code doesn't use. Either outcome is fine: the new endpoint is an inline lambda like the existing Webhooks.API endpoints and the model gains no operation for it (the Services designer can't describe a lambda), or the endpoint is modelled and is the method the Software Factory generates for that operation, with the model and the code agreeing and the existing lambda endpoints left as they were. Extending the drift recipe the way its existing entries already do (an exception for the Map extension method, a probe for a DbSet's name) is not a guidance violation."
+    }
+  ]
+}

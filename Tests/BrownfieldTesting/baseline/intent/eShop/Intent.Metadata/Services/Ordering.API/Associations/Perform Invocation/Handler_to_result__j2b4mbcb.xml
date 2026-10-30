@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="00b697e8-9087-4a12-b666-3b074c6815ec">
+  <sourceEnd id="0792007b-f814-481f-85d6-2336ae14169c" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderPaymentFailedIntegrationEventHandler.Handler</display>
+    <typeReference id="f616f44f-61e1-4f77-b8b3-9a7860826d2b">
+      <typeId>e72e5b86-ccb9-48ec-9084-9e2862f873ac</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="00b697e8-9087-4a12-b666-3b074c6815ec" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = CancelOrderCommand(...): bool</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="21637a63-590f-42ef-89a2-8fe805bf551e">
+      <typeId>6ffaa350-f8ca-42f5-9106-f4877a316245</typeId>
+      <typeName>CancelOrderCommand</typeName>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

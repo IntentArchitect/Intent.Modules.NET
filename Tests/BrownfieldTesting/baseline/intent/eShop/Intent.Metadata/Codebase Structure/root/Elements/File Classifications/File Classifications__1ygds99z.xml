@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="84c7381c-7c42-440c-9195-7565dc9903e5" type="File Classifications" typeId="81b0c54f-8f28-47f0-b0c1-6e8fe1212f50">
+  <name>File Classifications</name>
+  <display>File Classifications</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>73111e3e-79ab-4f94-bcd9-131e4085c088</parentFolderId>
+  <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="1c44cc28-5c58-449c-b64c-7870c5e4fb50" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>AI Concierge &amp; Semantic Search</name>
+      <display>AI Concierge &amp; Semantic Search</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#D81B60" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="2231a2cf-1080-4fb0-9d3c-934351d1ced5" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Aspire Host &amp; Service Defaults</name>
+      <display>Aspire Host &amp; Service Defaults</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#00695C" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="733a08d8-e739-4955-88f0-6dbf82c3192e" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Build, Packages &amp; CI</name>
+      <display>Build, Packages &amp; CI</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#4E342E" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="493280a1-9e7e-4999-a49a-e3cdfd46096d" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Buyer Card Data</name>
+      <display>Buyer Card Data</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#AD1457" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="2dc41973-2e6f-4874-abe8-d00d80e9fc6e" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Buyer Data Ownership</name>
+      <display>Buyer Data Ownership</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#1565C0" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="1bd12a0b-9750-4bfa-998c-d31a6486e8d6" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Catalog Items &amp; Stock</name>
+      <display>Catalog Items &amp; Stock</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#E65100" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="7140a590-2c2b-4c50-bd08-6533bd462d79" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Checkout &amp; Order Submission</name>
+      <display>Checkout &amp; Order Submission</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#2E7D32" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="9258151b-6d9b-4e9a-829b-4a91ca34aee6" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Event Bus &amp; Outbox</name>
+      <display>Event Bus &amp; Outbox</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#00838F" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="69941297-c27f-461c-b1c5-2fdc476d0bb1" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Identity Server &amp; Token Trust</name>
+      <display>Identity Server &amp; Token Trust</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#C62828" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="8f81caaf-dfed-4f4d-945c-b4a085d72fe5" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>MAUI Mobile Clients</name>
+      <display>MAUI Mobile Clients</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#558B2F" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="a0972569-245b-456b-9970-c715712a3374" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Order Status Saga</name>
+      <display>Order Status Saga</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#6A1B9A" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="c0d41701-ffeb-4ab5-b0d7-7f447329693a" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Schemas &amp; Startup Migrations</name>
+      <display>Schemas &amp; Startup Migrations</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#F9A825" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="2dceb4ce-a027-4b8c-aec7-7d25f20e229c" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Shared Message &amp; gRPC Contracts</name>
+      <display>Shared Message &amp; gRPC Contracts</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#5D4037" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="5a60d36d-76fb-4a72-91b0-2ef0e5e16adc" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Static Assets, Docs &amp; Leftovers</name>
+      <display>Static Assets, Docs &amp; Leftovers</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#BDBDBD" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="344f406b-1741-4fb3-91cd-1565d447ac2a" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Storefront &amp; App UI</name>
+      <display>Storefront &amp; App UI</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#455A64" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="c3f72f52-4bcc-48b0-b269-3dc0e0cd5d7b" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Test Suites</name>
+      <display>Test Suites</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#757575" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="30d0b59a-0b4c-4498-bcf8-34139ed35c45" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Webhook Subscriptions &amp; Delivery</name>
+      <display>Webhook Subscriptions &amp; Delivery</display>
+      <parentFolderId>84c7381c-7c42-440c-9195-7565dc9903e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" value="#283593" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+  </children>
+</class>

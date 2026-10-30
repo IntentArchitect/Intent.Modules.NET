@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="79fb56b8-6424-459e-9a10-ee605e1856f2" zIndex="0">
+  <name>OrderPaymentFailedIntegrationEvent</name>
+  <position x="800" y="0" />
+  <size width="200" height="70" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

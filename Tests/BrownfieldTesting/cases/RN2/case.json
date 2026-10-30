@@ -1,0 +1,11 @@
+{
+  "id": "RN2",
+  "title": "Rename: an attribute, keeping its column",
+  "lane": "ai",
+  "prompt": "Rename CatalogItem.AvailableStock to StockOnHand throughout the code. Keep the database column name as it is.",
+  "done": "CatalogItem.AvailableStock is StockOnHand everywhere in the code and its column is still named AvailableStock",
+  "expect": [
+    { "id": "identity", "net": "blind", "text": "The Domain designer's StockOnHand is the AvailableStock attribute renamed in place, not a new attribute." },
+    { "id": "column", "net": "visible", "text": "The column name AvailableStock is kept, in the code (HasColumnName or [Column]) and in the model." }
+  ]
+}

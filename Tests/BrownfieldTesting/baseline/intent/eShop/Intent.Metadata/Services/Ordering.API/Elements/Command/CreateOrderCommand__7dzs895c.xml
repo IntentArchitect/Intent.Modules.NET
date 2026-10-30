@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0c34596b-aa9b-45ba-8356-39c0e7160064" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <comment>A [DataContract] class with private setters (immutable command); OrderItems is a read-only view of _orderItems, built by the constructor from basket items.</comment>
+  <name>CreateOrderCommand</name>
+  <display>CreateOrderCommand: bool</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <typeReference id="20989e8c-c595-4fc2-8e83-f340faf2fdb9">
+    <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+    <typeName>bool</typeName>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+  </typeReference>
+  <parentFolderId>87bd049a-ec04-4684-85a0-891f7666526a</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <element id="4c07bfd7-f120-4e76-b97a-f5a7b246cd19" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>UserId</name>
+      <display>UserId: string</display>
+      <typeReference id="7a26b2d9-5a95-4fbe-a8ce-080d22aec2f0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="a0c92018-9593-4ebc-9790-f9d4b64160a5" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>UserName</name>
+      <display>UserName: string</display>
+      <typeReference id="c26c080f-2d9b-46a2-8df5-07d4b4478d4e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="3bbbe619-101e-470d-82cf-985b175e3cc7" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>City</name>
+      <display>City: string</display>
+      <typeReference id="88834892-418c-4a8b-b30f-79c23edf35d6">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="7f4644c1-6782-48cf-a32a-411855673c96" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Street</name>
+      <display>Street: string</display>
+      <typeReference id="1be4b06b-134e-4dd9-ae9f-98493b78727d">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="4cbb7e99-a4e4-4eda-b82a-bd3a89dcb51d" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>State</name>
+      <display>State: string</display>
+      <typeReference id="fa041510-8ba3-4ab6-a281-dac772e056c5">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="d54f156f-2e0a-495e-aef3-81b6ba66a6a4" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Country</name>
+      <display>Country: string</display>
+      <typeReference id="7b8dc7da-5303-418e-bcbb-32998dec831f">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="a693aed4-2404-444b-b075-fde026d4995e" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>ZipCode</name>
+      <display>ZipCode: string</display>
+      <typeReference id="a9df001f-56ff-4723-8a27-c27b3aae1acb">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="3b6a7a12-40c8-47a3-acc2-af7404ab576b" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CardNumber</name>
+      <display>CardNumber: string</display>
+      <typeReference id="f155c389-917f-484d-83cd-3d9b2003a159">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="35c866e1-4b7a-413f-8065-49f17a0d2683" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CardHolderName</name>
+      <display>CardHolderName: string</display>
+      <typeReference id="dd7d9bd6-fc1c-4f54-aca3-330bd8b19650">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="3f3bb6ad-6325-43a5-a4e1-bfdd2729e629" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CardExpiration</name>
+      <display>CardExpiration: datetime</display>
+      <typeReference id="0cd1fe42-9b3c-4b25-a906-1cad2befca1d">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <typeName>datetime</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="bc2329fd-aefe-475f-aac2-fd9d82094864" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CardSecurityNumber</name>
+      <display>CardSecurityNumber: string</display>
+      <typeReference id="af76cc74-0846-4f86-b60c-4e4322ae034a">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="4c938a0d-eff9-4ea4-b15e-613f78e8e517" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CardTypeId</name>
+      <display>CardTypeId: int</display>
+      <typeReference id="deb6f4db-1bea-4d5a-bf80-0194fb8f517e">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="3603c7d2-74e4-4495-bbb6-8a22e50312e7" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>OrderItems</name>
+      <display>OrderItems: OrderItemDTO[*]</display>
+      <typeReference id="f2736a74-b805-4526-a04a-ed1027181b9b">
+        <typeId>1df7abd9-1f61-456f-b0a9-a6899e325049</typeId>
+        <typeName>OrderItemDTO</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>Ordering.API</typePackageName>
+        <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+      </typeReference>
+      <parentFolderId>0c34596b-aa9b-45ba-8356-39c0e7160064</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="IEnumerable" />
+            <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <association id="de3b0fdc-b969-47c9-822b-368f871a4627">
+      <sourceEnd id="9b535c3d-382d-424c-9ee4-21b3cf7ee5a4" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+        <display>created by : Commands.CreateOrderCommand</display>
+        <typeReference id="5a1f7bc5-d58b-4044-970b-7867c4cd29fa">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="de3b0fdc-b969-47c9-822b-368f871a4627" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+        <name>order</name>
+        <display>[create] order: Order</display>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="ce44b53b-a3c2-4dcb-9668-7ab37a234584">
+          <typeId>40cec252-97ea-4da2-aaf1-86a50002a76a</typeId>
+          <typeName>Order</typeName>
+          <typePackageName>Ordering</typePackageName>
+          <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Create Entity Action</associationType>
+      <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+    </association>
+    <association id="9af3f57d-3efb-4b0e-96c8-f2244e2737f3">
+      <sourceEnd id="6601bd82-b751-42f7-b682-62151ee2487f" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+        <display>published by : Commands.CreateOrderCommand</display>
+        <typeReference id="6525e9f1-3b39-4a4b-b70b-79eff9b3138c">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="9af3f57d-3efb-4b0e-96c8-f2244e2737f3" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+        <display>[publish] OrderStartedIntegrationEvent</display>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="2388642e-91bc-45d7-b447-74f216821aba">
+          <typeId>8434de1a-c8ac-464e-9ab0-e155c0e53c85</typeId>
+          <typeName>OrderStartedIntegrationEvent</typeName>
+          <typePackageName>Ordering.API.Eventing</typePackageName>
+          <typePackageId>54cb363b-5140-4891-b45f-ee554a76d9c4</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Publish Integration Event</associationType>
+      <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+    </association>
+  </children>
+</class>

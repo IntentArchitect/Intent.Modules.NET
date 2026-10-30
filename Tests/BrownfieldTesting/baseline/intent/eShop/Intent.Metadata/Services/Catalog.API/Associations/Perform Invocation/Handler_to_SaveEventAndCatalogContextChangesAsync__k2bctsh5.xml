@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="52b510f7-b56a-432d-a716-6c7520792811">
+  <sourceEnd id="d9cd2484-f80a-45cf-a96f-c3949f006660" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderStatusChangedToAwaitingValidationIntegrationEventHandler.Handler</display>
+    <typeReference id="8da5ede8-787e-4533-b88c-087396c43025">
+      <typeId>f2d1f327-c213-4ada-8d15-b84db9a73c57</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Catalog.API</typePackageName>
+      <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="52b510f7-b56a-432d-a716-6c7520792811" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] SaveEventAndCatalogContextChangesAsync(...): void</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="cda3a50e-e8b8-45b5-8332-768bd9011a02">
+      <typeId>8df27daf-9d78-45c1-a307-ce33426f993c</typeId>
+      <typeName>SaveEventAndCatalogContextChangesAsync</typeName>
+      <typePackageName>Catalog.API</typePackageName>
+      <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

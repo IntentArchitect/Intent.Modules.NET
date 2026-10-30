@@ -1,0 +1,8 @@
+{
+  "id": "B0",
+  "title": "Baseline self-test: no drift on the baseline",
+  "lane": "ai",
+  "readOnly": true,
+  "prompt": "Run the Software Factory and tell me whether it reports any drift. Change nothing.",
+  "done": "The agent ran the Software Factory, reported that it found no drift between the model and the code, and changed nothing in the code or the model"
+}

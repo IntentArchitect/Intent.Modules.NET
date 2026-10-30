@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="40879308-82d4-4cf4-96a0-f329ce9177a5" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>Order</name>
+  <display>Order</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>a5b9e53e-6fc4-4c1f-9494-af3c7f4b7133</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="6bbf9e89-c521-4122-aa53-3fc7786f1157" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="fd8a5276-96d8-4990-9b66-a9ffacca7749" display="Type" value="record" />
+        <property name="b08b54e6-92e3-45eb-a233-0c79b4d76aab" display="Modifiers" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" value="OrderViewModel" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="b3c4c426-debc-4561-bac1-879497d4186d" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>OrderNumber</name>
+      <display>OrderNumber: int</display>
+      <typeReference id="eb9ee088-4d2e-45ed-baef-a420b5f321f2">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40879308-82d4-4cf4-96a0-f329ce9177a5</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="e14f7ce2-e672-4ac5-9637-7a860c78b1da" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Date</name>
+      <display>Date: datetime</display>
+      <typeReference id="78b4df83-4bcc-4e97-8a8f-7775add98341">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <typeName>datetime</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40879308-82d4-4cf4-96a0-f329ce9177a5</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="b45d21f0-080a-43ba-b3b5-a797d08b7750" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Status</name>
+      <display>Status: string</display>
+      <typeReference id="4d1cc4a2-a972-4f9d-a69a-7649bdbc6bb5">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40879308-82d4-4cf4-96a0-f329ce9177a5</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="a3155598-ba8b-4722-8d28-203d53a7bfb9" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Description</name>
+      <display>Description: string</display>
+      <typeReference id="1d62b515-2389-4c6e-8646-590c7da1f172">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40879308-82d4-4cf4-96a0-f329ce9177a5</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="f070c715-0e3f-4e13-955e-9e5a5e6bd408" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Street</name>
+      <display>Street: string</display>
+      <typeReference id="f0f200bc-9c43-4330-932d-fdeed1b9bc98">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40879308-82d4-4cf4-96a0-f329ce9177a5</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="c6347261-cbdb-4386-b914-0fb6c64ebff7" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>City</name>
+      <display>City: string</display>
+      <typeReference id="331c06de-c43a-4ce0-8674-74184321c6eb">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40879308-82d4-4cf4-96a0-f329ce9177a5</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="3dbd2235-69e6-4238-9635-f959ec0ec11c" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>State</name>
+      <display>State: string</display>
+      <typeReference id="075c0317-badb-4b6e-854e-66c97a9c2b52">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40879308-82d4-4cf4-96a0-f329ce9177a5</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="224ca057-224a-47b2-a6c9-e008dab19a14" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Zipcode</name>
+      <display>Zipcode: string</display>
+      <typeReference id="352c18e1-39be-4dd9-ae2e-fc406ba8aff0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40879308-82d4-4cf4-96a0-f329ce9177a5</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="2e35bf4b-2d2b-4faf-a6ad-4ff268f60720" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Country</name>
+      <display>Country: string</display>
+      <typeReference id="8979ae19-8320-4df5-bd6b-259a70a473e0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40879308-82d4-4cf4-96a0-f329ce9177a5</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="081db9a6-24d7-4461-8b6e-54e5f757a032" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>OrderItems</name>
+      <display>OrderItems: Orderitem[*]</display>
+      <typeReference id="d3ff44b5-ead9-4635-ac4e-d67dd61ee81c">
+        <typeId>947fa599-d7c9-4b5b-b404-0f191a267085</typeId>
+        <typeName>Orderitem</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>Ordering.API</typePackageName>
+        <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+      </typeReference>
+      <parentFolderId>40879308-82d4-4cf4-96a0-f329ce9177a5</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="List" />
+            <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="b1d126b3-289b-44ec-bfd4-af5e0089f3b8" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Total</name>
+      <display>Total: decimal</display>
+      <typeReference id="a474f28a-977b-4279-9a46-80a77464cb5e">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40879308-82d4-4cf4-96a0-f329ce9177a5</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+  </children>
+</class>

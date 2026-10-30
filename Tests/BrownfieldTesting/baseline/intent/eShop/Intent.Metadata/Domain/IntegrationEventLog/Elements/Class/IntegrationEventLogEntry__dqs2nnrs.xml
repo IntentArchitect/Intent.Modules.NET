@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8fc442b8-878c-4aad-8ff3-ca52932186df" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment>Outbox row. Mapped into each consuming DbContext by ModelBuilder.UseIntegrationEventLogs() (Catalog and Ordering), so its schema is the consuming context's default schema.</comment>
+  <name>IntegrationEventLogEntry</name>
+  <display>IntegrationEventLogEntry</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</parentFolderId>
+  <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+  <packageName>IntegrationEventLog</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="dd205b32-b48b-4c77-98f5-faefb2c047ce" name="Table">
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="2b3a9df7-65e1-4800-b919-bef1a6b8f5a9" display="Name" value="IntegrationEventLog" />
+        <property name="13e6101f-0e37-4eda-a6ae-ec48cd9f8f4b" display="Schema" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="0b4e7202-78f3-4324-98e2-975aaab94b74" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EventId</name>
+      <display>EventId: guid</display>
+      <typeReference id="9f047681-9790-4951-9824-7b2cb187f261">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>8fc442b8-878c-4aad-8ff3-ca52932186df</parentFolderId>
+      <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+      <packageName>IntegrationEventLog</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="1b9b64c6-c2fa-4fc6-b63e-e9acce916197" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EventTypeName</name>
+      <display>EventTypeName: string</display>
+      <typeReference id="c47ee060-f5b9-4c3c-803d-a395f168d28e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>8fc442b8-878c-4aad-8ff3-ca52932186df</parentFolderId>
+      <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+      <packageName>IntegrationEventLog</packageName>
+    </element>
+    <element id="6bb362b5-1047-4064-a7f6-aaea9d985074" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>[NotMapped]: computed from EventTypeName.</comment>
+      <name>EventTypeShortName</name>
+      <display>EventTypeShortName: string?</display>
+      <typeReference id="b3c8ea23-18b9-47d2-b7d7-c6eb548b6357">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>8fc442b8-878c-4aad-8ff3-ca52932186df</parentFolderId>
+      <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+      <packageName>IntegrationEventLog</packageName>
+    </element>
+    <element id="5ce4c7cc-d92f-4318-b3fc-a3a933ef5589" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>[NotMapped]: set by DeserializeJsonContent.</comment>
+      <name>IntegrationEvent</name>
+      <display>IntegrationEvent: IntegrationEvent?</display>
+      <typeReference id="3aff7db1-a266-4be8-8e0d-3166de43b1b6">
+        <typeId>498029a0-9891-4147-b6cb-9b37c98b8eb2</typeId>
+        <typeName>IntegrationEvent</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>IntegrationEventLog</typePackageName>
+        <typePackageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</typePackageId>
+      </typeReference>
+      <parentFolderId>8fc442b8-878c-4aad-8ff3-ca52932186df</parentFolderId>
+      <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+      <packageName>IntegrationEventLog</packageName>
+    </element>
+    <element id="410b854b-03a6-4ad2-9c7e-b572e7b8ac4a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>State</name>
+      <display>State: EventStateEnum</display>
+      <typeReference id="8efa3667-ced1-4bca-b449-b526669d7300">
+        <typeId>302b8bfe-7b7f-4718-abd0-285fc5e8b040</typeId>
+        <typeName>EventStateEnum</typeName>
+        <typePackageName>IntegrationEventLog</typePackageName>
+        <typePackageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</typePackageId>
+      </typeReference>
+      <parentFolderId>8fc442b8-878c-4aad-8ff3-ca52932186df</parentFolderId>
+      <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+      <packageName>IntegrationEventLog</packageName>
+    </element>
+    <element id="e8159606-12c1-4226-a9dd-fd36aabb17fd" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>TimesSent</name>
+      <display>TimesSent: int</display>
+      <typeReference id="36d8a74a-0633-42f4-98bf-5da83e2aa05c">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>8fc442b8-878c-4aad-8ff3-ca52932186df</parentFolderId>
+      <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+      <packageName>IntegrationEventLog</packageName>
+    </element>
+    <element id="6ffc3a13-5f14-4dd0-875c-85e74737f0f6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CreationTime</name>
+      <display>CreationTime: datetime</display>
+      <typeReference id="3f1d470a-248d-4717-b505-7f3604f2bcac">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <typeName>datetime</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>8fc442b8-878c-4aad-8ff3-ca52932186df</parentFolderId>
+      <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+      <packageName>IntegrationEventLog</packageName>
+    </element>
+    <element id="fe0a7b63-08c9-4e7c-9560-d3063dbf3169" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Content</name>
+      <display>Content: string</display>
+      <typeReference id="4879ba79-1c27-4910-8a16-259dfc19d28b">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>8fc442b8-878c-4aad-8ff3-ca52932186df</parentFolderId>
+      <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+      <packageName>IntegrationEventLog</packageName>
+    </element>
+    <element id="5c43d623-dd56-4961-a9fe-fddf7b61f755" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>TransactionId</name>
+      <display>TransactionId: guid</display>
+      <typeReference id="8d2248ab-94ae-4c3f-85d8-f0df8627a958">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>8fc442b8-878c-4aad-8ff3-ca52932186df</parentFolderId>
+      <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+      <packageName>IntegrationEventLog</packageName>
+    </element>
+    <element id="0a10cfd8-ba1f-482b-a65a-5a7f20c4be42" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>IntegrationEventLogEntry</name>
+      <display>IntegrationEventLogEntry()</display>
+      <parentFolderId>8fc442b8-878c-4aad-8ff3-ca52932186df</parentFolderId>
+      <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+      <packageName>IntegrationEventLog</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2189ac42-f723-4663-9673-80ad2cdd9f51" name="Constructor Configuration">
+          <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+          <properties>
+            <property name="1ece30f0-2390-47ff-84e4-06ca2681d174" display="Access Modifier" value="private" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="3167b404-b4af-4182-9684-c20417cde1f2" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>IntegrationEventLogEntry</name>
+      <display>IntegrationEventLogEntry(event: IntegrationEvent, transactionId: guid)</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <parentFolderId>8fc442b8-878c-4aad-8ff3-ca52932186df</parentFolderId>
+      <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+      <packageName>IntegrationEventLog</packageName>
+      <children>
+        <element id="0787a7a9-8f62-470d-9a98-ff9eac4886ec" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>event</name>
+          <display>in : event: IntegrationEvent</display>
+          <typeReference id="c2169cd5-7cdd-4b6f-93d4-11323a8a2f7b">
+            <typeId>498029a0-9891-4147-b6cb-9b37c98b8eb2</typeId>
+            <typeName>IntegrationEvent</typeName>
+            <typePackageName>IntegrationEventLog</typePackageName>
+            <typePackageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</typePackageId>
+          </typeReference>
+          <parentFolderId>3167b404-b4af-4182-9684-c20417cde1f2</parentFolderId>
+          <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+          <packageName>IntegrationEventLog</packageName>
+        </element>
+        <element id="d2ec9080-d4a2-4e42-84cf-3c0a9d9dcfd0" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>transactionId</name>
+          <display>in : transactionId: guid</display>
+          <typeReference id="8829da4b-36c2-4d51-8d95-44459a377f50">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <typeName>guid</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>3167b404-b4af-4182-9684-c20417cde1f2</parentFolderId>
+          <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+          <packageName>IntegrationEventLog</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="62894def-62fb-4bf9-bf61-0edc6ea5ca84" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>DeserializeJsonContent</name>
+      <display>DeserializeJsonContent(type: Type): IntegrationEventLogEntry</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="5d0e8cbf-9ed0-4340-ba86-9bac0a6d0765">
+        <typeId>8fc442b8-878c-4aad-8ff3-ca52932186df</typeId>
+        <typeName>IntegrationEventLogEntry</typeName>
+        <typePackageName>IntegrationEventLog</typePackageName>
+        <typePackageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</typePackageId>
+      </typeReference>
+      <parentFolderId>8fc442b8-878c-4aad-8ff3-ca52932186df</parentFolderId>
+      <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+      <packageName>IntegrationEventLog</packageName>
+      <children>
+        <element id="0f8caad4-2e61-4849-90a8-1b14783b489f" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>type</name>
+          <display>in : type: Type</display>
+          <typeReference id="a07dde93-2442-4740-a95c-fa678014b672">
+            <typeId>bd7f3447-81b1-4261-8545-949e45dbf892</typeId>
+            <typeName>Type</typeName>
+            <typePackageName>IntegrationEventLog</typePackageName>
+            <typePackageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</typePackageId>
+          </typeReference>
+          <parentFolderId>62894def-62fb-4bf9-bf61-0edc6ea5ca84</parentFolderId>
+          <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+          <packageName>IntegrationEventLog</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

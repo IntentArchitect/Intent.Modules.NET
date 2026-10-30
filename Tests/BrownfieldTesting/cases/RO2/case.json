@@ -1,0 +1,25 @@
+{
+  "id": "RO2",
+  "title": "Read only: what's out of sync",
+  "lane": "ai",
+  "plants": ["ro2c", "ro2m"],
+  "readOnly": true,
+  "expectClean": false,
+  "prompt": "What's out of sync between the model and the code right now?",
+  "done": "The agent answered without changing anything in the code or the model",
+  "expect": [
+    {
+      "id": "r1",
+      "kind": "row",
+      "net": "visible",
+      "text": "The answer includes CatalogItem.RestockThreshold's column name: restock_at in the code, none in the model."
+    },
+    { "id": "r2", "kind": "row", "net": "visible", "text": "The answer includes the order draft endpoint's verb: PUT in the code, POST in the model." },
+    {
+      "id": "r3",
+      "kind": "row",
+      "net": "visible",
+      "text": "The answer includes CatalogItem.Sku: in the model but not yet in the code, as a change the Software Factory has yet to generate."
+    }
+  ]
+}

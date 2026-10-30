@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="01757ffc-52e2-4d4b-a89f-4990f61d0caf" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment>Idempotency record for client commands (RequestManager).</comment>
+  <name>ClientRequest</name>
+  <display>ClientRequest</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>46f99392-42c6-455e-9e73-3925a3693624</parentFolderId>
+  <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+  <packageName>Ordering</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="88722cfc-8f4e-4cc2-96f5-3635f5b520d1" name="File Config">
+      <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+      <properties>
+        <property name="11d2548c-4d37-4c5d-ab7b-ba60b4bc61be" display="Filename" />
+        <property name="e9476ee3-2e32-427f-95b2-938c8fb8397b" display="Namespace" value="eShop.Ordering.Infrastructure.Idempotency" />
+        <property name="df085ba5-b5b5-44f2-9690-51f3c8053736" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="dd205b32-b48b-4c77-98f5-faefb2c047ce" name="Table">
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="2b3a9df7-65e1-4800-b919-bef1a6b8f5a9" display="Name" value="requests" />
+        <property name="13e6101f-0e37-4eda-a6ae-ec48cd9f8f4b" display="Schema" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="791a5d07-7c5b-485d-85b8-102ac174cb93" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <typeReference id="f65ba4fd-c4b2-44b3-b63e-bb9b50216025">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>01757ffc-52e2-4d4b-a89f-4990f61d0caf</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="1833bbe4-71a0-4219-8fc0-5d627628b785" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <typeReference id="5b6075d6-6f9c-4835-a059-c9e91e503594">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>01757ffc-52e2-4d4b-a89f-4990f61d0caf</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+    <element id="0458f00a-91c5-4058-83d9-e93c09774aaf" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Time</name>
+      <display>Time: datetime</display>
+      <typeReference id="0602db8b-c1ac-49c4-9530-8d3e99641378">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <typeName>datetime</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>01757ffc-52e2-4d4b-a89f-4990f61d0caf</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+  </children>
+</class>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d1bdef7c-7ba6-4525-b88c-a5d1fa425fd5" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>OrderStatusChangedToPaidIntegrationEvent</name>
+  <display>OrderStatusChangedToPaidIntegrationEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>8be35d8c-aa77-496a-b2ad-e71bbc237aea</parentFolderId>
+  <packageId>55b30ef0-516f-4925-b317-cccca4d8e700</packageId>
+  <packageName>Webhooks.API.Eventing</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="9bb8b979-bcb2-4908-91d5-b65028475bb6" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="2f0cd31c-9b25-410b-bb47-ccb513504353" display="Type" value="positional record" />
+        <property name="7d854ec0-7ba8-48f5-a08e-539ef5fcb359" display="Modifiers" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="10629c73-ff6c-4b17-b601-560804273ab6" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: int</display>
+      <typeReference id="b8888610-1fb7-4b27-8d74-9fab639021c2">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>d1bdef7c-7ba6-4525-b88c-a5d1fa425fd5</parentFolderId>
+      <packageId>55b30ef0-516f-4925-b317-cccca4d8e700</packageId>
+      <packageName>Webhooks.API.Eventing</packageName>
+    </element>
+    <element id="5f1fa888-ca4e-4196-b4f5-8354384e0a9d" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderStockItems</name>
+      <display>OrderStockItems: OrderStockItem[*]</display>
+      <typeReference id="ffa9142d-ccb1-4a1f-958f-08a255ac47f0">
+        <typeId>3d7f15dd-b2d3-472b-ad1d-521990986a25</typeId>
+        <typeName>OrderStockItem</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>Webhooks.API.Eventing</typePackageName>
+        <typePackageId>55b30ef0-516f-4925-b317-cccca4d8e700</typePackageId>
+      </typeReference>
+      <parentFolderId>d1bdef7c-7ba6-4525-b88c-a5d1fa425fd5</parentFolderId>
+      <packageId>55b30ef0-516f-4925-b317-cccca4d8e700</packageId>
+      <packageName>Webhooks.API.Eventing</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="def585dc-4000-4215-969b-fcf9afd61c34" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="0221edd9-aa90-48a3-83c4-240cf9bfbf3a" display="Type" value="IEnumerable" />
+            <property name="5109b1b3-81a6-418e-b1e8-b39ea18821c5" display="Custom Format" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+  </children>
+</class>

@@ -1,0 +1,36 @@
+diff --git a/intent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml b/intent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml
+index 5fddeb7..82a4973 100644
+--- a/intent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml
++++ b/intent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml
+@@ -251,6 +251,31 @@
+       <packageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</packageId>
+       <packageName>Catalog</packageName>
+     </element>
++    <element id="4f257e0f-b8bb-444d-bd07-8eb9cc1fb8c4" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
++      <name>Sku</name>
++      <display>Sku: string?</display>
++      <typeReference id="65900755-508d-43a2-83bd-1ae2d4eb75e3">
++        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
++        <typeName>string</typeName>
++        <isNullable>true</isNullable>
++        <typePackageName>Intent.Common.Types</typePackageName>
++        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
++      </typeReference>
++      <parentFolderId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</parentFolderId>
++      <packageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</packageId>
++      <packageName>Catalog</packageName>
++      <stereotypes>
++        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
++          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
++          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
++          <properties>
++            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" />
++            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" value="32" />
++            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" />
++          </properties>
++        </stereotype>
++      </stereotypes>
++    </element>
+     <element id="1e8780da-f3e6-4082-a23d-80fa3df5f97e" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+       <name>CatalogItem</name>
+       <display>CatalogItem(name: string)</display>

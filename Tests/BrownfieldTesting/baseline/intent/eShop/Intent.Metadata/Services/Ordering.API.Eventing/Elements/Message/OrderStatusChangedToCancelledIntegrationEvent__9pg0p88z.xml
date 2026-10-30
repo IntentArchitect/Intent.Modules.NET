@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d72f3c8c-dd5c-4e7f-9ee6-904270715613" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>OrderStatusChangedToCancelledIntegrationEvent</name>
+  <display>OrderStatusChangedToCancelledIntegrationEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>d6d03ecd-a11b-4664-ba7f-d8429bfc30b0</parentFolderId>
+  <packageId>54cb363b-5140-4891-b45f-ee554a76d9c4</packageId>
+  <packageName>Ordering.API.Eventing</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="9bb8b979-bcb2-4908-91d5-b65028475bb6" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="2f0cd31c-9b25-410b-bb47-ccb513504353" display="Type" value="record" />
+        <property name="7d854ec0-7ba8-48f5-a08e-539ef5fcb359" display="Modifiers" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="f3259a1f-ff90-4527-ad00-bbee61fcbbbc" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: int</display>
+      <typeReference id="8d881517-3d9a-4c6a-a21d-24e22a08f2f6">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>d72f3c8c-dd5c-4e7f-9ee6-904270715613</parentFolderId>
+      <packageId>54cb363b-5140-4891-b45f-ee554a76d9c4</packageId>
+      <packageName>Ordering.API.Eventing</packageName>
+    </element>
+    <element id="619f32f8-b069-49c1-8047-80843801f1b6" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderStatus</name>
+      <display>OrderStatus: OrderStatus</display>
+      <typeReference id="98eb04b5-08e7-479b-a018-32421cad39f6">
+        <typeId>bfa4ae38-f37c-47a4-970a-6e073352be7a</typeId>
+        <typeName>OrderStatus</typeName>
+        <typePackageName>Ordering</typePackageName>
+        <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+      </typeReference>
+      <parentFolderId>d72f3c8c-dd5c-4e7f-9ee6-904270715613</parentFolderId>
+      <packageId>54cb363b-5140-4891-b45f-ee554a76d9c4</packageId>
+      <packageName>Ordering.API.Eventing</packageName>
+    </element>
+    <element id="77474d71-e314-4884-9628-0efe5915ce75" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>BuyerName</name>
+      <display>BuyerName: string</display>
+      <typeReference id="9466dddd-aae0-40b8-bf44-a4b9a93d9d0e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>d72f3c8c-dd5c-4e7f-9ee6-904270715613</parentFolderId>
+      <packageId>54cb363b-5140-4891-b45f-ee554a76d9c4</packageId>
+      <packageName>Ordering.API.Eventing</packageName>
+    </element>
+    <element id="165ebb82-79ee-40bd-ba26-d754a140756d" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>BuyerIdentityGuid</name>
+      <display>BuyerIdentityGuid: string</display>
+      <typeReference id="71eddafe-a81e-45dc-a5a2-f2222481de3d">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>d72f3c8c-dd5c-4e7f-9ee6-904270715613</parentFolderId>
+      <packageId>54cb363b-5140-4891-b45f-ee554a76d9c4</packageId>
+      <packageName>Ordering.API.Eventing</packageName>
+    </element>
+  </children>
+</class>

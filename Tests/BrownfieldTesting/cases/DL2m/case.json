@@ -1,0 +1,16 @@
+{
+  "id": "DL2m",
+  "title": "Model first: finish a removal made in the designers",
+  "lane": "manual",
+  "plants": ["dl2m"],
+  "prompt": "I removed PictureUrl from order items in the designers. Finish removing it.",
+  "done": "OrderItem.PictureUrl is gone from the code, with every constructor, method, DTO and mapping that carried it, and the code builds",
+  "expect": [
+    {
+      "id": "reviewed",
+      "net": "visible",
+      "text": "The Software Factory's destructive changes were reviewed rather than applied blindly, and no unrelated hand-written code was lost. Visuals on saved diagrams don't count: the agent is told to leave saved diagrams alone."
+    },
+    { "id": "migration", "net": "blind", "text": "An Ordering EF Core migration drops the PictureUrl column." }
+  ]
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="26e33ae1-ac51-46f9-9c8a-63d83b53f314" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>OrderRecord</name>
+  <display>OrderRecord</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>f9ad17ae-d281-46ee-b575-261caf1ce41c</parentFolderId>
+  <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+  <packageName>WebApp</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="6bbf9e89-c521-4122-aa53-3fc7786f1157" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="fd8a5276-96d8-4990-9b66-a9ffacca7749" display="Type" value="positional record" />
+        <property name="b08b54e6-92e3-45eb-a233-0c79b4d76aab" display="Modifiers" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" value="OrderingService" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="d9640812-bf36-4338-9411-e422b2cc5135" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>OrderNumber</name>
+      <display>OrderNumber: int</display>
+      <typeReference id="adb96823-df3d-4c22-906c-f0df34a74928">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>26e33ae1-ac51-46f9-9c8a-63d83b53f314</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="efbb6b95-312f-4290-8084-87a9153538c7" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Date</name>
+      <display>Date: datetime</display>
+      <typeReference id="bcc95e95-3f8d-4f09-800e-9c9ed7f8f572">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <typeName>datetime</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>26e33ae1-ac51-46f9-9c8a-63d83b53f314</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="f1dbeb2b-e6d7-4484-abcb-7479b0306958" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Status</name>
+      <display>Status: string</display>
+      <typeReference id="06ed5b9c-af68-48b6-9bec-90dde6636389">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>26e33ae1-ac51-46f9-9c8a-63d83b53f314</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="b967b243-d5bd-46b6-ab1a-e7ae4d4b2b98" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Total</name>
+      <display>Total: decimal</display>
+      <typeReference id="21274d18-b18d-4b14-a6d5-7d5dc366931e">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>26e33ae1-ac51-46f9-9c8a-63d83b53f314</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+  </children>
+</class>

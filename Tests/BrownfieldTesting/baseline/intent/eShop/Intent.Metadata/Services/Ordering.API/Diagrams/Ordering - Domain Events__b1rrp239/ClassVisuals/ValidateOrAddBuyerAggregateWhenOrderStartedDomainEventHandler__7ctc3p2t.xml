@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="26cfcc6a-56a8-4dfa-ac38-ec0302e758e8" zIndex="0">
+  <name>ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler</name>
+  <position x="400" y="1140" />
+  <size width="200" height="90" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

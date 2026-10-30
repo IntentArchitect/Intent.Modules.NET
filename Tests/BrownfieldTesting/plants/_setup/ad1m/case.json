@@ -1,0 +1,3 @@
+{
+  "prompt": "Model discontinuing catalog items. In the Domain designer, add an IsDiscontinued attribute (bool, default false) to CatalogItem. In the Services designer, add an operation to the Catalog API for PUT /api/catalog/items/{id}/discontinue (API version 2, like the other v2 catalog item endpoints), taking the item's id from the route, with an update interaction to CatalogItem."
+}

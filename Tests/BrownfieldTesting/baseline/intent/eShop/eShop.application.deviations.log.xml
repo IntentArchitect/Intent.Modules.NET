@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#c1477d7a-1de9-45dc-8f5d-98e1e360cf47</correlationId>
+      <path>src/Basket.API/Grpc/BasketService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0529942Z</updatedAt>
+      <deviationsHash>E7B198F8869F45EB9874B9AFED31B8D79191FFD72AF6E89857C693ED96124EDC</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#3c21b8f8-c235-45a9-bddd-554dae18f55c</correlationId>
+      <path>src/Basket.API/IntegrationEvents/EventHandling/OrderStartedIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0527862Z</updatedAt>
+      <deviationsHash>5EF441A8989FBEF14498C51CD8B2FC1B0B2AA10F7E4488B66185574B2A8507D2</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DtoContract#d583ebb4-57f5-4a44-8dbc-8db4c458d8e4</correlationId>
+      <path>src/Basket.API/Model/BasketItem.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.052018Z</updatedAt>
+      <deviationsHash>7BE271854BB26C39F34D6BA4488027FFE127106D55C918A4E47B0848B200B6D1</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DtoContract#2299ee93-60a6-468d-a0a4-52ec67f3f22f</correlationId>
+      <path>src/Basket.API/Model/CustomerBasket.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0522401Z</updatedAt>
+      <deviationsHash>281CB1A2E545A256EAB47BFB4D1443B6CFEFD68530F3C5751FAE69D9CA0B8E9E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#5c43df13-1c48-4b2e-b593-357fc437df44</correlationId>
+      <path>src/Basket.API/Repositories/RedisBasketRepository.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0530079Z</updatedAt>
+      <deviationsHash>F44A2ED9C6F1AD1404A7285C63E40ABDE42BC7E854AF8FCC60E7523E8DADE8C0</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#29aeedc2-9202-4e2b-970e-fa13d98d6f70</correlationId>
+      <path>src/Catalog.API/Apis/CatalogApi.cs</path>
+      <count>16</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0530435Z</updatedAt>
+      <deviationsHash>B570EAC6D4B03DD0544964653BB67B4EEEED4DF70934DED2AB3B02DFC53B72AE</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#6a83ddd8-477b-43dc-9202-ebabc58bcc77</correlationId>
+      <path>src/Catalog.API/IntegrationEvents/CatalogIntegrationEventService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.053058Z</updatedAt>
+      <deviationsHash>7775AB8A0F5D2AA4B7E1A26FD1A79C3E5E345546E753DA234E991025FBDC6B34</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#4874bed2-b08d-47e5-9770-af7d1a83afa0</correlationId>
+      <path>src/Catalog.API/IntegrationEvents/EventHandling/OrderStatusChangedToAwaitingValidationIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0527975Z</updatedAt>
+      <deviationsHash>009463573D2362F9C20C87FBC612B12C81E117F28F96D97136ADFF6748D48F34</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#fce797e1-a2ee-45a3-b765-5f6ae65853b0</correlationId>
+      <path>src/Catalog.API/IntegrationEvents/EventHandling/OrderStatusChangedToPaidIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0528087Z</updatedAt>
+      <deviationsHash>D0DF0A985E96267F7FE84C8057D53D8D09AA9076E6B7584AD69FD15B63236341</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.EntityContract#545453a5-a777-4d58-9f37-4d7739f58809</correlationId>
+      <path>src/Catalog.API/Model/CatalogBrand.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0533112Z</updatedAt>
+      <deviationsHash>65400E745F6023BD82345D85833909F6359FBC910F80BF97C2384FEE18A0F032</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.EntityContract#ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</correlationId>
+      <path>src/Catalog.API/Model/CatalogItem.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0533244Z</updatedAt>
+      <deviationsHash>BC792DE731B1EFB973AEB7C5CE4A19B4AFED36EE8238C1075DDA014B0CA05840</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.EntityContract#4fd0dfeb-3444-40c5-8445-c1f039ba5541</correlationId>
+      <path>src/Catalog.API/Model/CatalogType.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0533355Z</updatedAt>
+      <deviationsHash>3AD7DAEBCE9CBFAB0B3E01EAC4E2AF20A3F458B019641ACC997CB7468F7D717E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#c1660554-56b3-4f2b-93bd-fb9a14c5b474</correlationId>
+      <path>src/Catalog.API/Services/CatalogAI.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0530209Z</updatedAt>
+      <deviationsHash>E7C8C2D2F52C7DEC5AE44D3BA9DD54E3AF3A06EC9CD05FD07E97AF3C7DCB3BD9</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.EntityContract#6b2e4dba-bfb8-444b-84b4-96915251c471</correlationId>
+      <path>src/Identity.API/Models/ApplicationUser.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.053346Z</updatedAt>
+      <deviationsHash>C52AC5E94D8F83D6004D73714F3F450DCE4E4B8D04C8E8FEEF14463643925FFE</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.EntityContract#8fc442b8-878c-4aad-8ff3-ca52932186df</correlationId>
+      <path>src/IntegrationEventLogEF/IntegrationEventLogEntry.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0533614Z</updatedAt>
+      <deviationsHash>6DFF8E711D5572369921991AE686FF7B241D92E1258552E2348E67844CD96AAB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#4f03d6c1-37c2-4841-89ea-c4ba6804bf39</correlationId>
+      <path>src/Ordering.API/Apis/OrdersApi.cs</path>
+      <count>8</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0531112Z</updatedAt>
+      <deviationsHash>3D1F1EB6C8A61A950732755E9EA1495F62EF9E5F7BC78FA4D8C193070FF45733</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.CommandContract#0c34596b-aa9b-45ba-8356-39c0e7160064</correlationId>
+      <path>src/Ordering.API/Application/Commands/CreateOrderCommand.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0535277Z</updatedAt>
+      <deviationsHash>36179F6F82DE73892F394AA9FBDAEC72F4B912847F6601ADF90534F0F494F71B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DtoContract#bbd525b5-9d31-4eee-b3a0-415e9b526b79</correlationId>
+      <path>src/Ordering.API/Application/Commands/CreateOrderDraftCommandHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0523268Z</updatedAt>
+      <deviationsHash>F1B3678622377AF66C449CAA3045733DDE99FAD80DCA0DCB38EFB22E9E4B5D8C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DomainEventHandlerContract#ce692386-e0c6-4148-91f2-8fb36fd3fc82</correlationId>
+      <path>src/Ordering.API/Application/DomainEventHandlers/OrderCancelledDomainEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0535956Z</updatedAt>
+      <deviationsHash>F0581F6AC6FE44883FED7DCFF22AEB11426334B3AEFE284A194F5A57947C5D3A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DomainEventHandlerContract#96470511-7322-4b75-90ed-371bac8fbf58</correlationId>
+      <path>src/Ordering.API/Application/DomainEventHandlers/OrderShippedDomainEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0536069Z</updatedAt>
+      <deviationsHash>D5AEB982D4A203DAB663BBC0B5B7D5E6032FA5172CDE1F0D99CA80DE641D6843</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DomainEventHandlerContract#78a45a42-148e-47ef-b171-d430b2591ec8</correlationId>
+      <path>src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToAwaitingValidationDomainEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0536186Z</updatedAt>
+      <deviationsHash>CB93AAD9F2C82D8BDD4C8D4B3B9260B59AC613536BBB8C71736EEF25FD239ECF</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DomainEventHandlerContract#a7a44ae2-b974-4f46-8bbd-1cb13b5dc3f5</correlationId>
+      <path>src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToPaidDomainEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0536294Z</updatedAt>
+      <deviationsHash>2C9CE8A72965CEFC8BF8E88C38C0F7DE5EFAB288355C3C3221B2D73A90CE2AFB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DomainEventHandlerContract#08523ae2-6369-4422-a03e-4a46bf2cc6d3</correlationId>
+      <path>src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToStockConfirmedDomainEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0536416Z</updatedAt>
+      <deviationsHash>23734E73F566AD4EEE0ECC9536BA378A6DE16B96E01CB8490B88C76AA9276525</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DomainEventHandlerContract#e484e205-b5bc-4649-b987-031061b5a9d9</correlationId>
+      <path>src/Ordering.API/Application/DomainEventHandlers/UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0536525Z</updatedAt>
+      <deviationsHash>929119495D41E1913C6A0ED7ECFC490DEE37ED25C5371F498CD45DC9962AF478</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DomainEventHandlerContract#26cfcc6a-56a8-4dfa-ac38-ec0302e758e8</correlationId>
+      <path>src/Ordering.API/Application/DomainEventHandlers/ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0536648Z</updatedAt>
+      <deviationsHash>948C4DA7F48A8B1607879B719AED4E21A9D68CBBD77D9DF5D17D5F2D9C0B9166</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#843880f0-d486-4a52-945e-239f206f4015</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/EventHandling/GracePeriodConfirmedIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0528191Z</updatedAt>
+      <deviationsHash>69BCA654852181C7667B02344991384FB988370787893C609251CF41B42A8537</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#1581b6bc-7ae9-4e55-b0d1-a884a4f6066e</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentFailedIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0528303Z</updatedAt>
+      <deviationsHash>F239235F5462BA140F191EB32C5B01FC1BFBABC302C7B29D61F627E67E6EBAF8</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#80cd74d2-2238-416a-b40d-9c51f3751ccd</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0528419Z</updatedAt>
+      <deviationsHash>A56892715CB975F7200CA71023D63DFB87B9123B2B33A22AB3A0130C3FB77565</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#8a774aed-8ba8-4b1b-9151-ec8827d132a5</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderStockConfirmedIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0528525Z</updatedAt>
+      <deviationsHash>219A2341D7C0B4BC8AB495BE6E2CD12B8B0CCD5956B3AB2ABD977DF083AACAB0</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#10fc71e6-85bb-4a25-880a-eb3c3f356fcd</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderStockRejectedIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0528639Z</updatedAt>
+      <deviationsHash>4C16AB84E7F1FBF3A9FB1850634B1F9BB955D2227A554041EEE3C9F71618489C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#1a025d8b-18a7-43e3-b0d8-de8f8820a0fe</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/Events/GracePeriodConfirmedIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0525027Z</updatedAt>
+      <deviationsHash>35B224A8ECA88F9E00DFBC0D5A98CE09FB817E51B85A33042B6FEAFD14FCF44C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#a76e47c1-7a20-4999-a247-c9b513d6a85a</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/Events/OrderPaymentFailedIntegrationEvent .cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0525159Z</updatedAt>
+      <deviationsHash>46588BA59F8EE65C3B2DA74E60192E8782F0ED54FDC8EBE53C82E32CC519AA01</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#04c05246-9f39-4684-bc23-a1a517149722</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/Events/OrderPaymentSucceededIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0525277Z</updatedAt>
+      <deviationsHash>5F19CEB68A8F463594D26ED68095504E2130539EEE3331B5BB5BA01A5C32C3A4</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#8434de1a-c8ac-464e-9ab0-e155c0e53c85</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/Events/OrderStartedIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0525397Z</updatedAt>
+      <deviationsHash>8C0E903B657F0CB227DF48E61C0DCE3EC550CB890F1D1CD72332A00844204B3A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#9ee05ff1-5624-48c5-8983-92972c36f7ad</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/Events/OrderStatusChangedToAwaitingValidationIntegrationEvent.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0525523Z</updatedAt>
+      <deviationsHash>3116F11D6134E71E5DDF26E22C1CA765F723D7562EF7563F77A5FC2242593218</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#d72f3c8c-dd5c-4e7f-9ee6-904270715613</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/Events/OrderStatusChangedToCancelledIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0525662Z</updatedAt>
+      <deviationsHash>80304AB0ED0D26F04C54574F7323A38B8E8A69EA77B12ED8C972725F6B263595</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#62351911-3a5d-40be-a2ab-034912a6374c</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/Events/OrderStatusChangedToPaidIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0525769Z</updatedAt>
+      <deviationsHash>DBF2F0D1BF0D9C6E95643A08750C8DFB4DAD28AB0D2D1AFFE3B2005E1A0B9981</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#5421c6ae-ef6e-4605-bc3b-992fb51256ef</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/Events/OrderStatusChangedToShippedIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0525889Z</updatedAt>
+      <deviationsHash>1DDF4EF66C97585A7E2734BB0EDB651DCE144C6A39835103C4FDC598501437AB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#51a2a848-00c9-4544-a749-79e5dfd4b77b</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/Events/OrderStatusChangedToStockConfirmedIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0526001Z</updatedAt>
+      <deviationsHash>1CE976B3C64F93A0B4E8E79EF5B0C7C0938AB1D20C6887A21734260BC2404821</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#9816ac95-c126-4cfa-afca-0f75c83bd911</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/Events/OrderStatusChangedTosubmittedIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0526118Z</updatedAt>
+      <deviationsHash>2462FFE7CFCA153FA9E29094D0CF547455A210645270EE6D84CC7F83864D82E8</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#b6f94509-73d5-414e-8687-2c87c8f54d76</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/Events/OrderStockConfirmedIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0526224Z</updatedAt>
+      <deviationsHash>C3E00C5F3D2DB8CE86809D77296148A713906E63027AC2DFBE2D8C0BE5C93801</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#f19506f2-8762-4d26-802c-97c50d2f477a</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/Events/OrderStockRejectedIntegrationEvent.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0526347Z</updatedAt>
+      <deviationsHash>B8F35A9607D2F5D01AB96D3F2C03583D73AD24D30B30E2708B41DE6735689CE2</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#eea8195f-f5b3-43fe-bb78-ea821ed18103</correlationId>
+      <path>src/Ordering.API/Application/IntegrationEvents/OrderingIntegrationEventService.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.053082Z</updatedAt>
+      <deviationsHash>F1D18328232A47F038C9B9F4EB5E847AE60A935BBD1F0BC8C31877BC88273FBD</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DtoContract#6ff79b93-9f27-4696-9160-0f21665b0155</correlationId>
+      <path>src/Ordering.API/Application/Models/BasketItem.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0522815Z</updatedAt>
+      <deviationsHash>1D48F7CE10F7F70C7E2D607F44905AF910DF109A7076983EF9CDC3B2A40F3901</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DtoContract#76a9cd27-f536-4e75-941a-180fd79fcb46</correlationId>
+      <path>src/Ordering.API/Application/Models/CustomerBasket.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0523129Z</updatedAt>
+      <deviationsHash>B4CBC61BE18E47CB00802082B0393CBE4DC82EB5B558C336F65ACC2F1A64B42E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#6401266d-0812-4b5b-ac30-45d630a1cabd</correlationId>
+      <path>src/Ordering.API/Application/Queries/OrderQueries.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0530948Z</updatedAt>
+      <deviationsHash>41E27D2D8B0700D1FD61B2A40B0A402E71EFFC2FD3B37CF616AECD668171E86D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DtoContract#e71cbb46-29e2-494a-8f2e-a2e44ccdde0d</correlationId>
+      <path>src/Ordering.API/Application/Queries/OrderViewModel.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0523027Z</updatedAt>
+      <deviationsHash>F45E75C8BBF814C8DCB655869FD0DFBD60603F76645DD24295F4BCC4E3AD42E1</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#bb2e4cf1-06da-43a7-9ee0-977b5e957e98</correlationId>
+      <path>src/Ordering.API/Infrastructure/Services/IdentityService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0530689Z</updatedAt>
+      <deviationsHash>4B83F8EB624D53DF4070028045088064C23EB8CCD0A5196C9FEE39CFDB9ADD95</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.EntityContract#61a67154-8048-4011-bf04-19be21396a2f</correlationId>
+      <path>src/Ordering.Domain/AggregatesModel/BuyerAggregate/Buyer.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0533753Z</updatedAt>
+      <deviationsHash>D894C71532C74C01663928BA264189D350C5B38C92C628D8811B94309D3DADF9</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.EntityContract#a3369344-c726-402f-8c05-4c8252547e92</correlationId>
+      <path>src/Ordering.Domain/AggregatesModel/BuyerAggregate/CardType.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0533858Z</updatedAt>
+      <deviationsHash>8D4B650CFF8554F5CE1FD96714106E7229A96629EA5C0DA7231A6DE9829DE52E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.EntityContract#436c2166-3812-4d0a-9575-5e33a44c1396</correlationId>
+      <path>src/Ordering.Domain/AggregatesModel/BuyerAggregate/PaymentMethod.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0534321Z</updatedAt>
+      <deviationsHash>0DDACFFA09A633F70C9DEC468AE1CECAB23CAA40C0DDC174E90CBF9264942E0B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.ValueObjectContract#a032a54f-c99f-4595-9a63-9065251387a3</correlationId>
+      <path>src/Ordering.Domain/AggregatesModel/OrderAggregate/Address.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0537462Z</updatedAt>
+      <deviationsHash>7C22D9A4B0EA80061DFFD42AC0C2E545583F6E51B88AFEB38BB1C43229F600B9</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.EntityContract#40cec252-97ea-4da2-aaf1-86a50002a76a</correlationId>
+      <path>src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs</path>
+      <count>12</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0534053Z</updatedAt>
+      <deviationsHash>465CFB90AFBF83D7CBD4418C3BD946B53A0716C69AD51F84926284104CFC7F05</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.EntityContract#559fc284-22c9-4446-80f3-5ade2ab1d738</correlationId>
+      <path>src/Ordering.Domain/AggregatesModel/OrderAggregate/OrderItem.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.053419Z</updatedAt>
+      <deviationsHash>C765E801B0B2A6C88BF3747C9A41C442A1D67BAD9CFE56C33BCB81B70458BCDC</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.DomainEventContract#1e32efea-61e4-4e19-b6cb-e6b138bb36a0</correlationId>
+      <path>src/Ordering.Domain/Events/BuyerPaymentMethodVerifiedDomainEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0536755Z</updatedAt>
+      <deviationsHash>464FF0ACD6411FE580E33AFD3311267DAA4794103983B4D0BF7002807ABB89C3</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.DomainEventContract#b0f95c15-d452-4c5f-9f5f-a42fc2e25e79</correlationId>
+      <path>src/Ordering.Domain/Events/OrderCancelledDomainEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0536855Z</updatedAt>
+      <deviationsHash>4461369147E2D0F4B3A3736AB0CB72D70EC463C8C588E1710E9CB1823291335E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.DomainEventContract#d9adc183-ef34-46aa-b0e8-733372d474ba</correlationId>
+      <path>src/Ordering.Domain/Events/OrderShippedDomainEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0536958Z</updatedAt>
+      <deviationsHash>036E0A856EF22A053FC9B0F2C0A6A1AD2EDB8A263304E695452F3E9A5056A4EB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.DomainEventContract#20828c62-689b-40e8-b517-e52386fec4cb</correlationId>
+      <path>src/Ordering.Domain/Events/OrderStatusChangedToAwaitingValidationDomainEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0537152Z</updatedAt>
+      <deviationsHash>F9D1591475088EBF0A3F014C34998BEDAFFF796DF2FC52751D6C0DA68DFA88EB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.DomainEventContract#7814732d-f2bb-4710-ba63-93701093ee4f</correlationId>
+      <path>src/Ordering.Domain/Events/OrderStatusChangedToPaidDomainEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0537258Z</updatedAt>
+      <deviationsHash>3814B587D66CAFB6771DD5A55C725EC27DA2C6FB3722CBD99140F47B3383BA91</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.DomainEventContract#01f23c34-164f-4989-8522-029f99d00873</correlationId>
+      <path>src/Ordering.Domain/Events/OrderStatusChangedToStockConfirmedDomainEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0537358Z</updatedAt>
+      <deviationsHash>E15A82E92A5E273751FAF476FD81D1F7783B070557E6D17434DB94E25D2268F1</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.EntityContract#01757ffc-52e2-4d4b-a89f-4990f61d0caf</correlationId>
+      <path>src/Ordering.Infrastructure/Idempotency/ClientRequest.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0534432Z</updatedAt>
+      <deviationsHash>3A35F0FA902C71AFBBC71C2788EFE31830158B27030A04EC30925EB3170D92AC</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.RepositoryContract#f4995627-749b-4cbb-b246-93233bcd30ee</correlationId>
+      <path>src/Ordering.Infrastructure/Repositories/BuyerRepository.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0537601Z</updatedAt>
+      <deviationsHash>94B2110757805445DFF42B611FCB4ADC0EE40B774F57B5758452D4DC5D39B7C8</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.RepositoryContract#57f49ae1-5097-4394-a2cf-db05ab004464</correlationId>
+      <path>src/Ordering.Infrastructure/Repositories/OrderRepository.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0537737Z</updatedAt>
+      <deviationsHash>3A2164A4D8D8B05F2BA17B8926CBEE513F8ACC8AF5F5EA68BE11EE4B81E2443B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#4cde68fa-2b1e-476c-a02d-4a2e016875cc</correlationId>
+      <path>src/OrderProcessor/Events/GracePeriodConfirmedIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0526455Z</updatedAt>
+      <deviationsHash>EA24AA7B28D108E54786D47EDF75333BDFA8BF3227FD8585C4495F8C088289D9</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#74fb6ce6-c047-472a-81e6-cd7fd4497844</correlationId>
+      <path>src/OrderProcessor/Services/GracePeriodManagerService.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0531232Z</updatedAt>
+      <deviationsHash>33296D5091F814F4F920B7335D5240619EACEFCAB5597CBD423C5C32DCC152C7</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#80b98dfd-699e-4f36-92f4-0f51f41d1515</correlationId>
+      <path>src/OrderProcessor/Services/GracePeriodOrdersRepository.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0531344Z</updatedAt>
+      <deviationsHash>005E1ACEF13635B6837AE7EA42E43DE182EA5CECFEA6DD56CBC4945698974633</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#9856047f-ba81-4742-a153-da88c5ee2738</correlationId>
+      <path>src/PaymentProcessor/IntegrationEvents/EventHandling/OrderStatusChangedToStockConfirmedIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0528759Z</updatedAt>
+      <deviationsHash>C8F1724FD59B14519461B129A51472684A1602F6AC2093345DB7996513E0A165</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DtoContract#22d02320-3fe3-4663-b9e4-e8278d9aed34</correlationId>
+      <path>src/WebApp/Services/BasketCheckoutInfo.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0523379Z</updatedAt>
+      <deviationsHash>C0C9363A6FB3C554E7BE3446D21FB3E1450BEBEF243F8637210E9E98BC503560</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceProxyContract#e62f66cb-6e46-4d5b-9511-948f4e1b1d34</correlationId>
+      <path>src/WebApp/Services/BasketService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0537913Z</updatedAt>
+      <deviationsHash>F257153A922B1B702BE87B40B07F973FE8346EE3B15EBFE8FCE0ECD832559861</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#07c78d27-90a1-488a-b924-05cb7cd0422c</correlationId>
+      <path>src/WebApp/Services/BasketState.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0531482Z</updatedAt>
+      <deviationsHash>ACE694FC11D6D67F21F558B854279693BA260039FCF8A0FB7D8DE33D9DBB1127</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#05838e31-4213-47de-bc98-8d5cb918890d</correlationId>
+      <path>src/WebApp/Services/LogOutService.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0531593Z</updatedAt>
+      <deviationsHash>211877D1A8ADA6DA12491A7BAA31294D7D26F59FCDE4F65C6EC97E5EDF770D53</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceProxyContract#65e0d1e2-a067-41cd-9c93-a101f3df025d</correlationId>
+      <path>src/WebApp/Services/OrderingService.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.053803Z</updatedAt>
+      <deviationsHash>9DE6DE2BF0F3D6180AB542E95EC94E41160124CE13B7EBD6E99E8FE23E483386</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#8ab9ad58-fbc0-49dc-ab33-7c5218688a87</correlationId>
+      <path>src/WebApp/Services/OrderStatus/IntegrationEvents/EventHandling/OrderStatusChangedToAwaitingValidationIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0528882Z</updatedAt>
+      <deviationsHash>A21C3AAFD96101BA2AAA4B705BBFF17761375E13D58A85825D21F89A1E3C7EE6</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#2ac31413-5bf5-46ba-a3ec-9f09861fd22b</correlationId>
+      <path>src/WebApp/Services/OrderStatus/IntegrationEvents/EventHandling/OrderStatusChangedToCancelledIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0528998Z</updatedAt>
+      <deviationsHash>25A7526A5686E3A81C1EB07982C60EFB4BEA330584C33C00A85702D991D9BBEC</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#dfbb7058-6da7-42dc-b104-91784e9464cb</correlationId>
+      <path>src/WebApp/Services/OrderStatus/IntegrationEvents/EventHandling/OrderStatusChangedToPaidIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0529124Z</updatedAt>
+      <deviationsHash>A2776F0BD8855AB9BC67D1466A1DC3F78D97617CBA5A74D161A303303698C9C5</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#a3620ef2-7a87-4af0-9eef-3b069cff4956</correlationId>
+      <path>src/WebApp/Services/OrderStatus/IntegrationEvents/EventHandling/OrderStatusChangedToShippedIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0529242Z</updatedAt>
+      <deviationsHash>03C0FE7DEA4BB9182930CD3925E4E446774CA16439518AB692AA6EDDEDF50332</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#6ac1f14e-6141-4d14-9766-616786fc3ae7</correlationId>
+      <path>src/WebApp/Services/OrderStatus/IntegrationEvents/EventHandling/OrderStatusChangedToStockConfirmedIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0529364Z</updatedAt>
+      <deviationsHash>3EA4CA6BB7884DDF18922C7EB7113B4A17310E6324A3D3B323384C3628F4694F</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#2bb684f9-9cb6-4cae-8260-383f46d0c398</correlationId>
+      <path>src/WebApp/Services/OrderStatus/IntegrationEvents/EventHandling/OrderStatusChangedToSubmittedIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0529478Z</updatedAt>
+      <deviationsHash>74F3B5CD54FA769C26556260F9369EDCAC89A6734C8E993314669090BE7B42F2</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#696dd568-4535-4ae4-8b82-7f7804588436</correlationId>
+      <path>src/WebApp/Services/OrderStatus/IntegrationEvents/Events/OrderStatusChangedToAwaitingValidationIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0526899Z</updatedAt>
+      <deviationsHash>8C8C252062D9033366C439A39078CE73CAB305C88CD6208813D67E43CF205E02</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#cf91c08b-2e4e-4fd3-8a95-94d35cbf9329</correlationId>
+      <path>src/WebApp/Services/OrderStatus/IntegrationEvents/Events/OrderStatusChangedToCancelledIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0527011Z</updatedAt>
+      <deviationsHash>A06ECD27361232E41801276D0EF1BEC4132443DBEE96B2998E7FD9D9A25D2B2F</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#488bf7db-40d7-4584-9bc7-2f26b83c3903</correlationId>
+      <path>src/WebApp/Services/OrderStatus/IntegrationEvents/Events/OrderStatusChangedToPaidIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0527125Z</updatedAt>
+      <deviationsHash>FA3AA757B45529C70E6D4A8B1A0BC5538DC46C2688DAC7D0BF19F28F307711AA</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#1256629b-de11-43f0-bd2b-176be12c1de0</correlationId>
+      <path>src/WebApp/Services/OrderStatus/IntegrationEvents/Events/OrderStatusChangedToShippedIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0527229Z</updatedAt>
+      <deviationsHash>12B24C767BCDDB08FC8D3F2A1445A8D36B31A0B03653AFA72356D105C20092AE</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#dcc65758-5a36-455e-9be9-6ef3254c97f9</correlationId>
+      <path>src/WebApp/Services/OrderStatus/IntegrationEvents/Events/OrderStatusChangedToStockConfirmedIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.052735Z</updatedAt>
+      <deviationsHash>4EC8782EE50CC86B88E31EA87DBD74E89961031847F8D185EA74AC8BC1378C5E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventContract#70471a07-112a-41c5-a6ca-1c9f93223c18</correlationId>
+      <path>src/WebApp/Services/OrderStatus/IntegrationEvents/Events/OrderStatusChangedToSubmittedIntegrationEvent.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0527451Z</updatedAt>
+      <deviationsHash>B2D9DE4BEF04127741510B4FDF27148C2D390EB89015C1E67E5A1AEDDD71250C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#e5bab136-703a-4067-a8ac-5c614cb20ba1</correlationId>
+      <path>src/WebApp/Services/OrderStatus/OrderStatusNotificationService.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0531716Z</updatedAt>
+      <deviationsHash>3C04DC40F7EFC05746461D74456B8809B33CDD26987B7168D56F1104F42D1832</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#506ea6dc-3840-409c-ae22-f21d7e4762bc</correlationId>
+      <path>src/WebApp/Services/ProductImageUrlProvider.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0531822Z</updatedAt>
+      <deviationsHash>D4F6318D30F70E1988B2F8648CCD0D891B7AC8865392294E59E333EE0C4A76D3</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceProxyContract#fe313dcb-060e-4124-93b0-762d4e564b6f</correlationId>
+      <path>src/WebAppComponents/Services/CatalogService.cs</path>
+      <count>8</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0538194Z</updatedAt>
+      <deviationsHash>D60041E9C983D1CAB206FA9B8A1791D8F7CECFE73B61BE563C051C8B6948D8A3</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#498be2cf-3ce1-4606-b6c1-5e1dcf6cc9f7</correlationId>
+      <path>src/WebhookClient/Services/HooksRepository.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0531946Z</updatedAt>
+      <deviationsHash>48AF3058512BCA5C7F9BCCD70A5D9A924767E2536864C6668CCE4A0B13F04B2E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceProxyContract#f25fbadb-d4c2-4acb-96d7-0baa165984dc</correlationId>
+      <path>src/WebhookClient/Services/WebHooksClient.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0538309Z</updatedAt>
+      <deviationsHash>4C713FBFD8A63FACDFF1B7A1353124D54CF14D8020B2C61941B39279BA55FDE0</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#a4c6b073-23dd-4e43-9498-d9bd938ee4f7</correlationId>
+      <path>src/Webhooks.API/IntegrationEvents/OrderStatusChangedToPaidIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.052959Z</updatedAt>
+      <deviationsHash>FA0D512CFB3EB4F3C8990B3EB3085A022159E8B714D256F4E3C883F89A0DFD0D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#c7cc6d95-5b24-473c-be7c-da8d0317af84</correlationId>
+      <path>src/Webhooks.API/IntegrationEvents/OrderStatusChangedToShippedIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0529693Z</updatedAt>
+      <deviationsHash>3AAC33D2F4256647F55485F788267F56B2E7E09842499A887CED7266E911BDB1</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract#416441ff-bdbc-4117-8aa6-4d376ffacd06</correlationId>
+      <path>src/Webhooks.API/IntegrationEvents/ProductPriceChangedIntegrationEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0529801Z</updatedAt>
+      <deviationsHash>4FE041C92ABBBBB1862E1699AAD16EB9F675C36475CFC743DFF4068329579BC1</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DtoContract#2c234c63-f426-4d5a-8e87-50e1b4dc2605</correlationId>
+      <path>src/Webhooks.API/Model/WebhookData.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0524166Z</updatedAt>
+      <deviationsHash>E4C07A56A6556C13D7ECD2060C62740A8B9A97E59F67E92E00D25AC010607518</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Domain.Guardrails.Contracts.EntityContract#89439624-5e3b-4aca-a953-deb675dd3c3f</correlationId>
+      <path>src/Webhooks.API/Model/WebhookSubscription.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0534529Z</updatedAt>
+      <deviationsHash>01CA0354FCE3DBB0D2B4E80CDB568BDBD0C1068759F2DB59617B199CE2395C52</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.DtoContract#44b29b77-43bb-450e-9ac3-c83d7fcea174</correlationId>
+      <path>src/Webhooks.API/Model/WebhookSubscriptionRequest.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0524262Z</updatedAt>
+      <deviationsHash>9154D3AB8CA97533F89F418DB8C30CE5566E507BA8D92D5CD0A83C44369B06B5</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#977cb6d4-8cd2-4866-a35e-baeeda60c5b2</correlationId>
+      <path>src/Webhooks.API/Services/GrantUrlTesterService.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0532064Z</updatedAt>
+      <deviationsHash>36AEBB561D882C53B4B968C2547F47C60D81E3BB10728C893863817CA574315F</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#00c46777-88fc-41b2-b8b6-59a8b5f64b76</correlationId>
+      <path>src/Webhooks.API/Services/WebhooksRetriever.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.0532171Z</updatedAt>
+      <deviationsHash>854C56CC68668FE99B85D7ABBF1605D4BFFCAFBFBB750FA103821FC129E8B317</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Services.Guardrails.Contracts.ServiceContract#0d4e74a4-9b32-4c29-88f3-021e0b257c31</correlationId>
+      <path>src/Webhooks.API/Services/WebhooksSender.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:15:34.053228Z</updatedAt>
+      <deviationsHash>A4CD6FE0996F94DF75DA498D348CA79C95998EBD2D9C90C73C130897137C8DE3</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="58922d79-d5df-4d25-8354-15a14d2a8e80" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>skills</name>
+  <display>skills</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>cef539d9-8aba-4033-8fdb-85a3fc6f6e90</parentFolderId>
+  <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="881d7902-6d73-4705-ab65-de521f7e92ea" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Domain.Guardrails.Contracts.CosmosDbRecipeGuide</name>
+      <display>Intent.Domain.Guardrails.Contracts.CosmosDbRecipeGuide</display>
+      <externalReference>Intent.Domain.Guardrails.Contracts</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="30f05a47-eb66-4718-802c-0ab8bf17f30f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Domain.Guardrails.Contracts.DomainEventsRecipeGuide</name>
+      <display>Intent.Domain.Guardrails.Contracts.DomainEventsRecipeGuide</display>
+      <externalReference>Intent.Domain.Guardrails.Contracts</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="cb42f1b6-4ba1-48eb-9be3-65b194ad4c1e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Domain.Guardrails.Contracts.EfCoreRecipeGuide</name>
+      <display>Intent.Domain.Guardrails.Contracts.EfCoreRecipeGuide</display>
+      <externalReference>Intent.Domain.Guardrails.Contracts</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="21f4e5ee-c181-47b0-979d-c71eac226b64" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Domain.Guardrails.Contracts.MongoDbRecipeGuide</name>
+      <display>Intent.Domain.Guardrails.Contracts.MongoDbRecipeGuide</display>
+      <externalReference>Intent.Domain.Guardrails.Contracts</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="14fed639-7557-49f0-b6f4-b090d3b2a58d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Domain.Guardrails.Contracts.ReverseEngineerDomainSkill</name>
+      <display>Intent.Domain.Guardrails.Contracts.ReverseEngineerDomainSkill</display>
+      <externalReference>Intent.Domain.Guardrails.Contracts</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="7621eeaa-c0e8-4395-be6e-5322c47dd3f5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Services.Guardrails.Contracts.AspNetCoreControllersRecipeGuide</name>
+      <display>Intent.Services.Guardrails.Contracts.AspNetCoreControllersRecipeGuide</display>
+      <externalReference>Intent.Services.Guardrails.Contracts</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="23d2ee66-ea6b-4f2d-83e6-1254293cdf53" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Services.Guardrails.Contracts.FastEndpointsRecipeGuide</name>
+      <display>Intent.Services.Guardrails.Contracts.FastEndpointsRecipeGuide</display>
+      <externalReference>Intent.Services.Guardrails.Contracts</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="df776e16-0f6b-4206-983d-49e95908e103" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Services.Guardrails.Contracts.HandlerIntentRecipeGuide</name>
+      <display>Intent.Services.Guardrails.Contracts.HandlerIntentRecipeGuide</display>
+      <externalReference>Intent.Services.Guardrails.Contracts</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="9453c04e-26d8-4a85-827e-b7964e6c605a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Services.Guardrails.Contracts.MinimalApisRecipeGuide</name>
+      <display>Intent.Services.Guardrails.Contracts.MinimalApisRecipeGuide</display>
+      <externalReference>Intent.Services.Guardrails.Contracts</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="282c322d-dd22-4cdf-8611-d1cb6a5c8087" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Services.Guardrails.Contracts.ReverseEngineerServicesSkill</name>
+      <display>Intent.Services.Guardrails.Contracts.ReverseEngineerServicesSkill</display>
+      <externalReference>Intent.Services.Guardrails.Contracts</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="fc3583a0-cde9-42a7-99f3-5756d525d98b" type="Output Anchor" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>AI.Context.Skills</name>
+      <display>AI.Context.Skills</display>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a23c7901-31a5-4cbf-b8bf-1be128977e6d" name="Output Anchor Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="8d79a350-96f1-4d50-bb0a-f65a5c53ec62" display="Create Sub-Folders" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="d9a3da70-aae4-4b47-9171-f144d5c89946" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Common.Drift.ConfigureDriftCheckSkill</name>
+      <display>Intent.Common.Drift.ConfigureDriftCheckSkill</display>
+      <externalReference>Intent.Common.Drift</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="31571dd8-7e65-4bcc-b880-f1c35dbf418b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Common.Drift.IntentDriftReference</name>
+      <display>Intent.Common.Drift.IntentDriftReference</display>
+      <externalReference>Intent.Common.Drift</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="ad3ce40e-14e3-470d-a1ed-f58ac6c4386a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Common.Drift.SyncModelSkill</name>
+      <display>Intent.Common.Drift.SyncModelSkill</display>
+      <externalReference>Intent.Common.Drift</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="5923e207-7276-4546-bed3-eb4aeb67df8a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Common.Drift.ValidateDriftRecipesSkill</name>
+      <display>Intent.Common.Drift.ValidateDriftRecipesSkill</display>
+      <externalReference>Intent.Common.Drift</externalReference>
+      <parentFolderId>58922d79-d5df-4d25-8354-15a14d2a8e80</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

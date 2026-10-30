@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="74fb6ce6-c047-472a-81e6-cd7fd4497844" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>BackgroundService: ExecuteAsync calls CheckConfirmedGracePeriodOrders every CheckUpdateTime seconds.</comment>
+  <name>GracePeriodManagerService</name>
+  <display>GracePeriodManagerService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>0bec65ca-485e-42cb-8a71-8d3461894482</parentFolderId>
+  <packageId>a0a8abdb-9c04-4964-b778-7a382ab6aca4</packageId>
+  <packageName>OrderProcessor</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" value="eShop.OrderProcessor.Services" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="30ab8380-20d4-41fc-9bcd-ac95350d9c6d" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CheckConfirmedGracePeriodOrders</name>
+      <display>CheckConfirmedGracePeriodOrders(): void</display>
+      <typeReference id="b0f636dd-9b89-4990-b868-ad91ad06e52b" />
+      <parentFolderId>74fb6ce6-c047-472a-81e6-cd7fd4497844</parentFolderId>
+      <packageId>a0a8abdb-9c04-4964-b778-7a382ab6aca4</packageId>
+      <packageName>OrderProcessor</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="true" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="internal" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="false" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <association id="4e039bed-ff0f-477b-969d-61be74221830">
+          <sourceEnd id="7698a6cc-37ad-48a5-baa0-6fb93f9c41af" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : GracePeriodManagerService.CheckConfirmedGracePeriodOrders</display>
+            <typeReference id="992a3be5-a9d3-4254-8b4c-484b839e4ca5">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="4e039bed-ff0f-477b-969d-61be74221830" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetConfirmedGracePeriodOrdersAsync(...): int[*]</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="ea6d12f3-473a-415f-82f6-08890c45936e">
+              <typeId>23703b0b-1708-476e-b355-1af2580ce73a</typeId>
+              <typeName>GetConfirmedGracePeriodOrdersAsync</typeName>
+              <isCollection>true</isCollection>
+              <typePackageName>OrderProcessor</typePackageName>
+              <typePackageId>a0a8abdb-9c04-4964-b778-7a382ab6aca4</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+        <association id="0c7a6386-51dc-49ce-a0d5-2d4f67b8eb2b">
+          <sourceEnd id="48c12dcc-7fce-490d-9f6a-da4c6752ed50" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+            <display>published by : GracePeriodManagerService.CheckConfirmedGracePeriodOrders</display>
+            <typeReference id="2d9b4d07-9375-4d4a-b1b7-5f58d1ed17ca">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="0c7a6386-51dc-49ce-a0d5-2d4f67b8eb2b" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+            <display>[publish] GracePeriodConfirmedIntegrationEvent</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="6d624a25-02ec-4e12-a824-34d86e1e72db">
+              <typeId>4cde68fa-2b1e-476c-a02d-4a2e016875cc</typeId>
+              <typeName>GracePeriodConfirmedIntegrationEvent</typeName>
+              <typePackageName>OrderProcessor.Eventing</typePackageName>
+              <typePackageId>f82e7a63-4eda-4639-93db-b0d1eb03fb29</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Publish Integration Event</associationType>
+          <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+        </association>
+      </children>
+    </element>
+  </children>
+</class>

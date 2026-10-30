@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<associationVisual id="f9dc87bf-36c7-4b48-a3bc-5b91279eea6c" zIndex="0">
+  <name>_to_cardTypes</name>
+  <sourceId>fe1fd5cd-8c91-4519-ae95-55fcf0503d61|6401266d-0812-4b5b-ac30-45d630a1cabd</sourceId>
+  <targetId>a3369344-c726-402f-8c05-4c8252547e92</targetId>
+  <targetPrefPoint x="100" y="30" />
+</associationVisual>

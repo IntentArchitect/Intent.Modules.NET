@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="70471a07-112a-41c5-a6ca-1c9f93223c18" zIndex="0">
+  <name>OrderStatusChangedToSubmittedIntegrationEvent</name>
+  <position x="0" y="850" />
+  <size width="200" height="70" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

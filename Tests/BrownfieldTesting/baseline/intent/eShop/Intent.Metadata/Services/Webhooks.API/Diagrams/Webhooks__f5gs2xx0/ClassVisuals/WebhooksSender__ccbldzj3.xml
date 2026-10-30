@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="0d4e74a4-9b32-4c29-88f3-021e0b257c31" zIndex="0">
+  <name>WebhooksSender</name>
+  <position x="800" y="320" />
+  <size width="200" height="80" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

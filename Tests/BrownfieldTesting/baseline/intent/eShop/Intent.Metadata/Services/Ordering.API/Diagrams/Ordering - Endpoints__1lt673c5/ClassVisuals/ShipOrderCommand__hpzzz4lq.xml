@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="dd3a4ee3-04e3-43fb-a5cd-f8dd3a3f6ae2" zIndex="0">
+  <name>ShipOrderCommand</name>
+  <position x="400" y="160" />
+  <size width="200" height="60" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

@@ -1,0 +1,10 @@
+{
+  "id": "CH2",
+  "title": "Change: make a relationship optional",
+  "lane": "ai",
+  "prompt": "A catalog item's brand should be optional.",
+  "done": "a catalog item can be saved without a brand: CatalogBrandId is nullable and the relationship optional",
+  "expect": [
+    { "id": "model", "net": "visible", "text": "The Domain designer has CatalogItem's relationship to CatalogBrand optional (0..1) and CatalogBrandId nullable (int?), matching the code." }
+  ]
+}

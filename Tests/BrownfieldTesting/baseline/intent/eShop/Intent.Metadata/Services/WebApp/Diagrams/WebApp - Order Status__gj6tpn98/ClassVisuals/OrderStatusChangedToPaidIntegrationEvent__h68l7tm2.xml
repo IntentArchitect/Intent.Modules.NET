@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="488bf7db-40d7-4584-9bc7-2f26b83c3903" zIndex="0">
+  <name>OrderStatusChangedToPaidIntegrationEvent</name>
+  <position x="0" y="340" />
+  <size width="200" height="70" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

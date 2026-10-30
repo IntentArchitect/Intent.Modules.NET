@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3c242d4c-1658-4fcb-a6da-b71055ecab77" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>WebApp - Basket</name>
+  <display>WebApp - Basket</display>
+  <parentFolderId>6fc5ab48-11ea-4b6d-8906-39e09a956f39</parentFolderId>
+  <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+  <packageName>WebApp</packageName>
+  <diagram>
+    <targetPackageId>3c242d4c-1658-4fcb-a6da-b71055ecab77</targetPackageId>
+  </diagram>
+</class>

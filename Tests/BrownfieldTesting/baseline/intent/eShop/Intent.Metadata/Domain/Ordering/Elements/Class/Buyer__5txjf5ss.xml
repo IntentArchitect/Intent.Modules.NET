@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="61a67154-8048-4011-bf04-19be21396a2f" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment>Aggregate root (IAggregateRoot). Key: Id (int) is declared on the SeedWork Entity base class, so it isn't modelled here. Id uses the HiLo sequence buyerseq.</comment>
+  <name>Buyer</name>
+  <display>Buyer</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>32875a8c-cdfa-4a47-952a-cb7963507c2e</parentFolderId>
+  <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+  <packageName>Ordering</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="88722cfc-8f4e-4cc2-96f5-3635f5b520d1" name="File Config">
+      <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+      <properties>
+        <property name="11d2548c-4d37-4c5d-ab7b-ba60b4bc61be" display="Filename" />
+        <property name="e9476ee3-2e32-427f-95b2-938c8fb8397b" display="Namespace" value="eShop.Ordering.Domain.AggregatesModel.BuyerAggregate" />
+        <property name="df085ba5-b5b5-44f2-9690-51f3c8053736" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="dd205b32-b48b-4c77-98f5-faefb2c047ce" name="Table">
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="2b3a9df7-65e1-4800-b919-bef1a6b8f5a9" display="Name" value="buyers" />
+        <property name="13e6101f-0e37-4eda-a6ae-ec48cd9f8f4b" display="Schema" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="5730843f-b544-4f29-b1d5-216984c3e878" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>IdentityGuid</name>
+      <display>IdentityGuid: string</display>
+      <typeReference id="e494a3dd-7022-44d8-a815-eb8378565a3c">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>61a67154-8048-4011-bf04-19be21396a2f</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" value="200" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="bbe43b90-c20d-4fdb-8a55-9037a5f6bd0b" name="Index">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="3427ad7b-e1a6-4d36-9e12-c5ada14a414b" display="UniqueKey" />
+            <property name="a8f903d5-e8b6-4d15-aedb-08c6b290b733" display="Order" />
+            <property name="90002464-b824-40e2-9f73-32f306868897" display="IsUnique" value="true" />
+            <property name="ab0cf6c6-9589-44cb-98fb-507e554c2d9b" display="Sort Direction" value="Ascending" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="29a99c73-4e8c-46bc-ad3f-83fab4603c75" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string?</display>
+      <typeReference id="b81ad265-07b7-43d7-b987-cd2202b622ac">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>61a67154-8048-4011-bf04-19be21396a2f</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+    <element id="69f9c4b5-26af-46bf-bcd0-755ba2425174" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Buyer</name>
+      <display>Buyer()</display>
+      <parentFolderId>61a67154-8048-4011-bf04-19be21396a2f</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2189ac42-f723-4663-9673-80ad2cdd9f51" name="Constructor Configuration">
+          <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+          <properties>
+            <property name="1ece30f0-2390-47ff-84e4-06ca2681d174" display="Access Modifier" value="protected" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="4d70b03e-624f-48d9-a58c-f57ad325ebdc" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Buyer</name>
+      <display>Buyer(identity: string, name: string)</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <parentFolderId>61a67154-8048-4011-bf04-19be21396a2f</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <element id="c0d38fbd-b5ef-4c61-b073-3f24f37779d1" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>identity</name>
+          <display>in : identity: string</display>
+          <typeReference id="d14ba7a2-8b78-4a7a-84f8-27d29dc59dc4">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>4d70b03e-624f-48d9-a58c-f57ad325ebdc</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="61a21601-23af-4ea9-9002-c4c0d501afad" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>name</name>
+          <display>in : name: string</display>
+          <typeReference id="94c0ce51-d47a-4f32-891a-bc58c6aec193">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>4d70b03e-624f-48d9-a58c-f57ad325ebdc</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="b58e5360-5418-4d00-8f10-18f3be419d22" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>VerifyOrAddPaymentMethod</name>
+      <display>VerifyOrAddPaymentMethod(cardTypeId: int, alias: string, cardNumber: string, securityNumber: string, cardHolderName: string, expiration: datetime, orderId: int): PaymentMethod</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="5a8cbcca-6ae5-45b8-b67e-9568db654a85">
+        <typeId>436c2166-3812-4d0a-9575-5e33a44c1396</typeId>
+        <typeName>PaymentMethod</typeName>
+        <typePackageName>Ordering</typePackageName>
+        <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+      </typeReference>
+      <parentFolderId>61a67154-8048-4011-bf04-19be21396a2f</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <element id="44e36e0e-082d-4cab-917b-071e3bd8ed32" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardTypeId</name>
+          <display>in : cardTypeId: int</display>
+          <typeReference id="9dfaae12-e0ec-423b-aacf-4edc355f5eb1">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>b58e5360-5418-4d00-8f10-18f3be419d22</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="d71cd85e-c197-445c-9667-4f6ae371f5d6" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>alias</name>
+          <display>in : alias: string</display>
+          <typeReference id="ac821dea-647e-4d36-87c1-cd40df6f0ce9">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>b58e5360-5418-4d00-8f10-18f3be419d22</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="4c53f2d0-af37-4a34-b07d-db0871e8849a" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardNumber</name>
+          <display>in : cardNumber: string</display>
+          <typeReference id="503576c1-2360-4df8-8c80-ebfdfdfd82a4">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>b58e5360-5418-4d00-8f10-18f3be419d22</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="d959f568-3caa-4e94-baf5-85c240296f4b" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>securityNumber</name>
+          <display>in : securityNumber: string</display>
+          <typeReference id="c9b8a61a-d5f8-4e37-9228-a046e04caf2d">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>b58e5360-5418-4d00-8f10-18f3be419d22</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="bbaf0615-24fe-4880-85f0-a90209d2244b" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardHolderName</name>
+          <display>in : cardHolderName: string</display>
+          <typeReference id="f6e12509-34b2-49ce-94c4-e3f60ec905fd">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>b58e5360-5418-4d00-8f10-18f3be419d22</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="f5ce3b4c-d029-4e3e-9dc0-662d2d760076" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>expiration</name>
+          <display>in : expiration: datetime</display>
+          <typeReference id="17bf9d78-0b6a-45d7-9e56-90c13b2482cb">
+            <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+            <typeName>datetime</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>b58e5360-5418-4d00-8f10-18f3be419d22</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="6f1ff7e8-8bd8-4c2a-808b-96875e779fee" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>orderId</name>
+          <display>in : orderId: int</display>
+          <typeReference id="64201daa-6ac2-4fac-8d4f-83f998476d4f">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>b58e5360-5418-4d00-8f10-18f3be419d22</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <association id="ae3acc8e-f0a2-4eee-95b6-bf66fef740ca">
+          <sourceEnd id="4ce80672-93e1-4bcc-97ce-1cfc916e74d7" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+            <display>published by : Buyer.VerifyOrAddPaymentMethod</display>
+            <typeReference id="cdb0fae0-91be-484e-8f46-d5484da7f9a1">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="ae3acc8e-f0a2-4eee-95b6-bf66fef740ca" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+            <display>publishes : BuyerAndPaymentMethodVerifiedDomainEvent</display>
+            <typeReference id="e87606d9-a8d7-4a8b-acf5-e6adc1a2d306">
+              <typeId>1e32efea-61e4-4e19-b6cb-e6b138bb36a0</typeId>
+              <typeName>BuyerAndPaymentMethodVerifiedDomainEvent</typeName>
+              <typePackageName>Ordering</typePackageName>
+              <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Domain Event Origin Association</associationType>
+          <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <association id="96777631-85ec-4df4-a8f3-bf3ebe99151c">
+      <comment>HasMany(b =&gt; b.PaymentMethods).WithOne(): read-only view of the _paymentMethods field; the foreign key is the shadow property BuyerId (cascade delete).</comment>
+      <sourceEnd id="e3df57fc-c806-4b80-a8f0-685e485bb8ba" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+        <name>Buyer</name>
+        <display>Buyer: Buyer</display>
+        <typeReference id="6361e825-0f64-4049-9e7d-7f582882d0d3">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="96777631-85ec-4df4-a8f3-bf3ebe99151c" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+        <comment>HasMany(b =&gt; b.PaymentMethods).WithOne(): read-only view of the _paymentMethods field; the foreign key is the shadow property BuyerId (cascade delete).</comment>
+        <name>PaymentMethods</name>
+        <display>PaymentMethods: PaymentMethod[*]?</display>
+        <typeReference id="0bb48f43-60fb-4c25-b871-efba49edfe00">
+          <typeId>436c2166-3812-4d0a-9575-5e33a44c1396</typeId>
+          <typeName>PaymentMethod</typeName>
+          <isNullable>true</isNullable>
+          <isCollection>true</isCollection>
+          <typePackageName>Ordering</typePackageName>
+          <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+        </typeReference>
+        <stereotypes>
+          <stereotype stereotypeDefinitionId="04f4115f-35e9-4b60-b8c7-44ce30079d81" name="Collection Type">
+            <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+            <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+            <properties>
+              <property name="96b3601c-b192-46b3-b544-d7bb1a1c2781" display="Type" value="IEnumerable" />
+              <property name="7b992e9d-eafa-41b7-8efd-d4b689b534d4" display="Custom Format" />
+            </properties>
+          </stereotype>
+        </stereotypes>
+      </targetEnd>
+      <associationType>Association</associationType>
+      <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="04f4115f-35e9-4b60-b8c7-44ce30079d81" name="Collection Type">
+          <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+          <properties>
+            <property name="96b3601c-b192-46b3-b544-d7bb1a1c2781" display="Type" value="IEnumerable" />
+            <property name="7b992e9d-eafa-41b7-8efd-d4b689b534d4" display="Custom Format" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </association>
+  </children>
+</class>

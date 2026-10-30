@@ -1,0 +1,5 @@
+# Intent Architect
+
+**/.intent/*
+.cache/
+**/.specs/**/*.state.json

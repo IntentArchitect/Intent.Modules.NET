@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="4cde68fa-2b1e-476c-a02d-4a2e016875cc" zIndex="0">
+  <name>GracePeriodConfirmedIntegrationEvent</name>
+  <position x="400" y="180" />
+  <size width="200" height="70" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

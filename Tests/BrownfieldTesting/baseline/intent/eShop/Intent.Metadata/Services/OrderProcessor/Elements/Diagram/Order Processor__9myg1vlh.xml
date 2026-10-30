@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1bb1888b-7eb3-426c-a3e7-46c8a7355d44" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Order Processor</name>
+  <display>Order Processor</display>
+  <parentFolderId>a2187726-1a00-42d8-8a96-02733f29d4ea</parentFolderId>
+  <packageId>a0a8abdb-9c04-4964-b778-7a382ab6aca4</packageId>
+  <packageName>OrderProcessor</packageName>
+  <diagram>
+    <targetPackageId>1bb1888b-7eb3-426c-a3e7-46c8a7355d44</targetPackageId>
+  </diagram>
+</class>

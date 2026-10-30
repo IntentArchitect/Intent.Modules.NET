@@ -1,0 +1,21 @@
+diff --git a/intent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml b/intent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml
+index 5fddeb7..953dc3d 100644
+--- a/intent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml
++++ b/intent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml
+@@ -111,6 +111,16 @@
+       <parentFolderId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</parentFolderId>
+       <packageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</packageId>
+       <packageName>Catalog</packageName>
++      <stereotypes>
++        <stereotype stereotypeDefinitionId="8775f4d0-7ffd-4678-a6a8-fd7e0c6fbc87" name="Decimal Constraints">
++          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
++          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
++          <properties>
++            <property name="849d8f6f-573f-428a-bc46-8db2614c47c9" display="Precision" value="18" />
++            <property name="ff13f032-826f-4ca3-9806-ea4f10b8d600" display="Scale" value="4" />
++          </properties>
++        </stereotype>
++      </stereotypes>
+     </element>
+     <element id="6f8903f0-80b8-4e0c-9f29-f848d95bad78" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+       <name>PictureFileName</name>

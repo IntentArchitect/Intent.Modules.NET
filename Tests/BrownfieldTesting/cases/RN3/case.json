@@ -1,0 +1,11 @@
+{
+  "id": "RN3",
+  "title": "Rename: an integration event across services",
+  "lane": "ai",
+  "prompt": "Rename OrderStatusChangedToShippedIntegrationEvent to OrderShippedIntegrationEvent everywhere it's published or handled.",
+  "done": "the event is OrderShippedIntegrationEvent in every service that publishes or handles it",
+  "expect": [
+    { "id": "message", "net": "visible", "text": "The Services designer's message is named OrderShippedIntegrationEvent, renamed in place." },
+    { "id": "subscriptions", "net": "blind", "text": "Every publish and subscription the old message had in the model is kept on the renamed one." }
+  ]
+}

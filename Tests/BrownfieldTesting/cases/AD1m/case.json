@@ -1,0 +1,16 @@
+{
+  "id": "AD1m",
+  "title": "Model first: implement a feature the developer modelled",
+  "lane": "manual",
+  "plants": ["ad1m"],
+  "prompt": "I've modelled discontinuing catalog items in the designers: CatalogItem.IsDiscontinued and a PUT /api/catalog/items/{id}/discontinue endpoint. Implement it, and hide discontinued items from the item lists.",
+  "done": "the discontinue endpoint sets the item's IsDiscontinued and saves it, and the item list endpoints leave discontinued items out",
+  "expect": [
+    {
+      "id": "merged",
+      "net": "visible",
+      "text": "CatalogItem.IsDiscontinued and the discontinue endpoint's method are in the code, merged into the existing hand-written files with no hand-written code lost."
+    },
+    { "id": "model-kept", "net": "visible", "text": "The developer's model changes are kept as they were modelled." }
+  ]
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cf92844c-64ce-412b-9fb4-d6a6c3aafd0c">
+  <sourceEnd id="6ab17417-ad94-4df2-9d1b-76519e726ee6" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : OrderStatusChangedToPaidIntegrationEventHandler.Handler</display>
+    <typeReference id="ee925b46-574a-41a6-99fa-8d3cc241b6ef">
+      <typeId>dbd8fa97-afbf-4514-a3e6-53a14d37f134</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Catalog.API</typePackageName>
+      <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="cf92844c-64ce-412b-9fb4-d6a6c3aafd0c" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>catalogItem</name>
+    <display>[update] catalogItem: RemoveStock</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c599baaf-01a2-4452-9a66-47fea2c1c273">
+      <typeId>a074dbb0-27c0-4f9e-87a0-2e27558b6829</typeId>
+      <typeName>RemoveStock</typeName>
+      <typePackageName>Catalog</typePackageName>
+      <typePackageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+</association>

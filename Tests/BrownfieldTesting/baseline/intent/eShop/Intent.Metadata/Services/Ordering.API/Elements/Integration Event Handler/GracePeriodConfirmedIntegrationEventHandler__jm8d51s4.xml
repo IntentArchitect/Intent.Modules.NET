@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="843880f0-d486-4a52-945e-239f206f4015" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>GracePeriodConfirmedIntegrationEventHandler</name>
+  <display>GracePeriodConfirmedIntegrationEventHandler</display>
+  <parentFolderId>fa445298-64eb-4674-a5e0-df4671852d6b</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <association id="13d622a2-0be3-4208-a34b-3d8fd74ceb87">
+      <sourceEnd id="b199b4ca-b479-48a0-a47c-344740d8555c" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+        <display>handled by: EventHandling.GracePeriodConfirmedIntegrationEventHandler</display>
+        <typeReference id="0fb0a530-1c01-448f-b719-5ffed2099e82">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="13d622a2-0be3-4208-a34b-3d8fd74ceb87" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+        <name>Handler</name>
+        <display>[handles] GracePeriodConfirmedIntegrationEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="e1852501-7ee9-470c-b307-3db8159afb29">
+          <typeId>1a025d8b-18a7-43e3-b0d8-de8f8820a0fe</typeId>
+          <typeName>GracePeriodConfirmedIntegrationEvent</typeName>
+          <typePackageName>Ordering.API.Eventing</typePackageName>
+          <typePackageId>54cb363b-5140-4891-b45f-ee554a76d9c4</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Subscribe Integration Event</associationType>
+      <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+    </association>
+  </children>
+</class>

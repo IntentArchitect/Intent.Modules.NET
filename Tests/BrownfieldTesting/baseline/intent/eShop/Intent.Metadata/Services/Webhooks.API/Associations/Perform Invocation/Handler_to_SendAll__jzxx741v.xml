@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="57aaf1f5-5455-4b10-a203-e5bfb2168c0e">
+  <sourceEnd id="8ed8d6be-99dd-4eda-9444-9af807df7716" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderStatusChangedToPaidIntegrationEventHandler.Handler</display>
+    <typeReference id="1030e87b-4f74-4843-a6e1-de67fa14d4bf">
+      <typeId>2dc61eed-69ba-416b-aa14-c5be5030e52b</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Webhooks.API</typePackageName>
+      <typePackageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="57aaf1f5-5455-4b10-a203-e5bfb2168c0e" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] SendAll(...): void</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="e1d11c69-f2ac-44c4-b59a-c30d645ff3c6">
+      <typeId>8d6ab39e-0016-49e1-b704-d81ab33cb499</typeId>
+      <typeName>SendAll</typeName>
+      <typePackageName>Webhooks.API</typePackageName>
+      <typePackageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

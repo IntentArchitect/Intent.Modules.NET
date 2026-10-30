@@ -1,0 +1,344 @@
+{
+  "note": "EF Core (Npgsql) across five DbContexts: Catalog, Ordering, Webhooks, Identity and the shared IntegrationEventLog. Migrations are left out of `files`: they restate the model in string form. Nullable reference types are off everywhere but Catalog.API, and every non-nullable Catalog string carries [Required], so column.required uses the guide's nullable-off form for all of them.",
+  "files": [
+    "src/Ordering.Domain/**/*.cs",
+    "src/Ordering.Infrastructure/*.cs",
+    "src/Ordering.Infrastructure/EntityConfigurations/*.cs",
+    "src/Ordering.Infrastructure/Idempotency/*.cs",
+    "src/Ordering.Infrastructure/Repositories/*.cs",
+    "src/Catalog.API/Model/*.cs",
+    "src/Catalog.API/Infrastructure/*.cs",
+    "src/Catalog.API/Infrastructure/EntityConfigurations/*.cs",
+    "src/Webhooks.API/Model/*.cs",
+    "src/Webhooks.API/Infrastructure/*.cs",
+    "src/Identity.API/Models/*.cs",
+    "src/Identity.API/Data/*.cs",
+    "src/IntegrationEventLogEF/*.cs"
+  ],
+  "facts": {
+    "table.name": {
+      "find": [
+        "statement:Entity<{Entity}>",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure",
+        "class:{Entity}"
+      ],
+      "read": [
+        { "match": "\\.To(?:Table|View)\\(\"([^\"]+)\"" },
+        { "part": "declaration", "match": "\\[Table\\(\"([^\"]+)\"" },
+        { "match": "\\.To(?:Table|View)\\((?!\"|\\w+=>)[^)]*\\)", "unreadable": true },
+        { "match": "DbSet<{Entity}>(\\w+)(?:\\{|=>)" },
+        { "part": "declaration", "match": ":IdentityUser\\b", "value": "AspNetUsers", "note": "IdentityDbContext maps the user type to AspNetUsers" }
+      ],
+      "inherit": ["class:{Entity}", "property with DbSet<{Entity}>"],
+      "default": "{Entity}",
+      "unstated": "no `ToTable`, `[Table]` or `DbSet<{Entity}>` property, so EF Core names the table after the class"
+    },
+    "table.schema": {
+      "find": [
+        "statement:Entity<{Entity}>",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure",
+        "class:{Entity}"
+      ],
+      "read": [
+        { "match": "\\.To(?:Table|View)\\(\"[^\"]+\",(?:schema:)?\"([^\"]+)\"" },
+        { "part": "declaration", "match": "\\[Table\\(\"[^\"]+\",Schema=\"([^\"]+)\"" },
+        { "match": "\\.HasDefaultSchema\\(\"([^\"]+)\"" }
+      ],
+      "inherit": [
+        "class:{Entity}",
+        "class with DbSet<{Entity}> > statement with \\.HasDefaultSchema\\(",
+        "class with ApplyConfiguration\\(new {Entity}EntityTypeConfiguration\\(\\)\\) > statement with \\.HasDefaultSchema\\("
+      ],
+      "default": "",
+      "unstated": "no schema in `ToTable` or `[Table]`, and no `HasDefaultSchema` in the DbContext that maps `{Entity}`, so PostgreSQL's default schema (public)"
+    },
+    "table.kind": {
+      "find": [
+        "statement:Entity<{Entity}>",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure",
+        "class:{Entity}"
+      ],
+      "read": [{ "match": "\\.ToView\\(", "value": "View" }],
+      "default": "Table",
+      "unstated": "no `ToView`, so EF Core maps `{Entity}` to a table"
+    },
+    "key": {
+      "find": [
+        "statement:Entity<{Entity}>",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure",
+        "class:{Entity}"
+      ],
+      "read": [
+        { "match": "\\.HasKey\\(\\w+=>new\\{([^}]*)\\}" },
+        { "match": "\\.HasKey\\(\\w+=>\\w+\\.(\\w+)\\)" },
+        { "match": "\\.HasKey\\(((?:\"\\w+\",)*\"\\w+)\"\\)" },
+        { "match": "\\.HasNoKey\\(\\)|\\[Keyless\\]", "value": "" },
+        { "match": "\\[PrimaryKey\\(((?:(?:nameof\\([\\w.]+\\)|\"\\w+\"),)*(?:nameof\\([\\w.]+|\"\\w+))[)\"]" },
+        { "match": "\\[Key\\b[^\\]]*\\][^{;]*?(\\w+)(?:\\{|=>)" },
+        { "match": "\\b((?i:id|{Entity}id))(?:\\{|=>)" }
+      ],
+      "replace": [
+        { "match": "nameof\\(([\\w.]+)\\)?", "with": "$1" },
+        { "match": "\"", "with": "" },
+        { "match": "\\b\\w+\\.", "with": "" }
+      ],
+      "inherit": ["class:{Entity}"],
+      "default": "",
+      "unstated": "no `HasKey`, `[PrimaryKey]`, `[Key]`, or `Id` or `{Entity}Id` property on `{Entity}` itself, so its key comes from a base class (Ordering's `Entity`, Identity's `IdentityUser`), which the model doesn't state"
+    },
+    "column.name": {
+      "find": [
+        "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class:{Entity} > property:{Attribute}"
+      ],
+      "read": [
+        { "match": "\\.HasColumnName\\(\"([^\"]+)\"" },
+        { "part": "declaration", "match": "\\[Column\\(\"([^\"]+)\"" }
+      ],
+      "inherit": ["class:{Entity} > property:{Attribute}"],
+      "default": "",
+      "absent": "",
+      "unstated": "no `HasColumnName` or `[Column]` name for `{Attribute}`, so EF Core names the column after the property"
+    },
+    "column.type": {
+      "find": [
+        "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class:{Entity} > property:{Attribute}"
+      ],
+      "read": [
+        { "match": "HasColumnType\\(\"(?!(?i:n?varchar|n?text|character varying|decimal|numeric)\\b)([^\"]+)\"" },
+        { "part": "declaration", "match": "TypeName=\"(?!(?i:n?varchar|n?text|character varying|decimal|numeric)\\b)([^\"]+)\"" },
+        { "match": "^(?=.*\\.IsFixedLength\\(\\))(?=.*\\.IsUnicode\\(false\\)).*?\\.HasMaxLength\\((\\d+)\\)", "value": "char($1)" },
+        { "match": "^(?=.*\\.IsFixedLength\\(\\)).*?\\.HasMaxLength\\((\\d+)\\)", "value": "nchar($1)" }
+      ],
+      "inherit": ["class:{Entity} > property:{Attribute}"],
+      "default": "",
+      "absent": "",
+      "unstated": "no `HasColumnType` or `[Column(TypeName)]` for `{Attribute}`, so EF Core maps it by its type"
+    },
+    "column.textType": {
+      "find": [
+        "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class:{Entity} > property:{Attribute}"
+      ],
+      "read": [
+        { "match": "\\.IsFixedLength\\(\\)|(?:HasColumnType\\(|TypeName=)\"(?i:n?char)\\(", "value": "DEFAULT" },
+        { "match": "(?:HasColumnType\\(|TypeName=)\"((?i:n?varchar|n?text))\\b", "case": "upper" },
+        { "match": "(?:HasColumnType\\(|TypeName=)\"(?i:character varying)\\b", "value": "VARCHAR" },
+        { "match": "\\.IsUnicode\\(false\\)|\\[Unicode\\(false\\)\\]", "value": "VARCHAR" },
+        { "match": "\\.IsUnicode\\((?:true)?\\)|\\[Unicode(?:\\(true\\))?\\]", "value": "NVARCHAR" }
+      ],
+      "inherit": ["class:{Entity} > property:{Attribute}"],
+      "default": "DEFAULT",
+      "absent": "DEFAULT",
+      "unstated": "no `IsUnicode`, `[Unicode]` or text column type for `{Attribute}`, so Npgsql's default: `text`, or `character varying(n)` with a max length"
+    },
+    "column.maxLength": {
+      "find": [
+        "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class:{Entity} > property:{Attribute}"
+      ],
+      "read": [
+        { "match": "\\.IsFixedLength\\(\\)|(?:HasColumnType\\(|TypeName=)\"(?i:n?char)\\(", "value": "" },
+        { "match": "\\.HasMaxLength\\((\\d+)\\)" },
+        { "part": "declaration", "match": "\\[(?:MaxLength|StringLength)\\((\\d+)" },
+        { "match": "(?:HasColumnType\\(|TypeName=)\"(?i:n?varchar|character varying)\\((\\d+)\\)" }
+      ],
+      "inherit": ["class:{Entity} > property:{Attribute}"],
+      "default": "",
+      "absent": "",
+      "unstated": "no `HasMaxLength`, `[MaxLength]` or `[StringLength]` for `{Attribute}`, so no maximum length"
+    },
+    "column.required": {
+      "find": [
+        "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class:{Entity} > property:{Attribute}"
+      ],
+      "read": [
+        { "match": "\\.IsRequired\\(false\\)", "value": "false" },
+        { "match": "\\.IsRequired\\((?:true)?\\)", "value": "true" },
+        { "part": "declaration", "match": "\\[Required\\b", "value": "true" }
+      ],
+      "inherit": ["class:{Entity} > property:{Attribute}"],
+      "default": "false",
+      "unstated": "no `IsRequired()` or `[Required]` for `{Attribute}`, so EF Core maps it as nullable (nullable reference types are off, or the property is `string?`)"
+    },
+    "column.precision": {
+      "find": [
+        "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class:{Entity} > property:{Attribute}"
+      ],
+      "read": [
+        { "match": "\\.HasPrecision\\((\\d+)" },
+        { "part": "declaration", "match": "\\[Precision\\((\\d+)" },
+        { "match": "(?:HasColumnType\\(|TypeName=)\"(?i:decimal|numeric)\\((\\d+)" }
+      ],
+      "inherit": ["class:{Entity} > property:{Attribute}"],
+      "default": "",
+      "absent": "",
+      "unstated": "no `HasPrecision`, `[Precision]` or `decimal(p,s)` column type for `{Attribute}`, so Npgsql's unconstrained `numeric`"
+    },
+    "column.scale": {
+      "find": [
+        "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class:{Entity} > property:{Attribute}"
+      ],
+      "read": [
+        { "match": "\\.HasPrecision\\(\\d+,(\\d+)\\)" },
+        { "part": "declaration", "match": "\\[Precision\\(\\d+,(\\d+)\\)" },
+        { "match": "(?:HasColumnType\\(|TypeName=)\"(?i:decimal|numeric)\\(\\d+,\\s*(\\d+)\\)" }
+      ],
+      "inherit": ["class:{Entity} > property:{Attribute}"],
+      "default": "",
+      "absent": "",
+      "unstated": "no scale in `HasPrecision`, `[Precision]` or a `decimal(p,s)` column type for `{Attribute}`, so Npgsql's unconstrained `numeric`"
+    },
+    "column.default": {
+      "find": [
+        "statement:Entity<{Entity}> > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)"
+      ],
+      "read": [
+        { "match": "\\.HasDefaultValueSql\\(\"((?:[^\"\\\\]|\\\\.)*)\"\\)" },
+        { "match": "\\.HasDefaultValue\\(((?:[^()]|\\([^()]*\\))*)\\)" }
+      ],
+      "default": "",
+      "absent": "",
+      "unstated": "no `HasDefaultValue` or `HasDefaultValueSql` for `{Attribute}`, so the column has no default"
+    },
+    "relationship.multiplicity": {
+      "find": [
+        "statement:Entity<{Source}> > chain with (?:Has|Owns)(?:One|Many)\\(\\w+=>\\w+\\.{TargetEnd}[,)]",
+        "statement:Entity<{Target}> > chain with Has(?:One|Many)\\(\\w+=>\\w+\\.{SourceEnd}\\)",
+        "class with IEntityTypeConfiguration<{Source}> > method:Configure > chain with (?:Has|Owns)(?:One|Many)\\(\\w+=>\\w+\\.{TargetEnd}[,)]",
+        "class with IEntityTypeConfiguration<{Target}> > method:Configure > chain with Has(?:One|Many)\\(\\w+=>\\w+\\.{SourceEnd}\\)",
+        "class:{Source} > property:{TargetEnd}"
+      ],
+      "read": [
+        { "match": "(?<=OwnsOne\\(\\w+=>\\w+\\.{TargetEnd})[,)]", "value": "1->1" },
+        { "match": "(?<=OwnsMany\\(\\w+=>\\w+\\.{TargetEnd})[,)]", "value": "1->*" },
+        { "match": "(?<=HasMany\\(\\w+=>\\w+\\.{TargetEnd}\\))\\.WithMany\\(", "value": "*->*" },
+        { "match": "(?<=HasMany\\(\\w+=>\\w+\\.{TargetEnd}\\))\\.WithOne\\((?=.*\\.IsRequired\\(false\\))", "value": "0..1->*" },
+        { "match": "(?<=HasMany\\(\\w+=>\\w+\\.{TargetEnd}\\))\\.WithOne\\(", "value": "1->*" },
+        { "match": "(?<=HasOne\\(\\w+=>\\w+\\.{TargetEnd}\\))\\.WithMany\\((?=.*\\.IsRequired\\(false\\))", "value": "*->0..1" },
+        { "match": "(?<=HasOne\\(\\w+=>\\w+\\.{TargetEnd}\\))\\.WithMany\\((?=.*\\.IsRequired\\(\\))", "value": "*->1" },
+        { "match": "(?<=HasOne\\(\\w+=>\\w+\\.{TargetEnd}\\))\\.WithOne\\((?=.*\\.IsRequired\\(false\\))", "value": "1->0..1" },
+        { "match": "(?<=HasOne\\(\\w+=>\\w+\\.{TargetEnd}\\))\\.WithOne\\(", "value": "1->1" },
+        { "match": "(?<=HasMany\\(\\w+=>\\w+\\.{SourceEnd}\\))\\.WithMany\\(", "value": "*->*" },
+        { "match": "(?<=HasMany\\(\\w+=>\\w+\\.{SourceEnd}\\))\\.WithOne\\((?=.*\\.IsRequired\\(false\\))", "value": "*->0..1" },
+        { "match": "(?<=HasMany\\(\\w+=>\\w+\\.{SourceEnd}\\))\\.WithOne\\((?=.*\\.IsRequired\\(\\))", "value": "*->1" },
+        { "match": "(?<=HasOne\\(\\w+=>\\w+\\.{SourceEnd}\\))\\.WithMany\\((?=.*\\.IsRequired\\(false\\))", "value": "0..1->*" },
+        { "match": "(?<=HasOne\\(\\w+=>\\w+\\.{SourceEnd}\\))\\.WithMany\\(", "value": "1->*" },
+        { "match": "(?<=HasOne\\(\\w+=>\\w+\\.{SourceEnd}\\))\\.WithOne\\(", "value": "1->1" },
+        { "part": "declaration", "match": "<{Target}>{TargetEnd}\\b", "value": "1->*" },
+        { "part": "declaration", "match": "\\b{Target}\\?{TargetEnd}\\b", "value": "*->0..1" },
+        { "part": "declaration", "match": "\\?{TargetEnd}(?<=\\w)Id\\b", "value": "*->0..1" },
+        { "part": "declaration", "match": "\\b{Target} {TargetEnd}\\b", "value": "*->1" }
+      ],
+      "inherit": ["class:{Source} > property:{TargetEnd}Id", "class:{Source} > property:{TargetEnd}"],
+      "default": "*->1",
+      "unstated": "nothing makes the relationship optional (no `IsRequired(false)`, nullable `{TargetEnd}Id` or `{Target}?` navigation), so EF Core makes it required"
+    },
+    "relationship.foreignKey": {
+      "find": [
+        "statement:Entity<{Source}> > chain with (?:Has|Owns)(?:One|Many)\\(\\w+=>\\w+\\.{TargetEnd}[,)]",
+        "statement:Entity<{Target}> > chain with Has(?:One|Many)\\(\\w+=>\\w+\\.{SourceEnd}\\)",
+        "class with IEntityTypeConfiguration<{Source}> > method:Configure > chain with (?:Has|Owns)(?:One|Many)\\(\\w+=>\\w+\\.{TargetEnd}[,)]",
+        "class with IEntityTypeConfiguration<{Target}> > method:Configure > chain with Has(?:One|Many)\\(\\w+=>\\w+\\.{SourceEnd}\\)",
+        "class:{Source} > property:{TargetEnd}"
+      ],
+      "read": [
+        { "match": "\\.HasForeignKey(?:<\\w+>)?\\(\\w+=>new\\{([^}]*)\\}" },
+        { "match": "\\.HasForeignKey(?:<\\w+>)?\\(\\w+=>\\w+\\.(\\w+)\\)" },
+        {
+          "match": "\\.HasForeignKey(?:<\\w+>)?\\(\"_\\w+\"\\)",
+          "value": "",
+          "note": "A private backing field (PaymentMethod's `_cardTypeId`) holds the foreign key. The model has no fields, so, like a shadow property, it states no foreign key attribute."
+        },
+        { "match": "\\.HasForeignKey(?:<\\w+>)?\\(((?:\"\\w+\",)*\"\\w+)\"\\)" },
+        { "part": "declaration", "match": "\\[ForeignKey\\((?:nameof\\()?\"?([\\w.]+?)\"?\\)?\\)\\]" },
+        { "part": "declaration", "match": "\\b({TargetEnd}(?<=\\w)Id)\\b" },
+        { "part": "declaration", "match": "\\b({SourceEnd}(?<=\\w)Id)\\b" }
+      ],
+      "replace": [
+        { "match": "\"", "with": "" },
+        { "match": "\\b\\w+\\.", "with": "" }
+      ],
+      "inherit": ["class:{Source} > property:{TargetEnd}", "class:{Source} > property:{TargetEnd}Id", "class:{Target} > property:{SourceEnd}Id"],
+      "default": "",
+      "unstated": "no `HasForeignKey`, `[ForeignKey]` or `{TargetEnd}Id` property, so EF Core adds a shadow foreign key, which the model doesn't state"
+    },
+    "index.columns": {
+      "find": [
+        "statement:Entity<{Entity}> > chain with HasIndex\\([^;]*?\"{Index}\"\\)",
+        "statement:Entity<{Entity}> > chain with (?:HasDatabaseName|HasName)\\(\"{Index}\"\\)",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with HasIndex\\([^;]*?\"{Index}\"\\)",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with (?:HasDatabaseName|HasName)\\(\"{Index}\"\\)",
+        "class with \\[Index\\([^\\]]*Name=\"{Index}\""
+      ],
+      "read": [
+        { "match": "HasIndex\\(\\w+=>new\\{([^}]*)\\}" },
+        { "match": "HasIndex\\(\\w+=>\\w+\\.(\\w+)[,)]" },
+        { "part": "declaration", "match": "\\[Index\\(((?:(?:nameof\\([\\w.]+\\)|\"\\w+\"),)*(?:nameof\\([\\w.]+|\"\\w+))[)\"](?=[^\\]]*Name=\"{Index}\")" }
+      ],
+      "replace": [
+        { "match": "nameof\\(([\\w.]+)\\)?", "with": "$1" },
+        { "match": "\"", "with": "" },
+        { "match": "\\b\\w+\\.", "with": "" }
+      ],
+      "absent": "",
+      "unstated": "no index named `{Index}` on `{Entity}`"
+    },
+    "index.unique": {
+      "find": [
+        "statement:Entity<{Entity}> > chain with HasIndex\\([^;]*?\"{Index}\"\\)",
+        "statement:Entity<{Entity}> > chain with (?:HasDatabaseName|HasName)\\(\"{Index}\"\\)",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with HasIndex\\([^;]*?\"{Index}\"\\)",
+        "class with IEntityTypeConfiguration<{Entity}> > method:Configure > chain with (?:HasDatabaseName|HasName)\\(\"{Index}\"\\)",
+        "class with \\[Index\\([^\\]]*Name=\"{Index}\""
+      ],
+      "read": [
+        { "match": "\\.IsUnique\\((?:true)?\\)", "value": "true" },
+        { "part": "declaration", "match": "\\[Index\\((?=[^\\]]*Name=\"{Index}\")(?=[^\\]]*IsUnique=true)", "value": "true" }
+      ],
+      "default": "false",
+      "absent": "",
+      "unstated": "no `IsUnique()` or `IsUnique = true` on the index named `{Index}`"
+    },
+    "intent.raises": {
+      "find": "class:{Entity} > method:{Member}",
+      "read": [
+        { "part": "body", "match": "\\bnew ({DomainEvent})\\b" },
+        { "part": "body", "match": "\\bAdd({DomainEvent})\\(" }
+      ],
+      "default": "",
+      "unstated": "no `new {DomainEvent}` or `Add{DomainEvent}(…)` in `{Member}`"
+    }
+  },
+  "own": [
+    { "kind": "entity configuration", "find": "statement with \\bEntity<(\\w+)>\\(", "name": "$1" },
+    { "kind": "entity configuration", "find": "class with IEntityTypeConfiguration<(\\w+)>", "name": "$1" },
+    {
+      "kind": "index",
+      "note": "Only named indexes: `HasIndex(\"IdentityGuid\")` names a property, not an index.",
+      "find": ["chain with HasIndex\\(\\w+=>[^;]*?,\"(\\w+)\"\\)", "chain with (?:HasDatabaseName|HasName)\\(\"(\\w+)\"\\)"],
+      "name": "$1"
+    },
+    {
+      "kind": "Entity",
+      "note": "Ordering's entities derive from the SeedWork `Entity` base.",
+      "find": "class with :Entity\\b",
+      "files": "src/Ordering.Domain/AggregatesModel/**/*.cs"
+    },
+    { "kind": "Value Object", "find": "class with :ValueObject\\b", "files": "src/Ordering.Domain/AggregatesModel/**/*.cs" },
+    { "kind": "Domain Event", "find": "class with :INotification\\b", "files": "src/Ordering.Domain/Events/*.cs" },
+    { "kind": "Repository", "find": "class with :I\\w+Repository\\b", "files": "src/Ordering.Infrastructure/Repositories/*.cs" }
+  ]
+}

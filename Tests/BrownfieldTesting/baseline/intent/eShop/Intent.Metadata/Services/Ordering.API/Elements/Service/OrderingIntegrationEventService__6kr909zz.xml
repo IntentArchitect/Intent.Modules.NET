@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="eea8195f-f5b3-43fe-bb78-ea821ed18103" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>Outbox: AddAndSaveEventAsync writes the event inside the current transaction; TransactionBehavior calls PublishEventsThroughEventBusAsync after commit.</comment>
+  <name>OrderingIntegrationEventService</name>
+  <display>OrderingIntegrationEventService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>74b1d2cf-74d9-4c5f-a88c-1611469c1ef9</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <children>
+    <element id="4c380c58-78ee-45aa-8934-7b0fcf6dffd2" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>PublishEventsThroughEventBusAsync</name>
+      <display>PublishEventsThroughEventBusAsync(transactionId: guid): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="61a82bbd-a4ea-4b63-bdd0-b363cdb7888c" />
+      <parentFolderId>eea8195f-f5b3-43fe-bb78-ea821ed18103</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="8fc6046d-7395-4863-a6aa-d0572fdce600" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>transactionId</name>
+          <display>in : transactionId: guid</display>
+          <typeReference id="2338a01a-f9e3-42a7-9f14-166fe0b466ea">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <typeName>guid</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>4c380c58-78ee-45aa-8934-7b0fcf6dffd2</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="7383fca7-2729-496d-9d79-022ac68752ed" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>AddAndSaveEventAsync</name>
+      <display>AddAndSaveEventAsync(evt: IntegrationEvent): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="c7423634-5088-42be-8947-1f1051e632e5" />
+      <parentFolderId>eea8195f-f5b3-43fe-bb78-ea821ed18103</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="6436625a-893e-4a3a-9673-3a981054ae47" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>evt</name>
+          <display>in : evt: IntegrationEvent</display>
+          <typeReference id="89942b9e-14b5-43ac-bf7e-3aaf7e927ad3">
+            <typeId>498029a0-9891-4147-b6cb-9b37c98b8eb2</typeId>
+            <typeName>IntegrationEvent</typeName>
+            <typePackageName>IntegrationEventLog</typePackageName>
+            <typePackageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</typePackageId>
+          </typeReference>
+          <parentFolderId>7383fca7-2729-496d-9d79-022ac68752ed</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

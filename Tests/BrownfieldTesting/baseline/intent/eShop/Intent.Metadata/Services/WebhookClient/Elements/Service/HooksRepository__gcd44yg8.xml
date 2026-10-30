@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="498be2cf-3ce1-4606-b6c1-5e1dcf6cc9f7" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>In-memory store of received webhooks, with change subscriptions for the UI.</comment>
+  <name>HooksRepository</name>
+  <display>HooksRepository</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>3cdea20a-247b-4fb6-9482-cb54f482ace3</parentFolderId>
+  <packageId>c3f50fcd-8128-4334-8867-14c103eef48d</packageId>
+  <packageName>WebhookClient</packageName>
+  <children>
+    <element id="ff927b80-a485-424c-a8d0-baf189bad6fa" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>AddNew</name>
+      <display>AddNew(hook: WebHookReceived): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="7d8cc2d7-63f5-400b-9057-e62090d91700" />
+      <parentFolderId>498be2cf-3ce1-4606-b6c1-5e1dcf6cc9f7</parentFolderId>
+      <packageId>c3f50fcd-8128-4334-8867-14c103eef48d</packageId>
+      <packageName>WebhookClient</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="no async keyword" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="21174470-648c-4e7a-b163-1600780ef140" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>hook</name>
+          <display>in : hook: WebHookReceived</display>
+          <typeReference id="a6776d47-fcc0-492a-aed2-8cef6e5f73d2">
+            <typeId>73d8bf7e-0103-426d-b1d5-231463147204</typeId>
+            <typeName>WebHookReceived</typeName>
+            <typePackageName>WebhookClient</typePackageName>
+            <typePackageId>c3f50fcd-8128-4334-8867-14c103eef48d</typePackageId>
+          </typeReference>
+          <parentFolderId>ff927b80-a485-424c-a8d0-baf189bad6fa</parentFolderId>
+          <packageId>c3f50fcd-8128-4334-8867-14c103eef48d</packageId>
+          <packageName>WebhookClient</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="3a56f852-173b-42d0-993e-6198dce374d5" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetAll</name>
+      <display>GetAll(): WebHookReceived[*]</display>
+      <typeReference id="8ed5259e-2631-41cf-ba54-074fbd6ba74b">
+        <typeId>73d8bf7e-0103-426d-b1d5-231463147204</typeId>
+        <typeName>WebHookReceived</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>WebhookClient</typePackageName>
+        <typePackageId>c3f50fcd-8128-4334-8867-14c103eef48d</typePackageId>
+      </typeReference>
+      <parentFolderId>498be2cf-3ce1-4606-b6c1-5e1dcf6cc9f7</parentFolderId>
+      <packageId>c3f50fcd-8128-4334-8867-14c103eef48d</packageId>
+      <packageName>WebhookClient</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="IEnumerable" />
+            <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="no async keyword" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="a6892375-a39d-4500-aab0-a15150c3fc94" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Subscribe</name>
+      <display>Subscribe(callback: Func&lt;Task&gt;): IDisposable</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="47903a0d-baab-454c-9691-7283c2f70919">
+        <typeId>d0b21d98-f174-4c24-ab0d-ee480710316d</typeId>
+        <typeName>IDisposable</typeName>
+        <typePackageName>WebhookClient</typePackageName>
+        <typePackageId>c3f50fcd-8128-4334-8867-14c103eef48d</typePackageId>
+      </typeReference>
+      <parentFolderId>498be2cf-3ce1-4606-b6c1-5e1dcf6cc9f7</parentFolderId>
+      <packageId>c3f50fcd-8128-4334-8867-14c103eef48d</packageId>
+      <packageName>WebhookClient</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <children>
+        <element id="90b7447b-04d8-4f33-9333-1dd5d80385dc" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>callback</name>
+          <display>in : callback: Func&lt;Task&gt;</display>
+          <typeReference id="0ae13616-fd2f-4e90-a1d2-d9b558a39339">
+            <typeId>e4a0eb41-9e7a-458e-9e1c-f1fd60847bf4</typeId>
+            <typeName>Func&lt;Task&gt;</typeName>
+            <typePackageName>WebhookClient</typePackageName>
+            <typePackageId>c3f50fcd-8128-4334-8867-14c103eef48d</typePackageId>
+          </typeReference>
+          <parentFolderId>a6892375-a39d-4500-aab0-a15150c3fc94</parentFolderId>
+          <packageId>c3f50fcd-8128-4334-8867-14c103eef48d</packageId>
+          <packageName>WebhookClient</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="50ee6434-0656-46e9-b610-8a847eae5afc" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CatalogItemType</name>
+  <display>CatalogItemType</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>f815d432-ca8c-4b52-9bb6-b6bf026944b7</parentFolderId>
+  <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+  <packageName>WebAppComponents</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="6bbf9e89-c521-4122-aa53-3fc7786f1157" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="fd8a5276-96d8-4990-9b66-a9ffacca7749" display="Type" value="positional record" />
+        <property name="b08b54e6-92e3-45eb-a233-0c79b4d76aab" display="Modifiers" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" value="CatalogItem" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="33766912-277e-491a-8d70-0ae042bd739f" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Id</name>
+      <display>Id: int</display>
+      <typeReference id="0d587140-f5ac-447e-959c-b67d06a7bdd1">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>50ee6434-0656-46e9-b610-8a847eae5afc</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+    </element>
+    <element id="fecd292f-16c7-47ee-bb0d-6f1dee60798b" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Type</name>
+      <display>Type: string</display>
+      <typeReference id="61d076af-7cd5-4e59-a6d7-0de66e795166">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>50ee6434-0656-46e9-b610-8a847eae5afc</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+    </element>
+  </children>
+</class>

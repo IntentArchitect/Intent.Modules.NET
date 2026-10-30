@@ -1,0 +1,25 @@
+# Untracked, git-ignored paths copied into each new agent worktree, which git otherwise
+# checks out clean. Gitignore syntax: '!' negates, a trailing '/' means a directory, and a
+# pattern with no '/' inside it matches at ANY depth (add a leading '/' to pin it here).
+# Tracked files arrive with the checkout already, so only ignored ones are worth listing.
+
+# Intent Architect's module cache — without it every new worktree re-downloads every module
+# before the Software Factory can run. `.intent/` is the pre-5.x cache location.
+.cache/
+.intent/
+
+node_modules/
+
+# Local environment, never committed.
+.env
+.env.*
+
+# Per-machine AI agent config, which each agent reads from the repo root.
+.mcp.json
+.claude/
+.agents/
+.codex/
+.cursor/
+.github/
+.kiro/
+.opencode/

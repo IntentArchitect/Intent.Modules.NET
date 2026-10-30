@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="e484e205-b5bc-4649-b987-031061b5a9d9" zIndex="0">
+  <name>UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler</name>
+  <position x="400" y="950" />
+  <size width="200" height="90" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

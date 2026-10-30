@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1a025d8b-18a7-43e3-b0d8-de8f8820a0fe" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>GracePeriodConfirmedIntegrationEvent</name>
+  <display>GracePeriodConfirmedIntegrationEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>d6d03ecd-a11b-4664-ba7f-d8429bfc30b0</parentFolderId>
+  <packageId>54cb363b-5140-4891-b45f-ee554a76d9c4</packageId>
+  <packageName>Ordering.API.Eventing</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="9bb8b979-bcb2-4908-91d5-b65028475bb6" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="2f0cd31c-9b25-410b-bb47-ccb513504353" display="Type" value="record" />
+        <property name="7d854ec0-7ba8-48f5-a08e-539ef5fcb359" display="Modifiers" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="a4bb2a53-a499-4743-914d-0d68f2811673" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: int</display>
+      <typeReference id="e5ca706f-9929-4d64-8f76-8f414a0ab0df">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>1a025d8b-18a7-43e3-b0d8-de8f8820a0fe</parentFolderId>
+      <packageId>54cb363b-5140-4891-b45f-ee554a76d9c4</packageId>
+      <packageName>Ordering.API.Eventing</packageName>
+    </element>
+  </children>
+</class>

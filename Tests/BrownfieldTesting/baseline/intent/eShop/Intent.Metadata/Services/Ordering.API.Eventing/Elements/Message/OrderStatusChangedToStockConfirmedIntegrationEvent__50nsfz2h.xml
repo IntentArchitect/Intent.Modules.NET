@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="51a2a848-00c9-4544-a749-79e5dfd4b77b" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>OrderStatusChangedToStockConfirmedIntegrationEvent</name>
+  <display>OrderStatusChangedToStockConfirmedIntegrationEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>d6d03ecd-a11b-4664-ba7f-d8429bfc30b0</parentFolderId>
+  <packageId>54cb363b-5140-4891-b45f-ee554a76d9c4</packageId>
+  <packageName>Ordering.API.Eventing</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="9bb8b979-bcb2-4908-91d5-b65028475bb6" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="2f0cd31c-9b25-410b-bb47-ccb513504353" display="Type" value="record" />
+        <property name="7d854ec0-7ba8-48f5-a08e-539ef5fcb359" display="Modifiers" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="628a3fa7-8d29-4c8d-90d0-6dd76924c255" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: int</display>
+      <typeReference id="a75136c6-65ec-4a22-b4da-3f87a70f0f7a">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>51a2a848-00c9-4544-a749-79e5dfd4b77b</parentFolderId>
+      <packageId>54cb363b-5140-4891-b45f-ee554a76d9c4</packageId>
+      <packageName>Ordering.API.Eventing</packageName>
+    </element>
+    <element id="e604007d-0b56-4b13-b5ba-da2d32053e7f" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderStatus</name>
+      <display>OrderStatus: OrderStatus</display>
+      <typeReference id="c17324fb-957b-4fcd-ba2e-b7aa2d10a168">
+        <typeId>bfa4ae38-f37c-47a4-970a-6e073352be7a</typeId>
+        <typeName>OrderStatus</typeName>
+        <typePackageName>Ordering</typePackageName>
+        <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+      </typeReference>
+      <parentFolderId>51a2a848-00c9-4544-a749-79e5dfd4b77b</parentFolderId>
+      <packageId>54cb363b-5140-4891-b45f-ee554a76d9c4</packageId>
+      <packageName>Ordering.API.Eventing</packageName>
+    </element>
+    <element id="4eb788e6-2a07-464a-99ad-3927af7a1bdf" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>BuyerName</name>
+      <display>BuyerName: string</display>
+      <typeReference id="a4f54a63-cceb-4a20-bb1a-d8a7b03e79bc">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>51a2a848-00c9-4544-a749-79e5dfd4b77b</parentFolderId>
+      <packageId>54cb363b-5140-4891-b45f-ee554a76d9c4</packageId>
+      <packageName>Ordering.API.Eventing</packageName>
+    </element>
+    <element id="c50cd658-90fd-4ed5-83c1-34b5e3c83018" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>BuyerIdentityGuid</name>
+      <display>BuyerIdentityGuid: string</display>
+      <typeReference id="546b0de8-1feb-4159-9e93-f5575ebaee36">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>51a2a848-00c9-4544-a749-79e5dfd4b77b</parentFolderId>
+      <packageId>54cb363b-5140-4891-b45f-ee554a76d9c4</packageId>
+      <packageName>Ordering.API.Eventing</packageName>
+    </element>
+  </children>
+</class>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="b4f85a9b-652c-43a8-9dab-5e3d94681a44" zIndex="0">
+  <name>SetStockConfirmedOrderStatusCommand</name>
+  <position x="800" y="410" />
+  <size width="200" height="60" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

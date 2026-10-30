@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<associationVisual id="03e72b51-e8a8-44c1-b870-f2df7464f245" zIndex="0">
+  <name>Orders_to_Buyer</name>
+  <sourceId>40cec252-97ea-4da2-aaf1-86a50002a76a</sourceId>
+  <targetId>61a67154-8048-4011-bf04-19be21396a2f</targetId>
+  <targetPrefPoint x="100" y="80" />
+</associationVisual>

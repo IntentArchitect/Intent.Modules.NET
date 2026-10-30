@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bb2e4cf1-06da-43a7-9ee0-977b5e957e98" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>IdentityService</name>
+  <display>IdentityService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>d65b2a3f-4dd7-4f96-a1c1-ec0856abbd33</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <children>
+    <element id="1c042821-9a32-40b9-862b-12cc6c0e8f34" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetUserIdentity</name>
+      <display>GetUserIdentity(): string</display>
+      <typeReference id="8daa56d3-af30-4000-9791-a79de4b363a6">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>bb2e4cf1-06da-43a7-9ee0-977b5e957e98</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+    </element>
+    <element id="bffc13d3-88b1-4903-94a7-0b548a85ca2b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetUserName</name>
+      <display>GetUserName(): string</display>
+      <typeReference id="b897de28-5080-46dc-863a-ea76ae5cf4d3">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>bb2e4cf1-06da-43a7-9ee0-977b5e957e98</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+    </element>
+  </children>
+</class>

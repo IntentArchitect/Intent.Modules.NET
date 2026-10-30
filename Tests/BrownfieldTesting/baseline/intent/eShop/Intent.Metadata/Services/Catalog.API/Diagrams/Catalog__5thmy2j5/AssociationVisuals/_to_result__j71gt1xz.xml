@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<associationVisual id="1fb9cbea-cf15-4026-90ca-b2f80ddd5a67" zIndex="0">
+  <name>_to_result</name>
+  <sourceId>19177640-e615-400f-9319-aaf5c0a78f1f|29aeedc2-9202-4e2b-970e-fa13d98d6f70</sourceId>
+  <targetId>62bd33e5-b9d6-4a1d-8b7d-8761e8de5084|29aeedc2-9202-4e2b-970e-fa13d98d6f70</targetId>
+  <targetPrefPoint x="100" y="18" />
+  <fixedPoints>
+    <point x="248" y="434" />
+    <point x="248" y="110" />
+  </fixedPoints>
+</associationVisual>

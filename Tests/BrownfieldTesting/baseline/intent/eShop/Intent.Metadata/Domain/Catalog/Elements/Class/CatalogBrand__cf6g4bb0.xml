@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="545453a5-a777-4d58-9f37-4d7739f58809" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>CatalogBrand</name>
+  <display>CatalogBrand</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>1ed27be3-2b3f-483f-ab67-7245005818b6</parentFolderId>
+  <packageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</packageId>
+  <packageName>Catalog</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="88722cfc-8f4e-4cc2-96f5-3635f5b520d1" name="File Config">
+      <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+      <properties>
+        <property name="11d2548c-4d37-4c5d-ab7b-ba60b4bc61be" display="Filename" />
+        <property name="e9476ee3-2e32-427f-95b2-938c8fb8397b" display="Namespace" value="eShop.Catalog.API.Model" />
+        <property name="df085ba5-b5b5-44f2-9690-51f3c8053736" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="dd205b32-b48b-4c77-98f5-faefb2c047ce" name="Table">
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="2b3a9df7-65e1-4800-b919-bef1a6b8f5a9" display="Name" value="CatalogBrand" />
+        <property name="13e6101f-0e37-4eda-a6ae-ec48cd9f8f4b" display="Schema" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="7dac861a-3c2f-4247-93a1-04c83e688f71" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: int</display>
+      <typeReference id="1b569482-5c3c-4abc-bf8e-2135523b26d7">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>545453a5-a777-4d58-9f37-4d7739f58809</parentFolderId>
+      <packageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</packageId>
+      <packageName>Catalog</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="1e7e7021-e722-49ad-831c-1f6dd7f7e4b9" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Brand</name>
+      <display>Brand: string</display>
+      <typeReference id="4f5f686f-1785-4100-a2ac-0484484fdbc9">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>545453a5-a777-4d58-9f37-4d7739f58809</parentFolderId>
+      <packageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</packageId>
+      <packageName>Catalog</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" value="100" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="e927e9a0-fc80-4cfb-a5ca-19aa7e457cd7" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>CatalogBrand</name>
+      <display>CatalogBrand(brand: string)</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <parentFolderId>545453a5-a777-4d58-9f37-4d7739f58809</parentFolderId>
+      <packageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</packageId>
+      <packageName>Catalog</packageName>
+      <children>
+        <element id="9a417342-1d88-4ab7-9247-e5c6e4295098" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>brand</name>
+          <display>in : brand: string</display>
+          <typeReference id="419aad0b-2c07-4129-a37b-8775df0d4b7b">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>e927e9a0-fc80-4cfb-a5ca-19aa7e457cd7</parentFolderId>
+          <packageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</packageId>
+          <packageName>Catalog</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

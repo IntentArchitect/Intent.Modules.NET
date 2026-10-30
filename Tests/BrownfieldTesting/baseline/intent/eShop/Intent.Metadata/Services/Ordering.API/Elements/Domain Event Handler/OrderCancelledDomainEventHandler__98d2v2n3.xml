@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ce692386-e0c6-4148-91f2-8fb36fd3fc82" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>OrderCancelledDomainEventHandler</name>
+  <display>OrderCancelledDomainEventHandler</display>
+  <parentFolderId>ea181e59-618a-4ecb-b586-8373088d231c</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="5e0a9b42-c8e1-41b8-9bd4-071267e729f1" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="0d3123aa-b506-4aed-abbd-161e4e38bb64" display="Modifiers" value="public partial" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <association id="3bd93869-4698-4dbc-96ee-ccb9dfb3efa0">
+      <sourceEnd id="519303b5-6193-40ac-a2bc-ab6ab2e34546" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+        <display>: OrderCancelledDomainEventHandler</display>
+        <typeReference id="0d145ea0-49c3-4f40-beb4-a7262f0e05f6">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="3bd93869-4698-4dbc-96ee-ccb9dfb3efa0" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+        <name>handler</name>
+        <display>[handles] OrderCancelledDomainEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="90ccb657-059e-4234-8cac-d29b0f50a3aa">
+          <typeId>b0f95c15-d452-4c5f-9f5f-a42fc2e25e79</typeId>
+          <typeName>OrderCancelledDomainEvent</typeName>
+          <typePackageName>Ordering</typePackageName>
+          <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Domain Event Handler Association</associationType>
+      <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+    </association>
+  </children>
+</class>

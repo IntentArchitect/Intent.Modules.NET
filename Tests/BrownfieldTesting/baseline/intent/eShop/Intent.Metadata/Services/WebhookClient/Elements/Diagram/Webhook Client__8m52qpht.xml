@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="14adb27c-d9e0-4403-beae-3c848ba8b72d" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Webhook Client</name>
+  <display>Webhook Client</display>
+  <parentFolderId>2ff09bcb-f338-42f3-bdb8-a105811d02b5</parentFolderId>
+  <packageId>c3f50fcd-8128-4334-8867-14c103eef48d</packageId>
+  <packageName>WebhookClient</packageName>
+  <diagram>
+    <targetPackageId>14adb27c-d9e0-4403-beae-3c848ba8b72d</targetPackageId>
+  </diagram>
+</class>

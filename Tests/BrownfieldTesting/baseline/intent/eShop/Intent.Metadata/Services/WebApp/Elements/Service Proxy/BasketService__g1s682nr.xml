@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e62f66cb-6e46-4d5b-9511-948f4e1b1d34" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <comment>gRPC client wrapper over Basket.API (Basket.BasketClient generated from basket.proto).</comment>
+  <name>BasketService</name>
+  <display>BasketService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>f9ad17ae-d281-46ee-b575-261caf1ce41c</parentFolderId>
+  <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+  <packageName>WebApp</packageName>
+  <children>
+    <element id="e35bc10c-9f88-4213-8ac9-35d39f654381" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetBasketAsync</name>
+      <display>GetBasketAsync(): BasketQuantity[*]</display>
+      <typeReference id="12c3e95b-253b-49a0-819f-694145e729d2">
+        <typeId>2c71ea42-820d-49dd-92e8-fd89d5c8aaff</typeId>
+        <typeName>BasketQuantity</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>WebApp</typePackageName>
+        <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+      </typeReference>
+      <parentFolderId>e62f66cb-6e46-4d5b-9511-948f4e1b1d34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="def585dc-4000-4215-969b-fcf9afd61c34" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="0221edd9-aa90-48a3-83c4-240cf9bfbf3a" display="Type" value="IReadOnlyCollection" />
+            <property name="5109b1b3-81a6-418e-b1e8-b39ea18821c5" display="Custom Format" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="38da9465-4099-4b22-ac5a-a01cde22dec2" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="b82f3fd2-7147-4f2c-a75b-6584b755f184" display="Include Cancellation Token" value="false" />
+            <property name="48ff7dfe-d6b8-4c41-bb48-c43b6d89e4a8" display="Async Mode" value="async" />
+            <property name="9a2d0802-e9ae-4f1b-a64b-74599d35050a" display="Task Type" />
+            <property name="32bcde4b-4a9c-4da6-a83e-02b644c28cd3" display="Cancellation Token Name" />
+            <property name="6deb3923-9e1e-4af7-8ca1-541ecf64360e" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="7b27e0a2-1719-4aec-bb7d-cf22f1e027a7" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DeleteBasketAsync</name>
+      <display>DeleteBasketAsync(): void</display>
+      <typeReference id="2a9d7ebe-0806-4459-88bf-7c02281024a6" />
+      <parentFolderId>e62f66cb-6e46-4d5b-9511-948f4e1b1d34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="38da9465-4099-4b22-ac5a-a01cde22dec2" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="b82f3fd2-7147-4f2c-a75b-6584b755f184" display="Include Cancellation Token" value="false" />
+            <property name="48ff7dfe-d6b8-4c41-bb48-c43b6d89e4a8" display="Async Mode" value="async" />
+            <property name="9a2d0802-e9ae-4f1b-a64b-74599d35050a" display="Task Type" />
+            <property name="32bcde4b-4a9c-4da6-a83e-02b644c28cd3" display="Cancellation Token Name" />
+            <property name="6deb3923-9e1e-4af7-8ca1-541ecf64360e" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="edbf3cce-a0ef-4ff5-9603-edb2808c52b4" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UpdateBasketAsync</name>
+      <display>UpdateBasketAsync(basket: BasketQuantity[*]): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="2c905e8a-ee68-4f21-87f6-39e00e69254b" />
+      <parentFolderId>e62f66cb-6e46-4d5b-9511-948f4e1b1d34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="38da9465-4099-4b22-ac5a-a01cde22dec2" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="b82f3fd2-7147-4f2c-a75b-6584b755f184" display="Include Cancellation Token" value="false" />
+            <property name="48ff7dfe-d6b8-4c41-bb48-c43b6d89e4a8" display="Async Mode" value="async" />
+            <property name="9a2d0802-e9ae-4f1b-a64b-74599d35050a" display="Task Type" />
+            <property name="32bcde4b-4a9c-4da6-a83e-02b644c28cd3" display="Cancellation Token Name" />
+            <property name="6deb3923-9e1e-4af7-8ca1-541ecf64360e" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="a170f9b5-8930-46d0-8b19-2040b92d3e3e" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>basket</name>
+          <display>basket: BasketQuantity[*]</display>
+          <typeReference id="8bb499c4-55bb-41b2-983a-e4cc21418d2a">
+            <typeId>2c71ea42-820d-49dd-92e8-fd89d5c8aaff</typeId>
+            <typeName>BasketQuantity</typeName>
+            <isCollection>true</isCollection>
+            <typePackageName>WebApp</typePackageName>
+            <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+          </typeReference>
+          <parentFolderId>edbf3cce-a0ef-4ff5-9603-edb2808c52b4</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="def585dc-4000-4215-969b-fcf9afd61c34" name="Collection Type">
+              <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+              <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+              <properties>
+                <property name="0221edd9-aa90-48a3-83c4-240cf9bfbf3a" display="Type" value="IReadOnlyCollection" />
+                <property name="5109b1b3-81a6-418e-b1e8-b39ea18821c5" display="Custom Format" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

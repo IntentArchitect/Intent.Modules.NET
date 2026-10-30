@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="22d02320-3fe3-4663-b9e4-e8278d9aed34" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>BasketCheckoutInfo</name>
+  <display>BasketCheckoutInfo</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>f9ad17ae-d281-46ee-b575-261caf1ce41c</parentFolderId>
+  <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+  <packageName>WebApp</packageName>
+  <children>
+    <element id="289fb0e5-dafe-4d62-824b-04667f9e4872" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Street</name>
+      <display>Street: string?</display>
+      <typeReference id="9a6fc3f7-3a50-4f21-baa2-0c8c9f7eb11f">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>22d02320-3fe3-4663-b9e4-e8278d9aed34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="c7c8073a-5d42-4a81-ac4f-730c8b66f293" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>City</name>
+      <display>City: string?</display>
+      <typeReference id="3f348ecf-8499-43a6-aa06-b37d36c31768">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>22d02320-3fe3-4663-b9e4-e8278d9aed34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="a6d0ca7d-5c50-4c05-bc82-02c8a4504500" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>State</name>
+      <display>State: string?</display>
+      <typeReference id="23948c98-1900-4ea9-b1b9-b8761a0b7269">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>22d02320-3fe3-4663-b9e4-e8278d9aed34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="b584cc8b-4b2c-498f-aa91-5759fbacc925" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Country</name>
+      <display>Country: string?</display>
+      <typeReference id="6c509d5e-9a13-437c-8644-6d414f094a4d">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>22d02320-3fe3-4663-b9e4-e8278d9aed34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="987f22f7-3c12-4aa4-b214-9bfde57cc4c5" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>ZipCode</name>
+      <display>ZipCode: string?</display>
+      <typeReference id="7a5c6d4d-0168-4837-8c82-dcadd88a73bb">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>22d02320-3fe3-4663-b9e4-e8278d9aed34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="bb494778-32e2-467f-a717-d4331e55bfff" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CardNumber</name>
+      <display>CardNumber: string?</display>
+      <typeReference id="bfe9dc7b-6d48-461e-a3d3-6b305465f5c8">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>22d02320-3fe3-4663-b9e4-e8278d9aed34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="cb0196a6-24d6-4988-840f-0ede4cabf856" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CardHolderName</name>
+      <display>CardHolderName: string?</display>
+      <typeReference id="2c622d8e-6fe6-4368-aa39-8fd66e3b41f1">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>22d02320-3fe3-4663-b9e4-e8278d9aed34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="84f6f9d2-a366-4e94-9bcf-4dcbc1eced9d" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CardSecurityNumber</name>
+      <display>CardSecurityNumber: string?</display>
+      <typeReference id="f7cd0667-9323-456c-8368-38b0b849556d">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>22d02320-3fe3-4663-b9e4-e8278d9aed34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="411d0465-5878-460e-bce3-5dce7967b9a3" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CardExpiration</name>
+      <display>CardExpiration: datetime?</display>
+      <typeReference id="d875f776-575a-4505-99f5-b2fe31f54616">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <typeName>datetime</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>22d02320-3fe3-4663-b9e4-e8278d9aed34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="2f25a628-1ef8-4ddc-b8c5-560c7b72c240" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>CardTypeId</name>
+      <display>CardTypeId: int</display>
+      <typeReference id="bf163d3b-984b-4dbb-a79c-c4fffe71ae0b">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>22d02320-3fe3-4663-b9e4-e8278d9aed34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="3eddb0d4-5080-4b31-ae8c-bf7dc9172235" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Buyer</name>
+      <display>Buyer: string?</display>
+      <typeReference id="51924de9-b423-40a8-b5d7-36628af52a39">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>22d02320-3fe3-4663-b9e4-e8278d9aed34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+    <element id="3146fd75-367c-42f0-8233-505c5878e78e" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>RequestId</name>
+      <display>RequestId: guid</display>
+      <typeReference id="33658391-3db4-42fb-8876-26f6de52a1d8">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>22d02320-3fe3-4663-b9e4-e8278d9aed34</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+    </element>
+  </children>
+</class>

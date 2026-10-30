@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a032a54f-c99f-4595-9a63-9065251387a3" type="Value Object" typeId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5">
+  <comment>Owned by Order (OwnsOne), stored in the orders table as Address_* columns.</comment>
+  <name>Address</name>
+  <display>Address</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>5a7609d6-fe87-4fd8-acef-d8dacb40c42d</parentFolderId>
+  <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+  <packageName>Ordering</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="88722cfc-8f4e-4cc2-96f5-3635f5b520d1" name="File Config">
+      <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+      <properties>
+        <property name="11d2548c-4d37-4c5d-ab7b-ba60b4bc61be" display="Filename" />
+        <property name="e9476ee3-2e32-427f-95b2-938c8fb8397b" display="Namespace" value="eShop.Ordering.Domain.AggregatesModel.OrderAggregate" />
+        <property name="df085ba5-b5b5-44f2-9690-51f3c8053736" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="63f792b7-b0c0-4d42-973d-3eda0897ec93" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Street</name>
+      <display>Street: string?</display>
+      <typeReference id="abda189d-f8fa-448b-8464-796b01e0851c">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>a032a54f-c99f-4595-9a63-9065251387a3</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+    <element id="3b7eae3b-3491-4a82-9f84-183508901b50" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>City</name>
+      <display>City: string?</display>
+      <typeReference id="9f0f1d90-65d2-426f-a2da-748c59f442c8">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>a032a54f-c99f-4595-9a63-9065251387a3</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+    <element id="707e2b0b-2e9e-4b01-8ce2-3683672f9bfe" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>State</name>
+      <display>State: string?</display>
+      <typeReference id="7373d882-d684-4540-8985-28ace450e8a2">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>a032a54f-c99f-4595-9a63-9065251387a3</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+    <element id="46c4fce4-9e7a-4f46-9a00-e3642986239a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Country</name>
+      <display>Country: string?</display>
+      <typeReference id="5b7f64e9-90a5-4792-b530-7be82295e32e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>a032a54f-c99f-4595-9a63-9065251387a3</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+    <element id="c60d2edd-a23d-4d41-a2f3-9c57d6733500" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ZipCode</name>
+      <display>ZipCode: string?</display>
+      <typeReference id="94dffed3-bc7a-466b-b325-cb84be731e82">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>a032a54f-c99f-4595-9a63-9065251387a3</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+  </children>
+</class>

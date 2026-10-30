@@ -1,0 +1,2328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="29aeedc2-9202-4e2b-970e-fa13d98d6f70" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>Minimal API endpoint handlers, mapped by MapCatalogApi (groups api, v1 and v2 under api/catalog). The catalogtypes and catalogbrands endpoints are inline lambdas and aren't modelled. GetCatalogFacets, GetItemsByIds, CreateItem and DeleteItemById carry [IntentIgnore] in the code: RoslynWeaver would re-wrap their attributed parameters flush-left.</comment>
+  <name>CatalogApi</name>
+  <display>CatalogApi</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>839356e9-0700-4706-9db7-647da93d8cbc</parentFolderId>
+  <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+  <packageName>Catalog.API</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" value="eShop.Catalog.API" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="6bbf9e89-c521-4122-aa53-3fc7786f1157" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="fd8a5276-96d8-4990-9b66-a9ffacca7749" display="Type" />
+        <property name="b08b54e6-92e3-45eb-a233-0c79b4d76aab" display="Modifiers" value="public static" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/catalog?api-version={version}" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="03e3179f-cf89-4d58-a2da-5e25047c6e07" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetAllItemsV1</name>
+      <display>GetAllItemsV1(paginationRequest: PaginationRequest, services: CatalogServices): Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="546660e2-813d-44c0-9f4d-ae5349e910a6">
+        <typeId>48e79c08-6752-4a22-94cf-3bb8069bf726</typeId>
+        <typeName>Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;afda879f-7be4-4585-9fb6-5addf7740cda&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="5edd623f-f23a-46d2-810b-72c27a898bec" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>paginationRequest</name>
+          <display>in : paginationRequest: PaginationRequest</display>
+          <typeReference id="b601c450-7da1-450e-8bad-566620a873fe">
+            <typeId>3e2fa784-bd9f-4313-90e4-a982d59a73da</typeId>
+            <typeName>PaginationRequest</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>03e3179f-cf89-4d58-a2da-5e25047c6e07</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="9d97d52b-04c3-4806-8adc-a6d0db0b0ed4" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="900e7ca6-e10f-4636-92ad-88123a9d1b4a">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>03e3179f-cf89-4d58-a2da-5e25047c6e07</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <association id="2a4016e9-0e35-4cf7-89a2-539410dcf243">
+          <sourceEnd id="e739cecc-dd2f-4eea-a55b-152d9b9c80ab" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : CatalogApi.GetAllItemsV1</display>
+            <typeReference id="bca72aff-76a3-481e-bc24-555b023157e5">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="2a4016e9-0e35-4cf7-89a2-539410dcf243" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetAllItems(...): Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="2ff9beb2-cc3e-455c-aff4-de0fe2ab8e25">
+              <typeId>62bd33e5-b9d6-4a1d-8b7d-8761e8de5084</typeId>
+              <typeName>GetAllItems</typeName>
+              <typePackageName>Catalog.API</typePackageName>
+              <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="62bd33e5-b9d6-4a1d-8b7d-8761e8de5084" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetAllItems</name>
+      <display>GetAllItems(paginationRequest: PaginationRequest, services: CatalogServices, name: string?, type: int[*]?, brand: int[*]?): Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="13814c5a-33ea-4a1b-b2e6-c5de78a703e4">
+        <typeId>48e79c08-6752-4a22-94cf-3bb8069bf726</typeId>
+        <typeName>Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;16e60bf2-d390-4c9f-a52b-1aac48df8684&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="f24598c5-648c-4c2e-87bc-88854051d5a5" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>paginationRequest</name>
+          <display>in : paginationRequest: PaginationRequest</display>
+          <typeReference id="96df535a-1dd6-4235-bbb7-1f92e999ab16">
+            <typeId>3e2fa784-bd9f-4313-90e4-a982d59a73da</typeId>
+            <typeName>PaginationRequest</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>62bd33e5-b9d6-4a1d-8b7d-8761e8de5084</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="9ef29ef8-1725-44c1-8589-159e5c28090e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="452e22ed-753b-473a-9b89-f3c44aff911a">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>62bd33e5-b9d6-4a1d-8b7d-8761e8de5084</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="5f9c89eb-63d4-4c36-bc52-6bae8806ed32" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>name</name>
+          <display>in : name: string?</display>
+          <typeReference id="21f2f93b-a089-456b-8d18-50de3f18c734">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <isNullable>true</isNullable>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>62bd33e5-b9d6-4a1d-8b7d-8761e8de5084</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Query" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="8a65cbfd-ffd4-4b6f-8cb2-a9e6fc57357e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>type</name>
+          <display>in : type: int[*]?</display>
+          <typeReference id="a09a7625-87a5-45af-a484-874c14e5f97e">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isNullable>true</isNullable>
+            <isCollection>true</isCollection>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>62bd33e5-b9d6-4a1d-8b7d-8761e8de5084</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+              <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+              <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+              <properties>
+                <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="Array" />
+                <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Query" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="662fa1b9-0d1c-41ad-9425-201b7fcf44f4" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>brand</name>
+          <display>in : brand: int[*]?</display>
+          <typeReference id="54e6d493-b14e-4a6c-96c3-830608f77478">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isNullable>true</isNullable>
+            <isCollection>true</isCollection>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>62bd33e5-b9d6-4a1d-8b7d-8761e8de5084</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+              <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+              <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+              <properties>
+                <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="Array" />
+                <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Query" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="5ae8e807-b015-42be-a815-34cdff8a250f">
+          <sourceEnd id="7b2fb37e-7aaa-44ec-957f-58e43c8fcb70" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+            <display>: GetAllItems</display>
+            <typeReference id="b7092a5a-bab2-4fa8-8459-3f1ccd1fcddf">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="5ae8e807-b015-42be-a815-34cdff8a250f" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+            <name>catalogItems</name>
+            <display>[query] catalogItems: CatalogItem[*]?</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="4e40a342-c23b-4625-9435-26be346c4664">
+              <typeId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</typeId>
+              <typeName>CatalogItem</typeName>
+              <isNullable>true</isNullable>
+              <isCollection>true</isCollection>
+              <typePackageName>Catalog</typePackageName>
+              <typePackageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Query Entity Action</associationType>
+          <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="fd2411bf-b41c-4922-8969-604ef985ae66" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetCatalogFacets</name>
+      <display>GetCatalogFacets(services: CatalogServices, type: int[*]?, brand: int[*]?): Ok&lt;CatalogFacets&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="79964516-3454-43f8-a329-f7e6a54693bb">
+        <typeId>17820be3-5d3b-4774-b4fe-ae483754f8f8</typeId>
+        <typeName>Ok&lt;CatalogFacets&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items/facets" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;afda879f-7be4-4585-9fb6-5addf7740cda&quot;,&quot;16e60bf2-d390-4c9f-a52b-1aac48df8684&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="f23ec7cd-edde-40b5-ad50-6015b5d60d86" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="56f35c1b-4b27-4d41-8d69-d64bd05f5cbf">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>fd2411bf-b41c-4922-8969-604ef985ae66</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="7f7dcac5-ed6c-457a-8552-b8948bf2dbad" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>type</name>
+          <display>in : type: int[*]?</display>
+          <typeReference id="fa308ec5-1172-4d30-945e-b796b46be5d5">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isNullable>true</isNullable>
+            <isCollection>true</isCollection>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>fd2411bf-b41c-4922-8969-604ef985ae66</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+              <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+              <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+              <properties>
+                <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="Array" />
+                <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Query" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="650fb69f-95d6-4ce0-9d79-64232c4560fc" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>brand</name>
+          <display>in : brand: int[*]?</display>
+          <typeReference id="3ecf330a-1cb0-4dd4-b76c-8eae05309edc">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isNullable>true</isNullable>
+            <isCollection>true</isCollection>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>fd2411bf-b41c-4922-8969-604ef985ae66</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+              <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+              <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+              <properties>
+                <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="Array" />
+                <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Query" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="2ee65c96-14b0-4506-88ec-06996f1933c0">
+          <sourceEnd id="97dc3bc8-a5bd-4246-bcf7-5d5d07ab5a3f" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+            <display>: GetCatalogFacets</display>
+            <typeReference id="30d6d09e-b4a0-41ec-89e8-4d0efaea32a3">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="2ee65c96-14b0-4506-88ec-06996f1933c0" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+            <name>catalogItems</name>
+            <display>[query] catalogItems: CatalogItem[*]?</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="ad04d9ee-f0f5-4edf-9cf4-2c7a96ff9753">
+              <typeId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</typeId>
+              <typeName>CatalogItem</typeName>
+              <isNullable>true</isNullable>
+              <isCollection>true</isCollection>
+              <typePackageName>Catalog</typePackageName>
+              <typePackageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Query Entity Action</associationType>
+          <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="d7b0683f-f96f-4dca-a63e-bef475262aba" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetItemsByIds</name>
+      <display>GetItemsByIds(services: CatalogServices, ids: int[*]): Ok&lt;List&lt;CatalogItem&gt;&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="71280574-97c5-413f-92ae-78e54d14943d">
+        <typeId>1833d0ec-6b71-47c8-b6a0-ffd2ff723537</typeId>
+        <typeName>Ok&lt;List&lt;CatalogItem&gt;&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items/by" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;afda879f-7be4-4585-9fb6-5addf7740cda&quot;,&quot;16e60bf2-d390-4c9f-a52b-1aac48df8684&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="0e4ee6ad-40e5-4603-a871-ab9b2fbc3de3" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="80611543-817e-4fb8-95f6-bc058ec82480">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>d7b0683f-f96f-4dca-a63e-bef475262aba</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="c2461f24-c536-4753-9e3a-ef762490b487" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>ids</name>
+          <display>in : ids: int[*]</display>
+          <typeReference id="d6267e6d-2b97-4e3d-bf8c-ae341df0fe8f">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isCollection>true</isCollection>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>d7b0683f-f96f-4dca-a63e-bef475262aba</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+              <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+              <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+              <properties>
+                <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="Array" />
+                <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Query" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="7217b8ef-df10-4540-a050-5a97f3fc6446">
+          <sourceEnd id="711e5c79-120b-4028-b25d-8c4297783441" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+            <display>: GetItemsByIds</display>
+            <typeReference id="e810d97d-f14b-4747-aa31-ab7bc551509f">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="7217b8ef-df10-4540-a050-5a97f3fc6446" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+            <name>catalogItems</name>
+            <display>[query] catalogItems: CatalogItem[*]?</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="f6d3e40f-9f9c-4c93-b030-535f70c6d443">
+              <typeId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</typeId>
+              <typeName>CatalogItem</typeName>
+              <isNullable>true</isNullable>
+              <isCollection>true</isCollection>
+              <typePackageName>Catalog</typePackageName>
+              <typePackageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Query Entity Action</associationType>
+          <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="97066458-7f84-4900-8b08-bb8383938c15" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetItemById</name>
+      <display>GetItemById(httpContext: HttpContext, services: CatalogServices, id: int): Results&lt;Ok&lt;CatalogItem&gt;, NotFound, BadRequest&lt;ProblemDetails&gt;&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="2f118311-e4c7-4381-b00c-9d533d016b45">
+        <typeId>fc6f5584-88a9-4bfe-8025-8cda66a17ab6</typeId>
+        <typeName>Results&lt;Ok&lt;CatalogItem&gt;, NotFound, BadRequest&lt;ProblemDetails&gt;&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items/{id:int}" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;afda879f-7be4-4585-9fb6-5addf7740cda&quot;,&quot;16e60bf2-d390-4c9f-a52b-1aac48df8684&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="c2dc361f-b082-4b12-9eb4-f1ff9f49afb2" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>httpContext</name>
+          <display>in : httpContext: HttpContext</display>
+          <typeReference id="070c392f-9896-470b-9372-9aa40015d23f">
+            <typeId>05cd7750-eb3a-4e3b-b281-ce0c479b7327</typeId>
+            <typeName>HttpContext</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>97066458-7f84-4900-8b08-bb8383938c15</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="abe45741-af32-48b1-9240-eab3bcb1b0f3" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="5712edcb-31c0-42b6-8d47-30dfb286096f">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>97066458-7f84-4900-8b08-bb8383938c15</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="dfdc4516-40fc-4543-b6a1-eaeffadb4ef7" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: int</display>
+          <typeReference id="8fb84c80-2404-410d-b37d-b2d8bbbef7cc">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>97066458-7f84-4900-8b08-bb8383938c15</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="a4e94cc1-3396-452f-a2fc-29d5354dc64d">
+          <sourceEnd id="e80eb28d-ad5f-4d7f-9e61-1ae4f126438f" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+            <display>: GetItemById</display>
+            <typeReference id="1a253188-9d59-405c-8073-d05fba4bc9d0">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="a4e94cc1-3396-452f-a2fc-29d5354dc64d" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+            <name>catalogItem</name>
+            <display>[query] catalogItem: CatalogItem</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="e763d68d-abea-4a84-b62c-c48e39ac93c7">
+              <typeId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</typeId>
+              <typeName>CatalogItem</typeName>
+              <typePackageName>Catalog</typePackageName>
+              <typePackageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Query Entity Action</associationType>
+          <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="c09cb60c-ccf0-4e56-a47f-ce3d4c7a794f" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetItemsByName</name>
+      <display>GetItemsByName(paginationRequest: PaginationRequest, services: CatalogServices, name: string): Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="5b91c38e-7a26-4b9f-9a0e-ee3506e7ee3e">
+        <typeId>48e79c08-6752-4a22-94cf-3bb8069bf726</typeId>
+        <typeName>Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items/by/{name:minlength(1)}" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;afda879f-7be4-4585-9fb6-5addf7740cda&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="5407330b-2b8d-47b4-9a4a-b4f9aed56eba" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>paginationRequest</name>
+          <display>in : paginationRequest: PaginationRequest</display>
+          <typeReference id="55faf975-0513-476d-85ad-e1ee3d9346e0">
+            <typeId>3e2fa784-bd9f-4313-90e4-a982d59a73da</typeId>
+            <typeName>PaginationRequest</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>c09cb60c-ccf0-4e56-a47f-ce3d4c7a794f</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="99b0eb23-21b4-4a15-8ba2-f6a445c7c4d7" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="6f9233aa-9c0f-4794-bbab-fe64f0894df4">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>c09cb60c-ccf0-4e56-a47f-ce3d4c7a794f</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="ecacfc76-8bd7-4a63-95fa-c96f316c0bf8" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>name</name>
+          <display>in : name: string</display>
+          <typeReference id="eb2bb139-11dc-42dc-96ee-6c96837181a9">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>c09cb60c-ccf0-4e56-a47f-ce3d4c7a794f</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="290873d4-3ed2-4d0e-8ea6-b1316a9ee310">
+          <sourceEnd id="31ddf06f-80de-46f5-ac75-93ce774e907c" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : CatalogApi.GetItemsByName</display>
+            <typeReference id="fb791bf1-b00c-4356-94fd-b0419bd5e855">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="290873d4-3ed2-4d0e-8ea6-b1316a9ee310" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetAllItems(...): Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="51e42690-fe70-4081-993f-1bb78554c38a">
+              <typeId>62bd33e5-b9d6-4a1d-8b7d-8761e8de5084</typeId>
+              <typeName>GetAllItems</typeName>
+              <typePackageName>Catalog.API</typePackageName>
+              <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="89591a73-74f7-4db3-af1c-08d19f813701" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetItemPictureById</name>
+      <display>GetItemPictureById(context: CatalogContext, pictureFileProvider: IFileProvider, id: int): Results&lt;FileStreamHttpResult, NotFound&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="65ce4796-c529-45e3-a876-1c5d8699d0f6">
+        <typeId>25f203e0-78c3-461d-995e-4263915b0518</typeId>
+        <typeName>Results&lt;FileStreamHttpResult, NotFound&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items/{id:int}/pic" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;afda879f-7be4-4585-9fb6-5addf7740cda&quot;,&quot;16e60bf2-d390-4c9f-a52b-1aac48df8684&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="5e7d8e67-16ae-46b3-b735-4d3b2ba6481d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>context</name>
+          <display>in : context: CatalogContext</display>
+          <typeReference id="b8f4ec3a-87c9-4b34-84be-93a2ac200e42">
+            <typeId>a4fc06eb-2c3f-4b20-a7d9-57c76538d2e6</typeId>
+            <typeName>CatalogContext</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>89591a73-74f7-4db3-af1c-08d19f813701</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="56261d11-4ccf-4041-8665-504b782bad07" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>pictureFileProvider</name>
+          <display>in : pictureFileProvider: IFileProvider</display>
+          <typeReference id="efc8fb1a-cf5a-4607-a7a5-da9714f3523f">
+            <typeId>0d0ce21e-46fe-41de-9c0a-00c027146f25</typeId>
+            <typeName>IFileProvider</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>89591a73-74f7-4db3-af1c-08d19f813701</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="78cbe006-8d48-47d7-a2c5-3f132da727d8" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: int</display>
+          <typeReference id="a747a18d-9a9c-42a5-8b3a-fb36ed1c9183">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>89591a73-74f7-4db3-af1c-08d19f813701</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="d308b68c-d3f2-4fad-8aaf-9529aba10729">
+          <sourceEnd id="31140286-255c-493d-a7bf-adb274450bc0" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+            <display>: GetItemPictureById</display>
+            <typeReference id="3d74cff1-00ee-4f12-bcb7-eaaa21d7bcbb">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="d308b68c-d3f2-4fad-8aaf-9529aba10729" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+            <name>catalogItem</name>
+            <display>[query] catalogItem: CatalogItem</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="aa2cf235-644a-4d30-a3e4-e68de85dfa7f">
+              <typeId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</typeId>
+              <typeName>CatalogItem</typeName>
+              <typePackageName>Catalog</typePackageName>
+              <typePackageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Query Entity Action</associationType>
+          <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="af5144b1-0ebf-4f70-a514-6395a1223a48" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetItemsBySemanticRelevanceV1</name>
+      <display>GetItemsBySemanticRelevanceV1(paginationRequest: PaginationRequest, services: CatalogServices, text: string): Results&lt;Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;, RedirectToRouteHttpResult&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="c117af7d-1687-4fec-8c5c-4d22af2e6e95">
+        <typeId>5b841e4a-504b-4cea-8ec8-2b53d1b4db92</typeId>
+        <typeName>Results&lt;Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;, RedirectToRouteHttpResult&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items/withsemanticrelevance/{text:minlength(1)}" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;afda879f-7be4-4585-9fb6-5addf7740cda&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="79589d16-db9b-466b-9e3d-1068bbfae369" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>paginationRequest</name>
+          <display>in : paginationRequest: PaginationRequest</display>
+          <typeReference id="6a542505-3b37-4ce4-81f1-077fd9de47db">
+            <typeId>3e2fa784-bd9f-4313-90e4-a982d59a73da</typeId>
+            <typeName>PaginationRequest</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>af5144b1-0ebf-4f70-a514-6395a1223a48</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="47cb23c7-96c4-4bb8-ae6c-f243f28f7a5b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="ffcb33fc-af7b-48e7-afc8-8edc97815390">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>af5144b1-0ebf-4f70-a514-6395a1223a48</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="97aa2ccb-fde1-4cb4-a8ec-703b0cd298e9" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>text</name>
+          <display>in : text: string</display>
+          <typeReference id="0ee66547-fdf9-4d43-9f0e-a1ef3cb79194">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>af5144b1-0ebf-4f70-a514-6395a1223a48</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="20e00657-e039-44e4-ac64-404e2841975a">
+          <sourceEnd id="1465bb19-8961-4914-b211-952ec0611853" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : CatalogApi.GetItemsBySemanticRelevanceV1</display>
+            <typeReference id="568d4dc4-4569-4f9f-9298-64ece03bc29e">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="20e00657-e039-44e4-ac64-404e2841975a" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetItemsBySemanticRelevance(...): Results&lt;Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;, RedirectToRouteHttpResult&gt;</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="d2f560bc-d4be-4e9e-8b16-ae7fd3a1d861">
+              <typeId>8af11984-d537-4f09-bb34-31c35904d5e1</typeId>
+              <typeName>GetItemsBySemanticRelevance</typeName>
+              <typePackageName>Catalog.API</typePackageName>
+              <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="8af11984-d537-4f09-bb34-31c35904d5e1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetItemsBySemanticRelevance</name>
+      <display>GetItemsBySemanticRelevance(paginationRequest: PaginationRequest, services: CatalogServices, text: string): Results&lt;Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;, RedirectToRouteHttpResult&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="35d787da-18a4-4387-9d1e-a53054d421c2">
+        <typeId>5b841e4a-504b-4cea-8ec8-2b53d1b4db92</typeId>
+        <typeName>Results&lt;Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;, RedirectToRouteHttpResult&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items/withsemanticrelevance" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;16e60bf2-d390-4c9f-a52b-1aac48df8684&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="23b1fe9a-e8e0-481e-b841-eff431bcf5cf" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>paginationRequest</name>
+          <display>in : paginationRequest: PaginationRequest</display>
+          <typeReference id="02a7bae8-a471-4599-8afa-adf0f605ca96">
+            <typeId>3e2fa784-bd9f-4313-90e4-a982d59a73da</typeId>
+            <typeName>PaginationRequest</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>8af11984-d537-4f09-bb34-31c35904d5e1</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="423cd114-8aa1-4c20-9f61-c2347e1f65a0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="f08ee7d3-bb6e-4bdb-8466-95a47763ba64">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>8af11984-d537-4f09-bb34-31c35904d5e1</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="480c8cb8-8494-4942-be97-47f1bb1cd359" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>text</name>
+          <display>in : text: string</display>
+          <typeReference id="15acf421-3d15-46e4-9f59-e7132a16fb45">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>8af11984-d537-4f09-bb34-31c35904d5e1</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Query" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="3e643f61-96de-44b9-a5b0-83bb31e3e607">
+          <sourceEnd id="f84921f6-0f43-4d5b-b2cc-0cd25b3deb0f" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : CatalogApi.GetItemsBySemanticRelevance</display>
+            <typeReference id="72769403-7448-4987-9dd5-3f38024b6149">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="3e643f61-96de-44b9-a5b0-83bb31e3e607" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetEmbeddingAsync(...): Vector?</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="fb65595d-8a59-4e97-8658-8897c1dcd91d">
+              <typeId>848a156c-31ef-4af7-8ea0-ce78a5404dc0</typeId>
+              <typeName>GetEmbeddingAsync</typeName>
+              <isNullable>true</isNullable>
+              <typePackageName>Catalog.API</typePackageName>
+              <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+        <association id="16f784c4-322c-4c9e-8573-bc05a2c9b548">
+          <sourceEnd id="30b75db9-2b2d-4014-92b0-a29be822c0e3" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+            <display>: GetItemsBySemanticRelevance</display>
+            <typeReference id="510b83c3-6069-4a1a-8598-10e1d5efa9a2">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="16f784c4-322c-4c9e-8573-bc05a2c9b548" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+            <name>catalogItems</name>
+            <display>[query] catalogItems: CatalogItem[*]?</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="767c870f-5715-49ae-9762-1c59fcc2bec9">
+              <typeId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</typeId>
+              <typeName>CatalogItem</typeName>
+              <isNullable>true</isNullable>
+              <isCollection>true</isCollection>
+              <typePackageName>Catalog</typePackageName>
+              <typePackageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Query Entity Action</associationType>
+          <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+        </association>
+        <association id="ad2537e6-c526-441c-8003-3690225c9f5c">
+          <sourceEnd id="5840a6ee-adb5-4347-9dcf-71c6b12b157a" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : CatalogApi.GetItemsBySemanticRelevance</display>
+            <typeReference id="c675f26f-8f99-4533-972b-b501fd24c2c0">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="ad2537e6-c526-441c-8003-3690225c9f5c" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetItemsByName(...): Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="d1ca2963-677e-4779-a363-2e4b09258e8e">
+              <typeId>c09cb60c-ccf0-4e56-a47f-ce3d4c7a794f</typeId>
+              <typeName>GetItemsByName</typeName>
+              <typePackageName>Catalog.API</typePackageName>
+              <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="ab70063b-64c8-4c30-9dbe-96c411523f88" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetItemsByBrandAndTypeId</name>
+      <display>GetItemsByBrandAndTypeId(paginationRequest: PaginationRequest, services: CatalogServices, typeId: int, brandId: int?): Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="07f9f0be-895d-4896-bd24-9cab09365350">
+        <typeId>48e79c08-6752-4a22-94cf-3bb8069bf726</typeId>
+        <typeName>Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items/type/{typeId}/brand/{brandId?}" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;afda879f-7be4-4585-9fb6-5addf7740cda&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="cff9b615-aef2-4aa7-ac49-04c9bbbedae0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>paginationRequest</name>
+          <display>in : paginationRequest: PaginationRequest</display>
+          <typeReference id="c09c87a8-c85b-48f6-9201-60bc3a20fb38">
+            <typeId>3e2fa784-bd9f-4313-90e4-a982d59a73da</typeId>
+            <typeName>PaginationRequest</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>ab70063b-64c8-4c30-9dbe-96c411523f88</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="2ed06a2e-9498-4cd2-8886-459386c3dae9" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="9049e2b2-a046-4c18-a8f8-ef56e42a56cb">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>ab70063b-64c8-4c30-9dbe-96c411523f88</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="0ec43f1e-e8ab-4fb5-9d06-b2244e7bb8eb" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>typeId</name>
+          <display>in : typeId: int</display>
+          <typeReference id="a00a6313-63f7-4013-ae67-bc1b3e5fae5f">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>ab70063b-64c8-4c30-9dbe-96c411523f88</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="51f2b9c6-f875-4349-a6bc-b0735702205c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>brandId</name>
+          <display>in : brandId: int?</display>
+          <typeReference id="8d89e7c2-76f7-432a-a31a-a5fcad431f69">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isNullable>true</isNullable>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>ab70063b-64c8-4c30-9dbe-96c411523f88</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="c2a391f2-6d50-4d05-915c-940c12eda50b">
+          <sourceEnd id="47237960-eda4-4874-85b0-febe033e679e" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : CatalogApi.GetItemsByBrandAndTypeId</display>
+            <typeReference id="8088ebe2-6ebf-4eb0-8a0f-f45361fbcb1b">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="c2a391f2-6d50-4d05-915c-940c12eda50b" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetAllItems(...): Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="228f20cd-9995-4324-aebd-03c0f1514180">
+              <typeId>62bd33e5-b9d6-4a1d-8b7d-8761e8de5084</typeId>
+              <typeName>GetAllItems</typeName>
+              <typePackageName>Catalog.API</typePackageName>
+              <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="19177640-e615-400f-9319-aaf5c0a78f1f" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetItemsByBrandId</name>
+      <display>GetItemsByBrandId(paginationRequest: PaginationRequest, services: CatalogServices, brandId: int?): Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="baa9915c-1c32-4b7c-bbdf-906e327551a4">
+        <typeId>48e79c08-6752-4a22-94cf-3bb8069bf726</typeId>
+        <typeName>Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items/type/all/brand/{brandId:int?}" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;afda879f-7be4-4585-9fb6-5addf7740cda&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="a5d26de9-f823-40ee-a4b4-be8f9f7b638f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>paginationRequest</name>
+          <display>in : paginationRequest: PaginationRequest</display>
+          <typeReference id="2cdd0039-f71f-46d0-bb0f-7c87a3804789">
+            <typeId>3e2fa784-bd9f-4313-90e4-a982d59a73da</typeId>
+            <typeName>PaginationRequest</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>19177640-e615-400f-9319-aaf5c0a78f1f</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="7f92957c-f900-4614-909a-042ec8749ad9" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="85e05127-a7d4-4c1f-86d5-e71199b8db69">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>19177640-e615-400f-9319-aaf5c0a78f1f</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="ba39578c-c868-4345-ae7d-db2d3298c171" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>brandId</name>
+          <display>in : brandId: int?</display>
+          <typeReference id="311e7ae7-1210-4eeb-994c-60d9be754dba">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isNullable>true</isNullable>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>19177640-e615-400f-9319-aaf5c0a78f1f</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="1fb9cbea-cf15-4026-90ca-b2f80ddd5a67">
+          <sourceEnd id="ea587673-d445-431f-a2ef-2a3e4de6d961" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : CatalogApi.GetItemsByBrandId</display>
+            <typeReference id="ea255516-374d-4344-87a2-985d10ced849">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="1fb9cbea-cf15-4026-90ca-b2f80ddd5a67" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetAllItems(...): Ok&lt;PaginatedItems&lt;CatalogItem&gt;&gt;</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="68f82dfb-0a1d-4522-9c9a-e5d0cced8043">
+              <typeId>62bd33e5-b9d6-4a1d-8b7d-8761e8de5084</typeId>
+              <typeName>GetAllItems</typeName>
+              <typePackageName>Catalog.API</typePackageName>
+              <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="b894b69f-720e-4891-8038-1e584f3b47f0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateItemV1</name>
+      <display>UpdateItemV1(httpContext: HttpContext, services: CatalogServices, productToUpdate: CatalogItem): Results&lt;Created, BadRequest&lt;ProblemDetails&gt;, NotFound&lt;ProblemDetails&gt;&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="2117fe67-3e9f-4ae0-9a80-9f57e0be27de">
+        <typeId>1f534e67-6dba-45a3-8047-34ebf7bf86f3</typeId>
+        <typeName>Results&lt;Created, BadRequest&lt;ProblemDetails&gt;, NotFound&lt;ProblemDetails&gt;&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="201 (Created)" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;afda879f-7be4-4585-9fb6-5addf7740cda&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="c10bb06a-69a7-4f17-9a75-897e38aab7af" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>httpContext</name>
+          <display>in : httpContext: HttpContext</display>
+          <typeReference id="98a00ee5-756f-4230-ae15-14860b9a8bfe">
+            <typeId>05cd7750-eb3a-4e3b-b281-ce0c479b7327</typeId>
+            <typeName>HttpContext</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>b894b69f-720e-4891-8038-1e584f3b47f0</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="782a7884-cae8-46be-aeaf-d3d1a7569e1b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="faee5994-c379-4498-888b-0ddea939c058">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>b894b69f-720e-4891-8038-1e584f3b47f0</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="75a1cac0-47cf-44f3-a139-ff937e5cbf11" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>productToUpdate</name>
+          <display>in : productToUpdate: CatalogItem</display>
+          <typeReference id="04965083-00ba-49d1-a577-ef9537805f52">
+            <typeId>9aa2d21b-b58d-47a7-a427-5382327cfb97</typeId>
+            <typeName>CatalogItem</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>b894b69f-720e-4891-8038-1e584f3b47f0</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Body" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="6309ed11-b262-44fe-a37a-d94d3faaa6ed">
+          <sourceEnd id="bbfda06c-e20d-486c-882f-87c021ad399b" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : CatalogApi.UpdateItemV1</display>
+            <typeReference id="5e010651-492b-4aa3-9d9e-7c99c9d23e30">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="6309ed11-b262-44fe-a37a-d94d3faaa6ed" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = UpdateItem(...): Results&lt;Created, BadRequest&lt;ProblemDetails&gt;, NotFound&lt;ProblemDetails&gt;&gt;</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="a0ba3f25-e308-426c-b8bb-6d1cfe98e248">
+              <typeId>83067f7b-abf6-4d5b-ac2c-77f0486a1335</typeId>
+              <typeName>UpdateItem</typeName>
+              <typePackageName>Catalog.API</typePackageName>
+              <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="83067f7b-abf6-4d5b-ac2c-77f0486a1335" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateItem</name>
+      <display>UpdateItem(httpContext: HttpContext, id: int, services: CatalogServices, productToUpdate: CatalogItem): Results&lt;Created, BadRequest&lt;ProblemDetails&gt;, NotFound&lt;ProblemDetails&gt;&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="067c4c40-58f0-443b-8cc0-88a32b84836b">
+        <typeId>1f534e67-6dba-45a3-8047-34ebf7bf86f3</typeId>
+        <typeName>Results&lt;Created, BadRequest&lt;ProblemDetails&gt;, NotFound&lt;ProblemDetails&gt;&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items/{id:int}" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="201 (Created)" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;16e60bf2-d390-4c9f-a52b-1aac48df8684&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="4eb7ed14-8764-4162-a992-49d9a42c0de4" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>httpContext</name>
+          <display>in : httpContext: HttpContext</display>
+          <typeReference id="9671e9e3-ac14-47d2-9f4b-3936c0eb172a">
+            <typeId>05cd7750-eb3a-4e3b-b281-ce0c479b7327</typeId>
+            <typeName>HttpContext</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>83067f7b-abf6-4d5b-ac2c-77f0486a1335</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="d937524a-834d-47b3-85c5-a391123118aa" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: int</display>
+          <typeReference id="806094b1-bc8a-49c2-9ba3-f0cb445bd1ea">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>83067f7b-abf6-4d5b-ac2c-77f0486a1335</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="b6cc5348-c40b-4571-ba29-7aba5916ca1a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="be28a73b-f804-44bd-b5a0-f122d6727177">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>83067f7b-abf6-4d5b-ac2c-77f0486a1335</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="d136a074-25b3-4fdf-8ff5-4748bfc35708" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>productToUpdate</name>
+          <display>in : productToUpdate: CatalogItem</display>
+          <typeReference id="1b31d4d4-1054-466e-b7f5-f3e3f5884565">
+            <typeId>9aa2d21b-b58d-47a7-a427-5382327cfb97</typeId>
+            <typeName>CatalogItem</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>83067f7b-abf6-4d5b-ac2c-77f0486a1335</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Body" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="8546ce91-094b-4b23-9793-337fec3cf0c8">
+          <sourceEnd id="c1f005ac-d125-42bd-ab24-5904fa417e07" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+            <display>updated by : CatalogApi.UpdateItem</display>
+            <typeReference id="958d5425-25df-449c-99c3-11c195e83f14">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="8546ce91-094b-4b23-9793-337fec3cf0c8" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+            <name>catalogItem</name>
+            <display>[update] catalogItem: CatalogItem</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="94310b46-708b-4237-857c-741cc74623d7">
+              <typeId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</typeId>
+              <typeName>CatalogItem</typeName>
+              <typePackageName>Catalog</typePackageName>
+              <typePackageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Update Entity Action</associationType>
+          <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+        </association>
+        <association id="64d0d48b-4862-445f-83b5-d9b0c858cf89">
+          <sourceEnd id="8ec23063-6cb5-4a85-945b-a2dfe4f94534" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : CatalogApi.UpdateItem</display>
+            <typeReference id="ca843d83-a4e9-4f01-b224-de1e8775db26">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="64d0d48b-4862-445f-83b5-d9b0c858cf89" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetEmbeddingAsync(...): Vector?</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="a42f809b-299d-4ee0-b101-6d68819fbd52">
+              <typeId>56fb20d6-56dc-4d36-8b3d-4b0c998b0845</typeId>
+              <typeName>GetEmbeddingAsync</typeName>
+              <isNullable>true</isNullable>
+              <typePackageName>Catalog.API</typePackageName>
+              <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+        <association id="68679487-ed81-437a-b33a-728737d70679">
+          <sourceEnd id="b598a1f3-c126-4d73-a18d-b747df4e6941" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : CatalogApi.UpdateItem</display>
+            <typeReference id="79fc080f-4719-4459-9d53-95b36cb6d523">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="68679487-ed81-437a-b33a-728737d70679" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <display>[call] SaveEventAndCatalogContextChangesAsync(...): void</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="0e492be4-e19e-4862-8dfa-1a52e097ad96">
+              <typeId>8df27daf-9d78-45c1-a307-ce33426f993c</typeId>
+              <typeName>SaveEventAndCatalogContextChangesAsync</typeName>
+              <typePackageName>Catalog.API</typePackageName>
+              <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+        <association id="242f506b-4af4-45b0-93b9-71219c736cc5">
+          <sourceEnd id="26bf3811-41a6-4ef2-b605-eb55cb265247" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : CatalogApi.UpdateItem</display>
+            <typeReference id="0636b2b3-48e6-48df-bbc8-6dae88a95936">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="242f506b-4af4-45b0-93b9-71219c736cc5" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <display>[call] PublishThroughEventBusAsync(...): void</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="e552ec0e-c2b9-40a1-a1fc-900219e18e3c">
+              <typeId>dc497cc0-e161-42bd-a430-3962dbe07b61</typeId>
+              <typeName>PublishThroughEventBusAsync</typeName>
+              <typePackageName>Catalog.API</typePackageName>
+              <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+        <association id="ee6529d7-4f29-41c5-a0c1-94df37839c64">
+          <sourceEnd id="8c06fec6-2fb1-45bd-8f63-8138491be1a4" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+            <display>published by : CatalogApi.UpdateItem</display>
+            <typeReference id="e0d43caa-9b00-4b6b-9c65-6fe8ebcccaf6">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="ee6529d7-4f29-41c5-a0c1-94df37839c64" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+            <display>[publish] ProductPriceChangedIntegrationEvent</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="6881f7e5-9298-4a85-9291-7411c3a58a50">
+              <typeId>9ceecd43-3ece-4b5e-a8fd-f5ab4e0b9efb</typeId>
+              <typeName>ProductPriceChangedIntegrationEvent</typeName>
+              <typePackageName>Catalog.API.Eventing</typePackageName>
+              <typePackageId>ddc75f61-4669-4599-b243-0a6148a29f74</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Publish Integration Event</associationType>
+          <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="bbd03125-b769-42db-9e6e-8f47bad49ece" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateItem</name>
+      <display>CreateItem(services: CatalogServices, product: CatalogItem): Created</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="e91729c1-62ce-458b-9322-aea1277f4c7d">
+        <typeId>43fbf45c-7f2f-4920-856d-d75978959df3</typeId>
+        <typeName>Created</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="201 (Created)" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;afda879f-7be4-4585-9fb6-5addf7740cda&quot;,&quot;16e60bf2-d390-4c9f-a52b-1aac48df8684&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="d434ea0d-5261-433d-850f-426f5e497f00" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="0f6a1b48-1741-41a4-b74b-565fcd99a7a8">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>bbd03125-b769-42db-9e6e-8f47bad49ece</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="f0facba3-a3e4-4aaa-9058-9ab295ad80bc" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>product</name>
+          <display>in : product: CatalogItem</display>
+          <typeReference id="27bf9e2d-abea-4e09-85bd-db7cc9da26df">
+            <typeId>9aa2d21b-b58d-47a7-a427-5382327cfb97</typeId>
+            <typeName>CatalogItem</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>bbd03125-b769-42db-9e6e-8f47bad49ece</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Body" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="cc10ca32-c9c0-416a-b7bb-5ef0805f1822">
+          <sourceEnd id="642053f7-c7b5-4845-83f0-44f93a2d7040" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+            <display>created by : CatalogApi.CreateItem</display>
+            <typeReference id="fbd01d36-2276-4c57-af0c-831601f350ff">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="cc10ca32-c9c0-416a-b7bb-5ef0805f1822" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+            <name>catalogItem</name>
+            <display>[create] catalogItem: CatalogItem</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="075de1dc-53ca-47ac-a129-1180910aa320">
+              <typeId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</typeId>
+              <typeName>CatalogItem</typeName>
+              <typePackageName>Catalog</typePackageName>
+              <typePackageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Create Entity Action</associationType>
+          <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+        </association>
+        <association id="b8f86704-155e-441c-a95e-be766102579a">
+          <sourceEnd id="0217d247-c452-4fca-bb75-00cb0882647f" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : CatalogApi.CreateItem</display>
+            <typeReference id="b3cf1b02-a10c-41fa-b5db-c0a44e748bc3">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="b8f86704-155e-441c-a95e-be766102579a" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetEmbeddingAsync(...): Vector?</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="29ef8fa8-18f8-40de-9125-a40717620128">
+              <typeId>56fb20d6-56dc-4d36-8b3d-4b0c998b0845</typeId>
+              <typeName>GetEmbeddingAsync</typeName>
+              <isNullable>true</isNullable>
+              <typePackageName>Catalog.API</typePackageName>
+              <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="6d6c4165-0f0d-42c7-8604-39e1e4401010" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteItemById</name>
+      <display>DeleteItemById(services: CatalogServices, id: int): Results&lt;NoContent, NotFound&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="ea451564-bb47-423c-ba8e-19b0e835a110">
+        <typeId>d2bd49af-e3ee-408d-9556-b45ec3ffd1e3</typeId>
+        <typeName>Results&lt;NoContent, NotFound&gt;</typeName>
+        <typePackageName>Catalog.API</typePackageName>
+        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+      </typeReference>
+      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="DELETE" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items/{id:int}" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="204 (No Content)" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;afda879f-7be4-4585-9fb6-5addf7740cda&quot;,&quot;16e60bf2-d390-4c9f-a52b-1aac48df8684&quot;]" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="a381aad5-49d6-4555-b941-776398e0739d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: CatalogServices</display>
+          <typeReference id="cb5b0924-20ec-46e8-ab41-8fe221fddd23">
+            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
+            <typeName>CatalogServices</typeName>
+            <typePackageName>Catalog.API</typePackageName>
+            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+          </typeReference>
+          <parentFolderId>6d6c4165-0f0d-42c7-8604-39e1e4401010</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+        <element id="518b8cd7-8b50-4f87-9716-02d051d00e72" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: int</display>
+          <typeReference id="ddcb5b71-2ba2-4c45-85f0-0ab27f974060">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>6d6c4165-0f0d-42c7-8604-39e1e4401010</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <association id="8adebc1a-d388-4b3f-96cd-2f660e73c4a4">
+          <sourceEnd id="e83fbdef-10a1-481d-825c-30698a23afd7" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+            <display>deleted by : CatalogApi.DeleteItemById</display>
+            <typeReference id="7683becc-53ad-43b6-825d-74a7d1771f41">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="8adebc1a-d388-4b3f-96cd-2f660e73c4a4" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+            <name>catalogItem</name>
+            <display>[delete] catalogItem: CatalogItem</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="5b437fc3-fee3-44d5-87c4-199fcce1e6b2">
+              <typeId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</typeId>
+              <typeName>CatalogItem</typeName>
+              <typePackageName>Catalog</typePackageName>
+              <typePackageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Delete Entity Action</associationType>
+          <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+        </association>
+      </children>
+    </element>
+  </children>
+</class>

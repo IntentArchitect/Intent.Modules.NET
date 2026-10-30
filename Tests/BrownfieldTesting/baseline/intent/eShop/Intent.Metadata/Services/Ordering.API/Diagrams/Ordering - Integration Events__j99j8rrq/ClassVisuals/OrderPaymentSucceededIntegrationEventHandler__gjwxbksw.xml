@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="80cd74d2-2238-416a-b40d-9c51f3751ccd" zIndex="0">
+  <name>OrderPaymentSucceededIntegrationEventHandler</name>
+  <position x="400" y="380" />
+  <size width="200" height="90" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

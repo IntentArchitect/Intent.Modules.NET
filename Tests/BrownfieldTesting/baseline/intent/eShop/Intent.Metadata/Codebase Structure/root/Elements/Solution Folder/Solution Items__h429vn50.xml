@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5566f0da-70eb-4dca-822c-e38d838f585e" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>Solution Items</name>
+  <display>Solution Items</display>
+  <parentFolderId>06d99227-fe5b-48f7-a05b-4d4347b40cde</parentFolderId>
+  <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="bb59d570-80b6-4564-9016-f809d6eacbc5" name="Folder Options">
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bcd7fb5-54e5-4812-b80c-4176114086c4" display="Materialize Folder" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</class>

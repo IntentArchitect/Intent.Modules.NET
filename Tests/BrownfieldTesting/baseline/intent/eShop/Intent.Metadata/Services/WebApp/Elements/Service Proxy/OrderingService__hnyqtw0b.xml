@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="65e0d1e2-a067-41cd-9c93-a101f3df025d" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <comment>Typed HttpClient for Ordering.API (/api/Orders/, api-version 1.0 set in DI).</comment>
+  <name>OrderingService</name>
+  <display>OrderingService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>f9ad17ae-d281-46ee-b575-261caf1ce41c</parentFolderId>
+  <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+  <packageName>WebApp</packageName>
+  <children>
+    <element id="3b4bbe8a-a3bc-499a-87b3-92d5b1a575fa" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetOrders</name>
+      <display>GetOrders(): OrderRecord[*]</display>
+      <typeReference id="f3b422f2-9f59-41e8-9bb2-56e1835dc500">
+        <typeId>26e33ae1-ac51-46f9-9c8a-63d83b53f314</typeId>
+        <typeName>OrderRecord</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>WebApp</typePackageName>
+        <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+      </typeReference>
+      <parentFolderId>65e0d1e2-a067-41cd-9c93-a101f3df025d</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="def585dc-4000-4215-969b-fcf9afd61c34" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="0221edd9-aa90-48a3-83c4-240cf9bfbf3a" display="Type" value="Array" />
+            <property name="5109b1b3-81a6-418e-b1e8-b39ea18821c5" display="Custom Format" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="38da9465-4099-4b22-ac5a-a01cde22dec2" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="b82f3fd2-7147-4f2c-a75b-6584b755f184" display="Include Cancellation Token" value="false" />
+            <property name="48ff7dfe-d6b8-4c41-bb48-c43b6d89e4a8" display="Async Mode" value="no async keyword" />
+            <property name="9a2d0802-e9ae-4f1b-a64b-74599d35050a" display="Task Type" />
+            <property name="32bcde4b-4a9c-4da6-a83e-02b644c28cd3" display="Cancellation Token Name" />
+            <property name="6deb3923-9e1e-4af7-8ca1-541ecf64360e" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="688abfbc-2cd7-42ba-8fc0-877804c293db" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateOrder</name>
+      <display>CreateOrder(request: CreateOrderRequest, requestId: guid): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="e1d65a26-1a74-4e45-8a16-bbfc2548cb9b" />
+      <parentFolderId>65e0d1e2-a067-41cd-9c93-a101f3df025d</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="38da9465-4099-4b22-ac5a-a01cde22dec2" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="b82f3fd2-7147-4f2c-a75b-6584b755f184" display="Include Cancellation Token" value="false" />
+            <property name="48ff7dfe-d6b8-4c41-bb48-c43b6d89e4a8" display="Async Mode" value="no async keyword" />
+            <property name="9a2d0802-e9ae-4f1b-a64b-74599d35050a" display="Task Type" />
+            <property name="32bcde4b-4a9c-4da6-a83e-02b644c28cd3" display="Cancellation Token Name" />
+            <property name="6deb3923-9e1e-4af7-8ca1-541ecf64360e" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="5dbe09c1-8a5a-4128-8519-95c9ca0f8070" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>request</name>
+          <display>request: CreateOrderRequest</display>
+          <typeReference id="3d702e72-76c3-4cbe-93ec-466068a20eed">
+            <typeId>a0415f2a-2ccb-4dbd-b86b-eb9fb9ba33ef</typeId>
+            <typeName>CreateOrderRequest</typeName>
+            <typePackageName>WebApp</typePackageName>
+            <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+          </typeReference>
+          <parentFolderId>688abfbc-2cd7-42ba-8fc0-877804c293db</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+        </element>
+        <element id="e85c5c6c-fd0a-4b0f-a2d8-7bd38d91f5bb" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>requestId</name>
+          <display>requestId: guid</display>
+          <typeReference id="c3e6f38b-2a00-4ec8-9595-764f83ca0d27">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <typeName>guid</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>688abfbc-2cd7-42ba-8fc0-877804c293db</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

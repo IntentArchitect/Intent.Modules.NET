@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="8bfd7372-5856-48df-b4c8-d3017635ee6d" zIndex="0">
+  <name>SetPaidOrderStatusCommand</name>
+  <position x="800" y="250" />
+  <size width="200" height="60" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

@@ -1,0 +1,55 @@
+{
+  "id": "MD2",
+  "title": "Sync the model to a developer's deliberate hand edits",
+  "lane": "manual",
+  "plants": ["md"],
+  "prompt": "These code changes are all deliberate. Bring the model up to date with the code.",
+  "done": "the model was brought up to date and the code is unchanged from the developer's edits",
+  "expect": [
+    { "id": "m1", "net": "visible", "text": "The Domain designer gives CatalogItem.Name a max length of 60." },
+    { "id": "m2", "net": "visible", "text": "The Domain designer no longer marks CardType.Name as required." },
+    { "id": "m3", "net": "visible", "text": "The Domain designer maps Buyer to the table ordering_buyers; Buyer was not renamed or recreated." },
+    { "id": "m4", "net": "visible", "text": "The Domain designer gives CatalogItem.Description the column name item_description." },
+    { "id": "m5", "net": "visible", "text": "The Domain designer gives CatalogItem.Price precision 18 and scale 2." },
+    { "id": "m6", "net": "visible", "text": "The Domain designer types CatalogItem.CatalogTypeId as nullable (int?), and the CatalogType relationship stays optional (0..1)." },
+    { "id": "m7", "net": "visible", "text": "The Domain designer types OrderItem.Units as long." },
+    { "id": "m8", "net": "visible", "text": "The Domain designer has Order.Priority (int)." },
+    {
+      "id": "m9",
+      "net": "visible",
+      "text": "The Domain designer has a Coupon entity with Code (max length 50, required), Discount and Consumed, mapped to the coupons table, and its Consume operation."
+    },
+    {
+      "id": "m10",
+      "net": "visible",
+      "text": "The Domain designer no longer has SetStockConfirmedStatus raising OrderStatusChangedToStockConfirmedDomainEvent (that Domain Event Origin is removed), and the domain event itself is kept."
+    },
+    { "id": "m11", "net": "visible", "text": "The Services designer gives the card types operation the route /card-types." },
+    { "id": "m12", "net": "visible", "text": "The Services designer gives the ship order operation the verb POST." },
+    {
+      "id": "m13",
+      "net": "visible",
+      "text": "The Services designer makes the get order operation (GetOrderAsync) unsecured, and leaves the other order operations secured."
+    },
+    { "id": "m14", "net": "visible", "text": "The Services designer binds the cancel order operation's request id from the query." },
+    { "id": "m15", "net": "visible", "text": "The Services designer has the GET {orderId}/status operation (GetOrderStatusAsync) on the orders API." },
+    { "id": "m16", "net": "visible", "text": "The Services designer gives CancelOrderCommand an optional Reason (string) field." },
+    {
+      "id": "m17",
+      "net": "visible",
+      "text": "The Services designer no longer has OrderShippedDomainEventHandler publishing OrderStatusChangedToShippedIntegrationEvent; the message itself is kept."
+    },
+    {
+      "id": "m18",
+      "net": "visible",
+      "text": "The Services designer still has OrderStatusChangedToStockConfirmedDomainEventHandler publishing OrderStatusChangedToStockConfirmedIntegrationEvent, and gains no query for the Buyer lookup the developer removed (none was modelled)."
+    },
+    {
+      "id": "m19",
+      "net": "blind",
+      "text": "The Services designer has UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler publishing OrderStatusChangedToSubmittedIntegrationEvent."
+    },
+    { "id": "m20", "net": "visible", "text": "OrderNumberFormatter is not in the model: a static helper class has no designer element." },
+    { "id": "kept", "net": "visible", "text": "None of the developer's code edits was reverted: every one of them is still in the code." }
+  ]
+}

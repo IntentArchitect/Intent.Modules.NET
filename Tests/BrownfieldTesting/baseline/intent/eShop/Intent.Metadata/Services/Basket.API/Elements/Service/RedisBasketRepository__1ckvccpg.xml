@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5c43df13-1c48-4b2e-b593-357fc437df44" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>Stores each basket as JSON in Redis under /basket/{buyerId}.</comment>
+  <name>RedisBasketRepository</name>
+  <display>RedisBasketRepository</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>08ae6dab-bac0-4f54-8f62-e73a61249d13</parentFolderId>
+  <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+  <packageName>Basket.API</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" value="eShop.Basket.API.Repositories" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="46d865d1-12f6-4515-acf6-b2742fcfe630" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteBasketAsync</name>
+      <display>DeleteBasketAsync(id: string): bool</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="f844adec-918a-4273-a544-45d9eb541752">
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+        <typeName>bool</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>5c43df13-1c48-4b2e-b593-357fc437df44</parentFolderId>
+      <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+      <packageName>Basket.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="63870d71-7b1a-47fc-a9c1-be17b96e5729" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: string</display>
+          <typeReference id="3b798f48-7696-4839-9fb2-f8d6f2bd3118">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>46d865d1-12f6-4515-acf6-b2742fcfe630</parentFolderId>
+          <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+          <packageName>Basket.API</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="92a73786-542f-447e-a5bd-dc2fa7966e8b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetBasketAsync</name>
+      <display>GetBasketAsync(customerId: string): CustomerBasket</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="704c9ecf-0064-458e-904e-69ec5a16dba7">
+        <typeId>2299ee93-60a6-468d-a0a4-52ec67f3f22f</typeId>
+        <typeName>CustomerBasket</typeName>
+        <typePackageName>Basket.API</typePackageName>
+        <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+      </typeReference>
+      <parentFolderId>5c43df13-1c48-4b2e-b593-357fc437df44</parentFolderId>
+      <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+      <packageName>Basket.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="3248002c-46aa-4094-a781-595368301eae" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>customerId</name>
+          <display>in : customerId: string</display>
+          <typeReference id="8339737f-c3da-412c-8091-f7bf4d2ccd5e">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>92a73786-542f-447e-a5bd-dc2fa7966e8b</parentFolderId>
+          <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+          <packageName>Basket.API</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="bf54783a-e398-4f5f-9b1d-882bde34ac1c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateBasketAsync</name>
+      <display>UpdateBasketAsync(basket: CustomerBasket): CustomerBasket</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="f72ee798-158e-4d80-88f6-acc2bc64471f">
+        <typeId>2299ee93-60a6-468d-a0a4-52ec67f3f22f</typeId>
+        <typeName>CustomerBasket</typeName>
+        <typePackageName>Basket.API</typePackageName>
+        <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+      </typeReference>
+      <parentFolderId>5c43df13-1c48-4b2e-b593-357fc437df44</parentFolderId>
+      <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+      <packageName>Basket.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="9e949b3a-9a6b-41f6-a1e3-06a0ea4bd519" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>basket</name>
+          <display>in : basket: CustomerBasket</display>
+          <typeReference id="d5ca1ae8-6e1e-45cd-974a-8886fb5447c4">
+            <typeId>2299ee93-60a6-468d-a0a4-52ec67f3f22f</typeId>
+            <typeName>CustomerBasket</typeName>
+            <typePackageName>Basket.API</typePackageName>
+            <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+          </typeReference>
+          <parentFolderId>bf54783a-e398-4f5f-9b1d-882bde34ac1c</parentFolderId>
+          <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+          <packageName>Basket.API</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

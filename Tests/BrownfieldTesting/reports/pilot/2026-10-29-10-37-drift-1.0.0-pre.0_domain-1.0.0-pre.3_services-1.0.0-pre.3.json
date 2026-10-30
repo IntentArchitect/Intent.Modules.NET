@@ -1,0 +1,163 @@
+{
+  "runId": "bf-spike-B0",
+  "file": "D:\\Dev\\Intent.Modules.NET\\Tests\\BrownfieldTesting\\reports\\pilot\\2026-10-29-10-37-drift-1.0.0-pre.0_domain-1.0.0-pre.3_services-1.0.0-pre.3.json",
+  "startedAt": "2026-10-29T10:37:48.430Z",
+  "finishedAt": "2026-10-29T10:42:17.040Z",
+  "args": [
+    "--case",
+    "B0",
+    "--run-id",
+    "bf-spike-B0"
+  ],
+  "evals": "D:\\Dev\\Intent\\Tools\\evals",
+  "modulesFolder": "D:\\Dev\\.intent-modules",
+  "modules": [
+    {
+      "id": "Intent.Common.Drift",
+      "version": "1.0.0-pre.0"
+    },
+    {
+      "id": "Intent.Domain.Guardrails.Contracts",
+      "version": "1.0.0-pre.3"
+    },
+    {
+      "id": "Intent.Services.Guardrails.Contracts",
+      "version": "1.0.0-pre.3"
+    }
+  ],
+  "cases": [
+    {
+      "key": "B0",
+      "id": "B0",
+      "title": "Baseline self-test: no drift on the baseline",
+      "lane": "ai",
+      "seed": "baseline",
+      "evalRunDir": "D:\\Dev\\Intent\\Tools\\evals\\results\\bf-spike-B0-B0",
+      "criteria": [
+        {
+          "id": "done",
+          "text": "The agent ran the Software Factory, reported that it found no drift between the model and the code, and changed nothing in the code or the model"
+        },
+        {
+          "id": "conduct",
+          "text": "The agent only asked questions that genuinely needed a person, and its final message accurately says what it changed and what it left."
+        }
+      ],
+      "repeats": [
+        {
+          "minutes": 2,
+          "tokens": {
+            "total": 277559,
+            "weighted": 119922.9
+          },
+          "timedOut": false,
+          "solutionDir": "C:\\Users\\JoelTurner\\IntentEvals\\bf-spike-B0-B0\\current-acp-1\\Eval_brownfield_B0_current_acp_1",
+          "gate": true,
+          "gateReasons": [],
+          "outcome": "n/a",
+          "visibleMisses": [],
+          "blindMisses": [],
+          "detection": null,
+          "softwareFactory": [
+            {
+              "turn": 0,
+              "total": 0,
+              "drift": {}
+            }
+          ],
+          "modelledBeforeFirstDrift": null,
+          "modelChangesAfterFirstDrift": 0,
+          "codeWritesBeforeFirstModel": null,
+          "finalDrift": 0,
+          "writesAfterLastSoftwareFactory": false,
+          "build": {
+            "exitCode": 0,
+            "errors": 0,
+            "warnings": 8
+          },
+          "regenerate": {
+            "pass": true,
+            "changedFiles": 8,
+            "extra": [],
+            "stillPendingMissing": []
+          },
+          "historyChecks": [
+            {
+              "kind": "expectCall",
+              "pass": true,
+              "detail": "1 matching call(s)"
+            },
+            {
+              "kind": "forbidCall",
+              "pass": true,
+              "detail": "none called"
+            }
+          ],
+          "scores": {
+            "done": 2,
+            "conduct": 2
+          },
+          "evidence": {
+            "done": "The agent ran the Software Factory with auto-apply off and reported no drift. No DomainDriftReport.mdx or ServicesDriftReport.mdx exists; intent/.cache/guardrails/eShop holds only Domain.model.json and Services.model.json. The 8 staged .agents/ changes were left unapplied, and nothing shows that the agent edited the model or the code.",
+            "conduct": "The agent asked no unnecessary questions. Its final message says it changed nothing, lists the 8 staged .agents/ changes it left unapplied, and explains the cache writes and the 36 modified .claude/ files. It did not mention the modified src/Catalog.API/Catalog.API*.json or intent/intent.repositories.config, but nothing shows the agent caused those changes."
+          },
+          "diff": {
+            "stat": "",
+            "names": []
+          },
+          "flags": [],
+          "moduleHashes": [
+            {
+              "module": "Intent.Common.Drift.1.0.0-pre.0",
+              "dll": "Intent.Modules.Common.Drift.dll",
+              "md5": "fba9b8d8ce7d7399ce713b46dd54ffd9",
+              "imodMd5": "fba9b8d8ce7d7399ce713b46dd54ffd9",
+              "match": true
+            },
+            {
+              "module": "Intent.Domain.Guardrails.Contracts.1.0.0-pre.3",
+              "dll": "Intent.Modules.Domain.Guardrails.Contracts.dll",
+              "md5": "91ac4a104e1131eb3cee827dff4f499e",
+              "imodMd5": "91ac4a104e1131eb3cee827dff4f499e",
+              "match": true
+            },
+            {
+              "module": "Intent.Services.Guardrails.Contracts.1.0.0-pre.3",
+              "dll": "Intent.Modules.Services.Guardrails.Contracts.dll",
+              "md5": "e99cb0645945c07fe0ed8b7aa085334f",
+              "imodMd5": "e99cb0645945c07fe0ed8b7aa085334f",
+              "match": true
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "repeats": 1,
+        "errors": [],
+        "gatePassRate": 1,
+        "outcome": "n/a",
+        "visibleMisses": [],
+        "blindMisses": [],
+        "detectionRate": null,
+        "scores": {
+          "done": 2,
+          "conduct": 2
+        },
+        "rubricMean": 2,
+        "minutes": 2,
+        "flags": []
+      }
+    }
+  ],
+  "comparison": {
+    "against": "D:\\Dev\\Intent.Modules.NET\\Tests\\BrownfieldTesting\\results\\history\\2026-10-29-12-27-drift-1.0.0-pre.0_domain-1.0.0-pre.3_services-1.0.0-pre.3.json",
+    "regressions": [],
+    "improvements": [],
+    "added": [],
+    "dropped": [
+      "MD1",
+      "NM1",
+      "AD1"
+    ]
+  }
+}

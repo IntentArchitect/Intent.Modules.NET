@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="40cec252-97ea-4da2-aaf1-86a50002a76a" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment>Aggregate root (IAggregateRoot). Key: Id (int) is declared on the SeedWork Entity base class, so it isn't modelled here. Id uses the HiLo sequence orderseq.</comment>
+  <name>Order</name>
+  <display>Order</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>5a7609d6-fe87-4fd8-acef-d8dacb40c42d</parentFolderId>
+  <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+  <packageName>Ordering</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="88722cfc-8f4e-4cc2-96f5-3635f5b520d1" name="File Config">
+      <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+      <properties>
+        <property name="11d2548c-4d37-4c5d-ab7b-ba60b4bc61be" display="Filename" />
+        <property name="e9476ee3-2e32-427f-95b2-938c8fb8397b" display="Namespace" value="eShop.Ordering.Domain.AggregatesModel.OrderAggregate" />
+        <property name="df085ba5-b5b5-44f2-9690-51f3c8053736" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="dd205b32-b48b-4c77-98f5-faefb2c047ce" name="Table">
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="2b3a9df7-65e1-4800-b919-bef1a6b8f5a9" display="Name" value="orders" />
+        <property name="13e6101f-0e37-4eda-a6ae-ec48cd9f8f4b" display="Schema" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="26b78a94-dfb9-4d14-9cb9-e5a4e3a1f7b6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>OrderDate</name>
+      <display>OrderDate: datetime</display>
+      <typeReference id="3c284008-830d-46b3-a67e-2ab4fb0c9cc5">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <typeName>datetime</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+    <element id="7cb61c52-993a-41bb-b537-17881c0c63d6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Value object persisted as an EF Core owned entity (OwnsOne).</comment>
+      <name>Address</name>
+      <display>Address: Address</display>
+      <typeReference id="5efb9dc3-cef3-46ce-ae09-4f2617a73749">
+        <typeId>a032a54f-c99f-4595-9a63-9065251387a3</typeId>
+        <typeName>Address</typeName>
+        <typePackageName>Ordering</typePackageName>
+        <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+      </typeReference>
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+    <element id="e8ab42fa-5dd3-4e86-8b2b-024089a8fcb2" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>BuyerId</name>
+      <display>BuyerId: int?</display>
+      <typeReference id="61866f4f-2bda-4f91-a1ee-907f06d4359a">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="03e72b51-e8a8-44c1-b870-f2df7464f245" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="919a8ffe-9223-4147-8494-0b214f16a41e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Stored as a string: HasConversion&lt;string&gt;().HasMaxLength(30).</comment>
+      <name>OrderStatus</name>
+      <display>OrderStatus: OrderStatus</display>
+      <typeReference id="3ae3289a-e8cc-4061-9061-abed110cd491">
+        <typeId>bfa4ae38-f37c-47a4-970a-6e073352be7a</typeId>
+        <typeName>OrderStatus</typeName>
+        <typePackageName>Ordering</typePackageName>
+        <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+      </typeReference>
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+    <element id="cfdeb1ac-b26b-408f-beb4-0baf1883fb1f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Description</name>
+      <display>Description: string?</display>
+      <typeReference id="040095cd-9f7b-42fe-9a9c-b4e2ad5d6603">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+    <element id="776dc5cb-cce8-4d5a-8920-b17fd0651a56" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>References paymentmethods (PaymentMethod) with no navigation property: HasOne&lt;PaymentMethod&gt;().WithMany().HasForeignKey(o =&gt; o.PaymentId).OnDelete(DeleteBehavior.Restrict).</comment>
+      <name>PaymentId</name>
+      <display>PaymentId: int?</display>
+      <typeReference id="c275e428-a1eb-4360-965a-69562403f16d">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="0b630b29-9513-4bbb-87fa-6cb3e6f65199" name="Column">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="30044760-ea18-480e-b840-e3cb7e7296d0" display="Name" value="PaymentMethodId" />
+            <property name="bc03d4fc-b9cc-4ac0-8869-b3e2cb18f1ef" display="Type" />
+            <property name="94f5a58f-b340-4a8b-b5dd-b618ecd7fc95" display="Order" />
+            <property name="fae5d195-d9f0-498e-938b-922362d8c37c" display="Collation" isActive="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="652a6188-1783-4d88-82c7-293c84ef725b" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Order</name>
+      <display>Order()</display>
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2189ac42-f723-4663-9673-80ad2cdd9f51" name="Constructor Configuration">
+          <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+          <properties>
+            <property name="1ece30f0-2390-47ff-84e4-06ca2681d174" display="Access Modifier" value="protected" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="a865d4f6-5795-45c8-b353-0ebfcd111719" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Order</name>
+      <display>Order(userId: string, userName: string, address: Address, cardTypeId: int, cardNumber: string, cardSecurityNumber: string, cardHolderName: string, cardExpiration: datetime, buyerId: int? = null, paymentMethodId: int? = null)</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <element id="792b73d2-7dc1-4270-9bb1-8c6690377ec5" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>userId</name>
+          <display>in : userId: string</display>
+          <typeReference id="2be0887b-c182-49cc-844b-2c250f4688fd">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>a865d4f6-5795-45c8-b353-0ebfcd111719</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="9a64d86e-c0e9-4160-8cf7-56369b84502d" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>userName</name>
+          <display>in : userName: string</display>
+          <typeReference id="df28e46b-e1db-44bd-ba57-a3d25e649c68">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>a865d4f6-5795-45c8-b353-0ebfcd111719</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="2f627704-5a78-4603-9ddb-4d8d8adab150" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>address</name>
+          <display>in : address: Address</display>
+          <typeReference id="2c389d94-36a2-4663-97a4-6a2ebc53cbfe">
+            <typeId>a032a54f-c99f-4595-9a63-9065251387a3</typeId>
+            <typeName>Address</typeName>
+            <typePackageName>Ordering</typePackageName>
+            <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+          </typeReference>
+          <parentFolderId>a865d4f6-5795-45c8-b353-0ebfcd111719</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="fadf95d3-7718-4fdf-ae22-3104ae277de8" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardTypeId</name>
+          <display>in : cardTypeId: int</display>
+          <typeReference id="2543d2a5-fcdd-406d-bb5e-b4b1ac0cf26a">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>a865d4f6-5795-45c8-b353-0ebfcd111719</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="f506ba8a-9264-44e9-aeff-0388fe4cf0f0" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardNumber</name>
+          <display>in : cardNumber: string</display>
+          <typeReference id="b58ca1f3-eec1-4803-96be-1f4a26a4e045">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>a865d4f6-5795-45c8-b353-0ebfcd111719</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="f4c60cb2-5b25-44e9-911c-540c93fc28f4" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardSecurityNumber</name>
+          <display>in : cardSecurityNumber: string</display>
+          <typeReference id="400e7fb3-6269-4d0c-96b2-e5c7566ea5b1">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>a865d4f6-5795-45c8-b353-0ebfcd111719</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="d171e858-5df7-4d70-abb8-ad9b7027590d" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardHolderName</name>
+          <display>in : cardHolderName: string</display>
+          <typeReference id="3772124a-3743-47f0-a375-acd0951b5e51">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>a865d4f6-5795-45c8-b353-0ebfcd111719</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="2ab0082b-b4e9-44d8-95cd-e211d40b26ab" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardExpiration</name>
+          <display>in : cardExpiration: datetime</display>
+          <typeReference id="eea4f0a7-fefb-4916-8396-531530124928">
+            <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+            <typeName>datetime</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>a865d4f6-5795-45c8-b353-0ebfcd111719</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="1932107c-4257-4fe8-89be-b5410661c4d1" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>buyerId</name>
+          <display>in : buyerId: int? = null</display>
+          <value>null</value>
+          <typeReference id="c8f731ac-6948-40f6-a3ca-53c154e305ba">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isNullable>true</isNullable>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>a865d4f6-5795-45c8-b353-0ebfcd111719</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="270248a9-fe51-4a29-9790-f90e226e62e3" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>paymentMethodId</name>
+          <display>in : paymentMethodId: int? = null</display>
+          <value>null</value>
+          <typeReference id="0b76147f-3e52-488f-85c3-b40c60a63ff6">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isNullable>true</isNullable>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>a865d4f6-5795-45c8-b353-0ebfcd111719</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <association id="d452d18b-ea7d-4dcd-91b8-aa9cf179ab28">
+          <sourceEnd id="5aa13034-30cd-47f1-9bd3-ffdca0b8fbca" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+            <display>published by : Order.Order</display>
+            <typeReference id="cde48253-8cbd-4052-9f69-993a9aaf9221">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="d452d18b-ea7d-4dcd-91b8-aa9cf179ab28" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+            <display>publishes : OrderStartedDomainEvent</display>
+            <typeReference id="b422f6e0-7726-498b-b8f1-93e194155c45">
+              <typeId>46a7e61e-fe51-49f5-97dc-6a104b5c9334</typeId>
+              <typeName>OrderStartedDomainEvent</typeName>
+              <typePackageName>Ordering</typePackageName>
+              <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Domain Event Origin Association</associationType>
+          <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="b498bc99-effa-4f06-b686-c0080aac8845" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>NewDraft</name>
+      <display>NewDraft(): Order</display>
+      <isStatic>true</isStatic>
+      <typeReference id="10c2faa2-218a-411e-91a0-14686eb2dc41">
+        <typeId>40cec252-97ea-4da2-aaf1-86a50002a76a</typeId>
+        <typeName>Order</typeName>
+        <typePackageName>Ordering</typePackageName>
+        <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+      </typeReference>
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <traits>
+        <trait id="39a4c065-f9c5-46dc-b035-2eb025698330" name="[Static Constructor]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39a4c065-f9c5-46dc-b035-2eb025698330" name="[Static Constructor]">
+          <definitionPackageName>Intent.Modelers.Domain</definitionPackageName>
+          <definitionPackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</definitionPackageId>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="0ae3be15-9b97-4123-ba50-6beafc0d13c6" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>AddOrderItem</name>
+      <display>AddOrderItem(productId: int, productName: string, unitPrice: decimal, discount: decimal, pictureUrl: string, units: int = 1): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="734cc3e4-fc23-49d7-b304-4c500ea55457" />
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <element id="4e8a5435-21ac-4cc8-85ca-c2e72967add9" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>productId</name>
+          <display>in : productId: int</display>
+          <typeReference id="4d124f05-92be-4613-9ef8-478e3527123b">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>0ae3be15-9b97-4123-ba50-6beafc0d13c6</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="2baf72f3-4b7e-468e-8369-e66369b6f9d5" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>productName</name>
+          <display>in : productName: string</display>
+          <typeReference id="17a2542a-0489-4a07-9dfd-a68f9c6a4587">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>0ae3be15-9b97-4123-ba50-6beafc0d13c6</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="09ad4b9f-49f3-45a1-be81-f7817c0ea5b3" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>unitPrice</name>
+          <display>in : unitPrice: decimal</display>
+          <typeReference id="b90e0f3d-f581-402d-b20f-3120050b7b60">
+            <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+            <typeName>decimal</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>0ae3be15-9b97-4123-ba50-6beafc0d13c6</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="f8888bfb-2d7c-4248-9f53-133e00bcf6b2" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>discount</name>
+          <display>in : discount: decimal</display>
+          <typeReference id="7c05af36-4c53-4db9-9423-a5fe8e3e33a3">
+            <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+            <typeName>decimal</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>0ae3be15-9b97-4123-ba50-6beafc0d13c6</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="ee9a3efb-f319-48a6-ab81-09252b5efb3f" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>pictureUrl</name>
+          <display>in : pictureUrl: string</display>
+          <typeReference id="95d26e14-e768-460f-bb47-778dd4b55017">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>0ae3be15-9b97-4123-ba50-6beafc0d13c6</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="1a58bd03-413c-47a3-97f2-d064b2d0d737" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>units</name>
+          <display>in : units: int = 1</display>
+          <value>1</value>
+          <typeReference id="4f0c6b09-b417-4902-a3a2-5002aecf0cec">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>0ae3be15-9b97-4123-ba50-6beafc0d13c6</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="cc8316e4-0417-4bf6-ad23-7c0d8be6d853" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SetPaymentMethodVerified</name>
+      <display>SetPaymentMethodVerified(buyerId: int, paymentId: int): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="5e194df0-e42c-45ca-92b8-842a75555ad8" />
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <element id="54ff7e41-cf77-45c9-abb7-bcc429c085fc" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>buyerId</name>
+          <display>in : buyerId: int</display>
+          <typeReference id="08303960-e32a-447e-a0eb-b87c259f320b">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>cc8316e4-0417-4bf6-ad23-7c0d8be6d853</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="60385df1-42df-4e88-bb04-32f81f98eb1a" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>paymentId</name>
+          <display>in : paymentId: int</display>
+          <typeReference id="9914ece9-57b5-4f0d-9542-713532b7655d">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>cc8316e4-0417-4bf6-ad23-7c0d8be6d853</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="43ec7fde-7548-4656-b812-6b437a741848" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SetAwaitingValidationStatus</name>
+      <display>SetAwaitingValidationStatus(): void</display>
+      <typeReference id="49abec44-5451-4dc0-a3ee-692332f4d238" />
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <association id="20b7728c-bbd5-4e92-b798-9313eff2a160">
+          <sourceEnd id="0a2b2061-3664-42d8-889e-737c6874e3b3" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+            <display>published by : Order.SetAwaitingValidationStatus</display>
+            <typeReference id="171a39bf-0c82-4bc4-9c22-0d717d8e5ab0">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="20b7728c-bbd5-4e92-b798-9313eff2a160" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+            <display>publishes : OrderStatusChangedToAwaitingValidationDomainEvent</display>
+            <typeReference id="9603b629-17a6-4677-a9d7-5c4a47d15356">
+              <typeId>20828c62-689b-40e8-b517-e52386fec4cb</typeId>
+              <typeName>OrderStatusChangedToAwaitingValidationDomainEvent</typeName>
+              <typePackageName>Ordering</typePackageName>
+              <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Domain Event Origin Association</associationType>
+          <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="fc543523-0246-4de9-a792-ab9a00bdbb4d" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SetStockConfirmedStatus</name>
+      <display>SetStockConfirmedStatus(): void</display>
+      <typeReference id="59546e5a-b22b-4cf3-850d-dee74877cd01" />
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <association id="a80704ba-5742-4126-9c1f-1b69e4442584">
+          <sourceEnd id="44c42c54-7ed5-4e59-b83b-8bda341f7a34" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+            <display>published by : Order.SetStockConfirmedStatus</display>
+            <typeReference id="bea5d1e1-2245-4afa-a0f2-e49b9017f10a">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="a80704ba-5742-4126-9c1f-1b69e4442584" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+            <display>publishes : OrderStatusChangedToStockConfirmedDomainEvent</display>
+            <typeReference id="fafbdeb3-38c0-4180-b11c-0dc8ae5d8ff8">
+              <typeId>01f23c34-164f-4989-8522-029f99d00873</typeId>
+              <typeName>OrderStatusChangedToStockConfirmedDomainEvent</typeName>
+              <typePackageName>Ordering</typePackageName>
+              <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Domain Event Origin Association</associationType>
+          <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="d47b9ab9-b3ec-4bbb-a694-c81863f675c6" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SetPaidStatus</name>
+      <display>SetPaidStatus(): void</display>
+      <typeReference id="6bf316f0-4d7b-4406-8fe7-44b73c044f15" />
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <association id="2b84f3f3-d965-49ec-aff9-84eb4427907c">
+          <sourceEnd id="07355cd4-f4a9-4d64-a659-5a8491d32a13" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+            <display>published by : Order.SetPaidStatus</display>
+            <typeReference id="6a81d9da-ef30-4a93-b477-18678ff88670">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="2b84f3f3-d965-49ec-aff9-84eb4427907c" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+            <display>publishes : OrderStatusChangedToPaidDomainEvent</display>
+            <typeReference id="d3ae5428-ac8d-4069-887b-696d7e85771f">
+              <typeId>7814732d-f2bb-4710-ba63-93701093ee4f</typeId>
+              <typeName>OrderStatusChangedToPaidDomainEvent</typeName>
+              <typePackageName>Ordering</typePackageName>
+              <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Domain Event Origin Association</associationType>
+          <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="36dc0ee6-77e6-4890-b5f6-f0f8116c300a" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SetShippedStatus</name>
+      <display>SetShippedStatus(): void</display>
+      <typeReference id="d90a1fde-8bc0-4cce-b07e-de5c2e76b9ea" />
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <association id="10055884-878f-4812-85bf-e370032782e8">
+          <sourceEnd id="e794fcb5-874a-40c3-98e1-d4b5bd1a127a" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+            <display>published by : Order.SetShippedStatus</display>
+            <typeReference id="7a2c64c5-b721-459c-8867-c906533891e8">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="10055884-878f-4812-85bf-e370032782e8" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+            <display>publishes : OrderShippedDomainEvent</display>
+            <typeReference id="d6af6c14-ef81-434c-8b97-7d355e99f882">
+              <typeId>d9adc183-ef34-46aa-b0e8-733372d474ba</typeId>
+              <typeName>OrderShippedDomainEvent</typeName>
+              <typePackageName>Ordering</typePackageName>
+              <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Domain Event Origin Association</associationType>
+          <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="17c3e58f-0a6b-430a-ae5c-e10038a8dd70" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SetCancelledStatus</name>
+      <display>SetCancelledStatus(): void</display>
+      <typeReference id="fe151b3b-9462-4976-b1e8-244bc9160d51" />
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <association id="65a1e6df-549f-4e3d-8880-75941bcdaf6e">
+          <sourceEnd id="b59a807e-82c9-488c-930e-f9c26907fcb2" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+            <display>published by : Order.SetCancelledStatus</display>
+            <typeReference id="d57e2c5b-c116-4cb9-8d45-c58a714ac07b">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="65a1e6df-549f-4e3d-8880-75941bcdaf6e" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+            <display>publishes : OrderCancelledDomainEvent</display>
+            <typeReference id="e5608655-6efb-4fcd-b698-fe84811f0525">
+              <typeId>b0f95c15-d452-4c5f-9f5f-a42fc2e25e79</typeId>
+              <typeName>OrderCancelledDomainEvent</typeName>
+              <typePackageName>Ordering</typePackageName>
+              <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Domain Event Origin Association</associationType>
+          <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="365d397f-c315-435d-84d8-7e94bb761ad5" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>SetCancelledStatusWhenStockIsRejected</name>
+      <display>SetCancelledStatusWhenStockIsRejected(orderStockRejectedItems: int[*]): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="a6fe5ab8-5ac9-4ca8-a103-576357395cf8" />
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <element id="cd297c51-4f6f-420c-9df7-ceca22b020e4" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>orderStockRejectedItems</name>
+          <display>in : orderStockRejectedItems: int[*]</display>
+          <typeReference id="ecad38d6-ecad-4933-8b60-e34ea0e14bae">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isCollection>true</isCollection>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>365d397f-c315-435d-84d8-7e94bb761ad5</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="4a6ee30a-1549-4f35-a7c4-3287cea76025" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>GetTotal</name>
+      <display>GetTotal(): decimal</display>
+      <typeReference id="682faf19-12d7-49e0-866c-e6f5a90add98">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>40cec252-97ea-4da2-aaf1-86a50002a76a</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+    <association id="27e4a4b3-9f55-4447-942a-a49dd8a5f11b">
+      <comment>By EF Core convention: read-only view of the _orderItems field; the foreign key is the shadow property OrderId (cascade delete).</comment>
+      <sourceEnd id="3a1dfd16-2e21-4a0e-9d03-5699fdd2dacd" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+        <name>Order</name>
+        <display>Order: Order</display>
+        <typeReference id="5e1de1f1-f212-47a0-9f74-3e2314208ada">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="27e4a4b3-9f55-4447-942a-a49dd8a5f11b" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+        <comment>By EF Core convention: read-only view of the _orderItems field; the foreign key is the shadow property OrderId (cascade delete).</comment>
+        <name>OrderItems</name>
+        <display>OrderItems: OrderItem[*]?</display>
+        <typeReference id="9f253219-808c-49bf-8838-903046c7f6ec">
+          <typeId>559fc284-22c9-4446-80f3-5ade2ab1d738</typeId>
+          <typeName>OrderItem</typeName>
+          <isNullable>true</isNullable>
+          <isCollection>true</isCollection>
+          <typePackageName>Ordering</typePackageName>
+          <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+        </typeReference>
+        <stereotypes>
+          <stereotype stereotypeDefinitionId="04f4115f-35e9-4b60-b8c7-44ce30079d81" name="Collection Type">
+            <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+            <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+            <properties>
+              <property name="96b3601c-b192-46b3-b544-d7bb1a1c2781" display="Type" value="IReadOnlyCollection" />
+              <property name="7b992e9d-eafa-41b7-8efd-d4b689b534d4" display="Custom Format" />
+            </properties>
+          </stereotype>
+        </stereotypes>
+      </targetEnd>
+      <associationType>Association</associationType>
+      <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="04f4115f-35e9-4b60-b8c7-44ce30079d81" name="Collection Type">
+          <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+          <properties>
+            <property name="96b3601c-b192-46b3-b544-d7bb1a1c2781" display="Type" value="IReadOnlyCollection" />
+            <property name="7b992e9d-eafa-41b7-8efd-d4b689b534d4" display="Custom Format" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </association>
+    <association id="03e72b51-e8a8-44c1-b870-f2df7464f245">
+      <sourceEnd id="c8ecdad2-b552-4d19-99d3-45e465aa95c0" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+        <name>Orders</name>
+        <display>Orders: Order[*]?</display>
+        <typeReference id="fb517e78-001a-4da9-a219-a0100687ae69">
+          <isNavigable>false</isNavigable>
+          <isNullable>true</isNullable>
+          <isCollection>true</isCollection>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="03e72b51-e8a8-44c1-b870-f2df7464f245" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+        <name>Buyer</name>
+        <display>Buyer: Buyer?</display>
+        <typeReference id="a9689b15-ca43-4322-bdb5-3c3555a1ba16">
+          <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+          <typeName>Buyer</typeName>
+          <isNullable>true</isNullable>
+          <typePackageName>Ordering</typePackageName>
+          <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Association</associationType>
+      <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+    </association>
+  </children>
+</class>

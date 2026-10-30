@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0d4e74a4-9b32-4c29-88f3-021e0b257c31" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>WebhooksSender</name>
+  <display>WebhooksSender</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>34952c6e-e8d2-41b0-8aed-200618e444f3</parentFolderId>
+  <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+  <packageName>Webhooks.API</packageName>
+  <children>
+    <element id="8d6ab39e-0016-49e1-b704-d81ab33cb499" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>SendAll</name>
+      <display>SendAll(receivers: WebhookSubscription[*], data: WebhookData): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="eb510280-d8fe-4e66-a0d4-51967ef392ca" />
+      <parentFolderId>0d4e74a4-9b32-4c29-88f3-021e0b257c31</parentFolderId>
+      <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+      <packageName>Webhooks.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="3743a819-603a-4fe3-8c2b-81cb353c91ce" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>receivers</name>
+          <display>in : receivers: WebhookSubscription[*]</display>
+          <typeReference id="e8fd6d2a-ba31-4b31-a9a6-0d34371a3a07">
+            <typeId>c0e49fd4-3093-4292-8a19-29c6f8955efd</typeId>
+            <typeName>WebhookSubscription</typeName>
+            <isCollection>true</isCollection>
+            <typePackageName>Webhooks.API</typePackageName>
+            <typePackageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</typePackageId>
+          </typeReference>
+          <parentFolderId>8d6ab39e-0016-49e1-b704-d81ab33cb499</parentFolderId>
+          <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+          <packageName>Webhooks.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+              <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+              <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+              <properties>
+                <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="IEnumerable" />
+                <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="20cba7bf-276b-4cbc-bc8e-b55368cd1037" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>data</name>
+          <display>in : data: WebhookData</display>
+          <typeReference id="6697662e-d49e-44ce-9102-a2f1a4f76dbf">
+            <typeId>2c234c63-f426-4d5a-8e87-50e1b4dc2605</typeId>
+            <typeName>WebhookData</typeName>
+            <typePackageName>Webhooks.API</typePackageName>
+            <typePackageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</typePackageId>
+          </typeReference>
+          <parentFolderId>8d6ab39e-0016-49e1-b704-d81ab33cb499</parentFolderId>
+          <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+          <packageName>Webhooks.API</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

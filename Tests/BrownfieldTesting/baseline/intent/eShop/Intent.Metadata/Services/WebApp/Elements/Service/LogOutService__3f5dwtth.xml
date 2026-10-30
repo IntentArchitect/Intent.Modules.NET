@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="05838e31-4213-47de-bc98-8d5cb918890d" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>LogOutService</name>
+  <display>LogOutService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>f9ad17ae-d281-46ee-b575-261caf1ce41c</parentFolderId>
+  <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+  <packageName>WebApp</packageName>
+  <children>
+    <element id="6224f72c-0d2a-47f5-87d5-bd07a7d15423" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>LogOutAsync</name>
+      <display>LogOutAsync(httpContext: HttpContext): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="6fb19f34-da85-487f-9afd-1af3d4b51724" />
+      <parentFolderId>05838e31-4213-47de-bc98-8d5cb918890d</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="0a60e7ed-60d0-4367-b241-7ae11f9b76ef" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>httpContext</name>
+          <display>in : httpContext: HttpContext</display>
+          <typeReference id="75723ce2-5207-4cb9-b400-e026ddd42c5f">
+            <typeId>98572788-6d02-4948-9c09-ad8abd686e5a</typeId>
+            <typeName>HttpContext</typeName>
+            <typePackageName>WebApp</typePackageName>
+            <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+          </typeReference>
+          <parentFolderId>6224f72c-0d2a-47f5-87d5-bd07a7d15423</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

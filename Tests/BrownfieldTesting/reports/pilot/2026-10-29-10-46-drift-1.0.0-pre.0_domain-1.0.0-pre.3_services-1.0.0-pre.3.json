@@ -1,0 +1,1148 @@
+{
+  "runId": "bf-pilot-1",
+  "file": "D:\\Dev\\Intent.Modules.NET\\Tests\\BrownfieldTesting\\reports\\pilot\\2026-10-29-10-46-drift-1.0.0-pre.0_domain-1.0.0-pre.3_services-1.0.0-pre.3.json",
+  "startedAt": "2026-10-29T10:46:25.136Z",
+  "finishedAt": "2026-10-29T11:35:35.826Z",
+  "args": [
+    "--case",
+    "MD1",
+    "--case",
+    "AD1",
+    "--case",
+    "RN1c",
+    "--case",
+    "OC1",
+    "--run-id",
+    "bf-pilot-1"
+  ],
+  "evals": "D:\\Dev\\Intent\\Tools\\evals",
+  "modulesFolder": "D:\\Dev\\.intent-modules",
+  "modules": [
+    {
+      "id": "Intent.Common.Drift",
+      "version": "1.0.0-pre.0"
+    },
+    {
+      "id": "Intent.Domain.Guardrails.Contracts",
+      "version": "1.0.0-pre.3"
+    },
+    {
+      "id": "Intent.Services.Guardrails.Contracts",
+      "version": "1.0.0-pre.3"
+    }
+  ],
+  "cases": [
+    {
+      "key": "MD1",
+      "id": "MD1",
+      "title": "Detection: report the drift a developer's hand edits caused",
+      "lane": "manual",
+      "seed": "md",
+      "evalRunDir": "D:\\Dev\\Intent\\Tools\\evals\\results\\bf-pilot-1-MD1",
+      "criteria": [
+        {
+          "id": "done",
+          "text": "The agent ran the Software Factory, listed the drift it reported, and changed nothing in the code or the model"
+        },
+        {
+          "id": "expect:r1",
+          "text": "The drift the agent lists includes CatalogItem.Name's max length: 60 in the code (its EF configuration), 50 in the model.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r2",
+          "text": "The drift the agent lists includes CardType.Name: not required in the code (its IsRequired() was removed), required in the model.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r3",
+          "text": "The drift the agent lists includes Buyer's table name: ordering_buyers in the code, buyers in the model.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r4",
+          "text": "The drift the agent lists includes CatalogItem.Description's column name: item_description in the code, none in the model.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r5",
+          "text": "The drift the agent lists includes CatalogItem.Price's precision (18, scale 2) in the code, which the model doesn't state.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r6",
+          "text": "The drift the agent lists includes CatalogItem's relationship to CatalogType: optional in the code (IsRequired(false) and a nullable CatalogTypeId), required in the model.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r7",
+          "text": "The drift the agent lists includes OrderItem.Units' type: long in the code, int in the model.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r8",
+          "text": "The drift the agent lists includes Order.Priority as in the code but not modelled.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r9",
+          "text": "The drift the agent lists includes the Coupon entity (and its entity configuration) as in the code but not modelled.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r10",
+          "text": "The drift the agent lists includes Order.SetStockConfirmedStatus no longer raising OrderStatusChangedToStockConfirmedDomainEvent, which the model says it raises.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r11",
+          "text": "The drift the agent lists includes the card types endpoint's route: /card-types in the code, /cardtypes in the model.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r12",
+          "text": "The drift the agent lists includes the ship order endpoint's verb: POST in the code, PUT in the model.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r13",
+          "text": "The drift the agent lists includes the get order endpoint (GetOrderAsync) being anonymous in the code (AllowAnonymous) while the model secures it.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r14",
+          "text": "The drift the agent lists includes the cancel order endpoint's request id parameter: bound from the query in the code, from a header in the model.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r15",
+          "text": "The drift the agent lists includes the new GET {orderId}/status endpoint (GetOrderStatusAsync) as in the code but not modelled.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r16",
+          "text": "The drift the agent lists includes CancelOrderCommand's Reason as in the code but not modelled.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r17",
+          "text": "The drift the agent lists includes OrderShippedDomainEventHandler no longer publishing OrderStatusChangedToShippedIntegrationEvent, which the model says it publishes.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r18",
+          "text": "The drift the agent lists includes OrderStatusChangedToStockConfirmedDomainEventHandler no longer querying Buyer, which the model says it queries.",
+          "net": "visible",
+          "kind": "row"
+        },
+        {
+          "id": "expect:r19",
+          "text": "The drift the agent lists does not include the publish of OrderStatusChangedToSubmittedIntegrationEvent newly added to UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler: the check never reports an interaction the code gains. (Mentioning it as a change the check can't see is fine.)",
+          "net": "blind",
+          "kind": "noRow"
+        },
+        {
+          "id": "expect:r20",
+          "text": "The drift the agent lists does not include the new static class OrderNumberFormatter: no ownership convention covers it.",
+          "net": "blind",
+          "kind": "noRow"
+        },
+        {
+          "id": "expect:extra",
+          "text": "The drift the agent lists contains nothing beyond the edits above. A row that follows directly from one of them, such as CatalogTypeId's nullability alongside the CatalogType relationship, counts as part of that edit.",
+          "net": "visible",
+          "kind": "noRow"
+        },
+        {
+          "id": "conduct",
+          "text": "The agent only asked questions that genuinely needed a person, and its final message accurately says what it changed and what it left."
+        }
+      ],
+      "repeats": [
+        {
+          "minutes": 2,
+          "tokens": {
+            "total": 352145,
+            "weighted": 142507.4
+          },
+          "timedOut": false,
+          "solutionDir": "C:\\Users\\JoelTurner\\IntentEvals\\bf-pilot-1-MD1\\current-acp-1\\Eval_brownfield_MD1_current_acp_1",
+          "gate": true,
+          "gateReasons": [],
+          "outcome": "n/a",
+          "visibleMisses": [
+            "r6",
+            "r18"
+          ],
+          "blindMisses": [],
+          "detection": {
+            "found": 16,
+            "rows": 18,
+            "falseRows": [],
+            "rate": 0.889
+          },
+          "softwareFactory": [
+            {
+              "turn": 0,
+              "total": 20,
+              "drift": {
+                "Domain": 12,
+                "Services": 8
+              }
+            }
+          ],
+          "modelledBeforeFirstDrift": false,
+          "modelChangesAfterFirstDrift": 0,
+          "codeWritesBeforeFirstModel": null,
+          "finalDrift": 20,
+          "writesAfterLastSoftwareFactory": false,
+          "build": {
+            "exitCode": 0,
+            "errors": 0,
+            "warnings": 8
+          },
+          "regenerate": {
+            "pass": false,
+            "changedFiles": 12,
+            "extra": [
+              "intent/.cache/guardrails/eShop/DomainDriftReport.mdx (create)",
+              "intent/.cache/guardrails/eShop/ServicesDriftReport.mdx (create)",
+              "src/Catalog.API/Model/CatalogItem.cs (overwrite)",
+              "src/Ordering.Domain/AggregatesModel/OrderAggregate/OrderItem.cs (overwrite)"
+            ],
+            "stillPendingMissing": []
+          },
+          "historyChecks": [
+            {
+              "kind": "expectCall",
+              "pass": true,
+              "detail": "1 matching call(s)"
+            },
+            {
+              "kind": "forbidCall",
+              "pass": true,
+              "detail": "none called"
+            }
+          ],
+          "scores": {
+            "done": 2,
+            "expect:r1": 2,
+            "expect:r2": 2,
+            "expect:r3": 2,
+            "expect:r4": 2,
+            "expect:r5": 2,
+            "expect:r6": 1,
+            "expect:r7": 2,
+            "expect:r8": 2,
+            "expect:r9": 2,
+            "expect:r10": 2,
+            "expect:r11": 2,
+            "expect:r12": 2,
+            "expect:r13": 2,
+            "expect:r14": 2,
+            "expect:r15": 2,
+            "expect:r16": 2,
+            "expect:r17": 2,
+            "expect:r18": 0,
+            "expect:r19": 2,
+            "expect:r20": 2,
+            "expect:extra": 2,
+            "conduct": 2
+          },
+          "evidence": {
+            "done": "The agent ran the Software Factory with auto-apply off and listed 20 drift rows. It left all 12 staged changes unapplied, including the CatalogItem.cs and OrderItem.cs rewrites. It edited no model or code.",
+            "expect:r1": "Domain row 5: CatalogItem › Name max length is 50 in the model and 60 in the code, in CatalogItemEntityTypeConfiguration.cs:11.",
+            "expect:r2": "Domain row 2: CardType.Name is required (true) in the model and false in the code, which has no IsRequired().",
+            "expect:r3": "Domain row 1: the Buyer table name is `buyers` in the model and `ordering_buyers` in the code.",
+            "expect:r4": "Domain row 4: CatalogItem › Description has no column name in the model and `item_description` in the code.",
+            "expect:r5": "Domain rows 6 and 7: CatalogItem.Price has precision 18 and scale 2 in the code and none in the model.",
+            "expect:r6": "Domain row 3 reports only CatalogTypeId as int in the model and int? in the code. The list never mentions the optional relationship itself, which is `HasOne(ci => ci.CatalogType)...IsRequired(false)` in CatalogItemEntityTypeConfiguration.cs:25-27.",
+            "expect:r7": "Domain row 9: OrderItem › Units is int in the model and long in the code.",
+            "expect:r8": "Domain row 11: the public property Order.Priority is not modelled.",
+            "expect:r9": "Domain rows 10 and 12: neither the Coupon entity nor its CouponEntityTypeConfiguration is modelled.",
+            "expect:r10": "Domain row 8: the model says SetStockConfirmedStatus raises OrderStatusChangedToStockConfirmedDomainEvent, and the code raises nothing.",
+            "expect:r11": "Services row 4: the GetCardTypesAsync route is `cardtypes` in the model and `card-types` in the code.",
+            "expect:r12": "Services row 6: the ShipOrderAsync verb is PUT in the model and POST in the code.",
+            "expect:r13": "Services row 5: GetOrderAsync is Secured in the model and Unsecured in the code.",
+            "expect:r14": "Services row 3: CancelOrderAsync's requestId binding is From Header in the model and From Query in the code.",
+            "expect:r15": "Services rows 7 and 8: neither the GetOrderStatusAsync method nor the MapGet {orderId:int}/status endpoint is modelled.",
+            "expect:r16": "Services row 1: the CancelOrderCommand parameters in the code include `string Reason=null`, which the model doesn't have.",
+            "expect:r17": "Services row 2: the model says OrderShippedDomainEventHandler publishes OrderStatusChangedToShippedIntegrationEvent, and the code publishes nothing.",
+            "expect:r18": "Neither table has a row about OrderStatusChangedToStockConfirmedDomainEventHandler or its Buyer query.",
+            "expect:r19": "No row mentions UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler or OrderStatusChangedToSubmittedIntegrationEvent.",
+            "expect:r20": "OrderNumberFormatter does not appear in either table.",
+            "expect:extra": "Every one of the 20 rows maps to one of the planted edits. The extra rows (precision and scale, Coupon's configuration, the status endpoint's method and route) follow from those edits.",
+            "conduct": "The agent asked no questions. Its final message says nothing was applied, names the two staged rewrites that would revert code drift, and notes the pre-existing .claude changes and Intent's bookkeeping file changes."
+          },
+          "diff": {
+            "stat": "",
+            "names": []
+          },
+          "flags": [],
+          "moduleHashes": [
+            {
+              "module": "Intent.Common.Drift.1.0.0-pre.0",
+              "dll": "Intent.Modules.Common.Drift.dll",
+              "md5": "fba9b8d8ce7d7399ce713b46dd54ffd9",
+              "imodMd5": "fba9b8d8ce7d7399ce713b46dd54ffd9",
+              "match": true
+            },
+            {
+              "module": "Intent.Domain.Guardrails.Contracts.1.0.0-pre.3",
+              "dll": "Intent.Modules.Domain.Guardrails.Contracts.dll",
+              "md5": "91ac4a104e1131eb3cee827dff4f499e",
+              "imodMd5": "91ac4a104e1131eb3cee827dff4f499e",
+              "match": true
+            },
+            {
+              "module": "Intent.Services.Guardrails.Contracts.1.0.0-pre.3",
+              "dll": "Intent.Modules.Services.Guardrails.Contracts.dll",
+              "md5": "e99cb0645945c07fe0ed8b7aa085334f",
+              "imodMd5": "e99cb0645945c07fe0ed8b7aa085334f",
+              "match": true
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "repeats": 1,
+        "errors": [],
+        "gatePassRate": 1,
+        "outcome": "n/a",
+        "visibleMisses": [
+          "r6",
+          "r18"
+        ],
+        "blindMisses": [],
+        "detectionRate": 0.89,
+        "scores": {
+          "done": 2,
+          "expect:r1": 2,
+          "expect:r2": 2,
+          "expect:r3": 2,
+          "expect:r4": 2,
+          "expect:r5": 2,
+          "expect:r6": 1,
+          "expect:r7": 2,
+          "expect:r8": 2,
+          "expect:r9": 2,
+          "expect:r10": 2,
+          "expect:r11": 2,
+          "expect:r12": 2,
+          "expect:r13": 2,
+          "expect:r14": 2,
+          "expect:r15": 2,
+          "expect:r16": 2,
+          "expect:r17": 2,
+          "expect:r18": 0,
+          "expect:r19": 2,
+          "expect:r20": 2,
+          "expect:extra": 2,
+          "conduct": 2
+        },
+        "rubricMean": 1.87,
+        "minutes": 2,
+        "flags": []
+      }
+    },
+    {
+      "key": "AD1",
+      "id": "AD1",
+      "title": "Add: discontinue catalog items",
+      "lane": "ai",
+      "seed": "baseline",
+      "evalRunDir": "D:\\Dev\\Intent\\Tools\\evals\\results\\bf-pilot-1-AD1",
+      "criteria": [
+        {
+          "id": "done",
+          "text": "The request is done in the code: CatalogItem has IsDiscontinued (default false), the item list endpoints leave discontinued items out, and PUT /api/catalog/items/{id}/discontinue marks an item discontinued."
+        },
+        {
+          "id": "expect:flag",
+          "text": "The Domain designer's CatalogItem has IsDiscontinued (bool, default false).",
+          "net": "visible",
+          "kind": "change"
+        },
+        {
+          "id": "expect:endpoint",
+          "text": "The Services designer has the discontinue operation: PUT /api/catalog/items/{id}/discontinue on the catalog API, with the id from the route.",
+          "net": "visible",
+          "kind": "change"
+        },
+        {
+          "id": "expect:intent",
+          "text": "The discontinue operation has an update interaction (an update entity action) on CatalogItem.",
+          "net": "blind",
+          "kind": "change"
+        },
+        {
+          "id": "nothing-extra",
+          "text": "Nothing is in the model that the code doesn't have: every designer element, attribute, operation, endpoint or association the agent added or changed exists in the code with the same name and shape."
+        },
+        {
+          "id": "no-violations",
+          "text": "No guidance violations: the agent did not change code just so a drift recipe reads it, did not weaken a drift recipe or add an exception to get past a real contradiction between model and code, did not delete an association that is still true in the code, and did not hand-edit generated output where the model could state it."
+        },
+        {
+          "id": "conduct",
+          "text": "The agent only asked questions that genuinely needed a person, and its final message accurately says what it changed and what it left."
+        }
+      ],
+      "repeats": [
+        {
+          "minutes": 16,
+          "tokens": {
+            "total": 11788105,
+            "weighted": 1874052.8
+          },
+          "timedOut": false,
+          "solutionDir": "C:\\Users\\JoelTurner\\IntentEvals\\bf-pilot-1-AD1\\current-acp-1\\Eval_brownfield_AD1_current_acp_1",
+          "gate": true,
+          "gateReasons": [],
+          "outcome": "steered",
+          "visibleMisses": [],
+          "blindMisses": [],
+          "detection": null,
+          "softwareFactory": [
+            {
+              "turn": 0,
+              "total": 5,
+              "drift": {
+                "Services": 5
+              }
+            },
+            {
+              "turn": 0,
+              "total": 0,
+              "drift": {}
+            }
+          ],
+          "modelledBeforeFirstDrift": true,
+          "modelChangesAfterFirstDrift": 0,
+          "codeWritesBeforeFirstModel": 0,
+          "finalDrift": 0,
+          "writesAfterLastSoftwareFactory": false,
+          "build": {
+            "exitCode": 0,
+            "errors": 0,
+            "warnings": 8
+          },
+          "regenerate": {
+            "pass": true,
+            "changedFiles": 0,
+            "extra": [],
+            "stillPendingMissing": [
+              ".agents/instructions/guardrails-model-sync.md",
+              ".agents/skills/configure-drift-check/references/domain-events.md",
+              ".agents/skills/configure-drift-check/references/handler-intent.md",
+              ".agents/skills/configure-drift-check/SKILL.md",
+              ".agents/skills/reverse-engineer-domain/SKILL.md",
+              ".agents/skills/reverse-engineer-services/SKILL.md",
+              ".agents/skills/sync-model/references/intent-drift.md",
+              ".agents/skills/sync-model/SKILL.md"
+            ]
+          },
+          "historyChecks": [
+            {
+              "kind": "expectCall",
+              "pass": true,
+              "detail": "2 matching call(s)"
+            }
+          ],
+          "scores": {
+            "done": 2,
+            "expect:flag": 2,
+            "expect:endpoint": 2,
+            "expect:intent": 2,
+            "nothing-extra": 2,
+            "no-violations": 2,
+            "conduct": 2
+          },
+          "evidence": {
+            "done": "CatalogItem.cs adds `bool IsDiscontinued` (CLR default false; the migration adds a non-null column defaulting to false). CatalogApi.cs filters `!c.IsDiscontinued` in the paginated lists, the semantic search and the facets, and maps `api.MapPut(\"/items/{id:int}/discontinue\", DiscontinueItem)`, which calls `item.Discontinue()` and saves.",
+            "expect:flag": "CatalogItem__fnk0x2x8.xml has the Attribute `IsDiscontinued: bool`, with a comment saying it defaults to false. There is no explicit default-value stereotype, but a non-nullable bool defaults to false. A `Discontinue()` operation was also added.",
+            "expect:endpoint": "CatalogApi__fgmllgqd.xml has the Operation `DiscontinueItem` with Http Settings Verb=PUT and Route=`items/{id:int}/discontinue` under the api/catalog group, on both API versions. Its `id: int` parameter has Parameter Settings Source=From Route.",
+            "expect:intent": "DiscontinueItem contains an `Update Entity Action` association, `[update] catalogItem: Discontinue`, that targets the CatalogItem.Discontinue operation.",
+            "nothing-extra": "Each model element has a code match: IsDiscontinued (bool), Discontinue(): void, and DiscontinueItem(services, id: int) returning Results<NoContent, NotFound> on PUT items/{id:int}/discontinue for v1+v2 (the shared `api` group). The update action matches the `item.Discontinue()` call.",
+            "no-violations": "The model was changed first and the Software Factory was run. The bespoke code sits in protected slots ([IntentIgnoreBody] on Discontinue, and [IntentIgnore] on DiscontinueItem, which matches the existing DeleteItemById pattern). The agent reverted unrelated churn and made no drift-recipe or association edits.",
+            "conduct": "It asked no unnecessary questions, and it flagged the judgment calls as decisions to review: the replace-PUT keeps the flag, and lookups by id still return discontinued items. The summary matches the code: list and facet filtering, the migration, the regenerated OpenAPI json, 6 new tests, and nothing committed."
+          },
+          "diff": {
+            "stat": " 63 files changed, 653 insertions(+), 38 deletions(-)",
+            "names": [
+              "M\t.agents/instructions/guardrails-model-sync.md",
+              "M\t.agents/skills/configure-drift-check/SKILL.md",
+              "M\t.agents/skills/configure-drift-check/references/domain-events.md",
+              "M\t.agents/skills/configure-drift-check/references/handler-intent.md",
+              "M\t.agents/skills/reverse-engineer-domain/SKILL.md",
+              "M\t.agents/skills/reverse-engineer-services/SKILL.md",
+              "M\t.agents/skills/sync-model/SKILL.md",
+              "A\t.agents/skills/sync-model/references/intent-drift.md",
+              "M\tintent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Basket.API.Eventing/Basket.API.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Basket.API/Associations/Perform Invocation/Handler_to_result__1jb1hw1g.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Basket.API/Basket.API.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API.Eventing/Catalog.API.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_PublishThroughEventBusAsync__688s97xf.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_SaveEventAndCatalogContextChangesAsync__k2bctsh5.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockConfirmedIntegrationEvent__kbwkbf6k.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockRejectedIntegrationEvent__b5p1jxml.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Query Entity Action/Handler_to_catalogItems__1knd0gbz.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Update Entity Action/Handler_to_catalogItem__58y34wvg.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Catalog.API.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Elements/Service/CatalogApi__fgmllgqd.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/OrderProcessor.Eventing/OrderProcessor.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/OrderProcessor/OrderProcessor.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Create Entity Action/handler_to_buyer__3d1byw4d.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__1d3zcxxt.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__2l7bf32n.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__3h1x44ry.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__b1hh3qwg.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__j2b4mbcb.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToAwaitingValidationIntegrationEvent__bc5r1dqv.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToCancelledIntegrationEvent__jr0gg1qn.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToPaidIntegrationEvent__4zmtpj7x.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToShippedIntegrationEvent__fdtdqrh2.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToStockConfirmedIntegrationEvent__l534jc57.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToSubmittedIntegrationEvent__c4w772kl.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_buyer1__hhlyw826.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_order__786yt3wm.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/PaymentProcessor.Eventing/PaymentProcessor.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentFailedIntegrationEvent__jc5l2y92.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentSucceededIntegrationEvent__byvvkmjn.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/PaymentProcessor/PaymentProcessor.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp.Eventing/WebApp.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__27rvrhxm.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__52frwydl.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__79vjhg0t.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__bxtxbmyp.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__hn4hdtph.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__k2kpps94.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/WebApp.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/WebAppComponents/WebAppComponents.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/WebhookClient/WebhookClient.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API.Eventing/Webhooks.API.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__hljz9l59.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__jzxx741v.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__hym22s1s.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__jj364lct.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Webhooks.API.pkg.config",
+              "M\tsrc/Catalog.API/Apis/CatalogApi.cs",
+              "A\tsrc/Catalog.API/Infrastructure/Migrations/20261029105951_AddCatalogItemIsDiscontinued.Designer.cs",
+              "A\tsrc/Catalog.API/Infrastructure/Migrations/20261029105951_AddCatalogItemIsDiscontinued.cs",
+              "M\tsrc/Catalog.API/Infrastructure/Migrations/CatalogContextModelSnapshot.cs",
+              "M\tsrc/Catalog.API/Model/CatalogItem.cs",
+              "M\ttests/Catalog.FunctionalTests/CatalogApiTests.cs"
+            ]
+          },
+          "flags": [
+            "ran `git checkout HEAD -- src/Catalog.API/Apis/CatalogApi.cs` (discards only its own uncommitted edits; for review)",
+            "ran `git checkout -- src/ClientApp/Services/Basket/Protos/Basket.cs src/ClientApp/Services/Basket/Protos/BasketGrpc.cs` (discards only its own uncommitted edits; for review)"
+          ],
+          "moduleHashes": [
+            {
+              "module": "Intent.Common.Drift.1.0.0-pre.0",
+              "dll": "Intent.Modules.Common.Drift.dll",
+              "md5": "fba9b8d8ce7d7399ce713b46dd54ffd9",
+              "imodMd5": "fba9b8d8ce7d7399ce713b46dd54ffd9",
+              "match": true
+            },
+            {
+              "module": "Intent.Domain.Guardrails.Contracts.1.0.0-pre.3",
+              "dll": "Intent.Modules.Domain.Guardrails.Contracts.dll",
+              "md5": "91ac4a104e1131eb3cee827dff4f499e",
+              "imodMd5": "91ac4a104e1131eb3cee827dff4f499e",
+              "match": true
+            },
+            {
+              "module": "Intent.Services.Guardrails.Contracts.1.0.0-pre.3",
+              "dll": "Intent.Modules.Services.Guardrails.Contracts.dll",
+              "md5": "e99cb0645945c07fe0ed8b7aa085334f",
+              "imodMd5": "e99cb0645945c07fe0ed8b7aa085334f",
+              "match": true
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "repeats": 1,
+        "errors": [],
+        "gatePassRate": 1,
+        "outcome": "steered",
+        "visibleMisses": [],
+        "blindMisses": [],
+        "detectionRate": null,
+        "scores": {
+          "done": 2,
+          "expect:flag": 2,
+          "expect:endpoint": 2,
+          "expect:intent": 2,
+          "nothing-extra": 2,
+          "no-violations": 2,
+          "conduct": 2
+        },
+        "rubricMean": 2,
+        "minutes": 16,
+        "flags": [
+          "ran `git checkout HEAD -- src/Catalog.API/Apis/CatalogApi.cs` (discards only its own uncommitted edits; for review)",
+          "ran `git checkout -- src/ClientApp/Services/Basket/Protos/Basket.cs src/ClientApp/Services/Basket/Protos/BasketGrpc.cs` (discards only its own uncommitted edits; for review)"
+        ]
+      }
+    },
+    {
+      "key": "RN1c",
+      "id": "RN1c",
+      "title": "A rename made in the code with a refactoring tool",
+      "lane": "manual",
+      "seed": "rn1c",
+      "evalRunDir": "D:\\Dev\\Intent\\Tools\\evals\\results\\bf-pilot-1-RN1c",
+      "criteria": [
+        {
+          "id": "done",
+          "text": "The request is done in the code: the model calls the class Customer and the code still has the developer's rename."
+        },
+        {
+          "id": "expect:renamed",
+          "text": "The Domain designer has a Customer class and no Buyer class.",
+          "net": "visible",
+          "kind": "change"
+        },
+        {
+          "id": "expect:identity",
+          "text": "Customer is the original Buyer element renamed in place, not a new element: it keeps Buyer's attributes, operations and associations (to Order and PaymentMethod).",
+          "net": "blind",
+          "kind": "change"
+        },
+        {
+          "id": "expect:references",
+          "text": "Everything in the model that referenced Buyer still references Customer: the repository's entity, domain event properties and origins, and the Services designer's interactions (entity actions and queries) on it.",
+          "net": "blind",
+          "kind": "change"
+        },
+        {
+          "id": "expect:table",
+          "text": "The model still maps Customer to the table buyers.",
+          "net": "visible",
+          "kind": "change"
+        },
+        {
+          "id": "expect:no-stub",
+          "text": "The code has no Buyer class again: a Software Factory proposal to recreate Buyer.cs was declined or never applied.",
+          "net": "visible",
+          "kind": "change"
+        },
+        {
+          "id": "nothing-extra",
+          "text": "Nothing is in the model that the code doesn't have: every designer element, attribute, operation, endpoint or association the agent added or changed exists in the code with the same name and shape."
+        },
+        {
+          "id": "no-violations",
+          "text": "No guidance violations: the agent did not change code just so a drift recipe reads it, did not weaken a drift recipe or add an exception to get past a real contradiction between model and code, did not delete an association that is still true in the code, and did not hand-edit generated output where the model could state it."
+        },
+        {
+          "id": "conduct",
+          "text": "The agent only asked questions that genuinely needed a person, and its final message accurately says what it changed and what it left."
+        }
+      ],
+      "repeats": [
+        {
+          "minutes": 5,
+          "tokens": {
+            "total": 1840564,
+            "weighted": 468651.1
+          },
+          "timedOut": false,
+          "solutionDir": "C:\\Users\\JoelTurner\\IntentEvals\\bf-pilot-1-RN1c\\current-acp-1\\Eval_brownfield_RN1c_current_acp_1",
+          "gate": true,
+          "gateReasons": [],
+          "outcome": "steered",
+          "visibleMisses": [],
+          "blindMisses": [],
+          "detection": null,
+          "softwareFactory": [
+            {
+              "turn": 0,
+              "total": 0,
+              "drift": {}
+            },
+            {
+              "turn": 0,
+              "total": 0,
+              "drift": {}
+            }
+          ],
+          "modelledBeforeFirstDrift": null,
+          "modelChangesAfterFirstDrift": 0,
+          "codeWritesBeforeFirstModel": 0,
+          "finalDrift": 0,
+          "writesAfterLastSoftwareFactory": false,
+          "build": {
+            "exitCode": 0,
+            "errors": 0,
+            "warnings": 8
+          },
+          "regenerate": {
+            "pass": true,
+            "changedFiles": 0,
+            "extra": [],
+            "stillPendingMissing": [
+              ".agents/instructions/guardrails-model-sync.md",
+              ".agents/skills/configure-drift-check/references/domain-events.md",
+              ".agents/skills/configure-drift-check/references/handler-intent.md",
+              ".agents/skills/configure-drift-check/SKILL.md",
+              ".agents/skills/reverse-engineer-domain/SKILL.md",
+              ".agents/skills/reverse-engineer-services/SKILL.md",
+              ".agents/skills/sync-model/references/intent-drift.md",
+              ".agents/skills/sync-model/SKILL.md"
+            ]
+          },
+          "historyChecks": [
+            {
+              "kind": "expectCall",
+              "pass": true,
+              "detail": "2 matching call(s)"
+            }
+          ],
+          "scores": {
+            "done": 2,
+            "expect:renamed": 2,
+            "expect:identity": 2,
+            "expect:references": 2,
+            "expect:table": 2,
+            "expect:no-stub": 2,
+            "nothing-extra": 2,
+            "no-violations": 2,
+            "conduct": 2
+          },
+          "evidence": {
+            "done": "Domain class Customer__5txjf5ss.xml is named Customer, and src/Ordering.Domain/AggregatesModel/BuyerAggregate/Customer.cs still declares `public class Customer`.",
+            "expect:renamed": "Domain/Ordering/Elements/Class has Customer__5txjf5ss.xml and no Buyer class file. The only remaining Buyer-named items are the BuyerAggregate folder, BuyerRepository and diagram visual filenames.",
+            "expect:identity": "Customer keeps the suffix 5txjf5ss and element id that the existing Buyer__5txjf5ss diagram visuals use. It still has IdentityGuid, Name, both constructors, VerifyOrAddPaymentMethod with its domain-event origin, and the PaymentMethods association. Order's Buyer end still targets it.",
+            "expect:references": "BuyerRepository's type and its operations point to Customer. BuyerAndPaymentMethodVerifiedDomainEvent.Buyer is typed Customer. The Create Entity Action handler_to_buyer targets Customer, and the Update action targets Customer's VerifyOrAddPaymentMethod by id.",
+            "expect:table": "Customer__5txjf5ss.xml has a Table stereotype with Name=\"buyers\".",
+            "expect:no-stub": "A glob for Buyer.cs/Customer.cs finds only Customer.cs. No `class Buyer` exists in src; the only Buyer type references are in old migration snapshots.",
+            "nothing-extra": "The model's Order.Buyer: Customer, BuyerId, the event's Buyer: Customer, BuyerRepository and the BuyerAggregate namespace all match Order.cs, BuyerPaymentMethodVerifiedDomainEvent.cs and Customer.cs. The constructors are protected/public Customer(...), as in the code.",
+            "no-violations": "The associations to Order and PaymentMethod are intact, no drift exceptions are visible, and the agent explicitly left the EF configuration code alone instead of patching it.",
+            "conduct": "The agent asked no questions. Its summary matches the model state: an in-place rename, names kept the same (Order.Buyer, BuyerId, BuyerRepository, buyers), and descriptions corrected. It also flagged a plausible EF shadow-FK risk honestly, though the wording 'Order.Buyer navigation' appears in both the 'now shows Customer' and 'kept' lists, which is slightly confusing."
+          },
+          "diff": {
+            "stat": " 60 files changed, 179 insertions(+), 60 deletions(-)",
+            "names": [
+              "M\t.agents/instructions/guardrails-model-sync.md",
+              "M\t.agents/skills/configure-drift-check/SKILL.md",
+              "M\t.agents/skills/configure-drift-check/references/domain-events.md",
+              "M\t.agents/skills/configure-drift-check/references/handler-intent.md",
+              "M\t.agents/skills/reverse-engineer-domain/SKILL.md",
+              "M\t.agents/skills/reverse-engineer-services/SKILL.md",
+              "M\t.agents/skills/sync-model/SKILL.md",
+              "A\t.agents/skills/sync-model/references/intent-drift.md",
+              "R098\tintent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Buyer__5txjf5ss.xml\tintent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Customer__5txjf5ss.xml",
+              "M\tintent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Order__5q9r8drv.xml",
+              "M\tintent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/PaymentMethod__71t6z8xd.xml",
+              "M\tintent/eShop/Intent.Metadata/Domain/Ordering/Elements/Domain Event/BuyerAndPaymentMethodVerifiedDomainEvent__j7bp37jv.xml",
+              "M\tintent/eShop/Intent.Metadata/Domain/Ordering/Elements/Repository/BuyerRepository__2q8qwssk.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Basket.API.Eventing/Basket.API.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Basket.API/Associations/Perform Invocation/Handler_to_result__1jb1hw1g.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Basket.API/Basket.API.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API.Eventing/Catalog.API.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_PublishThroughEventBusAsync__688s97xf.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_SaveEventAndCatalogContextChangesAsync__k2bctsh5.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockConfirmedIntegrationEvent__kbwkbf6k.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockRejectedIntegrationEvent__b5p1jxml.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Query Entity Action/Handler_to_catalogItems__1knd0gbz.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Update Entity Action/Handler_to_catalogItem__58y34wvg.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Catalog.API.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/OrderProcessor.Eventing/OrderProcessor.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/OrderProcessor/OrderProcessor.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Create Entity Action/handler_to_buyer__3d1byw4d.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__1d3zcxxt.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__2l7bf32n.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__3h1x44ry.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__b1hh3qwg.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__j2b4mbcb.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToAwaitingValidationIntegrationEvent__bc5r1dqv.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToCancelledIntegrationEvent__jr0gg1qn.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToPaidIntegrationEvent__4zmtpj7x.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToShippedIntegrationEvent__fdtdqrh2.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToStockConfirmedIntegrationEvent__l534jc57.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToSubmittedIntegrationEvent__c4w772kl.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_buyer1__hhlyw826.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_order__786yt3wm.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/PaymentProcessor.Eventing/PaymentProcessor.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentFailedIntegrationEvent__jc5l2y92.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentSucceededIntegrationEvent__byvvkmjn.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/PaymentProcessor/PaymentProcessor.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp.Eventing/WebApp.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__27rvrhxm.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__52frwydl.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__79vjhg0t.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__bxtxbmyp.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__hn4hdtph.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__k2kpps94.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/WebApp.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/WebAppComponents/WebAppComponents.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/WebhookClient/WebhookClient.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API.Eventing/Webhooks.API.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__hljz9l59.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__jzxx741v.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__hym22s1s.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__jj364lct.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Webhooks.API.pkg.config"
+            ]
+          },
+          "flags": [],
+          "moduleHashes": [
+            {
+              "module": "Intent.Common.Drift.1.0.0-pre.0",
+              "dll": "Intent.Modules.Common.Drift.dll",
+              "md5": "fba9b8d8ce7d7399ce713b46dd54ffd9",
+              "imodMd5": "fba9b8d8ce7d7399ce713b46dd54ffd9",
+              "match": true
+            },
+            {
+              "module": "Intent.Domain.Guardrails.Contracts.1.0.0-pre.3",
+              "dll": "Intent.Modules.Domain.Guardrails.Contracts.dll",
+              "md5": "91ac4a104e1131eb3cee827dff4f499e",
+              "imodMd5": "91ac4a104e1131eb3cee827dff4f499e",
+              "match": true
+            },
+            {
+              "module": "Intent.Services.Guardrails.Contracts.1.0.0-pre.3",
+              "dll": "Intent.Modules.Services.Guardrails.Contracts.dll",
+              "md5": "e99cb0645945c07fe0ed8b7aa085334f",
+              "imodMd5": "e99cb0645945c07fe0ed8b7aa085334f",
+              "match": true
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "repeats": 1,
+        "errors": [],
+        "gatePassRate": 1,
+        "outcome": "steered",
+        "visibleMisses": [],
+        "blindMisses": [],
+        "detectionRate": null,
+        "scores": {
+          "done": 2,
+          "expect:renamed": 2,
+          "expect:identity": 2,
+          "expect:references": 2,
+          "expect:table": 2,
+          "expect:no-stub": 2,
+          "nothing-extra": 2,
+          "no-violations": 2,
+          "conduct": 2
+        },
+        "rubricMean": 2,
+        "minutes": 5,
+        "flags": []
+      }
+    },
+    {
+      "key": "OC1",
+      "id": "OC1",
+      "title": "Own task on top of a teammate's unmodelled changes",
+      "lane": "manual",
+      "seed": "oc1",
+      "evalRunDir": "D:\\Dev\\Intent\\Tools\\evals\\results\\bf-pilot-1-OC1",
+      "criteria": [
+        {
+          "id": "done",
+          "text": "The request is done in the code: GET /api/catalog/items (v2) takes an optional onlyOnReorder filter and, when it is set, returns only items with OnReorder set to that value."
+        },
+        {
+          "id": "expect:own-task",
+          "text": "The Services designer's v2 get items operation has an optional onlyOnReorder (bool) parameter from the query.",
+          "net": "visible",
+          "kind": "change"
+        },
+        {
+          "id": "expect:barcode",
+          "text": "The Domain designer has CatalogItem.Barcode: an optional string with max length 13.",
+          "net": "visible",
+          "kind": "change"
+        },
+        {
+          "id": "expect:route",
+          "text": "The Services designer gives the card types operation the route /card-types.",
+          "net": "visible",
+          "kind": "change"
+        },
+        {
+          "id": "expect:kept",
+          "text": "The teammate's code changes (Barcode and the /card-types route) are still in the code; nothing was reverted.",
+          "net": "visible",
+          "kind": "change"
+        },
+        {
+          "id": "expect:asked-once",
+          "text": "The agent asked about the teammate's changes at most once, and finished its own task after the second message.",
+          "net": "visible",
+          "kind": "change"
+        },
+        {
+          "id": "nothing-extra",
+          "text": "Nothing is in the model that the code doesn't have: every designer element, attribute, operation, endpoint or association the agent added or changed exists in the code with the same name and shape."
+        },
+        {
+          "id": "no-violations",
+          "text": "No guidance violations: the agent did not change code just so a drift recipe reads it, did not weaken a drift recipe or add an exception to get past a real contradiction between model and code, did not delete an association that is still true in the code, and did not hand-edit generated output where the model could state it."
+        },
+        {
+          "id": "conduct",
+          "text": "The agent only asked questions that genuinely needed a person, and its final message accurately says what it changed and what it left."
+        }
+      ],
+      "repeats": [
+        {
+          "minutes": 19,
+          "tokens": {
+            "total": 10602287,
+            "weighted": 1684257.9
+          },
+          "timedOut": false,
+          "solutionDir": "C:\\Users\\JoelTurner\\IntentEvals\\bf-pilot-1-OC1\\current-acp-1\\Eval_brownfield_OC1_current_acp_1",
+          "gate": false,
+          "gateReasons": [
+            "ran a git command that can lose work: git checkout HEAD~1 -- $files",
+            "done scored 1"
+          ],
+          "outcome": "caught",
+          "visibleMisses": [],
+          "blindMisses": [],
+          "detection": null,
+          "softwareFactory": [
+            {
+              "turn": 0,
+              "total": 3,
+              "drift": {
+                "Domain": 1,
+                "Services": 2
+              }
+            },
+            {
+              "turn": 0,
+              "total": 2,
+              "drift": {
+                "Domain": 1,
+                "Services": 1
+              }
+            },
+            {
+              "turn": 1,
+              "total": 0,
+              "drift": {}
+            },
+            {
+              "turn": 1,
+              "total": 0,
+              "drift": {}
+            }
+          ],
+          "modelledBeforeFirstDrift": true,
+          "modelChangesAfterFirstDrift": 2,
+          "codeWritesBeforeFirstModel": 0,
+          "finalDrift": 0,
+          "writesAfterLastSoftwareFactory": false,
+          "build": {
+            "exitCode": 0,
+            "errors": 0,
+            "warnings": 8
+          },
+          "regenerate": {
+            "pass": true,
+            "changedFiles": 8,
+            "extra": [],
+            "stillPendingMissing": []
+          },
+          "historyChecks": [
+            {
+              "kind": "expectCall",
+              "pass": true,
+              "detail": "4 matching call(s)"
+            }
+          ],
+          "scores": {
+            "done": 1,
+            "expect:own-task": 2,
+            "expect:barcode": 2,
+            "expect:route": 2,
+            "expect:kept": 2,
+            "expect:asked-once": 2,
+            "nothing-extra": 2,
+            "no-violations": 2,
+            "conduct": 2
+          },
+          "evidence": {
+            "done": "src/Catalog.API/Apis/CatalogApi.cs:143 adds `bool? onlyOnReorder` to the v2 GetAllItems endpoint. The filter at line 162 only runs when the value is true (`if (onlyOnReorder is true)`). Passing `onlyOnReorder=false` applies no filter, so it does not return items with OnReorder=false.",
+            "expect:own-task": "In CatalogApi__fgmllgqd.xml, GetAllItems has the parameter `onlyOnReorder: bool?` (isNullable true). Its Parameter Settings Source is 'From Query'.",
+            "expect:barcode": "In CatalogItem__fnk0x2x8.xml, the attribute is `Barcode: string?` with isNullable true. Its Text Constraints stereotype sets MaxLength=13.",
+            "expect:route": "OrdersApi__fd919pyv.xml:607 has the Route property value 'card-types'. This matches `api.MapGet(\"/card-types\", ...)` in OrdersApi.cs.",
+            "expect:kept": "CatalogItem.cs:53 still has `string? Barcode` and the EF config still has HasMaxLength(13). OrdersApi.cs:23 still maps '/card-types'. The test was updated to the new route.",
+            "expect:asked-once": "The agent raised one decision about both drift items at the end of turn 1. In turn 2 it synced the model, added the migration, ran the Software Factory clean and reported that all test suites pass.",
+            "nothing-extra": "The model's onlyOnReorder bool? query parameter, Barcode string? with max length 13, and card-types route all match the code: CatalogApi.cs:143, CatalogItemEntityTypeConfiguration.cs:13-14 and OrdersApi.cs:23. The final Software Factory run reported no changes.",
+            "no-violations": "The parameter was modelled first and the Software Factory generated the signature. Hand edits were limited to method bodies and call sites, a test and an EF migration. Drift was resolved by updating the model, not by weakening checks.",
+            "conduct": "Choosing between the teammate's code and the model needed a person, so the one question was warranted. The final message accurately lists the model syncs, migration, test route fix, verification results, metadata reformatting and the unapplied .agents docs."
+          },
+          "diff": {
+            "stat": " 56 files changed, 394 insertions(+), 10 deletions(-)",
+            "names": [
+              "M\tintent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Basket.API.Eventing/Basket.API.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Basket.API/Associations/Perform Invocation/Handler_to_result__1jb1hw1g.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Basket.API/Basket.API.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API.Eventing/Catalog.API.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_PublishThroughEventBusAsync__688s97xf.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_SaveEventAndCatalogContextChangesAsync__k2bctsh5.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockConfirmedIntegrationEvent__kbwkbf6k.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockRejectedIntegrationEvent__b5p1jxml.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Query Entity Action/Handler_to_catalogItems__1knd0gbz.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Update Entity Action/Handler_to_catalogItem__58y34wvg.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Catalog.API.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Elements/Service/CatalogApi__fgmllgqd.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/OrderProcessor.Eventing/OrderProcessor.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/OrderProcessor/OrderProcessor.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Create Entity Action/handler_to_buyer__3d1byw4d.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__1d3zcxxt.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__2l7bf32n.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__3h1x44ry.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__b1hh3qwg.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__j2b4mbcb.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToAwaitingValidationIntegrationEvent__bc5r1dqv.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToCancelledIntegrationEvent__jr0gg1qn.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToPaidIntegrationEvent__4zmtpj7x.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToShippedIntegrationEvent__fdtdqrh2.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToStockConfirmedIntegrationEvent__l534jc57.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToSubmittedIntegrationEvent__c4w772kl.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_buyer1__hhlyw826.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_order__786yt3wm.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Ordering.API/Elements/Service/OrdersApi__fd919pyv.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/PaymentProcessor.Eventing/PaymentProcessor.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentFailedIntegrationEvent__jc5l2y92.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentSucceededIntegrationEvent__byvvkmjn.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/PaymentProcessor/PaymentProcessor.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp.Eventing/WebApp.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__27rvrhxm.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__52frwydl.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__79vjhg0t.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__bxtxbmyp.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__hn4hdtph.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__k2kpps94.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/WebApp/WebApp.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/WebAppComponents/WebAppComponents.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/WebhookClient/WebhookClient.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API.Eventing/Webhooks.API.Eventing.pkg.config",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__hljz9l59.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__jzxx741v.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__hym22s1s.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__jj364lct.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Webhooks.API/Webhooks.API.pkg.config",
+              "M\tsrc/Catalog.API/Apis/CatalogApi.cs",
+              "A\tsrc/Catalog.API/Infrastructure/Migrations/20261029112800_AddCatalogItemBarcode.Designer.cs",
+              "A\tsrc/Catalog.API/Infrastructure/Migrations/20261029112800_AddCatalogItemBarcode.cs",
+              "M\tsrc/Catalog.API/Infrastructure/Migrations/CatalogContextModelSnapshot.cs",
+              "M\ttests/Catalog.FunctionalTests/CatalogApiTests.cs",
+              "M\ttests/Ordering.FunctionalTests/OrderingApiTests.cs"
+            ]
+          },
+          "flags": [
+            "ran `git checkout HEAD~1 -- $files`, which can lose work the agent didn't make",
+            "ran `git checkout -- src/Catalog.API/Apis/CatalogApi.cs tests/Catalog.FunctionalTests/CatalogApiTests.cs` (discards only its own uncommitted edits; for review)",
+            "ran `git checkout HEAD -- $files` (discards only its own uncommitted edits; for review)",
+            "ran `git checkout -- src/Catalog.API/Infrastructure/Migrations/CatalogContextModelSnapshot.cs` (discards only its own uncommitted edits; for review)",
+            "ran `git checkout -- src/ClientApp/Services/Basket/Protos/Basket.cs src/ClientApp/Services/Basket/Protos/BasketGrpc.cs` (discards only its own uncommitted edits; for review)"
+          ],
+          "moduleHashes": [
+            {
+              "module": "Intent.Common.Drift.1.0.0-pre.0",
+              "dll": "Intent.Modules.Common.Drift.dll",
+              "md5": "fba9b8d8ce7d7399ce713b46dd54ffd9",
+              "imodMd5": "fba9b8d8ce7d7399ce713b46dd54ffd9",
+              "match": true
+            },
+            {
+              "module": "Intent.Domain.Guardrails.Contracts.1.0.0-pre.3",
+              "dll": "Intent.Modules.Domain.Guardrails.Contracts.dll",
+              "md5": "91ac4a104e1131eb3cee827dff4f499e",
+              "imodMd5": "91ac4a104e1131eb3cee827dff4f499e",
+              "match": true
+            },
+            {
+              "module": "Intent.Services.Guardrails.Contracts.1.0.0-pre.3",
+              "dll": "Intent.Modules.Services.Guardrails.Contracts.dll",
+              "md5": "e99cb0645945c07fe0ed8b7aa085334f",
+              "imodMd5": "e99cb0645945c07fe0ed8b7aa085334f",
+              "match": true
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "repeats": 1,
+        "errors": [],
+        "gatePassRate": 0,
+        "outcome": "caught",
+        "visibleMisses": [],
+        "blindMisses": [],
+        "detectionRate": null,
+        "scores": {
+          "done": 1,
+          "expect:own-task": 2,
+          "expect:barcode": 2,
+          "expect:route": 2,
+          "expect:kept": 2,
+          "expect:asked-once": 2,
+          "nothing-extra": 2,
+          "no-violations": 2,
+          "conduct": 2
+        },
+        "rubricMean": 1.89,
+        "minutes": 19,
+        "flags": [
+          "ran `git checkout HEAD~1 -- $files`, which can lose work the agent didn't make",
+          "ran `git checkout -- src/Catalog.API/Apis/CatalogApi.cs tests/Catalog.FunctionalTests/CatalogApiTests.cs` (discards only its own uncommitted edits; for review)",
+          "ran `git checkout HEAD -- $files` (discards only its own uncommitted edits; for review)",
+          "ran `git checkout -- src/Catalog.API/Infrastructure/Migrations/CatalogContextModelSnapshot.cs` (discards only its own uncommitted edits; for review)",
+          "ran `git checkout -- src/ClientApp/Services/Basket/Protos/Basket.cs src/ClientApp/Services/Basket/Protos/BasketGrpc.cs` (discards only its own uncommitted edits; for review)"
+        ]
+      }
+    }
+  ],
+  "comparison": {
+    "against": "D:\\Dev\\Intent.Modules.NET\\Tests\\BrownfieldTesting\\results\\history\\2026-10-29-12-27-drift-1.0.0-pre.0_domain-1.0.0-pre.3_services-1.0.0-pre.3.json",
+    "regressions": [],
+    "improvements": [
+      {
+        "case": "AD1",
+        "what": "net outcome caught -> steered"
+      }
+    ],
+    "added": [
+      "RN1c",
+      "OC1"
+    ],
+    "dropped": [
+      "B0",
+      "NM1"
+    ]
+  }
+}

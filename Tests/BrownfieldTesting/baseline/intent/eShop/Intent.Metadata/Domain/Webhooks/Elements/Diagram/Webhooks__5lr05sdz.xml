@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e5f21751-41ef-40eb-a821-57255cf41a42" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Webhooks</name>
+  <display>Webhooks</display>
+  <parentFolderId>f838028e-ae02-43aa-b89a-ef3ed678b465</parentFolderId>
+  <packageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</packageId>
+  <packageName>Webhooks</packageName>
+  <diagram>
+    <targetPackageId>e5f21751-41ef-40eb-a821-57255cf41a42</targetPackageId>
+  </diagram>
+</class>

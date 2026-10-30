@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="da515e78-98ef-40b8-b943-ce1523ca96ba" zIndex="0">
+  <name>OrderStockRejectedIntegrationEvent</name>
+  <position x="800" y="970" />
+  <size width="200" height="70" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

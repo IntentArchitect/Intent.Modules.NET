@@ -1,0 +1,506 @@
+{
+  "note": "Minimal APIs (method-group handlers in static *Api classes) plus MediatR, IIntegrationEventHandler<T> and INotificationHandler<T> handlers across the eShop services. Migrations are left out of `files`.",
+  "files": [
+    "src/Ordering.API/**/*.cs",
+    "src/Catalog.API/*.cs",
+    "src/Catalog.API/Apis/*.cs",
+    "src/Catalog.API/IntegrationEvents/**/*.cs",
+    "src/Catalog.API/Model/*.cs",
+    "src/Catalog.API/Services/*.cs",
+    "src/Webhooks.API/*.cs",
+    "src/Webhooks.API/Apis/*.cs",
+    "src/Webhooks.API/IntegrationEvents/*.cs",
+    "src/Webhooks.API/Model/*.cs",
+    "src/Webhooks.API/Services/*.cs",
+    "src/Basket.API/**/*.cs",
+    "src/OrderProcessor/**/*.cs",
+    "src/PaymentProcessor/**/*.cs",
+    "src/WebApp/**/*.cs",
+    "src/WebAppComponents/**/*.cs",
+    "src/WebhookClient/**/*.cs"
+  ],
+  "facts": {
+    "service.route": {
+      "note": "Read from the class's single Map method: Catalog declares three groups (api, v1, v2) that share one prefix. A versioned group (HasApiVersion, read from the query string by Asp.Versioning's default reader) is modelled with the version as a query string: `api/catalog?api-version={version}`.",
+      "find": "class:{Service} > method with \\.MapGroup\\(",
+      "read": [
+        {
+          "match": "\\.MapGroup\\(\"/?([^\"]*)\"\\)\\.HasApiVersion\\(",
+          "value": "$1?api-version={version}"
+        },
+        {
+          "match": "\\.MapGroup\\(\"/?([^\"]*)\"\\)"
+        },
+        {
+          "match": "\\.MapGroup\\((?!\")[^)]*\\)",
+          "unreadable": true
+        }
+      ],
+      "absent": "",
+      "unstated": "no `MapGroup` in `{Service}`, so its endpoints' routes are their own"
+    },
+    "operation.verb": {
+      "find": [
+        "class:{Service} > statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\",(?:\\w+\\.)*{Operation}\\)",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\([^;]*?\\.WithName\\(\"{Operation}\"\\)",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\",[^;]*?[(,\\]]{Operation} \\w+[,)]"
+      ],
+      "read": [
+        {
+          "match": "\\.Map(Get|Post|Put|Delete|Patch)\\(",
+          "case": "upper"
+        }
+      ]
+    },
+    "operation.route": {
+      "find": [
+        "class:{Service} > statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\",(?:\\w+\\.)*{Operation}\\)",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\([^;]*?\\.WithName\\(\"{Operation}\"\\)",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\",[^;]*?[(,\\]]{Operation} \\w+[,)]"
+      ],
+      "read": [
+        {
+          "in": "method",
+          "match": "\\.MapGroup\\(\"/?([^\"]+)\"\\)(?:(?!\\.MapGroup\\().)*?\\.Map(?:Get|Post|Put|Delete|Patch)\\(\"/?([^\"]*)\",[^;]*?[(,\\]]{Operation} \\w+[,)]",
+          "value": "$1/$2"
+        },
+        {
+          "match": "\\.Map\\w+\\(\"/?([^\"]*)\""
+        },
+        {
+          "match": "\\.Map\\w+\\((?!\")[^,]*,",
+          "unreadable": true
+        }
+      ],
+      "replace": [
+        {
+          "match": "/$",
+          "with": ""
+        }
+      ]
+    },
+    "security": {
+      "find": [
+        "class:{Service} > statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\",(?:\\w+\\.)*{Operation}\\)",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\([^;]*?\\.WithName\\(\"{Operation}\"\\)",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\",[^;]*?[(,\\]]{Operation} \\w+[,)]"
+      ],
+      "read": [
+        {
+          "in": "statement",
+          "match": "\\.AllowAnonymous\\(\\)",
+          "value": "Unsecured"
+        },
+        {
+          "in": "statement",
+          "match": "\\.RequireAuthorization\\(",
+          "value": "Secured"
+        },
+        {
+          "part": "declaration",
+          "match": "[\\[,]AllowAnonymous\\b",
+          "value": "Unsecured"
+        },
+        {
+          "part": "declaration",
+          "match": "[\\[,]Authorize\\b",
+          "value": "Secured"
+        },
+        {
+          "match": "\\.MapGroup\\([^;]*?\\.AllowAnonymous\\(\\)(?:(?!\\.MapGroup\\().)*?\\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\"[^;]*?(?:[(,\\]](?:\\w+\\.)*{Operation}(?: \\w+)?[,)]|\\.WithName\\(\"{Operation}\"\\))",
+          "value": "Unsecured"
+        },
+        {
+          "match": "\\.MapGroup\\([^;]*?\\.RequireAuthorization\\((?:(?!\\.MapGroup\\().)*?\\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\"[^;]*?(?:[(,\\]](?:\\w+\\.)*{Operation}(?: \\w+)?[,)]|\\.WithName\\(\"{Operation}\"\\))",
+          "value": "Secured"
+        },
+        {
+          "match": "\\bMap{Service}(?:V\\d+)?\\(\\)\\.RequireAuthorization\\(",
+          "value": "Secured",
+          "note": "Program.cs secures the whole group a Map method returns: `orders.MapOrdersApiV1().RequireAuthorization();`"
+        }
+      ],
+      "inherit": [
+        "method",
+        "class:{Service} > method:{Operation}",
+        "statement with \\bMap{Service}(?:V\\d+)?\\(\\)"
+      ],
+      "default": "None",
+      "unstated": "no `RequireAuthorization` or `AllowAnonymous` on the endpoint, its group or the Program.cs call that maps `{Service}`, and no `[Authorize]` on its handler"
+    },
+    "security.roles": {
+      "find": [
+        "class:{Service} > statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\",(?:\\w+\\.)*{Operation}\\)",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\([^;]*?\\.WithName\\(\"{Operation}\"\\)",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\",[^;]*?[(,\\]]{Operation} \\w+[,)]"
+      ],
+      "read": [
+        {
+          "in": "statement",
+          "match": "\\.RequireAuthorization\\(\\w+=>\\w+\\.RequireRole\\(((?:\"[^\"]*\",)*\"[^\"]*)\"\\)"
+        },
+        {
+          "part": "declaration",
+          "match": "[\\[,]Authorize\\([^\\]]*?Roles=\"([^\"]*)\""
+        },
+        {
+          "match": "\\.MapGroup\\([^;]*?\\.RequireAuthorization\\(\\w+=>\\w+\\.RequireRole\\(((?:\"[^\"]*\",)*\"[^\"]*)\"\\)(?:(?!\\.MapGroup\\().)*?\\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\"[^;]*?(?:[(,\\]](?:\\w+\\.)*{Operation}(?: \\w+)?[,)]|\\.WithName\\(\"{Operation}\"\\))"
+        }
+      ],
+      "replace": [
+        {
+          "match": "[\"\\s]",
+          "with": ""
+        }
+      ],
+      "inherit": [
+        "method",
+        "class:{Service} > method:{Operation}"
+      ],
+      "default": "",
+      "unstated": "no `RequireRole` on the endpoint or its group, and no `Roles` on its handler's `[Authorize]`"
+    },
+    "security.policy": {
+      "find": [
+        "class:{Service} > statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\",(?:\\w+\\.)*{Operation}\\)",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\([^;]*?\\.WithName\\(\"{Operation}\"\\)",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\",[^;]*?[(,\\]]{Operation} \\w+[,)]"
+      ],
+      "read": [
+        {
+          "in": "statement",
+          "match": "\\.RequireAuthorization\\(((?:\"[^\"]*\",)*\"[^\"]*)\"\\)"
+        },
+        {
+          "part": "declaration",
+          "match": "[\\[,]Authorize\\((?:Policy=)?\"([^\"]*)\""
+        },
+        {
+          "match": "\\.MapGroup\\([^;]*?\\.RequireAuthorization\\(((?:\"[^\"]*\",)*\"[^\"]*)\"\\)(?:(?!\\.MapGroup\\().)*?\\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\"[^;]*?(?:[(,\\]](?:\\w+\\.)*{Operation}(?: \\w+)?[,)]|\\.WithName\\(\"{Operation}\"\\))"
+        }
+      ],
+      "replace": [
+        {
+          "match": "[\"\\s]",
+          "with": ""
+        }
+      ],
+      "inherit": [
+        "method",
+        "class:{Service} > method:{Operation}"
+      ],
+      "default": "",
+      "unstated": "no policy in `RequireAuthorization` on the endpoint or its group, or in its handler's `[Authorize]`"
+    },
+    "parameter.source": {
+      "find": [
+        "class:{Service} > statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\",(?:\\w+\\.)*{Operation}\\)",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\([^;]*?\\.WithName\\(\"{Operation}\"\\)",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\(\"[^\"]*\",[^;]*?[(,\\]]{Operation} \\w+[,)]"
+      ],
+      "read": [
+        {
+          "match": "[\\[,]From(Body|Route|Query|Form|Header)\\b",
+          "value": "From $1"
+        },
+        {
+          "match": "^(?:\\[[^\\]]*\\])*\\[(?:AsParameters|FromServices|FromKeyedServices)\\b",
+          "value": "Default",
+          "note": "A parameter bag or a service: not an HTTP source"
+        },
+        {
+          "match": "^(?:\\[[^\\]]*\\])*(?:HttpContext|HttpRequest|HttpResponse|ClaimsPrincipal|CancellationToken|\\w+Context|I[A-Z]\\w*)\\b",
+          "value": "Default",
+          "note": "A special or DI-injected parameter (HttpContext, a DbContext, an interface): not an HTTP source"
+        },
+        {
+          "match": "(?<!\\[AsParameters\\])[(,]{Operation} \\w+[,)]",
+          "value": "From Body"
+        },
+        {
+          "match": "(?<=\\(\"[^\"]*)(?i:\\{{Parameter}(?::[^}]*)?\\??\\})",
+          "value": "From Route"
+        },
+        {
+          "match": "^(?:\\[[^\\]]*\\])*(?:IFormFile|IFormFileCollection)\\b",
+          "value": "From Form"
+        },
+        {
+          "match": "(?<=^(?:\\[[^\\]]*\\])*(?:public (?:required )?)?)(?:string|int|long|short|byte|bool|decimal|double|float|char|DateTime|DateTimeOffset|DateOnly|TimeOnly|TimeSpan|Guid)\\b",
+          "value": "From Query"
+        }
+      ],
+      "inherit": [
+        "class:{Service} > method:{Operation} > parameter:{Parameter}",
+        "statement with \\.Map(?:Get|Post|Put|Delete|Patch)\\([^;]*?\\.WithName\\(\"{Operation}\"\\) > parameter:{Parameter}",
+        "class:{Operation} > property:{Parameter}"
+      ],
+      "default": "From Body",
+      "unstated": "no `[From…]` attribute or route parameter, and not a simple type, so minimal APIs bind it from the body"
+    },
+    "intent.creates": {
+      "find": [
+        "class:{Service} > method with \\b(?:Handle|HandleAsync|Consume)\\({Operation} [^)]*\\).*?\\bnew {Entity}\\b",
+        "class:{Service} > method:{Operation}",
+        "class:{Service} > method with [(<]{Operation}[ >]",
+        "class with [:,]I(?:Request|Command|Query)Handler<{Operation}[,>] > method with \\bHandle(?:Async)?\\({Operation} "
+      ],
+      "read": [
+        {
+          "part": "body",
+          "match": "\\bnew ({Entity})\\b"
+        },
+        {
+          "part": "body",
+          "match": "\\b({Entity})\\.{Member}\\("
+        },
+        {
+          "part": "body",
+          "match": "\\.Add({Entity})\\("
+        }
+      ],
+      "default": "",
+      "unstated": "no `new {Entity}`, factory call or `Add{Entity}(…)` in the handler",
+      "note": "The first find path picks, among same-named handler classes in different services (e.g. OrderStatusChangedToPaidIntegrationEventHandler in Catalog, Webhooks and WebApp), the Handle method whose body performs the modelled interaction. When none does, the later paths match several classes and the fact is reported as can't be verified."
+    },
+    "intent.updates": {
+      "find": [
+        "class:{Service} > method with \\b(?:Handle|HandleAsync|Consume)\\({Operation} [^)]*\\).*?\\.{Member}\\(",
+        "class:{Service} > method:{Operation}",
+        "class:{Service} > method with [(<]{Operation}[ >]",
+        "class with [:,]I(?:Request|Command|Query)Handler<{Operation}[,>] > method with \\bHandle(?:Async)?\\({Operation} "
+      ],
+      "read": [
+        {
+          "part": "body",
+          "match": "\\.{Member}\\(",
+          "value": "{Entity}"
+        },
+        {
+          "part": "body",
+          "match": "\\b_?{Entity|camel}Repository{Member}\\.(?:Update|Get|Find)\\w*\\(",
+          "value": "{Entity}"
+        },
+        {
+          "part": "body",
+          "match": "\\.{Entity}(?:s|es)?{Member}\\.(?:Update|Find|First|Single)\\w*\\(",
+          "value": "{Entity}"
+        }
+      ],
+      "default": "",
+      "unstated": "the handler neither calls the operation the action targets nor loads a `{Entity}` to change",
+      "note": "The first find path picks, among same-named handler classes in different services (e.g. OrderStatusChangedToPaidIntegrationEventHandler in Catalog, Webhooks and WebApp), the Handle method whose body performs the modelled interaction. When none does, the later paths match several classes and the fact is reported as can't be verified."
+    },
+    "intent.deletes": {
+      "find": [
+        "class:{Service} > method with \\b(?:Handle|HandleAsync|Consume)\\({Operation} [^)]*\\).*?\\.Remove\\w*\\(",
+        "class:{Service} > method:{Operation}",
+        "class:{Service} > method with [(<]{Operation}[ >]",
+        "class with [:,]I(?:Request|Command|Query)Handler<{Operation}[,>] > method with \\bHandle(?:Async)?\\({Operation} "
+      ],
+      "read": [
+        {
+          "part": "body",
+          "match": "\\b_?{Entity|camel}Repository\\.Remove\\w*\\(",
+          "value": "{Entity}"
+        },
+        {
+          "part": "body",
+          "match": "\\.{Entity}(?:s|es)?\\.Remove\\w*\\(",
+          "value": "{Entity}"
+        },
+        {
+          "part": "body",
+          "match": "\\.Remove({Entity})\\("
+        }
+      ],
+      "default": "",
+      "unstated": "no `Remove(…)` of a `{Entity}` in the handler",
+      "note": "The first find path picks, among same-named handler classes in different services (e.g. OrderStatusChangedToPaidIntegrationEventHandler in Catalog, Webhooks and WebApp), the Handle method whose body performs the modelled interaction. When none does, the later paths match several classes and the fact is reported as can't be verified."
+    },
+    "intent.queries": {
+      "find": [
+        "class:{Service} > method with \\b(?:Handle|HandleAsync|Consume)\\({Operation} [^)]*\\).*?\\.{Entity}(?:s|es)?\\b",
+        "class:{Service} > method:{Operation}",
+        "class:{Service} > method with [(<]{Operation}[ >]",
+        "class with [:,]I(?:Request|Command|Query)Handler<{Operation}[,>] > method with \\bHandle(?:Async)?\\({Operation} "
+      ],
+      "read": [
+        {
+          "part": "body",
+          "match": "\\b_?{Entity|camel}Repository\\.(?:Find|Get|List|Any|Count)\\w*\\(",
+          "value": "{Entity}"
+        },
+        {
+          "part": "body",
+          "match": "\\.{Entity}(?:s|es)?\\.\\w+\\(",
+          "value": "{Entity}"
+        },
+        {
+          "part": "body",
+          "match": "\\bSet<{Entity}>\\(\\)",
+          "value": "{Entity}"
+        },
+        {
+          "part": "body",
+          "match": "\\.{Entity}(?:s|es)\\b(?!\\()",
+          "value": "{Entity}",
+          "note": "A DbSet read through a variable: `var root = (IQueryable<CatalogItem>)services.Context.CatalogItems;`"
+        },
+        {
+          "part": "body",
+          "match": "\\.Subscriptions\\.\\w+\\(",
+          "value": "WebhookSubscription",
+          "note": "WebhooksContext names its DbSet<WebhookSubscription> `Subscriptions`"
+        }
+      ],
+      "default": "",
+      "unstated": "the handler doesn't read a `{Entity}` through its repository or `DbSet`",
+      "note": "The first find path picks, among same-named handler classes in different services (e.g. OrderStatusChangedToPaidIntegrationEventHandler in Catalog, Webhooks and WebApp), the Handle method whose body performs the modelled interaction. When none does, the later paths match several classes and the fact is reported as can't be verified."
+    },
+    "intent.invokes": {
+      "find": [
+        "class:{Service} > method with \\b(?:Handle|HandleAsync|Consume)\\({Operation} [^)]*\\).*?\\b{Invoked}(?:Async)?\\(",
+        "class:{Service} > method:{Operation}",
+        "class:{Service} > method with [(<]{Operation}[ >]",
+        "class with [:,]I(?:Request|Command|Query)Handler<{Operation}[,>] > method with \\bHandle(?:Async)?\\({Operation} "
+      ],
+      "read": [
+        {
+          "part": "body",
+          "match": "(?<!\\w)_?{InvokedOwner|camel}\\.({Invoked})(?:Async)?\\("
+        },
+        {
+          "part": "body",
+          "match": "\\bnew ({Invoked})\\b"
+        },
+        {
+          "part": "body",
+          "match": "\\.{InvokedOwner}({Invoked})(?:Async)?\\("
+        },
+        {
+          "part": "body",
+          "match": "\\bIdentifiedCommand<({Invoked}),",
+          "note": "Endpoints wrap the command they send for idempotency: `new IdentifiedCommand<CancelOrderCommand, bool>(command, requestId)`"
+        },
+        {
+          "part": "body",
+          "match": "\\w\\.({Invoked})\\(",
+          "note": "A call through a parameter bag or a differently named field: `services.Queries.GetOrderAsync(…)`, `retriever.GetSubscriptionsOfType(…)`"
+        },
+        {
+          "match": "\\b({Invoked}) (\\w+)[,)].*?\\.Send\\(\\2[,)]",
+          "note": "An endpoint that sends the command it receives: `CreateOrderDraftAsync(CreateOrderDraftCommand command, …)` then `services.Mediator.Send(command)`"
+        },
+        {
+          "part": "body",
+          "match": "(?<![\\w.])({Invoked})\\(",
+          "note": "A call of another method of the same class: `return await GetAllItems(paginationRequest, services, …)`"
+        }
+      ],
+      "default": "",
+      "unstated": "no call of `{Invoked}` and no `new {Invoked}` in the handler",
+      "note": "The first find path picks, among same-named handler classes in different services (e.g. OrderStatusChangedToPaidIntegrationEventHandler in Catalog, Webhooks and WebApp), the Handle method whose body performs the modelled interaction. When none does, the later paths match several classes and the fact is reported as can't be verified."
+    },
+    "intent.publishes": {
+      "find": [
+        "class:{Service} > method with \\b(?:Handle|HandleAsync|Consume)\\({Operation} [^)]*\\).*?\\bnew {Message}\\b",
+        "class:{Service} > method:{Operation}",
+        "class:{Service} > method with [(<]{Operation}[ >]",
+        "class with [:,]I(?:Request|Command|Query)Handler<{Operation}[,>] > method with \\bHandle(?:Async)?\\({Operation} "
+      ],
+      "read": [
+        {
+          "part": "body",
+          "match": "\\bnew ({Message})\\b"
+        },
+        {
+          "part": "body",
+          "match": "\\bPublish(?:Async)?<({Message})>"
+        }
+      ],
+      "default": "",
+      "unstated": "no `new {Message}` or `Publish<{Message}>` in the handler",
+      "note": "The first find path picks, among same-named handler classes in different services (e.g. OrderStatusChangedToPaidIntegrationEventHandler in Catalog, Webhooks and WebApp), the Handle method whose body performs the modelled interaction. When none does, the later paths match several classes and the fact is reported as can't be verified."
+    },
+    "intent.sends": {
+      "find": [
+        "class:{Service} > method with \\b(?:Handle|HandleAsync|Consume)\\({Operation} [^)]*\\).*?\\bnew {Message}\\b",
+        "class:{Service} > method:{Operation}",
+        "class:{Service} > method with [(<]{Operation}[ >]",
+        "class with [:,]I(?:Request|Command|Query)Handler<{Operation}[,>] > method with \\bHandle(?:Async)?\\({Operation} "
+      ],
+      "read": [
+        {
+          "part": "body",
+          "match": "\\bnew ({Message})\\b"
+        },
+        {
+          "part": "body",
+          "match": "\\bSend(?:Async)?<({Message})>"
+        }
+      ],
+      "default": "",
+      "unstated": "no `new {Message}` or `Send<{Message}>` in the handler",
+      "note": "The first find path picks, among same-named handler classes in different services (e.g. OrderStatusChangedToPaidIntegrationEventHandler in Catalog, Webhooks and WebApp), the Handle method whose body performs the modelled interaction. When none does, the later paths match several classes and the fact is reported as can't be verified."
+    }
+  },
+  "own": [
+    {
+      "kind": "endpoint",
+      "find": "statement with \\.Map(Get|Post|Put|Delete|Patch)\\(\"([^\"]*)\",\\w+\\)",
+      "name": "{Class}: Map$1 $2",
+      "note": "Method-group endpoints only. An inline-lambda endpoint (Catalog catalogtypes/catalogbrands, every Webhooks.API and WebhookClient endpoint) has no method a Service operation could describe: the Services templates generate one method per operation, so modelling a lambda would insert a method."
+    },
+    {
+      "kind": "Command",
+      "note": "Ordering's MediatR commands",
+      "find": "class with \\b(?:class|record) \\w+(?:<[^>]*>)?(?:\\([^)]*\\))?:IRequest<",
+      "files": "src/Ordering.API/Application/Commands/*.cs"
+    },
+    {
+      "kind": "Integration Event",
+      "find": "class with :IntegrationEvent\\b",
+      "files": [
+        "src/Ordering.API/Application/IntegrationEvents/Events/*.cs",
+        "src/Catalog.API/IntegrationEvents/Events/*.cs",
+        "src/Webhooks.API/IntegrationEvents/*.cs",
+        "src/Basket.API/IntegrationEvents/Events/*.cs",
+        "src/OrderProcessor/Events/*.cs",
+        "src/PaymentProcessor/IntegrationEvents/Events/*.cs",
+        "src/WebApp/Services/OrderStatus/IntegrationEvents/Events/*.cs"
+      ]
+    },
+    {
+      "kind": "Integration Event Handler",
+      "find": "class with :IIntegrationEventHandler<",
+      "files": [
+        "src/Ordering.API/Application/IntegrationEvents/EventHandling/*.cs",
+        "src/Catalog.API/IntegrationEvents/EventHandling/*.cs",
+        "src/Webhooks.API/IntegrationEvents/*.cs",
+        "src/Basket.API/IntegrationEvents/EventHandling/*.cs",
+        "src/PaymentProcessor/IntegrationEvents/EventHandling/*.cs",
+        "src/WebApp/Services/OrderStatus/IntegrationEvents/EventHandling/*.cs"
+      ]
+    },
+    {
+      "kind": "Domain Event Handler",
+      "find": "class with :INotificationHandler<",
+      "files": "src/Ordering.API/Application/DomainEventHandlers/*.cs"
+    }
+  ],
+  "exceptions": [
+    {
+      "match": "IdentifiedCommand",
+      "reason": "Generic idempotency wrapper IdentifiedCommand<T, R>: a Command element can't declare type parameters."
+    },
+    {
+      "match": "CatalogApi.MapCatalogApi",
+      "reason": "Extension method (this IEndpointRouteBuilder) that maps the endpoints: the model can't declare a `this` parameter. Its Map calls are described by the CatalogApi operations' Http Settings."
+    },
+    {
+      "match": "OrdersApi.MapOrdersApiV1",
+      "reason": "Extension method (this IEndpointRouteBuilder) that maps the endpoints: the model can't declare a `this` parameter. Its Map calls are described by the OrdersApi operations' Http Settings."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8f1a15c2-6063-4439-9097-02397f84b64b">
+  <sourceEnd id="26e385be-9741-454b-b0ef-e751a1c8f4b7" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : OrderShippedDomainEventHandler.handler</display>
+    <typeReference id="c420fe65-7eb8-4941-bac5-219315cc8a96">
+      <typeId>30df1a6f-1554-4121-bfcc-d2d0e4f548cd</typeId>
+      <typeName>handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="8f1a15c2-6063-4439-9097-02397f84b64b" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderStatusChangedToShippedIntegrationEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="bf3e87a7-2003-463f-906c-379c0ddb4aca">
+      <typeId>5421c6ae-ef6e-4605-bc3b-992fb51256ef</typeId>
+      <typeName>OrderStatusChangedToShippedIntegrationEvent</typeName>
+      <typePackageName>Ordering.API.Eventing</typePackageName>
+      <typePackageId>54cb363b-5140-4891-b45f-ee554a76d9c4</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+</association>

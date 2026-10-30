@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3ff69a32-247a-444e-9d52-065bd6d45314" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CatalogResult</name>
+  <display>CatalogResult</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>f815d432-ca8c-4b52-9bb6-b6bf026944b7</parentFolderId>
+  <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+  <packageName>WebAppComponents</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="6bbf9e89-c521-4122-aa53-3fc7786f1157" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="fd8a5276-96d8-4990-9b66-a9ffacca7749" display="Type" value="positional record" />
+        <property name="b08b54e6-92e3-45eb-a233-0c79b4d76aab" display="Modifiers" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" value="CatalogItem" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="0401b8ff-a650-4abd-8b5a-a3d7680514d5" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>PageIndex</name>
+      <display>PageIndex: int</display>
+      <typeReference id="e011ab1e-7044-49ba-8627-3a5624f9383f">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>3ff69a32-247a-444e-9d52-065bd6d45314</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+    </element>
+    <element id="edc23758-ef2f-46c2-bf00-85f585131379" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>PageSize</name>
+      <display>PageSize: int</display>
+      <typeReference id="565cbdb9-4480-4518-8be5-56568e5a50b3">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>3ff69a32-247a-444e-9d52-065bd6d45314</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+    </element>
+    <element id="fd4c7777-0981-47df-92bf-2fe3e21507cd" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Count</name>
+      <display>Count: int</display>
+      <typeReference id="1b5facb3-5c2f-46bb-addc-4a5f66a0adf9">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>3ff69a32-247a-444e-9d52-065bd6d45314</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+    </element>
+    <element id="eed3cd9d-867a-4e5c-85dc-cffc1d599fdf" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Data</name>
+      <display>Data: CatalogItem[*]</display>
+      <typeReference id="f3557c92-07c4-4d60-919e-74f8c82b3cc0">
+        <typeId>7e6ec727-6b5a-47df-a391-c2bff77f84cc</typeId>
+        <typeName>CatalogItem</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>WebAppComponents</typePackageName>
+        <typePackageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</typePackageId>
+      </typeReference>
+      <parentFolderId>3ff69a32-247a-444e-9d52-065bd6d45314</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="List" />
+            <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+  </children>
+</class>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="96470511-7322-4b75-90ed-371bac8fbf58" zIndex="0">
+  <name>OrderShippedDomainEventHandler</name>
+  <position x="400" y="190" />
+  <size width="200" height="90" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

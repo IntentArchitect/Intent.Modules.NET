@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4f03d6c1-37c2-4841-89ea-c4ba6804bf39" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>OrdersApi</name>
+  <display>OrdersApi</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>b6995bbb-1ee4-4e16-8e04-4f91da4559b4</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="6bbf9e89-c521-4122-aa53-3fc7786f1157" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="fd8a5276-96d8-4990-9b66-a9ffacca7749" display="Type" />
+        <property name="b08b54e6-92e3-45eb-a233-0c79b4d76aab" display="Modifiers" value="public static" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/orders?api-version={version}" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="a9eade71-1d56-4be7-a80c-81046c0c978b" name="Secured">
+      <definitionPackageName>Intent.Metadata.Security</definitionPackageName>
+      <definitionPackageId>a6fa1088-0064-43e3-a7fc-36c97b2b9285</definitionPackageId>
+      <properties>
+        <property name="2b39acef-6079-48c9-b85e-2b0981f9de70" display="Roles" />
+        <property name="ae5251ff-40a1-4e46-be66-6b176f329f98" display="Policy" />
+        <property name="28bbe8bb-8d31-44c7-b642-ff0e279ab85f" display="Security Roles" isActive="false" />
+        <property name="68cbcd05-cd5c-49f3-a982-8ee9caf554bb" display="Security Policies" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;b18bd830-8b95-4bfe-900f-f00bc0754649&quot;]" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="52fb5f54-482f-4fbc-9ffb-6c1b98eff454" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CancelOrderAsync</name>
+      <display>CancelOrderAsync(requestId: guid, command: CancelOrderCommand, services: OrderServices): Results&lt;Ok, BadRequest&lt;string&gt;, ProblemHttpResult&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="eb6fda2d-eb70-4038-9d06-bfa84947cc26">
+        <typeId>7f31de00-afe4-4574-9812-51b4b1377831</typeId>
+        <typeName>Results&lt;Ok, BadRequest&lt;string&gt;, ProblemHttpResult&gt;</typeName>
+        <typePackageName>Ordering.API</typePackageName>
+        <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+      </typeReference>
+      <parentFolderId>4f03d6c1-37c2-4841-89ea-c4ba6804bf39</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="cancel" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="ff160e6d-000a-475e-abc6-95211a421612" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>requestId</name>
+          <display>in : requestId: guid</display>
+          <typeReference id="cbdf203f-0a19-4a6a-905e-8a7bdcb94a68">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <typeName>guid</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>52fb5f54-482f-4fbc-9ffb-6c1b98eff454</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Header" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" value="x-requestid" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="cf969f8c-84c8-4ef5-8ded-f5f3ff6d416c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>command</name>
+          <display>in : command: CancelOrderCommand</display>
+          <typeReference id="9d031343-c25d-4e98-9e60-38a15e714ed4">
+            <typeId>6ffaa350-f8ca-42f5-9106-f4877a316245</typeId>
+            <typeName>CancelOrderCommand</typeName>
+            <typePackageName>Ordering.API</typePackageName>
+            <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+          </typeReference>
+          <parentFolderId>52fb5f54-482f-4fbc-9ffb-6c1b98eff454</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Body" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="bf64354a-8562-4005-89f9-ac981df3b185" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: OrderServices</display>
+          <typeReference id="d97beb5f-0ed3-4f9e-afba-b029f2752171">
+            <typeId>ec01424a-1751-4e95-9d5a-06b658d5c0ab</typeId>
+            <typeName>OrderServices</typeName>
+            <typePackageName>Ordering.API</typePackageName>
+            <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+          </typeReference>
+          <parentFolderId>52fb5f54-482f-4fbc-9ffb-6c1b98eff454</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+        </element>
+        <association id="3b1e216e-c6f5-4ea9-bf14-3e7f68cc7cfc">
+          <sourceEnd id="56fe1cbc-d2a9-4cab-a54e-0423f2d767ac" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : OrdersApi.CancelOrderAsync</display>
+            <typeReference id="ad896483-6f7c-4501-a02b-8813119a095b">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="3b1e216e-c6f5-4ea9-bf14-3e7f68cc7cfc" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = CancelOrderCommand(...): bool</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="bee560e9-9f28-44d2-ac08-34ae2ea18976">
+              <typeId>6ffaa350-f8ca-42f5-9106-f4877a316245</typeId>
+              <typeName>CancelOrderCommand</typeName>
+              <typePackageName>Ordering.API</typePackageName>
+              <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="3ed7f5ae-9648-4da7-8233-dbc3ece61b8d" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>ShipOrderAsync</name>
+      <display>ShipOrderAsync(requestId: guid, command: ShipOrderCommand, services: OrderServices): Results&lt;Ok, BadRequest&lt;string&gt;, ProblemHttpResult&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="d8a02b1c-a28d-47d8-ad86-97be9c6c6c19">
+        <typeId>7f31de00-afe4-4574-9812-51b4b1377831</typeId>
+        <typeName>Results&lt;Ok, BadRequest&lt;string&gt;, ProblemHttpResult&gt;</typeName>
+        <typePackageName>Ordering.API</typePackageName>
+        <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+      </typeReference>
+      <parentFolderId>4f03d6c1-37c2-4841-89ea-c4ba6804bf39</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="ship" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="d527c16b-f918-4fef-982a-d76ad5bebb2b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>requestId</name>
+          <display>in : requestId: guid</display>
+          <typeReference id="43f4cf4e-5064-416a-a9cf-3658cb0bfcd9">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <typeName>guid</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>3ed7f5ae-9648-4da7-8233-dbc3ece61b8d</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Header" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" value="x-requestid" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="74efde8a-6de4-403f-b914-fe2bfca0245b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>command</name>
+          <display>in : command: ShipOrderCommand</display>
+          <typeReference id="7921de94-59e9-43e1-9057-28a061d7bff5">
+            <typeId>dd3a4ee3-04e3-43fb-a5cd-f8dd3a3f6ae2</typeId>
+            <typeName>ShipOrderCommand</typeName>
+            <typePackageName>Ordering.API</typePackageName>
+            <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+          </typeReference>
+          <parentFolderId>3ed7f5ae-9648-4da7-8233-dbc3ece61b8d</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Body" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="5c9bd9b6-70af-474c-b133-aee12ef28de9" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: OrderServices</display>
+          <typeReference id="1ad3b717-83db-4127-bd68-506e4a6987df">
+            <typeId>ec01424a-1751-4e95-9d5a-06b658d5c0ab</typeId>
+            <typeName>OrderServices</typeName>
+            <typePackageName>Ordering.API</typePackageName>
+            <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+          </typeReference>
+          <parentFolderId>3ed7f5ae-9648-4da7-8233-dbc3ece61b8d</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+        </element>
+        <association id="6c669cd9-b5de-4087-8e0c-684f4768608f">
+          <sourceEnd id="4f582eb0-b5bc-4758-87ce-0afd40e993eb" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : OrdersApi.ShipOrderAsync</display>
+            <typeReference id="8940d923-471f-43a9-9a57-13b1c52e0866">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="6c669cd9-b5de-4087-8e0c-684f4768608f" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = ShipOrderCommand(...): bool</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="72f6dd4e-1b17-4b13-8cae-415497a69879">
+              <typeId>dd3a4ee3-04e3-43fb-a5cd-f8dd3a3f6ae2</typeId>
+              <typeName>ShipOrderCommand</typeName>
+              <typePackageName>Ordering.API</typePackageName>
+              <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="fc0f8efc-0b18-4139-957d-082083661d0b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetOrderAsync</name>
+      <display>GetOrderAsync(orderId: int, services: OrderServices): Results&lt;Ok&lt;Order&gt;, NotFound&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="3e4fe529-fefb-420b-bf8a-7eacfced8560">
+        <typeId>ee49b791-a8ad-4279-aea9-fc04cc33bf37</typeId>
+        <typeName>Results&lt;Ok&lt;Order&gt;, NotFound&gt;</typeName>
+        <typePackageName>Ordering.API</typePackageName>
+        <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+      </typeReference>
+      <parentFolderId>4f03d6c1-37c2-4841-89ea-c4ba6804bf39</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{orderId:int}" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="01674119-7fa8-49e4-b006-bcfe92968ca3" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>orderId</name>
+          <display>in : orderId: int</display>
+          <typeReference id="d5f64970-65a0-4fc6-9d57-1a1817047088">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>fc0f8efc-0b18-4139-957d-082083661d0b</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="e0814c4c-2ecc-4438-a18a-d9eee5fa2838" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: OrderServices</display>
+          <typeReference id="9cc0a468-6742-4dfc-9e95-78118e637b57">
+            <typeId>ec01424a-1751-4e95-9d5a-06b658d5c0ab</typeId>
+            <typeName>OrderServices</typeName>
+            <typePackageName>Ordering.API</typePackageName>
+            <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+          </typeReference>
+          <parentFolderId>fc0f8efc-0b18-4139-957d-082083661d0b</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+        </element>
+        <association id="71c86afa-e061-4f5a-ae8f-950f17c8e1f1">
+          <sourceEnd id="0bd3b333-a556-4347-a3fe-606d4f08b5cc" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : OrdersApi.GetOrderAsync</display>
+            <typeReference id="6dd30fb2-5297-476e-bbfe-6d9429c441e0">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="71c86afa-e061-4f5a-ae8f-950f17c8e1f1" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetOrderAsync(...): Order</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="7be3ecae-f56c-4c70-9b8b-702ca6605445">
+              <typeId>e0b0aca2-0825-40c6-9114-cd26c144f50f</typeId>
+              <typeName>GetOrderAsync</typeName>
+              <typePackageName>Ordering.API</typePackageName>
+              <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="f50c1295-73ed-4b39-a8b0-6e33f1c0d8c3" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetOrdersByUserAsync</name>
+      <display>GetOrdersByUserAsync(services: OrderServices): Ok&lt;IEnumerable&lt;OrderSummary&gt;&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="404c50f6-8a5c-4be2-8903-7df2c77403b8">
+        <typeId>a350726d-2c57-42b6-9d2a-1fa1b877c52e</typeId>
+        <typeName>Ok&lt;IEnumerable&lt;OrderSummary&gt;&gt;</typeName>
+        <typePackageName>Ordering.API</typePackageName>
+        <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+      </typeReference>
+      <parentFolderId>4f03d6c1-37c2-4841-89ea-c4ba6804bf39</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="06f08277-522b-438e-a9bf-32d8b8c68050" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: OrderServices</display>
+          <typeReference id="6ac90bec-dd98-4373-881f-ffa709637a4d">
+            <typeId>ec01424a-1751-4e95-9d5a-06b658d5c0ab</typeId>
+            <typeName>OrderServices</typeName>
+            <typePackageName>Ordering.API</typePackageName>
+            <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+          </typeReference>
+          <parentFolderId>f50c1295-73ed-4b39-a8b0-6e33f1c0d8c3</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+        </element>
+        <association id="5176eb4e-6758-465a-840a-f822a0010d97">
+          <sourceEnd id="57ec4b85-9c90-49fb-9c0a-49f6012ae966" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : OrdersApi.GetOrdersByUserAsync</display>
+            <typeReference id="61cc2ed1-be98-49ad-a553-65d58fe6091e">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="5176eb4e-6758-465a-840a-f822a0010d97" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetUserIdentity(...): string</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="8de41551-417d-452d-b861-597e537df20c">
+              <typeId>1c042821-9a32-40b9-862b-12cc6c0e8f34</typeId>
+              <typeName>GetUserIdentity</typeName>
+              <typePackageName>Ordering.API</typePackageName>
+              <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+        <association id="2008ec82-3cb6-489b-b98b-f3f09eae5362">
+          <sourceEnd id="5f7d5e7a-5acd-43c7-a9f4-1aeb4c94c9c1" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : OrdersApi.GetOrdersByUserAsync</display>
+            <typeReference id="f883a096-7cfd-42a3-9e01-0029691a651e">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="2008ec82-3cb6-489b-b98b-f3f09eae5362" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetOrdersFromUserAsync(...): OrderSummary[*]</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="b471698d-7601-4d85-b7ab-3b1e139a26ca">
+              <typeId>496c6a0c-ac7a-4b0f-96d7-1cb019ac503b</typeId>
+              <typeName>GetOrdersFromUserAsync</typeName>
+              <isCollection>true</isCollection>
+              <typePackageName>Ordering.API</typePackageName>
+              <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="fc7744a9-dad5-434c-bcdb-e18dfb41c39b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetCardTypesAsync</name>
+      <display>GetCardTypesAsync(orderQueries: IOrderQueries): Ok&lt;IEnumerable&lt;CardType&gt;&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="c3d6e153-c6ad-4044-868a-38d8a4a25727">
+        <typeId>922aa372-1fa5-4765-ba17-d21736dd6299</typeId>
+        <typeName>Ok&lt;IEnumerable&lt;CardType&gt;&gt;</typeName>
+        <typePackageName>Ordering.API</typePackageName>
+        <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+      </typeReference>
+      <parentFolderId>4f03d6c1-37c2-4841-89ea-c4ba6804bf39</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="cardtypes" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="64f5d1cc-da46-4934-bf13-a8e8b97a12dd" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>orderQueries</name>
+          <display>in : orderQueries: IOrderQueries</display>
+          <typeReference id="3e541913-c3ff-4cc5-b905-88f403b42b96">
+            <typeId>2df31347-ff7a-4c64-b909-28ee9cb80f25</typeId>
+            <typeName>IOrderQueries</typeName>
+            <typePackageName>Ordering.API</typePackageName>
+            <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+          </typeReference>
+          <parentFolderId>fc7744a9-dad5-434c-bcdb-e18dfb41c39b</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+        </element>
+        <association id="61d72975-05cb-49b1-a160-ec55515d149d">
+          <sourceEnd id="bce60699-1422-4488-aeab-40fab522870c" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : OrdersApi.GetCardTypesAsync</display>
+            <typeReference id="9b7e9f84-e3f2-473a-8054-419bacec7a86">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="61d72975-05cb-49b1-a160-ec55515d149d" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetCardTypesAsync(...): CardType[*]</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="e580360f-f6e2-4b8c-9791-b66ba02dfe44">
+              <typeId>fe1fd5cd-8c91-4519-ae95-55fcf0503d61</typeId>
+              <typeName>GetCardTypesAsync</typeName>
+              <isCollection>true</isCollection>
+              <typePackageName>Ordering.API</typePackageName>
+              <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="ca360edb-4d16-4997-8826-8004a04ebe68" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateOrderDraftAsync</name>
+      <display>CreateOrderDraftAsync(command: CreateOrderDraftCommand, services: OrderServices): OrderDraftDTO</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="17dad072-6ad9-4478-b378-84b86cfbf61f">
+        <typeId>bbd525b5-9d31-4eee-b3a0-415e9b526b79</typeId>
+        <typeName>OrderDraftDTO</typeName>
+        <typePackageName>Ordering.API</typePackageName>
+        <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+      </typeReference>
+      <parentFolderId>4f03d6c1-37c2-4841-89ea-c4ba6804bf39</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="draft" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="77b90c1c-a45a-4695-8e56-2b1161c5f0ce" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>command</name>
+          <display>in : command: CreateOrderDraftCommand</display>
+          <typeReference id="e33c34c3-238b-4fb4-ae95-d06d6d5be187">
+            <typeId>0474fba0-817d-4739-9f18-1674283bc4e8</typeId>
+            <typeName>CreateOrderDraftCommand</typeName>
+            <typePackageName>Ordering.API</typePackageName>
+            <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+          </typeReference>
+          <parentFolderId>ca360edb-4d16-4997-8826-8004a04ebe68</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Body" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="d2234b9c-a08a-4529-928f-ad98897b8b7c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: OrderServices</display>
+          <typeReference id="7ce98a04-e14a-4db2-91c8-145c57165bc5">
+            <typeId>ec01424a-1751-4e95-9d5a-06b658d5c0ab</typeId>
+            <typeName>OrderServices</typeName>
+            <typePackageName>Ordering.API</typePackageName>
+            <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+          </typeReference>
+          <parentFolderId>ca360edb-4d16-4997-8826-8004a04ebe68</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+        </element>
+        <association id="c1fb99bd-9aaf-4f5d-8bc5-495c8110a5b7">
+          <sourceEnd id="e51d1bae-d5ca-4169-85a2-6c04990f3c1b" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : OrdersApi.CreateOrderDraftAsync</display>
+            <typeReference id="07e97ba3-3497-458a-9fa8-d29516e362ca">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="c1fb99bd-9aaf-4f5d-8bc5-495c8110a5b7" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = CreateOrderDraftCommand(...): OrderDraftDTO</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="15bed52f-003b-46af-9d67-36c3e63096f5">
+              <typeId>0474fba0-817d-4739-9f18-1674283bc4e8</typeId>
+              <typeName>CreateOrderDraftCommand</typeName>
+              <typePackageName>Ordering.API</typePackageName>
+              <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="9bb63f19-f2f3-4a4e-bd98-ee08352a2e34" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateOrderAsync</name>
+      <display>CreateOrderAsync(requestId: guid, request: CreateOrderRequest, services: OrderServices): Results&lt;Ok, BadRequest&lt;string&gt;&gt;</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="e49038b4-33a1-4998-837b-8c35b75b8f04">
+        <typeId>ff0b541d-0237-449f-ace2-6db5f1eaceaa</typeId>
+        <typeName>Results&lt;Ok, BadRequest&lt;string&gt;&gt;</typeName>
+        <typePackageName>Ordering.API</typePackageName>
+        <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+      </typeReference>
+      <parentFolderId>4f03d6c1-37c2-4841-89ea-c4ba6804bf39</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="0e3047e8-6e8f-4684-8495-b2cf9b7e0417" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>requestId</name>
+          <display>in : requestId: guid</display>
+          <typeReference id="114e33e7-3a02-493c-b9f2-2ae344212e14">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <typeName>guid</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>9bb63f19-f2f3-4a4e-bd98-ee08352a2e34</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Header" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" value="x-requestid" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="a54b95b9-4d8f-4392-b47e-eb64d3b7df69" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>request</name>
+          <display>in : request: CreateOrderRequest</display>
+          <typeReference id="39d2555e-93bd-44e9-bb6b-82153a8f803b">
+            <typeId>a4501278-a5d5-4651-bfea-7dc158ea7fb2</typeId>
+            <typeName>CreateOrderRequest</typeName>
+            <typePackageName>Ordering.API</typePackageName>
+            <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+          </typeReference>
+          <parentFolderId>9bb63f19-f2f3-4a4e-bd98-ee08352a2e34</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Body" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="529d6a68-1c66-4d65-8490-350fe3b90cd9" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>services</name>
+          <display>in : services: OrderServices</display>
+          <typeReference id="7e4aa2ac-1a96-4cee-9976-99b75ebacff4">
+            <typeId>ec01424a-1751-4e95-9d5a-06b658d5c0ab</typeId>
+            <typeName>OrderServices</typeName>
+            <typePackageName>Ordering.API</typePackageName>
+            <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+          </typeReference>
+          <parentFolderId>9bb63f19-f2f3-4a4e-bd98-ee08352a2e34</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+        </element>
+        <association id="1c8f70e5-41fd-4b69-838d-3ee5427669c9">
+          <sourceEnd id="5aed3e16-8ae5-4677-b400-341c49d4ba5a" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : OrdersApi.CreateOrderAsync</display>
+            <typeReference id="89eb0858-7082-44c5-a0a2-083186d3592c">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="1c8f70e5-41fd-4b69-838d-3ee5427669c9" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = CreateOrderCommand(...): bool</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="91f2cdcc-0bce-4e14-a09b-ad10a0e15bee">
+              <typeId>0c34596b-aa9b-45ba-8356-39c0e7160064</typeId>
+              <typeName>CreateOrderCommand</typeName>
+              <typePackageName>Ordering.API</typePackageName>
+              <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+  </children>
+</class>

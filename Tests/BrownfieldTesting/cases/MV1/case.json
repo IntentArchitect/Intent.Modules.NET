@@ -1,0 +1,19 @@
+{
+  "id": "MV1",
+  "title": "Move: pull repeated handler code into a helper",
+  "lane": "ai",
+  "prompt": "The Ordering domain event handlers that publish order-status integration events all repeat the same buyer lookup and publish code. Pull it into one shared helper.",
+  "done": "the handlers share one helper for the buyer lookup and publish, with behaviour unchanged",
+  "expect": [
+    {
+      "id": "interactions-kept",
+      "net": "visible",
+      "text": "The model still has each handler publishing its integration event: the work still happens, through the helper. (No queries are modelled on these handlers, so none is expected.)"
+    },
+    {
+      "id": "helper",
+      "net": "blind",
+      "text": "The helper is modelled only if it is a kind of element the model describes, such as a domain service; a plain helper class stays out of the model."
+    }
+  ]
+}

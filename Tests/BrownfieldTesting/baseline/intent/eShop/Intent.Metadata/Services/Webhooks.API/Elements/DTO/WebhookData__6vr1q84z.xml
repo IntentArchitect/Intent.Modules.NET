@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2c234c63-f426-4d5a-8e87-50e1b4dc2605" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>WebhookData</name>
+  <display>WebhookData</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>61bcaa87-8705-4ca6-a86b-01308af046c7</parentFolderId>
+  <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+  <packageName>Webhooks.API</packageName>
+  <children>
+    <element id="caeb7c74-5f84-43f5-aa65-c5a1b3df24b9" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>When</name>
+      <display>When: datetime</display>
+      <typeReference id="06220a49-fbcd-4f58-854a-c13e052516e7">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <typeName>datetime</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>2c234c63-f426-4d5a-8e87-50e1b4dc2605</parentFolderId>
+      <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+      <packageName>Webhooks.API</packageName>
+    </element>
+    <element id="f1b3f7d8-5fb3-46b9-8c87-b733ec76a0ad" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Payload</name>
+      <display>Payload: string</display>
+      <typeReference id="05f95265-c018-452b-93af-a53f7eaade14">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>2c234c63-f426-4d5a-8e87-50e1b4dc2605</parentFolderId>
+      <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+      <packageName>Webhooks.API</packageName>
+    </element>
+    <element id="4021704d-be09-4016-a416-76205b205583" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Type</name>
+      <display>Type: string</display>
+      <typeReference id="3725a936-6ceb-4286-a479-ec1ef0717b65">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>2c234c63-f426-4d5a-8e87-50e1b4dc2605</parentFolderId>
+      <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+      <packageName>Webhooks.API</packageName>
+    </element>
+  </children>
+</class>

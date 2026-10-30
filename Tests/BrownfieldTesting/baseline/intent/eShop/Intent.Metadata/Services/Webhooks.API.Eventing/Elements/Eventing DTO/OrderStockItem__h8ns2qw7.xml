@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3d7f15dd-b2d3-472b-ad1d-521990986a25" type="Eventing DTO" typeId="544f1d57-27ce-4985-a4ec-cc01568d72b0">
+  <name>OrderStockItem</name>
+  <display>OrderStockItem</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>8be35d8c-aa77-496a-b2ad-e71bbc237aea</parentFolderId>
+  <packageId>55b30ef0-516f-4925-b317-cccca4d8e700</packageId>
+  <packageName>Webhooks.API.Eventing</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="9bb8b979-bcb2-4908-91d5-b65028475bb6" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="2f0cd31c-9b25-410b-bb47-ccb513504353" display="Type" value="positional record" />
+        <property name="7d854ec0-7ba8-48f5-a08e-539ef5fcb359" display="Modifiers" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="f8797140-e8e6-4d07-b488-5c5679fd14dd" type="Eventing DTO-Field" typeId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7">
+      <name>ProductId</name>
+      <display>ProductId: int</display>
+      <typeReference id="5789a382-e981-4c09-9ff7-f863a07da368">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>3d7f15dd-b2d3-472b-ad1d-521990986a25</parentFolderId>
+      <packageId>55b30ef0-516f-4925-b317-cccca4d8e700</packageId>
+      <packageName>Webhooks.API.Eventing</packageName>
+    </element>
+    <element id="787ff15c-4a08-4330-999f-590dc749a7be" type="Eventing DTO-Field" typeId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7">
+      <name>Units</name>
+      <display>Units: int</display>
+      <typeReference id="2263b8a1-fe92-4b50-91f9-57299e648829">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>3d7f15dd-b2d3-472b-ad1d-521990986a25</parentFolderId>
+      <packageId>55b30ef0-516f-4925-b317-cccca4d8e700</packageId>
+      <packageName>Webhooks.API.Eventing</packageName>
+    </element>
+  </children>
+</class>

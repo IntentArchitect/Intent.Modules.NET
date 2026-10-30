@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="98ec3263-1322-4ffe-b6f8-d3a496ce597e" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
+  <name>PaymentProcessor</name>
+  <display>PaymentProcessor</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>c54e5800-31e9-40ef-aea7-f78534d7eae2</parentFolderId>
+  <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk.Web" />
+        <property name="abba11c7-3b43-4228-9eac-72311a302668" display="Aspire SDK Version" value="13.0" isActive="false" />
+        <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" />
+        <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" />
+        <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" />
+        <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" />
+        <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" />
+        <property name="d53ab03c-90cf-4b6a-b733-73b6983ab603" display="Target Framework" value="3da65706-027d-4433-9218-6b0f90ce3fc4" />
+        <property name="b9685057-b337-42d8-9536-d0185ea69b73" display="Target Frameworks" isActive="false" />
+        <property name="c9fc7052-9557-4485-a759-fa33363472b3" display="Configurations" />
+        <property name="c27f8813-bee4-4289-81e5-570e755a8f30" display="Root Namespace" />
+        <property name="a6660df2-6016-40c6-8453-8e5993f407c9" display="User Secrets Id" />
+        <property name="16ac8254-c83f-42d9-98bb-db9c0532bce6" display="Generate Runtime Configuration Files" />
+        <property name="94e630db-ee2b-4d4f-a423-19d3469178fa" display="Generate Documentation File" />
+        <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" />
+        <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" value="(unspecified)" />
+        <property name="8ee6e435-e556-439c-9712-a3f287972813" display="Runtime Identifiers" />
+        <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn)" />
+        <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" />
+        <property name="a811d3f2-253e-46de-ae72-bd6ec9f30d54" display="Generate AppSettings File" value="false" />
+        <property name="4fe561b9-333e-4341-8243-d569db8cd8f4" display="Generate LaunchSettings File" value="false" />
+        <property name="0aca4b00-3558-46c4-abcc-e4d9b8b17090" display="MSTest SDK Version" isActive="false" />
+        <property name="4b817fc6-d866-481a-bdc8-1fa9aa3bb97a" display="Generate Program File" value="false" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" />
+        <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" />
+        <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="false" />
+        <property name="68a31b13-148b-45da-a6ea-5a6883f86438" display="Nullable" value="(unspecified)" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="fd52e71a-3810-4ae7-ae40-4e1514903d25" name="Launch Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="1b85d04d-e80a-4640-9fee-558711473fa8" display="Base URL" value="http://localhost:5226" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+      <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+      <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+      <properties>
+        <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Medium - Order Status Saga] **/*&quot;,&quot;[High - Aspire Host &amp; Service Defaults, Order Status Saga] Program.cs&quot;,&quot;[High - Order Status Saga] PaymentOptions.cs&quot;,&quot;[Medium - Aspire Host &amp; Service Defaults, Order Status Saga] appsettings.Development.json, appsettings.json, Properties/launchSettings.json&quot;,&quot;[Medium - Build, Packages &amp; CI, Order Status Saga] PaymentProcessor.csproj&quot;]">
+          <itemList>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Program.cs" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;2231a2cf-1080-4fb0-9d3c-934351d1ced5&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="PaymentOptions.cs" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="appsettings.Development.json&#xA;appsettings.json&#xA;Properties/launchSettings.json" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;2231a2cf-1080-4fb0-9d3c-934351d1ced5&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="PaymentProcessor.csproj" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;733a08d8-e739-4955-88f0-6dbf82c3192e&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+              </properties>
+            </item>
+          </itemList>
+        </property>
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="91ac668e-a852-4883-a426-0f35b5f62ed2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Services.Guardrails.Contracts.IntegrationEventContract</name>
+      <display>Intent.Services.Guardrails.Contracts.IntegrationEventContract</display>
+      <parentFolderId>98ec3263-1322-4ffe-b6f8-d3a496ce597e</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" value="np(Package.Name) == &quot;PaymentProcessor.Eventing&quot;" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Medium - Order Status Saga] **/*&quot;,&quot;[Medium - Order Status Saga, Shared Message &amp; gRPC Contracts] IntegrationEvents/Events/**&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="IntegrationEvents/Events/**" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;,&quot;2dceb4ce-a027-4b8c-aec7-7d25f20e229c&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="d68d7eab-7ef6-44b3-ab5e-cc02e42436d8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract</name>
+      <display>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract</display>
+      <parentFolderId>98ec3263-1322-4ffe-b6f8-d3a496ce597e</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" value="np(Package.Name) == &quot;PaymentProcessor&quot;" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Medium - Order Status Saga] **/*&quot;,&quot;[High - Order Status Saga] IntegrationEvents/EventHandling/**&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="IntegrationEvents/EventHandling/**" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <association id="595a7f2e-bc56-4e59-a950-08af6ccdc863">
+      <sourceEnd id="17ead342-d0a2-4f3b-bb61-a91adab11d0d" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: PaymentProcessor</display>
+        <typeReference id="09a61cda-9643-4ce3-a556-56810207b4d4">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="595a7f2e-bc56-4e59-a950-08af6ccdc863" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: eShop.ServiceDefaults</display>
+        <typeReference id="9625184e-ca75-4453-8b26-ab72e7e70287">
+          <typeId>cb3c108a-a019-4f79-8c68-9a890de0f13f</typeId>
+          <typeName>eShop.ServiceDefaults</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+    <association id="c829e948-fba3-40f9-8626-b7ceac452bb1">
+      <sourceEnd id="a041811d-c3d0-436b-9756-5399e3175e2e" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: PaymentProcessor</display>
+        <typeReference id="4d78eaad-9fd9-4f38-9f33-21302dc06a2e">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="c829e948-fba3-40f9-8626-b7ceac452bb1" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: EventBusRabbitMQ</display>
+        <typeReference id="da8e3785-9497-407b-be14-db2b22bb2ba0">
+          <typeId>a16ece80-a8e4-484e-a94c-575bb87b2155</typeId>
+          <typeName>EventBusRabbitMQ</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+  </children>
+</class>

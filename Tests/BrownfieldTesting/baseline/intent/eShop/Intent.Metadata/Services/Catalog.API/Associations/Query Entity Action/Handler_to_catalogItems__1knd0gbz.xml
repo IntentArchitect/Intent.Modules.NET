@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f7f6b516-4520-4404-affb-47d20cc32c82">
+  <sourceEnd id="b60123da-63f8-4b4b-9f40-aed8e1baeee6" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: Handler</display>
+    <typeReference id="7f470fc7-39ef-44b8-9dd8-d61d52a6d066">
+      <typeId>f2d1f327-c213-4ada-8d15-b84db9a73c57</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Catalog.API</typePackageName>
+      <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="f7f6b516-4520-4404-affb-47d20cc32c82" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>catalogItems</name>
+    <display>[query] catalogItems: CatalogItem[*]?</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="ff1730ff-37fe-4171-b554-313d30eb3c8a">
+      <typeId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</typeId>
+      <typeName>CatalogItem</typeName>
+      <isNullable>true</isNullable>
+      <isCollection>true</isCollection>
+      <typePackageName>Catalog</typePackageName>
+      <typePackageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+</association>

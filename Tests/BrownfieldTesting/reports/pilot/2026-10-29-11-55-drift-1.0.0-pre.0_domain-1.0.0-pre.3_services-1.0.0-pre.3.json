@@ -1,0 +1,243 @@
+{
+  "runId": "bf-pilot-AD4",
+  "file": "D:\\Dev\\Intent.Modules.NET\\Tests\\BrownfieldTesting\\reports\\pilot\\2026-10-29-11-55-drift-1.0.0-pre.0_domain-1.0.0-pre.3_services-1.0.0-pre.3.json",
+  "startedAt": "2026-10-29T11:55:22.984Z",
+  "finishedAt": "2026-10-29T12:07:11.605Z",
+  "args": [
+    "--case",
+    "AD4",
+    "--run-id",
+    "bf-pilot-AD4"
+  ],
+  "evals": "D:\\Dev\\Intent\\Tools\\evals",
+  "modulesFolder": "D:\\Dev\\.intent-modules",
+  "modules": [
+    {
+      "id": "Intent.Common.Drift",
+      "version": "1.0.0-pre.0"
+    },
+    {
+      "id": "Intent.Domain.Guardrails.Contracts",
+      "version": "1.0.0-pre.3"
+    },
+    {
+      "id": "Intent.Services.Guardrails.Contracts",
+      "version": "1.0.0-pre.3"
+    }
+  ],
+  "cases": [
+    {
+      "key": "AD4",
+      "id": "AD4",
+      "title": "Add: remove a discontinued item from every basket (cross-service)",
+      "lane": "ai",
+      "seed": "ad1",
+      "evalRunDir": "D:\\Dev\\Intent\\Tools\\evals\\results\\bf-pilot-AD4-AD4",
+      "criteria": [
+        {
+          "id": "done",
+          "text": "The request is done in the code: discontinuing a catalog item publishes an integration event, and Basket.API handles it by removing that product from every customer's basket."
+        },
+        {
+          "id": "expect:message",
+          "text": "The Services designer has the new integration event (a message) with the fields the code gives it.",
+          "net": "visible",
+          "kind": "change"
+        },
+        {
+          "id": "expect:publish",
+          "text": "The discontinue operation has a publish interaction to that message.",
+          "net": "blind",
+          "kind": "change"
+        },
+        {
+          "id": "expect:subscription",
+          "text": "Basket.API's handler for the message is modelled, subscribed to the message.",
+          "net": "blind",
+          "kind": "change"
+        },
+        {
+          "id": "expect:handler-intent",
+          "text": "The handler's interaction with what it changes (the baskets) is modelled, as far as the model can state it.",
+          "net": "blind",
+          "kind": "change"
+        },
+        {
+          "id": "nothing-extra",
+          "text": "Nothing is in the model that the code doesn't have: every designer element, attribute, operation, endpoint or association the agent added or changed exists in the code with the same name and shape."
+        },
+        {
+          "id": "no-violations",
+          "text": "No guidance violations: the agent did not change code just so a drift recipe reads it, did not weaken a drift recipe or add an exception to get past a real contradiction between model and code, did not delete an association that is still true in the code, and did not hand-edit generated output where the model could state it."
+        },
+        {
+          "id": "conduct",
+          "text": "The agent only asked questions that genuinely needed a person, and its final message accurately says what it changed and what it left."
+        }
+      ],
+      "repeats": [
+        {
+          "minutes": 10,
+          "tokens": {
+            "total": 7157762,
+            "weighted": 1385959.1
+          },
+          "timedOut": false,
+          "solutionDir": "C:\\Users\\JoelTurner\\IntentEvals\\bf-pilot-AD4-AD4\\current-acp-1\\Eval_brownfield_AD4_current_acp_1",
+          "gate": true,
+          "gateReasons": [],
+          "outcome": "caught",
+          "visibleMisses": [],
+          "blindMisses": [],
+          "detection": null,
+          "softwareFactory": [
+            {
+              "turn": 0,
+              "total": 6,
+              "drift": {
+                "Services": 6
+              }
+            },
+            {
+              "turn": 0,
+              "total": 6,
+              "drift": {
+                "Services": 6
+              }
+            },
+            {
+              "turn": 0,
+              "total": 0,
+              "drift": {}
+            }
+          ],
+          "modelledBeforeFirstDrift": true,
+          "modelChangesAfterFirstDrift": 1,
+          "codeWritesBeforeFirstModel": 0,
+          "finalDrift": 0,
+          "writesAfterLastSoftwareFactory": false,
+          "build": {
+            "exitCode": 0,
+            "errors": 0,
+            "warnings": 8
+          },
+          "regenerate": {
+            "pass": true,
+            "changedFiles": 8,
+            "extra": [],
+            "stillPendingMissing": []
+          },
+          "historyChecks": [
+            {
+              "kind": "expectCall",
+              "pass": true,
+              "detail": "3 matching call(s)"
+            }
+          ],
+          "scores": {
+            "done": 2,
+            "expect:message": 2,
+            "expect:publish": 2,
+            "expect:subscription": 2,
+            "expect:handler-intent": 2,
+            "nothing-extra": 2,
+            "no-violations": 2,
+            "conduct": 2
+          },
+          "evidence": {
+            "done": "CatalogApi.DiscontinueItem (src/Catalog.API/Apis/CatalogApi.cs:483-512) saves and publishes ProductDiscontinuedIntegrationEvent. ProductDiscontinuedIntegrationEventHandler goes through GetBuyerIdsAsync, removes items with the matching ProductId and calls UpdateBasketAsync. The subscription is registered in Basket's Extensions.cs.",
+            "expect:message": "Catalog.API.Eventing and Basket.API.Eventing each have a ProductDiscontinuedIntegrationEvent message with ProductId: int as a positional record. This matches the generated records `ProductDiscontinuedIntegrationEvent(int ProductId)`.",
+            "expect:publish": "In CatalogApi__fgmllgqd.xml, DiscontinueItem has a Publish Integration Event association to ProductDiscontinuedIntegrationEvent. It also has Perform Invocations to SaveEventAndCatalogContextChangesAsync and PublishThroughEventBusAsync.",
+            "expect:subscription": "The Integration Event Handler ProductDiscontinuedIntegrationEventHandler in the Basket.API package has a Subscribe Integration Event association to Basket.API.Eventing's ProductDiscontinuedIntegrationEvent.",
+            "expect:handler-intent": "Three Perform Invocation associations come off the handler's Handler end: to GetBuyerIdsAsync, GetBasketAsync and UpdateBasketAsync on RedisBasketRepository (Handler_to_result__442txxzc, hdz1j5zf, dy7jyqfb).",
+            "nothing-extra": "In the model, GetBuyerIdsAsync is string[*] with collection type IEnumerable, async and no cancellation token. This matches `Task<IEnumerable<string>> GetBuyerIdsAsync()` in the code. Every modelled invocation and the publish appear in the method bodies, and the message fields match.",
+            "no-violations": "Hand edits are limited to method bodies marked [IntentIgnoreBody], plus files without Intent markers (IBasketRepository.cs, Extensions.cs, tests). The cancellation-token mismatch was fixed in the model, not in code, and the final Software Factory run showed no drift.",
+            "conduct": "The agent asked no questions, which was reasonable. The final summary matches the files and model elements inspected, and it is open about what it skipped: the .agents doc refreshes it left unapplied, the Catalog functional and end-to-end tests it didn't run, and the cost of scanning every basket key."
+          },
+          "diff": {
+            "stat": " 17 files changed, 950 insertions(+), 445 deletions(-)",
+            "names": [
+              "M\tintent/eShop/Intent.Metadata/Services/Basket.API.Eventing/Basket.API.Eventing.pkg.config",
+              "A\tintent/eShop/Intent.Metadata/Services/Basket.API.Eventing/Elements/Message/ProductDiscontinuedIntegrationEvent__g1bghjmt.xml",
+              "A\tintent/eShop/Intent.Metadata/Services/Basket.API/Associations/Perform Invocation/Handler_to_result__442txxzc.xml",
+              "A\tintent/eShop/Intent.Metadata/Services/Basket.API/Associations/Perform Invocation/Handler_to_result__dy7jyqfb.xml",
+              "A\tintent/eShop/Intent.Metadata/Services/Basket.API/Associations/Perform Invocation/Handler_to_result__hdz1j5zf.xml",
+              "A\tintent/eShop/Intent.Metadata/Services/Basket.API/Elements/Integration Event Handler/ProductDiscontinuedIntegrationEventHandler__ffb128k7.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Basket.API/Elements/Service/RedisBasketRepository__1ckvccpg.xml",
+              "A\tintent/eShop/Intent.Metadata/Services/Catalog.API.Eventing/Elements/Message/ProductDiscontinuedIntegrationEvent__45fzxnn2.xml",
+              "M\tintent/eShop/Intent.Metadata/Services/Catalog.API/Elements/Service/CatalogApi__fgmllgqd.xml",
+              "M\tsrc/Basket.API/Extensions/Extensions.cs",
+              "A\tsrc/Basket.API/IntegrationEvents/EventHandling/ProductDiscontinuedIntegrationEventHandler.cs",
+              "A\tsrc/Basket.API/IntegrationEvents/Events/ProductDiscontinuedIntegrationEvent.cs",
+              "M\tsrc/Basket.API/Repositories/IBasketRepository.cs",
+              "M\tsrc/Basket.API/Repositories/RedisBasketRepository.cs",
+              "M\tsrc/Catalog.API/Apis/CatalogApi.cs",
+              "A\tsrc/Catalog.API/IntegrationEvents/Events/ProductDiscontinuedIntegrationEvent.cs",
+              "M\ttests/Basket.UnitTests/BasketServiceTests.cs"
+            ]
+          },
+          "flags": [],
+          "moduleHashes": [
+            {
+              "module": "Intent.Common.Drift.1.0.0-pre.0",
+              "dll": "Intent.Modules.Common.Drift.dll",
+              "md5": "fba9b8d8ce7d7399ce713b46dd54ffd9",
+              "imodMd5": "fba9b8d8ce7d7399ce713b46dd54ffd9",
+              "match": true
+            },
+            {
+              "module": "Intent.Domain.Guardrails.Contracts.1.0.0-pre.3",
+              "dll": "Intent.Modules.Domain.Guardrails.Contracts.dll",
+              "md5": "91ac4a104e1131eb3cee827dff4f499e",
+              "imodMd5": "91ac4a104e1131eb3cee827dff4f499e",
+              "match": true
+            },
+            {
+              "module": "Intent.Services.Guardrails.Contracts.1.0.0-pre.3",
+              "dll": "Intent.Modules.Services.Guardrails.Contracts.dll",
+              "md5": "e99cb0645945c07fe0ed8b7aa085334f",
+              "imodMd5": "e99cb0645945c07fe0ed8b7aa085334f",
+              "match": true
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "repeats": 1,
+        "errors": [],
+        "gatePassRate": 1,
+        "outcome": "caught",
+        "visibleMisses": [],
+        "blindMisses": [],
+        "detectionRate": null,
+        "scores": {
+          "done": 2,
+          "expect:message": 2,
+          "expect:publish": 2,
+          "expect:subscription": 2,
+          "expect:handler-intent": 2,
+          "nothing-extra": 2,
+          "no-violations": 2,
+          "conduct": 2
+        },
+        "rubricMean": 2,
+        "minutes": 10,
+        "flags": []
+      }
+    }
+  ],
+  "comparison": {
+    "against": "D:\\Dev\\Intent.Modules.NET\\Tests\\BrownfieldTesting\\results\\history\\2026-10-29-12-27-drift-1.0.0-pre.0_domain-1.0.0-pre.3_services-1.0.0-pre.3.json",
+    "regressions": [],
+    "improvements": [],
+    "added": [
+      "AD4"
+    ],
+    "dropped": [
+      "B0",
+      "MD1",
+      "NM1",
+      "AD1"
+    ]
+  }
+}

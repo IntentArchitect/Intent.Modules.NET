@@ -1,0 +1,16 @@
+{
+  "id": "AD1",
+  "title": "Add: discontinue catalog items",
+  "lane": "ai",
+  "prompt": "Catalog items can be discontinued. Add an IsDiscontinued flag (default false), hide discontinued items from the item lists, and add `PUT /api/catalog/items/{id}/discontinue`.",
+  "done": "CatalogItem has IsDiscontinued (default false), the item list endpoints leave discontinued items out, and PUT /api/catalog/items/{id}/discontinue marks an item discontinued",
+  "expect": [
+    { "id": "flag", "net": "visible", "text": "The Domain designer's CatalogItem has IsDiscontinued (bool, default false)." },
+    {
+      "id": "endpoint",
+      "net": "visible",
+      "text": "The Services designer has the discontinue operation: PUT /api/catalog/items/{id}/discontinue on the catalog API, with the id from the route."
+    },
+    { "id": "intent", "net": "blind", "text": "The discontinue operation has an update interaction (an update entity action) on CatalogItem." }
+  ]
+}

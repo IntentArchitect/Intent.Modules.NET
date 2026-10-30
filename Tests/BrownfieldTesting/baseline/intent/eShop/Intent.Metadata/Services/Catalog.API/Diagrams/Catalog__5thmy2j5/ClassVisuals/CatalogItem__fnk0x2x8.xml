@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="ddb1b0c5-258f-4a81-9c0b-a67c52a489ef" zIndex="0">
+  <name>CatalogItem</name>
+  <position x="400" y="200" />
+  <size width="200" height="130" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

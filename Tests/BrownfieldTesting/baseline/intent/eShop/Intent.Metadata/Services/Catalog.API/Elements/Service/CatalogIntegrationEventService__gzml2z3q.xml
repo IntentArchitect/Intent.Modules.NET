@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6a83ddd8-477b-43dc-9202-ebabc58bcc77" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>Outbox: SaveEventAndCatalogContextChangesAsync saves CatalogContext changes and the event log row in one transaction; PublishThroughEventBusAsync then publishes it.</comment>
+  <name>CatalogIntegrationEventService</name>
+  <display>CatalogIntegrationEventService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>23cd1ec1-f137-482c-9eb4-126425f595ae</parentFolderId>
+  <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+  <packageName>Catalog.API</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" value="eShop.Catalog.API.IntegrationEvents" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="6bbf9e89-c521-4122-aa53-3fc7786f1157" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="fd8a5276-96d8-4990-9b66-a9ffacca7749" display="Type" />
+        <property name="b08b54e6-92e3-45eb-a233-0c79b4d76aab" display="Modifiers" value="public sealed" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="dc497cc0-e161-42bd-a430-3962dbe07b61" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>PublishThroughEventBusAsync</name>
+      <display>PublishThroughEventBusAsync(evt: IntegrationEvent): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="9e059274-a75d-47c0-abb3-013d30148acb" />
+      <parentFolderId>6a83ddd8-477b-43dc-9202-ebabc58bcc77</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="cb72c821-2873-4532-be72-d968ca2e256e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>evt</name>
+          <display>in : evt: IntegrationEvent</display>
+          <typeReference id="47ee4dff-1818-4947-9aa2-e2f5d1ecf93c">
+            <typeId>498029a0-9891-4147-b6cb-9b37c98b8eb2</typeId>
+            <typeName>IntegrationEvent</typeName>
+            <typePackageName>IntegrationEventLog</typePackageName>
+            <typePackageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</typePackageId>
+          </typeReference>
+          <parentFolderId>dc497cc0-e161-42bd-a430-3962dbe07b61</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="8df27daf-9d78-45c1-a307-ce33426f993c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>SaveEventAndCatalogContextChangesAsync</name>
+      <display>SaveEventAndCatalogContextChangesAsync(evt: IntegrationEvent): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="3c8b43e8-addb-4b13-a877-9089c426b483" />
+      <parentFolderId>6a83ddd8-477b-43dc-9202-ebabc58bcc77</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="4646f261-312d-4eec-a873-c510d9ab76c1" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>evt</name>
+          <display>in : evt: IntegrationEvent</display>
+          <typeReference id="b4b73cd7-b827-432e-b77f-db83f3e57a93">
+            <typeId>498029a0-9891-4147-b6cb-9b37c98b8eb2</typeId>
+            <typeName>IntegrationEvent</typeName>
+            <typePackageName>IntegrationEventLog</typePackageName>
+            <typePackageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</typePackageId>
+          </typeReference>
+          <parentFolderId>8df27daf-9d78-45c1-a307-ce33426f993c</parentFolderId>
+          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+          <packageName>Catalog.API</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="6cc43881-8670-45a3-93ec-422f5d70aad6" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Dispose</name>
+      <display>Dispose(): void</display>
+      <typeReference id="8c05c915-1245-4af2-8956-872ea90a3c00" />
+      <parentFolderId>6a83ddd8-477b-43dc-9202-ebabc58bcc77</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+    </element>
+  </children>
+</class>

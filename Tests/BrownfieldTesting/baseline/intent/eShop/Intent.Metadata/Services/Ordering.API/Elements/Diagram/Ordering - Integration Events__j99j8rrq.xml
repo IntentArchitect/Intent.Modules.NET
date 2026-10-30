@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="52b7d9eb-e217-4c50-93f2-1a61f1d5811e" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Ordering - Integration Events</name>
+  <display>Ordering - Integration Events</display>
+  <parentFolderId>97ca0156-5bad-46b4-956a-ccdae4c15376</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <diagram>
+    <targetPackageId>52b7d9eb-e217-4c50-93f2-1a61f1d5811e</targetPackageId>
+  </diagram>
+</class>

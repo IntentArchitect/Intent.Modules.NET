@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a7a44ae2-b974-4f46-8bbd-1cb13b5dc3f5" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>OrderStatusChangedToPaidDomainEventHandler</name>
+  <display>OrderStatusChangedToPaidDomainEventHandler</display>
+  <parentFolderId>ea181e59-618a-4ecb-b586-8373088d231c</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <children>
+    <association id="9f51e580-01a2-4a66-8849-d8a7794fe765">
+      <sourceEnd id="cbfc0df0-4669-4e3c-8b6f-eb57e9ae2586" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+        <display>: OrderStatusChangedToPaidDomainEventHandler</display>
+        <typeReference id="f2dcc394-473a-4f6f-b483-e1ad63c07b58">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="9f51e580-01a2-4a66-8849-d8a7794fe765" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+        <name>handler</name>
+        <display>[handles] OrderStatusChangedToPaidDomainEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="7b7a1be7-d71e-4644-9432-3f333dda8c99">
+          <typeId>7814732d-f2bb-4710-ba63-93701093ee4f</typeId>
+          <typeName>OrderStatusChangedToPaidDomainEvent</typeName>
+          <typePackageName>Ordering</typePackageName>
+          <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Domain Event Handler Association</associationType>
+      <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+    </association>
+  </children>
+</class>

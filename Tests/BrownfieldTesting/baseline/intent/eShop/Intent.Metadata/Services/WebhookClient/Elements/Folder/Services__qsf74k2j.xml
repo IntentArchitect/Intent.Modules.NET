@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3cdea20a-247b-4fb6-9482-cb54f482ace3" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Services</name>
+  <display>Services</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>c3f50fcd-8128-4334-8867-14c103eef48d</parentFolderId>
+  <packageId>c3f50fcd-8128-4334-8867-14c103eef48d</packageId>
+  <packageName>WebhookClient</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</class>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="816e7a08-aba7-49c8-9d21-0d9608863f01">
+  <sourceEnd id="e8ee5c5e-1742-45d3-8344-dcbda51c5c50" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : OrderStatusChangedToStockConfirmedDomainEventHandler.handler</display>
+    <typeReference id="d65f323c-112b-4e14-bed1-eeb1a1da605b">
+      <typeId>45c249c6-5ac0-4393-9d52-b45fb3c44df8</typeId>
+      <typeName>handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="816e7a08-aba7-49c8-9d21-0d9608863f01" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderStatusChangedToStockConfirmedIntegrationEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="4e2feacb-e173-4228-96ba-332a4fab0663">
+      <typeId>51a2a848-00c9-4544-a749-79e5dfd4b77b</typeId>
+      <typeName>OrderStatusChangedToStockConfirmedIntegrationEvent</typeName>
+      <typePackageName>Ordering.API.Eventing</typePackageName>
+      <typePackageId>54cb363b-5140-4891-b45f-ee554a76d9c4</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+</association>

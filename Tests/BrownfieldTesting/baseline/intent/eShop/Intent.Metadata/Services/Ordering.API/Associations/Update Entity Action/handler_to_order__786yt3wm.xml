@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="13701f69-02ee-4b17-90d4-0fd73c3ddeb5">
+  <sourceEnd id="4a5bef4f-9aa3-48d2-8aa9-25db435ce6c4" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.handler</display>
+    <typeReference id="7dcc223e-fad3-4d94-bf58-e295c5f47886">
+      <typeId>4ac4acfd-c48a-4c89-96f1-915cdd897439</typeId>
+      <typeName>handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="13701f69-02ee-4b17-90d4-0fd73c3ddeb5" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>order</name>
+    <display>[update] order: SetPaymentMethodVerified</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="8c90b71c-8fb9-4ccd-b025-b0aa013f5fe0">
+      <typeId>cc8316e4-0417-4bf6-ad23-7c0d8be6d853</typeId>
+      <typeName>SetPaymentMethodVerified</typeName>
+      <typePackageName>Ordering</typePackageName>
+      <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+</association>

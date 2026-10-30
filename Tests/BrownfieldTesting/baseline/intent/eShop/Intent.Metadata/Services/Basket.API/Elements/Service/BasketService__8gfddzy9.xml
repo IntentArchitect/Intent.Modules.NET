@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c1477d7a-1de9-45dc-8f5d-98e1e360cf47" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>gRPC service (Basket.BasketBase from Proto/basket.proto), mapped with app.MapGrpcService&lt;BasketService&gt;(). GetBasket is [AllowAnonymous]; UpdateBasket and DeleteBasket reject callers without a user identity.</comment>
+  <name>BasketService</name>
+  <display>BasketService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>f370cb52-2a2d-4bce-a65a-3d7e5ab864ec</parentFolderId>
+  <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+  <packageName>Basket.API</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" value="eShop.Basket.API.Grpc" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="166c004a-3218-4c63-8b01-a14451241525" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetBasket</name>
+      <display>GetBasket(request: GetBasketRequest, context: ServerCallContext): CustomerBasketResponse</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="e073b5d2-e010-4cf9-8891-1d798404aea0">
+        <typeId>99a75e74-8280-46bf-ae80-b8935844ac3e</typeId>
+        <typeName>CustomerBasketResponse</typeName>
+        <typePackageName>Basket.API</typePackageName>
+        <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+      </typeReference>
+      <parentFolderId>c1477d7a-1de9-45dc-8f5d-98e1e360cf47</parentFolderId>
+      <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+      <packageName>Basket.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="false" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="true" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="7b14de4e-f9a4-41cd-9c0e-62a461d21efb" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>request</name>
+          <display>in : request: GetBasketRequest</display>
+          <typeReference id="b8fd6ba0-fbe5-4026-a241-b0ad3712c040">
+            <typeId>196e4d1b-1c4c-4da7-a0a3-606e66d64bb4</typeId>
+            <typeName>GetBasketRequest</typeName>
+            <typePackageName>Basket.API</typePackageName>
+            <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+          </typeReference>
+          <parentFolderId>166c004a-3218-4c63-8b01-a14451241525</parentFolderId>
+          <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+          <packageName>Basket.API</packageName>
+        </element>
+        <element id="9dbf553a-757c-46a3-9fcb-abe7ca46fc0f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>context</name>
+          <display>in : context: ServerCallContext</display>
+          <typeReference id="34e9d795-5a95-431d-9ac8-756bd17d488e">
+            <typeId>96345597-21a0-426c-acc8-9c862af323bb</typeId>
+            <typeName>ServerCallContext</typeName>
+            <typePackageName>Basket.API</typePackageName>
+            <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+          </typeReference>
+          <parentFolderId>166c004a-3218-4c63-8b01-a14451241525</parentFolderId>
+          <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+          <packageName>Basket.API</packageName>
+        </element>
+        <association id="107a3818-49a1-49df-a58b-d59399d72463">
+          <sourceEnd id="33f8917d-c3bf-4d6f-88d4-8172183545d4" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : BasketService.GetBasket</display>
+            <typeReference id="ee35eb5a-ae5b-416b-8b10-b2c2126a71cb">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="107a3818-49a1-49df-a58b-d59399d72463" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = GetBasketAsync(...): CustomerBasket</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="883a1bb8-5c72-41e4-a6e9-3d7690f0b3cf">
+              <typeId>92a73786-542f-447e-a5bd-dc2fa7966e8b</typeId>
+              <typeName>GetBasketAsync</typeName>
+              <typePackageName>Basket.API</typePackageName>
+              <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="becd9d9d-3028-4dfb-8ab8-7bec695eff32" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateBasket</name>
+      <display>UpdateBasket(request: UpdateBasketRequest, context: ServerCallContext): CustomerBasketResponse</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="2daab40d-9499-4fde-a246-896ae864c0bb">
+        <typeId>99a75e74-8280-46bf-ae80-b8935844ac3e</typeId>
+        <typeName>CustomerBasketResponse</typeName>
+        <typePackageName>Basket.API</typePackageName>
+        <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+      </typeReference>
+      <parentFolderId>c1477d7a-1de9-45dc-8f5d-98e1e360cf47</parentFolderId>
+      <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+      <packageName>Basket.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="false" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="true" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="69a5fd9e-8415-4e4c-ac53-44386e38e3f1" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>request</name>
+          <display>in : request: UpdateBasketRequest</display>
+          <typeReference id="d521e59b-a311-4112-aeb5-ff15d76f4838">
+            <typeId>f2cb0f3e-1db0-44c9-a32a-3fe412b1ea6d</typeId>
+            <typeName>UpdateBasketRequest</typeName>
+            <typePackageName>Basket.API</typePackageName>
+            <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+          </typeReference>
+          <parentFolderId>becd9d9d-3028-4dfb-8ab8-7bec695eff32</parentFolderId>
+          <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+          <packageName>Basket.API</packageName>
+        </element>
+        <element id="0a98eaf3-739c-42c6-8737-397af2fac621" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>context</name>
+          <display>in : context: ServerCallContext</display>
+          <typeReference id="56ec476c-40e3-476d-9230-1b403153c5d2">
+            <typeId>96345597-21a0-426c-acc8-9c862af323bb</typeId>
+            <typeName>ServerCallContext</typeName>
+            <typePackageName>Basket.API</typePackageName>
+            <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+          </typeReference>
+          <parentFolderId>becd9d9d-3028-4dfb-8ab8-7bec695eff32</parentFolderId>
+          <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+          <packageName>Basket.API</packageName>
+        </element>
+        <association id="cc7e8ebd-78e1-426d-a581-e8597755306d">
+          <sourceEnd id="82b436a9-d5dc-42b5-be8a-5efe7123a8a9" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : BasketService.UpdateBasket</display>
+            <typeReference id="ee69fd86-3463-4f5e-a8d2-f8a3719c07c8">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="cc7e8ebd-78e1-426d-a581-e8597755306d" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = UpdateBasketAsync(...): CustomerBasket</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="34565dfc-b785-4271-8978-4c5c2af080ac">
+              <typeId>bf54783a-e398-4f5f-9b1d-882bde34ac1c</typeId>
+              <typeName>UpdateBasketAsync</typeName>
+              <typePackageName>Basket.API</typePackageName>
+              <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="c7f68b19-c4a1-4c80-8a09-c90d04c4f775" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteBasket</name>
+      <display>DeleteBasket(request: DeleteBasketRequest, context: ServerCallContext): DeleteBasketResponse</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="4ecf3109-1f07-46c2-b4ae-0ac77803afe4">
+        <typeId>8e32735b-d4b8-4efb-ab22-a5d19755abd1</typeId>
+        <typeName>DeleteBasketResponse</typeName>
+        <typePackageName>Basket.API</typePackageName>
+        <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+      </typeReference>
+      <parentFolderId>c1477d7a-1de9-45dc-8f5d-98e1e360cf47</parentFolderId>
+      <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+      <packageName>Basket.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
+            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="false" />
+            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
+            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="true" />
+            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
+            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="01291c8d-f64f-4721-ac28-b2d508e899ac" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>request</name>
+          <display>in : request: DeleteBasketRequest</display>
+          <typeReference id="9c72cc6d-252c-4558-9597-176dcb793061">
+            <typeId>c1d8b4bc-3df2-469d-9032-bc76d317d1a5</typeId>
+            <typeName>DeleteBasketRequest</typeName>
+            <typePackageName>Basket.API</typePackageName>
+            <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+          </typeReference>
+          <parentFolderId>c7f68b19-c4a1-4c80-8a09-c90d04c4f775</parentFolderId>
+          <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+          <packageName>Basket.API</packageName>
+        </element>
+        <element id="1d3699f9-ff6f-4132-8f9d-a006f64a0ed0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>context</name>
+          <display>in : context: ServerCallContext</display>
+          <typeReference id="7eb58bc8-0249-44da-b4e9-ed5a82aca608">
+            <typeId>96345597-21a0-426c-acc8-9c862af323bb</typeId>
+            <typeName>ServerCallContext</typeName>
+            <typePackageName>Basket.API</typePackageName>
+            <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+          </typeReference>
+          <parentFolderId>c7f68b19-c4a1-4c80-8a09-c90d04c4f775</parentFolderId>
+          <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+          <packageName>Basket.API</packageName>
+        </element>
+        <association id="d76f73a4-c641-4c42-9a7d-476aee00d925">
+          <sourceEnd id="94662bf7-31fc-482c-be8a-3ee94fceb5c5" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : BasketService.DeleteBasket</display>
+            <typeReference id="e6964574-d18b-4ccd-8090-5aaf2fd2a9f0">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="d76f73a4-c641-4c42-9a7d-476aee00d925" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <name>result</name>
+            <display>[call] result = DeleteBasketAsync(...): bool</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="a30c055e-ba0f-4c58-bf69-62886a60fc88">
+              <typeId>46d865d1-12f6-4515-acf6-b2742fcfe630</typeId>
+              <typeName>DeleteBasketAsync</typeName>
+              <typePackageName>Basket.API</typePackageName>
+              <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+  </children>
+</class>

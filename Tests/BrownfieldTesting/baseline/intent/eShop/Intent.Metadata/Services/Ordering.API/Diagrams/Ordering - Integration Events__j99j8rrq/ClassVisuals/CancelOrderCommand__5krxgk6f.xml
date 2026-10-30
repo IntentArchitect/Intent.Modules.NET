@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="6ffaa350-f8ca-42f5-9106-f4877a316245" zIndex="0">
+  <name>CancelOrderCommand</name>
+  <position x="800" y="730" />
+  <size width="200" height="60" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

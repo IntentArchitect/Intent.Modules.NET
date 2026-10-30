@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="fd070c17-9652-46e1-b7a5-5d68fd65a5ed" zIndex="0">
+  <name>SetAwaitingValidationOrderStatusCommand</name>
+  <position x="800" y="20" />
+  <size width="200" height="60" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

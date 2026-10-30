@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="89439624-5e3b-4aca-a953-deb675dd3c3f" zIndex="0">
+  <name>WebhookSubscription</name>
+  <position x="1200" y="180" />
+  <size width="200" height="60" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

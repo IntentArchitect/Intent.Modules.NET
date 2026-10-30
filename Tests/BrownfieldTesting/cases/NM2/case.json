@@ -1,0 +1,11 @@
+{
+  "id": "NM2",
+  "title": "No model change: add unit tests",
+  "lane": "ai",
+  "expectSoftwareFactory": false,
+  "prompt": "Add unit tests for SetPaidOrderStatusCommandHandler covering the paid and order-not-found paths.",
+  "done": "tests/Ordering.UnitTests has tests for SetPaidOrderStatusCommandHandler covering an order that becomes paid and an order that isn't found, and they pass",
+  "expect": [
+    { "id": "no-model-change", "net": "visible", "text": "The model is unchanged: tests have no designer element." }
+  ]
+}

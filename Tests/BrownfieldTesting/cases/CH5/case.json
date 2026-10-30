@@ -1,0 +1,11 @@
+{
+  "id": "CH5",
+  "title": "Change: a required field through command and entity",
+  "lane": "ai",
+  "prompt": "Cancelling an order must record a reason: add a required reason (up to 200 characters) to the cancel endpoint and keep it on the order.",
+  "done": "the cancel endpoint requires a reason of up to 200 characters and the order stores it",
+  "expect": [
+    { "id": "command", "net": "visible", "text": "The Services designer's CancelOrderCommand has a required Reason (string)." },
+    { "id": "domain", "net": "visible", "text": "The Domain designer's Order has the attribute the code stores the reason in, with max length 200." }
+  ]
+}

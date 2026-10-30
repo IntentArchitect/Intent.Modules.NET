@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<associationVisual id="27e4a4b3-9f55-4447-942a-a49dd8a5f11b" zIndex="0">
+  <name>Order_to_OrderItems</name>
+  <sourceId>40cec252-97ea-4da2-aaf1-86a50002a76a</sourceId>
+  <targetId>559fc284-22c9-4446-80f3-5ade2ab1d738</targetId>
+  <targetPrefPoint x="100" y="125" />
+</associationVisual>

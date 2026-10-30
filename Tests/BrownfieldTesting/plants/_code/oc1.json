@@ -1,0 +1,20 @@
+[
+  {
+    "note": "teammate: new property",
+    "file": "src/Catalog.API/Model/CatalogItem.cs",
+    "find": "    public bool OnReorder { get; set; }",
+    "replace": "    public bool OnReorder { get; set; }\n\n    public string? Barcode { get; set; }"
+  },
+  {
+    "note": "teammate: its max length",
+    "file": "src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs",
+    "find": "        builder.Property(ci => ci.Embedding)",
+    "replace": "        builder.Property(ci => ci.Barcode)\n            .HasMaxLength(13);\n\n        builder.Property(ci => ci.Embedding)"
+  },
+  {
+    "note": "teammate: route",
+    "file": "src/Ordering.API/Apis/OrdersApi.cs",
+    "find": "api.MapGet(\"/cardtypes\", GetCardTypesAsync);",
+    "replace": "api.MapGet(\"/card-types\", GetCardTypesAsync);"
+  }
+]

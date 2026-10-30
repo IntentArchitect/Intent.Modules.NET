@@ -1,0 +1,7 @@
+[
+  {
+    "note": "the always-on rule; the skills stay. The Software Factory writes it back on the agent's first run",
+    "file": ".agents/instructions/guardrails-model-sync.md",
+    "delete": true
+  }
+]

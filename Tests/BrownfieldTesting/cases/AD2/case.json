@@ -1,0 +1,25 @@
+{
+  "id": "AD2",
+  "title": "Add: catalog item reviews",
+  "lane": "ai",
+  "prompt": "Customers can review catalog items: a rating from 1 to 5 and optional text up to 1,000 characters. Add endpoints to add a review to an item and to list an item's reviews.",
+  "done": "reviews can be added to an item (rating 1 to 5 enforced, optional text up to 1,000 characters) and an item's reviews listed, through the new endpoints",
+  "expect": [
+    {
+      "id": "entity",
+      "net": "visible",
+      "text": "The Domain designer has the review entity with its rating (int) and optional text (max length 1000), related to CatalogItem as it is in the code."
+    },
+    {
+      "id": "endpoints",
+      "net": "visible",
+      "text": "The Services designer has both new operations (add a review to an item, list an item's reviews) with the verbs, routes and parameter sources the code uses."
+    },
+    { "id": "create-intent", "net": "blind", "text": "The add operation has a create interaction (a create entity action) for the review." },
+    {
+      "id": "query-intent",
+      "net": "blind",
+      "text": "The list operation has a query interaction on what the code reads: the reviews, or CatalogItem with its reviews."
+    }
+  ]
+}

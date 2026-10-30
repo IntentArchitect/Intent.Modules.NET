@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="76baaab4-5106-40d2-8c99-e10a90d94254" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>WebhookType</name>
+  <display>WebhookType</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>def9f292-068a-422b-b2b0-1434bb1c588d</parentFolderId>
+  <packageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</packageId>
+  <packageName>Webhooks</packageName>
+  <children>
+    <element id="1db9cc72-eab9-444b-9fef-7972a98dbfc4" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>CatalogItemPriceChange</name>
+      <display>CatalogItemPriceChange = 1</display>
+      <value>1</value>
+      <parentFolderId>76baaab4-5106-40d2-8c99-e10a90d94254</parentFolderId>
+      <packageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</packageId>
+      <packageName>Webhooks</packageName>
+    </element>
+    <element id="110276b7-b77d-40eb-8e1a-397ade3ed4a9" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>OrderShipped</name>
+      <display>OrderShipped = 2</display>
+      <value>2</value>
+      <parentFolderId>76baaab4-5106-40d2-8c99-e10a90d94254</parentFolderId>
+      <packageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</packageId>
+      <packageName>Webhooks</packageName>
+    </element>
+    <element id="cfec3f34-8b63-4080-a859-ade4427aedef" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>OrderPaid</name>
+      <display>OrderPaid = 3</display>
+      <value>3</value>
+      <parentFolderId>76baaab4-5106-40d2-8c99-e10a90d94254</parentFolderId>
+      <packageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</packageId>
+      <packageName>Webhooks</packageName>
+    </element>
+  </children>
+</class>

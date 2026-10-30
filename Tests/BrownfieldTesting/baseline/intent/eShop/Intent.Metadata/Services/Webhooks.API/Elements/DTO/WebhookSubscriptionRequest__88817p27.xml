@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="44b29b77-43bb-450e-9ac3-c83d7fcea174" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>WebhookSubscriptionRequest</name>
+  <display>WebhookSubscriptionRequest</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>61bcaa87-8705-4ca6-a86b-01308af046c7</parentFolderId>
+  <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+  <packageName>Webhooks.API</packageName>
+  <children>
+    <element id="d3733c15-7173-4b9d-b0b4-da4aa406d20a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Url</name>
+      <display>Url: string</display>
+      <typeReference id="d25bd842-3fd7-4148-999f-820f082292bd">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>44b29b77-43bb-450e-9ac3-c83d7fcea174</parentFolderId>
+      <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+      <packageName>Webhooks.API</packageName>
+    </element>
+    <element id="b4d8cb9d-e230-4349-bfd6-77a8c08b3b09" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Token</name>
+      <display>Token: string</display>
+      <typeReference id="e0f8adcd-f169-4312-b554-7fd74a3edddc">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>44b29b77-43bb-450e-9ac3-c83d7fcea174</parentFolderId>
+      <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+      <packageName>Webhooks.API</packageName>
+    </element>
+    <element id="a67825b6-4d9e-44b9-98cc-1692dbd3154c" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Event</name>
+      <display>Event: string</display>
+      <typeReference id="75ccfdff-9c93-4a61-bc3a-634e4220aaa2">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>44b29b77-43bb-450e-9ac3-c83d7fcea174</parentFolderId>
+      <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+      <packageName>Webhooks.API</packageName>
+    </element>
+    <element id="9e02e3a8-399b-4c7c-ab66-a05ae08848ba" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>GrantUrl</name>
+      <display>GrantUrl: string</display>
+      <typeReference id="3a0c96e5-2c3f-4950-a27c-ff6119adca27">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>44b29b77-43bb-450e-9ac3-c83d7fcea174</parentFolderId>
+      <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+      <packageName>Webhooks.API</packageName>
+    </element>
+  </children>
+</class>

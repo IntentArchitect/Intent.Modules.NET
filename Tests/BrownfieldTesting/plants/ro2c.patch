@@ -1,0 +1,27 @@
+diff --git a/src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs b/src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs
+index 5992d29..f23e872 100644
+--- a/src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs
++++ b/src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs
+@@ -10,6 +10,9 @@ class CatalogItemEntityTypeConfiguration
+         builder.Property(ci => ci.Name)
+             .HasMaxLength(50);
+ 
++        builder.Property(ci => ci.RestockThreshold)
++            .HasColumnName("restock_at");
++
+         builder.Property(ci => ci.Embedding)
+             .HasColumnType("vector(384)");
+ 
+diff --git a/src/Ordering.API/Apis/OrdersApi.cs b/src/Ordering.API/Apis/OrdersApi.cs
+index 159ab3b..1b03bbe 100644
+--- a/src/Ordering.API/Apis/OrdersApi.cs
++++ b/src/Ordering.API/Apis/OrdersApi.cs
+@@ -21,7 +21,7 @@ public static class OrdersApi
+         api.MapGet("{orderId:int}", GetOrderAsync);
+         api.MapGet("/", GetOrdersByUserAsync);
+         api.MapGet("/cardtypes", GetCardTypesAsync);
+-        api.MapPost("/draft", CreateOrderDraftAsync);
++        api.MapPut("/draft", CreateOrderDraftAsync);
+         api.MapPost("/", CreateOrderAsync);
+ 
+         return api;

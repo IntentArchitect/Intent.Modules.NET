@@ -1,0 +1,55 @@
+{
+  "settings": {
+    "model": "claude-code-acp:opus",
+    "agent": "agent",
+    "timeoutMs": 3600000,
+    "build": "dotnet build eShop.Web.slnf -nologo && dotnet test --project tests/Ordering.UnitTests/Ordering.UnitTests.csproj --no-build && dotnet test --project tests/Basket.UnitTests/Basket.UnitTests.csproj --no-build && dotnet test --project tests/Application.UnitTests/Application.UnitTests.csproj --no-build",
+    "promptSuffix": "I'm not watching this chat live. If you're blocked on a decision only I can make, stop and tell me.",
+    "capturePromptSuffix": "Only change the model in the designers, and save it. Don't run the Software Factory and don't change any code."
+  },
+  "baselinePending": [
+    ".agents/instructions/guardrails-model-sync.md",
+    ".agents/skills/configure-drift-check/references/domain-events.md",
+    ".agents/skills/configure-drift-check/references/handler-intent.md",
+    ".agents/skills/configure-drift-check/SKILL.md",
+    ".agents/skills/reverse-engineer-domain/SKILL.md",
+    ".agents/skills/reverse-engineer-services/SKILL.md",
+    ".agents/skills/sync-model/references/intent-drift.md",
+    ".agents/skills/sync-model/SKILL.md"
+  ],
+  "lanes": {
+    "manual": ["MD1", "MD2", "RN1c", "DL3c", "OC1", "AD1m", "RN1m", "CH6m", "DL2m"],
+    "ai": [
+      "B0",
+      "NM1",
+      "NM2",
+      "NM3",
+      "AD1",
+      "AD2",
+      "AD3",
+      "AD4",
+      "AD5",
+      "RN1",
+      "RN2",
+      "RN3",
+      "CH1",
+      "CH2",
+      "CH3",
+      "CH4",
+      "CH5",
+      "MV1",
+      "MV2",
+      "DL1",
+      "TC1",
+      "RO1",
+      "RO2",
+      "DAY"
+    ],
+    "ablation": ["AD1~norule", "AD3~norule", "AD4~norule", "RN1~norule", "CH5~norule"]
+  },
+  "suites": {
+    "smoke": ["B0", "MD1", "NM1", "AD1", "AD4", "CH3", "RN1c", "DL3c", "OC1"],
+    "pilot": ["B0", "MD1", "AD1", "AD4", "RN1c", "OC1"],
+    "full": ["@ai", "@manual", "@ablation"]
+  }
+}

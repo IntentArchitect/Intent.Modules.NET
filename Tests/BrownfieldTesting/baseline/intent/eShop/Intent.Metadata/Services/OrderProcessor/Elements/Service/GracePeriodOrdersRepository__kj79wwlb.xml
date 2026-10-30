@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="80b98dfd-699e-4f36-92f4-0f51f41d1515" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>Raw Npgsql query against Ordering's database: ids of Submitted orders older than the grace period.</comment>
+  <name>GracePeriodOrdersRepository</name>
+  <display>GracePeriodOrdersRepository</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>0bec65ca-485e-42cb-8a71-8d3461894482</parentFolderId>
+  <packageId>a0a8abdb-9c04-4964-b778-7a382ab6aca4</packageId>
+  <packageName>OrderProcessor</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" value="eShop.OrderProcessor.Services" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="6bbf9e89-c521-4122-aa53-3fc7786f1157" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="fd8a5276-96d8-4990-9b66-a9ffacca7749" display="Type" />
+        <property name="b08b54e6-92e3-45eb-a233-0c79b4d76aab" display="Modifiers" value="internal sealed" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="23703b0b-1708-476e-b355-1af2580ce73a" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetConfirmedGracePeriodOrdersAsync</name>
+      <display>GetConfirmedGracePeriodOrdersAsync(gracePeriod: TimeSpan): int[*]</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="83820864-3bec-4c77-ae07-36b461a8f154">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>80b98dfd-699e-4f36-92f4-0f51f41d1515</parentFolderId>
+      <packageId>a0a8abdb-9c04-4964-b778-7a382ab6aca4</packageId>
+      <packageName>OrderProcessor</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="List" />
+            <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="true" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" value="ValueTask" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="49916d25-2960-43c2-b42c-8ed8ae422272" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>gracePeriod</name>
+          <display>in : gracePeriod: TimeSpan</display>
+          <typeReference id="1cfe7a1a-70be-4f55-a60d-215607924606">
+            <typeId>46dbdc6c-aaa7-4d2e-ba1f-81abdb87a888</typeId>
+            <typeName>TimeSpan</typeName>
+            <typePackageName>Intent.Common.CSharp</typePackageName>
+            <typePackageId>730e1275-0c32-44f7-991a-9619d07ca68d</typePackageId>
+          </typeReference>
+          <parentFolderId>23703b0b-1708-476e-b355-1af2580ce73a</parentFolderId>
+          <packageId>a0a8abdb-9c04-4964-b778-7a382ab6aca4</packageId>
+          <packageName>OrderProcessor</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

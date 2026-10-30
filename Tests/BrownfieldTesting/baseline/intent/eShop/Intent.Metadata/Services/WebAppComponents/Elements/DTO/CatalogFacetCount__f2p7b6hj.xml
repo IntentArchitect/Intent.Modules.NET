@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="89245abd-16a5-493b-8fc0-3e537a41f694" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CatalogFacetCount</name>
+  <display>CatalogFacetCount</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>f815d432-ca8c-4b52-9bb6-b6bf026944b7</parentFolderId>
+  <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+  <packageName>WebAppComponents</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="6bbf9e89-c521-4122-aa53-3fc7786f1157" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="fd8a5276-96d8-4990-9b66-a9ffacca7749" display="Type" value="positional record" />
+        <property name="b08b54e6-92e3-45eb-a233-0c79b4d76aab" display="Modifiers" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" value="CatalogFacets" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="df9d9cd6-02ee-4d85-9585-25c1fdfeeb9a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Id</name>
+      <display>Id: int</display>
+      <typeReference id="6e80af19-0da3-4a31-a8c7-1d934c975bef">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>89245abd-16a5-493b-8fc0-3e537a41f694</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+    </element>
+    <element id="5c27757e-cf5f-41f3-bf59-ef3e4ad52945" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Count</name>
+      <display>Count: int</display>
+      <typeReference id="287bf91f-be81-4623-80b4-eb87f24f75ad">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>89245abd-16a5-493b-8fc0-3e537a41f694</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+    </element>
+  </children>
+</class>

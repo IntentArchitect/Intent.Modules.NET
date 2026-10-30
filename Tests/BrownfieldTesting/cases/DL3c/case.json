@@ -1,0 +1,25 @@
+{
+  "id": "DL3c",
+  "title": "An endpoint deleted in the code",
+  "lane": "manual",
+  "plants": ["dl3c"],
+  "prompt": "I removed the card types endpoint from Ordering.API; we don't need it. Make sure nothing's left over.",
+  "done": "the card types endpoint is gone from the code, and anything only it used is removed",
+  "expect": [
+    {
+      "id": "element",
+      "net": "visible",
+      "text": "The Services designer no longer has the card types operation (GET /api/orders/cardtypes), and none of its interactions or elements only it used are left behind. Visuals on saved diagrams don't count: the agent is told to leave saved diagrams alone."
+    },
+    {
+      "id": "no-stub",
+      "net": "visible",
+      "text": "OrdersApi has no GetCardTypesAsync method again: a Software Factory proposal to add it back was declined or never applied."
+    },
+    {
+      "id": "leftovers",
+      "net": "visible",
+      "text": "Code only the endpoint used, such as IOrderQueries.GetCardTypesAsync and its implementation, is removed, and anything still used elsewhere is kept."
+    }
+  ]
+}

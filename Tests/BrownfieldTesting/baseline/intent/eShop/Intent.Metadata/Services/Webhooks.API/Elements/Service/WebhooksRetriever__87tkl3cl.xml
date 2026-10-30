@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="00c46777-88fc-41b2-b8b6-59a8b5f64b76" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>WebhooksRetriever</name>
+  <display>WebhooksRetriever</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>34952c6e-e8d2-41b0-8aed-200618e444f3</parentFolderId>
+  <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+  <packageName>Webhooks.API</packageName>
+  <children>
+    <element id="7543fe73-dd71-4634-b36a-3c476d0bc71b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetSubscriptionsOfType</name>
+      <display>GetSubscriptionsOfType(type: WebhookType): WebhookSubscription[*]</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="42f2875a-bfc0-4016-9b82-ddec7941201b">
+        <typeId>c0e49fd4-3093-4292-8a19-29c6f8955efd</typeId>
+        <typeName>WebhookSubscription</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>Webhooks.API</typePackageName>
+        <typePackageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</typePackageId>
+      </typeReference>
+      <parentFolderId>00c46777-88fc-41b2-b8b6-59a8b5f64b76</parentFolderId>
+      <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+      <packageName>Webhooks.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="IEnumerable" />
+            <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="20c75ea4-c283-409a-bf45-e3d529d1e60a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>type</name>
+          <display>in : type: WebhookType</display>
+          <typeReference id="32172434-9366-418a-be0d-21a15945568e">
+            <typeId>76baaab4-5106-40d2-8c99-e10a90d94254</typeId>
+            <typeName>WebhookType</typeName>
+            <typePackageName>Webhooks</typePackageName>
+            <typePackageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</typePackageId>
+          </typeReference>
+          <parentFolderId>7543fe73-dd71-4634-b36a-3c476d0bc71b</parentFolderId>
+          <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+          <packageName>Webhooks.API</packageName>
+        </element>
+        <association id="62a9356e-6fd5-4dae-ae16-bfec13a8d91e">
+          <sourceEnd id="e24822e3-a9da-4ca7-a163-4f9d0e3f554d" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+            <display>: GetSubscriptionsOfType</display>
+            <typeReference id="4d114bb4-79e8-416a-ab8c-58c79b7c113c">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="62a9356e-6fd5-4dae-ae16-bfec13a8d91e" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+            <name>webhookSubscriptions</name>
+            <display>[query] webhookSubscriptions: WebhookSubscription[*]?</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="52b90f56-ddc1-49ed-95c9-0bccc508eb7f">
+              <typeId>89439624-5e3b-4aca-a953-deb675dd3c3f</typeId>
+              <typeName>WebhookSubscription</typeName>
+              <isNullable>true</isNullable>
+              <isCollection>true</isCollection>
+              <typePackageName>Webhooks</typePackageName>
+              <typePackageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Query Entity Action</associationType>
+          <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+        </association>
+      </children>
+    </element>
+  </children>
+</class>

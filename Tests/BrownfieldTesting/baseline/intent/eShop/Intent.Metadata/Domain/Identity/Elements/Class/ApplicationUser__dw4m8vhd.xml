@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6b2e4dba-bfb8-444b-84b4-96915251c471" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment>Derives from ASP.NET Core Identity's IdentityUser, which declares the key (Id) and the standard user columns; IdentityDbContext&lt;ApplicationUser&gt; maps it to AspNetUsers. Only the profile properties added here are modelled.</comment>
+  <name>ApplicationUser</name>
+  <display>ApplicationUser</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>845348d8-3e8b-4caf-8017-7dd5dda19575</parentFolderId>
+  <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+  <packageName>Identity</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="88722cfc-8f4e-4cc2-96f5-3635f5b520d1" name="File Config">
+      <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+      <properties>
+        <property name="11d2548c-4d37-4c5d-ab7b-ba60b4bc61be" display="Filename" />
+        <property name="e9476ee3-2e32-427f-95b2-938c8fb8397b" display="Namespace" value="eShop.Identity.API.Models" />
+        <property name="df085ba5-b5b5-44f2-9690-51f3c8053736" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="dd205b32-b48b-4c77-98f5-faefb2c047ce" name="Table">
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="2b3a9df7-65e1-4800-b919-bef1a6b8f5a9" display="Name" value="AspNetUsers" />
+        <property name="13e6101f-0e37-4eda-a6ae-ec48cd9f8f4b" display="Schema" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="fcd1c79f-cfa7-4b5e-b790-2c844b097b0b" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CardNumber</name>
+      <display>CardNumber: string</display>
+      <typeReference id="ecbbc130-5b35-457b-82bf-e87bfc77a2e3">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6b2e4dba-bfb8-444b-84b4-96915251c471</parentFolderId>
+      <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+      <packageName>Identity</packageName>
+    </element>
+    <element id="406a0294-1e21-476c-acb9-4f0fcf4b6306" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>SecurityNumber</name>
+      <display>SecurityNumber: string</display>
+      <typeReference id="6f3cf262-b95b-4285-80c1-5a8185c8c2d5">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6b2e4dba-bfb8-444b-84b4-96915251c471</parentFolderId>
+      <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+      <packageName>Identity</packageName>
+    </element>
+    <element id="cfd908c0-3b49-4751-9dd2-2a39582c7d71" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Expiration</name>
+      <display>Expiration: string</display>
+      <typeReference id="2f8d9e10-0aa8-467e-bb74-40cb6652c0de">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6b2e4dba-bfb8-444b-84b4-96915251c471</parentFolderId>
+      <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+      <packageName>Identity</packageName>
+    </element>
+    <element id="0433613a-e230-47ed-822a-3dd2a1bba995" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CardHolderName</name>
+      <display>CardHolderName: string</display>
+      <typeReference id="f12b37da-0e7f-496b-9190-360a89fe9d40">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6b2e4dba-bfb8-444b-84b4-96915251c471</parentFolderId>
+      <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+      <packageName>Identity</packageName>
+    </element>
+    <element id="93982254-bbd1-40a5-8e40-edf6d1dfb408" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CardType</name>
+      <display>CardType: int</display>
+      <typeReference id="1b21b038-5686-4a3d-ba49-4d4840a0a0b8">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6b2e4dba-bfb8-444b-84b4-96915251c471</parentFolderId>
+      <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+      <packageName>Identity</packageName>
+    </element>
+    <element id="7c21e91f-053c-494a-a876-b8a97f105e1a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Street</name>
+      <display>Street: string</display>
+      <typeReference id="47accf77-9afe-4b4d-b2db-635a723f70ac">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6b2e4dba-bfb8-444b-84b4-96915251c471</parentFolderId>
+      <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+      <packageName>Identity</packageName>
+    </element>
+    <element id="40cd17a9-2c34-4364-9cca-573da04c9af3" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>City</name>
+      <display>City: string</display>
+      <typeReference id="8f971c3c-2c9d-4988-b817-b329ea7db424">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6b2e4dba-bfb8-444b-84b4-96915251c471</parentFolderId>
+      <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+      <packageName>Identity</packageName>
+    </element>
+    <element id="92dc2ead-b85c-4a30-af29-60da4b9c0047" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>State</name>
+      <display>State: string</display>
+      <typeReference id="dd372e4c-6846-47da-8882-b0f83eb64a89">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6b2e4dba-bfb8-444b-84b4-96915251c471</parentFolderId>
+      <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+      <packageName>Identity</packageName>
+    </element>
+    <element id="f8b17c82-e1d8-4df1-a52b-e7dbb9409e0a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Country</name>
+      <display>Country: string</display>
+      <typeReference id="d1517da9-86fe-47eb-ac0b-dbe587165ef0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6b2e4dba-bfb8-444b-84b4-96915251c471</parentFolderId>
+      <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+      <packageName>Identity</packageName>
+    </element>
+    <element id="a8980eeb-60f5-4d4d-9196-884db6eb6b64" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ZipCode</name>
+      <display>ZipCode: string</display>
+      <typeReference id="c8e21ef5-0280-48c3-a5c3-0249cf6dc997">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6b2e4dba-bfb8-444b-84b4-96915251c471</parentFolderId>
+      <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+      <packageName>Identity</packageName>
+    </element>
+    <element id="484b8111-7db3-4710-9c57-aa33fa300294" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <typeReference id="2585ec83-c473-4703-9bd8-9d599b1f0d13">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6b2e4dba-bfb8-444b-84b4-96915251c471</parentFolderId>
+      <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+      <packageName>Identity</packageName>
+    </element>
+    <element id="99026a23-796c-4908-9c6b-f6893996796f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>LastName</name>
+      <display>LastName: string</display>
+      <typeReference id="0029be07-8893-4ada-95da-d03bcef8f7d9">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6b2e4dba-bfb8-444b-84b4-96915251c471</parentFolderId>
+      <packageId>f18c684c-58f9-40d5-8ccd-b73cdd92ea3f</packageId>
+      <packageName>Identity</packageName>
+    </element>
+  </children>
+</class>

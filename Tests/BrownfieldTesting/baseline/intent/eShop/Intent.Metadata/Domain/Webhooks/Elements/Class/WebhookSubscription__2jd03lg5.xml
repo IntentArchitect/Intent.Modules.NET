@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="89439624-5e3b-4aca-a953-deb675dd3c3f" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>WebhookSubscription</name>
+  <display>WebhookSubscription</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>def9f292-068a-422b-b2b0-1434bb1c588d</parentFolderId>
+  <packageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</packageId>
+  <packageName>Webhooks</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="dd205b32-b48b-4c77-98f5-faefb2c047ce" name="Table">
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="2b3a9df7-65e1-4800-b919-bef1a6b8f5a9" display="Name" value="Subscriptions" />
+        <property name="13e6101f-0e37-4eda-a6ae-ec48cd9f8f4b" display="Schema" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="155579a8-bbab-44b1-8b95-388e0485ee60" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: int</display>
+      <typeReference id="49a1331c-0e1c-4bf3-a0cc-c9710fd1206d">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>89439624-5e3b-4aca-a953-deb675dd3c3f</parentFolderId>
+      <packageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</packageId>
+      <packageName>Webhooks</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="54f9a972-3b68-41a5-83e8-237db1c82abf" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Type</name>
+      <display>Type: WebhookType</display>
+      <typeReference id="020c01b7-d236-4067-b466-d4c84d4614fb">
+        <typeId>76baaab4-5106-40d2-8c99-e10a90d94254</typeId>
+        <typeName>WebhookType</typeName>
+        <typePackageName>Webhooks</typePackageName>
+        <typePackageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</typePackageId>
+      </typeReference>
+      <parentFolderId>89439624-5e3b-4aca-a953-deb675dd3c3f</parentFolderId>
+      <packageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</packageId>
+      <packageName>Webhooks</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="bbe43b90-c20d-4fdb-8a55-9037a5f6bd0b" name="Index">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="3427ad7b-e1a6-4d36-9e12-c5ada14a414b" display="UniqueKey" />
+            <property name="a8f903d5-e8b6-4d15-aedb-08c6b290b733" display="Order" />
+            <property name="90002464-b824-40e2-9f73-32f306868897" display="IsUnique" value="false" />
+            <property name="ab0cf6c6-9589-44cb-98fb-507e554c2d9b" display="Sort Direction" value="Ascending" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="5e44f8da-0e09-4028-b6eb-bd48c5cc7e64" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Date</name>
+      <display>Date: datetime</display>
+      <typeReference id="a1712c7a-47af-4a5f-9fad-d36933634ec7">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <typeName>datetime</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>89439624-5e3b-4aca-a953-deb675dd3c3f</parentFolderId>
+      <packageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</packageId>
+      <packageName>Webhooks</packageName>
+    </element>
+    <element id="ace17b75-c943-4b05-aa20-1d944a87fcea" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>DestUrl</name>
+      <display>DestUrl: string</display>
+      <typeReference id="e1fa291d-1a52-449e-aa8c-3288f2d10f4e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>89439624-5e3b-4aca-a953-deb675dd3c3f</parentFolderId>
+      <packageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</packageId>
+      <packageName>Webhooks</packageName>
+    </element>
+    <element id="2c842a51-8303-46b2-93b6-1218d6abf801" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Token</name>
+      <display>Token: string?</display>
+      <typeReference id="aaa667fb-4cc2-423b-9c11-ff13094d378e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>89439624-5e3b-4aca-a953-deb675dd3c3f</parentFolderId>
+      <packageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</packageId>
+      <packageName>Webhooks</packageName>
+    </element>
+    <element id="59ed03aa-00c9-4a71-9130-50a97e7157b6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>UserId</name>
+      <display>UserId: string</display>
+      <typeReference id="2e4b7915-4cc1-481d-9ca9-9947cf866ee9">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>89439624-5e3b-4aca-a953-deb675dd3c3f</parentFolderId>
+      <packageId>cbdbdf00-d014-4ea1-8b06-0723d4f6315b</packageId>
+      <packageName>Webhooks</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="bbe43b90-c20d-4fdb-8a55-9037a5f6bd0b" name="Index">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="3427ad7b-e1a6-4d36-9e12-c5ada14a414b" display="UniqueKey" />
+            <property name="a8f903d5-e8b6-4d15-aedb-08c6b290b733" display="Order" />
+            <property name="90002464-b824-40e2-9f73-32f306868897" display="IsUnique" value="false" />
+            <property name="ab0cf6c6-9589-44cb-98fb-507e554c2d9b" display="Sort Direction" value="Ascending" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+  </children>
+</class>
