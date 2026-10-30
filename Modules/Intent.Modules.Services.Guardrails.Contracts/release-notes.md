@@ -1,3 +1,7 @@
+### Version 1.0.1
+
+- Improvement: Extracted and generalized Drift Module
+
 ### Version 1.0.0
 
 - New Feature: Create authoritative design visuals for existing code in the Services designer: services, commands, queries, DTOs, enums, integration events and commands, event handlers and API clients.
