@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="78790dbe-b0bc-4225-a87d-d28a430bbfa4" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <parentFolderId>41a61ccd-8ed6-4b0f-a355-27492dff170c</parentFolderId>
+  <packageId>41a61ccd-8ed6-4b0f-a355-27492dff170c</packageId>
+  <packageName>HttpQuery.Controllers.OpenApi.Domain</packageName>
+  <diagram>
+    <targetPackageId>41a61ccd-8ed6-4b0f-a355-27492dff170c</targetPackageId>
+  </diagram>
+</class>

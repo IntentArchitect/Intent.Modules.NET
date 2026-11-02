@@ -1,0 +1,24 @@
+using FluentValidation;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.QueryValidator", Version = "2.0")]
+
+namespace HttpQuery.Controllers.OpenApi.Application.Products.SearchProducts
+{
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public class SearchProductsQueryValidator : AbstractValidator<SearchProductsQuery>
+    {
+        [IntentManaged(Mode.Merge)]
+        public SearchProductsQueryValidator()
+        {
+            ConfigureValidationRules();
+        }
+
+        [IntentManaged(Mode.Merge)]
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
+        }
+    }
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b112159c-9403-430e-aaca-0a3bdc877b0d" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Product</name>
+  <display>Product</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>29e23278-094b-4073-b11b-88e06ca6c31a</parentFolderId>
+  <packageId>41a61ccd-8ed6-4b0f-a355-27492dff170c</packageId>
+  <packageName>HttpQuery.Controllers.OpenApi.Domain</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <children>
+    <element id="362856ee-7352-402a-b9fd-6c1278f5fff4" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <typeReference id="938dbd9b-4574-4a06-82d3-1e406d7354e8">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>b112159c-9403-430e-aaca-0a3bdc877b0d</parentFolderId>
+      <packageId>41a61ccd-8ed6-4b0f-a355-27492dff170c</packageId>
+      <packageName>HttpQuery.Controllers.OpenApi.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+    </element>
+    <element id="24646a6d-16e9-459f-860f-63df94bbb78c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <typeReference id="7b6777eb-4df9-4b2d-b343-5c936c0692c3">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>b112159c-9403-430e-aaca-0a3bdc877b0d</parentFolderId>
+      <packageId>41a61ccd-8ed6-4b0f-a355-27492dff170c</packageId>
+      <packageName>HttpQuery.Controllers.OpenApi.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="a8d6a128-27a7-436d-8716-e66f99d3b02c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Category</name>
+      <display>Category: string</display>
+      <typeReference id="a2050f21-f4dc-4532-9806-eb615ca9e981">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>b112159c-9403-430e-aaca-0a3bdc877b0d</parentFolderId>
+      <packageId>41a61ccd-8ed6-4b0f-a355-27492dff170c</packageId>
+      <packageName>HttpQuery.Controllers.OpenApi.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="1305e95e-a4c5-4425-8d00-1f7bdb03d470" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Price</name>
+      <display>Price: decimal</display>
+      <typeReference id="e88e8ea0-7211-47b3-993b-cfaae1d8b731">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>b112159c-9403-430e-aaca-0a3bdc877b0d</parentFolderId>
+      <packageId>41a61ccd-8ed6-4b0f-a355-27492dff170c</packageId>
+      <packageName>HttpQuery.Controllers.OpenApi.Domain</packageName>
+    </element>
+  </children>
+</class>

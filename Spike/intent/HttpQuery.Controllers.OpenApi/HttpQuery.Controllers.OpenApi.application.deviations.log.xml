@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.AspNetCore.Controllers.Controller#75e0bdb6-e7f7-4053-b833-e1865c485f62</correlationId>
+      <path>HttpQuery.Controllers.OpenApi.Api/Controllers/ProductsController.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:46:27.5631824Z</updatedAt>
+      <deviationsHash>0BAC773A048E6F50247F424321441D5BB6DCFEE829E6E459C1CA0FD6E12F5D4A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.Program#80c8586b-5c94-43bd-8f11-d3077f2f6605</correlationId>
+      <path>HttpQuery.Controllers.OpenApi.Api/Program.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:46:27.5631255Z</updatedAt>
+      <deviationsHash>7ACD37C0C99BE47113A90CA937EC1D924D7AA14B5785B299D5950AFD45FE868A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#e848afa1-c2c3-4795-a986-73f95d87eb58</correlationId>
+      <path>HttpQuery.Controllers.OpenApi.Application.IntegrationTests/Products/SearchCategoryProductsTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:46:27.5633242Z</updatedAt>
+      <deviationsHash>FF8C04097300AD75CAF8D70A04A3EF184B4080E4109685FACA4593FE97A096CF</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#d7d84bcd-b116-4272-8151-9f04b6000c82</correlationId>
+      <path>HttpQuery.Controllers.OpenApi.Application.IntegrationTests/Products/SearchProductsTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:46:27.5633315Z</updatedAt>
+      <deviationsHash>F2F3549D2C9E832039D1A67DF858931C48094B3DA6FBF663BEF5FB49F0D569F4</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#8f7f2e17-6d37-4e7c-80af-5aa2de22dee2</correlationId>
+      <path>HttpQuery.Controllers.OpenApi.Application/Products/CreateProduct/CreateProductCommandHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:46:27.5632065Z</updatedAt>
+      <deviationsHash>C3A86537B8470D782833FF0EB673FFAE6DA17AF31127A562CDC700D6D75331E0</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#84b9e198-1aed-4246-9e06-614e8fcd9b0e</correlationId>
+      <path>HttpQuery.Controllers.OpenApi.Application/Products/GetProductById/GetProductByIdQueryHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:46:27.5632313Z</updatedAt>
+      <deviationsHash>B2C13AF179BEFEA516441B17E0F166FE607E60453DB6E3EBFCD478D97339C38D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#e848afa1-c2c3-4795-a986-73f95d87eb58</correlationId>
+      <path>HttpQuery.Controllers.OpenApi.Application/Products/SearchCategoryProducts/SearchCategoryProductsQueryHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:46:27.5632394Z</updatedAt>
+      <deviationsHash>96BB2BFAF96AD165AAE2E2E60EE236514C0D4B84787E1B5083CACED0A275C9DB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#d7d84bcd-b116-4272-8151-9f04b6000c82</correlationId>
+      <path>HttpQuery.Controllers.OpenApi.Application/Products/SearchProducts/SearchProductsQueryHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:46:27.5632466Z</updatedAt>
+      <deviationsHash>C2A0B582C1F7D35B5EFA60CF7FA4AAE965FF5FDDCA1CDB1E4FEB5BD9A41C2450</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

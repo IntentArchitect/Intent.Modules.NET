@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="84b9e198-1aed-4246-9e06-614e8fcd9b0e" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetProductByIdQuery</name>
+  <display>GetProductByIdQuery: ProductDto</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <typeReference id="3a3aff22-3fa7-48e6-a282-049b9f73be05">
+    <typeId>da715058-87f2-4f00-a65a-64da3686b0ef</typeId>
+    <typeName>ProductDto</typeName>
+    <typePackageName>HttpQuery.Controllers.OpenApi.Services</typePackageName>
+    <typePackageId>62365366-bc83-47fa-a252-fcc3f5798fc7</typePackageId>
+  </typeReference>
+  <parentFolderId>75e0bdb6-e7f7-4053-b833-e1865c485f62</parentFolderId>
+  <packageId>62365366-bc83-47fa-a252-fcc3f5798fc7</packageId>
+  <packageName>HttpQuery.Controllers.OpenApi.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/products/{id}" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="6e317b04-5375-42f1-8b47-0340d7538b38" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <typeReference id="e39c7c0c-6b24-4501-ade2-c2f36382d0d1">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>84b9e198-1aed-4246-9e06-614e8fcd9b0e</parentFolderId>
+      <packageId>62365366-bc83-47fa-a252-fcc3f5798fc7</packageId>
+      <packageName>HttpQuery.Controllers.OpenApi.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+            <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+            <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <association id="533b95ac-0703-4537-b482-e873e8f9bbf3">
+      <sourceEnd id="f04df327-94b3-42ef-a94e-16b97c5156d5" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+        <display>: GetProductByIdQuery</display>
+        <typeReference id="243e9843-d773-4202-8305-973fb0f5a7f3">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="533b95ac-0703-4537-b482-e873e8f9bbf3" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+        <name>product</name>
+        <display>[query] product: Product</display>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="69965376-9cdc-4489-983f-02bc3a6b1cc3">
+          <typeId>b112159c-9403-430e-aaca-0a3bdc877b0d</typeId>
+          <typeName>Product</typeName>
+          <typePackageName>HttpQuery.Controllers.OpenApi.Domain</typePackageName>
+          <typePackageId>41a61ccd-8ed6-4b0f-a355-27492dff170c</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Query Entity Action</associationType>
+      <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+    </association>
+  </children>
+</class>
