@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<solution id="4ee7225b-f754-4bdd-8fdd-b51a1d5e37c3">
+  <name>HttpQuery</name>
+  <description />
+  <version>3.3.0</version>
+  <icon>./img/logo-blue.svg</icon>
+  <iconType>UrlImagePath</iconType>
+  <metadataRelativePath>Intent.Metadata</metadataRelativePath>
+  <modulesCacheRelativePath>.cache/modules</modulesCacheRelativePath>
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.3.0" />
+  <applications>
+    <application id="e29c80ed-9a00-4e4f-bbc0-1ea6d5c488fc" name="HttpQuery.FastEndpoints" relativePath="HttpQuery.FastEndpoints/HttpQuery.FastEndpoints.application.config" />
+  </applications>
+  <workspaceRoot>..</workspaceRoot>
+  <folders>
+    <folder path=".." />
+  </folders>
+</solution>

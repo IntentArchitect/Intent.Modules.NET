@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7bd38e41-e389-4beb-8392-0bd013259a85" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <parentFolderId>671df0b4-db65-49a3-8bec-b9ecd3ac519a</parentFolderId>
+  <packageId>671df0b4-db65-49a3-8bec-b9ecd3ac519a</packageId>
+  <packageName>HttpQuery.FastEndpoints.Services</packageName>
+  <diagram>
+    <targetPackageId>671df0b4-db65-49a3-8bec-b9ecd3ac519a</targetPackageId>
+  </diagram>
+</class>

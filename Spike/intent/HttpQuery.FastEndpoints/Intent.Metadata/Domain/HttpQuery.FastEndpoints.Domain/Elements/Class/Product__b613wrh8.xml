@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c4458293-4069-4646-829d-242ca423bdf0" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Product</name>
+  <display>Product</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>80e8aa19-5919-41c5-8173-bf03bfa0d5bb</parentFolderId>
+  <packageId>f443f78f-80af-46ec-b681-7cd35223849d</packageId>
+  <packageName>HttpQuery.FastEndpoints.Domain</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <children>
+    <element id="a16c7dcb-bb1a-4315-87ce-6f57996e7e1a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <typeReference id="caac8ac7-0a85-4820-9885-ed0bcc59909f">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>c4458293-4069-4646-829d-242ca423bdf0</parentFolderId>
+      <packageId>f443f78f-80af-46ec-b681-7cd35223849d</packageId>
+      <packageName>HttpQuery.FastEndpoints.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+    </element>
+    <element id="519750ea-1c46-47d5-97af-b2f0024ebf94" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <typeReference id="38f99ff9-cd04-4f3c-8fad-d2a02e756710">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>c4458293-4069-4646-829d-242ca423bdf0</parentFolderId>
+      <packageId>f443f78f-80af-46ec-b681-7cd35223849d</packageId>
+      <packageName>HttpQuery.FastEndpoints.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="e8038dec-4de1-4bc9-b646-7093ff2bccd1" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Category</name>
+      <display>Category: string</display>
+      <typeReference id="2854b322-6a83-453a-a762-239e8de6b2a3">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>c4458293-4069-4646-829d-242ca423bdf0</parentFolderId>
+      <packageId>f443f78f-80af-46ec-b681-7cd35223849d</packageId>
+      <packageName>HttpQuery.FastEndpoints.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="13649b19-4dfe-43ec-967f-0b85a5801dd6" name="Text Limits">
+          <definitionPackageName>Intent.Metadata.Domain.Constraints</definitionPackageName>
+          <definitionPackageId>f852e12f-1a19-4c8d-8192-8393c6ce59da</definitionPackageId>
+          <properties>
+            <property name="97720240-6daf-4cdd-a498-c4e989427e44" display="Min Length" />
+            <property name="e1a84061-6203-4843-b21e-eef5db195803" display="Max Length" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="24b6d659-f46e-4470-a224-41783044b2c7" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Price</name>
+      <display>Price: decimal</display>
+      <typeReference id="50bd3f96-3ce0-4b44-84a5-6ced9bdd132b">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>c4458293-4069-4646-829d-242ca423bdf0</parentFolderId>
+      <packageId>f443f78f-80af-46ec-b681-7cd35223849d</packageId>
+      <packageName>HttpQuery.FastEndpoints.Domain</packageName>
+    </element>
+  </children>
+</class>

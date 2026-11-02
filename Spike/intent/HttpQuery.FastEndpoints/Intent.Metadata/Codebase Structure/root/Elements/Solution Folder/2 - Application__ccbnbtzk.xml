@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="828b74a4-7b0b-4d7d-a85a-fade0518b158" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>2 - Application</name>
+  <display>2 - Application</display>
+  <externalReference>b44dfcb9-e9e9-43a2-855e-abf9c45a0359</externalReference>
+  <order>1</order>
+  <parentFolderId>891a1104-8d90-4f19-aa1c-eccd394afa31</parentFolderId>
+  <packageId>3e776778-fbed-4b69-b068-d69dfa2e7cf0</packageId>
+  <packageName>root</packageName>
+</class>
