@@ -45,10 +45,16 @@ const { chromium } = require(process.env.PLAYWRIGHT_CORE || "C:/Dev/.tools/hq-ui
             .filter({ has: page.locator(".opblock-summary-path", { hasText: /^\/api\/products\/search$/ }) }).first();
         report.queryShown = await queryBlock.count() > 0;
         if (report.queryShown) {
-            await queryBlock.locator(".opblock-summary").click();
-            await page.locator(".try-out__btn").first().click();
-            await page.locator(".execute").first().click();
-            await page.waitForTimeout(2000);
+            try {
+                if (!(await queryBlock.locator(".try-out__btn").count())) {
+                    await queryBlock.locator(".opblock-summary").click();
+                }
+                await queryBlock.locator(".try-out__btn").first().click({ timeout: 10000 });
+                await queryBlock.locator(".execute").first().click({ timeout: 10000 });
+                await page.waitForTimeout(2000);
+            } catch (e) {
+                report.tryItError = e.message.split("\n")[0];
+            }
         }
     } else {
         const body = await page.locator("body").innerText();

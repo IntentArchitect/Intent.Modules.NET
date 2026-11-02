@@ -14,14 +14,14 @@
   <file path="HttpQuery.Controllers.Swashbuckle.Api/Configuration/HealthChecksConfiguration.cs" templateId="Intent.AspNetCore.HealthChecks.HealthChecksConfiguration" />
   <file path="HttpQuery.Controllers.Swashbuckle.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
   <file path="HttpQuery.Controllers.Swashbuckle.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
-  <file path="HttpQuery.Controllers.Swashbuckle.Api/Controllers/ProductsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="HttpQuery.Controllers.Swashbuckle.Api/Controllers/ProductsController.cs" deviationsHash="0BAC773A048E6F50247F424321441D5BB6DCFEE829E6E459C1CA0FD6E12F5D4A" templateId="Intent.AspNetCore.Controllers.Controller" />
   <file path="HttpQuery.Controllers.Swashbuckle.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
   <file path="HttpQuery.Controllers.Swashbuckle.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
   <file path="HttpQuery.Controllers.Swashbuckle.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="HttpQuery.Controllers.Swashbuckle.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="HttpQuery.Controllers.Swashbuckle.Api/HttpQuery.Controllers.Swashbuckle.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="HttpQuery.Controllers.Swashbuckle.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="HttpQuery.Controllers.Swashbuckle.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="HttpQuery.Controllers.Swashbuckle.Api/Program.cs" deviationsHash="7767E3E8ED2F1BBA422945C6B8965F74605C3F80CCD047307096F12BF7DCE7DB" templateId="Intent.AspNetCore.Program" />
   <file path="HttpQuery.Controllers.Swashbuckle.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="HttpQuery.Controllers.Swashbuckle.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="HttpQuery.Controllers.Swashbuckle.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
@@ -32,8 +32,8 @@
   <file path="HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests/IntegrationTestWebAppFactory.cs" templateId="Intent.AspNetCore.IntegrationTesting.IntegrationTestWebAppFactory" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests/Products/CreateProductTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests/Products/GetProductByIdTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
-  <file path="HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests/Products/SearchCategoryProductsTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
-  <file path="HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests/Products/SearchProductsTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
+  <file path="HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests/Products/SearchCategoryProductsTests.cs" deviationsHash="FF8C04097300AD75CAF8D70A04A3EF184B4080E4109685FACA4593FE97A096CF" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
+  <file path="HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests/Products/SearchProductsTests.cs" deviationsHash="F2F3549D2C9E832039D1A67DF858931C48094B3DA6FBF663BEF5FB49F0D569F4" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests/SharedContainerFixture.cs" templateId="Intent.AspNetCore.IntegrationTesting.SharedContainerFixture" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
@@ -58,17 +58,17 @@
   <file path="HttpQuery.Controllers.Swashbuckle.Application/HttpQuery.Controllers.Swashbuckle.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application/Mappings/Products/ProductDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/CreateProduct/CreateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
-  <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/CreateProduct/CreateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/CreateProduct/CreateProductCommandHandler.cs" deviationsHash="C3A86537B8470D782833FF0EB673FFAE6DA17AF31127A562CDC700D6D75331E0" templateId="Intent.Application.MediatR.CommandHandler" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/CreateProduct/CreateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/GetProductById/GetProductByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
-  <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" deviationsHash="B2C13AF179BEFEA516441B17E0F166FE607E60453DB6E3EBFCD478D97339C38D" templateId="Intent.Application.MediatR.QueryHandler" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/GetProductById/GetProductByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/ProductDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/SearchCategoryProducts/SearchCategoryProductsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
-  <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/SearchCategoryProducts/SearchCategoryProductsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/SearchCategoryProducts/SearchCategoryProductsQueryHandler.cs" deviationsHash="96BB2BFAF96AD165AAE2E2E60EE236514C0D4B84787E1B5083CACED0A275C9DB" templateId="Intent.Application.MediatR.QueryHandler" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/SearchCategoryProducts/SearchCategoryProductsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/SearchProducts/SearchProductsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
-  <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/SearchProducts/SearchProductsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/SearchProducts/SearchProductsQueryHandler.cs" deviationsHash="C2A0B582C1F7D35B5EFA60CF7FA4AAE965FF5FDDCA1CDB1E4FEB5BD9A41C2450" templateId="Intent.Application.MediatR.QueryHandler" />
   <file path="HttpQuery.Controllers.Swashbuckle.Application/Products/SearchProducts/SearchProductsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
   <file path="HttpQuery.Controllers.Swashbuckle.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
   <file path="HttpQuery.Controllers.Swashbuckle.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />

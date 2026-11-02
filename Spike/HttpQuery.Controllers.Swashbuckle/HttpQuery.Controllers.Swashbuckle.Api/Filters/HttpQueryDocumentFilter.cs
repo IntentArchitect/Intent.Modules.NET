@@ -17,14 +17,6 @@ namespace HttpQuery.Controllers.Swashbuckle.Api.Filters
     /// </summary>
     public class HttpQueryDocumentFilter : IDocumentFilter
     {
-        /// <summary>
-        /// Spike switch for comparing the two document shapes; set with the HTTPQUERY_OPENAPI_SHAPE environment variable.
-        /// </summary>
-        public static HttpQueryOpenApiShape Shape { get; set; } =
-            Environment.GetEnvironmentVariable("HTTPQUERY_OPENAPI_SHAPE") == "native"
-            ? HttpQueryOpenApiShape.NativeQueryKey
-            : HttpQueryOpenApiShape.AdditionalOperationsExtension;
-
         private static readonly AsyncLocal<bool> RunningNested = new();
         private readonly IServiceProvider _serviceProvider;
 
@@ -102,23 +94,10 @@ namespace HttpQuery.Controllers.Swashbuckle.Api.Filters
                 }
 
                 RebindTags(operation, target);
-                if (Shape == HttpQueryOpenApiShape.NativeQueryKey)
-                {
-                    // Shape A: a native "query" key. Microsoft.OpenApi 2.x writes any operation key lower-cased.
-                    targetItem.Operations ??= new Dictionary<HttpMethod, OpenApiOperation>();
-                    targetItem.Operations[HttpMethod.Query] = operation;
-                }
-                else
-                {
-                    // Shape B: the "x-oai-additionalOperations" extension ASP.NET Core 11 / Microsoft.OpenApi 3 write for
-                    // OpenAPI 3.0/3.1 documents. Keys use the method's request capitalization, as OpenAPI 3.2 specifies.
-                    targetItem.Extensions ??= new Dictionary<string, IOpenApiExtension>();
-                    var extension = targetItem.Extensions.TryGetValue(AdditionalOperationsExtension.Name, out var existing)
-                        ? (AdditionalOperationsExtension)existing
-                        : new AdditionalOperationsExtension();
-                    extension.Operations[HttpMethods.Query] = operation;
-                    targetItem.Extensions[AdditionalOperationsExtension.Name] = extension;
-                }
+                // OpenAPI 3.2's native "query" operation. Microsoft.OpenApi 2.x writes any operation key lower-cased;
+                // OpenApi32DocumentSerializer labels the document 3.2.0 so readers and UIs accept the key.
+                targetItem.Operations ??= new Dictionary<HttpMethod, OpenApiOperation>();
+                targetItem.Operations[HttpMethod.Query] = operation;
             }
 
             if (source.Components?.Schemas is { } schemas)

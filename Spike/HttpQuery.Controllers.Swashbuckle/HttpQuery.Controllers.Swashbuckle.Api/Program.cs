@@ -44,6 +44,7 @@ namespace HttpQuery.Controllers.Swashbuckle.Api
                 builder.Services.ConfigureApiVersioning();
                 builder.Services.AddInfrastructure(builder.Configuration);
                 builder.Services.ConfigureSwagger(builder.Configuration);
+                builder.Services.ConfigureHttpQueryOpenApi();
 
                 var app = builder.Build();
 

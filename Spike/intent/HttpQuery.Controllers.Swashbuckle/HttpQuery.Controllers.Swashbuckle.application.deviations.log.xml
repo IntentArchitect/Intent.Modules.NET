@@ -1,4 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.AspNetCore.Controllers.Controller#e2cb6fe0-6136-47d6-bc89-04355b84cecf</correlationId>
+      <path>HttpQuery.Controllers.Swashbuckle.Api/Controllers/ProductsController.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:37:56.9216758Z</updatedAt>
+      <deviationsHash>0BAC773A048E6F50247F424321441D5BB6DCFEE829E6E459C1CA0FD6E12F5D4A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.Program#314d15e1-4b21-4008-8d46-f06dc0faedc1</correlationId>
+      <path>HttpQuery.Controllers.Swashbuckle.Api/Program.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:38:23.7805427Z</updatedAt>
+      <deviationsHash>7767E3E8ED2F1BBA422945C6B8965F74605C3F80CCD047307096F12BF7DCE7DB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#8345f2f6-2923-4785-96eb-71a48fe8e585</correlationId>
+      <path>HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests/Products/SearchCategoryProductsTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:37:56.9219286Z</updatedAt>
+      <deviationsHash>FF8C04097300AD75CAF8D70A04A3EF184B4080E4109685FACA4593FE97A096CF</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#d7d72add-dbe2-4926-8766-fb6ed849ed9a</correlationId>
+      <path>HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests/Products/SearchProductsTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:37:56.921941Z</updatedAt>
+      <deviationsHash>F2F3549D2C9E832039D1A67DF858931C48094B3DA6FBF663BEF5FB49F0D569F4</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#19116613-2950-47d0-9fa8-1bfdb97754c9</correlationId>
+      <path>HttpQuery.Controllers.Swashbuckle.Application/Products/CreateProduct/CreateProductCommandHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:37:56.9217334Z</updatedAt>
+      <deviationsHash>C3A86537B8470D782833FF0EB673FFAE6DA17AF31127A562CDC700D6D75331E0</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#611103db-a42f-4152-a240-9e69a2566e65</correlationId>
+      <path>HttpQuery.Controllers.Swashbuckle.Application/Products/GetProductById/GetProductByIdQueryHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:37:56.9217745Z</updatedAt>
+      <deviationsHash>B2C13AF179BEFEA516441B17E0F166FE607E60453DB6E3EBFCD478D97339C38D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#8345f2f6-2923-4785-96eb-71a48fe8e585</correlationId>
+      <path>HttpQuery.Controllers.Swashbuckle.Application/Products/SearchCategoryProducts/SearchCategoryProductsQueryHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:37:56.9217865Z</updatedAt>
+      <deviationsHash>96BB2BFAF96AD165AAE2E2E60EE236514C0D4B84787E1B5083CACED0A275C9DB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#d7d72add-dbe2-4926-8766-fb6ed849ed9a</correlationId>
+      <path>HttpQuery.Controllers.Swashbuckle.Application/Products/SearchProducts/SearchProductsQueryHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:37:56.9217971Z</updatedAt>
+      <deviationsHash>C2A0B582C1F7D35B5EFA60CF7FA4AAE965FF5FDDCA1CDB1E4FEB5BD9A41C2450</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

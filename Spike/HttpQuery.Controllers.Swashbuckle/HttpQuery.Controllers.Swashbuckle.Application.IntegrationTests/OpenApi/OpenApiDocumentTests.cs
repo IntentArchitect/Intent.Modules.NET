@@ -1,8 +1,5 @@
 using System.Net;
 using System.Text.Json.Nodes;
-using HttpQuery.Controllers.Swashbuckle.Api.Filters;
-using Microsoft.OpenApi;
-using Microsoft.OpenApi.Reader;
 
 namespace HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests.OpenApi
 {
@@ -48,20 +45,16 @@ namespace HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests.OpenApi
             AssertReturnsProductDtoArray(document, operation);
         }
 
+        /// <summary>
+        /// The native "query" operation only exists from OpenAPI 3.2, so the document must say 3.2. Microsoft.OpenApi 2.x
+        /// (used by Swashbuckle 10) cannot read 3.2; Spike/scripts/validate-openapi.cs checks it with Microsoft.OpenApi 3.x.
+        /// </summary>
         [Fact]
-        public async Task Document_ReloadsThroughOpenApiReaderWithoutErrors()
+        public async Task Document_DeclaresOpenApi32()
         {
-            var ct = TestContext.Current.CancellationToken;
-            var response = await CreateClient().GetAsync(DocumentUri, ct);
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            await using var stream = await response.Content.ReadAsStreamAsync(ct);
+            var document = await GetDocumentAsync();
 
-            var settings = new OpenApiReaderSettings();
-            var result = await OpenApiDocument.LoadAsync(stream, "json", settings, ct);
-
-            var errors = (result.Diagnostic?.Errors ?? []).Select(e => $"{e.Pointer}: {e.Message}").ToList();
-            Assert.True(errors.Count == 0, string.Join(Environment.NewLine, errors));
-            Assert.NotNull(result.Document);
+            Assert.Equal("3.2.0", document["openapi"]!.GetValue<string>());
         }
 
         private async Task<JsonObject> GetDocumentAsync()
@@ -73,15 +66,13 @@ namespace HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests.OpenApi
         }
 
         /// <summary>
-        /// Shape A writes the QUERY operation under a native "query" key; shape B under x-oai-additionalOperations.QUERY.
+        /// The QUERY operation sits under OpenAPI 3.2's native "query" key on the path item.
         /// </summary>
         private static JsonObject QueryOperation(JsonObject document, string path)
         {
             var pathItem = document["paths"]?[path];
             Assert.NotNull(pathItem);
-            var operation = HttpQueryDocumentFilter.Shape == HttpQueryOpenApiShape.NativeQueryKey
-                ? pathItem!["query"]
-                : pathItem![AdditionalOperationsExtension.Name]?["QUERY"];
+            var operation = pathItem!["query"];
             Assert.NotNull(operation);
             return operation!.AsObject();
         }

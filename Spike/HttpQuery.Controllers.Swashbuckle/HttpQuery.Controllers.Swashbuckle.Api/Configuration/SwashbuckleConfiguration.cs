@@ -46,8 +46,6 @@ namespace HttpQuery.Controllers.Swashbuckle.Api.Configuration
 
                     options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
-                    options.DocInclusionPredicate(HttpQueryDocumentFilter.ExcludeFromMainPass); // IntentIgnore
-                    options.DocumentFilter<HttpQueryDocumentFilter>(); // IntentIgnore
 
                     var securityScheme = new OpenApiSecurityScheme()
                     {
@@ -61,9 +59,9 @@ namespace HttpQuery.Controllers.Swashbuckle.Api.Configuration
 
                     options.AddSecurityDefinition("Bearer", securityScheme);
                     options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
-                    {
+                {
                     { new OpenApiSecuritySchemeReference("Bearer", document), new List<string>() }
-                    });
+                });
                     options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;
