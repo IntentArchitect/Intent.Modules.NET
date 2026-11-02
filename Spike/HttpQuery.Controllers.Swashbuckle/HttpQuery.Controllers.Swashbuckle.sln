@@ -1,0 +1,60 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{7FCBD7EE-D760-43A2-B3AE-E06E95FC06B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpQuery.Controllers.Swashbuckle.Api", "HttpQuery.Controllers.Swashbuckle.Api\HttpQuery.Controllers.Swashbuckle.Api.csproj", "{13BCCE63-7CBA-4E71-95BC-4B7F78F671C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{3D705516-2193-48C0-8671-D533CB0A33CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpQuery.Controllers.Swashbuckle.Application", "HttpQuery.Controllers.Swashbuckle.Application\HttpQuery.Controllers.Swashbuckle.Application.csproj", "{8C7C8EBD-D41D-41C4-9239-EAF76F0DA920}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests", "HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests\HttpQuery.Controllers.Swashbuckle.Application.IntegrationTests.csproj", "{EE1D5D47-747A-47A9-8A21-BB2BD48B3D43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{6379A04C-15AD-4F61-A42B-777D740DA3AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpQuery.Controllers.Swashbuckle.Domain", "HttpQuery.Controllers.Swashbuckle.Domain\HttpQuery.Controllers.Swashbuckle.Domain.csproj", "{8942C861-19E5-48D8-B2FC-48F0FD5B8A25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{7D86399E-896D-4A11-903F-24A55D6450BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpQuery.Controllers.Swashbuckle.Infrastructure", "HttpQuery.Controllers.Swashbuckle.Infrastructure\HttpQuery.Controllers.Swashbuckle.Infrastructure.csproj", "{35DA2D6E-4FAB-4865-9605-B738F02C255B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13BCCE63-7CBA-4E71-95BC-4B7F78F671C2} = {7FCBD7EE-D760-43A2-B3AE-E06E95FC06B0}
+		{8C7C8EBD-D41D-41C4-9239-EAF76F0DA920} = {3D705516-2193-48C0-8671-D533CB0A33CF}
+		{EE1D5D47-747A-47A9-8A21-BB2BD48B3D43} = {3D705516-2193-48C0-8671-D533CB0A33CF}
+		{8942C861-19E5-48D8-B2FC-48F0FD5B8A25} = {6379A04C-15AD-4F61-A42B-777D740DA3AB}
+		{35DA2D6E-4FAB-4865-9605-B738F02C255B} = {7D86399E-896D-4A11-903F-24A55D6450BA}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13BCCE63-7CBA-4E71-95BC-4B7F78F671C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13BCCE63-7CBA-4E71-95BC-4B7F78F671C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13BCCE63-7CBA-4E71-95BC-4B7F78F671C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13BCCE63-7CBA-4E71-95BC-4B7F78F671C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C7C8EBD-D41D-41C4-9239-EAF76F0DA920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C7C8EBD-D41D-41C4-9239-EAF76F0DA920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C7C8EBD-D41D-41C4-9239-EAF76F0DA920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C7C8EBD-D41D-41C4-9239-EAF76F0DA920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE1D5D47-747A-47A9-8A21-BB2BD48B3D43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1D5D47-747A-47A9-8A21-BB2BD48B3D43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1D5D47-747A-47A9-8A21-BB2BD48B3D43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1D5D47-747A-47A9-8A21-BB2BD48B3D43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8942C861-19E5-48D8-B2FC-48F0FD5B8A25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8942C861-19E5-48D8-B2FC-48F0FD5B8A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8942C861-19E5-48D8-B2FC-48F0FD5B8A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8942C861-19E5-48D8-B2FC-48F0FD5B8A25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35DA2D6E-4FAB-4865-9605-B738F02C255B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35DA2D6E-4FAB-4865-9605-B738F02C255B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35DA2D6E-4FAB-4865-9605-B738F02C255B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35DA2D6E-4FAB-4865-9605-B738F02C255B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

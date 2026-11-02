@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3c38f9fa-97b8-4ba3-b86c-dd95a648547b" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Pagination</name>
+  <display>Pagination</display>
+  <parentFolderId>7895b45d-19ff-49c4-9456-82c4b0ba66a6</parentFolderId>
+  <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="009bff3e-bbc6-4631-b2dc-5d0162d41965" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.Pagination.CursorPagedResult</name>
+      <display>Intent.Application.Dtos.Pagination.CursorPagedResult</display>
+      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
+      <parentFolderId>3c38f9fa-97b8-4ba3-b86c-dd95a648547b</parentFolderId>
+      <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[High - API Contract] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;dead6a2c-8f9a-4b76-b9ab-bfc46e25e440&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="7d9ae432-cb90-49e8-be3d-2ce321fc17ec" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</name>
+      <display>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</display>
+      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
+      <parentFolderId>3c38f9fa-97b8-4ba3-b86c-dd95a648547b</parentFolderId>
+      <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Object Mapping] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;5c91f19e-8b9f-4ce2-b218-7b2cdde67ad3&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="eb789efd-6866-4f94-ade6-af0cd0c3ae90" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.Pagination.PagedResult</name>
+      <display>Intent.Application.Dtos.Pagination.PagedResult</display>
+      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
+      <parentFolderId>3c38f9fa-97b8-4ba3-b86c-dd95a648547b</parentFolderId>
+      <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[High - API Contract] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;dead6a2c-8f9a-4b76-b9ab-bfc46e25e440&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="88897103-f781-47de-96bd-40e8211a8042" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</name>
+      <display>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</display>
+      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
+      <parentFolderId>3c38f9fa-97b8-4ba3-b86c-dd95a648547b</parentFolderId>
+      <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Object Mapping] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;5c91f19e-8b9f-4ce2-b218-7b2cdde67ad3&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="890cbcf1-1d51-4c11-988d-03062b320859" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.PagedList</name>
+      <display>Intent.EntityFrameworkCore.PagedList</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <parentFolderId>3c38f9fa-97b8-4ba3-b86c-dd95a648547b</parentFolderId>
+      <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Data Access] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;174aa8f4-86a7-4006-8cd4-bcc2db09f259&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

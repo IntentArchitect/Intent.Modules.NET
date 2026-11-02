@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f9d7905a-3a63-4bf9-ac3b-3d5a5b7560b0" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>ExtensionMethods</name>
+  <display>ExtensionMethods</display>
+  <parentFolderId>eb68b80b-c09b-43a4-8ad9-d115939bd7a6</parentFolderId>
+  <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="fc6b5537-56bf-43c3-a15b-735ad5ed6fba" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods</name>
+      <display>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <parentFolderId>f9d7905a-3a63-4bf9-ac3b-3d5a5b7560b0</parentFolderId>
+      <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Data Access] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;174aa8f4-86a7-4006-8cd4-bcc2db09f259&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

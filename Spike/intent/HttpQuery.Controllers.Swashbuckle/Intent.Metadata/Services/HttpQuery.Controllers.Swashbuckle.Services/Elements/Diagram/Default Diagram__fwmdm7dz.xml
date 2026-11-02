@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2345fec8-7df3-498b-91a1-4073f7f2bb82" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <parentFolderId>16f45a92-f0fe-4fba-afb9-16e34fc8dba3</parentFolderId>
+  <packageId>16f45a92-f0fe-4fba-afb9-16e34fc8dba3</packageId>
+  <packageName>HttpQuery.Controllers.Swashbuckle.Services</packageName>
+  <diagram>
+    <targetPackageId>16f45a92-f0fe-4fba-afb9-16e34fc8dba3</targetPackageId>
+  </diagram>
+</class>

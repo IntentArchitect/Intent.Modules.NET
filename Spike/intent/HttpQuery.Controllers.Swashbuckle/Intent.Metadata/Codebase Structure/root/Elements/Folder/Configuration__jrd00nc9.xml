@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1ff0d107-aa4f-4353-9e01-214193728ab7" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Configuration</name>
+  <display>Configuration</display>
+  <parentFolderId>13bcce63-7cba-4e71-95bc-4b7f78f671c2</parentFolderId>
+  <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="7bf5f49f-1289-4c01-8f83-3aa5f7d96639" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</name>
+      <display>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</display>
+      <externalReference>Intent.AspNetCore.HealthChecks</externalReference>
+      <parentFolderId>1ff0d107-aa4f-4353-9e01-214193728ab7</parentFolderId>
+      <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - App Composition] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;c8814b0b-e08c-4f7f-9488-f13a04bdcdd1&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="94378cf5-812e-4679-8974-83de8627909b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
+      <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <parentFolderId>1ff0d107-aa4f-4353-9e01-214193728ab7</parentFolderId>
+      <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[High - Security, App Composition] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;fcd6cd8c-442a-4002-adb2-21c5f1a10641&quot;,&quot;c8814b0b-e08c-4f7f-9488-f13a04bdcdd1&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="fb538f30-bc12-4a6a-83e7-11b277cc6337" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</display>
+      <externalReference>Intent.AspNetCore.Versioning</externalReference>
+      <parentFolderId>1ff0d107-aa4f-4353-9e01-214193728ab7</parentFolderId>
+      <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[High - API Contract] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;dead6a2c-8f9a-4b76-b9ab-bfc46e25e440&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="cc95969d-8d14-4a29-8208-70086994f3af" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</display>
+      <externalReference>Intent.AspNetCore.Versioning</externalReference>
+      <parentFolderId>1ff0d107-aa4f-4353-9e01-214193728ab7</parentFolderId>
+      <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - App Composition] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;c8814b0b-e08c-4f7f-9488-f13a04bdcdd1&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="b8a86c84-4e78-4145-b245-fbcb57d42343" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
+      <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <parentFolderId>1ff0d107-aa4f-4353-9e01-214193728ab7</parentFolderId>
+      <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - App Composition] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;c8814b0b-e08c-4f7f-9488-f13a04bdcdd1&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="b2e18b9a-2a60-442d-aab2-84f05c7e1301" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
+      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <parentFolderId>1ff0d107-aa4f-4353-9e01-214193728ab7</parentFolderId>
+      <packageId>23a08ffb-436d-4a7a-87f4-f20d08241bd2</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[High - API Contract] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;dead6a2c-8f9a-4b76-b9ab-bfc46e25e440&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

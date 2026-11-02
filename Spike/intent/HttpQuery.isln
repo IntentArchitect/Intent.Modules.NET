@@ -10,6 +10,7 @@
   <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.3.0" />
   <applications>
     <application id="e29c80ed-9a00-4e4f-bbc0-1ea6d5c488fc" name="HttpQuery.FastEndpoints" relativePath="HttpQuery.FastEndpoints/HttpQuery.FastEndpoints.application.config" />
+    <application id="d41401c0-b583-401d-acf2-d666dc79420f" name="HttpQuery.Controllers.Swashbuckle" relativePath="HttpQuery.Controllers.Swashbuckle/HttpQuery.Controllers.Swashbuckle.application.config" />
   </applications>
   <workspaceRoot>..</workspaceRoot>
   <folders>
