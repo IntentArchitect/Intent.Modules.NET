@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="feb44161-422c-4501-937d-d1a17e8e8226" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>ProductsProxy</name>
+  <display>ProductsProxy</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>523077c5-c45d-411a-8993-baf9879750d8</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="e2cb6fe0-6136-47d6-bc89-04355b84cecf" name="Products" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>f1e3b179-dfc1-4772-bb02-795dc2eb97bd</parentFolderId>
+  <packageId>29d8a35a-c660-4c03-9e55-39c99161aa9a</packageId>
+  <packageName>HttpQuery.Client.Services</packageName>
+  <children>
+    <element id="da5517fa-c257-45e2-962d-cb5dbc24e67f" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateProduct</name>
+      <display>CreateProduct(command: CreateProductCommand): guid</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="55701331-abb1-4c59-be79-e4aae1c379bc">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="19116613-2950-47d0-9fa8-1bfdb97754c9" name="CreateProductCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>feb44161-422c-4501-937d-d1a17e8e8226</parentFolderId>
+      <packageId>29d8a35a-c660-4c03-9e55-39c99161aa9a</packageId>
+      <packageName>HttpQuery.Client.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <children>
+        <element id="8c67c520-044f-4368-87e3-e4bfa53d7344" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: CreateProductCommand</display>
+          <typeReference id="05328597-b66c-4e89-8592-d53ee40e98bb">
+            <typeId>19116613-2950-47d0-9fa8-1bfdb97754c9</typeId>
+            <typeName>CreateProductCommand</typeName>
+            <typePackageName>HttpQuery.Controllers.Swashbuckle.Services</typePackageName>
+            <typePackageId>16f45a92-f0fe-4fba-afb9-16e34fc8dba3</typePackageId>
+          </typeReference>
+          <parentFolderId>da5517fa-c257-45e2-962d-cb5dbc24e67f</parentFolderId>
+          <packageId>29d8a35a-c660-4c03-9e55-39c99161aa9a</packageId>
+          <packageName>HttpQuery.Client.Services</packageName>
+          <metadata>
+            <entry key="endpoint-input-id" value="19116613-2950-47d0-9fa8-1bfdb97754c9" />
+          </metadata>
+        </element>
+      </children>
+    </element>
+    <element id="36680bef-a577-44b9-83cf-714a81728ceb" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetProductById</name>
+      <display>GetProductById(id: guid): ProductDto</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="31d1801c-2204-4913-9a60-71764575d03c">
+        <typeId>e1bfbede-1e83-438a-a9b4-061e57214686</typeId>
+        <typeName>ProductDto</typeName>
+        <typePackageName>HttpQuery.Controllers.Swashbuckle.Services</typePackageName>
+        <typePackageId>16f45a92-f0fe-4fba-afb9-16e34fc8dba3</typePackageId>
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="611103db-a42f-4152-a240-9e69a2566e65" name="GetProductByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>feb44161-422c-4501-937d-d1a17e8e8226</parentFolderId>
+      <packageId>29d8a35a-c660-4c03-9e55-39c99161aa9a</packageId>
+      <packageName>HttpQuery.Client.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <children>
+        <element id="9b3c1301-a748-4526-8798-a8a02924ccf7" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <typeReference id="71e4db5a-3798-4b49-bfcd-5eaf79307801">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <typeName>guid</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>36680bef-a577-44b9-83cf-714a81728ceb</parentFolderId>
+          <packageId>29d8a35a-c660-4c03-9e55-39c99161aa9a</packageId>
+          <packageName>HttpQuery.Client.Services</packageName>
+          <metadata>
+            <entry key="endpoint-input-id" value="a5e32098-7806-4a61-8631-b9fe5834dee5" />
+          </metadata>
+        </element>
+      </children>
+    </element>
+    <element id="7cbc175b-755d-48ab-8b01-a6c8a3ceccdc" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>SearchProducts</name>
+      <display>SearchProducts(query: SearchProductsQuery): ProductDto[*]</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="ca09fdfc-3000-4f3d-886f-7e96d2244d8f">
+        <typeId>e1bfbede-1e83-438a-a9b4-061e57214686</typeId>
+        <typeName>ProductDto</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>HttpQuery.Controllers.Swashbuckle.Services</typePackageName>
+        <typePackageId>16f45a92-f0fe-4fba-afb9-16e34fc8dba3</typePackageId>
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="d7d72add-dbe2-4926-8766-fb6ed849ed9a" name="SearchProductsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>feb44161-422c-4501-937d-d1a17e8e8226</parentFolderId>
+      <packageId>29d8a35a-c660-4c03-9e55-39c99161aa9a</packageId>
+      <packageName>HttpQuery.Client.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <children>
+        <element id="fda29c57-554f-4ceb-bac9-f637b70b93c0" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>query</name>
+          <display>query: SearchProductsQuery</display>
+          <typeReference id="3338041d-e436-45aa-91ce-5a21c3a0b3d5">
+            <typeId>d7d72add-dbe2-4926-8766-fb6ed849ed9a</typeId>
+            <typeName>SearchProductsQuery</typeName>
+            <typePackageName>HttpQuery.Controllers.Swashbuckle.Services</typePackageName>
+            <typePackageId>16f45a92-f0fe-4fba-afb9-16e34fc8dba3</typePackageId>
+          </typeReference>
+          <parentFolderId>7cbc175b-755d-48ab-8b01-a6c8a3ceccdc</parentFolderId>
+          <packageId>29d8a35a-c660-4c03-9e55-39c99161aa9a</packageId>
+          <packageName>HttpQuery.Client.Services</packageName>
+          <metadata>
+            <entry key="endpoint-input-id" value="d7d72add-dbe2-4926-8766-fb6ed849ed9a" />
+          </metadata>
+        </element>
+      </children>
+    </element>
+    <element id="9a57f873-69b8-4ef2-aa8b-ca33e2f84143" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>SearchCategoryProducts</name>
+      <display>SearchCategoryProducts(category: string, query: SearchCategoryProductsQuery): ProductDto[*]</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="ac887093-7268-4a5f-aa4d-72b98cec373a">
+        <typeId>e1bfbede-1e83-438a-a9b4-061e57214686</typeId>
+        <typeName>ProductDto</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>HttpQuery.Controllers.Swashbuckle.Services</typePackageName>
+        <typePackageId>16f45a92-f0fe-4fba-afb9-16e34fc8dba3</typePackageId>
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="8345f2f6-2923-4785-96eb-71a48fe8e585" name="SearchCategoryProductsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>feb44161-422c-4501-937d-d1a17e8e8226</parentFolderId>
+      <packageId>29d8a35a-c660-4c03-9e55-39c99161aa9a</packageId>
+      <packageName>HttpQuery.Client.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <children>
+        <element id="7b3a38b7-ac5c-4785-af08-3d12e18e46fb" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>category</name>
+          <display>category: string</display>
+          <typeReference id="6b47bbca-bdca-4b5e-abee-23388bf4e4b9">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>9a57f873-69b8-4ef2-aa8b-ca33e2f84143</parentFolderId>
+          <packageId>29d8a35a-c660-4c03-9e55-39c99161aa9a</packageId>
+          <packageName>HttpQuery.Client.Services</packageName>
+          <metadata>
+            <entry key="endpoint-input-id" value="5f15993a-c810-4821-b819-29f3b739b11d" />
+          </metadata>
+        </element>
+        <element id="dad950d9-26ce-47cb-9775-dcd085eb1d0f" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>query</name>
+          <display>query: SearchCategoryProductsQuery</display>
+          <typeReference id="770e02ca-7b49-41d7-b89a-9bcb8afa0c07">
+            <typeId>8345f2f6-2923-4785-96eb-71a48fe8e585</typeId>
+            <typeName>SearchCategoryProductsQuery</typeName>
+            <typePackageName>HttpQuery.Controllers.Swashbuckle.Services</typePackageName>
+            <typePackageId>16f45a92-f0fe-4fba-afb9-16e34fc8dba3</typePackageId>
+          </typeReference>
+          <parentFolderId>9a57f873-69b8-4ef2-aa8b-ca33e2f84143</parentFolderId>
+          <packageId>29d8a35a-c660-4c03-9e55-39c99161aa9a</packageId>
+          <packageName>HttpQuery.Client.Services</packageName>
+          <metadata>
+            <entry key="endpoint-input-id" value="8345f2f6-2923-4785-96eb-71a48fe8e585" />
+          </metadata>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

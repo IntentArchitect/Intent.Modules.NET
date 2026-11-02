@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f922e3fa-f990-4b07-97bb-feb7fcdbaa45" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Exceptions</name>
+  <display>Exceptions</display>
+  <parentFolderId>1f31c6e0-b742-4c72-bb95-b4aa9f1c62b8</parentFolderId>
+  <packageId>1f2490cd-95d3-4a6c-8609-f7cb972ef69b</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="6afe840f-a21f-4e34-90f9-a529a1c97812" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.HttpClientRequestException</name>
+      <display>Intent.Integration.HttpClients.HttpClientRequestException</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <parentFolderId>f922e3fa-f990-4b07-97bb-feb7fcdbaa45</parentFolderId>
+      <packageId>1f2490cd-95d3-4a6c-8609-f7cb972ef69b</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="d2fbe771-0af1-40b1-a127-63714f445dfe" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.ProblemDetailsWithErrors</name>
+      <display>Intent.Integration.HttpClients.ProblemDetailsWithErrors</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <parentFolderId>f922e3fa-f990-4b07-97bb-feb7fcdbaa45</parentFolderId>
+      <packageId>1f2490cd-95d3-4a6c-8609-f7cb972ef69b</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

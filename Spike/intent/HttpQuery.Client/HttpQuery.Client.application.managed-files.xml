@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="523077c5-c45d-411a-8993-baf9879750d8">
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="HttpQuery.Client.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="HttpQuery.Client.Api/HttpQuery.Client.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="HttpQuery.Client.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="HttpQuery.Client.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="HttpQuery.Client.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="HttpQuery.Client.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="HttpQuery.Client.Application/Common/Exceptions/HttpClientRequestException.cs" templateId="Intent.Integration.HttpClients.HttpClientRequestException" />
+  <file path="HttpQuery.Client.Application/Common/Exceptions/ProblemDetailsWithErrors.cs" templateId="Intent.Integration.HttpClients.ProblemDetailsWithErrors" />
+  <file path="HttpQuery.Client.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="HttpQuery.Client.Application/HttpQuery.Client.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="HttpQuery.Client.Application/IntegrationServices/Contracts/Controllers/Swashbuckle/Services/Products/CreateProductCommand.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="HttpQuery.Client.Application/IntegrationServices/Contracts/Controllers/Swashbuckle/Services/Products/ProductDto.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="HttpQuery.Client.Application/IntegrationServices/Contracts/Controllers/Swashbuckle/Services/Products/SearchCategoryProductsQuery.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="HttpQuery.Client.Application/IntegrationServices/Contracts/Controllers/Swashbuckle/Services/Products/SearchProductsQuery.cs" templateId="Intent.Application.Contracts.Clients.DtoContract" />
+  <file path="HttpQuery.Client.Application/IntegrationServices/Products/IProductsProxy.cs" templateId="Intent.Application.Contracts.Clients.ServiceContract" />
+  <file path="HttpQuery.Client.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="HttpQuery.Client.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="HttpQuery.Client.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="HttpQuery.Client.Domain/HttpQuery.Client.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="HttpQuery.Client.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
+  <file path="HttpQuery.Client.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="HttpQuery.Client.Infrastructure/HttpClients/Products/ProductsProxyHttpClient.cs" deviationsHash="5802A632296A3F7EB4F472895CD36511443FD67771FF15E28EF3230134D89E32" templateId="Intent.Integration.HttpClients.HttpClient" />
+  <file path="HttpQuery.Client.Infrastructure/HttpQuery.Client.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="HttpQuery.Client.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+</managedFiles>

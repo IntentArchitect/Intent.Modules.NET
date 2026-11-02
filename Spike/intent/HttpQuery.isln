@@ -12,6 +12,7 @@
     <application id="e29c80ed-9a00-4e4f-bbc0-1ea6d5c488fc" name="HttpQuery.FastEndpoints" relativePath="HttpQuery.FastEndpoints/HttpQuery.FastEndpoints.application.config" />
     <application id="d41401c0-b583-401d-acf2-d666dc79420f" name="HttpQuery.Controllers.Swashbuckle" relativePath="HttpQuery.Controllers.Swashbuckle/HttpQuery.Controllers.Swashbuckle.application.config" />
     <application id="b38645dc-6685-4031-8e96-ae2ba55a54c9" name="HttpQuery.Controllers.OpenApi" relativePath="HttpQuery.Controllers.OpenApi/HttpQuery.Controllers.OpenApi.application.config" />
+    <application id="523077c5-c45d-411a-8993-baf9879750d8" name="HttpQuery.Client" relativePath="HttpQuery.Client/HttpQuery.Client.application.config" />
   </applications>
   <workspaceRoot>..</workspaceRoot>
   <folders>

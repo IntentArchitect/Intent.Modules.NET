@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bb7f78d9-03c4-42e6-8749-b0c966c40253" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
+  <order>0</order>
+  <parentFolderId>78e1ca32-1732-4b60-a5ef-88d76d37bdb6</parentFolderId>
+  <packageId>1f2490cd-95d3-4a6c-8609-f7cb972ef69b</packageId>
+  <packageName>root</packageName>
+</class>

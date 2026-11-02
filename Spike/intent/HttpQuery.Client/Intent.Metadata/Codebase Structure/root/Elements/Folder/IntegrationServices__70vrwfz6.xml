@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7ce4af65-c6b7-4c6d-99ea-8c9c7b5359f1" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>IntegrationServices</name>
+  <display>IntegrationServices</display>
+  <parentFolderId>751ebed9-a37b-4da1-bd15-5efe6812d525</parentFolderId>
+  <packageId>1f2490cd-95d3-4a6c-8609-f7cb972ef69b</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="a72b27f0-a625-4f15-8430-13600720faa8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Contracts.Clients.ServiceContract</name>
+      <display>Intent.Application.Contracts.Clients.ServiceContract</display>
+      <externalReference>Intent.Application.Contracts.Clients</externalReference>
+      <parentFolderId>7ce4af65-c6b7-4c6d-99ea-8c9c7b5359f1</parentFolderId>
+      <packageId>1f2490cd-95d3-4a6c-8609-f7cb972ef69b</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

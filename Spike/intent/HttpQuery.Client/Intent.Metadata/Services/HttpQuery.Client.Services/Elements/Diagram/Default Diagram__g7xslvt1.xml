@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="12cf44ce-13af-4669-ba25-ddc17c1bd829" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <parentFolderId>29d8a35a-c660-4c03-9e55-39c99161aa9a</parentFolderId>
+  <packageId>29d8a35a-c660-4c03-9e55-39c99161aa9a</packageId>
+  <packageName>HttpQuery.Client.Services</packageName>
+  <diagram>
+    <targetPackageId>29d8a35a-c660-4c03-9e55-39c99161aa9a</targetPackageId>
+  </diagram>
+</class>

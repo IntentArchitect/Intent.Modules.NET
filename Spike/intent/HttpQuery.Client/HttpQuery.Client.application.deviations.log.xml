@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Integration.HttpClients.HttpClient#feb44161-422c-4501-937d-d1a17e8e8226</correlationId>
+      <path>HttpQuery.Client.Infrastructure/HttpClients/Products/ProductsProxyHttpClient.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:54:06.5808405Z</updatedAt>
+      <deviationsHash>5802A632296A3F7EB4F472895CD36511443FD67771FF15E28EF3230134D89E32</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>
