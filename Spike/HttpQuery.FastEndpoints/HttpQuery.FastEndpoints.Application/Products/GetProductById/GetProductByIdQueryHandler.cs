@@ -1,3 +1,4 @@
+using HttpQuery.FastEndpoints.Domain.Repositories.Products;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -9,16 +10,19 @@ namespace HttpQuery.FastEndpoints.Application.Products.GetProductById
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery, ProductDto>
     {
+        private readonly IProductRepository _productRepository;
+
         [IntentManaged(Mode.Merge)]
-        public GetProductByIdQueryHandler()
+        public GetProductByIdQueryHandler(IProductRepository productRepository)
         {
+            _productRepository = productRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<ProductDto> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
-            // TODO: Implement Handle (GetProductByIdQueryHandler) functionality
-            throw new NotImplementedException("Your implementation here...");
+            // A null result is turned into 404 by the endpoint.
+            return (await _productRepository.FindByIdProjectToAsync<ProductDto>(request.Id, cancellationToken))!;
         }
     }
 }

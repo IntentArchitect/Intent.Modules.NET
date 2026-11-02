@@ -16,13 +16,13 @@
   <file path="HttpQuery.FastEndpoints.Api/FastEndpoints/ExceptionProcessor.cs" templateId="Intent.FastEndpoints.ExceptionProcessorTemplate" />
   <file path="HttpQuery.FastEndpoints.Api/FastEndpoints/Products/CreateProductCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="HttpQuery.FastEndpoints.Api/FastEndpoints/Products/GetProductByIdQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
-  <file path="HttpQuery.FastEndpoints.Api/FastEndpoints/Products/SearchCategoryProductsQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
-  <file path="HttpQuery.FastEndpoints.Api/FastEndpoints/Products/SearchProductsQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="HttpQuery.FastEndpoints.Api/FastEndpoints/Products/SearchCategoryProductsQueryEndpoint.cs" deviationsHash="CBF984EA116362FFD74B9C16B93183272E50A8F59D7AB15AD838F6F39EDA1908" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="HttpQuery.FastEndpoints.Api/FastEndpoints/Products/SearchProductsQueryEndpoint.cs" deviationsHash="6057AF531DB8C6E44BB221A56296D7CD892AA629583B7F03343C0C0471D53CCC" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="HttpQuery.FastEndpoints.Api/FastEndpoints/ResponseTypes/JsonResponse.cs" templateId="Intent.FastEndpoints.JsonResponseTemplate" />
   <file path="HttpQuery.FastEndpoints.Api/Filters/HideRouteParametersFromBodyOperationTransformer.cs" templateId="Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer" />
   <file path="HttpQuery.FastEndpoints.Api/HttpQuery.FastEndpoints.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="HttpQuery.FastEndpoints.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="HttpQuery.FastEndpoints.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="HttpQuery.FastEndpoints.Api/Program.cs" deviationsHash="6897638EE3143C3FB4C16ECA39D9918BFA25EC986BBB824B84BC867F4AB326BA" templateId="Intent.AspNetCore.Program" />
   <file path="HttpQuery.FastEndpoints.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="HttpQuery.FastEndpoints.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="HttpQuery.FastEndpoints.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
@@ -33,8 +33,8 @@
   <file path="HttpQuery.FastEndpoints.Application.IntegrationTests/IntegrationTestWebAppFactory.cs" templateId="Intent.AspNetCore.IntegrationTesting.IntegrationTestWebAppFactory" />
   <file path="HttpQuery.FastEndpoints.Application.IntegrationTests/Products/CreateProductTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
   <file path="HttpQuery.FastEndpoints.Application.IntegrationTests/Products/GetProductByIdTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
-  <file path="HttpQuery.FastEndpoints.Application.IntegrationTests/Products/SearchCategoryProductsTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
-  <file path="HttpQuery.FastEndpoints.Application.IntegrationTests/Products/SearchProductsTests.cs" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
+  <file path="HttpQuery.FastEndpoints.Application.IntegrationTests/Products/SearchCategoryProductsTests.cs" deviationsHash="2F311AFAC7A90861C2539622035F53472CE0D2D889F9BD8F9D9E71B442525F28" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
+  <file path="HttpQuery.FastEndpoints.Application.IntegrationTests/Products/SearchProductsTests.cs" deviationsHash="F2F3549D2C9E832039D1A67DF858931C48094B3DA6FBF663BEF5FB49F0D569F4" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
   <file path="HttpQuery.FastEndpoints.Application.IntegrationTests/SharedContainerFixture.cs" templateId="Intent.AspNetCore.IntegrationTesting.SharedContainerFixture" />
   <file path="HttpQuery.FastEndpoints.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
   <file path="HttpQuery.FastEndpoints.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
@@ -59,17 +59,17 @@
   <file path="HttpQuery.FastEndpoints.Application/HttpQuery.FastEndpoints.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="HttpQuery.FastEndpoints.Application/Mappings/Products/ProductDtoProfile.cs" templateId="Intent.Application.Dtos.AutoMapper.DtoMappingProfile" />
   <file path="HttpQuery.FastEndpoints.Application/Products/CreateProduct/CreateProductCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
-  <file path="HttpQuery.FastEndpoints.Application/Products/CreateProduct/CreateProductCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
+  <file path="HttpQuery.FastEndpoints.Application/Products/CreateProduct/CreateProductCommandHandler.cs" deviationsHash="C3A86537B8470D782833FF0EB673FFAE6DA17AF31127A562CDC700D6D75331E0" templateId="Intent.Application.MediatR.CommandHandler" />
   <file path="HttpQuery.FastEndpoints.Application/Products/CreateProduct/CreateProductCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
   <file path="HttpQuery.FastEndpoints.Application/Products/GetProductById/GetProductByIdQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
-  <file path="HttpQuery.FastEndpoints.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="HttpQuery.FastEndpoints.Application/Products/GetProductById/GetProductByIdQueryHandler.cs" deviationsHash="B2C13AF179BEFEA516441B17E0F166FE607E60453DB6E3EBFCD478D97339C38D" templateId="Intent.Application.MediatR.QueryHandler" />
   <file path="HttpQuery.FastEndpoints.Application/Products/GetProductById/GetProductByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
   <file path="HttpQuery.FastEndpoints.Application/Products/ProductDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
   <file path="HttpQuery.FastEndpoints.Application/Products/SearchCategoryProducts/SearchCategoryProductsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
-  <file path="HttpQuery.FastEndpoints.Application/Products/SearchCategoryProducts/SearchCategoryProductsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="HttpQuery.FastEndpoints.Application/Products/SearchCategoryProducts/SearchCategoryProductsQueryHandler.cs" deviationsHash="96BB2BFAF96AD165AAE2E2E60EE236514C0D4B84787E1B5083CACED0A275C9DB" templateId="Intent.Application.MediatR.QueryHandler" />
   <file path="HttpQuery.FastEndpoints.Application/Products/SearchCategoryProducts/SearchCategoryProductsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
   <file path="HttpQuery.FastEndpoints.Application/Products/SearchProducts/SearchProductsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
-  <file path="HttpQuery.FastEndpoints.Application/Products/SearchProducts/SearchProductsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="HttpQuery.FastEndpoints.Application/Products/SearchProducts/SearchProductsQueryHandler.cs" deviationsHash="C2A0B582C1F7D35B5EFA60CF7FA4AAE965FF5FDDCA1CDB1E4FEB5BD9A41C2450" templateId="Intent.Application.MediatR.QueryHandler" />
   <file path="HttpQuery.FastEndpoints.Application/Products/SearchProducts/SearchProductsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
   <file path="HttpQuery.FastEndpoints.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
   <file path="HttpQuery.FastEndpoints.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />

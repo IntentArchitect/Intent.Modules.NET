@@ -47,10 +47,20 @@ namespace HttpQuery.FastEndpoints.Api
                     opt.Assemblies = [typeof(Program).Assembly];
                 });
                 builder.Services.ConfigureOpenApi();
+                builder.Services.ConfigureHttpQueryOpenApi();
 
                 var app = builder.Build();
 
+                // Spike only: create the SQLite schema so the running API can be exercised by hand.
+                // Off unless HTTPQUERY_ENSURE_DB=true, so the integration tests' WebApplicationFactory never runs it.
+                if (Environment.GetEnvironmentVariable("HTTPQUERY_ENSURE_DB") == "true")
+                {
+                    using var scope = app.Services.CreateScope();
+                    scope.ServiceProvider.GetRequiredService<HttpQuery.FastEndpoints.Infrastructure.Persistence.ApplicationDbContext>().Database.EnsureCreated();
+                }
+
                 // Configure the HTTP request pipeline.
+                app.UseHttpQueryOpenApi();
                 app.UseSerilogRequestLogging();
                 app.UseExceptionHandler();
                 app.UseHttpsRedirection();
@@ -71,9 +81,9 @@ namespace HttpQuery.FastEndpoints.Api
             }
             catch (HostAbortedException)
             {
-                // Excluding HostAbortedException from being logged, as this is an expected
-                // exception when working with EF Core migrations (as per the .NET team on the below link)
-                // https://github.com/dotnet/efcore/issues/29809#issuecomment-1344101370
+            // Excluding HostAbortedException from being logged, as this is an expected
+            // exception when working with EF Core migrations (as per the .NET team on the below link)
+            // https://github.com/dotnet/efcore/issues/29809#issuecomment-1344101370
             }
             catch (Exception ex)
             {

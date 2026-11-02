@@ -1,3 +1,5 @@
+using HttpQuery.FastEndpoints.Domain.Products;
+using HttpQuery.FastEndpoints.Domain.Repositories.Products;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -9,16 +11,28 @@ namespace HttpQuery.FastEndpoints.Application.Products.CreateProduct
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Guid>
     {
+        private readonly IProductRepository _productRepository;
+
         [IntentManaged(Mode.Merge)]
-        public CreateProductCommandHandler()
+        public CreateProductCommandHandler(IProductRepository productRepository)
         {
+            _productRepository = productRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-            // TODO: Implement Handle (CreateProductCommandHandler) functionality
-            throw new NotImplementedException("Your implementation here...");
+            var product = new Product
+            {
+                Name = request.Name,
+                Category = request.Category,
+                Price = request.Price
+            };
+
+            _productRepository.Add(product);
+            // The generated id is returned to the caller, so it must be committed before leaving the handler.
+            await _productRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return product.Id;
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Http.Metadata;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -51,7 +52,7 @@ namespace HttpQuery.Controllers.OpenApi.Api.Filters
                 }
 
                 item.Operations ??= new Dictionary<HttpMethod, OpenApiOperation>();
-                // OpenAPI 3.2's native "query" operation; OpenApi32DocumentEndpoint labels the document 3.2.0.
+                // OpenAPI 3.2's native "query" operation; UseHttpQueryOpenApi serves the document labelled 3.2.0.
                 item.Operations[HttpMethod.Query] = operation;
             }
         }
@@ -68,15 +69,25 @@ namespace HttpQuery.Controllers.OpenApi.Api.Filters
                 Responses = new OpenApiResponses()
             };
 
-            if (description.ActionDescriptor is ControllerActionDescriptor controller)
+            // Endpoint metadata covers minimal APIs and FastEndpoints; controllers fall back to the controller name.
+            var metadata = description.ActionDescriptor.EndpointMetadata;
+            var tags = metadata.OfType<ITagsMetadata>().SelectMany(t => t.Tags).Distinct().ToList();
+            if (tags.Count == 0 && description.ActionDescriptor is ControllerActionDescriptor controller)
+            {
+                tags.Add(controller.ControllerName);
+            }
+            if (tags.Count > 0)
             {
                 document.Tags ??= new HashSet<OpenApiTag>();
-                if (document.Tags.All(t => t.Name != controller.ControllerName))
+                foreach (var tag in tags.Where(tag => document.Tags.All(t => t.Name != tag)))
                 {
-                    document.Tags.Add(new OpenApiTag { Name = controller.ControllerName });
+                    document.Tags.Add(new OpenApiTag { Name = tag });
                 }
-                operation.Tags = new HashSet<OpenApiTagReference> { new(controller.ControllerName, document) };
+                operation.Tags = new HashSet<OpenApiTagReference>(tags.Select(tag => new OpenApiTagReference(tag, document)));
             }
+            operation.Summary = metadata.OfType<IEndpointSummaryMetadata>().LastOrDefault()?.Summary;
+            operation.Description = metadata.OfType<IEndpointDescriptionMetadata>().LastOrDefault()?.Description;
+            operation.OperationId = metadata.OfType<IEndpointNameMetadata>().LastOrDefault()?.EndpointName;
 
             foreach (var parameter in description.ParameterDescriptions)
             {
@@ -100,6 +111,23 @@ namespace HttpQuery.Controllers.OpenApi.Api.Filters
                         Required = parameter.IsRequired,
                         Content = mediaTypes.Distinct().ToDictionary(m => m, _ => new OpenApiMediaType { Schema = schema })
                     };
+                }
+            }
+
+            // Endpoints that are not controllers (FastEndpoints) describe no route parameters, so declare any the route template
+            // has, as OpenAPI requires every templated path segment to have a parameter.
+            foreach (Match match in RouteParameterConstraint().Matches(description.RelativePath ?? string.Empty))
+            {
+                var name = match.Groups[1].Value;
+                if (operation.Parameters.All(p => p.In != ParameterLocation.Path || !string.Equals(p.Name, name, StringComparison.OrdinalIgnoreCase)))
+                {
+                    operation.Parameters.Add(new OpenApiParameter
+                    {
+                        Name = name,
+                        In = ParameterLocation.Path,
+                        Required = true,
+                        Schema = new OpenApiSchema { Type = JsonSchemaType.String }
+                    });
                 }
             }
 

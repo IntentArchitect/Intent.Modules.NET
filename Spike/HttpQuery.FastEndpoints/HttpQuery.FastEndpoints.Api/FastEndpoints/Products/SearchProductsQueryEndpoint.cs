@@ -20,9 +20,11 @@ namespace HttpQuery.FastEndpoints.Api.FastEndpoints.Products
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
+        [IntentManaged(Mode.Ignore)]
         public override void Configure()
         {
-            Post("api/products/search");
+            // FastEndpoints 8.2 helper for the HTTP QUERY method; the request DTO binds from the body as for POST.
+            Query("api/products/search");
             Description(b =>
             {
                 b.WithTags("Products");

@@ -1,4 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.FastEndpoints.EndpointTemplate#109b8a4d-6dc5-4144-949f-20bbae495fab</correlationId>
+      <path>HttpQuery.FastEndpoints.Api/FastEndpoints/Products/SearchCategoryProductsQueryEndpoint.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:50:50.5187582Z</updatedAt>
+      <deviationsHash>CBF984EA116362FFD74B9C16B93183272E50A8F59D7AB15AD838F6F39EDA1908</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.FastEndpoints.EndpointTemplate#f5a33ba0-f288-421f-b543-d7223e72f7ca</correlationId>
+      <path>HttpQuery.FastEndpoints.Api/FastEndpoints/Products/SearchProductsQueryEndpoint.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:50:50.5187646Z</updatedAt>
+      <deviationsHash>6057AF531DB8C6E44BB221A56296D7CD892AA629583B7F03343C0C0471D53CCC</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.Program#1484c4fb-770b-4889-8c3c-0f72e93bd6b2</correlationId>
+      <path>HttpQuery.FastEndpoints.Api/Program.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:50:50.5186484Z</updatedAt>
+      <deviationsHash>6897638EE3143C3FB4C16ECA39D9918BFA25EC986BBB824B84BC867F4AB326BA</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#109b8a4d-6dc5-4144-949f-20bbae495fab</correlationId>
+      <path>HttpQuery.FastEndpoints.Application.IntegrationTests/Products/SearchCategoryProductsTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:50:50.5188706Z</updatedAt>
+      <deviationsHash>2F311AFAC7A90861C2539622035F53472CE0D2D889F9BD8F9D9E71B442525F28</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#f5a33ba0-f288-421f-b543-d7223e72f7ca</correlationId>
+      <path>HttpQuery.FastEndpoints.Application.IntegrationTests/Products/SearchProductsTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:50:50.5188762Z</updatedAt>
+      <deviationsHash>F2F3549D2C9E832039D1A67DF858931C48094B3DA6FBF663BEF5FB49F0D569F4</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#b9d1e5ab-b636-4af2-909e-6b8276ec53a1</correlationId>
+      <path>HttpQuery.FastEndpoints.Application/Products/CreateProduct/CreateProductCommandHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:50:50.518785Z</updatedAt>
+      <deviationsHash>C3A86537B8470D782833FF0EB673FFAE6DA17AF31127A562CDC700D6D75331E0</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#71164037-e949-4bc2-8fc0-10662e1f6b78</correlationId>
+      <path>HttpQuery.FastEndpoints.Application/Products/GetProductById/GetProductByIdQueryHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:50:50.5188027Z</updatedAt>
+      <deviationsHash>B2C13AF179BEFEA516441B17E0F166FE607E60453DB6E3EBFCD478D97339C38D</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#109b8a4d-6dc5-4144-949f-20bbae495fab</correlationId>
+      <path>HttpQuery.FastEndpoints.Application/Products/SearchCategoryProducts/SearchCategoryProductsQueryHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:50:50.5188083Z</updatedAt>
+      <deviationsHash>96BB2BFAF96AD165AAE2E2E60EE236514C0D4B84787E1B5083CACED0A275C9DB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#f5a33ba0-f288-421f-b543-d7223e72f7ca</correlationId>
+      <path>HttpQuery.FastEndpoints.Application/Products/SearchProducts/SearchProductsQueryHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-02T11:50:50.5188138Z</updatedAt>
+      <deviationsHash>C2A0B582C1F7D35B5EFA60CF7FA4AAE965FF5FDDCA1CDB1E4FEB5BD9A41C2450</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

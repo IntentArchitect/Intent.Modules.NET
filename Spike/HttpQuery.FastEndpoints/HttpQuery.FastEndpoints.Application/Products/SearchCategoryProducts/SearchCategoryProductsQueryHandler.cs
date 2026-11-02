@@ -1,3 +1,4 @@
+using HttpQuery.FastEndpoints.Domain.Repositories.Products;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -9,9 +10,12 @@ namespace HttpQuery.FastEndpoints.Application.Products.SearchCategoryProducts
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class SearchCategoryProductsQueryHandler : IRequestHandler<SearchCategoryProductsQuery, List<ProductDto>>
     {
+        private readonly IProductRepository _productRepository;
+
         [IntentManaged(Mode.Merge)]
-        public SearchCategoryProductsQueryHandler()
+        public SearchCategoryProductsQueryHandler(IProductRepository productRepository)
         {
+            _productRepository = productRepository;
         }
 
         /// <summary>
@@ -22,8 +26,12 @@ namespace HttpQuery.FastEndpoints.Application.Products.SearchCategoryProducts
             SearchCategoryProductsQuery request,
             CancellationToken cancellationToken)
         {
-            // TODO: Implement Handle (SearchCategoryProductsQueryHandler) functionality
-            throw new NotImplementedException("Your implementation here...");
+            return await _productRepository.FindAllProjectToAsync<ProductDto>(
+                p => p.Category == request.Category
+                && (request.NameContains == null || p.Name.Contains(request.NameContains))
+                && (request.MaxPrice == null || p.Price <= request.MaxPrice),
+                q => q.OrderBy(p => p.Name),
+                cancellationToken);
         }
     }
 }
