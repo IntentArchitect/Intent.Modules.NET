@@ -3,6 +3,7 @@ using Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentAttribute;
 using Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.AspNetCore.Controllers.Templates.ExceptionFilter;
+using Intent.Modules.AspNetCore.Controllers.Templates.HttpQueryAttribute;
 using Intent.Modules.AspNetCore.Controllers.Templates.JsonResponse;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -36,6 +37,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
         public static string GetExceptionFilterName(this IIntentTemplate template)
         {
             return template.GetTypeName(ExceptionFilterTemplate.TemplateId);
+        }
+
+        public static string GetHttpQueryAttributeName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(HttpQueryAttributeTemplate.TemplateId);
         }
 
         [IntentManaged(Mode.Ignore)]

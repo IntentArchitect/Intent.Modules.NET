@@ -138,6 +138,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                         });
                     }
                 })
+                .OnBuild(file =>
+                {
+                    if (Model.Operations.Any(operation => operation.Verb == HttpVerb.Query))
+                    {
+                        // [HttpQuery] is emitted by name, resolving the attribute template adds its using
+                        this.GetHttpQueryAttributeName();
+                    }
+                })
                 .AfterBuild(WorkaroundForGetTypeNameIssue, 1000);
         }
 
@@ -250,6 +258,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
+                case HttpVerb.Query:
                     lines.Add($"/// <response code=\"{_responseMapper.GetResponseCode(operation.InternalElement, "200")}\">Returns the specified {returnType.Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
                     break;
                 case HttpVerb.Post:
@@ -331,6 +340,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
+                case HttpVerb.Query:
                     attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}{_responseMapper.GetResponseStatusCodeEnum(operation.InternalElement, "StatusCodes.Status200OK")})]"));
                     break;
                 case HttpVerb.Post:
