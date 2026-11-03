@@ -29,6 +29,9 @@ namespace Intent.Modules.Application.Mediator.Templates.QueryModels
         public QueryModelsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.MediatorAbstractions(outputTarget));
+
+            FulfillsRole("Application.Contract.Query");
+
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource("Domain.Enum");
             AddTypeSource("Application.Contract.Dto");

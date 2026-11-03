@@ -1,3 +1,7 @@
+### Version 1.0.17
+
+- Fixed: Scheduled Jobs that publish a command failed to generate when `Intent.Application.Mediator` is installed. The job now sends the command with Mediator's `ISender`.
+
 ### Version 1.0.16
 
 - Improvement: Upgraded to properly leverage the newer `EmitOrPublish` API so as to be able support advanced Codebase Structure scenarios.

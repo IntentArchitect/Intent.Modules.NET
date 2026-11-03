@@ -15,7 +15,7 @@
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Templates/QuartzConfiguration/QuartzConfigurationTemplatePartial.cs" deviationsHash="0A2F23BBC0671E39D27731BE8D44FD8F5E0DC4DCE77F7BE2B1A00D76C8FA059B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/QuartzConfiguration/QuartzConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/ScheduledJob/ScheduledJobTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ScheduledJob/ScheduledJobTemplatePartial.cs" deviationsHash="36E5F488B7914828F5726AAF1E969601AD01E44E406B467691C232BCA091ED42" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ScheduledJob/ScheduledJobTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
   <file path="modelers/Quartz Scheduler Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />

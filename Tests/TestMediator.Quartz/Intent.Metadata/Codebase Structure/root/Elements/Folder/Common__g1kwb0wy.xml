@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="32d34dcb-10f3-438f-bd2a-f524542d62d4" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Common</name>
+  <display>Common</display>
+  <parentFolderId>bb6db982-99fa-43af-9b95-847f26ab15d8</parentFolderId>
+  <packageId>4f638396-cc2e-45b5-b5ae-29c032eeb91f</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="bac5aab5-c027-4453-aee1-2b0d39f44cdc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.CollectionExtensions</name>
+      <display>Intent.Entities.CollectionExtensions</display>
+      <externalReference>Intent.Entities</externalReference>
+      <parentFolderId>32d34dcb-10f3-438f-bd2a-f524542d62d4</parentFolderId>
+      <packageId>4f638396-cc2e-45b5-b5ae-29c032eeb91f</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="eeb74058-6cad-48dd-b668-fffd8150a714" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.CollectionWrapper</name>
+      <display>Intent.Entities.CollectionWrapper</display>
+      <externalReference>Intent.Entities</externalReference>
+      <parentFolderId>32d34dcb-10f3-438f-bd2a-f524542d62d4</parentFolderId>
+      <packageId>4f638396-cc2e-45b5-b5ae-29c032eeb91f</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="a3a6f74e-7c70-48c8-825b-8c4c29e9a947" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.UpdateHelper</name>
+      <display>Intent.Entities.UpdateHelper</display>
+      <externalReference>Intent.Entities</externalReference>
+      <parentFolderId>32d34dcb-10f3-438f-bd2a-f524542d62d4</parentFolderId>
+      <packageId>4f638396-cc2e-45b5-b5ae-29c032eeb91f</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Medium - Business Logic] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;8e1b08c0-7626-4526-b2bb-341d4b5e4af9&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="4166b2e9-1012-471f-83b8-d8e368ce11e0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ValueObjects.ValueObjectBase</name>
+      <display>Intent.ValueObjects.ValueObjectBase</display>
+      <externalReference>Intent.ValueObjects</externalReference>
+      <parentFolderId>32d34dcb-10f3-438f-bd2a-f524542d62d4</parentFolderId>
+      <packageId>4f638396-cc2e-45b5-b5ae-29c032eeb91f</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

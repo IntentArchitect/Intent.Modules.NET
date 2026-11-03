@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.2.23" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.3.0" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" solutionFolder="ASP.NET Core" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" solutionFolder="Azure Functions" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -245,5 +245,6 @@
     <application id="5673a202-49eb-4ece-bd12-b4978161e029" name="TestMediator.Nsb" solutionFolder="Mediator" relativePath="TestMediator.Nsb/TestMediator.Nsb.application.config" />
     <application id="ee7c7265-7de1-4ce5-a279-f70f0642ab41" name="TestMediator.NoEventing" solutionFolder="Mediator" relativePath="TestMediator.NoEventing/TestMediator.NoEventing.application.config" />
     <application id="73e5d8aa-fba0-4efe-8945-609a652e0a2c" name="TestMediator.Consolidated" solutionFolder="Mediator" relativePath="TestMediator.Consolidated/TestMediator.Consolidated.application.config" />
+    <application id="834e87e5-ed8e-4686-b1b0-1206369152a9" name="TestMediator.Quartz" relativePath="TestMediator.Quartz/TestMediator.Quartz.application.config" />
   </applications>
 </solution>

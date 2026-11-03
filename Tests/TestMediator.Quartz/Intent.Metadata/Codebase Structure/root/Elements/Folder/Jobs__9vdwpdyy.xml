@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="78458d8e-7af9-4ec7-aed4-093cda3b7ab4" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Jobs</name>
+  <display>Jobs</display>
+  <parentFolderId>f10e2f76-c629-485d-a23b-b5719bae85cc</parentFolderId>
+  <packageId>4f638396-cc2e-45b5-b5ae-29c032eeb91f</packageId>
+  <packageName>root</packageName>
+  <children>
+    <element id="ce2ef711-6ac9-45fe-bcff-27fdd1044c33" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.QuartzScheduler.ScheduledJob</name>
+      <display>Intent.QuartzScheduler.ScheduledJob</display>
+      <externalReference>Intent.QuartzScheduler</externalReference>
+      <parentFolderId>78458d8e-7af9-4ec7-aed4-093cda3b7ab4</parentFolderId>
+      <packageId>4f638396-cc2e-45b5-b5ae-29c032eeb91f</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

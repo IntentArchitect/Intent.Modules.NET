@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a8e0c223-dcb9-4eac-aa25-e80868030aad" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Maintenance</name>
+  <display>Maintenance</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>772387d4-91eb-4de8-b8b0-ebccfe5b378a</parentFolderId>
+  <packageId>772387d4-91eb-4de8-b8b0-ebccfe5b378a</packageId>
+  <packageName>TestMediator.Quartz.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</class>

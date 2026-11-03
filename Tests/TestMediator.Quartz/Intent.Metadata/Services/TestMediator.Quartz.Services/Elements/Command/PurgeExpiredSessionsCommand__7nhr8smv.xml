@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6429db6e-9735-473d-a4cf-f345025888cb" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>PurgeExpiredSessionsCommand</name>
+  <display>PurgeExpiredSessionsCommand: void</display>
+  <typeReference id="2fd50aac-40eb-4d1f-8a58-c500a197196b" />
+  <parentFolderId>a8e0c223-dcb9-4eac-aa25-e80868030aad</parentFolderId>
+  <packageId>772387d4-91eb-4de8-b8b0-ebccfe5b378a</packageId>
+  <packageName>TestMediator.Quartz.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+</class>
