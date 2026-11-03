@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Swashbuckle.Settings;
 using Intent.Modules.Common;
@@ -225,6 +226,80 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
         {
             CreateRequireNonNullablePropertiesSchemaFilter(CSharpFile);
         }
+
+        if (HttpQueryHelper.NeedsHttpQueryOpenApi(OutputTarget))
+        {
+            CSharpFile.OnBuild(AddHttpQueryOpenApi);
+        }
+    }
+
+    private void AddHttpQueryOpenApi(CSharpFile file)
+    {
+        var @class = file.Classes.First();
+        var addSwaggerGen = @class.FindMethod("ConfigureSwagger")?.FindStatement(s => s.HasMetadata("AddSwaggerGen")) as CSharpInvocationStatement;
+        if (addSwaggerGen?.Statements.FirstOrDefault() is not CSharpLambdaBlock swaggerGenOptions)
+        {
+            throw new InvalidOperationException("Could not find the AddSwaggerGen options lambda to register the HTTP QUERY OpenAPI support in.");
+        }
+
+        var documentFilterName = this.GetHttpQueryDocumentFilterName();
+        var documentSerializerName = this.GetOpenApi32DocumentSerializerName();
+
+        swaggerGenOptions.AddStatement($"options.DocInclusionPredicate({documentFilterName}.ExcludeFromMainPass);");
+        swaggerGenOptions.AddStatement($"options.DocumentFilter<{documentFilterName}>();");
+
+        addSwaggerGen.InsertBelow($$"""
+            services.Configure<SwaggerOptions>(options =>
+            {
+                options.CustomDocumentSerializer = new {{documentSerializerName}}();
+            });
+            """);
+        addSwaggerGen.InsertBelow("""
+            services.Configure<SwaggerUIOptions>(options =>
+            {
+                options.IndexStream = () => new MemoryStream(Encoding.UTF8.GetBytes(SwaggerUiIndex));
+            });
+            """);
+
+        file.AddUsing("System.Text");
+        file.AddUsing("Swashbuckle.AspNetCore.Swagger");
+
+        // Swagger UI shows QUERY operations from 5.34.0; Swashbuckle 10.3.1 still bundles 5.33.3.
+        @class.AddField("string", "SwaggerUiVersion", field => field.PrivateConstant("\"5.34.1\""));
+        @class.AddField("string", "SwaggerUiIndex", field =>
+        {
+            field.Private().Static().ReadOnly();
+            field.WithComments("// Swashbuckle's own index page, with the Swagger UI assets taken from swagger-ui-dist instead of the bundled copy.");
+            field.WithAssignment(""""
+                $$"""
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>%(DocumentTitle)</title>
+                    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@{{SwaggerUiVersion}}/swagger-ui.css">
+                    %(HeadContent)
+                </head>
+                <body>
+                    <div id="swagger-ui"></div>
+                    <script src="https://unpkg.com/swagger-ui-dist@{{SwaggerUiVersion}}/swagger-ui-bundle.js"></script>
+                    <script src="https://unpkg.com/swagger-ui-dist@{{SwaggerUiVersion}}/swagger-ui-standalone-preset.js"></script>
+                    <script>
+                        window.onload = function () {
+                            var configObject = JSON.parse('%(ConfigObject)');
+                            // Swashbuckle's SubmitMethod enum has no QUERY, so "Try it out" would be hidden for QUERY operations.
+                            configObject.supportedSubmitMethods = (configObject.supportedSubmitMethods || []).concat(["query"]);
+                            configObject.dom_id = "#swagger-ui";
+                            configObject.presets = [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset];
+                            configObject.layout = "StandaloneLayout";
+                            window.ui = SwaggerUIBundle(configObject);
+                        };
+                    </script>
+                </body>
+                </html>
+                """
+                """");
+        });
     }
 
     private void CreateRequireNonNullablePropertiesSchemaFilter(CSharpFile cSharpFile)

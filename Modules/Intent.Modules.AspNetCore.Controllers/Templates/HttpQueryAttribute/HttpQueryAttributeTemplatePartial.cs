@@ -39,7 +39,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.HttpQueryAttribute
                     @class.AddField("IEnumerable<string>", "SupportedMethods", field =>
                     {
                         field.Private().Static().ReadOnly();
-                        field.WithAssignment("[Microsoft.AspNetCore.Http.HttpMethods.Query]");
+                        // HttpMethods.Query exists from .NET 10, older targets use the method name
+                        field.WithAssignment(OutputTarget.GetMaxNetAppVersion().Major < 10
+                            ? "[\"QUERY\"]"
+                            : "[Microsoft.AspNetCore.Http.HttpMethods.Query]");
                     });
                     @class.AddConstructor(ctor =>
                     {
