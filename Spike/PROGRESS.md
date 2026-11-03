@@ -34,4 +34,4 @@
 
 ### Blocked
 
-- Nothing.
+- Step 9: the spike solution cannot find the locally built NET modules. `Intent.Metadata.WebApi` 4.8.0-pre.0 installed from the global local feed (`C:\Dev\.intent-modules`), but `Intent.AspNetCore.Controllers` 7.2.0-pre.0 fails with "An error occurred trying to get details of the module". The `.imod` files are in `Modules/Intent.Modules/` (worktree), listed only by `Modules/intent.repositories.config`, not by the spike solution. Needs an asset-repository entry for that folder (the user's call); then restart Intent Architect if it still does not show.
