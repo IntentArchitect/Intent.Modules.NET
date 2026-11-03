@@ -171,6 +171,12 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
 - **Intent.Eventing.MassTransit / NServiceBus / Wolverine** — under a transactional outbox they remove the
   `eventbus-flush` item by id (`Intent.Application.Mediator.MediatorConfiguration`); no project reference.
   MassTransit's consumer and Wolverine's integration-event middleware claim `MessageBusFlushOwner`.
+- **Intent.QuartzScheduler** — CommandModels and QueryModels fill `Application.Contract.Command` / `Application.Contract.Query`,
+  as MediatR's do (added in `1.0.1-pre.0`, 2026-11-03, after a client report that a job linked to a command could not
+  generate). The Scheduled Job template resolves the command's template in `OnBuild` and emits `Mediator.ISender` when
+  its id is `Intent.Application.Mediator.CommandModels`; no project reference. Hangfire looks up the same role but still
+  emits `MediatR.ISender`, so it now generates and fails to compile instead of failing at generation. JsonPatch's
+  `TryGetTypeName` on the role now resolves the Mediator command type.
 - **Satellites** (DomainEvents, FluentValidation) reference this project with `PrivateAssets=All`; the dispatch
   modules use string ids. The ids other modules depend on are listed in the plan under "Template ids other modules
   depend on"; renaming or moving any of those elements in the Module Builder breaks them silently.
@@ -183,7 +189,8 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   so a mixed pair silently loses validation (found 2026-10-20, when they were all still at `pre.0`). A satellite's
   pin on the core is a minimum, so it moves only when a contract the satellite uses changes: core `pre.2` (the
   publisher move) changes none, so the satellites still declare `pre.1`. Seam modules are pinned to the pre-release that carries the seam (EF Core
-  5.2.1-pre.0, MassTransit 7.2.4-pre.0, NServiceBus 1.0.4-pre.0, Eventing.Wolverine 1.0.1-pre.0). These must match
+  5.2.1-pre.0, MassTransit 7.2.4-pre.0, NServiceBus 1.0.4-pre.0, Eventing.Wolverine 1.0.1-pre.0, QuartzScheduler
+  1.0.17-pre.0). These must match
   those modules' versions in their own packages; they were bumped for the seams. EF Core Repositories 4.8.2,
   AutoMapper 5.3.10 and Mapperly 1.1.4 are minimum-compatible pins copied from Wolverine's imodspec.
   These pins are recorded here and in the imodspec only; the README names the modules without versions
@@ -216,8 +223,7 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   - *AI-written bodies overwritten:* `Intent.Application.CQRS.CRUD` finds handlers by role, sets `Body = Fully` on what
     it fills, and fills query handlers that have no interactions.
   - *Application does not compile:* `Intent.Eventing.MassTransit.RequestResponse` (emits a `MediatR.ISender` consumer),
-    Hangfire and Quartz (emit `using MediatR` and `ISender`; may fail at generation instead), gRPC CQRS service, Dapr
-    PubSub.
+    Hangfire (emits `using MediatR` and `ISender`), gRPC CQRS service, Dapr PubSub.
   - *Silently missing or wrong:* `Intent.Entities.Constants` (skips the Mediator validators), OData query and
     Pagination defaults, Blazor `ScopedMediator`, Modular Monolith, and Azure Functions / AWS Lambda / GraphQL dispatch
     (no Mediator dispatch module exists for them).
