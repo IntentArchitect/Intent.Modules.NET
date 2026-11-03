@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Scalar.Templates;
 using Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
@@ -66,6 +67,15 @@ namespace Intent.Modules.AspNetCore.Scalar.FactoryExtensions
                 template.AddUsing("Scalar.AspNetCore");
 
                 startup.AddServiceConfiguration(ctx => $"{ctx.Services}.ConfigureOpenApi();");
+
+                if (HttpQueryHelper.NeedsHttpQueryOpenApi(template.OutputTarget))
+                {
+                    // Answers /openapi/{documentName}.json as OpenAPI 3.2 ahead of MapOpenApi
+                    startup.ConfigureApp((statements, context) =>
+                    {
+                        statements.AddStatement($"{context.App}.UseHttpQueryOpenApi();");
+                    });
+                }
 
                 startup.ConfigureEndpoints((statements, context) =>
                 {

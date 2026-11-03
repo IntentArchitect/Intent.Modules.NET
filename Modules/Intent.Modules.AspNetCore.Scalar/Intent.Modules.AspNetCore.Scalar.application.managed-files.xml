@@ -11,6 +11,8 @@
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
   <file path="Templates/HideRouteParametersFromBodyOperationTransformer/HideRouteParametersFromBodyOperationTransformerTemplatePartial.cs" deviationsHash="2247C10A2C29349AABA6D12DC9E35115F462752442C5A96839B03B70B1235DA6" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/HideRouteParametersFromBodyOperationTransformer/HideRouteParametersFromBodyOperationTransformerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/HttpQueryDocumentTransformer/HttpQueryDocumentTransformerTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HttpQueryDocumentTransformer/HttpQueryDocumentTransformerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/OpenApiConfiguration/OpenApiConfigurationTemplatePartial.cs" deviationsHash="1902E8D249E7C4A6417DE13B972D7C23AE75BD08A6EB1D8AC86B493B7660DD05" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/OpenApiConfiguration/OpenApiConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />

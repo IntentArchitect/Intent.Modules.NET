@@ -348,6 +348,76 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration
                         });
                     }
                 });
+
+            if (HttpQueryHelper.NeedsHttpQueryOpenApi(OutputTarget))
+            {
+                CSharpFile.OnBuild(AddHttpQueryOpenApi);
+            }
+        }
+
+        private void AddHttpQueryOpenApi(CSharpFile file)
+        {
+            var @class = file.Classes.First();
+            var addOpenApi = @class.FindMethod("ConfigureOpenApi")?.FindStatement(s => s.ToString().Contains("services.AddOpenApi")) as CSharpInvocationStatement;
+            if (addOpenApi?.Statements.FirstOrDefault() is not CSharpLambdaBlock openApiOptions)
+            {
+                throw new InvalidOperationException("Could not find the AddOpenApi options lambda to register the HTTP QUERY OpenAPI support in.");
+            }
+
+            openApiOptions.AddStatement($"options.AddDocumentTransformer<{this.GetHttpQueryDocumentTransformerName()}>();", s => s.SeparatedFromPrevious());
+
+            file.AddUsing("System.IO");
+            file.AddUsing("System.Text.Json.Nodes");
+            file.AddUsing("System.Text.RegularExpressions");
+            file.AddUsing("Microsoft.AspNetCore.Builder");
+            file.AddUsing("Microsoft.AspNetCore.Http");
+            file.AddUsing("Microsoft.AspNetCore.OpenApi");
+            file.AddUsing("Microsoft.OpenApi");
+
+            @class.AddField("string", "OpenApiVersion", field => field.PrivateConstant("\"3.2.0\""));
+            @class.AddField("Regex", "OpenApiDocumentPath", field =>
+            {
+                field.PrivateReadOnly().Static();
+                field.WithAssignment("""new(@"^/openapi/([^/]+)\.json$")""");
+            });
+
+            @class.AddMethod("IApplicationBuilder", "UseHttpQueryOpenApi", method =>
+            {
+                method.Static();
+                method.WithComments(
+                [
+                    "/// <summary>",
+                    "/// Serves /openapi/{documentName}.json as OpenAPI 3.2. ASP.NET Core 10 writes at most 3.1 and has no serializer hook,",
+                    "/// so this writes the same document as 3.1 (3.2 only adds to it) and labels it 3.2.0, the first version with a native",
+                    "/// \"query\" operation. Registered ahead of MapOpenApi, which it answers for. Drop it once ASP.NET Core writes 3.2 itself.",
+                    "/// </summary>"
+                ]);
+                method.AddParameter("IApplicationBuilder", "app", param => param.WithThisModifier());
+                method.AddStatement("""
+                    app.Use(async (context, next) =>
+                    {
+                        var match = OpenApiDocumentPath.Match(context.Request.Path.Value ?? string.Empty);
+                        var provider = match.Success && HttpMethods.IsGet(context.Request.Method)
+                            ? context.RequestServices.GetKeyedService<IOpenApiDocumentProvider>(match.Groups[1].Value)
+                            : null;
+                        if (provider is null)
+                        {
+                            await next(context);
+                            return;
+                        }
+
+                        var document = await provider.GetOpenApiDocumentAsync(context.RequestAborted);
+                        using var buffer = new StringWriter();
+                        document.SerializeAsV31(new OpenApiJsonWriter(buffer));
+                        var json = JsonNode.Parse(buffer.ToString())!.AsObject();
+                        json["openapi"] = OpenApiVersion;
+
+                        context.Response.ContentType = "application/json;charset=utf-8";
+                        await context.Response.WriteAsync(json.ToJsonString(), context.RequestAborted);
+                    });
+                    """);
+                method.AddReturn("app");
+            });
         }
 
         public override void BeforeTemplateExecution()
