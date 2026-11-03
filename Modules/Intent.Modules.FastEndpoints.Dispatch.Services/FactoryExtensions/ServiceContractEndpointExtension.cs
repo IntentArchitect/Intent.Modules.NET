@@ -132,7 +132,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
             {
                 var @class = file.Classes.First();
                 var method = @class.FindMethod(s => s.HasMetadata("handle"))!;
-                if (endpointTemplate.Model.Verb == HttpVerb.Get)
+                if (endpointTemplate.Model.Verb is HttpVerb.Get or HttpVerb.Query)
                 {
                     return;
                 }
@@ -176,7 +176,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
 
             endpointTemplate.CSharpFile.AfterBuild(file =>
             {
-                if (endpointTemplate.Model.Verb == HttpVerb.Get)
+                if (endpointTemplate.Model.Verb is HttpVerb.Get or HttpVerb.Query)
                 {
                     return;
                 }
