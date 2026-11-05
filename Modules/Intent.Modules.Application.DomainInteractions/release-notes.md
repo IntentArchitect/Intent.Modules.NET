@@ -1,3 +1,7 @@
+### Version 1.3.0
+
+- Improvement: The CRUD accelerators moved here from `Intent.Modelers.Services.DomainInteractions` 2.5.0: `Create CRUD CQRS Operations` and `Create CRUD Traditional Service` (basic and advanced) on the Services package, folders and diagrams, the Domain-designer CRUD suggestions, and the `Create CQRS Operation` / `Create Service Operation` suggestions on a Repository. They behave as before. This module now depends on `Intent.Modelers.Services.DomainInteractions` 2.5.0, and requires Intent Architect 4.6.0 or later.
+
 ### Version 1.2.10
 
 - New Feature: Added `ObjectMappingMappingStrategy`, a fourth `IMappingStrategy` alongside the AutoMapper and Mapperly ones. It matches when `Intent.Application.Dtos.ObjectMapping` is installed and generates query handler Call Sites that call that module's generated extension methods directly — `order.MapToOrderDto()` for a single entity, `orders.MapToOrderDtoList()` for a collection, `order?.MapToOrderDto()` when the Query Entity Action end is nullable, and `orders.MapToPagedResult(x => x.MapToOrderDto())` for an offset-paged query. No `IMapper` is injected into any handler.

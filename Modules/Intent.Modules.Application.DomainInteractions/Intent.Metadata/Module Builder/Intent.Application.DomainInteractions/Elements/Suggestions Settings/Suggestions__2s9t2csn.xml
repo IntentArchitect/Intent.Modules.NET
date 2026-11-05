@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7db34928-636d-4834-a7fa-804bcc29a86d" type="Suggestions Settings" typeId="f68b5446-19f2-402d-a940-f62b3a592906">
+  <name>Suggestions</name>
+  <display>Suggestions</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>137b6fce-1045-47a5-a72b-6bb748c8941f</parentFolderId>
+  <packageId>0e923f47-102b-4bd6-80c5-eb38e6d5cf82</packageId>
+  <packageName>Intent.Application.DomainInteractions</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="40421179-6af9-49bf-91e8-e18f8fb3c5ae" type="Suggestion" typeId="0c21ab10-e87b-4e88-ab44-38ea7adf514a">
+      <name>Create CQRS request in Services designer</name>
+      <display>Create CQRS request in Services designer: Operation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e2832d7d-aafc-4357-8713-00b51c1a4688">
+        <typeId>e042bb67-a1df-480c-9935-b26210f78591</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>7db34928-636d-4834-a7fa-804bcc29a86d</parentFolderId>
+      <packageId>0e923f47-102b-4bd6-80c5-eb38e6d5cf82</packageId>
+      <packageName>Intent.Application.DomainInteractions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="daf7d9b3-9c10-4286-b30e-7edb2e62f10e" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="bd242929-b399-4d13-88c0-d046b7161d41" display="Locations" value="[&quot;Diagram&quot;,&quot;Model&quot;]" isActive="true" />
+            <property name="8d51eb08-f4a9-4703-ba70-de87c9417d46" display="Filter Function" value="const repositorySpecializationId = &quot;96ffceb2-a70a-4b69-869b-0df436c470c3&quot;;&#xD;&#xA;&#xD;&#xA;return element.getParent().specializationId == repositorySpecializationId &amp;&amp;&#xD;&#xA;       application.isModuleInstalled(&quot;Intent.Modelers.Services.CQRS&quot;);" isActive="true" />
+            <property name="ecb7abbb-0297-486e-bd99-cded3226d2a4" display="Display Function" isActive="true" />
+            <property name="bbf03fa4-5beb-4d27-a24f-9858af08d97f" display="Icon" isActive="true" />
+            <property name="bfd10a66-2f93-4ffd-bf35-633ff96e7e6c" display="Script" value="if (!await promptIfUnsavedChangesAsync()) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;navigateToDesigner(&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;, {&#xD;&#xA;    executeScript: `await RepositoryOperationApi.createCQRSService(lookup(&quot;${element.id}&quot;), null);`,&#xD;&#xA;    scriptDependencies: [&quot;e46d700b-6d81-46de-8f18-daeab8de89e7&quot;]&#xD;&#xA;});" isActive="true" />
+            <property name="1d9dd994-46c3-4fdc-a24b-c69f689ca283" display="Dependencies" isActive="true" />
+            <property name="eb1aad5a-4eb8-46aa-84a0-9e4fec251d84" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="862f31f1-143b-4c43-a038-c7c0149c28e0" type="Suggestion" typeId="0c21ab10-e87b-4e88-ab44-38ea7adf514a">
+      <name>Create CRUD CQRS Services in Services designer</name>
+      <display>Create CRUD CQRS Services in Services designer: Class</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="be4a00c6-5bc6-474c-aee1-bf46a74cf6d4">
+        <typeId>04e12b51-ed12-42a3-9667-a6aa81bb6d10</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Domain</typePackageName>
+        <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>7db34928-636d-4834-a7fa-804bcc29a86d</parentFolderId>
+      <packageId>0e923f47-102b-4bd6-80c5-eb38e6d5cf82</packageId>
+      <packageName>Intent.Application.DomainInteractions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="daf7d9b3-9c10-4286-b30e-7edb2e62f10e" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="bd242929-b399-4d13-88c0-d046b7161d41" display="Locations" value="[&quot;Diagram&quot;,&quot;Model&quot;]" isActive="true" />
+            <property name="8d51eb08-f4a9-4703-ba70-de87c9417d46" display="Filter Function" value="return application.isModuleInstalled(&quot;Intent.Modelers.Services.CQRS&quot;);" isActive="true" />
+            <property name="ecb7abbb-0297-486e-bd99-cded3226d2a4" display="Display Function" value="" isActive="true" />
+            <property name="bbf03fa4-5beb-4d27-a24f-9858af08d97f" display="Icon" isActive="true" />
+            <property name="bfd10a66-2f93-4ffd-bf35-633ff96e7e6c" display="Script" value="if (!await promptIfUnsavedChangesAsync()) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;await navigateToDesigner(&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;, {&#xD;&#xA;    executeScript: `await CrudApi.createCQRSService(getPackages().find(x =&gt; x.specializationId == &quot;df45eaf6-9202-4c25-8dd5-677e9ba1e906&quot;), lookup('${element.id}'));`,&#xD;&#xA;    scriptDependencies: [&quot;b044459e-f779-4648-aed3-9ed169c11362&quot;]&#xD;&#xA;});" isActive="true" />
+            <property name="1d9dd994-46c3-4fdc-a24b-c69f689ca283" display="Dependencies" value="[]" isActive="true" />
+            <property name="eb1aad5a-4eb8-46aa-84a0-9e4fec251d84" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e1814cc8-b705-4092-a8f1-811d5f92342c" type="Suggestion" typeId="0c21ab10-e87b-4e88-ab44-38ea7adf514a">
+      <name>Create CRUD Traditional Service in Services designer</name>
+      <display>Create CRUD Traditional Service in Services designer: Class</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8dff7e0d-308b-402b-b824-b24e8d0200ab">
+        <typeId>04e12b51-ed12-42a3-9667-a6aa81bb6d10</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Domain</typePackageName>
+        <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>7db34928-636d-4834-a7fa-804bcc29a86d</parentFolderId>
+      <packageId>0e923f47-102b-4bd6-80c5-eb38e6d5cf82</packageId>
+      <packageName>Intent.Application.DomainInteractions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="daf7d9b3-9c10-4286-b30e-7edb2e62f10e" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="bd242929-b399-4d13-88c0-d046b7161d41" display="Locations" value="[&quot;Diagram&quot;,&quot;Model&quot;]" isActive="true" />
+            <property name="8d51eb08-f4a9-4703-ba70-de87c9417d46" display="Filter Function" value="" isActive="true" />
+            <property name="ecb7abbb-0297-486e-bd99-cded3226d2a4" display="Display Function" value="" isActive="true" />
+            <property name="bbf03fa4-5beb-4d27-a24f-9858af08d97f" display="Icon" isActive="true" />
+            <property name="bfd10a66-2f93-4ffd-bf35-633ff96e7e6c" display="Script" value="if (!await promptIfUnsavedChangesAsync()) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;navigateToDesigner(&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;, {&#xD;&#xA;    executeScript: `await CrudApi.createTraditionalService(getPackages().find(x =&gt; x.specializationId == &quot;df45eaf6-9202-4c25-8dd5-677e9ba1e906&quot;), lookup('${element.id}'));`,&#xD;&#xA;    scriptDependencies: [&quot;b044459e-f779-4648-aed3-9ed169c11362&quot;]&#xD;&#xA;});" isActive="true" />
+            <property name="1d9dd994-46c3-4fdc-a24b-c69f689ca283" display="Dependencies" value="[]" isActive="true" />
+            <property name="eb1aad5a-4eb8-46aa-84a0-9e4fec251d84" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="eebc4870-87f1-401b-a8f8-ea76df154bf1" type="Suggestion" typeId="0c21ab10-e87b-4e88-ab44-38ea7adf514a">
+      <name>Create Traditional Service in Services designer</name>
+      <display>Create Traditional Service in Services designer: Operation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="aeb3251b-5918-4fb8-b3c0-51d7ffadae75">
+        <typeId>e042bb67-a1df-480c-9935-b26210f78591</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>7db34928-636d-4834-a7fa-804bcc29a86d</parentFolderId>
+      <packageId>0e923f47-102b-4bd6-80c5-eb38e6d5cf82</packageId>
+      <packageName>Intent.Application.DomainInteractions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="daf7d9b3-9c10-4286-b30e-7edb2e62f10e" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="bd242929-b399-4d13-88c0-d046b7161d41" display="Locations" value="[&quot;Diagram&quot;,&quot;Model&quot;]" isActive="true" />
+            <property name="8d51eb08-f4a9-4703-ba70-de87c9417d46" display="Filter Function" value="const repositorySpecializationId = &quot;96ffceb2-a70a-4b69-869b-0df436c470c3&quot;;&#xD;&#xA;&#xD;&#xA;return element.getParent().specializationId == repositorySpecializationId &amp;&amp;&#xD;&#xA;       application.isModuleInstalled(&quot;Intent.Modelers.Services.CQRS&quot;);" isActive="true" />
+            <property name="ecb7abbb-0297-486e-bd99-cded3226d2a4" display="Display Function" isActive="true" />
+            <property name="bbf03fa4-5beb-4d27-a24f-9858af08d97f" display="Icon" isActive="true" />
+            <property name="bfd10a66-2f93-4ffd-bf35-633ff96e7e6c" display="Script" value="if (!await promptIfUnsavedChangesAsync()) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;navigateToDesigner(&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;, {&#xD;&#xA;    executeScript: `await RepositoryOperationApi.createTraditionalService(lookup(&quot;${element.id}&quot;), null);`,&#xD;&#xA;    scriptDependencies: [&quot;e46d700b-6d81-46de-8f18-daeab8de89e7&quot;]&#xD;&#xA;});" isActive="true" />
+            <property name="1d9dd994-46c3-4fdc-a24b-c69f689ca283" display="Dependencies" value="[]" isActive="true" />
+            <property name="eb1aad5a-4eb8-46aa-84a0-9e4fec251d84" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
