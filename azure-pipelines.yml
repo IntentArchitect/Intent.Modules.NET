@@ -58,6 +58,17 @@ steps:
     script: |
       git config --global core.longpaths true
 
+# The ubuntu image ships toolchains this pipeline never uses; building ~240 solutions otherwise fills the OS disk
+# (which also holds the agent's own _diag logs, so the agent itself crashes with "No space left on device").
+- task: CmdLine@2
+  displayName: 'Free disk space'
+  inputs:
+    script: |
+      df -h /
+      sudo rm -rf /usr/local/lib/android /opt/ghc /usr/local/.ghcup /usr/share/swift /usr/local/share/boost /opt/hostedtoolcache/CodeQL || true
+      docker image prune --all --force > /dev/null 2>&1 || true
+      df -h /
+
 - checkout: 'self'
   clean: true
   persistCredentials: 'true'
@@ -153,6 +164,12 @@ steps:
       --no-restore
       -p:IntentModuleOutputPath=$(Build.ArtifactStagingDirectory)
 
+- task: CmdLine@2
+  displayName: 'Report disk usage (after build)'
+  condition: always()
+  inputs:
+    script: df -h /
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   env:
@@ -166,7 +183,9 @@ steps:
       --diag:$(Agent.TempDirectory)/TestResults/diag.log
       --logger trx
       --blame-crash
+      --blame-crash-dump-type mini
       --blame-hang
+      --blame-hang-dump-type mini
       --blame-hang-timeout:10m
       --no-build 
       --filter Requirement!=CosmosDB
