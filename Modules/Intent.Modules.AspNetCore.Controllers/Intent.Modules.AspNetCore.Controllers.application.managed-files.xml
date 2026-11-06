@@ -17,8 +17,10 @@
   <file path="Templates/Controller/ControllerTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/ExceptionFilter/ExceptionFilterTemplatePartial.cs" deviationsHash="B21B8A959A08189CB50B62D45D2E13280F5D785FCB1D47E5CDFF08CC21FF03C3" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ExceptionFilter/ExceptionFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/HttpQueryAttribute/HttpQueryAttributeTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HttpQueryAttribute/HttpQueryAttributeTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/JsonResponse/JsonResponseTemplate.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate" />
   <file path="Templates/JsonResponse/JsonResponseTemplatePartial.cs" deviationsHash="C45C0CBC1C850F481DD4D0D764076E9602629B0C3461CA0258ED97B17B089AEF" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/JsonResponse/JsonResponseTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/TemplateExtensions.cs" deviationsHash="54B588179F3278AEFDCF0FCCDC6A525BAE68B24DAEA930CE5C82B0EA578EDB8B" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
+  <file path="Templates/TemplateExtensions.cs" deviationsHash="A31A840D9AA22F826AE3269E66B857F351AADCC03CB005F537D32CE6ACBD24DC" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
 </managedFiles>

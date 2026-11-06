@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Improvement: `QUERY` endpoints skip the unit of work and the message bus flush, as `GET` endpoints do.
+
 ### Version 1.0.8
 
 - Improvement: Updated reference modules

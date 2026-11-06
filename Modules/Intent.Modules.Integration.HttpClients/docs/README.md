@@ -16,6 +16,10 @@ The `Intent.Integration.HttpClients` module provides several settings that affec
 
 These settings determine how the clients authenticate requests to secured endpoints.
 
+## HTTP QUERY operations
+
+Proxies for operations that use the HTTP `QUERY` verb send a `QUERY` request with the body parameter serialized as JSON. On .NET 10 and later they use `HttpMethod.Query`; on earlier versions they use `new HttpMethod("QUERY")`.
+
 ## How to Model it in Intent Architect
 
 ### Setting Up the Integration

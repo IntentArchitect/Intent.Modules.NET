@@ -1,3 +1,7 @@
+### Version 4.2.0
+
+- New Feature: Service proxies call `QUERY` operations with the HTTP `QUERY` method and send the body as JSON.
+
 ### Version 4.1.4
 
 - Improvement: `HttpClientConfiguration` now also generates an `AddApiAuthorizationHandler` method when a proxy requires authorization, letting each host attach its own authorization handler instead of sharing the WebAssembly-only one that `AddHttpClients` attaches by default. Output is unchanged unless a module (such as Intent.Blazor.Authentication) opts into it.

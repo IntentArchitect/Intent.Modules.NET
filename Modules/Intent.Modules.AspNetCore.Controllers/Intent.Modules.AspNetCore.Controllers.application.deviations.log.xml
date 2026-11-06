@@ -47,16 +47,6 @@
       <deviationsHash>9578CA23AEFB1949D8E29AA81EED486CFE3BC6A12806F5C55E82DB96A0296A94</deviationsHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</correlationId>
-      <path>Templates/Controller/ControllerTemplatePartial.cs</path>
-      <count>4</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-31T19:28:33.9861223Z</updatedAt>
-      <deviationsHash>6C658ABFC390E09EF879B163C9C5893181CE471E6FBD9DAED0D8FF7E861FF88A</deviationsHash>
-      <fileHash>1E3F901D1CC47EE581881D808EDCEA284FACFADBD5D86F9DDBDD3184F2ABA207</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</correlationId>
       <path>Templates/Controller/ControllerTemplateRegistration.cs</path>
       <count>1</count>
@@ -93,8 +83,8 @@
       <count>2</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-31T19:28:33.9862922Z</updatedAt>
-      <deviationsHash>54B588179F3278AEFDCF0FCCDC6A525BAE68B24DAEA930CE5C82B0EA578EDB8B</deviationsHash>
+      <updatedAt>2026-11-03T14:59:14.9554596Z</updatedAt>
+      <deviationsHash>A31A840D9AA22F826AE3269E66B857F351AADCC03CB005F537D32CE6ACBD24DC</deviationsHash>
       <fileHash>9FB3E52C29AD1629DFA0F869E611968F15AE8166BA3E400A85B93BC1733BBB1A</fileHash>
     </file>
   </files>

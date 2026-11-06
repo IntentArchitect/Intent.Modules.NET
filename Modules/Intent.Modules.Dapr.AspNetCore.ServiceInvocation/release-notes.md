@@ -1,3 +1,7 @@
+### Version 2.4.0
+
+- New Feature: Service invocation proxies call `QUERY` operations with the HTTP `QUERY` method and send the body as JSON.
+
 ### Version 2.3.3
 
 - Improvement: Updated NuGet package versions.

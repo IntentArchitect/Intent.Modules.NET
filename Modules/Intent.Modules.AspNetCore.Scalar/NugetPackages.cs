@@ -33,9 +33,9 @@ namespace Intent.Modules.AspNetCore.Scalar
             NugetRegistry.Register(ScalarAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("2.16.11"),
-                        ( >= 9, >= 0) => new PackageVersion("2.16.11"),
-                        ( >= 8, >= 0) => new PackageVersion("2.16.11"),
+                        ( >= 10, >= 0) => new PackageVersion("2.18.7"),
+                        ( >= 9, >= 0) => new PackageVersion("2.18.7"),
+                        ( >= 8, >= 0) => new PackageVersion("2.18.7"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{ScalarAspNetCorePackageName}'"),
                     }
                 );

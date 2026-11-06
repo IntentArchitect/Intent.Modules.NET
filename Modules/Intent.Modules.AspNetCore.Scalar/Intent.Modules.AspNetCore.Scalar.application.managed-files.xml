@@ -4,14 +4,16 @@
   <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FactoryExtensions/HideRouteParametersFromBodyOperationTransformerExtension.cs" deviationsHash="6B6652B820336EF0C4BFC46630776A69E78648BDA94B3269711BA2F669BFD1EA" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/ScalarStartupConfigurationExtension.cs" deviationsHash="092D23B0D8F32F9897B883A6B09FB1420358F46EA8D5DE13ABE8C2C1EA720FBE" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/ScalarStartupConfigurationExtension.cs" deviationsHash="A11D30605639C0AC1883EF116A9617E9201468FF985F77CAB073F542F67BE50F" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.AspNetCore.Scalar.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.AspNetCore.Scalar.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
   <file path="Templates/HideRouteParametersFromBodyOperationTransformer/HideRouteParametersFromBodyOperationTransformerTemplatePartial.cs" deviationsHash="2247C10A2C29349AABA6D12DC9E35115F462752442C5A96839B03B70B1235DA6" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/HideRouteParametersFromBodyOperationTransformer/HideRouteParametersFromBodyOperationTransformerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/OpenApiConfiguration/OpenApiConfigurationTemplatePartial.cs" deviationsHash="1902E8D249E7C4A6417DE13B972D7C23AE75BD08A6EB1D8AC86B493B7660DD05" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HttpQueryDocumentTransformer/HttpQueryDocumentTransformerTemplatePartial.cs" deviationsHash="3C342029504A53CB1DEDF51DFE81E7165651CABF42A9AF19C273EC01ABA6365F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/HttpQueryDocumentTransformer/HttpQueryDocumentTransformerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
+  <file path="Templates/OpenApiConfiguration/OpenApiConfigurationTemplatePartial.cs" deviationsHash="DAC5B7FCFFC5D47FA908326F5EC375E5BDC0C29997D3F272E4E2BBD2A17D55DA" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/OpenApiConfiguration/OpenApiConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
   <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />

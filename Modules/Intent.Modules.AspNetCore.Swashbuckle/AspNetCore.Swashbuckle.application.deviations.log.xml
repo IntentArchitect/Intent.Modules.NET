@@ -29,16 +29,6 @@
       <deviationsHash>122FBA3611A223F292715B55BC7B42C15E720789B5BDA331C35E5BC322E9BC33</deviationsHash>
     </file>
     <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f9817e5f-293b-47bb-895e-22d387b7c6f0</correlationId>
-      <path>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplatePartial.cs</path>
-      <count>4</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-31T20:28:43.7162281Z</updatedAt>
-      <deviationsHash>F69A7BDA85E1C6F392A3083E5FB34C9102840E144A1BFC96C19B1FD97F39BE66</deviationsHash>
-      <fileHash>6C0E53DDC68B7FA0BE7B44BD690347077C41BADD5CEAE0CE6CD0D09AE81F9688</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f9817e5f-293b-47bb-895e-22d387b7c6f0</correlationId>
       <path>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplateRegistration.cs</path>
       <count>1</count>

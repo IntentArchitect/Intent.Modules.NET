@@ -1,3 +1,7 @@
+### Version 6.1.0
+
+- New Feature: On .NET 10, `QUERY` operations appear in the Swagger document, which is served as OpenAPI 3.2, and Swagger UI can send them.
+
 ### Version 6.0.5
 
 - Improvement: Added default Template Classification and Priorities.

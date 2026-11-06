@@ -1,3 +1,7 @@
+### Version 1.3.0
+
+- New Feature: Operations modelled with the HTTP `QUERY` verb generate endpoints that call `Query(...)` and respond like `GET` operations.
+
 ### Version 1.2.1
 
 - Improvement: Updated NuGet package versions.

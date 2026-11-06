@@ -1,3 +1,8 @@
+### Version 7.2.0
+
+- New Feature: Operations modelled with the HTTP `QUERY` verb generate `[HttpQuery]` actions, backed by a generated `HttpQueryAttribute`, and respond like `GET` operations.
+- Improvement: Installing or updating this module also updates an installed `Intent.AspNetCore.Swashbuckle` to its first version that describes `QUERY` endpoints.
+
 ### Version 7.1.16
 
 - Improvement: `ExceptionFilter.OnException` is now generated with `[IntentManaged(Mode.Fully, Body = Mode.Merge)]`, so you can add your own `case` blocks to the exception `switch` and they are kept when the Software Factory runs again. This requires `Intent.OutputManager.RoslynWeaver` 5.0.2 or later, which is now a dependency: earlier versions added a second copy of the generated `switch` below one you had edited.

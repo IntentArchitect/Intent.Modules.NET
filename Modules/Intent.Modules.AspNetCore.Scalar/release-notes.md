@@ -1,3 +1,8 @@
+### Version 1.1.0
+
+- New Feature: On .NET 10, `QUERY` operations appear in the OpenAPI document, which is served as OpenAPI 3.2 so Scalar can show and send them.
+- Improvement: Updated `Scalar.AspNetCore` to 2.18.7.
+
 ### Version 1.0.10
 
 - Improvement: Updated NuGet package versions.

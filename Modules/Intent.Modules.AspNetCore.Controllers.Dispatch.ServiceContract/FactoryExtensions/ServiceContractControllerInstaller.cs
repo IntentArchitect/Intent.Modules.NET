@@ -177,7 +177,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 foreach (var method in @class.Methods)
                 {
                     if (!method.TryGetMetadata<IControllerOperationModel>("model", out var operation) ||
-                        operation.Verb == HttpVerb.Get)
+                        operation.Verb is HttpVerb.Get or HttpVerb.Query)
                     {
                         continue;
                     }
@@ -226,7 +226,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 ctor.AddParameter(GetMessageBusInterfaceName(template), busVariableName,
                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
-                foreach (var method in @class.Methods.Where(x => x.Attributes.All(a => !a.ToString()!.StartsWith("[HttpGet"))))
+                foreach (var method in @class.Methods.Where(x => x.Attributes.All(a => !a.ToString()!.StartsWith("[HttpGet") && !a.ToString()!.StartsWith("[HttpQuery"))))
                 {
                     method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "))?
                         .InsertAbove($"await _{busVariableName}.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));

@@ -1,3 +1,7 @@
+### Version 6.3.0
+
+- New Feature: Service proxies call `QUERY` operations with the HTTP `QUERY` method and send the body as JSON.
+
 ### Version 6.2.0
 
 - Improvement: Removed the dependency on `Intent.AspNetCore.DistributedCaching`. On .NET 8+ the module now registers `AddDistributedMemoryCache()` for Duende token caching itself, unless that module is installed.

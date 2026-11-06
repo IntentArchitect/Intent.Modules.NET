@@ -9,6 +9,7 @@ This module specifically deals with:
 - Dependency Injection wiring
 - Swashbuckle - Swagger and Swagger UI Configuration
 - Automatic removal of duplicate route parameters from request body schemas
+- HTTP `QUERY` endpoints in the Swagger document and Swagger UI
 - XML documentation comments integration
 
 For more information on `Swashbuckle.AspNetCore`, check out their [GitHub](https://github.com/domaindrivendev/Swashbuckle.AspNetCore).
@@ -18,6 +19,16 @@ For more information on `Swashbuckle.AspNetCore`, check out their [GitHub](https
 ### Automatic Route Parameter Handling
 
 This module automatically includes the `HideRouteParametersFromBodyOperationFilter` operation filter, which removes properties from request body schemas when they are already defined as route parameters. This prevents duplicate documentation of parameters that are supplied via the URL, ensuring cleaner and more accurate API documentation.
+
+### HTTP QUERY endpoints
+
+The HTTP `QUERY` method can only be described from OpenAPI 3.2, which Swashbuckle does not produce on its own. When the application targets .NET 10 and at least one operation uses the `QUERY` verb, the module generates:
+
+- `HttpQueryDocumentFilter`, which adds the `QUERY` operations to the Swagger document.
+- `OpenApi32DocumentSerializer`, which serves the document as OpenAPI 3.2.
+- A Swagger UI index page that loads swagger-ui 5.34.1 from unpkg, since the swagger-ui bundled with Swashbuckle cannot send `QUERY` requests. The page needs internet access to load.
+
+On earlier .NET versions, or with no `QUERY` operations, none of this is generated and `QUERY` endpoints are left out of the Swagger document.
 
 ## Settings
 

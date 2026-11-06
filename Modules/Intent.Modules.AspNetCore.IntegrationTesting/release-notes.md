@@ -1,3 +1,7 @@
+### Version 2.1.0
+
+- New Feature: Test proxies call `QUERY` operations with the HTTP `QUERY` method and send the body as JSON.
+
 ### Version 2.0.21
 
 - Improvement: Added default Template Classification and Priorities.

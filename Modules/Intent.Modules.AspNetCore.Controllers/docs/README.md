@@ -8,6 +8,16 @@ An ASP.NET Core controller is a class that serves as an intermediary between the
 
 To learn more check out the official [documentation](https://learn.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-8.0).
 
+## HTTP QUERY endpoints
+
+Set an operation's `Http Settings` verb to `QUERY` to expose it with the HTTP `QUERY` method ([RFC 10008](https://www.rfc-editor.org/rfc/rfc10008)): a safe, idempotent request that carries its criteria in the body, like a `GET` with a body.
+
+ASP.NET Core has no attribute for `QUERY`, so the module generates an `HttpQueryAttribute` in the `Controllers` folder, and the action is decorated with `[HttpQuery("...")]`. The attribute is only generated when at least one operation uses `QUERY`. It uses `HttpMethods.Query` on .NET 10 and later, and the method name `"QUERY"` on earlier versions.
+
+`QUERY` actions follow the same response rules as `GET` actions, including `200 OK` for results and `404 Not Found` for single results.
+
+To show `QUERY` endpoints in the API documentation, install `Intent.AspNetCore.Swashbuckle` or `Intent.AspNetCore.Scalar` and target .NET 10.
+
 ## Modeling Role / Policy based security
 
 In the service designer you can now model your `Role`s and  `Policy`s and reference these on your end points.

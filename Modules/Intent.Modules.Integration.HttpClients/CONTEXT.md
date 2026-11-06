@@ -8,6 +8,7 @@ Generates typed HttpClient implementations of service proxy contracts, plus the 
   - **Rejected: a hard dependency on `Intent.AspNetCore.DistributedCaching`** (the 6.0.1 fix). That module generates `IDistributedCacheWithUnitOfWork`, which the shared UoW helpers (`Common.UnitOfWork` `PersistenceUnitOfWork`) treat as a persistence store. Every dispatcher then got `EnableUnitOfWork`/`SaveChangesAsync` wrapping, and `UnitOfWorkBehaviour` was generated in apps with no database. **Do not reintroduce this dependency.**
   - **Why the guard:** when DistributedCaching is installed it emits its own registration (memory or Redis). The guard avoids a duplicate line, and means existing apps that keep that module see no diff. Coexistence would be safe even without the guard, because `AddDistributedMemoryCache` uses `TryAdd` and Redis uses `Add`.
   - **Rejected for now: Duende 4.x / `HybridCache`.** It is deferred because it means a package major-version move.
+- **HTTP `QUERY` proxies are version-aware (since 6.3.0).** `HttpClientTemplateBase` in the shared project emits `HttpMethod.Query` on .NET 10+ and `new HttpMethod("QUERY")` before that, since `HttpMethod.Query` only exists from .NET 10. The body follows `FromBody` as for `POST`. Because the base is shared, `Blazor.HttpClients`, `Dapr.AspNetCore.ServiceInvocation` and `AspNetCore.IntegrationTesting` change with it and are bumped together.
 - **The pre-.NET 8 IdentityModel.AspNetCore path is deliberately untouched.** That library manages its own token cache, and it worked before 6.0.1. Adding Caching.Memory there would also risk netstandard2.1 package issues.
 
 ## Invariants & Constraints
@@ -16,4 +17,5 @@ Generates typed HttpClient implementations of service proxy contracts, plus the 
 
 ## Module Interactions
 - **Intent.AspNetCore.DistributedCaching** — optional. Detected through `application.InstalledModules`, with no type references. When installed, it owns the `IDistributedCache` registration.
+- **Intent.Metadata.WebApi** — written against 4.8.0-pre.0, the first version with `HttpVerb.Query`.
 - **Intent.Common.UnitOfWork** — interoperability install only. HttpClients must not pull in anything that UoW treats as a persistence store.
