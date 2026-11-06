@@ -60,8 +60,18 @@ steps:
     script: |
       df -h
       lsblk
-      findmnt /mnt/vss || true
-      findmnt /mnt/storage/sdc || true
+      findmnt /mnt/storage || true
+      echo "--- agent user"
+      id; echo "HOME=$HOME"; getent passwd "$(whoami)"
+      ps -o user=,pid=,args= -C Agent.Listener,Agent.Worker || true
+      systemctl list-units --type=service --no-pager 2>/dev/null | grep -i -E 'vsts|azpipelines|agent' || true
+      echo "--- docker"
+      docker info -f 'root={{.DockerRootDir}} driver={{.Driver}} status={{json .DriverStatus}}' || true
+      sudo cat /etc/docker/daemon.json 2>/dev/null || echo "(no /etc/docker/daemon.json)"
+      grep -E '^\s*root\s*=' /etc/containerd/config.toml 2>/dev/null || echo "(no containerd root override)"
+      docker images --format '{{.Repository}}:{{.Tag}} {{.Size}}' || true
+      echo "--- sizes"
+      sudo du -sh /var/lib/docker /var/lib/containerd "$HOME/.nuget" "$HOME/.npm" "$HOME/.cache" "$HOME/.dotnet" /opt/hostedtoolcache 2>/dev/null || true
 
 - task: CmdLine@2
   inputs:
@@ -395,3 +405,15 @@ steps:
       -s https://api.nuget.org/v3/index.json
       -k $(nuget-api-key-intentarchitect)
       --skip-duplicate
+
+# TEMPORARY: records where the build and tests consumed disk, to design the Managed DevOps Pool provisioning script. Remove once measured.
+- task: CmdLine@2
+  displayName: 'Diagnose disk usage after build (temporary)'
+  condition: always()
+  inputs:
+    script: |
+      df -h / /mnt/storage
+      docker info -f 'root={{.DockerRootDir}} driver={{.Driver}}' || true
+      docker images --format '{{.Repository}}:{{.Tag}} {{.Size}}' || true
+      docker system df || true
+      sudo du -sh /var/lib/docker /var/lib/containerd "$HOME/.nuget/packages" "$HOME/.npm" "$HOME/.cache" "$HOME/.dotnet" /opt/hostedtoolcache /tmp "$(Agent.WorkFolder)" 2>/dev/null || true
