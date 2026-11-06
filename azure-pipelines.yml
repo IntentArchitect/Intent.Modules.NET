@@ -53,6 +53,16 @@ pool:
 
 steps:
 
+# TEMPORARY: records the agent's disk layout to size the Managed DevOps Pool data disk. Remove once measured.
+- task: CmdLine@2
+  displayName: 'Diagnose disk layout (temporary)'
+  inputs:
+    script: |
+      df -h
+      lsblk
+      findmnt /mnt/vss || true
+      findmnt /mnt/storage/sdc || true
+
 - task: CmdLine@2
   inputs:
     script: |
