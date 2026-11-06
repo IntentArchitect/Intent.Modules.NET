@@ -62,6 +62,7 @@ namespace FastEndpointsTest.Api
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseHttpQueryOpenApi();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapScalarApiReference();

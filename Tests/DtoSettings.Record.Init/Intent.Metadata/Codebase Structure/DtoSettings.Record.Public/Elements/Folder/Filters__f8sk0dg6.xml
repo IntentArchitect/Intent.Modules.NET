@@ -163,5 +163,37 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="692c520b-f8cb-4e2c-bf9b-30dbda1df00f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>33d533c0-ea4b-42bc-a1df-3f85fdf35670</parentFolderId>
+      <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+      <packageName>DtoSettings.Record.Public</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="7cff25b2-d3cf-4ec1-b700-9d60a061368d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer</name>
+      <display>Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>33d533c0-ea4b-42bc-a1df-3f85fdf35670</parentFolderId>
+      <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
+      <packageName>DtoSettings.Record.Public</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

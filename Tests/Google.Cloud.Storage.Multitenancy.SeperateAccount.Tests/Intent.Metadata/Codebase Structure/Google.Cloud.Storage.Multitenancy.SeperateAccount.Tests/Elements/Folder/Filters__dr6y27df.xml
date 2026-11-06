@@ -282,5 +282,37 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="a6f86cbc-0ca9-48ea-9341-2aa67eca560c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>912878b8-94e9-417f-85ce-4b6b235713b1</parentFolderId>
+      <packageId>bc714d4a-e202-4363-b0e3-4626c5eee1bb</packageId>
+      <packageName>Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9cfcc930-b78a-4469-a45e-ebbf03f5870d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer</name>
+      <display>Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>912878b8-94e9-417f-85ce-4b6b235713b1</parentFolderId>
+      <packageId>bc714d4a-e202-4363-b0e3-4626c5eee1bb</packageId>
+      <packageName>Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

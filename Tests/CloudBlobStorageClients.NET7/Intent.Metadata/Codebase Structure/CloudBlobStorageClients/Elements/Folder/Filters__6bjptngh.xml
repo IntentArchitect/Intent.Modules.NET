@@ -173,5 +173,37 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="49181fa4-2183-4a26-a041-af42610a5605" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7dcbb5b-9470-497b-928a-df2fbcc9e6f2</parentFolderId>
+      <packageId>62b340d7-6049-4668-9e56-7f1575ce29ea</packageId>
+      <packageName>CloudBlobStorageClients</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="0e1e1544-e64a-4dda-b45c-dc4ff1bc56cc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer</name>
+      <display>Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7dcbb5b-9470-497b-928a-df2fbcc9e6f2</parentFolderId>
+      <packageId>62b340d7-6049-4668-9e56-7f1575ce29ea</packageId>
+      <packageName>CloudBlobStorageClients</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

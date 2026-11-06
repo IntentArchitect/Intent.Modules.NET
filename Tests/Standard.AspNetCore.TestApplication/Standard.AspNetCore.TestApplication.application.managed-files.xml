@@ -10,6 +10,7 @@
   <file path="Standard.AspNetCore.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
   <file path="Standard.AspNetCore.TestApplication.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
   <file path="Standard.AspNetCore.TestApplication.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
+  <file path="Standard.AspNetCore.TestApplication.Api/Controllers/HttpQueryAttribute.cs" templateId="Intent.AspNetCore.Controllers.HttpQueryAttribute" />
   <file path="Standard.AspNetCore.TestApplication.Api/Controllers/IntegrationController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
   <file path="Standard.AspNetCore.TestApplication.Api/Controllers/InvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
   <file path="Standard.AspNetCore.TestApplication.Api/Controllers/MultiVersionController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
@@ -52,7 +53,7 @@
   <file path="Standard.AspNetCore.TestApplication.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
   <file path="Standard.AspNetCore.TestApplication.Application/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
   <file path="Standard.AspNetCore.TestApplication.Application/Implementation/ClientsService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
-  <file path="Standard.AspNetCore.TestApplication.Application/Implementation/IntegrationService.cs" deviationsHash="E4A1BF36BAD59C1CC5F680C76AEA1C1CCD6C6F90EE5BDAB759EB822DCED6B49E" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="Standard.AspNetCore.TestApplication.Application/Implementation/IntegrationService.cs" deviationsHash="F7F36C8A1A60AE3EFE6807DAA6581E10C59448F51D8B7A28961474A9C0067FB6" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
   <file path="Standard.AspNetCore.TestApplication.Application/Implementation/InvoicesService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
   <file path="Standard.AspNetCore.TestApplication.Application/Implementation/MultiVersionService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
   <file path="Standard.AspNetCore.TestApplication.Application/Implementation/OpenApiIgnoreAllImplicitService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />

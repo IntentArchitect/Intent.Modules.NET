@@ -115,5 +115,21 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="3526bf1b-2023-4ac1-a01a-98d75a804422" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Scalar.HttpQueryDocumentTransformer</name>
+      <display>Intent.AspNetCore.Scalar.HttpQueryDocumentTransformer</display>
+      <externalReference>Intent.AspNetCore.Scalar</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7a342882-42db-41f0-a761-dad48bf276e8</parentFolderId>
+      <packageId>a7f25926-2433-41a8-ae01-0e78f3a37b26</packageId>
+      <packageName>Scalar.NET10.OAuth2Implicit</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

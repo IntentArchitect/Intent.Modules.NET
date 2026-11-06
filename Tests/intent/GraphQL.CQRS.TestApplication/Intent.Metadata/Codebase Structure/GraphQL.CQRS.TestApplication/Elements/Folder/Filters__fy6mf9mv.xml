@@ -211,5 +211,37 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="dc796535-9164-41c1-918d-0cd7eef02c2d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c0fbbbc9-37f6-4f39-bce4-9c5c24e15a2d</parentFolderId>
+      <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+      <packageName>GraphQL.CQRS.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ca6f2d49-4e7e-44da-b2c8-f0ac18364711" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer</name>
+      <display>Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c0fbbbc9-37f6-4f39-bce4-9c5c24e15a2d</parentFolderId>
+      <packageId>0856bf34-b8ca-4b71-b85d-9f328d486e41</packageId>
+      <packageName>GraphQL.CQRS.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

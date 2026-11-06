@@ -141,5 +141,21 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="89fa34d1-1990-41ae-90cd-4a120d39b74e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Scalar.HttpQueryDocumentTransformer</name>
+      <display>Intent.AspNetCore.Scalar.HttpQueryDocumentTransformer</display>
+      <externalReference>Intent.AspNetCore.Scalar</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4b911051-9cbc-41aa-a9d6-a8e5abe7d231</parentFolderId>
+      <packageId>d11cf548-1d65-41e3-9be0-1c66d3b9786c</packageId>
+      <packageName>root</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

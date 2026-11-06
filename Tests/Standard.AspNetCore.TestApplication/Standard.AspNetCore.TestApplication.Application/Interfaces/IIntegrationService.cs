@@ -28,5 +28,9 @@ namespace Standard.AspNetCore.TestApplication.Application.Interfaces
         Task NonHttpSettingsOperation(CancellationToken cancellationToken = default);
         Task<CustomDTO> GetInvoiceOpWithReturnTypeWrapped(CancellationToken cancellationToken = default);
         Task<List<CustomDTO>> GetItems(List<string> ids, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// HTTP QUERY endpoint: the criteria travel in the request body.
+        /// </summary>
+        Task<List<CustomDTO>> QueryBodyParamOp(CustomDTO param1, CancellationToken cancellationToken = default);
     }
 }

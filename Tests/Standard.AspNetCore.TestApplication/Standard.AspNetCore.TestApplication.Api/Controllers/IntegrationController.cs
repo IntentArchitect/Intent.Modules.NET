@@ -353,5 +353,28 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             result = await _appService.GetItems(ids, cancellationToken);
             return result == null ? NotFound() : Ok(result);
         }
+
+        /// <summary>
+        /// HTTP QUERY endpoint: the criteria travel in the request body.
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;CustomDTO&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
+        [HttpQuery("[action]")]
+        [ProducesResponseType(typeof(List<CustomDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<CustomDTO>>> QueryBodyParamOp(
+            [FromBody] CustomDTO param1,
+            CancellationToken cancellationToken = default)
+        {
+            await _validationService.Handle(param1, cancellationToken);
+            var result = default(List<CustomDTO>);
+            result = await _appService.QueryBodyParamOp(param1, cancellationToken);
+            return Ok(result);
+        }
     }
 }

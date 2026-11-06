@@ -54,5 +54,23 @@ namespace Scalar.NET10.Bearer.Api.Controllers
             await _appService.UpdateWidget(widgetId, widget, cancellationToken);
             return NoContent();
         }
+
+        /// <summary>
+        /// HTTP QUERY endpoint: the search criteria travel in the request body.
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;WidgetDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpQuery("api/widgets/search")]
+        [ProducesResponseType(typeof(List<WidgetDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<WidgetDto>>> SearchWidgets(
+            [FromBody] WidgetDto criteria,
+            CancellationToken cancellationToken = default)
+        {
+            var result = default(List<WidgetDto>);
+            result = await _appService.SearchWidgets(criteria, cancellationToken);
+            return Ok(result);
+        }
     }
 }

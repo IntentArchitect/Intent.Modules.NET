@@ -34,6 +34,7 @@ namespace Scalar.NET10.Bearer.Api
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
+            app.UseHttpQueryOpenApi();
             app.MapScalarApiReference();
             app.MapOpenApi();
             app.MapControllers();

@@ -1,5 +1,9 @@
+using System.Text.Json.Nodes;
+using System.Text.RegularExpressions;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.OpenApi;
 using Microsoft.OpenApi;
+using Scalar.NET10.Bearer.Api.Filters;
 using Scalar.NET10.Bearer.Api.Transformers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -9,6 +13,9 @@ namespace Scalar.NET10.Bearer.Api.Configuration
 {
     public static class OpenApiConfiguration
     {
+        private const string OpenApiVersion = "3.2.0";
+        private static readonly Regex OpenApiDocumentPath = new(@"^/openapi/([^/]+)\.json$");
+
         public static IServiceCollection ConfigureOpenApi(this IServiceCollection services)
         {
             services.AddOpenApi(
@@ -57,9 +64,41 @@ namespace Scalar.NET10.Bearer.Api.Configuration
                         return Task.CompletedTask;
                     });
 
+                    options.AddDocumentTransformer<HttpQueryDocumentTransformer>();
+
                     options.AddOperationTransformer(new HideRouteParametersFromBodyOperationTransformer());
                 });
             return services;
+        }
+
+        /// <summary>
+        /// Serves /openapi/{documentName}.json as OpenAPI 3.2. ASP.NET Core 10 writes at most 3.1 and has no serializer hook,
+        /// so this writes the same document as 3.1 (3.2 only adds to it) and labels it 3.2.0, the first version with a native
+        /// "query" operation. Registered ahead of MapOpenApi, which it answers for. Drop it once ASP.NET Core writes 3.2 itself.
+        /// </summary>
+        public static IApplicationBuilder UseHttpQueryOpenApi(this IApplicationBuilder app)
+        {
+            app.Use(async (context, next) =>
+            {
+                var match = OpenApiDocumentPath.Match(context.Request.Path.Value ?? string.Empty);
+                var provider = match.Success && HttpMethods.IsGet(context.Request.Method) ? context.RequestServices.GetKeyedService<IOpenApiDocumentProvider>(match.Groups[1].Value) : null;
+
+                if (provider is null)
+                {
+                    await next(context);
+                    return;
+                }
+
+                var document = await provider.GetOpenApiDocumentAsync(context.RequestAborted);
+                using var buffer = new StringWriter();
+                document.SerializeAsV31(new OpenApiJsonWriter(buffer));
+                var json = JsonNode.Parse(buffer.ToString())!.AsObject();
+                json["openapi"] = OpenApiVersion;
+
+                context.Response.ContentType = "application/json;charset=utf-8";
+                await context.Response.WriteAsync(json.ToJsonString(), context.RequestAborted);
+            });
+            return app;
         }
 
         private static string SchemaIdSelector(Type modelType)

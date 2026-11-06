@@ -5,6 +5,7 @@ using IntegrationTesting.SQLLite.Tests.Application.Customers.CreateCustomer;
 using IntegrationTesting.SQLLite.Tests.Application.Customers.DeleteCustomer;
 using IntegrationTesting.SQLLite.Tests.Application.Customers.GetCustomerById;
 using IntegrationTesting.SQLLite.Tests.Application.Customers.GetCustomers;
+using IntegrationTesting.SQLLite.Tests.Application.Customers.SearchCustomers;
 using IntegrationTesting.SQLLite.Tests.Application.Customers.UpdateCustomer;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -116,6 +117,23 @@ namespace IntegrationTesting.SQLLite.Tests.Api.Controllers
         public async Task<ActionResult<List<CustomerDto>>> GetCustomers(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomersQuery(), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// HTTP QUERY endpoint: the search criteria travel in the request body, and the request stays safe and idempotent.
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;CustomerDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpQuery("api/customers/search")]
+        [ProducesResponseType(typeof(List<CustomerDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<CustomerDto>>> SearchCustomers(
+            [FromBody] SearchCustomersQuery query,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(query, cancellationToken);
             return Ok(result);
         }
     }

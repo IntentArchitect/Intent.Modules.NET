@@ -9,5 +9,9 @@ namespace Scalar.NET10.Bearer.Application.Interfaces
     {
         Task CreateWidget(WidgetDto widget, CancellationToken cancellationToken = default);
         Task UpdateWidget(Guid widgetId, WidgetDto widget, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// HTTP QUERY endpoint: the search criteria travel in the request body.
+        /// </summary>
+        Task<List<WidgetDto>> SearchWidgets(WidgetDto criteria, CancellationToken cancellationToken = default);
     }
 }
