@@ -53,41 +53,10 @@ pool:
 
 steps:
 
-# TEMPORARY: records the agent's disk layout to size the Managed DevOps Pool data disk. Remove once measured.
-- task: CmdLine@2
-  displayName: 'Diagnose disk layout (temporary)'
-  inputs:
-    script: |
-      df -h
-      lsblk
-      findmnt /mnt/storage || true
-      echo "--- agent user"
-      id; echo "HOME=$HOME"; getent passwd "$(whoami)"
-      ps -o user=,pid=,args= -C Agent.Listener,Agent.Worker || true
-      systemctl list-units --type=service --no-pager 2>/dev/null | grep -i -E 'vsts|azpipelines|agent' || true
-      echo "--- docker"
-      docker info -f 'root={{.DockerRootDir}} driver={{.Driver}} status={{json .DriverStatus}}' || true
-      sudo cat /etc/docker/daemon.json 2>/dev/null || echo "(no /etc/docker/daemon.json)"
-      grep -E '^\s*root\s*=' /etc/containerd/config.toml 2>/dev/null || echo "(no containerd root override)"
-      docker images --format '{{.Repository}}:{{.Tag}} {{.Size}}' || true
-      echo "--- sizes"
-      sudo du -sh /var/lib/docker /var/lib/containerd "$HOME/.nuget" "$HOME/.npm" "$HOME/.cache" "$HOME/.dotnet" /opt/hostedtoolcache 2>/dev/null || true
-
 - task: CmdLine@2
   inputs:
     script: |
       git config --global core.longpaths true
-
-# The ubuntu image ships toolchains this pipeline never uses; building ~240 solutions otherwise fills the OS disk
-# (which also holds the agent's own _diag logs, so the agent itself crashes with "No space left on device").
-- task: CmdLine@2
-  displayName: 'Free disk space'
-  inputs:
-    script: |
-      df -h /
-      sudo rm -rf /usr/local/lib/android /opt/ghc /usr/local/.ghcup /usr/share/swift /usr/local/share/boost /opt/hostedtoolcache/CodeQL || true
-      docker image prune --all --force > /dev/null 2>&1 || true
-      df -h /
 
 - checkout: 'self'
   clean: true
@@ -184,12 +153,6 @@ steps:
       --no-restore
       -p:IntentModuleOutputPath=$(Build.ArtifactStagingDirectory)
 
-- task: CmdLine@2
-  displayName: 'Report disk usage (after build)'
-  condition: always()
-  inputs:
-    script: df -h /
-
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   env:
@@ -203,9 +166,7 @@ steps:
       --diag:$(Agent.TempDirectory)/TestResults/diag.log
       --logger trx
       --blame-crash
-      --blame-crash-dump-type mini
       --blame-hang
-      --blame-hang-dump-type mini
       --blame-hang-timeout:10m
       --no-build 
       --filter Requirement!=CosmosDB
@@ -405,15 +366,3 @@ steps:
       -s https://api.nuget.org/v3/index.json
       -k $(nuget-api-key-intentarchitect)
       --skip-duplicate
-
-# TEMPORARY: records where the build and tests consumed disk, to design the Managed DevOps Pool provisioning script. Remove once measured.
-- task: CmdLine@2
-  displayName: 'Diagnose disk usage after build (temporary)'
-  condition: always()
-  inputs:
-    script: |
-      df -h / /mnt/storage
-      docker info -f 'root={{.DockerRootDir}} driver={{.Driver}}' || true
-      docker images --format '{{.Repository}}:{{.Tag}} {{.Size}}' || true
-      docker system df || true
-      sudo du -sh /var/lib/docker /var/lib/containerd "$HOME/.nuget/packages" "$HOME/.npm" "$HOME/.cache" "$HOME/.dotnet" /opt/hostedtoolcache /tmp "$(Agent.WorkFolder)" 2>/dev/null || true
