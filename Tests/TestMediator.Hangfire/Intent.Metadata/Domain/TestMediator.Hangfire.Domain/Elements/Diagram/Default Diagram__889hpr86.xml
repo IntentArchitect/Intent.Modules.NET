@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1159a177-dacc-40ee-9e2a-a912cd171483" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <order>1</order>
+  <parentFolderId>5355eae2-1122-454a-b652-fe687ccb5144</parentFolderId>
+  <packageId>5355eae2-1122-454a-b652-fe687ccb5144</packageId>
+  <packageName>TestMediator.Hangfire.Domain</packageName>
+  <diagram>
+    <targetPackageId>5355eae2-1122-454a-b652-fe687ccb5144</targetPackageId>
+  </diagram>
+</class>

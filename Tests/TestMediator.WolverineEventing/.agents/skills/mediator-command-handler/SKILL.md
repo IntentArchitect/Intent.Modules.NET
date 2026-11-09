@@ -2,7 +2,7 @@
 name: mediator-command-handler
 description: Implements the whole body of a Mediator command handler from the interactions modelled on the command. MUST load before creating, editing or revisiting any command handler e.g. *CommandHandler.cs, and after any Software Factory run that generates a new command handler stub.
 template-id: Intent.Application.Mediator.CommandHandlerSkill
-contentHash: B3152CA56A72F49A221F04B7FC23DE8A76EDEDE72B062A46D7BBB45748226AAB
+contentHash: 61C77D4E5B8D49EEADCCA1646ABF2BB117475DE2F440935AC1313BA74351227E
 ---
 # Mediator Command Handler
 
@@ -12,7 +12,7 @@ Write the business logic of a command handler. In this solution the handler body
 
 Nothing raises a task or a reminder for a new or outdated handler. Find the work yourself:
 
-- After every Software Factory run, search the Application project for `*CommandHandler.cs` files whose `Handle` body still holds the `// IntentInitialGen` marker and `throw new NotImplementedException`. Each one is a command handler nobody has written yet. Write every one you find.
+- After every Software Factory run, search the Application project for `*CommandHandler.cs` files whose `Handle` body still throws `NotImplementedException`. Each one is a command handler nobody has written yet. Write every one you find.
 - When you add, remove, reorder or change an association on a command in the designer, its handler is out of date even though no generated file changed. Update it in the same piece of work.
 
 ## Core rules

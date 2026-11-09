@@ -19,6 +19,15 @@
       <updatedAt>2026-09-02T13:57:23.9687126Z</updatedAt>
       <deviationsHash>4AAFE3BABDB0CD405971DB5C6C6BD805895298D4A12AFB74448F53C754E1C180</deviationsHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#498cbd43-01f3-4a16-b009-953e0fd7b17b</correlationId>
+      <path>Templates/HangfireJobs/HangfireJobsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-09T07:03:37.284117Z</updatedAt>
+      <deviationsHash>27C223668BD234E76522789541AF3BDA71455BB31EAB0FFA817395A6AB5E5225</deviationsHash>
+    </file>
   </files>
   <customFiles>
     <customFile>

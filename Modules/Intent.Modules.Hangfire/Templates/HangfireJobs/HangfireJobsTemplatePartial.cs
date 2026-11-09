@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Hangfire.Api;
 using Intent.Modules.Common;
@@ -31,14 +32,6 @@ namespace Intent.Modules.Hangfire.Templates.HangfireJobs
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
-                        if (model.PublishedCommand() != null)
-                        {
-                            AddUsing("MediatR");
-                            ctor.AddParameter("ISender", "mediator", param =>
-                            {
-                                param.IntroduceReadonlyField();
-                            });
-                        }
                     });
                     @class.AddMethod("Task", "ExecuteAsync", method =>
                     {
@@ -58,13 +51,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireJobs
                             });
                         }
 
-                        if (model.PublishedCommand() != null)
-                        {
-                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithSignatureFully());
-                            method.AddStatement($"var command = new {GetTypeName("Application.Contract.Command", model.PublishedCommand())}();");
-                            method.AddStatement("await _mediator.Send(command);");
-                        }
-                        else
+                        if (model.PublishedCommand() == null)
                         {
                             AddUsing("System");
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
@@ -72,11 +59,37 @@ namespace Intent.Modules.Hangfire.Templates.HangfireJobs
                             method.AddStatement($"// TODO: Implement job functionality");
                             method.AddStatement($@"throw new {UseType("System.NotImplementedException")}(""Your implementation here..."");");
                         }
-
-
                     });
+                })
+                .OnBuild(file =>
+                {
+                    var command = Model.PublishedCommand();
+                    if (command == null)
+                    {
+                        return;
+                    }
+
+                    // The command's own template decides the dispatcher: Mediator and MediatR both fill this role.
+                    var commandTemplate = GetTemplate<ICSharpTemplate>(CommandContractRole, command);
+                    var senderType = commandTemplate.Id == MediatorCommandModelsTemplateId
+                        ? "Mediator.ISender"
+                        : "MediatR.ISender";
+
+                    var @class = file.Classes.First();
+                    @class.Constructors.First().AddParameter(UseType(senderType), "mediator", param =>
+                    {
+                        param.IntroduceReadonlyField();
+                    });
+
+                    var method = @class.FindMethod("ExecuteAsync");
+                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithSignatureFully());
+                    method.AddStatement($"var command = new {GetTypeName(commandTemplate)}();");
+                    method.AddStatement("await _mediator.Send(command);");
                 });
         }
+
+        private const string CommandContractRole = "Application.Contract.Command";
+        private const string MediatorCommandModelsTemplateId = "Intent.Application.Mediator.CommandModels";
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

@@ -36,7 +36,6 @@ public class CreateOrderCommandHandler : ICommandHandler<CreateOrderCommand, Gui
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public async ValueTask<Guid> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
-        // IntentInitialGen
         // TODO: Implement Handle (CreateOrderCommandHandler) functionality
         throw new NotImplementedException("Your implementation here...");
     }
@@ -92,7 +91,7 @@ In the Services designer, model the command or query and the interactions it per
 1. Generates the command or query and its handler stub (above).
 2. On later runs, keeps the signature in sync and leaves the body alone.
 
-No AI task is raised. An agent finds the work through the designer rules and the skills below: a handler still needs writing while its body holds the `// IntentInitialGen` marker and throws `NotImplementedException`.
+No AI task is raised. An agent finds the work through the designer rules and the skills below: a handler still needs writing while its body throws `NotImplementedException`.
 
 ### Skills
 

@@ -1,3 +1,7 @@
+### Version 1.0.14
+
+- Fixed: A Hangfire Job linked to a command did not compile when `Intent.Application.Mediator` was installed instead of MediatR; it now injects `Mediator.ISender`.
+
 ### Version 1.0.13
 
 - Improvement: Added default Template Classification and Priorities.

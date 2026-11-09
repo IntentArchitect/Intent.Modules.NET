@@ -222,6 +222,11 @@
         <package id="Intent.QuartzScheduler" version="1.0.17-pre.0" />
       </install>
     </detect>
+    <detect id="Intent.Hangfire">
+      <install>
+        <package id="Intent.Hangfire" version="1.0.14-pre.0" />
+      </install>
+    </detect>
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.EntityFrameworkCore.Repositories">
       <install>

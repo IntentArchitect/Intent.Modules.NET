@@ -52,7 +52,7 @@ Write the business logic of a query handler. In this solution the handler body i
 
 Nothing raises a task or a reminder for a new or outdated handler. Find the work yourself:
 
-- After every Software Factory run, search the Application project for {{handlerFiles}} whose `Handle` body still holds the `// IntentInitialGen` marker and `throw new NotImplementedException`. Each one is a query handler nobody has written yet. Write every one you find.
+- After every Software Factory run, search the Application project for {{handlerFiles}} whose `Handle` body still throws `NotImplementedException`. Each one is a query handler nobody has written yet. Write every one you find.
 - When you add, remove, reorder or change an association on a query in the designer, its handler is out of date even though no generated file changed. Update it in the same piece of work.
 
 ## Core rules

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b520f246-784e-41d7-91c1-26334cffe019" type="Hangfire Job" typeId="995f1902-4efb-42ba-b089-a5e856c48943">
+  <name>PurgeExpiredSessionsJob</name>
+  <display>PurgeExpiredSessionsJob</display>
+  <parentFolderId>30e0a276-0af3-4eae-9e46-50b8adc9329b</parentFolderId>
+  <packageId>3f40bc50-247c-445c-ab23-69be22753323</packageId>
+  <packageName>TestMediator.Hangfire.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="268b1f8f-71ac-4a27-ad87-bdaeffb06022" name="Job Options">
+      <definitionPackageName>Intent.Hangfire</definitionPackageName>
+      <definitionPackageId>fda30066-088b-48e0-9189-6cad1c70af13</definitionPackageId>
+      <properties>
+        <property name="fba31c2d-a5f1-404e-8772-15f72b94e5b1" display="Enabled" value="true" />
+        <property name="153f01ba-f229-4a2e-8f44-0ecd39924073" display="Cron Schedule" value="* * * * *" />
+        <property name="e5a5f7ad-80f9-471c-9e0f-835f8286ffab" display="Delay Time Frame" value="Minutes" isActive="false" />
+        <property name="8220c0e1-203d-43f5-9155-ae73a87bf324" display="Delay Value" value="5" isActive="false" />
+        <property name="0aa4b661-211b-40e2-a917-abfc4fef1b03" display="Disallow Concurrent Execution" value="false" />
+        <property name="722cc50a-5dfd-4eb0-91c2-287ddd077d04" display="Concurrent Execution Timeout" value="1" />
+        <property name="545f4c0d-b389-4b8d-a092-e65ead77f445" display="Retry Attempts" value="10" />
+        <property name="78be64bd-7eb8-44aa-b5f8-180ec74c42fb" display="On Attempts Exceeded" value="Fail" />
+        <property name="7e719fad-42a3-4282-8328-e086d856dee7" display="Queue" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <association id="c72c2e2f-7409-4e28-ba11-5c64c5b8e56c">
+      <sourceEnd id="624ab8d2-0788-42d4-8989-bdb43674c4a4" type="Scheduled Command Publish Source End" typeId="8fb7e1f2-a7f1-441d-8189-2af97986d4ea">
+        <display>publishes: Maintenance.PurgeExpiredSessionsJob</display>
+        <typeReference id="07f08bdf-51e9-46d9-9df2-c46c50ca2321">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="c72c2e2f-7409-4e28-ba11-5c64c5b8e56c" type="Scheduled Command Publish Target End" typeId="53b123fc-d85e-476a-ad62-d0fe68ed8c1b">
+        <display>publishes: PurgeExpiredSessionsCommand</display>
+        <typeReference id="3674619b-c457-41d4-b299-708d54db5d36">
+          <typeId>abd86e94-fd2c-40bd-9bf1-63b7bdaf83dd</typeId>
+          <typeName>PurgeExpiredSessionsCommand</typeName>
+          <typePackageName>TestMediator.Hangfire.Services</typePackageName>
+          <typePackageId>3f40bc50-247c-445c-ab23-69be22753323</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Scheduled Command Publish</associationType>
+      <associationTypeId>9fad2dc6-525f-408c-8981-abe958d65268</associationTypeId>
+    </association>
+  </children>
+</class>

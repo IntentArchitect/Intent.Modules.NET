@@ -16,7 +16,7 @@ This module is the domain-event satellite of `Intent.Application.Mediator`. The 
 | Default domain event handler | One per domain event with no modelled handler, only when **Create implicit domain event handlers** is on | A `{DomainEventName}Handler` class with a single stub `Handle`. |
 | `mediator-domain-event-handler` skill | Always | A `SKILL.md` teaching an AI agent how to write the handler bodies. |
 
-No AI task is raised. An agent finds the handlers to write through the skill (see below): a handler still needs writing while its body holds the `// IntentInitialGen` marker and throws `NotImplementedException`.
+No AI task is raised. An agent finds the handlers to write through the skill (see below): a handler still needs writing while its body throws `NotImplementedException`.
 
 NuGet packages added to the generated application: `Mediator.Abstractions` 3.0.2 (locked) and `Microsoft.Extensions.Logging` 10.0.9.
 
@@ -75,7 +75,6 @@ public class OrderPlacedDomainEventHandler : INotificationHandler<OrderPlacedDom
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public async ValueTask Handle(OrderPlacedDomainEventNotification notification, CancellationToken cancellationToken)
     {
-        // IntentInitialGen
         // TODO: Implement Handle (OrderPlacedDomainEventHandler) functionality
         throw new NotImplementedException("Your implementation here...");
     }

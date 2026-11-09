@@ -68,13 +68,16 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   named `_dataSource`; EF Core's external-transaction guard keys on that field name.
 - **Handlers are Merge stubs** (G4): class `Merge, Signature = Fully`, `Handle` with `Signature = Fully`, an
   `IntentInitialGen` TODO and `throw new NotImplementedException`. The AI replaces the body, regeneration keeps it.
+  RoslynWeaver strips the `// IntentInitialGen` line when it writes a new stub, so the generated file never holds it.
+  The skills therefore tell an agent to look for `Handle` bodies that still throw `NotImplementedException`, not for
+  the marker (corrected in `1.0.1-pre.0`; earlier skills named the marker and found nothing).
 - **AI guidance travels as designer rules and generated skills, never as AI tasks.** AI task providers
   (`AITasksFactoryExtension` + `TemplateAITask`) are deprecated (developer decision, 2026-10-14), so the planned
   "Implement Command/Query Handler" (G16) and "Finish Integration Event Handler" (G17) tasks were removed. What they
   carried now lives in two places. The `AI Settings` rules on the Command, Query and Integration Event Handler element
   extensions reach an agent while it edits the model: they say the handler is AI-written and must be written or
   updated once the Software Factory has generated it. The generated skills say how, and include a "finding the work"
-  section: search for `// IntentInitialGen` plus `NotImplementedException` stubs after a run, and for integration
+  section: search for `Handle` bodies that still throw `NotImplementedException` after a run, and for integration
   handlers, check for a `HandleAsync` without `Body = Mode.Ignore` whose subscription has an Invoke or an unmapped
   Publish/Send. Accepted cost: nothing proactively flags an unwritten handler; an agent that neither edits the model
   nor loads the skill will not find it. The skill text alone is the rule for that agent.
@@ -174,9 +177,11 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
 - **Intent.QuartzScheduler** — CommandModels and QueryModels fill `Application.Contract.Command` / `Application.Contract.Query`,
   as MediatR's do (added in `1.0.1-pre.0`, 2026-11-03, after a client report that a job linked to a command could not
   generate). The Scheduled Job template resolves the command's template in `OnBuild` and emits `Mediator.ISender` when
-  its id is `Intent.Application.Mediator.CommandModels`; no project reference. Hangfire looks up the same role but still
-  emits `MediatR.ISender`, so it now generates and fails to compile instead of failing at generation. JsonPatch's
-  `TryGetTypeName` on the role now resolves the Mediator command type.
+  its id is `Intent.Application.Mediator.CommandModels`; no project reference. JsonPatch's `TryGetTypeName` on the
+  role now resolves the Mediator command type.
+- **Intent.Hangfire** — same seam as Quartz: from Hangfire `1.0.14-pre.0` (2026-11-09) the Hangfire Job template
+  resolves the command's template in `OnBuild` and emits `Mediator.ISender` for this module's CommandModels. Before
+  that it emitted `using MediatR` and `ISender`, so a job linked to a command did not compile under Mediator.
 - **Satellites** (DomainEvents, FluentValidation) reference this project with `PrivateAssets=All`; the dispatch
   modules use string ids. The ids other modules depend on are listed in the plan under "Template ids other modules
   depend on"; renaming or moving any of those elements in the Module Builder breaks them silently.
@@ -190,7 +195,7 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   pin on the core is a minimum, so it moves only when a contract the satellite uses changes: core `pre.2` (the
   publisher move) changes none, so the satellites still declare `pre.1`. Seam modules are pinned to the pre-release that carries the seam (EF Core
   5.2.1-pre.0, MassTransit 7.2.4-pre.0, NServiceBus 1.0.4-pre.0, Eventing.Wolverine 1.0.1-pre.0, QuartzScheduler
-  1.0.17-pre.0). These must match
+  1.0.17-pre.0, Hangfire 1.0.14-pre.0). These must match
   those modules' versions in their own packages; they were bumped for the seams. EF Core Repositories 4.8.2,
   AutoMapper 5.3.10 and Mapperly 1.1.4 are minimum-compatible pins copied from Wolverine's imodspec.
   These pins are recorded here and in the imodspec only; the README names the modules without versions
@@ -223,7 +228,7 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   - *AI-written bodies overwritten:* `Intent.Application.CQRS.CRUD` finds handlers by role, sets `Body = Fully` on what
     it fills, and fills query handlers that have no interactions.
   - *Application does not compile:* `Intent.Eventing.MassTransit.RequestResponse` (emits a `MediatR.ISender` consumer),
-    Hangfire (emits `using MediatR` and `ISender`), gRPC CQRS service, Dapr PubSub.
+    gRPC CQRS service, Dapr PubSub. (Hangfire was here until its `1.0.14-pre.0`.)
   - *Silently missing or wrong:* `Intent.Entities.Constants` (skips the Mediator validators), OData query and
     Pagination defaults, Blazor `ScopedMediator`, Modular Monolith, and Azure Functions / AWS Lambda / GraphQL dispatch
     (no Mediator dispatch module exists for them).

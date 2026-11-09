@@ -43,7 +43,7 @@ Write the business logic of a domain event handler. In this solution the handler
 
 Nothing raises a task or a reminder for a new or outdated handler. Find the work yourself:
 
-- After every Software Factory run, search the Application project for domain event handlers (classes implementing `INotificationHandler`) whose `Handle` body still holds the `// IntentInitialGen` marker and `throw new NotImplementedException`. Each one is a handler nobody has written yet. Write every one you find.
+- After every Software Factory run, search the Application project for domain event handlers (classes implementing `INotificationHandler`) whose `Handle` body still throws `NotImplementedException`. Each one is a handler nobody has written yet. Write every one you find.
 - When you add, remove, reorder or change an association under a handled domain event on a Domain Event Handler in the designer, that handler is out of date even though no generated file changed. Update it in the same piece of work.
 - A default handler (generated per domain event with no modelled handler, when the "Create implicit domain event handlers" setting is on) has nothing modelled. Infer its behaviour from the event's name and data and from nearby code. When no concrete side effect can be inferred, ask the user instead of inventing one.
 

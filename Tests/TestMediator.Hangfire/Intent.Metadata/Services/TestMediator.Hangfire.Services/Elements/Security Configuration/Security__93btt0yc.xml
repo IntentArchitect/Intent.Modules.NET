@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d21fc983-3c85-4a1e-b648-7d4a94d2ab5f" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <parentFolderId>3f40bc50-247c-445c-ab23-69be22753323</parentFolderId>
+  <packageId>3f40bc50-247c-445c-ab23-69be22753323</packageId>
+  <packageName>TestMediator.Hangfire.Services</packageName>
+</class>

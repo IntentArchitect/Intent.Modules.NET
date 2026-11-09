@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.Mediator.CommandHandler#abd86e94-fd2c-40bd-9bf1-63b7bdaf83dd</correlationId>
+      <path>TestMediator.Hangfire.Application/Maintenance/PurgeExpiredSessions/PurgeExpiredSessionsCommandHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-09T07:07:34.600234Z</updatedAt>
+      <deviationsHash>D16C0761C693DE42555697BC2E9092FC05CF71145E8384B768C8E7FB07EC62EF</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>
