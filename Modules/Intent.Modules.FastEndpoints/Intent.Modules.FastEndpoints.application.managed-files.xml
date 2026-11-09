@@ -12,7 +12,7 @@
   <file path="Templates/ApiVersionSwaggerGenOptions/ApiVersionSwaggerGenOptionsTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/ApiVersioningConfiguration/ApiVersioningConfigurationTemplatePartial.cs" deviationsHash="4A52BF5C347BDF939B5C4DD3DCE1A2815A86AFDFCBE6A186ECB1152B150EED92" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ApiVersioningConfiguration/ApiVersioningConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/Endpoint/EndpointTemplatePartial.cs" deviationsHash="B65596896DA69EBF60D0E6C83C0A18C3BCFA893AD3D0E1D40A1116F4A026C224" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Endpoint/EndpointTemplatePartial.cs" deviationsHash="AFACB3821FD76BCA815F756DBF89119E4D545A875B79EC122DF3C9C061D4DD7B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/Endpoint/EndpointTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/ExceptionProcessor/ExceptionProcessorTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ExceptionProcessor/ExceptionProcessorTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />

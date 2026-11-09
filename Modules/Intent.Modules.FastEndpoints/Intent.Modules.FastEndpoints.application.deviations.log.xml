@@ -40,11 +40,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1547a142-247a-49b6-be59-b3aa2b157fdd</correlationId>
       <path>Templates/Endpoint/EndpointTemplatePartial.cs</path>
-      <count>2</count>
+      <count>3</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-02-26T10:35:40.0838872Z</updatedAt>
-      <deviationsHash>B65596896DA69EBF60D0E6C83C0A18C3BCFA893AD3D0E1D40A1116F4A026C224</deviationsHash>
+      <updatedAt>2026-11-09T10:03:57.1076827Z</updatedAt>
+      <deviationsHash>AFACB3821FD76BCA815F756DBF89119E4D545A875B79EC122DF3C9C061D4DD7B</deviationsHash>
       <fileHash>1A6F55C2D4D649CFF86A7C159690ED059B05D4EBB84DE44CBE9548892679D025</fileHash>
     </file>
   </files>

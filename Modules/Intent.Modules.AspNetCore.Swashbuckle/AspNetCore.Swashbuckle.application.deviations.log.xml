@@ -29,6 +29,33 @@
       <deviationsHash>122FBA3611A223F292715B55BC7B42C15E720789B5BDA331C35E5BC322E9BC33</deviationsHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b136bff0-a626-43fb-9cba-9a1af9ba7b4c</correlationId>
+      <path>Templates/HttpQueryDocumentFilter/HttpQueryDocumentFilterTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-09T10:03:40.358388Z</updatedAt>
+      <deviationsHash>C170D5453A9D673B9E6157165B027C91011FD21CBDCD4394266A1E39434CEAAB</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fbf488c9-fff7-475c-a4fe-6666d4e9d02f</correlationId>
+      <path>Templates/OpenApi32DocumentSerializer/OpenApi32DocumentSerializerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-09T10:03:40.3583946Z</updatedAt>
+      <deviationsHash>B5B10405C2C63145B7BFC08475E9EFCDCDF0FFE8243318F749C3FDA9F5AE5831</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f9817e5f-293b-47bb-895e-22d387b7c6f0</correlationId>
+      <path>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-09T10:03:40.3584016Z</updatedAt>
+      <deviationsHash>3207CCFFD9324D5B172EC7BD582F02FA665A659DE0F0F629276DFB27A87C6B1C</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f9817e5f-293b-47bb-895e-22d387b7c6f0</correlationId>
       <path>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplateRegistration.cs</path>
       <count>1</count>
