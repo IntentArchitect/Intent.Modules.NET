@@ -382,3 +382,5 @@ Modules/Intent.Modules/
 opencode.json
 
 .kiro/settings/mcp.json
+
+.cursor/mcp.json
