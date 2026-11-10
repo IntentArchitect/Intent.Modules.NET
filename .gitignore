@@ -384,3 +384,6 @@ opencode.json
 .kiro/settings/mcp.json
 
 .cursor/mcp.json
+
+# Working folder of the module-nuget-bump skill
+.nuget-bump/
