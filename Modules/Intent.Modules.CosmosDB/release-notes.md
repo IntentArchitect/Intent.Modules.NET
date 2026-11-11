@@ -1,3 +1,10 @@
+### Version 2.1.1
+
+- Improvement: Updated NuGet package versions:
+  - `Azure.Identity` added 1.21.0 (net10.0)
+  - `Finbuckle.MultiTenant` 9.4.10 → 9.4.16 (net8.0); added 8.1.21 (net7.0, net6.0); added 9.4.16 (net9.0)
+  - `IEvangelist.Azure.CosmosRepository` 10.0.1 → 10.0.4 (net10.0); 10.0.2 → 10.0.4 (net9.0, net8.0, netstandard2.0)
+
 ### Version 2.1.0
 
 - Improvement: Value Object documents now include the associations a Value Object has to other Value Objects (single, nullable `0..1` and collection), alongside its attributes. Each gets a document property, an explicit `I{Name}Document` accessor and `ToEntity`/`PopulateFromEntity` mappings, the same as a Value Object typed attribute. Only associations the domain Value Object class exposes are included, so this takes effect together with `Intent.ValueObjects` 4.3.0.

@@ -25,8 +25,9 @@
   <metadata />
   <childElements>
     <childElement id="0767a9fc-1c89-4a6d-8b28-18c9f90345a4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <comment>Asp.Versioning 10.2.0 enables analyzers by default and AV0012/AV0018/AV0019 are errors, which can fail a generated app's build. https://github.com/dotnet/aspnet-api-versioning/releases/tag/v10.2.0. 2026-11-11.</comment>
       <name>10.0.0</name>
-      <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <display>10.0.0 ( &gt;= .NETCoreApp,Version=v10.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -41,7 +42,7 @@
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
             <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="true" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

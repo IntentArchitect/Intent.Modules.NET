@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="39508b83-03f3-4d5e-b1d6-9aa38d7cfa7d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="aa59bc04-4f05-41cf-9a7c-9111210e2ec0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="317241d1-7391-44b5-a586-bc2098ce64c0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Castle.Core</name>
           <display>Castle.Core (5.2.1)</display>
           <isAbstract>false</isAbstract>
@@ -61,11 +61,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e561af3c-0077-4f6f-8f54-16d92da485bf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6a2cb13b-0f84-4ad6-a55e-5de8afce6237" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
-          <display>Microsoft.EntityFrameworkCore (10.0.9)</display>
+          <display>Microsoft.EntityFrameworkCore (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39508b83-03f3-4d5e-b1d6-9aa38d7cfa7d</parentFolderId>
@@ -75,11 +75,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e5c80c66-49b9-41fe-9038-2ac1a70616be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9276f8f0-ae6f-4db5-9a52-b5eb91909a41" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
-          <display>Microsoft.Extensions.Caching.Memory (10.0.9)</display>
+          <display>Microsoft.Extensions.Caching.Memory (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39508b83-03f3-4d5e-b1d6-9aa38d7cfa7d</parentFolderId>
@@ -89,11 +89,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1ca2cede-faa2-4e2a-9bc1-055471616f87" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="52236eff-fc52-48f1-9282-2b616c393f4a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>39508b83-03f3-4d5e-b1d6-9aa38d7cfa7d</parentFolderId>
@@ -236,9 +236,10 @@
     </childElement>
     <childElement id="8000e910-006d-4eec-a893-ee4d29a879da" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.</comment>
-      <name>8.0.28</name>
-      <display>8.0.28 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
+      <name>8.0.34</name>
+      <display>8.0.34 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6ea37a6a-8854-4ab5-98a4-954797e599e5</parentFolderId>
@@ -256,13 +257,42 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="c16dbf78-4645-43a8-a974-da3c8f27bbb8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Castle.Core</name>
+          <display>Castle.Core (5.2.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>5.2.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8000e910-006d-4eec-a893-ee4d29a879da</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="52c0c9a3-0983-457e-b73b-f1e8b458cfa8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <display>Microsoft.EntityFrameworkCore (8.0.34)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.34</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8000e910-006d-4eec-a893-ee4d29a879da</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="533cf692-afbb-46f4-ba91-0066394f99f4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.
 Created this entry so .net9 gets 9.0.0</comment>
-      <name>9.0.17</name>
-      <display>9.0.17 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
+      <name>9.0.23</name>
+      <display>9.0.23 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -283,11 +313,11 @@ Created this entry so .net9 gets 9.0.0</comment>
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ce3493a6-4764-40be-9c10-ec14935e462d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Humanizer.Core</name>
-          <display>Humanizer.Core (2.14.1)</display>
+        <childElement id="768c81ad-030d-4c54-a837-2f894ad14f8a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Castle.Core</name>
+          <display>Castle.Core (5.2.1)</display>
           <isAbstract>false</isAbstract>
-          <value>2.14.1</value>
+          <value>5.2.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
@@ -297,11 +327,11 @@ Created this entry so .net9 gets 9.0.0</comment>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="86a89de6-8daa-4eee-b7eb-383c8b730849" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Build.Framework</name>
-          <display>Microsoft.Build.Framework (17.8.3)</display>
+        <childElement id="a05f31db-234c-458b-af59-5813e4b656d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <display>Microsoft.EntityFrameworkCore (9.0.23)</display>
           <isAbstract>false</isAbstract>
-          <value>17.8.3</value>
+          <value>9.0.23</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
@@ -311,81 +341,11 @@ Created this entry so .net9 gets 9.0.0</comment>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="504d707d-931d-43c8-9762-dfc5ce7d5d66" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Build.Locator</name>
-          <display>Microsoft.Build.Locator (1.7.8)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.7.8</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="f36373fd-9626-4408-851e-81a45e184cd2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.CodeAnalysis.CSharp</name>
-          <display>Microsoft.CodeAnalysis.CSharp (4.8.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.8.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d06f7e18-6f97-4f0d-839e-958583b614b7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.CodeAnalysis.CSharp.Workspaces</name>
-          <display>Microsoft.CodeAnalysis.CSharp.Workspaces (4.8.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.8.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="775e877f-346b-45d0-81de-0b97be0f9040" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.CodeAnalysis.Workspaces.MSBuild</name>
-          <display>Microsoft.CodeAnalysis.Workspaces.MSBuild (4.8.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.8.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c7bb27f7-9690-4ef3-be3b-d1cbfdbbcdc3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <display>Microsoft.EntityFrameworkCore.Relational (9.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="51912c85-f28f-4af5-bebe-e776d181f750" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="50d309d9-b5a5-4d1d-b149-8e4305ed48ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
-          <display>Microsoft.Extensions.Caching.Memory (9.0.9)</display>
+          <display>Microsoft.Extensions.Caching.Memory (9.0.23)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.9</value>
+          <value>9.0.23</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
@@ -395,67 +355,11 @@ Created this entry so .net9 gets 9.0.0</comment>
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="30cc67e5-114b-4c6d-845e-10e2367bb5b3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1751b60f-d19c-4904-8b5f-b04e3483e38f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyModel</name>
-          <display>Microsoft.Extensions.DependencyModel (9.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a80d316d-36a3-4354-b9e7-a4d0e36797a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="327c763a-572f-43e9-a17e-29d2df801f06" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.9)</display>
+          <display>Microsoft.Extensions.Logging (9.0.23)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="17763c2d-1b72-473b-b403-413dbf4e0115" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Mono.TextTemplating</name>
-          <display>Mono.TextTemplating (3.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>3.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="eaf6681f-91cb-4dbe-ab1f-1549f6ea410e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Json</name>
-          <display>System.Text.Json (9.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.9</value>
+          <value>9.0.23</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>533cf692-afbb-46f4-ba91-0066394f99f4</parentFolderId>

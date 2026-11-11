@@ -1,3 +1,13 @@
+### Version 2.1.0
+
+- Improvement: Updated NuGet package versions:
+  - `Finbuckle.MultiTenant` 9.4.10 → 9.4.16 (net9.0, net8.0); 8.1.15 → 8.1.21 (net7.0)
+  - `MongoDB.Driver` 3.10.0 → 3.13.0
+
+> ⚠️ **BREAKING CHANGES**
+>
+> This module update may change behaviour or cause compilation breaks in custom code you have written that relies on MongoDB.Driver 3.13, which adds LINQ translation exceptions and changes how PushEach, AddToSetEach and PullAll render. For details see the [MongoDB.Driver 3.13.0 release notes](https://github.com/mongodb/mongo-csharp-driver/releases/tag/v3.13.0).
+
 ### Version 2.0.10
 
 - Improvement: Updated NuGet package versions.

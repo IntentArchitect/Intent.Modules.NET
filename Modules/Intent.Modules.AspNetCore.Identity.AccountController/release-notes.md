@@ -1,3 +1,9 @@
+### Version 4.1.20
+
+- Improvement: Updated NuGet package versions:
+  - `Duende.IdentityModel` 7.0.0 → 7.1.0
+  - `Microsoft.AspNetCore.Authentication.JwtBearer` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0); 2.3.11 → 2.3.14 (netstandard2.0)
+
 ### Version 4.1.19
 
 - Improvement: The `AccountController` now honours the **Default API Route Prefix** application setting instead of hardcoding `api`. 

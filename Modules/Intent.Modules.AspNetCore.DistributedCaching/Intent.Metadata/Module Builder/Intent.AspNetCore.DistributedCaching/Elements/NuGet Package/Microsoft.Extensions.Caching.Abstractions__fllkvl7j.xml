@@ -24,92 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="55ea7f23-520e-49fe-9378-f8325a8c6cf5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>9.0.6 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>c0aec7c4-9a76-49eb-a730-e0347d91c36b</parentFolderId>
-      <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-      <packageName>Intent.AspNetCore.DistributedCaching</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="10bc4d65-fc0c-49db-bfc5-8fc42221633f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Primitives</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>55ea7f23-520e-49fe-9378-f8325a8c6cf5</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="9f002951-84b7-438f-9ff7-de6034706478" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>9.0.6 ( &gt;= .NETStandard,Version=v2.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>c0aec7c4-9a76-49eb-a730-e0347d91c36b</parentFolderId>
-      <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-      <packageName>Intent.AspNetCore.DistributedCaching</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="229547d1-8799-45fd-b462-713f024524d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Primitives</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>9f002951-84b7-438f-9ff7-de6034706478</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="3c6a7316-3384-46c5-820d-1eed2af4d953" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Threading.Tasks.Extensions</name>
-          <isAbstract>false</isAbstract>
-          <value>4.6.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>9f002951-84b7-438f-9ff7-de6034706478</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="0647eef4-e4f7-49b1-aa55-afda8abdfe5e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>9.0.6 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -130,13 +47,108 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5ec5b3f6-43ce-4de7-a278-e94f785268b2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3eb2f4c2-d81b-472e-943d-78fe2dc4fb37" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Primitives</name>
+          <display>Microsoft.Extensions.Primitives (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0647eef4-e4f7-49b1-aa55-afda8abdfe5e</parentFolderId>
+          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
+          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="55ea7f23-520e-49fe-9378-f8325a8c6cf5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c0aec7c4-9a76-49eb-a730-e0347d91c36b</parentFolderId>
+      <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
+      <packageName>Intent.AspNetCore.DistributedCaching</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b9767c73-7ed1-4f83-a261-681e2da9603a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Primitives</name>
+          <display>Microsoft.Extensions.Primitives (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>55ea7f23-520e-49fe-9378-f8325a8c6cf5</parentFolderId>
+          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
+          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="9f002951-84b7-438f-9ff7-de6034706478" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c0aec7c4-9a76-49eb-a730-e0347d91c36b</parentFolderId>
+      <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
+      <packageName>Intent.AspNetCore.DistributedCaching</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="13f4fc34-5f0f-4c6a-a990-6b28609ad44e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Primitives</name>
+          <display>Microsoft.Extensions.Primitives (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9f002951-84b7-438f-9ff7-de6034706478</parentFolderId>
+          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
+          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="07a59a0a-fffb-4942-84b8-47cb30bf68b2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.6.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.6.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9f002951-84b7-438f-9ff7-de6034706478</parentFolderId>
+          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
+          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -144,11 +156,15 @@
       </childElements>
     </childElement>
     <childElement id="9fa7a36d-8aa6-4964-a22d-bcae1f3df530" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
+      <name>11.0.0</name>
+      <display>11.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c0aec7c4-9a76-49eb-a730-e0347d91c36b</parentFolderId>
+      <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
+      <packageName>Intent.AspNetCore.DistributedCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -162,13 +178,16 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b8d18164-b539-46b3-ac83-5ad856dc1909" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b0841e73-4add-4d18-8bf5-88e7b76ae85f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Primitives</name>
+          <display>Microsoft.Extensions.Primitives (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9fa7a36d-8aa6-4964-a22d-bcae1f3df530</parentFolderId>
+          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
+          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />

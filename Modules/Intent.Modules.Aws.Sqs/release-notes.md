@@ -1,3 +1,9 @@
+### Version 1.1.3
+
+- Improvement: Updated NuGet package versions:
+  - `Amazon.Lambda.SQSEvents` 3.0.0 → 3.0.1
+  - `AWSSDK.SQS` 4.0.100.3 → 4.0.100.26
+
 ### Version 1.1.2
 
 - Improvement: Updated NuGet package versions.

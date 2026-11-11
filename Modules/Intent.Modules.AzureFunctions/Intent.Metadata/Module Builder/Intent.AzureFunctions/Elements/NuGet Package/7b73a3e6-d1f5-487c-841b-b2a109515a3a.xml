@@ -26,9 +26,10 @@
   <metadata />
   <childElements>
     <childElement id="bb054f28-84c5-4b04-8220-2c812bdc2f4b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.3.0</name>
-      <display>4.3.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>4.16.1</name>
+      <display>4.16.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7b73a3e6-d1f5-487c-841b-b2a109515a3a</parentFolderId>
@@ -46,7 +47,78 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="42a02cea-f7b7-43ef-ae13-4f512be8cfa1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Core.NewtonsoftJson</name>
+          <display>Microsoft.Azure.Core.NewtonsoftJson (2.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bb054f28-84c5-4b04-8220-2c812bdc2f4b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7f74ac7c-16fb-4d4f-b141-45c64387d70c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Cosmos</name>
+          <display>Microsoft.Azure.Cosmos (3.60.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.60.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bb054f28-84c5-4b04-8220-2c812bdc2f4b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ab49fcc0-7d28-4319-a3d4-a669dd5a332a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.WebJobs</name>
+          <display>Microsoft.Azure.WebJobs (3.0.44)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.0.44</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bb054f28-84c5-4b04-8220-2c812bdc2f4b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="acdc1ef7-edd9-43a1-93d0-5d62d51ab0bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.CSharp</name>
+          <display>Microsoft.CSharp (4.7.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.7.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bb054f28-84c5-4b04-8220-2c812bdc2f4b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0de2cbcf-153d-48e7-8ffc-632354148c4c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Azure</name>
+          <display>Microsoft.Extensions.Azure (1.13.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.13.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bb054f28-84c5-4b04-8220-2c812bdc2f4b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

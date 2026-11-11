@@ -159,8 +159,8 @@
       </childElements>
     </childElement>
     <childElement id="7d67f05b-8078-476c-a343-51cd410a2891" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.2.0</name>
-      <display>8.2.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.3.0</name>
+      <display>8.3.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -181,11 +181,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="92c1cff8-7ead-493e-9511-e6799480e205" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="534c1c07-9067-4898-a37d-6f55b9aa77e7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Attributes</name>
-          <display>FastEndpoints.Attributes (8.2.0)</display>
+          <display>FastEndpoints.Attributes (8.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.2.0</value>
+          <value>8.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d67f05b-8078-476c-a343-51cd410a2891</parentFolderId>
@@ -195,11 +195,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c8463cd2-fdb1-46dd-885c-c329f192b579" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e16d450a-7eb7-444f-8dff-9944407743e9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.JobQueues</name>
-          <display>FastEndpoints.JobQueues (8.2.0)</display>
+          <display>FastEndpoints.JobQueues (8.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.2.0</value>
+          <value>8.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d67f05b-8078-476c-a343-51cd410a2891</parentFolderId>
@@ -209,11 +209,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1fe4cd4a-fa07-482c-8ce8-b7c33bc61989" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="98984422-70e1-4bb8-8966-7be1b1bbf1e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Messaging</name>
-          <display>FastEndpoints.Messaging (8.2.0)</display>
+          <display>FastEndpoints.Messaging (8.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.2.0</value>
+          <value>8.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d67f05b-8078-476c-a343-51cd410a2891</parentFolderId>
@@ -223,7 +223,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1520bf6b-d036-47a0-90d1-42ca730dfd55" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e2e77850-34ef-412d-9f21-5f0109262954" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
           <display>FluentValidation (12.1.1)</display>
           <isAbstract>false</isAbstract>
@@ -240,8 +240,8 @@
       </childElements>
     </childElement>
     <childElement id="857b2e05-eebf-4b73-a769-ab49fd966ea3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.2.0</name>
-      <display>8.2.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>8.3.0</name>
+      <display>8.3.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -262,11 +262,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f86c3240-041c-44c9-8f6c-bd1fa37ac73b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3b1fbe47-c69c-41c9-aeab-b048708a85ef" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Attributes</name>
-          <display>FastEndpoints.Attributes (8.2.0)</display>
+          <display>FastEndpoints.Attributes (8.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.2.0</value>
+          <value>8.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>857b2e05-eebf-4b73-a769-ab49fd966ea3</parentFolderId>
@@ -276,11 +276,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3ef07587-5470-431c-8fe1-7b95be915257" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1c65a5b1-72fc-40a6-899d-f4c3b18ff860" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.JobQueues</name>
-          <display>FastEndpoints.JobQueues (8.2.0)</display>
+          <display>FastEndpoints.JobQueues (8.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.2.0</value>
+          <value>8.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>857b2e05-eebf-4b73-a769-ab49fd966ea3</parentFolderId>
@@ -290,11 +290,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="41f1fdea-db9d-423d-a516-16c387c8e4d1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e8959c7f-4ae5-4b26-841a-baa22d783ddf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Messaging</name>
-          <display>FastEndpoints.Messaging (8.2.0)</display>
+          <display>FastEndpoints.Messaging (8.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.2.0</value>
+          <value>8.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>857b2e05-eebf-4b73-a769-ab49fd966ea3</parentFolderId>
@@ -304,7 +304,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6f1a3698-ce38-4b79-a4cb-9c5600a63158" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d18cdcb0-49ad-498d-adb0-4edca3d8d9ce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
           <display>FluentValidation (12.1.1)</display>
           <isAbstract>false</isAbstract>
@@ -321,8 +321,8 @@
       </childElements>
     </childElement>
     <childElement id="deb2ad5a-c8e0-48e0-99b5-aaab7ce71e4f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.2.0</name>
-      <display>8.2.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>8.3.0</name>
+      <display>8.3.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -343,11 +343,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d46a6181-96d2-4308-8027-7752ab03931b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a807c05a-0406-4e2d-853c-f4ae42c6fee5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Attributes</name>
-          <display>FastEndpoints.Attributes (8.2.0)</display>
+          <display>FastEndpoints.Attributes (8.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.2.0</value>
+          <value>8.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>deb2ad5a-c8e0-48e0-99b5-aaab7ce71e4f</parentFolderId>
@@ -357,11 +357,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8fa16c3c-21bb-46bb-b942-1fa93de13c9e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2d261bc0-466b-4917-bc84-e67799439500" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.JobQueues</name>
-          <display>FastEndpoints.JobQueues (8.2.0)</display>
+          <display>FastEndpoints.JobQueues (8.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.2.0</value>
+          <value>8.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>deb2ad5a-c8e0-48e0-99b5-aaab7ce71e4f</parentFolderId>
@@ -371,11 +371,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="13c16823-2d30-404d-a472-b2607b419888" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bfccb633-0a05-4cc6-95b6-c10cadb8f34d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Messaging</name>
-          <display>FastEndpoints.Messaging (8.2.0)</display>
+          <display>FastEndpoints.Messaging (8.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.2.0</value>
+          <value>8.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>deb2ad5a-c8e0-48e0-99b5-aaab7ce71e4f</parentFolderId>
@@ -385,7 +385,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="601862c0-2034-45bf-ad58-930d08a53626" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d6131226-8405-47f8-a5ff-a2e63295551c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
           <display>FluentValidation (12.1.1)</display>
           <isAbstract>false</isAbstract>

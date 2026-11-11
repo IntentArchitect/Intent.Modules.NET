@@ -1,3 +1,9 @@
+### Version 1.4.1
+
+- Improvement: Updated NuGet package versions:
+  - `FluentValidation` 12.1.1 → 12.2.0
+  - `FluentValidation.DependencyInjectionExtensions` 12.1.1 → 12.2.0
+
 ### Version 1.4.0
 
 - Improvement: Updated referenced module versions.

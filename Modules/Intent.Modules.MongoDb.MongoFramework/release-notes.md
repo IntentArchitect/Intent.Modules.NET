@@ -1,3 +1,8 @@
+### Version 1.0.38
+
+- Improvement: Updated NuGet package versions:
+  - `Finbuckle.MultiTenant` 9.4.10 → 9.4.16 (net8.0); added 8.1.21 (net7.0, net6.0); added 9.4.16 (net9.0)
+
 ### Version 1.0.37
 
 - Fixed: removed a stray NuGet version arm that pinned `Finbuckle.MultiTenant` to 10.0.2 for .NET 10 applications. That version conflicted with `Intent.Modules.AspNetCore.MultiTenancy`'s single `9.4.10` pin (which deliberately has no separate .NET 10 arm), risking a version mismatch when this module is combined with the root multi-tenancy module in a .NET 10 application. .NET 8/9 applications were unaffected and already resolved to `9.4.10`.

@@ -24,146 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="673b3e60-70cc-430d-93b0-0f752615cb6f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
-      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9d6ace5a-ad9c-4a06-8b15-54b5c49e2aaf</parentFolderId>
-      <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-      <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="3ed72c74-7689-4d31-8667-e2d9e23f1dc9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Identity</name>
-          <display>Azure.Identity (1.13.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.13.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="3ba62be8-0e82-44bd-989a-e50f21a1260d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Azure.Cosmos</name>
-          <display>Microsoft.Azure.Cosmos (3.46.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>3.46.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="3a43a29d-7a9e-4947-b896-6f0b53f5f034" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (9.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c4fbb4af-a455-4925-8577-48dc51fa647c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Http</name>
-          <display>Microsoft.Extensions.Http (9.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0a5e1ae4-e68d-48ce-838d-38facc945c12" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="6bad95c3-fbbb-4753-a265-7b1c1ab0ba0f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
-          <display>Microsoft.Extensions.Options.ConfigurationExtensions (9.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="3629b40b-11f5-407f-ac43-ce1545c964d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Newtonsoft.Json</name>
-          <display>Newtonsoft.Json (13.0.3)</display>
-          <isAbstract>false</isAbstract>
-          <value>13.0.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1a3aa738-d3b2-437f-ba62-834038839303" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry.Extensions.Hosting</name>
-          <display>OpenTelemetry.Extensions.Hosting (1.13.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.13.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="a6ea4121-6631-4185-95e0-ff7712aa4421" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
-      <display>10.0.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>10.0.4</name>
+      <display>10.0.4 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -184,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4faa5011-a498-4a73-8931-59f07315f992" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="682db155-677f-4472-b0f8-9ab971fc19a3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
           <display>Azure.Identity (1.13.1)</display>
           <isAbstract>false</isAbstract>
@@ -198,7 +61,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7422455c-2637-409f-afe9-e19fab896225" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8bd720b9-f2d3-48cd-8a94-1b97d1f14f5c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Cosmos</name>
           <display>Microsoft.Azure.Cosmos (3.46.0)</display>
           <isAbstract>false</isAbstract>
@@ -212,11 +75,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cfda1294-f2b0-4511-a5d2-3607eef65f48" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a248772c-6762-4da1-8684-bf4fc7dd51ca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (9.0.0)</display>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6ea4121-6631-4185-95e0-ff7712aa4421</parentFolderId>
@@ -226,11 +89,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="07674fbb-dc2f-4b47-898b-88ac7abb06e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e6600be0-4fab-4563-94f3-beed38a7056f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
-          <display>Microsoft.Extensions.Http (9.0.0)</display>
+          <display>Microsoft.Extensions.Http (10.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6ea4121-6631-4185-95e0-ff7712aa4421</parentFolderId>
@@ -240,11 +103,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f6ad05bd-e488-4e10-9caa-80b9f996c9c0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="be453e6f-2b7d-4f89-aec3-389535d0883a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.0)</display>
+          <display>Microsoft.Extensions.Logging (10.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6ea4121-6631-4185-95e0-ff7712aa4421</parentFolderId>
@@ -254,11 +117,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f99699d2-d608-4d61-abb5-603671deec1b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bbd0c630-b56c-4fe3-a8bf-a4a1ac43dd1f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
-          <display>Microsoft.Extensions.Options.ConfigurationExtensions (9.0.0)</display>
+          <display>Microsoft.Extensions.Options.ConfigurationExtensions (10.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6ea4121-6631-4185-95e0-ff7712aa4421</parentFolderId>
@@ -268,7 +131,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c3b66171-5bb2-41da-bc1c-0df1b26abfe9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="aafcdeef-8108-4944-815a-9affa701eedb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
           <display>Newtonsoft.Json (13.0.3)</display>
           <isAbstract>false</isAbstract>
@@ -282,11 +145,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ca7a9b4d-e90f-4f37-a66f-84caef078727" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a5c4a9cd-e259-4130-ae71-d9ba3c07fc4d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Extensions.Hosting</name>
-          <display>OpenTelemetry.Extensions.Hosting (1.13.0)</display>
+          <display>OpenTelemetry.Extensions.Hosting (1.19.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.13.0</value>
+          <value>1.19.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6ea4121-6631-4185-95e0-ff7712aa4421</parentFolderId>
@@ -298,9 +161,146 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="673b3e60-70cc-430d-93b0-0f752615cb6f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.4</name>
+      <display>10.0.4 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9d6ace5a-ad9c-4a06-8b15-54b5c49e2aaf</parentFolderId>
+      <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+      <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="19a3841f-3c1e-4cfb-bd16-c935d39cb404" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Identity</name>
+          <display>Azure.Identity (1.13.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.13.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c125aa71-e4a5-41aa-98f5-b25cc3638fa4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Cosmos</name>
+          <display>Microsoft.Azure.Cosmos (3.46.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.46.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cf5acb06-b50a-4b20-b4d3-547262d95aac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.12)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.12</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="669656ac-6404-407c-bf83-c4bd2f7d5975" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Http</name>
+          <display>Microsoft.Extensions.Http (10.0.12)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.12</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c3007cee-6529-4183-8493-0de08580c77d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (10.0.12)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.12</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="36ff4ef6-b242-4ed8-8ae7-13540ed16d86" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
+          <display>Microsoft.Extensions.Options.ConfigurationExtensions (10.0.12)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.12</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a8554bf4-5fc6-4fe5-b39c-5f4db5399659" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Newtonsoft.Json</name>
+          <display>Newtonsoft.Json (13.0.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>13.0.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b595324b-6ebf-4c9d-9827-4d77681bdca7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Extensions.Hosting</name>
+          <display>OpenTelemetry.Extensions.Hosting (1.19.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.19.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>673b3e60-70cc-430d-93b0-0f752615cb6f</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="84fc08ee-e3f4-4d55-a2df-096fe779c7c0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
-      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>10.0.4</name>
+      <display>10.0.4 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -321,7 +321,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="13eb725e-75a7-4a4d-bcde-46ddc4ca19c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0620b017-55c9-448a-a0a2-0c0f49bd543c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
           <display>Azure.Identity (1.13.1)</display>
           <isAbstract>false</isAbstract>
@@ -335,7 +335,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8dd7aae9-94ac-47ac-be17-0ba0b6ed8064" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9b62f0bf-15e2-4d4a-a0a5-0f216af9534f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Cosmos</name>
           <display>Microsoft.Azure.Cosmos (3.46.0)</display>
           <isAbstract>false</isAbstract>
@@ -349,11 +349,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="296b9b18-17ca-4b2a-a3ab-2c91d31e4989" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c859e7a1-c744-453e-92b6-c076fad9d30a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (9.0.0)</display>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>84fc08ee-e3f4-4d55-a2df-096fe779c7c0</parentFolderId>
@@ -363,11 +363,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3379bb31-f81c-458d-a4ed-ae9953fda1d0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3e47f2a4-d5d1-4b05-875b-8bdfe75b170e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
-          <display>Microsoft.Extensions.Http (9.0.0)</display>
+          <display>Microsoft.Extensions.Http (10.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>84fc08ee-e3f4-4d55-a2df-096fe779c7c0</parentFolderId>
@@ -377,11 +377,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="561299f5-e8d7-4efb-bd47-6c65dd0b8eb2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e06b1b59-460c-4e21-aff9-9df1e8104b41" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.0)</display>
+          <display>Microsoft.Extensions.Logging (10.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>84fc08ee-e3f4-4d55-a2df-096fe779c7c0</parentFolderId>
@@ -391,11 +391,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="860637bb-b8e9-4876-8b4b-0a95b9e5e842" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fc5d3044-bb94-4adb-ae5f-249a34f0166c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
-          <display>Microsoft.Extensions.Options.ConfigurationExtensions (9.0.0)</display>
+          <display>Microsoft.Extensions.Options.ConfigurationExtensions (10.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>84fc08ee-e3f4-4d55-a2df-096fe779c7c0</parentFolderId>
@@ -405,7 +405,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="71fb7b8b-3045-4961-b59d-59815c01bae6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="74ea6d13-75ea-4c7c-b7e8-3ba7784a6bcb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
           <display>Newtonsoft.Json (13.0.3)</display>
           <isAbstract>false</isAbstract>
@@ -419,11 +419,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="aa92b3e1-27de-4a54-9cd4-e98f4e55f308" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9d27d0f6-7b25-413d-89a2-a4b7058d8ded" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Extensions.Hosting</name>
-          <display>OpenTelemetry.Extensions.Hosting (1.13.0)</display>
+          <display>OpenTelemetry.Extensions.Hosting (1.19.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.13.0</value>
+          <value>1.19.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>84fc08ee-e3f4-4d55-a2df-096fe779c7c0</parentFolderId>
@@ -436,8 +436,8 @@
       </childElements>
     </childElement>
     <childElement id="3cb879cf-4ee2-4040-b772-10add4726dba" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
-      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>10.0.4</name>
+      <display>10.0.4 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -458,7 +458,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4496bf1b-7ee8-45d7-bc81-6c7022da6f5d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2f8d84ad-f903-49bb-9d4d-2c7026f51708" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
           <display>Azure.Identity (1.13.1)</display>
           <isAbstract>false</isAbstract>
@@ -472,7 +472,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d47dd58c-71e8-4953-9e9e-359f653ac8db" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="781df671-7794-4bea-a24d-c790af992ffa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Cosmos</name>
           <display>Microsoft.Azure.Cosmos (3.46.0)</display>
           <isAbstract>false</isAbstract>
@@ -486,11 +486,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="30a5f374-b0e6-42dd-a035-da4dc9aaa31e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="105f731c-cff0-416b-9ee3-d64b28689775" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (9.0.0)</display>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3cb879cf-4ee2-4040-b772-10add4726dba</parentFolderId>
@@ -500,11 +500,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6c81b633-9454-435d-bcc3-f91b12883085" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3edfba48-9dc2-4243-bfad-401fea83e61c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
-          <display>Microsoft.Extensions.Http (9.0.0)</display>
+          <display>Microsoft.Extensions.Http (10.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3cb879cf-4ee2-4040-b772-10add4726dba</parentFolderId>
@@ -514,11 +514,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0d815f95-6635-44a8-94b9-41e340223c3b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="579dc808-49a1-4cf0-b17e-28bdcf974bb1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.0)</display>
+          <display>Microsoft.Extensions.Logging (10.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3cb879cf-4ee2-4040-b772-10add4726dba</parentFolderId>
@@ -528,11 +528,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="946a4060-afe2-4ae2-be22-e65333acab3f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="500b7374-533e-4776-a98d-260c1171c6e0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
-          <display>Microsoft.Extensions.Options.ConfigurationExtensions (9.0.0)</display>
+          <display>Microsoft.Extensions.Options.ConfigurationExtensions (10.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3cb879cf-4ee2-4040-b772-10add4726dba</parentFolderId>
@@ -542,7 +542,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4b9ae118-56a5-4f56-aaac-9cdd32e5e20c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e5f6c74e-77a4-4099-89a2-6f85698f3b0a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
           <display>Newtonsoft.Json (13.0.3)</display>
           <isAbstract>false</isAbstract>
@@ -556,11 +556,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="16e918b9-a586-4ef5-b016-42c76c9c2036" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e0be9e7f-2a15-4b9d-a824-c1e016ab172c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Extensions.Hosting</name>
-          <display>OpenTelemetry.Extensions.Hosting (1.13.0)</display>
+          <display>OpenTelemetry.Extensions.Hosting (1.19.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.13.0</value>
+          <value>1.19.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3cb879cf-4ee2-4040-b772-10add4726dba</parentFolderId>

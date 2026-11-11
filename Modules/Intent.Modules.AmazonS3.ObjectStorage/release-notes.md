@@ -1,3 +1,9 @@
+### Version 1.1.16
+
+- Improvement: Updated NuGet package versions:
+  - `AWSSDK.Extensions.NETCore.Setup` 4.0.100.3 → 4.0.102.11
+  - `AWSSDK.S3` 4.0.100.3 → 4.0.104.12
+
 ### Version 1.1.15
 
 - Improvement: Updated NuGet package versions.

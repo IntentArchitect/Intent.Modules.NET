@@ -1,3 +1,8 @@
+### Version 5.2.1
+
+- Improvement: Updated NuGet package versions:
+  - `FluentValidation` 12.1.1 → 12.2.0
+
 ### Version 5.2.0
 
 - Improvement: Updated references to latest FluentValidation module versions

@@ -24,78 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="d14985bd-61c2-4b21-be01-7990fd3b7418" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.0.100.3</name>
-      <display>4.0.3.7 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>1dcbad5b-da7c-4db5-af32-c001958e36f6</parentFolderId>
-      <packageId>99b1597f-25dc-4d33-ba2d-6b1201368aff</packageId>
-      <packageName>Intent.Aws.Common</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="ff6d5d4f-af41-4b8b-b099-685be5a336fb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>AWSSDK.Core</name>
-          <isAbstract>false</isAbstract>
-          <value>4.0.100.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>d14985bd-61c2-4b21-be01-7990fd3b7418</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4227277c-623f-41cc-ad54-67a9da94cac7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>2.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>d14985bd-61c2-4b21-be01-7990fd3b7418</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="495f238d-0fb2-4a40-9f40-2a6d10714284" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>d14985bd-61c2-4b21-be01-7990fd3b7418</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ef003142-3daf-4d4a-9797-0698f7e684cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>2.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>d14985bd-61c2-4b21-be01-7990fd3b7418</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="26553f3f-7f2d-4e26-b166-732e1c339a1d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.0.100.3</name>
-      <display>4.0.3.7 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>4.0.102.11</name>
+      <display>4.0.102.11 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -116,46 +47,139 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="54f9d5c5-3f55-417b-bc28-4c47b42e470e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e8f53ac8-87ea-4c23-94ab-6990664c6efc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AWSSDK.Core</name>
+          <display>AWSSDK.Core (4.0.103)</display>
           <isAbstract>false</isAbstract>
-          <value>4.0.100.3</value>
+          <value>4.0.103</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>26553f3f-7f2d-4e26-b166-732e1c339a1d</parentFolderId>
+          <packageId>99b1597f-25dc-4d33-ba2d-6b1201368aff</packageId>
+          <packageName>Intent.Aws.Common</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="55230cb7-1bc5-4eca-9e95-807209ca4f60" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8197a603-edad-445b-a3bc-2fdac0cc3eb4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (2.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>26553f3f-7f2d-4e26-b166-732e1c339a1d</parentFolderId>
+          <packageId>99b1597f-25dc-4d33-ba2d-6b1201368aff</packageId>
+          <packageName>Intent.Aws.Common</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="47752357-3e08-457d-9a1f-13e5904f1950" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="91d70fcf-a6f2-45bf-9be1-f1ca2631500d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (2.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>26553f3f-7f2d-4e26-b166-732e1c339a1d</parentFolderId>
+          <packageId>99b1597f-25dc-4d33-ba2d-6b1201368aff</packageId>
+          <packageName>Intent.Aws.Common</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="76f01aeb-ecc5-47b4-87d9-63f821fbfa1d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="315bc626-0cf8-49eb-9df6-c1d3b0b6efbe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (2.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>26553f3f-7f2d-4e26-b166-732e1c339a1d</parentFolderId>
+          <packageId>99b1597f-25dc-4d33-ba2d-6b1201368aff</packageId>
+          <packageName>Intent.Aws.Common</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="d14985bd-61c2-4b21-be01-7990fd3b7418" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>4.0.102.11</name>
+      <display>4.0.102.11 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1dcbad5b-da7c-4db5-af32-c001958e36f6</parentFolderId>
+      <packageId>99b1597f-25dc-4d33-ba2d-6b1201368aff</packageId>
+      <packageName>Intent.Aws.Common</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="834512a5-a581-4a68-83a7-3abd7fd0cf55" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>AWSSDK.Core</name>
+          <display>AWSSDK.Core (4.0.103)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.0.103</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d14985bd-61c2-4b21-be01-7990fd3b7418</parentFolderId>
+          <packageId>99b1597f-25dc-4d33-ba2d-6b1201368aff</packageId>
+          <packageName>Intent.Aws.Common</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="92920bb1-9ce5-469f-bd2d-673fdb60df68" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (2.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d14985bd-61c2-4b21-be01-7990fd3b7418</parentFolderId>
+          <packageId>99b1597f-25dc-4d33-ba2d-6b1201368aff</packageId>
+          <packageName>Intent.Aws.Common</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="da81c5fa-7523-44e7-a26e-7dbed1dd1fa3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d14985bd-61c2-4b21-be01-7990fd3b7418</parentFolderId>
+          <packageId>99b1597f-25dc-4d33-ba2d-6b1201368aff</packageId>
+          <packageName>Intent.Aws.Common</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="31761df4-7283-4fc6-aed4-e5200797cc39" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (2.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d14985bd-61c2-4b21-be01-7990fd3b7418</parentFolderId>
+          <packageId>99b1597f-25dc-4d33-ba2d-6b1201368aff</packageId>
+          <packageName>Intent.Aws.Common</packageName>
           <stereotypes />
           <metadata />
           <childElements />

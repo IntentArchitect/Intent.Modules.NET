@@ -1,3 +1,10 @@
+### Version 1.0.10
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.Extensions.Caching.Abstractions` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)
+  - `Microsoft.Extensions.Caching.Memory` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)
+  - `Microsoft.Extensions.Caching.StackExchangeRedis` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (netstandard2.0)
+
 ### Version 1.0.9
 
 - Improvement: Updated NuGet package versions.

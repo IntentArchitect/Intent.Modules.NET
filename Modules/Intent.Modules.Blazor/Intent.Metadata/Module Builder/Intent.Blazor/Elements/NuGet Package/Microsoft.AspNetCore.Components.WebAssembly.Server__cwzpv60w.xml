@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="852b470d-5709-4a09-837d-45aa57de9e8b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="da7f56e5-f234-45aa-bd79-4ce99b2df171" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a7ff0920-8866-45ea-b791-6c870c75f5ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.WebAssembly</name>
-          <display>Microsoft.AspNetCore.Components.WebAssembly (10.0.9)</display>
+          <display>Microsoft.AspNetCore.Components.WebAssembly (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>852b470d-5709-4a09-837d-45aa57de9e8b</parentFolderId>
@@ -110,8 +110,8 @@
       <childElements />
     </childElement>
     <childElement id="a3c8b309-6443-406d-ad4b-9febab322bc5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.28</name>
-      <display>8.0.28 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.0.34</name>
+      <display>8.0.34 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -133,8 +133,8 @@
       <childElements />
     </childElement>
     <childElement id="4e146585-77f6-46ae-9280-a88d74db1f18" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.17</name>
-      <display>9.0.17 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>9.0.23</name>
+      <display>9.0.23 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

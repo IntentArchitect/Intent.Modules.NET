@@ -1,3 +1,8 @@
+### Version 3.6.6
+
+- Improvement: Updated NuGet package versions:
+  - `MediatR` 14.2.0 → 14.3.0
+
 ### Version 3.6.5
 
 - Improvement: Updated NuGet package versions.

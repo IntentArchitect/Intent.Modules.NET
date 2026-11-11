@@ -1,3 +1,8 @@
+### Version 4.2.13
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.AspNetCore.Identity.EntityFrameworkCore` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0); 2.3.11 → 2.3.14 (netstandard2.0)
+
 ### Version 4.2.12
 
 - Fixed: Software Factory no longer crashes with a "Could not find template from dependency" error when a consumer entity generalizes from an Identity base class (e.g. `IdentityUser<T>`) and the "Separate State from Behaviour" domain setting is enabled.

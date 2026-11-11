@@ -1,3 +1,8 @@
+### Version 3.12.4
+
+- Improvement: Updated NuGet package versions:
+  - `FluentValidation.DependencyInjectionExtensions` 12.1.1 → 12.2.0
+
 ### Version 3.12.3
 
 - Improvement: Reworded the `fluent-validation-custom-validation` AI skill description to an imperative "MUST load before..." trigger naming the validator file the agent is about to edit, so coding agents reliably load it instead of skipping it.

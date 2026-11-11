@@ -1,3 +1,13 @@
+### Version 1.0.5
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.Data.SqlClient` 7.0.2 → 7.1.1
+  - `NServiceBus` 10.2.7 → 10.2.9
+  - `NServiceBus.Persistence.Sql` 9.0.2 → 9.0.6 (net10.0); 8.3.2 → 8.3.4 (net8.0)
+  - `NServiceBus.Persistence.Sql.TransactionalSession` 9.0.2 → 9.0.6 (net10.0); 8.3.2 → 8.3.4 (net8.0)
+  - `NServiceBus.Transport.AzureServiceBus` 6.4.1 → 6.5.1 (net10.0); 5.1.3 → 5.1.5 (net8.0)
+  - `NServiceBus.Transport.SqlServer` 9.1.0 → 9.1.1
+
 ### Version 1.0.4
 
 - Improvement: Applications dispatching through `Intent.Application.Mediator` now have the Mediator message-bus flush behaviour removed from the pipeline when the outbox is enabled, as already done for MediatR, so messages are not flushed twice.

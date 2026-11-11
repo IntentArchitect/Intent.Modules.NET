@@ -1,3 +1,8 @@
+### Version 3.13.5
+
+- Improvement: Updated NuGet package versions:
+  - `FluentValidation` 12.1.1 → 12.2.0
+
 ### Version 3.13.4
 
 - Improvement: Added default Template Classification and Priorities.

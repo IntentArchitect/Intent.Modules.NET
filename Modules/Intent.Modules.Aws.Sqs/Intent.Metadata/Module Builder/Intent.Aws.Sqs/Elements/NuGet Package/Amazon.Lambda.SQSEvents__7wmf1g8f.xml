@@ -24,32 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="c221b8f3-273d-4df8-aaca-07a4e33e6375" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.0.0</name>
-      <display>2.2.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>6eb72d72-3b31-4e35-a13d-91a0d31e5b10</parentFolderId>
-      <packageId>259088af-8612-4dd5-9bd7-b673553c3a6c</packageId>
-      <packageName>Intent.Aws.Sqs</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="b27966b8-aab8-4bcf-a62c-71ebf6738194" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.2.1</name>
-      <display>2.2.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>2.2.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -70,12 +47,38 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="4b72cc0a-4256-4691-83a4-8cc137bf7d98" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.0.0</name>
+    <childElement id="c221b8f3-273d-4df8-aaca-07a4e33e6375" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.0.1</name>
+      <display>3.0.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6eb72d72-3b31-4e35-a13d-91a0d31e5b10</parentFolderId>
+      <packageId>259088af-8612-4dd5-9bd7-b673553c3a6c</packageId>
+      <packageName>Intent.Aws.Sqs</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4b72cc0a-4256-4691-83a4-8cc137bf7d98" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.0.1</name>
+      <display>3.0.1 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6eb72d72-3b31-4e35-a13d-91a0d31e5b10</parentFolderId>
+      <packageId>259088af-8612-4dd5-9bd7-b673553c3a6c</packageId>
+      <packageName>Intent.Aws.Sqs</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>

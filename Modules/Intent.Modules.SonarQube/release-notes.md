@@ -1,3 +1,8 @@
+### Version 1.0.14
+
+- Improvement: Updated NuGet package versions:
+  - `SonarAnalyzer.CSharp` 10.28.0.143324 → 10.35.0.4138
+
 ### Version 1.0.13
 
 - Improvement: Updated NuGet package versions.

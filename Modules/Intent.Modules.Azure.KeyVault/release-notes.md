@@ -1,3 +1,9 @@
+### Version 2.0.22
+
+- Improvement: Updated NuGet package versions:
+  - `Azure.Extensions.AspNetCore.Configuration.Secrets` 1.5.1 → 1.5.2
+  - `Azure.Security.KeyVault.Secrets` 4.11.0 → 4.12.0
+
 ### Version 2.0.21
 
 - Fixed: Software Factory crashed wiring up `Program` when Azure Key Vault configuration was generated into an application with more than one ASP.NET Core or Azure Functions isolated worker host. Key Vault configuration is now wired up for each host correctly.

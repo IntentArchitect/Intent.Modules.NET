@@ -1,3 +1,12 @@
+### Version 4.2.0
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.Extensions.Hosting` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1)
+
+> ⚠️ **BREAKING CHANGES**
+>
+> This module update may change behaviour or cause compilation breaks in custom code you have written that relies on Microsoft.Extensions.Hosting v11, where a failing BackgroundService now makes IHost.RunAsync and StopAsync throw. For details see the [Microsoft.Extensions.Hosting 11 breaking change](https://github.com/dotnet/docs/blob/main/docs/core/compatibility/extensions/11/ihost-runasync-stopasync-throw-backgroundservice-failure.md).
+
 ### Version 4.1.12
 
 - New Feature: Added _Generate Program File_ to the _.NET Settings_ stereotype, shown for Worker (`Microsoft.NET.Sdk.Worker`) projects. Turning it off leaves an existing `Program.cs` and its `.csproj` item exactly as they are and creates none, startup code other modules add to it is not applied, and no packages, framework references or project references are added on its account, including those other modules attach for that startup code (e.g. `Microsoft.Extensions.Hosting.WindowsServices`). Existing Worker projects are treated as on, so they keep generating `Program.cs`.

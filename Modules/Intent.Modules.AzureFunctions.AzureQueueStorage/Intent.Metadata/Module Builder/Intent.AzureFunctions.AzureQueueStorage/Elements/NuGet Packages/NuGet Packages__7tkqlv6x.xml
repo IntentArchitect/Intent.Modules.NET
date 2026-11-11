@@ -3,7 +3,6 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>02ce5521-0b0c-4796-918d-4638bdcc8062</parentFolderId>

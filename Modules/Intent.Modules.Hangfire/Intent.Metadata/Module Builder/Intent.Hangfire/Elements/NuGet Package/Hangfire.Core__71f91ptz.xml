@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="4ff08158-0736-4cad-b1df-0b42b6f6456b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.8.23</name>
-      <display>1.8.23 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>1.8.25</name>
+      <display>1.8.25 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />

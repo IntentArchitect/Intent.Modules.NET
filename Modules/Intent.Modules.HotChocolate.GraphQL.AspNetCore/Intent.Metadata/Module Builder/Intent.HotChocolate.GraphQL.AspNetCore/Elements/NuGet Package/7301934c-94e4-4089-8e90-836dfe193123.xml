@@ -17,15 +17,18 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="58617640-7ed2-4919-8a5f-ce989bbef7ce" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>14.3.1</name>
-      <display>13.9.9 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+    <childElement id="513204e8-b04c-4869-aa76-3f35d10a66e0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>13.0.5</name>
+      <display>13.0.5 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7301934c-94e4-4089-8e90-836dfe193123</parentFolderId>
@@ -33,24 +36,55 @@
       <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
             <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="fd28f59b-5b52-423b-a639-651d56bd74a9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5f1af095-edf8-4d22-956a-5fa39263fee5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate</name>
+          <display>HotChocolate (13.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
+          <value>13.0.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>58617640-7ed2-4919-8a5f-ce989bbef7ce</parentFolderId>
+          <parentFolderId>513204e8-b04c-4869-aa76-3f35d10a66e0</parentFolderId>
+          <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6cdba186-5c5b-42ec-a217-ae79cc94e3cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Authorization</name>
+          <display>Microsoft.AspNetCore.Authorization (3.1.4)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.1.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>513204e8-b04c-4869-aa76-3f35d10a66e0</parentFolderId>
+          <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4768542f-d21d-4ff8-a63d-134c466a5440" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <display>Microsoft.Extensions.DependencyInjection (3.1.4)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.1.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>513204e8-b04c-4869-aa76-3f35d10a66e0</parentFolderId>
+          <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -58,9 +92,10 @@
       </childElements>
     </childElement>
     <childElement id="dfe53960-b240-46ce-ac55-3d60f535fc1d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>14.3.1</name>
-      <display>13.9.9 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>14.3.5</name>
+      <display>14.3.5 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7301934c-94e4-4089-8e90-836dfe193123</parentFolderId>
@@ -79,13 +114,55 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="abc4c46d-c8d2-4f90-98d1-b1972714b450" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="caca67f9-f573-415c-a8d5-3f95378bf96d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate</name>
+          <display>HotChocolate (14.3.5)</display>
           <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
+          <value>14.3.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfe53960-b240-46ce-ac55-3d60f535fc1d</parentFolderId>
+          <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="58617640-7ed2-4919-8a5f-ce989bbef7ce" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>14.3.5</name>
+      <display>14.3.5 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7301934c-94e4-4089-8e90-836dfe193123</parentFolderId>
+      <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+      <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="6e3a84d9-5faa-485d-8a4a-162f7f28be09" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate</name>
+          <display>HotChocolate (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>58617640-7ed2-4919-8a5f-ce989bbef7ce</parentFolderId>
+          <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -93,9 +170,10 @@
       </childElements>
     </childElement>
     <childElement id="2e396ec4-f91f-4ae4-b15c-420d7f5ec4dc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.4.0</name>
-      <display>13.9.9 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>16.7.5</name>
+      <display>16.7.5 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7301934c-94e4-4089-8e90-836dfe193123</parentFolderId>
@@ -114,67 +192,16 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2f109714-8266-495c-b33d-e47310468e12" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="82b28722-68df-4dd2-915e-0e66e9fc43c4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate</name>
+          <display>HotChocolate (16.7.5)</display>
           <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
+          <value>16.7.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2e396ec4-f91f-4ae4-b15c-420d7f5ec4dc</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="513204e8-b04c-4869-aa76-3f35d10a66e0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>13.0.5</name>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7301934c-94e4-4089-8e90-836dfe193123</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="5f1af095-edf8-4d22-956a-5fa39263fee5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate</name>
-          <isAbstract>false</isAbstract>
-          <value>13.0.5</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>513204e8-b04c-4869-aa76-3f35d10a66e0</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="6cdba186-5c5b-42ec-a217-ae79cc94e3cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.AspNetCore.Authorization</name>
-          <isAbstract>false</isAbstract>
-          <value>3.1.4</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>513204e8-b04c-4869-aa76-3f35d10a66e0</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4768542f-d21d-4ff8-a63d-134c466a5440" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <isAbstract>false</isAbstract>
-          <value>3.1.4</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>513204e8-b04c-4869-aa76-3f35d10a66e0</parentFolderId>
+          <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -182,11 +209,15 @@
       </childElements>
     </childElement>
     <childElement id="129d0c43-8416-4e3e-bf15-ca91e7a60816" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.4.0</name>
+      <name>16.7.5</name>
+      <display>16.7.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7301934c-94e4-4089-8e90-836dfe193123</parentFolderId>
+      <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+      <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -200,13 +231,16 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="af819730-41c9-4ada-92c4-38a2681bdcf5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bb7cacd9-e369-4802-ac79-de132e0c689e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate</name>
+          <display>HotChocolate (16.7.5)</display>
           <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
+          <value>16.7.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>129d0c43-8416-4e3e-bf15-ca91e7a60816</parentFolderId>
+          <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -214,11 +248,15 @@
       </childElements>
     </childElement>
     <childElement id="abbf1d24-7d41-4b9d-b52c-cd374d10bf74" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.4.0</name>
+      <name>16.7.5</name>
+      <display>16.7.5 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7301934c-94e4-4089-8e90-836dfe193123</parentFolderId>
+      <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+      <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -232,13 +270,16 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0acab2ce-22bf-4377-bdc0-626131ee1b96" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="92361395-fa22-447f-8f55-2e91d5d80a06" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate</name>
+          <display>HotChocolate (16.7.5)</display>
           <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
+          <value>16.7.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>abbf1d24-7d41-4b9d-b52c-cd374d10bf74</parentFolderId>
+          <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />

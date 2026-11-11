@@ -9,7 +9,7 @@
   <file path="Intent.Application.AutoMapper.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Application.AutoMapper.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Migrations/OnInstallMigration.cs" deviationsHash="CDC35F7A4480039FFB8FA6C5C59E8F8C8BE75536927951D0D1F48136BDE6417D" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
-  <file path="NugetPackages.cs" deviationsHash="D2DCD6A6013EF4160C6DD2E6BF2F15B28126B8BAEEF66DE6E8F130C8A12D3928" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="NugetPackages.cs" deviationsHash="B920DD9728E6A6DAFA5ED43EEDC0811507A58197CE8EADA3C98479B2F3BDB046" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
   <file path="Templates/MapFromInterface/MapFromInterfaceTemplatePartial.cs" deviationsHash="4AEDE0BC968C6EDB9AD92D90DEAB298D84E0EC6643CFFCAC8108ED8F7F56D012" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/MapFromInterface/MapFromInterfaceTemplateRegistration.cs" deviationsHash="95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />

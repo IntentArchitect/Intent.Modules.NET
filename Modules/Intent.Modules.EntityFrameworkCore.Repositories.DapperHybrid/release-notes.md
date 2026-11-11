@@ -1,3 +1,8 @@
+### Version 1.0.8
+
+- Improvement: Updated NuGet package versions:
+  - `Dapper` 2.1.79 → 2.1.89
+
 ### Version 1.0.7
 
 - Improvement: Updated NuGet package versions.

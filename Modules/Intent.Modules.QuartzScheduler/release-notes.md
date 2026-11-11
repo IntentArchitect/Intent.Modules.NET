@@ -1,6 +1,9 @@
 ### Version 1.0.17
 
 - Fixed: Scheduled Jobs that publish a command failed to generate when `Intent.Application.Mediator` is installed. The job now sends the command with Mediator's `ISender`.
+- Improvement: Updated NuGet package versions:
+  - `Quartz.AspNetCore` 3.18.2 → 3.22.10
+  - `Quartz.Extensions.Hosting` 3.18.2 → 3.22.10
 
 ### Version 1.0.16
 

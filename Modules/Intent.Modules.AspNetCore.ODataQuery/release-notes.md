@@ -1,3 +1,8 @@
+### Version 1.0.21
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.AspNetCore.OData` 9.4.1 → 9.5.0 (net8.0); 7.7.9 → 7.8.1 (netstandard2.0)
+
 ### Version 1.0.20
 
 - Fixed: Minimum client version.

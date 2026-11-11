@@ -19,12 +19,12 @@ namespace Intent.Modules.AspNetCore.Scalar
             NugetRegistry.Register(MicrosoftAspNetCoreOpenApiPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.OpenApi", "2.0.0"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.17")
-                            .WithNugetDependency("Microsoft.OpenApi", "1.6.17"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.28")
-                            .WithNugetDependency("Microsoft.OpenApi", "1.4.3"),
+                        ( >= 10, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.OpenApi", "2.13.0"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.23")
+                            .WithNugetDependency("Microsoft.OpenApi", "1.6.31"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.34")
+                            .WithNugetDependency("Microsoft.OpenApi", "1.6.31"),
                         ( >= 7, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.OpenApi", "1.4.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreOpenApiPackageName}'"),
@@ -33,9 +33,9 @@ namespace Intent.Modules.AspNetCore.Scalar
             NugetRegistry.Register(ScalarAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("2.18.7"),
-                        ( >= 9, >= 0) => new PackageVersion("2.18.7"),
-                        ( >= 8, >= 0) => new PackageVersion("2.18.7"),
+                        ( >= 10, >= 0) => new PackageVersion("2.20.0"),
+                        ( >= 9, >= 0) => new PackageVersion("2.20.0"),
+                        ( >= 8, >= 0) => new PackageVersion("2.20.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{ScalarAspNetCorePackageName}'"),
                     }
                 );

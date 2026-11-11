@@ -1,3 +1,10 @@
+### Version 1.0.8
+
+- Improvement: Updated NuGet package versions:
+  - `Grpc.AspNetCore` 2.80.0 → 2.85.0
+  - `Grpc.AspNetCore.Server.Reflection` 2.80.0 → 2.85.0
+  - `Grpc.StatusProto` 2.80.0 → 2.85.0
+
 ### Version 1.0.7
 
 - Improvement: Updated NuGet package versions.

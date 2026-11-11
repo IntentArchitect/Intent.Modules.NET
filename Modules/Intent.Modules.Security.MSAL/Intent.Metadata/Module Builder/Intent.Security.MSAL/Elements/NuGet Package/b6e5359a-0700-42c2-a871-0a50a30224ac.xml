@@ -24,32 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="f07f3b09-c779-4d8a-9a48-f108786010de" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>7.0.0</name>
-      <display>7.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b6e5359a-0700-42c2-a871-0a50a30224ac</parentFolderId>
-      <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-      <packageName>Intent.Security.MSAL</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="c6dd6532-9050-4c1d-aa04-1f28fb1e128a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>7.0.0</name>
-      <display>7.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>7.1.0</name>
+      <display>7.1.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -85,6 +62,29 @@
           <childElements />
         </childElement>
       </childElements>
+    </childElement>
+    <childElement id="f07f3b09-c779-4d8a-9a48-f108786010de" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>7.1.0</name>
+      <display>7.1.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6e5359a-0700-42c2-a871-0a50a30224ac</parentFolderId>
+      <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+      <packageName>Intent.Security.MSAL</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
     </childElement>
   </childElements>
 </class>

@@ -58,11 +58,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#234c8bf3-f527-4349-84e1-07c9971fdb77</correlationId>
       <path>NugetPackages.cs</path>
-      <count>4</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-02-26T12:16:22.1681893Z</updatedAt>
-      <deviationsHash>B78F48AEC081E4A916FC9F17463C487197612F0E04040C7161D70A1A9F6C59D9</deviationsHash>
+      <count>6</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-11-11T07:14:58.6420195Z</updatedAt>
+      <deviationsHash>CF72033E5E4FCEC615E6630949BEC4D80E8C3B24CC8020566D40E9F135EBE7FE</deviationsHash>
       <fileHash>F05643283F838EC4F38841322871033E3CACF25922E163A4850F3130CD5DEF92</fileHash>
     </file>
     <file>

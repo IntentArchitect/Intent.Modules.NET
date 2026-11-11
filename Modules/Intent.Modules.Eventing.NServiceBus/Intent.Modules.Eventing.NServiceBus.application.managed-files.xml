@@ -11,7 +11,7 @@
   <file path="Intent.Modules.Eventing.NServiceBus.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
-  <file path="Templates/NServiceBusConfiguration/NServiceBusConfigurationTemplatePartial.cs" deviationsHash="5DC0D2B64D41783F602B1CD7D9E3545B5D0C40B6DCC1AEFD9B827FC9CDF47489" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/NServiceBusConfiguration/NServiceBusConfigurationTemplatePartial.cs" deviationsHash="060ED441EFDDF4355C46B2F91B9AE062FE5A7D82F551D8065E02C02B6340C969" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/NServiceBusConfiguration/NServiceBusConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/NServiceBusMessageBus/NServiceBusMessageBusTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/NServiceBusMessageBus/NServiceBusMessageBusTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />

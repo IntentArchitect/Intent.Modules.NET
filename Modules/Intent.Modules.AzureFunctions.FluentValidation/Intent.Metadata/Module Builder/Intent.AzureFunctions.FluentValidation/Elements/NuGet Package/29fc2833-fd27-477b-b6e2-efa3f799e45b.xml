@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="bd32cb35-22c9-47dc-931c-e8da480e3566" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>11.12.0</name>
-      <display>11.9.2 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <display>11.12.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -47,32 +47,9 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="a7d937a2-5362-45ae-86f2-cf34a708264d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.1.1</name>
-      <display>11.9.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>29fc2833-fd27-477b-b6e2-efa3f799e45b</parentFolderId>
-      <packageId>f11bcf8c-0844-4ba4-bdae-79934c94a588</packageId>
-      <packageName>Intent.AzureFunctions.FluentValidation</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="7ce122e1-fa9d-40de-90fb-3fc4b5e4a47c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>11.12.0</name>
-      <display>11.9.2 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <display>11.12.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -95,10 +72,14 @@
     </childElement>
     <childElement id="9fdd8af8-94f0-4a8d-ae59-b431b54d65de" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>11.12.0</name>
+      <display>11.12.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>29fc2833-fd27-477b-b6e2-efa3f799e45b</parentFolderId>
+      <packageId>f11bcf8c-0844-4ba4-bdae-79934c94a588</packageId>
+      <packageName>Intent.AzureFunctions.FluentValidation</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -114,11 +95,14 @@
       <childElements>
         <childElement id="7c8372d8-9e1f-468e-b959-2fc3b3e98b83" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.5.4)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9fdd8af8-94f0-4a8d-ae59-b431b54d65de</parentFolderId>
+          <packageId>f11bcf8c-0844-4ba4-bdae-79934c94a588</packageId>
+          <packageName>Intent.AzureFunctions.FluentValidation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -127,10 +111,13 @@
     </childElement>
     <childElement id="8b2bd2e4-0b1b-4f8b-906e-d216806b6ac3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>11.12.0</name>
+      <display>11.12.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>29fc2833-fd27-477b-b6e2-efa3f799e45b</parentFolderId>
+      <packageId>f11bcf8c-0844-4ba4-bdae-79934c94a588</packageId>
+      <packageName>Intent.AzureFunctions.FluentValidation</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -138,6 +125,29 @@
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
             <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a7d937a2-5362-45ae-86f2-cf34a708264d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>12.2.0</name>
+      <display>12.2.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>29fc2833-fd27-477b-b6e2-efa3f799e45b</parentFolderId>
+      <packageId>f11bcf8c-0844-4ba4-bdae-79934c94a588</packageId>
+      <packageName>Intent.AzureFunctions.FluentValidation</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
             <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>

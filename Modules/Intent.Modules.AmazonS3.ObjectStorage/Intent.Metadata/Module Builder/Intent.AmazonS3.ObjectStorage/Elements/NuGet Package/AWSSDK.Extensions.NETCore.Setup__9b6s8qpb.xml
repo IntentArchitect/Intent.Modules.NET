@@ -25,9 +25,10 @@
   <metadata />
   <childElements>
     <childElement id="849059df-87f6-4321-9c39-0be59f96c8af" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.0.100.3</name>
-      <display>3.7.7 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>4.0.102.11</name>
+      <display>4.0.102.11 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>44edfd86-d6a9-46ec-ae66-f9bc01d19cdc</parentFolderId>
@@ -46,46 +47,58 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7b41f5c8-d8e6-4393-8173-5544411ee28d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cf23fe3f-9100-4901-81b8-8e14aad991eb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AWSSDK.Core</name>
+          <display>AWSSDK.Core (4.0.103)</display>
           <isAbstract>false</isAbstract>
-          <value>4.0.100.3</value>
+          <value>4.0.103</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>849059df-87f6-4321-9c39-0be59f96c8af</parentFolderId>
+          <packageId>582e71a9-49c5-4208-a326-3dd3fa9bd950</packageId>
+          <packageName>Intent.AmazonS3.ObjectStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="72b2f68a-196f-445c-906d-968dbbb081d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="846f0669-c55f-41b7-af08-16115488e238" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (2.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>849059df-87f6-4321-9c39-0be59f96c8af</parentFolderId>
+          <packageId>582e71a9-49c5-4208-a326-3dd3fa9bd950</packageId>
+          <packageName>Intent.AmazonS3.ObjectStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ed551de3-a826-4d1a-b1b2-aa7f37acd72b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7564060d-25bb-4239-b504-644cf1e2e196" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (2.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>849059df-87f6-4321-9c39-0be59f96c8af</parentFolderId>
+          <packageId>582e71a9-49c5-4208-a326-3dd3fa9bd950</packageId>
+          <packageName>Intent.AmazonS3.ObjectStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e4a9c848-74ad-4f2a-bd6a-be1bdb5f1ab6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0a588da2-b212-4d87-8d22-8ecac8b34a4f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (2.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>849059df-87f6-4321-9c39-0be59f96c8af</parentFolderId>
+          <packageId>582e71a9-49c5-4208-a326-3dd3fa9bd950</packageId>
+          <packageName>Intent.AmazonS3.ObjectStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -93,11 +106,15 @@
       </childElements>
     </childElement>
     <childElement id="8eb35697-326e-440f-9922-e87ed30d3a59" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.0.100.3</name>
+      <name>4.0.102.11</name>
+      <display>4.0.102.11 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>44edfd86-d6a9-46ec-ae66-f9bc01d19cdc</parentFolderId>
+      <packageId>582e71a9-49c5-4208-a326-3dd3fa9bd950</packageId>
+      <packageName>Intent.AmazonS3.ObjectStorage</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -111,46 +128,58 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c739ce32-ffe8-41fd-8db6-21c060efef0a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="430b41f7-edd7-4288-b412-910592997f29" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AWSSDK.Core</name>
+          <display>AWSSDK.Core (4.0.103)</display>
           <isAbstract>false</isAbstract>
-          <value>4.0.100.3</value>
+          <value>4.0.103</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8eb35697-326e-440f-9922-e87ed30d3a59</parentFolderId>
+          <packageId>582e71a9-49c5-4208-a326-3dd3fa9bd950</packageId>
+          <packageName>Intent.AmazonS3.ObjectStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f42a854c-cee0-4191-8e78-d89a118ab7d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="31049f4d-5d05-44c7-b354-15a34e112b8a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (2.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8eb35697-326e-440f-9922-e87ed30d3a59</parentFolderId>
+          <packageId>582e71a9-49c5-4208-a326-3dd3fa9bd950</packageId>
+          <packageName>Intent.AmazonS3.ObjectStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="82ada04a-26cd-4e32-aeb1-167638889cdc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d918a62f-8749-49df-a07f-af7b1a4e89df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8eb35697-326e-440f-9922-e87ed30d3a59</parentFolderId>
+          <packageId>582e71a9-49c5-4208-a326-3dd3fa9bd950</packageId>
+          <packageName>Intent.AmazonS3.ObjectStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bf8a7b90-5e2a-4d90-9f26-7cff08a14e34" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cbd51c93-6d2a-4710-b444-98c8385ea765" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (2.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8eb35697-326e-440f-9922-e87ed30d3a59</parentFolderId>
+          <packageId>582e71a9-49c5-4208-a326-3dd3fa9bd950</packageId>
+          <packageName>Intent.AmazonS3.ObjectStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />

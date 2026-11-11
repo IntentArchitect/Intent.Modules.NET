@@ -1,3 +1,13 @@
+### Version 7.2.5
+
+- Improvement: Updated NuGet package versions:
+  - `MassTransit` 9.1.2 → 9.2.6
+  - `MassTransit.Abstractions` 9.1.2 → 9.2.6
+  - `MassTransit.AmazonSQS` 9.1.2 → 9.2.6
+  - `MassTransit.Azure.ServiceBus.Core` 9.1.2 → 9.2.6
+  - `MassTransit.EntityFrameworkCore` 9.1.2 → 9.2.6
+  - `MassTransit.RabbitMQ` 9.1.2 → 9.2.6
+
 ### Version 7.2.4
 
 - Improvement: Applications dispatching through `Intent.Application.Mediator` are now supported: the EF outbox strips the Mediator message-bus flush behaviour, and outside the EF outbox the integration event consumer claims flush ownership so commands it sends do not flush the bus early.

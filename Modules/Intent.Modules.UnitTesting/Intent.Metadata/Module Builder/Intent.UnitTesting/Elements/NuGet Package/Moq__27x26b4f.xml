@@ -24,87 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="4f0e42b4-ea04-4689-b646-bb6f22ee4479" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.20.72</name>
-      <display>4.20.72 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>5ecfa020-3527-4633-9f24-380864dca52a</parentFolderId>
-      <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
-      <packageName>Intent.UnitTesting</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="09bd7e3e-8e27-4a0c-b7c7-2088ef02ba5b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Castle.Core</name>
-          <display>Castle.Core (5.1.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>5.1.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>4f0e42b4-ea04-4689-b646-bb6f22ee4479</parentFolderId>
-          <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
-          <packageName>Intent.UnitTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="c2d583ed-c1b2-47a0-9700-9515714bedf3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.20.72</name>
-      <display>4.20.72 ( &gt;= .NETStandard,Version=v2.1 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>5ecfa020-3527-4633-9f24-380864dca52a</parentFolderId>
-      <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
-      <packageName>Intent.UnitTesting</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="a6675a09-4513-4311-ab4d-013882bcf124" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Castle.Core</name>
-          <display>Castle.Core (5.1.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>5.1.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c2d583ed-c1b2-47a0-9700-9515714bedf3</parentFolderId>
-          <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
-          <packageName>Intent.UnitTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="71117c3e-16fa-4bce-a7f1-ce4a56ffe346" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.20.72</name>
-      <display>4.20.72 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>4.21.0</name>
+      <display>4.21.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -125,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="982486de-cc53-4dc0-a6b4-a1267646ecd2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="de00778f-ceec-43ca-90dc-976f384ffa08" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Castle.Core</name>
-          <display>Castle.Core (5.1.1)</display>
+          <display>Castle.Core (5.2.1)</display>
           <isAbstract>false</isAbstract>
-          <value>5.1.1</value>
+          <value>5.2.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71117c3e-16fa-4bce-a7f1-ce4a56ffe346</parentFolderId>
@@ -139,14 +61,92 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e780c04f-690f-4cff-a87f-463ed8b07676" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e1c4d3f4-0425-4d2f-a92e-4cfba9ea2c5d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
-          <display>System.Threading.Tasks.Extensions (4.5.4)</display>
+          <display>System.Threading.Tasks.Extensions (4.6.3)</display>
           <isAbstract>false</isAbstract>
-          <value>4.5.4</value>
+          <value>4.6.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71117c3e-16fa-4bce-a7f1-ce4a56ffe346</parentFolderId>
+          <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+          <packageName>Intent.UnitTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="c2d583ed-c1b2-47a0-9700-9515714bedf3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>4.21.0</name>
+      <display>4.21.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5ecfa020-3527-4633-9f24-380864dca52a</parentFolderId>
+      <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+      <packageName>Intent.UnitTesting</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="1147185f-a381-43c6-9e61-00ec3d5e4b4f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Castle.Core</name>
+          <display>Castle.Core (5.2.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>5.2.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c2d583ed-c1b2-47a0-9700-9515714bedf3</parentFolderId>
+          <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+          <packageName>Intent.UnitTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="4f0e42b4-ea04-4689-b646-bb6f22ee4479" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>4.21.0</name>
+      <display>4.21.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5ecfa020-3527-4633-9f24-380864dca52a</parentFolderId>
+      <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+      <packageName>Intent.UnitTesting</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="799ca5a5-5563-4e2e-b242-c529452e3899" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Castle.Core</name>
+          <display>Castle.Core (5.2.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>5.2.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4f0e42b4-ea04-4689-b646-bb6f22ee4479</parentFolderId>
           <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
           <packageName>Intent.UnitTesting</packageName>
           <stereotypes />

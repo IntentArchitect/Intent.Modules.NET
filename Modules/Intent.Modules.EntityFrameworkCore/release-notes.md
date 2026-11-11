@@ -1,3 +1,19 @@
+### Version 5.2.2
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.EntityFrameworkCore` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+  - `Microsoft.EntityFrameworkCore.Cosmos` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+  - `Microsoft.EntityFrameworkCore.Design` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+  - `Microsoft.EntityFrameworkCore.InMemory` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+  - `Microsoft.EntityFrameworkCore.Proxies` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+  - `Microsoft.EntityFrameworkCore.Sqlite` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+  - `Microsoft.EntityFrameworkCore.SqlServer` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+  - `Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+  - `Microsoft.EntityFrameworkCore.Tools` 10.0.9 → 11.0.0 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+  - `Npgsql.EntityFrameworkCore.PostgreSQL` 10.0.2 → 10.0.3
+  - `Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite` 10.0.2 → 10.0.3
+  - `Oracle.EntityFrameworkCore` 10.23.26200 → 10.23.26400 (net10.0); 9.23.80 → 9.23.26400 (net9.0); 8.23.80 → 8.23.26400 (net8.0)
+
 ### Version 5.2.1
 
 - Improvement: The existing-transaction guard (`HasDbTransaction()`) is now also injected into the `Intent.Application.Mediator` `UnitOfWorkBehaviour`, so a handler running inside an externally-managed EF transaction no longer opens a `TransactionScope`.

@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="6ec19427-cdb3-4eb2-8afc-2475da2f8a9d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
-      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>10.0.3</name>
+      <display>10.0.3 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b27db3af-a5d5-44be-a781-accea682b1a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bc554c45-642f-457d-900a-3615ed4227bf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Npgsql.EntityFrameworkCore.PostgreSQL</name>
-          <display>Npgsql.EntityFrameworkCore.PostgreSQL (10.0.2)</display>
+          <display>Npgsql.EntityFrameworkCore.PostgreSQL (10.0.3)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.2</value>
+          <value>10.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6ec19427-cdb3-4eb2-8afc-2475da2f8a9d</parentFolderId>
@@ -61,7 +61,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="23d46975-528a-4320-89ef-e83b78453047" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f68978ba-74be-4f33-99c7-90595fb460ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Npgsql.NetTopologySuite</name>
           <display>Npgsql.NetTopologySuite (10.0.3)</display>
           <isAbstract>false</isAbstract>

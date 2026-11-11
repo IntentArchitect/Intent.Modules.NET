@@ -18,8 +18,8 @@ namespace Intent.Modules.Aws.SecretsManager
             NugetRegistry.Register(AWSSDKSecretsManagerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 0, >= 0) => new PackageVersion("4.0.100.3")
-                            .WithNugetDependency("AWSSDK.Core", "4.0.100.3"),
+                        ( >= 0, >= 0) => new PackageVersion("4.0.100.26")
+                            .WithNugetDependency("AWSSDK.Core", "4.0.103"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AWSSDKSecretsManagerPackageName}'"),
                     }
                 );

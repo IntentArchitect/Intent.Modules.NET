@@ -1,3 +1,17 @@
+### Version 4.4.0
+
+- Improvement: Updated NuGet package versions:
+  - `Duende.IdentityModel` 7.0.0 → 7.1.0
+  - `Microsoft.AspNetCore.Authentication.JwtBearer` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0); 2.3.11 → 2.3.14 (netstandard2.0)
+  - `Microsoft.AspNetCore.Authentication.OpenIdConnect` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0); 2.3.11 → 2.3.14 (netstandard2.0)
+  - `Microsoft.Identity.Web` 4.12.2 → 4.18.0
+  - `Microsoft.Identity.Web.MicrosoftGraph` 4.12.2 → 4.18.0
+  - `Microsoft.Identity.Web.UI` 4.12.2 → 4.18.0 (net9.0, net8.0); 3.15.1 → 3.16.0 (net7.0, net6.0)
+
+> ⚠️ **BREAKING CHANGES**
+>
+> This module update may change behaviour or cause compilation breaks in custom code you have written that relies on Microsoft.Identity.Web 4.15 and later, where authorization now fails when a configured scope or app-permission key is missing. For details see the [Microsoft.Identity.Web changelog](https://github.com/AzureAD/microsoft-identity-web/blob/master/changelog.md).
+
 ### Version 4.3.12
 
 - Fixed: Software Factory crashed wiring up application security configuration and the current user service when generated into an application with more than one ASP.NET Core host. Both are now wired up for each host correctly.

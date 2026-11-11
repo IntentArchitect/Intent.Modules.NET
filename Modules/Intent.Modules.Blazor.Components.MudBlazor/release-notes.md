@@ -1,3 +1,8 @@
+### Version 2.0.6
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.AspNetCore.Http.Abstractions` 2.3.11 → 2.3.14
+
 ### Version 2.0.5
 
 - Fixed: `UserMenu.razor.cs` ignoring the application's C# style settings — `Namespace Declaration Style` in particular.

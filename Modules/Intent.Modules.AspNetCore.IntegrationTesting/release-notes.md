@@ -1,6 +1,16 @@
 ### Version 2.1.0
 
 - New Feature: Test proxies call `QUERY` operations with the HTTP `QUERY` method and send the body as JSON.
+- Improvement: Updated NuGet package versions:
+  - `IEvangelist.Azure.CosmosRepository` 10.0.2 → 10.0.4
+  - `Microsoft.AspNetCore.Mvc.Testing` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0); 2.3.11 → 2.3.14 (netstandard2.0)
+  - `Microsoft.AspNetCore.WebUtilities` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0); 2.3.11 → 2.3.14 (netstandard2.0)
+  - `Microsoft.Extensions.Http` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)
+  - `System.Text.Json` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)
+  - `Testcontainers.CosmosDb` 4.13.0 → 4.16.0
+  - `Testcontainers.MongoDb` 4.13.0 → 4.16.0
+  - `Testcontainers.MsSql` 4.13.0 → 4.16.0
+  - `Testcontainers.PostgreSql` 4.13.0 → 4.16.0
 
 ### Version 2.0.21
 

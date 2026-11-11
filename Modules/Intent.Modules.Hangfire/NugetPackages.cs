@@ -22,8 +22,8 @@ namespace Intent.Modules.Hangfire
             NugetRegistry.Register(HangfireAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("1.8.23")
-                            .WithNugetDependency("Hangfire.NetCore", "1.8.23")
+                        ( >= 2, >= 0) => new PackageVersion("1.8.25")
+                            .WithNugetDependency("Hangfire.NetCore", "1.8.25")
                             .WithNugetDependency("Microsoft.AspNetCore.Antiforgery", "2.0.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireAspNetCorePackageName}'"),
@@ -32,7 +32,7 @@ namespace Intent.Modules.Hangfire
             NugetRegistry.Register(HangfireCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("1.8.23")
+                        ( >= 2, >= 0) => new PackageVersion("1.8.25")
                             .WithNugetDependency("Newtonsoft.Json", "11.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireCorePackageName}'"),
                     }
@@ -48,41 +48,44 @@ namespace Intent.Modules.Hangfire
             NugetRegistry.Register(HangfireSqlServerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("1.8.23")
-                            .WithNugetDependency("Hangfire.Core", "1.8.23"),
+                        ( >= 2, >= 0) => new PackageVersion("1.8.25")
+                            .WithNugetDependency("Hangfire.Core", "1.8.25"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireSqlServerPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftDataSqlClientPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("7.0.2")
-                            .WithNugetDependency("Microsoft.Bcl.Cryptography", "9.0.13")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.13")
+                        ( >= 9, >= 0) => new PackageVersion("7.1.1")
+                            .WithNugetDependency("Microsoft.Bcl.Cryptography", "9.0.18")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.1.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.1.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "7.1.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.18")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.16.0")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.16.0")
                             .WithNugetDependency("Microsoft.SqlServer.Server", "1.0.0")
-                            .WithNugetDependency("System.Configuration.ConfigurationManager", "9.0.13")
-                            .WithNugetDependency("System.Security.Cryptography.Pkcs", "9.0.13"),
-                        ( >= 8, >= 0) => new PackageVersion("7.0.2")
+                            .WithNugetDependency("System.Configuration.ConfigurationManager", "9.0.18")
+                            .WithNugetDependency("System.Security.Cryptography.Pkcs", "9.0.18")
+                            .WithNugetDependency("System.Threading.RateLimiting", "9.0.18"),
+                        ( >= 8, >= 0) => new PackageVersion("7.1.1")
                             .WithNugetDependency("Microsoft.Bcl.Cryptography", "8.0.0")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.1.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.1.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "7.1.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "8.0.1")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.16.0")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.16.0")
                             .WithNugetDependency("Microsoft.SqlServer.Server", "1.0.0")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "8.0.1")
-                            .WithNugetDependency("System.Security.Cryptography.Pkcs", "8.0.1"),
-                        ( >= 2, >= 0) => new PackageVersion("7.0.2")
+                            .WithNugetDependency("System.Security.Cryptography.Pkcs", "8.0.1")
+                            .WithNugetDependency("System.Threading.RateLimiting", "8.0.0"),
+                        ( >= 2, >= 0) => new PackageVersion("7.1.1")
                             .WithNugetDependency("Microsoft.Bcl.Cryptography", "8.0.0")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
+                            .WithNugetDependency("Microsoft.Bcl.TimeProvider", "8.0.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.1.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.1.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "7.1.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "8.0.1")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.16.0")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.16.0")
@@ -90,7 +93,8 @@ namespace Intent.Modules.Hangfire
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "8.0.1")
                             .WithNugetDependency("System.Security.Cryptography.Pkcs", "8.0.1")
                             .WithNugetDependency("System.Text.Json", "10.0.3")
-                            .WithNugetDependency("System.Threading.Channels", "10.0.3"),
+                            .WithNugetDependency("System.Threading.Channels", "10.0.3")
+                            .WithNugetDependency("System.Threading.RateLimiting", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftDataSqlClientPackageName}'"),
                     }
                 );

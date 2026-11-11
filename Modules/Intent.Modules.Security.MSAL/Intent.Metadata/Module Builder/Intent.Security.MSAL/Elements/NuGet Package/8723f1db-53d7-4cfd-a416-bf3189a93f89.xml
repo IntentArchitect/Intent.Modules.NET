@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="8464a27c-009b-46d8-b689-f6f3e4e4446f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4945df9f-5745-4df8-8265-4ea5b5a9b862" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e87e48ba-aa2e-4743-b501-e3c4bb9f03cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.0.1)</display>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.19.2)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.1</value>
+          <value>8.19.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8464a27c-009b-46d8-b689-f6f3e4e4446f</parentFolderId>
@@ -64,8 +64,8 @@
       </childElements>
     </childElement>
     <childElement id="b18bf940-4b39-419b-b586-e64d9462ef00" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.3.11</name>
-      <display>2.3.11 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>2.3.14</name>
+      <display>2.3.14 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -86,11 +86,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9ae0cb72-4a9d-403c-a2e6-20371376ce3d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4e770889-305e-4c1d-93ce-c3d3d6a90efd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Authentication</name>
-          <display>Microsoft.AspNetCore.Authentication (2.3.10)</display>
+          <display>Microsoft.AspNetCore.Authentication (2.3.13)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.10</value>
+          <value>2.3.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b18bf940-4b39-419b-b586-e64d9462ef00</parentFolderId>
@@ -100,11 +100,25 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bfcd8ed3-6298-4b4a-9d97-fb4de648a68e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bf306d57-a289-481b-b044-bb562d760c06" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (5.7.0)</display>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (5.7.1)</display>
           <isAbstract>false</isAbstract>
-          <value>5.7.0</value>
+          <value>5.7.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b18bf940-4b39-419b-b586-e64d9462ef00</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="602a88fa-c331-4875-976b-be954f100692" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Security.Cryptography.Xml</name>
+          <display>System.Security.Cryptography.Xml (8.0.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b18bf940-4b39-419b-b586-e64d9462ef00</parentFolderId>
@@ -179,8 +193,8 @@
       <childElements />
     </childElement>
     <childElement id="6cfff7c5-68d9-4d2f-80d8-2f5a82fdad15" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.28</name>
-      <display>8.0.28 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.0.34</name>
+      <display>8.0.34 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -201,11 +215,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f2012e07-8c9d-4317-a543-10d56fa351cb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3813ceac-231a-4eb7-adde-65ed1386914e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (7.1.2)</display>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (7.7.3)</display>
           <isAbstract>false</isAbstract>
-          <value>7.1.2</value>
+          <value>7.7.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6cfff7c5-68d9-4d2f-80d8-2f5a82fdad15</parentFolderId>
@@ -218,8 +232,8 @@
       </childElements>
     </childElement>
     <childElement id="bd6e645d-4b23-4b37-b4a4-5231190337b0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.17</name>
-      <display>9.0.17 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>9.0.23</name>
+      <display>9.0.23 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -240,11 +254,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6f51eb28-7f14-460d-8722-6a6d7d0a667c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fb52d7b6-34d2-4cb6-a38b-1bc2fc1ad766" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.0.1)</display>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.19.2)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.1</value>
+          <value>8.19.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bd6e645d-4b23-4b37-b4a4-5231190337b0</parentFolderId>

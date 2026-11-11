@@ -1,3 +1,10 @@
+### Version 2.1.2
+
+- Improvement: Updated NuGet package versions:
+  - `Dapr.AspNetCore` 1.18.4 → 1.19.1
+  - `Dapr.Client` 1.18.4 → 1.19.1
+  - `Dapr.Extensions.Configuration` 1.18.4 → 1.19.1
+
 ### Version 2.1.1
 
 - Improvement: Updated NuGet package versions.

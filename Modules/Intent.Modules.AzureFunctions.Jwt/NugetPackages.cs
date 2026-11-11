@@ -18,19 +18,20 @@ namespace Intent.Modules.AzureFunctions.Jwt
             NugetRegistry.Register(MicrosoftAspNetCoreAuthenticationJwtBearerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.0.1"),
-                        ( >= 9, >= 0) => new PackageVersion("9.0.17")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.0.1"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.28")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "7.1.2"),
+                        ( >= 10, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.19.2"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.23")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.19.2"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.34")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "7.7.3"),
                         ( >= 7, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "6.35.0"),
                         ( >= 6, >= 0) => new PackageVersion("6.0.36")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "6.35.0"),
-                        ( >= 2, >= 0) => new PackageVersion("2.3.11")
-                            .WithNugetDependency("Microsoft.AspNetCore.Authentication", "2.3.10")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "5.7.0"),
+                        ( >= 2, >= 0) => new PackageVersion("2.3.14")
+                            .WithNugetDependency("Microsoft.AspNetCore.Authentication", "2.3.13")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "5.7.1")
+                            .WithNugetDependency("System.Security.Cryptography.Xml", "8.0.5"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreAuthenticationJwtBearerPackageName}'"),
                     }
                 );

@@ -131,8 +131,8 @@
       </childElements>
     </childElement>
     <childElement id="c31a3bc0-5c50-431e-a25f-66647d295fd3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.3.2</name>
-      <display>8.3.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.3.4</name>
+      <display>8.3.4 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -153,7 +153,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="14da42f3-0073-4603-8680-de5751bb08c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4b94eeda-9f3c-4cec-bdae-959a0f8c7fec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
           <display>Newtonsoft.Json (13.0.3)</display>
           <isAbstract>false</isAbstract>
@@ -167,7 +167,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4c336555-0e96-4adf-98fc-929f62de1649" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9669c481-035a-45ce-9609-208ee7309c6e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NServiceBus</name>
           <display>NServiceBus (9.2.11)</display>
           <isAbstract>false</isAbstract>
@@ -184,8 +184,8 @@
       </childElements>
     </childElement>
     <childElement id="434f0d9d-0f75-46b1-b2ea-3077252a5873" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.2</name>
-      <display>9.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>9.0.6</name>
+      <display>9.0.6 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -206,7 +206,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5a0c238d-5327-4a4d-8f9b-167b9703c3d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f254cbe7-da5c-4911-981d-5db2ac19272a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
           <display>Newtonsoft.Json (13.0.4)</display>
           <isAbstract>false</isAbstract>
@@ -220,7 +220,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f160da37-0ce7-47cf-b8d3-94c4a6f55c23" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ade80ac3-6e27-47d9-a4cf-0edb75f8443b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NServiceBus</name>
           <display>NServiceBus (10.1.4)</display>
           <isAbstract>false</isAbstract>

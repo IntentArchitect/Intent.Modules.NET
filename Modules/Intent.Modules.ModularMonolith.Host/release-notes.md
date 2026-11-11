@@ -1,3 +1,10 @@
+### Version 2.0.3
+
+- Improvement: Updated NuGet package versions:
+  - `FluentValidation` 12.1.1 → 12.2.0
+  - `MassTransit` 9.1.2 → 9.2.6 (net10.0, net9.0, net8.0, netstandard2.0); 9.0.0 → 9.2.6 (net10.0, net9.0, net8.0, netstandard2.0)
+  - `Swashbuckle.AspNetCore` 10.2.3 → 10.3.1 (net9.0, net8.0); 10.1.4 → 10.3.1 (net9.0, net8.0)
+
 ### Version 2.0.2
 
 - Fixed: Handler AI skills (re-scoped to the `AI.Context.Skills.Handler` role) were no longer suppressed on the Modular Monolith host, so the host regenerated bare skill files that contended with the enriched ones produced by the modules (shared output folder). The host now also suppresses the `AI.Context.Skills.Handler` role.

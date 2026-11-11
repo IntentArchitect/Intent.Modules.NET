@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="d41a6705-d747-4d9b-be2f-a2026082bd21" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.29.1</name>
-      <display>12.29.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>12.30.1</name>
+      <display>12.30.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b53acd2c-70a3-480a-bafc-cef8fc81a4f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Core</name>
-          <display>Azure.Core (1.55.0)</display>
+        <childElement id="ef40073b-4189-4749-8577-df5b50ff7d0a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Apache.Arrow</name>
+          <display>Apache.Arrow (22.1.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.55.0</value>
+          <value>22.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d41a6705-d747-4d9b-be2f-a2026082bd21</parentFolderId>
@@ -61,11 +61,25 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e671b423-3717-4d94-82f3-ed023a0f06bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Storage.Common</name>
-          <display>Azure.Storage.Common (12.28.0)</display>
+        <childElement id="59f0077f-a307-4ab0-9f36-9d3abdface3c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
+          <display>Azure.Core (1.60.0)</display>
           <isAbstract>false</isAbstract>
-          <value>12.28.0</value>
+          <value>1.60.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d41a6705-d747-4d9b-be2f-a2026082bd21</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="17c2c47b-15be-4a5d-a202-172a1d436a9c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Common</name>
+          <display>Azure.Storage.Common (12.29.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>12.29.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d41a6705-d747-4d9b-be2f-a2026082bd21</parentFolderId>
@@ -78,8 +92,8 @@
       </childElements>
     </childElement>
     <childElement id="4b336f30-3758-49a7-a3d1-2a371873015d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.29.1</name>
-      <display>12.29.1 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <name>12.30.1</name>
+      <display>12.30.1 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -100,11 +114,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2ddbdb11-9ee4-4986-bc45-497691de2565" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Core</name>
-          <display>Azure.Core (1.55.0)</display>
+        <childElement id="fb5f84fa-9c5e-4aa2-b02b-2b73106be97a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Apache.Arrow</name>
+          <display>Apache.Arrow (22.1.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.55.0</value>
+          <value>22.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4b336f30-3758-49a7-a3d1-2a371873015d</parentFolderId>
@@ -114,11 +128,25 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f24f98c0-1e3e-4e74-b4f2-516b3ab47251" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Storage.Common</name>
-          <display>Azure.Storage.Common (12.28.0)</display>
+        <childElement id="12a5decd-56d7-4f01-b6af-1b20586dbd05" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
+          <display>Azure.Core (1.60.0)</display>
           <isAbstract>false</isAbstract>
-          <value>12.28.0</value>
+          <value>1.60.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4b336f30-3758-49a7-a3d1-2a371873015d</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ee1f5a6c-a584-4340-8f49-e440cd47479e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Common</name>
+          <display>Azure.Storage.Common (12.29.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>12.29.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4b336f30-3758-49a7-a3d1-2a371873015d</parentFolderId>
@@ -131,8 +159,8 @@
       </childElements>
     </childElement>
     <childElement id="d0a26aeb-0404-4b11-b891-e706d94c5650" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.29.1</name>
-      <display>12.29.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>12.30.1</name>
+      <display>12.30.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -153,11 +181,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c569ab0c-6c60-40d8-8da6-19c913856fa5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Core</name>
-          <display>Azure.Core (1.55.0)</display>
+        <childElement id="733b69ee-7a6d-4b37-8e17-2c5439a2ba04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Apache.Arrow</name>
+          <display>Apache.Arrow (22.1.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.55.0</value>
+          <value>22.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d0a26aeb-0404-4b11-b891-e706d94c5650</parentFolderId>
@@ -167,11 +195,25 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7f254478-78af-4ca6-977a-0f5cc228f0ae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Storage.Common</name>
-          <display>Azure.Storage.Common (12.28.0)</display>
+        <childElement id="ab40a679-cb67-4431-b96b-5a0223134665" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
+          <display>Azure.Core (1.60.0)</display>
           <isAbstract>false</isAbstract>
-          <value>12.28.0</value>
+          <value>1.60.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d0a26aeb-0404-4b11-b891-e706d94c5650</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f0597d35-9c31-4051-a1a5-1f3869948b0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Common</name>
+          <display>Azure.Storage.Common (12.29.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>12.29.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d0a26aeb-0404-4b11-b891-e706d94c5650</parentFolderId>
@@ -184,8 +226,8 @@
       </childElements>
     </childElement>
     <childElement id="6b2f528c-7ff2-4a76-a529-a3bfc350f494" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.29.1</name>
-      <display>12.29.1 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>12.30.1</name>
+      <display>12.30.1 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -206,11 +248,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="def09654-56df-486e-829e-dc7bf28fbd31" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Core</name>
-          <display>Azure.Core (1.55.0)</display>
+        <childElement id="41fe7645-b386-4997-b52e-ad2a343eb756" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Apache.Arrow</name>
+          <display>Apache.Arrow (22.1.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.55.0</value>
+          <value>22.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6b2f528c-7ff2-4a76-a529-a3bfc350f494</parentFolderId>
@@ -220,11 +262,25 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="672098ba-2eaa-44e9-9a84-caaeffadd1c4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Storage.Common</name>
-          <display>Azure.Storage.Common (12.28.0)</display>
+        <childElement id="c9d6d82b-6860-46b8-a395-d2f810626e6b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
+          <display>Azure.Core (1.60.0)</display>
           <isAbstract>false</isAbstract>
-          <value>12.28.0</value>
+          <value>1.60.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6b2f528c-7ff2-4a76-a529-a3bfc350f494</parentFolderId>
+          <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+          <packageName>Intent.Azure.BlobStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e0c9b804-dee7-4740-a2e6-58a019bc5044" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Common</name>
+          <display>Azure.Storage.Common (12.29.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>12.29.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6b2f528c-7ff2-4a76-a529-a3bfc350f494</parentFolderId>

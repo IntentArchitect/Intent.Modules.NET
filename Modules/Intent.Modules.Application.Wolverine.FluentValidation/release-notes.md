@@ -1,3 +1,8 @@
+### Version 1.0.4
+
+- Improvement: Updated NuGet package versions:
+  - `FluentValidation` 12.1.1 → 12.2.0
+
 ### Version 1.0.3
 
 - Fixed: The Software Factory failed in a Wolverine application without `Intent.Application.FluentValidation.Dtos`, for example one without Application Services. This module now depends on `Intent.Application.FluentValidation.Dtos`, whose validator provider both `Intent.Application.Wolverine`'s `ValidationMiddleware` and validation rules for nested DTOs need.

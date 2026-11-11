@@ -18,12 +18,12 @@ namespace Intent.Modules.Eventing.AzureServiceBus
             NugetRegistry.Register(AzureMessagingServiceBusPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("7.20.2")
-                            .WithNugetDependency("Azure.Core", "1.60.0")
+                        ( >= 8, >= 0) => new PackageVersion("7.21.0")
+                            .WithNugetDependency("Azure.Core", "1.62.0")
                             .WithNugetDependency("Azure.Core.Amqp", "1.3.1")
                             .WithNugetDependency("Microsoft.Azure.Amqp", "2.7.0"),
-                        ( >= 2, >= 0) => new PackageVersion("7.20.2")
-                            .WithNugetDependency("Azure.Core", "1.60.0")
+                        ( >= 2, >= 0) => new PackageVersion("7.21.0")
+                            .WithNugetDependency("Azure.Core", "1.62.0")
                             .WithNugetDependency("Azure.Core.Amqp", "1.3.1")
                             .WithNugetDependency("Microsoft.Azure.Amqp", "2.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureMessagingServiceBusPackageName}'"),

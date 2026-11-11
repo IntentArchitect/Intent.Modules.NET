@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="c72f8015-9445-4a19-8824-12c44d378386">
-  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FactoryExtensions/AITemplateDisableExtension.cs" deviationsHash="F542A83E3E29385D0BBA410DCC1ADED543D7689FBCEADF5AAAB45107B03FAAF8" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/ExceptionFilterExtension.cs" deviationsHash="B9FAFF7ADEF83C665FC59653EFCA463A05DF9EAFFDBE2CE97A802B3BA76E95E2" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
@@ -10,7 +11,7 @@
   <file path="FactoryExtensions/TemplateSuppressorExtension.cs" deviationsHash="F04FB544E14B4C25667B9A8B116BC0F09C7DEA509B515966ED40F0884622EA05" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.ModularMonolith.Host.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.ModularMonolith.Host.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="NugetPackages.cs" deviationsHash="B78F48AEC081E4A916FC9F17463C487197612F0E04040C7161D70A1A9F6C59D9" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="NugetPackages.cs" deviationsHash="CF72033E5E4FCEC615E6630949BEC4D80E8C3B24CC8020566D40E9F135EBE7FE" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Templates/ModuleConfiguration/ModuleConfigurationTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ModuleConfiguration/ModuleConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/ModuleInstallerInterface/ModuleInstallerInterfaceTemplatePartial.cs" deviationsHash="1AFCF57593B221BC572EDE1CAA03EEDA87DCD33C3066DB3075CB6BFC1564C9EB" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />

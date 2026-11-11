@@ -1,3 +1,8 @@
+### Version 1.0.12
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.AspNetCore.OData` 9.4.1 → 9.5.0 (net8.0); 7.7.9 → 7.8.1 (netstandard2.0)
+
 ### Version 1.0.11
 
 - Fixed: Updated for `Intent.Modules.EntityFrameworkCore`'s `DbContextManager.GetDbContext` signature change (new `Default Connection String Name` module setting support).

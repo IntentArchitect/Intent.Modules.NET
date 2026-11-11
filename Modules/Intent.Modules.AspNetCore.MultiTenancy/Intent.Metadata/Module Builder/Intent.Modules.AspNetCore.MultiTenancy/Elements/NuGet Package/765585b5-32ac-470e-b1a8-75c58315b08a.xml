@@ -24,10 +24,117 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="52c62aa6-ced5-4fe4-abcf-d506d1081a2a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.4.10</name>
-      <display>9.4.10 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+    <childElement id="f4fad2c5-da17-47d9-bcbe-509c3323f18a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.1.21</name>
+      <display>8.1.21 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>765585b5-32ac-470e-b1a8-75c58315b08a</parentFolderId>
+      <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+      <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="927d4ecf-f89b-4ee7-94c2-fa6d48939099" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Finbuckle.MultiTenant</name>
+          <display>Finbuckle.MultiTenant (8.1.21)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.1.21</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f4fad2c5-da17-47d9-bcbe-509c3323f18a</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ba8e12d7-fc33-4cdc-bf30-15895da22ae5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Authentication.OpenIdConnect</name>
+          <display>Microsoft.AspNetCore.Authentication.OpenIdConnect (7.0.20)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.20</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f4fad2c5-da17-47d9-bcbe-509c3323f18a</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="470b6fbd-b5a1-467c-8b77-225179eff43e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.1.21</name>
+      <display>8.1.21 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>765585b5-32ac-470e-b1a8-75c58315b08a</parentFolderId>
+      <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+      <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="14e799ce-69f8-42af-b315-83adbb33bb5a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Finbuckle.MultiTenant</name>
+          <display>Finbuckle.MultiTenant (8.1.21)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.1.21</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>470b6fbd-b5a1-467c-8b77-225179eff43e</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="402c3228-f149-4203-a8e0-2cd4ff1dfdd0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Authentication.OpenIdConnect</name>
+          <display>Microsoft.AspNetCore.Authentication.OpenIdConnect (6.0.36)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.36</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>470b6fbd-b5a1-467c-8b77-225179eff43e</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="52c62aa6-ced5-4fe4-abcf-d506d1081a2a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.4.16</name>
+      <display>9.4.16 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>765585b5-32ac-470e-b1a8-75c58315b08a</parentFolderId>
@@ -45,7 +152,89 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="899dee0c-8d41-411c-8f76-bfabec601273" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Finbuckle.MultiTenant</name>
+          <display>Finbuckle.MultiTenant (9.4.16)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.4.16</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>52c62aa6-ced5-4fe4-abcf-d506d1081a2a</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0e7b3a08-9f33-4273-8b7a-2e612220c7d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Authentication.OpenIdConnect</name>
+          <display>Microsoft.AspNetCore.Authentication.OpenIdConnect (8.0.34)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.34</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>52c62aa6-ced5-4fe4-abcf-d506d1081a2a</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="b1cdc2ff-e8ad-48ea-93a8-2b57579573b4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.4.16</name>
+      <display>9.4.16 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>765585b5-32ac-470e-b1a8-75c58315b08a</parentFolderId>
+      <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+      <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="9d1d3188-18f8-49a4-b39a-329c75e61121" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Finbuckle.MultiTenant</name>
+          <display>Finbuckle.MultiTenant (9.4.16)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.4.16</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b1cdc2ff-e8ad-48ea-93a8-2b57579573b4</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="920fc937-e5e8-40d0-83f2-4eb28c423512" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Authentication.OpenIdConnect</name>
+          <display>Microsoft.AspNetCore.Authentication.OpenIdConnect (9.0.23)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.23</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b1cdc2ff-e8ad-48ea-93a8-2b57579573b4</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="4f512aad-6872-4473-8055-cfb7e85115a5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>7.2.1</name>
-      <display>7.2.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>7.2.2</name>
+      <display>7.2.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -134,8 +134,8 @@
       </childElements>
     </childElement>
     <childElement id="62af1a70-4de1-4c3c-b1f4-6e54368396e8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>7.2.1</name>
-      <display>7.2.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>7.2.2</name>
+      <display>7.2.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />

@@ -1,3 +1,8 @@
+### Version 5.3.12
+
+- Improvement: Updated NuGet package versions:
+  - `AutoMapper` 16.2.0 → 16.3.0
+
 ### Version 5.3.11
 
 - Improvement: Added default Template Classification and Priorities.

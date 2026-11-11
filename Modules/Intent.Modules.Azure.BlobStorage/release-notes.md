@@ -1,3 +1,8 @@
+### Version 3.5.1
+
+- Improvement: Updated NuGet package versions:
+  - `Azure.Storage.Blobs` 12.29.1 → 12.30.1
+
 ### Version 3.5.0
 
 - New Feature: Added `Authentication Methods` module setting to support Managed Identity authentication via `DefaultAzureCredential`, alongside the existing connection string.

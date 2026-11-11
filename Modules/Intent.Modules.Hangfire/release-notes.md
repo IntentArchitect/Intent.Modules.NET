@@ -1,6 +1,11 @@
 ### Version 1.0.14
 
 - Fixed: A Hangfire Job linked to a command did not compile when `Intent.Application.Mediator` was installed instead of MediatR; it now injects `Mediator.ISender`.
+- Improvement: Updated NuGet package versions:
+  - `Hangfire.AspNetCore` 1.8.23 → 1.8.25
+  - `Hangfire.Core` 1.8.23 → 1.8.25
+  - `Hangfire.SqlServer` 1.8.23 → 1.8.25
+  - `Microsoft.Data.SqlClient` 7.0.2 → 7.1.1
 
 ### Version 1.0.13
 

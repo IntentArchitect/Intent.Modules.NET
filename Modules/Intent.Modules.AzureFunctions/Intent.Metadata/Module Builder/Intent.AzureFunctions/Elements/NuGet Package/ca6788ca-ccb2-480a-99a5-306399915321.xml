@@ -26,9 +26,10 @@
   <metadata />
   <childElements>
     <childElement id="a38073d3-5e6b-41d8-ac86-72f03a46a049" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.0</name>
-      <display>5.3.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>5.5.0</name>
+      <display>5.5.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ca6788ca-ccb2-480a-99a5-306399915321</parentFolderId>
@@ -46,7 +47,64 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="44200a03-0a5f-413c-a408-4a7331d39436" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Messaging.EventHubs</name>
+          <display>Azure.Messaging.EventHubs (5.9.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>5.9.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a38073d3-5e6b-41d8-ac86-72f03a46a049</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7b371222-2226-467a-86db-faa62b991128" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Storage.Blobs</name>
+          <display>Azure.Storage.Blobs (12.16.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>12.16.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a38073d3-5e6b-41d8-ac86-72f03a46a049</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="76ce643e-ee36-4c7e-b7cc-beae0fc73fbc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.WebJobs</name>
+          <display>Microsoft.Azure.WebJobs (3.0.37)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.0.37</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a38073d3-5e6b-41d8-ac86-72f03a46a049</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9bcb467b-a010-44eb-9692-6b6ae5ef729a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Azure</name>
+          <display>Microsoft.Extensions.Azure (1.6.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.6.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a38073d3-5e6b-41d8-ac86-72f03a46a049</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

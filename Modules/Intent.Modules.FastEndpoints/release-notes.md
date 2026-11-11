@@ -1,6 +1,14 @@
 ### Version 1.3.0
 
 - New Feature: Operations modelled with the HTTP `QUERY` verb generate endpoints that call `Query(...)` and respond like `GET` operations.
+- Improvement: Updated NuGet package versions:
+  - `FastEndpoints` 8.2.0 → 8.3.0
+  - `FastEndpoints.AspVersioning` 8.2.0 → 8.3.0
+  - `FastEndpoints.Attributes` 8.2.0 → 8.3.0
+
+> ⚠️ **BREAKING CHANGES**
+>
+> This module update may change behaviour or cause compilation breaks in custom code you have written that relies on FastEndpoints 8.3, where nested collections in complex [FromForm] and [FromQuery] binding now throw. For details see the [FastEndpoints v8.3 release notes](https://github.com/FastEndpoints/FastEndpoints/releases/tag/v8.3).
 
 ### Version 1.2.1
 

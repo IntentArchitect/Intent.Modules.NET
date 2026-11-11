@@ -102,5 +102,44 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="1537e2c2-d2bc-42e4-87f2-dba205e8626f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.21.0</name>
+      <display>1.21.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>110e3faf-6645-4cb4-8aca-3618576a037f</parentFolderId>
+      <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+      <packageName>Intent.CosmosDB</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5b2c225b-5a5f-42f5-a5cc-4ec354b4e967" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
+          <display>Azure.Core (1.53.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.53.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1537e2c2-d2bc-42e4-87f2-dba205e8626f</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

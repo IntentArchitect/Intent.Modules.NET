@@ -25,9 +25,10 @@
   <metadata />
   <childElements>
     <childElement id="b5a7c0b5-5035-4673-b8ba-e0cec89b4c34" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.39.5</name>
-      <display>5.39.5 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>5.41.0</name>
+      <display>5.41.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e4c56250-6b3d-4982-8d56-70f6a6c6db68</parentFolderId>
@@ -45,7 +46,246 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="d910b7e3-81df-4fe6-b61a-c39a50349e53" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>JasperFx</name>
+          <display>JasperFx (1.31.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.31.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="77db3763-0c91-4bb5-bd71-54cb73b07b6b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>JasperFx.Events</name>
+          <display>JasperFx.Events (1.36.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.36.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="36034658-3acb-4219-8901-1158d576477c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>JasperFx.RuntimeCompiler</name>
+          <display>JasperFx.RuntimeCompiler (4.5.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.5.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0c1f7d97-021e-48d8-9564-d37c06d787bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>JasperFx.SourceGeneration</name>
+          <display>JasperFx.SourceGeneration (1.1.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b3972b77-5d40-4d58-b2b1-f753ee954959" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="909a7c2d-adcf-4e09-a430-b01349a5ad07" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <display>Microsoft.Extensions.Configuration (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9800021f-4266-48f1-9ecd-5ed482201539" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2f127b7d-4879-42ab-b9bc-30a6ba7e8625" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Binder</name>
+          <display>Microsoft.Extensions.Configuration.Binder (8.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6cb7d098-3169-4a45-a8d1-e33d9aa8a96e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Json</name>
+          <display>Microsoft.Extensions.Configuration.Json (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9020d45b-00fa-4ad6-b1fe-2b688d94be1a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions (8.0.8)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.8</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="641f3ccf-ab77-4b4c-b6f0-d80e3c9c15a9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Hosting</name>
+          <display>Microsoft.Extensions.Hosting (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f2bccee0-ce92-4525-b65f-9ca617bbec70" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3cdec678-242a-4dfa-b9a5-aa5f102d0937" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.ObjectPool</name>
+          <display>Microsoft.Extensions.ObjectPool (8.0.23)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.23</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b9bbcd14-8c49-4342-aee7-c937d2600320" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NewId</name>
+          <display>NewId (4.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0c8ec1a9-b07a-4d1c-a6f0-8b3abf8e45fb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Newtonsoft.Json</name>
+          <display>Newtonsoft.Json (13.0.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>13.0.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fb52c8b4-aa8d-403d-9a85-43b97995242c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Diagnostics.DiagnosticSource</name>
+          <display>System.Diagnostics.DiagnosticSource (9.0.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a3dd7f7e-b411-402b-ab5c-b7cebc819e36" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Threading.Tasks.Dataflow</name>
+          <display>System.Threading.Tasks.Dataflow (9.0.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b5a7c0b5-5035-4673-b8ba-e0cec89b4c34</parentFolderId>
+          <packageId>ddb5aa9b-9221-4f5c-8006-d003765f8b3d</packageId>
+          <packageName>Intent.Application.Wolverine</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

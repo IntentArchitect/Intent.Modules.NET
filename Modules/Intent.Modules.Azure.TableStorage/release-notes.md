@@ -1,3 +1,8 @@
+### Version 1.0.1
+
+- Improvement: Updated NuGet package versions:
+  - `Azure.Data.Tables` 12.11.0 → 12.13.0 (net8.0, netstandard2.0); added 12.13.0 (net10.0)
+
 ### Version 1.0.0
 
 - Improvement: Added support for cursor-based pagination.

@@ -1,3 +1,18 @@
+### Version 2.2.18
+
+- Improvement: Updated NuGet package versions:
+  - `Azure.Monitor.OpenTelemetry.AspNetCore` 1.5.0 → 1.6.0
+  - `Azure.Monitor.OpenTelemetry.Exporter` 1.8.2 → 1.10.0
+  - `OpenTelemetry` 1.16.0 → 1.20.1
+  - `OpenTelemetry.Exporter.Console` 1.16.0 → 1.20.1
+  - `OpenTelemetry.Exporter.OpenTelemetryProtocol` 1.16.0 → 1.20.1
+  - `OpenTelemetry.Extensions.Hosting` 1.16.0 → 1.20.1
+  - `OpenTelemetry.Instrumentation.AspNetCore` 1.16.0 → 1.20.2
+  - `OpenTelemetry.Instrumentation.Http` 1.16.0 → 1.20.2
+  - `OpenTelemetry.Instrumentation.Process` 1.16.0-beta.1 → 1.20.1-rc.1
+  - `OpenTelemetry.Instrumentation.Runtime` 1.15.1 → 1.20.1
+  - `OpenTelemetry.Instrumentation.SqlClient` 1.16.0 → 1.20.2
+
 ### Version 2.2.17
 
 - Improvement: Updated NuGet package versions.

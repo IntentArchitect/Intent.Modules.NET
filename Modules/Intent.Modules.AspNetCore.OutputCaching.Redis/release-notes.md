@@ -1,3 +1,8 @@
+### Version 1.1.17
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.AspNetCore.OutputCaching.StackExchangeRedis` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+
 ### Version 1.1.16
 
 - Improvement: Updated NuGet package versions.

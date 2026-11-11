@@ -1,3 +1,10 @@
+### Version 2.0.7
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.AspNetCore.Components.WebAssembly` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+  - `Microsoft.AspNetCore.Components.WebAssembly.Authentication` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+  - `Microsoft.AspNetCore.Components.WebAssembly.Server` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+
 ### Version 2.0.6
 
 - Fixed: Removing the `Secured` stereotype from a Component or Dialog left its `@attribute [Authorize]` directive in the `.razor` file.

@@ -6,6 +6,6 @@
   <file path="FactoryExtentions/DependencyInjectionFactoryExtension.cs" deviationsHash="955FABCD30134D834E0C542B8E20A5C832EF29CB00089A12907AEF7BBFC8CA93" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Application.DependencyInjection.MediatR.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Application.DependencyInjection.MediatR.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="NugetPackages.cs" deviationsHash="D2DCD6A6013EF4160C6DD2E6BF2F15B28126B8BAEEF66DE6E8F130C8A12D3928" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="NugetPackages.cs" deviationsHash="24C46819401B928BDF1F8B8126341FF355A186B986071036DD2A10D061C2B160" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
 </managedFiles>

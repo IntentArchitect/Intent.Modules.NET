@@ -1,3 +1,12 @@
+### Version 2.1.0
+
+- Improvement: Updated NuGet package versions:
+  - `HotChocolate.AzureFunctions` 16.4.0 → 16.7.5 (net10.0, net9.0, net8.0); 14.3.1 → 14.3.5 (net7.0, net6.0)
+
+> ⚠️ **BREAKING CHANGES**
+>
+> This module update may change behaviour or cause compilation breaks in custom code you have written that relies on HotChocolate 16.7, which turns variable batching on by default and adds a member to IServerDiagnosticEvents. For details see the [HotChocolate 16.6 to 16.7 migration guide](https://chillicream.com/docs/hotchocolate/v16/migrating/migrate-from-16-6-to-16-7).
+
 ### Version 2.0.9
 
 - Improvement: Updated NuGet package versions.

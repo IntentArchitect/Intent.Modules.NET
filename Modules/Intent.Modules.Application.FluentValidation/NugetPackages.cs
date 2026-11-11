@@ -18,8 +18,8 @@ namespace Intent.Modules.Application.FluentValidation
             NugetRegistry.Register(FluentValidationDependencyInjectionExtensionsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("12.1.1")
-                            .WithNugetDependency("FluentValidation", "12.1.1")
+                        ( >= 8, >= 0) => new PackageVersion("12.2.0")
+                            .WithNugetDependency("FluentValidation", "12.2.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "2.1.0"),
                         ( >= 2, >= 1) => new PackageVersion("11.12.0")
                             .WithNugetDependency("FluentValidation", "11.12.0")

@@ -1,3 +1,8 @@
+### Version 1.0.20
+
+- Improvement: Updated NuGet package versions:
+  - `Z.EntityFramework.Extensions.EFCore` 10.105.6 → 10.106.0 (net10.0); 9.103.8.1 → 9.106.0 (net9.0); 8.103.8.1 → 8.106.0 (net8.0); 7.105.6 → 7.106.0 (net6.0); 5.105.6 → 5.106.0 (netstandard2.1); 3.105.6 → 3.106.0 (netstandard2.0)
+
 ### Version 1.0.19
 
 - Improvement: Updated NuGet package versions.

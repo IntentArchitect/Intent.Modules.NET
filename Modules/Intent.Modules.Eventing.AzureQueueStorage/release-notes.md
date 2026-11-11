@@ -1,3 +1,13 @@
+### Version 1.2.0
+
+- Improvement: Updated NuGet package versions:
+  - `Azure.Storage.Queues` 12.27.1 → 12.28.1
+  - `Microsoft.Extensions.Hosting` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1)
+
+> ⚠️ **BREAKING CHANGES**
+>
+> This module update may change behaviour or cause compilation breaks in custom code you have written that relies on Microsoft.Extensions.Hosting v11, where a failing BackgroundService now makes IHost.RunAsync and StopAsync throw. For details see the [Microsoft.Extensions.Hosting 11 breaking change](https://github.com/dotnet/docs/blob/main/docs/core/compatibility/extensions/11/ihost-runasync-stopasync-throw-backgroundservice-failure.md).
+
 ### Version 1.1.2
 
 - Improvement: Updated NuGet package versions.

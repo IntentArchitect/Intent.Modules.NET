@@ -26,9 +26,10 @@ https://intent-architect.monday.com/boards/2883919780/pulses/18385968939</commen
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+    <childElement id="034e4342-0f67-4711-bd0a-da5e86245ccf" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <comment>Swashbuckle 11 brings Microsoft.OpenApi 3.x, which breaks the emitted BinaryContentFilter, HideRouteParametersFromBodyOperationFilter and JsonMergePatchOperationFilter templates (Content is IDictionary&lt;string, IOpenApiMediaType&gt;, Schema is read-only). https://github.com/domaindrivendev/Swashbuckle.AspNetCore/releases. 2026-11-11.</comment>
       <name>10.2.3</name>
-      <display>10.1.4 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>10.2.3 ( &gt;= .NETCoreApp,Version=v10.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -42,53 +43,65 @@ https://intent-architect.monday.com/boards/2883919780/pulses/18385968939</commen
           <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="true" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5a75312a-7985-44d7-b038-1e8446b4244b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Swashbuckle.AspNetCore.Swagger</name>
-          <isAbstract>false</isAbstract>
-          <value>10.2.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b07073f8-595a-4803-a712-8980aafb9e35" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Swashbuckle.AspNetCore.SwaggerGen</name>
-          <isAbstract>false</isAbstract>
-          <value>10.2.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="fcec7bb9-b9b2-461f-a813-58023cfb8b4b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Swashbuckle.AspNetCore.SwaggerUI</name>
-          <isAbstract>false</isAbstract>
-          <value>10.2.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="731c0022-0aee-4bfb-9bea-106083f4c4c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="879af16f-9470-4831-8927-05a7201e1f67" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.ApiDescription.Server</name>
+          <display>Microsoft.Extensions.ApiDescription.Server (10.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
+          <parentFolderId>034e4342-0f67-4711-bd0a-da5e86245ccf</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2894d6fb-0d21-472e-bc42-58a929ffa375" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.Swagger</name>
+          <display>Swashbuckle.AspNetCore.Swagger (10.2.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.2.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>034e4342-0f67-4711-bd0a-da5e86245ccf</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3a7f2b13-0da2-4ae4-ab5c-56eefe883771" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerGen</name>
+          <display>Swashbuckle.AspNetCore.SwaggerGen (10.2.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.2.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>034e4342-0f67-4711-bd0a-da5e86245ccf</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8385de5a-7364-457f-9556-b2ae18b38d99" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerUI</name>
+          <display>Swashbuckle.AspNetCore.SwaggerUI (10.2.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.2.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>034e4342-0f67-4711-bd0a-da5e86245ccf</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -96,8 +109,8 @@ https://intent-architect.monday.com/boards/2883919780/pulses/18385968939</commen
       </childElements>
     </childElement>
     <childElement id="772e00c5-e991-4463-a168-c50477de10f4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.2.3</name>
-      <display>10.1.4 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>10.3.1</name>
+      <display>10.3.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -118,46 +131,139 @@ https://intent-architect.monday.com/boards/2883919780/pulses/18385968939</commen
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9fbd794e-bcd3-4507-880b-db06f581ddbe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Swashbuckle.AspNetCore.Swagger</name>
-          <isAbstract>false</isAbstract>
-          <value>10.2.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>772e00c5-e991-4463-a168-c50477de10f4</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0d06369d-4780-4c9d-98a7-fecf502b15e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Swashbuckle.AspNetCore.SwaggerGen</name>
-          <isAbstract>false</isAbstract>
-          <value>10.2.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>772e00c5-e991-4463-a168-c50477de10f4</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4d600771-840a-40b3-89c9-665961ef387b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Swashbuckle.AspNetCore.SwaggerUI</name>
-          <isAbstract>false</isAbstract>
-          <value>10.2.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>772e00c5-e991-4463-a168-c50477de10f4</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a79127ac-3cbc-4855-b200-a58b81aa098d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bac43ed4-604a-4d27-aa9f-d340c868391a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.ApiDescription.Server</name>
+          <display>Microsoft.Extensions.ApiDescription.Server (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>772e00c5-e991-4463-a168-c50477de10f4</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="31fd1534-a6e9-48a5-889b-3436d342dde4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.Swagger</name>
+          <display>Swashbuckle.AspNetCore.Swagger (10.3.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.3.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>772e00c5-e991-4463-a168-c50477de10f4</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ff8407d9-cd22-432e-97d9-8994efb2add9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerGen</name>
+          <display>Swashbuckle.AspNetCore.SwaggerGen (10.3.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.3.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>772e00c5-e991-4463-a168-c50477de10f4</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ce918db1-ee6a-4754-a726-422f713f25e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerUI</name>
+          <display>Swashbuckle.AspNetCore.SwaggerUI (10.3.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.3.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>772e00c5-e991-4463-a168-c50477de10f4</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.3.1</name>
+      <display>10.3.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>eb12fafb-a1e6-4858-9162-a588056ad58e</parentFolderId>
+      <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+      <packageName>Intent.ModularMonolith.Host</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b5dea5b7-6d7c-4aa4-bd9c-794dd77180f6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.ApiDescription.Server</name>
+          <display>Microsoft.Extensions.ApiDescription.Server (9.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="03900f31-1f12-4616-8c11-2332d8380fbe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.Swagger</name>
+          <display>Swashbuckle.AspNetCore.Swagger (10.3.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.3.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9df355ec-036d-470c-8dd3-ed3e13b6cedc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerGen</name>
+          <display>Swashbuckle.AspNetCore.SwaggerGen (10.3.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.3.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5daed605-2e23-4933-b798-d0b2b34fb0e7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerUI</name>
+          <display>Swashbuckle.AspNetCore.SwaggerUI (10.3.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.3.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f9c0ae2c-ad0a-4750-9ef6-ba431b1f841f</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -239,71 +345,6 @@ https://intent-architect.monday.com/boards/2883919780/pulses/18385968939</commen
           <parentFolderId>5045950b-266c-47ec-b8ca-9037ca740ca3</parentFolderId>
           <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
           <packageName>Intent.ModularMonolith.Host</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="034e4342-0f67-4711-bd0a-da5e86245ccf" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.2.3</name>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>eb12fafb-a1e6-4858-9162-a588056ad58e</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="2894d6fb-0d21-472e-bc42-58a929ffa375" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Swashbuckle.AspNetCore.Swagger</name>
-          <isAbstract>false</isAbstract>
-          <value>10.2.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>034e4342-0f67-4711-bd0a-da5e86245ccf</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="3a7f2b13-0da2-4ae4-ab5c-56eefe883771" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Swashbuckle.AspNetCore.SwaggerGen</name>
-          <isAbstract>false</isAbstract>
-          <value>10.2.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>034e4342-0f67-4711-bd0a-da5e86245ccf</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8385de5a-7364-457f-9556-b2ae18b38d99" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Swashbuckle.AspNetCore.SwaggerUI</name>
-          <isAbstract>false</isAbstract>
-          <value>10.2.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>034e4342-0f67-4711-bd0a-da5e86245ccf</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="879af16f-9470-4831-8927-05a7201e1f67" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.ApiDescription.Server</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>034e4342-0f67-4711-bd0a-da5e86245ccf</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

@@ -1,3 +1,9 @@
+### Version 1.0.0-beta.15
+
+- Improvement: Updated NuGet package versions:
+  - `Dapper` 2.1.79 → 2.1.89
+  - `Microsoft.Data.SqlClient` 7.0.2 → 7.1.1
+
 ### Version 1.0.0-beta.14
 
 - Fixed: Generated `AddAsync` no longer hardcodes `entity.Id` when assigning the database-generated key back onto the entity; it now assigns the entity's actual modelled primary key property, so repositories for entities whose primary key isn't named `Id` compile correctly.

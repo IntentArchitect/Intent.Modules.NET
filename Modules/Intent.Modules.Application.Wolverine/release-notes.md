@@ -1,3 +1,8 @@
+### Version 1.1.4
+
+- Improvement: Updated NuGet package versions:
+  - `WolverineFx` 5.39.5 → 5.41.0
+
 ### Version 1.1.3
 
 - Fixed: The Software Factory failed with "Could not find template from dependency: Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" in a Wolverine application without `Intent.Application.FluentValidation.Dtos`, for example one without Application Services. `ValidationMiddleware` and its pipeline registration are now generated only when that module is installed.

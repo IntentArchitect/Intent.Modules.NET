@@ -1,3 +1,41 @@
+### Version 5.1.0
+
+- Improvement: Updated NuGet package versions:
+  - `AutoMapper` 16.2.0 → 16.3.0
+  - `Azure.Messaging.EventHubs` 5.9.0 → 5.12.2
+  - `MediatR` 14.2.0 → 14.3.0 (net10.0, net9.0, net8.0, netstandard2.0); 12.1.1 → 12.5.0 (net6.0)
+  - `Microsoft.ApplicationInsights.WorkerService` 3.1.2 → 3.2.0
+  - `Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore` 2.1.0 → 2.1.1
+  - `Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues` 5.5.4 → 5.5.5
+  - `Microsoft.Azure.Functions.Worker.Sdk` 2.0.7 → 2.1.0
+  - `Microsoft.Azure.WebJobs.Extensions.CosmosDB` 4.3.0 → 4.16.1
+  - `Microsoft.Azure.WebJobs.Extensions.EventHubs` 5.3.0 → 5.5.0
+  - `Microsoft.Azure.WebJobs.Extensions.RabbitMQ` 2.0.3 → 2.1.0
+  - `Microsoft.Azure.WebJobs.Extensions.ServiceBus` 5.5.1 → 5.18.0
+  - `Microsoft.Azure.WebJobs.Extensions.Storage.Queues` 5.0.0 → 5.3.10
+  - `Microsoft.EntityFrameworkCore` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0); 6.0.32 → 6.0.36 (net6.0)
+  - `Microsoft.EntityFrameworkCore.Cosmos` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0); 6.0.32 → 6.0.36 (net6.0)
+  - `Microsoft.EntityFrameworkCore.Design` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0); 6.0.32 → 6.0.36 (net6.0)
+  - `Microsoft.EntityFrameworkCore.InMemory` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0); 6.0.32 → 6.0.36 (net6.0)
+  - `Microsoft.EntityFrameworkCore.Proxies` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0); 6.0.32 → 6.0.36 (net6.0)
+  - `Microsoft.EntityFrameworkCore.SqlServer` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0); 6.0.32 → 6.0.36 (net6.0)
+  - `Microsoft.EntityFrameworkCore.Tools` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0); 6.0.32 → 6.0.36 (net6.0)
+  - `Microsoft.Extensions.Configuration.Abstractions` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0); 6.0.0 → 6.0.1 (net6.0)
+  - `Microsoft.Extensions.Configuration.Binder` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0); 6.0.0 → 6.0.1 (net6.0)
+  - `Microsoft.Extensions.Configuration.EnvironmentVariables` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0); 6.0.1 → 6.0.2 (net6.0)
+  - `Microsoft.Extensions.Configuration.FileExtensions` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0); 6.0.0 → 6.0.1 (net6.0)
+  - `Microsoft.Extensions.Configuration.Json` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1); 6.0.0 → 6.0.1 (net6.0)
+  - `Microsoft.Extensions.Configuration.UserSecrets` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0); 6.0.1 → 6.0.2 (net6.0)
+  - `Microsoft.Extensions.DependencyInjection` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1); 6.0.1 → 6.0.2 (net6.0)
+  - `Microsoft.Extensions.Http` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0); 6.0.0 → 6.0.1 (net6.0)
+  - `Microsoft.Extensions.Logging` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1); 6.0.0 → 6.0.1 (net6.0)
+  - `Microsoft.NET.Sdk.Functions` 4.2.0 → 4.6.0
+  - `RabbitMQ.Client` 7.2.1 → 7.2.2
+
+> ⚠️ **BREAKING CHANGES**
+>
+> This module update may change behaviour or cause compilation breaks in custom code you have written that relies on Application Insights 3.2, which reduces the default HTTP client metrics. For details see the [Application Insights release notes](https://github.com/microsoft/ApplicationInsights-dotnet/releases).
+
 ### Version 5.0.27
 
 - Improvement: Service Bus triggered Azure Functions can now consume from a topic subscription via the new optional `Subscription Name` property on the `Azure Function` stereotype.

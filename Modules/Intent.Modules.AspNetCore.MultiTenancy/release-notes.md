@@ -1,3 +1,16 @@
+### Version 6.1.0
+
+- Improvement: Updated NuGet package versions:
+  - `Finbuckle.MultiTenant` 9.4.10 → 9.4.16 (net8.0); added 8.1.21 (net7.0, net6.0); added 9.4.16 (net9.0)
+  - `Finbuckle.MultiTenant.AspNetCore` 9.4.10 → 9.4.16 (net8.0); added 8.1.21 (net7.0, net6.0); added 9.4.16 (net9.0)
+  - `Finbuckle.MultiTenant.EntityFrameworkCore` 9.4.10 → 9.4.16 (net8.0); added 8.1.21 (net7.0, net6.0); added 9.4.16 (net9.0)
+  - `Microsoft.EntityFrameworkCore.InMemory` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0)
+  - `Microsoft.Extensions.Hosting.Abstractions` added 11.0.0 (net10.0)
+
+> ⚠️ **BREAKING CHANGES**
+>
+> This module update may change behaviour or cause compilation breaks in custom code you have written that relies on Microsoft.Extensions.Hosting v11, where a failing BackgroundService now makes IHost.RunAsync and StopAsync throw. For details see the [Microsoft.Extensions.Hosting 11 breaking change](https://github.com/dotnet/docs/blob/main/docs/core/compatibility/extensions/11/ihost-runasync-stopasync-throw-backgroundservice-failure.md).
+
 ### Version 6.0.0
 
 > ⚠️ **BREAKING CHANGES**

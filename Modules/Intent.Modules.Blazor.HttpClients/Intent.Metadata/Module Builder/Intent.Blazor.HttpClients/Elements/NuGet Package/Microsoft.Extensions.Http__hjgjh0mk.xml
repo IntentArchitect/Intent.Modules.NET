@@ -24,213 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7652b9e0-99cf-45d5-89d4-38c3bcda313b</parentFolderId>
-      <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-      <packageName>Intent.Blazor.HttpClients</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="4a0c9e4d-9ff1-456e-b81d-ee1b64c3ee87" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1e2dfb93-6fd5-42f7-9ed6-85298daca385" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="65324b95-6c9b-463f-b17b-49d5f076469f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b8c6f5b5-90e9-4d37-b9f7-4c9c3a3c28a0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="2c6ae9ca-6cdb-4afd-9916-7405d315af2e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e9e5c2e7-95e2-4af8-a118-f47ca6a61a4f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="18b0eda1-a705-4ccf-aa68-2af92bc79b29" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETStandard,Version=v2.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7652b9e0-99cf-45d5-89d4-38c3bcda313b</parentFolderId>
-      <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-      <packageName>Intent.Blazor.HttpClients</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="f77b83e5-2856-4924-94fd-5732a7cd82de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>18b0eda1-a705-4ccf-aa68-2af92bc79b29</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="348b52c7-9e32-48a9-aee8-60ed67e72880" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>18b0eda1-a705-4ccf-aa68-2af92bc79b29</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0884d2d9-4f00-4f31-8f2d-b87a23fcbc1f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>18b0eda1-a705-4ccf-aa68-2af92bc79b29</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d24e84ad-fb77-494c-b009-419159ea1abd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>18b0eda1-a705-4ccf-aa68-2af92bc79b29</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="41ff2c53-4cb8-43bf-a374-4cabf179139e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>18b0eda1-a705-4ccf-aa68-2af92bc79b29</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="83055cc0-99db-47ad-860b-4c537c69c766" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -251,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9599e8f2-af99-4e11-8db8-a7613f545160" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ab1728d3-6d29-42d8-9d52-dba58db52f6a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83055cc0-99db-47ad-860b-4c537c69c766</parentFolderId>
@@ -265,11 +61,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="59790c09-67ae-417d-80f0-8bfcbd858fcf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bad578d9-d04b-49d0-b4d0-f1653064602e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83055cc0-99db-47ad-860b-4c537c69c766</parentFolderId>
@@ -279,11 +75,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e31bf6e7-8352-46bf-8bd9-da8810a59c2d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6230161c-d9d0-4bf8-b24b-cb17e2839437" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
+          <display>Microsoft.Extensions.Diagnostics (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83055cc0-99db-47ad-860b-4c537c69c766</parentFolderId>
@@ -293,11 +89,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a8885d9f-b8e4-49d0-8e41-16f5ec9656cb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="43feffd9-a1fd-4ddd-a3bd-c9fe06d2f3f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83055cc0-99db-47ad-860b-4c537c69c766</parentFolderId>
@@ -307,11 +103,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c31e5215-0a93-4b19-9d05-26f95fe77456" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0c0bbde3-2be8-4765-924a-8df28aab383e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83055cc0-99db-47ad-860b-4c537c69c766</parentFolderId>
@@ -321,11 +117,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0a213efe-a9a1-4833-847e-32836dd22004" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="725fdd51-d4cd-4b26-9525-f3e77a7bd4da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.9)</display>
+          <display>Microsoft.Extensions.Options (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83055cc0-99db-47ad-860b-4c537c69c766</parentFolderId>
@@ -337,9 +133,213 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7652b9e0-99cf-45d5-89d4-38c3bcda313b</parentFolderId>
+      <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+      <packageName>Intent.Blazor.HttpClients</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e109700d-7ba6-4021-ab45-a79b896c3fec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="29865e6d-5827-43f9-a9ad-95ccbe18bc0e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="be5fa723-bc46-4952-9aec-136da19f16f6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Diagnostics</name>
+          <display>Microsoft.Extensions.Diagnostics (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="15541f94-96e7-426e-8011-3ab36e607ce8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6c8ba219-c6a7-4a40-8431-2c540ed656bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6f65e06c-85d7-418e-bf7b-f0506278e56e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7f5f3ca7-ac9b-4073-b0aa-1d3a7c1cd6d2</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="18b0eda1-a705-4ccf-aa68-2af92bc79b29" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7652b9e0-99cf-45d5-89d4-38c3bcda313b</parentFolderId>
+      <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+      <packageName>Intent.Blazor.HttpClients</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="7ada990e-b2f0-4b10-83a9-d9f034090d6c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>18b0eda1-a705-4ccf-aa68-2af92bc79b29</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="48108527-f7bc-44d7-97ef-6b36dfe2fb91" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>18b0eda1-a705-4ccf-aa68-2af92bc79b29</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2d8a6503-fef9-4a2c-ab64-c77a7224ebd5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>18b0eda1-a705-4ccf-aa68-2af92bc79b29</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="565c8762-6411-456d-aa93-cdcc6d938e7d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>18b0eda1-a705-4ccf-aa68-2af92bc79b29</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c09a8f34-4766-4985-a778-d67ef67c86fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>18b0eda1-a705-4ccf-aa68-2af92bc79b29</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="f34e6686-afa3-4db8-a526-0869ea3df741" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>11.0.0</name>
+      <display>11.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -360,11 +360,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e093885f-4498-4168-ae66-b9f9b5b8854c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ac6133ab-8fb1-460b-81d1-5336e2f21ce7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f34e6686-afa3-4db8-a526-0869ea3df741</parentFolderId>
@@ -374,11 +374,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0f745a2d-c876-4740-8050-0c4ab64ed2a0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e3779958-9e33-4026-91b8-f10a8fdfaf8b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f34e6686-afa3-4db8-a526-0869ea3df741</parentFolderId>
@@ -388,11 +388,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="45967b36-ac14-4858-9877-2a73b34d63ef" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b9c4d2a5-06d7-4783-8e1b-c72c6b32c67c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
+          <display>Microsoft.Extensions.Diagnostics (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f34e6686-afa3-4db8-a526-0869ea3df741</parentFolderId>
@@ -402,11 +402,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5fbf3084-e76a-4d3a-afc7-cf2411c5b146" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4731ef1e-4bab-4d9a-b147-a4b11b93b2e2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f34e6686-afa3-4db8-a526-0869ea3df741</parentFolderId>
@@ -416,11 +416,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5017526c-412a-481f-8eae-1c3990430e87" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6eaaff93-3156-4533-b6d0-04bed9284729" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f34e6686-afa3-4db8-a526-0869ea3df741</parentFolderId>
@@ -430,11 +430,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="78b02553-03bb-45ad-a258-3d20ebb88b5a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b95570b1-3c4a-458b-b965-3e6245b4c562" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.9)</display>
+          <display>Microsoft.Extensions.Options (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f34e6686-afa3-4db8-a526-0869ea3df741</parentFolderId>

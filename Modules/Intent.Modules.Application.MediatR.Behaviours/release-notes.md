@@ -1,3 +1,8 @@
+### Version 4.7.3
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.Extensions.Logging` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1)
+
 ### Version 4.7.2
 
 - Improvement: Added default Template Classification and Priorities.

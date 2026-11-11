@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="57ca8fc5-b875-4a5a-aef9-22d5f995e6b1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.3.11</name>
-      <display>2.3.11 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>2.3.14</name>
+      <display>2.3.14 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f914236b-b187-44a1-b675-fea1ff5d51e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="50993b69-9c2c-4767-9bcc-2a1af8967b9c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Http.Abstractions</name>
-          <display>Microsoft.AspNetCore.Http.Abstractions (2.3.10)</display>
+          <display>Microsoft.AspNetCore.Http.Abstractions (2.3.13)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.10</value>
+          <value>2.3.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>57ca8fc5-b875-4a5a-aef9-22d5f995e6b1</parentFolderId>
@@ -61,7 +61,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="42b341d3-e0fe-4d8e-b9fd-98302cfdd7d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="306ddc69-47b8-4fe3-85ed-3271ab0ac196" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
           <display>Microsoft.Extensions.FileProviders.Abstractions (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -75,11 +75,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="73f383e9-2e73-4e2f-b902-05a7e4977e77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6c693990-4a80-47f8-813d-1670e3bd31ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
-          <display>Microsoft.Net.Http.Headers (2.3.10)</display>
+          <display>Microsoft.Net.Http.Headers (2.3.13)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.10</value>
+          <value>2.3.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>57ca8fc5-b875-4a5a-aef9-22d5f995e6b1</parentFolderId>
@@ -89,7 +89,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="15bbc8f8-b297-4e8e-a34f-64cd349b6dd5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b9ac239b-f927-4388-b722-afc2c4c94b91" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Buffers</name>
           <display>System.Buffers (4.6.0)</display>
           <isAbstract>false</isAbstract>
