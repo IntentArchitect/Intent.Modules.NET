@@ -27,8 +27,9 @@
   <metadata />
   <childElements>
     <childElement id="a36932f0-6f3a-40df-9d22-4df150e09369" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.5.0</name>
-      <display>12.5.0 ( &gt;= .NETCoreApp,Version=v6.0 ) [locked]</display>
+      <comment>Held at 12.1.1: every later 12.x needs Microsoft.Extensions.DependencyInjection.Abstractions 8.0.0, above the net6.0 in-process Microsoft.Extensions.* 6.x stack. Checked 2026-11-11.</comment>
+      <name>12.1.1</name>
+      <display>12.1.1 ( &gt;= .NETCoreApp,Version=v6.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,7 +50,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="75c99802-2285-4d23-8545-25c86cfccea8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="44bea86f-a52d-4518-9645-38d4dadcef2c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MediatR.Contracts</name>
           <display>MediatR.Contracts (2.0.1)</display>
           <isAbstract>false</isAbstract>
@@ -63,11 +64,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4e1b1fde-aad4-4112-aecd-a16beaf3ce72" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="657b4a5a-db66-4833-8f57-3ab1cfcf02a3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (6.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a36932f0-6f3a-40df-9d22-4df150e09369</parentFolderId>

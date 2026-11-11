@@ -2,17 +2,17 @@
 
 - Improvement: Updated NuGet package versions:
   - `AutoMapper` 16.2.0 → 16.3.0
-  - `Azure.Messaging.EventHubs` 5.9.0 → 5.12.2
-  - `MediatR` 14.2.0 → 14.3.0 (net10.0, net9.0, net8.0, netstandard2.0); 12.1.1 → 12.5.0 (net6.0)
+  - `Azure.Messaging.EventHubs` 5.9.0 → 5.12.1
+  - `MediatR` 14.2.0 → 14.3.0 (net10.0, net9.0, net8.0, netstandard2.0)
   - `Microsoft.ApplicationInsights.WorkerService` 3.1.2 → 3.2.0
   - `Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore` 2.1.0 → 2.1.1
   - `Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues` 5.5.4 → 5.5.5
   - `Microsoft.Azure.Functions.Worker.Sdk` 2.0.7 → 2.1.0
-  - `Microsoft.Azure.WebJobs.Extensions.CosmosDB` 4.3.0 → 4.16.1
+  - `Microsoft.Azure.WebJobs.Extensions.CosmosDB` 4.3.0 → 4.9.0
   - `Microsoft.Azure.WebJobs.Extensions.EventHubs` 5.3.0 → 5.5.0
   - `Microsoft.Azure.WebJobs.Extensions.RabbitMQ` 2.0.3 → 2.1.0
-  - `Microsoft.Azure.WebJobs.Extensions.ServiceBus` 5.5.1 → 5.18.0
-  - `Microsoft.Azure.WebJobs.Extensions.Storage.Queues` 5.0.0 → 5.3.10
+  - `Microsoft.Azure.WebJobs.Extensions.ServiceBus` 5.5.1 → 5.16.6
+  - `Microsoft.Azure.WebJobs.Extensions.Storage.Queues` 5.0.0 → 5.3.3
   - `Microsoft.EntityFrameworkCore` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0); 6.0.32 → 6.0.36 (net6.0)
   - `Microsoft.EntityFrameworkCore.Cosmos` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0); 6.0.32 → 6.0.36 (net6.0)
   - `Microsoft.EntityFrameworkCore.Design` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0); 6.0.32 → 6.0.36 (net6.0)

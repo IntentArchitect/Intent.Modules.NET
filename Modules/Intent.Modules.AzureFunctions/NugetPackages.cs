@@ -82,12 +82,12 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(AzureMessagingEventHubsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("5.12.2", locked: true)
-                            .WithNugetDependency("Azure.Core", "1.46.2")
+                        ( >= 6, >= 0) => new PackageVersion("5.12.1", locked: true)
+                            .WithNugetDependency("Azure.Core", "1.44.1")
                             .WithNugetDependency("Azure.Core.Amqp", "1.3.1")
-                            .WithNugetDependency("Microsoft.Azure.Amqp", "2.7.0")
+                            .WithNugetDependency("Microsoft.Azure.Amqp", "2.6.9")
                             .WithNugetDependency("System.Reflection.TypeExtensions", "4.7.0")
-                            .WithNugetDependency("System.Threading.Channels", "8.0.0"),
+                            .WithNugetDependency("System.Threading.Channels", "6.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureMessagingEventHubsPackageName}'"),
                     }
                 );
@@ -109,9 +109,9 @@ namespace Intent.Modules.AzureFunctions
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.14.0"),
-                        ( >= 6, >= 0) => new PackageVersion("12.5.0", locked: true)
+                        ( >= 6, >= 0) => new PackageVersion("12.1.1", locked: true)
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0"),
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "6.0.0"),
                         ( >= 2, >= 0) => new PackageVersion("14.3.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.0")
@@ -300,12 +300,12 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftAzureWebJobsExtensionsCosmosDBPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("4.16.1", locked: true)
+                        ( >= 6, >= 0) => new PackageVersion("4.9.0", locked: true)
                             .WithNugetDependency("Microsoft.Azure.Core.NewtonsoftJson", "2.0.0")
-                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.60.0")
-                            .WithNugetDependency("Microsoft.Azure.WebJobs", "3.0.44")
+                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.44.1")
+                            .WithNugetDependency("Microsoft.Azure.WebJobs", "3.0.41")
                             .WithNugetDependency("Microsoft.CSharp", "4.7.0")
-                            .WithNugetDependency("Microsoft.Extensions.Azure", "1.13.1"),
+                            .WithNugetDependency("Microsoft.Extensions.Azure", "1.7.5"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureWebJobsExtensionsCosmosDBPackageName}'"),
                     }
                 );
@@ -335,21 +335,22 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftAzureWebJobsExtensionsServiceBusPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("5.18.0", locked: true)
-                            .WithNugetDependency("Azure.Messaging.ServiceBus", "7.20.2")
-                            .WithNugetDependency("Microsoft.Azure.WebJobs", "3.0.44")
-                            .WithNugetDependency("Microsoft.Extensions.Azure", "1.14.0"),
+                        ( >= 6, >= 0) => new PackageVersion("5.16.6", locked: true)
+                            .WithNugetDependency("Azure.Messaging.ServiceBus", "7.19.0")
+                            .WithNugetDependency("Google.Protobuf", "3.24.3")
+                            .WithNugetDependency("Microsoft.Azure.WebJobs", "3.0.37")
+                            .WithNugetDependency("Microsoft.Azure.WebJobs.Extensions.Rpc", "3.0.37")
+                            .WithNugetDependency("Microsoft.Extensions.Azure", "1.8.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureWebJobsExtensionsServiceBusPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftAzureWebJobsExtensionsStorageQueuesPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("5.3.10", locked: true)
-                            .WithNugetDependency("Azure.Storage.Queues", "12.24.0")
-                            .WithNugetDependency("Microsoft.Azure.WebJobs", "3.0.44")
-                            .WithNugetDependency("Microsoft.Extensions.Azure", "1.14.0")
-                            .WithNugetDependency("Microsoft.Extensions.Hosting", "10.0.10"),
+                        ( >= 6, >= 0) => new PackageVersion("5.3.3", locked: true)
+                            .WithNugetDependency("Azure.Storage.Queues", "12.19.1")
+                            .WithNugetDependency("Microsoft.Azure.WebJobs", "3.0.37")
+                            .WithNugetDependency("Microsoft.Extensions.Azure", "1.7.6"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureWebJobsExtensionsStorageQueuesPackageName}'"),
                     }
                 );

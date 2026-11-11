@@ -1,3 +1,9 @@
+### Version 1.0.1
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.Extensions.Configuration.Binder` 10.0.2 → 11.0.0 (net10.0); 10.0.2 → 10.0.15 (net9.0, net8.0, netstandard2.0)
+  - `Microsoft.Extensions.DependencyInjection.Abstractions` 10.0.2 → 11.0.0 (net10.0); 10.0.2 → 10.0.15 (net9.0, net8.0, netstandard2.0)
+
 ### Version 1.0.0
 
 - New Feature: On install, generates a dedicated `<App>.Infrastructure.Stubs` project (beside `<App>.Infrastructure`, inheriting its .NET settings) to hold the generated stubs.

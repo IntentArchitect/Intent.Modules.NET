@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="3ec6a70f-791a-4714-a0a9-3039ea1fe55a" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
-  <comment>In Process Azure Functions</comment>
+  <comment>In Process Azure Functions. Held at 5.16.6: 5.17.0 and later pull Microsoft.Extensions.* 10.x (via Microsoft.Extensions.Azure 1.14 and Azure.Core 1.60), above the net6.0 in-process Microsoft.Extensions.* 6.x locks; consumers fail restore with NU1605 or load newer Microsoft.Extensions assemblies under the in-process host. Checked 2026-11-11 with Get-NuGetBumpCandidates.ps1's lock-compatibility check.</comment>
   <name>Microsoft.Azure.WebJobs.Extensions.ServiceBus</name>
   <display>Microsoft.Azure.WebJobs.Extensions.ServiceBus [locked]</display>
   <isAbstract>false</isAbstract>
@@ -26,8 +26,8 @@
   <metadata />
   <childElements>
     <childElement id="3b38d59e-e316-459f-8cd4-07dfb0df9e9e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.18.0</name>
-      <display>5.18.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>5.16.6</name>
+      <display>5.16.6 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -48,11 +48,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b711db63-d4ec-4860-a48a-332f1aea6ff1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5af9efab-0200-44bf-bdd1-5c80c2cb4cca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Messaging.ServiceBus</name>
-          <display>Azure.Messaging.ServiceBus (7.20.2)</display>
+          <display>Azure.Messaging.ServiceBus (7.19.0)</display>
           <isAbstract>false</isAbstract>
-          <value>7.20.2</value>
+          <value>7.19.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3b38d59e-e316-459f-8cd4-07dfb0df9e9e</parentFolderId>
@@ -62,11 +62,25 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c12cc826-b835-43ff-ab01-3bca4c3e6a13" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3a624eb0-d902-4ba9-91e3-e795127b2f72" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Protobuf</name>
+          <display>Google.Protobuf (3.24.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.24.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3b38d59e-e316-459f-8cd4-07dfb0df9e9e</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f338181d-fc77-4b41-a31f-8c8564a7f330" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.WebJobs</name>
-          <display>Microsoft.Azure.WebJobs (3.0.44)</display>
+          <display>Microsoft.Azure.WebJobs (3.0.37)</display>
           <isAbstract>false</isAbstract>
-          <value>3.0.44</value>
+          <value>3.0.37</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3b38d59e-e316-459f-8cd4-07dfb0df9e9e</parentFolderId>
@@ -76,11 +90,25 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9e2e1013-73ce-4eb2-863e-171b9e4e54c5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Azure</name>
-          <display>Microsoft.Extensions.Azure (1.14.0)</display>
+        <childElement id="c2772c23-6829-4a70-b7d2-fd297eb2238f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.WebJobs.Extensions.Rpc</name>
+          <display>Microsoft.Azure.WebJobs.Extensions.Rpc (3.0.37)</display>
           <isAbstract>false</isAbstract>
-          <value>1.14.0</value>
+          <value>3.0.37</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3b38d59e-e316-459f-8cd4-07dfb0df9e9e</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2646f065-ed8c-421c-a983-93a72da39484" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Azure</name>
+          <display>Microsoft.Extensions.Azure (1.8.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.8.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3b38d59e-e316-459f-8cd4-07dfb0df9e9e</parentFolderId>

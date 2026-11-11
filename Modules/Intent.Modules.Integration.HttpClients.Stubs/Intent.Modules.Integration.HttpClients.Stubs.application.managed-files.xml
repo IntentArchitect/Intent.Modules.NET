@@ -6,6 +6,7 @@
   <file path="Intent.Integration.HttpClients.Stubs.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Integration.HttpClients.Stubs.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Migrations/OnInstallMigration.cs" deviationsHash="1E1CA97516068F9D6FBDAFBABE252A699B93C779302F033999777CF095238DF5" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Templates/HttpClientStub/HttpClientStubTemplatePartial.cs" deviationsHash="4E14793F67A268E8EC85AF128F55FB5F77C29467EAF48631FFDBC8F921E93C2D" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/HttpClientStub/HttpClientStubTemplateRegistration.cs" deviationsHash="AE25A6DDEB9A19932176E551684DE3D0BC3F461857504616BDADB923BCD4B64A" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/StubHttpClientConfiguration/StubHttpClientConfigurationTemplatePartial.cs" deviationsHash="703DF773CB28C1CD18CF55B16683C79E72128E09175E239A4B875409C5539631" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />

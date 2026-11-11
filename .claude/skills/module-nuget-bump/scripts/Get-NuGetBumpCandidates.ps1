@@ -19,6 +19,12 @@
         the latest version with no dependencies;
       - a later framework that would resolve to a lower version than an earlier one is pruned.
 
+    Locks are checked against each other through nuget.org dependency trees. A locked row is offered the newest
+    version in its major line whose dependencies, resolved transitively for each consumer framework the row
+    serves, need no package the module locks on that framework above its lock; newer versions that would are
+    reported as skipped. Every row's resulting version is checked the same way, so a row already in the model
+    that breaks a lock (and would fail the consumer's restore with NU1605) is reported too.
+
     Registrations inside hand-written `IntentIgnore` blocks (for example AutoMapper's `UsePreCommercialVersion`
     branch) are reported as "manual" and never proposed for an automatic update.
 
@@ -536,27 +542,253 @@ function Get-MaxDelta([string[]]$Deltas) {
     $max
 }
 
-# The newest version in a locked row's major line, when it is newer than the row: keeping a lock does not
-# have to mean missing its patches. Its dependencies are those of the row's framework, or else of the nearest
-# lower framework that version declares, which is the group NuGet itself would pick.
-function Get-LatestInLine([string]$PackageId, [string]$Version, [string]$Tfm) {
-    $lookup = $lookupById[$PackageId]
-    if (-not $lookup -or -not $lookup.latestByMajor) { return $null }
-    $line = $lookup.latestByMajor."$((ConvertTo-VersionParts $Version).Numbers[0])"
-    if (-not $line -or (Compare-NuGetVersion $line.version $Version) -le 0) { return $null }
+#region Dependency compatibility with locked rows
 
-    $frameworks = @(Get-SupportedFrameworks) + @(Get-AnyFramework)
-    $rowFramework = $frameworks | Where-Object Tfm -eq $Tfm | Select-Object -First 1
-    $dependencies = @()
-    $groupNames = @($line.dependencies.PSObject.Properties.Name)
-    foreach ($framework in $frameworks | Sort-Object Order -Descending) {
-        if ($rowFramework -and $framework.Order -gt $rowFramework.Order) { continue }
-        if ($groupNames -contains $framework.Tfm) {
-            $dependencies = @($line.dependencies.($framework.Tfm))
-            break
+# A locked row holds a package back on purpose, often to keep one framework on an older stack: the net6.0
+# in-process Azure Functions rows hold Microsoft.Extensions.* on 6.x. Another package can still pull a locked
+# package in transitively at a higher version, and the consumer's restore then fails with NU1605 (package
+# downgrade). Microsoft.Azure.WebJobs.Extensions.Storage.Queues 5.3.10 is in the same major as the locked
+# 5.0.0, but it requires Microsoft.Extensions.Hosting 10.0.10 and so Microsoft.Extensions.DependencyInjection
+# 10.0.10, over the module's locked 6.0.2. So a locked line is only patched to a version whose dependency tree
+# fits every other lock, and every row whose version would break a lock is reported.
+
+$versionCacheDirectory = Join-Path $cacheDirectory 'versions'
+New-Item -ItemType Directory -Force -Path $versionCacheDirectory | Out-Null
+$versionIndexById = @{}
+$requirementsMemo = @{}
+
+# Every listed version of a package with its dependency groups: version -> (short framework -> dependencies).
+# A package nuget.org cannot return is treated as having no versions, so it adds no requirements.
+function Get-NuGetVersionIndex([string]$PackageId) {
+    $key = $PackageId.ToLowerInvariant()
+    if ($versionIndexById.ContainsKey($key)) { return $versionIndexById[$key] }
+    $cacheFile = Join-Path $versionCacheDirectory "$key.json"
+    if ($CacheMaxAgeHours -gt 0 -and (Test-Path $cacheFile) -and
+        ((Get-Date) - (Get-Item $cacheFile).LastWriteTime).TotalHours -lt $CacheMaxAgeHours) {
+        $index = Get-Content -Raw -Path $cacheFile | ConvertFrom-Json -AsHashtable
+    }
+    else {
+        $index = @{}
+        try {
+            $registration = Invoke-NuGetRequest "https://api.nuget.org/v3/registration5-gz-semver2/$key/index.json"
+            foreach ($page in $registration.items) {
+                $items = if ($page.items) { $page.items } else { (Invoke-NuGetRequest $page.'@id').items }
+                foreach ($item in $items) {
+                    $entry = $item.catalogEntry
+                    if ($entry.listed -eq $false) { continue }
+                    $groups = @{}
+                    foreach ($group in @($entry.dependencyGroups)) {
+                        if ($null -eq $group) { continue }
+                        $tfm = ConvertTo-ShortFramework $group.targetFramework
+                        if ($groups.ContainsKey($tfm)) { continue }
+                        $groups[$tfm] = @(@($group.dependencies) | Where-Object { $_ } | ForEach-Object {
+                                @{ id = $_.id; version = (Get-RangeMinVersion $_.range) }
+                            })
+                    }
+                    $index[$entry.version] = $groups
+                }
+            }
+            ConvertTo-Json -InputObject $index -Depth 8 -Compress | Set-Content -Path $cacheFile -Encoding utf8
+        }
+        catch {
+            Write-Warning "Could not read the versions of $PackageId from nuget.org: $($_.Exception.Message)"
         }
     }
-    [pscustomobject]@{ version = $line.version; dependencies = $dependencies }
+    $versionIndexById[$key] = $index
+    $index
+}
+
+# The dependency group NuGet takes for a consumer framework: that framework's own, else the nearest lower one
+# it is compatible with (net8.0 takes net6.0, then netstandard2.1, then netstandard2.0), else "any".
+function Select-DependencyGroup($Groups, [string]$Tfm) {
+    if (-not $Groups -or $Groups.Count -eq 0) { return @() }
+    $frameworks = @(Get-SupportedFrameworks) + @(Get-AnyFramework)
+    $target = $frameworks | Where-Object Tfm -eq $Tfm | Select-Object -First 1
+    foreach ($framework in $frameworks | Sort-Object Order -Descending) {
+        if ($target -and $framework.Order -gt $target.Order) { continue }
+        if ($Groups.ContainsKey($framework.Tfm)) { return @($Groups[$framework.Tfm]) }
+    }
+    @()
+}
+
+# NuGet resolves a dependency to the lowest listed version its range allows; a stable minimum never resolves
+# to a prerelease.
+function Resolve-MinimumVersion($Index, [string]$Minimum) {
+    if ($Index.ContainsKey($Minimum)) { return $Minimum }
+    $allowPrerelease = Test-PrereleaseVersion $Minimum
+    $best = $null
+    foreach ($version in $Index.Keys) {
+        if (-not $allowPrerelease -and (Test-PrereleaseVersion $version)) { continue }
+        if ((Compare-NuGetVersion $version $Minimum) -lt 0) { continue }
+        if (-not $best -or (Compare-NuGetVersion $version $best) -lt 0) { $best = $version }
+    }
+    $best
+}
+
+# The highest minimum version at which each package is required anywhere in a package version's dependency
+# tree, for a consumer framework, with the chain that requires it: lower-case id -> @{ id; version; via }.
+function Get-TransitiveRequirements([string]$PackageId, [string]$Version, [string]$Tfm) {
+    $memoKey = "$($PackageId.ToLowerInvariant())@$Version@$Tfm"
+    if ($requirementsMemo.ContainsKey($memoKey)) { return $requirementsMemo[$memoKey] }
+
+    $required = @{}
+    $expanded = @{}
+    $queue = [System.Collections.Generic.Queue[object]]::new()
+    $queue.Enqueue(@{ id = $PackageId; version = $Version; via = "$PackageId $Version" })
+    while ($queue.Count -gt 0) {
+        $node = $queue.Dequeue()
+        $index = Get-NuGetVersionIndex $node.id
+        $resolved = Resolve-MinimumVersion $index $node.version
+        if (-not $resolved) { continue }
+        $nodeKey = "$($node.id.ToLowerInvariant())@$resolved"
+        if ($expanded.ContainsKey($nodeKey)) { continue }
+        $expanded[$nodeKey] = $true
+        foreach ($dependency in Select-DependencyGroup $index[$resolved] $Tfm) {
+            if (-not $dependency.version) { continue }
+            $key = $dependency.id.ToLowerInvariant()
+            $via = "$($node.via) → $($dependency.id) $($dependency.version)"
+            if (-not $required.ContainsKey($key) -or (Compare-NuGetVersion $dependency.version $required[$key].version) -gt 0) {
+                $required[$key] = @{ id = $dependency.id; version = $dependency.version; via = $via }
+            }
+            $queue.Enqueue(@{ id = $dependency.id; version = $dependency.version; via = $via })
+        }
+    }
+    $requirementsMemo[$memoKey] = $required
+    $required
+}
+
+# The first two segments of a package id, "Microsoft.Extensions" for Microsoft.Extensions.Logging.Abstractions.
+function Get-PackageFamily([string]$PackageId) {
+    ($PackageId.ToLowerInvariant().Split('.') | Select-Object -First 2) -join '.'
+}
+
+# What a module's locks hold on a consumer framework, leaving out one package's own rows:
+#   Direct  the locked rows themselves. They are direct references in the consumer's project, so any higher
+#           requirement on one is a downgrade, and restore fails with NU1605.
+#   Tree    the packages in those rows' own dependency trees that ship in lockstep with them (the same id
+#           family, the first two segments of the id, and the same major as the locked row), at the highest
+#           version the trees need. A lock holds those to their major too:
+#           the net6.0 in-process lock on Microsoft.Extensions.DependencyInjection 6.0.2 brings
+#           DependencyInjection.Abstractions 6.0.0, and a package that needs Abstractions 8.x puts an 8.x
+#           Microsoft.Extensions assembly under the in-process host, which restore does not catch. A dependency
+#           on another major is only a floor (Microsoft.Azure.Functions.Extensions 1.1.0 needs
+#           Microsoft.Extensions.* 2.1.0 or later) and holds nothing.
+function Get-LockedBaseline($Module, [string]$ExceptPackage, $Framework) {
+    $direct = @{}
+    foreach ($registration in $Module.Registrations) {
+        if ($registration.Manual -or $registration.Package -eq $ExceptPackage) { continue }
+        $arm = Resolve-Arm $registration.Arms $Framework.Major $Framework.Minor
+        if ($arm -and $arm.Locked) {
+            $direct[$registration.Package.ToLowerInvariant()] = @{ id = $registration.Package; version = $arm.Version }
+        }
+    }
+    $tree = @{}
+    foreach ($key in $direct.Keys) {
+        $lockedMajor = (ConvertTo-VersionParts $direct[$key].version).Numbers[0]
+        $lockedFamily = Get-PackageFamily $direct[$key].id
+        $required = Get-TransitiveRequirements $direct[$key].id $direct[$key].version $Framework.Tfm
+        foreach ($dependencyKey in $required.Keys) {
+            if ($direct.ContainsKey($dependencyKey)) { continue }
+            $dependency = $required[$dependencyKey]
+            if ((Get-PackageFamily $dependency.id) -ne $lockedFamily) { continue }
+            if ((ConvertTo-VersionParts $dependency.version).Numbers[0] -ne $lockedMajor) { continue }
+            if (-not $tree.ContainsKey($dependencyKey) -or (Compare-NuGetVersion $dependency.version $tree[$dependencyKey].version) -gt 0) {
+                $tree[$dependencyKey] = @{ id = $dependency.id; version = $dependency.version; lockedBy = $direct[$key].id }
+            }
+        }
+    }
+    @{ Direct = $direct; Tree = $tree; IsEmpty = ($direct.Count -eq 0) }
+}
+
+function Find-LockConflicts([string]$PackageId, [string]$Version, $Framework, $Baseline) {
+    if (-not $Version -or $Baseline.IsEmpty) { return @() }
+    $required = Get-TransitiveRequirements $PackageId $Version $Framework.Tfm
+    $direct = @(foreach ($key in $Baseline.Direct.Keys) {
+            if (-not $required.ContainsKey($key)) { continue }
+            if ((Compare-NuGetVersion $required[$key].version $Baseline.Direct[$key].version) -le 0) { continue }
+            [pscustomobject]@{
+                tfm             = $Framework.Tfm
+                kind            = 'direct'
+                lockedPackage   = $Baseline.Direct[$key].id
+                lockedVersion   = $Baseline.Direct[$key].version
+                lockedBy        = $Baseline.Direct[$key].id
+                requiredVersion = $required[$key].version
+                via             = $required[$key].via
+            }
+        })
+    $tree = @(foreach ($key in $Baseline.Tree.Keys) {
+            if (-not $required.ContainsKey($key)) { continue }
+            $held = $Baseline.Tree[$key]
+            if ((ConvertTo-VersionParts $required[$key].version).Numbers[0] -le (ConvertTo-VersionParts $held.version).Numbers[0]) { continue }
+            [pscustomobject]@{
+                tfm             = $Framework.Tfm
+                kind            = 'tree'
+                lockedPackage   = $held.id
+                lockedVersion   = $held.version
+                lockedBy        = $held.lockedBy
+                requiredVersion = $required[$key].version
+                via             = $required[$key].via
+            }
+        })
+    @($direct) + @($tree)
+}
+
+# The consumer frameworks that take a given row of a registration.
+function Get-ServedFrameworks($Registration, [string]$Tfm) {
+    @($consumerFrameworks | Where-Object {
+            $arm = Resolve-Arm $Registration.Arms $_.Major $_.Minor
+            $arm -and $arm.Tfm -eq $Tfm
+        })
+}
+
+#endregion
+
+# The newest version in a locked row's major line that is newer than the row and fits the module's other
+# locks on every consumer framework the row serves: keeping a lock does not have to mean missing its patches,
+# but a patch must not pull another locked package past its lock. Newer versions in the line that would are
+# returned as `skipped`, with the conflicts of the newest. Its dependencies are those NuGet would pick for the
+# row's framework.
+function Get-LatestInLine($Module, [string]$PackageId, [string]$Version, [string]$Tfm) {
+    $index = Get-NuGetVersionIndex $PackageId
+    $major = (ConvertTo-VersionParts $Version).Numbers[0]
+    $allowPrerelease = Test-PrereleaseVersion $Version
+    [string[]]$candidates = @($index.Keys | Where-Object {
+            (ConvertTo-VersionParts $_).Numbers[0] -eq $major -and
+            ($allowPrerelease -or -not (Test-PrereleaseVersion $_)) -and
+            (Compare-NuGetVersion $_ $Version) -gt 0
+        })
+    if ($candidates.Count -eq 0) { return $null }
+    # Newest first.
+    [array]::Sort($candidates, [System.Comparison[string]] { param($a, $b) Compare-NuGetVersion $b $a })
+
+    $registration = $Module.Registrations | Where-Object { $_.Package -eq $PackageId -and -not $_.Manual } | Select-Object -First 1
+    $served = if ($registration) { @(Get-ServedFrameworks $registration $Tfm) } else { @() }
+
+    $chosen = $null
+    $skipped = [System.Collections.Generic.List[string]]::new()
+    $skippedConflicts = @()
+    foreach ($candidate in $candidates) {
+        $conflicts = @(foreach ($framework in $served) {
+                Find-LockConflicts $PackageId $candidate $framework (Get-LockedBaseline $Module $PackageId $framework)
+            })
+        if ($conflicts.Count -eq 0) {
+            $chosen = $candidate
+            break
+        }
+        if ($skipped.Count -eq 0) { $skippedConflicts = $conflicts }
+        $skipped.Add($candidate)
+    }
+
+    $dependencies = if ($chosen) {
+        @(Select-DependencyGroup $index[$chosen] $Tfm | ForEach-Object { [pscustomobject]@{ id = $_.id; version = $_.version } })
+    }
+    else { @() }
+    [pscustomobject]@{
+        version          = $chosen
+        dependencies     = $dependencies
+        skipped          = $skipped.ToArray()
+        skippedConflicts = $skippedConflicts
+    }
 }
 
 # Minor and major deltas, and any delta on a 0.x package, get their release notes read.
@@ -659,6 +891,24 @@ foreach ($module in $modules) {
             }
         }
 
+        # The version a consumer gets after the proposed changes, checked against the module's other locks on the
+        # same framework. This also catches a row already in the model that breaks a lock.
+        $lockConflicts = [System.Collections.Generic.List[object]]::new()
+        if (-not $registration.Manual) {
+            foreach ($framework in $consumerFrameworks) {
+                $baseline = Get-LockedBaseline $module $registration.Package $framework
+                if ($baseline.IsEmpty) { continue }
+                $before = Resolve-Arm $registration.Arms $framework.Major $framework.Minor
+                $afterArm = Resolve-Arm $afterArms $framework.Major $framework.Minor
+                if (-not $afterArm) { continue }
+                foreach ($conflict in Find-LockConflicts $registration.Package $afterArm.Version $framework $baseline) {
+                    $conflict | Add-Member -NotePropertyName version -NotePropertyValue $afterArm.Version
+                    $conflict | Add-Member -NotePropertyName proposed -NotePropertyValue (-not $before -or $before.Version -ne $afterArm.Version)
+                    $lockConflicts.Add($conflict)
+                }
+            }
+        }
+
         $usage = [pscustomobject]@{
             moduleId        = $module.Id
             moduleFolder    = $module.Folder
@@ -666,6 +916,7 @@ foreach ($module in $modules) {
             line            = $registration.Line
             rows            = $rows.ToArray()
             consumerChanges = $consumerChanges.ToArray()
+            lockConflicts   = $lockConflicts.ToArray()
         }
         $module.Usages.Add([pscustomobject]@{ Package = $registration.Package; Usage = $usage })
         if (-not $usagesByPackage.ContainsKey($registration.Package)) {
@@ -717,17 +968,19 @@ foreach ($module in $modules) {
     $generated = @($module.Usages | Where-Object { -not $_.Usage.manual })
     $changed = @($generated | Where-Object { @($_.Usage.rows | Where-Object action -in 'update', 'add', 'remove').Count -gt 0 })
     $lockedBehind = @($generated | ForEach-Object { $package = $_.Package; $_.Usage.rows | Where-Object action -in 'locked-behind', 'locked-add' | ForEach-Object {
-                $line = if ($_.action -eq 'locked-behind') { Get-LatestInLine $package $_.current $_.tfm } else { $null }
-                [pscustomobject]@{ package = $package; tfm = $_.tfm; frameworkName = $_.frameworkName; current = $_.current; latest = $_.latest; latestInLockedLine = $line.version; latestInLockedLineDependencies = $line.dependencies; delta = $_.delta; newRowShadowing = $_.shadowsTfm } } })
+                $line = if ($_.action -eq 'locked-behind') { Get-LatestInLine $module $package $_.current $_.tfm } else { $null }
+                [pscustomobject]@{ package = $package; tfm = $_.tfm; frameworkName = $_.frameworkName; current = $_.current; latest = $_.latest; latestInLockedLine = $line.version; latestInLockedLineDependencies = $line.dependencies; lockedLineSkipped = $line.skipped; lockedLineSkippedConflicts = $line.skippedConflicts; delta = $_.delta; newRowShadowing = $_.shadowsTfm } } })
     $lockedOrphans = @($generated | ForEach-Object { $package = $_.Package; $_.Usage.rows | Where-Object action -eq 'locked-orphan' | ForEach-Object {
-                $line = Get-LatestInLine $package $_.current $_.tfm
-                [pscustomobject]@{ package = $package; tfm = $_.tfm; frameworkName = $_.frameworkName; current = $_.current; latestInLockedLine = $line.version; latestInLockedLineDependencies = $line.dependencies } } })
+                $line = Get-LatestInLine $module $package $_.current $_.tfm
+                [pscustomobject]@{ package = $package; tfm = $_.tfm; frameworkName = $_.frameworkName; current = $_.current; latestInLockedLine = $line.version; latestInLockedLineDependencies = $line.dependencies; lockedLineSkipped = $line.skipped; lockedLineSkippedConflicts = $line.skippedConflicts } } })
+    $lockConflicts = @($generated | ForEach-Object { $package = $_.Package; $_.Usage.lockConflicts | ForEach-Object {
+                [pscustomobject]@{ package = $package; version = $_.version; proposed = $_.proposed; tfm = $_.tfm; kind = $_.kind; lockedPackage = $_.lockedPackage; lockedVersion = $_.lockedVersion; lockedBy = $_.lockedBy; requiredVersion = $_.requiredVersion; via = $_.via } } })
     $manualBehind = @($module.Usages | Where-Object { $_.Usage.manual } | ForEach-Object { $package = $_.Package; $line = $_.Usage.line; $_.Usage.rows | Where-Object action -in 'update', 'locked-behind' | ForEach-Object {
                 [pscustomobject]@{ package = $package; line = $line; tfm = $_.tfm; current = $_.current; latest = $_.latest; locked = $_.locked; delta = $_.delta } } })
     $ahead = @($module.Usages | ForEach-Object { $package = $_.Package; $_.Usage.rows | Where-Object action -eq 'ahead' | ForEach-Object {
                 [pscustomobject]@{ package = $package; tfm = $_.tfm; current = $_.current; latest = $_.latest } } })
 
-    if (-not ($changed.Count -or $lockedBehind.Count -or $lockedOrphans.Count -or $manualBehind.Count -or $ahead.Count)) { continue }
+    if (-not ($changed.Count -or $lockedBehind.Count -or $lockedOrphans.Count -or $manualBehind.Count -or $ahead.Count -or $lockConflicts.Count)) { continue }
 
     $releaseNoteRows = @(foreach ($item in $changed) {
             $changes = @($item.Usage.consumerChanges)
@@ -752,6 +1005,7 @@ foreach ($module in $modules) {
             releaseNoteRows     = $releaseNoteRows
             lockedBehind        = $lockedBehind
             lockedOrphans       = $lockedOrphans
+            lockConflicts       = $lockConflicts
             manualBehind        = $manualBehind
             ahead               = $ahead
         })
@@ -791,6 +1045,7 @@ $summary = [pscustomobject]@{
     packagesNeedingReview   = @($packageResults | Where-Object { $_.change -and $_.needsBreakingReview }).Count
     modulesToChange         = @($moduleResults | Where-Object { $_.packagesToChange.Count }).Count
     lockedRowsBehind        = @($moduleResults | ForEach-Object { $_.lockedBehind }).Count
+    rowsBreakingALock       = @($moduleResults | ForEach-Object { $id = $_.id; $_.lockConflicts | ForEach-Object { "$id|$($_.package)|$($_.version)" } } | Sort-Object -Unique).Count
     manualRowsBehind        = @($moduleResults | ForEach-Object { $_.manualBehind }).Count
     lookupErrors            = $errors.Count
 }
@@ -819,7 +1074,7 @@ Add-Line '## Inventory'
 Add-Line
 $filterText = ''
 if (@($ModuleFilter | Where-Object { $_ -ne '*' }).Count) { $filterText = ' for `' + ($ModuleFilter -join ', ') + '`' }
-Add-Line "Generated $((Get-Date).ToString('yyyy-MM-dd HH:mm')) by ``Get-NuGetBumpCandidates.ps1``$filterText. $($summary.modulesScanned) modules and $($summary.packagesScanned) packages scanned: $($summary.packagesWithChanges) packages move in $($summary.modulesToChange) modules, $($summary.packagesNeedingReview) need a breaking-change review, $($summary.lockedRowsBehind) locked rows and $($summary.manualRowsBehind) hand-written rows are behind, and $($summary.lookupErrors) lookups failed."
+Add-Line "Generated $((Get-Date).ToString('yyyy-MM-dd HH:mm')) by ``Get-NuGetBumpCandidates.ps1``$filterText. $($summary.modulesScanned) modules and $($summary.packagesScanned) packages scanned: $($summary.packagesWithChanges) packages move in $($summary.modulesToChange) modules, $($summary.packagesNeedingReview) need a breaking-change review, $($summary.lockedRowsBehind) locked rows and $($summary.manualRowsBehind) hand-written rows are behind, $($summary.rowsBreakingALock) rows would break another lock, and $($summary.lookupErrors) lookups failed."
 Add-Line
 
 Add-Line '### Packages to update'
@@ -839,12 +1094,49 @@ Add-Line
 Add-Line '### Locks with a newer version'
 Add-Line
 $lockRows = @($moduleResults | ForEach-Object { $module = $_; $_.lockedBehind | ForEach-Object { $_ | Add-Member -NotePropertyName module -NotePropertyValue $module.id -PassThru -Force } })
+# "the locked 6.0.2", or "6.0.0 from the locked `Microsoft.Extensions.DependencyInjection`" for a tree conflict.
+function Format-HeldBy($Conflict) {
+    if ($Conflict.kind -eq 'tree') { return "$($Conflict.lockedVersion) from the locked ``$($Conflict.lockedBy)``" }
+    "the locked $($Conflict.lockedVersion)"
+}
+
+function Format-SkippedInLine($Row) {
+    $skipped = @($Row.lockedLineSkipped | Where-Object { $_ })
+    if ($skipped.Count -eq 0) { return '' }
+    $conflict = @($Row.lockedLineSkippedConflicts | Where-Object { $_ })[0]
+    if (-not $conflict) { return "$($skipped -join ', ')" }
+    $text = "$($skipped[0]) needs ``$($conflict.lockedPackage)`` ≥ $($conflict.requiredVersion) over $(Format-HeldBy $conflict) ($($conflict.tfm))"
+    if ($skipped.Count -gt 1) { $text += "; $($skipped.Count - 1) more" }
+    $text
+}
+
 if ($lockRows.Count) {
-    Add-Line '| Module | Package | Framework | Locked at | Latest in locked line | Latest | Delta |'
-    Add-Line '| --- | --- | --- | --- | --- | --- | --- |'
+    Add-Line 'The latest in the locked line is the newest version in the row''s major whose dependencies fit the module''s other locks; newer ones that would not are listed as skipped.'
+    Add-Line
+    Add-Line '| Module | Package | Framework | Locked at | Latest in locked line | Skipped (breaks another lock) | Latest | Delta |'
+    Add-Line '| --- | --- | --- | --- | --- | --- | --- | --- |'
     foreach ($row in $lockRows | Sort-Object package, module, tfm) {
         $framework = if ($row.newRowShadowing) { "$($row.tfm) (new row, would bypass the $($row.newRowShadowing) lock)" } else { $row.tfm }
-        Add-Line "| ``$($row.module)`` | ``$($row.package)`` | $framework | $($row.current) | $($row.latestInLockedLine) | $($row.latest) | $($row.delta) |"
+        Add-Line "| ``$($row.module)`` | ``$($row.package)`` | $framework | $($row.current) | $($row.latestInLockedLine) | $(Format-SkippedInLine $row) | $($row.latest) | $($row.delta) |"
+    }
+}
+else { Add-Line 'None.' }
+Add-Line
+
+Add-Line '### Rows that would break another lock'
+Add-Line
+$conflictRows = @($moduleResults | ForEach-Object { $module = $_; $_.lockConflicts | ForEach-Object { $_ | Add-Member -NotePropertyName module -NotePropertyValue $module.id -PassThru -Force } })
+if ($conflictRows.Count) {
+    Add-Line 'The version a consumer gets from the row, after the proposed changes, needs a package the module''s locks hold lower on the same framework. **direct**: the package is itself locked, so a consumer that references both fails restore with NU1605 (package downgrade). **tree**: the package is in a locked row''s own dependency tree and is needed at a higher major, which restore allows but the lock exists to prevent (an 8.x Microsoft.Extensions assembly under the net6.0 in-process host). Choose an older version for the row, or review the lock. The check assumes a consumer gets every locked row of the module on that framework; when the templates never emit the two packages into the same project, confirm it in the template code, record it and move on. "Already in the model" means the row needs no change from this run to break the lock.'
+    Add-Line
+    Add-Line '| Module | Package | Version | Frameworks | Kind | Needs | Over | Through |'
+    Add-Line '| --- | --- | --- | --- | --- | --- | --- | --- |'
+    $groups = $conflictRows | Group-Object { "$($_.module)|$($_.package)|$($_.version)|$($_.lockedPackage)|$($_.lockedVersion)|$($_.requiredVersion)" }
+    foreach ($group in $groups | Sort-Object { $_.Group[0].module }, { $_.Group[0].package }, { $_.Group[0].kind }) {
+        $first = $group.Group[0]
+        $tfms = (@($group.Group | ForEach-Object tfm | Sort-Object -Unique { [version]($_ -replace '^net(standard)?', '') } -Descending)) -join ', '
+        $version = if ($first.proposed) { $first.version } else { "$($first.version) (already in the model)" }
+        Add-Line "| ``$($first.module)`` | ``$($first.package)`` | $version | $tfms | $($first.kind) | ``$($first.lockedPackage)`` ≥ $($first.requiredVersion) | $(Format-HeldBy $first) | $($first.via) |"
     }
 }
 else { Add-Line 'None.' }
@@ -856,10 +1148,10 @@ if ($orphanRows.Count) {
     Add-Line
     Add-Line 'An unlocked row here would be deleted. Each lock still needs its reason reviewed.'
     Add-Line
-    Add-Line '| Module | Package | Framework | Locked at | Latest in locked line |'
-    Add-Line '| --- | --- | --- | --- | --- |'
+    Add-Line '| Module | Package | Framework | Locked at | Latest in locked line | Skipped (breaks another lock) |'
+    Add-Line '| --- | --- | --- | --- | --- | --- |'
     foreach ($row in $orphanRows | Sort-Object package, module, tfm) {
-        Add-Line "| ``$($row.module)`` | ``$($row.package)`` | $($row.tfm) | $($row.current) | $($row.latestInLockedLine) |"
+        Add-Line "| ``$($row.module)`` | ``$($row.package)`` | $($row.tfm) | $($row.current) | $($row.latestInLockedLine) | $(Format-SkippedInLine $row) |"
     }
     Add-Line
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="a3e02198-088c-4147-a277-1f7eabcd46f1" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
-  <comment>In Process Azure Functions</comment>
+  <comment>In Process Azure Functions. Held at 5.3.3: 5.3.4 and later pull Microsoft.Extensions.* 8.x/10.x (via Microsoft.Extensions.Azure 1.10+ and Microsoft.Extensions.Hosting 10.0.x from 5.3.8), above the net6.0 in-process Microsoft.Extensions.* 6.x locks; consumers fail restore with NU1605 or load newer Microsoft.Extensions assemblies under the in-process host. Checked 2026-11-11 with Get-NuGetBumpCandidates.ps1's lock-compatibility check.</comment>
   <name>Microsoft.Azure.WebJobs.Extensions.Storage.Queues</name>
   <display>Microsoft.Azure.WebJobs.Extensions.Storage.Queues [locked]</display>
   <isAbstract>false</isAbstract>
@@ -26,8 +26,8 @@
   <metadata />
   <childElements>
     <childElement id="71da3c67-10cd-413a-a96d-11f0785ee6d9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.10</name>
-      <display>5.3.10 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>5.3.3</name>
+      <display>5.3.3 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -48,11 +48,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5beed7e9-464b-4d1f-bf47-0a97e731d86d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4a160525-b546-4dfe-bdf8-faca1b91365b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Storage.Queues</name>
-          <display>Azure.Storage.Queues (12.24.0)</display>
+          <display>Azure.Storage.Queues (12.19.1)</display>
           <isAbstract>false</isAbstract>
-          <value>12.24.0</value>
+          <value>12.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71da3c67-10cd-413a-a96d-11f0785ee6d9</parentFolderId>
@@ -62,11 +62,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="19eaf8be-09da-443e-adf2-45cf427cbc04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="287972e2-8729-4ad9-b298-67457e483680" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.WebJobs</name>
-          <display>Microsoft.Azure.WebJobs (3.0.44)</display>
+          <display>Microsoft.Azure.WebJobs (3.0.37)</display>
           <isAbstract>false</isAbstract>
-          <value>3.0.44</value>
+          <value>3.0.37</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71da3c67-10cd-413a-a96d-11f0785ee6d9</parentFolderId>
@@ -76,25 +76,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="88e3d315-e1b5-4ee5-9af4-34b314657d8b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8479f2c3-4686-4d59-a0b2-c5f5e9f72379" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Azure</name>
-          <display>Microsoft.Extensions.Azure (1.14.0)</display>
+          <display>Microsoft.Extensions.Azure (1.7.6)</display>
           <isAbstract>false</isAbstract>
-          <value>1.14.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>71da3c67-10cd-413a-a96d-11f0785ee6d9</parentFolderId>
-          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-          <packageName>Intent.AzureFunctions</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8b240082-dbbe-4a31-92d1-e06aaad2c093" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Hosting</name>
-          <display>Microsoft.Extensions.Hosting (10.0.10)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.10</value>
+          <value>1.7.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>71da3c67-10cd-413a-a96d-11f0785ee6d9</parentFolderId>

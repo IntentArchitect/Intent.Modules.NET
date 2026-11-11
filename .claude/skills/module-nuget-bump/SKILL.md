@@ -50,6 +50,8 @@ Stop on any failure here: the inventory would be stale.
 
    It needs `INTENT_PACKAGER_USERNAME` and `INTENT_PACKAGER_PASSWORD` set; without them it prompts for a password. When they are not set, ask the user to run it and tell you the result rather than running it yourself.
 
+   **Ignore `Intent.ObsoleteModule`.** Its application sometimes reports an outstanding overwrite of `Modules/Intent.Modules.NET.sln`: the project-type GUID on its `Intent.Modules.ObsoleteModule.csproj` line flips between `{52B49DB5-…}` (committed) and `{FAE04EC0-…}` outside the Software Factory. It has nothing to do with NuGet packages. When it is the only failure, put the committed line back (apply that application's staged `.sln` change, or ask the user to) and carry on; never treat it as a stale inventory, and never bump, document or regenerate that module for it. The same applies when it is the only failure in §9's pre-commit checks.
+
 ## 2. Inventory
 
 ```powershell
@@ -62,7 +64,9 @@ Read the inventory block of `.nuget-bump/report.md` first, then `candidates.json
 
 | `candidates.json`                       | What it holds                                                                                                                                                                                                                                           |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `modules[]`                             | Each module with anything to do: `version`, `isPrerelease`, `csprojVersion`, `packagesToChange`, the module's `deltaClass` and `needsBreakingReview`, draft `releaseNoteRows`, and its `lockedBehind`, `lockedOrphans`, `manualBehind` and `ahead` rows |
+| `modules[]`                             | Each module with anything to do: `version`, `isPrerelease`, `csprojVersion`, `packagesToChange`, the module's `deltaClass` and `needsBreakingReview`, draft `releaseNoteRows`, and its `lockedBehind`, `lockedOrphans`, `lockConflicts`, `manualBehind` and `ahead` rows |
+| `modules[].lockedBehind[]`, `lockedOrphans[]` | `latestInLockedLine` is the newest version in the row's major whose dependency tree fits the module's other locks; `lockedLineSkipped` lists newer versions in the line that do not, and `lockedLineSkippedConflicts` says why the newest of them fails |
+| `modules[].lockConflicts[]`             | Rows whose version, after the proposed changes, needs a package the module's locks hold lower on the same consumer framework: `kind` `direct` (a locked package, so NU1605 at restore) or `tree` (a lockstep dependency of a locked package needed at a higher major), with `lockedBy`, `requiredVersion` and the `via` chain. `proposed: false` means the row is already in the model |
 | `packages[].latest[]`                   | Per framework: `tfm`, `frameworkName` (the exact `Minimum Target Framework` value), `version`, and `dependencies[]` (`id`, `version`) to recreate as `NuGet Dependency` children                                                                        |
 | `packages[].usages[].rows[]`            | Per module and framework row, the proposed `action` (below), `current`, `latest`, `delta` and `locked`                                                                                                                                                  |
 | `packages[].usages[].consumerChanges[]` | What a consumer on each of net6.0 to net10.0 resolves before and after the proposed rows: the basis for the delta class and the release-note rows                                                                                                       |
@@ -86,7 +90,9 @@ A deprecated package (`deprecation`, or a lookup error saying every version is u
 
 ## 3. Lock review
 
-Only for locks the inventory flagged: `lockedBehind` (including `locked-add`) and `lockedOrphans`.
+Only for locks the inventory flagged: `lockedBehind` (including `locked-add`) and `lockedOrphans`, plus every `lockConflicts` entry.
+
+A lock often holds a whole stack, not one package: the net6.0 in-process Azure Functions rows keep every `Microsoft.Extensions.*` on 6.x. Staying in a locked package's major does not keep its dependencies there (`Microsoft.Azure.WebJobs.Extensions.Storage.Queues` 5.3.10 needs `Microsoft.Extensions.Hosting` 10.x), so the inventory walks each candidate's dependency tree on nuget.org against the module's other locks. Trust `latestInLockedLine` over the newest version in the major, and treat each `lockConflicts` entry as a lock to settle: move the row to a version that fits (for a row already in the model, the newest that fits is what `latestInLockedLine` would give from the row's previous version), or review the lock it breaks. The check assumes a consumer gets every locked row of the module on that framework; when the templates never put the two packages in the same project, confirm that in the template code (which template adds each package, and under what condition), record it in `## Lock review` and leave the row. A conflict already in the model before the run (`proposed: false` on a row this run did not touch) goes under `## Deferred` unless the user asks for it to be fixed.
 
 1. **Read the authoritative lock state from the model** for each module concerned. The generated code shows a row as locked, but not whether the lock is on the row or the whole package, and not why. Find the module's application with `get_applications` (its name drops the `Intent.Modules.` prefix; confirm by its output location), load `scripting-the-model`, and query its Module Builder designer:
 
@@ -112,7 +118,7 @@ Only for locks the inventory flagged: `lockedBehind` (including `locked-add`) an
 
 2. **Take the reason from the comment**, on the `Package Version` row or, for a package-level lock, on the `NuGet Package`. A lock with no reason is a finding in itself: say so in the report, and recommend that a reason is added whatever else is decided.
 3. **Research whether the reason still holds**, with evidence: the providers a reason names now have versions for that framework, the issue it cites is closed, the license change it guards against still applies. A lock that guards a licence change (MediatR, AutoMapper, MassTransit and the like) holds unless the user says otherwise.
-4. **Recommend one of keep, keep and patch, unlock, or an alternative.** Keeping a lock need not mean missing its patches: when the row has a `latestInLockedLine` (the newest version in its locked major, such as EF Core 8.0.28 → 8.0.33), _keep and patch_ moves the row to it and leaves the lock and its reason in place. An alternative is, for example, a different package, or a per-framework split that adds a new row while the locked one stays.
+4. **Recommend one of keep, keep and patch, unlock, or an alternative.** Keeping a lock need not mean missing its patches: when the row has a `latestInLockedLine` (the newest version in its locked major that fits the module's other locks, such as EF Core 8.0.28 → 8.0.33), _keep and patch_ moves the row to it and leaves the lock and its reason in place. When `lockedLineSkipped` is not empty, add to the lock's comment why the row stops short of them. An alternative is, for example, a different package, or a per-framework split that adds a new row while the locked one stays.
 5. **Ask before changing any lock**, with `ask_user_question`. Group locks that share a reason into one question (every EF Core provider row locked for the same reason is one question). Each question names the module, packages and frameworks, the reason, your evidence and your recommendation (`recommended: true`). At most four questions per call: with more groups, ask in successive calls, and change nothing until every group has an answer.
 6. **Record every lock** in `## Lock review`:
 
@@ -160,6 +166,8 @@ Stop **for that package only** and ask with `ask_user_question`, with the eviden
 
 For each module with something to change after §3 and §4, one `run_designer_script` on its Module Builder designer. Load `scripting-the-model` and `changing-the-model` first, and call `get_designer_rules` for the designer in the same response as your first read of it.
 
+**Check the packages are modelled before changing anything in a module.** A module's `NugetPackages.cs` can outlive its model: elements lost in a merge, or a file that was never generated from that designer, leave a generated file listing packages the designer has no `NuGet Package` element for, so the inventory finds rows the designer cannot change. Query first (`findElements({ specialization: "NuGet Package" })` names), and when a package is not there, leave that module out of this run entirely: no model change, no version (§6), no release notes (§7), no Software Factory run (§8). List it under `## Deferred` as needing its packages modelled; modelling them is a separate piece of work. Setting the version first and finding nothing to change afterwards leaves a version in the model that the repository's gate will not let you set back.
+
 The model's shape (confirmed by the §3 query):
 
 - `NuGet Package` element, named by package id, with the `Package Settings` stereotype (`Locked`).
@@ -184,7 +192,7 @@ Apply each row's action from `candidates.json`, as adjusted by §3 and §4:
 
 ## 6. Version
 
-Load `module-version-increment` and run its gate, _Is This Version Already In Flight?_, for every module changed in §5. A module already on an unpublished `-pre` stays where it is, unless this run's impact needs a higher component. Choose the component from the matrix in §4; when two rows of the matrix apply, take the higher.
+Load `module-version-increment` and run its gate, _Is This Version Already In Flight?_, for every module changed in §5, and only those: a module §5 left out (its packages are not modelled, or nothing in it needed to move) keeps its version. A module already on an unpublished `-pre` stays where it is, unless this run's impact needs a higher component. Choose the component from the matrix in §4; when two rows of the matrix apply, take the higher.
 
 Set the version as `module-versioning` says: `Module Settings` → `Version` on the module's package, which the §8 Software Factory run writes into the `.imodspec`. Some modules also carry a `<Version>` in their `.csproj` (`csprojVersion` in `candidates.json`), which nothing regenerates: raise it to match, as `module-version-increment`'s _Keep The Version Consistent Everywhere_ requires.
 
@@ -213,6 +221,9 @@ When a build breaks:
 
 - **Generated code no longer compiles**: the §4 checkpoint, with the build error as evidence. When the user chooses to lock, revert that package's rows in §5's way, regenerate, and roll back its release-note row.
 - **Hand-written code in a Tests application no longer compiles**: consumer code is impacted. Fix the test code, raise the module to **minor**, and add the ⚠️ block.
+- **Restore fails with `NU1605` through a locked row's dependencies** (a package the module locks, pulled higher by another row): the lock check missed it or it was overridden. Run the inventory with `-ModuleFilter` for that module and settle its `lockConflicts` as §3 says.
+
+Lowering a row is not enough for a Tests application that already has the higher version: the Software Factory only ever raises a package reference. After regenerating, set the reference in that application's `.csproj` to the row's version by hand, then rebuild it.
 
 ## 10. Report
 

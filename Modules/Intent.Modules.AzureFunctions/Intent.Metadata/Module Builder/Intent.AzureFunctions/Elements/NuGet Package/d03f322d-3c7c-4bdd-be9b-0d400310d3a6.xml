@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="d03f322d-3c7c-4bdd-be9b-0d400310d3a6" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <comment>In Process Azure Functions. Held at 5.12.1: 5.12.2 needs Azure.Core 1.46.2, which pulls Microsoft.Extensions.Logging.Abstractions / DependencyInjection.Abstractions 8.x, above the net6.0 in-process Microsoft.Extensions.* 6.x stack. Checked 2026-11-11 with Get-NuGetBumpCandidates.ps1's lock-compatibility check.</comment>
   <name>Azure.Messaging.EventHubs</name>
   <display>Azure.Messaging.EventHubs [locked]</display>
   <isAbstract>false</isAbstract>
@@ -25,8 +26,8 @@
   <metadata />
   <childElements>
     <childElement id="6ae54e00-84e6-47aa-9e60-b64ad6875cbb" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.12.2</name>
-      <display>5.12.2 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>5.12.1</name>
+      <display>5.12.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +48,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="909ed4f4-d533-4323-8335-4ca4acb6fe6b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="77ca80fe-680c-4b55-beb7-704c7420b498" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
-          <display>Azure.Core (1.46.2)</display>
+          <display>Azure.Core (1.44.1)</display>
           <isAbstract>false</isAbstract>
-          <value>1.46.2</value>
+          <value>1.44.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6ae54e00-84e6-47aa-9e60-b64ad6875cbb</parentFolderId>
@@ -61,7 +62,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1440a164-63dd-4a34-b397-b93c1353a77a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="11c94ab9-4c5b-478c-933b-8942df1ba954" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core.Amqp</name>
           <display>Azure.Core.Amqp (1.3.1)</display>
           <isAbstract>false</isAbstract>
@@ -75,11 +76,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="17827dff-cb27-47ce-bf58-c640dd2ed66b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7b45a216-43b2-442b-ac7a-1db19ce1deb9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Amqp</name>
-          <display>Microsoft.Azure.Amqp (2.7.0)</display>
+          <display>Microsoft.Azure.Amqp (2.6.9)</display>
           <isAbstract>false</isAbstract>
-          <value>2.7.0</value>
+          <value>2.6.9</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6ae54e00-84e6-47aa-9e60-b64ad6875cbb</parentFolderId>
@@ -89,7 +90,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="82b27326-f52a-4799-b0f1-ae826a8d558b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2ac6951b-989a-476e-be1a-50e7a6638485" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.TypeExtensions</name>
           <display>System.Reflection.TypeExtensions (4.7.0)</display>
           <isAbstract>false</isAbstract>
@@ -103,11 +104,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="220cabfc-ef69-4d56-a128-0f003214e5e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9f619591-b091-4b3c-8566-3f4d04ece2e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Channels</name>
-          <display>System.Threading.Channels (8.0.0)</display>
+          <display>System.Threading.Channels (6.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6ae54e00-84e6-47aa-9e60-b64ad6875cbb</parentFolderId>

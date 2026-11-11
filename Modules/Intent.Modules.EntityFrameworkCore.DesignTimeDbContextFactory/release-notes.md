@@ -1,3 +1,12 @@
+### Version 4.2.20
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.Extensions.Configuration.EnvironmentVariables` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)
+  - `Microsoft.Extensions.Configuration.FileExtensions` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)
+  - `Microsoft.Extensions.Configuration.Json` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1, netstandard2.0)
+  - `Microsoft.Extensions.Configuration.UserSecrets` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)
+- Improvement: Now requires Intent Architect 5.1.0 or later, the minimum its `Intent.EntityFrameworkCore` dependency already needs.
+
 ### Version 4.2.19
 
 - Fixed: Updated for `Intent.Modules.EntityFrameworkCore`'s new `Default Connection String Name` module setting — the generated design-time factory's fallback connection string name now respects the setting instead of always assuming `DefaultConnection`.
