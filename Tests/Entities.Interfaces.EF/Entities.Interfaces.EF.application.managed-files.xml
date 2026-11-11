@@ -96,7 +96,7 @@
   <file path="Entities.Interfaces.EF.Domain/Repositories/IPersonRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="Entities.Interfaces.EF.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="Entities.Interfaces.EF.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="Entities.Interfaces.EF.Infrastructure/Entities.Interfaces.EF.Infrastructure.csproj" deviationsHash="D5B803F61A680F6E271FC2FA819094E879E28C88B53D573CFB06DA56C4E7327E" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Entities.Interfaces.EF.Infrastructure/Entities.Interfaces.EF.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Entities.Interfaces.EF.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Entities.Interfaces.EF.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Entities.Interfaces.EF.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

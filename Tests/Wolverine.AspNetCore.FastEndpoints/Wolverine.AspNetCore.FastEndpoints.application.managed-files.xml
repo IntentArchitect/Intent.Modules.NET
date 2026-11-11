@@ -62,7 +62,7 @@
   <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/UpdateProductPrice/UpdateProductPriceCommand.cs" templateId="Intent.Application.Wolverine.CommandModels" />
   <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/UpdateProductPrice/UpdateProductPriceCommandHandler.cs" templateId="Intent.Application.Wolverine.CommandHandler" />
   <file path="Wolverine.AspNetCore.FastEndpoints.Application/Products/UpdateProductPrice/UpdateProductPriceCommandValidator.cs" templateId="Intent.Application.Wolverine.FluentValidation.CommandValidator" />
-  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Wolverine.AspNetCore.FastEndpoints.Application.csproj" deviationsHash="F5EAEA3AAA66BD3D30964C8ED475AC2938B9E37D005ED48EABA2E19D11F0A6E9" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Wolverine.AspNetCore.FastEndpoints.Application/Wolverine.AspNetCore.FastEndpoints.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
   <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
   <file path="Wolverine.AspNetCore.FastEndpoints.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />

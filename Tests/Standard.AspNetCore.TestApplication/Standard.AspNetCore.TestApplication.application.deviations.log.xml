@@ -32,18 +32,5 @@
       <deviationsHash>D48F82D456AE60C96C2F207E0F5A181E32C3EA2E1C3398FCDD5BA77E8FD4EF03</deviationsHash>
       <fileHash>2EE701E32BC0F793AE8DE08B83A7BB64B8E7F75B036D465770CB67F72D1681E3</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#931f0fb9-48da-478e-a955-fcfcbe6afc93</correlationId>
-      <path>Standard.AspNetCore.TestApplication.Infrastructure/Standard.AspNetCore.TestApplication.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:43:37.7850391Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:10:39.7715714Z</approvedAt>
-      <deviationsHash>900106D3C6FE10C6EF8D2E7C2367FBFA90912B632DC021BB919EBB6C5C7C5A7A</deviationsHash>
-      <fileHash>4704F9D38AC58E814FB03DB87FC8AB39FC3ACB53B2A7AFAEE24395F5696EFF19</fileHash>
-    </file>
   </files>
 </deviationsLog>

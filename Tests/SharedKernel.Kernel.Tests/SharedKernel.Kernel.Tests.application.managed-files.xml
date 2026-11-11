@@ -46,6 +46,6 @@
   <file path="SharedKernel.Kernel.Tests.Infrastructure/Repositories/CurrencyRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="SharedKernel.Kernel.Tests.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="SharedKernel.Kernel.Tests.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
-  <file path="SharedKernel.Kernel.Tests.Infrastructure/SharedKernel.Kernel.Tests.Infrastructure.csproj" deviationsHash="2C47922BA9B64A3C4753F790CB12140934B8D51FE4306B24868B95B689E49030" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="SharedKernel.Kernel.Tests.Infrastructure/SharedKernel.Kernel.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="SharedKernel.Kernel.Tests.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

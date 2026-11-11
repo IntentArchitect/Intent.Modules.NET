@@ -99,7 +99,7 @@
   <file path="DtoSettings.Class.Internal.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="DtoSettings.Class.Internal.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="DtoSettings.Class.Internal.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="DtoSettings.Class.Internal.Infrastructure/DtoSettings.Class.Internal.Infrastructure.csproj" deviationsHash="E63BE1A77A42E5E63C40C6E900CC775F33CBE7A31F2CB9EED95A638763343591" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="DtoSettings.Class.Internal.Infrastructure/DtoSettings.Class.Internal.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="DtoSettings.Class.Internal.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="DtoSettings.Class.Internal.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="DtoSettings.Class.Internal.Infrastructure/Persistence/Configurations/CollectionEntityConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

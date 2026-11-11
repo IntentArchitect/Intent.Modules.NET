@@ -82,7 +82,7 @@
   <file path="EntityFrameworkCore.Oracle.TestApplication.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="EntityFrameworkCore.Oracle.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="EntityFrameworkCore.Oracle.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EntityFrameworkCore.Oracle.TestApplication.Infrastructure/EntityFrameworkCore.Oracle.TestApplication.Infrastructure.csproj" deviationsHash="B679B1599207B39A528555669EE2079ECCBF31D4C8E0996E7BBA0CF29FAF39B0" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.Oracle.TestApplication.Infrastructure/EntityFrameworkCore.Oracle.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.Oracle.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EntityFrameworkCore.Oracle.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="EntityFrameworkCore.Oracle.TestApplication.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

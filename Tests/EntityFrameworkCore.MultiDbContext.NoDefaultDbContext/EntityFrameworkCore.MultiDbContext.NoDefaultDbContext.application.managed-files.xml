@@ -116,7 +116,7 @@
   <file path="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure/EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.csproj" deviationsHash="E887D1C3FD0040FEB2FCAA68722C1B7718A0DFCBAAD21598BD0D705E5D4CC613" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure/EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure/EntityFrameworkCoreMultiDbContextNoDefaultDbContextConstants.cs" templateId="Intent.Infrastructure.Constants.ConstantsTemplate" />
   <file path="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure/Persistence/Configurations/Db1DomainPackageAuditLogConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

@@ -216,7 +216,7 @@
   <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Services/OrderDomainService.cs" templateId="Intent.DomainServices.DomainServiceImplementation" />
   <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Services/SecondService.cs" templateId="Intent.DomainServices.DomainServiceImplementation" />
   <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
-  <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure/AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.csproj" deviationsHash="1E555E0B3779EC74DD33B54609E9A24C1342F69918E81E74D5ABE5E088765524" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure/AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

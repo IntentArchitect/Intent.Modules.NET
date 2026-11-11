@@ -49,18 +49,5 @@
       <deviationsHash>ABE90C4BFEADD40B843CB2D4FAD2DA8AC7721D1C11843B52C87C78DAA293A47F</deviationsHash>
       <fileHash>41F7A01B3C43AD9F441EB1C97AE8958755F97F35B71FED9DFFD8C24B8AAEC8EC</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#09a258ac-0d55-4b5b-b63d-9aa3cc8afa0e</correlationId>
-      <path>Solace.Tests.Infrastructure/Solace.Tests.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:43:38.3419842Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:33.1789723Z</approvedAt>
-      <deviationsHash>2BC2480684722B73070B97AF1E6B37B21C6245C47F485E03D46D8D931C2343A0</deviationsHash>
-      <fileHash>8C514C3E1CD4AA867C163F894C92C91E78DF165588E0B164C11D4CD58F10F75D</fileHash>
-    </file>
   </files>
 </deviationsLog>

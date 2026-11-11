@@ -136,6 +136,6 @@
   <file path="SharedKernel.Consumer.Tests.Infrastructure/Repositories/OrderRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="SharedKernel.Consumer.Tests.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="SharedKernel.Consumer.Tests.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
-  <file path="SharedKernel.Consumer.Tests.Infrastructure/SharedKernel.Consumer.Tests.Infrastructure.csproj" deviationsHash="CB0F14B20C3F509F5CF89824444DD7C27D835826C8B1156366081F2CFCB45B8D" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="SharedKernel.Consumer.Tests.Infrastructure/SharedKernel.Consumer.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="SharedKernel.Consumer.Tests.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

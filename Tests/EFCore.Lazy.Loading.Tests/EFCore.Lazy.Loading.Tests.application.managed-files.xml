@@ -64,7 +64,7 @@
   <file path="EFCore.Lazy.Loading.Tests.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="EFCore.Lazy.Loading.Tests.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="EFCore.Lazy.Loading.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EFCore.Lazy.Loading.Tests.Infrastructure/EFCore.Lazy.Loading.Tests.Infrastructure.csproj" deviationsHash="9A7BE7DEFF0FB9A7756510F6AEDBE1627EA35D69FD9BB0E63305B78FE50D6A3E" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EFCore.Lazy.Loading.Tests.Infrastructure/EFCore.Lazy.Loading.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EFCore.Lazy.Loading.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EFCore.Lazy.Loading.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="EFCore.Lazy.Loading.Tests.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

@@ -105,7 +105,7 @@
   <file path="Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
-  <file path="Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure/Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.csproj" deviationsHash="D311C7F5481950F13B4E0E645CB53BB975413489E84F0B13F0EC230472BBEA88" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure/Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure/Repositories/OrderRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />

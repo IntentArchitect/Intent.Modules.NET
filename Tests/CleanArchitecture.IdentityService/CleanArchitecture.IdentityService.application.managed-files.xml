@@ -31,7 +31,7 @@
   <file path="CleanArchitecture.IdentityService.Api/Services/IdentityServiceManager.cs" templateId="Intent.AspNetCore.IdentityService.IdentityServiceManager" />
   <file path="CleanArchitecture.IdentityService.Api/Services/TokenService.cs" templateId="Intent.AspNetCore.IdentityService.TokenService" />
   <file path="CleanArchitecture.IdentityService.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
-  <file path="CleanArchitecture.IdentityService.Application/CleanArchitecture.IdentityService.Application.csproj" deviationsHash="588E0C888F9E7B1BF68BB119D923202A4E4072A1F0BBA6CA67F4EA9BBCAC8502" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.IdentityService.Application/CleanArchitecture.IdentityService.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
   <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
   <file path="CleanArchitecture.IdentityService.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
@@ -88,7 +88,7 @@
   <file path="CleanArchitecture.IdentityService.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
   <file path="CleanArchitecture.IdentityService.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="CleanArchitecture.IdentityService.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
-  <file path="CleanArchitecture.IdentityService.Infrastructure/CleanArchitecture.IdentityService.Infrastructure.csproj" deviationsHash="C5A28ECF378DB5D1CA3CBDA54517C79BE2AD5837B90B509BDEE7A73FE742273D" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.IdentityService.Infrastructure/CleanArchitecture.IdentityService.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CleanArchitecture.IdentityService.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="CleanArchitecture.IdentityService.Infrastructure/Implementation/Identity/IdentityEmailSender.cs" templateId="Intent.AspNetCore.IdentityService.IdentityEmailSender" />
   <file path="CleanArchitecture.IdentityService.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />

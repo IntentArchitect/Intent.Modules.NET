@@ -11,18 +11,6 @@
       <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
     </file>
     <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#2d3b23b2-2b89-47f0-8689-5b22c5e57923</correlationId>
-      <path>ObjectMapping.Strict.Application.Tests/ObjectMapping.Strict.Application.Tests.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-08-15T10:55:14.7486836Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2026-08-18T09:54:35.8621638Z</approvedAt>
-      <deviationsHash>0CF6E2FBEDDC4588844DE3FED54DBBB674AD2ED006F4ED61750C80F4E72126FD</deviationsHash>
-    </file>
-    <file>
       <correlationId>Intent.Entities.DomainEntity#abd6d9d1-c0f7-420a-aa4b-60e1ebc5a390</correlationId>
       <path>ObjectMapping.Strict.Domain/Entities/Order.cs</path>
       <count>2</count>

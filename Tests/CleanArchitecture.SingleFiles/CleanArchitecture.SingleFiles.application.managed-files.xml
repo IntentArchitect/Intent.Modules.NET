@@ -8,7 +8,7 @@
   <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
   <file path=".agents/skills/mediatr-domain-event-handler/SKILL.md" templateId="Intent.MediatR.DomainEvents.DomainEventHandlerSkill" />
   <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
-  <file path="CleanArchitecture.SingleFiles.Api/CleanArchitecture.SingleFiles.Api.csproj" deviationsHash="AAB90981C6DA7C19ADAEAC2324AF0637F24F1F5953C0F03102149E38910101F3" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.SingleFiles.Api/CleanArchitecture.SingleFiles.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CleanArchitecture.SingleFiles.Api/Configuration/ApiVersionSwaggerGenOptions.cs" templateId="Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions" />
   <file path="CleanArchitecture.SingleFiles.Api/Configuration/ApiVersioningConfiguration.cs" templateId="Intent.AspNetCore.Versioning.ApiVersioningConfiguration" />
   <file path="CleanArchitecture.SingleFiles.Api/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
@@ -65,7 +65,7 @@
   <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/MongoInvoiceDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
   <file path="CleanArchitecture.SingleFiles.Application/AdvancedMappingMongoInvoices/UpdateMongoInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
   <file path="CleanArchitecture.SingleFiles.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
-  <file path="CleanArchitecture.SingleFiles.Application/CleanArchitecture.SingleFiles.Application.csproj" deviationsHash="EA02151E52E41FB1D2320692D4DA9028D758953542730FAD1D45C4613D600EBC" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.SingleFiles.Application/CleanArchitecture.SingleFiles.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
   <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
   <file path="CleanArchitecture.SingleFiles.Application/Common/Behaviours/MessageBusPublishBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.MessageBusPublishBehaviour" />

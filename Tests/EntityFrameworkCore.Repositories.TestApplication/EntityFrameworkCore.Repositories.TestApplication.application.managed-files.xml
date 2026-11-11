@@ -212,7 +212,7 @@
   <file path="EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/PrimaryKeyTypes/INewClassLongRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/PrimaryKeyTypes/INewClassShortRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="EntityFrameworkCore.Repositories.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EntityFrameworkCore.Repositories.TestApplication.Infrastructure/EntityFrameworkCore.Repositories.TestApplication.Infrastructure.csproj" deviationsHash="F1D9ABA0A9B8A13B95DAB17AE7122F18E1954A42E7C1C252560CF53E2E71CE72" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.Repositories.TestApplication.Infrastructure/EntityFrameworkCore.Repositories.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/AggregateRoot1Configuration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

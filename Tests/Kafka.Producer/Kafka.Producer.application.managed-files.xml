@@ -100,7 +100,7 @@
   <file path="Kafka.Producer.Infrastructure/Eventing/KafkaEventDispatcher.cs" templateId="Intent.Eventing.Kafka.KafkaEventDispatcher" />
   <file path="Kafka.Producer.Infrastructure/Eventing/KafkaMessageBus.cs" templateId="Intent.Eventing.Kafka.KafkaMessageBus" />
   <file path="Kafka.Producer.Infrastructure/Eventing/KafkaProducer.cs" templateId="Intent.Eventing.Kafka.KafkaProducer" />
-  <file path="Kafka.Producer.Infrastructure/Kafka.Producer.Infrastructure.csproj" deviationsHash="0B8B7CCC99698FD77D3111E7B28837981E125BE114DE38CFDE7D69AE47830F6F" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Kafka.Producer.Infrastructure/Kafka.Producer.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Kafka.Producer.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Kafka.Producer.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Kafka.Producer.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

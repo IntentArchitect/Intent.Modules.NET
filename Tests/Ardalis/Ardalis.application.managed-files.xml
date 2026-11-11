@@ -79,7 +79,7 @@
   <file path="Ardalis.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="Ardalis.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="Ardalis.Domain/Specifications/ClientSpec.cs" templateId="Intent.Ardalis.Repositories.Specification" />
-  <file path="Ardalis.Infrastructure/Ardalis.Infrastructure.csproj" deviationsHash="E34F1111F75FCE60367A76E1DD6DD8FE432255028C5167F63F0502E98BEC4F52" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Ardalis.Infrastructure/Ardalis.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Ardalis.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="Ardalis.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Ardalis.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

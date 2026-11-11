@@ -25,7 +25,7 @@
   <file path="ObjectMapping.Strict.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="ObjectMapping.Strict.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="ObjectMapping.Strict.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
-  <file path="ObjectMapping.Strict.Application.Tests/ObjectMapping.Strict.Application.Tests.csproj" deviationsHash="0CF6E2FBEDDC4588844DE3FED54DBBB674AD2ED006F4ED61750C80F4E72126FD" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ObjectMapping.Strict.Application.Tests/ObjectMapping.Strict.Application.Tests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="ObjectMapping.Strict.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
   <file path="ObjectMapping.Strict.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
   <file path="ObjectMapping.Strict.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />

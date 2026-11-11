@@ -60,7 +60,7 @@
   <file path="AzureKeyVault.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
   <file path="AzureKeyVault.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="AzureKeyVault.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
-  <file path="AzureKeyVault.Infrastructure/AzureKeyVault.Infrastructure.csproj" deviationsHash="5840418CDFD03D9BDFF943FAEF9C4ECDF428AFF613140763BBF9D09AF59A732B" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureKeyVault.Infrastructure/AzureKeyVault.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AzureKeyVault.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="AzureKeyVault.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="AzureKeyVault.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

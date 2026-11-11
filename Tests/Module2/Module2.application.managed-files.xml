@@ -87,7 +87,7 @@
   <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
   <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
-  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Intent.Modules.NET.Tests.Module2.Infrastructure.csproj" deviationsHash="B61DB5F52CCE513F8B634E556194FCE5FB6DB172521B2145D15EC3A906CDBBB7" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Intent.Modules.NET.Tests.Module2.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Persistence/Configurations/AccountConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
   <file path="Modules/Module2/Intent.Modules.NET.Tests.Module2.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

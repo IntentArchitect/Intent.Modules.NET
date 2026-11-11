@@ -16,7 +16,7 @@
   <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
   <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Controllers/CustomersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
   <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
-  <file path="CosmosDB.MultiTenancy.SeperateDB.Api/CosmosDB.MultiTenancy.SeperateDB.Api.csproj" deviationsHash="D7B7A7A375203E17C51E2325E9517D2072627C1C7835C41318790492E2B495A2" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CosmosDB.MultiTenancy.SeperateDB.Api/CosmosDB.MultiTenancy.SeperateDB.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
   <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
   <file path="CosmosDB.MultiTenancy.SeperateDB.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />

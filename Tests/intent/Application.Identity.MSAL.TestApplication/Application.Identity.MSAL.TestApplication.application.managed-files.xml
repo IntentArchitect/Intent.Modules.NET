@@ -41,7 +41,7 @@
   <file path="Application.Identity.MSAL.TestApplication.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
   <file path="Application.Identity.MSAL.TestApplication.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="Application.Identity.MSAL.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
-  <file path="Application.Identity.MSAL.TestApplication.Infrastructure/Application.Identity.MSAL.TestApplication.Infrastructure.csproj" deviationsHash="7D1B529EA2D95A48F73D47B50CDDF8F72FC9FEFAC79D261401B82A8E3F72E217" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Application.Identity.MSAL.TestApplication.Infrastructure/Application.Identity.MSAL.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Application.Identity.MSAL.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="Application.Identity.MSAL.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Application.Identity.MSAL.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

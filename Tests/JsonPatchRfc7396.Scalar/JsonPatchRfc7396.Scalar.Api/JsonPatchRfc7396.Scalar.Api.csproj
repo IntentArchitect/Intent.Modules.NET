@@ -16,9 +16,9 @@
 
   <ItemGroup>
     <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="10.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.15" />
     <PackageReference Include="Morcatko.AspNetCore.JsonMergePatch.NewtonsoftJson" Version="6.0.4" />
-    <PackageReference Include="Scalar.AspNetCore" Version="2.18.7" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.20.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
   </ItemGroup>
   </Project>

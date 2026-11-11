@@ -101,18 +101,5 @@
       <deviationsHash>249497A41657DB36ACAEA08226864A3EF6B7C39988DED70DAA07F894A8491F4D</deviationsHash>
       <fileHash>8D34438A3FF33419C9ABBA368AB2EAF01BFAF66128B2C11D9E82B60DBA774BB7</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#01483867-a07c-4def-865e-6784cdc1de8f</correlationId>
-      <path>TrainingModel.Tests.Infrastructure/TrainingModel.Tests.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:43:48.6933228Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:33.0931198Z</approvedAt>
-      <deviationsHash>1628ABA9F6AFA17C86EC6E2A9C8BF9D0DE94DFB94F4C1DD9817BEBB7607C4A1C</deviationsHash>
-      <fileHash>7349AB78DA48AA6A36F28A611D22FE72F6A589156844C8E0A8091472E74C81BE</fileHash>
-    </file>
   </files>
 </deviationsLog>

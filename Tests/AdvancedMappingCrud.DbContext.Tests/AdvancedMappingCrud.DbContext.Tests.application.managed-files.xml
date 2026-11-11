@@ -31,7 +31,7 @@
   <file path="AdvancedMappingCrud.DbContext.Tests.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="AdvancedMappingCrud.DbContext.Tests.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
   <file path="AdvancedMappingCrud.DbContext.Tests.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
-  <file path="AdvancedMappingCrud.DbContext.Tests.Application/AdvancedMappingCrud.DbContext.Tests.Application.csproj" deviationsHash="5BD26495B7150FC9A585069E0FEBA407C28B6B4A2E8A76116C257B861ED1704B" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AdvancedMappingCrud.DbContext.Tests.Application/AdvancedMappingCrud.DbContext.Tests.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AdvancedMappingCrud.DbContext.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
   <file path="AdvancedMappingCrud.DbContext.Tests.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
   <file path="AdvancedMappingCrud.DbContext.Tests.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
@@ -184,7 +184,7 @@
   <file path="AdvancedMappingCrud.DbContext.Tests.Domain/Entities/User.cs" templateId="Intent.Entities.DomainEntity" />
   <file path="AdvancedMappingCrud.DbContext.Tests.Domain/EntityStatus.cs" templateId="Intent.Entities.DomainEnum" />
   <file path="AdvancedMappingCrud.DbContext.Tests.Domain/OrderStatus.cs" templateId="Intent.Entities.DomainEnum" />
-  <file path="AdvancedMappingCrud.DbContext.Tests.Infrastructure/AdvancedMappingCrud.DbContext.Tests.Infrastructure.csproj" deviationsHash="EEBE240084A36AC9C89AA99A00411CF4A3310510CB662AEE36DC487ECC639B41" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AdvancedMappingCrud.DbContext.Tests.Infrastructure/AdvancedMappingCrud.DbContext.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AdvancedMappingCrud.DbContext.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="AdvancedMappingCrud.DbContext.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="AdvancedMappingCrud.DbContext.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

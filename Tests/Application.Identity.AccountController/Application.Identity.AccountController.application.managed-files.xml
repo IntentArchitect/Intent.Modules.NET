@@ -52,7 +52,7 @@
   <file path="Application.Identity.AccountController.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="Application.Identity.AccountController.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="Application.Identity.AccountController.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
-  <file path="Application.Identity.AccountController.Infrastructure/Application.Identity.AccountController.Infrastructure.csproj" deviationsHash="9E1455F2ADA6DAB73F731E4CB29790CA5EAC237A0C86ACFA9C0B78E02DA9EB39" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Application.Identity.AccountController.Infrastructure/Application.Identity.AccountController.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Application.Identity.AccountController.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="Application.Identity.AccountController.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Application.Identity.AccountController.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

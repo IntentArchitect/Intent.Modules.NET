@@ -75,7 +75,7 @@
   <file path="EfCore.SecondLevelCaching.Infrastructure/Caching/DistributedCacheServiceProvider.cs" templateId="Intent.EntityFrameworkCore.SecondLevelCaching.DistributedCacheServiceProvider" />
   <file path="EfCore.SecondLevelCaching.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs" templateId="Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWork" />
   <file path="EfCore.SecondLevelCaching.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EfCore.SecondLevelCaching.Infrastructure/EfCore.SecondLevelCaching.Infrastructure.csproj" deviationsHash="82B05875D200416F658EDE42B6894193D334EA5831FE580733D2734C4ACA3D52" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EfCore.SecondLevelCaching.Infrastructure/EfCore.SecondLevelCaching.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EfCore.SecondLevelCaching.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EfCore.SecondLevelCaching.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="EfCore.SecondLevelCaching.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

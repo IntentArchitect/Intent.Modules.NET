@@ -466,7 +466,7 @@
   <file path="IntegrationTesting.Tests.Domain/Repositories/IRichProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="IntegrationTesting.Tests.Domain/Repositories/IUniqueConValRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="IntegrationTesting.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="IntegrationTesting.Tests.Infrastructure/IntegrationTesting.Tests.Infrastructure.csproj" deviationsHash="6AC0CE4555DB3BF4634FDA252CBCF0BC0FF3E87568B19D19D526EA9015E7B6DC" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="IntegrationTesting.Tests.Infrastructure/IntegrationTesting.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="IntegrationTesting.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="IntegrationTesting.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/BadSignaturesConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

@@ -352,7 +352,7 @@
   <file path="EntityFrameworkCore.Postgres.Domain/ValueObjects/KeyValuePairNormal.cs" templateId="Intent.ValueObjects.ValueObject" />
   <file path="EntityFrameworkCore.Postgres.Domain/ValueObjects/KeyValuePairSerialized.cs" templateId="Intent.ValueObjects.ValueObject" />
   <file path="EntityFrameworkCore.Postgres.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EntityFrameworkCore.Postgres.Infrastructure/EntityFrameworkCore.Postgres.Infrastructure.csproj" deviationsHash="417D4A52AFF79B9926081EDEE1AA10A39717A98BBC53D53B7ED0A6FF6ECF8E29" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.Postgres.Infrastructure/EntityFrameworkCore.Postgres.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.Postgres.Infrastructure/Interceptors/DataMaskConverter.cs" templateId="Intent.EntityFrameworkCore.DataMasking.DataMaskConverter" />
   <file path="EntityFrameworkCore.Postgres.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EntityFrameworkCore.Postgres.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

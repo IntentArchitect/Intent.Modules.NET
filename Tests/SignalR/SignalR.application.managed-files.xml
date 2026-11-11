@@ -80,6 +80,6 @@
   <file path="SignalR.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="SignalR.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="SignalR.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
-  <file path="SignalR.Infrastructure/SignalR.Infrastructure.csproj" deviationsHash="E6A56C050D7B6AAF4634126227E2F9C8A4F2BFB8A4AD86B0F669880824564542" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="SignalR.Infrastructure/SignalR.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="SignalR.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

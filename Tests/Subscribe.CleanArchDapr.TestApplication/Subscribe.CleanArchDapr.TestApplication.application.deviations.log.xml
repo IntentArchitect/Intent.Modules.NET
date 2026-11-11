@@ -23,18 +23,5 @@
       <deviationsHash>60D36A63CC2A2936C4D3760D04B440D68A997E284E12E6D2E8C62D4792FF3D9F</deviationsHash>
       <fileHash>6088BED3C019C72D4DCAC4C6F0137235867FB4A5587B5D2AF58750DF639ABF23</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#9a02c2c1-32c1-4dfa-ad06-519222669804</correlationId>
-      <path>Subscribe.CleanArchDapr.TestApplication.Infrastructure/Subscribe.CleanArchDapr.TestApplication.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:43:40.1485449Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:10:55.719851Z</approvedAt>
-      <deviationsHash>342BD7B57BD165FF3F012CAD069331649B4E9F4906131F7B97640EBAD4E44F43</deviationsHash>
-      <fileHash>4EFF594E324C98FFDCD32499F3277257F1A00D8AE865FC2F15D1E4B0BD40FE16</fileHash>
-    </file>
   </files>
 </deviationsLog>

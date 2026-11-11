@@ -67,7 +67,7 @@
   <file path="RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
   <file path="RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
   <file path="RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
-  <file path="RichDomain.Application/RichDomain.Application.csproj" deviationsHash="AB86F3C5463234CF8C242817ADCFD8DF0237C6E57BCE85723AF2D9A413308C6B" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="RichDomain.Application/RichDomain.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="RichDomain.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
   <file path="RichDomain.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
   <file path="RichDomain.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
@@ -125,7 +125,7 @@
   <file path="RichDomain.Infrastructure/Repositories/EntityWithAutoAppliedNewFieldsRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="RichDomain.Infrastructure/Repositories/PersonRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="RichDomain.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
-  <file path="RichDomain.Infrastructure/RichDomain.Infrastructure.csproj" deviationsHash="AB04BF44B6D3D60D3A768C8632A72E1F0B38960259403CCD9B415F73FDE1D80B" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="RichDomain.Infrastructure/RichDomain.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="RichDomain.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
   <file path="RichDomain.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

@@ -1244,7 +1244,7 @@
   <file path="CleanArchitecture.Comprehensive.Domain/Services/DefaultDiagram/IDomainServiceWithDefault.cs" templateId="Intent.DomainServices.DomainServiceInterface" />
   <file path="CleanArchitecture.Comprehensive.Domain/TypeName.cs" templateId="Intent.Entities.DomainEnum" />
   <file path="CleanArchitecture.Comprehensive.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
-  <file path="CleanArchitecture.Comprehensive.Infrastructure/CleanArchitecture.Comprehensive.Infrastructure.csproj" deviationsHash="C004B1B86D237803F313CC6ABF0333D55C06B8EA289451859DE59B45E9FC6F18" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.Comprehensive.Infrastructure/CleanArchitecture.Comprehensive.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Integration.HttpClients.HttpClientConfiguration" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
   <file path="CleanArchitecture.Comprehensive.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />

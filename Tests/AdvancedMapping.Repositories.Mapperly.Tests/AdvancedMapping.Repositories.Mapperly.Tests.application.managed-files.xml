@@ -202,7 +202,7 @@
   <file path="AdvancedMapping.Repositories.Mapperly.Tests.Domain/Repositories/Sales/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="AdvancedMapping.Repositories.Mapperly.Tests.Domain/SegmentType.cs" templateId="Intent.Entities.DomainEnum" />
   <file path="AdvancedMapping.Repositories.Mapperly.Tests.Domain/Theme.cs" templateId="Intent.Entities.DomainEnum" />
-  <file path="AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure/AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.csproj" deviationsHash="33ADF7D298BA99397AF930F712B4D6D42211311CDB17B02B09F5D41DB97ABEC2" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure/AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="AdvancedMapping.Repositories.Mapperly.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

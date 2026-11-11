@@ -86,6 +86,6 @@
   <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
-  <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Subscribe.MassTransit.OutboxEF.Infrastructure.csproj" deviationsHash="9A8A0CE133AAB62A66516EAAE5986C90332D71481C56DB338ED5EB8033D46F39" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.MassTransit.OutboxEF.Infrastructure/Subscribe.MassTransit.OutboxEF.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Subscribe.MassTransit.OutboxEF.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

@@ -69,7 +69,7 @@
   <file path="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Persistence/Configurations/Mapping/ClassWithVOConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
   <file path="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Persistence/Configurations/UserConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure.csproj" deviationsHash="69BDFFC2CEB0C8CA02F9138BD530252C7B7B5BADC936521EA82643610EB6C38A" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Repositories/Mapping/ClassWithVORepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure/Repositories/UserRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />

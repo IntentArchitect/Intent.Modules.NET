@@ -69,7 +69,7 @@
   <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/ISoftDeleteEntityRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="Entities.PrivateSetters.EF.SqlServer.Domain/Repositories/ITagRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Entities.PrivateSetters.EF.SqlServer.Infrastructure.csproj" deviationsHash="97B33C1FAE70A3308724CF41F4854A4F1A6E868B569DE8645047F55BFA134AB6" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Entities.PrivateSetters.EF.SqlServer.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Entities.PrivateSetters.EF.SqlServer.Infrastructure/Persistence/Configurations/AuditedConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

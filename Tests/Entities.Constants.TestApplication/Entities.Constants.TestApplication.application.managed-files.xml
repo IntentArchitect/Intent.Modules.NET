@@ -79,7 +79,7 @@
   <file path="Entities.Constants.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="Entities.Constants.TestApplication.Domain/Repositories/ITestClassRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="Entities.Constants.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="Entities.Constants.TestApplication.Infrastructure/Entities.Constants.TestApplication.Infrastructure.csproj" deviationsHash="46F644FAE87C2B3F062CA3957F6CA12784C5BD94ED6942933396F928A4D0FB64" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Entities.Constants.TestApplication.Infrastructure/Entities.Constants.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Entities.Constants.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Entities.Constants.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Entities.Constants.TestApplication.Infrastructure/Persistence/Configurations/TestClassConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

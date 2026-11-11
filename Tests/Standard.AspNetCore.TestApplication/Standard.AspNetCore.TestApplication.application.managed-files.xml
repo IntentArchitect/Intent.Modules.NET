@@ -132,6 +132,6 @@
   <file path="Standard.AspNetCore.TestApplication.Infrastructure/Repositories/InvoiceRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="Standard.AspNetCore.TestApplication.Infrastructure/Repositories/PluralsRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="Standard.AspNetCore.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
-  <file path="Standard.AspNetCore.TestApplication.Infrastructure/Standard.AspNetCore.TestApplication.Infrastructure.csproj" deviationsHash="900106D3C6FE10C6EF8D2E7C2367FBFA90912B632DC021BB919EBB6C5C7C5A7A" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Standard.AspNetCore.TestApplication.Infrastructure/Standard.AspNetCore.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Standard.AspNetCore.TestApplication.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

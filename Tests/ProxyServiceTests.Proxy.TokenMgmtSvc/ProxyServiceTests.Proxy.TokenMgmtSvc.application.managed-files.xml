@@ -115,7 +115,7 @@
   <file path="ProxyServiceTests.Proxy.TMS.Infrastructure/HttpClients/JsonResponse.cs" templateId="Intent.Integration.HttpClients.JsonResponse" />
   <file path="ProxyServiceTests.Proxy.TMS.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="ProxyServiceTests.Proxy.TMS.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
-  <file path="ProxyServiceTests.Proxy.TMS.Infrastructure/ProxyServiceTests.Proxy.TMS.Infrastructure.csproj" deviationsHash="4426A1C272356C3B370565AA217A2245C2E474810E1642D9F104723966510FB7" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ProxyServiceTests.Proxy.TMS.Infrastructure/ProxyServiceTests.Proxy.TMS.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="ProxyServiceTests.Proxy.TMS.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="ProxyServiceTests.Proxy.TMS.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

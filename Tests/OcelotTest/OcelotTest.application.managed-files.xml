@@ -65,7 +65,7 @@
   <file path="OcelotTest.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="OcelotTest.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="OcelotTest.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
-  <file path="OcelotTest.Infrastructure/OcelotTest.Infrastructure.csproj" deviationsHash="053AE21C5B69B07D0BEFE1E8A9EC157E241B48E493F5A6D0AC9223E13F5D7175" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="OcelotTest.Infrastructure/OcelotTest.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="OcelotTest.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="OcelotTest.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="OcelotTest.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />

@@ -194,7 +194,7 @@
   <file path="EntityFrameworkCore.CosmosDb.TestApplication.Domain/ValueObjects/KeyValuePairNormal.cs" templateId="Intent.ValueObjects.ValueObject" />
   <file path="EntityFrameworkCore.CosmosDb.TestApplication.Domain/ValueObjects/KeyValuePairSerialized.cs" templateId="Intent.ValueObjects.ValueObject" />
   <file path="EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.csproj" deviationsHash="B98D6E65A87B68187B4A94553C332B05D8A29E28BCE9F4EAC1404F777D1C6183" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" deviationsHash="0E3D885910D92F500858603CBA105099374EA2632E11BCDD28BBB84F8316B6DA" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure/Persistence/Configurations/Associations/A_RequiredCompositeConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
