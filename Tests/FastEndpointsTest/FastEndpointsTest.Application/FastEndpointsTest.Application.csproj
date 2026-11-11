@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
-    <PackageReference Include="FastEndpoints.Attributes" Version="8.2.0" />
+    <PackageReference Include="FastEndpoints.Attributes" Version="8.3.0" />
     <PackageReference Include="FluentValidation" Version="12.2.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.2.0" />
     <PackageReference Include="MediatR" Version="12.5.0" />

@@ -21,7 +21,7 @@
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="9.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="9.0.0" />
-    <PackageReference Include="Duende.IdentityModel" Version="7.1.0" />
+    <PackageReference Include="Duende.IdentityModel" Version="8.0.0" />
     <PackageReference Include="FastEndpoints" Version="5.30.0" />
     <PackageReference Include="FastEndpoints.Swagger.Swashbuckle" Version="2.3.0" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
