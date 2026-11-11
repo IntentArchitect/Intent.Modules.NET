@@ -1,3 +1,8 @@
+### Version 4.1.13
+
+- Improvement: Added `.NET 11` to the `Target Framework` property and C# `15.0` to the `Language Version` property in the Visual Studio designer.
+- Improvement: A `.NET 11` project with `Language Version` set to `default` now gets C# 15.
+
 ### Version 4.1.12
 
 - New Feature: Added _Generate Program File_ to the _.NET Settings_ stereotype, shown for Worker (`Microsoft.NET.Sdk.Worker`) projects. Turning it off leaves an existing `Program.cs` and its `.csproj` item exactly as they are and creates none, startup code other modules add to it is not applied, and no packages, framework references or project references are added on its account, including those other modules attach for that startup code (e.g. `Microsoft.Extensions.Hosting.WindowsServices`). Existing Worker projects are treated as on, so they keep generating `Program.cs`.
