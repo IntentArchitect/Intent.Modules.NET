@@ -22,7 +22,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy
             NugetRegistry.Register(FinbuckleMultiTenantPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.4.16")
+                        ( >= 9, >= 0) => new PackageVersion("9.4.16", locked: true)
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.23")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.23")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.23")
@@ -38,47 +38,25 @@ namespace Intent.Modules.AspNetCore.MultiTenancy
                             .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.1")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "8.0.0"),
-                        ( >= 7, >= 0) => new PackageVersion("8.1.21")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "7.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "7.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "7.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "7.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "7.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "7.0.1")
-                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "7.0.0"),
-                        ( >= 6, >= 0) => new PackageVersion("8.1.21")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "6.0.1")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "6.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "6.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "6.0.1")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "6.0.1")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "6.0.1")
-                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "6.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantPackageName}'"),
                     }
                 );
             NugetRegistry.Register(FinbuckleMultiTenantAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.4.16")
+                        ( >= 9, >= 0) => new PackageVersion("9.4.16", locked: true)
                             .WithNugetDependency("Finbuckle.MultiTenant", "9.4.16")
                             .WithNugetDependency("Microsoft.AspNetCore.Authentication.OpenIdConnect", "9.0.23"),
                         ( >= 8, >= 0) => new PackageVersion("9.4.16")
                             .WithNugetDependency("Finbuckle.MultiTenant", "9.4.16")
                             .WithNugetDependency("Microsoft.AspNetCore.Authentication.OpenIdConnect", "8.0.34"),
-                        ( >= 7, >= 0) => new PackageVersion("8.1.21")
-                            .WithNugetDependency("Finbuckle.MultiTenant", "8.1.21")
-                            .WithNugetDependency("Microsoft.AspNetCore.Authentication.OpenIdConnect", "7.0.20"),
-                        ( >= 6, >= 0) => new PackageVersion("8.1.21")
-                            .WithNugetDependency("Finbuckle.MultiTenant", "8.1.21")
-                            .WithNugetDependency("Microsoft.AspNetCore.Authentication.OpenIdConnect", "6.0.36"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantAspNetCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(FinbuckleMultiTenantEntityFrameworkCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.4.16")
+                        ( >= 9, >= 0) => new PackageVersion("9.4.16", locked: true)
                             .WithNugetDependency("Finbuckle.MultiTenant", "9.4.16")
                             .WithNugetDependency("Microsoft.AspNetCore.Identity.EntityFrameworkCore", "9.0.23")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.23")
@@ -88,16 +66,6 @@ namespace Intent.Modules.AspNetCore.MultiTenancy
                             .WithNugetDependency("Microsoft.AspNetCore.Identity.EntityFrameworkCore", "8.0.34")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.34")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "8.0.34"),
-                        ( >= 7, >= 0) => new PackageVersion("8.1.21")
-                            .WithNugetDependency("Finbuckle.MultiTenant", "8.1.21")
-                            .WithNugetDependency("Microsoft.AspNetCore.Identity.EntityFrameworkCore", "7.0.20")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "7.0.20")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "7.0.20"),
-                        ( >= 6, >= 0) => new PackageVersion("8.1.21")
-                            .WithNugetDependency("Finbuckle.MultiTenant", "8.1.21")
-                            .WithNugetDependency("Microsoft.AspNetCore.Identity.EntityFrameworkCore", "6.0.36")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "6.0.36")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "6.0.36"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantEntityFrameworkCorePackageName}'"),
                     }
                 );

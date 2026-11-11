@@ -25,16 +25,16 @@ namespace Intent.Modules.Integration.HttpClients
             NugetRegistry.Register(DuendeAccessTokenManagementPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("3.3.0", locked: true)
-                            .WithNugetDependency("Duende.IdentityModel", "8.0.0")
+                        ( >= 9, >= 0) => new PackageVersion("3.2.0", locked: true)
+                            .WithNugetDependency("Duende.IdentityModel", "7.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Http", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0")
                             .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.0.1"),
-                        ( >= 8, >= 0) => new PackageVersion("3.3.0", locked: true)
-                            .WithNugetDependency("Duende.IdentityModel", "8.0.0")
+                        ( >= 8, >= 0) => new PackageVersion("3.2.0", locked: true)
+                            .WithNugetDependency("Duende.IdentityModel", "7.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Http", "8.0.0")

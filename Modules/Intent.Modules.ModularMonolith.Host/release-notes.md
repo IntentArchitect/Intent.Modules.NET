@@ -2,8 +2,8 @@
 
 - Improvement: Updated NuGet package versions:
   - `FluentValidation` 12.1.1 → 12.2.0
-  - `MassTransit` 9.1.2 → 9.2.6 (net10.0, net9.0, net8.0, netstandard2.0); 9.0.0 → 9.2.6 (net10.0, net9.0, net8.0, netstandard2.0)
-  - `Swashbuckle.AspNetCore` 10.2.3 → 10.3.1 (net9.0, net8.0); 10.1.4 → 10.3.1 (net9.0, net8.0)
+  - `MassTransit` 9.1.2 → 9.2.6
+  - `Swashbuckle.AspNetCore` 10.2.3 → 10.3.1 (net9.0, net8.0)
 
 ### Version 2.0.2
 
@@ -19,8 +19,7 @@
 - Improvement: Updated to work with Microsoft.OpenApi (2.4.1) library version.
 - Improvement: Supported module updates.
 
-> ⚠️ NOTE
-> The migration to Microsoft.OpenApi (2.4.1) includes API changes that may impact custom Swashbuckle Filters. Please review and update your filter implementations to ensure compatibility after upgrading.
+> ⚠️ NOTE The migration to Microsoft.OpenApi (2.4.1) includes API changes that may impact custom Swashbuckle Filters. Please review and update your filter implementations to ensure compatibility after upgrading.
 
 ### Version 1.0.12
 

@@ -1,9 +1,9 @@
 ### Version 6.1.0
 
 - Improvement: Updated NuGet package versions:
-  - `Finbuckle.MultiTenant` 9.4.10 → 9.4.16 (net8.0); added 8.1.21 (net7.0, net6.0); added 9.4.16 (net9.0)
-  - `Finbuckle.MultiTenant.AspNetCore` 9.4.10 → 9.4.16 (net8.0); added 8.1.21 (net7.0, net6.0); added 9.4.16 (net9.0)
-  - `Finbuckle.MultiTenant.EntityFrameworkCore` 9.4.10 → 9.4.16 (net8.0); added 8.1.21 (net7.0, net6.0); added 9.4.16 (net9.0)
+  - `Finbuckle.MultiTenant` 9.4.10 → 9.4.16
+  - `Finbuckle.MultiTenant.AspNetCore` 9.4.10 → 9.4.16
+  - `Finbuckle.MultiTenant.EntityFrameworkCore` 9.4.10 → 9.4.16
   - `Microsoft.EntityFrameworkCore.InMemory` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0)
   - `Microsoft.Extensions.Hosting.Abstractions` added 11.0.0 (net10.0)
 

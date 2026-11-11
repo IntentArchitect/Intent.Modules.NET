@@ -3,7 +3,7 @@
 - Improvement: Updated NuGet package versions:
   - `coverlet.collector` 10.0.1 → 10.1.0
   - `Moq` 4.20.72 → 4.21.0
-  - `NSubstitute` 5.3.0 → 6.2.0 (netstandard2.0); added 6.2.0 (net8.0)
+  - `NSubstitute` 5.3.0 → 6.2.0
 
 ### Version 1.1.2
 

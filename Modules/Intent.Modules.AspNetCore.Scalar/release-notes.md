@@ -1,10 +1,9 @@
 ### Version 1.1.0
 
 - New Feature: On .NET 10, `QUERY` operations appear in the OpenAPI document, which is served as OpenAPI 3.2 so Scalar can show and send them.
-- Improvement: Updated `Scalar.AspNetCore` to 2.18.7.
 - Improvement: Updated NuGet package versions:
   - `Microsoft.AspNetCore.OpenApi` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
-  - `Scalar.AspNetCore` 2.18.7 → 2.20.0
+  - `Scalar.AspNetCore` 2.16.11 → 2.20.0
 
 ### Version 1.0.10
 
@@ -48,8 +47,7 @@
 
 > ⚠️ NOTE
 >
-> When using simple schema identifiers, generic types will use `Of` and `And` to separate generic types and parameters.
-> When using full-namespace identifiers, the identifier will use `_Of_` and `_And_` to separate generic types and parameters.
+> When using simple schema identifiers, generic types will use `Of` and `And` to separate generic types and parameters. When using full-namespace identifiers, the identifier will use `_Of_` and `_And_` to separate generic types and parameters.
 
 ### Version 1.0.1
 

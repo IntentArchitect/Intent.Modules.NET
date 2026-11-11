@@ -1,7 +1,7 @@
 ### Version 1.0.38
 
 - Improvement: Updated NuGet package versions:
-  - `Finbuckle.MultiTenant` 9.4.10 → 9.4.16 (net8.0); added 8.1.21 (net7.0, net6.0); added 9.4.16 (net9.0)
+  - `Finbuckle.MultiTenant` 9.4.10 → 9.4.16
 
 ### Version 1.0.37
 
@@ -66,7 +66,7 @@
 ### Version 1.0.22
 
 - Improvement: Updated NuGet package versions.
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5.
 
 ### Version 1.0.21
 
