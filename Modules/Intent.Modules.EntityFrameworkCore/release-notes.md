@@ -1,3 +1,7 @@
+### Version 5.2.2
+
+- Improvement: Added .NET 11 NuGet package versions.
+
 ### Version 5.2.1
 
 - Improvement: The existing-transaction guard (`HasDbTransaction()`) is now also injected into the `Intent.Application.Mediator` `UnitOfWorkBehaviour`, so a handler running inside an externally-managed EF transaction no longer opens a `TransactionScope`.

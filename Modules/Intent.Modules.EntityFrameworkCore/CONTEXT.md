@@ -335,3 +335,26 @@ the FK lives on the dependent, which is `OtherEnd()` when `OtherEnd().IsNullable
 otherwise — mirroring exactly how `WithForeignKey` picks the end it reads the FK columns from.
 Keep the two in step; they must agree or the generic argument names a type that does not own the
 key.
+
+## NuGet Package Versions — Fetch Latest Only, Existing Entries Locked
+
+The `NuGet Packages` entries (and so `NugetPackages.cs`) come only from Module Builder's "Get latest from
+NuGet.org" (Fetch Latest) action — never hand-modelled (user decision, .NET 11 pilot, 2026-11-10).
+
+**Every `.NETCoreApp` entry from v6.0 to v10.0 is Locked** (v8.0/v9.0 already were; v10.0, v6.0 and v7.0
+were locked in 5.2.2). Fetch Latest rewrites any *unlocked* entry: it moves it to the newest patch on
+nuget.org and rebuilds its dependency children, including back-filling children on older entries that
+had none. Those dependency children are not inert: the Visual Studio module's
+`NugetInstallerFactoryExtension.RemoveTransitiveDependencies` drops a requested package from a `.csproj`
+when another requested package's entry lists it, so a back-fill changes what existing net6/net7 apps
+get. Locked, a Fetch Latest run only adds entries for a new framework. The user decided existing entries
+stay as they are, and only the new framework is added. To move an existing line deliberately, unlock it,
+run Fetch Latest, review the diff, and lock it again. Still unlocked and unchanged by a run in 5.2.2:
+`.NETStandard` entries, and EF Core / Sqlite / Tools 7.0.20 at v6.0 (their children already match).
+
+**`Microsoft.EntityFrameworkCore.Tools` 11.0.0 has no dependencies**, unlike 10.x, which depends on
+`Microsoft.EntityFrameworkCore.Design`. This needs no template change: `DbMigrationsReadMeTemplate`
+requests Design and Tools itself, and `RemoveTransitiveDependencies` only pruned Design (net10 and below)
+because the Tools entry listed it. On net11 both stay explicit references. Fetch Latest originally made
+Tools 11.0.0 the *net10* version, because its nuspec declares only `net10.0`; fixed in
+`Intent.ModuleBuilder.CSharp` 3.8.1 (release-train rule, see that module's CONTEXT.md).
