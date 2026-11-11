@@ -1,0 +1,20 @@
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
+namespace EntityFrameworkCore.SqlServer.EF11.Domain.TPH.Polymorphic
+{
+    public class TPH_Poly_TopLevel
+    {
+        public TPH_Poly_TopLevel()
+        {
+            TopField = null!;
+        }
+
+        public Guid Id { get; set; }
+
+        public string TopField { get; set; }
+
+        public virtual ICollection<TPH_Poly_RootAbstract> RootAbstracts { get; set; } = [];
+    }
+}

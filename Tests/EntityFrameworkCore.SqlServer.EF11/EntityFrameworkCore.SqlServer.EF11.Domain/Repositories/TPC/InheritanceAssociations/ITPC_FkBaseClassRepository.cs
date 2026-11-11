@@ -1,0 +1,17 @@
+using EntityFrameworkCore.SqlServer.EF11.Domain.TPC.InheritanceAssociations;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface", Version = "1.0")]
+
+namespace EntityFrameworkCore.SqlServer.EF11.Domain.Repositories.TPC.InheritanceAssociations
+{
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    public interface ITPC_FkBaseClassRepository : IEFRepository<TPC_FkBaseClass, TPC_FkBaseClass>
+    {
+        [IntentManaged(Mode.Fully)]
+        Task<TPC_FkBaseClass?> FindByIdAsync((Guid CompositeKeyA, Guid CompositeKeyB) id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<TPC_FkBaseClass?> FindByIdAsync((Guid CompositeKeyA, Guid CompositeKeyB) id, Func<IQueryable<TPC_FkBaseClass>, IQueryable<TPC_FkBaseClass>> queryOptions, CancellationToken cancellationToken = default);
+    }
+}

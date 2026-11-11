@@ -1,0 +1,19 @@
+using EntityFrameworkCore.SqlServer.EF11.Domain.Associations;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface", Version = "1.0")]
+
+namespace EntityFrameworkCore.SqlServer.EF11.Domain.Repositories.Associations
+{
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    public interface IO_DestNameDiffRepository : IEFRepository<O_DestNameDiff, O_DestNameDiff>
+    {
+        [IntentManaged(Mode.Fully)]
+        Task<O_DestNameDiff?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<O_DestNameDiff?> FindByIdAsync(Guid id, Func<IQueryable<O_DestNameDiff>, IQueryable<O_DestNameDiff>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<O_DestNameDiff>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
+    }
+}

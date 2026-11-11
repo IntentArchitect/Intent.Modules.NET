@@ -247,5 +247,6 @@
     <application id="73e5d8aa-fba0-4efe-8945-609a652e0a2c" name="TestMediator.Consolidated" solutionFolder="Mediator" relativePath="TestMediator.Consolidated/TestMediator.Consolidated.application.config" />
     <application id="834e87e5-ed8e-4686-b1b0-1206369152a9" name="TestMediator.Quartz" solutionFolder="Mediator" relativePath="TestMediator.Quartz/TestMediator.Quartz.application.config" />
     <application id="a53de4b1-ff24-4892-a63f-8d16d66cebc9" name="TestMediator.Hangfire" solutionFolder="Mediator" relativePath="TestMediator.Hangfire/TestMediator.Hangfire.application.config" />
+    <application id="f0c7b7ca-19bb-4d6e-87d1-76e645baccea" name="EntityFrameworkCore.SqlServer.EF11" solutionFolder="Data Access/Entity Framework" relativePath="EntityFrameworkCore.SqlServer.EF11/EntityFrameworkCore.SqlServer.EF11.application.config" />
   </applications>
 </solution>

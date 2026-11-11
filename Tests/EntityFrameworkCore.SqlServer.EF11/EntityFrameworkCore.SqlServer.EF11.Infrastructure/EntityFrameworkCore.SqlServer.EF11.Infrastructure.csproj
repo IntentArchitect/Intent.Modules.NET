@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>1701,1702</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EntityFrameworkCore.SqlServer.EF11.Domain\EntityFrameworkCore.SqlServer.EF11.Domain.csproj" />
+    <ProjectReference Include="..\EntityFrameworkCore.SqlServer.EF11.Application\EntityFrameworkCore.SqlServer.EF11.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="11.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="11.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="11.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="11.0.0" />
+  </ItemGroup>
+  </Project>

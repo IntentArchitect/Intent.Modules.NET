@@ -1,0 +1,20 @@
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
+namespace EntityFrameworkCore.SqlServer.EF11.Domain.Associations
+{
+    public class G_RequiredCompositeNav
+    {
+        public G_RequiredCompositeNav()
+        {
+            ReqCompNavAttr = null!;
+        }
+
+        public Guid Id { get; set; }
+
+        public string ReqCompNavAttr { get; set; }
+
+        public virtual ICollection<G_MultipleDependent> G_MultipleDependents { get; set; } = [];
+    }
+}

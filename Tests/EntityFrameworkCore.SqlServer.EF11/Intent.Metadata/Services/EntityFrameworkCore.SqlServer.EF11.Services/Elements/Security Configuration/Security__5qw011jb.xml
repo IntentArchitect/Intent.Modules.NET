@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c94b0553-4735-4f53-ad4b-5162bbc8ce4b" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <parentFolderId>dd8c2582-db7d-47c5-b3f0-5bfbebc10e59</parentFolderId>
+  <packageId>dd8c2582-db7d-47c5-b3f0-5bfbebc10e59</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.EF11.Services</packageName>
+</class>

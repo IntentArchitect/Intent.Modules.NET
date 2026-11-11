@@ -1,0 +1,19 @@
+using EntityFrameworkCore.SqlServer.EF11.Domain.Associations;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Entities.Repositories.Api.EntityRepositoryInterface", Version = "1.0")]
+
+namespace EntityFrameworkCore.SqlServer.EF11.Domain.Repositories.Associations
+{
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    public interface IF_OptionalAggregateNavRepository : IEFRepository<F_OptionalAggregateNav, F_OptionalAggregateNav>
+    {
+        [IntentManaged(Mode.Fully)]
+        Task<F_OptionalAggregateNav?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<F_OptionalAggregateNav?> FindByIdAsync(Guid id, Func<IQueryable<F_OptionalAggregateNav>, IQueryable<F_OptionalAggregateNav>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<F_OptionalAggregateNav>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
+    }
+}

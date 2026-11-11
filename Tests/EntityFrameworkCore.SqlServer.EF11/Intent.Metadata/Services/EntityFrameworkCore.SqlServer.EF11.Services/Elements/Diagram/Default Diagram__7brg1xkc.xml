@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="aafa4d6a-6a15-48c9-b71d-ed32c30e407a" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>169f3801-8244-4b9e-ac2f-3eaede785048</externalReference>
+  <parentFolderId>dd8c2582-db7d-47c5-b3f0-5bfbebc10e59</parentFolderId>
+  <packageId>dd8c2582-db7d-47c5-b3f0-5bfbebc10e59</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.EF11.Services</packageName>
+  <diagram>
+    <targetPackageId>dd8c2582-db7d-47c5-b3f0-5bfbebc10e59</targetPackageId>
+  </diagram>
+</class>
