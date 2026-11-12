@@ -774,10 +774,10 @@ namespace Intent.Modules.Common.Drift
     }
 
     /// <summary>
-    /// The drift report, an MDX document: only what needs acting on, in up to two tables. Model and code drift: the
-    /// model element, the code file and what the drift is, one row per Wrong line. Warnings: kinds of fact with no recipe,
-    /// exceptions that match nothing, or the check being off. An empty table is left out. It has no timestamps. Whether
-    /// the recipes read the code is checked on demand, by the ValidateDriftRecipes module task (<see cref="RecipeValidation"/>).
+    /// What one designer's drift check found: one Wrong line per drift, kinds of fact with no recipe, exceptions that match
+    /// nothing, or the check being off. <see cref="HubMapping"/> adds it to the designer's Area of the application's drift
+    /// report. Whether the recipes read the code is checked on demand, by the ValidateDriftRecipes module task
+    /// (<see cref="RecipeValidation"/>).
     /// </summary>
     internal sealed class DriftReport
     {
@@ -837,170 +837,24 @@ namespace Intent.Modules.Common.Drift
 
 
         /// <summary>
-        /// The reports' folder: <c>.cache/guardrails/&lt;application&gt;</c> in the folder holding the solution's <c>.isln</c>,
-        /// which every Intent solution's own <c>.gitignore</c> ignores.
+        /// The check's folder, which holds its memory of the model (<c>&lt;Designer&gt;.model.json</c>):
+        /// <c>.cache/guardrails/&lt;application&gt;</c> in the folder holding the solution's <c>.isln</c>, which every Intent
+        /// solution's own <c>.gitignore</c> ignores.
         /// </summary>
         public static string FolderIn(string solutionFolder, string application) =>
             Path.GetFullPath(Path.Combine(solutionFolder, ".cache", "guardrails", application));
 
+        /// <summary>The drift lines, in the report's order: contradicted, unverifiable, undescribed, then missing.</summary>
+        public IReadOnlyList<Finding> Findings => _findings;
+
         public IReadOnlyList<string> WrongLines => _findings.Select(x => x.Line).ToList();
-
-        /// <summary>Whether the report has anything to act on: drift or a warning.</summary>
-        public bool NeedsAttention => IsOff || _findings.Count > 0 || NotChecked.Count > 0 || UnusedExceptions.Count > 0;
-
-        public string ToMarkdown()
-        {
-            var text = new StringBuilder();
-            text.Append("# ").Append(Designer).Append(" drift report\n\n");
-            if (_findings.Count > 0)
-            {
-                text.Append("## Model and code drift\n\n");
-                text.Append("| Model element | Code file | Drift |\n| --- | --- | --- |\n");
-                foreach (var finding in _findings)
-                {
-                    var row = finding.Row ?? new DriftRow(null, Array.Empty<string>(), finding.File, 0, finding.Line);
-                    text.Append("| ").Append(ElementCell(row)).Append(" | ").Append(FileCell(row)).Append(" | ").Append(Cell(row.Drift)).Append(" |\n");
-                }
-
-                text.Append('\n');
-            }
-
-            var warnings = new List<(string Warning, string Detail)>();
-            if (IsOff)
-            {
-                warnings.Add(("The check is off", $"`{RecipePath}` doesn't exist. Load the configure-drift-check skill to write it."));
-            }
-
-            warnings.AddRange(NotChecked.Select(x => ("No recipe", $"{x}: `{RecipePath}` has no recipe for it, so it isn't checked. Load the configure-drift-check skill to add one.")));
-            warnings.AddRange(UnusedExceptions.Select(x => ("Exception matches nothing", $"{x}: remove it from `{RecipePath}`.")));
-            if (warnings.Count > 0)
-            {
-                text.Append("## Warnings\n\n");
-                text.Append("| Warning | Detail |\n| --- | --- |\n");
-                foreach (var (warning, detail) in warnings)
-                {
-                    text.Append("| ").Append(warning).Append(" | ").Append(Cell(detail)).Append(" |\n");
-                }
-
-                text.Append('\n');
-            }
-
-            if (!NeedsAttention)
-            {
-                text.Append("No drift.\n");
-            }
-
-            return text.ToString().TrimEnd() + "\n";
-        }
 
         // The messages are plain text: the Software Factory's output shows Markdown as literal characters.
 
-        public string OffMessage(string reportPath) =>
-            $"The {Designer} drift check is off: {RecipePath} doesn't exist. Load the configure-drift-check skill to set it up. Report: {reportPath}";
-
-        /// <summary>The model element of each line that fails the run, in the report's order, when it is known (the attribute, not its class).</summary>
-        public IReadOnlyList<string> FailureElementIds =>
-            _findings.Select(x => x.Row?.ElementIds is { Count: > 0 } ids ? ids[^1] : null).Where(x => x != null).ToList();
-
-        /// <summary>
-        /// The run's one failure: how many drifts, and where the report is, in plain text (forward slashes, which a card's
-        /// Markdown leaves alone). On CI, where no report is written, the lines themselves instead, as a Markdown list.
-        /// </summary>
-        public string FailureMessage(string reportPath, bool listLines)
-        {
-            var summary = $"The {Designer} model and the code have drifted: {DriftCheck.Count(WrongLines.Count, "drift")} detected";
-            return listLines
-                ? $"{summary}:\n\n{string.Join("\n", WrongLines.Select(x => $"- {x}"))}"
-                : $"{summary} and listed in the drift report ({reportPath.Replace('\\', '/')}).";
-        }
-
-        public string NotCheckedMessage(string reportPath) =>
-            $"The {Designer} drift check doesn't check {DriftCheck.Count(NotChecked.Count, "kind")} of fact, which {RecipePath} has no recipe for: {string.Join(", ", NotChecked.Select(Plain))}. Load the configure-drift-check skill to add them. Report: {reportPath}";
-
-        public string UnusedExceptionsMessage(string reportPath) =>
-            $"{DriftCheck.Count(UnusedExceptions.Count, "exception")} in {RecipePath} {(UnusedExceptions.Count == 1 ? "matches" : "match")} nothing; remove {(UnusedExceptions.Count == 1 ? "it" : "them")}: {string.Join(", ", UnusedExceptions.Select(Plain))}. Report: {reportPath}";
+        public string OffMessage() =>
+            $"The {Designer} drift check is off: {RecipePath} doesn't exist. Load the configure-drift-check skill to set it up.";
 
         public string NoDriftMessage() =>
-            $"The {Designer} drift check found no drift in {DriftCheck.Count(FactCount, "fact")} and {DriftCheck.Count(TypeCount, "type")}{(NeedsAttention ? "." : ", so it wrote no report.")}";
-
-        public string PendingMessage() =>
-            $"The {Designer} drift check left {DriftCheck.Count(PendingCount, "difference")} to this run's changes: the model changed {(PendingCount == 1 ? "that type or member" : "those types or members")} since it last agreed with the code, so {(PendingCount == 1 ? "it isn't" : "they aren't")} checked until the changes are applied.";
-
-        private static string Plain(string line) => line.Replace("`", string.Empty);
-
-        /// <summary>
-        /// Live links to the model element and the elements it belongs to (<c>Order › Total</c>) when their ids are known,
-        /// else its name; a dash when the code isn't modelled.
-        /// </summary>
-        private string ElementCell(DriftRow row)
-        {
-            if (row.ElementIds is { Count: > 0 } && Application != null)
-            {
-                return string.Join(" › ", row.ElementIds.Select(id =>
-                    $"<ModelRef application=\"{Attribute(Application)}\" elementId=\"{Attribute(id)}\" designer=\"{Attribute(Designer)}\" />"));
-            }
-
-            return row.Element == null ? "—" : Cell($"`{row.Element}`");
-        }
-
-        /// <summary>A live link to the file and line; a file the model expects but the code doesn't have yet is marked added.</summary>
-        private static string FileCell(DriftRow row)
-        {
-            if (string.IsNullOrEmpty(row.Path))
-            {
-                return "—";
-            }
-
-            var path = Attribute(row.Path.Replace('\\', '/'));
-            return !row.FileExists ? $"<FileRef path=\"{path}\" change=\"added\" />"
-                : row.Line > 0 ? $"<FileRef path=\"{path}\" line={{{row.Line}}} />"
-                : $"<FileRef path=\"{path}\" />";
-        }
-
-        /// <summary>
-        /// A table cell's Markdown, safe in MDX: outside code spans a brace or an angle bracket would start JSX, so it is
-        /// written as an entity; a pipe would end the cell anywhere, so it is escaped.
-        /// </summary>
-        private static string Cell(string markdown)
-        {
-            var text = new StringBuilder();
-            var inCode = false;
-            foreach (var c in markdown ?? string.Empty)
-            {
-                switch (c)
-                {
-                    case '`':
-                        inCode = !inCode;
-                        text.Append(c);
-                        break;
-                    case '|':
-                        text.Append("\\|");
-                        break;
-                    case '\r':
-                    case '\n':
-                        text.Append(' ');
-                        break;
-                    case '{' when !inCode:
-                        text.Append("&#123;");
-                        break;
-                    case '}' when !inCode:
-                        text.Append("&#125;");
-                        break;
-                    case '<' when !inCode:
-                        text.Append("&lt;");
-                        break;
-                    case '>' when !inCode:
-                        text.Append("&gt;");
-                        break;
-                    default:
-                        text.Append(c);
-                        break;
-                }
-            }
-
-            return text.ToString();
-        }
-
-        private static string Attribute(string value) => value.Replace("&", "&amp;").Replace("\"", "&quot;");
+            $"The {Designer} drift check found no drift in {DriftCheck.Count(FactCount, "fact")} and {DriftCheck.Count(TypeCount, "type")}.";
     }
 }

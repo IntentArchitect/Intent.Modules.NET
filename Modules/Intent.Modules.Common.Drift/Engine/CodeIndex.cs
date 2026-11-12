@@ -296,7 +296,7 @@ namespace Intent.Modules.Common.Drift
             var starts = new int[tokens.Length];
             for (var i = 0; i < tokens.Length; i++)
             {
-                if (i > 0 && NeedsSpace(tokens[i - 1].Text, tokens[i].Text))
+                if (i > 0 && !InInterpolatedString(tokens[i - 1], tokens[i]) && NeedsSpace(tokens[i - 1].Text, tokens[i].Text))
                 {
                     text.Append(' ');
                 }
@@ -306,6 +306,18 @@ namespace Intent.Modules.Common.Drift
             }
 
             return new CodeText(file, text.ToString(), starts, tokens.Select(x => x.SpanStart).ToArray(), tokens);
+        }
+
+        /// <summary>
+        /// Whether two tokens meet inside an interpolated string, as its start, its text or its end do: its text is kept as
+        /// written, so <c>$"orders/{id}"</c> reads as it is and not <c>$" orders/{id}"</c>.
+        /// </summary>
+        private static bool InInterpolatedString(SyntaxToken previous, SyntaxToken next)
+        {
+            return previous.Kind() is SyntaxKind.InterpolatedStringStartToken or SyntaxKind.InterpolatedVerbatimStringStartToken
+                       or SyntaxKind.InterpolatedSingleLineRawStringStartToken or SyntaxKind.InterpolatedMultiLineRawStringStartToken
+                       or SyntaxKind.InterpolatedStringTextToken ||
+                   next.Kind() is SyntaxKind.InterpolatedStringTextToken or SyntaxKind.InterpolatedStringEndToken or SyntaxKind.InterpolatedRawStringEndToken;
         }
 
         public static CodeText OfPlainText(CodeFile file)

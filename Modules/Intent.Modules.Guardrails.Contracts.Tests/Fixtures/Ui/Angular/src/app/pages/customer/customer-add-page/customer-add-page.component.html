@@ -1,0 +1,6 @@
+<h1>Add Customer</h1>
+<form (ngSubmit)="createCustomer()">
+  <input matInput name="name" [(ngModel)]="model.name" required>
+  <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">Save</button>
+  <button mat-button type="button" (click)="navigateToCustomerListPage()">Cancel</button>
+</form>

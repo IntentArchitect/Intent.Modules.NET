@@ -53,7 +53,8 @@ function riskyGit(args) {
     }
     return { gate, review };
 }
-const DRIFT_ERROR = /The (\w+) model and the code have drifted: (\d+) drifts? detected/g;
+// Each designer's counts in the drift report hub's one drift error (Intent.Common.DriftReporting), e.g. "- Drift in Domain: 3 errors, 1 warning".
+const DRIFT_ERROR = /Drift in ([^:\n]+): (\d+) errors?/g;
 // Never part of a plant or of the agent's work: the eval tool's repository config, the OpenAPI documents every
 // build of Catalog.API rewrites, and the built-in rules and skills Intent Architect itself rewrites in .claude when
 // it opens a solution (the dev instance's copies differ from the ones the baseline was made with).
@@ -476,9 +477,10 @@ function analyzeRepeat(c, criteria, outDir, artifactsDir, opts) {
     }
     if (forbiddenGit.length) flags.push(...forbiddenGit.map(g => `ran \`${g}\`, which can lose work the agent didn't make`));
     if (reviewGit.length) flags.push(...reviewGit.map(g => `ran \`${g}\` (discards only its own uncommitted edits; for review)`));
-    if (m.solutionDir) for (const f of findFiles(path.join(m.solutionDir, "intent", ".cache", "guardrails"), n => /DriftReport\.mdx$/.test(n))) {
+    // The application's one drift report (intent/.cache/drift/<application>/DriftReport.mdx), named after its application.
+    if (m.solutionDir) for (const f of findFiles(path.join(m.solutionDir, "intent", ".cache", "drift"), n => /DriftReport\.mdx$/.test(n))) {
         fs.mkdirSync(artifactsDir, { recursive: true });
-        fs.copyFileSync(f, path.join(artifactsDir, path.basename(f)));
+        fs.copyFileSync(f, path.join(artifactsDir, `${path.basename(path.dirname(f))}.DriftReport.mdx`));
     }
     const hashes = m.solutionDir ? moduleHashes(m.solutionDir, opts.modules) : [];
     if (m.solutionDir && !opts.keep) dropBuildOutput(m.solutionDir);

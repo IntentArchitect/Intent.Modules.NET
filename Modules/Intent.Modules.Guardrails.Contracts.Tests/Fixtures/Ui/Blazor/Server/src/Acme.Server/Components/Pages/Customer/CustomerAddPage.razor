@@ -1,0 +1,20 @@
+@page "/customer/customer-add-page"
+@attribute [Authorize(Policy = "CanManageCustomers")]
+
+<MudText Typo="Typo.h4">Add Customer</MudText>
+
+@code {
+    [Inject]
+    public IScopedMediator Mediator { get; set; } = default!;
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; } = default!;
+
+    public string Name { get; set; } = string.Empty;
+
+    private async Task SaveAsync()
+    {
+        await Mediator.Send(new CreateCustomerCommand(name: Name));
+        NavigationManager.NavigateTo("customer/list");
+    }
+}

@@ -308,7 +308,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 RecipeJson = "{}",
                 Code = new CodeFiles(new Dictionary<string, string> { [Path] = onDisk }),
                 Facts = Array.Empty<ModelFact>(),
-                Generated = new[] { new GeneratedFile { RelativePath = Path, Text = file.ToString(), ModellableTypes = DriftReportRunner.ModellableTypes(file) } }
+                Generated = new[] { new GeneratedFile { RelativePath = Path, Text = file.ToString(), ModellableTypes = DriftCheckRunner.ModellableTypes(file) } }
             });
 
             // No row for a primary constructor, a Service's or proxy's property, a command's method or anything on a handler.
@@ -354,7 +354,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             """;
 
             var report = Check("Domain", "{}", new List<ModelFact>(), new Dictionary<string, string> { [Path] = onDisk },
-                new[] { new GeneratedFile { RelativePath = Path, Text = file.ToString(), ModellableTypes = DriftReportRunner.ModellableTypes(file) } });
+                new[] { new GeneratedFile { RelativePath = Path, Text = file.ToString(), ModellableTypes = DriftCheckRunner.ModellableTypes(file) } });
 
             // No row for the repository's primary constructor or property, or the value object's method.
             report.WrongLines.ShouldBe(new[]
@@ -375,7 +375,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             file.Interfaces[0].AddMetadata(Modellable.MetadataKey, repository);
             file.Enums[0].AddMetadata(Modellable.MetadataKey, status);
 
-            var read = DriftReportRunner.ModellableTypes(file);
+            var read = DriftCheckRunner.ModellableTypes(file);
 
             read.Count.ShouldBe(3);
             read["Order"].ShouldBeSameAs(order);

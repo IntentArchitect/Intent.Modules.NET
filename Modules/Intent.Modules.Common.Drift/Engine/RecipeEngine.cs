@@ -163,7 +163,8 @@ namespace Intent.Modules.Common.Drift
     internal static class Placeholders
     {
         private static readonly Regex Pattern = new(@"(?<!\\)\{(?<name>[A-Z][A-Za-z]*)(?<filters>(?:\|[A-Za-z]+(?::[^|}]*)?)*)\}", RegexOptions.CultureInvariant);
-        private static readonly HashSet<string> Filters = new(StringComparer.Ordinal) { "lower", "upper", "camel", "pascal", "trimStart", "trimEnd" };
+        private static readonly HashSet<string> Filters = new(StringComparer.Ordinal) { "lower", "upper", "camel", "pascal", "kebab", "trimStart", "trimEnd", "replace" };
+        private const string FilterList = "lower, upper, camel, pascal, kebab, trimStart:<text>, trimEnd:<text>, replace:<text>:<with>";
 
         /// <summary>The problem with the template's placeholders, or <see langword="null"/>.</summary>
         public static string Validate(string template, IReadOnlyCollection<string> allowed)
@@ -180,7 +181,12 @@ namespace Intent.Modules.Common.Drift
                 {
                     if (!Filters.Contains(filter.Name))
                     {
-                        return $"'{filter.Name}' in {match.Value} isn't a filter (filters: lower, upper, camel, pascal, trimStart:<text>, trimEnd:<text>)";
+                        return $"'{filter.Name}' in {match.Value} isn't a filter (filters: {FilterList})";
+                    }
+
+                    if (filter.Name == "replace" && filter.Argument.IndexOf(':') <= 0)
+                    {
+                        return $"'replace' in {match.Value} needs the text and what replaces it, as replace:<text>:<with>";
                     }
                 }
             }
@@ -220,10 +226,24 @@ namespace Intent.Modules.Common.Drift
             "upper" => value.ToUpperInvariant(),
             "camel" => value.Length == 0 ? value : char.ToLowerInvariant(value[0]) + value[1..],
             "pascal" => value.Length == 0 ? value : char.ToUpperInvariant(value[0]) + value[1..],
+            "kebab" => Kebab(value),
             "trimStart" => argument.Length > 0 && value.StartsWith(argument, StringComparison.Ordinal) ? value[argument.Length..] : value,
             "trimEnd" => argument.Length > 0 && value.EndsWith(argument, StringComparison.Ordinal) ? value[..^argument.Length] : value,
+            "replace" => argument.IndexOf(':') is var colon and > 0 ? value.Replace(argument[..colon], argument[(colon + 1)..], StringComparison.Ordinal) : value,
             _ => value
         };
+
+        /// <summary>
+        /// <c>CustomerAddPage</c> as <c>customer-add-page</c>, the way Intent's own <c>ToKebabCase</c> (Humanizer's
+        /// <c>Kebaberize</c>) words it: a run of capitals ends one word before the capital that starts the next
+        /// (<c>HTMLParser</c> is <c>html-parser</c>), a digit stays with the word before it, and an underscore or space is a hyphen.
+        /// </summary>
+        private static string Kebab(string value)
+        {
+            var words = Regex.Replace(value, @"(\p{Lu}+)(\p{Lu}\p{Ll})", "$1-$2");
+            words = Regex.Replace(words, @"([\p{Ll}\d])(\p{Lu})", "$1-$2");
+            return Regex.Replace(words, @"[_\s]", "-").ToLowerInvariant();
+        }
 
         private static IEnumerable<(string Name, string Argument)> ParseFilters(string filters)
         {
@@ -1303,8 +1323,9 @@ namespace Intent.Modules.Common.Drift
         }
 
         /// <summary>
-        /// One unit to read: a single place, or the partial declarations of one type. Anything else is ambiguous
-        /// (<see langword="null"/>).
+        /// One unit to read: a single place, the partial declarations of one type, or the files of one component (whole
+        /// files in one folder whose names are the same up to their first dot, such as <c>Checkout.razor</c> and
+        /// <c>Checkout.razor.cs</c>). Anything else is ambiguous (<see langword="null"/>).
         /// </summary>
         private static IReadOnlyList<CodeHit> AsOneUnit(IReadOnlyList<CodeHit> hits)
         {
@@ -1319,7 +1340,20 @@ namespace Intent.Modules.Common.Drift
                 return hits;
             }
 
+            if (hits.All(x => x.Node is null or CompilationUnitSyntax) && hits.Select(x => NameStem(x.File.RelativePath)).Distinct(StringComparer.OrdinalIgnoreCase).Count() == 1)
+            {
+                return hits;
+            }
+
             return null;
+        }
+
+        /// <summary>A file's folder and its name up to the first dot: <c>Pages/Checkout</c> for <c>Pages/Checkout.razor.cs</c>.</summary>
+        private static string NameStem(string relativePath)
+        {
+            var name = relativePath[(relativePath.LastIndexOf('/') + 1)..];
+            var dot = name.IndexOf('.');
+            return dot > 0 ? relativePath[..^(name.Length - dot)] : relativePath;
         }
 
         private IReadOnlyList<CodeHit> Find(

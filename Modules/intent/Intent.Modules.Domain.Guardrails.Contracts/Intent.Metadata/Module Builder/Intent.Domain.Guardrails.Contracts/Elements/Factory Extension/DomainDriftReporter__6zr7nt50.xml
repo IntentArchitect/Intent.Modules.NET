@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7cd32a65-8260-40fe-83de-24a0d10a6277" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <comment>Contributes the Domain designer to the drift check: a drift reporter (Intent.Common.DriftReporting) that runs the shared check after template execution and adds its findings to the drift report's Domain Area.</comment>
+  <name>DomainDriftReporter</name>
+  <display>DomainDriftReporter</display>
+  <parentFolderId>11aae230-6dfe-414e-bf5f-18280aad6ae2</parentFolderId>
+  <packageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</packageId>
+  <packageName>Intent.Domain.Guardrails.Contracts</packageName>
+</class>

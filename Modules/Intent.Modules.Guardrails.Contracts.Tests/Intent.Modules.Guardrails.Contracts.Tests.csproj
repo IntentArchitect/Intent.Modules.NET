@@ -22,6 +22,7 @@
     <ProjectReference Include="..\Intent.Modules.Common.Drift\Intent.Modules.Common.Drift.csproj" />
     <ProjectReference Include="..\Intent.Modules.Domain.Guardrails.Contracts\Intent.Modules.Domain.Guardrails.Contracts.csproj" />
     <ProjectReference Include="..\Intent.Modules.Services.Guardrails.Contracts\Intent.Modules.Services.Guardrails.Contracts.csproj" />
+    <ProjectReference Include="..\Intent.Modules.UI.Guardrails.Contracts\Intent.Modules.UI.Guardrails.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>

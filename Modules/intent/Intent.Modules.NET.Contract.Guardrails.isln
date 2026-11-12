@@ -6,12 +6,16 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.cache/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.2.19" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.2.20" />
   <applications>
     <application id="5b7f0f29-ed8a-419c-83ba-43d51a5acddb" name="ModuleBuilderAiSkills" relativePath="../ModuleBuilderAiSkills/ModuleBuilderAiSkills.application.config" />
     <application id="869625ba-a8d7-4cb8-86df-9e75414b4276" name="Intent.Modules.Domain.Guardrails.Contracts" relativePath="Intent.Modules.Domain.Guardrails.Contracts/Intent.Modules.Domain.Guardrails.Contracts.application.config" />
     <application id="37e88672-a6b1-4352-a6bd-c0bb275fbb45" name="Intent.Modules.Services.Guardrails.Contracts" relativePath="Intent.Modules.Services.Guardrails.Contracts/Intent.Modules.Services.Guardrails.Contracts.application.config" />
     <application id="d751d77e-dd44-4a5f-9925-eb358b35c46f" name="Intent.Modules.Common.Drift" relativePath="Intent.Modules.Common.Drift/Intent.Modules.Common.Drift.application.config" />
+    <application id="62d69640-0b7f-4422-9a2f-579c3b06e5e7" name="Intent.Modules.UI.Guardrails.Contracts" relativePath="Intent.Modules.UI.Guardrails.Contracts/Intent.Modules.UI.Guardrails.Contracts.application.config" />
   </applications>
   <workspaceRoot>..</workspaceRoot>
+  <folders>
+    <folder path="../../../Spikes/Samples.eShop.Demo.Java" />
+  </folders>
 </solution>

@@ -7,6 +7,7 @@ using Intent.Configuration;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modules.Common.Drift;
+using Intent.Modules.Common.DriftReporting.Api;
 using Intent.Modules.Common.FileBuilders;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Templates;
@@ -22,22 +23,25 @@ using CoreTemplates = Intent.Modules.Common.Drift.Templates;
 using DomainDesigner = Intent.Modelers.Domain.Api.ApiMetadataDesignerExtensions;
 using DomainDrift = Intent.Modules.Domain.Guardrails.Contracts.Drift.DomainDrift;
 using DomainEnumContractTemplate = Intent.Modules.Domain.Guardrails.Contracts.Templates.EnumContract.EnumContractTemplate;
-using DomainReportTemplate = Intent.Modules.Domain.Guardrails.Contracts.Templates.DriftReport.DriftReportTemplate;
+using DomainReporter = Intent.Modules.Domain.Guardrails.Contracts.FactoryExtensions.DomainDriftReporter;
 using DomainTask = Intent.Modules.Domain.Guardrails.Contracts.Tasks.ValidateDriftRecipes;
 using ServicesDesigner = Intent.Modelers.Services.Api.ApiMetadataDesignerExtensions;
 using ServicesDrift = Intent.Modules.Services.Guardrails.Contracts.Drift.ServicesDrift;
-using ServicesReportTemplate = Intent.Modules.Services.Guardrails.Contracts.Templates.DriftReport.DriftReportTemplate;
+using ServicesReporter = Intent.Modules.Services.Guardrails.Contracts.FactoryExtensions.ServicesDriftReporter;
 using ServicesTask = Intent.Modules.Services.Guardrails.Contracts.Tasks.ValidateDriftRecipes;
+using UiDrift = Intent.Modules.UI.Guardrails.Contracts.Drift.UiDrift;
+using UiReporter = Intent.Modules.UI.Guardrails.Contracts.FactoryExtensions.UiDriftReporter;
+using UiTask = Intent.Modules.UI.Guardrails.Contracts.Tasks.ValidateDriftRecipes;
 
 namespace Intent.Modules.Guardrails.Contracts.Tests
 {
     /// <summary>
     /// What a consumer sees, rendered and compared with the files in <c>Fixtures/Golden</c>: the rule and skills for each
-    /// combination of installed Guardrails designers (the files each writes, and their text), each drift report template's
-    /// report and log, and each ValidateDriftRecipes task's JSON. The files were captured before the drift check moved into
-    /// its own module, and prove that the move changed none of it. Set <c>GUARDRAILS_GOLDEN=update</c> to rewrite them.
+    /// combination of installed Guardrails designers (the files each writes, and their text), what each designer's drift
+    /// check adds to its Area of the drift report (and logs), and each ValidateDriftRecipes task's JSON. Set
+    /// <c>GUARDRAILS_GOLDEN=update</c> to rewrite them.
     /// </summary>
-    [Collection(nameof(DriftReportTemplateTests))]
+    [Collection(nameof(GlobalStateCollection))]
     public sealed class GoldenTests : IDisposable
     {
         private const string DomainRecipe = """
@@ -69,11 +73,10 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
         private readonly string _root = Path.Combine(Path.GetTempPath(), $"guardrails-golden-{Guid.NewGuid():N}");
         private readonly ITracing _tracing = Substitute.For<ITracing>();
-        private readonly string _tfBuild = Environment.GetEnvironmentVariable("TF_BUILD");
+        private readonly ITracing _previousTracing = Logging.Log;
 
         public GoldenTests()
         {
-            Environment.SetEnvironmentVariable("TF_BUILD", null);
             Directory.CreateDirectory(Path.Combine(_root, "guardrails"));
             Directory.CreateDirectory(Path.Combine(_root, "src", "Domain"));
             Directory.CreateDirectory(Path.Combine(_root, "src", "Infrastructure"));
@@ -101,17 +104,30 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
         public void Dispose()
         {
-            Environment.SetEnvironmentVariable("TF_BUILD", _tfBuild);
+            Logging.SetTracing(_previousTracing);
             Directory.Delete(_root, recursive: true);
         }
 
-        [Theory]
-        [InlineData("both", true, true)]
-        [InlineData("domain", true, false)]
-        [InlineData("services", false, true)]
-        public void The_rule_and_skills_are_as_captured(string install, bool domain, bool services)
+        private const string UiRecipe = """
         {
-            var rendered = RenderGuidance(domain, services);
+          "facts": {
+            "component.kind": { "find": "file:**/{Component}.razor*", "read": [{ "match": "@page\"", "value": "Page" }], "default": "Component" },
+            "page.route": { "find": "file:**/{Component}.razor*", "read": [{ "match": "@page\"/?([^\"]*)\"" }], "default": "" },
+            "security": { "find": "file:**/{Component}.razor*", "read": [{ "match": "\\[Authorize\\b", "value": "Secured" }], "default": "None" }
+          },
+          "own": [{ "kind": "page", "find": "file with @page\"", "files": "src/Web/**/*.razor" }]
+        }
+        """;
+
+        [Theory]
+        [InlineData("both", true, true, false)]
+        [InlineData("domain", true, false, false)]
+        [InlineData("services", false, true, false)]
+        [InlineData("ui", false, false, true)]
+        [InlineData("all", true, true, true)]
+        public void The_rule_and_skills_are_as_captured(string install, bool domain, bool services, bool ui)
+        {
+            var rendered = RenderGuidance(domain, services, ui);
 
             rendered.Keys.ShouldBe(new[]
             {
@@ -125,7 +141,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         }
 
         [Fact]
-        public void The_Domain_drift_report_and_its_log_are_as_captured()
+        public void The_Domain_drift_findings_and_log_are_as_captured()
         {
             var package = Package();
             var status = Element(package, "Enum", "OrderStatus");
@@ -137,22 +153,49 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
             var enumTemplate = new DomainEnumContractTemplate(outputTarget, new EnumModel(status));
             enumTemplate.ConfigureFileMetadata(FileMetadata("OrderStatus", "cs", Path.Combine(_root, "src", "Domain")));
-            var report = new DomainReportTemplate(outputTarget);
-            report.ShouldBeAssignableTo<IDriftDesignerSource>().Designer.ShouldBeSameAs(DomainDrift.Designer);
+            var reporter = new DomainReporter();
+            reporter.Designer.ShouldBeSameAs(DomainDrift.Designer);
 
-            ShouldMatchGolden("Reports/Domain.mdx", Run(context, outputTarget, report, "DomainDriftReport", enumTemplate));
-            ShouldMatchGolden("Reports/Domain.log", Log());
+            ShouldMatchGolden("Findings/Domain.txt", Run(context, outputTarget, reporter, enumTemplate));
         }
 
         [Fact]
-        public void The_Services_drift_report_and_its_log_are_as_captured()
+        public void The_Services_drift_findings_and_log_are_as_captured()
         {
             var (context, outputTarget) = Build(ServicesDesigner.ServicesDesignerId, ServicesPackage());
-            var report = new ServicesReportTemplate(outputTarget);
-            report.ShouldBeAssignableTo<IDriftDesignerSource>().Designer.ShouldBeSameAs(ServicesDrift.Designer);
+            var reporter = new ServicesReporter();
+            reporter.Designer.ShouldBeSameAs(ServicesDrift.Designer);
 
-            ShouldMatchGolden("Reports/Services.mdx", Run(context, outputTarget, report, "ServicesDriftReport"));
-            ShouldMatchGolden("Reports/Services.log", Log());
+            ShouldMatchGolden("Findings/Services.txt", Run(context, outputTarget, reporter));
+        }
+
+        [Fact]
+        public void The_UI_drift_findings_and_log_are_as_captured()
+        {
+            WriteUiCode();
+            var (context, outputTarget) = Build(UiDrift.Designer.DesignerId, UiPackage());
+            var reporter = new UiReporter();
+            reporter.Designer.ShouldBeSameAs(UiDrift.Designer);
+
+            ShouldMatchGolden("Findings/UI.txt", Run(context, outputTarget, reporter));
+        }
+
+        [Fact]
+        public void The_UI_ValidateDriftRecipes_task_returns_the_JSON_captured()
+        {
+            WriteUiCode();
+            var (solution, metadata) = TaskHost(UiDrift.Designer.DesignerId, UiPackage());
+            var task = new UiTask(solution, metadata);
+
+            task.TaskTypeId.ShouldBe("Intent.UI.Guardrails.Contracts.ValidateDriftRecipes");
+            var results = new[]
+            {
+                task.Execute(JsonSerializer.Serialize(new { applicationId = Fakes.ApplicationId })),
+                task.Execute(JsonSerializer.Serialize(new { applicationId = Fakes.ApplicationId, element = "Checkout" })),
+                task.Execute(JsonSerializer.Serialize(new { applicationId = Fakes.ApplicationId, fact = "table.name" }))
+            };
+
+            ShouldMatchGolden("Tasks/ValidateDriftRecipes.UI.txt", string.Join("\n", results.Select(x => x.Replace(_root, "<root>").Replace(_root.Replace('\\', '/'), "<root>"))) + "\n");
         }
 
         [Fact]
@@ -184,12 +227,11 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
         /// <summary>
         /// The rule and skills for an application with the given Guardrails designers, as the Software Factory would write
-        /// them: the drift module's guidance templates are registered beside a template contributing each designer (listed
-        /// in reverse, as registration order isn't theirs), and those that can run write their file, keyed by its path under
-        /// the template's output (no two may write the same path). That each Guardrails module's report template is the
-        /// contribution is checked with its report.
+        /// them: each designer's drift reporter registers with the run's drift checks (in reverse, as registration order isn't
+        /// theirs), and the drift module's guidance templates that can run write their file, keyed by its path under the
+        /// template's output (no two may write the same path).
         /// </summary>
-        private static IReadOnlyDictionary<string, string> RenderGuidance(bool domain, bool services)
+        private static IReadOnlyDictionary<string, string> RenderGuidance(bool domain, bool services, bool ui)
         {
             var context = GuidanceContext();
             var outputTarget = Substitute.For<IOutputTarget>();
@@ -203,13 +245,13 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 new CoreTemplates.ConfigureDriftCheckSkill.ConfigureDriftCheckSkillTemplate(outputTarget),
                 new CoreTemplates.ValidateDriftRecipesSkill.ValidateDriftRecipesSkillTemplate(outputTarget)
             };
-            var contributions = new[] { (services, ServicesDrift.Designer), (domain, DomainDrift.Designer) }
+            var reporters = new (bool, DriftReporterBase)[] { (ui, new UiReporter()), (services, new ServicesReporter()), (domain, new DomainReporter()) }
                 .Where(x => x.Item1)
-                .Select(x => Contribution(x.Item2))
-                .Concat(templates)
-                .ToList();
+                .Select(x => x.Item2)
+                .ToArray();
+            DriftHub.Register(context, reporters);
 
-            outputTarget.TemplateInstances.Returns(contributions);
+            outputTarget.TemplateInstances.Returns(templates.Cast<ITemplate>().ToList());
             context.OutputTargets.Returns(new[] { outputTarget });
             FileBuilderHelper.PerformConfiguration(context, isForAfterBuild: false);
             FileBuilderHelper.PerformConfiguration(context, isForAfterBuild: true);
@@ -225,23 +267,17 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             return result;
         }
 
-        private static ITemplate Contribution(DriftDesigner designer)
-        {
-            var template = Substitute.For<ITemplate, IDriftDesignerSource>();
-            ((IDriftDesignerSource)template).Designer.Returns(designer);
-            return template;
-        }
-
-        private static ISoftwareFactoryExecutionContext GuidanceContext()
+        private static IApplication GuidanceContext()
         {
             var solution = Substitute.For<ISolutionConfig>();
             solution.SolutionRootLocation.Returns(Path.Combine(Path.GetPathRoot(Path.GetTempPath()), "Repos", "Acme", "intent") + Path.DirectorySeparatorChar);
             var application = Substitute.For<IApplicationConfig>();
             application.Name.Returns("Acme");
-            var context = Substitute.For<ISoftwareFactoryExecutionContext>();
+            var context = Substitute.For<IApplication>();
             context.ReturnsForAll<ITemplate>((ITemplate)null);
             context.GetSolutionConfig().Returns(solution);
             context.GetApplicationConfig().Returns(application);
+            context.EventDispatcher.Returns(DriftHub.Dispatcher());
             return context;
         }
 
@@ -255,7 +291,27 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             return package;
         }
 
-        private (ISoftwareFactoryExecutionContext Context, IOutputTarget OutputTarget) Build(string designerId, Intent.Metadata.Models.IPackage package)
+        /// <summary>
+        /// A UI package with one secured page whose route the code has changed, beside a page the model doesn't have: the
+        /// UI recipe file, and the pages' Razor files.
+        /// </summary>
+        private static Intent.Metadata.Models.IPackage UiPackage()
+        {
+            var package = Package();
+            var checkout = Element(package, "Component", "Checkout", Stereotype("Page", ("Route", "/checkout")), Stereotype("Secured", ("Roles", ""), ("Policy", "")));
+            checkout.SpecializationTypeId.Returns("b1c481e1-e91e-4c29-9817-00ab9cad4b6b");
+            return package;
+        }
+
+        private void WriteUiCode()
+        {
+            Directory.CreateDirectory(Path.Combine(_root, "src", "Web", "Pages"));
+            File.WriteAllText(Path.Combine(_root, "guardrails", "ui.drift.json"), UiRecipe);
+            File.WriteAllText(Path.Combine(_root, "src", "Web", "Pages", "Checkout.razor"), "@page \"/basket/checkout\"\n@attribute [Authorize]\n<h1>Checkout</h1>\n");
+            File.WriteAllText(Path.Combine(_root, "src", "Web", "Pages", "Promotions.razor"), "@page \"/promotions\"\n<h1>Promotions</h1>\n");
+        }
+
+        private (IApplication Context, IOutputTarget OutputTarget) Build(string designerId, Intent.Metadata.Models.IPackage package)
         {
             var config = Substitute.For<IApplicationConfig>();
             config.Id.Returns(Fakes.ApplicationId);
@@ -269,11 +325,12 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             var solution = Substitute.For<ISolutionConfig>();
             solution.SolutionRootLocation.Returns(Path.Combine(_root, "intent"));
 
-            var context = Substitute.For<ISoftwareFactoryExecutionContext>();
+            var context = Substitute.For<IApplication>();
             context.ReturnsForAll<ITemplate>((ITemplate)null);
             context.GetApplicationConfig().Returns(config);
             context.GetSolutionConfig().Returns(solution);
             context.MetadataManager.Returns(metadata);
+            context.OutputRootDirectory.Returns(_root);
 
             var outputTarget = Substitute.For<IOutputTarget>();
             outputTarget.ExecutionContext.Returns(context);
@@ -284,17 +341,21 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             return (context, outputTarget);
         }
 
-        private string Run(ISoftwareFactoryExecutionContext context, IOutputTarget outputTarget, MarkdownBaseTemplate<object> report, string fileName, params ITemplate[] contracts)
+        /// <summary>
+        /// The designer's drift check, as its reporter runs it once every template has been built: each Area it adds, with its
+        /// declared categories, findings and notes (<see cref="DriftFindings"/>), then everything the run logged.
+        /// </summary>
+        private string Run(IApplication context, IOutputTarget outputTarget, DesignerDriftReporter reporter, params ITemplate[] contracts)
         {
-            report.ConfigureFileMetadata(FileMetadata(fileName, "mdx", Path.GetFullPath(Path.Combine(outputTarget.Location, report.GetTemplateFileConfig().LocationInProject))));
-            outputTarget.TemplateInstances.Returns(contracts.Append(report).ToList());
+            outputTarget.TemplateInstances.Returns(contracts.ToList());
             context.OutputTargets.Returns(new[] { outputTarget });
-
-            report.CanRunTemplate().ShouldBeTrue();
             FileBuilderHelper.PerformConfiguration(context, isForAfterBuild: false);
             FileBuilderHelper.PerformConfiguration(context, isForAfterBuild: true);
-            report.CanRunTemplate().ShouldBeTrue("the report needs attention");
-            return report.TransformText().Replace("\r\n", "\n");
+
+            var drift = new RecordingDriftContext(context);
+            DriftCheckRunner.Report(drift, reporter.Designer);
+            var lines = drift.Areas.SelectMany(x => x.Snapshot(_root).Prepend($"area: {x.Name} ({string.Join(", ", x.Checks.OrderBy(c => c))})"));
+            return string.Concat(lines.Select(x => x.Replace(_root, "<root>").Replace(_root.Replace('\\', '/'), "<root>") + "\n")) + "log:\n" + Log();
         }
 
         /// <summary>Everything the run logged, one line each, with this test's folder written as <c>&lt;root&gt;</c>.</summary>

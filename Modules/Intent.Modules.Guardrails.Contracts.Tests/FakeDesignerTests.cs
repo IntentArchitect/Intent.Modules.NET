@@ -139,7 +139,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             configure.ShouldContain("| `ui.label` | label | `{Component}` | the label exactly as modelled | A component's `Label` → `Text`. |");
             configure.ShouldContain("- `{Component}`: the component's name.");
             configure.ShouldContain("| Ui | Razor components | `.razor` files | [references/razor.md](references/razor.md) |");
-            configure.ShouldContain("`intent/.cache/guardrails/Acme/UiDriftReport.mdx`");
+            configure.ShouldContain("Each designer is an Area of the drift report (`intent/.cache/drift/Acme/DriftReport.mdx`");
             configure.ShouldNotContain("domain.drift.json");
             configure.ShouldNotContain("services.drift.json");
 

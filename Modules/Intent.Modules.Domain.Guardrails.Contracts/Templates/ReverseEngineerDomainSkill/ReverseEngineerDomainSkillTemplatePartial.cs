@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Drift;
+using Intent.Modules.Common.DriftReporting.Api;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Domain.Guardrails.Contracts.Drift;
@@ -271,7 +272,7 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
    - one `PackageReference Intent.RoslynWeaver.Attributes` per csproj
    - and formatting from RoslynWeaver's Auto Format, anywhere in the file (step 5).
 
-   The only other exception is an equivalent type rewrite the user accepts (step 4). While there is drift, a run also lists the drift report, `<<DriftReport>>` (in the solution's git-ignored `.cache` folder), as a new file; it isn't code and needs no review. Until step 8, its drift lines fail the run, so the Software Factory applies nothing by itself (step 6 applies by path anyway). They aren't for step 2; read its "isn't modelled" rows as a second view of what is still missing.
+   The only other exception is an equivalent type rewrite the user accepts (step 4). While there is drift, a run also lists the drift report, `<<DriftReport>>` (in the solution's git-ignored `.cache` folder), as a new file; it isn't code and needs no review. Until step 8, the drift in its Domain Area fails the run, so the Software Factory applies nothing by itself (step 6 applies by path anyway). They aren't for step 2; read its "isn't modelled" rows as a second view of what is still missing.
 2. **Diagnose anything else:**
    - **`create`** means a path or name mismatch. Fix the folder, Template Output location or element name, or add `File Config` for a type that lives in another file or a differently named one. Never apply it.
    - **Inserted members** mean the model has something the code doesn't (wrong name, type or nullability). Fix the model.
@@ -320,7 +321,7 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
    - **An ambiguous name after adoption** (CS0104, e.g. `Order` from two namespaces the global usings import): add a using alias for the type the file means at the top of the file (`using Order = eShop.Ordering.Domain.AggregatesModel.OrderAggregate.Order;`). An alias outranks every namespace import, global ones included, and later runs keep it. Don't leave the file unadopted.
 8. **Finish the drift check (required).** §1 wrote `guardrails/domain.drift.json`, so every run already compares the Domain model's database facts, and the types the Guardrails templates generate, with the code. Load **configure-drift-check** and do its steps 4 to 8 for the Domain designer: fix the recipes until no fact is reported as can't be verified (a kind of fact with no recipe, or a style §1 missed) and validate-drift-recipes shows every recipe reading the code, then resolve the rest. Save the designer first: the check reads the saved model.
    - No recipe file (the adoption began before §1 wrote one): do all of configure-drift-check's steps.
-   - The adoption isn't finished until a run finds no drift and no warnings, so it writes no `<<DriftReport>>`, and the user has approved the model changes (configure-drift-check's step 8). Skip that approval when an orchestrating skill's **User decision** says so.
+   - The adoption isn't finished until a run finds no drift and no warnings, so the drift report, `<<DriftReport>>`, has no findings in its Domain Area (or no report is staged at all), and the user has approved the model changes (configure-drift-check's step 8). Skip that approval when an orchestrating skill's **User decision** says so.
    - A contradiction it finds is a recipe misreading the code, a modelling slip or real drift. Check the code at its location first (configure-drift-check's step 6): fix a recipe that misreads it, and otherwise fix the model to match the code, never the code. Where the code looks wrong, say so in the final report; setting up the check never changes the code. A fact the model can't state the way the code does (e.g. a fixed-length `char` column, which `Text Constraints` can't express) is modelled with `Column` → `Type` instead.
    - Code the model doesn't describe (e.g. a generic repository's methods, an unmodelled `Entity<T>` configuration): model what §3 should have covered; add an exception for helpers and plumbing, asking the user about anything that isn't clearly one.
 
@@ -330,7 +331,7 @@ Follow **changing-the-model** → diagram layout. Snowflake pattern around the m
 - **Concurrent edits.** The user may be editing the model while you work. Elements you didn't create (new classes, attributes, changed multiplicities) are theirs. Don't modify them and don't apply their generated output. Report them instead.
 - **No hand edits.** Beyond the merge directives and a using alias for an ambiguous name (§6 step 7), never hand-edit adopted files to make the diff clean, and never turn off Auto Format to make it smaller (§6 step 5). Fix the model.
 - **Check a merge risk on the staged diff first.** Before excluding a file from generation or asking the user about something the merge might lose, stage it and read its diff. Ask only about a loss the diff shows.
-""".Replace("<<DriftReport>>", DriftReportRunner.ReportPath(outputTarget.ExecutionContext, DomainDrift.Name)));
+""".Replace("<<DriftReport>>", DriftReports.RelativePath(outputTarget.ExecutionContext)));
         }
 
         [IntentManaged(Mode.Fully)]

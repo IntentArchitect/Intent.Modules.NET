@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <a routerLink="/" class="home-link" mat-button>{{ title }}</a>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/brand/list" routerLinkActive="active">Brands</a>
+      <a mat-list-item routerLink="/customer-list" routerLinkActive="active">Customers</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

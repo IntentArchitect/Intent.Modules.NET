@@ -195,7 +195,7 @@ Guards a brownfield codebase's application layer. Each Services designer element
 ## Module Interactions
 
 - **Intent.Domain.Guardrails.Contracts**: four of its roles are resolved by string. There is no package or module dependency between the two.
-- **Intent.Common.Drift**: this module depends on it from 1.0.0-pre.4 (`<dependency>` 1.0.0-pre.0) and references its project without copying it (`Private="false"`). It contributes `ServicesDrift.Designer` (Order 20, after the Domain module's 10) from the DriftReport template (`IDriftDesignerSource`; the template's signature is merged so it keeps the interface), and its contract templates as `IDriftStructureSource` through `IServicesContractTemplate`. Neither Guardrails module writes the shared guidance any more.
+- **Intent.Common.Drift**: this module depends on it from 1.0.0-pre.4 (`<dependency>` 1.0.0-pre.0) and references its project without copying it (`Private="false"`). It contributes `ServicesDrift.Designer` (Order 20, after the Domain module's 10) from its `ServicesDriftReporter` factory extension (Intent.Common.Drift's `DesignerDriftReporter`, marked `[IntentManaged(Mode.Merge)]` so the Module Builder keeps its base class; user decision 2026-11-10, it replaced the DriftReport template), which reports with `DriftCheckRunner`: its findings are the Services Area of the application's drift report. It references the hub as the `Intent.Modules.Common.DriftReporting` package and depends on Intent.Common.DriftReporting 1.0.0-pre.0 (Intent.Common.Drift from 1.0.0-pre.2), and its contract templates as `IDriftStructureSource` through `IServicesContractTemplate`. Neither Guardrails module writes the shared guidance any more.
 
 ## Superseded
 

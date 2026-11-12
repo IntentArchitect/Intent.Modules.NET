@@ -90,7 +90,6 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             var staging = Run(model, before, agreed, new[] { TestRequired });
             staging.PendingCount.ShouldBe(1);
             staging.WrongLines.ShouldBe(new[] { required });
-            staging.PendingMessage().ShouldEndWith("until the changes are applied.");
 
             // The same with no memory (a machine's first run, or CI), and when the model removed it and added it back.
             Run(model, before, baseline: null, new[] { TestRequired }).WrongLines.ShouldBe(new[] { required });
@@ -118,16 +117,16 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         }
 
         [Fact]
-        public void A_fact_row_names_the_class_and_attribute_and_points_where_the_code_would_state_it()
+        public void A_fact_row_is_on_the_attribute_and_points_where_the_code_would_state_it()
         {
             var model = Order("public int Id { get; set; }", "public string Test { get; set; }");
 
-            var markdown = Run(model, model, baseline: null, new[] { TestRequired }).ToMarkdown().Replace("\r\n", "\n");
+            var report = Run(model, model, baseline: null, new[] { TestRequired });
 
-            markdown.ShouldContain(
-                "| <ModelRef application=\"Acme\" elementId=\"order-id\" designer=\"Domain\" /> › <ModelRef application=\"Acme\" elementId=\"test-id\" designer=\"Domain\" /> " +
-                "| <FileRef path=\"src/AppDbContext.cs\" line={7} /> " +
-                "| `Order.Test` required: model `true`, code `false` (no `IsRequired()` for `Test` in EF Core, which maps a string as nullable) |");
+            const string drift = "`Order.Test` required: model `true`, code `false` (no `IsRequired()` for `Test` in EF Core, which maps a string as nullable)";
+            DriftFindings.Of(report, DriftFindings.Elements("order-id", "test-id")).ShouldContain($"Error Model/Code | element:test-id | src/AppDbContext.cs:7 | {drift}");
+            // The innermost element the model has: its class, when the attribute isn't found.
+            DriftFindings.Of(report, DriftFindings.Elements("order-id")).ShouldContain($"Error Model/Code | element:order-id | src/AppDbContext.cs:7 | {drift}");
         }
 
         [Fact]
@@ -145,9 +144,10 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         {
             var model = Order("public int Id { get; set; }", "public string Test { get; set; }");
 
-            var markdown = Run(model, model, baseline: null, new[] { TestRequired }, dbContext: null).ToMarkdown().Replace("\r\n", "\n");
+            var report = Run(model, model, baseline: null, new[] { TestRequired }, dbContext: null);
 
-            markdown.ShouldContain("| <FileRef path=\"src/Order.cs\" /> | `Order.Test` required: model `true`, code `false` (no `IsRequired()` for `Test` in EF Core, which maps a string as nullable) |");
+            DriftFindings.Of(report, DriftFindings.Elements("order-id", "test-id")).ShouldContain(
+                "Error Model/Code | element:test-id | src/Order.cs | `Order.Test` required: model `true`, code `false` (no `IsRequired()` for `Test` in EF Core, which maps a string as nullable)");
         }
     }
 }

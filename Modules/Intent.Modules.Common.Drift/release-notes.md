@@ -1,3 +1,5 @@
 ### Version 1.0.0
 
 - New Feature: The drift check that compares a designer's model with hand-written code, with its always-on rule and its sync-model, configure-drift-check and validate-drift-recipes skills, shared by every module that contributes a designer to it.
+- Improvement: Recipes read UI code: a component's files in one folder (`Checkout.razor` and `Checkout.razor.cs`) are read as one place, the `kebab` and `replace:<text>:<with>` placeholder filters name such files and routes, and interpolated C# strings are read as written.
+- Improvement: Each designer's drift check now reports through Intent.Common.DriftReporting: its findings are its Area (Domain, Services, UI) of the application's one drift report at `.cache/drift/<application>/DriftReport.mdx`, a run with drift fails with one error naming the report, and kinds of fact with no recipe and stale exceptions are warnings in the report. Contributing modules derive their drift reporter from `DesignerDriftReporter`; `DriftReportRunner`, `IDriftDesignerSource` and the per-designer reports are gone.
