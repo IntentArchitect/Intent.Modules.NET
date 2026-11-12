@@ -1,0 +1,11 @@
+area: Domain (ModelCode, Code)
+Error Model/Code | element:Class:Order | src/Infrastructure/AppDbContext.cs:5 | `Order` table name: model `Orders`, code `Order`
+Error Model/Code | element:Class:Invoice | guardrails/domain.drift.json | `Invoice` primary key can't be verified: no code found (find `statement:Entity<Invoice>`)
+Error Model/Code | element:Class:Invoice | guardrails/domain.drift.json | `Invoice` schema can't be verified: no code found (find `statement:Entity<Invoice>`)
+Error Model/Code | element:Class:Invoice | guardrails/domain.drift.json | `Invoice` table name can't be verified: no code found (find `statement:Entity<Invoice>`)
+Error Model/Code | element:Class:Invoice | guardrails/domain.drift.json | `Invoice` table or view can't be verified: no code found (find `statement:Entity<Invoice>`)
+Error Model/Code | src/Domain/Helper.cs:3 | — | Entity `Helper` isn't modelled
+Error Model/Code | src/Domain/Order.cs:3 | — | Entity `Order` isn't modelled
+Error Model/Code | src/Domain/OrderStatus.cs:6 | — | `OrderStatus.Archived` (public literal) isn't modelled
+Warning Code | guardrails/domain.drift.json | — | The exception `Unused` (matches nothing) matches nothing: remove it from `guardrails/domain.drift.json`.
+log:

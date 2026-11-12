@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Common.DriftReporting.Api;
 
 namespace Intent.Modules.Common.Drift.Templates
 {
     /// <summary>
     /// The always-on model sync rule, and the sync-model (with its intent drift reference), configure-drift-check and
-    /// validate-drift-recipes skills. One file each covers every designer the run's templates contribute
-    /// (<see cref="IDriftDesignerSource"/>), in their order. Edit the text with a plain-text editor: Intent's file tools
+    /// validate-drift-recipes skills. One file each covers every designer the run's drift reporters contribute
+    /// (<see cref="DesignerDriftReporter"/>), in their order. Edit the text with a plain-text editor: Intent's file tools
     /// re-indent raw strings.
     /// </summary>
     internal static class ModelSyncGuidance
@@ -32,14 +33,16 @@ In this application the code is hand-written and the Intent Architect model desc
 
 ## The Software Factory checks it
 
-Every Software Factory run compares the model with the code on disk and writes the result to
-""" + " " + Reports(context, designers) + """
-, in the `.cache` folder beside the solution's `.isln` file, which git ignores. A report is only written when it needs attention, and the run then lists it in its changes as a new file; a run with no drift writes none and logs that it found none. A run with errors applies none of its changes, so its reports aren't on disk until they are applied. Its one error says how many drifts there are and names the report (it is on the first drifted model element, so Intent offers to fix it with AI): read the rows in the report, applying it with `apply_staged_file_changes` and its path. The check is on for a designer once its recipe file, `guardrails/<designer>.drift.json`, exists; until then its report says the check is off, and the **configure-drift-check** skill sets it up.
+Every Software Factory run compares the model with the code on disk. Each drift is one of the run's errors: it starts with its designer in square brackets, such as `[Domain]`, and one about a model element is on that element, so Intent offers to fix it with AI. Each designer with drift then ends with one line, `Drift in <designer>: N errors, M warnings. Report: <path>`, naming the application's drift report,
+""" + " " + Report(context) + """
+, in the `.cache` folder beside the solution's `.isln` file, which git ignores. Each designer is an Area of the report (
+""" + Areas(designers) + """
+). The report is only written when a run finds something, and the run then lists it in its changes as a new file; a run with no drift writes none. A run with errors applies none of its changes, so the report isn't on disk until it is applied: apply it with `apply_staged_file_changes` and its path, then read it. The check is on for a designer once its recipe file, `guardrails/<designer>.drift.json`, exists; until then every run warns that the check is off, and the **configure-drift-check** skill sets it up.
 
-A report has up to two tables, and an empty one is left out:
+A designer's Area has up to two tables:
 
-- **Model and code drift**: one row per difference, with the model element (and the class or Service it belongs to), the code file (where the code states it, or where it would) and what the drift is. The model must never be wrong, so every row fails the run. A row says that the model and the code state different values, that a fact can't be verified (the check couldn't read it from the code), that code of a kind the model must describe isn't modelled, or that a modelled type or member is missing from the code.
-- **Warnings**: a kind of fact with no recipe, an exception that matches nothing, or the check being off. They only warn: **configure-drift-check** adds and fixes recipes, and a stale exception is removed.
+- **Model / Code**: one row per difference. Its Subject is the model element (the innermost one, such as an attribute rather than its class), Against is the code file (where the code states it, or where it would), and the Finding says what the drift is. The model must never be wrong, so every row is an error and fails the run. A row says that the model and the code state different values, that a fact can't be verified (the check couldn't read it from the code), that code of a kind the model must describe isn't modelled, or that a modelled type or member is missing from the code.
+- **Code**: the recipe file itself. A recipe file that can't be read is an error. A kind of fact with no recipe, or an exception that matches nothing, is a warning: warnings never fail the run, and only the report shows them. **configure-drift-check** adds and fixes recipes, and a stale exception is removed.
 
 A recipe can misread the code. Before you change the model or the code for a contradiction, open the code at the row's location and check that it says what the row says it does; if it doesn't, the recipe is wrong: fix it with **configure-drift-check**. **validate-drift-recipes** shows what every recipe reads, on demand.
 
@@ -53,7 +56,7 @@ A type or member the code lacks is never a row: the Software Factory writes it, 
 4. The last run must report no drift. Resolve every drift row with the **sync-model** skill.
 5. If code you wrote states a fact in a way the recipes don't read yet (a new technology, or a new way of declaring it), the fact is reported as can't be verified. Load **configure-drift-check** and extend the recipes, then check them with **validate-drift-recipes**.
 
-Never edit a drift report: it is rewritten on every run.
+Never edit the drift report: it is rewritten on every run.
 """;
         }
 
@@ -61,16 +64,18 @@ Never edit a drift report: it is rewritten on every run.
         {
             return """
 ---
-description: Fix drift between the Intent Architect model and the hand-written code of a Guardrails application. Resolves every row of the drift reports the Software Factory writes, by updating the model, the code, a recipe or the exceptions, until the run reports no drift. Use when the user asks to fix, resolve or sync drift, when a Software Factory run fails with drift, or to sync the model with the code.
-short-description: Resolve every row of the drift reports.
+description: Fix drift between the Intent Architect model and the hand-written code of a Guardrails application. Resolves every row of the Guardrails designers' Areas of the drift report the Software Factory writes, by updating the model, the code, a recipe or the exceptions, until the run reports no drift. Use when the user asks to fix, resolve or sync drift, when a Software Factory run fails with drift, or to sync the model with the code.
+short-description: Resolve every row of the drift report.
 argument-hint: "[designer]"
 ---
 
 # Sync the model with the code
 
-In a Guardrails application the code is hand-written and the model describes it. Every Software Factory run compares the two and writes
-""" + " " + Reports(context, designers) + """
-, in the `.cache` folder beside the solution's `.isln` file, only when there is something in them; the run lists each one in its changes as a new file. A report has a **Model and code drift** table (the model element, the code file and what the drift is; every row fails the run) and a **Warnings** table. A run with errors applies nothing, and its one error only says how many drifts there are and names the report: apply the report with `apply_staged_file_changes` and its path, then read it. You are done when a run finds no drift: it logs that, and writes no report. A report that says the check is off has no recipe file yet: load **configure-drift-check** to set it up.
+In a Guardrails application the code is hand-written and the model describes it. Every Software Factory run compares the two and writes what it finds to the drift report,
+""" + " " + Report(context) + """
+, in the `.cache` folder beside the solution's `.isln` file, only when there is something in it; the run lists it in its changes as a new file. Each designer is an Area of the report (
+""" + Areas(designers) + """
+), with a **Model / Code** table (the model element, the code file and what the drift is; every row is an error and fails the run) and a **Code** table (problems with the recipe file, mostly warnings). Each error is also one of the run's errors, starting with its designer in square brackets, and each designer with drift ends with a `Drift in <designer>: …` line naming the report. A run with errors applies nothing: apply the report with `apply_staged_file_changes` and its path, then read it. You are done when a run finds no drift in these designers. A run that warns that the check is off has no recipe file yet: load **configure-drift-check** to set it up.
 
 Load **scripting-the-model** and **changing-the-model** before changing the model, and **generating-and-applying-code** before running the Software Factory.
 
@@ -85,11 +90,11 @@ Load **scripting-the-model** and **changing-the-model** before changing the mode
 
 ## 1. Read the drift
 
-Run the Software Factory, or read the reports of the last run. A failing run's error doesn't list the rows: apply the report with `apply_staged_file_changes` and its path, then read it. Each drift row names the model element, the code's file and line, and what the drift is. Read only the code the rows name.
+Run the Software Factory, or read the report of the last run. A failing run's errors are the same rows, but the report has them all, with the warnings: apply it with `apply_staged_file_changes` and its path, then read the designers' Areas. Each drift row names the model element, the code's file and line, and what the drift is. Read only the code the rows name.
 
 ## 2. Resolve each drift row
 
-| The Drift column says | What to do |
+| The Finding says | What to do |
 | --- | --- |
 | Any row ending (the model and the code have both changed since they last agreed) | Each side changed it since they last agreed, so the Software Factory's change would overwrite the code's. Don't apply that change, or touch either side, until you know which is right: a change made in this piece of work, or one the developer asked for, is right; otherwise ask the developer in one `ask_user_question` covering every such row, showing both versions. Then resolve it as its row below says |
 """ + "\n| `<element>` " + string.Join(", ", designers.SelectMany(x => x.Kinds).Where(x => x.Key.StartsWith("intent.")).Select(x => $"*{x.Label}*")) + """
@@ -101,7 +106,7 @@ Run the Software Factory, or read the reports of the last run. A failing run's e
 
 Never change a recipe to make a contradiction pass: a recipe that reads the code correctly and disagrees with the model has found drift, and either the model or the code is wrong.
 
-The **Warnings** table only warns, but resolve it too. **No recipe**: a kind of fact the recipe file doesn't cover, such as one a module upgrade added; load **configure-drift-check** and add its recipe. **Exception matches nothing**: a stale exception; remove it from the recipe file.
+The warnings in a designer's **Code** table never fail the run, but resolve them too. A kind of fact the recipe file **has no recipe for**, such as one a module upgrade added: load **configure-drift-check** and add its recipe. An exception that **matches nothing** is stale: remove it from the recipe file.
 
 When several rows look wrong in the same way, or you changed a recipe, load **validate-drift-recipes**: it shows what each recipe reads and warns about read cases that don't read the code, or that read another element's.
 
@@ -119,7 +124,7 @@ The report warns about any exception that matches nothing: remove it.
 
 ## 3. Confirm
 
-Save the designers, run the Software Factory, apply its output, and run it again. The run must report no drift errors, and write no drift report.
+Save the designers, run the Software Factory, apply its output, and run it again. The run must report no drift errors, and the drift report must have nothing in these designers' Areas (a run that finds nothing at all writes no report).
 
 ## Gotchas
 
@@ -128,7 +133,7 @@ Save the designers, run the Software Factory, apply its output, and run it again
 - A fact about a type or member the Software Factory is adding, or about a method whose parameters it is changing, is read from the code as it will be once those changes are applied. Its row is a gap to fix now, alongside applying the changes, not something to wait for. While the code it read isn't on disk yet, its row points at the file without a line.
 - When code has removed a modelled member, the drift report doesn't list it: the Software Factory proposes adding it back as an empty stub. Don't apply that unless the member should come back; update the model instead (rename the element rather than deleting it and creating another).
 - Every row is about something the model can state. If one asks for something the designer has no way to express, don't work around it with an exception, a recipe or a code change: tell the developer, because the check shouldn't report it.
-- The drift reports are in the solution's `.cache` folder, which git ignores, and a run lists each one it writes as a new file. They aren't code: they need no review, and they reach the disk when the run's changes are applied. A run with no drift deletes the last one and writes none. Never edit them.
+- The drift report is in the solution's `.cache` folder, which git ignores, and a run that writes it lists it as a new file. It isn't code: it needs no review, and it reaches the disk when the run's changes are applied. A run with no findings deletes the last one and writes none. Never edit it.
 """;
         }
 
@@ -191,7 +196,7 @@ The check compares the code with the model's associations, so it never reports s
             var files = string.Join(" and ", designers.Select(x => $"`guardrails/{x.Name.ToLowerInvariant()}.drift.json`"));
             return """
 ---
-description: Write or extend the Guardrails drift check's recipe files (guardrails/<designer>.drift.json), which tell the Software Factory where each fact the model states is in the code and how to read it, for whatever technology the code uses. Use while reverse-engineering a Guardrails application (straight after its extraction, and again at its end), when a drift report says the check is off, facts can't be verified or the recipe file is invalid, when validate-drift-recipes shows a recipe misreading the code, or when the code starts using a technology no recipe covers.
+description: Write or extend the Guardrails drift check's recipe files (guardrails/<designer>.drift.json), which tell the Software Factory where each fact the model states is in the code and how to read it, for whatever technology the code uses. Use while reverse-engineering a Guardrails application (straight after its extraction, and again at its end), when a run warns that the drift check is off, when the drift report says facts can't be verified or the recipe file is invalid, when validate-drift-recipes shows a recipe misreading the code, or when the code starts using a technology no recipe covers.
 short-description: Write the drift check's recipes for this codebase's technology.
 ---
 
@@ -199,9 +204,9 @@ short-description: Write the drift check's recipes for this codebase's technolog
 
 Once a designer has a recipe file, every Software Factory run compares its model with the code; without one, the check is off. The model side is fixed: the facts listed below, read from the model's own stereotypes. The code side is yours to describe, once, in a **recipe file** per designer: for each kind of fact, where it is in the code and how to read its value in the model's vocabulary. The module knows no technology, and your recipes do, so they work for controllers, minimal APIs, FastEndpoints, EF Core, Mongo, Cosmos or anything else the code uses.
 
-You are done when **validate-drift-recipes** shows every recipe reading the code, a Software Factory run reports no drift and no warnings, and the developer has approved the model changes the setup made (step 8). A report (
-""" + Reports(context, designers) + """
-, in the `.cache` folder beside the solution's `.isln` file) is only written while there is something to act on: drift, a kind of fact that isn't checked, an exception that matches nothing, or the check being off.
+You are done when **validate-drift-recipes** shows every recipe reading the code, a Software Factory run reports no drift and no warnings, and the developer has approved the model changes the setup made (step 8). Each designer is an Area of the drift report (
+""" + Report(context) + """
+, in the `.cache` folder beside the solution's `.isln` file), which is only written while there is something to act on: drift, a kind of fact that isn't checked, or an exception that matches nothing. A designer whose check is off has no Area: the run only warns.
 
 **Never change the code while setting up the check.** The recipes and the model are made to reflect the code as it is. A fact no recipe can read, or code that looks wrong, is reported to the developer, not rewritten.
 
@@ -233,7 +238,7 @@ Where one designer's code uses two technologies, combine their recipe files fact
 ```
 
 - `files`: the files searched, as a pattern or a list. Default `**/*.cs`; narrow it to where the code lives. `*` matches within one folder, `**` across folders and `?` one character. `bin`, `obj` and hidden folders are never read. Set it to the code most recipes read (the endpoints, the persistence layer). Give recipes that read other code their own `files`, the same value on each, as the handler intent and domain events guides do: every fact's `find` searches each file in its scope, so a wider one slows every run.
-- `facts`: one recipe per kind of fact. Every kind the model states needs one; a kind with no recipe isn't checked, and the report lists it in its **Warnings** table (a warning, not a failure).
+- `facts`: one recipe per kind of fact. Every kind the model states needs one; a kind with no recipe isn't checked, and the report lists it as a warning in the designer's **Code** table (a warning, not a failure).
 - `own`: the kinds of code the model must describe.
 - `exceptions`: code that may stay unmodelled.
 - `note`: free text, allowed on every object. `//` comments are allowed too.
@@ -299,15 +304,15 @@ Steps are separated by ` > ` (a space on each side). Each step searches inside w
 | `parameter:Name` | Parameters named `Name` |
 | `statement:text` | The smallest statement containing the text, whatever its layout, e.g. `statement:Entity<{Entity}>` |
 | `chain:text` | The whole fluent call chain around the call containing the text: `chain:Property(e => e.{Attribute})` gives `entity.Property(e => e.Name).IsRequired().HasMaxLength(50)` |
-| `file:pattern` | The files matching the pattern, of any type. First step only |
+| `file:pattern` | The files matching the pattern, of any type. First step only. The files of one component (in one folder, with the same name up to the first dot: `Checkout.razor` and `Checkout.razor.cs`) are read as one |
 | `<kind> with <regex>` | The smallest code of that kind around each match, e.g. `class with \\[ApiController\\]`, `method with \\[Http\\w+`, `chain with Property\\(\\w+=>\\w+\\.{Attribute}\\)` |
 | `<kind>` | All code of that kind inside the step before it |
 
-A fact's `find` must end at exactly one place, or at the parts of one partial type; several places are reported as can't be verified. When `method:Name` finds overloads of a Service operation, the one whose parameter names are the operation's is used.
+A fact's `find` must end at exactly one place, at the parts of one partial type, or at the files of one component; several places are reported as can't be verified. When `method:Name` finds overloads of a Service operation, the one whose parameter names are the operation's is used.
 
 ### Placeholders
 
-`{Name}` in a find path, a match, a value, `default`, `absent` or a replacement is the element's own value; each fact below lists its placeholders. Inside a regular expression it is escaped. Filters change it, and chain: `{Service|trimEnd:Controller}`, `{Entity|lower}`, `{Attribute|camel}`, `{Operation|pascal}`, `{Name|trimStart:I}`, `{Name|upper}`. Write a literal brace in a regular expression as `\\{`.
+`{Name}` in a find path, a match, a value, `default`, `absent` or a replacement is the element's own value; each fact below lists its placeholders. Inside a regular expression it is escaped. Filters change it, and chain: `{Service|trimEnd:Controller}`, `{Entity|lower}`, `{Attribute|camel}`, `{Operation|pascal}`, `{Name|trimStart:I}`, `{Name|upper}`, `{Component|kebab}` (`CustomerAddPage` as `customer-add-page`), `{Route|replace:/:','}` (every `/` as `','`). Write a literal brace in a regular expression as `\\{`.
 
 ## Facts the model states
 
@@ -363,16 +368,16 @@ A recipe that misreads the code fails loudly (a contradiction the code doesn't b
 
 **While reverse-engineering**, the reverse-engineer skill sends you here straight after its extraction, before anything is modelled: do steps 2 and 3 from the extraction's reports, without re-reading the code, and go back. Model each form of the code as its guide's **How each form is modelled** says, so that the model and the recipes use the same terms. The reverse-engineer skill's last step brings you back for steps 4 to 8.
 
-1. **List the facts the model states.** Each designer's are listed above. To see which this model uses, write the recipe file as `{}` and run the Software Factory: the report lists each kind of fact that has no recipe, with its count, in its **Warnings** table. That run turns the check on, so the structure and ownership checks can fail the run from then on; a run with errors applies nothing by itself, so apply the changes you expect with `apply_staged_file_changes`.
+1. **List the facts the model states.** Each designer's are listed above. To see which this model uses, write the recipe file as `{}` and run the Software Factory: the report lists each kind of fact that has no recipe, with its count, as a warning in the designer's **Code** table. That run turns the check on, so the structure and ownership checks can fail the run from then on; a run with errors applies nothing by itself, so apply the changes you expect with `apply_staged_file_changes`.
 2. **Start from the technology guides** (above). For each technology the code uses, make its guide's decisions from the code, copy its recipe file, and keep the find paths for the styles this codebase uses. For a technology no guide covers, read a few examples of each kind of fact, such as two controllers and two entity configurations, look for every style the code uses (some entities configured in `OnModelCreating`, others in `IEntityTypeConfiguration` classes), and give a recipe one `find` path per style. Also find each element type's convention, if it has one (above).
 3. **Write the recipes.** From a guide, apply its **Adapting to house style** rows to whatever this codebase does its own way (a base class, a helper method, its own attribute). Add an `own` entry for each kind of code the model must describe that no guide's entries cover: every endpoint, every entity configuration, every class map, every index, and one per element type that follows a convention. Give every recipe with a `default` an `unreadable` case for the other forms of the same declaration, such as a route attribute whose template isn't a string literal, and every recipe with a `default` or `absent` an `unstated` that names what's missing and what the technology then does.
-4. **Run the Software Factory** and read the reports, then load **validate-drift-recipes** and run it.
+4. **Run the Software Factory** and read the designer's Area of the drift report, then load **validate-drift-recipes** and run it.
 5. **Fix the recipes until no fact is reported as can't be verified, no kind of fact is warned about as having no recipe, and validate-drift-recipes has no probe or wrong-element warnings and no sample the code doesn't bear out.** After writing or changing a recipe, look at its fact with validate-drift-recipes §4: every element it covers should read its own code. Compare each kind of fact's counts with its guide's **Values come from** column: values from `default` or `absent` where the guide says code mean the recipe doesn't read this codebase's form yet. A fact that can't be verified is a recipe that doesn't read this code yet: widen its `find`, add a case, or add `default` or `absent` where saying nothing states a value (no `ToTable` means the `DbSet`'s name; no `[Authorize]` means `None`). If no recipe can read a fact (a value built in a helper method, or a form an `unreadable` case reports), list it for the developer; don't change the code or the model.
 6. **Check each contradiction against the code before you touch the model.** Open the code at the row's location and confirm that it states what the row says. Several contradictions of one kind with the same code value (every one `code (none)`, say) mean the recipe is misreading the code: fix the recipe, not the model. Then resolve the rest by fixing the model to match the code, never the code. A recipe that reads the code correctly and disagrees with the model has found a modelling slip. Where the code itself looks wrong, list it for the developer; don't change it.
 7. **Resolve the code the model doesn't describe:** model it, or add an exception, asking the developer unless it is clearly a helper. If a convention entry reports many helpers, the convention is wrong: narrow it, or remove it.
 8. **Have the developer approve the model changes.** In one `ask_user_question`, list every model change the setup made, for the developer to approve. Skip this step, and the approval in the exit condition, when an orchestrating skill's **User decision** says so.
 
-**Exit condition:** validate-drift-recipes has no probe or wrong-element warnings and no sample the code doesn't bear out; a Software Factory run reports no drift and no warnings, so it writes no drift report; and the developer has approved the model changes the setup made.
+**Exit condition:** validate-drift-recipes has no probe or wrong-element warnings and no sample the code doesn't bear out; a Software Factory run reports no drift and no warnings, so the drift report has nothing in the designer's Area; and the developer has approved the model changes the setup made.
 """;
         }
 
@@ -462,24 +467,20 @@ A kind of fact with many elements returns many readings, so narrow it with `elem
                    "Placeholders:\n\n" + placeholders + "\n";
         }
 
-        private static string Reports(ISoftwareFactoryExecutionContext context, IReadOnlyList<DriftDesigner> designers)
+        /// <summary>The application's drift report, as guidance names it, in backticks.</summary>
+        private static string Report(ISoftwareFactoryExecutionContext context)
         {
-            return string.Join(" and ", designers.Select(x => $"`{DriftReportRunner.ReportPath(context, x.Name)}`"));
+            return $"`{DriftReports.RelativePath(context)}`";
         }
 
-        /// <summary>
-        /// Every designer the run's templates contribute, in order, one per designer. A template counts whether or not it
-        /// writes a file, so call this once every template is registered: in a build callback, not a constructor.
-        /// </summary>
-        public static IReadOnlyList<DriftDesigner> Designers(ISoftwareFactoryExecutionContext context)
+        /// <summary>The designers' Areas of the drift report, e.g. <c>Domain, Services and UI</c>.</summary>
+        private static string Areas(IReadOnlyList<DriftDesigner> designers)
         {
-            return context.OutputTargets
-                .SelectMany(x => x.TemplateInstances)
-                .OfType<IDriftDesignerSource>()
-                .Select(x => x.Designer)
-                .DistinctBy(x => x.Name)
-                .OrderBy(x => x.Order)
-                .ToList();
+            var names = designers.Select(x => x.Name).ToList();
+            return names.Count < 2 ? string.Concat(names) : $"{string.Join(", ", names.Take(names.Count - 1))} and {names[^1]}";
         }
+
+        /// <summary>Every designer the run's drift reporters contribute, in order, one per designer (<see cref="DesignerDriftReporter"/>).</summary>
+        public static IReadOnlyList<DriftDesigner> Designers(ISoftwareFactoryExecutionContext context) => DesignerDriftReporter.Designers(context);
     }
 }

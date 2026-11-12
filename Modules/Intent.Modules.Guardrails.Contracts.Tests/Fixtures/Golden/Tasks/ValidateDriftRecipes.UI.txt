@@ -1,0 +1,284 @@
+{
+  "designer": "UI",
+  "recipePath": "guardrails/ui.drift.json",
+  "recipeFileExists": true,
+  "problems": [],
+  "notChecked": [],
+  "facts": [
+    {
+      "kind": "component.kind",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Checkout",
+            "model": "Page",
+            "code": "Page",
+            "location": "src/Web/Pages/Checkout.razor:1"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 0,
+        "samples": []
+      },
+      "readCasesMatchingNothing": []
+    },
+    {
+      "kind": "page.route",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Checkout",
+            "model": "checkout",
+            "code": "basket/checkout",
+            "location": "src/Web/Pages/Checkout.razor:1"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Checkout",
+            "model": "checkout",
+            "code": "basket/checkout",
+            "location": "src/Web/Pages/Checkout.razor:1"
+          }
+        ]
+      },
+      "readCasesMatchingNothing": []
+    },
+    {
+      "kind": "security",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Checkout",
+            "model": "Secured",
+            "code": "Secured",
+            "location": "src/Web/Pages/Checkout.razor:2"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 0,
+        "samples": []
+      },
+      "readCasesMatchingNothing": []
+    }
+  ],
+  "conventions": [
+    {
+      "kind": "page",
+      "found": 2,
+      "samples": [
+        "src/Web/Pages/Checkout.razor (src/Web/Pages/Checkout.razor:1)",
+        "src/Web/Pages/Promotions.razor (src/Web/Pages/Promotions.razor:1)"
+      ]
+    }
+  ],
+  "probeWarnings": [],
+  "wrongElementWarnings": []
+}
+{
+  "designer": "UI",
+  "recipePath": "guardrails/ui.drift.json",
+  "recipeFileExists": true,
+  "filter": {
+    "element": "Checkout"
+  },
+  "problems": [],
+  "notChecked": [],
+  "facts": [
+    {
+      "kind": "component.kind",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Checkout",
+            "model": "Page",
+            "code": "Page",
+            "location": "src/Web/Pages/Checkout.razor:1"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 0,
+        "samples": []
+      },
+      "readCasesMatchingNothing": []
+    },
+    {
+      "kind": "page.route",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Checkout",
+            "model": "checkout",
+            "code": "basket/checkout",
+            "location": "src/Web/Pages/Checkout.razor:1"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Checkout",
+            "model": "checkout",
+            "code": "basket/checkout",
+            "location": "src/Web/Pages/Checkout.razor:1"
+          }
+        ]
+      },
+      "readCasesMatchingNothing": []
+    },
+    {
+      "kind": "security",
+      "facts": 1,
+      "readFromCode": {
+        "count": 1,
+        "samples": [
+          {
+            "element": "Checkout",
+            "model": "Secured",
+            "code": "Secured",
+            "location": "src/Web/Pages/Checkout.razor:2"
+          }
+        ]
+      },
+      "fromDefault": {
+        "count": 0,
+        "samples": []
+      },
+      "fromAbsent": {
+        "count": 0,
+        "samples": []
+      },
+      "unverifiable": {
+        "count": 0,
+        "samples": []
+      },
+      "contradicted": {
+        "count": 0,
+        "samples": []
+      },
+      "readCasesMatchingNothing": []
+    }
+  ],
+  "conventions": [],
+  "probeWarnings": [],
+  "wrongElementWarnings": [],
+  "readings": [
+    {
+      "kind": "component.kind",
+      "element": "Checkout",
+      "model": "Page",
+      "code": "Page",
+      "from": "code",
+      "contradicted": false,
+      "findPath": 1,
+      "readCase": 1,
+      "level": 0,
+      "matched": "@page\u0022",
+      "location": "src/Web/Pages/Checkout.razor:1"
+    },
+    {
+      "kind": "page.route",
+      "element": "Checkout",
+      "model": "checkout",
+      "code": "basket/checkout",
+      "from": "code",
+      "contradicted": true,
+      "findPath": 1,
+      "readCase": 1,
+      "level": 0,
+      "matched": "@page\u0022/basket/checkout\u0022",
+      "location": "src/Web/Pages/Checkout.razor:1"
+    },
+    {
+      "kind": "security",
+      "element": "Checkout",
+      "model": "Secured",
+      "code": "Secured",
+      "from": "code",
+      "contradicted": false,
+      "findPath": 1,
+      "readCase": 1,
+      "level": 0,
+      "matched": "[Authorize",
+      "location": "src/Web/Pages/Checkout.razor:2"
+    }
+  ]
+}
+{"errorMessage":"No UI fact is called table.name. They are: component.kind, page.route, security, security.roles, security.policy, intent.invokes, intent.navigates, intent.opens, intent.uses."}

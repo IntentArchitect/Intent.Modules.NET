@@ -2,6 +2,15 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#7cd32a65-8260-40fe-83de-24a0d10a6277</correlationId>
+      <path>FactoryExtensions/DomainDriftReporter.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-11-10T13:14:03.4203255Z</updatedAt>
+      <deviationsHash>5151A15DD84D48BA3FEFE8224CC2B2ABC2C433937AF75A7CC63D7ECCE7A6CDBB</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.ModuleTask#efb4528d-8002-4da8-a218-b991dce8c371</correlationId>
       <path>Tasks/ValidateDriftRecipes.cs</path>
       <count>3</count>
@@ -9,15 +18,6 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2026-10-29T09:11:36.4939587Z</updatedAt>
       <deviationsHash>54D03F90153FFD725B5B8B2EB3F267D35933ECAEE4B89B55A0991034090B01C1</deviationsHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#7505cdb6-3ea8-49d8-9f7e-2fc7d473bddd</correlationId>
-      <path>Templates/DriftReport/DriftReportTemplatePartial.cs</path>
-      <count>4</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-10-29T09:11:36.4942799Z</updatedAt>
-      <deviationsHash>9E7DDA69271861A37247AA7F341234B4A76A7280C752EF5B325B820C81D1B52E</deviationsHash>
     </file>
   </files>
 </deviationsLog>

@@ -1,0 +1,10 @@
+<MudImage />
+<MudText>@ProductName</MudText>
+<MudText>@ProductPrice</MudText>
+<MudImage Src="" />
+
+@code {
+    [Parameter] public int ProductId { get; set; }
+    [Parameter] public string ProductName { get; set; }
+    [Parameter] public decimal ProductPrice { get; set; }
+}

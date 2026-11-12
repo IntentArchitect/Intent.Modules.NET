@@ -1,0 +1,42 @@
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h6">Edit Brand</MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudTextField @bind-Value="Model.Name" Label="Name" Required="true" />
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="@(() => Dialog.Cancel())">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="SaveAsync">Save</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    public IMudDialogInstance Dialog { get; set; } = default!;
+
+    [Parameter]
+    public Guid BrandId { get; set; }
+
+    [Inject]
+    public IScopedMediator Mediator { get; set; } = default!;
+
+    public UpdateBrandModel Model { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var brand = await Mediator.Send(new GetBrandByIdQuery(BrandId));
+        Model = new UpdateBrandModel { Name = brand.Name };
+    }
+
+    private async Task SaveAsync()
+    {
+        await Mediator.Send(new UpdateBrandCommand(BrandId, Model.Name));
+        Dialog.Close(DialogResult.Ok(true));
+    }
+
+    public class UpdateBrandModel
+    {
+        public string Name { get; set; } = string.Empty;
+    }
+}

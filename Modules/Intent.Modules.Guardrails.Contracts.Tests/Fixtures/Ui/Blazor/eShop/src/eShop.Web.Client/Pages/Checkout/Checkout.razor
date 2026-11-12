@@ -1,0 +1,37 @@
+@page "/checkout"
+@using eShop.Web.Client.Common.Validation
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject IValidatorProvider ValidatorProvider
+<PageTitle>Checkout</PageTitle>
+<SectionContent SectionName="page-header-subtitle">Checkout</SectionContent>
+<MudGrid>
+    <MudItem xs="4">
+        @if (ShippingInformation is not null)
+        {
+            <MudForm @ref="@_form"
+                     Model="ShippingInformation"
+                     Validation="@(ValidatorProvider.GetValidationFunc<ShippingInfo>())">
+                <MudText>Shipping Address</MudText>
+                <MudTextField @bind-Value="ShippingInformation.Street"
+                              Label="Address"
+                              For="@(() => ShippingInformation.Street)" />
+                <MudTextField @bind-Value="ShippingInformation.City"
+                              Label="City"
+                              For="@(() => ShippingInformation.City)" />
+            </MudForm>
+        }
+    </MudItem>
+    <MudItem xs="12" Class="d-flex justify-center">
+        @Intent.IgnoreAttributes("Color")
+        <MudButton Variant="Variant.Filled"
+                   Class="my-2 mr-2"
+                   Color="Color.Dark"
+                   OnClick="() => CheckoutCart()"
+                   Disabled="@_checkoutCartProcessing">
+            <MudText>Place order</MudText>
+        </MudButton>
+    </MudItem>
+</MudGrid>

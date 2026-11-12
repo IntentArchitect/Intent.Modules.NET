@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Domain.Guardrails.Contracts</id>
-  <version>1.0.1-pre.0</version>
+  <version>1.0.1-pre.1</version>
   <supportedClientVersions>[5.4.0-beta.6,6.0.0)</supportedClientVersions>
   <summary>Guards Domain designer elements (entities, enums, value objects, repositories, data contracts, domain services) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</summary>
   <description>Guards Domain designer elements (entities, enums, value objects, repositories, data contracts, domain services) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</description>
@@ -38,10 +38,6 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Guardrails.Contracts.Domain.DomainService</role>
-      <location></location>
-    </template>
-    <template id="Intent.Domain.Guardrails.Contracts.DriftReport" externalReference="7505cdb6-3ea8-49d8-9f7e-2fc7d473bddd">
-      <role>Default</role>
       <location></location>
     </template>
     <template id="Intent.Domain.Guardrails.Contracts.EfCoreRecipeGuide" externalReference="ef3480de-e037-4c83-9fb2-7df18e359b7c">
@@ -90,7 +86,9 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Domain.Guardrails.Contracts.DomainDriftReporter" externalReference="7cd32a65-8260-40fe-83de-24a0d10a6277" />
+  </factoryExtensions>
   <moduleSettings>
     <group id="cfc23486-153d-4d9d-9e0b-cfeb1754e382" title="Domain Guardrails Contracts Settings" type="application-settings" externalReference="cfc23486-153d-4d9d-9e0b-cfeb1754e382">
       <settings>
@@ -132,7 +130,8 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.11.9" />
     <dependency id="Intent.Common.CSharp" version="3.10.13" />
-    <dependency id="Intent.Common.Drift" version="1.0.0-pre.0" />
+    <dependency id="Intent.Common.Drift" version="1.0.0-pre.2" />
+    <dependency id="Intent.Common.DriftReporting" version="1.0.0-pre.0" />
     <dependency id="Intent.Common.Types" version="4.1.4" />
     <dependency id="Intent.Modelers.Domain" version="3.13.3" />
     <dependency id="Intent.Modelers.Domain.Repositories" version="3.6.3" />

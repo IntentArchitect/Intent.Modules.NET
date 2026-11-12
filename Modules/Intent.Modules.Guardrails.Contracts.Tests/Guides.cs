@@ -39,10 +39,15 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             return file.ToJsonString();
         }
 
+        /// <summary>
+        /// The files with one planted change. The file's line breaks are read as <c>\n</c>, so a change spanning lines matches
+        /// whatever git checked out: a raw string in a test file has CRLF line breaks where <c>core.autocrlf</c> is on.
+        /// </summary>
         public static Dictionary<string, string> Mutate(IReadOnlyDictionary<string, string> files, string path, string from, string to)
         {
-            files[path].ShouldContain(from, customMessage: $"the planted change expects `{from}` in {path}");
-            return files.ToDictionary(x => x.Key, x => x.Key == path ? x.Value.Replace(from, to) : x.Value);
+            var text = files[path].Replace("\r\n", "\n");
+            text.ShouldContain(from, customMessage: $"the planted change expects `{from}` in {path}");
+            return files.ToDictionary(x => x.Key, x => x.Key == path ? text.Replace(from, to) : x.Value);
         }
 
         /// <summary>The run reports no drift and no warnings.</summary>

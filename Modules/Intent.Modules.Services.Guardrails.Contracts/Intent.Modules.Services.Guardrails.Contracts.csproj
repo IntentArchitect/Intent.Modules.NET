@@ -25,6 +25,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.11.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.13" />
+    <PackageReference Include="Intent.Modules.Common.DriftReporting" Version="1.0.0-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="6.0.5" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.17-pre.2" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="6.0.8" />

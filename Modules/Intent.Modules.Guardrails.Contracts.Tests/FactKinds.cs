@@ -4,18 +4,20 @@ using System.Linq;
 using Intent.Modules.Common.Drift;
 using Intent.Modules.Domain.Guardrails.Contracts.Drift;
 using Intent.Modules.Services.Guardrails.Contracts.Drift;
+using Intent.Modules.UI.Guardrails.Contracts.Drift;
 
 namespace Intent.Modules.Guardrails.Contracts.Tests
 {
     /// <summary>
-    /// Both Guardrails designers' kinds of fact (<see cref="DomainDrift"/> and <see cref="ServicesDrift"/>), as the tests
-    /// name them. The drift module knows neither designer, so a test that runs its engine passes the designer's kinds
-    /// from here.
+    /// The Guardrails designers' kinds of fact (<see cref="DomainDrift"/>, <see cref="ServicesDrift"/> and
+    /// <see cref="UiDrift"/>), as the tests name them. The drift module knows no designer, so a test that runs its engine
+    /// passes the designer's kinds from here.
     /// </summary>
     internal static class FactKinds
     {
         public const string Domain = DomainDrift.Name;
         public const string Services = ServicesDrift.Name;
+        public const string Ui = UiDrift.Name;
 
         public static readonly FactKind TableName = DomainDrift.TableName;
         public static readonly FactKind TableSchema = DomainDrift.TableSchema;
@@ -56,6 +58,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         {
             Domain => DomainDrift.Kinds,
             Services => ServicesDrift.Kinds,
+            Ui => UiDrift.Kinds,
             _ => throw new ArgumentOutOfRangeException(nameof(designer), designer, "Not a Guardrails designer.")
         };
     }

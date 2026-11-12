@@ -36,10 +36,31 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             }
         }
 
+        /// <summary>
+        /// The UI kinds as consumers' recipe files name them: key, label, placeholders in order, and the ones naming the fact's
+        /// own element. They must survive the User Interface designer's overhaul, so only a deliberate change moves this.
+        /// </summary>
+        [Fact]
+        public void The_UI_kinds_are_the_contract_the_recipe_files_were_written_against()
+        {
+            FactKinds.For(FactKinds.Ui).Select(x => $"{x.Key} | {x.Label} | {string.Join(",", x.Placeholders)} | {string.Join(",", x.Own)}").ShouldBe(new[]
+            {
+                "component.kind | kind | Folder,Component | Component",
+                "page.route | route | Folder,Component | Component",
+                "security | security | Folder,Component | Component",
+                "security.roles | roles | Folder,Component | Component",
+                "security.policy | policy | Folder,Component | Component",
+                "intent.invokes | invokes | Folder,Component,Invoked,InvokedOwner | Invoked,InvokedOwner",
+                "intent.navigates | navigates to | Folder,Component,Page,Route,RouteStart | Page,Route,RouteStart",
+                "intent.opens | opens | Folder,Component,Dialog | Dialog",
+                "intent.uses | uses | Folder,Component,Child | Child"
+            });
+        }
+
         [Fact]
         public void Each_designer_describes_each_placeholder_one_way()
         {
-            foreach (var designer in new[] { FactKinds.Domain, FactKinds.Services })
+            foreach (var designer in new[] { FactKinds.Domain, FactKinds.Services, FactKinds.Ui })
             {
                 foreach (var placeholder in FactKinds.For(designer).SelectMany(x => x.PlaceholderDescriptions).GroupBy(x => x.Name))
                 {

@@ -1,0 +1,16 @@
+@page "/customer/edit/{CustomerId:guid}"
+
+<MudText Typo="Typo.h4">Edit Customer</MudText>
+
+@code {
+    [Parameter]
+    public Guid CustomerId { get; set; }
+
+    [Inject]
+    public IScopedMediator Mediator { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var customer = await Mediator.Send(new GetCustomerByIdQuery(CustomerId));
+    }
+}

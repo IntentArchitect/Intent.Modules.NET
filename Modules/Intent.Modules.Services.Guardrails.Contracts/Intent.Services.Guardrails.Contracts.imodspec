@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Services.Guardrails.Contracts</id>
-  <version>1.0.1-pre.0</version>
+  <version>1.0.1-pre.1</version>
   <supportedClientVersions>[5.4.0-beta.6,6.0.0)</supportedClientVersions>
   <summary>Guards Services designer elements (services, commands, queries, DTOs, enums, integration events and their handlers, and API clients as service proxies) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</summary>
   <description>Guards Services designer elements (services, commands, queries, DTOs, enums, integration events and their handlers, and API clients as service proxies) by merging their modelled members into existing C# files, never touching method bodies, and checks the model for drift from the code.</description>
@@ -26,10 +26,6 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Guardrails.Contracts.Services.DomainEventHandler</role>
-      <location></location>
-    </template>
-    <template id="Intent.Services.Guardrails.Contracts.DriftReport" externalReference="a1f14cf2-6f9a-4bd6-8197-4c0f893f5039">
-      <role>Default</role>
       <location></location>
     </template>
     <template id="Intent.Services.Guardrails.Contracts.DtoContract" externalReference="134c4e3a-eca5-4e31-a467-543b65040e20">
@@ -122,7 +118,9 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Services.Guardrails.Contracts.ServicesDriftReporter" externalReference="534931e7-499b-4039-89f3-3270e1d132a5" />
+  </factoryExtensions>
   <moduleSettings>
     <group id="c686f0ee-a3a9-4933-b7bc-9ba35b6530f3" title="Services Guardrails Contracts Settings" type="application-settings" externalReference="c686f0ee-a3a9-4933-b7bc-9ba35b6530f3">
       <settings>
@@ -174,7 +172,8 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.11.9" />
     <dependency id="Intent.Common.CSharp" version="3.10.13" />
-    <dependency id="Intent.Common.Drift" version="1.0.0-pre.0" />
+    <dependency id="Intent.Common.Drift" version="1.0.0-pre.2" />
+    <dependency id="Intent.Common.DriftReporting" version="1.0.0-pre.0" />
     <dependency id="Intent.Common.Types" version="4.1.4" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.5" />
     <dependency id="Intent.Modelers.Services" version="4.0.17" />

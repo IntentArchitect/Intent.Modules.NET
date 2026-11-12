@@ -450,6 +450,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Common.Drift
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Interop.CRUD", "Intent.Modules.Application.Interop.CRUD\Intent.Modules.Application.Interop.CRUD.csproj", "{DD5DB993-46C3-4566-9995-809922CCDBFF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.UI.Guardrails.Contracts", "Intent.Modules.UI.Guardrails.Contracts\Intent.Modules.UI.Guardrails.Contracts.csproj", "{D182779B-DB23-47E9-99E9-677B49643ED2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1192,6 +1194,10 @@ Global
 		{DD5DB993-46C3-4566-9995-809922CCDBFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD5DB993-46C3-4566-9995-809922CCDBFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD5DB993-46C3-4566-9995-809922CCDBFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D182779B-DB23-47E9-99E9-677B49643ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D182779B-DB23-47E9-99E9-677B49643ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D182779B-DB23-47E9-99E9-677B49643ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D182779B-DB23-47E9-99E9-677B49643ED2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Drift;
+using Intent.Modules.Common.DriftReporting.Api;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Services.Guardrails.Contracts.Drift;
@@ -266,7 +267,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
 
                     Same as **reverse-engineer-domain** §6:
 
-                    1. **Every change must be a header or formatting change:** `using` + `IntentTemplate`, the two merge directives, the csproj package reference, and Auto Format's formatting anywhere in the file (step 5), or an equivalent type rewrite the user accepts (step 4). While there is drift, a run also lists the drift report, `<<DriftReport>>` (in the solution's git-ignored `.cache` folder), as a new file needing no review. Until step 8 its drift lines fail the run, so nothing is applied by itself (step 6 applies by path anyway). Its "isn't modelled" rows show what is still missing.
+                    1. **Every change must be a header or formatting change:** `using` + `IntentTemplate`, the two merge directives, the csproj package reference, and Auto Format's formatting anywhere in the file (step 5), or an equivalent type rewrite the user accepts (step 4). While there is drift, a run also lists the drift report, `<<DriftReport>>` (in the solution's git-ignored `.cache` folder), as a new file needing no review. Until step 8 the drift in its Services Area fails the run, so nothing is applied by itself (step 6 applies by path anyway). Its "isn't modelled" rows show what is still missing.
                     2. **Diagnose anything else:** `create` means a path or name mismatch, or a type in another file without `File Config` (§3). Member inserts mean model drift. Deletes, and changed lines that aren't just formatting (step 5), mean destructive drift (**resolve-destructive-changes**). A duplicate type means the record/class kind is wrong. A rewritten type declaration (`internal sealed class` → `public class`) means wrong modifiers: fix `Default Type Modifiers`, or that element's `Type Configuration` → `Modifiers` (`Enum Configuration` → `Access Modifier` for an enum; §3). **A type spelled differently on an existing member** (`Nullable<DateTime>` → `DateTime?`, `string?` → `string`): see step 4. Don't remove the member.
                     3. **Merge directives:** every adopted file needs both of these lines, in this order:
 
@@ -303,7 +304,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
                     - **An ambiguous name after adoption** (CS0104, e.g. `Order` from two namespaces the global usings import): add a using alias at the top of the file for the type it means (`using Order = eShop.Ordering.Domain.AggregatesModel.OrderAggregate.Order;`). An alias outranks every namespace import, global ones included, and later runs keep it. Don't leave the file unadopted.
                     8. **Finish the drift check (required).** §1 wrote `guardrails/services.drift.json`, so every run already compares the model's facts and generated types with the code. Save the designer (the check reads the saved model), load **configure-drift-check** and do its steps 4 to 8 for the Services designer: fix the recipes until no fact is reported as can't be verified (a kind of fact with no recipe, or a style §1 missed) and validate-drift-recipes shows every recipe reading the code, then resolve the rest.
                     - No recipe file (the adoption began before §1 wrote one): do all of configure-drift-check's steps.
-                    - The adoption isn't finished until a run finds no drift and no warnings, so it writes no `<<DriftReport>>`, and the user has approved the model changes (configure-drift-check's step 8). Skip that approval when an orchestrating skill's **User decision** says so.
+                    - The adoption isn't finished until a run finds no drift and no warnings, so the drift report, `<<DriftReport>>`, has no findings in its Services Area (or no report is staged at all), and the user has approved the model changes (configure-drift-check's step 8). Skip that approval when an orchestrating skill's **User decision** says so.
                     - A contradiction is a recipe misreading the code, a modelling slip or real drift: check the code at its location first (configure-drift-check's step 6), fix a recipe that misreads it, and otherwise fix the model, never the code. Where the code looks wrong, say so in the final report.
                     - Code the model doesn't describe: model what §3 should have covered; add an exception for helpers and plumbing, asking the user about anything that isn't clearly one.
 
@@ -314,7 +315,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates.ReverseEngineer
                     - **Check a merge risk on the staged diff first.** Before excluding a file from generation or asking the user about something the merge might lose, stage it and read its diff. Ask only about a loss the diff shows.
                     - **DTO inheritance.** With `Intent.Modelers.Eventing` installed, `createAssociation("Generalization", …)` resolves to the Eventing DTO's Generalization, not the DTO's. Create a DTO's Generalization by its type id instead: `5ba12bbf-122f-4c3e-af3c-4a88dc554597`.
                     - **A concrete client's interface isn't guarded.** When a `Service Proxy` is the class, the interface it implements stays hand-written. A later signature change in the model changes only the class, so edit the interface by hand to match.
-                    """.Replace("<<DriftReport>>", DriftReportRunner.ReportPath(outputTarget.ExecutionContext, ServicesDrift.Name)));
+                    """.Replace("<<DriftReport>>", DriftReports.RelativePath(outputTarget.ExecutionContext)));
         }
 
         [IntentManaged(Mode.Fully)]

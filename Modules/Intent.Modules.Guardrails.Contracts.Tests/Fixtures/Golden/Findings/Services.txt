@@ -1,0 +1,5 @@
+area: Services (ModelCode, Code)
+Error Model/Code | element:Parameter:id | src/Api/OrdersController.cs:5 | `OrdersController.GetOrder(id)` binding: model `From Query`, code `From Route`
+Error Model/Code | element:Service:OrdersController | src/Api/OrdersController.cs:1 | `OrdersController` route: model `api/orders`, code `api/order`
+Error Model/Code | src/Api/OrdersController.cs:7 | — | endpoint `OrdersController.Delete` isn't modelled
+log:

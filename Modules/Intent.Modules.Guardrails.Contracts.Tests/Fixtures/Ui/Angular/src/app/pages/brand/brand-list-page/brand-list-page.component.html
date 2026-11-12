@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Brands</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button color="primary" (click)="loadBrands()" class="mr-2">Refresh</button>
+    <button mat-raised-button color="accent" (click)="addBrand()">Add Brand</button>
+    <table mat-table [dataSource]="brandsModels ?? []">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+      </ng-container>
+    </table>
+  </mat-card-content>
+</mat-card>

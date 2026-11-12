@@ -59,33 +59,17 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         }
 
         [Fact]
-        public void The_report_and_the_failure_list_every_wrong_line()
+        public void Every_wrong_line_is_an_error_in_the_Services_area_and_the_stale_exception_a_warning()
         {
             var report = Check("Services", Fixture("Basislink/guardrails/services.drift.json"), HttpFacts(), Code());
 
-            // No application, so the model elements are their names rather than live links.
-            report.ToMarkdown().ShouldBe("""
-                # Services drift report
-
-                ## Model and code drift
-
-                | Model element | Code file | Drift |
-                | --- | --- | --- |
-                | `FeatureController.ClearCache` | <FileRef path="Basislink.API/Controllers/Main/FeatureController.cs" line={38} /> | `FeatureController.ClearCache` route: model `Cache/Clear/{CacheKey}/{cacheKey}`, code `Cache/Clear/{CacheKey}` |
-                | `FeatureController.GetLogDocuments` | <FileRef path="Basislink.API/Controllers/Main/FeatureController.cs" line={56} /> | `FeatureController.GetLogDocuments` route: model `Documents/Log/Get/{OneId}/{oneId}`, code `Documents/Log/Get/{OneId}` |
-
-                ## Warnings
-
-                | Warning | Detail |
-                | --- | --- |
-                | Exception matches nothing | `Basislink.API/Controllers/HealthController.cs` (load-balancer probe): remove it from `guardrails/services.drift.json`. |
-
-                """.ReplaceLineEndings("\n"));
-            report.FailureMessage(@"intent\.cache\guardrails\BasislinkService\ServicesDriftReport.mdx", listLines: false).ShouldBe(
-                "The Services model and the code have drifted: 2 drifts detected and listed in the drift report (intent/.cache/guardrails/BasislinkService/ServicesDriftReport.mdx).");
-            report.FailureMessage("unused on CI", listLines: true).ShouldStartWith(
-                "The Services model and the code have drifted: 2 drifts detected:\n\n" +
-                "- `FeatureController.ClearCache` route: model `Cache/Clear/{CacheKey}/{cacheKey}`, code `Cache/Clear/{CacheKey}`");
+            // No elements, so each finding is about the element's name rather than a live link.
+            DriftFindings.Of(report).ShouldBe(new[]
+            {
+                "Error Model/Code | text:`FeatureController.ClearCache` | Basislink.API/Controllers/Main/FeatureController.cs:38 | `FeatureController.ClearCache` route: model `Cache/Clear/{CacheKey}/{cacheKey}`, code `Cache/Clear/{CacheKey}`",
+                "Error Model/Code | text:`FeatureController.GetLogDocuments` | Basislink.API/Controllers/Main/FeatureController.cs:56 | `FeatureController.GetLogDocuments` route: model `Documents/Log/Get/{OneId}/{oneId}`, code `Documents/Log/Get/{OneId}`",
+                "Warning Code | guardrails/services.drift.json | — | The exception `Basislink.API/Controllers/HealthController.cs` (load-balancer probe) matches nothing: remove it from `guardrails/services.drift.json`."
+            });
         }
 
         /// <summary>

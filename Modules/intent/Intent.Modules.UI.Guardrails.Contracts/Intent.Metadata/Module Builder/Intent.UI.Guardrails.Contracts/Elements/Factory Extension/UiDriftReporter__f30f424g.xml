@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="896881bd-75a4-4447-8cb9-f0d0c09f78d5" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <comment>Contributes the User Interface designer to the drift check: a drift reporter (Intent.Common.DriftReporting) that runs the shared check after template execution and adds its findings to the drift report's UI Area.</comment>
+  <name>UiDriftReporter</name>
+  <display>UiDriftReporter</display>
+  <parentFolderId>2a44e418-9559-465e-8368-92db448048a2</parentFolderId>
+  <packageId>2a44e418-9559-465e-8368-92db448048a2</packageId>
+  <packageName>Intent.UI.Guardrails.Contracts</packageName>
+</class>

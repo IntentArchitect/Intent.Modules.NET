@@ -1,0 +1,4 @@
+area: UI (ModelCode, Code)
+Error Model/Code | element:Component:Checkout | src/Web/Pages/Checkout.razor:1 | `Checkout` route: model `checkout`, code `basket/checkout`
+Error Model/Code | src/Web/Pages/Promotions.razor:1 | — | page `src/Web/Pages/Promotions.razor` isn't modelled
+log:

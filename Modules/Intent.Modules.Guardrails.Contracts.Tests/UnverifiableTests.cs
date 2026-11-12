@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections.Generic;
 using Intent.Modules.Common.Drift;
 using Shouldly;
@@ -60,9 +61,9 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 "`OrdersController.Helper` verb: no read case matches, and the recipe has no default. Location: `src/OrdersController.cs:7`"
             });
 
-            // The row's Code file column shows the location, so its text doesn't repeat it.
-            report.ToMarkdown().ShouldContain(
-                "| `OrdersController.Helper` | <FileRef path=\"src/OrdersController.cs\" line={7} /> | `OrdersController.Helper` verb can't be verified: no read case matches, and the recipe has no default |");
+            // The finding's Against anchor is the location, so its message doesn't repeat it.
+            DriftFindings.Of(report).ShouldContain(
+                "Error Model/Code | text:`OrdersController.Helper` | src/OrdersController.cs:7 | `OrdersController.Helper` verb can't be verified: no read case matches, and the recipe has no default");
         }
 
         [Fact]
@@ -80,7 +81,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 Generated = new GeneratedFile[0]
             });
 
-            report.ToMarkdown().ShouldContain("| — | <FileRef path=\"D:/Acme/intent/Acme/guardrails/services.drift.json\" /> | The recipe file is wrong: `guardrails/services.drift.json` isn't valid JSON:");
+            DriftFindings.Of(report).ShouldContain(x => x.StartsWith("Error Code | guardrails/services.drift.json | — | The recipe file is wrong: `guardrails/services.drift.json` isn't valid JSON:"));
         }
 
         [Fact]
@@ -109,7 +110,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
             report.IsOff.ShouldBeTrue();
             report.WrongLines.ShouldBeEmpty();
-            report.ToMarkdown().ShouldBe("# Services drift report\n\n## Warnings\n\n| Warning | Detail |\n| --- | --- |\n| The check is off | `guardrails/services.drift.json` doesn't exist. Load the configure-drift-check skill to write it. |\n");
+            report.OffMessage().ShouldBe("The Services drift check is off: guardrails/services.drift.json doesn't exist. Load the configure-drift-check skill to set it up.");
         }
 
         [Fact]
@@ -124,9 +125,10 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
             report.WrongLines.ShouldBeEmpty();
             report.NotChecked.ShouldBe(new[] { "`operation.route` (2 facts)" });
-            report.ToMarkdown().ShouldBe("# Services drift report\n\n## Warnings\n\n| Warning | Detail |\n| --- | --- |\n| No recipe | `operation.route` (2 facts): `guardrails/services.drift.json` has no recipe for it, so it isn't checked. Load the configure-drift-check skill to add one. |\n");
-            report.NotCheckedMessage("report.md").ShouldBe(
-                "The Services drift check doesn't check 1 kind of fact, which guardrails/services.drift.json has no recipe for: operation.route (2 facts). Load the configure-drift-check skill to add them. Report: report.md");
+            DriftFindings.Of(report).ShouldBe(new[]
+            {
+                "Warning Code | guardrails/services.drift.json | — | `operation.route` (2 facts): `guardrails/services.drift.json` has no recipe for it, so it isn't checked. Load the configure-drift-check skill to add one."
+            });
         }
 
         [Fact]

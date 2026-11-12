@@ -74,5 +74,16 @@
         <entry key="status" value="assigned" />
       </metadata>
     </element>
+    <element id="cc2b823e-8929-4bfb-a2e4-482d38ee5b82" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Common.DriftReporting.DriftReportRule</name>
+      <display>Intent.Common.DriftReporting.DriftReportRule</display>
+      <externalReference>Intent.Common.DriftReporting</externalReference>
+      <parentFolderId>aa043029-f009-4755-8d8e-aaaf1624bf27</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
   </children>
 </class>

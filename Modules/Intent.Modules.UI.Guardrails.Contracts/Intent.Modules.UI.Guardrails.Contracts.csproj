@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Intent.Modules.Guardrails.Contracts.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Supplied at run time by the installed Intent.Common.Drift module (an .imodspec dependency), so it isn't shipped: a second copy in this module's .imod could load instead of the drift module's, and then this module's contribution would implement interfaces the drift module doesn't know. -->
+    <ProjectReference Include="..\Intent.Modules.Common.Drift\Intent.Modules.Common.Drift.csproj" Private="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.11.1" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.12-pre.2" />
+    <PackageReference Include="Intent.Modules.Common.DriftReporting" Version="1.0.0-pre.0" />
+    <PackageReference Include="Intent.Packager" Version="3.6.2-pre.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0-pre.1" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Add Brand</h2>
+<mat-dialog-content>
+  <form #brandForm="ngForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput name="name" [(ngModel)]="model.name" required>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="createBrand()" [disabled]="isLoading">Save</button>
+</mat-dialog-actions>

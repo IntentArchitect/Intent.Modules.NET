@@ -1,0 +1,5 @@
+<h1>Edit Customer</h1>
+<form *ngIf="model" (ngSubmit)="updateCustomer()">
+  <input matInput name="name" [(ngModel)]="model.name" required>
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>

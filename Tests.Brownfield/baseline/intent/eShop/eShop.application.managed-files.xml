@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="f095be37-55e6-4f92-a318-8d9487b66bf2">
   <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/instructions/drift-report.md" templateId="Intent.Common.DriftReporting.DriftReportRule" />
   <file path=".agents/instructions/guardrails-model-sync.md" templateId="Intent.Common.Drift.ModelSyncRule" />
   <file path=".agents/skills/configure-drift-check/SKILL.md" templateId="Intent.Common.Drift.ConfigureDriftCheckSkill" />
   <file path=".agents/skills/configure-drift-check/references/aspnetcore-controllers.md" templateId="Intent.Services.Guardrails.Contracts.AspNetCoreControllersRecipeGuide" />
@@ -14,6 +15,7 @@
   <file path=".agents/skills/reverse-engineer-domain/SKILL.md" templateId="Intent.Domain.Guardrails.Contracts.ReverseEngineerDomainSkill" />
   <file path=".agents/skills/reverse-engineer-services/SKILL.md" templateId="Intent.Services.Guardrails.Contracts.ReverseEngineerServicesSkill" />
   <file path=".agents/skills/sync-model/SKILL.md" templateId="Intent.Common.Drift.SyncModelSkill" />
+  <file path=".agents/skills/sync-model/references/intent-drift.md" templateId="Intent.Common.Drift.IntentDriftReference" />
   <file path=".agents/skills/validate-drift-recipes/SKILL.md" templateId="Intent.Common.Drift.ValidateDriftRecipesSkill" />
   <file path="Directory.Packages.props" templateId="Intent.VisualStudio.Projects.DirectoryPackagesProps" />
   <file path="eShop.slnx" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />

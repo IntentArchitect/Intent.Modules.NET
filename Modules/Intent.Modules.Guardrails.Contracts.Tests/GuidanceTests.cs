@@ -15,6 +15,7 @@ using Intent.Templates;
 using NSubstitute;
 using DomainGuides = Intent.Modules.Domain.Guardrails.Contracts.Templates.DriftRecipeGuides;
 using ServicesGuides = Intent.Modules.Services.Guardrails.Contracts.Templates.DriftRecipeGuides;
+using UiGuides = Intent.Modules.UI.Guardrails.Contracts.Templates.DriftRecipeGuides;
 using Shouldly;
 using Xunit;
 
@@ -54,7 +55,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 (FactKinds.Domain, DomainGuides.EfCore), (FactKinds.Domain, DomainGuides.MongoDb), (FactKinds.Domain, DomainGuides.CosmosDb),
                 (FactKinds.Domain, DomainGuides.DomainEvents),
                 (FactKinds.Services, ServicesGuides.AspNetCoreControllers), (FactKinds.Services, ServicesGuides.MinimalApis), (FactKinds.Services, ServicesGuides.FastEndpoints),
-                (FactKinds.Services, ServicesGuides.HandlerIntent)
+                (FactKinds.Services, ServicesGuides.HandlerIntent),
+                (FactKinds.Ui, UiGuides.Blazor), (FactKinds.Ui, UiGuides.Angular), (FactKinds.Ui, UiGuides.React)
             })
             {
                 var blocks = Guides.JsonBlocks(guide);
@@ -100,7 +102,10 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 ("aspnetcore-controllers", ServicesGuides.AspNetCoreControllers, new Services.Guardrails.Contracts.Templates.AspNetCoreControllersRecipeGuide.AspNetCoreControllersRecipeGuideTemplate(outputTarget)),
                 ("minimal-apis", ServicesGuides.MinimalApis, new Services.Guardrails.Contracts.Templates.MinimalApisRecipeGuide.MinimalApisRecipeGuideTemplate(outputTarget)),
                 ("fastendpoints", ServicesGuides.FastEndpoints, new Services.Guardrails.Contracts.Templates.FastEndpointsRecipeGuide.FastEndpointsRecipeGuideTemplate(outputTarget)),
-                ("handler-intent", ServicesGuides.HandlerIntent, new Services.Guardrails.Contracts.Templates.HandlerIntentRecipeGuide.HandlerIntentRecipeGuideTemplate(outputTarget))
+                ("handler-intent", ServicesGuides.HandlerIntent, new Services.Guardrails.Contracts.Templates.HandlerIntentRecipeGuide.HandlerIntentRecipeGuideTemplate(outputTarget)),
+                ("blazor", UiGuides.Blazor, new UI.Guardrails.Contracts.Templates.BlazorRecipeGuide.BlazorRecipeGuideTemplate(outputTarget)),
+                ("angular", UiGuides.Angular, new UI.Guardrails.Contracts.Templates.AngularRecipeGuide.AngularRecipeGuideTemplate(outputTarget)),
+                ("react", UiGuides.React, new UI.Guardrails.Contracts.Templates.ReactRecipeGuide.ReactRecipeGuideTemplate(outputTarget))
             };
 
             foreach (var (file, guide, template) in templates)
@@ -125,8 +130,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             var servicesOnly = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context(), ServicesOnly));
             servicesOnly.ShouldContain("`guardrails/services.drift.json`");
             servicesOnly.ShouldNotContain("| `column.textType` |");
-            servicesOnly.ShouldContain("`intent/.cache/guardrails/Acme/ServicesDriftReport.mdx`");
-            servicesOnly.ShouldNotContain("DomainDriftReport");
+            servicesOnly.ShouldContain("Each designer is an Area of the drift report (`intent/.cache/drift/Acme/DriftReport.mdx`, in the `.cache` folder beside the solution's `.isln` file)");
+            servicesOnly.ShouldNotContain(".cache/guardrails");
         }
 
         [Fact]
@@ -148,7 +153,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 File.WriteAllText(Path.Combine(folder, name), rendered);
                 rendered.ShouldStartWith("---\ndescription: ");
                 rendered.ShouldNotContain("|| ");
-                rendered.ShouldContain("`intent/.cache/guardrails/Acme/DomainDriftReport.mdx` and `intent/.cache/guardrails/Acme/ServicesDriftReport.mdx`, in the `.cache` folder beside the solution's `.isln` file");
+                rendered.ShouldContain("`intent/.cache/drift/Acme/DriftReport.mdx`, in the `.cache` folder beside the solution's `.isln` file");
+                rendered.ShouldNotContain("DriftReport.mdx` and");
                 rendered.ShouldNotContain("root of the application's output");
                 rendered.ShouldNotContain(".gitignore");
             }
@@ -165,14 +171,39 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             var domain = new Domain.Guardrails.Contracts.Templates.ReverseEngineerDomainSkill.ReverseEngineerDomainSkillTemplate(outputTarget).MarkdownFile.ToString();
             var services = new Services.Guardrails.Contracts.Templates.ReverseEngineerServicesSkill.ReverseEngineerServicesSkillTemplate(outputTarget).MarkdownFile.ToString();
 
-            domain.ShouldContain("The adoption isn't finished until a run finds no drift and no warnings, so it writes no `intent/.cache/guardrails/Acme/DomainDriftReport.mdx`, and the user has approved the model changes");
-            services.ShouldContain("The adoption isn't finished until a run finds no drift and no warnings, so it writes no `intent/.cache/guardrails/Acme/ServicesDriftReport.mdx`, and the user has approved the model changes");
+            domain.ShouldContain("The adoption isn't finished until a run finds no drift and no warnings, so the drift report, `intent/.cache/drift/Acme/DriftReport.mdx`, has no findings in its Domain Area (or no report is staged at all), and the user has approved the model changes");
+            services.ShouldContain("The adoption isn't finished until a run finds no drift and no warnings, so the drift report, `intent/.cache/drift/Acme/DriftReport.mdx`, has no findings in its Services Area (or no report is staged at all), and the user has approved the model changes");
             foreach (var skill in new[] { domain, services })
             {
                 skill.ShouldNotContain("<<DriftReport>>");
                 skill.ShouldNotContain(".gitignore");
                 skill.ShouldNotContain("Recipe check");
             }
+        }
+
+        [Fact]
+        public void The_reverse_engineer_ui_skill_names_its_report_stays_in_budget_and_links_the_designer_reference_it_ships()
+        {
+            var context = Context();
+            var outputTarget = Substitute.For<IOutputTarget>();
+            outputTarget.ExecutionContext.Returns(context);
+            outputTarget.Metadata.Returns(new Dictionary<string, object>());
+            var skillTemplate = new UI.Guardrails.Contracts.Templates.ReverseEngineerUiSkill.ReverseEngineerUiSkillTemplate(outputTarget);
+            var referenceTemplate = new UI.Guardrails.Contracts.Templates.UserInterfaceDesigner1Reference.UserInterfaceDesigner1ReferenceTemplate(outputTarget);
+
+            var skill = skillTemplate.MarkdownFile.ToString().Replace("\r\n", "\n");
+
+            skill.ShouldStartWith("---\ndescription: ");
+            skill.ShouldContain("so the drift report, `intent/.cache/drift/Acme/DriftReport.mdx`, has no findings in its UI Area");
+            skill.ShouldNotContain("<<DriftReport>>");
+            System.Text.Encoding.UTF8.GetByteCount(skill).ShouldBeLessThan(48 * 1024);
+            skillTemplate.GetTemplateFileConfig().LocationInProject.Replace('\\', '/').ShouldBe("reverse-engineer-ui");
+
+            // The "Model it" table links the reference for each designer version; each must be one this module writes.
+            var config = referenceTemplate.GetTemplateFileConfig();
+            config.LocationInProject.Replace('\\', '/').ShouldBe("reverse-engineer-ui/references");
+            skill.ShouldContain($"[references/{config.FileName}.md](references/{config.FileName}.md)");
+            Regex.Matches(skill, @"\]\((references/[^)]+)\)").Select(x => x.Groups[1].Value).ShouldBe(new[] { "references/user-interface-designer-1.md" });
         }
 
         [Fact]
@@ -228,7 +259,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         }
 
         [Fact]
-        public void The_rule_and_skills_are_written_once_some_module_contributes_a_designer()
+        public void The_rule_and_skills_are_written_once_some_module_registers_a_designers_reporter()
         {
             var context = Context();
             var outputTarget = Substitute.For<IOutputTarget>();
@@ -241,11 +272,10 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             rule.CanRunTemplate().ShouldBeFalse();
             ModelSyncGuidance.Designers(context).ShouldBeEmpty();
 
-            var services = Substitute.For<ITemplate, IDriftDesignerSource>();
-            ((IDriftDesignerSource)services).Designer.Returns(ServicesDrift.Designer);
-            var domain = Substitute.For<ITemplate, IDriftDesignerSource>();
-            ((IDriftDesignerSource)domain).Designer.Returns(DomainDrift.Designer);
-            outputTarget.TemplateInstances.Returns(new[] { services, rule, domain });
+            // Registered in reverse: the order is the designers'.
+            DriftHub.Register(context,
+                new Services.Guardrails.Contracts.FactoryExtensions.ServicesDriftReporter(),
+                new Domain.Guardrails.Contracts.FactoryExtensions.DomainDriftReporter());
             rule.CanRunTemplate().ShouldBeTrue();
             ModelSyncGuidance.Designers(context).ShouldBe(Both, "one per designer, in their order");
         }
@@ -278,16 +308,17 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             return new MarkdownFile("SKILL").FromMarkdown(markdown).ToString().Replace("\r\n", "\n");
         }
 
-        private static ISoftwareFactoryExecutionContext Context()
+        private static IApplication Context()
         {
             var solution = Substitute.For<ISolutionConfig>();
             // A path as this OS writes it, as Intent Architect gives it: on the Linux CI agent a backslash isn't a separator.
             solution.SolutionRootLocation.Returns(Path.Combine(Path.GetPathRoot(Path.GetTempPath()), "Repos", "Acme", "intent") + Path.DirectorySeparatorChar);
             var application = Substitute.For<IApplicationConfig>();
             application.Name.Returns("Acme");
-            var context = Substitute.For<ISoftwareFactoryExecutionContext>();
+            var context = Substitute.For<IApplication>();
             context.GetSolutionConfig().Returns(solution);
             context.GetApplicationConfig().Returns(application);
+            context.EventDispatcher.Returns(DriftHub.Dispatcher());
             return context;
         }
     }

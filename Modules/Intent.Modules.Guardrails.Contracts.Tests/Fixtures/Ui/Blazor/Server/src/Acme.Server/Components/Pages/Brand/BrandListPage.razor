@@ -1,0 +1,20 @@
+@page "/brand/list"
+@using Intent.Sample.Blazor.Server.Application.Brands
+
+<MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0">
+    <MudText Typo="Typo.h4" Class="text-white font-weight-bold mb-2">Brands</MudText>
+</MudPaper>
+<MudButton Variant="Variant.Filled"
+           Color="Color.Primary"
+           OnClick="@OpenBrandAddDialogAsync">
+    Add Brand
+</MudButton>
+<MudTable Items="Brands" Hover="true">
+    <RowTemplate>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd>
+            <MudIconButton Icon="@Icons.Material.Filled.Edit"
+                           OnClick="@(() => OpenBrandEditDialogAsync(context.Id))" />
+        </MudTd>
+    </RowTemplate>
+</MudTable>
