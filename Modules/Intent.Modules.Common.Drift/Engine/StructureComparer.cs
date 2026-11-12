@@ -20,6 +20,12 @@ namespace Intent.Modules.Common.Drift
 
         /// <summary>What the model can state about each generated type (<c>Order</c>); <see cref="Modellable.Everything"/> for a type not listed.</summary>
         public IReadOnlyDictionary<string, Modellable> ModellableTypes { get; init; }
+
+        /// <summary>
+        /// The generated types (<c>Order</c>) whose builder declares a primary constructor with no parameters. The C# builder
+        /// doesn't write an empty one (<c>class Order</c>, not <c>class Order()</c>), so <see cref="Text"/> can't show it.
+        /// </summary>
+        public IReadOnlyCollection<string> EmptyPrimaryConstructors { get; init; }
     }
 
     /// <summary>
@@ -44,7 +50,10 @@ namespace Intent.Modules.Common.Drift
 
         public bool TypeParameters { get; init; }
 
-        /// <summary>Parameters on the type itself: a positional record's, or a class's primary constructor's.</summary>
+        /// <summary>
+        /// Parameters on the type itself: a positional record's, or a class's primary constructor's. An empty list
+        /// (<c>record OrderShipped()</c>) isn't one: it's the type's parameterless constructor, compared as a constructor.
+        /// </summary>
         public bool ParameterList { get; init; }
 
         /// <summary>Properties. No designer models a field, an event or an indexer.</summary>
@@ -165,11 +174,12 @@ namespace Intent.Modules.Common.Drift
                     Types: CodeLocator.TopLevelTypes((CompilationUnitSyntax)CSharpSyntaxTree.ParseText(x.Text, ParseOptions).GetRoot()).ToList(),
                     Ids: x.ElementIds ?? new Dictionary<string, string>(),
                     x.Text,
-                    Modellable: x.ModellableTypes ?? new Dictionary<string, Modellable>()))
+                    Modellable: x.ModellableTypes ?? new Dictionary<string, Modellable>(),
+                    EmptyPrimaryConstructors: x.EmptyPrimaryConstructors ?? Array.Empty<string>()))
                 .ToList();
             generatedTypes.AddOutputFiles((outputPaths ?? Array.Empty<string>()).Select(code.ToRelative).Concat(files.Select(x => x.RelativePath)));
 
-            foreach (var (path, types, ids, text, modellable) in files.OrderBy(x => x.RelativePath, StringComparer.Ordinal))
+            foreach (var (path, types, ids, text, modellable, emptyPrimaryConstructors) in files.OrderBy(x => x.RelativePath, StringComparer.Ordinal))
             {
                 var disk = code.Get(path);
                 texts.TryAdd(path, text);
@@ -201,7 +211,8 @@ namespace Intent.Modules.Common.Drift
                     codeFingerprints[typeName] = new CodeAspect(typeName, CodeDeclarationFingerprint(diskTypes));
                     codeMembers[typeName] = MembersFingerprint(diskTypes, typeName);
                     generatedTypes.AddDeclarations(diskTypes);
-                    var context = new TypeContext(typeName, disk, ids, findings, codeFingerprints, modellable.GetValueOrDefault(typeName) ?? Modellable.Everything);
+                    var context = new TypeContext(typeName, disk, ids, findings, codeFingerprints, modellable.GetValueOrDefault(typeName) ?? Modellable.Everything,
+                        emptyPrimaryConstructors.Contains(typeName));
                     CompareDeclaration(type, diskTypes, context);
                     CompareMembers(type, members, diskTypes, context);
                 }
@@ -258,7 +269,9 @@ namespace Intent.Modules.Common.Drift
             return result;
         }
 
-        private sealed record TypeContext(string TypeName, CodeFile File, IReadOnlyDictionary<string, string> Ids, List<Finding> Findings, Dictionary<string, CodeAspect> Code, Modellable Modellable)
+        /// <param name="EmptyPrimaryConstructor">Whether the model declares the type's parameterless constructor as an empty primary constructor (<see cref="GeneratedFile.EmptyPrimaryConstructors"/>).</param>
+        private sealed record TypeContext(string TypeName, CodeFile File, IReadOnlyDictionary<string, string> Ids, List<Finding> Findings, Dictionary<string, CodeAspect> Code, Modellable Modellable,
+            bool EmptyPrimaryConstructor)
         {
             /// <summary>The type's element, then the member's, as far as they are known.</summary>
             public IReadOnlyList<string> IdsOf(Member member) => Chain(Ids.GetValueOrDefault(TypeName), Ids.GetValueOrDefault($"{TypeName}.{member.Name}"));
@@ -272,7 +285,7 @@ namespace Intent.Modules.Common.Drift
         {
             var typeDeclaration = type as TypeDeclarationSyntax;
             return string.Join("|", KindOf(type), Modifiers(type.Modifiers, exclude: null), TypeParameters(typeDeclaration?.TypeParameterList),
-                Parameters(typeDeclaration?.ParameterList), string.Join(",", BaseTypes(type)));
+                PrimaryParameters(typeDeclaration), string.Join(",", BaseTypes(type)));
         }
 
         /// <summary>
@@ -283,7 +296,7 @@ namespace Intent.Modules.Common.Drift
         {
             return string.Join("|", KindOf(parts[0]), Modifiers(parts.SelectMany(x => x.Modifiers), exclude: null),
                 TypeParameters((parts[0] as TypeDeclarationSyntax)?.TypeParameterList),
-                parts.OfType<TypeDeclarationSyntax>().Select(x => Parameters(x.ParameterList)).FirstOrDefault(x => x.Length > 0) ?? string.Empty,
+                parts.OfType<TypeDeclarationSyntax>().Select(PrimaryParameters).FirstOrDefault(x => x.Length > 0) ?? string.Empty,
                 string.Join(",", parts.SelectMany(BaseTypes).Distinct(StringComparer.Ordinal).OrderBy(x => x, StringComparer.Ordinal)));
         }
 
@@ -327,8 +340,8 @@ namespace Intent.Modules.Common.Drift
                     Contradiction("type parameters", modelTypeParameters, codeTypeParameters);
                 }
 
-                var modelParameters = Parameters(generatedType.ParameterList);
-                var codeParameters = disk.OfType<TypeDeclarationSyntax>().Select(x => Parameters(x.ParameterList)).FirstOrDefault(x => x.Length > 0) ?? string.Empty;
+                var modelParameters = PrimaryParameters(generatedType);
+                var codeParameters = disk.OfType<TypeDeclarationSyntax>().Select(PrimaryParameters).FirstOrDefault(x => x.Length > 0) ?? string.Empty;
                 if (modelParameters != codeParameters && (modellable.ParameterList || modelParameters.Length > 0))
                 {
                     Contradiction("parameters", modelParameters, codeParameters);
@@ -389,7 +402,8 @@ namespace Intent.Modules.Common.Drift
             // A code member the model doesn't describe is only reported when the element could model it: a DTO's ToString()
             // or a handler's Handle method is nothing its designer can state, and neither is any field, event or indexer.
             // And only when it is public: whether a protected, internal or private member belongs in the model is a
-            // judgement call, so one left out is never drift.
+            // judgement call, so one left out is never drift. A parameterless constructor is described by the model's empty
+            // primary constructor, which its template's output can't show.
             var modellable = context.Modellable;
             var typeHasConstructors = modelMembers.Any(x => x.Group == "constructor");
             foreach (var member in codeMembers.Where(x => !matched.Contains(x)))
@@ -399,6 +413,7 @@ namespace Intent.Modules.Common.Drift
                 {
                     "method" => modellable.Methods && isPublic,
                     "property" when member.Kind == "property" => modellable.Properties && isPublic,
+                    "constructor" when context.EmptyPrimaryConstructor && member.Signature.Length == 0 => false,
                     "constructor" => modellable.Constructors && typeHasConstructors && isPublic,
                     "literal" => true,
                     _ => false
@@ -480,6 +495,20 @@ namespace Intent.Modules.Common.Drift
             if (type is not TypeDeclarationSyntax declaration)
             {
                 return result;
+            }
+
+            // An empty primary constructor (record OrderShipped()) puts no parameters on the type, but it is a declared
+            // parameterless constructor, which every other constructor must call: protected on an abstract type, as the
+            // compiler makes it, otherwise public.
+            if (declaration.ParameterList is { Parameters.Count: 0 } emptyPrimaryConstructor)
+            {
+                var access = declaration.Modifiers.Any(SyntaxKind.AbstractKeyword) ? "protected" : CodeLocator.Public;
+                result.Add(new Member("constructor", "constructor", typeName, $"{declaration.Identifier.Text}()", access, emptyPrimaryConstructor)
+                {
+                    Signature = string.Empty,
+                    Parameters = Parameters(emptyPrimaryConstructor),
+                    Modifiers = access
+                });
             }
 
             var isInterface = declaration is InterfaceDeclarationSyntax;
@@ -571,6 +600,16 @@ namespace Intent.Modules.Common.Drift
         private static string TypeParameters(TypeParameterListSyntax list)
         {
             return list == null ? string.Empty : $"<{string.Join(",", list.Parameters.Select(x => x.Identifier.Text))}>";
+        }
+
+        /// <summary>
+        /// The parameters a type declares on itself, as <see cref="Parameters"/> reads them: a positional record's or a primary
+        /// constructor's. An empty list declares none, as the C# builder writes it: <c>record OrderShipped()</c> is
+        /// <c>record OrderShipped</c> with a parameterless constructor (see <see cref="Members"/>).
+        /// </summary>
+        private static string PrimaryParameters(TypeDeclarationSyntax type)
+        {
+            return type?.ParameterList is { Parameters.Count: > 0 } list ? Parameters(list) : string.Empty;
         }
 
         /// <summary>A parameter list as it reads: modifiers, type, name and default, e.g. <c>(ref int id,string area="x")</c>.</summary>

@@ -64,7 +64,8 @@ namespace Intent.Modules.Common.Drift
                         RelativePath = code.ToRelative(x.GetMetadata().GetFilePath()),
                         Text = x.CSharpFile.ToString(),
                         ElementIds = ElementIds(x.CSharpFile),
-                        ModellableTypes = ModellableTypes(x.CSharpFile)
+                        ModellableTypes = ModellableTypes(x.CSharpFile),
+                        EmptyPrimaryConstructors = EmptyPrimaryConstructors(x.CSharpFile)
                     })
                     .ToList();
 
@@ -200,6 +201,18 @@ namespace Intent.Modules.Common.Drift
             }
 
             return ids;
+        }
+
+        /// <summary>
+        /// The types whose builder declares a primary constructor with no parameters, which the C# builder doesn't write
+        /// (<see cref="GeneratedFile.EmptyPrimaryConstructors"/>).
+        /// </summary>
+        internal static IReadOnlyCollection<string> EmptyPrimaryConstructors(CSharpFile file)
+        {
+            return file.TypeDeclarations
+                .Where(type => type.Constructors.Any(x => x.IsPrimaryConstructor && x.Parameters.Count == 0))
+                .Select(type => type.Name)
+                .ToHashSet(StringComparer.Ordinal);
         }
 
         /// <summary>What the model can state about each generated type, as its builder recorded it (<see cref="Modellable"/>).</summary>

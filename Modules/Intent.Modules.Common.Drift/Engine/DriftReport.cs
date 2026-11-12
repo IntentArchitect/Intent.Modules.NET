@@ -758,7 +758,8 @@ namespace Intent.Modules.Common.Drift
                 return true;
             }
 
-            if (finding.Node is not MemberDeclarationSyntax or BaseNamespaceDeclarationSyntax or GlobalStatementSyntax)
+            // An empty primary constructor's parameter list is that constructor's declaration.
+            if (finding.Node is not (MemberDeclarationSyntax or ParameterListSyntax { Parent: TypeDeclarationSyntax }) or BaseNamespaceDeclarationSyntax or GlobalStatementSyntax)
             {
                 return false;
             }
