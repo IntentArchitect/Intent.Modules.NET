@@ -1,0 +1,326 @@
+# operation.verb
+
+An Operation's `Http Settings` Verb, against the HTTP method its endpoint is mapped with: `MapGet`, `MapPut` and the rest, `MapMethods` with one verb, or a Spring `*Mapping` annotation. `operation.verb` is `stated: always`: every mapped endpoint states its verb.
+
+The fixtures adapt eShopCustom's `Ordering.API/Apis/OrdersApi.cs` and the Java spike's `OrdersController`.
+
+## verified
+
+The Operation's Verb is `PUT` and the endpoint is mapped with `MapPut`. Traces ESC-SVC-21.
+
+```json case
+{ "phase": 4, "kinds": ["operation.verb"], "traces": ["ESC-SVC-21"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Ordering.API",
+        "elements": [
+          { "id": "orders-api", "type": "Service", "name": "OrdersApi",
+            "stereotypes": { "Http Service Settings": { "Route": "api/orders" } },
+            "children": [
+              { "id": "cancel-order", "type": "Operation", "name": "CancelOrderAsync",
+                "stereotypes": { "Http Settings": { "Verb": "PUT", "Route": "cancel" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapPut("/cancel", CancelOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Results<Ok, BadRequest<string>>> CancelOrderAsync(
+        [FromHeader(Name = "x-requestid")] Guid requestId,
+        CancelOrderCommand command,
+        [AsParameters] OrderServices services)
+    {
+        var requestCancelOrder = new IdentifiedCommand<CancelOrderCommand, bool>(command, requestId);
+        var commandResult = await services.Mediator.Send(requestCancelOrder);
+
+        return commandResult ? TypedResults.Ok() : TypedResults.BadRequest("Cancel order failed to process.");
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.verb", "element": "cancel-order", "outcome": "verified", "expected": "PUT", "actual": "PUT",
+      "at": "src/Ordering.API/Apis/OrdersApi.cs:9" }
+  ]
+}
+```
+
+## contradicted
+
+The endpoint is mapped with `MapPost`. Traces ESC-SVC-21.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["operation.verb"], "traces": ["ESC-SVC-21"], "requirements": ["R1", "R11", "R14"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapPost("/cancel", CancelOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Results<Ok, BadRequest<string>>> CancelOrderAsync(
+        [FromHeader(Name = "x-requestid")] Guid requestId,
+        CancelOrderCommand command,
+        [AsParameters] OrderServices services)
+    {
+        var requestCancelOrder = new IdentifiedCommand<CancelOrderCommand, bool>(command, requestId);
+        var commandResult = await services.Mediator.Send(requestCancelOrder);
+
+        return commandResult ? TypedResults.Ok() : TypedResults.BadRequest("Cancel order failed to process.");
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.verb", "element": "cancel-order", "outcome": "contradicted", "expected": "PUT", "actual": "POST",
+      "at": "src/Ordering.API/Apis/OrdersApi.cs:9" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.verb", "severity": "error", "subject": "cancel-order", "messageContains": "POST" }
+  ]
+}
+```
+
+## map-methods-with-one-verb
+
+`MapMethods` with a single verb states that verb as plainly as `MapPut` does. Traces ESC-SVC-21.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["operation.verb"], "traces": ["ESC-SVC-21"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapMethods("/cancel", ["PUT"], CancelOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Results<Ok, BadRequest<string>>> CancelOrderAsync(
+        [FromHeader(Name = "x-requestid")] Guid requestId,
+        CancelOrderCommand command,
+        [AsParameters] OrderServices services)
+    {
+        var requestCancelOrder = new IdentifiedCommand<CancelOrderCommand, bool>(command, requestId);
+        var commandResult = await services.Mediator.Send(requestCancelOrder);
+
+        return commandResult ? TypedResults.Ok() : TypedResults.BadRequest("Cancel order failed to process.");
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.verb", "element": "cancel-order", "outcome": "verified", "expected": "PUT", "actual": "PUT",
+      "at": "src/Ordering.API/Apis/OrdersApi.cs:9" }
+  ]
+}
+```
+
+## map-methods-with-several-verbs-unreadable
+
+`MapMethods` with two verbs states no single verb an Operation can match. eShopCustom listed a multi-verb mapping as code it couldn't model; here the claim is can't verify, `unreadable`, so the reviewer sees the endpoint wasn't checked.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["operation.verb"], "cases": ["engine/unreadable"], "requirements": ["R5"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapMethods("/cancel", ["PUT", "PATCH"], CancelOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Results<Ok, BadRequest<string>>> CancelOrderAsync(
+        [FromHeader(Name = "x-requestid")] Guid requestId,
+        CancelOrderCommand command,
+        [AsParameters] OrderServices services)
+    {
+        var requestCancelOrder = new IdentifiedCommand<CancelOrderCommand, bool>(command, requestId);
+        var commandResult = await services.Mediator.Send(requestCancelOrder);
+
+        return commandResult ? TypedResults.Ok() : TypedResults.BadRequest("Cancel order failed to process.");
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.verb", "element": "cancel-order", "outcome": "cantVerify", "reason": "unreadable",
+      "at": "src/Ordering.API/Apis/OrdersApi.cs:9" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.verb", "severity": "error", "subject": "cancel-order", "messageContains": "can't read" }
+  ]
+}
+```
+
+## blocked-when-endpoint-missing
+
+No endpoint is mapped for `CancelOrderAsync`: the handler method is there but nothing maps it. `endpoint.exists` is contradicted, and the verb, which depends on it, is can't verify, `blocked`, counted in the endpoint's one finding.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["operation.verb", "endpoint.exists"], "cases": ["engine/blocked"], "requirements": ["R5", "R8"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        return api;
+    }
+
+    public static async Task<Results<Ok, BadRequest<string>>> CancelOrderAsync(
+        [FromHeader(Name = "x-requestid")] Guid requestId,
+        CancelOrderCommand command,
+        [AsParameters] OrderServices services)
+    {
+        var requestCancelOrder = new IdentifiedCommand<CancelOrderCommand, bool>(command, requestId);
+        var commandResult = await services.Mediator.Send(requestCancelOrder);
+
+        return commandResult ? TypedResults.Ok() : TypedResults.BadRequest("Cancel order failed to process.");
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "endpoint.exists", "element": "cancel-order", "outcome": "contradicted", "expected": "present", "actual": "absent" },
+    { "kind": "operation.verb", "element": "cancel-order", "outcome": "cantVerify", "reason": "blocked", "blockedBy": "endpoint.exists" }
+  ],
+  "findings": [
+    { "rule": "claim/endpoint.exists", "severity": "error", "subject": "cancel-order", "messageContains": "isn't in the code" },
+    { "rule": "claim/operation.verb", "count": 0, "note": "A blocked claim has no finding of its own" }
+  ]
+}
+```
+
+## java-verified
+
+The same claim over Spring MVC: `@PostMapping` states `POST`. Traces JAV-SVC-06 (the verb part).
+
+```json case
+{ "phase": 4, "kinds": ["operation.verb"], "traces": ["JAV-SVC-06"], "requirements": ["R2", "R33"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc"], "language": "java" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "eShop.Backend",
+        "elements": [
+          { "id": "orders-controller", "type": "Service", "name": "OrdersController",
+            "children": [
+              { "id": "cancel-order", "type": "Operation", "name": "CancelOrder",
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "/api/orders/{orderId}/cancel" } },
+                "children": [
+                  { "id": "cancel-order-order-id", "type": "Parameter", "name": "orderId", "typeRef": { "type": "guid" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/main/java/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```java file src/main/java/com/eshop/backend/api/OrdersController.java
+package com.eshop.backend.api;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
+
+@RestController
+public class OrdersController {
+    private final OrderService orders;
+
+    public OrdersController(OrderService orders) {
+        this.orders = orders;
+    }
+
+    @PostMapping("/api/orders/{orderId}/cancel")
+    public ResponseEntity<Void> cancelOrder(@PathVariable UUID orderId) {
+        orders.cancel(orderId);
+        return ResponseEntity.noContent().build();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.verb", "element": "cancel-order", "outcome": "verified", "expected": "POST", "actual": "POST",
+      "at": "src/main/java/com/eshop/backend/api/OrdersController.java:18" }
+  ]
+}
+```

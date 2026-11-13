@@ -199,7 +199,6 @@ A script returns `executed`, `result` (your `return`), `output`, `changes` (`cre
 1. **A Value Object / Data Contract attribute cannot be typed as a Class** (`"Product" is a Class, which this type reference cannot point to`). Use an id (`ProductId: guid`).
 2. **A throw does not roll back.** The steps before it stay applied. Read `changes` and continue from the failure; re-running the whole script duplicates elements.
 3. **Basic-mapping a DTO field to an association retypes it** to the entity, giving `Type reference could not be found`. `setType` the nested DTO after mapping.
-4. **`await` every read global.** `getStereotypeDefinitions().stereotypeDefinitions` is `undefined`: it's a promise.
-5. **No Id or FK attributes on Classes** — the designer manages them. A 1-to-1 gets an FK only when its source end is `0..1`.
-6. **Composition (`1 -> *`, `1 -> 1`) runs only from a root to its own child.** Between roots, invert it to many-to-one (`Order 0..* -> 1 Customer`).
-7. **List queries need `0..*` on the `Query Entity Action`**; it defaults to 1-to-1.
+4. **No Id or FK attributes on Classes** — the designer manages them. A 1-to-1 gets an FK only when its source end is `0..1`.
+5. **Composition (`1 -> *`, `1 -> 1`) runs only from a root to its own child.** Between roots, invert it to many-to-one (`Order 0..* -> 1 Customer`).
+6. **List queries need `0..*` on the `Query Entity Action`**; it defaults to 1-to-1.

@@ -5,6 +5,7 @@ requiredTools:
   - run_designer_query
   - run_designer_script
   - read_file
+group: Modelling
 ---
 
 # Scripting the Model
@@ -35,6 +36,7 @@ Scripts are plain JavaScript with top-level `await`. Hold references in local va
 | `create*` / `add*` | performs the change and **returns the created object** | `createElementUnder`, `el.addChild`, `prop.addItem` |
 | `get*` / `set*` | always **METHODS** — `el.getName()`, not `el.name`. A plain field getter always answers | `el.getComment()`, `el.setType(...)` |
 | `getChild` / `getType` | a **SEARCH** wearing a `get*` name — `null` when nothing matches, so guard it | `el.getChild(pred)`, `el.getType()` |
+| the snapshot reads | **async** — `await` before reading a member: `(await searchElements(...)).matches` | `searchElements`, `getElementDetails`, `getDesignerSchema`, `getDesignerModelStructure`, `getDesignerValidationErrors`, `getStereotypeDefinitions`, `getSettings`, `getDiagramSnapshot` |
 | `resolve*` | returns ids / type-reference data | `resolveType` |
 
 - The finders (`findElements` / `lookupByName` / `lookupByPath` / `lookupById`) are **top-level globals** that search the whole designer. They are NOT methods on an element. To search *within* an element or package use that object's `findChildren(...)` / `getChildren(...)` / `getChild(...)`.

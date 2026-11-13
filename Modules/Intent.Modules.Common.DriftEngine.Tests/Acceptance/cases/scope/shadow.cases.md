@@ -1,0 +1,324 @@
+# scope/shadow
+
+When a claim's code isn't found in scope, the engine looks for it among the out-of-scope paths, so the finding says "out of scope" rather than "missing" (R25). The lookup repeats the find's named steps against paths only: a `class:Order` step looks for a file whose name, up to its first dot, is `Order`, and a `file:` step matches as written. It never opens an excluded file. A hit makes the claim can't verify, `outOfScope`, naming the file and the row that excludes it; no hit leaves the claim to the rest of the outcome order.
+
+## exposed-dto-out-of-scope
+
+The API exposes `OrderDto`, and the model describes it, but its file is in the shared contracts folder that row 2 excludes. The claim can't be verified, and the finding names `src/Contracts/OrderDto.cs` and the row, so the team can either bring the file into scope or accept that the claim isn't checked here. The excluded file is never read.
+
+eShopCustom's Services module reported exposed types whose files weren't adopted (`services.exposure.not-adopted`); a modelled type outside scope is that report, for any designer.
+
+```json case
+{ "phase": 1, "cases": ["scope/shadow", "scope/notRead"], "traces": ["ESC-SVC-05"], "requirements": ["R22", "R25"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Shop.Services",
+        "elements": [
+          { "id": "order-dto", "type": "DTO", "name": "OrderDto",
+            "children": [
+              { "id": "order-dto-id", "type": "DTO-Field", "name": "Id", "typeRef": { "type": "guid" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [
+          { "Glob": "src/**", "Scope": "In" },
+          { "Glob": "src/Contracts/**", "Scope": "Out", "Reason": "Shared contracts package, checked from its own application" }
+        ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Api/Controllers/OrdersController.cs
+using Microsoft.AspNetCore.Mvc;
+using Shop.Contracts;
+
+namespace Shop.Api.Controllers;
+
+[ApiController]
+[Route("api/orders")]
+public class OrdersController : ControllerBase
+{
+    [HttpGet("{id}")]
+    public ActionResult<OrderDto> GetOrder(Guid id) => Ok(new OrderDto(id));
+}
+```
+
+```csharp file src/Contracts/OrderDto.cs
+namespace Shop.Contracts;
+
+public record OrderDto(Guid Id);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "order-dto", "outcome": "cantVerify", "reason": "outOfScope", "scopeRow": "root#2" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "severity": "error", "subject": "order-dto", "messageContains": "src/Contracts/OrderDto.cs" }
+  ],
+  "filesRead": { "include": ["src/Api/Controllers/OrdersController.cs"], "exclude": ["src/Contracts/**"] }
+}
+```
+
+## layer-path-out-of-scope
+
+The architecture model has a `Legacy` Layer whose Layer Settings Path is `src/Legacy`, and row 2 excludes that folder. The Layer's contents claim finds nothing in scope, but its `file:` step matches `src/Legacy/OrderService.cs` among the excluded paths, so the claim is `outOfScope`, naming the file and the row, rather than contradicted from the recipe's `absent`. The `Domain` Layer, in scope, is verified.
+
+eShopCustom's Architecture module reported a Layer whose Path lies outside its Architecture Scope (`architecture.layer.outside-scope`). Its Layers sit on the Codebase Structure designer's Root Folder, through that module's package extension; no stock pack knows them, so a house pack supplies the kind, its vocabulary and its recipe, as phase 2 requires.
+
+```json case
+{ "phase": 2, "cases": ["scope/shadow"], "kinds": ["layer.populated"], "traces": ["ESC-ARC-04"], "requirements": ["R22", "R25", "R28"], "packs": ["intent.core", "house.shop"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [
+          { "Glob": "src/**", "Scope": "In" },
+          { "Glob": "src/Legacy/**", "Scope": "Out", "Reason": "Being replaced by src/Domain" }
+        ] } },
+        "elements": [
+          { "id": "domain-layer", "type": "Layer", "name": "Domain",
+            "stereotypes": { "Layer Settings": { "Path": "src/Domain" } } },
+          { "id": "legacy-layer", "type": "Layer", "name": "Legacy",
+            "stereotypes": { "Layer Settings": { "Path": "src/Legacy" } } }
+        ] }]
+    }
+  }
+}
+```
+
+```json pack
+{
+  "id": "house.shop",
+  "version": "1.0.0",
+  "languages": ["csharp"],
+  "designers": ["Codebase Structure"],
+  "kinds": [
+    { "kind": "layer.populated", "label": "layer contents", "valueType": "bool", "comparer": "exact", "stated": "always", "existence": false }
+  ],
+  "vocabulary": {
+    "Codebase Structure": {
+      "entries": [
+        {
+          "kind": "layer.populated",
+          "for": { "element": "Layer" },
+          "value": "true",
+          "bindings": { "Layer": "name", "Path": "stereotype('Layer Settings').Path" },
+          "own": ["Layer"],
+          "source": "the Layer and its Layer Settings Path"
+        }
+      ]
+    }
+  },
+  "rules": {
+    "Codebase Structure": {
+      "facts": {
+        "layer.populated": {
+          "find": "file:{Path}/**/*.cs",
+          "matches": "any",
+          "read": [{ "match": ".", "value": "true" }],
+          "absent": "false"
+        }
+      }
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Order.cs
+namespace Shop.Domain;
+
+public class Order
+{
+    public Guid Id { get; set; }
+}
+```
+
+```csharp file src/Legacy/OrderService.cs
+namespace Shop.Legacy;
+
+public class OrderService
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "layer.populated", "element": "domain-layer", "outcome": "verified" },
+    { "kind": "layer.populated", "element": "legacy-layer", "outcome": "cantVerify", "reason": "outOfScope", "scopeRow": "root#2" }
+  ],
+  "findings": [
+    { "rule": "claim/layer.populated", "severity": "error", "subject": "legacy-layer", "messageContains": "src/Legacy/OrderService.cs" }
+  ],
+  "filesRead": { "include": ["src/Domain/Order.cs"], "exclude": ["src/Legacy/**"] }
+}
+```
+
+## paths-only
+
+The excluded `src/Legacy/Order.cs` actually declares `LegacyOrder`, not `Order`. The lookup never opens it: its name matches the `class:Order` step, so the claim is `outOfScope` and the message says the file "may hold it". Opening the file to be sure would be reading out-of-scope code.
+
+```json case
+{ "phase": 1, "cases": ["scope/shadow", "scope/notRead"], "requirements": ["R22", "R25"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "children": [
+              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "guid" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [
+          { "Glob": "src/**", "Scope": "In" },
+          { "Glob": "src/Legacy/**", "Scope": "Out", "Reason": "Being replaced by src/Domain" }
+        ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Customer.cs
+namespace Shop.Domain;
+
+public class Customer
+{
+    public Guid Id { get; set; }
+}
+```
+
+```csharp file src/Legacy/Order.cs
+namespace Shop.Legacy;
+
+public class LegacyOrder
+{
+    public int OrderNumber { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "order", "outcome": "cantVerify", "reason": "outOfScope", "scopeRow": "root#2" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "may hold it" }
+  ],
+  "filesRead": { "include": ["src/Domain/Customer.cs"], "exclude": ["src/Legacy/**"] }
+}
+```
+
+## no-path-match-is-contradicted
+
+Now the excluded file does declare `Order`, but it is named `LegacyOrders.cs`. No excluded path matches the `class:Order` step, so the lookup has no hit and the claim falls through to the rest of the order: `type.exists` is an existence kind, so a type not found is contradicted (R8). The lookup only ever reads paths; what an excluded file holds never counts.
+
+```json case
+{ "phase": 1, "base": "paths-only", "without": ["src/Legacy/Order.cs"], "cases": ["scope/shadow"], "requirements": ["R8", "R25"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```csharp file src/Legacy/LegacyOrders.cs
+namespace Shop.Legacy;
+
+public class Order
+{
+    public Guid Id { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "order", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "isn't in the code" }
+  ],
+  "filesRead": { "exclude": ["src/Legacy/**"] }
+}
+```
+
+## no-row-includes-it
+
+Nothing is in scope until a row says so, so a file no row matches is out of scope as much as one an Out row excludes. basislink5's first real run put only its data project in scope; every DTO in the model lives in the DTO project, which no row matched, and each was reported as missing. Here `src/Contracts/Order.cs` matches no row: the claim is `outOfScope` with no scope row, and the message says no row includes the file.
+
+```json case
+{ "phase": 1, "cases": ["scope/shadow", "scope/notRead"], "requirements": ["R22", "R25"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "children": [
+              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "guid" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [
+          { "Glob": "src/Domain/**", "Scope": "In" }
+        ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Customer.cs
+namespace Shop.Domain;
+
+public class Customer
+{
+    public Guid Id { get; set; }
+}
+```
+
+```csharp file src/Contracts/Order.cs
+namespace Shop.Contracts;
+
+public class Order
+{
+    public Guid Id { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "order", "outcome": "cantVerify", "reason": "outOfScope" },
+    { "kind": "member.exists", "element": "order-id", "outcome": "cantVerify", "reason": "blocked" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "no Drift Scope row includes that file" }
+  ],
+  "filesRead": { "include": ["src/Domain/Customer.cs"], "exclude": ["src/Contracts/**"] }
+}
+```

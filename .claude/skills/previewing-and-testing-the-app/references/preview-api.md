@@ -31,40 +31,40 @@ A selector that matches nothing, or matches something invisible, **throws**. Eve
 
 ## Reading
 
-| Call | Returns |
-| --- | --- |
-| `snapshot()` | The same text outline `preview_look` returns. |
-| `screenshot()` | `{ index, width, height }`; the PNG path is reported in the tool result. Max 5 per script. |
+| Call                                | Returns                                                                                                                                                               |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `snapshot()`                        | The same text outline `preview_look` returns.                                                                                                                         |
+| `screenshot()`                      | `{ index, width, height }`; the PNG path is reported in the tool result. Max 5 per script.                                                                            |
 | `console({ clear = true, levels })` | Page console entries `{ level, text, url, line }`. `clear: true` returns only what is new since the last read in this script; `levels: ["error", "network"]` filters. |
-| `state()` | `{ url, title, isLoading, canGoBack, canGoForward, viewportWidth, viewportHeight, viewportPreset }` |
-| `url()` / `title()` | Shorthands for the corresponding `state()` fields. |
-| `find(sel)` | One element: `{ selector, role, name, value, text, x, y, visible, disabled, checked }`. Throws if nothing matches. |
-| `findAll(sel, limit = 50)` | The same shape, as an array. Empty array if nothing matches — this one does not throw. |
-| `exists(sel)` | `boolean`. |
-| `textOf(sel)` | Trimmed `innerText`. Throws if nothing matches. |
-| `valueOf(sel)` | A form field's current value. Throws if nothing matches or it has no value. |
-| `count(sel)` | How many elements match. |
+| `state()`                           | `{ url, title, isLoading, canGoBack, canGoForward, viewportWidth, viewportHeight, viewportPreset }`                                                                   |
+| `url()` / `title()`                 | Shorthands for the corresponding `state()` fields.                                                                                                                    |
+| `find(sel)`                         | One element: `{ selector, role, name, value, text, x, y, visible, disabled, checked }`. Throws if nothing matches.                                                    |
+| `findAll(sel, limit = 50)`          | The same shape, as an array. Empty array if nothing matches — this one does not throw.                                                                                |
+| `exists(sel)`                       | `boolean`.                                                                                                                                                            |
+| `textOf(sel)`                       | Trimmed `innerText`. Throws if nothing matches.                                                                                                                       |
+| `valueOf(sel)`                      | A form field's current value. Throws if nothing matches or it has no value.                                                                                           |
+| `count(sel)`                        | How many elements match.                                                                                                                                              |
 
 Console levels are `log`, `info`, `warn`, `error`, `debug`, `pageerror` (an uncaught exception) and `network` (a failed request).
 
 ## Interacting
 
-| Call | Notes |
-| --- | --- |
-| `click(target, { button = "left", clickCount = 1 })` | `button` is `left` / `right` / `middle`; `clickCount: 2` double-clicks. The synthetic click is preceded by a mouse move, so hover-revealed menus behave as they do for a real user. |
-| `type(text, { into, clearFirst, submit })` | `into` is a target to click first (the usual case); omit it to type into whatever has focus. `clearFirst` selects-all and deletes so the field is replaced rather than appended to. `submit` presses Enter afterwards — forms listen for `keydown`, so this is a real key event. |
-| `pressKey(combo)` | `Enter`, `Tab`, `Escape`, `Backspace`, `Delete`, `ArrowUp/Down/Left/Right`, `Home`, `End`, `PageUp`, `PageDown`, `Space`, or a single character. Prefix modifiers with `+`: `"Control+a"`, `"Shift+Tab"`. **F12 and the DevTools chords are rejected** — they would open DevTools, which takes the single debugger client this script is driving the page with. |
-| `scroll(deltaY = 600, { deltaX, at })` | Positive `deltaY` scrolls down. `at` targets a specific scrollable region; the default is the viewport centre, because `0,0` is usually a fixed header that swallows the wheel event. |
-| `scrollTo(sel)` | Scrolls an element into view without a wheel event. |
+| Call                                                 | Notes                                                                                                                                                                                                                                                                                                                                                           |
+| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `click(target, { button = "left", clickCount = 1 })` | `button` is `left` / `right` / `middle`; `clickCount: 2` double-clicks. The synthetic click is preceded by a mouse move, so hover-revealed menus behave as they do for a real user.                                                                                                                                                                             |
+| `type(text, { into, clearFirst, submit })`           | `into` is a target to click first (the usual case); omit it to type into whatever has focus. `clearFirst` selects-all and deletes so the field is replaced rather than appended to. `submit` presses Enter afterwards — forms listen for `keydown`, so this is a real key event.                                                                                |
+| `pressKey(combo)`                                    | `Enter`, `Tab`, `Escape`, `Backspace`, `Delete`, `ArrowUp/Down/Left/Right`, `Home`, `End`, `PageUp`, `PageDown`, `Space`, or a single character. Prefix modifiers with `+`: `"Control+a"`, `"Shift+Tab"`. **F12 and the DevTools chords are rejected** — they would open DevTools, which takes the single debugger client this script is driving the page with. |
+| `scroll(deltaY = 600, { deltaX, at })`               | Positive `deltaY` scrolls down. `at` targets a specific scrollable region; the default is the viewport centre, because `0,0` is usually a fixed header that swallows the wheel event.                                                                                                                                                                           |
+| `scrollTo(sel)`                                      | Scrolls an element into view without a wheel event.                                                                                                                                                                                                                                                                                                             |
 
 ## Navigating and resizing
 
-| Call | Notes |
-| --- | --- |
-| `goto(url)` | A full URL or a path like `"/checkout"`. Only loopback origins and the origin the preview was opened at are allowed. |
-| `back()` / `forward()` / `reload()` | Throw when there is nothing to go back or forward to. |
-| `resize(preset)` | `"desktop"` (1280×800), `"tablet"` (834×1112), `"mobile"` (390×844). |
-| `resize(width, height)` | An explicit viewport. **`resize(0, 0)` clears the emulation** and returns the page to the real pane size. |
+| Call                                | Notes                                                                                                                |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `goto(url)`                         | A full URL or a path like `"/checkout"`. Only loopback origins and the origin the preview was opened at are allowed. |
+| `back()` / `forward()` / `reload()` | Throw when there is nothing to go back or forward to.                                                                |
+| `resize(preset)`                    | `"desktop"` (1280×800), `"tablet"` (834×1112), `"mobile"` (390×844).                                                 |
+| `resize(width, height)`             | An explicit viewport. **`resize(0, 0)` clears the emulation** and returns the page to the real pane size.            |
 
 All five return the new `state()`. After a resize, every coordinate you were holding is wrong — re-`find` anything you still need.
 
@@ -72,13 +72,13 @@ All five return the new `state()`. After a resize, every coordinate you were hol
 
 This is what makes a script reliable rather than a race. Each takes a `timeout` in ms (default 10000) and is additionally bounded by the script's own budget.
 
-| Call | Notes |
-| --- | --- |
-| `waitForSelector(sel, { state = "visible", timeout })` | `state` is `visible`, `hidden`, `attached` or `detached`. |
-| `waitForText(text, { within, timeout })` | Substring match. `within` scopes it to a selector instead of the whole body. |
-| `waitForLoad({ timeout })` | Until the page stops loading. |
-| `waitForConsole(pattern, { levels, timeout })` | Returns the matching entry. `pattern` is a substring, or `"/regex/flags"` for a regex. Reads without draining, so it does not steal messages from `console()`. |
-| `sleep(ms)` | Last resort. Prefer a `waitFor*` — a sleep is either too short (flaky) or too long (slow). |
+| Call                                                   | Notes                                                                                                                                                                                                  |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `waitForSelector(sel, { state = "visible", timeout })` | `state` is `visible`, `hidden`, `attached` or `detached`.                                                                                                                                              |
+| `waitForText(text, { within, timeout })`               | Substring match. `within` scopes it to a selector instead of the whole body.                                                                                                                           |
+| `waitForLoad({ timeout })`                             | Until the page stops loading.                                                                                                                                                                          |
+| `waitForConsole(pattern, { levels, timeout })`         | Returns the matching entry. `pattern` is a substring, or `"/regex/flags"` for a regex. Reads without draining, so it does not steal messages from `console()`.                                         |
+| `sleep(ms)`                                            | To wait for the app, a last resort: prefer a `waitFor*` — a sleep is either too short (flaky) or too long (slow). Its one good use is pacing a recording so a viewer can follow (see Recording a run). |
 
 `reveal()` raises a **window** preview without taking focus. It happens automatically at the start of a script and around navigation and screenshots; call it explicitly only to draw the user's attention. A **tab** preview is never switched to — it keeps working in the background, where a screenshot takes a second or two longer.
 
@@ -86,20 +86,33 @@ This is what makes a script reliable rather than a race. Each takes a `timeout` 
 
 `timeoutMs` bounds the whole script (default 30000, max 120000). Four layers enforce it — each CDP command, in-page execution, a cooperative check inside every `page` call, and finally terminating the worker — so an infinite loop cannot wedge Intent Architect.
 
-**A timed-out script has already performed part of its work.** The result lists the actions it *attempted*, in order — each is narrated before it is dispatched, so the last entry may name a step whose effect landed even though the call never returned — and names what it was attempting when the budget ran out. Read that and continue from where it stopped. Re-running blindly submits the form a second time.
+**A timed-out script has already performed part of its work.** The result lists the actions it _attempted_, in order — each is narrated before it is dispatched, so the last entry may name a step whose effect landed even though the call never returned — and names what it was attempting when the budget ran out. Read that and continue from where it stopped. Re-running blindly submits the form a second time.
 
-Errors thrown by **your own code**, and syntax errors, report against `preview_script.js` at the line and column **of the script you wrote**, so `preview_script.js:4:11` is line 4 of your body. A failure *inside* a `page.*` call — by far the most common one, a selector that matched nothing — carries **no line attribution**: it crosses back from the host as a message, so the stack is that message. Place it with the `actions` log instead; the last entry is the call that failed.
+Errors thrown by **your own code**, and syntax errors, report against `preview_script.js` at the line and column **of the script you wrote**, so `preview_script.js:4:11` is line 4 of your body. A failure _inside_ a `page.*` call — by far the most common one, a selector that matched nothing — carries **no line attribution**: it crosses back from the host as a message, so the stack is that message. Place it with the `actions` log instead; the last entry is the call that failed.
 
 Only one script runs at a time **per preview**. A second on the same preview is rejected rather than queued: the preview has one debugger client, and its premises — coordinates, URL, page state — were computed against a page the first is actively changing. Scripts on two different previews run side by side.
 
 ## The four result channels
 
-| Channel | What it is |
-| --- | --- |
-| `Result` | What the script returned. |
-| `Actions` | An ordered narration of what actually happened (`click "#submit" @640,120`, `goto /checkout`). |
-| `Script output` | Your own `console.log`. |
-| `Page console` | The **application's** console, page errors and failed requests, for the whole run — including across a navigation, which the ordinary console buffer drops. |
+| Channel         | What it is                                                                                                                                                  |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Result`        | What the script returned.                                                                                                                                   |
+| `Actions`       | An ordered narration of what actually happened (`click "#submit" @640,120`, `goto /checkout`).                                                              |
+| `Script output` | Your own `console.log`.                                                                                                                                     |
+| `Page console`  | The **application's** console, page errors and failed requests, for the whole run — including across a navigation, which the ordinary console buffer drops. |
+
+## Recording a run
+
+`record: true` saves the run as a `.webm` video (no audio, up to the page's own size capped at 1920px) and adds a **Recording** section with its path and length. It starts just before your first line and stops about 0.75s after the script ends, fails or times out, so the page's response to the last action is in it. While it runs, the preview's toolbar shows a red recording indicator.
+
+The script runs whether or not the recording works. When it doesn't, the section says `Not recorded:` and why:
+
+- **The user is already recording this preview.** Their video captures your run anyway.
+- **The preview did not paint while recording.**
+
+A recording is as long as its script, so it is capped by `timeoutMs` (default 30000, max 120000). For a longer video, ask the user to start a recording with the record button (the circle) in the preview's toolbar and tell you when it is running. Theirs runs for up to 10 minutes while you drive the app in scripts without `record`; ask them to stop it when you are done. You never get its path — Intent Architect opens it and shows the user where it was saved.
+
+Recordings are kept in a `preview-recordings` folder next to the screenshots. Only the newest 20 are kept.
 
 ## Worked examples
 

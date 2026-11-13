@@ -1,6 +1,6 @@
 ---
-description: Load when something needs to be seen working in the user's running application rather than asserted — verifying a UI or behavioural change end to end, testing or checking a screen, reproducing a bug the user reported, or when a dev server is already running. Covers the embedded browser preview of the user's own app, not Intent Architect itself.
-short-description: Run the user's app and verify it in the embedded browser preview (open_preview, preview_look, run_preview_script).
+description: Load when something needs to be seen working in the user's running application rather than asserted — verifying a UI or behavioural change end to end, testing or checking a screen, reproducing a bug the user reported, recording a video, demo or walkthrough of the app, or when a dev server is already running. The preview records .webm videos itself, so load this instead of installing or driving Playwright, Puppeteer or ffmpeg to record. Covers the embedded browser preview of the user's own app, not Intent Architect itself.
+short-description: Run the user's app, verify it and record videos of it in the embedded browser preview (open_preview, preview_look, run_preview_script).
 intent-updates: automatic
 requiredTools:
   - run_task
@@ -11,6 +11,7 @@ requiredTools:
   - preview_screenshot
   - run_preview_script
   - preview_evaluate
+group: Documents, preview and tasks
 ---
 
 # Previewing and Testing the App
@@ -88,6 +89,8 @@ Everything is `await`ed, and a `target` is a **CSS selector** or `{x, y}`. **Pre
 
 `return` a value and it comes back as the result. Read [references/preview-api.md](references/preview-api.md) for full signatures, viewport presets, waiting semantics and worked examples.
 
+Pass `record: true` and the run is saved as a video — see [Recording a video](#recording-a-video).
+
 ### 5. Read what happened — every time
 
 The script result already carries the page console for the whole run. `preview_look` afterwards to see the state it left the page in.
@@ -95,6 +98,19 @@ The script result already carries the page console for the whole run. `preview_l
 ### 6. Fix and re-verify
 
 Fix the model (or the code), re-run the Software Factory, apply the changes, then `await page.reload()` and repeat from step 3. A dev server with hot reload may have picked the change up already; reload anyway rather than reasoning about whether it did.
+
+## Recording a video
+
+**The preview records video itself.** When the user asks for a video, demo, walkthrough or screen recording of their app — "record a video to show me it's working" — record it here. Do not install or drive Playwright, Puppeteer or ffmpeg for it; the preview is already a browser on their app.
+
+Pass **`record: true`** to `run_preview_script`. The run is saved as a `.webm` (no audio), from just before the script starts until just after it ends, and the result's **Recording** section gives the file's path and length. Link it in your reply as `[what it shows](file:///C:/path/to/preview-….webm)`, which opens it in a playable tab.
+
+- **One script is one video.** The recording starts and stops with the script, so put the whole flow in a single script. Get the app to its starting screen first — start the server, `open_preview`, log in — in earlier calls without `record`.
+- **Pace it for a person.** A script runs faster than anyone can follow. `await page.sleep(800)` after each step that changes the screen, and a little longer on the final state, so the viewer sees each result land.
+- **Up to two minutes.** Raise `timeoutMs` (max 120000) for a longer flow; the default 30s cuts it short. For anything longer, ask the user to start a recording with the record button (the circle) in the preview's toolbar and tell you when it is running — it records for up to 10 minutes. Drive the app in scripts without `record`, then ask them to stop it. You never get that video's path; Intent Architect opens it and shows the user where it was saved.
+- **Record when movement is the proof** — a transition, a multi-step form, a toast that comes and goes, or whenever the user asked for a video. A screenshot is cheaper when one frame says it all.
+
+If the section says `Not recorded:`, the script still ran; the reason is in [references/preview-api.md](references/preview-api.md#recording-a-run).
 
 ## Verify after you apply
 

@@ -10,6 +10,7 @@ requiredTools:
   - patch_file
   - stage_pull_request_review
   - bash
+group: Review and pull requests
 ---
 
 # Address a pull request's review

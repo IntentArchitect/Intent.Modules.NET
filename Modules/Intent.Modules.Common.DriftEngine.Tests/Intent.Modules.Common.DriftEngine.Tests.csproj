@@ -12,12 +12,18 @@
   <ItemGroup>
     <PackageReference Include="JsonSchema.Net" Version="7.3.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="NSubstitute" Version="5.3.0" />
     <PackageReference Include="Shouldly" Version="4.3.0" />
     <PackageReference Include="xunit.v3" Version="3.2.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Common.DriftEngine.Core\Intent.Modules.Common.DriftEngine.Core.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Common.DriftEngine.Stacks\Intent.Modules.Common.DriftEngine.Stacks.csproj" />
   </ItemGroup>
 
   <ItemGroup>

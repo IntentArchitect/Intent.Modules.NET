@@ -1,0 +1,21 @@
+{
+  "id": "intent.core",
+  "version": "1.0.0",
+  "description": "Structure kinds, in every language's terms; each language's profile is its own pack's",
+  "languages": [],
+  "kinds": [
+    { "kind": "type.exists", "label": "type", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "type.kind", "label": "kind", "valueType": "set", "comparer": "within", "stated": "always" },
+    { "kind": "type.abstract", "label": "abstract", "valueType": "bool", "comparer": "exact", "stated": "always" },
+    { "kind": "type.namespace", "label": "namespace", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "type.file", "label": "file", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "type.base", "label": "required base type", "valueType": "set", "comparer": "subset", "stated": "always" },
+    { "kind": "member.exists", "label": "member", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "member.type", "label": "type", "valueType": "type", "comparer": "type", "stated": "always" },
+    { "kind": "member.nullable", "label": "nullable", "valueType": "bool", "comparer": "exact", "stated": "always" },
+    { "kind": "member.static", "label": "static", "valueType": "bool", "comparer": "exact", "stated": "always" },
+    { "kind": "operation.returns", "label": "return type", "valueType": "type", "comparer": "type", "stated": "always" },
+    { "kind": "operation.parameters", "label": "parameters", "valueType": "list", "comparer": "type", "stated": "always" },
+    { "kind": "enum.literal.value", "label": "literal value", "valueType": "number", "comparer": "number", "stated": "whenSet" }
+  ]
+}

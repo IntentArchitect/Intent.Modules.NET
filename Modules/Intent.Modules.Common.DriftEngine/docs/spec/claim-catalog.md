@@ -42,7 +42,7 @@ Compared from the code graph for any language with a profile ([rules.md](rules.m
 | Kind                   | Label              | Stated  | Comparer      | Phase | Checks                                                                                                                  |
 | ---------------------- | ------------------ | ------- | ------------- | ----- | ----------------------------------------------------------------------------------------------------------------------- |
 | `type.exists`          | type               | always  | `presence`    | 1     | ESC-DOM 12, 69; ESC-SVC 11, 82; ESC-FE 39, 50; JAV-DOM 2; JAV-SVC 2, 18; JAV-FE 3                                       |
-| `type.kind`            | kind               | always  | `exact`       | 1     | ESC-DOM 13; JAV-DOM 4                                                                                                   |
+| `type.kind`            | kind               | always  | `within`      | 1     | ESC-DOM 13; JAV-DOM 4                                                                                                   |
 | `type.location`        | location           | always  | `exact`       | 2     | ESC-DOM 14, 70; ESC-SVC 12; ESC-FE 9, 40, 51; JAV-DOM 3; JAV-FE 2                                                       |
 | `type.abstract`        | abstract           | always  | `exact`       | 1     | ESC-DOM 18; ESC-SVC 42; JAV-DOM 5                                                                                       |
 | `type.generalization`  | base class         | always  | `type`        | 1     | ESC-DOM 19; ESC-SVC 44; JAV-DOM 6                                                                                       |
@@ -58,7 +58,7 @@ Compared from the code graph for any language with a profile ([rules.md](rules.m
 | `member.backingField`  | backing field      | whenSet | `exact`       | later | ESC-DOM 40                                                                                                              |
 | `member.wireName`      | serialized name    | whenSet | `exact`       | later | ESC-SVC 48                                                                                                              |
 | `operation.returns`    | return type        | always  | `type`        | 1     | ESC-DOM 64; ESC-SVC 23; ESC-FE 26, 46, 53; JAV-SVC 8; JAV-FE 9                                                          |
-| `operation.parameters` | parameters         | always  | `list`        | 1     | ESC-DOM 61, 64, 73; ESC-SVC 26, 79; JAV-FE 10                                                                           |
+| `operation.parameters` | parameters         | always  | `list` of `type` | 1  | ESC-DOM 61, 64, 73; ESC-SVC 26, 79; JAV-FE 10                                                                           |
 | `parameter.type`       | parameter type     | always  | `type`        | 1     | ESC-SVC 30; JAV-SVC 10                                                                                                  |
 | `parameter.nullable`   | parameter nullable | always  | `exact`       | 1     | ESC-SVC 30; JAV-SVC 11                                                                                                  |
 | `parameter.default`    | parameter default  | whenSet | `exact`       | 1     | ESC-SVC 31                                                                                                              |
@@ -124,8 +124,8 @@ From the ASP.NET Core, Spring MVC and NServiceBus packs, phase 4, except where m
 | `security`               | security           | always  | `exact`    | 4     | ESC-SVC 14, 15, 16; ESC-FE 14; JAV-SVC 13 |
 | `security.roles`         | roles              | whenSet | `set`      | 4     | conversion only                           |
 | `security.policy`        | policy             | whenSet | `set`      | 4     | JAV-SVC 14                                |
-| `service.versions`       | API versions       | whenSet | `set`      | 4     | ESC-SVC 17                                |
-| `operation.versions`     | API versions       | whenSet | `set`      | 4     | ESC-SVC 17                                |
+| `service.versions`       | API versions       | whenSet | `set` of `version` | 4     | ESC-SVC 17                                |
+| `operation.versions`     | API versions       | whenSet | `set` of `version` | 4     | ESC-SVC 17                                |
 | `api.versionScheme`      | versioning scheme  | whenSet | `exact`    | later | ESC-SVC 18                                |
 | `parameter.source`       | binding            | always  | `exact`    | 4     | ESC-SVC 27, 28; JAV-SVC 9                 |
 | `parameter.name`         | bound name         | whenSet | `exact`    | 4     | ESC-SVC 29                                |
@@ -150,7 +150,7 @@ From the ASP.NET Core, Spring MVC and NServiceBus packs, phase 4, except where m
 | Kind                | Label              | Stated  | Comparer   | Phase | Checks                     |
 | ------------------- | ------------------ | ------- | ---------- | ----- | -------------------------- |
 | `component.kind`    | component kind     | always  | `exact`    | 6     | ESC-FE 8, 10, 11           |
-| `page.route`        | page route         | whenSet | `route`    | 6     | ESC-FE 12; JAV-FE 4        |
+| `page.route`        | page route         | whenSet | `subset` of `route` | 6     | ESC-FE 12; JAV-FE 4        |
 | `page.title`        | page title         | whenSet | `contains` | later | ESC-FE 13                  |
 | `property.query`    | query parameter    | always  | `exact`    | later | ESC-FE 18                  |
 | `property.route`    | route parameter    | always  | `exact`    | later | ESC-FE 19                  |
@@ -158,12 +158,12 @@ From the ASP.NET Core, Spring MVC and NServiceBus packs, phase 4, except where m
 | `intent.uses`       | uses               | always  | `presence` | 6     | ESC-FE 27, 69; JAV-FE 5, 7 |
 | `intent.navigates`  | navigates          | always  | `presence` | 6     | ESC-FE 32; JAV-FE 6        |
 | `intent.opens`      | opens              | always  | `presence` | 6     | conversion only            |
-| `intent.target`     | interaction target | always  | `exact`    | later | ESC-FE 30, 38              |
+| `intent.target`     | interaction target | always  | `type`     | later | ESC-FE 30, 38              |
 | `proxy.request`     | proxy request      | always  | `presence` | later | ESC-FE 56, 58, 59          |
 | `proxy.verb`        | proxy verb         | always  | `exact`    | later | ESC-FE 60; JAV-FE 11       |
 | `proxy.route`       | proxy route        | always  | `route`    | later | ESC-FE 61; JAV-FE 11       |
 | `proxy.version`     | proxy API version  | whenSet | `version`  | later | ESC-FE 62                  |
-| `proxy.header`      | proxy header       | whenSet | `exact`    | later | ESC-FE 63                  |
+| `proxy.header`      | proxy header       | whenSet | `subset`   | later | ESC-FE 63                  |
 | `proxy.rpc`         | RPC method         | always  | `exact`    | later | ESC-FE 64                  |
 | `proxy.grpcService` | gRPC service       | always  | `exact`    | later | ESC-FE 65                  |
 
@@ -175,6 +175,24 @@ From house packs, since no stock designer has Layers.
 | -------------------- | ------------------ | ------ | -------- | ----- | -------------------- |
 | `layer.populated`    | layer contents     | always | `exact`  | 2     | ESC-ARC 3; JAV-ARC 3 |
 | `layer.dependencies` | layer dependencies | always | `within` | 3     | ESC-ARC 8; JAV-ARC 2 |
+
+### Notes on kinds
+
+What a kind's table row can't say, settled while the cases were written.
+
+- **`type.kind`.** An element's type is located by name among every kind the language has, so a type of the wrong kind is found and reported as the wrong kind rather than as missing. The expected value is the set of kinds the conventions allow for the element type (`class, record` for a Class, `enum` for an Enum), and `within` verifies when the code's kind is one of them.
+- **`page.route`.** The model's route must be among the page's `@page` routes; further routes the code serves aren't drift (principle 1). Items compare as routes.
+- **`service.versions`, `operation.versions`.** Sets of versions whose items compare as versions, so `1`, `v1` and `1.0` are one item.
+- **`index.columns`.** Ordered: column order is part of an index. JAV-DOM-30 compared column sets; an index whose columns are reordered is now contradicted.
+- **`key.generated` on JPA.** JPA states a user-supplied key only by saying nothing (no `@GeneratedValue`). That is silence, so a modelled "User supplied" Data source is contradicted as not stated on JPA, and the model leaves Data source at its default there (decision 4). EF Core states it with `ValueGeneratedNever()`.
+- **`column.required`.** Covers value types: a non-nullable value type is required, and its type states it. A reference type whose nullability reads `unknown` (outside a C# nullable context) is `unresolved`, unless an explicit `[Required]`, `.IsRequired()` or `@Column(nullable = false)` states it.
+- **`column.version`.** Intent has no stock stereotype for EF Core's `IsRowVersion`, so only the Java spike's Version stereotype states it; its cases are JPA's.
+- **`relationship.reference`.** The classification proposed `reference.target` for ESC-DOM-59. A References relationship has no association, so the claim is stated by the foreign-key attribute's References stereotype, whose `Target` holds the referenced class.
+- **`intent.target`.** The `type` comparer with resolution: the type a Razor tag or an `@inject` resolves to must be the one the target element is located as ([code-reader.md](code-reader.md#markup-references)).
+- **`member.type` and nullability.** `type` compares the type and whether it is a collection. Nullability is compared only by `member.nullable` and `parameter.nullable`, so one mismatch is one finding.
+- **Computed values.** A value the code computes (an interpolated `<PageTitle>`, a computed route prefix) is `unreadable`, an error, where eShopCustom gave a warning. Several of its "unsupported" warnings become can't-verify the same way (principle 2).
+
+Some checks are traced only in part. A case shows what a recipe, a query or the structure comparison checks; the rest of the check (following private calls transitively, a URI built across methods, a registration in another file) needs a plug-in, which a case can't carry. Each such case's prose names the part it leaves out, for the phase that brings the plug-in.
 
 ## Scope, engine and opt-in cases
 

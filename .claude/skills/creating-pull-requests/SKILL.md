@@ -7,6 +7,7 @@ requiredTools:
   - create_pull_request
   - preview_screenshot
   - bash
+group: Review and pull requests
 ---
 
 # Creating pull requests
@@ -32,7 +33,7 @@ Use this only when the user asked for a pull request. The description has to **s
 
 ## 4. Call `create_pull_request`
 
-- Pass `repositoryRootPath` (your working directory), `title`, `body`, and `screenshots` as `{ path, caption }`. Each caption is one line saying what the shot shows.
+- Pass `repositoryRootPath` (your working directory), `title`, `body`, and `screenshots` as `{ path, caption }`. Each caption is one line saying what the shot shows. A `screenshots` entry can also be a WebM or MP4 video of up to 100 MB, such as a Preview recording, when a flow reads better moving.
 - Use `submit: true` **only** if the user explicitly asked you to create or open the pull request yourself. Otherwise leave it false: the tool prefills Intent's New pull request tab for the user to review and submit.
 - Even with `submit: true`, the tool falls back to the prefill unless the user has turned on *Let agents create pull requests directly* in AI Configuration. If that happens, say so.
 - Don't use a `gh`/`az`/`glab` CLI instead. The tool uses the user's own sign-in and uploads the screenshots to the host.

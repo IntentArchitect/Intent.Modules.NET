@@ -87,6 +87,7 @@ a.getAssociation()                               // the canonical association ha
 a.typeReference                                  // this end's type-ref (.getType(), .getIsCollection()/setIsCollection(b), …)
 a.getParent()   a.getPackage()   a.delete()
 a.getComment() / a.setComment(v)                 // THIS end's comment
+a.getLabel() / a.setLabel(v)                     // the ASSOCIATION's label, drawn mid-line ("" clears); throws where its type hides labels
 a.ensureStereotype(n) / a.removeStereotype(n)    // on THIS end (see stereotypes.md); addStereotype(n) throws if already applied
 a.getStereotypes() / a.getStereotype(n) / a.hasStereotype(n)
 ```

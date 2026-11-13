@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Intent.Modules.Common.DriftEngine.Stacks</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- The stock extensions use only the engine's public extension API, as any module's would. -->
+    <ProjectReference Include="..\Intent.Modules.Common.DriftEngine.Core\Intent.Modules.Common.DriftEngine.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The C# language's parser. Not shipped: the Software Factory loads one Roslyn for every module. -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="**\*.pack.json" LogicalName="%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>

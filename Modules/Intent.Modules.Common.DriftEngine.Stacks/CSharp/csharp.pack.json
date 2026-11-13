@@ -1,0 +1,36 @@
+{
+  "id": "csharp",
+  "version": "1.0.0",
+  "description": "The C# language profile: how C# writes the model's types, collections and type kinds",
+  "languages": ["csharp"],
+  "profiles": {
+    "csharp": {
+      "language": "csharp",
+      "types": {
+        "string": ["string", "String", "System.String"],
+        "guid": ["Guid", "System.Guid"],
+        "int": ["int", "Int32", "System.Int32"],
+        "long": ["long", "Int64", "System.Int64"],
+        "short": ["short", "Int16", "System.Int16"],
+        "byte": ["byte", "Byte", "System.Byte"],
+        "decimal": ["decimal", "Decimal", "System.Decimal"],
+        "double": ["double", "Double", "System.Double"],
+        "float": ["float", "Single", "System.Single"],
+        "bool": ["bool", "Boolean", "System.Boolean"],
+        "char": ["char", "Char", "System.Char"],
+        "datetime": ["DateTime", "System.DateTime"],
+        "datetimeoffset": ["DateTimeOffset", "System.DateTimeOffset"],
+        "date": ["DateOnly", "System.DateOnly"],
+        "time": ["TimeOnly", "System.TimeOnly", "TimeSpan", "System.TimeSpan"],
+        "object": ["object", "Object", "System.Object"],
+        "binary": ["byte[]"]
+      },
+      "collections": ["T[]", "List<T>", "IList<T>", "ICollection<T>", "IEnumerable<T>", "IReadOnlyList<T>", "IReadOnlyCollection<T>", "HashSet<T>", "ISet<T>", "IReadOnlySet<T>", "IQueryable<T>"],
+      "async": [{ "wrapper": "Task<T>", "void": true }, { "wrapper": "ValueTask<T>", "void": true }],
+      "injectedParameters": ["CancellationToken"],
+      "nullable": { "suffix": "?", "wrappers": ["Nullable<T>"] },
+      "naming": { "interface": "I{Name}" },
+      "typeKinds": ["class", "record", "struct", "interface", "enum"]
+    }
+  }
+}

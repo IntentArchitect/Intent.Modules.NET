@@ -19,6 +19,11 @@ public class CaseRunTests
         }
 
         var @case = AcceptanceData.Cases.Single(x => x.FullId == fullId);
+        if (engine.CannotRun(@case) is { } why)
+        {
+            Assert.Skip(why);
+        }
+
         var outputFolder = Directory.CreateTempSubdirectory("driftengine-case-").FullName;
         try
         {

@@ -74,7 +74,7 @@ declare function showDynamicDiagram(elementIds: string | string[] | IElementApi 
 return { schema: await getDesignerSchema(), stereos: await getStereotypeDefinitions() };
 ```
 
-(A promise you forget to `await` inside the returned object is resolved too.)
+(A promise left un-awaited directly in the returned object is resolved too; reading a member off one needs the `await`.)
 
 So start from the compact schema and add the slice for what you will set: `getStereotypeDefinitions()` before setting stereotype property values, `getReferenceTypes()` when unsure a type name exists. If you need only "what can I create where", `getElementTypes()` is the call. The designer's module and association rules come only from the `get_designer_rules` tool — call it before you edit.
 
@@ -101,7 +101,7 @@ declare function getApplicationSettings(options?: { search?: string }): {
     }[] }[],
 };
 
-declare function listInstalledModules(applicationId: string, searchString?: string):
+declare function listInstalledModules(applicationId?: string, searchString?: string):
     Promise<{ id: string, version: string, summary: string, isCompatible: boolean }[]>;
 
 declare function searchAvailableModules(searchString: string, options?: { includePrerelease?: boolean, repositoryUrl?: string }):
@@ -115,7 +115,7 @@ declare function getArchitectureDetails(architectureId: string, options?: { incl
 Notes:
 
 - `outputLocation` is the resolved absolute on-disk path for generated code, `metadataLocation` the resolved absolute metadata path — use them directly rather than guessing the solution root.
-- `search` matches every text field at both levels — a group's `title`/`module`, and a setting's `id`, `title`, `hint`, `controlType`, `value` and its `options[]`. Matching a GROUP returns that group entire; matching a SETTING returns just it. So you can find a setting by what it DOES, without knowing its name:
+- `search` matches every text field at both levels — a group's `title`/`module`, and a setting's `id`, `title`, `hint`, `controlType`, `value` and its `options` keys and descriptions. Matching a GROUP returns that group entire; matching a SETTING returns just it. So you can find a setting by what it DOES, without knowing its name:
 
 ```js
 getApplicationSettings({ search: "Domain" })          // the whole Domain group
@@ -124,6 +124,6 @@ getApplicationSettings({ search: "connection string" })  // matches a hint, wher
 ```
 
   Matching `value` and the option descriptions is deliberately broad, so a common word can drag back more than you expected — anchor with `^` when you know the name. No match returns `moduleSettingGroups: []` (the key is always present).
-- Every module setting has an `id` unique within the application; pass that exact id to `update_application_settings`. `controlType` says how the value reads: `Checkbox`/`Switch` → `"true"`/`"false"`; `Select`/`MultiSelect` → one of `options[].value`; `Number` → a numeric string; the rest are free text.
+- Every module setting has an `id` unique within the application; pass that exact id to `update_application_settings`. `controlType` says how the value reads: `Checkbox`/`Switch` → `"true"`/`"false"`; `Select`/`MultiSelect` → one of the keys of `options` (an object, not an array — read it with `Object.entries(s.options ?? {})`); `Number` → a numeric string; the rest are free text.
 - `searchArchitectures` with no `query` lists everything — do that rather than retrying different search terms.
 - A solution global throws "this conversation is not working against an Intent Architect solution" when there is none; a query that touches none of them runs regardless.

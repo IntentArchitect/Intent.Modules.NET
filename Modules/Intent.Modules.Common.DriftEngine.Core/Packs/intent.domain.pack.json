@@ -1,0 +1,64 @@
+{
+  "id": "intent.domain",
+  "version": "1.0.0",
+  "description": "Domain designer vocabulary: structure",
+  "requires": [{ "id": "intent.core", "version": "^1.0.0" }],
+  "languages": ["csharp"],
+  "designers": ["Domain"],
+  "vocabulary": {
+    "Domain": {
+      "designer": "Domain",
+      "entries": [
+        { "kind": "type.exists", "for": { "element": "Class" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the class" },
+        { "kind": "type.kind", "for": { "element": "Class" }, "dependsOn": "type.exists", "source": "the element type" },
+        { "kind": "type.abstract", "for": { "element": "Class" }, "value": "abstract", "dependsOn": "type.exists", "source": "the class's Abstract" },
+        { "kind": "type.exists", "for": { "element": "Enum" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the enum" },
+        { "kind": "type.kind", "for": { "element": "Enum" }, "dependsOn": "type.exists", "source": "the element type" },
+        { "kind": "member.exists", "for": { "element": "Attribute" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the attribute" },
+        { "kind": "member.type", "for": { "element": "Attribute" }, "value": "type", "dependsOn": "member.exists", "source": "the attribute's type" },
+        { "kind": "member.nullable", "for": { "element": "Attribute" }, "value": "type.isNullable", "dependsOn": "member.exists", "source": "the attribute's Is Nullable" },
+        { "kind": "member.static", "for": { "element": "Attribute" }, "value": "static", "dependsOn": "member.exists", "source": "the attribute's Static" },
+        { "kind": "member.exists", "for": { "element": "Operation" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the operation" },
+        { "kind": "member.static", "for": { "element": "Operation" }, "value": "static", "dependsOn": "member.exists", "source": "the operation's Static" },
+        { "kind": "operation.returns", "for": { "element": "Operation" }, "value": "type", "dependsOn": "member.exists", "source": "the operation's return type" },
+        { "kind": "operation.parameters", "for": { "element": "Operation" }, "dependsOn": "member.exists", "source": "the operation's parameters" },
+        { "kind": "member.exists", "for": { "element": "Class Constructor" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the constructor" },
+        { "kind": "operation.parameters", "for": { "element": "Class Constructor" }, "dependsOn": "member.exists", "source": "the constructor's parameters" },
+        { "kind": "member.exists", "for": { "element": "Enum-Literal" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the literal" },
+        { "kind": "enum.literal.value", "for": { "element": "Enum-Literal" }, "value": "value", "dependsOn": "parent:type.exists", "source": "the literal's value" },
+        { "kind": "type.namespace", "for": { "element": "Class" }, "value": "stereotype('File Config').Namespace", "dependsOn": "type.exists", "source": "the class's File Config Namespace" },
+        { "kind": "type.file", "for": { "element": "Class" }, "value": "stereotype('File Config').Filename", "dependsOn": "type.exists", "source": "the class's File Config Filename" },
+        { "kind": "type.namespace", "for": { "element": "Enum" }, "value": "stereotype('File Config').Namespace", "dependsOn": "type.exists", "source": "the enum's File Config Namespace" },
+        { "kind": "type.file", "for": { "element": "Enum" }, "value": "stereotype('File Config').Filename", "dependsOn": "type.exists", "source": "the enum's File Config Filename" },
+        { "kind": "member.exists", "for": { "associationEnd": "Association" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the association end" },
+        { "kind": "member.type", "for": { "associationEnd": "Association" }, "value": "type", "dependsOn": "member.exists", "source": "the association end's type and multiplicity" },
+        { "kind": "member.nullable", "for": { "associationEnd": "Association", "where": "!type.isCollection" }, "value": "type.isNullable", "dependsOn": "member.exists", "source": "the association end's multiplicity" },
+        { "kind": "type.exists", "for": { "element": "Domain Event" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the domain event" },
+        { "kind": "type.kind", "for": { "element": "Domain Event" }, "dependsOn": "type.exists", "source": "the element type" },
+        { "kind": "member.exists", "for": { "element": "Property" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the property" },
+        { "kind": "member.type", "for": { "element": "Property" }, "value": "type", "dependsOn": "member.exists", "source": "the property's type" },
+        { "kind": "member.nullable", "for": { "element": "Property" }, "value": "type.isNullable", "dependsOn": "member.exists", "source": "the property's Is Nullable" },
+        { "kind": "type.exists", "for": { "element": "Value Object" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the value object" },
+        { "kind": "type.kind", "for": { "element": "Value Object" }, "dependsOn": "type.exists", "source": "the element type" },
+        { "kind": "type.exists", "for": { "element": "Domain Service" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the domain service" },
+        { "kind": "type.exists", "for": { "element": "Data Contract" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the data contract" },
+        { "kind": "type.kind", "for": { "element": "Data Contract" }, "dependsOn": "type.exists", "source": "the element type" },
+        { "kind": "type.exists", "for": { "element": "Repository" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the repository" }
+      ]
+    }
+  },
+  "conventions": {
+    "Domain": {
+      "designer": "Domain",
+      "types": {
+        "Class": { "typeKinds": ["class", "record"] },
+        "Enum": { "typeKinds": ["enum"] },
+        "Domain Event": { "typeKinds": ["class", "record"] },
+        "Value Object": { "typeKinds": ["class", "record", "struct"] },
+        "Repository": { "typeKinds": ["interface"] },
+        "Domain Service": { "typeKinds": ["class"] },
+        "Data Contract": { "typeKinds": ["class", "record"] }
+      }
+    }
+  }
+}

@@ -77,6 +77,7 @@ el.setType("string")      // see types.md
 el.getType()              // the referenced type as an element (null if none)
 el.addChild(spec, name)   // create a child; `spec` is resolved against what THIS element accepts
 el.setParent(parentId)    // MOVE under a new parent — don't delete + recreate to move something
+el.convertTo(spec)        // CHANGE type in place (keeps id, children, associations, stereotypes) — don't delete + recreate to retype; throws if the parent doesn't accept `spec`, or `spec` doesn't accept the element's children or associations
 el.delete()
 el.ensureStereotype("Name")   // see stereotypes.md
 el.removeStereotype(nameOrId)

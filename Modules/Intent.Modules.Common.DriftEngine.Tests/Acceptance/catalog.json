@@ -11,7 +11,7 @@
       "existence": true,
       "phase": 1
     },
-    { "kind": "type.kind", "label": "kind", "area": "structure", "valueType": "text", "comparer": "exact", "stated": "always", "existence": false, "phase": 1 },
+    { "kind": "type.kind", "label": "kind", "area": "structure", "valueType": "set", "comparer": "within", "stated": "always", "existence": false, "phase": 1 },
     {
       "kind": "type.location",
       "label": "location",
@@ -168,6 +168,7 @@
       "area": "structure",
       "valueType": "list",
       "comparer": "list",
+      "itemComparer": "type",
       "stated": "always",
       "existence": false,
       "phase": 1
@@ -618,6 +619,7 @@
       "area": "services",
       "valueType": "set",
       "comparer": "set",
+      "itemComparer": "version",
       "stated": "whenSet",
       "existence": false,
       "phase": 4
@@ -628,6 +630,7 @@
       "area": "services",
       "valueType": "set",
       "comparer": "set",
+      "itemComparer": "version",
       "stated": "whenSet",
       "existence": false,
       "phase": 4
@@ -826,8 +829,9 @@
       "kind": "page.route",
       "label": "page route",
       "area": "ui",
-      "valueType": "route",
-      "comparer": "route",
+      "valueType": "set",
+      "comparer": "subset",
+      "itemComparer": "route",
       "stated": "whenSet",
       "existence": false,
       "phase": 6
@@ -906,8 +910,8 @@
       "kind": "intent.target",
       "label": "interaction target",
       "area": "ui",
-      "valueType": "text",
-      "comparer": "exact",
+      "valueType": "type",
+      "comparer": "type",
       "stated": "always",
       "existence": false,
       "phase": "later"
@@ -956,8 +960,8 @@
       "kind": "proxy.header",
       "label": "proxy header",
       "area": "ui",
-      "valueType": "text",
-      "comparer": "exact",
+      "valueType": "set",
+      "comparer": "subset",
       "stated": "whenSet",
       "existence": false,
       "phase": "later"
@@ -1010,6 +1014,7 @@
     "readerFailed",
     "ruleFailed",
     "unresolved",
+    "notStated",
     "ambiguous",
     "unreadable",
     "notFound",
@@ -1030,6 +1035,9 @@
     "intent.java",
     "intent.springmvc",
     "intent.jpa",
-    "intent.mediatr"
+    "intent.mediatr",
+    "intent.blazor",
+    "intent.typescript",
+    "intent.grpc"
   ]
 }

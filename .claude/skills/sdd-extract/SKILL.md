@@ -13,6 +13,7 @@ requiredTools:
   - create_sub_agent
   - ask_user_question
   - todo_update
+group: Spec-driven development
 ---
 
 # SDD — Extract (orchestrator)
@@ -55,7 +56,7 @@ Keep the merged inventory. It is the evidence every later step cites.
 
 `use_skill` **sdd-requirements** and **authoring-rich-documents**, then follow sdd-requirements in as-built mode.
 
-- Make the **first** write `write_spec(slug, "requirements", …, gates: "auto", kind: "capability")`. Auto gates are part of the user's decision: they review the finished spec once, not each phase.
+- Make the **first** write `write_spec(slug, "requirements", …, gates: "auto", kind: "capability", parent: <area slug>)`. Auto gates last only for this run, so the user reviews the finished spec once, not each phase: step 8 switches them back to manual. Take the parent from the `kind: area` specs in the `read_spec()` listing whose description covers the feature. When more than one fits, `ask_user_question`. When none fits, leave `parent` out and say in your report that the Capability is Ungrouped and that **sdd-area** can group it.
 - Then call `advance_spec_phase(slug, artifact: "requirements", toPhase: "design")`.
 
 ## 5. Design
@@ -73,16 +74,18 @@ Then call `advance_spec_phase(slug, artifact: "design", toPhase: "verification")
 
 ## 7. Verify and resolve suspected bugs
 
-`use_skill` **sdd-verify** and follow it in as-built mode.
+`use_skill` **sdd-verify** and follow it in as-built mode. This verify is full: it reads the code for every requirement, untested criteria included, and has every citing test judged clause by clause. It is the spec's one full audit, and later verifies judge only what changes.
 
-- If it finds gaps, reword each misdescribed criterion to match the gap's `actual`, using `write_spec` (searchBlock/replaceBlock). Clear the links the reword made stale with one `record_spec_traceability(slug, taskId: "*", requirementIds: [the reworded ids], restamp: true)` call, then verify again. Re-record with full targets only for a gap that changed which files or elements realise the requirement.
+- If it finds gaps, reword each misdescribed criterion to match the gap's `actual`, using `write_spec` (searchBlock/replaceBlock). Then verify again: a reworded criterion's tests and judgement are re-judged against the new wording. Re-record with full targets only for a gap that changed which files or elements realise the requirement.
 - Once the verdict passes, put the step 3 **suspected bugs** to the user, up to four per `ask_user_question` call. Give each bug three options:
-  - **Fix it:** reword each such requirement to the intended behaviour. Then call `record_spec_verdict` **once** with a result for every requirement: a `gap` for each bug being fixed, and `pass` for the rest. A second call would replace the first. Then `use_skill` **sdd-heal**, follow it, and verify again.
+  - **Fix it:** reword each such requirement to the intended behaviour. Then call `record_spec_verdict` **once** with a result for every requirement: a `gap` with a `reason` for each bug being fixed, and `pass` for the rest. A second call would replace the first. Then `use_skill` **sdd-heal**, follow it, and verify again.
   - **Document it as a known limitation:** add it to a `## Known limitations` list in the requirements, above `## Requirements`.
   - **Reword the requirement to match the current behaviour** (recommended when the behaviour is harmless).
 - When every requirement passes, the clean verdict moves the spec to `done` by itself.
 
-## 8. Report
+## 8. Switch approvals back on and report
+
+Call `write_spec(slug, "requirements", gates: "manual")` with nothing else, so later changes to the Capability's requirements wait for the user's review. Do this even when the run stops early, once step 4 has created the spec. The user turns auto on for a Capability from its ⋯ menu in the Specs panel.
 
 Report briefly, and never paste an artifact. Include:
 

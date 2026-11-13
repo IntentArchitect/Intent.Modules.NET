@@ -50,8 +50,11 @@ Stereotypes live on the OWNER (element **or** package) and you add/remove them f
 entity.removeStereotype("Audit");                    // by name or definition id
 lookupPackage("Domain")?.ensureStereotype("Name").setProperty("Key", "v"); // packages carry stereotypes too
 entity.getStereotypes() / entity.getStereotype(name) // read what's applied
+st.getName() / st.getDefinitionId()                   // the stereotype's own name and definition id
 st.getProperty(name).getValue() / st.getProperties()  // read one / every property; each has getName() + getValue()
 ```
+
+`st.properties` is an object keyed by property name, not an array, and is empty on a referenced package's element — iterate with `getProperties()`.
 
 A held stereotype handle also has `st.delete()`, which just calls the owner's `removeStereotype`.
 

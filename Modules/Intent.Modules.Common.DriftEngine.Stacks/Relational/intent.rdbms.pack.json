@@ -1,0 +1,50 @@
+{
+  "id": "intent.rdbms",
+  "version": "1.0.0",
+  "description": "Relational databases: tables, keys, columns, indexes and foreign keys, from Intent's RDBMS stereotypes. Framework extensions read them from code.",
+  "requires": [{ "id": "intent.domain", "version": "^1.0.0" }],
+  "designers": ["Domain"],
+  "kinds": [
+    { "kind": "table.name", "label": "table", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "table.schema", "label": "schema", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "table.key", "label": "primary key", "valueType": "set", "comparer": "set", "stated": "whenSet" },
+    { "kind": "index.columns", "label": "columns", "valueType": "list", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "index.unique", "label": "unique", "valueType": "bool", "comparer": "exact", "stated": "always" },
+    { "kind": "index.filter", "label": "filter", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "column.foreignKey", "label": "foreign key of", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "column.textType", "label": "text type", "valueType": "text", "comparer": "ignoreCase", "stated": "whenSet" },
+    { "kind": "column.name", "label": "column", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "column.type", "label": "column type", "valueType": "text", "comparer": "storeType", "stated": "whenSet" },
+    { "kind": "column.maxLength", "label": "max length", "valueType": "number", "comparer": "number", "stated": "whenSet" },
+    { "kind": "column.precision", "label": "precision", "valueType": "number", "comparer": "number", "stated": "whenSet" },
+    { "kind": "column.scale", "label": "scale", "valueType": "number", "comparer": "number", "stated": "whenSet" },
+    { "kind": "column.default", "label": "default", "valueType": "text", "comparer": "literal", "stated": "whenSet" },
+    { "kind": "column.valueGeneration", "label": "value generation", "valueType": "text", "comparer": "exact", "stated": "whenSet" }
+  ],
+  "vocabulary": {
+    "Domain": {
+      "designer": "Domain",
+      "entries": [
+        { "kind": "table.name", "for": { "element": "Class", "where": "hasStereotype('Table')" }, "value": "stereotype('Table').Name", "dependsOn": "type.exists", "source": "the class's Table Name" },
+        { "kind": "table.schema", "for": { "element": "Class", "where": "hasStereotype('Table')" }, "value": "stereotype('Table').Schema", "dependsOn": "type.exists", "source": "the class's Table Schema" },
+        { "kind": "table.key", "for": { "element": "Class", "where": "hasStereotype('Table')" }, "value": "join(map(where(children('Attribute'), hasStereotype('Primary Key')), name), ', ')", "dependsOn": "type.exists", "source": "the class's Primary Key attributes" },
+        { "kind": "table.name", "for": { "element": "Class", "where": "hasStereotype('View')" }, "value": "stereotype('View').Name", "dependsOn": "type.exists", "source": "the class's View Name" },
+        { "kind": "table.schema", "for": { "element": "Class", "where": "hasStereotype('View')" }, "value": "stereotype('View').Schema", "dependsOn": "type.exists", "source": "the class's View Schema" },
+        { "kind": "column.name", "for": { "element": "Attribute", "where": "hasStereotype('Column')" }, "value": "stereotype('Column').Name", "dependsOn": "member.exists", "source": "the attribute's Column Name" },
+        { "kind": "column.type", "for": { "element": "Attribute", "where": "hasStereotype('Column')" }, "value": "stereotype('Column').Type", "dependsOn": "member.exists", "source": "the attribute's Column Type" },
+        { "kind": "index.columns", "for": { "element": "Index" }, "value": "join(map(children('Index Column'), name), ', ')", "dependsOn": "parent:type.exists", "source": "the index's columns" },
+        { "kind": "index.unique", "for": { "element": "Index" }, "value": "stereotype('Settings').Unique", "dependsOn": "parent:type.exists", "source": "the index's Unique" },
+        { "kind": "index.filter", "for": { "element": "Index", "where": "stereotype('Settings').Filter == 'Custom'" }, "value": "stereotype('Settings')['Filter Custom Value']", "dependsOn": "parent:type.exists", "source": "the index's Filter Custom Value" },
+        { "kind": "column.foreignKey", "for": { "element": "Attribute", "where": "hasStereotype('Foreign Key')" }, "value": "stereotype('Foreign Key').Association", "dependsOn": "member.exists", "source": "the attribute's Foreign Key Association" },
+        { "kind": "column.textType", "for": { "element": "Attribute", "where": "hasStereotype('Text Constraints') && stereotype('Text Constraints')['SQL Data Type'] != 'DEFAULT'" }, "value": "stereotype('Text Constraints')['SQL Data Type']", "dependsOn": "member.exists", "source": "the attribute's Text Constraints SQL Data Type" },
+        { "kind": "column.maxLength", "for": { "element": "Attribute", "where": "hasStereotype('Text Constraints')" }, "value": "stereotype('Text Constraints').MaxLength", "dependsOn": "member.exists", "source": "the attribute's Text Constraints MaxLength" },
+        { "kind": "column.precision", "for": { "element": "Attribute", "where": "hasStereotype('Decimal Constraints')" }, "value": "stereotype('Decimal Constraints').Precision", "dependsOn": "member.exists", "source": "the attribute's Decimal Constraints Precision" },
+        { "kind": "column.scale", "for": { "element": "Attribute", "where": "hasStereotype('Decimal Constraints')" }, "value": "stereotype('Decimal Constraints').Scale", "dependsOn": "member.exists", "source": "the attribute's Decimal Constraints Scale" },
+        { "kind": "column.default", "for": { "element": "Attribute", "where": "hasStereotype('Default Constraint')" }, "value": "stereotype('Default Constraint').Value", "dependsOn": "member.exists", "source": "the attribute's Default Constraint Value" },
+        { "kind": "column.valueGeneration", "for": { "element": "Attribute", "where": "hasStereotype('Primary Key') && stereotype('Primary Key')['Data source'] != 'Default'" }, "value": "stereotype('Primary Key')['Data source']", "dependsOn": "member.exists", "source": "the attribute's Primary Key Data source" },
+        { "kind": "index.columns", "for": { "element": "Attribute", "where": "hasStereotype('Index') && !exists(stereotype('Index').UniqueKey)" }, "value": "name", "dependsOn": "parent:type.exists", "source": "the attribute's Index" },
+        { "kind": "index.unique", "for": { "element": "Attribute", "where": "hasStereotype('Index') && !exists(stereotype('Index').UniqueKey)" }, "value": "stereotype('Index').IsUnique", "dependsOn": "parent:type.exists", "source": "the attribute's Index IsUnique" }
+      ]
+    }
+  }
+}

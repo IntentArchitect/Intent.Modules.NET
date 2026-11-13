@@ -198,14 +198,64 @@ internal static class CaseValidator
             }
         }
 
+        // A stereotype property holding an element is { "ref": "<id>" }, alone, in a list, or in an item list's row.
+        void StereotypeValue(JsonNode? value, string from)
+        {
+            switch (value)
+            {
+                case JsonObject reference when reference.Text("ref") is { } target:
+                    references.Add((target, from));
+                    break;
+                case JsonObject row:
+                    foreach (var (_, cell) in row)
+                    {
+                        StereotypeValue(cell, from);
+                    }
+
+                    break;
+                case JsonArray items:
+                    foreach (var item in items)
+                    {
+                        StereotypeValue(item, from);
+                    }
+
+                    break;
+            }
+        }
+
+        void Stereotypes(JsonNode? owner, string from)
+        {
+            if (owner?["stereotypes"] is not JsonObject stereotypes)
+            {
+                return;
+            }
+
+            foreach (var (name, properties) in stereotypes)
+            {
+                if (properties is JsonObject values)
+                {
+                    foreach (var (property, value) in values)
+                    {
+                        StereotypeValue(value, $"{from} stereotype '{name}' {property}");
+                    }
+                }
+            }
+        }
+
         void Element(JsonNode element)
         {
             Add(element);
             var from = $"element '{element.Text("id")}'";
             TypeRef(element["typeRef"], from);
+            Stereotypes(element, from);
             if (element.Text("generalization") is { } generalization)
             {
                 references.Add((generalization, from));
+            }
+
+            if (element.Text("mappedTo") is { } mappedTo)
+            {
+                references.Add((mappedTo, $"{from} mappedTo"));
             }
 
             foreach (var child in element.Items("children"))
@@ -221,6 +271,7 @@ internal static class CaseValidator
                 foreach (var package in designer.Items("packages"))
                 {
                     Add(package);
+                    Stereotypes(package, $"package '{package.Text("id")}'");
                     foreach (var element in package.Items("elements"))
                     {
                         Element(element);
@@ -230,12 +281,16 @@ internal static class CaseValidator
                 foreach (var association in designer.Items("associations"))
                 {
                     Add(association);
+                    var from = $"association '{association.Text("id")}'";
+                    Stereotypes(association, from);
                     foreach (var end in new[] { "source", "target" })
                     {
                         if (association[end].Text("element") is { } target)
                         {
-                            references.Add((target, $"association '{association.Text("id")}' {end}"));
+                            references.Add((target, $"{from} {end}"));
                         }
+
+                        Stereotypes(association[end], $"{from} {end}");
                     }
                 }
             }

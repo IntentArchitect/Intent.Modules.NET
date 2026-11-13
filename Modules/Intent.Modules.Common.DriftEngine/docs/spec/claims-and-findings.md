@@ -28,7 +28,7 @@ A claim is one checkable statement the model makes about the code.
 | `stated`         | `always` (the code states it even by saying nothing) or `whenSet` (the model states it only when the code does), from the kind         | `whenSet`                                  |
 | `bindings`       | The placeholders the claim's rules use, and their values                                                                               | `{ "Entity": "Order", "Table": "Orders" }` |
 | `own`            | Which placeholders name the claim's own element, for the wrong-element check                                                           | `["Entity"]`                               |
-| `parameterNames` | An operation's parameter types, telling overloads apart                                                                                | `["Guid", "string"]`                       |
+| `parameterNames` | An operation's parameter names, in order, telling overloads apart                                                                      | `["orderId", "reason"]`                    |
 | `source`         | The model feature that states the value, for fix messages                                                                              | the `Table` stereotype's `Name`            |
 | `dependsOn`      | The claim this one is blocked by when that isn't verified, usually its owner's existence                                               | `type.exists` on `Order`                   |
 | `origin`         | The pack and vocabulary entry that produced it                                                                                         | `intent.domain@1.0.0`, entry `table.name`  |
@@ -46,13 +46,15 @@ A value has a type, and canonical text used for messages and for the `exact` com
 | `text`     | As stated, trimmed                                                         | `Orders`                   |
 | `bool`     | `true` or `false`                                                          | `true`                     |
 | `number`   | Invariant culture, no trailing zeros                                       | `200`                      |
-| `list`     | Items joined by `,` in order                                               | `CustomerId, OrderDate`    |
-| `set`      | Items sorted ordinally, joined by `,`                                      | `Admin, Manager`           |
-| `type`     | Model type name, with `[]` for a collection and `?` for nullable           | `OrderItem[]`, `DateTime?` |
+| `list`     | Items joined by `, ` in order; a parameter is `name: type`                 | `CustomerId, OrderDate`, `id: guid, reason: string` |
+| `set`      | Items sorted ordinally, joined by `, `                                     | `Admin, Manager`           |
+| `type`     | Model type name, with `[]` for a collection and `?` for nullable           | `OrderItem[]`, `datetime?` |
 | `route`    | Segments joined by `/`, parameters as `{name}`, no leading or trailing `/` | `api/orders/{id}`          |
 | `presence` | `present` or `absent`                                                      | `present`                  |
 
-A `type` value carries the model's type element, collection and nullability separately, so the `type` comparer can map each through the language profile ([rules.md](rules.md#language-profiles)).
+A `type` value carries the model's type element, collection and nullability separately, so the `type` comparer can map each through the language profile ([rules.md](rules.md#language-profiles)). Model type names are Intent's (`guid`, `datetime`); a code type is shown as written (`Guid`, `DateTime`).
+
+The run result and the suite's `expect` show both sides as canonical text, so `true`, `200` and `guid?` are strings there, and `null` is a side with no value.
 
 ## The reading
 
@@ -62,7 +64,7 @@ A rule's result for one claim.
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `value`      | The value read, typed as the claim's value. Missing when the rule found none.                                                                                                                                                   |
 | `from`       | `code` (read from code the find located), `inherited` (from an enclosing node), `default` (the recipe's `default`) or `absent` (the recipe's `absent`, because the find found nothing). `default` and `absent` are **silence**. |
-| `at`         | File, start and end line and column of the code read, or of the owner when the reading is silence                                                                                                                               |
+| `at`         | File, start and end line and column of the code read, or of the owner when the reading is silence. A node starts at its first attribute or annotation, if it has any. When a rule combines several nodes, `at` is the one it names as deciding: a recipe's node its matching read case read, a query's `at`, a plug-in's choice |
 | `node`       | The code graph node the value came from                                                                                                                                                                                         |
 | `rule`       | Pack, rule and, for a recipe, the find path and read case that produced it                                                                                                                                                      |
 | `text`       | The matched text, for recipe validation's probe                                                                                                                                                                                 |
@@ -86,7 +88,7 @@ Every claim ends as exactly one outcome ([R1](requirements.md)). The engine deci
 | 6  | Nothing found in scope, but the find's named steps match the path of an out-of-scope file ([scope.md](scope.md#shadow-lookup)) | can't verify, `outOfScope`, naming the file and the scope row      |
 | 7  | Several nodes match where one is expected                                                                                      | can't verify, `ambiguous`                                          |
 | 8  | A read case marked `unreadable` matched                                                                                        | can't verify, `unreadable`                                         |
-| 9  | Nothing found, and the kind is an existence kind (`presence` comparer)                                                         | contradicted: the code lacks it ([R8](requirements.md))            |
+| 9  | Nothing found, and the kind is an existence kind (`presence` comparer)                                                         | compare `absent`: contradicted when the model says present, as the code lacks it ([R8](requirements.md)); verified when the model says absent |
 | 10 | The kind is `whenSet`, its owner was found, and the rule found nothing or no read case matched                                 | contradicted: the code doesn't state it ([R4](requirements.md))    |
 | 11 | The kind is `always`, and the recipe's `absent` (nothing found) or `default` (found, but no read case matched) applies         | compare that value, marked as from silence ([R3](requirements.md)) |
 | 12 | Nothing found, or found but no read case matched, otherwise                                                                    | can't verify, `notFound`, saying which                             |
@@ -120,8 +122,10 @@ Each claim kind names its comparer ([R10](requirements.md)). Both sides are trim
 | `within`      | Every code item is in the model; the model may allow more. A contradiction names each offending item and its line | a layer imports only from layers it may depend on            |
 | `contains`    | The code's text contains the model's                                                                              | a page title within a heading                                |
 | `type`        | The model type, mapped through the language profile, equals the code's type reference                             | model `Guid?` = C# `Guid?`, Java `UUID` with `@Nullable`     |
-| `route`       | The routes are equal ignoring a leading or trailing `/`, case in literal segments, and parameter constraints      | `api/Orders/{id:guid}` = `/api/orders/{id}`                  |
+| `route`       | The routes have the same segments in order, ignoring a leading or trailing `/` and case in literal segments. A parameter matches a parameter in the same position with the same name, ignoring case and constraints; an optional `?` and a catch-all `*` must agree | `api/Orders/{id:guid}` = `/api/orders/{Id}`, not `api/orders/{id?}` |
 | `version`     | The versions are equal ignoring a leading `v` and trailing `.0` parts                                             | `v1` = `1.0`                                                 |
+
+The collection comparers (`list`, `subsequence`, `set`, `subset`, `within`) compare items exactly unless the kind names an `itemComparer`: `version` makes `1` and `v1.0` one item, `route` compares items as routes, and `type` compares a parameter's `name: type` by its name exactly and its type with the `type` comparer.
 | `presence`    | Found in code exactly when the model says present                                                                 | a `[Serializable]` marker modelled and present               |
 
 A pack's plug-in may add comparers ([rules.md](rules.md#plug-ins)).
@@ -152,11 +156,10 @@ The engine reports through the hub exactly as Common.Drift does, in its own Area
 | An opt-in rule's finding (`optin/*`)                       | the designer the rule names | `ModelCode`                 | `File` (path and line)               | `Element`, the nearest modelled owner, if any              |
 | A reader failure for a file (`engine/readerFailed`)        | `DriftEngine`               | `Code`                      | `File`                               | none                                                       |
 | Scope and configuration (`scope/*`, `config/*`)            | `DriftEngine`               | `Code`                      | `Element` (the scope host) or `Text` | none                                                       |
-| The scope coverage listing (`scope/coverage`)              | `DriftEngine`               | `Info`, see open question 1 | `Text`                               | none                                                       |
 
 `Rule` on the hub's finding is the finding's `rule`. Claims `blocked` by another aren't separate rows; the blocking claim's message counts them.
 
-If the hub doesn't get an `Info` severity, the coverage listing is written to `.cache/drift/<Application>/DriftEngine.Scope.md` beside the hub's report, and the report's `DriftEngine` Area links it in a warning only when something is out of scope that a claim needed.
+The report holds only drift (decision 30). Info findings, the scope coverage listing (`scope/coverage`) and the `engine/notStated` note, go to the Software Factory log and never to the report. An Area is created by its first finding and declares no categories, so the report never shows an Area or category as clean.
 
 ### Messages
 
@@ -171,7 +174,7 @@ Messages name the element and the claim's label, never an id. Code goes in backt
 | `outOfScope`             | Class `Order` isn't in scope. `src/Legacy/Order.cs`, which the Root Folder's scope row `src/Legacy/**` excludes ("being replaced by `src/Domain`"), may hold it.          |
 | `unreadable`             | Max length of `Order.Name`: the code states it at `OrderConfiguration.cs:12` in a form the rule can't read.                                                               |
 | `noRule`                 | Table schema of `Order`: no rule in the active packs reads it.                                                                                                            |
-| `unresolved`             | Base type of `Order`: the rule needs name resolution, which the Java reader doesn't provide.                                                                              |
+| `unresolved`             | Nullable of `Order.Notes`: the code's nullability is unknown, because `Order.cs` is outside a nullable context.                                                           |
 | `readerFailed`           | Class `Order`: `src/Domain/Order.cs` couldn't be read by the C# reader.                                                                                                   |
 | `ruleFailed`             | Table name of `Order`: rule `house/table.name` failed: the query's `ownerOf` names no Layer property.                                                                     |
 | `noVocabulary`           | `Order`'s `Audited` stereotype: no pack says what it states in code. Add vocabulary for it, or declare it non-checkable with a reason.                                    |
@@ -183,7 +186,8 @@ Messages name the element and the claim's label, never an id. Code goes in backt
 | Finding                                                                          | Severity               |
 | -------------------------------------------------------------------------------- | ---------------------- |
 | Contradicted claim                                                               | Error                  |
-| Can't-verify claim, every reason                                                 | Error                  |
+| Can't-verify claim, every reason except the next row                             | Error                  |
+| `engine/notStated`: nullability claims whose code is outside a nullable context, listed once; no finding per claim | Info |
 | `engine/noVocabulary`, and a designer with no vocabulary                         | Error                  |
 | `engine/readerFailed` (the file)                                                 | Error                  |
 | `scope/missing` (no Drift Scope anywhere)                                        | Error                  |
@@ -192,9 +196,11 @@ Messages name the element and the claim's label, never an id. Code goes in backt
 | `optin/*` finding                                                                | Error                  |
 | `optin/staleException` (an exception that matches nothing)                       | Warning                |
 | `config/*` (an unknown pack or version, conflicting vocabulary, an invalid rule) | Error                  |
-| `scope/coverage` (the listing)                                                   | Info (open question 1) |
+| `scope/coverage` (the listing)                                                   | Info                   |
 
-Every can't-verify is an error because the model makes a claim the run couldn't check (principle 2). Open question 3 asks to confirm this.
+Info is logged, never reported. Every can't-verify is an error because the model makes a claim the run couldn't check (principle 2). Open question 2 asks to confirm this.
+
+The exception is a fact the code can't state at all. Outside a nullable context a C# reference type says nothing about nullability, so neither the model nor the code can be wrong about it, and it isn't drift. Each such claim is still can't verify, `unresolved`, in the run result, but it has no finding of its own: one `engine/notStated` note gives the count per designer and the files per top folder, and says that turning nullable reference types on makes them checkable. basislink5's first Software Factory run showed why: a codebase the recipe check reports clean came back with 753 errors, every one a `string` in a project with nullable off.
 
 ### Overrides
 

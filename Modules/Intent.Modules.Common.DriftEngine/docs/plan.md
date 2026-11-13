@@ -9,6 +9,7 @@ Give each codebase a visual of its design intent that is guaranteed true in the 
 - The visual shows intention, not everything the code does.
 - A drift check flags any stated claim that stops being true, whichever side changed. That keeps agents, and people, honest.
 - It works on any codebase in any language.
+- Modules extend the engine through code: their own designers, stereotypes, readers and rules. Everything the custom drift modules did (eShopCustom, the Java spike) stays within reach. The engine is the shared foundation, not the ceiling; recipes are a shortcut for simple claims, not the limit.
 - Code generation is only for bootstrapping.
 
 ## Principles
@@ -19,7 +20,7 @@ Every phase must keep these.
 2. Every claim on the visual is checked. A claim that can't be verified is reported as such; nothing modelled is skipped silently.
 3. A check passes only when the code really says it.
 4. Adopting and checking never write code.
-5. New languages, stacks and vocabulary are added as packages, not by changing the core.
+5. New languages, stacks and vocabulary are added as extensions (a module's code, or a pack's data), not by changing the core.
 6. Every finding names the claim, the model element and the file and line, so an agent can fix the right side.
 
 ## Building blocks
@@ -39,7 +40,7 @@ Brownfield code is full of junk, so the engine must be told what is in and what 
 - Scope lives in the model, where it is visible and editable. It lists what's in (projects, folders, files) and what's out (globs, folders, types), and every exclusion has a reason.
 - Only in-scope code is read, so a claim can't be satisfied by dead code, tests, generated files or vendored code.
 - Rules over the code apply only in scope. That covers layer imports, and any "every X must be modelled" rule a team opts into.
-- Scope grows area by area during adoption. The report states what is out of scope and why, so the visual's coverage is honest.
+- Scope grows area by area during adoption. The Drift Scope in the model says what is out of scope and why, and the Software Factory log lists it, so the visual's coverage is honest. The drift report holds only drift, so it never lists what is out of scope.
 - Scope can't hide drift:
   - A modelled claim is always checked; if its code sits out of scope, that is reported.
   - A scope entry that matches nothing is reported as stale.
@@ -78,7 +79,7 @@ Each phase ends with a review. Phases are verified with unit tests, fixtures and
 | Phase                       | Delivers                                                                                                                                                                                                                                                                                               | Done when                                                                                                                                    |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0. Specification            | Requirements; the interfaces between the blocks (claim and finding model, code-reader schema, rule API, pack format); the scope model. An acceptance suite of unit tests and fixtures, built from the 321 checks reduced to intent claims, the real codebases and scope cases. Common.Drift recipes must convert. | Signed off                                                                                                                                   |
-| 1. Foundations              | Intent.Common.DriftEngine with blocks 2, 3 and 5, including scope, and a C# reader                                                                                                                                                                                                                     | The basislink5 and CrmBus structure checks pass with zero hand-written files changed. Excluded junk is not read and is listed in the report. |
+| 1. Foundations              | Intent.Common.DriftEngine with blocks 2, 3 and 5, including scope, and a C# reader                                                                                                                                                                                                                     | eShopCustom's structure checks pass with zero hand-written files changed (user decision, 2026-11-13: eShopCustom is the system; basislink5 and CrmBus are examples). Excluded junk is not read, and the report holds only drift. |
 | 2. Open vocabulary          | Block 1                                                                                                                                                                                                                                                                                                | A Front End Store and an Architecture Layer are checked with no core change                                                                  |
 | 3. Rules beyond regex       | Block 4, piloted on Architecture (layers, May Depend On, imports)                                                                                                                                                                                                                                      | Planted import violations are caught in C# (eShopCustom) and Java (the spike)                                                                |
 | 4. Java and the first packs | A Java reader, plus packs for Spring MVC, JPA, EF Core, ASP.NET Core and NServiceBus                                                                                                                                                                                                                   | The Java spike's Domain and Services claims are checked with no Java-specific code in the core                                               |

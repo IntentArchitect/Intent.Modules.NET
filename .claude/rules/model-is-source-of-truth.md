@@ -2,6 +2,7 @@
 description: The governing Intent Architect doctrine — the model is the source of truth, what must be modelled, how to protect bespoke code from regeneration, and when a task is actually done. Read before changing any code in an Intent Architect solution.
 alwaysApply: true
 intent-updates: automatic
+group: Rules
 ---
 
 ## The model is the source of truth
@@ -89,10 +90,9 @@ messages shown to the user; reference elements by name and type.
 
 ## The `intention` parameter
 
-Intent Architect tools that declare an `intention` parameter require it — your intent in 10 words or
-fewer. This applies to **Intent Architect tools only**. Host-native tools (`Read`, `Write`, `Edit`,
-`Grep`, `Glob`, `Bash`, `PowerShell`, …) have their own schemas and will reject `intention` as an
-unexpected parameter.
+When an Intent Architect tool's schema has an `intention` parameter, fill it with your intent in 10 words or
+fewer: it becomes the subtitle on the tool card the user sees. Omit it where the schema has none,
+including host-native tools (`Read`, `Write`, `Edit`, `Grep`, `Glob`, `Bash`, `PowerShell`, …).
 
 ## Documentation lookup
 

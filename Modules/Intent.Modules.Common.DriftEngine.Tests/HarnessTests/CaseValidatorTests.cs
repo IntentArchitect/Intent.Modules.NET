@@ -18,7 +18,8 @@ public class CaseValidatorTests
             "Domain": {
               "packages": [{ "id": "domain", "name": "Domain", "elements": [
                 { "id": "order", "type": "Class", "name": "Order", "generalization": "entity" },
-                { "id": "order", "type": "Class", "name": "Order2" }
+                { "id": "order", "type": "Class", "name": "Order2", "mappedTo": "order-dto",
+                  "stereotypes": { "Backend": { "Operation": { "ref": "get-order" }, "Rows": [ { "Target": { "ref": "line" } } ] } } }
               ] }]
             }
           }
@@ -55,6 +56,9 @@ public class CaseValidatorTests
         errors.ShouldContain(x => x.Contains("uses pack 'house.shop'"));
         errors.ShouldContain(x => x.Contains("model id 'order' is used twice"));
         errors.ShouldContain(x => x.Contains("refers to 'entity', which isn't in the model"));
+        errors.ShouldContain(x => x.Contains("mappedTo refers to 'order-dto'"));
+        errors.ShouldContain(x => x.Contains("stereotype 'Backend' Operation refers to 'get-order'"));
+        errors.ShouldContain(x => x.Contains("stereotype 'Backend' Rows refers to 'line'"));
         errors.ShouldContain(x => x.Contains("expects a claim on 'customer'"));
         errors.ShouldContain(x => x.Contains("'src/Order.cs:4' is past the end of src/Order.cs, which has 3 lines"));
         errors.ShouldContain(x => x.Contains("is phase 1, but expects table.name (phase 4) to be verified"));

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="fe20f2d9-4d95-44c8-96cb-9b129d9e56a5" version="3.1.0">
+  <comment>One row of a Drift Scope: the files (or types in them) it decides, whether they are read, and why.</comment>
+  <name>Drift Scope Entry</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="07e7b690-a59d-4b72-8440-4308a121d32c">Root Folder</type>
+    <type id="4d95d53a-8855-4f35-aa82-e312643f5c5f">Folder</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b4107910-4d30-42b3-a453-ccbfda74f7cc</parentFolderId>
+  <order>0</order>
+  <packageId>b4107910-4d30-42b3-a453-ccbfda74f7cc</packageId>
+  <packageName>Intent.Common.DriftEngine</packageName>
+  <properties>
+    <property id="1b5d6529-dc3f-46e1-8c84-ba216f986bcf">
+      <hint>The files the row matches, one glob per line, relative to this element's folder. Same rules as File Classification.</hint>
+      <name>Glob</name>
+      <type>string</type>
+      <controlType>textarea</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. src/**</placeholder>
+    </property>
+    <property id="3c11fc6d-e0f1-4749-88c1-e3145d347c40">
+      <hint>Optional. Type names in the matched files that the row excludes, one per line. A row with Types must be Out.</hint>
+      <name>Types</name>
+      <type>string</type>
+      <controlType>textarea</controlType>
+      <optionsSource>n/a</optionsSource>
+    </property>
+    <property id="34ebee0c-b472-4179-a5d1-f95bf154db78">
+      <hint>Whether the matched files (or types) are read.</hint>
+      <name>Scope</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>In</defaultValue>
+      <valueOptions>
+        <option>In</option>
+        <option>Out</option>
+      </valueOptions>
+    </property>
+    <property id="cc06fdd0-1072-4601-8cc2-323e9b8fbe79">
+      <hint>Why. Required on every Out row.</hint>
+      <name>Reason</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+    </property>
+  </properties>
+</stereotypeDefinition>

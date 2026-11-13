@@ -13,6 +13,7 @@ internal static class SpecDocuments
 
     private static readonly Regex RequirementRow = new(@"^\|\s*(?<id>R\d+)\s*\|", RegexOptions.CultureInvariant);
     private static readonly Regex Backticked = new("`(?<text>[^`]+)`", RegexOptions.CultureInvariant);
+    private static readonly Regex CaseName = new(@"^[a-z]+/([A-Za-z][A-Za-z.]*|\*)$", RegexOptions.CultureInvariant);
 
     /// <summary>Every check row of the eight <c>| # | Check |</c> tables.</summary>
     public static IReadOnlyList<ClassifiedCheck> Checks(string path)
@@ -90,6 +91,28 @@ internal static class SpecDocuments
     public static IReadOnlyList<string> RequirementIds(string path)
     {
         return File.ReadLines(path).Select(x => RequirementRow.Match(x)).Where(x => x.Success).Select(x => x.Groups["id"].Value).ToList();
+    }
+
+    /// <summary>
+    /// What each requirement's Cases column names in backticks: a case file (<c>scope/reason.cases.md</c>), an area
+    /// (<c>readers/*</c>) or a scope, engine or opt-in case (<c>scope/nested</c>). Schema names and prose are left out.
+    /// </summary>
+    public static IReadOnlyList<(string Requirement, string Case)> RequirementCases(string path)
+    {
+        var named = new List<(string, string)>();
+        foreach (var line in File.ReadLines(path))
+        {
+            var row = RequirementRow.Match(line);
+            if (row.Success)
+            {
+                named.AddRange(Backticked.Matches(Cells(line)[^1])
+                    .Select(x => x.Groups["text"].Value)
+                    .Where(x => CaseName.IsMatch(x))
+                    .Select(x => (row.Groups["id"].Value, x)));
+            }
+        }
+
+        return named;
     }
 
     /// <summary>The Common.Drift fact kinds conversion.md lists under Kinds, which recipes use by name.</summary>

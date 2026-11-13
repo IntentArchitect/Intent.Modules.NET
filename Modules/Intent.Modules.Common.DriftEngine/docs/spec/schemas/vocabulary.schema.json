@@ -8,7 +8,7 @@
   "properties": {
     "$schema": { "type": "string" },
     "designer": { "type": "string", "minLength": 1 },
-    "entries": { "type": "array", "items": { "$ref": "#/$defs/entry" } },
+    "entries": { "type": "array", "items": { "oneOf": [{ "$ref": "#/$defs/entry" }, { "$ref": "#/$defs/extension" }] } },
     "nonClaims": { "type": "array", "items": { "$ref": "#/$defs/nonClaim" } },
     "note": { "type": "string" }
   },
@@ -48,6 +48,18 @@
         "dependsOn": { "type": "string", "pattern": "^(parent:)?[a-z][A-Za-z]*(\\.[a-z][A-Za-z]*)*$" },
         "source": { "type": "string", "minLength": 1 },
         "fixHint": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "extension": {
+      "type": "object",
+      "description": "Adds placeholders to the claims another pack's entry produces (vocabulary.md, Extending another pack's entry)",
+      "required": ["extends", "bindings"],
+      "additionalProperties": false,
+      "properties": {
+        "extends": { "type": "string", "pattern": "^[a-z][a-z0-9]*(\\.[a-z0-9]+)*/[a-z][A-Za-z]*(\\.[a-z][A-Za-z]*)*$", "description": "<pack>/<kind>" },
+        "for": { "$ref": "#/$defs/selector" },
+        "bindings": { "type": "object", "minProperties": 1, "propertyNames": { "pattern": "^[A-Z][A-Za-z0-9]*$" }, "additionalProperties": { "$ref": "#/$defs/expression" } },
         "note": { "type": "string" }
       }
     },

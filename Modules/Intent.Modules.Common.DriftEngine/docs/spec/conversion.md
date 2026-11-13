@@ -81,7 +81,7 @@ All Common.Drift fact kinds keep their names and placeholders, so recipes need n
 
 ## Semantic changes
 
-The engine's decisions change some verdicts on the same model and code. Phase 6's side-by-side run must explain every difference by one of these (open question 2).
+The engine's decisions change some verdicts on the same model and code. Phase 6's side-by-side run must explain every difference by one of these (open question 1).
 
 | #  | Change                                                                                                                                                                                                                      | Decision | Affected recipes in the five codebases                                                                                                                                                                                          |
 | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

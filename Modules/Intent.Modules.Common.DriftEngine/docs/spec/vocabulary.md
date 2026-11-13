@@ -8,15 +8,19 @@ Common.Drift fixed each designer's facts in C#, in the module contributing that 
 
 The engine reads Intent's model directly (decision 2), through the Software Factory's metadata API: `IMetadataManager` for the application's designers, and `IPackage`, `IElement`, `IAssociation`, `IAssociationEnd`, `IStereotype` and `ITypeReference` beneath. Vocabulary sees, for each designer:
 
-| Model feature   | What vocabulary can read                                                                                                |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Package         | name, its stereotypes                                                                                                   |
-| Folder          | name, its stereotypes, its path of folder names                                                                         |
-| Element         | id, name, specialization, comment, parent, children by specialization, stereotypes and their properties, type reference |
-| Type reference  | the referenced element (and its specialization), collection, nullable, generic arguments                                |
-| Association     | specialization, its source and target ends                                                                              |
-| Association end | name, the element at that end, multiplicity (`1`, `0..1`, `*`), navigable, the association it belongs to                |
-| Stereotype      | name, each property's value; a property equal to its definition's default counts as unset                               |
+| Model feature   | What vocabulary can read                                                                                                                                                                      |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Package         | name, its stereotypes, the application it belongs to, and whether it is referenced from another application                                                                                   |
+| Folder          | name, its stereotypes, its path of folder names                                                                                                                                               |
+| Element         | id, name, specialization, comment, parent, children by specialization, stereotypes and their properties, type reference, generic type parameters, the element it is mapped to               |
+| Type reference  | the referenced element (and its specialization), collection, nullable, generic arguments                                                                                                      |
+| Association     | specialization, its source and target ends                                                                                                                                                    |
+| Association end | name, the element at that end, multiplicity (`1`, `0..1`, `*`), navigable, its stereotypes, whether it is the source or the target, the association it belongs to                            |
+| Stereotype      | name, each property's value. A property that holds an element (an element lookup) gives that element, which expressions can follow. A property equal to its definition's default counts as unset |
+
+"Counts as unset" matters in two places only: a `whenSet` kind makes no claim from it (decision 10), and coverage doesn't count it as a feature ([Coverage of the model](#coverage-of-the-model)). A `stated: always` kind claims its value whatever it is, so an index's `IsUnique` left at `false` is still a claim that the index isn't unique.
+
+An association end can itself be the source of another association: Intent draws a handler's interactions from the target end of the Subscribe association it handles. Such an association's source is that end, and `source.element` is the element at the end.
 
 The acceptance suite builds these objects from fixture data in its harness ([acceptance-suite.md](acceptance-suite.md#the-harness)); the engine never sees anything else.
 
@@ -34,12 +38,26 @@ Each entry produces claims of one kind from model elements of one shape. Its sch
 | `bindings`       | Placeholders for the kind's rules, each an expression                                                                                                                                    |
 | `own`            | The placeholders that name the claim's own element, for the wrong-element check                                                                                                          |
 | `discriminator`  | Optional. An expression telling apart several claims of this kind on one element                                                                                                         |
-| `parameterNames` | Optional. For operations: an expression listing the parameter types, choosing between overloads                                                                                          |
+| `parameterNames` | Optional. For operations: an expression listing the parameter names in order, choosing between overloads ([rules.md](rules.md#locating-an-elements-code))                               |
 | `dependsOn`      | Optional. The claim kind, on this element or `parent`, that must be verified first; usually `type.exists` or `member.exists`                                                             |
 | `source`         | The model feature in words, for messages: "the Table stereotype's Name"                                                                                                                  |
 | `fixHint`        | Optional. A sentence added to a contradicted finding, with placeholders                                                                                                                  |
 
 The element that states a claim is the selected element; for an association, the association. Its `path` runs from the outermost owner (the package's top element) to it.
+
+### Extending another pack's entry
+
+A pack can add placeholders to the claims another pack's entry produces, without redefining the entry. An extending entry has only `extends` (`<pack>/<kind>`), an optional `for` that narrows it, and `bindings`:
+
+```json
+{
+  "extends": "intent.domain/column.name",
+  "for": { "element": "Attribute", "where": "hasStereotype('Backing Field')" },
+  "bindings": { "BackingField": "stereotype('Backing Field').Field" }
+}
+```
+
+This is how a house or module pack gives its own rules what they need from its own stereotypes, here for an attribute EF Core persists from a private field. The extended entry still decides whether a claim exists, its value and its source. An extending entry that binds a placeholder the extended entry already binds, or that another extending entry binds for the same element, is a `config/vocabularyConflict` error.
 
 ### Example
 
@@ -88,11 +106,11 @@ From the stock Domain pack. A table name is claimed only where the model sets it
 
 The `index.columns` entry shows a plug-in model function: grouping attributes by `UniqueKey` and ordering them by `Order` is easier in C# than in an expression. It also claims unnamed indexes (decision 9), whose `Index` placeholder is empty.
 
-And from a phase 2 house pack for eShopCustom's own Architecture designer, which no stock pack knows:
+And from a phase 2 house pack for the Layers eShopCustom's Architecture module adds to the Codebase Structure designer, which no stock pack knows:
 
 ```json
 {
-  "designer": "Architecture",
+  "designer": "Codebase Structure",
   "entries": [
     {
       "kind": "layer.populated",
@@ -116,7 +134,7 @@ Bindings are what rules see. The stock packs keep Common.Drift's placeholder nam
 | Services       | `{Service}`, `{Operation}`, `{Folder}`, `{Parameter}`, `{Entity}`, `{Member}`, `{Invoked}`, `{InvokedOwner}`, `{Message}` |
 | User Interface | `{Folder}`, `{Component}`, `{Invoked}`, `{Route}`, `{RouteStart}`, `{Page}`, `{Dialog}`, `{Child}`                        |
 
-Structure kinds add the language-neutral `{Type}`, `{TypeKind}`, `{Namespace}` and `{Folder}` (the element's folder path in the designer). A binding whose expression is empty gives an empty placeholder, which recipes can use as a switch, as Common.Drift's do.
+`{Folder}` keeps Common.Drift's meaning: the name of the element's nearest designer folder. Structure kinds add the language-neutral `{Type}`, `{TypeKind}`, `{Namespace}` and `{FolderPath}` (the element's designer folders joined by `/`). A binding whose expression is empty gives an empty placeholder, which recipes can use as a switch, as Common.Drift's do.
 
 ## Expressions
 
@@ -124,15 +142,20 @@ A small, side-effect-free language, evaluated against the selected element (or a
 
 | Form                                                                                                 | Meaning                                                                                                                                       |
 | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`, `id`, `specialization`, `comment`                                                            | The element's own                                                                                                                             |
+| `self`, `name`, `id`, `specialization`, `comment`                                                    | The element itself, and its own fields. Where a kind's value type is `type`, an element gives a type value naming it (`self` for "this class")  |
 | `parent`, `package`, `folderPath`                                                                    | Its parent element, its package, and its designer folders joined by `/`                                                                       |
+| `package.application`, `package.isReferenced`                                                        | The name of the application the package belongs to, and whether it belongs to another application than the one being checked                 |
 | `children('Attribute')`                                                                              | Its children of a specialization, in model order                                                                                              |
+| `genericTypes`                                                                                       | Its generic type parameters' names, in order                                                                                                  |
+| `mappedElement`                                                                                      | The element it is mapped to, or nothing                                                                                                       |
 | `type.name`, `type.element`, `type.isCollection`, `type.isNullable`, `type.arguments`                | Its type reference                                                                                                                            |
 | `associations('Association')`                                                                        | The association ends leading away from it, of a specialization                                                                                |
 | `source`, `target`, `.multiplicity`, `.isNavigable`, `.element`                                      | An association's ends, and what they say                                                                                                      |
-| `stereotype('Table').Name`, `hasStereotype('Table')`                                                 | A stereotype's property (a property name with spaces is quoted: `stereotype('Text Constraints')['SQL Data Type']`), and whether it is applied |
+| `.association`, `.isSource`, `.isTarget`, `.otherEnd`                                                | On an association end: its association, which end it is, and the end opposite                                                                 |
+| `stereotype('Table').Name`, `hasStereotype('Table')`                                                 | A stereotype's property (a property name with spaces is quoted: `stereotype('Text Constraints')['SQL Data Type']`), and whether it is applied. Elements, association ends and packages all have them |
+| `stereotype('Backend Operation').Operation.parent.name`                                              | A property holding an element gives the element, so every form above applies to it, in whatever designer it is                                |
 | `a ?? b`, `a + b`, `a == b`, `a != b`, `!a`, `a && b`, `a \|\| b`, `if(c, a, b)`, `exists(a)`        | Operators                                                                                                                                     |
-| `join(list, sep)`, `map(list, expr)`, `where(list, expr)`, `count(list)`                             | Lists; inside `map` and `where`, `it` is the item                                                                                             |
+| `join(list, sep)`, `split(text, sep)`, `map(list, expr)`, `where(list, expr)`, `count(list)`         | Lists; `split` trims each item and drops empty ones; inside `map` and `where`, `it` is the item                                               |
 | `lower`, `upper`, `camel`, `pascal`, `kebab`, `trimStart(x, s)`, `trimEnd(x, s)`, `replace(x, a, b)` | Text, worded as Common.Drift's placeholder filters                                                                                            |
 | `plugin('id', args…)`                                                                                | A model function from a pack's plug-in ([rules.md](rules.md#plug-ins))                                                                        |
 | `item`                                                                                               | The current item of `each`                                                                                                                    |
@@ -149,6 +172,7 @@ A kind is defined once, in a pack's `kinds`, and used by any number of entries. 
 | `label`     | How messages name it: "max length"                                                                      |
 | `valueType` | `text`, `bool`, `number`, `list`, `set`, `type`, `route` or `presence`                                  |
 | `comparer`  | One of [the comparers](claims-and-findings.md#comparers), or a plug-in's                                |
+| `itemComparer` | Optional. For list and set kinds: how two items compare (`exact` by default, or `ignoreCase`, `number`, `type`, `route`, `version`) |
 | `stated`    | `always` or `whenSet` ([claims-and-findings.md](claims-and-findings.md#stated-always-or-only-when-set)) |
 | `existence` | `true` for kinds whose not-found is contradicted rather than can't verify                               |
 
@@ -176,4 +200,4 @@ The coverage listing shows every non-claim in use, with its pack and reason, so 
 
 ## Conflicts
 
-Several packs may give entries for one designer ([R29](requirements.md)). Two entries producing the same kind for the same element and discriminator are a `config/vocabularyConflict` error naming both packs; nothing is checked for that kind on that element until it's resolved. Two packs defining one kind differently (label, value type, comparer or `stated`) are a `config/kindConflict` error.
+Several packs may give entries for one designer ([R29](requirements.md)). Two entries that both produce a claim of the same kind for the same element and discriminator are a `config/vocabularyConflict` error naming both packs; nothing is checked for that kind on that element until it's resolved. Entries that could overlap but don't, because a `where`, a `when` or an empty `whenSet` value leaves one of them without a claim on that element, don't conflict. Two packs defining one kind differently (label, value type, comparer or `stated`) are a `config/kindConflict` error.

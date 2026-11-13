@@ -53,7 +53,7 @@ The model lists the packs a codebase uses on the `Drift Check` stereotype's `Pac
 | ----- | ------------------------------------------------------------------------------------------------------------------------- |
 | Core  | Inside Intent.Common.DriftEngine: the C# and text readers, the comparers, the structure kinds and the C# language profile |
 | Stack | Inside the module that ships it, discovered from the application's installed modules, never copied into the application   |
-| House | `drift/` in the folder that holds the application's `.application.config`, committed with the code (open question 4)      |
+| House | `drift/` in the folder that holds the application's `.application.config`, committed with the code (open question 3)      |
 
 Module upgrades never change a house pack ([R53](requirements.md)); it's in the repository, not the module.
 
@@ -65,15 +65,33 @@ Module upgrades never change a house pack ([R53](requirements.md)); it's in the 
 | `intent.domain`      | Domain designer vocabulary: structure, persistence, `intent.raises`                             | 1     |
 | `intent.services`    | Services designer vocabulary: structure, HTTP, security, `intent.*`                             | 1     |
 | `intent.ui`          | User Interface designer vocabulary, for converted recipes                                       | 6     |
-| `intent.efcore`      | Persistence recipes over EF Core's fluent API and attributes, and the migration snapshot reader | 4     |
-| `intent.aspnetcore`  | Routes, verbs, binding, security and versioning over controllers and minimal APIs               | 4     |
+| `intent.rdbms`       | Relational vocabulary, framework-neutral: tables, keys, columns, indexes, foreign keys, from the RDBMS stereotypes. Reads no code | 1     |
+| `intent.http`        | HTTP vocabulary, framework-neutral: routes, verbs, parameter sources, security. Reads no code   | 1     |
+| `intent.efcore`      | Reads the relational claims from EF Core's fluent API and attributes, and the migration snapshot | 4     |
+| `intent.aspnetcore`  | Reads the HTTP claims from controllers and minimal APIs: routes, verbs, binding, security, versioning | 4     |
 | `intent.nservicebus` | Message handlers, sends and publishes                                                           | 4     |
 | `intent.java`        | The Java reader and language profile                                                            | 4     |
 | `intent.springmvc`   | Routes, verbs, binding, status and security over Spring MVC                                     | 4     |
 | `intent.jpa`         | Persistence over JPA annotations                                                                | 4     |
 | `intent.mediatr`     | Commands, queries, handlers and validators                                                      | later |
+| `intent.blazor`      | Razor component rules for the User Interface kinds: routes, titles, parameters, injection, security | later |
+| `intent.typescript`  | The TypeScript reader (with Vue single-file components) and the TypeScript language profile     | later |
+| `intent.grpc`        | The Protobuf reader, gRPC service conventions, protoc's naming, and `ServerCallContext` as an injected parameter | later |
 
 Phase 2's demonstrations (eShopCustom's Front End State Store and Architecture Layer) are house packs, which is the point: no stock pack and no engine change.
+
+A `later` pack has acceptance cases but no phase gate yet. Its cases fix what it must do; its rules are written when it is built, and must pass them.
+
+## Who ships what
+
+Vocabulary belongs with the stereotype or element type it reads; rules belong with the technology they read.
+
+- **A module's own stereotypes** (eShopCustom's On Delete, Backing Field and Enum Storage; the Java spike's Repository and Version) get their vocabulary from a pack the module ships, or, until it does, from the codebase's house pack. No stock pack knows them.
+- **Rules are keyed by kind**, so a stack pack's rule reads a kind whichever pack's vocabulary stated the claim. The EF Core pack reads `relationship.onDelete` from `OnDelete(…)` for any vocabulary that states it.
+- **A kind no stack pack reads** gets its rule from the same pack as its vocabulary.
+- **Conventions** for an element type come from the pack that knows the element type, and a pack that requires it may override them ([rules.md](rules.md#which-conventions-apply)).
+
+The suite's cases bring module vocabulary as inline packs, as a house pack would.
 
 ## A house pack
 

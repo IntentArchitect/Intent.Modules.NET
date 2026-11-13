@@ -44,9 +44,11 @@
     },
     "naming": {
       "type": "object",
+      "description": "From an element's name to a name in code: {Name} with the placeholder filters ({Name|camel}). A kind with no pattern is named as modelled.",
       "additionalProperties": false,
       "properties": {
         "type": { "type": "string" },
+        "interface": { "type": "string", "description": "A type the conventions allow only as an interface, as C#'s I{Name}; defaults to type" },
         "property": { "type": "string" },
         "field": { "type": "string" },
         "getter": { "type": "string" },

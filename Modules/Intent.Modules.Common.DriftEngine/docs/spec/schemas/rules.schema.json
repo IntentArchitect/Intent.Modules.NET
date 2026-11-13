@@ -14,15 +14,21 @@
       "propertyNames": { "$ref": "claim-kinds.schema.json#/$defs/kindId" },
       "additionalProperties": {
         "oneOf": [
-          { "$ref": "#/$defs/recipe" },
-          { "$ref": "#/$defs/queryRule" },
-          { "$ref": "#/$defs/pluginRule" }
+          { "$ref": "#/$defs/rule" },
+          { "type": "array", "items": { "$ref": "#/$defs/rule" }, "minItems": 1, "description": "Several rules for one kind, each narrowed by its own `for`" }
         ]
       }
     },
     "note": { "type": "string" }
   },
   "$defs": {
+    "rule": {
+      "oneOf": [
+        { "$ref": "#/$defs/recipe" },
+        { "$ref": "#/$defs/queryRule" },
+        { "$ref": "#/$defs/pluginRule" }
+      ]
+    },
     "files": {
       "oneOf": [
         { "type": "string", "minLength": 1 },
@@ -60,7 +66,8 @@
         },
         "map": { "type": "object", "additionalProperties": { "type": "string" } },
         "case": { "$ref": "#/$defs/case" },
-        "files": { "$ref": "#/$defs/files" }
+        "files": { "$ref": "#/$defs/files" },
+        "matches": { "enum": ["one", "any"], "description": "any: for presence and bool kinds, several places read the first in path and line order instead of ambiguous" }
       },
       "unevaluatedProperties": false
     },
@@ -87,7 +94,8 @@
       "required": ["query"],
       "allOf": [{ "$ref": "#/$defs/common" }],
       "properties": {
-        "query": { "$ref": "query.schema.json" }
+        "query": { "$ref": "query.schema.json" },
+        "absent": { "type": "string", "description": "The value of a claim no row reaches, as silence; with item, \"\" is an empty list or set" }
       },
       "unevaluatedProperties": false
     },

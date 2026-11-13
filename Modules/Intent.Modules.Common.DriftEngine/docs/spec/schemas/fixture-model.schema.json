@@ -31,6 +31,8 @@
         "id": { "$ref": "#/$defs/id" },
         "name": { "type": "string" },
         "type": { "type": "string", "description": "The package's specialization, such as Root Folder; defaults to the designer's package type" },
+        "application": { "type": "string", "minLength": 1, "description": "The application the package belongs to; defaults to the application being checked" },
+        "referenced": { "type": "boolean", "description": "true: a package referenced from another application (application names it)" },
         "stereotypes": { "$ref": "#/$defs/stereotypes" },
         "elements": { "type": "array", "items": { "$ref": "#/$defs/element" } }
       }
@@ -49,7 +51,9 @@
         "abstract": { "type": "boolean" },
         "static": { "type": "boolean" },
         "generalization": { "$ref": "#/$defs/id" },
-        "value": { "type": ["string", "number"] },
+        "genericTypes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "The element's generic type parameters, in order" },
+        "mappedTo": { "$ref": "#/$defs/id", "description": "The element this one is mapped to, in any designer" },
+        "value": { "type": ["string", "number"], "description": "An enum literal's value, or a parameter's default" },
         "children": { "type": "array", "items": { "$ref": "#/$defs/element" } }
       }
     },
@@ -65,6 +69,13 @@
         "arguments": { "type": "array", "items": { "$ref": "#/$defs/typeRef" } }
       }
     },
+    "elementRef": {
+      "type": "object",
+      "required": ["ref"],
+      "additionalProperties": false,
+      "description": "A stereotype property holding an element (an element lookup): the element's id, in any designer",
+      "properties": { "ref": { "$ref": "#/$defs/id" } }
+    },
     "stereotypes": {
       "type": "object",
       "additionalProperties": {
@@ -72,8 +83,22 @@
         "additionalProperties": {
           "anyOf": [
             { "type": ["string", "number", "boolean", "null"] },
+            { "$ref": "#/$defs/elementRef" },
             { "type": "array", "items": { "type": "string" } },
-            { "type": "array", "items": { "type": "object", "additionalProperties": { "type": ["string", "number", "boolean", "null", "array"] } } }
+            { "type": "array", "items": { "$ref": "#/$defs/elementRef" } },
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "not": { "required": ["ref"] },
+                "additionalProperties": {
+                  "anyOf": [
+                    { "type": ["string", "number", "boolean", "null", "array"] },
+                    { "$ref": "#/$defs/elementRef" }
+                  ]
+                }
+              }
+            }
           ]
         }
       }
@@ -95,7 +120,7 @@
       "required": ["element"],
       "additionalProperties": false,
       "properties": {
-        "element": { "$ref": "#/$defs/id" },
+        "element": { "$ref": "#/$defs/id", "description": "The element at this end; or an association's id, meaning that association's target end, which Intent lets interactions start from" },
         "name": { "type": "string" },
         "multiplicity": { "enum": ["1", "0..1", "*", "1..*"] },
         "navigable": { "type": "boolean" },

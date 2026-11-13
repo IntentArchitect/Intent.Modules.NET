@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Intent.Modules.Common.DriftEngine</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- No language's parser: languages are extensions (the stock C# one is in Stacks). -->
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The stock packs are data, shipped inside the engine (packs.md, Where packs live). -->
+    <EmbeddedResource Include="Packs\*.pack.json" LogicalName="%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Intent.Modules.Common.DriftEngine.Tests" />
+  </ItemGroup>
+
+</Project>

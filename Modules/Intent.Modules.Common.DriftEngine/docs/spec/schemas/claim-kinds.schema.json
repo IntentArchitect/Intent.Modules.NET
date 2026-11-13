@@ -26,6 +26,10 @@
         "label": { "type": "string", "minLength": 1 },
         "valueType": { "$ref": "#/$defs/valueType" },
         "comparer": { "$ref": "#/$defs/comparer" },
+        "itemComparer": {
+          "enum": ["exact", "ignoreCase", "number", "type", "route", "version"],
+          "description": "For list, set, subsequence, subset and within: how two items compare. Defaults to exact."
+        },
         "stated": { "enum": ["always", "whenSet"] },
         "existence": { "type": "boolean", "default": false },
         "note": { "type": "string" }

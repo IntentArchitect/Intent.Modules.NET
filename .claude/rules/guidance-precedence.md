@@ -2,6 +2,7 @@
 description: Precedence between explicit user instructions, skills, and an orchestrator's own inferences — read before delegating to a subagent or reconciling a skill against a task prompt.
 alwaysApply: true
 intent-updates: automatic
+group: Rules
 ---
 
 ## Guidance precedence

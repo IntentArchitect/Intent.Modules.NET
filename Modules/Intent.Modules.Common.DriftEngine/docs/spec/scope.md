@@ -12,7 +12,7 @@ Nothing is in scope until the model says so. Real codebases carry code nobody wa
 
 ## The `Drift Scope` stereotype
 
-The module adds a `Drift Scope` stereotype that applies to the Root Folder and to every Folder and project element of the Codebase Structure designer (the element types File Classification applies to, except Template Output). It has one property, `Entries`, an item list. Each row has:
+The module adds a `Drift Scope` stereotype that applies to the Root Folder and to every Folder of the Codebase Structure designer. A row on either covers any project inside it by glob, so project elements don't carry it ([decision 27](README.md)). It has one property, `Entries`, an item list. Each row has:
 
 | Property | Type                | Meaning                                                                                                |
 | -------- | ------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -74,7 +74,7 @@ basislink5 needs this: test helpers live in production files beside the code the
 
 ## Shadow lookup
 
-When a claim's code isn't found in scope, the engine checks whether it would have been found in excluded code, so the finding says "out of scope" rather than "missing" ([R25](requirements.md)).
+When a claim's code isn't found in scope, the engine checks whether it would have been found in out-of-scope code, so the finding says "out of scope" rather than "missing" ([R25](requirements.md)). Out-of-scope code is a file an Out row excludes, or one no row includes (nothing is in scope until a row says so). Built-in exclusions (`bin`, `obj`, ...) are junk by definition and aren't looked at. A file no row includes has no row to name, so the message says no Drift Scope row includes it.
 
 The lookup uses **file paths only and never opens an excluded file**. It repeats the find's named steps against out-of-scope paths: a `class:Order` step looks for a file whose name, up to its first dot, is `Order`; a `file:` step matches as written. A hit makes the claim can't verify, `outOfScope`, naming the file and the row that excludes it:
 
@@ -89,7 +89,7 @@ No hit leaves the outcome to the rest of the order in [claims-and-findings.md](c
 | `scope/missing`  | No `Drift Scope` row anywhere. One finding, with the number of claims none can be verified for. | Error                  |
 | `scope/reason`   | An `Out` row with no reason                                                                     | Error                  |
 | `scope/stale`    | A row that decides no file and excludes no type                                                 | Warning                |
-| `scope/coverage` | The listing below                                                                               | Info (open question 1) |
+| `scope/coverage` | The listing below                                                                               | Info, logged only      |
 | `config/glob`    | A pattern the matcher rejects                                                                   | Error                  |
 | `config/typesIn` | A row with `Types` marked `In`                                                                  | Error                  |
 
@@ -99,7 +99,7 @@ With no scope, every claim is can't verify, `outOfScope` (or `blocked` behind an
 
 ## The coverage listing
 
-The report lists what is out of scope, so a reviewer sees what the green run didn't look at ([R15](requirements.md)):
+The Software Factory log lists what is out of scope, so a person can see what a green run didn't look at ([R15](requirements.md)). The drift report never does: it holds only drift (decision 30), and what is out of scope isn't drift. The listing gives:
 
 - per row: its element, glob, scope, reason, and how many files (or types) it decides;
 - the built-in exclusions, with counts;
@@ -122,7 +122,8 @@ Configuration findings:
 
 | Rule                     | When                                                                     | Severity |
 | ------------------------ | ------------------------------------------------------------------------ | -------- |
-| `config/packMissing`     | A listed pack, or its version, isn't available                           | Error    |
+| `config/packMissing`     | A listed pack isn't available at any version                             | Error    |
+| `config/packVersion`     | A listed pack is available only at another version, or its row has no `Version` | Error    |
 | `config/packUnused`      | A pack provides vocabulary for no designer with content and no rule used | Warning  |
 | `config/overrideReason`  | A severity override with no reason                                       | Error    |
 | `config/exceptionReason` | An exception with no reason                                              | Error    |

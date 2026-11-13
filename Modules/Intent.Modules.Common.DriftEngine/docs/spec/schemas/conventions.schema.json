@@ -10,8 +10,32 @@
     "designer": { "type": "string", "minLength": 1 },
     "types": {
       "type": "object",
-      "description": "Keyed by element specialization",
-      "additionalProperties": { "$ref": "#/$defs/typeConvention" }
+      "description": "Keyed by element specialization: one convention, or several each narrowed by `where`",
+      "additionalProperties": {
+        "oneOf": [
+          { "$ref": "#/$defs/typeConvention" },
+          { "type": "array", "items": { "$ref": "#/$defs/typeConvention" }, "minItems": 1 }
+        ]
+      }
+    },
+    "injected": {
+      "type": "array",
+      "description": "Parameters the framework supplies, which operation.parameters and parameter.* skip (rules.md, Locating an element's code)",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "minProperties": 1,
+        "properties": {
+          "type": { "type": "string", "minLength": 1, "description": "A parameter type's name, simple or qualified" },
+          "annotation": { "type": "string", "minLength": 1, "description": "An attribute or annotation on the parameter, such as FromServices" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "results": {
+      "type": "array",
+      "description": "Result wrappers operation.returns unwraps, beyond the language profile's async ones: T marks the result, … any further type arguments (ActionResult<T>, Results<Ok<T>, …>, ResponseEntity<T>)",
+      "items": { "type": "string", "pattern": "T" }
     },
     "members": {
       "type": "array",
@@ -27,13 +51,14 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "typeKinds": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+        "where": { "$ref": "vocabulary.schema.json#/$defs/expression", "description": "Narrows the convention to the elements this expression is true for" },
+        "typeKinds": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true, "description": "The kinds the element's type may be: type.kind's expected value. Locating looks among every kind." },
         "locations": {
           "type": "array",
           "items": { "type": "string", "minLength": 1 },
           "description": "Globs relative to the output folder; placeholders allowed"
         },
-        "name": { "type": "string", "description": "The type's name, with placeholders; defaults to the language profile's naming" },
+        "name": { "type": "string", "description": "The type's name: {Name} is the element's name, with the placeholder filters (I{Name}, {Name|trimEnd:Service}Controller); defaults to the language profile's naming" },
         "find": { "type": "string", "description": "unmodelled.type: a find path locating every type that follows the convention" },
         "files": { "$ref": "rules.schema.json#/$defs/files" },
         "note": { "type": "string" }

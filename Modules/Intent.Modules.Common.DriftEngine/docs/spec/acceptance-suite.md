@@ -103,13 +103,16 @@ The model is plain data that the harness turns into Intent's model objects (deci
 | `id`                 | Case-local; `expect` refers to elements by it                                                          |
 | `type`               | The element's specialization: `Class`, `Attribute`, `Operation`, `Enum`, `Service`, `Folder`, `Layer`… |
 | `name`               | Its name                                                                                               |
-| `stereotypes`        | `{ "<name>": { "<property>": <value> } }`; an item list is an array of objects                         |
+| `stereotypes`        | `{ "<name>": { "<property>": <value> } }`; an item list is an array of objects; a property holding an element is `{ "ref": "<id>" }`, the element in any designer |
 | `typeRef`            | `{ "type": "<primitive>" }` or `{ "element": "<id>" }`, with `nullable` and `collection`               |
 | `abstract`, `static` | Booleans                                                                                               |
 | `generalization`     | The id of the element it generalizes                                                                   |
-| `value`              | An enum literal's value                                                                                |
+| `genericTypes`       | Its generic type parameters' names, in order                                                           |
+| `mappedTo`           | The id of the element it is mapped to, in any designer                                                 |
+| `value`              | An enum literal's value, or a parameter's default                                                      |
 | `children`           | Nested elements                                                                                        |
-| associations         | `{ "id", "type", "source": { "element", "name", "multiplicity", "navigable" }, "target": {…} }`        |
+| associations         | `{ "id", "type", "source": { "element", "name", "multiplicity", "navigable", "stereotypes" }, "target": {…} }`. An end's `element` may be another association's id: that association's target end |
+| package `application`, `referenced` | The application a package belongs to, and `true` for a package referenced from another application |
 
 Primitive type names are Intent's: `string`, `int`, `long`, `decimal`, `bool`, `datetime`, `date`, `guid`, `binary`, and so on.
 
@@ -117,7 +120,7 @@ Primitive type names are Intent's: `string`, `int`, `long`, `decimal`, `bool`, `
 
 | Field             | Meaning                                                                                                                                                                                                                                                                |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `claims`          | Claims the run must produce, each by `kind`, `element` and optional `key` (its discriminator), with `outcome`, and optionally `reason`, `expected`, `actual`, `at` (`path:line`), `fromSilence`, `scopeRow`, `blockedBy`. Or `"absent": true`: no such claim may exist |
+| `claims`          | Claims the run must produce, each by `kind`, `element` and optional `key` (its discriminator), with `outcome`, and optionally `reason`, `expected`, `actual` (canonical text, `null` for no value), `at` (`path:line`), `fromSilence`, `scopeRow`, `blockedBy`. Or `"absent": true`: no such claim may exist |
 | `others`          | What every claim not listed must be: `ignore` (the default), `verified`, or `absent` (no other claims)                                                                                                                                                                 |
 | `findings`        | Findings the run must report, each by `rule`, with optional `severity`, `subject` (an element id or `path:line`), `messageContains`                                                                                                                                    |
 | `noOtherFindings` | `true`: no finding beyond those listed                                                                                                                                                                                                                                 |
@@ -146,7 +149,7 @@ The integrity tests run in phase 0 and must pass before sign-off:
 4. Every case file parses, every block validates, every `element` and association in `expect` exists in the case's model, every `at` names a case file and a line within it, every pack is inline or a stock pack the catalog plans, and every `traces` id is in `checks.json`.
 5. Every check whose disposition is a claim, scope, engine or opt-in case is traced by at least one case, and every scope case, engine case and opt-in rule in `catalog.json` is shown by one.
 6. Every claim kind with phase 1 to 4 has at least one case with each outcome: verified, contradicted and can't verify.
-7. Every requirement a case names exists in [requirements.md](requirements.md).
+7. Every requirement a case names exists in [requirements.md](requirements.md), and every case a requirement names exists: a case file, an area with at least one file (`readers/*`), or a scope, engine or opt-in case some case shows.
 8. Every construct the local Common.Drift recipe files use is in `conversion-map.json` ([conversion.md](conversion.md#the-conversion-test-phase-0)). Each codebase whose files aren't on this machine is skipped.
 
 The harness has its own unit tests: the case parser, the case validator against deliberately broken cases, the comparison against synthetic run results, and the construct keys. A case is a phase gate only once the harness is trusted to read it.

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d07782de-f1dc-422f-8a46-3cf013ed9901" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <comment>Runs the drift engine after template execution and adds its findings to the drift report, one Area per designer checked.</comment>
+  <name>DriftEngineReporter</name>
+  <display>DriftEngineReporter</display>
+  <parentFolderId>b4107910-4d30-42b3-a453-ccbfda74f7cc</parentFolderId>
+  <packageId>b4107910-4d30-42b3-a453-ccbfda74f7cc</packageId>
+  <packageName>Intent.Common.DriftEngine</packageName>
+</class>
