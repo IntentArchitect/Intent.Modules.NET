@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/conventions.schema.json",
+  "title": "Conventions",
+  "description": "Where each element type's code is, and what opt-in rules look for (rules.md, Locating an element's code; Opt-in rules). In a single-file pack, the `conventions` section holds one of these per designer, keyed by designer, without `designer`.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "designer": { "type": "string", "minLength": 1 },
+    "types": {
+      "type": "object",
+      "description": "Keyed by element specialization",
+      "additionalProperties": { "$ref": "#/$defs/typeConvention" }
+    },
+    "members": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/codeConvention" },
+      "description": "unmodelled.member conventions beyond an element type's own member kinds"
+    },
+    "interactions": { "type": "array", "items": { "$ref": "#/$defs/codeConvention" }, "description": "unmodelled.interaction conventions" },
+    "exposed": { "type": "array", "items": { "$ref": "#/$defs/codeConvention" }, "description": "unmodelled.exposed conventions" },
+    "note": { "type": "string" }
+  },
+  "$defs": {
+    "typeConvention": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "typeKinds": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+        "locations": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Globs relative to the output folder; placeholders allowed"
+        },
+        "name": { "type": "string", "description": "The type's name, with placeholders; defaults to the language profile's naming" },
+        "find": { "type": "string", "description": "unmodelled.type: a find path locating every type that follows the convention" },
+        "files": { "$ref": "rules.schema.json#/$defs/files" },
+        "note": { "type": "string" }
+      }
+    },
+    "codeConvention": {
+      "type": "object",
+      "required": ["kind", "find"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "type": "string", "minLength": 1, "description": "How findings name this kind of code" },
+        "find": { "oneOf": [{ "type": "string" }, { "type": "array", "items": { "type": "string" }, "minItems": 1 }] },
+        "name": { "type": "string", "description": "How a finding names each place: {Class}, {Method}, {Member}, {Name}, {File}, $1…" },
+        "files": { "$ref": "rules.schema.json#/$defs/files" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

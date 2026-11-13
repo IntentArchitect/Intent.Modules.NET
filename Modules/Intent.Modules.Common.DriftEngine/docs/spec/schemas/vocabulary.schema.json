@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/vocabulary.schema.json",
+  "title": "Vocabulary",
+  "description": "A pack's vocabulary for one designer (vocabulary.md). In a single-file pack, the `vocabulary` section holds one of these per designer, keyed by designer, without `designer`.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "designer": { "type": "string", "minLength": 1 },
+    "entries": { "type": "array", "items": { "$ref": "#/$defs/entry" } },
+    "nonClaims": { "type": "array", "items": { "$ref": "#/$defs/nonClaim" } },
+    "note": { "type": "string" }
+  },
+  "$defs": {
+    "expression": { "type": "string", "minLength": 1, "description": "An expression (vocabulary.md, Expressions)" },
+    "selector": {
+      "type": "object",
+      "additionalProperties": false,
+      "oneOf": [
+        { "required": ["element"] },
+        { "required": ["association"] },
+        { "required": ["package"] },
+        { "required": ["stereotype"] }
+      ],
+      "properties": {
+        "element": { "type": "string", "description": "An element specialization" },
+        "association": { "type": "string", "description": "An association specialization" },
+        "package": { "type": "string", "description": "A package specialization" },
+        "stereotype": { "type": "string", "description": "A stereotype name; only in nonClaims" },
+        "where": { "$ref": "#/$defs/expression" }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "required": ["kind", "for", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "$ref": "claim-kinds.schema.json#/$defs/kindId" },
+        "for": { "$ref": "#/$defs/selector" },
+        "each": { "$ref": "#/$defs/expression" },
+        "when": { "$ref": "#/$defs/expression" },
+        "value": { "$ref": "#/$defs/expression" },
+        "bindings": { "type": "object", "propertyNames": { "pattern": "^[A-Z][A-Za-z0-9]*$" }, "additionalProperties": { "$ref": "#/$defs/expression" } },
+        "own": { "type": "array", "items": { "type": "string", "pattern": "^[A-Z][A-Za-z0-9]*$" }, "uniqueItems": true },
+        "discriminator": { "$ref": "#/$defs/expression" },
+        "parameterNames": { "$ref": "#/$defs/expression" },
+        "dependsOn": { "type": "string", "pattern": "^(parent:)?[a-z][A-Za-z]*(\\.[a-z][A-Za-z]*)*$" },
+        "source": { "type": "string", "minLength": 1 },
+        "fixHint": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "nonClaim": {
+      "type": "object",
+      "required": ["reason"],
+      "additionalProperties": false,
+      "properties": {
+        "designer": { "type": "string" },
+        "for": { "$ref": "#/$defs/selector" },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

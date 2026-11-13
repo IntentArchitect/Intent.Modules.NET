@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/query.schema.json",
+  "title": "Query",
+  "description": "A query rule's pipeline over code nodes and model elements (rules.md, Queries). It starts with `from` and ends with `reading`.",
+  "type": "array",
+  "minItems": 2,
+  "prefixItems": [{ "$ref": "#/$defs/from" }],
+  "items": { "$ref": "#/$defs/step" },
+  "$defs": {
+    "expression": { "$ref": "vocabulary.schema.json#/$defs/expression" },
+    "name": { "type": "string", "pattern": "^[a-z][A-Za-z0-9]*$" },
+    "from": {
+      "type": "object",
+      "required": ["from"],
+      "additionalProperties": false,
+      "properties": {
+        "from": { "type": "string", "pattern": "^(code:[a-z][A-Za-z.]*|model:.+)$" },
+        "as": { "$ref": "#/$defs/name" }
+      }
+    },
+    "step": {
+      "oneOf": [
+        { "$ref": "#/$defs/from" },
+        { "type": "object", "required": ["where"], "additionalProperties": false, "properties": { "where": { "$ref": "#/$defs/expression" } } },
+        {
+          "type": "object",
+          "required": ["let"],
+          "additionalProperties": false,
+          "properties": { "let": { "type": "object", "propertyNames": { "$ref": "#/$defs/name" }, "additionalProperties": { "$ref": "#/$defs/expression" } } }
+        },
+        {
+          "type": "object",
+          "required": ["flatMap"],
+          "additionalProperties": false,
+          "properties": {
+            "flatMap": {
+              "type": "object",
+              "required": ["list", "as"],
+              "additionalProperties": false,
+              "properties": { "list": { "$ref": "#/$defs/expression" }, "as": { "$ref": "#/$defs/name" } }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["resolve"],
+          "additionalProperties": false,
+          "properties": {
+            "resolve": {
+              "type": "object",
+              "required": ["target", "as"],
+              "additionalProperties": false,
+              "properties": { "target": { "$ref": "#/$defs/expression" }, "as": { "$ref": "#/$defs/name" } }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["ownerOf"],
+          "additionalProperties": false,
+          "properties": {
+            "ownerOf": {
+              "type": "object",
+              "required": ["path", "among", "by", "as"],
+              "additionalProperties": false,
+              "properties": {
+                "path": { "$ref": "#/$defs/expression" },
+                "among": { "type": "string", "pattern": "^model:.+$" },
+                "by": { "$ref": "#/$defs/expression" },
+                "as": { "$ref": "#/$defs/name" }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["distinct"],
+          "additionalProperties": false,
+          "properties": { "distinct": { "oneOf": [{ "const": true }, { "type": "array", "items": { "$ref": "#/$defs/name" }, "minItems": 1 }] } }
+        },
+        {
+          "type": "object",
+          "required": ["group"],
+          "additionalProperties": false,
+          "properties": {
+            "group": {
+              "type": "object",
+              "required": ["by"],
+              "additionalProperties": false,
+              "properties": {
+                "by": { "type": "array", "items": { "$ref": "#/$defs/name" }, "minItems": 1 },
+                "collect": { "type": "object", "propertyNames": { "$ref": "#/$defs/name" }, "additionalProperties": { "$ref": "#/$defs/expression" } }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["reading"],
+          "additionalProperties": false,
+          "properties": {
+            "reading": {
+              "type": "object",
+              "required": ["claim"],
+              "additionalProperties": false,
+              "oneOf": [{ "required": ["value"] }, { "required": ["item"] }],
+              "properties": {
+                "claim": {
+                  "type": "object",
+                  "propertyNames": { "pattern": "^[A-Z][A-Za-z0-9]*$" },
+                  "additionalProperties": { "$ref": "#/$defs/expression" },
+                  "description": "Which claim each row belongs to, by its bindings"
+                },
+                "value": { "$ref": "#/$defs/expression" },
+                "item": { "$ref": "#/$defs/expression", "description": "One item of a list or set value; rows are collected per claim" },
+                "at": { "$ref": "#/$defs/expression" }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/fixture-model.schema.json",
+  "title": "Fixture model",
+  "description": "A case's `model` block: Intent model data the test harness turns into Intent's model objects (acceptance-suite.md, The model block).",
+  "type": "object",
+  "required": ["designers"],
+  "additionalProperties": false,
+  "properties": {
+    "designers": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/designer" }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+([-.][a-z0-9]+)*$" },
+    "designer": {
+      "type": "object",
+      "required": ["packages"],
+      "additionalProperties": false,
+      "properties": {
+        "packages": { "type": "array", "items": { "$ref": "#/$defs/package" } },
+        "associations": { "type": "array", "items": { "$ref": "#/$defs/association" } }
+      }
+    },
+    "package": {
+      "type": "object",
+      "required": ["id", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string" },
+        "type": { "type": "string", "description": "The package's specialization, such as Root Folder; defaults to the designer's package type" },
+        "stereotypes": { "$ref": "#/$defs/stereotypes" },
+        "elements": { "type": "array", "items": { "$ref": "#/$defs/element" } }
+      }
+    },
+    "element": {
+      "type": "object",
+      "required": ["id", "type", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "type": { "type": "string", "minLength": 1 },
+        "name": { "type": "string" },
+        "comment": { "type": "string" },
+        "stereotypes": { "$ref": "#/$defs/stereotypes" },
+        "typeRef": { "$ref": "#/$defs/typeRef" },
+        "abstract": { "type": "boolean" },
+        "static": { "type": "boolean" },
+        "generalization": { "$ref": "#/$defs/id" },
+        "value": { "type": ["string", "number"] },
+        "children": { "type": "array", "items": { "$ref": "#/$defs/element" } }
+      }
+    },
+    "typeRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "oneOf": [{ "required": ["type"] }, { "required": ["element"] }],
+      "properties": {
+        "type": { "type": "string", "description": "An Intent primitive: string, int, long, decimal, bool, datetime, date, guid, binary, …" },
+        "element": { "$ref": "#/$defs/id" },
+        "nullable": { "type": "boolean" },
+        "collection": { "type": "boolean" },
+        "arguments": { "type": "array", "items": { "$ref": "#/$defs/typeRef" } }
+      }
+    },
+    "stereotypes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "anyOf": [
+            { "type": ["string", "number", "boolean", "null"] },
+            { "type": "array", "items": { "type": "string" } },
+            { "type": "array", "items": { "type": "object", "additionalProperties": { "type": ["string", "number", "boolean", "null", "array"] } } }
+          ]
+        }
+      }
+    },
+    "association": {
+      "type": "object",
+      "required": ["id", "type", "source", "target"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "type": { "type": "string" },
+        "stereotypes": { "$ref": "#/$defs/stereotypes" },
+        "source": { "$ref": "#/$defs/end" },
+        "target": { "$ref": "#/$defs/end" }
+      }
+    },
+    "end": {
+      "type": "object",
+      "required": ["element"],
+      "additionalProperties": false,
+      "properties": {
+        "element": { "$ref": "#/$defs/id" },
+        "name": { "type": "string" },
+        "multiplicity": { "enum": ["1", "0..1", "*", "1..*"] },
+        "navigable": { "type": "boolean" },
+        "stereotypes": { "$ref": "#/$defs/stereotypes" }
+      }
+    }
+  }
+}

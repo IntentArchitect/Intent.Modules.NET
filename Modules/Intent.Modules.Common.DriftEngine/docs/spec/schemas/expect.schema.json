@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/expect.schema.json",
+  "title": "Expected result",
+  "description": "A case's `expect` block (acceptance-suite.md, The expect block).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "claims": { "type": "array", "items": { "$ref": "#/$defs/claim" } },
+    "others": { "enum": ["ignore", "verified", "absent"], "default": "ignore" },
+    "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+    "noOtherFindings": { "type": "boolean" },
+    "filesRead": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "include": { "type": "array", "items": { "type": "string" } },
+        "exclude": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "nodes": { "type": "array", "items": { "$ref": "#/$defs/node" } },
+    "config": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+    "note": { "type": "string" }
+  },
+  "$defs": {
+    "location": { "type": "string", "pattern": "^[^:]+:[0-9]+$", "description": "path:line, the path relative to the output folder" },
+    "outcome": { "enum": ["verified", "contradicted", "cantVerify"] },
+    "reason": { "enum": ["notFound", "ambiguous", "unreadable", "outOfScope", "blocked", "noRule", "unresolved", "readerFailed", "ruleFailed"] },
+    "claim": {
+      "type": "object",
+      "required": ["kind", "element"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "$ref": "claim-kinds.schema.json#/$defs/kindId" },
+        "element": { "$ref": "fixture-model.schema.json#/$defs/id" },
+        "absent": { "const": true, "description": "No claim of this kind on this element (and key) may exist; no other field but note" },
+        "key": { "type": "string", "description": "The claim's discriminator, when one element has several claims of the kind" },
+        "outcome": { "$ref": "#/$defs/outcome" },
+        "reason": { "$ref": "#/$defs/reason" },
+        "expected": {},
+        "actual": {},
+        "at": { "$ref": "#/$defs/location" },
+        "fromSilence": { "type": "boolean" },
+        "scopeRow": { "type": "string", "description": "For outOfScope: the excluding row, as <host element id>#<row number>" },
+        "blockedBy": { "type": "string", "description": "For blocked: the kind of the claim it depends on" },
+        "note": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "if": { "required": ["absent"] },
+          "then": { "propertyNames": { "enum": ["kind", "element", "key", "absent", "note"] } },
+          "else": { "required": ["outcome"] }
+        },
+        { "if": { "required": ["outcome"], "properties": { "outcome": { "const": "cantVerify" } } }, "then": { "required": ["reason"] } },
+        { "if": { "properties": { "outcome": { "enum": ["verified", "contradicted"] } } }, "then": { "not": { "required": ["reason"] } } }
+      ]
+    },
+    "finding": {
+      "type": "object",
+      "required": ["rule"],
+      "additionalProperties": false,
+      "properties": {
+        "rule": {
+          "type": "string",
+          "pattern": "^(claim/[a-z][A-Za-z.]*|scope/[a-z][A-Za-z]*|engine/[a-z][A-Za-z]*|optin/[a-z][A-Za-z.]*|config/[a-z][A-Za-z]*)$"
+        },
+        "severity": { "enum": ["error", "warning", "info"] },
+        "subject": { "type": "string", "description": "An element id, or path:line" },
+        "messageContains": { "type": "string" },
+        "count": { "type": "integer", "minimum": 0, "description": "How many findings of this rule and subject; default 1, and 0 for none" },
+        "note": { "type": "string" }
+      }
+    },
+    "node": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": { "type": "string" },
+        "name": { "type": "string" },
+        "at": { "$ref": "#/$defs/location" },
+        "text": { "type": "string" },
+        "declaration": { "type": "string" },
+        "body": { "type": "string" },
+        "absent": { "type": "boolean", "description": "true: no such node may exist" }
+      }
+    }
+  }
+}

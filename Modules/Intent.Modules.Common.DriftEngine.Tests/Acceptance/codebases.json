@@ -1,0 +1,48 @@
+{
+  // Where each real codebase is on this machine. DRIFTENGINE_CODEBASE_<NAME> (the name upper-cased) overrides a root.
+  // A test whose codebase isn't present is skipped (acceptance-suite.md, Real codebases).
+  "codebases": [
+    {
+      "name": "basislink5",
+      "root": "D:/Dev/Temp/basislink5",
+      "recipes": "intent/Basislink/guardrails",
+      "usedFor": ["phase1", "conversion"]
+    },
+    {
+      // Client code: read in place, never copied or quoted.
+      "name": "CrmBus",
+      "root": "D:/Dev/Clients/CrmBus.DocumentManagement1",
+      "recipes": "intent/CrmBus.DocumentManagement/guardrails",
+      "client": true,
+      "usedFor": ["phase1", "conversion"]
+    },
+    {
+      "name": "eShop10",
+      "root": "D:/Dev/Temp/eShop10",
+      "recipes": "intent/eShop/guardrails",
+      "usedFor": ["conversion", "phase6"]
+    },
+    {
+      "name": "eShop13",
+      "root": "D:/Dev/Temp/eShop13",
+      "recipes": "intent/eShop/guardrails",
+      "usedFor": ["conversion", "phase6"]
+    },
+    {
+      "name": "eShop14",
+      "root": "D:/Dev/Temp/eShop14",
+      "recipes": "intent/eShop/guardrails",
+      "usedFor": ["conversion", "phase6"]
+    },
+    {
+      "name": "eShopCustom",
+      "root": "D:/Dev/Temp/eShopCustom",
+      "usedFor": ["phase2", "phase3"]
+    },
+    {
+      "name": "JavaSpike",
+      "root": "D:/Dev/Spikes/Samples.eShop.Demo.Java",
+      "usedFor": ["phase3", "phase4"]
+    }
+  ]
+}

@@ -1,0 +1,1035 @@
+{
+  "$schema": "../../Intent.Modules.Common.DriftEngine/docs/spec/schemas/catalog.schema.json",
+  "kinds": [
+    {
+      "kind": "type.exists",
+      "label": "type",
+      "area": "structure",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 1
+    },
+    { "kind": "type.kind", "label": "kind", "area": "structure", "valueType": "text", "comparer": "exact", "stated": "always", "existence": false, "phase": 1 },
+    {
+      "kind": "type.location",
+      "label": "location",
+      "area": "structure",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 2
+    },
+    {
+      "kind": "type.abstract",
+      "label": "abstract",
+      "area": "structure",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "type.generalization",
+      "label": "base class",
+      "area": "structure",
+      "valueType": "type",
+      "comparer": "type",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "type.base",
+      "label": "required base type",
+      "area": "structure",
+      "valueType": "set",
+      "comparer": "subset",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "type.marker",
+      "label": "marker",
+      "area": "structure",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "type.generics",
+      "label": "type parameters",
+      "area": "structure",
+      "valueType": "list",
+      "comparer": "list",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "type.registered",
+      "label": "registration",
+      "area": "structure",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": "later"
+    },
+    {
+      "kind": "file.exists",
+      "label": "file",
+      "area": "structure",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 1
+    },
+    {
+      "kind": "member.exists",
+      "label": "member",
+      "area": "structure",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 1
+    },
+    {
+      "kind": "member.type",
+      "label": "type",
+      "area": "structure",
+      "valueType": "type",
+      "comparer": "type",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "member.nullable",
+      "label": "nullable",
+      "area": "structure",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "member.static",
+      "label": "static",
+      "area": "structure",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "member.backingField",
+      "label": "backing field",
+      "area": "structure",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "member.wireName",
+      "label": "serialized name",
+      "area": "structure",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "operation.returns",
+      "label": "return type",
+      "area": "structure",
+      "valueType": "type",
+      "comparer": "type",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "operation.parameters",
+      "label": "parameters",
+      "area": "structure",
+      "valueType": "list",
+      "comparer": "list",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "parameter.type",
+      "label": "parameter type",
+      "area": "structure",
+      "valueType": "type",
+      "comparer": "type",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "parameter.nullable",
+      "label": "parameter nullable",
+      "area": "structure",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "parameter.default",
+      "label": "parameter default",
+      "area": "structure",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "enum.literals",
+      "label": "literals",
+      "area": "structure",
+      "valueType": "list",
+      "comparer": "subsequence",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "enum.literal.value",
+      "label": "literal value",
+      "area": "structure",
+      "valueType": "number",
+      "comparer": "number",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 1
+    },
+    {
+      "kind": "table.name",
+      "label": "table name",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "table.schema",
+      "label": "schema",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "table.kind",
+      "label": "table or view",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "entity.persisted",
+      "label": "persisted",
+      "area": "persistence",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "key",
+      "label": "primary key",
+      "area": "persistence",
+      "valueType": "list",
+      "comparer": "list",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "key.generated",
+      "label": "key generation",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.name",
+      "label": "column name",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.type",
+      "label": "column type",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "ignoreCase",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.textType",
+      "label": "text type",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.maxLength",
+      "label": "max length",
+      "area": "persistence",
+      "valueType": "number",
+      "comparer": "number",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.required",
+      "label": "required",
+      "area": "persistence",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.precision",
+      "label": "precision",
+      "area": "persistence",
+      "valueType": "number",
+      "comparer": "number",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.scale",
+      "label": "scale",
+      "area": "persistence",
+      "valueType": "number",
+      "comparer": "number",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.default",
+      "label": "default",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.mapped",
+      "label": "mapped",
+      "area": "persistence",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.owned",
+      "label": "owned",
+      "area": "persistence",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.enumStorage",
+      "label": "enum storage",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.version",
+      "label": "concurrency token",
+      "area": "persistence",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "column.backingField",
+      "label": "backing field",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "column.hilo",
+      "label": "hi-lo sequence",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "relationship.multiplicity",
+      "label": "multiplicity",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "relationship.foreignKey",
+      "label": "foreign key",
+      "area": "persistence",
+      "valueType": "list",
+      "comparer": "list",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "relationship.joinColumn",
+      "label": "join column",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "relationship.onDelete",
+      "label": "on delete",
+      "area": "persistence",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "relationship.navigable",
+      "label": "navigable",
+      "area": "persistence",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "relationship.reference",
+      "label": "navigation",
+      "area": "persistence",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 4
+    },
+    {
+      "kind": "index.columns",
+      "label": "index columns",
+      "area": "persistence",
+      "valueType": "list",
+      "comparer": "list",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "index.unique",
+      "label": "unique",
+      "area": "persistence",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "repository.entity",
+      "label": "repository entity",
+      "area": "persistence",
+      "valueType": "type",
+      "comparer": "type",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "repository.implementation",
+      "label": "repository implementation",
+      "area": "persistence",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": "later"
+    },
+    {
+      "kind": "intent.raises",
+      "label": "raises",
+      "area": "behaviour",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 6
+    },
+    {
+      "kind": "service.route",
+      "label": "route",
+      "area": "services",
+      "valueType": "route",
+      "comparer": "route",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "operation.verb",
+      "label": "verb",
+      "area": "services",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "operation.route",
+      "label": "route",
+      "area": "services",
+      "valueType": "route",
+      "comparer": "route",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "operation.status",
+      "label": "status code",
+      "area": "services",
+      "valueType": "number",
+      "comparer": "number",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "endpoint.exists",
+      "label": "endpoint",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 4
+    },
+    {
+      "kind": "security",
+      "label": "security",
+      "area": "services",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "security.roles",
+      "label": "roles",
+      "area": "services",
+      "valueType": "set",
+      "comparer": "set",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "security.policy",
+      "label": "policy",
+      "area": "services",
+      "valueType": "set",
+      "comparer": "set",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "service.versions",
+      "label": "API versions",
+      "area": "services",
+      "valueType": "set",
+      "comparer": "set",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "operation.versions",
+      "label": "API versions",
+      "area": "services",
+      "valueType": "set",
+      "comparer": "set",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "api.versionScheme",
+      "label": "versioning scheme",
+      "area": "services",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "parameter.source",
+      "label": "binding",
+      "area": "services",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "parameter.name",
+      "label": "bound name",
+      "area": "services",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 4
+    },
+    {
+      "kind": "intent.creates",
+      "label": "creates",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 4
+    },
+    {
+      "kind": "intent.updates",
+      "label": "updates",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 4
+    },
+    {
+      "kind": "intent.deletes",
+      "label": "deletes",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 4
+    },
+    {
+      "kind": "intent.queries",
+      "label": "queries",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 4
+    },
+    {
+      "kind": "intent.invokes",
+      "label": "invokes",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 6
+    },
+    {
+      "kind": "intent.publishes",
+      "label": "publishes",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 4
+    },
+    {
+      "kind": "intent.sends",
+      "label": "sends",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 4
+    },
+    {
+      "kind": "invocation.wrapped",
+      "label": "wrapped invocation",
+      "area": "services",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "request.returns",
+      "label": "request result",
+      "area": "services",
+      "valueType": "type",
+      "comparer": "type",
+      "stated": "always",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "request.handler",
+      "label": "handler",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": "later"
+    },
+    {
+      "kind": "request.validated",
+      "label": "validator",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": "later"
+    },
+    {
+      "kind": "command.identified",
+      "label": "identified command",
+      "area": "services",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "subscription.handler",
+      "label": "message handler",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 4
+    },
+    {
+      "kind": "service.implementation",
+      "label": "implementation",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": "later"
+    },
+    {
+      "kind": "message.copy",
+      "label": "message copy",
+      "area": "services",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": "later"
+    },
+    {
+      "kind": "component.kind",
+      "label": "component kind",
+      "area": "ui",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 6
+    },
+    {
+      "kind": "page.route",
+      "label": "page route",
+      "area": "ui",
+      "valueType": "route",
+      "comparer": "route",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": 6
+    },
+    {
+      "kind": "page.title",
+      "label": "page title",
+      "area": "ui",
+      "valueType": "text",
+      "comparer": "contains",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "property.query",
+      "label": "query parameter",
+      "area": "ui",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "property.route",
+      "label": "route parameter",
+      "area": "ui",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "property.bindable",
+      "label": "bindable",
+      "area": "ui",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "intent.uses",
+      "label": "uses",
+      "area": "ui",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 6
+    },
+    {
+      "kind": "intent.navigates",
+      "label": "navigates",
+      "area": "ui",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 6
+    },
+    {
+      "kind": "intent.opens",
+      "label": "opens",
+      "area": "ui",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": 6
+    },
+    {
+      "kind": "intent.target",
+      "label": "interaction target",
+      "area": "ui",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "proxy.request",
+      "label": "proxy request",
+      "area": "ui",
+      "valueType": "presence",
+      "comparer": "presence",
+      "stated": "always",
+      "existence": true,
+      "phase": "later"
+    },
+    {
+      "kind": "proxy.verb",
+      "label": "proxy verb",
+      "area": "ui",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "proxy.route",
+      "label": "proxy route",
+      "area": "ui",
+      "valueType": "route",
+      "comparer": "route",
+      "stated": "always",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "proxy.version",
+      "label": "proxy API version",
+      "area": "ui",
+      "valueType": "text",
+      "comparer": "version",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "proxy.header",
+      "label": "proxy header",
+      "area": "ui",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "proxy.rpc",
+      "label": "RPC method",
+      "area": "ui",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "proxy.grpcService",
+      "label": "gRPC service",
+      "area": "ui",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": "later"
+    },
+    {
+      "kind": "layer.populated",
+      "label": "layer contents",
+      "area": "architecture",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 2
+    },
+    {
+      "kind": "layer.dependencies",
+      "label": "layer dependencies",
+      "area": "architecture",
+      "valueType": "set",
+      "comparer": "within",
+      "stated": "always",
+      "existence": false,
+      "phase": 3
+    }
+  ],
+  "scope": ["missing", "stale", "reason", "coverage", "gate", "shadow", "notRead", "builtin", "type", "nested"],
+  "engine": [
+    "noVocabulary",
+    "noRule",
+    "readerFailed",
+    "ruleFailed",
+    "unresolved",
+    "ambiguous",
+    "unreadable",
+    "notFound",
+    "blocked",
+    "silence",
+    "comparers",
+    "report"
+  ],
+  "optIn": ["unmodelled.type", "unmodelled.member", "unmodelled.interaction", "unmodelled.exposed", "unmodelled.file", "unmodelled.value"],
+  "packs": [
+    "intent.core",
+    "intent.domain",
+    "intent.services",
+    "intent.ui",
+    "intent.efcore",
+    "intent.aspnetcore",
+    "intent.nservicebus",
+    "intent.java",
+    "intent.springmvc",
+    "intent.jpa",
+    "intent.mediatr"
+  ]
+}

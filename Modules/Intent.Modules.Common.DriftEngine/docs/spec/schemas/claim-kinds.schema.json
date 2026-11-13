@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/claim-kinds.schema.json",
+  "title": "Claim kinds",
+  "description": "A pack's kinds.json: the claim kinds it defines (vocabulary.md, Claim kinds).",
+  "type": "array",
+  "items": {
+    "allOf": [{ "$ref": "#/$defs/kind" }],
+    "required": ["kind", "label", "valueType", "comparer", "stated"],
+    "unevaluatedProperties": false
+  },
+  "$defs": {
+    "kindId": { "type": "string", "pattern": "^[a-z][A-Za-z]*(\\.[a-z][A-Za-z]*)*$" },
+    "valueType": { "enum": ["text", "bool", "number", "list", "set", "type", "route", "presence"] },
+    "comparer": {
+      "description": "A built-in comparer, or a plug-in's as <pack>/<id>.",
+      "anyOf": [
+        { "enum": ["exact", "ignoreCase", "number", "list", "subsequence", "set", "subset", "within", "contains", "type", "route", "version", "presence"] },
+        { "type": "string", "pattern": "^[a-z][a-z0-9.]*/[A-Za-z][A-Za-z0-9.]*$" }
+      ]
+    },
+    "kind": {
+      "type": "object",
+      "properties": {
+        "kind": { "$ref": "#/$defs/kindId" },
+        "label": { "type": "string", "minLength": 1 },
+        "valueType": { "$ref": "#/$defs/valueType" },
+        "comparer": { "$ref": "#/$defs/comparer" },
+        "stated": { "enum": ["always", "whenSet"] },
+        "existence": { "type": "boolean", "default": false },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

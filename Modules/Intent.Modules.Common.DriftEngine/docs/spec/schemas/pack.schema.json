@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/pack.schema.json",
+  "title": "Pack",
+  "description": "A pack's manifest (pack.json), or a whole pack in one file (<id>.pack.json) with its sections inline (packs.md).",
+  "type": "object",
+  "required": ["id", "version"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": { "$ref": "#/$defs/packId" },
+    "version": { "$ref": "#/$defs/version" },
+    "description": { "type": "string" },
+    "engine": { "type": "string", "minLength": 1, "description": "A version range" },
+    "requires": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "version"],
+        "additionalProperties": false,
+        "properties": { "id": { "$ref": "#/$defs/packId" }, "version": { "type": "string" } }
+      }
+    },
+    "languages": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "designers": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "sha256"],
+        "additionalProperties": false,
+        "properties": { "file": { "type": "string", "pattern": "\\.dll$" }, "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" } }
+      }
+    },
+    "replaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "rule": { "type": "string", "pattern": "^[a-z][a-z0-9]*(\\.[a-z0-9]+)*/[a-z][A-Za-z.]*$" },
+          "reason": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "kinds": { "$ref": "claim-kinds.schema.json" },
+    "vocabulary": { "type": "object", "additionalProperties": { "$ref": "vocabulary.schema.json" } },
+    "rules": { "type": "object", "additionalProperties": { "$ref": "rules.schema.json" } },
+    "conventions": { "type": "object", "additionalProperties": { "$ref": "conventions.schema.json" } },
+    "profiles": { "type": "object", "additionalProperties": { "$ref": "language-profile.schema.json" } },
+    "note": { "type": "string" }
+  },
+  "$defs": {
+    "packId": { "type": "string", "pattern": "^[a-z][a-z0-9]*(\\.[a-z0-9]+)*$" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(-[0-9A-Za-z.-]+)?$" }
+  }
+}

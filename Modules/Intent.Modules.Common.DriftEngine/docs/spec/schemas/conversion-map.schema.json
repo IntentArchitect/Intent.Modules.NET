@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/conversion-map.schema.json",
+  "title": "Conversion map",
+  "description": "Every Common.Drift recipe-file construct and what it becomes (conversion.md). Construct keys are what the suite's conversion test derives from a recipe file: file.<key>, files.<string|list>, recipe.<property>[.<form>], case.<property>[.<value>], step.<name>, filter.<name>, regex.<feature>, own.<property>, own.step.<name>, own.name.group2plus, exception.<form>, kind.<kind>.",
+  "type": "object",
+  "required": ["constructs"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "constructs": {
+      "type": "object",
+      "propertyNames": { "pattern": "^(file|files|recipe|case|step|filter|regex|own|exception|kind)\\.[A-Za-z0-9.]+$" },
+      "additionalProperties": {
+        "type": "object",
+        "required": ["becomes"],
+        "additionalProperties": false,
+        "properties": {
+          "becomes": { "enum": ["same", "alias", "moved", "proposed", "dropped", "flagged"] },
+          "to": { "type": "string", "description": "Where it goes, when not the same place" },
+          "change": { "type": "integer", "minimum": 1, "description": "The semantic change in conversion.md it falls under, if any" },
+          "note": { "type": "string" }
+        }
+      }
+    }
+  }
+}

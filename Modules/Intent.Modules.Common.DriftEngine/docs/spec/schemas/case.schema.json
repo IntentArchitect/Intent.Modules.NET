@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/case.schema.json",
+  "title": "Case metadata",
+  "description": "A case file's `case` block (acceptance-suite.md, Case files).",
+  "type": "object",
+  "required": ["phase"],
+  "additionalProperties": false,
+  "properties": {
+    "phase": { "$ref": "catalog.schema.json#/$defs/phase" },
+    "base": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "A case in the same file whose blocks this case starts from" },
+    "without": {
+      "type": "array",
+      "description": "Paths of the base's file blocks this case drops, such as the file a type.exists case deletes",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "kinds": { "type": "array", "items": { "$ref": "claim-kinds.schema.json#/$defs/kindId" }, "uniqueItems": true },
+    "cases": {
+      "type": "array",
+      "description": "Scope, engine and opt-in cases this case shows, as scope/<case>, engine/<case> or optin/<rule>",
+      "items": { "type": "string", "pattern": "^(scope|engine)/[a-z][A-Za-z]*$|^optin/unmodelled\\.[a-z]+$" },
+      "uniqueItems": true
+    },
+    "traces": { "type": "array", "items": { "type": "string", "pattern": "^(ESC|JAV)-(DOM|SVC|FE|ARC)-[0-9]{2}$" }, "uniqueItems": true },
+    "requirements": { "type": "array", "items": { "type": "string", "pattern": "^R[0-9]+$" }, "uniqueItems": true },
+    "packs": { "type": "array", "items": { "type": "string", "pattern": "^[a-z][a-z0-9]*(\\.[a-z0-9]+)*$" }, "uniqueItems": true },
+    "language": { "enum": ["csharp", "java", "typescript", "text"] },
+    "note": { "type": "string" }
+  }
+}

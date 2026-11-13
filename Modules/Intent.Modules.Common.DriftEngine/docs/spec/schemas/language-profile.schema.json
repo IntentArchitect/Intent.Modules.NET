@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/language-profile.schema.json",
+  "title": "Language profile",
+  "description": "How one language writes the model's types, collections, nullability and names (rules.md, Language profiles).",
+  "type": "object",
+  "required": ["language", "types", "typeKinds"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "language": { "type": "string", "pattern": "^[a-z]+$" },
+    "types": {
+      "type": "object",
+      "description": "Each Intent primitive to the type names that mean it in code, simple or qualified",
+      "additionalProperties": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+    },
+    "collections": { "type": "array", "items": { "type": "string", "pattern": "T" }, "description": "Forms meaning a collection of T: List<T>, T[]" },
+    "async": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["wrapper"],
+        "additionalProperties": false,
+        "properties": {
+          "wrapper": { "type": "string" },
+          "void": { "type": "boolean", "description": "true: the wrapper without T means no result, as C#'s Task" }
+        }
+      }
+    },
+    "nullable": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "suffix": { "type": "string", "description": "As C#'s ?, in a nullable context for reference types" },
+        "wrappers": { "type": "array", "items": { "type": "string", "pattern": "T" }, "description": "As Nullable<T>" },
+        "annotations": { "type": "array", "items": { "type": "string" }, "description": "As Java's @Nullable" },
+        "nonNullAnnotations": { "type": "array", "items": { "type": "string" } },
+        "boxed": {
+          "type": "object",
+          "additionalProperties": { "type": "string" },
+          "description": "A primitive to its boxed type, which is nullable: int to Integer"
+        }
+      }
+    },
+    "naming": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": { "type": "string" },
+        "property": { "type": "string" },
+        "field": { "type": "string" },
+        "getter": { "type": "string" },
+        "method": { "type": "string" },
+        "parameter": { "type": "string" },
+        "file": { "type": "string" }
+      }
+    },
+    "typeKinds": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true }
+  }
+}

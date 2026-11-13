@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/code-graph.schema.json",
+  "title": "Code graph",
+  "description": "What code readers produce, for any language (code-reader.md).",
+  "type": "object",
+  "required": ["nodes", "edges"],
+  "additionalProperties": false,
+  "properties": {
+    "nodes": { "type": "array", "items": { "$ref": "#/$defs/node" } },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "kind"],
+        "additionalProperties": false,
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "kind": { "enum": ["contains", "extends", "implements", "imports", "references", "calls", "creates", "partOf"] }
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "declarations": { "type": "boolean" },
+        "bodies": { "type": "boolean" },
+        "resolution": { "enum": ["none", "declared"] },
+        "nullable": { "type": "boolean" },
+        "callTargets": { "type": "boolean" }
+      }
+    }
+  },
+  "$defs": {
+    "span": {
+      "type": "object",
+      "required": ["line", "column", "endLine", "endColumn"],
+      "additionalProperties": false,
+      "properties": {
+        "line": { "type": "integer", "minimum": 1 },
+        "column": { "type": "integer", "minimum": 1 },
+        "endLine": { "type": "integer", "minimum": 1 },
+        "endColumn": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "typeRef": {
+      "type": "object",
+      "required": ["text", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "text": { "type": "string" },
+        "name": { "type": "string" },
+        "qualifiedName": { "type": "string" },
+        "arguments": { "type": "array", "items": { "$ref": "#/$defs/typeRef" } },
+        "array": { "type": "boolean" },
+        "nullable": { "enum": [true, false, "unknown"] },
+        "resolved": { "type": "string", "description": "The id of the type node it resolves to" }
+      }
+    },
+    "argument": {
+      "type": "object",
+      "required": ["text"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "text": { "type": "string" },
+        "literal": { "type": ["string", "number", "boolean", "null"] }
+      }
+    },
+    "node": {
+      "type": "object",
+      "required": ["id", "kind", "file", "span"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "kind": {
+          "anyOf": [
+            {
+              "enum": [
+                "project",
+                "file",
+                "unit",
+                "namespace",
+                "import",
+                "type",
+                "field",
+                "property",
+                "method",
+                "constructor",
+                "event",
+                "enumMember",
+                "parameter",
+                "typeParameter",
+                "annotation",
+                "statement",
+                "chain",
+                "call",
+                "creation",
+                "markup",
+                "directive"
+              ]
+            },
+            { "type": "string", "pattern": "^[a-z][a-z0-9]*\\.[a-z][A-Za-z]*$", "description": "A framework node kind, such as ef.entity" }
+          ]
+        },
+        "name": { "type": "string" },
+        "file": { "type": "string" },
+        "span": { "$ref": "#/$defs/span" },
+        "text": { "type": "string" },
+        "declaration": { "type": "string" },
+        "body": { "type": "string" },
+        "parent": { "type": "string" },
+        "incomplete": { "type": "boolean" },
+        "language": { "type": "string" },
+        "raw": { "type": "string" },
+        "files": { "type": "array", "items": { "type": "string" } },
+        "settings": { "type": "object" },
+        "qualifiedName": { "type": "string" },
+        "target": { "type": "string" },
+        "alias": { "type": "string" },
+        "static": { "type": "boolean" },
+        "global": { "type": "boolean" },
+        "typeKind": { "type": "string" },
+        "modifiers": { "type": "array", "items": { "type": "string" } },
+        "typeParameters": { "type": "array", "items": { "type": "string" } },
+        "supertypes": { "type": "array", "items": { "$ref": "#/$defs/typeRef" } },
+        "type": { "$ref": "#/$defs/typeRef" },
+        "returnType": { "$ref": "#/$defs/typeRef" },
+        "accessors": { "type": "array", "items": { "type": "string" } },
+        "primary": { "type": "boolean" },
+        "value": { "type": "string" },
+        "default": { "type": "string" },
+        "position": { "type": "integer", "minimum": 0 },
+        "constraints": { "type": "array", "items": { "type": "string" } },
+        "arguments": { "type": "array", "items": { "$ref": "#/$defs/argument" } },
+        "calls": { "type": "array", "items": { "type": "string" } },
+        "callee": { "type": "string" },
+        "receiver": { "type": "string" },
+        "receiverType": { "$ref": "#/$defs/typeRef" },
+        "tag": { "type": "string" },
+        "attributes": { "type": "object", "additionalProperties": { "type": "string" } },
+        "directive": { "type": "string" },
+        "framework": { "type": "object", "description": "A framework node's own fields" }
+      }
+    }
+  }
+}

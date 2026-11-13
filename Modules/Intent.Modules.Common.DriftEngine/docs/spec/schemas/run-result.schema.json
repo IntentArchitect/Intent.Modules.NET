@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/run-result.schema.json",
+  "title": "Run result",
+  "description": "What one run produces, as the acceptance suite sees it through the engine adapter (claims-and-findings.md, The run result).",
+  "type": "object",
+  "required": ["claims", "findings", "coverage", "packs", "files"],
+  "additionalProperties": false,
+  "properties": {
+    "claims": { "type": "array", "items": { "$ref": "#/$defs/claim" } },
+    "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+    "coverage": { "$ref": "#/$defs/coverage" },
+    "packs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "version"],
+        "additionalProperties": false,
+        "properties": { "id": { "type": "string" }, "version": { "type": "string" } }
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "reader"],
+        "additionalProperties": false,
+        "properties": { "path": { "type": "string" }, "reader": { "type": "string" } }
+      }
+    },
+    "graph": { "$ref": "code-graph.schema.json", "description": "The code graph, for reader cases" }
+  },
+  "$defs": {
+    "span": {
+      "type": "object",
+      "required": ["file", "line"],
+      "additionalProperties": false,
+      "properties": {
+        "file": { "type": "string" },
+        "line": { "type": "integer", "minimum": 1 },
+        "column": { "type": "integer", "minimum": 1 },
+        "endLine": { "type": "integer", "minimum": 1 },
+        "endColumn": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "required": ["kind", "designer", "element", "path", "expected", "outcome"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "type": "string" },
+        "designer": { "type": "string" },
+        "element": { "type": "string" },
+        "path": { "type": "array", "items": { "type": "string" } },
+        "discriminator": { "type": ["string", "null"] },
+        "expected": {},
+        "stated": { "enum": ["always", "whenSet"] },
+        "bindings": { "type": "object", "additionalProperties": { "type": "string" } },
+        "origin": { "type": "string" },
+        "outcome": { "$ref": "expect.schema.json#/$defs/outcome" },
+        "reason": { "$ref": "expect.schema.json#/$defs/reason" },
+        "dependsOn": {
+          "type": "object",
+          "description": "The claim this one is blocked by, by its identity",
+          "required": ["kind", "element"],
+          "additionalProperties": false,
+          "properties": {
+            "designer": { "type": "string" },
+            "element": { "type": "string" },
+            "kind": { "type": "string" },
+            "discriminator": { "type": ["string", "null"] }
+          }
+        },
+        "reading": { "$ref": "#/$defs/reading" }
+      }
+    },
+    "reading": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {},
+        "from": { "enum": ["code", "inherited", "default", "absent"] },
+        "at": { "$ref": "#/$defs/span" },
+        "node": { "type": "string" },
+        "rule": { "type": "string" },
+        "text": { "type": "string" },
+        "failure": { "type": "string" },
+        "detail": { "type": "string" },
+        "searched": { "type": "array", "items": { "type": "string" } },
+        "shadowFile": { "type": "string", "description": "For outOfScope: the out-of-scope file the find's named steps match" },
+        "scopeRow": { "type": "string", "description": "For outOfScope: the row that excludes it, as <host element id>#<row number>" },
+        "candidates": { "type": "array", "items": { "$ref": "#/$defs/span" } },
+        "items": { "type": "array", "items": { "type": "object", "required": ["value"], "properties": { "value": {}, "at": { "$ref": "#/$defs/span" } } } }
+      }
+    },
+    "anchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "oneOf": [{ "required": ["element"] }, { "required": ["file"] }, { "required": ["text"] }],
+      "properties": {
+        "element": { "type": "string" },
+        "file": { "type": "string" },
+        "line": { "type": "integer", "minimum": 1 },
+        "text": { "type": "string" }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "required": ["rule", "area", "category", "severity", "message", "subject"],
+      "additionalProperties": false,
+      "properties": {
+        "rule": { "type": "string" },
+        "area": { "type": "string" },
+        "category": { "enum": ["ModelCode", "CodeCode", "Code"] },
+        "severity": { "enum": ["error", "warning", "info"] },
+        "message": { "type": "string" },
+        "subject": { "$ref": "#/$defs/anchor" },
+        "against": { "type": "array", "items": { "$ref": "#/$defs/anchor" } },
+        "claims": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": ["rows", "builtin", "unmatched"],
+      "additionalProperties": false,
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["host", "row", "scope", "files"],
+            "additionalProperties": false,
+            "properties": {
+              "host": { "type": "string", "description": "The Codebase Structure element carrying the row" },
+              "row": { "type": "integer", "minimum": 1 },
+              "glob": { "type": "array", "items": { "type": "string" } },
+              "types": { "type": "array", "items": { "type": "string" } },
+              "scope": { "enum": ["In", "Out"] },
+              "reason": { "type": "string" },
+              "files": { "type": "integer", "minimum": 0 },
+              "typesExcluded": { "type": "integer", "minimum": 0 }
+            }
+          }
+        },
+        "builtin": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+        "unmatched": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/catalog.schema.json",
+  "title": "Acceptance catalog",
+  "description": "Every claim kind, scope case, engine case and opt-in rule the suite knows (claim-catalog.md).",
+  "type": "object",
+  "required": ["kinds", "scope", "engine", "optIn", "packs"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "kinds": {
+      "type": "array",
+      "items": {
+        "allOf": [{ "$ref": "claim-kinds.schema.json#/$defs/kind" }],
+        "required": ["kind", "label", "area", "valueType", "comparer", "stated", "existence", "phase"],
+        "properties": {
+          "area": { "enum": ["structure", "persistence", "behaviour", "services", "ui", "architecture"] },
+          "phase": { "$ref": "#/$defs/phase" }
+        },
+        "unevaluatedProperties": false
+      }
+    },
+    "scope": { "$ref": "#/$defs/names" },
+    "engine": { "$ref": "#/$defs/names" },
+    "optIn": { "type": "array", "items": { "type": "string", "pattern": "^unmodelled\\.[a-z]+$" }, "uniqueItems": true },
+    "packs": {
+      "type": "array",
+      "description": "The stock packs the plan ships (packs.md, Stock packs); a case may name these or its inline packs",
+      "items": { "$ref": "pack.schema.json#/$defs/packId" },
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "phase": { "oneOf": [{ "type": "integer", "minimum": 1, "maximum": 6 }, { "const": "later" }] },
+    "names": { "type": "array", "items": { "type": "string", "pattern": "^[a-z][A-Za-z]*$" }, "uniqueItems": true }
+  }
+}

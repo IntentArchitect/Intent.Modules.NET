@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.intentarchitect.com/driftengine/checks.schema.json",
+  "title": "Check dispositions",
+  "description": "Every check in docs/check-classification.md and what it becomes in the engine (claim-catalog.md).",
+  "type": "object",
+  "required": ["source", "count", "dispositions"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "source": { "const": "docs/check-classification.md" },
+    "count": { "type": "integer", "minimum": 1 },
+    "dispositions": {
+      "type": "object",
+      "propertyNames": { "pattern": "^(ESC|JAV)-(DOM|SVC|FE|ARC)-[0-9]{2}$" },
+      "additionalProperties": {
+        "oneOf": [
+          { "$ref": "#/$defs/disposition" },
+          { "type": "array", "items": { "$ref": "#/$defs/disposition" }, "minItems": 2, "uniqueItems": true }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "disposition": {
+      "type": "string",
+      "pattern": "^(claim:[a-z][A-Za-z]*(\\.[a-z][A-Za-z]*)*|scope:[a-z][A-Za-z]*|engine:[a-z][A-Za-z]*|optin:unmodelled\\.[a-z]+|model-rule|dropped:(inventory|codeOnly))$"
+    }
+  }
+}
