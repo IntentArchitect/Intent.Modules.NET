@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="8648e3bd-177b-4fc4-908d-96cc4ccd2009" version="3.1.0">
+  <comment>One opt-in rule the drift engine runs, optionally narrowed to some files.</comment>
+  <name>Drift Check Opt-in Rule</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="07e7b690-a59d-4b72-8440-4308a121d32c">Root Folder</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b4107910-4d30-42b3-a453-ccbfda74f7cc</parentFolderId>
+  <order>0</order>
+  <packageId>b4107910-4d30-42b3-a453-ccbfda74f7cc</packageId>
+  <packageName>Intent.Common.DriftEngine</packageName>
+  <properties>
+    <property id="84edffe8-0350-41e1-ac94-e030a296be1f">
+      <hint>The rule's id, as its findings carry it.</hint>
+      <name>Rule</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. optin/unmodelled.type</placeholder>
+    </property>
+    <property id="e715431b-d4c1-4400-96a6-84277257ca56">
+      <hint>Optional. The files the rule reports on, one glob per line, relative to the output folder. It narrows the rule within scope and never widens it.</hint>
+      <name>Glob</name>
+      <type>string</type>
+      <controlType>textarea</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. src/Domain/**</placeholder>
+    </property>
+  </properties>
+</stereotypeDefinition>

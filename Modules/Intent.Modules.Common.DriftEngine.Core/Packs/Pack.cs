@@ -42,6 +42,26 @@ public sealed class Pack
     /// <summary>The type conventions for one designer's element type.</summary>
     public JsonNode? TypeConvention(string designer, string specialization) => Data["conventions"]?[designer]?["types"]?[specialization];
 
+    /// <summary>Every type convention, with its designer and element type; one given as a list counts once per item.</summary>
+    public IEnumerable<(string Designer, string ElementType, JsonNode Convention)> TypeConventions()
+    {
+        foreach (var (key, designer) in Data["conventions"] as JsonObject ?? [])
+        {
+            foreach (var (elementType, value) in designer?["types"] as JsonObject ?? [])
+            {
+                foreach (var convention in value is JsonArray list ? list.OfType<JsonNode>() : value is null ? [] : [value])
+                {
+                    yield return (designer!["designer"]?.GetValue<string>() ?? key, elementType, convention);
+                }
+            }
+        }
+    }
+
+    /// <summary>A designer's conventions of one list: <c>members</c>, <c>interactions</c> or <c>exposed</c> (conventions.schema.json).</summary>
+    public IEnumerable<(string Designer, JsonNode Convention)> CodeConventions(string list) =>
+        (Data["conventions"] as JsonObject ?? [])
+            .SelectMany(x => (x.Value?[list] as JsonArray ?? []).OfType<JsonNode>().Select(c => (x.Value!["designer"]?.GetValue<string>() ?? x.Key, c)));
+
     public JsonNode? Profile(string language) => Data["profiles"]?[language];
 
     /// <summary>A recipe for a claim kind in one designer (rules.md, Recipes), or null when the pack has none.</summary>

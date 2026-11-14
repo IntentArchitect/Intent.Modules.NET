@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Intent.Modules.Common.DriftEngine.Stacks</RootNamespace>
+    <!-- The generated Java parser marks its types [CLSCompliant(false)] in an assembly that doesn't declare compliance. -->
+    <NoWarn>$(NoWarn);CS3021</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,12 +15,26 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- The C# language's parser. Not shipped: the Software Factory loads one Roslyn for every module. -->
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
+    <!-- The C# language's parser: shipped in the .imod (see the module's .imodspec), since a Java application has no module
+         that provides Roslyn. 5.0.0 is the exact build Intent.OutputManager.RoslynWeaver 5.0.3 ships, so a C# application
+         that has both loads one Roslyn. -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0" />
+    <!-- The C# language's Razor compiler, for .razor components: shipped in the .imod (see the module's .imodspec). 6.0 is the
+         last release on NuGet; its assembly name is its own, so it never meets Intent.Code.Weaving.Razor's fork of the
+         compiler, whose later builds share names with Microsoft's. It has no dependencies. -->
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Language" Version="6.0.36" />
+    <!-- The Java language's parser runtime: shipped in the .imod (see the module's .imodspec). Its version must match the
+         ANTLR tool that generated Java/Grammar/Generated (Java/Grammar/regen.ps1). -->
+    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
+    <!-- The TypeScript language's parser: TypeScript's own (tools/tsc/typescript.js, 6.0, the last release written in
+         JavaScript), embedded below and run by Node.js. Nothing else of the package is used: it doesn't build this project. -->
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="6.0.3" ExcludeAssets="all" PrivateAssets="all" GeneratePathProperty="true" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="**\*.pack.json" LogicalName="%(Filename)%(Extension)" />
+    <EmbeddedResource Include="TypeScript\Worker\ts-reader.js" LogicalName="typescript-worker/ts-reader.js" />
+    <EmbeddedResource Include="$(PkgMicrosoft_TypeScript_MSBuild)\tools\tsc\typescript.js" LogicalName="typescript-worker/typescript.js" />
   </ItemGroup>
 
 </Project>

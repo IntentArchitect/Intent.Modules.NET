@@ -58,9 +58,16 @@ internal static class TypeComparer
 
     private static TypeRefNode WithoutNullable(TypeRefNode code, JsonNode profile)
     {
+        // A union with what only makes it nullable (TypeScript's string | null) is its one other member.
+        if (code.Union.Count > 0)
+        {
+            var nulls = (profile["nullable"]?["unionMembers"] as JsonArray)?.Select(x => x!.GetValue<string>()).ToHashSet() ?? [];
+            return code.Union.Where(x => !nulls.Contains(x.Text)).ToList() is [var only] ? WithoutNullable(only, profile) : code;
+        }
+
         if (code.NullableMarked)
         {
-            return new TypeRefNode { Text = code.Text.TrimEnd('?'), Name = code.Name, QualifiedName = code.QualifiedName, Arguments = code.Arguments, IsArray = code.IsArray, IsPredefinedValueType = code.IsPredefinedValueType };
+            return new TypeRefNode { Text = code.Text.TrimEnd('?'), Name = code.Name, QualifiedName = code.QualifiedName, Arguments = code.Arguments, IsArray = code.IsArray, IsPredefinedValueType = code.IsPredefinedValueType, Language = code.Language };
         }
 
         var wrappers = (profile["nullable"]?["wrappers"] as JsonArray)?.Select(x => x!.GetValue<string>().Split('<')[0]) ?? [];

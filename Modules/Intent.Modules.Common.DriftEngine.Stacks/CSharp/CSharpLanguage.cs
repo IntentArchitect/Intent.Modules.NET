@@ -7,8 +7,9 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace Intent.Modules.Common.DriftEngine.Stacks.CSharp;
 
 /// <summary>
-/// C# as a language the engine reads: <c>.cs</c> files, and the <c>.csproj</c> files that set their nullable context. Its
-/// profile (the <c>csharp</c> pack) names C#'s types, collections and type kinds.
+/// C# as a language the engine reads: <c>.cs</c> files, Razor components (<c>.razor</c>), and the <c>.csproj</c> files that
+/// set their nullable context and root namespace. Its profile (the <c>csharp</c> pack) names C#'s types, collections and
+/// type kinds.
 /// </summary>
 public sealed class CSharpExtension : IDriftExtension
 {
@@ -27,7 +28,8 @@ internal sealed class CSharpLanguage : ILanguage
 
     public string Title => "C#";
 
-    public bool Reads(string path) => path.EndsWith(".cs", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".csproj", StringComparison.OrdinalIgnoreCase);
+    public bool Reads(string path) =>
+        path.EndsWith(".cs", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".razor", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".csproj", StringComparison.OrdinalIgnoreCase);
 
     public void Read(string root, IReadOnlyList<string> files, CodeGraph graph) => CSharpReader.Read(root, files, graph);
 }
@@ -42,7 +44,11 @@ public sealed class CSharpSyntax
 
     internal CSharpSyntax(CodeGraph graph) => _graph = graph;
 
-    /// <summary>Each in-scope C# file's syntax tree, by path relative to the output folder, with Roslyn's full syntax.</summary>
+    /// <summary>
+    /// Each in-scope C# file's syntax tree, by path relative to the output folder, with Roslyn's full syntax. A Razor
+    /// component's is the C# the Razor compiler generates for it; <see cref="SpanOf"/> places its nodes in the <c>.razor</c>
+    /// file they are written in.
+    /// </summary>
     public SortedDictionary<string, SyntaxTree> Trees { get; } = new(StringComparer.Ordinal);
 
     /// <summary>C# files in a nullable context, by their project's <c>Nullable</c> or a <c>#nullable enable</c>.</summary>

@@ -867,7 +867,7 @@ public record SetReorderLevelInput(UUID productId, String reorderLevel) {
 A DTO with eShopCustom's Proto Message stereotype is a `message` in the service's `.proto` file, and its DTO-Fields are the message's fields. The Protobuf reader keeps the `.proto`'s names; the gRPC pack's protoc naming makes the model's `ProductId` the field `product_id`, and its Protobuf profile maps `int` to `int32`. `Items` is a collection of the `BasketItem` DTO, so the field must be `repeated` and of the message `BasketItem` is located as. The house pack says where the messages are, since Proto Message is eShopCustom's own stereotype.
 
 ```json case
-{ "phase": "later", "kinds": ["member.type"], "traces": ["ESC-SVC-83"], "requirements": ["R2", "R28", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.grpc", "house.eshop"], "language": "proto" }
+{ "phase": "later", "kinds": ["member.type"], "traces": ["ESC-SVC-83"], "requirements": ["R2", "R28", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.grpc", "house.eshop"], "language": "protobuf" }
 ```
 
 ```json pack
@@ -876,7 +876,7 @@ A DTO with eShopCustom's Proto Message stereotype is a `message` in the service'
   "version": "1.0.0",
   "engine": "^1.0.0",
   "requires": [{ "id": "intent.services", "version": "^1.0.0" }, { "id": "intent.grpc", "version": "^1.0.0" }],
-  "languages": ["csharp", "proto"],
+  "languages": ["csharp", "protobuf"],
   "designers": ["Services"],
   "conventions": {
     "Services": {
@@ -950,7 +950,7 @@ message BasketItem {
 `product_id` is a `string`, which the Protobuf profile doesn't list for `int`, and `items` isn't `repeated`, so it is one `BasketItem` where the model has a collection: both contradicted, `.field.type` in eShopCustom's terms.
 
 ```json case
-{ "phase": "later", "base": "proto-message-fields", "kinds": ["member.type"], "traces": ["ESC-SVC-83"], "requirements": ["R1", "R11", "R42"], "packs": ["intent.core", "intent.services", "intent.grpc", "house.eshop"], "language": "proto" }
+{ "phase": "later", "base": "proto-message-fields", "kinds": ["member.type"], "traces": ["ESC-SVC-83"], "requirements": ["R1", "R11", "R42"], "packs": ["intent.core", "intent.services", "intent.grpc", "house.eshop"], "language": "protobuf" }
 ```
 
 ```proto file src/Basket.API/Proto/basket.proto

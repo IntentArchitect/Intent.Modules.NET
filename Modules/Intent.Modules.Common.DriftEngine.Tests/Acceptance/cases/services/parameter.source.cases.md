@@ -1,6 +1,6 @@
 # parameter.source
 
-Where a Parameter is bound from: the `Parameter Settings` stereotype's Source (`From Header`, `From Route`, `From Query`, `From Body`, `From Form`), or, when Source is `Default` or the stereotype is absent, the source the model implies: `From Route` for a parameter its Operation's Route names, `From Body` for a DTO or Command, `From Query` otherwise. Against the code's binding: a `[From*]` attribute, then the route template, then a simple type from the query and a complex type from the body; over Spring MVC, `@PathVariable`, `@RequestParam`, `@RequestBody` and `@RequestHeader`. A parameter injected from services isn't bound from the request at all. `parameter.source` is `stated: always`: every bound parameter has a binding, even when nothing in the code names it.
+Where a Parameter is bound from: the `Parameter Settings` stereotype's Source (`From Header`, `From Route`, `From Query`, `From Body`, `From Form`). A Source of `Default`, or no stereotype, states nothing: the model leaves the binding to the framework, so there's no claim. Against the code's binding attribute: `[FromHeader]`, `[FromRoute]`, `[FromQuery]`, `[FromBody]` or `[FromForm]`; over Spring MVC, `@PathVariable`, `@RequestParam`, `@RequestBody` and `@RequestHeader`. A binding the framework infers, from the route template or the parameter's type, isn't the code stating one, so a modelled source with no attribute is contradicted as not stated (the user's decision, 2026-11-13: a parameter the code binds by inference is modelled `Default`). A parameter injected from services isn't bound from the request at all. `parameter.source` is `stated: whenSet`.
 
 The fixtures adapt eShopCustom's `Ordering.API/Apis/OrdersApi.cs` and the Java spike's `OrdersController`.
 
@@ -107,57 +107,66 @@ public static class OrdersApi
 }
 ```
 
-## verified-from-route-template
+## contradicted-route-template-not-stated
 
-`orderId` has no attribute, and the endpoint's pattern `{orderId:int}` names it, so it is bound from the route, as the model says. Traces ESC-SVC-28 (the route template).
+`orderId` has no attribute. ASP.NET binds it from the route, because the endpoint's pattern `{orderId:int}` names it, but that is inference, not the code stating a source, so the modelled `From Route` is contradicted as not stated. The fix is `[FromRoute]` in the code, or Source `Default` in the model. Traces ESC-SVC-28 (the route template).
 
 ```json case
-{ "phase": 4, "base": "verified-from-attribute", "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+{ "phase": 4, "base": "verified-from-attribute", "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R2", "R4"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
 ```json expect
 {
   "claims": [
-    { "kind": "parameter.source", "element": "order-id", "outcome": "verified", "expected": "From Route", "actual": "From Route" }
+    { "kind": "parameter.source", "element": "order-id", "outcome": "contradicted", "expected": "From Route", "actual": null, "fromSilence": false }
+  ],
+  "findings": [
+    { "rule": "claim/parameter.source", "severity": "error", "subject": "order-id", "messageContains": "doesn't state" }
   ]
 }
 ```
 
-## verified-simple-type-from-query
+## contradicted-simple-type-not-stated
 
-`status` is a `string?` with no attribute that no route names: a simple type, so it is bound from the query string. `parameter.source` is `stated: always`, so the binding the code implies by saying nothing counts. Traces ESC-SVC-28 (simple types).
+`status` is a `string?` with no attribute that no route names. ASP.NET binds a simple type from the query string, but the code doesn't state it, so the modelled `From Query` is contradicted as not stated. Traces ESC-SVC-28 (simple types).
 
 ```json case
-{ "phase": 4, "base": "verified-from-attribute", "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R2", "R3"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+{ "phase": 4, "base": "verified-from-attribute", "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R2", "R4"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
 ```json expect
 {
   "claims": [
-    { "kind": "parameter.source", "element": "status", "outcome": "verified", "expected": "From Query", "actual": "From Query" }
+    { "kind": "parameter.source", "element": "status", "outcome": "contradicted", "expected": "From Query", "actual": null, "fromSilence": false }
+  ],
+  "findings": [
+    { "rule": "claim/parameter.source", "severity": "error", "subject": "status", "messageContains": "doesn't state" }
   ]
 }
 ```
 
-## verified-complex-type-from-body
+## contradicted-complex-type-not-stated
 
-`command` is a `CancelOrderCommand` with no attribute: a complex type, so it is bound from the body. Traces ESC-SVC-28 (complex types).
+`command` is a `CancelOrderCommand` with no attribute. ASP.NET binds a complex type from the body, but the code doesn't state it, so the modelled `From Body` is contradicted as not stated. Traces ESC-SVC-28 (complex types).
 
 ```json case
-{ "phase": 4, "base": "verified-from-attribute", "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R2", "R3"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+{ "phase": 4, "base": "verified-from-attribute", "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R2", "R4"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
 ```json expect
 {
   "claims": [
-    { "kind": "parameter.source", "element": "command", "outcome": "verified", "expected": "From Body", "actual": "From Body" }
+    { "kind": "parameter.source", "element": "command", "outcome": "contradicted", "expected": "From Body", "actual": null, "fromSilence": false }
+  ],
+  "findings": [
+    { "rule": "claim/parameter.source", "severity": "error", "subject": "command", "messageContains": "doesn't state" }
   ]
 }
 ```
 
-## default-inferred-from-route
+## default-not-claimed
 
-`orderId` has no `Parameter Settings`: its Source is `Default`. The model infers it the way the code binds it: the Operation's Route `{orderId}` names it, so the model states `From Route`, which the code matches. Traces ESC-SVC-28 (the model's Default).
+`orderId` has no `Parameter Settings`: its Source is `Default`, so the model leaves the binding to the framework and states no source. There is no claim, whatever the code binds it from (the user's decision, 2026-11-13: a parameter the code binds by inference is modelled `Default`, and only a stated Source is checked). Traces ESC-SVC-28 (the model's Default).
 
 ```json case
 { "phase": 4, "base": "verified-from-attribute", "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R2", "R30"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -193,7 +202,7 @@ public static class OrdersApi
 ```json expect
 {
   "claims": [
-    { "kind": "parameter.source", "element": "order-id", "outcome": "verified", "expected": "From Route", "actual": "From Route" }
+    { "kind": "parameter.source", "element": "order-id", "absent": true }
   ]
 }
 ```
@@ -496,9 +505,9 @@ public class OrdersController {
 }
 ```
 
-## java-default-inferred
+## java-default-not-claimed
 
-The same controller, with `cancelOrder`'s `orderId` and `body` Parameters given no `Parameter Settings`, so their Source is `Default`. The model infers `orderId` as `From Route` (its Operation's Route names it) and `body` as `From Body` (its type is a DTO), which the annotations match. Traces JAV-SVC-09 (Default inferred from the route or a DTO type).
+The same controller, with `cancelOrder`'s `orderId` and `body` Parameters given no `Parameter Settings`, so their Source is `Default`. The model states no source for either, so neither has a claim, though the code's `@PathVariable` and `@RequestBody` state one (the user's decision, 2026-11-13: only a stated Source is checked; a code-only binding is the opt-in "must be modelled" rule). Traces JAV-SVC-09 (the model's Default).
 
 ```json case
 { "phase": 4, "base": "java-sources", "kinds": ["parameter.source"], "traces": ["JAV-SVC-09"], "requirements": ["R2", "R30", "R33"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc"], "language": "java" }
@@ -540,10 +549,8 @@ The same controller, with `cancelOrder`'s `orderId` and `body` Parameters given 
 ```json expect
 {
   "claims": [
-    { "kind": "parameter.source", "element": "order-id", "outcome": "verified", "expected": "From Route", "actual": "From Route",
-      "at": "src/main/java/com/eshop/backend/api/OrdersController.java:25" },
-    { "kind": "parameter.source", "element": "body", "outcome": "verified", "expected": "From Body", "actual": "From Body",
-      "at": "src/main/java/com/eshop/backend/api/OrdersController.java:27" }
+    { "kind": "parameter.source", "element": "order-id", "absent": true },
+    { "kind": "parameter.source", "element": "body", "absent": true }
   ]
 }
 ```

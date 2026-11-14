@@ -76,7 +76,8 @@ Module upgrades never change a house pack ([R53](requirements.md)); it's in the 
 | `intent.mediatr`     | Commands, queries, handlers and validators                                                      | later |
 | `intent.blazor`      | Razor component rules for the User Interface kinds: routes, titles, parameters, injection, security | later |
 | `intent.typescript`  | The TypeScript reader (with Vue single-file components) and the TypeScript language profile     | later |
-| `intent.grpc`        | The Protobuf reader, gRPC service conventions, protoc's naming, and `ServerCallContext` as an injected parameter | later |
+| `intent.protobuf`    | The Protobuf reader (proto2, proto3 and editions) and the Protobuf language profile             | later |
+| `intent.grpc`        | gRPC service conventions, protoc's naming, and `ServerCallContext` as an injected parameter     | later |
 
 Phase 2's demonstrations (eShopCustom's Front End State Store and Architecture Layer) are house packs, which is the point: no stock pack and no engine change.
 

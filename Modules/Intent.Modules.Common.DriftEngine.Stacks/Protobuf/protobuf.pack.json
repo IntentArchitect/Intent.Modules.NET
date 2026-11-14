@@ -1,0 +1,35 @@
+{
+  "id": "protobuf",
+  "version": "1.0.0",
+  "description": "The Protobuf language profile: how a .proto file writes the model's types, collections and type kinds",
+  "languages": ["protobuf"],
+  "profiles": {
+    "protobuf": {
+      "language": "protobuf",
+      "types": {
+        "string": ["string", "google.protobuf.StringValue"],
+        "guid": ["string", "google.protobuf.StringValue"],
+        "int": ["int32", "sint32", "sfixed32", "google.protobuf.Int32Value"],
+        "long": ["int64", "sint64", "sfixed64", "google.protobuf.Int64Value"],
+        "short": ["int32", "sint32", "sfixed32", "google.protobuf.Int32Value"],
+        "byte": ["uint32", "google.protobuf.UInt32Value"],
+        "decimal": ["double", "string", "google.type.Decimal"],
+        "double": ["double", "google.protobuf.DoubleValue"],
+        "float": ["float", "google.protobuf.FloatValue"],
+        "bool": ["bool", "google.protobuf.BoolValue"],
+        "char": ["string", "google.protobuf.StringValue"],
+        "datetime": ["google.protobuf.Timestamp"],
+        "datetimeoffset": ["google.protobuf.Timestamp"],
+        "date": ["google.protobuf.Timestamp", "google.type.Date"],
+        "time": ["google.protobuf.Duration", "google.type.TimeOfDay"],
+        "object": ["google.protobuf.Any", "google.protobuf.Value", "google.protobuf.Struct"],
+        "binary": ["bytes", "google.protobuf.BytesValue"]
+      },
+      "collections": ["repeated T"],
+      "nullable": {
+        "notStated": "Their field's type isn't declared in an in-scope .proto file, so whether it is a message, which a field can leave unset, or an enum isn't known; bring the file that declares it into scope to check them."
+      },
+      "typeKinds": ["message", "enum", "service"]
+    }
+  }
+}

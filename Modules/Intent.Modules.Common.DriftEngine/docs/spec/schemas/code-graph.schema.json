@@ -69,6 +69,18 @@
         "literal": { "type": ["string", "number", "boolean", "null"] }
       }
     },
+    "markupAttribute": {
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "description": "As written: class, @bind-Value, :to" },
+        "directive": { "type": "string", "description": "When it is one: bind, on, model, onclick" },
+        "argument": { "type": "string" },
+        "modifiers": { "type": "array", "items": { "type": "string" } },
+        "value": { "type": "string", "description": "As written, without its quotes" }
+      }
+    },
     "node": {
       "type": "object",
       "required": ["id", "kind", "file", "span"],
@@ -98,8 +110,7 @@
                 "chain",
                 "call",
                 "creation",
-                "markup",
-                "directive"
+                "markup"
               ]
             },
             { "type": "string", "pattern": "^[a-z][a-z0-9]*\\.[a-z][A-Za-z]*$", "description": "A framework node kind, such as ef.entity" }
@@ -140,8 +151,9 @@
         "receiver": { "type": "string" },
         "receiverType": { "$ref": "#/$defs/typeRef" },
         "tag": { "type": "string" },
-        "attributes": { "type": "object", "additionalProperties": { "type": "string" } },
-        "directive": { "type": "string" },
+        "component": { "$ref": "#/$defs/typeRef" },
+        "attributes": { "type": "array", "items": { "$ref": "#/$defs/markupAttribute" } },
+        "content": { "type": "string", "description": "A markup element's text, when it holds only text and values; each value written as its code in {{ }}" },
         "framework": { "type": "object", "description": "A framework node's own fields" }
       }
     }

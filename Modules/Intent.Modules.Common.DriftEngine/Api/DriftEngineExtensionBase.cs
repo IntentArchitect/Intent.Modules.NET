@@ -26,6 +26,10 @@ namespace Intent.Modules.Common.DriftEngine.Api
 
         public virtual IEnumerable<IClaimReader> ClaimReaders => Enumerable.Empty<IClaimReader>();
 
+        public virtual IEnumerable<IMemberRefiner> Refiners => Enumerable.Empty<IMemberRefiner>();
+
+    public virtual IEnumerable<IOptInRule> OptInRules => Enumerable.Empty<IOptInRule>();
+
         public virtual IEnumerable<IValueComparer> Comparers => Enumerable.Empty<IValueComparer>();
 
         public virtual IEnumerable<IDriftRule> Rules => Enumerable.Empty<IDriftRule>();

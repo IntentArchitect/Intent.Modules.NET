@@ -37,7 +37,14 @@ public sealed class Reading
 }
 
 /// <summary>The claim a blocked claim waits on, by its identity.</summary>
-public sealed record ClaimRef(string Designer, string Element, string Kind);
+/// <param name="Discriminator">Which of several claims of the kind on the element: an index's name, say.</param>
+public sealed record ClaimRef(string Designer, string Element, string Kind, string? Discriminator = null)
+{
+    // Extensions built against the three-part reference keep loading.
+    public ClaimRef(string designer, string element, string kind) : this(designer, element, kind, null)
+    {
+    }
+}
 
 /// <summary>One checkable statement the model makes about the code (claims-and-findings.md, The claim).</summary>
 public sealed class Claim
@@ -47,6 +54,9 @@ public sealed class Claim
     public required string Designer { get; init; }
 
     public required string Element { get; init; }
+
+    /// <summary>Which of several claims of its kind on the element this is, such as an index by its name; null when it's the one.</summary>
+    public string? Discriminator { get; init; }
 
     public required IReadOnlyList<string> Path { get; init; }
 
@@ -123,4 +133,11 @@ public sealed record DriftInput(
     IReadOnlyDictionary<string, IReadOnlyList<IPackage>> Designers,
     string OutputFolder,
     IReadOnlyList<Pack> Packs,
-    IReadOnlyList<IDriftExtension>? Extensions = null);
+    IReadOnlyList<IDriftExtension>? Extensions = null)
+{
+    /// <summary>
+    /// Each designer's packages from other applications that it references, by designer name: read for what they say, as
+    /// a Service Proxy's target operations, and never claimed on, since their code is another application's.
+    /// </summary>
+    public IReadOnlyDictionary<string, IReadOnlyList<IPackage>> References { get; init; } = new Dictionary<string, IReadOnlyList<IPackage>>();
+}

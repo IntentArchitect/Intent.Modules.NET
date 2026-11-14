@@ -1,0 +1,37 @@
+{
+  "id": "typescript",
+  "version": "1.0.0",
+  "description": "The TypeScript language profile: how TypeScript writes the model's types, collections and type kinds",
+  "languages": ["typescript"],
+  "profiles": {
+    "typescript": {
+      "language": "typescript",
+      "types": {
+        "string": ["string", "String"],
+        "guid": ["string"],
+        "int": ["number"],
+        "long": ["number", "bigint"],
+        "short": ["number"],
+        "byte": ["number"],
+        "decimal": ["number"],
+        "double": ["number"],
+        "float": ["number"],
+        "bool": ["boolean"],
+        "char": ["string"],
+        "datetime": ["string", "Date"],
+        "datetimeoffset": ["string", "Date"],
+        "date": ["string", "Date"],
+        "time": ["string"],
+        "object": ["unknown", "any", "object"],
+        "binary": ["Uint8Array", "ArrayBuffer", "Blob"]
+      },
+      "collections": ["T[]", "Array<T>", "ReadonlyArray<T>", "Set<T>", "ReadonlySet<T>", "Iterable<T>"],
+      "async": [{ "wrapper": "Promise<T>" }, { "wrapper": "PromiseLike<T>" }],
+      "nullable": {
+        "unionMembers": ["null", "undefined"],
+        "notStated": "Their tsconfig.json doesn't turn on strict or strictNullChecks, so their types don't state whether they are nullable; turn it on to check them."
+      },
+      "typeKinds": ["class", "interface", "typeAlias", "enum", "component"]
+    }
+  }
+}

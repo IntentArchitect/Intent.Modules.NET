@@ -450,3 +450,142 @@ public class WishlistItem {
   ]
 }
 ```
+
+## java-verified-association-column
+
+The index's first column is a one-to-many's join column: `Wishlist.items` owns `wishlist_id`, in WishlistItem's table, and WishlistItem has no field for it. Intent's RDBMS stereotypes put that column in the index with the Index stereotype on the association's target end, `Items`, so the index is on the class whose table holds the column, and the end's column is its Foreign Key Column Name. The constraint has no name, so the rule finds it by its columns (the Java eShop's `WishlistItem`).
+
+```json case
+{ "phase": 4, "kinds": ["index.columns"], "traces": ["JAV-DOM-30"], "requirements": ["R2", "R10"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "wishlist", "type": "Class", "name": "Wishlist",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "wishlist-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "guid" }, "stereotypes": { "Primary Key": {} } }
+            ] },
+          { "id": "wishlist-item", "type": "Class", "name": "WishlistItem",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "wishlist-item-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "guid" }, "stereotypes": { "Primary Key": {} } },
+              { "id": "wishlist-item-product-id", "type": "Attribute", "name": "ProductId", "typeRef": { "type": "guid" },
+                "stereotypes": { "Column": { "Name": "product_id" }, "Index": { "UniqueKey": "UX_WishlistItem_Wishlist_Product", "Order": 2, "IsUnique": true } } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "wishlist-items", "type": "Association",
+          "source": { "element": "wishlist", "name": "Wishlist", "multiplicity": "1", "navigable": false },
+          "target": { "element": "wishlist-item", "name": "Items", "multiplicity": "*", "navigable": true,
+            "stereotypes": { "Foreign Key": { "Column Name": "wishlist_id" }, "Index": { "UniqueKey": "UX_WishlistItem_Wishlist_Product", "Order": 1, "IsUnique": true } } } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/main/java/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```java file src/main/java/com/shop/domain/Wishlist.java
+package com.shop.domain;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+@Entity
+public class Wishlist {
+    @Id
+    private UUID id;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "wishlist_id", nullable = false)
+    private List<WishlistItem> items = new ArrayList<>();
+}
+```
+
+```java file src/main/java/com/shop/domain/WishlistItem.java
+package com.shop.domain;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import java.util.UUID;
+
+@Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"wishlist_id", "product_id"}))
+public class WishlistItem {
+    @Id
+    private UUID id;
+
+    @Column(name = "product_id", nullable = false)
+    private UUID productId;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "index.columns", "element": "wishlist-item", "key": "UX_WishlistItem_Wishlist_Product", "outcome": "verified",
+      "expected": "wishlist_id, ProductId", "actual": "wishlist_id, ProductId",
+      "at": "src/main/java/com/shop/domain/WishlistItem.java:11" }
+  ]
+}
+```
+
+## java-contradicted-association-column
+
+The constraint covers only `product_id`, so a product could be in only one wishlist. The model's index starts with the `Items` end's `wishlist_id`, so the claim is contradicted from silence: no declared index has the model's columns (JAV-DOM-30).
+
+```json case
+{ "phase": 4, "base": "java-verified-association-column", "kinds": ["index.columns"], "traces": ["JAV-DOM-30"], "requirements": ["R1", "R3", "R10"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
+```
+
+```java file src/main/java/com/shop/domain/WishlistItem.java
+package com.shop.domain;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import java.util.UUID;
+
+@Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"product_id"}))
+public class WishlistItem {
+    @Id
+    private UUID id;
+
+    @Column(name = "product_id", nullable = false)
+    private UUID productId;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "index.columns", "element": "wishlist-item", "key": "UX_WishlistItem_Wishlist_Product", "outcome": "contradicted",
+      "expected": "wishlist_id, ProductId", "fromSilence": true }
+  ],
+  "findings": [
+    { "rule": "claim/index.columns", "severity": "error", "subject": "wishlist-item" }
+  ]
+}
+```

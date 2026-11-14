@@ -59,7 +59,7 @@ Four more structure kinds take their expected value from vocabulary and conventi
 
 ### Language profiles
 
-A language profile is pack data ([R42](requirements.md)). Its schema is [`schemas/language-profile.schema.json`](schemas/language-profile.schema.json).
+A language profile is pack data ([R42](requirements.md)). Its schema is [`schemas/language-profile.schema.json`](schemas/language-profile.schema.json). One run may read several languages, and each file's code is compared under its own language's profile: an element's type is looked for under the name each language gives it, and a member, a type reference or a parameter list is read as its own language writes it.
 
 | Section       | Says                                                    | C# example                                           | Java example                              |
 | ------------- | ------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------- |
@@ -113,7 +113,7 @@ Two behaviours change, both listed in [conversion.md](conversion.md#semantic-cha
 | `type:Name` step               | `type:{Entity}`                                           | `class:` reads as C#; `type:` names any language's types. `class:` stays as an alias.  |
 | `annotation:Name` step         | `type:{Entity} > annotation:Table`                        | C# attributes, Java annotations and decorators as nodes, not regular expressions       |
 | `call:Name` step               | `method:Configure > call:ToTable`                         | A call, whatever the chain around it                                                   |
-| `markup:Tag`, `directive:Name` | `file:{Folder}/{Component}.razor > directive:page`        | Markup without regular expressions                                                     |
+| `markup:Tag`                   | `type:{Component} > markup:PageTitle`                     | Markup without regular expressions. A Razor directive is the code it compiles to: `@page` is `annotation:Route` |
 | framework node steps           | `ef.entity:{Entity}`                                      | Framework readers' nodes                                                               |
 | `base` step                    | `type:{Entity} > base`                                    | The base types, nearest first; needs `resolution`                                      |
 | `node` read case               | `{ "node": "arguments[0].literal" }`                      | Read a node field, with no regular expression                                          |
@@ -208,13 +208,15 @@ Code is **located** when some claim's reading came from it or from code inside i
 What each rule looks at, precisely:
 
 - **`unmodelled.type`** reports in-scope types the conventions' `find` reaches (per element type, narrowed by `where`) that no claim located.
-- **`unmodelled.member`** looks inside located types only, as do the conventions' `members` entries. It reports the properties, fields, methods, constructors and events of a kind the element type can state and of the visibility the convention names (public by default), that no claim located. Overrides, operators, compiler-generated members and the members every type has (`Equals`, `GetHashCode`, `ToString`; Java's `equals`, `hashCode`, `toString`) are never reported. Parameters aren't members: a parameter list is `operation.parameters`.
+- **`unmodelled.member`** looks inside located types only, as do the conventions' `members` entries. It reports the public properties, fields, methods, constructors and events of a kind the element type can state (its type convention's `states`: a Class's properties, fields, constructors and methods, a DTO's properties and fields) that no claim located. An override of a modelled base type's member, a record's primary constructor, a located field's accessors (the language profile's `accessors`, as Java's `getName`) and the members every type has (`Equals`, `GetHashCode`, `ToString`; Java's `equals`, `hashCode`, `toString`) are never reported. An override of a framework's base (a hosted service's `StopAsync`) is the type's own, and is. A `members` convention's find path may end inside a member, at a parameter or a call; the hit is unmodelled when no claim's reading came from it. Parameters aren't members of their own: a parameter list is `operation.parameters`.
 - **`unmodelled.interaction`** reports the calls the conventions' `interactions` reach inside located methods that no `intent.*` claim located.
 - **`unmodelled.exposed`** follows what an endpoint exposes: each located operation's parameter types and unwrapped return type, then, transitively, the types of those types' public properties. It reports each in-scope type on the way that no element describes. Library types and generic type parameters are skipped.
 - **`unmodelled.file`** reports in-scope files in which no claim located anything.
 - **`unmodelled.value`** runs a `whenSet` kind's rule for each element of the specialization the kind's vocabulary entry selects (its `for`, ignoring `where` and `when`) that has no claim of that kind, and reports each value read from code. Silence is never a value, so a framework convention is never reported.
 
-A finding's subject is where the code is: the line a node starts on (its first attribute or annotation, if it has any), or line 1 for a file.
+A finding's subject is where the code is: the line a node starts on (its first attribute or annotation, if it has any), or line 1 for a file. It is in the Area of the designer whose convention or element found it (`Domain (DriftEngine)`), and names the element whose type holds the code, if any; `unmodelled.file`'s is in `Drift Scope (DriftEngine)`. A rule reports nothing in a file a `Context` scope row decides: that code is read, not checked ([scope.md](scope.md#what-scope-decides)).
+
+A module adds an opt-in rule as an `IOptInRule` (`OptInRules` on its extension): given the run, it returns the code it finds unmodelled, using what the claims located (`RuleContext.IsLocated`), and the engine applies everything else above the same way as for its own rules. A module's rule of the same id replaces the engine's. A rule turned on whose convention has a find path the engine can't read is a `config/ruleInvalid` error, and the rule doesn't run.
 
 An exception is a row of `Rule`, `Match` and `Reason` on the `Drift Check` stereotype. `Match` is a file glob (relative to the output folder), a type name, a `Type.Member`, or the name a finding gives. An exception that matches nothing is an `optin/staleException` warning; one with no reason is a `config/exceptionReason` error. Both name the Root Folder that holds the row, and the row.
 

@@ -45,9 +45,13 @@ internal sealed class GlobPattern
 }
 
 /// <summary>One row of a <c>Drift Scope</c> stereotype's Entries (scope.md).</summary>
-internal sealed record ScopeRow(string Host, int Number, string BasePath, IReadOnlyList<GlobPattern> Globs, IReadOnlyList<string> Types, bool In, string? Reason)
+/// <param name="In">The files it matches are read: In or Context.</param>
+/// <param name="Context">Read for context only: rules read the code, but it is never reported as code the model doesn't describe.</param>
+internal sealed record ScopeRow(string Host, int Number, string BasePath, IReadOnlyList<GlobPattern> Globs, IReadOnlyList<string> Types, bool In, string? Reason, bool Context = false)
 {
     public string Id => $"{Host}#{Number}";
+
+    public string Scope => Context ? "Context" : In ? "In" : "Out";
 
     public bool Matches(string path)
     {
@@ -62,7 +66,12 @@ internal sealed record ScopeRow(string Host, int Number, string BasePath, IReadO
 }
 
 /// <summary>Where a file stands: in or out, and what decided it.</summary>
-internal sealed record ScopeDecision(bool In, ScopeRow? Row, string? Builtin);
+/// <param name="In">The file is read: an In or a Context row decided it.</param>
+internal sealed record ScopeDecision(bool In, ScopeRow? Row, string? Builtin)
+{
+    /// <summary>Read, and held to the model: an In row decided it, not a Context one.</summary>
+    public bool Checked => In && Row is not { Context: true };
+}
 
 /// <summary>
 /// Scope on the Codebase Structure designer (decision 1, scope.md): the deepest folder with a matching row decides a
@@ -162,14 +171,16 @@ internal sealed class ScopeModel
         foreach (var item in items)
         {
             number++;
+            var scope = Text(item, "Scope");
             rows.Add(new ScopeRow(
                 host,
                 number,
                 basePath,
                 Lines(item, "Glob").Select(x => new GlobPattern(x)).ToList(),
                 Lines(item, "Types").ToList(),
-                !string.Equals(Text(item, "Scope"), "Out", StringComparison.OrdinalIgnoreCase),
-                Text(item, "Reason") is { Length: > 0 } reason ? reason : null));
+                !string.Equals(scope, "Out", StringComparison.OrdinalIgnoreCase),
+                Text(item, "Reason") is { Length: > 0 } reason ? reason : null,
+                string.Equals(scope, "Context", StringComparison.OrdinalIgnoreCase)));
         }
     }
 

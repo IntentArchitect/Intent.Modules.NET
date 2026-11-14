@@ -127,7 +127,7 @@ From the ASP.NET Core, Spring MVC and NServiceBus packs, phase 4, except where m
 | `service.versions`       | API versions       | whenSet | `set` of `version` | 4     | ESC-SVC 17                                |
 | `operation.versions`     | API versions       | whenSet | `set` of `version` | 4     | ESC-SVC 17                                |
 | `api.versionScheme`      | versioning scheme  | whenSet | `exact`    | later | ESC-SVC 18                                |
-| `parameter.source`       | binding            | always  | `exact`    | 4     | ESC-SVC 27, 28; JAV-SVC 9                 |
+| `parameter.source`       | binding            | whenSet | `exact`    | 4     | ESC-SVC 27, 28; JAV-SVC 9                 |
 | `parameter.name`         | bound name         | whenSet | `exact`    | 4     | ESC-SVC 29                                |
 | `intent.creates`         | creates            | always  | `presence` | 4     | JAV-SVC 15                                |
 | `intent.updates`         | updates            | always  | `presence` | 4     | JAV-SVC 15                                |
@@ -183,7 +183,8 @@ What a kind's table row can't say, settled while the cases were written.
 - **`type.kind`.** An element's type is located by name among every kind the language has, so a type of the wrong kind is found and reported as the wrong kind rather than as missing. The expected value is the set of kinds the conventions allow for the element type (`class, record` for a Class, `enum` for an Enum), and `within` verifies when the code's kind is one of them.
 - **`page.route`.** The model's route must be among the page's `@page` routes; further routes the code serves aren't drift (principle 1). Items compare as routes.
 - **`service.versions`, `operation.versions`.** Sets of versions whose items compare as versions, so `1`, `v1` and `1.0` are one item.
-- **`index.columns`.** Ordered: column order is part of an index. JAV-DOM-30 compared column sets; an index whose columns are reordered is now contradicted.
+- **`index.columns`.** Ordered: column order is part of an index. JAV-DOM-30 compared column sets; an index whose columns are reordered is now contradicted. An Index stereotype on an association's target end puts that end's foreign key column in the index of the class whose table holds it, named by its Foreign Key Column Name, else the end's name.
+- **`parameter.source`.** Stated only by a binding attribute or annotation (user decision, 2026-11-13). The binding ASP.NET or Spring infers from the route template or the parameter's type isn't the code stating a source, so a modelled source with no attribute is contradicted as not stated, and a Source of `Default` makes no claim.
 - **`key.generated` on JPA.** JPA states a user-supplied key only by saying nothing (no `@GeneratedValue`). That is silence, so a modelled "User supplied" Data source is contradicted as not stated on JPA, and the model leaves Data source at its default there (decision 4). EF Core states it with `ValueGeneratedNever()`.
 - **`column.required`.** Covers value types: a non-nullable value type is required, and its type states it. A reference type whose nullability reads `unknown` (outside a C# nullable context) is `unresolved`, unless an explicit `[Required]`, `.IsRequired()` or `@Column(nullable = false)` states it.
 - **`column.version`.** Intent has no stock stereotype for EF Core's `IsRowVersion`, so only the Java spike's Version stereotype states it; its cases are JPA's.

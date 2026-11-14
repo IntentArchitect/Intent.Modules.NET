@@ -48,14 +48,22 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
     };
 
-    private static readonly IReadOnlySet<string> Kinds = Pack.Stock("intent.core")!.Kinds.Select(x => x.Kind).ToHashSet(StringComparer.Ordinal);
+    // The core's kinds and every stock extension's, in code or in its packs.
+    private static readonly IReadOnlySet<string> Kinds = Pack.Stock("intent.core")!.Kinds
+        .Concat(StockExtensions.All.SelectMany(x => x.Kinds.Concat(x.Packs.SelectMany(p => p.Kinds))))
+        .Select(x => x.Kind)
+        .ToHashSet(StringComparer.Ordinal);
 
     public JsonNode Run(EngineInput input)
     {
         // A stock pack is the engine's data or a stock extension's.
         var packs = input.StockPacks.Select(x => Pack.Stock(x)).OfType<Pack>().Concat(input.InlinePacks.Select(Pack.Parse)).ToList();
-        // The fixtures are C#: its language extension always reads them.
-        var extensions = new[] { StockExtensions.Find("csharp")! }.Concat(input.StockPacks.Select(StockExtensions.Find).OfType<IDriftExtension>()).Distinct().ToList();
+        // The languages and the vocabularies that read no code (intent.rdbms, intent.http: a case's intent.domain and
+        // intent.services) always; a framework's extension only when the case names it, so a case can leave a kind unread.
+        var extensions = StockExtensions.All.Where(x => !x.ClaimReaders.Any())
+            .Concat(input.StockPacks.Select(StockExtensions.Find).OfType<IDriftExtension>())
+            .Distinct()
+            .ToList();
         var result = DriftEngine.Run(new DriftInput(FixtureModel.Build(input.Model), input.OutputFolder, packs, extensions));
         return JsonSerializer.SerializeToNode(result, Options)!;
     }
@@ -66,10 +74,27 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
         return null!;
     }
 
+    /// <summary>Cases whose engine work isn't one of the checks below, each with what it waits for.</summary>
+    private static readonly IReadOnlyDictionary<string, string> WaitingOn = new Dictionary<string, string>
+    {
+        ["optin/unmodelled.type#services-router"] = MinimalApiService,
+        ["optin/unmodelled.member#endpoint-in-router"] = MinimalApiService,
+        ["optin/unmodelled.member#request-parameter"] = MinimalApiService
+    };
+
+    private const string MinimalApiService = "Locating a Service as the Minimal API router that maps its routes isn't built yet (phase 4).";
+
     public string? CannotRun(AcceptanceCase @case)
     {
+        // Phase 1, and phase 4's Java cases and parameter.source cases: the Java language and the binding rule (a source is
+        // stated only by its attribute) are built ahead of the rest of that phase. So are the opt-in rules' phase 2 and 4
+        // cases, with the Drift Check: phase 4's stacks, EF Core and ASP.NET Core, are built. So is the TypeScript language,
+        // which the later cases that read TypeScript wait for.
         var meta = @case.Meta!;
-        if (meta["phase"]?.ToString() != "1")
+        var optIn = @case.Area == "optin" || meta.Texts("cases").Any(x => x.StartsWith("optin/", StringComparison.Ordinal) || x == "scope/gate");
+        var typeScript = meta.Text("language") == "typescript" && meta["phase"]?.ToString() is "4" or "later";
+        if (meta["phase"]?.ToString() != "1" && !(meta["phase"]?.ToString() == "4" && (meta.Text("language") == "java" || meta.Texts("kinds").Contains("parameter.source"))) &&
+            !(optIn && meta["phase"]?.ToString() is "2" or "4") && !typeScript)
         {
             return $"Phase {meta["phase"]} case; the engine is at phase 1.";
         }
@@ -79,9 +104,21 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
             return $"The engine has no rule for {kind} yet.";
         }
 
-        if (@case.Area == "optin" || meta.Texts("cases").Any(x => x.StartsWith("optin/", StringComparison.Ordinal) || x == "scope/gate"))
+        if (meta.Texts("cases").FirstOrDefault(x => x is "optin/unmodelled.interaction" or "optin/unmodelled.exposed" or "optin/unmodelled.value") is { } rule)
         {
-            return "Opt-in \"must be modelled\" rules aren't built yet.";
+            return $"The opt-in rule {rule} isn't built yet.";
+        }
+
+        if (WaitingOn.GetValueOrDefault(@case.FullId) is { } waiting)
+        {
+            return waiting;
+        }
+
+        // Find path steps beyond types, members, parameters, calls, annotations and markup.
+        var unescaped = new JsonSerializerOptions { Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping };
+        if (@case.Packs.SelectMany(x => x.ToJsonString(unescaped).Split(" > ")).FirstOrDefault(x => x.StartsWith("chain", StringComparison.Ordinal)) is { } step)
+        {
+            return $"The find path step '{step.Split(' ')[0]}' isn't built yet.";
         }
 
         if (meta.Texts("cases").Contains("engine/noVocabulary"))
@@ -89,17 +126,19 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
             return "Coverage of the model (noVocabulary findings) isn't built yet.";
         }
 
-        if (meta.Texts("packs").FirstOrDefault(x => Pack.Stock(x) is null && StockExtensions.Find(x) is null) is { } pack)
+        var inline = @case.Packs.Select(x => x.Text("id")).ToHashSet(StringComparer.Ordinal);
+        if (meta.Texts("packs").FirstOrDefault(x => Pack.Stock(x) is null && StockExtensions.Find(x) is null && !inline.Contains(x)) is { } pack)
         {
             return $"The engine doesn't ship {pack} yet.";
         }
 
-        if (@case.Packs.Any())
+        // A pack of conventions alone needs only find paths; recipes and queries need the full expression language.
+        if (@case.Packs.Any(x => x["rules"] is not null || x["queries"] is not null || x["vocabulary"] is not null))
         {
             return "Inline packs need the full expression language.";
         }
 
-        if (meta.Text("language") is { } language && language != "csharp")
+        if (meta.Text("language") is { } language && language is not ("csharp" or "java"))
         {
             return $"The engine has no {language} reader yet.";
         }

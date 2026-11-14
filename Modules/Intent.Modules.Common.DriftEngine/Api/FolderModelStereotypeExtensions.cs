@@ -128,6 +128,8 @@ namespace Intent.Common.DriftEngine.Api
                             return ScopeOptionsEnum.In;
                         case "Out":
                             return ScopeOptionsEnum.Out;
+                        case "Context":
+                            return ScopeOptionsEnum.Context;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -141,12 +143,17 @@ namespace Intent.Common.DriftEngine.Api
                 {
                     return Value == "Out";
                 }
+                public bool IsContext()
+                {
+                    return Value == "Context";
+                }
             }
 
             public enum ScopeOptionsEnum
             {
                 In,
-                Out
+                Out,
+                Context
             }
         }
 

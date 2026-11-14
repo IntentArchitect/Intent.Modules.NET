@@ -7,10 +7,13 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace Intent.Modules.Common.DriftEngine.Stacks.CSharp;
 
 /// <summary>
-/// What a method's or constructor's body does, read from its syntax once every type is read: each call, the type of what
-/// it is made on, and what its arguments are (<see cref="ValueNode"/>), as far as the code says without running it.
+/// What a method's or constructor's body, or a file's top-level statements, do, read from their syntax once every type is
+/// read: each call, the type of what it is made on, the method it reaches, and what its arguments are
+/// (<see cref="ValueNode"/>), as far as the code says without running it; each lambda as a unit of its own.
 /// </summary>
-internal sealed class CSharpBody(SyntaxNode member, TypeNode owner, string file, CodeGraph graph)
+/// <param name="roots">The member's declaration, or the file's top-level statements.</param>
+/// <param name="owner">The type whose members an unqualified call reaches: the member's type, or top-level code's <c>Program</c>.</param>
+internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner, string file, CodeGraph graph)
 {
     /// <summary>How many locals deep a value is followed (<c>var a = b; var b = new X();</c>).</summary>
     private const int MaxDepth = 3;
@@ -19,12 +22,185 @@ internal sealed class CSharpBody(SyntaxNode member, TypeNode owner, string file,
 
     private static readonly (List<TypeRefNode> Types, bool Known) Unknown = ([], false);
 
-    public IReadOnlyList<CallNode> Calls() =>
-        member.DescendantNodes().OfType<InvocationExpressionSyntax>().Select(Call).OfType<CallNode>().ToList();
+    /// <summary>Each call once, so a chain's call is the same node as the one the body has.</summary>
+    private readonly Dictionary<InvocationExpressionSyntax, CallNode?> _calls = [];
+
+    /// <summary>Each creation once, so a value's creation is the same node as the one the body has; null while it is read.</summary>
+    private readonly Dictionary<ObjectCreationExpressionSyntax, CreationNode?> _creations = [];
+
+    /// <summary>The type each creation creates, one node each, so a value's types say which creations it is.</summary>
+    private readonly Dictionary<ObjectCreationExpressionSyntax, TypeRefNode> _created = [];
+
+    private readonly Dictionary<TypeRefNode, ObjectCreationExpressionSyntax> _createdBy = new(ReferenceEqualityComparer.Instance);
+
+    /// <summary>Each method group once, so a lambda's is the same node as the one the body has.</summary>
+    private readonly Dictionary<ExpressionSyntax, CallNode?> _references = [];
+
+    private readonly Dictionary<AnonymousFunctionExpressionSyntax, FunctionNode> _lambdas = [];
+
+    private readonly Dictionary<AnonymousFunctionExpressionSyntax, IReadOnlyList<ParameterNode>> _lambdaParameters = [];
+
+    // The member whose body this is, and its parameters, which the values that name them are.
+    private BaseMethodDeclarationSyntax? _declaration;
+    private IReadOnlyList<ParameterNode> _declarationParameters = [];
+
+    /// <summary>What a method's or constructor's body does; the unit is its block or expression body.</summary>
+    public FunctionNode Member(BaseMethodDeclarationSyntax declaration, IReadOnlyList<ParameterNode> parameters)
+    {
+        (_declaration, _declarationParameters) = (declaration, parameters);
+        var body = (SyntaxNode?)declaration.Body ?? (SyntaxNode?)declaration.ExpressionBody ?? declaration;
+        return Function(declaration, [declaration], parameters,
+            declaration is MethodDeclarationSyntax { ReturnType: PredefinedTypeSyntax { Keyword.Text: "void" } } or ConstructorDeclarationSyntax ? null : declaration.ExpressionBody?.Expression,
+            declaration.Modifiers.Any(SyntaxKind.AsyncKeyword), Normalise(body), CSharpReader.SpanOf(body, file));
+    }
+
+    /// <summary>A field's or property's initializer, as a value of its type.</summary>
+    public ValueNode Initializer(ExpressionSyntax initializer) => Value(initializer, initializer.SpanStart);
+
+    /// <summary>A file's top-level statements, as one unit.</summary>
+    public FunctionNode TopLevel()
+    {
+        var (first, last) = (CSharpReader.SpanOf(roots[0], file), CSharpReader.SpanOf(roots[^1], file));
+        return Function(null, roots, [], null, roots.Any(x => x.DescendantNodes(IsOwn).OfType<AwaitExpressionSyntax>().Any()),
+            string.Join(" ", roots.Select(Normalise)), first with { EndLine = last.EndLine, EndColumn = last.EndColumn });
+    }
+
+    /// <param name="function">The member or lambda; null for top-level statements.</param>
+    /// <param name="nodes">What it is written in.</param>
+    /// <param name="returned">Its expression body, when it returns that.</param>
+    private FunctionNode Function(SyntaxNode? function, IReadOnlyList<SyntaxNode> nodes, IReadOnlyList<ParameterNode> parameters, ExpressionSyntax? returned, bool isAsync, string text, Span at)
+    {
+        var inside = nodes.SelectMany(x => x.DescendantNodes()).ToList();
+        return new FunctionNode
+        {
+            Parameters = parameters,
+            Calls = inside
+                .Select(x => x switch
+                {
+                    InvocationExpressionSyntax invocation => Call(invocation),
+                    ArgumentSyntax { Expression: IdentifierNameSyntax or MemberAccessExpressionSyntax } argument
+                        when argument.Parent?.Parent is not InvocationExpressionSyntax named || !IsNameOf(named) => Reference(argument.Expression),
+                    _ => null
+                })
+                .OfType<CallNode>()
+                .ToList(),
+            Creations = inside.OfType<ObjectCreationExpressionSyntax>().Select(Creation).OfType<CreationNode>().ToList(),
+            Assignments = inside.OfType<AssignmentExpressionSyntax>()
+                .Where(x => x.IsKind(SyntaxKind.SimpleAssignmentExpression) && x.Parent is not InitializerExpressionSyntax)
+                .Select(x => new AssignmentNode(Normalise(x.Left), Value(x.Right, x.SpanStart), CSharpReader.SpanOf(x, file)))
+                .ToList(),
+            Changes = inside.Select(Changed).OfType<ExpressionSyntax>().Select(Normalise).ToList(),
+            Returns = returned is not null
+                ? [Value(returned, returned.SpanStart)]
+                : inside.OfType<ReturnStatementSyntax>()
+                    .Where(x => x.Expression is not null && x.Ancestors().FirstOrDefault(IsFunction) == function)
+                    .Select(x => Value(x.Expression!, x.Expression!.SpanStart))
+                    .ToList(),
+            IsAsync = isAsync,
+            Text = text,
+            At = at
+        };
+    }
+
+    /// <summary>What a node changes other than with a plain <c>=</c>: <c>x += y</c>, <c>x++</c>, <c>ref x</c> or <c>out x</c>.</summary>
+    private static ExpressionSyntax? Changed(SyntaxNode node) => node switch
+    {
+        AssignmentExpressionSyntax assignment when !assignment.IsKind(SyntaxKind.SimpleAssignmentExpression) => assignment.Left,
+        PrefixUnaryExpressionSyntax prefix when prefix.IsKind(SyntaxKind.PreIncrementExpression) || prefix.IsKind(SyntaxKind.PreDecrementExpression) => prefix.Operand,
+        PostfixUnaryExpressionSyntax postfix when postfix.IsKind(SyntaxKind.PostIncrementExpression) || postfix.IsKind(SyntaxKind.PostDecrementExpression) => postfix.Operand,
+        ArgumentSyntax argument when argument.RefKindKeyword.IsKind(SyntaxKind.RefKeyword) || argument.RefKindKeyword.IsKind(SyntaxKind.OutKeyword) => argument.Expression,
+        _ => null
+    };
+
+    /// <summary>A lambda or anonymous method as its own unit.</summary>
+    private FunctionNode Lambda(AnonymousFunctionExpressionSyntax lambda)
+    {
+        if (_lambdas.TryGetValue(lambda, out var known))
+        {
+            return known;
+        }
+
+        return _lambdas[lambda] = Function(lambda, [lambda], LambdaParameters(lambda), lambda.ExpressionBody, lambda.AsyncKeyword.IsKind(SyntaxKind.AsyncKeyword),
+            Normalise(lambda), CSharpReader.SpanOf(lambda, file));
+    }
+
+    /// <summary>A lambda's parameters, the same nodes for its unit and for the values that name them.</summary>
+    private IReadOnlyList<ParameterNode> LambdaParameters(AnonymousFunctionExpressionSyntax lambda)
+    {
+        if (!_lambdaParameters.TryGetValue(lambda, out var parameters))
+        {
+            _lambdaParameters[lambda] = parameters = CSharpReader.ParametersOf(Parameters(lambda), file);
+        }
+
+        return parameters;
+    }
+
+    /// <summary>Code that runs as its own unit: a nested lambda's or local function's <c>return</c> isn't its container's.</summary>
+    private static bool IsFunction(SyntaxNode node) => node is AnonymousFunctionExpressionSyntax or LocalFunctionStatementSyntax or BaseMethodDeclarationSyntax or AccessorDeclarationSyntax;
+
+    private static bool IsOwn(SyntaxNode node) => !IsFunction(node);
 
     private CallNode? Call(InvocationExpressionSyntax invocation)
     {
-        var (name, receiver) = invocation.Expression switch
+        if (_calls.TryGetValue(invocation, out var known))
+        {
+            return known;
+        }
+
+        // nameof(x) is a string, not a call.
+        if (IsNameOf(invocation) || Resolve(invocation.Expression, invocation.ArgumentList.Arguments.Count, invocation.SpanStart, 0) is not { } call)
+        {
+            return _calls[invocation] = null;
+        }
+
+        return _calls[invocation] = new CallNode
+        {
+            Name = call.Name,
+            Receiver = call.Receiver,
+            ReceiverType = call.ReceiverType,
+            On = invocation.Expression is MemberAccessExpressionSyntax { Expression: InvocationExpressionSyntax on } ? Call(on) : null,
+            Arguments = invocation.ArgumentList.Arguments.Select(x => Value(x.Expression, invocation.SpanStart)).ToList(),
+            TypeArguments = TypeArgumentsOf(invocation.Expression),
+            Target = call.Targets is [var target] ? target : null,
+            Text = Normalise(invocation),
+            At = CSharpReader.SpanOf(invocation, file)
+        };
+    }
+
+    /// <summary>
+    /// A method group passed as a value (<c>items.ForEach(Audit)</c>). C# writes it as any other name, so a name is one only
+    /// when the code doesn't type it as a value and an in-scope method has it.
+    /// </summary>
+    private CallNode? Reference(ExpressionSyntax expression)
+    {
+        if (_references.TryGetValue(expression, out var known))
+        {
+            return known;
+        }
+
+        if (TypesOf(expression, expression.SpanStart, 0).Known || Resolve(expression, null, expression.SpanStart, 0) is not { Targets.Count: > 0 } call)
+        {
+            return _references[expression] = null;
+        }
+
+        return _references[expression] = new CallNode
+        {
+            Name = call.Name,
+            Receiver = call.Receiver,
+            ReceiverType = call.ReceiverType,
+            TypeArguments = TypeArgumentsOf(expression),
+            IsReference = true,
+            Target = call.Targets is [var target] ? target : null,
+            Text = Normalise(expression),
+            At = CSharpReader.SpanOf(expression, file)
+        };
+    }
+
+    /// <summary>A call's or method group's name, what it is made on and that's type, and the methods it can reach.</summary>
+    /// <param name="arguments">Its number of arguments; null for a method group.</param>
+    private (string Name, string? Receiver, TypeRefNode? ReceiverType, IReadOnlyList<CallTarget> Targets)? Resolve(ExpressionSyntax expression, int? arguments, int before, int depth)
+    {
+        var (name, receiver) = expression switch
         {
             SimpleNameSyntax simple => (simple.Identifier.Text, null),
             MemberAccessExpressionSyntax { Expression: ThisExpressionSyntax } access => (access.Name.Identifier.Text, null),
@@ -36,22 +212,191 @@ internal sealed class CSharpBody(SyntaxNode member, TypeNode owner, string file,
             return null;
         }
 
-        var receiverType = receiver is null ? Unknown : TypesOf(receiver, invocation.SpanStart, 0);
-        return new CallNode
+        var receiverType = receiver is null ? Unknown : TypesOf(receiver, before, depth);
+        var typed = receiverType is { Known: true, Types: [var only] } ? only : null;
+        var written = receiver is null ? null : Normalise(receiver);
+        return (name, written, typed, graph.Targets(name, written, typed, arguments, owner));
+    }
+
+    /// <summary>The type arguments a call or method group is given: <c>AddScoped&lt;IOrderRepository, OrderRepository&gt;</c>.</summary>
+    private static IReadOnlyList<TypeRefNode> TypeArgumentsOf(ExpressionSyntax expression) =>
+        expression switch
         {
-            Name = name,
-            Receiver = receiver is null ? null : Normalise(receiver),
-            ReceiverType = receiverType is { Known: true, Types: [var only] } ? only : null,
-            Arguments = invocation.ArgumentList.Arguments.Select(x => Value(x.Expression, invocation.SpanStart)).ToList(),
-            Text = Normalise(invocation),
-            At = CSharpReader.SpanOf(invocation, file)
+            GenericNameSyntax generic => generic.TypeArgumentList.Arguments.Select(CSharpReader.TypeRef).ToList(),
+            MemberAccessExpressionSyntax { Name: GenericNameSyntax generic } => generic.TypeArgumentList.Arguments.Select(CSharpReader.TypeRef).ToList(),
+            _ => []
+        };
+
+    private static bool IsNameOf(InvocationExpressionSyntax invocation) =>
+        invocation is { Expression: IdentifierNameSyntax { Identifier.Text: "nameof" }, ArgumentList.Arguments.Count: 1 };
+
+    /// <param name="sourced">
+    /// Whether it says where it comes from (<see cref="ValueNode.Joined"/>, <see cref="ValueNode.Given"/> and the like); not for
+    /// an interpolation hole with a format, whose text isn't its value's.
+    /// </param>
+    private ValueNode Value(ExpressionSyntax expression, int before, bool sourced = true)
+    {
+        var (types, known) = TypesOf(expression, before, 0);
+        var bare = Bare(expression);
+        return new ValueNode
+        {
+            Text = Normalise(expression),
+            Types = types,
+            IsKnown = known && types.Count > 0,
+            Literal = CSharpReader.LiteralOf(expression, file, x => Value(x, before), x => Value(x, before, sourced: false)),
+            Creations = types.Select(x => _createdBy.TryGetValue(x, out var creation) ? Creation(creation) : null).OfType<CreationNode>().ToList(),
+            Function = Unwrapped(expression) is AnonymousFunctionExpressionSyntax lambda ? Lambda(lambda) : null,
+            Joined = sourced ? Joined(bare, before) : [],
+            GivenOf = sourced ? () => Given(bare, before) : null,
+            Parameter = sourced && bare is IdentifierNameSyntax named && Local(named, before) is null ? ParameterOf(named) : null,
+            Field = sourced ? FieldRead(bare, before) : null,
+            Call = sourced && bare is InvocationExpressionSyntax invocation ? Call(invocation) : null,
+            Trimmed = sourced ? Trimmed(bare, before) : null,
+            At = CSharpReader.SpanOf(expression, file)
         };
     }
 
-    private ValueNode Value(ExpressionSyntax expression, int before)
+    private static ExpressionSyntax Unwrapped(ExpressionSyntax expression) => expression is ParenthesizedExpressionSyntax parenthesized ? Unwrapped(parenthesized.Expression) : expression;
+
+    /// <summary>What a value is under its parentheses, casts, <c>as</c> and <c>!</c>, none of which change its text.</summary>
+    private static ExpressionSyntax Bare(ExpressionSyntax expression) => expression switch
     {
-        var (types, known) = TypesOf(expression, before, 0);
-        return new ValueNode { Text = Normalise(expression), Types = types, IsKnown = known && types.Count > 0, At = CSharpReader.SpanOf(expression, file) };
+        ParenthesizedExpressionSyntax parenthesized => Bare(parenthesized.Expression),
+        CastExpressionSyntax cast => Bare(cast.Expression),
+        PostfixUnaryExpressionSyntax suppressed when suppressed.IsKind(SyntaxKind.SuppressNullableWarningExpression) => Bare(suppressed.Operand),
+        BinaryExpressionSyntax converted when converted.IsKind(SyntaxKind.AsExpression) => Bare(converted.Left),
+        _ => expression
+    };
+
+    /// <summary>A <c>+</c> chain's operands, or <c>string.Concat</c>'s arguments.</summary>
+    private IReadOnlyList<ValueNode> Joined(ExpressionSyntax bare, int before) => bare switch
+    {
+        BinaryExpressionSyntax binary when binary.IsKind(SyntaxKind.AddExpression) => Operands(binary).Select(x => Value(x, before)).ToList(),
+        InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax { Expression: PredefinedTypeSyntax { Keyword.Text: "string" } or IdentifierNameSyntax { Identifier.Text: "String" }, Name.Identifier.Text: "Concat" } } concat
+            => concat.ArgumentList.Arguments.Select(x => Value(x.Expression, before)).ToList(),
+        _ => []
+    };
+
+    private static IEnumerable<ExpressionSyntax> Operands(BinaryExpressionSyntax binary) =>
+        (binary.Left is BinaryExpressionSyntax left && left.IsKind(SyntaxKind.AddExpression) ? Operands(left) : [binary.Left]).Append(binary.Right);
+
+    /// <summary>
+    /// The values it stands for: a local's (<see cref="LocalValues"/>), a conditional's branches, both sides of a <c>??</c>,
+    /// what <c>x.ToString()</c> and <c>new Uri(x)</c> are made from.
+    /// </summary>
+    private IReadOnlyList<ValueNode> Given(ExpressionSyntax bare, int before) => bare switch
+    {
+        // A change other than a plain = (filterQs += "&") is a way it is given whose text isn't known.
+        IdentifierNameSyntax identifier when Local(identifier, before) is { } local =>
+        [
+            ..LocalValues(local, identifier.Identifier.Text, before).Select(x => Value(x, x.SpanStart)),
+            ..roots.SelectMany(x => x.DescendantNodes()).Where(x => x.SpanStart > local.SpanStart && x.SpanStart < before)
+                .Where(x => Changed(x) is IdentifierNameSyntax changed && changed.Identifier.Text == identifier.Identifier.Text)
+                .Select(x => new ValueNode { Text = Normalise(x), At = CSharpReader.SpanOf(x, file) })
+        ],
+        ConditionalExpressionSyntax conditional => [Value(conditional.WhenTrue, before), Value(conditional.WhenFalse, before)],
+        BinaryExpressionSyntax coalesce when coalesce.IsKind(SyntaxKind.CoalesceExpression) => [Value(coalesce.Left, before), Value(coalesce.Right, before)],
+        InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax { Name.Identifier.Text: "ToString" } access, ArgumentList.Arguments.Count: 0 } => [Value(access.Expression, before)],
+        ObjectCreationExpressionSyntax { ArgumentList.Arguments: [var uri, ..] } creation when creation.Type.ToString() is "Uri" or "System.Uri" => [Value(uri.Expression, before)],
+        _ => []
+    };
+
+    /// <summary>The parameter of this member or of a lambda in it that a name is, as the unit's own node.</summary>
+    private ParameterNode? ParameterOf(IdentifierNameSyntax identifier)
+    {
+        var name = identifier.Identifier.Text;
+        foreach (var ancestor in identifier.Ancestors())
+        {
+            var index = Parameters(ancestor).ToList().FindIndex(x => x.Identifier.Text == name);
+            if (index < 0)
+            {
+                continue;
+            }
+
+            var parameters = ancestor switch
+            {
+                BaseMethodDeclarationSyntax method when method == _declaration => _declarationParameters,
+                AnonymousFunctionExpressionSyntax lambda => LambdaParameters(lambda),
+                _ => []
+            };
+            return index < parameters.Count ? parameters[index] : null;
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// The field or property a value reads: the type's own, by name or on <c>this</c>, unless a local or parameter has the
+    /// name; or, through a type's name, another in-scope type's (<c>Routes.Catalog</c>).
+    /// </summary>
+    private FieldRef? FieldRead(ExpressionSyntax bare, int before) => bare switch
+    {
+        IdentifierNameSyntax identifier when Local(identifier, before) is null && !IsParameter(identifier) => graph.FieldOf(owner, identifier.Identifier.Text),
+        MemberAccessExpressionSyntax { Expression: ThisExpressionSyntax } access => graph.FieldOf(owner, access.Name.Identifier.Text),
+        MemberAccessExpressionSyntax access when NamedType(access.Expression, before) is { } type => graph.FieldOf(type, access.Name.Identifier.Text),
+        _ => null
+    };
+
+    /// <summary>The in-scope type a name or qualified name is, when it isn't a value the code has under that name.</summary>
+    private TypeNode? NamedType(ExpressionSyntax expression, int before)
+    {
+        var first = expression.DescendantNodesAndSelf().OfType<IdentifierNameSyntax>().FirstOrDefault();
+        if (first is null || expression.DescendantNodesAndSelf().Any(x => x is not (IdentifierNameSyntax or MemberAccessExpressionSyntax))
+            || Local(first, before) is not null || IsParameter(first) || graph.FieldOf(owner, first.Identifier.Text) is not null)
+        {
+            return null;
+        }
+
+        var written = Normalise(expression);
+        return graph.TypeFor(new TypeRefNode { Text = written, Name = written[(written.LastIndexOf('.') + 1)..], QualifiedName = written }, owner);
+    }
+
+    private static bool IsParameter(IdentifierNameSyntax identifier) => identifier.Ancestors().SelectMany(Parameters).Any(x => x.Identifier.Text == identifier.Identifier.Text);
+
+    /// <summary>A trim, when the characters it trims are written: <c>uri.TrimEnd('&amp;', '?')</c>, <c>name.Trim()</c>.</summary>
+    private TrimNode? Trimmed(ExpressionSyntax bare, int before) =>
+        bare is InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax { Name.Identifier.Text: "Trim" or "TrimStart" or "TrimEnd" } access } invocation
+        && invocation.ArgumentList.Arguments.All(x => x.Expression is LiteralExpressionSyntax literal && literal.IsKind(SyntaxKind.CharacterLiteralExpression))
+            ? new TrimNode(Value(access.Expression, before), access.Name.Identifier.Text != "TrimEnd", access.Name.Identifier.Text != "TrimStart",
+                invocation.ArgumentList.Arguments.Select(x => (char)((LiteralExpressionSyntax)x.Expression).Token.Value!).ToList())
+            : null;
+
+    /// <summary>A creation, with what it is given; null while it is being read, as when invalid code passes a local to its own initializer.</summary>
+    private CreationNode? Creation(ObjectCreationExpressionSyntax creation)
+    {
+        if (_creations.TryGetValue(creation, out var known))
+        {
+            return known;
+        }
+
+        _creations[creation] = null;
+        var initializer = creation.Initializer;
+        return _creations[creation] = new CreationNode
+        {
+            Type = Created(creation),
+            Arguments = creation.ArgumentList?.Arguments.Select(x => Value(x.Expression, creation.SpanStart)).ToList() ?? [],
+            Initializers = initializer is not null && initializer.IsKind(SyntaxKind.ObjectInitializerExpression)
+                ? initializer.Expressions.OfType<AssignmentExpressionSyntax>()
+                    .Select(x => new InitializerNode(x.Left is IdentifierNameSyntax name ? name.Identifier.Text : Normalise(x.Left), Value(x.Right, creation.SpanStart)))
+                    .ToList()
+                : [],
+            Items = initializer is not null && initializer.IsKind(SyntaxKind.CollectionInitializerExpression)
+                ? initializer.Expressions.Select(x => Value(x, creation.SpanStart)).ToList()
+                : [],
+            Text = Normalise(creation),
+            At = CSharpReader.SpanOf(creation, file)
+        };
+    }
+
+    private TypeRefNode Created(ObjectCreationExpressionSyntax creation)
+    {
+        if (!_created.TryGetValue(creation, out var type))
+        {
+            _created[creation] = type = CSharpReader.TypeRef(creation.Type);
+            _createdBy[type] = creation;
+        }
+
+        return type;
     }
 
     /// <summary>The types an expression can be, and whether every way it is given is known (<see cref="ValueNode"/>).</summary>
@@ -62,7 +407,7 @@ internal sealed class CSharpBody(SyntaxNode member, TypeNode owner, string file,
             case ParenthesizedExpressionSyntax parenthesized:
                 return TypesOf(parenthesized.Expression, before, depth);
             case ObjectCreationExpressionSyntax creation:
-                return ([CSharpReader.TypeRef(creation.Type)], true);
+                return ([Created(creation)], true);
             case CastExpressionSyntax cast:
                 return OrDeclared(TypesOf(cast.Expression, before, depth), cast.Type);
             case BinaryExpressionSyntax { Right: TypeSyntax type } binary when binary.IsKind(SyntaxKind.AsExpression):
@@ -75,6 +420,18 @@ internal sealed class CSharpBody(SyntaxNode member, TypeNode owner, string file,
             }
             case ThisExpressionSyntax:
                 return ([OwnerRef()], true);
+            case InvocationExpressionSyntax invocation when depth < MaxDepth && !IsNameOf(invocation):
+                // What the method it reaches returns, with the type arguments the call passes.
+                return Resolve(invocation.Expression, invocation.ArgumentList.Arguments.Count, invocation.SpanStart, depth + 1) is { Targets: [var target] }
+                       && target.ReturnsGiven(TypeArgumentsOf(invocation.Expression)) is { } returns
+                    ? ([returns], true)
+                    : Unknown;
+            case AwaitExpressionSyntax awaited:
+            {
+                // What a Task<T> or ValueTask<T> gives when awaited.
+                var (types, known) = TypesOf(awaited.Expression, before, depth);
+                return known && types.All(x => x is { Name: "Task" or "ValueTask", Arguments.Count: 1 }) ? (types.Select(x => x.Arguments[0]).ToList(), true) : Unknown;
+            }
             case IdentifierNameSyntax identifier when depth < MaxDepth:
                 return Named(identifier, before, depth);
             case MemberAccessExpressionSyntax { Expression: ThisExpressionSyntax } access:
@@ -101,21 +458,9 @@ internal sealed class CSharpBody(SyntaxNode member, TypeNode owner, string file,
     private (List<TypeRefNode> Types, bool Known) Named(IdentifierNameSyntax identifier, int before, int depth)
     {
         var name = identifier.Identifier.Text;
-        var local = member.DescendantNodes().OfType<VariableDeclaratorSyntax>().LastOrDefault(x => x.Identifier.Text == name && x.SpanStart < before);
-        if (local is not null)
+        if (Local(identifier, before) is { } local)
         {
-            // Its initializer and every plain assignment to it before the use (one in each branch of an if is both).
-            var values = new List<ExpressionSyntax>();
-            if (local.Initializer?.Value is { } initializer)
-            {
-                values.Add(initializer);
-            }
-
-            values.AddRange(member.DescendantNodes().OfType<AssignmentExpressionSyntax>()
-                .Where(x => x.IsKind(SyntaxKind.SimpleAssignmentExpression) && x.Left is IdentifierNameSyntax { Identifier.Text: var assigned } && assigned == name
-                            && x.SpanStart > local.SpanStart && x.SpanStart < before)
-                .Select(x => x.Right));
-            var given = values.Select(x => TypesOf(x, x.SpanStart, depth + 1)).ToList();
+            var given = LocalValues(local, name, before).Select(x => TypesOf(x, x.SpanStart, depth + 1)).ToList();
             (List<TypeRefNode> Types, bool Known) value = (given.SelectMany(x => x.Types).ToList(), given.Count > 0 && given.All(x => x.Known));
             return local.Parent is VariableDeclarationSyntax { Type.IsVar: false } declaration ? OrDeclared(value, declaration.Type) : value;
         }
@@ -127,6 +472,26 @@ internal sealed class CSharpBody(SyntaxNode member, TypeNode owner, string file,
         }
 
         return FieldOf(owner, name);
+    }
+
+    /// <summary>The local a name is: the last one of the name declared before the use.</summary>
+    private VariableDeclaratorSyntax? Local(IdentifierNameSyntax identifier, int before) =>
+        roots.SelectMany(x => x.DescendantNodes()).OfType<VariableDeclaratorSyntax>().LastOrDefault(x => x.Identifier.Text == identifier.Identifier.Text && x.SpanStart < before);
+
+    /// <summary>What a local is given before the use: its initializer and every plain assignment to it (one in each branch of an if is both).</summary>
+    private List<ExpressionSyntax> LocalValues(VariableDeclaratorSyntax local, string name, int before)
+    {
+        var values = new List<ExpressionSyntax>();
+        if (local.Initializer?.Value is { } initializer)
+        {
+            values.Add(initializer);
+        }
+
+        values.AddRange(roots.SelectMany(x => x.DescendantNodes()).OfType<AssignmentExpressionSyntax>()
+            .Where(x => x.IsKind(SyntaxKind.SimpleAssignmentExpression) && x.Left is IdentifierNameSyntax { Identifier.Text: var assigned } && assigned == name
+                        && x.SpanStart > local.SpanStart && x.SpanStart < before)
+            .Select(x => x.Right));
+        return values;
     }
 
     private static IEnumerable<ParameterSyntax> Parameters(SyntaxNode node) => node switch

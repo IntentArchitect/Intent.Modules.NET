@@ -14,7 +14,7 @@ namespace Intent.Modules.Common.DriftEngine;
 /// One drift run: scope decides which files are read, the readers build the code graph, the packs' vocabulary turns the
 /// model into claims, and structure comparison gives each claim its outcome. Nothing is written (P4).
 /// </summary>
-public sealed class DriftEngine
+public sealed partial class DriftEngine
 {
     private const string CodebaseStructure = "Codebase Structure";
 
@@ -25,14 +25,26 @@ public sealed class DriftEngine
     private readonly IReadOnlyDictionary<string, IValueComparer> _comparers;
     private readonly IReadOnlyList<(string Extension, ILanguage Language)> _languages;
 
-    /// <summary>The profile of the language that read the most in-scope files: its type names, collections and type kinds.</summary>
+    /// <summary>
+    /// Each language's profile: its type names, collections, naming and type kinds. Code is compared under its own language's,
+    /// so one run reads C# and TypeScript, or Java and TypeScript, each as written (C3).
+    /// </summary>
+    private readonly Dictionary<string, JsonNode> _profiles = new(StringComparer.Ordinal);
+
+    /// <summary>The profile of the language that read the most in-scope files, for what no code says the language of.</summary>
     private JsonNode _profile = new JsonObject();
+
+    /// <summary>The languages that read in-scope files, most files first.</summary>
+    private IReadOnlyList<string> _read = [];
     private ScopeModel _scope = null!;
     private readonly List<(string Path, ScopeDecision Decision)> _files = [];
     private readonly List<Claim> _claims = [];
     private readonly Dictionary<ClaimRef, Claim> _index = [];
     private readonly Dictionary<Claim, TypeNode> _types = [];
     private readonly Dictionary<Claim, MemberNode> _members = [];
+
+    /// <summary>The member a claim reads, as the refiners gave it (<see cref="IMemberRefiner"/>), when one did.</summary>
+    private readonly Dictionary<Claim, MemberNode> _refined = [];
 
     /// <summary>What an extension's existence claim located that is neither a type nor a member: a route, a mapping.</summary>
     private readonly Dictionary<Claim, object> _located = [];
@@ -93,19 +105,21 @@ public sealed class DriftEngine
         {
             findings.AddRange(ScopeFindings());
             findings.AddRange(_claims.Where(x => x.Outcome != "verified" && x.Reason is not "blocked" && !NotStated(x)).Select(Report));
-            if (_claims.Where(NotStated).ToList() is { Count: > 0 } notStated)
-            {
-                findings.Add(NotStatedFinding(notStated));
-            }
+            // One note per language, since each says why its own code leaves nullability unstated.
+            findings.AddRange(_claims.Where(NotStated)
+                .GroupBy(x => LanguageOf(x.Reading!.At!.File)?.Name ?? "", StringComparer.Ordinal)
+                .OrderBy(x => x.Key, StringComparer.Ordinal)
+                .Select(x => NotStatedFinding(x.ToList())));
 
             findings.AddRange(Rules());
+            findings.AddRange(OptIn());
         }
 
         findings.AddRange(_graph.Failures.Select(x => new Finding("engine/readerFailed", ScopeArea, "Code", "error",
             $"The {LanguageOf(x.File)?.Title ?? "code"} reader can't read {x.File}: {x.Error} Claims that need it can't be verified.", new Anchor(File: x.File, Line: 1))));
         findings.AddRange(_extensionFailures.GroupBy(x => x.Extension).Select(x => new Finding("config/pluginFailed", ScopeArea, "Code", "error",
             $"The {x.Key} extension failed: {x.First().Error} Claims it reads can't be verified.", new Anchor(Text: x.Key))));
-        return new RunResult(_claims, findings, Coverage(), _packs.Select(x => new PackRef(x.Id, x.Version)).ToList(), FilesRead());
+        return new RunResult(_claims, Overridden(findings), Coverage(), _packs.Select(x => new PackRef(x.Id, x.Version)).ToList(), FilesRead());
     }
 
     private const string ScopeArea = "Drift Scope (DriftEngine)";
@@ -119,7 +133,11 @@ public sealed class DriftEngine
         {
             try
             {
-                findings.AddRange(rule.Check(context).Select(x => x with { Area = $"{x.Area} (DriftEngine)" }).ToList());
+                // Code a Context row decides is read for the rules, never reported on itself.
+                findings.AddRange(rule.Check(context)
+                    .Where(x => x.Subject.File is not { } file || !_codeScope.Includes(file) || _codeScope.Checks(file))
+                    .Select(x => x with { Area = $"{x.Area} (DriftEngine)" })
+                    .ToList());
             }
             catch (Exception e)
             {
@@ -131,20 +149,22 @@ public sealed class DriftEngine
     }
 
     /// <summary>
-    /// A claim the code can't state in its language context: C# nullability outside a nullable context. It is can't
-    /// verify, <c>unresolved</c>, like any fact the reader can't supply (R35), but neither side can be wrong, so it isn't
-    /// drift: it has no finding of its own, and one <c>engine/notStated</c> note lists them all.
+    /// A claim the code can't state in its language: a C# reference type outside a nullable context, or an unannotated Java
+    /// one. It is can't verify, <c>unresolved</c>, like any fact the reader can't supply (R35), but neither side can be
+    /// wrong, so it isn't drift: it has no finding of its own, and one <c>engine/notStated</c> note lists them all.
     /// </summary>
     private static bool NotStated(Claim claim) =>
         claim is { Reason: "unresolved", Reading: { Value: "unknown", At: not null } } && claim.Kind.EndsWith(".nullable", StringComparison.Ordinal);
 
-    private static Finding NotStatedFinding(IReadOnlyList<Claim> claims)
+    /// <summary>The note's why and how-to come from the language profile's <c>nullable.notStated</c>.</summary>
+    private Finding NotStatedFinding(IReadOnlyList<Claim> claims)
     {
         var designers = claims.GroupBy(x => x.Designer).OrderBy(x => x.Key).Select(x => $"{x.Key} {x.Count()}");
         var folders = claims.Select(x => x.Reading!.At!.File).Distinct().GroupBy(x => x.Split('/')[0]).OrderBy(x => x.Key).Select(x => $"{x.Key} {x.Count()}");
+        var why = ProfileOf(claims[0].Reading!.At!.File)["nullable"]?["notStated"]?.GetValue<string>() ?? "Their code doesn't state whether these types are nullable.";
         return new Finding("engine/notStated", ScopeArea, "Code", "info",
-            $"Not checked: {claims.Count} nullability claims ({string.Join(", ", designers)}). Their code is outside a nullable context, so it doesn't state whether a reference type is nullable; turn nullable reference types on to check them. Files outside a nullable context: {string.Join(", ", folders)}.",
-            new Anchor(Text: "nullable context"));
+            $"Not checked: {claims.Count} nullability claims ({string.Join(", ", designers)}). {why} Files: {string.Join(", ", folders)}.",
+            new Anchor(Text: "nullability"));
     }
 
     /// <summary>Rows that need attention, and the coverage listing (R15, R23, R24).</summary>
@@ -155,10 +175,12 @@ public sealed class DriftEngine
         {
             var subject = new Anchor(Element: row.Host);
             var what = row.Types.Count > 0 ? $"types {string.Join(", ", row.Types)}" : string.Join(", ", row.Globs.Select(x => x.Pattern));
-            if (!row.In && string.IsNullOrWhiteSpace(row.Reason))
+            // A Context row keeps its code from being checked as much as an Out row does, so it needs a reason too.
+            if ((!row.In || row.Context) && string.IsNullOrWhiteSpace(row.Reason))
             {
-                yield return new Finding("scope/reason", ScopeArea, "Code", "error",
-                    $"Scope row {row.Number} ({what}) is Out with no reason. Say why this code isn't checked.", subject);
+                yield return new Finding("scope/reason", ScopeArea, "Code", "error", row.Context
+                    ? $"Scope row {row.Number} ({what}) is Context with no reason. Say why this code is read but not checked."
+                    : $"Scope row {row.Number} ({what}) is Out with no reason. Say why this code isn't checked.", subject);
             }
 
             var decides = row.Types.Count > 0
@@ -172,6 +194,10 @@ public sealed class DriftEngine
             else if (!row.In)
             {
                 listing.Add($"row {row.Number} ({what}), {decides} {(row.Types.Count > 0 ? "types" : "files")}: {row.Reason}");
+            }
+            else if (row.Context)
+            {
+                listing.Add($"row {row.Number} ({what}), {decides} files read for context only: {row.Reason}");
             }
         }
 
@@ -203,12 +229,13 @@ public sealed class DriftEngine
             .Select(x => Path.GetRelativePath(_input.OutputFolder, x).Replace('\\', '/'))
             .ToList();
         _scope = ScopeModel.From(_input.Designers.GetValueOrDefault(CodebaseStructure), all);
+        _check = CheckModel.From(_input.Designers.GetValueOrDefault(CodebaseStructure));
         foreach (var path in all)
         {
             _files.Add((path, _scope.Decide(path)));
         }
 
-        _codeScope = new CodeScope(_files.Select(x => (x.Path, x.Decision.In)));
+        _codeScope = new CodeScope(_files.Select(x => (x.Path, x.Decision.In, x.Decision.Checked)));
 
         // Each language reads its in-scope files; a file no language reads isn't read.
         var read = new Dictionary<string, int>();
@@ -231,8 +258,17 @@ public sealed class DriftEngine
             }
         }
 
-        var primary = read.OrderByDescending(x => x.Value).Select(x => x.Key).Concat(_languages.Select(x => x.Language.Name)).FirstOrDefault();
-        _profile = _packs.Select(x => primary is null ? null : x.Profile(primary)).LastOrDefault(x => x is not null) ?? new JsonObject();
+        foreach (var name in _languages.Select(x => x.Language.Name))
+        {
+            if (_packs.Select(x => x.Profile(name)).LastOrDefault(x => x is not null) is { } profile)
+            {
+                _profiles[name] = profile;
+            }
+        }
+
+        _read = read.OrderByDescending(x => x.Value).ThenBy(x => x.Key, StringComparer.Ordinal).Select(x => x.Key).ToList();
+        var primary = _read.Concat(_languages.Select(x => x.Language.Name)).FirstOrDefault();
+        _profile = primary is not null && _profiles.TryGetValue(primary, out var primaryProfile) ? primaryProfile : new JsonObject();
 
         // A type a scope row excludes by name is not read, though its file is (R26).
         foreach (var type in _graph.Types.ToList())
@@ -263,6 +299,19 @@ public sealed class DriftEngine
     /// <summary>The language that reads a file; null when none does.</summary>
     private ILanguage? LanguageOf(string path) => _languages.Select(x => x.Language).FirstOrDefault(x => x.Reads(path));
 
+    /// <summary>The profile of the language a file is written in; the run's primary one when no language reads it.</summary>
+    internal JsonNode ProfileOf(string file) => LanguageOf(file) is { } language && _profiles.TryGetValue(language.Name, out var profile) ? profile : _profile;
+
+    internal JsonNode ProfileOf(TypeNode type) => ProfileOf(type.At.File);
+
+    internal JsonNode ProfileOf(MemberNode member) => ProfileOf(member.At.File);
+
+    /// <summary>The profile of the language a type reference is written in, as its reader says.</summary>
+    internal JsonNode ProfileOf(TypeRefNode type) => type.Language is { } language && _profiles.TryGetValue(language, out var profile) ? profile : _profile;
+
+    /// <summary>The profiles of the languages that read files, the primary one first; the primary alone when none did.</summary>
+    private IEnumerable<JsonNode> ReadProfiles() => _read.Count == 0 ? [_profile] : _read.Select(x => _profiles.GetValueOrDefault(x)).OfType<JsonNode>();
+
     private IReadOnlyList<FileRead> FilesRead() =>
         _files.Where(x => x.Decision.In).Select(x => (x.Path, Language: LanguageOf(x.Path))).Where(x => x.Language is not null)
             .Select(x => new FileRead(x.Path, x.Language!.Name)).ToList();
@@ -270,7 +319,7 @@ public sealed class DriftEngine
     private Coverage Coverage()
     {
         var rows = _scope.Rows.Select(row => new CoverageRow(
-            row.Host, row.Number, row.Globs.Select(x => x.Pattern).ToList(), row.Types.Count == 0 ? null : row.Types, row.In ? "In" : "Out", row.Reason,
+            row.Host, row.Number, row.Globs.Select(x => x.Pattern).ToList(), row.Types.Count == 0 ? null : row.Types, row.Scope, row.Reason,
             _files.Count(x => x.Decision.Row == row))).ToList();
         var builtin = _files.Where(x => x.Decision.Builtin is not null).GroupBy(x => x.Decision.Builtin!).ToDictionary(x => x.Key, x => x.Count());
         var unmatched = _files.Count(x => x.Decision is { Row: null, Builtin: null });
@@ -336,7 +385,7 @@ public sealed class DriftEngine
 
     private void Add(Claim claim, bool replace)
     {
-        var key = new ClaimRef(claim.Designer, claim.Element, claim.Kind);
+        var key = new ClaimRef(claim.Designer, claim.Element, claim.Kind, claim.Discriminator);
         if (_index.TryGetValue(key, out var existing))
         {
             if (!replace)
@@ -374,6 +423,7 @@ public sealed class DriftEngine
             Kind = spec.Kind,
             Designer = spec.Designer,
             Element = spec.Element.Id,
+            Discriminator = spec.Discriminator,
             Path = PathOf(spec.Element),
             Expected = expected,
             Stated = definition.Stated,
@@ -452,6 +502,10 @@ public sealed class DriftEngine
     internal IReadOnlyList<IElement> Elements(string designer) =>
         _input.Designers.GetValueOrDefault(designer)?.SelectMany(x => x.ChildElements).SelectMany(Descendants).ToList() ?? [];
 
+    internal IReadOnlyList<IPackage> References(string designer) => _input.References.GetValueOrDefault(designer) ?? [];
+
+    internal IReadOnlyList<IElement> ReferencedElements(string designer) => References(designer).SelectMany(x => x.ChildElements).SelectMany(Descendants).ToList();
+
     private static IEnumerable<IElement> Descendants(IElement element) => new[] { element }.Concat(element.ChildElements.SelectMany(Descendants));
 
     /// <summary>
@@ -483,10 +537,10 @@ public sealed class DriftEngine
 
     private JsonNode? Convention(string designer, IElement element) => _packs.Select(x => x.TypeConvention(designer, element.SpecializationType)).LastOrDefault(x => x is not null);
 
+    /// <summary>The kinds an element's type may be: its convention's, else every kind the languages read have.</summary>
     private IReadOnlyList<string> TypeKinds(string designer, IElement element) =>
         (Convention(designer, element)?["typeKinds"] as JsonArray)?.Select(x => x!.GetValue<string>()).ToList()
-        ?? (_profile["typeKinds"] as JsonArray)?.Select(x => x!.GetValue<string>()).ToList()
-        ?? [];
+        ?? ReadProfiles().SelectMany(x => (x["typeKinds"] as JsonArray)?.Select(k => k!.GetValue<string>()) ?? []).Distinct().ToList();
 
     // ---- Outcomes (block 3) ----
 
@@ -512,6 +566,25 @@ public sealed class DriftEngine
         {
             Cant(claim, "outOfScope", new Reading { Detail = "No Drift Scope is set, so no file is in scope." });
             return;
+        }
+
+        // A house's refiners give the located member as the house reads it, in extension order, so a later one refines what
+        // an earlier one gave; everything below reads that member.
+        foreach (var (extension, refiner) in _extensions.SelectMany(x => x.Refiners.Select(r => (x.Id, r))).Where(x => x.r.Kinds.Contains(claim.Kind)))
+        {
+            try
+            {
+                if (refiner.Refine(new ClaimContext(this, claim, _graph, _codeScope)) is { } refined)
+                {
+                    _refined[claim] = refined;
+                }
+            }
+            catch (Exception e)
+            {
+                _extensionFailures.Add((extension, $"{e.GetType().Name}: {e.Message}"));
+                Cant(claim, "ruleFailed", new Reading { Detail = $"The {extension} extension failed refining it." });
+                return;
+            }
         }
 
         // A pack's recipe for the kind replaces the built-in rule; of several, the last pack's wins, so a house pack
@@ -579,7 +652,7 @@ public sealed class DriftEngine
                     break;
                 }
 
-                Compare(claim, member.Type.Text, member.At, "code", TypeComparer.Matches(model, member.Type, _profile));
+                Compare(claim, member.Type.Text, member.At, "code", TypeMatches(model, member.Type));
                 break;
             }
             case "member.nullable":
@@ -593,7 +666,7 @@ public sealed class DriftEngine
 
                 if (member.Type?.Nullable is null or "unknown")
                 {
-                    Cant(claim, "unresolved", new Reading { At = member.At, Value = "unknown", Detail = $"{member.At.File} is outside a nullable context, so a reference type's nullability is unknown." });
+                    Cant(claim, "unresolved", new Reading { At = member.At, Value = "unknown", Detail = $"{member.At.File} doesn't state whether `{member.Type?.Text}` is nullable." });
                     break;
                 }
 
@@ -612,10 +685,10 @@ public sealed class DriftEngine
                 // An async method returns what the model states, through the profile's async wrappers: C#'s Task<T> is T,
                 // and Task is void.
                 var member = OwnMember(claim);
-                var returns = Unwrapped(member.Type);
+                var returns = Unwrapped(member);
                 var actual = returns?.Text ?? "void";
                 Compare(claim, member.Type?.Text ?? "void", member.At, "code", claim.ExpectedValue is ITypeReference model
-                    ? returns is not null && returns.Text != "void" && TypeComparer.Matches(model, returns, _profile)
+                    ? returns is not null && returns.Text != "void" && TypeMatches(model, returns)
                     : actual == "void");
                 break;
             }
@@ -651,12 +724,12 @@ public sealed class DriftEngine
                 var code = Stated(member);
                 var model = Parameters(claim.Source);
                 var same = code.Count == model.Count && code.Zip(model).All(x =>
-                    x.First.Name == x.Second.Name && x.First.Type is { } type && x.Second.TypeReference is { Element: not null } modelType && TypeComparer.Matches(modelType, type, _profile));
+                    x.First.Name == x.Second.Name && x.First.Type is { } type && x.Second.TypeReference is { Element: not null } modelType && TypeMatches(modelType, type));
                 Compare(claim, string.Join(", ", code.Select(x => $"{x.Name}: {x.Type?.Text ?? "?"}")), member.At, "code", same);
                 break;
             }
             default:
-                Cant(claim, "noRule", new Reading { Detail = $"No active pack has a rule for {claim.Kind}." });
+                Cant(claim, "noRule", new Reading { Detail = $"There's no rule for {claim.Kind} in the active packs." });
                 break;
         }
     }
@@ -667,13 +740,18 @@ public sealed class DriftEngine
     {
         // The conventions' name, else the profile's: an element whose type may only be an interface is named as the
         // language names interfaces (C#'s I{Name}).
+        // Each type is looked for by the name its own language gives it.
         var element = claim.Source;
-        var name = Convention(claim.Designer, element)?["name"]?.GetValue<string>() is { } pattern
+        var pattern = Convention(claim.Designer, element)?["name"]?.GetValue<string>();
+        var kinds = TypeKinds(claim.Designer, element) is ["interface"] ? new[] { "interface", "type" } : ["type"];
+        string NameIn(JsonNode profile) => pattern is not null
             ? Naming.Fill(pattern, new Dictionary<string, string> { ["Name"] = element.Name })
-            : Naming.InCode(_profile, element.Name, TypeKinds(claim.Designer, element) is ["interface"] ? ["interface", "type"] : ["type"]);
+            : Naming.InCode(profile, element.Name, kinds);
+        var names = ReadProfiles().Select(NameIn).Distinct().ToList();
+        var name = string.Join("` or `", names);
         var locations = (Convention(claim.Designer, element)?["locations"] as JsonArray)?.Select(x => new GlobPattern(x!.GetValue<string>())).ToList() ?? [];
         var candidates = _graph.Types
-            .Where(x => x.Name == name && (locations.Count == 0 || x.Files.Any(f => locations.Any(g => g.IsMatch(f)))))
+            .Where(x => x.Name == NameIn(ProfileOf(x)) && (locations.Count == 0 || x.Files.Any(f => locations.Any(g => g.IsMatch(f)))))
             .ToList();
         if (candidates.Count > 1)
         {
@@ -700,7 +778,7 @@ public sealed class DriftEngine
                 Verify(claim, new Reading { Value = "present", From = "code", At = candidates[0].At });
                 break;
             case 0:
-                Missing(claim, name, $"a {string.Join(" or ", TypeKinds(claim.Designer, element))} named `{name}`");
+                Missing(claim, names, $"a {string.Join(" or ", TypeKinds(claim.Designer, element))} named `{name}`");
                 break;
             default:
                 Cant(claim, "ambiguous", new Reading { Candidates = candidates.Select(x => x.At).ToList() });
@@ -762,7 +840,7 @@ public sealed class DriftEngine
         }
         else if (element.SpecializationType == "Operation")
         {
-            var name = Naming.InCode(_profile, element.Name, ["method"]);
+            var name = Naming.InCode(ProfileOf(owner), element.Name, ["method"]);
             var methods = _graph.MembersOf(owner).Where(x => x.Kind == "method" && x.Name == name).ToList();
             member = methods.Count == 1 ? methods[0] : Overload(methods, element);
             searched = $"a method named `{name}` in `{owner.Name}`";
@@ -775,8 +853,8 @@ public sealed class DriftEngine
         else
         {
             // Java names a field after the model's attribute in camel case; C# writes it as modelled.
-            var property = Naming.InCode(_profile, element.Name, ["property"]);
-            var field = Naming.InCode(_profile, element.Name, ["field"]);
+            var property = Naming.InCode(ProfileOf(owner), element.Name, ["property"]);
+            var field = Naming.InCode(ProfileOf(owner), element.Name, ["field"]);
             member = _graph.MembersOf(owner).FirstOrDefault(x => x is { Kind: "property" } && x.Name == property || x is { Kind: "field" } && x.Name == field);
             searched = property == field ? $"a property named `{property}` in `{owner.Name}`" : $"a property `{property}` or a field `{field}` in `{owner.Name}`";
         }
@@ -799,7 +877,7 @@ public sealed class DriftEngine
     {
         var parameters = Parameters(element);
         var named = candidates.Where(x => Stated(x).Select(p => p.Name).SequenceEqual(parameters.Select(p => p.Name), StringComparer.OrdinalIgnoreCase)).ToList();
-        return named.FirstOrDefault(x => Stated(x).Zip(parameters).All(p => p.First.Type is { } code && p.Second.TypeReference is { Element: not null } model && TypeComparer.Matches(model, code, _profile)))
+        return named.FirstOrDefault(x => Stated(x).Zip(parameters).All(p => p.First.Type is { } code && p.Second.TypeReference is { Element: not null } model && TypeMatches(model, code)))
                ?? named.FirstOrDefault()
                ?? candidates.FirstOrDefault(x => Stated(x).Count == parameters.Count);
     }
@@ -808,9 +886,10 @@ public sealed class DriftEngine
     /// A return type without the profile's async wrapper (rules.md, Language profiles): <c>Task&lt;T&gt;</c> is <c>T</c>, and
     /// a <c>void</c> wrapper without its argument, <c>Task</c>, is null, as no result.
     /// </summary>
-    private TypeRefNode? Unwrapped(TypeRefNode? type)
+    private TypeRefNode? Unwrapped(MemberNode member)
     {
-        foreach (var wrapper in _profile["async"] as JsonArray ?? [])
+        var type = member.Type;
+        foreach (var wrapper in ProfileOf(member)["async"] as JsonArray ?? [])
         {
             if (type is null || wrapper?["wrapper"]?.GetValue<string>().Split('<')[0] != type.Name)
             {
@@ -832,7 +911,7 @@ public sealed class DriftEngine
     /// <summary>A method's parameters, less injected ones: those the framework supplies (rules.md, Locating an element's code).</summary>
     private IReadOnlyList<ParameterNode> Stated(MemberNode member)
     {
-        var injected = _profile["injectedParameters"]?.AsArray().Select(x => x!.GetValue<string>()).ToHashSet() ?? [];
+        var injected = ProfileOf(member)["injectedParameters"]?.AsArray().Select(x => x!.GetValue<string>()).ToHashSet() ?? [];
         return member.Parameters.Where(x => x.Type is null || !injected.Contains(x.Type.Name)).ToList();
     }
 
@@ -841,9 +920,11 @@ public sealed class DriftEngine
     /// is a file an Out row excludes or one no row includes; never a built-in exclusion (bin, obj, ...), which is junk by
     /// definition. Only the file's path is looked at, never its content.
     /// </summary>
-    private void Missing(Claim claim, string fileStem, string searchedFor)
+    private void Missing(Claim claim, string fileStem, string searchedFor) => Missing(claim, [fileStem], searchedFor);
+
+    private void Missing(Claim claim, IReadOnlyList<string> fileStems, string searchedFor)
     {
-        var shadow = _files.FirstOrDefault(x => !x.Decision.In && x.Decision.Builtin is null && IsNamedFor(x.Path, fileStem));
+        var shadow = _files.FirstOrDefault(x => !x.Decision.In && x.Decision.Builtin is null && fileStems.Any(stem => IsNamedFor(x.Path, stem)));
         if (shadow.Path is not null)
         {
             Cant(claim, "outOfScope", new Reading { ShadowFile = shadow.Path, ScopeRow = shadow.Decision.Row?.Id, Detail = searchedFor });
@@ -876,6 +957,11 @@ public sealed class DriftEngine
         {
             case "cantVerify":
                 Cant(claim, reading.Reason!, new Reading { At = reading.At, Detail = reading.Detail, Candidates = reading.Candidates });
+                break;
+            // A whenSet kind takes no value from silence: the code doesn't state it (R4).
+            case "absent" when reading.Value is null && claim.Stated == "whenSet":
+                claim.Outcome = "contradicted";
+                claim.Reading = new Reading { At = reading.At };
                 break;
             case "absent" when reading.Value is null:
                 Compare(claim, "none", reading.At!, "absent", false);
@@ -917,11 +1003,18 @@ public sealed class DriftEngine
 
     internal TypeNode? LocatedType(Claim claim) => Dependency(claim) is { } dependency && _types.TryGetValue(dependency, out var type) ? type : null;
 
-    internal MemberNode? LocatedMember(Claim claim) => Dependency(claim) is { } dependency && _members.TryGetValue(dependency, out var member) ? member : null;
+    /// <summary>The member the claim's dependency located, as the refiners give it for this claim.</summary>
+    internal MemberNode? LocatedMember(Claim claim) =>
+        _refined.TryGetValue(claim, out var refined) ? refined : Dependency(claim) is { } dependency && _members.TryGetValue(dependency, out var member) ? member : null;
 
     /// <summary>What the claim's dependencies located, nearest first, that is a <typeparamref name="T"/>.</summary>
     internal T? Located<T>(Claim claim) where T : class
     {
+        if (_refined.TryGetValue(claim, out var refined) && refined is T own)
+        {
+            return own;
+        }
+
         for (var current = Dependency(claim); current is not null; current = Dependency(current))
         {
             if (LocatedBy(current) is T found)
@@ -952,9 +1045,10 @@ public sealed class DriftEngine
         return LocatedBy(exists);
     }
 
-    internal bool TypeMatches(ITypeReference model, TypeRefNode code) => TypeComparer.Matches(model, code, _profile);
+    internal bool TypeMatches(ITypeReference model, TypeRefNode code) => TypeComparer.Matches(model, code, ProfileOf(code));
 
-    internal Claim? ClaimOn(string designer, IElement element, string kind) => _index.GetValueOrDefault(new ClaimRef(designer, element.Id, kind));
+    internal Claim? ClaimOn(string designer, IElement element, string kind, string? discriminator = null) =>
+        _index.GetValueOrDefault(new ClaimRef(designer, element.Id, kind, discriminator));
 
     /// <summary>
     /// A recipe (rules.md, Recipes), the subset built so far: a <c>find</c> of <c>type:</c>, <c>class:</c>,
@@ -1052,7 +1146,7 @@ public sealed class DriftEngine
 
     private TypeNode OwnType(Claim claim) => _types[Dependency(claim)!];
 
-    private MemberNode OwnMember(Claim claim) => _members[Dependency(claim)!];
+    private MemberNode OwnMember(Claim claim) => _refined.TryGetValue(claim, out var refined) ? refined : _members[Dependency(claim)!];
 
     private static void Verify(Claim claim, Reading reading)
     {
@@ -1081,7 +1175,8 @@ public sealed class DriftEngine
         var display = Owner(claim.Source) is { } parent && OnMember(claim)
             ? $"{parent.Name}.{claim.Source.Name}"
             : claim.Source.Name;
-        var label = claim.Definition.Label;
+        // One of several claims of its kind says which: `Customer` (IX_Customer_Email) columns.
+        var label = claim.Discriminator is { } key ? $"({key}) {claim.Definition.Label}" : claim.Definition.Label;
         var reading = claim.Reading!;
         var message = (claim.Outcome, claim.Reason) switch
         {

@@ -51,13 +51,13 @@
     "Domain": {
       "designer": "Domain",
       "types": {
-        "Class": { "typeKinds": ["class", "record"] },
-        "Enum": { "typeKinds": ["enum"] },
-        "Domain Event": { "typeKinds": ["class", "record"] },
-        "Value Object": { "typeKinds": ["class", "record", "struct"] },
-        "Repository": { "typeKinds": ["interface"] },
-        "Domain Service": { "typeKinds": ["class"] },
-        "Data Contract": { "typeKinds": ["class", "record"] }
+        "Class": { "typeKinds": ["class", "record"], "states": ["property", "field", "constructor", "method"] },
+        "Enum": { "typeKinds": ["enum"], "states": ["enumMember"] },
+        "Domain Event": { "typeKinds": ["class", "record"], "states": ["property", "field"] },
+        "Value Object": { "typeKinds": ["class", "record", "struct"], "states": ["property", "field"] },
+        "Repository": { "typeKinds": ["interface"], "states": ["method"] },
+        "Domain Service": { "typeKinds": ["class"], "states": ["method"] },
+        "Data Contract": { "typeKinds": ["class", "record"], "states": ["property", "field"] }
       }
     }
   }

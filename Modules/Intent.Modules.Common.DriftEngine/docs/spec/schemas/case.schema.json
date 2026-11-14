@@ -25,7 +25,7 @@
     "traces": { "type": "array", "items": { "type": "string", "pattern": "^(ESC|JAV)-(DOM|SVC|FE|ARC)-[0-9]{2}$" }, "uniqueItems": true },
     "requirements": { "type": "array", "items": { "type": "string", "pattern": "^R[0-9]+$" }, "uniqueItems": true },
     "packs": { "type": "array", "items": { "type": "string", "pattern": "^[a-z][a-z0-9]*(\\.[a-z0-9]+)*$" }, "uniqueItems": true },
-    "language": { "enum": ["csharp", "java", "typescript", "proto", "text"] },
+    "language": { "enum": ["csharp", "java", "typescript", "protobuf", "text"] },
     "note": { "type": "string" }
   }
 }

@@ -1007,7 +1007,7 @@
       "phase": 3
     }
   ],
-  "scope": ["missing", "stale", "reason", "coverage", "gate", "shadow", "notRead", "builtin", "type", "nested"],
+  "scope": ["missing", "stale", "reason", "coverage", "gate", "shadow", "notRead", "builtin", "type", "nested", "context"],
   "engine": [
     "noVocabulary",
     "noRule",

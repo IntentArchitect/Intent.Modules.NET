@@ -39,6 +39,10 @@
           "type": "object",
           "additionalProperties": { "type": "string" },
           "description": "A primitive to its boxed type, which is nullable: int to Integer"
+        },
+        "notStated": {
+          "type": "string",
+          "description": "Why the language leaves a type's nullability unstated, and how to make it checkable: the engine/notStated note's text"
         }
       }
     },
@@ -56,6 +60,12 @@
         "parameter": { "type": "string" },
         "file": { "type": "string" }
       }
+    },
+    "accessors": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "description": "The methods that read or write a field, as Java's get{Name|pascal}: unmodelled.member doesn't report a located field's accessors"
     },
     "typeKinds": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true }
   }

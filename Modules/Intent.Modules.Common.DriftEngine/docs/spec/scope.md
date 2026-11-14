@@ -18,8 +18,8 @@ The module adds a `Drift Scope` stereotype that applies to the Root Folder and t
 | -------- | ------------------- | ------------------------------------------------------------------------------------------------------ |
 | `Glob`   | text, one line each | The files the row matches, relative to the element's folder. Same rules as File Classification, below. |
 | `Types`  | text, one line each | Optional. Type names in the matched files that the row excludes. A row with `Types` must be `Out`.     |
-| `Scope`  | `In` or `Out`       | Whether the matched files (or types) are read                                                          |
-| `Reason` | text                | Why. Required on every `Out` row; optional on `In` rows.                                               |
+| `Scope`  | `In`, `Out` or `Context` | Whether the matched files (or types) are read, and whether they are checked                       |
+| `Reason` | text                | Why. Required on every `Out` and `Context` row; optional on `In` rows.                                 |
 
 ### Glob rules
 
@@ -70,6 +70,7 @@ basislink5 needs this: test helpers live in production files beside the code the
 - **Readers read only in-scope files** ([R22](requirements.md)). An out-of-scope file is never opened, and the run result's `files` proves it.
 - **Readings come only from in-scope code**, for every rule kind: recipes, queries and plug-ins.
 - **Opt-in rules report only in-scope code** ([R49](requirements.md)).
+- **A `Context` row reads without checking** ([R20](requirements.md)). Some code is needed for what it says about other code, but isn't code the model describes: the composition root that registers handlers, the DbContext, a shared base class. Its files are read, so claims verify from them and rules use what they say, but no finding is about their own code: opt-in rules skip them, and a rule's finding whose subject is one of them is dropped. Within the folder an element's rows resolve as usual, so a Context row can sit inside an In row's glob, and the last matching row wins. The coverage listing names them as read for context only.
 - **Packs and the house pack aren't code.** They are read wherever they are.
 
 ## Shadow lookup
@@ -87,7 +88,7 @@ No hit leaves the outcome to the rest of the order in [claims-and-findings.md](c
 | Rule             | When                                                                                            | Severity               |
 | ---------------- | ----------------------------------------------------------------------------------------------- | ---------------------- |
 | `scope/missing`  | No `Drift Scope` row anywhere. One finding, with the number of claims none can be verified for. | Error                  |
-| `scope/reason`   | An `Out` row with no reason                                                                     | Error                  |
+| `scope/reason`   | An `Out` or `Context` row with no reason                                                        | Error                  |
 | `scope/stale`    | A row that decides no file and excludes no type                                                 | Warning                |
 | `scope/coverage` | The listing below                                                                               | Info, logged only      |
 | `config/glob`    | A pattern the matcher rejects                                                                   | Error                  |
@@ -116,7 +117,9 @@ The rest of the engine's model configuration sits on the Root Folder in a second
 | `Opt-in Rules`       | `Rule`, `Glob`               | Turns an opt-in rule on, optionally narrowed by a glob relative to the output folder ([rules.md](rules.md#opt-in-must-be-modelled-rules))                                                                                                |
 | `Exceptions`         | `Rule`, `Match`, `Reason`    | Code an opt-in rule must not report, and why                                                                                                                                                                                             |
 
-Every `Rule` column holds a finding's rule id, as findings carry it: `optin/unmodelled.type` to turn that rule on or except its findings, `claim/column.*` to override every column claim's severity.
+Every `Rule` column holds a finding's rule id, as findings carry it: `optin/unmodelled.type` to turn that rule on or except its findings, `claim/column.*` to override every column claim's severity. A `Severity Overrides` row's `Severity` is `Error` or `Warning`, it applies to every finding but the log's info, and the last matching row wins.
+
+The module models `Opt-in Rules`, `Exceptions` and `Severity Overrides`. `Packs` isn't modelled yet: every installed pack runs until pack selection ([R52](requirements.md)) is built.
 
 Configuration findings:
 
@@ -129,7 +132,8 @@ Configuration findings:
 | `config/exceptionReason` | An exception with no reason                                              | Error    |
 | `optin/staleException`   | An exception that matches nothing                                        | Warning  |
 | `config/unknownRule`     | An override, opt-in row or exception naming a rule no pack provides      | Error    |
+| `config/overrideSeverity` | A severity override whose severity isn't Error or Warning               | Error    |
 
 ## Acceptance cases
 
-The `scope` area of the suite ([acceptance-suite.md](acceptance-suite.md)) has a file per case kind: `missing`, `reason`, `stale`, `coverage`, `gate` (opt-in rules ignore out-of-scope code), `shadow`, `notRead`, `builtin`, `type` and `nested`. The catalog maps eShopCustom's adoption-scope checks onto them ([claim-catalog.md](claim-catalog.md)).
+The `scope` area of the suite ([acceptance-suite.md](acceptance-suite.md)) has a file per case kind: `missing`, `reason`, `stale`, `coverage`, `gate` (opt-in rules ignore out-of-scope code), `shadow`, `notRead`, `builtin`, `type`, `nested` and `context`. The catalog maps eShopCustom's adoption-scope checks onto them ([claim-catalog.md](claim-catalog.md)).

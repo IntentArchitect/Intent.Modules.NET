@@ -18,7 +18,10 @@ public sealed class AspNetCoreExtension : IDriftExtension
     public IEnumerable<IClaimReader> ClaimReaders { get; } = [new AspNetCoreClaims(), new MinimalApiClaims()];
 }
 
-/// <summary>ASP.NET Core is in the code: a controller, an attribute-routed action, or a Minimal API endpoint.</summary>
+/// <summary>
+/// ASP.NET Core is in the code: a controller, an attribute-routed action, or a Minimal API endpoint. A Razor component's
+/// <c>[Route]</c> (its <c>@page</c>) is a page's route, not an endpoint's.
+/// </summary>
 internal sealed class AspNetCoreCode;
 
 internal sealed class AspNetCoreDetector : ICodeReader
@@ -28,7 +31,7 @@ internal sealed class AspNetCoreDetector : ICodeReader
     public void Read(CodeGraph graph)
     {
         if (graph.Get<MinimalApiModel>() is { Endpoints.Count: > 0 }
-            || graph.Types.Any(x => x.Attributes.Concat(x.Members.SelectMany(m => m.Attributes)).Any(a => Attributes.Contains(a.Name))
+            || graph.Types.Any(x => x.Kind != "component" && x.Attributes.Concat(x.Members.SelectMany(m => m.Attributes)).Any(a => Attributes.Contains(a.Name))
                                     || graph.Supertypes(x).Any(s => s is "ControllerBase" or "Controller")))
         {
             graph.Set(new AspNetCoreCode());
@@ -42,7 +45,9 @@ internal sealed class AspNetCoreClaims : IClaimReader
 
     private static readonly Dictionary<string, string> BindingSources = new()
     {
-        ["FromBody"] = "From Body", ["FromRoute"] = "From Route", ["FromQuery"] = "From Query", ["FromHeader"] = "From Header", ["FromForm"] = "From Form"
+        ["FromBody"] = "From Body", ["FromRoute"] = "From Route", ["FromQuery"] = "From Query", ["FromHeader"] = "From Header", ["FromForm"] = "From Form",
+        // Injected from the container, not bound from the request: a modelled request Parameter there is wrong.
+        ["FromServices"] = "From Services"
     };
 
     public IReadOnlyCollection<string> Kinds { get; } = new HashSet<string>(StringComparer.Ordinal)

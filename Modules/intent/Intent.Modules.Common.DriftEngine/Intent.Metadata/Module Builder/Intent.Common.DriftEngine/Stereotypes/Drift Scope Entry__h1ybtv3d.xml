@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="fe20f2d9-4d95-44c8-96cb-9b129d9e56a5" version="3.1.0">
-  <comment>One row of a Drift Scope: the files (or types in them) it decides, whether they are read, and why.</comment>
+  <comment>One row of a Drift Scope: the files (or types in them) it decides, whether they are read and checked, and why.</comment>
   <name>Drift Scope Entry</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -37,7 +37,7 @@
       <optionsSource>n/a</optionsSource>
     </property>
     <property id="34ebee0c-b472-4179-a5d1-f95bf154db78">
-      <hint>Whether the matched files (or types) are read.</hint>
+      <hint>In: read and checked. Out: not read. Context: read, so claims and rules can use what it says, but its own code isn't checked.</hint>
       <name>Scope</name>
       <type>string</type>
       <controlType>select</controlType>
@@ -46,10 +46,11 @@
       <valueOptions>
         <option>In</option>
         <option>Out</option>
+        <option>Context</option>
       </valueOptions>
     </property>
     <property id="cc06fdd0-1072-4601-8cc2-323e9b8fbe79">
-      <hint>Why. Required on every Out row.</hint>
+      <hint>Why. Required on every Out and Context row.</hint>
       <name>Reason</name>
       <type>string</type>
       <controlType>text</controlType>

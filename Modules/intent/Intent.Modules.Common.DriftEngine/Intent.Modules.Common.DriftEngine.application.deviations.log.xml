@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#d07782de-f1dc-422f-8a46-3cf013ed9901</correlationId>
+      <path>FactoryExtensions/DriftEngineReporter.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-11-13T21:59:46.1550157Z</updatedAt>
+      <deviationsHash>04DF17F56591FC864D4911F0ED73F7FAD33A4FF35E7E3A735AD92CB667E16219</deviationsHash>
+    </file>
+  </files>
 </deviationsLog>

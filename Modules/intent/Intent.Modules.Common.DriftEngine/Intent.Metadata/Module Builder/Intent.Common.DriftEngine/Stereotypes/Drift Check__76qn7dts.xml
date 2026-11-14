@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="baf16c68-1491-4c76-97ad-be1f3f4661ce" version="3.1.0">
+  <comment>The drift engine's checks beyond the model's own claims: the opt-in "must be modelled" rules, the exceptions to them, and severity overrides. No opt-in rule runs until a row here turns it on.</comment>
+  <name>Drift Check</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="07e7b690-a59d-4b72-8440-4308a121d32c">Root Folder</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="tasks" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b4107910-4d30-42b3-a453-ccbfda74f7cc</parentFolderId>
+  <order>0</order>
+  <packageId>b4107910-4d30-42b3-a453-ccbfda74f7cc</packageId>
+  <packageName>Intent.Common.DriftEngine</packageName>
+  <properties>
+    <property id="9917fe75-64c5-40ee-aa31-839289e3d343">
+      <hint>The opt-in rules turned on.</hint>
+      <name>Opt-in Rules</name>
+      <type>string</type>
+      <controlType>item-list</controlType>
+      <optionsSource>n/a</optionsSource>
+      <itemTypeId>8648e3bd-177b-4fc4-908d-96cc4ccd2009</itemTypeId>
+    </property>
+    <property id="dee85862-1e0a-422c-8bae-a2f8527bdb4b">
+      <hint>Code the opt-in rules must not report. An exception that matches nothing is a warning.</hint>
+      <name>Exceptions</name>
+      <type>string</type>
+      <controlType>item-list</controlType>
+      <optionsSource>n/a</optionsSource>
+      <itemTypeId>890d0cac-4620-452c-a5de-8d569c367e8e</itemTypeId>
+    </property>
+    <property id="27f962ba-78a3-466b-98f5-fe796882639b">
+      <hint>Severity changes. The last matching row wins.</hint>
+      <name>Severity Overrides</name>
+      <type>string</type>
+      <controlType>item-list</controlType>
+      <optionsSource>n/a</optionsSource>
+      <itemTypeId>923a39c2-7398-4f5a-b183-a9623694df82</itemTypeId>
+    </property>
+  </properties>
+</stereotypeDefinition>

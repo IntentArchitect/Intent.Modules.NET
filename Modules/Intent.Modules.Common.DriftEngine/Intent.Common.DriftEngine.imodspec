@@ -18,7 +18,6 @@
     <dependency id="Intent.Common.DriftReporting" version="1.0.0-pre.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.CodebaseStructure" version="1.1.2" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="5.0.3-pre.2" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
@@ -27,8 +26,12 @@
     <file src="$outDir$/Intent.Modules.Common.DriftEngine.Core.pdb" />
     <file src="$outDir$/Intent.Modules.Common.DriftEngine.Stacks.dll" />
     <file src="$outDir$/Intent.Modules.Common.DriftEngine.Stacks.pdb" />
+    <file src="$outDir$/Antlr4.Runtime.Standard.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.CodeAnalysis.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.CodeAnalysis.CSharp.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.AspNetCore.Razor.Language.dll" inspect="false" />
   </files>
-  <tags>guardrails brownfield drift-detection csharp dotnet</tags>
+  <tags>guardrails brownfield drift-detection csharp dotnet razor blazor java typescript vue protobuf grpc</tags>
   <releaseNotes>release-notes.md</releaseNotes>
   <moduleSettingsExtensions />
   <metadata>

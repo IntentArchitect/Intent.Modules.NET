@@ -24,9 +24,9 @@
         { "kind": "operation.route", "for": { "element": "Operation", "where": "hasStereotype('Http Settings')" }, "value": "stereotype('Http Settings').Route", "dependsOn": "member.exists", "source": "the operation's Http Settings Route" },
         { "kind": "parameter.source", "for": { "element": "Parameter", "where": "hasStereotype('Parameter Settings') && stereotype('Parameter Settings').Source != 'Default'" }, "value": "stereotype('Parameter Settings').Source", "dependsOn": "parent:member.exists", "source": "the parameter's Parameter Settings Source" },
         { "kind": "service.secured", "for": { "element": "Service", "where": "hasStereotype('Secured')" }, "value": "hasStereotype('Secured')", "dependsOn": "type.exists", "source": "the service's Secured" },
-        { "kind": "service.roles", "for": { "element": "Service", "where": "hasStereotype('Secured')" }, "value": "stereotype('Secured').Roles", "dependsOn": "type.exists", "source": "the service's Secured Roles" },
+        { "kind": "service.roles", "for": { "element": "Service", "where": "hasStereotype('Secured')" }, "value": "stereotype('Secured').Roles ?? join(map(stereotype('Secured')['Security Roles'], name), ', ')", "dependsOn": "type.exists", "source": "the service's Secured Roles" },
         { "kind": "operation.secured", "for": { "element": "Operation", "where": "hasStereotype('Secured')" }, "value": "hasStereotype('Secured')", "dependsOn": "member.exists", "source": "the operation's Secured" },
-        { "kind": "operation.roles", "for": { "element": "Operation", "where": "hasStereotype('Secured')" }, "value": "stereotype('Secured').Roles", "dependsOn": "member.exists", "source": "the operation's Secured Roles" },
+        { "kind": "operation.roles", "for": { "element": "Operation", "where": "hasStereotype('Secured')" }, "value": "stereotype('Secured').Roles ?? join(map(stereotype('Secured')['Security Roles'], name), ', ')", "dependsOn": "member.exists", "source": "the operation's Secured Roles" },
         { "kind": "operation.anonymous", "for": { "element": "Operation", "where": "hasStereotype('Unsecured')" }, "value": "hasStereotype('Unsecured')", "dependsOn": "member.exists", "source": "the operation's Unsecured" }
       ]
     }

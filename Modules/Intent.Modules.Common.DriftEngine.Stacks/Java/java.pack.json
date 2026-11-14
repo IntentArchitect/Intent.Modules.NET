@@ -1,0 +1,42 @@
+{
+  "id": "java",
+  "version": "1.0.0",
+  "description": "The Java language profile: how Java writes the model's types, collections, names and type kinds",
+  "languages": ["java"],
+  "profiles": {
+    "java": {
+      "language": "java",
+      "types": {
+        "string": ["String", "java.lang.String"],
+        "guid": ["UUID", "java.util.UUID"],
+        "int": ["int", "Integer", "java.lang.Integer"],
+        "long": ["long", "Long", "java.lang.Long"],
+        "short": ["short", "Short", "java.lang.Short"],
+        "byte": ["byte", "Byte", "java.lang.Byte"],
+        "decimal": ["BigDecimal", "java.math.BigDecimal"],
+        "double": ["double", "Double", "java.lang.Double"],
+        "float": ["float", "Float", "java.lang.Float"],
+        "bool": ["boolean", "Boolean", "java.lang.Boolean"],
+        "char": ["char", "Character", "java.lang.Character"],
+        "datetime": ["LocalDateTime", "java.time.LocalDateTime"],
+        "datetimeoffset": ["OffsetDateTime", "Instant", "java.time.OffsetDateTime", "java.time.Instant"],
+        "date": ["LocalDate", "java.time.LocalDate"],
+        "time": ["LocalTime", "Duration", "java.time.LocalTime", "java.time.Duration"],
+        "object": ["Object", "java.lang.Object"],
+        "binary": ["byte[]"]
+      },
+      "collections": ["T[]", "List<T>", "Set<T>", "Collection<T>", "Iterable<T>", "ArrayList<T>", "LinkedList<T>", "HashSet<T>", "LinkedHashSet<T>", "SortedSet<T>", "TreeSet<T>"],
+      "async": [{ "wrapper": "CompletableFuture<T>" }, { "wrapper": "CompletionStage<T>" }],
+      "nullable": {
+        "wrappers": ["Optional<T>"],
+        "annotations": ["Nullable", "CheckForNull"],
+        "nonNullAnnotations": ["NotNull", "NonNull", "Nonnull"],
+        "boxed": { "int": "Integer", "long": "Long", "short": "Short", "byte": "Byte", "double": "Double", "float": "Float", "boolean": "Boolean", "char": "Character" },
+        "notStated": "Java doesn't state whether a reference type is nullable; annotate them @Nullable or @NonNull to check them."
+      },
+      "naming": { "property": "{Name|camel}", "field": "{Name|camel}", "method": "{Name|camel}", "parameter": "{Name|camel}" },
+      "accessors": ["get{Name|pascal}", "is{Name|pascal}", "set{Name|pascal}"],
+      "typeKinds": ["class", "record", "interface", "enum", "annotation"]
+    }
+  }
+}

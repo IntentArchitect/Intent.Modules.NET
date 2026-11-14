@@ -5,25 +5,39 @@ using Intent.Modules.Common.DriftEngine.Stacks.AspNetCore;
 using Intent.Modules.Common.DriftEngine.Stacks.CSharp;
 using Intent.Modules.Common.DriftEngine.Stacks.EfCore;
 using Intent.Modules.Common.DriftEngine.Stacks.Http;
+using Intent.Modules.Common.DriftEngine.Stacks.Java;
+using Intent.Modules.Common.DriftEngine.Stacks.Jpa;
+using Intent.Modules.Common.DriftEngine.Stacks.Protobuf;
 using Intent.Modules.Common.DriftEngine.Stacks.Relational;
+using Intent.Modules.Common.DriftEngine.Stacks.SpringMvc;
+using Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
 
 namespace Intent.Modules.Common.DriftEngine.Stacks;
 
 /// <summary>
-/// The extensions shipped with the engine. A language is one (CSharp): the engine reads no code itself. What the model
-/// states is technology-neutral (Relational, Http); how one framework's code states it is a separate extension (EfCore,
-/// AspNetCore), so another framework (JPA, Spring MVC) reads the same claims with no change to either. A framework's
+/// The extensions shipped with the engine. A language is one (CSharp, Java, TypeScript): the engine reads no code itself. What the model
+/// states is technology-neutral (Relational, Http); how one framework's code states it is a separate extension (EfCore and
+/// Jpa, AspNetCore and SpringMvc), each reading the same claims with no change to the others. A framework's
 /// extension answers only when its framework is in the code; otherwise it leaves the claim to another, or can't verify.
 /// </summary>
 public static class StockExtensions
 {
-    public static IReadOnlyList<IDriftExtension> All { get; } =
+    /// <summary>The stock extensions, with TypeScript's parser run by the machine's <c>node</c>.</summary>
+    public static IReadOnlyList<IDriftExtension> All { get; } = With(MachineNodeRunner.Instance);
+
+    /// <summary>The stock extensions, with TypeScript's parser run by the given Node.js: Intent Architect's own in a Software Factory run.</summary>
+    public static IReadOnlyList<IDriftExtension> With(INodeRunner node) =>
     [
         new CSharpExtension(),
+        new JavaExtension(),
+        new TypeScriptExtension(node),
+        new ProtobufExtension(),
         new RelationalExtension(),
         new HttpExtension(),
         new EfCoreExtension(),
-        new AspNetCoreExtension()
+        new AspNetCoreExtension(),
+        new JpaExtension(),
+        new SpringMvcExtension()
     ];
 
     /// <summary>A stock extension by its id, or null.</summary>

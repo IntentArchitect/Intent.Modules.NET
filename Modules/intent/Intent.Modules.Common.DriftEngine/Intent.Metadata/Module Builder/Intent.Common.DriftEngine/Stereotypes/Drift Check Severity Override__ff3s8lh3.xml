@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="923a39c2-7398-4f5a-b183-a9623694df82" version="3.1.0">
+  <comment>A severity change for the findings whose rule id matches, and why.</comment>
+  <name>Drift Check Severity Override</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="07e7b690-a59d-4b72-8440-4308a121d32c">Root Folder</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b4107910-4d30-42b3-a453-ccbfda74f7cc</parentFolderId>
+  <order>0</order>
+  <packageId>b4107910-4d30-42b3-a453-ccbfda74f7cc</packageId>
+  <packageName>Intent.Common.DriftEngine</packageName>
+  <properties>
+    <property id="23b2bf16-e3f0-4090-8c42-283a88b48d7a">
+      <hint>A finding's rule id; * matches any run of characters.</hint>
+      <name>Rule</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. optin/unmodelled.*</placeholder>
+    </property>
+    <property id="24696574-1ac5-4137-b08f-385e266db4cd">
+      <hint>The severity the matching findings take. Info findings are never changed.</hint>
+      <name>Severity</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <defaultValue>Warning</defaultValue>
+      <valueOptions>
+        <option>Error</option>
+        <option>Warning</option>
+      </valueOptions>
+    </property>
+    <property id="5595963c-677a-47af-a147-d7929febb594">
+      <hint>Why these findings take another severity. Required.</hint>
+      <name>Reason</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+    </property>
+  </properties>
+</stereotypeDefinition>

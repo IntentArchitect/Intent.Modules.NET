@@ -1,6 +1,7 @@
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Intent.Modules.Common.DriftEngine.Code;
+using Microsoft.AspNetCore.Razor.Language;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -9,7 +10,8 @@ namespace Intent.Modules.Common.DriftEngine.Stacks.CSharp;
 
 /// <summary>
 /// The C# reader (code-reader.md): parses each file with Roslyn, syntax only. It never builds, loads or runs the code
-/// (decision 3), so names aren't resolved; types compare by name.
+/// (decision 3), so names aren't resolved; types compare by name. A Razor component is the C# the Razor compiler generates
+/// for it (<see cref="RazorFile"/>), one type with its code-behind.
 /// </summary>
 internal static class CSharpReader
 {
@@ -33,52 +35,97 @@ internal static class CSharpReader
     {
         var syntax = new CSharpSyntax(graph);
         graph.Set(syntax);
-        var projects = new Dictionary<string, (string Path, bool? Nullable)>(StringComparer.Ordinal);
+        var projects = new Dictionary<string, Project>(StringComparer.Ordinal);
         foreach (var project in files.Where(x => x.EndsWith(".csproj", StringComparison.OrdinalIgnoreCase)))
         {
             bool? nullable = null;
+            string? rootNamespace = null;
             try
             {
-                nullable = NullableEnabled(Path.Combine(root, project));
+                (nullable, rootNamespace) = ProjectSettings(Path.Combine(root, project));
             }
             catch (System.Xml.XmlException e)
             {
                 graph.Failures.Add((project, e.Message));
             }
 
-            projects[Path.GetDirectoryName(project)!.Replace('\\', '/')] = (project, nullable);
+            projects[Path.GetDirectoryName(project)!.Replace('\\', '/')] = new Project(project, nullable, rootNamespace);
         }
 
         var parts = new Dictionary<string, TypeNode>(StringComparer.Ordinal);
         var referenceTypesNullable = new List<(TypeRefNode Ref, bool Context)>();
         var bodies = new List<(MemberNode Member, SyntaxNode Body, TypeNode Owner, string File)>();
+        var topLevel = new List<(FileNode Node, IReadOnlyList<SyntaxNode> Statements, string File)>();
+        var razorEngines = new Dictionary<string, RazorProjectEngine>(StringComparer.Ordinal);
 
-        foreach (var file in files.Where(x => x.EndsWith(".cs", StringComparison.OrdinalIgnoreCase)))
+        // Razor components first, so a component's code-behind (X.razor.cs) is a part of the component.
+        foreach (var file in files.Where(x => x.EndsWith(".razor", StringComparison.OrdinalIgnoreCase)).Concat(files.Where(x => x.EndsWith(".cs", StringComparison.OrdinalIgnoreCase))))
         {
-            var text = File.ReadAllText(Path.Combine(root, file));
-            var tree = CSharpSyntaxTree.ParseText(text, path: file);
             var governing = Governing(file, projects);
             if (governing is { Nullable: null })
             {
-                graph.UngovernedFiles[file] = governing.Value.Path;
+                graph.UngovernedFiles[file] = governing.Path;
             }
 
-            var nullableContext = text.Contains("#nullable enable", StringComparison.Ordinal) || governing?.Nullable == true;
+            RazorFile? razor = null;
+            SyntaxTree tree;
+            if (file.EndsWith(".razor", StringComparison.OrdinalIgnoreCase))
+            {
+                try
+                {
+                    var rootNamespace = governing is null ? null : governing.RootNamespace ?? Path.GetFileNameWithoutExtension(governing.Path).Replace(' ', '_');
+                    if (!razorEngines.TryGetValue(rootNamespace ?? "", out var engine))
+                    {
+                        razorEngines[rootNamespace ?? ""] = engine = RazorFile.Engine(root, rootNamespace);
+                    }
+
+                    razor = RazorFile.Generate(root, file, governing is null ? null : Path.GetDirectoryName(governing.Path)!.Replace('\\', '/'), engine);
+                }
+                catch (Exception e) when (e is IOException or UnauthorizedAccessException or InvalidOperationException or ArgumentException)
+                {
+                    graph.Failures.Add((file, e.Message));
+                    continue;
+                }
+
+                tree = razor.Tree;
+            }
+            else
+            {
+                tree = CSharpSyntaxTree.ParseText(File.ReadAllText(Path.Combine(root, file)), path: file);
+            }
+
+            var nullableContext = tree.GetText().ToString().Contains("#nullable enable", StringComparison.Ordinal) || governing?.Nullable == true;
             if (nullableContext)
             {
                 syntax.NullableContexts.Add(file);
             }
 
             syntax.Trees[file] = tree;
-            graph.Files.Add(FileOf(tree.GetRoot(), file, governing?.Path));
-            foreach (var declaration in tree.GetRoot().DescendantNodes().OfType<BaseTypeDeclarationSyntax>())
+            var fileNode = FileOf(tree.GetRoot(), file, governing?.Path, razor);
+            graph.Files.Add(fileNode);
+            if (tree.GetRoot() is CompilationUnitSyntax unit && unit.Members.OfType<GlobalStatementSyntax>().ToList() is { Count: > 0 } statements)
             {
-                var kind = Kind(declaration);
+                topLevel.Add((fileNode, statements, file));
+            }
+
+            // A component's generated code declares its class, and the types its @code declares; an _Imports.razor's none.
+            foreach (var declaration in tree.GetRoot().DescendantNodes().OfType<BaseTypeDeclarationSyntax>()
+                         .Where(x => razor is null || x == razor.Component || !razor.IsImports && razor.IsWritten(x)))
+            {
+                var component = razor is not null && declaration == razor.Component;
+                var kind = component ? "component" : Kind(declaration);
                 var ns = Namespace(declaration);
                 var key = $"{ns}.{declaration.Identifier.Text}";
                 if (!parts.TryGetValue(key, out var type))
                 {
-                    type = new TypeNode { Name = declaration.Identifier.Text, Namespace = ns, Kind = kind, At = SpanOf(declaration, file) };
+                    type = new TypeNode
+                    {
+                        Name = declaration.Identifier.Text,
+                        Namespace = ns,
+                        Kind = kind,
+                        At = SpanOf(declaration, file),
+                        TextOf = component ? () => razor!.Canonical : () => Canonical(declaration)
+                    };
                     parts.Add(key, type);
                     graph.Types.Add(type);
                 }
@@ -102,7 +149,7 @@ internal static class CSharpReader
 
                 type.Attributes.AddRange(AttributesOf(declaration.AttributeLists, file));
                 type.BaseTypes.AddRange((declaration.BaseList?.Types ?? []).Select(x => TypeRef(x.Type)));
-                foreach (var (member, body) in Members(declaration, file))
+                foreach (var (member, body) in Members(declaration, file, razor))
                 {
                     type.Members.Add(member);
                     if (body is not null)
@@ -118,10 +165,25 @@ internal static class CSharpReader
             }
         }
 
-        // What a body's calls are made on, and what their arguments are, can depend on any type, so bodies are read last.
+        // What a body's calls are made on, and what their arguments are, can depend on any type, so bodies are read last, and
+        // so are initializers, whose names can be another type's constants.
         foreach (var (member, body, owner, file) in bodies)
         {
-            member.Calls = new CSharpBody(body, owner, file, graph).Calls();
+            if (body is EqualsValueClauseSyntax initializer)
+            {
+                member.Value = new CSharpBody([initializer], owner, file, graph).Initializer(initializer.Value);
+            }
+            else
+            {
+                member.Body = new CSharpBody([body], owner, file, graph).Member((BaseMethodDeclarationSyntax)body, member.Parameters);
+            }
+        }
+
+        // Top-level statements are the global namespace's Program's, which a partial Program class can add members to.
+        foreach (var (node, statements, file) in topLevel)
+        {
+            var program = parts.GetValueOrDefault(".Program") ?? new TypeNode { Name = "Program", Namespace = "", Kind = "class", At = SpanOf(statements[0], file) };
+            node.TopLevel = new CSharpBody(statements, program, file, graph).TopLevel();
         }
 
         // Nullability needs to know which names are value types, which the whole graph tells.
@@ -150,22 +212,26 @@ internal static class CSharpReader
 
     /// <summary>
     /// A file's declared namespaces and its <c>using</c> directives. A fully qualified name used inline isn't an import,
-    /// so it isn't seen.
+    /// so it isn't seen. A Razor file's are its own <c>@using</c>s; its <c>_Imports.razor</c> files' are theirs, which it
+    /// has imports from.
     /// </summary>
-    private static FileNode FileOf(SyntaxNode root, string file, string? project) => new()
+    private static FileNode FileOf(SyntaxNode root, string file, string? project, RazorFile? razor) => new()
     {
         Path = file,
         Language = CSharpLanguage.LanguageName,
         Project = project,
-        Namespaces = root.DescendantNodes().OfType<BaseNamespaceDeclarationSyntax>().Select(x => Namespace(x.Name)).Distinct().ToList(),
+        Namespaces = razor is { IsImports: true } ? [] : root.DescendantNodes().OfType<BaseNamespaceDeclarationSyntax>().Select(x => Namespace(x.Name)).Distinct().ToList(),
+        ImportsFrom = razor?.ImportsFrom ?? [],
+        Markup = razor?.Markup ?? [],
         Imports = root.DescendantNodes().OfType<UsingDirectiveSyntax>()
-            .Where(x => x.NamespaceOrType is not null)
+            .Where(x => x.NamespaceOrType is not null && (razor is null || razor.IsOwn(x)))
             .Select(x => new ImportNode
             {
                 Target = Whitespace.Replace(x.NamespaceOrType!.ToString(), "").Replace("global::", ""),
-                Text = Whitespace.Replace(x.ToString(), " ").Trim(),
+                Text = razor is null ? Whitespace.Replace(x.ToString(), " ").Trim() : "@" + Whitespace.Replace(x.ToString(), " ").Trim().TrimEnd(';'),
                 Alias = x.Alias?.Name.Identifier.Text,
                 Static = x.StaticKeyword.IsKind(SyntaxKind.StaticKeyword),
+                Wildcard = x.Alias is null && !x.StaticKeyword.IsKind(SyntaxKind.StaticKeyword),
                 Global = x.GlobalKeyword.IsKind(SyntaxKind.GlobalKeyword),
                 At = SpanOf(x, file)
             })
@@ -176,14 +242,18 @@ internal static class CSharpReader
     private static string Namespace(NameSyntax name) =>
         string.Join(".", name.AncestorsAndSelf().OfType<BaseNamespaceDeclarationSyntax>().Reverse().Select(x => x.Name.ToString()));
 
-    /// <summary>The members a type declares, each with its declaration when it has a body to read.</summary>
-    private static IEnumerable<(MemberNode Member, SyntaxNode? Body)> Members(BaseTypeDeclarationSyntax declaration, string file)
+    /// <summary>
+    /// The members a type declares, each with its declaration when it has a body to read. A Razor component's are those
+    /// written in its file: its <c>@code</c>'s and its <c>@inject</c>s', not what the compiler writes from its markup.
+    /// </summary>
+    /// <returns>Each member, with what its body pass reads: a method's or constructor's declaration, or a field's or property's initializer.</returns>
+    private static IEnumerable<(MemberNode Member, SyntaxNode? Body)> Members(BaseTypeDeclarationSyntax declaration, string file, RazorFile? razor)
     {
         if (declaration is EnumDeclarationSyntax @enum)
         {
             foreach (var member in @enum.Members)
             {
-                yield return (new MemberNode { Name = member.Identifier.Text, Kind = "enumMember", Value = ValueOf(member.EqualsValue, file), At = SpanOf(member, file) }, null);
+                yield return (new MemberNode { Name = member.Identifier.Text, Kind = "enumMember", Value = ValueOf(member.EqualsValue, file), At = SpanOf(member, file), TextOf = () => Canonical(member) }, null);
             }
 
             yield break;
@@ -198,32 +268,32 @@ internal static class CSharpReader
             {
                 foreach (var parameter in primary.Parameters)
                 {
-                    yield return (new MemberNode { Name = parameter.Identifier.Text, Kind = "property", Type = parameter.Type is null ? null : TypeRef(parameter.Type), Attributes = AttributesOf(parameter.AttributeLists, file), At = SpanOf(parameter, file) }, null);
+                    yield return (new MemberNode { Name = parameter.Identifier.Text, Kind = "property", Type = parameter.Type is null ? null : TypeRef(parameter.Type), Attributes = AttributesOf(parameter.AttributeLists, file), At = SpanOf(parameter, file), TextOf = () => Canonical(parameter) }, null);
                 }
             }
 
-            yield return (new MemberNode { Name = type.Identifier.Text, Kind = "constructor", IsPrimary = true, Parameters = ParametersOf(primary, file), Access = type.Modifiers.Any(SyntaxKind.AbstractKeyword) ? "protected" : "public", At = SpanOf(primary, file) }, null);
+            yield return (new MemberNode { Name = type.Identifier.Text, Kind = "constructor", IsPrimary = true, Parameters = ParametersOf(primary, file), Access = type.Modifiers.Any(SyntaxKind.AbstractKeyword) ? "protected" : "public", At = SpanOf(primary, file), TextOf = () => Canonical(primary) }, null);
         }
 
-        foreach (var member in type.Members)
+        foreach (var member in type.Members.Where(x => razor is null || razor.IsWritten(x)))
         {
             switch (member)
             {
                 case PropertyDeclarationSyntax property:
-                    yield return (new MemberNode { Name = property.Identifier.Text, Kind = "property", Type = TypeRef(property.Type), IsStatic = property.Modifiers.Any(SyntaxKind.StaticKeyword), Attributes = AttributesOf(property.AttributeLists, file), Access = AccessOf(property.Modifiers, type), Modifiers = ModifiersOf(property.Modifiers), Value = ValueOf(property.Initializer, file), At = SpanOf(property, file) }, null);
+                    yield return (new MemberNode { Name = property.Identifier.Text, Kind = "property", Type = TypeRef(property.Type), IsStatic = property.Modifiers.Any(SyntaxKind.StaticKeyword), Attributes = AttributesOf(property.AttributeLists, file), Access = AccessOf(property.Modifiers, type), Modifiers = ModifiersOf(property.Modifiers), Value = ValueOf(property.Initializer, file), At = SpanOf(property, file), TextOf = () => razor?.TextOf(property) ?? Canonical(property) }, property.Initializer);
                     break;
                 case FieldDeclarationSyntax field:
                     foreach (var variable in field.Declaration.Variables)
                     {
-                        yield return (new MemberNode { Name = variable.Identifier.Text, Kind = "field", Type = TypeRef(field.Declaration.Type), IsStatic = field.Modifiers.Any(SyntaxKind.StaticKeyword), Attributes = AttributesOf(field.AttributeLists, file), Access = AccessOf(field.Modifiers, type), Modifiers = ModifiersOf(field.Modifiers), Value = ValueOf(variable.Initializer, file), At = SpanOf(field, file) }, null);
+                        yield return (new MemberNode { Name = variable.Identifier.Text, Kind = "field", Type = TypeRef(field.Declaration.Type), IsStatic = field.Modifiers.Any(SyntaxKind.StaticKeyword), Attributes = AttributesOf(field.AttributeLists, file), Access = AccessOf(field.Modifiers, type), Modifiers = ModifiersOf(field.Modifiers), Value = ValueOf(variable.Initializer, file), At = SpanOf(field, file), TextOf = () => Canonical(field) }, variable.Initializer);
                     }
 
                     break;
                 case MethodDeclarationSyntax method:
-                    yield return (new MemberNode { Name = method.Identifier.Text, Kind = "method", Type = TypeRef(method.ReturnType), IsStatic = method.Modifiers.Any(SyntaxKind.StaticKeyword), Parameters = ParametersOf(method.ParameterList, file), Attributes = AttributesOf(method.AttributeLists, file), Access = AccessOf(method.Modifiers, type), Modifiers = ModifiersOf(method.Modifiers), Creates = CreatesIn(method), At = SpanOf(method, file) }, method);
+                    yield return (new MemberNode { Name = method.Identifier.Text, Kind = "method", Type = TypeRef(method.ReturnType), IsStatic = method.Modifiers.Any(SyntaxKind.StaticKeyword), Parameters = ParametersOf(method.ParameterList, file), Attributes = AttributesOf(method.AttributeLists, file), Access = AccessOf(method.Modifiers, type), Modifiers = ModifiersOf(method.Modifiers), TypeParameters = method.TypeParameterList?.Parameters.Select(x => x.Identifier.Text).ToList() ?? [], At = SpanOf(method, file), TextOf = () => Canonical(method) }, method);
                     break;
                 case ConstructorDeclarationSyntax constructor:
-                    yield return (new MemberNode { Name = constructor.Identifier.Text, Kind = "constructor", IsStatic = constructor.Modifiers.Any(SyntaxKind.StaticKeyword), Parameters = ParametersOf(constructor.ParameterList, file), Access = AccessOf(constructor.Modifiers, type), Modifiers = ModifiersOf(constructor.Modifiers), Creates = CreatesIn(constructor), At = SpanOf(constructor, file) }, constructor);
+                    yield return (new MemberNode { Name = constructor.Identifier.Text, Kind = "constructor", IsStatic = constructor.Modifiers.Any(SyntaxKind.StaticKeyword), Parameters = ParametersOf(constructor.ParameterList, file), Access = AccessOf(constructor.Modifiers, type), Modifiers = ModifiersOf(constructor.Modifiers), At = SpanOf(constructor, file), TextOf = () => Canonical(constructor) }, constructor);
                     break;
             }
         }
@@ -245,13 +315,9 @@ internal static class CSharpReader
     private static IReadOnlyList<string> ModifiersOf(SyntaxTokenList modifiers) =>
         modifiers.Where(x => !IsAccess(x) && !x.IsKind(SyntaxKind.StaticKeyword)).Select(x => x.Text).ToList();
 
-    private static ValueNode? ValueOf(EqualsValueClauseSyntax? clause, string file) =>
-        clause is null ? null : new ValueNode { Text = Whitespace.Replace(clause.Value.ToString(), " ").Trim(), At = SpanOf(clause.Value, file) };
+    private static ValueNode? ValueOf(EqualsValueClauseSyntax? clause, string file) => clause is null ? null : ValueOf(clause.Value, file);
 
     /// <summary><c>new X(...)</c>; a target-typed <c>new(...)</c> names no type, so it isn't one.</summary>
-    private static IReadOnlyList<TypeRefNode> CreatesIn(SyntaxNode member) =>
-        member.DescendantNodes().OfType<ObjectCreationExpressionSyntax>().Select(x => TypeRef(x.Type)).ToList();
-
     private static IReadOnlyList<AttributeNode> AttributesOf(SyntaxList<AttributeListSyntax> lists, string file) =>
         lists.SelectMany(x => x.Attributes).Select(attribute =>
         {
@@ -262,8 +328,7 @@ internal static class CSharpReader
                 SimpleNameSyntax simple => simple.Identifier.Text,
                 _ => attribute.Name.ToString()
             };
-            static string Value(AttributeArgumentSyntax argument) =>
-                argument.Expression is LiteralExpressionSyntax literal && literal.IsKind(SyntaxKind.StringLiteralExpression) ? literal.Token.ValueText : argument.Expression.ToString();
+            string Value(AttributeArgumentSyntax argument) => LiteralOf(argument.Expression, file, x => ValueOf(x, file))?.Value ?? argument.Expression.ToString();
 
             var all = attribute.ArgumentList?.Arguments ?? default;
             return new AttributeNode
@@ -272,13 +337,82 @@ internal static class CSharpReader
                 Arguments = all.Where(x => x.NameEquals is null && x.NameColon is null).Select(Value).ToList(),
                 Named = all.Where(x => x.NameEquals is not null).ToDictionary(x => x.NameEquals!.Name.Identifier.Text, Value),
                 Values = all.OrderBy(x => x.NameEquals is not null || x.NameColon is not null)
-                    .Select(x => AttributeValue(x.Expression, x.NameEquals?.Name.Identifier.Text ?? x.NameColon?.Name.Identifier.Text))
+                    .Select(x => AttributeValue(x.Expression, file, x.NameEquals?.Name.Identifier.Text ?? x.NameColon?.Name.Identifier.Text))
                     .ToList(),
                 At = SpanOf(attribute, file)
             };
         }).ToList();
 
-    private static AttributeValueNode AttributeValue(ExpressionSyntax expression, string? name = null)
+    /// <summary>A value written in a declaration, such as an initializer: as written, with the literal it is.</summary>
+    internal static ValueNode ValueOf(ExpressionSyntax expression, string file) =>
+        new() { Text = Whitespace.Replace(expression.ToString(), " ").Trim(), Literal = LiteralOf(expression, file, x => ValueOf(x, file)), At = SpanOf(expression, file) };
+
+    /// <summary>
+    /// The literal an expression is (<see cref="LiteralNode"/>), or null. An interpolated string's holes are valued by
+    /// <paramref name="hole"/>: a body's with the types the code says they are, a declaration's as written.
+    /// </summary>
+    /// <param name="formatted">
+    /// A hole written with a format or an alignment (<c>{total:F2}</c>, <c>{name,10}</c>), whose text isn't its value's; the
+    /// other holes' by default.
+    /// </param>
+    internal static LiteralNode? LiteralOf(ExpressionSyntax expression, string file, Func<ExpressionSyntax, ValueNode> hole, Func<ExpressionSyntax, ValueNode>? formatted = null)
+    {
+        switch (expression)
+        {
+            case ParenthesizedExpressionSyntax parenthesized:
+                return LiteralOf(parenthesized.Expression, file, hole, formatted);
+            case MemberAccessExpressionSyntax { Expression: PredefinedTypeSyntax { Keyword.Text: "string" } or IdentifierNameSyntax { Identifier.Text: "String" }, Name.Identifier.Text: "Empty" }:
+                return new LiteralNode { Kind = "string", Value = "" };
+            case LiteralExpressionSyntax literal:
+                return literal.Kind() switch
+                {
+                    SyntaxKind.StringLiteralExpression or SyntaxKind.Utf8StringLiteralExpression => new LiteralNode { Kind = "string", Value = literal.Token.ValueText },
+                    SyntaxKind.CharacterLiteralExpression => new LiteralNode { Kind = "char", Value = literal.Token.ValueText },
+                    SyntaxKind.NumericLiteralExpression => new LiteralNode { Kind = "number", Value = literal.Token.Text },
+                    SyntaxKind.TrueLiteralExpression or SyntaxKind.FalseLiteralExpression => new LiteralNode { Kind = "boolean", Value = literal.Token.Text },
+                    SyntaxKind.NullLiteralExpression => new LiteralNode { Kind = "null" },
+                    _ => null
+                };
+            case PrefixUnaryExpressionSyntax { Operand: LiteralExpressionSyntax number } signed
+                when number.IsKind(SyntaxKind.NumericLiteralExpression) && (signed.IsKind(SyntaxKind.UnaryMinusExpression) || signed.IsKind(SyntaxKind.UnaryPlusExpression)):
+                return new LiteralNode { Kind = "number", Value = (signed.IsKind(SyntaxKind.UnaryMinusExpression) ? "-" : "") + number.Token.Text };
+            case InterpolatedStringExpressionSyntax interpolated:
+                return new LiteralNode
+                {
+                    Kind = "interpolated",
+                    Parts = interpolated.Contents
+                        .Select(x => x is InterpolationSyntax interpolation
+                            ? (interpolation.AlignmentClause is null && interpolation.FormatClause is null ? hole : formatted ?? hole)(interpolation.Expression)
+                            : TextPart((InterpolatedStringTextSyntax)x, file))
+                        .ToList()
+                };
+            case TypeOfExpressionSyntax typeOf:
+                return new LiteralNode { Kind = "type", Type = TypeRef(typeOf.Type) };
+            case InvocationExpressionSyntax { Expression: IdentifierNameSyntax { Identifier.Text: "nameof" }, ArgumentList.Arguments: [{ Expression: var named }] }:
+                return new LiteralNode
+                {
+                    Kind = "string",
+                    Value = named switch
+                    {
+                        MemberAccessExpressionSyntax access => access.Name.Identifier.Text,
+                        QualifiedNameSyntax qualified => qualified.Right.Identifier.Text,
+                        SimpleNameSyntax simple => simple.Identifier.Text,
+                        _ => named.ToString()
+                    }
+                };
+            default:
+                return null;
+        }
+    }
+
+    private static ValueNode TextPart(InterpolatedStringTextSyntax text, string file) => new()
+    {
+        Text = Whitespace.Replace(text.ToString(), " ").Trim(),
+        Literal = new LiteralNode { Kind = "string", Value = text.TextToken.ValueText },
+        At = SpanOf(text, file)
+    };
+
+    private static AttributeValueNode AttributeValue(ExpressionSyntax expression, string file, string? name = null)
     {
         IEnumerable<ExpressionSyntax> items = expression switch
         {
@@ -291,21 +425,23 @@ internal static class CSharpReader
         {
             Name = name,
             Text = Whitespace.Replace(expression.ToString(), " ").Trim(),
-            Literal = expression is LiteralExpressionSyntax literal && !literal.IsKind(SyntaxKind.NullLiteralExpression)
-                ? literal.IsKind(SyntaxKind.StringLiteralExpression) ? literal.Token.ValueText : literal.Token.Text
-                : null,
-            Items = items.Select(x => AttributeValue(x)).ToList()
+            Literal = LiteralOf(expression, file, x => ValueOf(x, file))?.Value,
+            Items = items.Select(x => AttributeValue(x, file)).ToList()
         };
     }
 
-    private static IReadOnlyList<ParameterNode> ParametersOf(ParameterListSyntax list, string file) =>
-        list.Parameters.Select(x => new ParameterNode
+    private static IReadOnlyList<ParameterNode> ParametersOf(ParameterListSyntax list, string file) => ParametersOf(list.Parameters, file);
+
+    /// <summary>Parameters as written: a lambda's untyped ones have no type.</summary>
+    internal static IReadOnlyList<ParameterNode> ParametersOf(IEnumerable<ParameterSyntax> parameters, string file) =>
+        parameters.Select(x => new ParameterNode
         {
             Name = x.Identifier.Text,
             Type = x.Type is null ? null : TypeRef(x.Type),
             Attributes = AttributesOf(x.AttributeLists, file),
             Default = x.Default is { } value ? Whitespace.Replace(value.Value.ToString(), " ").Trim() : null,
-            At = SpanOf(x, file)
+            At = SpanOf(x, file),
+            TextOf = () => Canonical(x)
         }).ToList();
 
     internal static TypeRefNode TypeRef(TypeSyntax syntax)
@@ -316,28 +452,28 @@ internal static class CSharpReader
             case NullableTypeSyntax nullable:
             {
                 var inner = TypeRef(nullable.ElementType);
-                return new TypeRefNode { Text = text, Name = inner.Name, QualifiedName = inner.QualifiedName, Arguments = inner.Arguments, IsArray = inner.IsArray, NullableMarked = true, IsPredefinedValueType = inner.IsPredefinedValueType };
+                return new TypeRefNode { Text = text, Name = inner.Name, QualifiedName = inner.QualifiedName, Arguments = inner.Arguments, IsArray = inner.IsArray, NullableMarked = true, IsPredefinedValueType = inner.IsPredefinedValueType, Language = CSharpLanguage.LanguageName };
             }
             case ArrayTypeSyntax array:
             {
                 var element = TypeRef(array.ElementType);
-                return new TypeRefNode { Text = text, Name = element.Name, QualifiedName = element.QualifiedName, Arguments = [element], IsArray = true };
+                return new TypeRefNode { Text = text, Name = element.Name, QualifiedName = element.QualifiedName, Arguments = [element], IsArray = true, Language = CSharpLanguage.LanguageName };
             }
             case PredefinedTypeSyntax predefined:
-                return new TypeRefNode { Text = text, Name = predefined.Keyword.Text, QualifiedName = predefined.Keyword.Text, IsPredefinedValueType = PredefinedValueTypes.Contains(predefined.Keyword.Text) };
+                return new TypeRefNode { Text = text, Name = predefined.Keyword.Text, QualifiedName = predefined.Keyword.Text, IsPredefinedValueType = PredefinedValueTypes.Contains(predefined.Keyword.Text), Language = CSharpLanguage.LanguageName };
             case QualifiedNameSyntax qualified:
             {
                 var right = TypeRef(qualified.Right);
-                return new TypeRefNode { Text = text, Name = right.Name, QualifiedName = text.Split('<')[0], Arguments = right.Arguments };
+                return new TypeRefNode { Text = text, Name = right.Name, QualifiedName = text.Split('<')[0], Arguments = right.Arguments, Language = CSharpLanguage.LanguageName };
             }
             case AliasQualifiedNameSyntax alias:
                 return TypeRef(alias.Name);
             case GenericNameSyntax generic:
-                return new TypeRefNode { Text = text, Name = generic.Identifier.Text, QualifiedName = generic.Identifier.Text, Arguments = generic.TypeArgumentList.Arguments.Select(TypeRef).ToList() };
+                return new TypeRefNode { Text = text, Name = generic.Identifier.Text, QualifiedName = generic.Identifier.Text, Arguments = generic.TypeArgumentList.Arguments.Select(TypeRef).ToList(), Language = CSharpLanguage.LanguageName };
             case IdentifierNameSyntax identifier:
-                return new TypeRefNode { Text = text, Name = identifier.Identifier.Text, QualifiedName = identifier.Identifier.Text };
+                return new TypeRefNode { Text = text, Name = identifier.Identifier.Text, QualifiedName = identifier.Identifier.Text, Language = CSharpLanguage.LanguageName };
             default:
-                return new TypeRefNode { Text = text, Name = text, QualifiedName = text };
+                return new TypeRefNode { Text = text, Name = text, QualifiedName = text, Language = CSharpLanguage.LanguageName };
         }
     }
 
@@ -358,14 +494,43 @@ internal static class CSharpReader
     }
 
     /// <summary>A node's span starts at its first attribute (code-reader.md, Locations).</summary>
+    /// <summary>
+    /// A node's canonical text, exactly as Common.Drift reads it (code-reader.md, Canonical text): an interpolated string's
+    /// parts keep their text as written, so <c>$"orders/{id}"</c> reads as it is.
+    /// </summary>
+    internal static string Canonical(SyntaxNode node)
+    {
+        SyntaxToken previous = default;
+        var tokens = new List<(string, bool)>();
+        foreach (var token in node.DescendantTokens().Where(x => !x.IsKind(SyntaxKind.EndOfFileToken) && x.Span.Length > 0))
+        {
+            var joined = previous.Kind() is SyntaxKind.InterpolatedStringStartToken or SyntaxKind.InterpolatedVerbatimStringStartToken
+                             or SyntaxKind.InterpolatedSingleLineRawStringStartToken or SyntaxKind.InterpolatedMultiLineRawStringStartToken
+                             or SyntaxKind.InterpolatedStringTextToken ||
+                         token.Kind() is SyntaxKind.InterpolatedStringTextToken or SyntaxKind.InterpolatedStringEndToken or SyntaxKind.InterpolatedRawStringEndToken;
+            tokens.Add((token.Text, joined));
+            previous = token;
+        }
+
+        return CanonicalText.Of(tokens);
+    }
+
     internal static Span SpanOf(SyntaxNode node, string file)
     {
+        if (RazorFile.Of(node.SyntaxTree) is { } razor)
+        {
+            return razor.SpanOf(node);
+        }
+
         var lines = node.GetLocation().GetLineSpan();
         return new Span(file, lines.StartLinePosition.Line + 1, lines.StartLinePosition.Character + 1, lines.EndLinePosition.Line + 1, lines.EndLinePosition.Character + 1);
     }
 
+    /// <summary>A project file, with its nullable context and root namespace; both null when it doesn't say or won't parse.</summary>
+    private sealed record Project(string Path, bool? Nullable, string? RootNamespace);
+
     /// <summary>The nearest project file in the file's folder or above governs it.</summary>
-    private static (string Path, bool? Nullable)? Governing(string file, IReadOnlyDictionary<string, (string Path, bool? Nullable)> projects)
+    private static Project? Governing(string file, IReadOnlyDictionary<string, Project> projects)
     {
         var folder = Path.GetDirectoryName(file)?.Replace('\\', '/') ?? "";
         while (true)
@@ -384,9 +549,12 @@ internal static class CSharpReader
         }
     }
 
-    private static bool NullableEnabled(string projectFile)
+    /// <summary>Whether the project turns nullable reference types on, and its root namespace when it sets one.</summary>
+    private static (bool Nullable, string? RootNamespace) ProjectSettings(string projectFile)
     {
-        var nullable = XDocument.Load(projectFile).Descendants().FirstOrDefault(x => x.Name.LocalName == "Nullable")?.Value.Trim();
-        return string.Equals(nullable, "enable", StringComparison.OrdinalIgnoreCase);
+        var elements = XDocument.Load(projectFile).Descendants().ToList();
+        var nullable = elements.FirstOrDefault(x => x.Name.LocalName == "Nullable")?.Value.Trim();
+        var rootNamespace = elements.FirstOrDefault(x => x.Name.LocalName == "RootNamespace")?.Value.Trim();
+        return (string.Equals(nullable, "enable", StringComparison.OrdinalIgnoreCase), string.IsNullOrEmpty(rootNamespace) ? null : rootNamespace);
     }
 }

@@ -135,7 +135,7 @@
               "row": { "type": "integer", "minimum": 1 },
               "glob": { "type": "array", "items": { "type": "string" } },
               "types": { "type": "array", "items": { "type": "string" } },
-              "scope": { "enum": ["In", "Out"] },
+              "scope": { "enum": ["In", "Out", "Context"], "description": "Context: the row's files are read but not checked" },
               "reason": { "type": "string" },
               "files": { "type": "integer", "minimum": 0 },
               "typesExcluded": { "type": "integer", "minimum": 0 }

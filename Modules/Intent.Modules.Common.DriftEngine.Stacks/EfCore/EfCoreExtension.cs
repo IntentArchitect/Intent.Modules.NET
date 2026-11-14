@@ -133,9 +133,11 @@ internal sealed class EfCoreClaims : IClaimReader
     private static ClaimReading Index(ClaimContext context, TypeNode type, EfCoreModel model)
     {
         var chains = EntityOf(context, model, type)?.Chains.Where(x => x[0].Name == "HasIndex").ToList() ?? [];
-        var name = context.Element.Name;
-        var columns = context.ClaimOn(context.Element, "index.columns")?.Expected;
-        var chain = chains.FirstOrDefault(x => x[0].Arguments.ElementAtOrDefault(1) == name || x.Any(c => c.Name == "HasDatabaseName" && c.Arguments is [var named] && named == name))
+        // The Index stereotypes' index, a claim on the class, has its own name and columns; an Index element is named.
+        var stated = context.ExpectedValue as Relational.ModelIndex;
+        var name = stated is null ? context.Element.Name : stated.Name;
+        var columns = stated is null ? context.ClaimOn(context.Element, "index.columns")?.Expected : string.Join(", ", stated.Columns);
+        var chain = chains.FirstOrDefault(x => name is not null && (x[0].Arguments.ElementAtOrDefault(1) == name || x.Any(c => c.Name == "HasDatabaseName" && c.Arguments is [var named] && named == name)))
                     ?? chains.FirstOrDefault(x => columns is not null && string.Join(", ", x[0].Selected) == columns);
         if (chain is null)
         {

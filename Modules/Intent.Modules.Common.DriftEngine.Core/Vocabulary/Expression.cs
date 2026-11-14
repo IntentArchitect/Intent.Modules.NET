@@ -244,10 +244,12 @@ internal sealed class Expression
             "isNullable" => type.IsNullable,
             _ => throw new FormatException($"A type reference has no '{name}'.")
         },
-        // A property holding an element gives the element (a Foreign Key's Association is its association end).
+        // A property holding an element gives the element (a Foreign Key's Association is its association end), and one
+        // holding several the elements (Secured's Security Roles).
         IStereotype stereotype => stereotype.Properties.FirstOrDefault(x => x.Key == name) switch
         {
             IStereotypeProperty<IElement> { Value: { } element } => element,
+            IStereotypeProperty<IElement[]> { Value: { } elements } => elements,
             var property => property?.Value
         },
         _ => throw new FormatException($"'{name}' can't be read from {owner.GetType().Name}.")

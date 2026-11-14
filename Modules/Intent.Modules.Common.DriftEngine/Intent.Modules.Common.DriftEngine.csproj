@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <!-- Copies package assemblies to the output, so the .imodspec can ship the ones the Software Factory doesn't load itself
+         (Roslyn for C#, the ANTLR runtime for Java). Only the files it lists are packed. -->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +15,6 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.11.1" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.1" />
     <PackageReference Include="Intent.Modules.Common.DriftReporting" Version="1.0.0-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.CodebaseStructure" Version="1.1.2" />
     <PackageReference Include="Intent.Packager" Version="3.6.2-pre.0">

@@ -42,11 +42,17 @@ public interface IDriftExtension
 
     IEnumerable<IClaimReader> ClaimReaders => [];
 
+    /// <summary>What its house's own code means to the claims others read (<see cref="IMemberRefiner"/>).</summary>
+    IEnumerable<IMemberRefiner> Refiners => [];
+
     /// <summary>Comparers for its kinds, named by a kind's <c>comparer</c>.</summary>
     IEnumerable<IValueComparer> Comparers => [];
 
     /// <summary>Rules over the model and the code together, for what isn't one claim's value.</summary>
     IEnumerable<IDriftRule> Rules => [];
+
+    /// <summary>"Must be modelled" rules a team turns on in the model (<see cref="IOptInRule"/>).</summary>
+    IEnumerable<IOptInRule> OptInRules => [];
 }
 
 /// <summary>
@@ -58,10 +64,39 @@ public interface IDriftRule
 {
     /// <returns>
     /// Its findings. Each names its Area, as the report shows it; the engine marks the Area as its own, so the findings
-    /// sit apart from another checker's.
+    /// sit apart from another checker's. A finding whose subject is a file a Context scope row decides isn't reported: that
+    /// code is read for context, not checked.
     /// </returns>
     IEnumerable<Finding> Check(RuleContext context);
 }
+
+/// <summary>
+/// A "must be modelled" rule (rules.md, Opt-in rules): it finds code of a kind the model can describe that no claim
+/// located. Code the model doesn't mention is never drift on its own, so the rule runs only when the Root Folder's
+/// <c>Drift Check</c> lists <c>optin/{Id}</c> under Opt-in Rules. The engine does the rest, the same for every such rule:
+/// it keeps what the row's Glob covers, drops what an exception matches and what a Context row decides, flags exceptions
+/// that match nothing, and reports each as an error unless the model overrides its severity.
+/// </summary>
+public interface IOptInRule
+{
+    /// <summary>The rule's id, without <c>optin/</c>: <c>unmodelled.type</c>.</summary>
+    string Id { get; }
+
+    /// <summary>
+    /// What it finds, in checked code (<see cref="CodeScope.Checks"/>). <see cref="RuleContext.IsLocated(TypeNode)"/> and its
+    /// overloads say what the claims located.
+    /// </summary>
+    IEnumerable<UnmodelledCode> Find(RuleContext context);
+}
+
+/// <summary>Code an opt-in rule finds the model doesn't describe.</summary>
+/// <param name="Designer">The designer that would describe it: the report Area. Null for none, such as a file.</param>
+/// <param name="At">Where its node starts: its first attribute or annotation if it has any; line 1 for a file.</param>
+/// <param name="Name">What an exception's Match names it by: a type's name, <c>Type.Member</c>, or the rule's own name for it.</param>
+/// <param name="Message">The finding's text: what isn't modelled, and what would model it.</param>
+/// <param name="Owner">The nearest modelled element it belongs to, by id, if any.</param>
+/// <param name="Type">The type it is in, so an exception naming the type covers its members.</param>
+public sealed record UnmodelledCode(string? Designer, Span At, string Name, string Message, string? Owner = null, string? Type = null);
 
 /// <summary>
 /// A language's reader (code-reader.md). It parses each in-scope file of its language once, adds the files, types and
@@ -108,6 +143,12 @@ public sealed class ClaimSpec
     public required string Kind { get; init; }
 
     /// <summary>
+    /// Which of several claims of the kind on the element this is: a class states one <c>index.columns</c> claim per index,
+    /// each by the index's name, or its columns when it has none. Null for the only one.
+    /// </summary>
+    public string? Discriminator { get; init; }
+
+    /// <summary>
     /// The value the model states, as canonical text. Null is no value: no claim for a kind stated only when set, otherwise
     /// <c>false</c>, <c>none</c> or empty by the kind's value type.
     /// </summary>
@@ -149,6 +190,15 @@ public sealed class ModelContext
 
     /// <summary>A designer's elements of one type, such as its <c>Operation</c>s, each before its children.</summary>
     public IReadOnlyList<IElement> Elements(string designer, string type) => _engine.Elements(designer).Where(x => x.SpecializationType == type).ToList();
+
+    /// <summary>
+    /// The packages a designer references from other applications, such as the Services a FrontEnd's proxies call. They
+    /// are read for what they say; nothing claims on them, since their code is another application's.
+    /// </summary>
+    public IReadOnlyList<IPackage> References(string designer) => _engine.References(designer);
+
+    /// <summary>Every element of the packages a designer references from other applications, each before its children.</summary>
+    public IReadOnlyList<IElement> ReferencedElements(string designer) => _engine.ReferencedElements(designer);
 
     /// <summary>What an element is a member of: its parent, or for an association end, the element at the other end.</summary>
     public IElement? Owner(IElement element) => DriftEngine.Owner(element);
@@ -193,6 +243,21 @@ public interface IClaimReader
 
     /// <returns>The reading, or null when this reader doesn't read the claim, so the next rule does.</returns>
     ClaimReading? Read(ClaimContext context);
+}
+
+/// <summary>
+/// What a house's own code means to the claims others read: a handler's <c>String status</c> that its body turns into an
+/// <c>OrderStatus</c> with a house helper binds an <c>OrderStatus</c>. Before a claim of its kinds is read, it may give the
+/// member the claim's dependency located as the house reads it (<c>member with { ... }</c>), and every reader then reads that
+/// one: a stack's, another module's and the engine's own rules alike. So a house adds only what it knows, and the framework's
+/// reading stays the stack's. Refiners run in extension order, each on the member as the one before left it.
+/// </summary>
+public interface IMemberRefiner
+{
+    IReadOnlyCollection<string> Kinds { get; }
+
+    /// <returns>The member as the house reads it; null to leave it as it is.</returns>
+    MemberNode? Refine(ClaimContext context);
 }
 
 /// <summary>Whether a value read from the code is the value the model states.</summary>

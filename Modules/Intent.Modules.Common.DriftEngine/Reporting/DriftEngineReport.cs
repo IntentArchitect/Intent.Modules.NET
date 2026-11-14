@@ -7,6 +7,7 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common.DriftEngine.Extensions;
 using Intent.Modules.Common.DriftEngine.Packs;
 using Intent.Modules.Common.DriftEngine.Stacks;
+using Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
 using Intent.Modules.Common.DriftReporting.Api;
 using Intent.Utils;
 
@@ -38,29 +39,39 @@ namespace Intent.Modules.Common.DriftEngine.Reporting
 
         /// <param name="context">The drift report's context.</param>
         /// <param name="extensions">The extensions installed modules registered; they run after the stock ones, so theirs win.</param>
-        public static void Report(IDriftContext context, IReadOnlyList<IDriftExtension> extensions)
+        /// <param name="node">Intent Architect's own Node.js, which runs TypeScript's parser.</param>
+        public static void Report(IDriftContext context, IReadOnlyList<IDriftExtension> extensions, INodeRunner node)
         {
             var application = context.Application;
             var config = application.GetApplicationConfig();
             var output = Path.GetFullPath(Path.Combine(config.DirectoryPath, config.OutputLocation));
             var designers = new Dictionary<string, IReadOnlyList<IPackage>>();
-            var all = StockExtensions.All.Concat(extensions).ToList();
+            var references = new Dictionary<string, IReadOnlyList<IPackage>>();
+            var all = StockExtensions.With(node).Concat(extensions).ToList();
 
-            // A module's own designer is read under the name its extension gives it.
+            // A module's own designer is read under the name its extension gives it. Packages another application owns are
+            // only references: read for what they say, never claimed on.
             var designerIds = DesignerIds.Concat(all.SelectMany(x => x.Designers)).GroupBy(x => x.Key).Select(x => x.Last());
             foreach (var (name, id) in designerIds)
             {
-                var packages = application.MetadataManager.GetDesigner(config.Id, id)?.Packages.Where(x => x.ApplicationId == config.Id).ToList();
-                if (packages?.Count > 0)
+                var loaded = application.MetadataManager.GetDesigner(config.Id, id)?.Packages.ToList() ?? new List<IPackage>();
+                var packages = loaded.Where(x => x.ApplicationId == config.Id).ToList();
+                if (packages.Count > 0)
                 {
                     designers[name] = packages;
+                }
+
+                var referenced = loaded.Where(x => x.ApplicationId != config.Id).ToList();
+                if (referenced.Count > 0)
+                {
+                    references[name] = referenced;
                 }
             }
 
             RunResult result;
             try
             {
-                result = DriftEngine.Run(new DriftInput(designers, output, StockPacks.Select(x => Pack.Stock(x)).ToList(), all));
+                result = DriftEngine.Run(new DriftInput(designers, output, StockPacks.Select(x => Pack.Stock(x)).ToList(), all) { References = references });
             }
             catch (Exception e)
             {

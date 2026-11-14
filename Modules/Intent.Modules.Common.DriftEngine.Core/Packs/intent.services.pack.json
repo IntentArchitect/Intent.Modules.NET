@@ -45,12 +45,12 @@
     "Services": {
       "designer": "Services",
       "types": {
-        "DTO": { "typeKinds": ["class", "record"] },
-        "Command": { "typeKinds": ["class", "record"] },
-        "Query": { "typeKinds": ["class", "record"] },
-        "Service": { "typeKinds": ["class", "interface"] },
-        "Service Proxy": { "typeKinds": ["class", "interface"] },
-        "Enum": { "typeKinds": ["enum"] }
+        "DTO": { "typeKinds": ["class", "record"], "states": ["property", "field"] },
+        "Command": { "typeKinds": ["class", "record"], "states": ["property", "field"] },
+        "Query": { "typeKinds": ["class", "record"], "states": ["property", "field"] },
+        "Service": { "typeKinds": ["class", "interface"], "states": ["method"] },
+        "Service Proxy": { "typeKinds": ["class", "interface"], "states": ["method"] },
+        "Enum": { "typeKinds": ["enum"], "states": ["enumMember"] }
       }
     }
   }

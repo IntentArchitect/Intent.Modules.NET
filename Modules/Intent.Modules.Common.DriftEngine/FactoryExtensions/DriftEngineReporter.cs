@@ -8,6 +8,7 @@ using Intent.Modules.Common.DriftEngine.Extensions;
 using Intent.Modules.Common.DriftEngine.Reporting;
 using Intent.Modules.Common.DriftReporting.Api;
 using Intent.Modules.Common.Plugins;
+using Intent.NodeJs;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -33,6 +34,16 @@ namespace Intent.Modules.Common.DriftEngine.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         private readonly ConditionalWeakTable<IApplicationEventDispatcher, List<IDriftExtension>> _runs = new();
 
+        /// <summary>Intent Architect's own Node.js, which runs TypeScript's parser.</summary>
+        [IntentManaged(Mode.Ignore)]
+        private readonly IntentNodeRunner _node;
+
+        [IntentManaged(Mode.Ignore)]
+        public DriftEngineReporter(INodeJsProcessManager nodeJs)
+        {
+            _node = new IntentNodeRunner(nodeJs);
+        }
+
         [IntentManaged(Mode.Ignore)]
         protected override void OnStart(IApplication application)
         {
@@ -43,6 +54,6 @@ namespace Intent.Modules.Common.DriftEngine.FactoryExtensions
 
         [IntentManaged(Mode.Ignore)]
         protected override void Report(IDriftContext context) =>
-            DriftEngineReport.Report(context, _runs.TryGetValue(context.Application.EventDispatcher, out var extensions) ? extensions : new List<IDriftExtension>());
+            DriftEngineReport.Report(context, _runs.TryGetValue(context.Application.EventDispatcher, out var extensions) ? extensions : new List<IDriftExtension>(), _node);
     }
 }

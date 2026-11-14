@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="857eba81-5138-429c-a97c-2f4b613e8d8c" version="3.1.0">
-  <comment>What code the drift engine reads: rows of globs marked In or Out, each Out row with a reason. Nothing is in scope until a row says so.</comment>
+  <comment>What code the drift engine reads: rows of globs marked In, Out or Context, each Out or Context row with a reason. Nothing is in scope until a row says so.</comment>
   <name>Drift Scope</name>
   <targetMode>of-type</targetMode>
   <targetTypes>

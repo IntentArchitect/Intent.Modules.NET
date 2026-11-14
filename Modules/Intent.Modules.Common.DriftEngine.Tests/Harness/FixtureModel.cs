@@ -13,6 +13,8 @@ internal sealed class FixtureModel
     private readonly Dictionary<string, IElement> _elements = new(StringComparer.Ordinal);
     private readonly Dictionary<string, IElement> _typeDefinitions = new(StringComparer.Ordinal);
     private readonly List<(ITypeReference Reference, JsonNode Data)> _typeRefs = [];
+    private readonly Dictionary<string, IAssociationEnd> _targetEnds = new(StringComparer.Ordinal);
+    private readonly List<(IAssociationEnd End, ITypeReference Reference, string Element, string From)> _ends = [];
 
     public static IReadOnlyDictionary<string, IReadOnlyList<IPackage>> Build(JsonNode model)
     {
@@ -23,6 +25,12 @@ internal sealed class FixtureModel
             designers[name] = designer.Items("packages").Select(fixture.Package).ToList();
         }
 
+        // Associations link elements anywhere in the model, so they're built once every element exists.
+        foreach (var association in (model["designers"]?.AsObject() ?? []).SelectMany(x => x.Value!.Items("associations")).ToList())
+        {
+            fixture.Association(association);
+        }
+
         // Type references point at elements anywhere in the model, so they resolve once every element exists.
         foreach (var (reference, data) in fixture._typeRefs.ToList())
         {
@@ -30,7 +38,62 @@ internal sealed class FixtureModel
             reference.Element.Returns(target);
         }
 
+        // An end is a navigation of the element at its other end, so it's among that element's associated elements. Its
+        // element may be an association's id, standing for that association's target end.
+        foreach (var (end, reference, element, from) in fixture._ends)
+        {
+            var target = fixture._elements.GetValueOrDefault(element) ?? fixture._targetEnds.GetValueOrDefault(element);
+            var package = fixture._elements.GetValueOrDefault(from)?.Package;
+            reference.Element.Returns(target);
+            end.Package.Returns(package);
+        }
+
+        foreach (var (id, element) in fixture._elements)
+        {
+            var associated = fixture._ends.Where(x => x.From == id).Select(x => x.End).ToList();
+            element.AssociatedElements.Returns(associated);
+        }
+
         return designers;
+    }
+
+    private void Association(JsonNode data)
+    {
+        // A substitute is never created inside another's Returns(), so every one is built first.
+        var association = Substitute.For<IAssociation>();
+        var source = Substitute.For<IAssociationEnd>();
+        var target = Substitute.For<IAssociationEnd>();
+        var id = data.Text("id")!;
+        association.SpecializationType.Returns(data.Text("type"));
+        association.SourceEnd.Returns(source);
+        association.TargetEnd.Returns(target);
+        // Intent gives a target end its association's id.
+        End(source, $"{id}:source", data["source"]!, data["target"]!, association, target, false);
+        End(target, id, data["target"]!, data["source"]!, association, source, true);
+        _targetEnds[id] = target;
+    }
+
+    private void End(IAssociationEnd end, string id, JsonNode data, JsonNode other, IAssociation association, IAssociationEnd otherEnd, bool isTarget)
+    {
+        var stereotypes = Stereotypes(data);
+        var reference = Substitute.For<ITypeReference>();
+        var multiplicity = data.Text("multiplicity") ?? "1";
+        reference.IsCollection.Returns(multiplicity is "*" or "1..*");
+        reference.IsNullable.Returns(multiplicity is "*" or "0..1");
+        reference.GenericTypeParameters.Returns([]);
+        end.Id.Returns(id);
+        end.Name.Returns(data.Text("name") ?? "");
+        end.SpecializationType.Returns(isTarget ? "Association Target End" : "Association Source End");
+        end.Stereotypes.Returns(stereotypes);
+        end.TypeReference.Returns(reference);
+        end.ChildElements.Returns([]);
+        end.ParentElement.Returns((IElement?)null);
+        end.Association.Returns(association);
+        end.IsNavigable.Returns(data["navigable"]?.GetValue<bool>() ?? isTarget);
+        end.OtherEnd().Returns(otherEnd);
+        end.IsTargetEnd().Returns(isTarget);
+        end.IsSourceEnd().Returns(!isTarget);
+        _ends.Add((end, reference, data.Text("element")!, other.Text("element")!));
     }
 
     private IPackage Package(JsonNode data)

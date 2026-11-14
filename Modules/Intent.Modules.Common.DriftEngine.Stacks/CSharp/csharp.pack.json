@@ -28,9 +28,13 @@
       "collections": ["T[]", "List<T>", "IList<T>", "ICollection<T>", "IEnumerable<T>", "IReadOnlyList<T>", "IReadOnlyCollection<T>", "HashSet<T>", "ISet<T>", "IReadOnlySet<T>", "IQueryable<T>"],
       "async": [{ "wrapper": "Task<T>", "void": true }, { "wrapper": "ValueTask<T>", "void": true }],
       "injectedParameters": ["CancellationToken"],
-      "nullable": { "suffix": "?", "wrappers": ["Nullable<T>"] },
+      "nullable": {
+        "suffix": "?",
+        "wrappers": ["Nullable<T>"],
+        "notStated": "Their code is outside a nullable context, so it doesn't state whether a reference type is nullable; turn nullable reference types on to check them."
+      },
       "naming": { "interface": "I{Name}" },
-      "typeKinds": ["class", "record", "struct", "interface", "enum"]
+      "typeKinds": ["class", "record", "struct", "interface", "enum", "component"]
     }
   }
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="890d0cac-4620-452c-a5de-8d569c367e8e" version="3.1.0">
+  <comment>Code an opt-in rule must not report, and why.</comment>
+  <name>Drift Check Exception</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="07e7b690-a59d-4b72-8440-4308a121d32c">Root Folder</type>
+  </targetTypes>
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b4107910-4d30-42b3-a453-ccbfda74f7cc</parentFolderId>
+  <order>0</order>
+  <packageId>b4107910-4d30-42b3-a453-ccbfda74f7cc</packageId>
+  <packageName>Intent.Common.DriftEngine</packageName>
+  <properties>
+    <property id="24c16665-0876-4132-bc00-b04a579e2c20">
+      <hint>The opt-in rule's id.</hint>
+      <name>Rule</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. optin/unmodelled.type</placeholder>
+    </property>
+    <property id="6340b854-4902-45bf-bfd5-f544e431d603">
+      <hint>A file glob relative to the output folder, a type's name, or the name the rule gives the code (Type.Member).</hint>
+      <name>Match</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. OrderingDomainException</placeholder>
+    </property>
+    <property id="b0388494-399d-4f06-9280-075bc6e3afee">
+      <hint>Why this code isn't modelled. Required.</hint>
+      <name>Reason</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+    </property>
+  </properties>
+</stereotypeDefinition>

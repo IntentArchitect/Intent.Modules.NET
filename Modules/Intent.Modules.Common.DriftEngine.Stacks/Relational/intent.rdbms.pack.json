@@ -8,7 +8,7 @@
     { "kind": "table.name", "label": "table", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
     { "kind": "table.schema", "label": "schema", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
     { "kind": "table.key", "label": "primary key", "valueType": "set", "comparer": "set", "stated": "whenSet" },
-    { "kind": "index.columns", "label": "columns", "valueType": "list", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "index.columns", "label": "columns", "valueType": "list", "comparer": "exact", "stated": "always" },
     { "kind": "index.unique", "label": "unique", "valueType": "bool", "comparer": "exact", "stated": "always" },
     { "kind": "index.filter", "label": "filter", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
     { "kind": "column.foreignKey", "label": "foreign key of", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
@@ -41,9 +41,7 @@
         { "kind": "column.precision", "for": { "element": "Attribute", "where": "hasStereotype('Decimal Constraints')" }, "value": "stereotype('Decimal Constraints').Precision", "dependsOn": "member.exists", "source": "the attribute's Decimal Constraints Precision" },
         { "kind": "column.scale", "for": { "element": "Attribute", "where": "hasStereotype('Decimal Constraints')" }, "value": "stereotype('Decimal Constraints').Scale", "dependsOn": "member.exists", "source": "the attribute's Decimal Constraints Scale" },
         { "kind": "column.default", "for": { "element": "Attribute", "where": "hasStereotype('Default Constraint')" }, "value": "stereotype('Default Constraint').Value", "dependsOn": "member.exists", "source": "the attribute's Default Constraint Value" },
-        { "kind": "column.valueGeneration", "for": { "element": "Attribute", "where": "hasStereotype('Primary Key') && stereotype('Primary Key')['Data source'] != 'Default'" }, "value": "stereotype('Primary Key')['Data source']", "dependsOn": "member.exists", "source": "the attribute's Primary Key Data source" },
-        { "kind": "index.columns", "for": { "element": "Attribute", "where": "hasStereotype('Index') && !exists(stereotype('Index').UniqueKey)" }, "value": "name", "dependsOn": "parent:type.exists", "source": "the attribute's Index" },
-        { "kind": "index.unique", "for": { "element": "Attribute", "where": "hasStereotype('Index') && !exists(stereotype('Index').UniqueKey)" }, "value": "stereotype('Index').IsUnique", "dependsOn": "parent:type.exists", "source": "the attribute's Index IsUnique" }
+        { "kind": "column.valueGeneration", "for": { "element": "Attribute", "where": "hasStereotype('Primary Key') && stereotype('Primary Key')['Data source'] != 'Default'" }, "value": "stereotype('Primary Key')['Data source']", "dependsOn": "member.exists", "source": "the attribute's Primary Key Data source" }
       ]
     }
   }
