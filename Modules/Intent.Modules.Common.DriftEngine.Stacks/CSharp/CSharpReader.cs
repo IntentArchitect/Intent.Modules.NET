@@ -223,6 +223,12 @@ internal static class CSharpReader
         Namespaces = razor is { IsImports: true } ? [] : root.DescendantNodes().OfType<BaseNamespaceDeclarationSyntax>().Select(x => Namespace(x.Name)).Distinct().ToList(),
         ImportsFrom = razor?.ImportsFrom ?? [],
         Markup = razor?.Markup ?? [],
+        // A Razor component's C# is generated, so its diagnostics don't say where the component's own markup is broken.
+        Errors = razor is not null ? [] : root.SyntaxTree.GetDiagnostics().Where(x => x.Severity == DiagnosticSeverity.Error)
+            .Select(x => (Diagnostic: x, Lines: x.Location.GetLineSpan()))
+            .Select(x => new SyntaxError(new Span(file, x.Lines.StartLinePosition.Line + 1, x.Lines.StartLinePosition.Character + 1, x.Lines.EndLinePosition.Line + 1, x.Lines.EndLinePosition.Character + 1),
+                $"{x.Diagnostic.Id}: {x.Diagnostic.GetMessage(System.Globalization.CultureInfo.InvariantCulture)}"))
+            .ToList(),
         Imports = root.DescendantNodes().OfType<UsingDirectiveSyntax>()
             .Where(x => x.NamespaceOrType is not null && (razor is null || razor.IsOwn(x)))
             .Select(x => new ImportNode

@@ -62,8 +62,8 @@ internal sealed class SpringMvcClaims : IClaimReader
 
     public IReadOnlyCollection<string> Kinds { get; } = new HashSet<string>(StringComparer.Ordinal)
     {
-        "type.exists", "operation.returns", "operation.parameters", "service.route", "operation.verb", "operation.route", "parameter.source", "service.secured", "service.roles",
-        "operation.secured", "operation.roles", "operation.anonymous"
+        "type.exists", "operation.returns", "operation.parameters", "service.route", "operation.verb", "operation.route", "parameter.source", "parameter.name", "service.secured", "service.roles",
+        "operation.secured", "operation.roles", "operation.anonymous", "operation.status"
     };
 
     public ClaimReading? Read(ClaimContext context)
@@ -122,8 +122,34 @@ internal sealed class SpringMvcClaims : IClaimReader
                 var binding = parameter?.Attributes.FirstOrDefault(x => BindingSources.ContainsKey(x.Name));
                 return Value(binding is null ? null : BindingSources[binding.Name], binding?.At ?? parameter?.At ?? member.At);
             }
+            case "parameter.name":
+            {
+                // The name @RequestHeader or @RequestParam gives, as its name, value or first argument; without one Spring binds
+                // by the parameter's own name, which the code doesn't state (decision 4).
+                var member = context.Member!;
+                var parameter = member.Parameters.FirstOrDefault(x => string.Equals(x.Name, context.Element.Name, StringComparison.OrdinalIgnoreCase));
+                var binding = parameter?.Attributes.FirstOrDefault(x => BindingSources.ContainsKey(x.Name));
+                if (binding is null || (binding.Values.FirstOrDefault(x => x.Name is "name" or "value") ?? binding.Values.FirstOrDefault(x => x.Name is null)) is not { } name)
+                {
+                    return ClaimReading.Absent(binding?.At ?? parameter?.At ?? member.At);
+                }
+
+                var value = name.Literal ?? (context.Code.Types.FirstOrDefault(x => x.Members.Contains(member)) is { } owner ? context.Code.ConstantOf(name.Text, owner) : null);
+                return value is not null
+                    ? ClaimReading.Stated(value, binding.At)
+                    : ClaimReading.CantVerify("unreadable", $"The code can't read `{name.Text}`, the name `@{binding.Name}` gives: it isn't a string constant of the in-scope code.", binding.At);
+            }
             case "operation.parameters":
                 return Parameters(context, spring);
+            case "operation.status":
+            {
+                // @ResponseStatus(HttpStatus.CREATED) sets the status whatever the handler returns.
+                var member = context.Member!;
+                var annotation = member.Attributes.FirstOrDefault(x => x.Name == "ResponseStatus");
+                var named = annotation?.Values.FirstOrDefault(x => x.Name is "value" or "code" or null)?.Text ?? annotation?.Arguments.FirstOrDefault();
+                (int, Span)? stated = Http.SuccessStatus.StatusOf(named) is { } status ? (status, annotation!.At) : null;
+                return Http.SuccessStatus.Read(context, member, stated);
+            }
             case "service.secured" or "service.roles":
                 return Secured(context.Kind, context.Type!.Attributes, context.Type.At);
             default:

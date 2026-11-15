@@ -41,6 +41,9 @@ public sealed partial class DriftEngine
     private readonly List<Claim> _claims = [];
     private readonly Dictionary<ClaimRef, Claim> _index = [];
     private readonly Dictionary<Claim, TypeNode> _types = [];
+
+    /// <summary>The types verified by the code's use of a library's type, which it references and doesn't declare.</summary>
+    private readonly HashSet<Claim> _referenced = [];
     private readonly Dictionary<Claim, MemberNode> _members = [];
 
     /// <summary>The member a claim reads, as the refiners gave it (<see cref="IMemberRefiner"/>), when one did.</summary>
@@ -49,6 +52,9 @@ public sealed partial class DriftEngine
     /// <summary>What an extension's existence claim located that is neither a type nor a member: a route, a mapping.</summary>
     private readonly Dictionary<Claim, object> _located = [];
     private readonly List<(string Extension, string Error)> _extensionFailures = [];
+
+    /// <summary>What the packs get wrong that is found without the code: an entry for a kind nothing defines.</summary>
+    private readonly List<Finding> _packFindings = [];
     private CodeGraph _graph = new();
     private CodeScope _codeScope = null!;
 
@@ -62,10 +68,45 @@ public sealed partial class DriftEngine
         // A comma-separated set: a key's columns, a policy's roles.
         new ValueComparer("set", (expected, actual) => Items(expected).SetEquals(Items(actual))),
         // Every item the model states is in the code's set, which may have more: a type's required bases.
-        new ValueComparer("subset", (expected, actual) => Items(expected).IsSubsetOf(Items(actual)))
+        new ValueComparer("subset", (expected, actual) => Items(expected).IsSubsetOf(Items(actual))),
+        // The same items in the same order: a composite key's columns.
+        new ValueComparer("list", (expected, actual) => Ordered(expected).SequenceEqual(Ordered(actual), StringComparer.Ordinal)),
+        // The model's items in the code in the model's order, the code may have more: an enum's literals.
+        new ValueComparer("subsequence", (expected, actual) => IsSubsequence(Ordered(expected), Ordered(actual))),
+        // The code's text holds the model's: a page title within a heading.
+        new ValueComparer("contains", (expected, actual) => actual.Contains(expected, StringComparison.Ordinal)),
+        // Versions equal ignoring a leading v and trailing .0 parts: v1 is 1.0.
+        new ValueComparer("version", (expected, actual) => Version(expected) == Version(actual))
     ];
 
     private static HashSet<string> Items(string text) => text.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).ToHashSet(StringComparer.Ordinal);
+
+    private static List<string> Ordered(string text) => text.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).ToList();
+
+    private static bool IsSubsequence(IReadOnlyList<string> items, IReadOnlyList<string> within)
+    {
+        var next = 0;
+        foreach (var item in within)
+        {
+            if (next < items.Count && item == items[next])
+            {
+                next++;
+            }
+        }
+
+        return next == items.Count;
+    }
+
+    private static string Version(string text)
+    {
+        var trimmed = text.Trim().TrimStart('v', 'V');
+        while (trimmed.EndsWith(".0", StringComparison.Ordinal))
+        {
+            trimmed = trimmed[..^2];
+        }
+
+        return trimmed;
+    }
 
     private DriftEngine(DriftInput input)
     {
@@ -113,12 +154,14 @@ public sealed partial class DriftEngine
 
             findings.AddRange(Rules());
             findings.AddRange(OptIn());
+            findings.AddRange(Unread());
         }
 
         findings.AddRange(_graph.Failures.Select(x => new Finding("engine/readerFailed", ScopeArea, "Code", "error",
             $"The {LanguageOf(x.File)?.Title ?? "code"} reader can't read {x.File}: {x.Error} Claims that need it can't be verified.", new Anchor(File: x.File, Line: 1))));
         findings.AddRange(_extensionFailures.GroupBy(x => x.Extension).Select(x => new Finding("config/pluginFailed", ScopeArea, "Code", "error",
             $"The {x.Key} extension failed: {x.First().Error} Claims it reads can't be verified.", new Anchor(Text: x.Key))));
+        findings.AddRange(_packFindings.DistinctBy(x => x.Message));
         return new RunResult(_claims, Overridden(findings), Coverage(), _packs.Select(x => new PackRef(x.Id, x.Version)).ToList(), FilesRead());
     }
 
@@ -337,6 +380,14 @@ public sealed partial class DriftEngine
             {
                 foreach (var entry in pack.Vocabulary(designer))
                 {
+                    // An entry for a kind no pack or extension defines can't make a claim; the pack's other entries still run.
+                    if (entry["kind"]?.GetValue<string>() is not { } kind || !_kinds.ContainsKey(kind))
+                    {
+                        _packFindings.Add(new Finding("config/ruleInvalid", ScopeArea, "Code", "error",
+                            $"Pack `{pack.Id}`'s {designer} vocabulary has an entry for the kind `{entry["kind"]}`, which no installed pack or extension defines, so nothing it states is checked.", new Anchor(Text: pack.Id)));
+                        continue;
+                    }
+
                     var specialization = entry["for"]?["element"]?.GetValue<string>();
                     var association = entry["for"]?["associationEnd"]?.GetValue<string>();
                     var where = entry["for"]?["where"]?.GetValue<string>();
@@ -355,6 +406,16 @@ public sealed partial class DriftEngine
                             Add(claim, replace: false);
                         }
                     }
+                }
+            }
+
+            // A convention that says what kinds an element's type may be states its type.kind, where no vocabulary does (R43).
+            foreach (var element in elements.Where(x => ClaimOn(designer, x, "type.exists") is not null && ClaimOn(designer, x, "type.kind") is null))
+            {
+                if (_packs.LastOrDefault(x => x.TypeConvention(designer, element.SpecializationType)?["typeKinds"] is JsonArray) is { } conventions
+                    && Build(designer, conventions, new JsonObject { ["kind"] = "type.kind", ["dependsOn"] = "type.exists", ["source"] = $"the {element.SpecializationType} conventions' type kinds" }, element) is { } kind)
+                {
+                    Add(kind, replace: false);
                 }
             }
         }
@@ -431,6 +492,7 @@ public sealed partial class DriftEngine
             Source = spec.Element,
             Definition = definition,
             Needs = spec.DependsOn,
+            WaitsOn = spec.WaitsOn,
             ExpectedValue = spec.Value,
             SourceText = spec.Source ?? spec.Kind,
             Area = spec.Area ?? spec.Designer
@@ -476,6 +538,7 @@ public sealed partial class DriftEngine
             Source = element,
             Definition = definition,
             Needs = Needs(designer, element, entry["dependsOn"]?.GetValue<string>()),
+            WaitsOn = (entry["waitsOn"] as JsonArray)?.Select(x => Needs(designer, element, x!.GetValue<string>())).OfType<ClaimRef>().ToList() ?? [],
             ExpectedValue = value,
             SourceText = entry["source"]?.GetValue<string>() ?? kind,
             Area = pack.Data["vocabulary"]?[designer]?["area"]?.GetValue<string>() ?? designer
@@ -513,14 +576,42 @@ public sealed partial class DriftEngine
     /// reached from that element's associated ends.
     /// </summary>
     private static IEnumerable<IElement> NavigableEnds(IEnumerable<IElement> elements, string association) =>
-        elements.SelectMany(x => x.AssociatedElements ?? [])
+        elements.SelectMany(Ends)
             .Where(x => x.IsNavigable && x.Association?.SpecializationType == association)
             .GroupBy(x => x.Id)
             .Select(x => x.First());
 
+    /// <summary>
+    /// The ends of an element's links, and of the links that start at a link's end in turn: a subscription's handler end
+    /// performs invocations and entity actions of its own.
+    /// </summary>
+    public static IEnumerable<IAssociationEnd> Ends(IElement element)
+    {
+        var seen = new HashSet<IElement>(ReferenceEqualityComparer.Instance) { element };
+        var queue = new Queue<IElement>([element]);
+        while (queue.TryDequeue(out var current))
+        {
+            foreach (var end in current.AssociatedElements ?? [])
+            {
+                yield return end;
+                if (IsTargetEnd(end) && seen.Add(end))
+                {
+                    queue.Enqueue(end);
+                }
+            }
+        }
+    }
+
+    internal static bool IsTargetEnd(IAssociationEnd end) =>
+        end.Association is { } association && (ReferenceEquals(association.TargetEnd, end) || association.TargetEnd?.Id == end.Id && association.SourceEnd?.Id != end.Id);
+
     /// <summary>What an element is a member of: its parent, or for an association end, the element at the other end.</summary>
     internal static IElement? Owner(IElement element) =>
         element is IAssociationEnd end ? end.OtherEnd()?.TypeReference?.Element as IElement : element.ParentElement;
+
+    /// <summary>An element's name; for a link's end that has none, the name of what it points to.</summary>
+    private static string NameOf(IElement element) =>
+        element is IAssociationEnd { Name: null or "" } end ? end.TypeReference?.Element?.Name ?? "" : element.Name ?? "";
 
     private static IReadOnlyList<IElement> Parameters(IElement element) => element.ChildElements.Where(x => x.SpecializationType == "Parameter").ToList();
 
@@ -558,6 +649,25 @@ public sealed partial class DriftEngine
             if (dependency.Outcome != "verified")
             {
                 Cant(claim, "blocked", new Reading { Detail = $"Waits on {dependency.Kind}" });
+                return;
+            }
+
+            if (_referenced.Contains(dependency))
+            {
+                Cant(claim, "blocked", new Reading { Detail = "Its type is a library's the code references, whose declaration isn't read." });
+                return;
+            }
+        }
+
+        // The claims it also waits on, where the model states them: a column waits on its table's entity.persisted. Only one
+        // the code contradicts makes it moot; one that can't be verified leaves it to be checked on its own evidence.
+        foreach (var gate in claim.WaitsOn.Select(x => _index.GetValueOrDefault(x)).OfType<Claim>())
+        {
+            Evaluate(gate);
+            if (gate.Outcome == "contradicted")
+            {
+                claim.DependsOn = new ClaimRef(gate.Designer, gate.Element, gate.Kind);
+                Cant(claim, "blocked", new Reading { Detail = $"Waits on {gate.Kind}" });
                 return;
             }
         }
@@ -630,8 +740,10 @@ public sealed partial class DriftEngine
                 break;
             case "type.kind":
             {
+                // A language's own kind stands for the kinds its profile's kindOf names: a Protobuf message is a class or a record.
                 var type = OwnType(claim);
-                Compare(claim, type.Kind, type.At, "code", claim.Expected.Split(", ").Contains(type.Kind));
+                var kinds = new[] { type.Kind }.Concat((ProfileOf(type)["kindOf"]?[type.Kind] as JsonArray)?.Select(x => x!.GetValue<string>()) ?? []);
+                Compare(claim, type.Kind, type.At, "code", kinds.Any(claim.Expected.Split(", ").Contains));
                 break;
             }
             case "type.abstract":
@@ -701,9 +813,29 @@ public sealed partial class DriftEngine
             case "type.base":
             {
                 // The type's supertypes, through its in-scope bases (code-reader.md, Capabilities).
+                // An in-scope supertype is read qualified; the model may name it alone (IBasketState for eShop.WebApp.Services.IBasketState).
                 var type = OwnType(claim);
-                var supertypes = string.Join(", ", _graph.Supertypes(type));
-                Compare(claim, supertypes.Length > 0 ? supertypes : "none", type.At, supertypes.Length > 0 ? "code" : "absent", Same(claim, supertypes));
+                var all = _graph.Supertypes(type).ToList();
+                var supertypes = string.Join(", ", all);
+                var named = claim.Expected.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
+                    .All(x => all.Any(s => s == x || s.EndsWith("." + x, StringComparison.Ordinal)));
+                Compare(claim, supertypes.Length > 0 ? supertypes : "none", type.At, supertypes.Length > 0 ? "code" : "absent", Same(claim, supertypes) || named && claim.Expected.Length > 0);
+                break;
+            }
+            case "type.generalization":
+            {
+                // The modelled class the type derives from. A base the model doesn't have, such as a codebase's own Entity, is
+                // type.base's to state, so the code's is the first of its bases that is one of the designer's types.
+                var type = OwnType(claim);
+                var elements = Elements(claim.Designer).Where(x => ClaimOn(claim.Designer, x, "type.exists") is not null).ToList();
+                var modelled = type.BaseTypes
+                    .Select(x => _graph.TypeFor(x, type) is { } resolved
+                        ? elements.FirstOrDefault(e => TypeOf(claim.Designer, e) == resolved)?.Name
+                        : elements.FirstOrDefault(e => e.Name == x.Name)?.Name)
+                    .FirstOrDefault(x => x is not null);
+                var expected = claim.Expected.Length > 0 ? claim.Expected : null;
+                claim.Outcome = modelled == expected ? "verified" : "contradicted";
+                claim.Reading = new Reading { Value = modelled, From = modelled is null ? "absent" : "code", At = type.At };
                 break;
             }
             case "type.file":
@@ -719,22 +851,64 @@ public sealed partial class DriftEngine
                 break;
             case "operation.parameters":
             {
-                // The parameters in order, each its name and type; injected ones aren't part of the signature.
+                // The parameters in order, each its name and type; injected ones aren't part of the signature. A class may
+                // rename the parameters its interface declares (CatalogAI's items for ICatalogAI's item), and the diagram
+                // can't show both names, so the method's declaration on either side is its signature.
                 var member = OwnMember(claim);
                 var code = Stated(member);
                 var model = Parameters(claim.Source);
-                var same = code.Count == model.Count && code.Zip(model).All(x =>
-                    x.First.Name == x.Second.Name && x.First.Type is { } type && x.Second.TypeReference is { Element: not null } modelType && TypeMatches(modelType, type));
-                Compare(claim, string.Join(", ", code.Select(x => $"{x.Name}: {x.Type?.Text ?? "?"}")), member.At, "code", same);
+                // A model that also lists what is injected (a gRPC ServerCallContext), as one drawn from the method does, states
+                // the whole signature, which is as true. C#'s @ only escapes a keyword: @event is event.
+                bool Matches(IReadOnlyList<ParameterNode> stated) => stated.Count == model.Count && stated.Zip(model).All(x =>
+                    x.First.Name.TrimStart('@') == x.Second.Name.TrimStart('@') && x.First.Type is { } type && x.Second.TypeReference is { Element: not null } modelType && TypeMatches(modelType, type));
+                bool Same(MemberNode declared) => Matches(Stated(declared)) || Matches(declared.Parameters);
+                Compare(claim, string.Join(", ", code.Select(x => $"{x.Name}: {x.Type?.Text ?? "?"}")), member.At, "code", Same(member) || Counterparts(member).Any(Same));
                 break;
             }
             default:
-                Cant(claim, "noRule", new Reading { Detail = $"There's no rule for {claim.Kind} in the active packs." });
+            {
+                // Readers that found no code of their framework in scope: the file that would state it may be one a scope row
+                // leaves out, named for the claim's type as a configuration is (OrderConfiguration for Order).
+                var readers = _extensions.Where(x => x.ClaimReaders.Any(r => r.Kinds.Contains(claim.Kind))).Select(x => x.Id).ToList();
+                var stems = new[] { claim.Source, Owner(claim.Source) }.OfType<IElement>().Select(NameOf).Where(x => x.Length > 0).ToList();
+                var shadow = readers.Count == 0 ? default
+                    : _files.FirstOrDefault(x => !x.Decision.In && x.Decision.Builtin is null && LanguageOf(x.Path) is not null
+                                                 && stems.Any(stem => Path.GetFileName(x.Path).StartsWith(stem, StringComparison.Ordinal)));
+                if (shadow.Path is not null)
+                {
+                    Cant(claim, "outOfScope", new Reading { ShadowFile = shadow.Path, ScopeRow = shadow.Decision.Row?.Id });
+                    break;
+                }
+
+                Cant(claim, "noRule", new Reading
+                {
+                    Detail = readers.Count > 0
+                        ? $"Its readers ({string.Join(", ", readers)}) found none of their framework's code in scope to read it from."
+                        : $"There's no rule for {claim.Kind} in the active packs."
+                });
                 break;
+            }
         }
     }
 
     private Claim? Dependency(Claim claim) => claim.Needs is { } needs ? _index.GetValueOrDefault(needs) : null;
+
+    /// <summary>
+    /// The same method on the other side of an interface: for a class's method, the declarations its interfaces have of it;
+    /// for an interface's, its implementations'. Of the same name and parameter count.
+    /// </summary>
+    private IEnumerable<MemberNode> Counterparts(MemberNode member)
+    {
+        if (_graph.Types.FirstOrDefault(x => x.Members.Contains(member)) is not { } type)
+        {
+            return [];
+        }
+
+        var others = type.Kind == "interface"
+            ? _graph.Types.Where(x => x != type && _graph.Bases(x).Contains(type))
+            : _graph.Bases(type).Where(x => x.Kind == "interface");
+        return others.SelectMany(x => x.Members).Where(x => x.Kind == "method" && x.Name == member.Name && x.Parameters.Count == member.Parameters.Count);
+    }
 
     private void TypeExists(Claim claim)
     {
@@ -749,21 +923,49 @@ public sealed partial class DriftEngine
             : Naming.InCode(profile, element.Name, kinds);
         var names = ReadProfiles().Select(NameIn).Distinct().ToList();
         var name = string.Join("` or `", names);
-        var locations = (Convention(claim.Designer, element)?["locations"] as JsonArray)?.Select(x => new GlobPattern(x!.GetValue<string>())).ToList() ?? [];
-        var candidates = _graph.Types
-            .Where(x => x.Name == NameIn(ProfileOf(x)) && (locations.Count == 0 || x.Files.Any(f => locations.Any(g => g.IsMatch(f)))))
-            .ToList();
+        // A location may name the element and its designer folders: src/{FolderPath}/*.ts.
+        var folderPath = string.Join("/", Folders(element));
+        var locations = (Convention(claim.Designer, element)?["locations"] as JsonArray)
+            ?.Select(x => new GlobPattern(Naming.Fill(x!.GetValue<string>(), new Dictionary<string, string> { ["Name"] = element.Name, ["FolderPath"] = folderPath }).Replace("//", "/")))
+            .ToList() ?? [];
+        bool Located(TypeNode type) => locations.Count == 0 || type.Files.Any(f => locations.Any(g => g.IsMatch(f)));
+        var candidates = _graph.Types.Where(x => x.Name == NameIn(ProfileOf(x)) && Located(x)).ToList();
+
+        // An element its conventions say may be a class or an interface (a Service, a Repository) with no type of its name
+        // is the interface its language names it (C#'s IBasketRepository), which a class of another name implements
+        // (RedisBasketRepository). With a type of its name, that is it, as the code's own classes are read first: the model
+        // drawn from a class (DocumentSearchService) and one drawn from its interface (CatalogAI) both hold.
+        var typeKinds = (Convention(claim.Designer, element)?["typeKinds"] as JsonArray)?.Select(x => x!.GetValue<string>()).ToList() ?? [];
+        if (candidates.Count == 0 && pattern is null && typeKinds.Count > 1 && typeKinds.Contains("interface"))
+        {
+            candidates = _graph.Types
+                .Where(x => x.Kind == "interface" && Located(x) && Naming.InCode(ProfileOf(x), element.Name, ["interface", "type"]) is var contract && contract == x.Name && contract != NameIn(ProfileOf(x)))
+                .ToList();
+        }
+
+        // A model whose File Config names the type's namespace and file, as one the Guardrails contracts generate from does,
+        // says which of several types with the name it is: services each keep a copy of a message they share. It locates the
+        // type; it isn't checked (user decision, 2026-11-14: it is for finding the right files).
+        if (candidates.Count > 1 && FileConfig(element) is var (ns, file) && (ns is not null || file is not null))
+        {
+            var named = candidates.Where(x => (ns is null || x.Namespace == ns) && (file is null || x.Files.Any(f => Path.GetFileNameWithoutExtension(f) == file))).ToList();
+            if (named.Count > 0)
+            {
+                candidates = named;
+            }
+        }
+
         if (candidates.Count > 1)
         {
-            // Designer folders become namespaces: of several types with the name, the one whose namespace ends with most of
-            // the element's folders is it.
-            var folders = new List<string>();
-            for (var parent = element.ParentElement; parent is { SpecializationType: "Folder" }; parent = parent.ParentElement)
-            {
-                folders.Insert(0, parent.Name);
-            }
+            // Designer folders become namespaces, or the folders the files are in: of several types with the name, the one
+            // whose namespace or folder ends with most of the element's folders is it.
+            var folders = Folders(element);
 
-            var scored = candidates.Select(x => (Type: x, Score: TrailingMatch(x.Namespace.Split('.'), folders))).ToList();
+            int Score(TypeNode type) => type.Files
+                .Select(f => TrailingMatch(Path.GetDirectoryName(f)?.Split('/', '\\') ?? [], folders))
+                .Append(TrailingMatch(type.Namespace.Split('.'), folders))
+                .Max();
+            var scored = candidates.Select(x => (Type: x, Score: Score(x))).ToList();
             var best = scored.Max(x => x.Score);
             if (best > 0 && scored.Count(x => x.Score == best) == 1)
             {
@@ -776,6 +978,14 @@ public sealed partial class DriftEngine
             case 1:
                 _types[claim] = candidates[0];
                 Verify(claim, new Reading { Value = "present", From = "code", At = candidates[0].At });
+                break;
+            case 0 when !_files.Any(x => !x.Decision.In && x.Decision.Builtin is null && names.Any(stem => IsNamedFor(x.Path, stem))) && !CodeLivesWhere(element)
+                         && UseOf(names) is { } use:
+                // A type the code uses and doesn't declare is a library's it references, as a message from a contracts
+                // package is (IHandleMessages<Ping>): it exists, and what the model says of its shape can't be read. Not
+                // when the code's own types live where the model places it: a deleted entity its configuration still names.
+                _referenced.Add(claim);
+                Verify(claim, new Reading { Value = "present", From = "code", At = use });
                 break;
             case 0:
                 Missing(claim, names, $"a {string.Join(" or ", TypeKinds(claim.Designer, element))} named `{name}`");
@@ -838,8 +1048,9 @@ public sealed partial class DriftEngine
             member = Overload(owner.Members.Where(x => x.Kind == "constructor").ToList(), element);
             searched = $"a constructor of `{owner.Name}` taking ({string.Join(", ", parameters)})";
         }
-        else if (element.SpecializationType == "Operation")
+        else if (element.SpecializationType.EndsWith("Operation", StringComparison.Ordinal))
         {
+            // A designer's own operations are methods too: the Java spike's Proxy Operation.
             var name = Naming.InCode(ProfileOf(owner), element.Name, ["method"]);
             var methods = _graph.MembersOf(owner).Where(x => x.Kind == "method" && x.Name == name).ToList();
             member = methods.Count == 1 ? methods[0] : Overload(methods, element);
@@ -920,6 +1131,64 @@ public sealed partial class DriftEngine
     /// is a file an Out row excludes or one no row includes; never a built-in exclusion (bin, obj, ...), which is junk by
     /// definition. Only the file's path is looked at, never its content.
     /// </summary>
+    /// <summary>
+    /// Where the code uses a type of one of the names, in a base type, a member's or parameter's type, a creation or a call's
+    /// type argument, nested type arguments included.
+    /// </summary>
+    /// <summary>The designer folders holding an element, outermost first.</summary>
+    private static List<string> Folders(IElement element)
+    {
+        var folders = new List<string>();
+        for (var parent = element.ParentElement; parent is { SpecializationType: "Folder" }; parent = parent.ParentElement)
+        {
+            folders.Insert(0, parent.Name);
+        }
+
+        return folders;
+    }
+
+    /// <summary>
+    /// In-scope code lives where the model places the element: a type's namespace ends with the last two segments of its
+    /// package's and folders' names (all, when fewer). A reverse-engineered model files a contracts package's messages under
+    /// folders named for their namespace, which no in-scope code declares; a deleted entity's siblings still live in its own.
+    /// </summary>
+    private bool CodeLivesWhere(IElement element)
+    {
+        var place = (element.Package?.Name ?? "").Split('.', StringSplitOptions.RemoveEmptyEntries).ToList();
+        var folders = new List<string>();
+        for (var parent = element.ParentElement; parent is not null; parent = parent.ParentElement)
+        {
+            if (parent.SpecializationType == "Folder")
+            {
+                folders.InsertRange(0, parent.Name.Split('.', StringSplitOptions.RemoveEmptyEntries));
+            }
+        }
+
+        var tail = place.Concat(folders).TakeLast(2).ToList();
+        return tail.Count > 0 && _graph.Types.Any(x => x.Namespace.Split('.') is { } segments && segments.Length >= tail.Count
+                                                       && segments.TakeLast(tail.Count).SequenceEqual(tail, StringComparer.OrdinalIgnoreCase));
+    }
+
+    private Span? UseOf(IReadOnlyCollection<string> names)
+    {
+        bool Named(TypeRefNode? type) => type is not null && (names.Contains(type.Name) || type.Arguments.Any(Named));
+        foreach (var type in _graph.Types)
+        {
+            if (type.BaseTypes.Any(Named))
+            {
+                return type.At;
+            }
+
+            if (type.Members.FirstOrDefault(x => Named(x.Type) || x.Parameters.Any(p => Named(p.Type)) || x.Creations.Any(c => Named(c.Type))
+                                                 || x.Calls.Any(c => c.TypeArguments.Any(Named))) is { } member)
+            {
+                return member.At;
+            }
+        }
+
+        return null;
+    }
+
     private void Missing(Claim claim, string fileStem, string searchedFor) => Missing(claim, [fileStem], searchedFor);
 
     private void Missing(Claim claim, IReadOnlyList<string> fileStems, string searchedFor)
@@ -936,6 +1205,14 @@ public sealed partial class DriftEngine
     }
 
     /// <summary>How many of <paramref name="folders"/>' last names end <paramref name="ns"/>, compared case-insensitively.</summary>
+    /// <summary>The namespace and file name an element's File Config names; null for each it leaves empty.</summary>
+    private static (string? Namespace, string? File) FileConfig(IElement element)
+    {
+        var config = element.Stereotypes?.FirstOrDefault(x => x.Name == "File Config");
+        string? Value(string key) => config?.Properties.FirstOrDefault(x => x.Key == key)?.Value?.Trim() is { Length: > 0 } value ? value : null;
+        return (Value("Namespace"), Value("Filename"));
+    }
+
     private static int TrailingMatch(IReadOnlyList<string> ns, IReadOnlyList<string> folders)
     {
         var count = 0;
@@ -953,6 +1230,17 @@ public sealed partial class DriftEngine
     /// <summary>A rule's reading made the claim's outcome: a value read is compared by the kind's comparer.</summary>
     private void Apply(Claim claim, ClaimReading reading)
     {
+        // A value read where the reader couldn't parse the code cleanly may not be what was meant (code-reader.md, Failures).
+        if (reading.From is not ("cantVerify" or "found" or "missing") && reading.At is { } read && ErrorAt(read) is { } error)
+        {
+            Cant(claim, "readerFailed", new Reading
+            {
+                At = read,
+                Detail = $"{read.File} can't be parsed cleanly at line {error.At.Line} ({error.Message}), where the rule read it, so the value there may not be what was meant."
+            });
+            return;
+        }
+
         switch (reading.From)
         {
             case "cantVerify":
@@ -968,7 +1256,7 @@ public sealed partial class DriftEngine
                 break;
             case "compared:same" or "compared:different":
                 Compare(claim, reading.Value!, reading.At!, "code", reading.From == "compared:same");
-                claim.Reading = new Reading { Value = reading.Value, From = "code", At = reading.At, Message = reading.Message };
+                claim.Reading = new Reading { Value = Canonical(claim, reading.Value!), From = "code", At = reading.At, Message = reading.Message };
                 break;
             case "missing":
                 claim.Outcome = "contradicted";
@@ -991,13 +1279,38 @@ public sealed partial class DriftEngine
                 Verify(claim, new Reading { Value = "present", From = "code", At = reading.At });
                 break;
             default:
-                Compare(claim, reading.Value!, reading.At!, reading.From, Same(claim, reading.Value!));
+                Compare(claim, Canonical(claim, reading.Value!), reading.At!, reading.From, Same(claim, reading.Value!));
                 break;
         }
+
+        // Compared, both sides are shown as canonical text.
+        claim.Expected = Canonical(claim, claim.Expected);
     }
 
     private bool Same(Claim claim, string actual) =>
         _comparers.TryGetValue(claim.Definition.Comparer, out var comparer) ? comparer.Same(claim.Expected, actual) : actual == claim.Expected;
+
+    private Dictionary<string, IReadOnlyList<SyntaxError>>? _errors;
+
+    /// <summary>A syntax error on the lines a span covers.</summary>
+    private SyntaxError? ErrorAt(Span at)
+    {
+        _errors ??= _graph.Files.Where(x => x.Errors.Count > 0).GroupBy(x => x.Path).ToDictionary(x => x.Key, x => (IReadOnlyList<SyntaxError>)x.SelectMany(f => f.Errors).ToList());
+        return _errors.TryGetValue(at.File, out var errors)
+            ? errors.FirstOrDefault(x => x.At.Line <= (at.EndLine ?? at.Line) && (x.At.EndLine ?? x.At.Line) >= at.Line)
+            : null;
+    }
+
+    /// <summary>A value's canonical text (claims-and-findings.md, Values): a set's items sorted, and as its comparer writes it.</summary>
+    private string Canonical(Claim claim, string value)
+    {
+        if (claim.Definition.ValueType == "set" && value is not ("none" or ""))
+        {
+            value = string.Join(", ", value.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).Order(StringComparer.Ordinal));
+        }
+
+        return _comparers.TryGetValue(claim.Definition.Comparer, out var comparer) ? comparer.Canonical(value) : value;
+    }
 
     // ---- What a claim reader can ask (ClaimContext) ----
 
@@ -1154,10 +1467,12 @@ public sealed partial class DriftEngine
         claim.Reading = reading;
     }
 
-    private static void Compare(Claim claim, string actual, Span at, string from, bool same)
+    /// <summary>The claim's outcome, with both sides as canonical text: whether they're the same is decided on them as read.</summary>
+    private void Compare(Claim claim, string actual, Span at, string from, bool same)
     {
         claim.Outcome = same ? "verified" : "contradicted";
-        claim.Reading = new Reading { Value = actual, From = from, At = at };
+        claim.Expected = Canonical(claim, claim.Expected);
+        claim.Reading = new Reading { Value = Canonical(claim, actual), From = from, At = at };
     }
 
     private static void Cant(Claim claim, string reason, Reading reading)
@@ -1171,26 +1486,30 @@ public sealed partial class DriftEngine
 
     private Finding Report(Claim claim)
     {
-        // A member, or a member's parameter, is named with its owner: Order.Total, Orders.Get.id.
+        // A member, or a member's parameter, is named with its owner: Order.Total, Orders.Get.id. A link that starts at another
+        // link's end is named with that end's owner: a subscription's handler.
         var display = Owner(claim.Source) is { } parent && OnMember(claim)
-            ? $"{parent.Name}.{claim.Source.Name}"
-            : claim.Source.Name;
+            ? $"{(parent is IAssociationEnd && Owner(parent) is { } holder ? holder.Name : NameOf(parent))}.{NameOf(claim.Source)}"
+            : NameOf(claim.Source);
         // One of several claims of its kind says which: `Customer` (IX_Customer_Email) columns.
         var label = claim.Discriminator is { } key ? $"({key}) {claim.Definition.Label}" : claim.Definition.Label;
         var reading = claim.Reading!;
         var message = (claim.Outcome, claim.Reason) switch
         {
-            ("contradicted", _) when reading.Message is not null => reading.Message,
+            ("contradicted", _) when reading.Message is not null => $"{reading.Message}{Blocked(claim)}",
             ("contradicted", _) when claim.Definition.Existence =>
                 $"`{display}` isn't in the code. Searched {reading.Detail} for {reading.Searched![0]}.{Blocked(claim)}",
+            // Silence that states a value (R3): no IsUnique() is an index that isn't unique.
+            ("contradicted", _) when reading is { From: "absent", Value: not (null or "none") } =>
+                $"`{display}` {label}: model `{claim.Expected}`, code `{reading.Value}`, which it states by saying nothing ({reading.At}). The model states it in {claim.SourceText}.{Blocked(claim)}",
             ("contradicted", _) when reading.From == "absent" || reading is { From: null, Value: null } =>
-                $"`{display}` {label}: model `{claim.Expected}`, the code doesn't state it ({reading.At}). The model states it in {claim.SourceText}.",
+                $"`{display}` {label}: model `{claim.Expected}`, the code doesn't state it ({reading.At}). The model states it in {claim.SourceText}.{Blocked(claim)}",
             ("contradicted", _) when reading.From == "default" =>
-                $"`{display}` {label}: model `{claim.Expected}`, the code doesn't state it, so it is `{reading.Value}` ({reading.At}). The model states it in {claim.SourceText}.",
+                $"`{display}` {label}: model `{claim.Expected}`, the code doesn't state it, so it is `{reading.Value}` ({reading.At}). The model states it in {claim.SourceText}.{Blocked(claim)}",
             ("contradicted", _) =>
-                $"`{display}` {label}: model `{claim.Expected}`, code `{reading.Value}` ({reading.At}). The model states it in {claim.SourceText}.",
+                $"`{display}` {label}: model `{claim.Expected}`, code `{reading.Value}` ({reading.At}). The model states it in {claim.SourceText}.{Blocked(claim)}",
             (_, "ambiguous") =>
-                $"`{display}` {label} can't be verified: {reading.Candidates!.Count} in-scope types match, at {string.Join(", ", reading.Candidates)}.{Blocked(claim)}",
+                $"`{display}` {label} can't be verified: {reading.Candidates!.Count} {(claim.Definition.Existence ? "in-scope types match" : "places in the in-scope code state it")}, at {string.Join(", ", reading.Candidates)}.{Blocked(claim)}",
             (_, "outOfScope") when reading.ShadowFile is not null && reading.ScopeRow is not null =>
                 $"`{display}` {label} can't be verified: {reading.ShadowFile} may hold it, but scope row {ScopeRowText(reading.ScopeRow)} excludes that file, so it isn't read.{Blocked(claim)}",
             (_, "outOfScope") when reading.ShadowFile is not null =>

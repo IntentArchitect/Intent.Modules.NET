@@ -11,6 +11,11 @@ internal static class TypeComparer
 {
     public static bool Matches(ITypeReference model, TypeRefNode code, JsonNode profile)
     {
+        if (!model.IsCollection && IsWrittenAs(model, code, profile))
+        {
+            return true;
+        }
+
         code = WithoutNullable(code, profile);
 
         // A primitive the profile writes in a collection's form (binary is byte[]) matches as written, before collections.
@@ -24,6 +29,12 @@ internal static class TypeComparer
             if (CollectionItem(code, profile) is not { } item)
             {
                 return false;
+            }
+
+            // A collection of a type definition named as its items are written: int? for int?[].
+            if (IsWrittenAs(model, item, profile))
+            {
+                return true;
             }
 
             code = WithoutNullable(item, profile);
@@ -44,11 +55,24 @@ internal static class TypeComparer
             return written.Contains(code.QualifiedName) || written.Contains(code.Text);
         }
 
+        if (IsWrittenAs(model, code, profile))
+        {
+            return true;
+        }
+
         // Type arguments count only when the model states them: Paged<Order> isn't Paged<Product>.
         var arguments = model.GenericTypeParameters?.ToList() ?? [];
         return code.Name == element.Name && (arguments.Count == 0 ||
             arguments.Count == code.Arguments.Count && arguments.Zip(code.Arguments).All(x => Matches(x.First, x.Second, profile)));
     }
+
+    /// <summary>
+    /// A type definition the profile doesn't map, named as the code writes the type (<c>Func&lt;Task&gt;</c>, <c>int?</c>), is
+    /// that type, nullability included.
+    /// </summary>
+    private static bool IsWrittenAs(ITypeReference model, TypeRefNode code, JsonNode profile) =>
+        model.Element is { SpecializationType: "Type-Definition" } element && element.Name.IndexOfAny(['<', '[', '?']) >= 0 && Written(model, profile) is null
+        && element.Name.Replace(" ", "") == code.Text.Replace(" ", "");
 
     /// <summary>How the profile writes the model's type, when it's a primitive (a type definition the profile maps).</summary>
     private static IReadOnlyList<string>? Written(ITypeReference model, JsonNode profile) =>

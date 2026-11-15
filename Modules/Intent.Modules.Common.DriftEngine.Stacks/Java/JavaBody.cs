@@ -57,7 +57,12 @@ internal sealed class JavaBody(BlockContext body, TypeNode owner, string file, C
             Creations = inside.OfType<ObjectCreationExpressionContext>().Select(Creation).OfType<CreationNode>().ToList(),
             Assignments = inside.OfType<BinaryOperatorExpressionContext>()
                 .Where(x => x.bop?.Text == "=")
-                .Select(x => new AssignmentNode(JavaReader.TextOf(x.expression(0)), Value(x.expression(1), x.Start.StartIndex), JavaReader.SpanOf(x, file)))
+                .Select(x => new AssignmentNode(JavaReader.TextOf(x.expression(0)), Value(x.expression(1), x.Start.StartIndex), JavaReader.SpanOf(x, file))
+                {
+                    Receiver = x.expression(0) is MemberReferenceExpressionContext { } access && access.identifier() is not null && !IsThis(access.expression())
+                        ? Value(access.expression(), x.Start.StartIndex)
+                        : null
+                })
                 .ToList(),
             Returns = returned is not null
                 ? [Value(returned, returned.Start.StartIndex)]

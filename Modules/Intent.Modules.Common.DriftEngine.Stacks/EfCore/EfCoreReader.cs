@@ -51,6 +51,18 @@ internal sealed class EfCoreReader : ICodeReader
             {
                 Configure(model, Name(entityType), lambda.Parameter.Identifier.Text, lambda.Body, file, csharp);
             }
+            else if (invocation.Expression is MemberAccessExpressionSyntax { Name: GenericNameSyntax { Identifier.Text: "Entity", TypeArgumentList.Arguments: [var chainedType] } }
+                     && invocation.ArgumentList.Arguments.Count == 0 && invocation.Parent is MemberAccessExpressionSyntax)
+            {
+                // modelBuilder.Entity<Buyer>().HasIndex(b => b.IdentityGuid).IsUnique(): the chain after Entity<T>() configures T.
+                ExpressionSyntax top = invocation;
+                while (top.Parent is MemberAccessExpressionSyntax { Parent: InvocationExpressionSyntax next } member && member.Expression == top)
+                {
+                    top = next;
+                }
+
+                Add(Config(model, Name(chainedType), invocation, file), Calls((InvocationExpressionSyntax)top, file, csharp).Skip(1).ToList());
+            }
         }
 
         foreach (var method in root.DescendantNodes().OfType<MethodDeclarationSyntax>())
@@ -60,43 +72,123 @@ internal sealed class EfCoreReader : ICodeReader
                 && ((SyntaxNode?)method.Body ?? method.ExpressionBody) is { } body)
             {
                 Configure(model, Name(entityType), parameter.Identifier.Text, body, file, csharp);
+                if (method.FirstAncestorOrSelf<TypeDeclarationSyntax>() is { } configuration)
+                {
+                    model.Configurations[configuration.Identifier.Text] = Name(entityType);
+                }
             }
+        }
+
+        foreach (var type in root.DescendantNodes().OfType<ClassDeclarationSyntax>())
+        {
+            Context(model, type, file, csharp);
         }
     }
 
-    private static void Configure(EfCoreModel model, string entity, string builder, SyntaxNode body, string file, CSharpSyntax csharp)
+    /// <summary>A DbContext, a class with <c>OnModelCreating</c> or a <c>DbSet&lt;T&gt;</c>: its default schema and what it maps.</summary>
+    private static void Context(EfCoreModel model, ClassDeclarationSyntax type, string file, CSharpSyntax csharp)
     {
-        if (!model.Entities.TryGetValue(entity, out var config))
+        var sets = type.Members.OfType<PropertyDeclarationSyntax>().Select(x => x.Type).OfType<GenericNameSyntax>()
+            .Where(x => x.Identifier.Text == "DbSet" && x.TypeArgumentList.Arguments.Count == 1).ToList();
+        var onModelCreating = type.Members.OfType<MethodDeclarationSyntax>().FirstOrDefault(x => x.Identifier.Text == "OnModelCreating");
+        if (sets.Count == 0 && onModelCreating is null)
         {
-            config = model.Entities[entity] = new EntityConfig { Entity = entity, At = SpanOf(body, file) };
+            return;
         }
 
-        foreach (var chain in body.DescendantNodes().OfType<InvocationExpressionSyntax>().Where(x => x.Parent is not MemberAccessExpressionSyntax))
+        var context = new ContextConfig { Name = type.Identifier.Text, At = SpanOf(type, file) };
+        model.Contexts[context.Name] = context;
+        foreach (var set in sets)
         {
-            var calls = Calls(chain, file, csharp);
-            if (calls.Count == 0 || calls[0].Receiver != builder)
+            Maps(context, context.Entities, Name(set.TypeArgumentList.Arguments[0]), set, file);
+        }
+
+        foreach (var invocation in onModelCreating?.DescendantNodes().OfType<InvocationExpressionSyntax>() ?? [])
+        {
+            if (invocation.Expression is not MemberAccessExpressionSyntax access)
             {
                 continue;
             }
 
-            if (calls[0].Name == "Property" && calls[0].Selected is [var property])
+            switch (access.Name)
             {
-                if (!config.Properties.TryGetValue(property, out var list))
-                {
-                    list = config.Properties[property] = [];
-                }
+                case GenericNameSyntax { Identifier.Text: "Entity", TypeArgumentList.Arguments: [var entity] }:
+                    Maps(context, context.Entities, Name(entity), access.Name, file);
+                    break;
+                case { Identifier.Text: "ApplyConfiguration" } when invocation.ArgumentList.Arguments is [{ Expression: BaseObjectCreationExpressionSyntax created }]:
+                    if (created is ObjectCreationExpressionSyntax { Type: var configuration })
+                    {
+                        Maps(context, context.Configurations, Name(configuration), access.Name, file);
+                    }
 
-                list.AddRange(calls);
-                if (calls[0].TypeArguments is [var type] && calls[0].Arguments is [var argument] && argument == property)
-                {
-                    config.Declared[property] = (type, calls[0].At);
-                }
+                    break;
+                case { Identifier.Text: "ApplyConfigurationsFromAssembly" }:
+                    context.AppliesAssembly = true;
+                    // typeof(OrderingContext).Assembly names the assembly by a type in it.
+                    context.Assembly ??= (SpanOf(access.Name, file),
+                        invocation.ArgumentList.Arguments.FirstOrDefault()?.Expression is MemberAccessExpressionSyntax { Expression: TypeOfExpressionSyntax of, Name.Identifier.Text: "Assembly" } ? Name(of.Type) : null);
+                    break;
+                case { Identifier.Text: "HasDefaultSchema" }:
+                    context.DefaultSchema = Calls(invocation, file, csharp).LastOrDefault();
+                    break;
             }
-            else
+        }
+    }
+
+    private static void Maps(ContextConfig context, HashSet<string> names, string name, SyntaxNode at, string file)
+    {
+        names.Add(name);
+        context.MappedAt.TryAdd(name, SpanOf(at, file));
+    }
+
+    private static void Configure(EfCoreModel model, string entity, string builder, SyntaxNode body, string file, CSharpSyntax csharp)
+    {
+        var config = Config(model, entity, body, file);
+        foreach (var chain in body.DescendantNodes().OfType<InvocationExpressionSyntax>().Where(x => x.Parent is not MemberAccessExpressionSyntax))
+        {
+            var calls = Calls(chain, file, csharp);
+            if (calls.Count > 0 && calls[0].Receiver == builder)
             {
-                config.Calls.AddRange(calls);
-                config.Chains.Add(calls);
+                Add(config, calls);
             }
+        }
+    }
+
+    private static EntityConfig Config(EfCoreModel model, string entity, SyntaxNode at, string file)
+    {
+        if (!model.Entities.TryGetValue(entity, out var config))
+        {
+            config = model.Entities[entity] = new EntityConfig { Entity = entity, At = SpanOf(at, file) };
+        }
+
+        return config;
+    }
+
+    /// <summary>One chain on an entity's builder: a property's, from its <c>Property(e =&gt; e.X)</c> on, or the entity's own.</summary>
+    private static void Add(EntityConfig config, List<FluentCall> calls)
+    {
+        if (calls.Count == 0)
+        {
+            return;
+        }
+
+        if (calls[0].Name == "Property" && calls[0].Selected is [var property])
+        {
+            if (!config.Properties.TryGetValue(property, out var list))
+            {
+                list = config.Properties[property] = [];
+            }
+
+            list.AddRange(calls);
+            if (calls[0].TypeArguments is [var type] && calls[0].Arguments is [var argument] && argument == property)
+            {
+                config.Declared[property] = (type, calls[0].At);
+            }
+        }
+        else
+        {
+            config.Calls.AddRange(calls);
+            config.Chains.Add(calls);
         }
     }
 

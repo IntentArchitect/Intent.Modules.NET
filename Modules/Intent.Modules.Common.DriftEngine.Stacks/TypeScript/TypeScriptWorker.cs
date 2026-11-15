@@ -6,13 +6,15 @@ namespace Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
 
 /// <summary>
 /// Parses TypeScript with TypeScript's own parser: the worker (Worker/ts-reader.js) and <c>typescript.js</c> are embedded in
-/// this assembly, written once to a folder named for their content, and run by Node.js once for all of a run's files.
+/// this assembly, written to a folder named for their content, and run by Node.js once for all of a run's files.
 /// </summary>
 internal static class TypeScriptWorker
 {
     private const string Resources = "typescript-worker/";
 
-    private static readonly Lazy<string> Folder = new(Extract);
+    private static readonly string[] Names = ["ts-reader.js", "typescript.js"];
+
+    private static readonly Lazy<string> Folder = new(FolderName);
 
     /// <param name="files">Each file's path, the text to parse and how (<c>ts</c>, <c>tsx</c>, <c>js</c> or <c>jsx</c>).</param>
     /// <returns>Each file the worker read; or, when it couldn't run, why.</returns>
@@ -28,7 +30,7 @@ internal static class TypeScriptWorker
                 ["files"] = new JsonArray(files.Select(x => (JsonNode)new JsonObject { ["path"] = x.Path, ["text"] = x.Text, ["kind"] = x.Kind }).ToArray())
             }.ToJsonString());
 
-            var run = node.Run(Path.Combine(Folder.Value, "ts-reader.js"), [request, response]);
+            var run = node.Run(Path.Combine(Extract(), "ts-reader.js"), [request, response]);
             if (run.ExitCode is null)
             {
                 return ([], $"The TypeScript reader runs TypeScript's own parser on Node.js, which couldn't be started: {run.Errors.Trim()}");
@@ -105,37 +107,29 @@ internal static class TypeScriptWorker
     private static int LineOf(string text, int position) => text.AsSpan(0, Math.Min(position, text.Length)).Count('\n') + 1;
 
     /// <summary>
-    /// Writes the worker and <c>typescript.js</c> to a folder named for their content, once: a later run, or another run at
-    /// the same time, finds them there.
+    /// Writes the worker and <c>typescript.js</c> to their folder unless they are there, on every run: the Software Factory's
+    /// process outlives a run, and the temp folder may be cleaned between two. A later run, or another run at the same time,
+    /// finds them there.
     /// </summary>
     private static string Extract()
     {
-        var assembly = typeof(TypeScriptWorker).Assembly;
-        var names = new[] { "ts-reader.js", "typescript.js" };
-        var contents = names.Select(name =>
-        {
-            using var stream = assembly.GetManifestResourceStream(Resources + name)
-                               ?? throw new InvalidOperationException($"The TypeScript worker's {name} is missing from the stock extensions' resources.");
-            using var memory = new MemoryStream();
-            stream.CopyTo(memory);
-            return memory.ToArray();
-        }).ToList();
-
-        using var sha = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
-        contents.ForEach(sha.AppendData);
-        var hash = Convert.ToHexString(sha.GetHashAndReset())[..16].ToLowerInvariant();
-        var folder = Path.Combine(Path.GetTempPath(), "intent-drift-engine", $"typescript-{hash}");
+        var folder = Folder.Value;
         Directory.CreateDirectory(folder);
-        for (var i = 0; i < names.Length; i++)
+        foreach (var name in Names)
         {
-            var target = Path.Combine(folder, names[i]);
+            var target = Path.Combine(folder, name);
             if (File.Exists(target))
             {
                 continue;
             }
 
             var partial = $"{target}.{Guid.NewGuid():N}.tmp";
-            File.WriteAllBytes(partial, contents[i]);
+            using (var stream = Resource(name))
+            using (var file = File.Create(partial))
+            {
+                stream.CopyTo(file);
+            }
+
             try
             {
                 File.Move(partial, target);
@@ -149,4 +143,24 @@ internal static class TypeScriptWorker
 
         return folder;
     }
+
+    /// <summary>The folder, named for the files' content, so a module upgrade that changes them writes a new one.</summary>
+    private static string FolderName()
+    {
+        using var sha = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
+        foreach (var name in Names)
+        {
+            using var stream = Resource(name);
+            using var memory = new MemoryStream();
+            stream.CopyTo(memory);
+            sha.AppendData(memory.ToArray());
+        }
+
+        var hash = Convert.ToHexString(sha.GetHashAndReset())[..16].ToLowerInvariant();
+        return Path.Combine(Path.GetTempPath(), "intent-drift-engine", $"typescript-{hash}");
+    }
+
+    private static Stream Resource(string name) =>
+        typeof(TypeScriptWorker).Assembly.GetManifestResourceStream(Resources + name)
+        ?? throw new InvalidOperationException($"The TypeScript worker's {name} is missing from the stock extensions' resources.");
 }

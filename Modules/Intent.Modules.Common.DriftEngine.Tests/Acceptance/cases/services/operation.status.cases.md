@@ -237,6 +237,114 @@ public static class OrdersApi
 }
 ```
 
+## web-api-2-service-builds-response
+
+A Web API 2 action returns what a service, behind its interface, builds: a `ResponseMessageResult` of the request's `CreateResponse(HttpStatusCode.OK)`, kept in a local, with an error result on another path. The success status is the 200 the service states.
+
+```json case
+{ "phase": 4, "kinds": ["operation.status"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Documents",
+        "elements": [
+          { "id": "search-request", "type": "DTO", "name": "SearchRequest",
+            "children": [
+              { "id": "search-request-query", "type": "DTO-Field", "name": "Query", "typeRef": { "type": "string", "nullable": true } }
+            ] },
+          { "id": "document-controller", "type": "Service", "name": "DocumentController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/documents" } },
+            "children": [
+              { "id": "search", "type": "Operation", "name": "SearchAsync",
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "search", "Success Response Code": "200 (Ok)" } },
+                "children": [
+                  { "id": "search-request-parameter", "type": "Parameter", "name": "request", "typeRef": { "element": "search-request" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Documents", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Documents/Controllers/DocumentController.cs
+using System.Threading.Tasks;
+using System.Web.Http;
+using Documents.Services;
+
+namespace Documents.Controllers;
+
+[RoutePrefix("api/documents")]
+public class DocumentController : ApiController
+{
+    private readonly IDocumentSearchService _search;
+
+    public DocumentController(IDocumentSearchService search)
+    {
+        _search = search;
+    }
+
+    [HttpPost]
+    [Route("search")]
+    public async Task<IHttpActionResult> SearchAsync([FromBody] SearchRequest request)
+    {
+        return await _search.SearchAsync(request, Request);
+    }
+}
+```
+
+```csharp file src/Documents/Services/DocumentSearchService.cs
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.Results;
+
+namespace Documents.Services;
+
+public interface IDocumentSearchService
+{
+    Task<IHttpActionResult> SearchAsync(SearchRequest request, HttpRequestMessage httpRequest);
+}
+
+public class DocumentSearchService : IDocumentSearchService
+{
+    public async Task<IHttpActionResult> SearchAsync(SearchRequest request, HttpRequestMessage httpRequest)
+    {
+        if (request.Query is null)
+        {
+            return new BadRequestResult(httpRequest);
+        }
+
+        var response = httpRequest.CreateResponse(HttpStatusCode.OK);
+        return new ResponseMessageResult(response);
+    }
+}
+
+public class SearchRequest
+{
+    public string? Query { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.status", "element": "search", "outcome": "verified", "expected": "200", "actual": "200",
+      "at": "src/Documents/Controllers/DocumentController.cs:21" }
+  ]
+}
+```
+
 ## java-verified-no-content
 
 Over Spring MVC, `ResponseEntity.noContent()` is a 204, and the Operation's Success Response Code is `204 (No Content)`. Traces JAV-SVC-07.

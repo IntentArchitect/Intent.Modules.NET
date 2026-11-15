@@ -9,11 +9,13 @@
     { "kind": "operation.verb", "label": "verb", "valueType": "text", "comparer": "ignoreCase", "stated": "always" },
     { "kind": "operation.route", "label": "route", "valueType": "route", "comparer": "route", "stated": "whenSet" },
     { "kind": "parameter.source", "label": "source", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "parameter.name", "label": "bound name", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
     { "kind": "service.secured", "label": "secured", "valueType": "bool", "comparer": "exact", "stated": "whenSet" },
     { "kind": "service.roles", "label": "roles", "valueType": "set", "comparer": "set", "stated": "whenSet" },
     { "kind": "operation.secured", "label": "secured", "valueType": "bool", "comparer": "exact", "stated": "whenSet" },
     { "kind": "operation.roles", "label": "roles", "valueType": "set", "comparer": "set", "stated": "whenSet" },
-    { "kind": "operation.anonymous", "label": "anonymous", "valueType": "bool", "comparer": "exact", "stated": "whenSet" }
+    { "kind": "operation.anonymous", "label": "anonymous", "valueType": "bool", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "operation.status", "label": "success status", "valueType": "number", "comparer": "number", "stated": "whenSet" }
   ],
   "vocabulary": {
     "Services": {
@@ -23,11 +25,18 @@
         { "kind": "operation.verb", "for": { "element": "Operation", "where": "hasStereotype('Http Settings')" }, "value": "stereotype('Http Settings').Verb", "dependsOn": "member.exists", "source": "the operation's Http Settings Verb" },
         { "kind": "operation.route", "for": { "element": "Operation", "where": "hasStereotype('Http Settings')" }, "value": "stereotype('Http Settings').Route", "dependsOn": "member.exists", "source": "the operation's Http Settings Route" },
         { "kind": "parameter.source", "for": { "element": "Parameter", "where": "hasStereotype('Parameter Settings') && stereotype('Parameter Settings').Source != 'Default'" }, "value": "stereotype('Parameter Settings').Source", "dependsOn": "parent:member.exists", "source": "the parameter's Parameter Settings Source" },
+        { "kind": "parameter.name", "for": { "element": "Parameter", "where": "hasStereotype('Parameter Settings') && stereotype('Parameter Settings').Source == 'From Header'" }, "value": "stereotype('Parameter Settings')['Header Name']", "dependsOn": "parent:member.exists", "source": "the parameter's Parameter Settings Header Name" },
+        { "kind": "parameter.name", "for": { "element": "Parameter", "where": "hasStereotype('Parameter Settings') && stereotype('Parameter Settings').Source == 'From Query'" }, "value": "stereotype('Parameter Settings')['Query String Name']", "dependsOn": "parent:member.exists", "source": "the parameter's Parameter Settings Query String Name" },
         { "kind": "service.secured", "for": { "element": "Service", "where": "hasStereotype('Secured')" }, "value": "hasStereotype('Secured')", "dependsOn": "type.exists", "source": "the service's Secured" },
         { "kind": "service.roles", "for": { "element": "Service", "where": "hasStereotype('Secured')" }, "value": "stereotype('Secured').Roles ?? join(map(stereotype('Secured')['Security Roles'], name), ', ')", "dependsOn": "type.exists", "source": "the service's Secured Roles" },
         { "kind": "operation.secured", "for": { "element": "Operation", "where": "hasStereotype('Secured')" }, "value": "hasStereotype('Secured')", "dependsOn": "member.exists", "source": "the operation's Secured" },
         { "kind": "operation.roles", "for": { "element": "Operation", "where": "hasStereotype('Secured')" }, "value": "stereotype('Secured').Roles ?? join(map(stereotype('Secured')['Security Roles'], name), ', ')", "dependsOn": "member.exists", "source": "the operation's Secured Roles" },
-        { "kind": "operation.anonymous", "for": { "element": "Operation", "where": "hasStereotype('Unsecured')" }, "value": "hasStereotype('Unsecured')", "dependsOn": "member.exists", "source": "the operation's Unsecured" }
+        { "kind": "operation.anonymous", "for": { "element": "Operation", "where": "hasStereotype('Unsecured')" }, "value": "hasStereotype('Unsecured')", "dependsOn": "member.exists", "source": "the operation's Unsecured" },
+        { "kind": "operation.status", "for": { "element": "Operation", "where": "hasStereotype('Http Settings')" }, "value": "number(stereotype('Http Settings')['Success Response Code'])", "dependsOn": "member.exists", "source": "the operation's Http Settings Success Response Code" }
+      ],
+      "nonClaims": [
+        { "for": { "element": "Security Configuration" }, "reason": "Holds the roles Secured stereotypes name; each Secured service's and operation's roles are checked." },
+        { "for": { "element": "Role" }, "reason": "A role Secured stereotypes name; each Secured service's and operation's roles are checked." }
       ]
     }
   }

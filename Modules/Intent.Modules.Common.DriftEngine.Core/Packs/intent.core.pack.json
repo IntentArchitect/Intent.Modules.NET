@@ -10,6 +10,7 @@
     { "kind": "type.namespace", "label": "namespace", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
     { "kind": "type.file", "label": "file", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
     { "kind": "type.base", "label": "required base type", "valueType": "set", "comparer": "subset", "stated": "always" },
+    { "kind": "type.generalization", "label": "base class", "valueType": "text", "comparer": "exact", "stated": "always" },
     { "kind": "member.exists", "label": "member", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
     { "kind": "member.type", "label": "type", "valueType": "type", "comparer": "type", "stated": "always" },
     { "kind": "member.nullable", "label": "nullable", "valueType": "bool", "comparer": "exact", "stated": "always" },
@@ -17,5 +18,58 @@
     { "kind": "operation.returns", "label": "return type", "valueType": "type", "comparer": "type", "stated": "always" },
     { "kind": "operation.parameters", "label": "parameters", "valueType": "list", "comparer": "type", "stated": "always" },
     { "kind": "enum.literal.value", "label": "literal value", "valueType": "number", "comparer": "number", "stated": "whenSet" }
-  ]
+  ],
+  "vocabulary": {
+    "Domain": {
+      "nonClaims": [
+        { "for": { "element": "Folder" }, "reason": "Folders organise the model; what is in them is checked." },
+        { "for": { "element": "Diagram" }, "reason": "A diagram is a view of the model, not a statement about the code." },
+        { "for": { "element": "Comment" }, "reason": "Documentation." },
+        { "for": { "element": "Type-Definition" }, "reason": "Names a type from outside the model, such as a library's, for members to use; every member typed by it is checked." },
+        { "for": { "stereotype": "Type Configuration" }, "reason": "How the Guardrails contract templates write the type; code generation settings, not design. What the element states is checked." },
+        { "for": { "stereotype": "Operation Configuration" }, "reason": "How the Guardrails contract templates write the method; code generation settings, not design. What the element states is checked." },
+        { "for": { "stereotype": "Property Configuration" }, "reason": "How the Guardrails contract templates write the property; code generation settings, not design. What the element states is checked." },
+        { "for": { "stereotype": "Async Configuration" }, "reason": "How the Guardrails contract templates write an async method; code generation settings, not design. Its return type is checked through Task." },
+        { "for": { "stereotype": "Collection Type" }, "reason": "Which collection class the Guardrails contract templates write; code generation settings, not design. The member's type and multiplicity are checked." },
+        { "for": { "stereotype": "File Config", "property": "No Namespace" }, "reason": "How the Guardrails contract templates write the file; code generation settings, not design." }
+      ]
+    },
+    "Services": {
+      "nonClaims": [
+        { "for": { "element": "Folder" }, "reason": "Folders organise the model; what is in them is checked." },
+        { "for": { "element": "Diagram" }, "reason": "A diagram is a view of the model, not a statement about the code." },
+        { "for": { "element": "Comment" }, "reason": "Documentation." },
+        { "for": { "element": "Type-Definition" }, "reason": "Names a type from outside the model, such as a library's, for members to use; every member typed by it is checked." },
+        { "for": { "stereotype": "Type Configuration" }, "reason": "How the Guardrails contract templates write the type; code generation settings, not design. What the element states is checked." },
+        { "for": { "stereotype": "Operation Configuration" }, "reason": "How the Guardrails contract templates write the method; code generation settings, not design. What the element states is checked." },
+        { "for": { "stereotype": "Property Configuration" }, "reason": "How the Guardrails contract templates write the property; code generation settings, not design. What the element states is checked." },
+        { "for": { "stereotype": "Async Configuration" }, "reason": "How the Guardrails contract templates write an async method; code generation settings, not design. Its return type is checked through Task." },
+        { "for": { "stereotype": "Collection Type" }, "reason": "Which collection class the Guardrails contract templates write; code generation settings, not design. The member's type and multiplicity are checked." },
+        { "for": { "stereotype": "File Config", "property": "No Namespace" }, "reason": "How the Guardrails contract templates write the file; code generation settings, not design." }
+      ]
+    },
+    "User Interface": {
+      "nonClaims": [
+        { "for": { "element": "Diagram" }, "reason": "A diagram is a view of the model, not a statement about the code." },
+        { "for": { "element": "Comment" }, "reason": "Documentation." },
+        { "for": { "element": "Type-Definition" }, "reason": "Names a type from outside the model, such as a library's, for members to use; every member typed by it is checked." }
+      ]
+    },
+    "Codebase Structure": {
+      "nonClaims": [
+        { "for": { "element": "Folder" }, "reason": "Where the Software Factory writes generated files; it manages those itself." },
+        { "for": { "element": "Template Output" }, "reason": "Where the Software Factory writes generated files; it manages those itself." },
+        { "for": { "element": "Output Anchor" }, "reason": "Where the Software Factory writes generated files; it manages those itself." },
+        { "for": { "element": "Visual Studio Solution" }, "reason": "Where the Software Factory writes generated files; it manages the solution itself." },
+        { "for": { "element": "Solution Folder" }, "reason": "Where the Software Factory writes generated files; it manages the solution itself." },
+        { "for": { "element": "C# Project (.NET)" }, "reason": "Where the Software Factory writes generated files; it manages the project file itself." },
+        { "for": { "element": "File Classifications" }, "reason": "Review importance for Change Review, not a statement about the code." },
+        { "for": { "element": "File Classification" }, "reason": "Review importance for Change Review, not a statement about the code." },
+        { "for": { "stereotype": "Folder Options" }, "reason": "How the Software Factory names namespaces for generated files." },
+        { "for": { "stereotype": "Output Anchor Settings" }, "reason": "Where the Software Factory writes generated files; it manages those itself." },
+        { "for": { "stereotype": "Template Output Settings" }, "reason": "Where the Software Factory writes generated files; it manages those itself." },
+        { "for": { "stereotype": "File Classification" }, "reason": "Review importance for Change Review, not a statement about the code." }
+      ]
+    }
+  }
 }

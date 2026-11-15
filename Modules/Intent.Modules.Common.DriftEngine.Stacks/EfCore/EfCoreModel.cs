@@ -28,6 +28,38 @@ public sealed record FluentCall
     public required Span At { get; init; }
 }
 
+/// <summary>A DbContext: its default schema, and what it maps.</summary>
+public sealed class ContextConfig
+{
+    public required string Name { get; init; }
+
+    public required Span At { get; init; }
+
+    /// <summary>Its <c>modelBuilder.HasDefaultSchema(...)</c>, if it calls it.</summary>
+    public FluentCall? DefaultSchema { get; set; }
+
+    /// <summary>The entities it maps itself: its <c>DbSet&lt;T&gt;</c>s and <c>Entity&lt;T&gt;</c>s.</summary>
+    public HashSet<string> Entities { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>The configuration classes it applies one by one: <c>ApplyConfiguration(new OrderConfiguration())</c>.</summary>
+    public HashSet<string> Configurations { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>It applies every configuration in an assembly: <c>ApplyConfigurationsFromAssembly(...)</c>.</summary>
+    public bool AppliesAssembly { get; set; }
+
+    /// <summary>
+    /// Where it maps each of its <see cref="Entities"/> (its <c>DbSet</c> or <c>Entity&lt;T&gt;</c>) and applies each of its
+    /// <see cref="Configurations"/>, by name.
+    /// </summary>
+    public Dictionary<string, Span> MappedAt { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>
+    /// Where it applies an assembly's configurations, and the type whose assembly it names (<c>typeof(T).Assembly</c>), null
+    /// when it names none the rule reads: its own assembly.
+    /// </summary>
+    public (Span At, string? Of)? Assembly { get; set; }
+}
+
 /// <summary>One entity's fluent configuration.</summary>
 public sealed class EntityConfig
 {
@@ -61,6 +93,24 @@ public sealed class EntityConfig
 public sealed class EfCoreModel
 {
     public Dictionary<string, EntityConfig> Entities { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>The DbContexts, by class name: a class with <c>OnModelCreating</c> or a <c>DbSet&lt;T&gt;</c>.</summary>
+    public Dictionary<string, ContextConfig> Contexts { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>Each <c>IEntityTypeConfiguration&lt;T&gt;</c> class's entity, by the configuration's class name.</summary>
+    public Dictionary<string, string> Configurations { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>
+    /// The contexts that map an entity: by a <c>DbSet</c>, <c>Entity&lt;T&gt;</c>, or applying its configuration, one by one
+    /// or with the others in its assembly. With none of those, a lone context maps every entity.
+    /// </summary>
+    public IReadOnlyList<ContextConfig> ContextsOf(string entity)
+    {
+        var mapping = Contexts.Values.Where(x => x.Entities.Contains(entity)
+                                                 || x.Configurations.Any(c => Configurations.GetValueOrDefault(c) == entity)
+                                                 || x.AppliesAssembly && Configurations.ContainsValue(entity)).ToList();
+        return mapping.Count > 0 ? mapping : Contexts.Count == 1 ? [Contexts.Values.Single()] : [];
+    }
 
     /// <summary>
     /// A type's configuration. A configuration names its entity unqualified, so it is the type's only when the configuring

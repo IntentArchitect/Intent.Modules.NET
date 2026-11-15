@@ -256,6 +256,75 @@ public static class OrdersApi
 }
 ```
 
+## web-api-2-name-convention
+
+A Web API 2 action with no verb attribute takes its verb from its name: `GetCustomerByEmail` is `GET`, `DeleteCustomer` is `DELETE`, and an action whose name starts with no verb, `Archive`, is `POST`. The model says so for the first two and `PUT` for the third, which Web API 2 doesn't answer.
+
+```json case
+{ "phase": 4, "kinds": ["operation.verb"], "requirements": ["R1", "R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Customers.Api",
+        "elements": [
+          { "id": "customers", "type": "Service", "name": "CustomersController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/customers" } },
+            "children": [
+              { "id": "get-by-email", "type": "Operation", "name": "GetCustomerByEmail",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "by-email" } },
+                "children": [{ "id": "email", "type": "Parameter", "name": "email", "typeRef": { "type": "string" } }] },
+              { "id": "delete", "type": "Operation", "name": "DeleteCustomer",
+                "stereotypes": { "Http Settings": { "Verb": "DELETE", "Route": "{id}" } },
+                "children": [{ "id": "delete-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }] },
+              { "id": "archive", "type": "Operation", "name": "Archive",
+                "stereotypes": { "Http Settings": { "Verb": "PUT", "Route": "{id}/archive" } },
+                "children": [{ "id": "archive-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Customers", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Customers.Api/Controllers/CustomersController.cs
+namespace Customers.Api.Controllers;
+
+[RoutePrefix("api/customers")]
+public class CustomersController : ApiController
+{
+    [Route("by-email")]
+    public IHttpActionResult GetCustomerByEmail(string email) => Ok();
+
+    [Route("{id}")]
+    public IHttpActionResult DeleteCustomer(int id) => Ok();
+
+    [Route("{id}/archive")]
+    public IHttpActionResult Archive(int id) => Ok();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.verb", "element": "get-by-email", "outcome": "verified", "actual": "GET", "at": "src/Customers.Api/Controllers/CustomersController.cs:6" },
+    { "kind": "operation.verb", "element": "delete", "outcome": "verified", "actual": "DELETE" },
+    { "kind": "operation.verb", "element": "archive", "outcome": "contradicted", "expected": "PUT", "actual": "POST" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.verb", "severity": "error", "subject": "archive", "messageContains": "POST" }
+  ]
+}
+```
+
 ## java-verified
 
 The same claim over Spring MVC: `@PostMapping` states `POST`. Traces JAV-SVC-06 (the verb part).

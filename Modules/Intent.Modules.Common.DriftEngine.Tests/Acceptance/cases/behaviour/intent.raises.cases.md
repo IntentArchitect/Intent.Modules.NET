@@ -1,8 +1,8 @@
 # intent.raises
 
-A Domain Event Origin (Intent.Modelers.Domain.Events) from a class's constructor or operation to a Domain Event says that member raises the event. The claim is stated by the association, so its `element` is the association. The stock Domain pack states the claim, and since no stack pack reads `intent.raises`, its rule comes from the same pack as its vocabulary, or from a house pack (packs.md, "Who ships what"). These cases use eShopCustom's house pack, `house.eshop`, holding its Common.Drift domain-events recipe as converted: find the member, `class:{Entity} > method:{Member}` (a constructor by its class's name), and read its body for `new {DomainEvent}` or a call of a helper named after the event, `Add{DomainEvent}(…)`. `intent.raises` is an existence kind, `stated: always`: a member whose body raises nothing states that it doesn't raise the event, and a silent reading is located at the member. The kind's gate is phase 6.
+A Domain Event Origin (Intent.Modelers.Domain.Events) from a class's constructor or operation to a Domain Event says that member raises the event. The claim is stated by the association, so its `element` is the association. The stock messaging extension, `intent.messaging`, states and reads it whatever raises the event (user decision, 2026-11-14): the member, or a private method of its class it calls, transitively, hands a new event to a call (`stock-reading`). A house pack's recipe for the kind replaces that reading, as the other cases show with eShopCustom's house pack, `house.eshop`, holding its Common.Drift domain-events recipe as converted: find the member, `class:{Entity} > method:{Member}` (a constructor by its class's name), and read its body for `new {DomainEvent}` or a call of a helper named after the event, `Add{DomainEvent}(…)`. A member whose body raises nothing contradicts the link, and a silent reading is located at the member. The recipe cases' gate is phase 6.
 
-These cases trace ESC-DOM-30 in part. The check also followed private calls of any name, transitively, to the method that raises the event; a recipe reads one member's body and can't follow calls, so that part needs a plug-in rule and is left out here. The helper named after the event is the part a recipe covers.
+The recipe cases trace ESC-DOM-30 in part: a recipe reads one member's body and can't follow calls, so only the helper named after the event is covered there. The stock reading follows private calls of any name, as the check did.
 
 ## verified-direct
 
@@ -236,12 +236,12 @@ public class Shipment : Entity
 }
 ```
 
-## no-rule
+## stock-reading
 
-Without the house pack, the stock Domain pack still states every Domain Event Origin, but no active pack reads one. Each link is can't verify, `noRule`, one error each, never a silent skip (principle 2). The case doesn't build on `verified-direct`, whose pack block it would inherit.
+With no house pack, the stock messaging extension reads each Domain Event Origin from the code itself. The constructor raises `OrderStartedDomainEvent` through a private method it calls, so the reading is located at that call; `SetShippedStatus` raises `OrderShippedDomainEvent` in its own body. The case doesn't build on `verified-direct`, whose pack block it would inherit.
 
 ```json case
-{ "phase": 1, "kinds": ["intent.raises"], "cases": ["engine/noRule"], "requirements": ["R5"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+{ "phase": 1, "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.messaging"], "language": "csharp" }
 ```
 
 ```json model
@@ -305,12 +305,9 @@ public class Order : Entity
 ```json expect
 {
   "claims": [
-    { "kind": "intent.raises", "element": "order-ctor-raises-started", "outcome": "cantVerify", "reason": "noRule" },
-    { "kind": "intent.raises", "element": "order-set-shipped-raises-shipped", "outcome": "cantVerify", "reason": "noRule" }
+    { "kind": "intent.raises", "element": "order-ctor-raises-started", "outcome": "verified", "expected": "present", "actual": "present", "at": "src/Domain/Order.cs:7" },
+    { "kind": "intent.raises", "element": "order-set-shipped-raises-shipped", "outcome": "verified", "expected": "present", "actual": "present", "at": "src/Domain/Order.cs:12" }
   ],
-  "findings": [
-    { "rule": "claim/intent.raises", "severity": "error", "subject": "order-ctor-raises-started", "messageContains": "no rule" },
-    { "rule": "claim/intent.raises", "severity": "error", "subject": "order-set-shipped-raises-shipped", "messageContains": "no rule" }
-  ]
+  "findings": []
 }
 ```

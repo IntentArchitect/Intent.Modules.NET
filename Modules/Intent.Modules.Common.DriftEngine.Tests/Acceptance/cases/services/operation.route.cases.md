@@ -503,3 +503,147 @@ public class OrdersController {
   ]
 }
 ```
+
+## web-api-2-conventional-route
+
+Web API 2's attribute routing covers only actions with a `[Route]`, so its controller's `[RoutePrefix]` doesn't route `Submit`, which has none: Web API 2 serves it on the first conventional route `MapHttpRoute` maps with a `{controller}`, `api/{controller}/{id}`. Its `{controller}` is `Policies`, and `id` is optional in the route's defaults and `Submit` doesn't take one, so it is `api/Policies`, outside the controller's route. The Operation's Route says so with an absolute route, `~/api/Policies`, and `Get`, which has a `[Route]`, is under the prefix.
+
+```json case
+{ "phase": 4, "kinds": ["operation.route"], "requirements": ["R2", "R10"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Policies.Api",
+        "elements": [
+          { "id": "policy-request", "type": "DTO", "name": "PolicyRequest" },
+          { "id": "policies", "type": "Service", "name": "PoliciesController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/microservices/policies" } },
+            "children": [
+              { "id": "submit", "type": "Operation", "name": "Submit",
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "~/api/Policies" } },
+                "children": [{ "id": "submit-request", "type": "Parameter", "name": "request", "typeRef": { "element": "policy-request" } }] },
+              { "id": "get", "type": "Operation", "name": "Get",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "{reference}" } },
+                "children": [{ "id": "get-reference", "type": "Parameter", "name": "reference", "typeRef": { "type": "string" } }] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Policies", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Policies.Api/Startup.cs
+namespace Policies.Api;
+
+public class Startup
+{
+    public void Configuration(HttpConfiguration config)
+    {
+        config.MapHttpAttributeRoutes();
+        config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}", new { id = RouteParameter.Optional });
+    }
+}
+```
+
+```csharp file src/Policies.Api/Controllers/PoliciesController.cs
+namespace Policies.Api.Controllers;
+
+public class PolicyRequest
+{
+    public string Reference { get; set; }
+}
+
+[RoutePrefix("api/microservices/policies")]
+public class PoliciesController : ApiController
+{
+    [HttpPost]
+    public IHttpActionResult Submit([FromBody] PolicyRequest request) => Ok();
+
+    [HttpGet]
+    [Route("{reference}")]
+    public IHttpActionResult Get(string reference) => Ok();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.route", "element": "submit", "outcome": "verified", "expected": "~/api/Policies", "actual": "~/api/Policies" },
+    { "kind": "operation.route", "element": "get", "outcome": "verified", "expected": "{reference}", "actual": "{reference}" }
+  ],
+  "findings": [
+    { "rule": "aspnetcore/conventional.route", "count": 0 }
+  ]
+}
+```
+
+## web-api-2-conventional-route-not-modelled
+
+The same code, with `Submit`'s Route left empty, so the diagram puts it at its service's Route, `api/microservices/policies`, where Web API 2 doesn't serve it. An empty Route makes no `operation.route` claim, so the `aspnetcore/conventional.route` rule reports it. `ClaimsController` has no `[RoutePrefix]` and its service's Route is the conventional route Web API 2 serves its `Post` on, `api/Claims`, so it isn't reported.
+
+```json case
+{ "phase": 4, "base": "web-api-2-conventional-route", "kinds": ["operation.route"], "requirements": ["R2", "R10"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Policies.Api",
+        "elements": [
+          { "id": "policy-request", "type": "DTO", "name": "PolicyRequest" },
+          { "id": "policies", "type": "Service", "name": "PoliciesController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/microservices/policies" } },
+            "children": [
+              { "id": "submit", "type": "Operation", "name": "Submit",
+                "stereotypes": { "Http Settings": { "Verb": "POST" } },
+                "children": [{ "id": "submit-request", "type": "Parameter", "name": "request", "typeRef": { "element": "policy-request" } }] }
+            ] },
+          { "id": "claims", "type": "Service", "name": "ClaimsController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/Claims" } },
+            "children": [
+              { "id": "post-claim", "type": "Operation", "name": "Post",
+                "stereotypes": { "Http Settings": { "Verb": "POST" } },
+                "children": [{ "id": "post-claim-request", "type": "Parameter", "name": "request", "typeRef": { "element": "policy-request" } }] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Policies", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Policies.Api/Controllers/ClaimsController.cs
+namespace Policies.Api.Controllers;
+
+public class ClaimsController : ApiController
+{
+    public IHttpActionResult Post([FromBody] PolicyRequest request) => Ok();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.route", "element": "submit", "absent": true }
+  ],
+  "findings": [
+    { "rule": "aspnetcore/conventional.route", "severity": "error", "subject": "src/Policies.Api/Controllers/PoliciesController.cs:11", "messageContains": "`~/api/Policies`" },
+    { "rule": "aspnetcore/conventional.route", "subject": "src/Policies.Api/Controllers/ClaimsController.cs:5", "count": 0 }
+  ]
+}
+```

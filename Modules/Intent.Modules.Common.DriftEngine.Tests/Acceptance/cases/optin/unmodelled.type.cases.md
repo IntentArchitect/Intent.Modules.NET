@@ -1028,7 +1028,7 @@ public class GracePeriodManagerService(ILogger<GracePeriodManagerService> logger
 
 ## grpc-service
 
-A gRPC service class, one deriving the generated `<Service>Base`, that no Service describes (`services.grpc.unmodelled`). The `.proto` side of the same check, an unmodelled proto service or rpc, isn't shown: no reader in the spec turns a `.proto` file into nodes, so its services and rpcs can't be told apart.
+A gRPC service class, one deriving the generated `<Service>Base`, that no Service describes (`services.grpc.unmodelled`). An unmodelled `.proto` message is `unmodelled.member`'s `proto-message-and-field`.
 
 ```json case
 { "phase": 2, "base": "event-handlers", "without": ["src/Ordering.API/Application/DomainEventHandlers/OrderCancelledDomainEventHandler.cs", "src/Ordering.API/Application/IntegrationEvents/EventHandling/GracePeriodConfirmedIntegrationEventHandler.cs"], "cases": ["optin/unmodelled.type"], "traces": ["ESC-SVC-80"], "requirements": ["R49"], "packs": ["intent.core", "intent.services", "house.ordering"], "language": "csharp" }
@@ -1483,6 +1483,85 @@ public class ReturnsController {
   "findings": [
     { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/main/java/com/eshop/backend/api/ReturnsController.java:9", "messageContains": "ReturnsController" },
     { "rule": "optin/unmodelled.type", "subject": "src/main/java/com/eshop/backend/api/WishlistsController.java:10", "count": 0 }
+  ]
+}
+```
+
+## java-storefront-contract
+
+The Java spike's storefront keeps its Contracts in `src/api/types.ts`. An exported interface or type there that no Contract describes is reported (unmodelled exported interfaces or types in files that hold Contracts). `ProductDto` is modelled; `BasketDto` isn't.
+
+```json case
+{ "phase": 4, "cases": ["optin/unmodelled.type"], "traces": ["JAV-FE-19"], "requirements": ["R28", "R49"], "packs": ["intent.core", "house.storefront"], "language": "typescript" }
+```
+
+```json pack
+{
+  "id": "house.storefront",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "languages": ["typescript"],
+  "designers": ["Front End"],
+  "vocabulary": {
+    "Front End": {
+      "entries": [
+        { "kind": "type.exists", "for": { "element": "Contract" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the Contract" }
+      ]
+    }
+  },
+  "conventions": {
+    "Front End": {
+      "types": {
+        "Contract": { "typeKinds": ["interface", "typeAlias"], "find": "type", "files": "src/api/types.ts", "note": "The storefront: a Contract is an exported interface or type in src/api/types.ts" }
+      }
+    }
+  }
+}
+```
+
+```json model
+{
+  "designers": {
+    "Front End": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront",
+        "elements": [
+          { "id": "product-dto", "type": "Contract", "name": "ProductDto",
+            "children": [
+              { "id": "product-dto-id", "type": "Field", "name": "Id", "typeRef": { "type": "guid" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Storefront", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.type" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```typescript file src/api/types.ts
+export interface ProductDto {
+    Id: string;
+}
+
+export interface BasketDto {
+    Items: ProductDto[];
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "product-dto", "outcome": "verified", "at": "src/api/types.ts:1" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/api/types.ts:5", "messageContains": "BasketDto" },
+    { "rule": "optin/unmodelled.type", "subject": "src/api/types.ts:1", "count": 0 }
   ]
 }
 ```

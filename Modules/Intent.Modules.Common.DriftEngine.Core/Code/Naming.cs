@@ -37,10 +37,11 @@ internal static class Naming
             "camel" => value.Length == 0 ? value : char.ToLowerInvariant(value[0]) + value[1..],
             "pascal" => value.Length == 0 ? value : char.ToUpperInvariant(value[0]) + value[1..],
             "kebab" => Kebab(value),
+            "snake" => Kebab(value).Replace('-', '_'),
             "trimStart" => argument.Length > 0 && value.StartsWith(argument, StringComparison.Ordinal) ? value[argument.Length..] : value,
             "trimEnd" => argument.Length > 0 && value.EndsWith(argument, StringComparison.Ordinal) ? value[..^argument.Length] : value,
             "replace" => argument.IndexOf(':') is var at and > 0 ? value.Replace(argument[..at], argument[(at + 1)..], StringComparison.Ordinal) : value,
-            _ => throw new InvalidOperationException($"'{name}' isn't a placeholder filter (filters: lower, upper, camel, pascal, kebab, trimStart:<text>, trimEnd:<text>, replace:<text>:<with>).")
+            _ => throw new InvalidOperationException($"'{name}' isn't a placeholder filter (filters: lower, upper, camel, pascal, kebab, snake, trimStart:<text>, trimEnd:<text>, replace:<text>:<with>).")
         };
     }
 

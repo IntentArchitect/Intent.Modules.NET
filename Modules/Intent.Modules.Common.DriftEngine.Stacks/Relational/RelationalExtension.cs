@@ -18,7 +18,16 @@ public sealed class RelationalExtension : IDriftExtension
 
     public IEnumerable<Pack> Packs { get; } = [StockExtensions.LoadPack("intent.rdbms")];
 
-    public IEnumerable<IClaimSource> ClaimSources { get; } = [new AttributeIndexes()];
+    public IEnumerable<IClaimSource> ClaimSources { get; } = [new AttributeIndexes(), new ForeignKeys(), new Multiplicities()];
+
+    // AttributeIndexes reads the Index stereotype, and a Foreign Key's Column Name, and ForeignKeys its Association, in code
+    // rather than vocabulary. Multiplicities reads an unnavigated association end, which no vocabulary selects.
+    public IEnumerable<ModelFeature> Reads { get; } =
+    [
+        new("Domain", Stereotype: "Index"),
+        new("Domain", Stereotype: "Foreign Key", Property: "Column Name"),
+        new("Domain", Stereotype: "Foreign Key", Property: "Association")
+    ];
 
     public IEnumerable<IValueComparer> Comparers { get; } =
     [
@@ -31,6 +40,138 @@ public sealed class RelationalExtension : IDriftExtension
 
     private static string Unquote(string value) =>
         value.Trim() is ['"', .. var inner, '"'] ? new string(inner) : value.Trim();
+}
+
+/// <summary>
+/// A relationship's foreign key as the model states it: the attributes whose Foreign Key stereotype names the association,
+/// in model order, on <paramref name="Dependent"/>, the class whose table holds them. The code configures it by the
+/// dependent's navigation to the principal, <paramref name="DependentNavigation"/>, or by the principal's back to it,
+/// <paramref name="PrincipalNavigation"/>; either may be absent.
+/// </summary>
+public sealed record ModelForeignKey(IElement Dependent, IElement? Principal, IReadOnlyList<IElement> Attributes, string? DependentNavigation, string? PrincipalNavigation)
+{
+    public IReadOnlyList<string> Columns { get; } = Attributes.Select(x => x.Name).ToList();
+
+    public IReadOnlyList<string> Navigations { get; } = new[] { DependentNavigation, PrincipalNavigation }.OfType<string>().ToList();
+}
+
+/// <summary>
+/// The foreign keys the Foreign Key stereotype states: one <c>relationship.foreignKey</c> claim per association its
+/// attributes name, on the association (its target end, which Intent gives the association's id), valued with the
+/// attributes' names in model order and the <see cref="ModelForeignKey"/> the framework reader needs.
+/// </summary>
+internal sealed class ForeignKeys : IClaimSource
+{
+    private const string Designer = "Domain";
+
+    public IEnumerable<ClaimSpec> Claims(ModelContext model)
+    {
+        if (!model.Designers.Contains(Designer))
+        {
+            yield break;
+        }
+
+        var classes = model.Elements(Designer, "Class");
+        var ends = classes.SelectMany(x => x.AssociatedElements ?? []).DistinctBy(x => x.Id).ToDictionary(x => x.Id);
+        var keyed = classes
+            .SelectMany(type => type.ChildElements.Where(x => x.SpecializationType == "Attribute" && model.HasStereotype(x, "Foreign Key"))
+                .Select(attribute => (Type: type, Attribute: attribute, End: Association(attribute))))
+            .Where(x => x.End is not null)
+            .GroupBy(x => (x.Type.Id, x.End!.Id));
+        foreach (var group in keyed)
+        {
+            var (type, _, end) = group.First();
+            var columns = group.Select(x => x.Attribute.Name).ToList();
+            // An end is named for the navigation on the other class that leads to its own: the end whose type is the
+            // principal is the dependent's navigation to it.
+            var toPrincipal = (end!.OtherEnd()?.TypeReference?.Element as IElement)?.Id == type.Id ? end : end.OtherEnd()!;
+            var principal = toPrincipal.TypeReference?.Element as IElement;
+            static string? Named(IAssociationEnd? navigation) => string.IsNullOrEmpty(navigation?.Name) ? null : navigation.Name;
+            yield return new ClaimSpec
+            {
+                Designer = Designer,
+                Element = end,
+                Kind = "relationship.foreignKey",
+                Expected = string.Join(", ", columns),
+                Value = new ModelForeignKey(type, principal, group.Select(x => x.Attribute).ToList(), Named(toPrincipal), Named(toPrincipal.OtherEnd())),
+                DependsOn = new ClaimRef(Designer, type.Id, "type.exists"),
+                WaitsOn = [new ClaimRef(Designer, type.Id, "entity.persisted")],
+                Source = $"the Foreign Key stereotype on {string.Join(" and ", columns)}"
+            };
+        }
+
+        // The association end the Foreign Key's Association names, as its target end: the association's own element. A lookup
+        // is handed over as the element, or as its id, as Intent stores it.
+        IAssociationEnd? Association(IElement attribute)
+        {
+            var property = attribute.Stereotypes?.FirstOrDefault(x => x.Name == "Foreign Key")?.Properties.FirstOrDefault(x => x.Key == "Association");
+            var named = (property as IStereotypeProperty<IElement>)?.Value as IAssociationEnd
+                        ?? (property?.Value is { Length: > 0 } id ? ends.GetValueOrDefault(id) : null);
+            return named is null ? null : named.IsTargetEnd() ? named : named.OtherEnd();
+        }
+    }
+}
+
+/// <summary>
+/// A relationship's end that no navigation property states (user decision, 2026-11-15): the navigable end is
+/// <paramref name="Navigation"/>, a property of <paramref name="Owner"/> leading to <paramref name="Target"/>, and
+/// <paramref name="Unnavigated"/> says how many <paramref name="Owner"/>s each <paramref name="Target"/> has. The navigable
+/// end's own multiplicity is its property's: <c>member.type</c> says whether it is a collection, <c>member.nullable</c>
+/// whether it is optional.
+/// </summary>
+public sealed record ModelMultiplicity(IAssociationEnd Navigation, IAssociationEnd Unnavigated, IElement Owner, IElement Target);
+
+/// <summary>
+/// The <c>relationship.multiplicity</c> claims: one per association whose one end is navigable and other isn't, from a
+/// class the model persists (a Table or View), on the association (its target end), valued with the unnavigated end's
+/// multiplicity (<c>1</c>, <c>0..1</c>, <c>*</c> or <c>1..*</c>). Each payment method has exactly one buyer:
+/// <c>Buyer</c> is <c>1</c> where only <c>Buyer.PaymentMethods</c> is navigable. It waits on the navigation's
+/// <c>member.exists</c>, as the framework reads the relationship from it, then on its owner's <c>entity.persisted</c>. A
+/// navigation from a class the model doesn't persist states no mapped relationship, so it has no claim (user decision,
+/// 2026-11-15).
+/// </summary>
+internal sealed class Multiplicities : IClaimSource
+{
+    private const string Designer = "Domain";
+
+    public IEnumerable<ClaimSpec> Claims(ModelContext model)
+    {
+        if (!model.Designers.Contains(Designer))
+        {
+            yield break;
+        }
+
+        var associations = model.Elements(Designer, "Class")
+            .SelectMany(x => x.AssociatedElements ?? [])
+            .Where(x => x.Association?.SpecializationType == "Association")
+            .DistinctBy(x => x.Association!.Id);
+        foreach (var end in associations)
+        {
+            var (navigation, unnavigated) = end.IsNavigable ? (end, end.OtherEnd()) : (end.OtherEnd(), end);
+            if (navigation is null || unnavigated is null || !navigation.IsNavigable || unnavigated.IsNavigable
+                || navigation.TypeReference?.Element is not IElement target || unnavigated.TypeReference?.Element is not IElement owner
+                || !model.HasStereotype(owner, "Table") && !model.HasStereotype(owner, "View") || Multiplicity(unnavigated) is not { } expected)
+            {
+                continue;
+            }
+
+            yield return new ClaimSpec
+            {
+                Designer = Designer,
+                Element = navigation.IsTargetEnd() ? navigation : unnavigated,
+                Kind = "relationship.multiplicity",
+                Expected = expected,
+                Value = new ModelMultiplicity(navigation, unnavigated, owner, target),
+                DependsOn = new ClaimRef(Designer, navigation.Id, "member.exists"),
+                WaitsOn = [new ClaimRef(Designer, owner.Id, "entity.persisted")],
+                Source = $"the multiplicity of the {(string.IsNullOrEmpty(unnavigated.Name) ? owner.Name : unnavigated.Name)} end, which no navigation property of {target.Name} states"
+            };
+        }
+    }
+
+    private static string? Multiplicity(IAssociationEnd end) => end.TypeReference is not { } type ? null
+        : type.IsCollection ? type.IsNullable ? "*" : "1..*"
+        : type.IsNullable ? "0..1" : "1";
 }
 
 /// <summary>
@@ -91,6 +232,7 @@ internal sealed class AttributeIndexes : IClaimSource
                         Expected = expected,
                         Value = index,
                         DependsOn = new ClaimRef(Designer, type.Id, "type.exists"),
+                        WaitsOn = [new ClaimRef(Designer, type.Id, "entity.persisted")],
                         Source = source
                     };
                 }

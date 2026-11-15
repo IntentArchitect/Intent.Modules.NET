@@ -807,7 +807,7 @@ public class GracePeriodManagerService(ILogger<GracePeriodManagerService> logger
 
 ## grpc-override
 
-A gRPC service's override that no Operation describes (`services.grpc.operation.unmodelled`). `GetBasket` is modelled; `UpdateBasket` isn't. The `.proto` half, an unmodelled `rpc` in the service definition, isn't shown: no reader turns a `.proto` file into nodes.
+A gRPC service's override that no Operation describes (`services.grpc.operation.unmodelled`). `GetBasket` is modelled; `UpdateBasket` isn't. The `.proto` half, an unmodelled message or field, is `proto-message-and-field`'s.
 
 ```json case
 { "phase": 2, "base": "application-service-method", "without": ["src/Ordering.API/Application/Queries/OrderQueries.cs"], "cases": ["optin/unmodelled.member"], "traces": ["ESC-SVC-80"], "requirements": ["R49"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
@@ -871,6 +871,93 @@ public class BasketService(IBasketRepository repository) : Basket.BasketBase
   "findings": [
     { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/Basket.API/Grpc/BasketService.cs:11", "messageContains": "UpdateBasket" },
     { "rule": "optin/unmodelled.member", "subject": "src/Basket.API/Grpc/BasketService.cs:5", "count": 0 }
+  ]
+}
+```
+
+## proto-message-and-field
+
+A `.proto` message no Proto Message DTO describes (`services.proto-message.unmodelled`), and a field of a modelled one that no DTO-Field states (`.field.unmodelled`). The house pack says a Proto Message DTO is a message in a `.proto` file; `BasketItem` is located, and its `quantity` isn't modelled. `UpdateBasketRequest` follows the convention and nothing describes it.
+
+```json case
+{ "phase": 4, "cases": ["optin/unmodelled.member", "optin/unmodelled.type"], "traces": ["ESC-SVC-84"], "requirements": ["R49"], "packs": ["intent.core", "intent.services", "intent.grpc", "house.eshop"], "language": "protobuf" }
+```
+
+```json pack
+{
+  "id": "house.eshop",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "requires": [{ "id": "intent.services", "version": "^1.0.0" }, { "id": "intent.grpc", "version": "^1.0.0" }],
+  "languages": ["csharp", "protobuf"],
+  "designers": ["Services"],
+  "conventions": {
+    "Services": {
+      "types": {
+        "DTO": { "where": "hasStereotype('Proto Message')", "typeKinds": ["message"], "locations": ["src/**/Proto/*.proto"], "find": "type", "files": "src/**/Proto/*.proto", "note": "eShopCustom: a Proto Message DTO is a message in its service's .proto file" }
+      }
+    }
+  }
+}
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Basket.API",
+        "elements": [
+          { "id": "basket-item", "type": "DTO", "name": "BasketItem", "stereotypes": { "Proto Message": {} },
+            "children": [
+              { "id": "basket-item-product-id", "type": "DTO-Field", "name": "ProductId", "typeRef": { "type": "int" } }
+            ] },
+          { "id": "customer-basket-response", "type": "DTO", "name": "CustomerBasketResponse", "stereotypes": { "Proto Message": {} },
+            "children": [
+              { "id": "customer-basket-response-items", "type": "DTO-Field", "name": "Items", "typeRef": { "element": "basket-item", "collection": true } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" }, { "Rule": "optin/unmodelled.type" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```proto file src/Basket.API/Proto/basket.proto
+syntax = "proto3";
+
+option csharp_namespace = "eShop.Basket.API.Grpc";
+
+package BasketApi;
+
+message CustomerBasketResponse {
+    repeated BasketItem items = 1;
+}
+
+message BasketItem {
+    int32 product_id = 2;
+    int32 quantity = 6;
+}
+
+message UpdateBasketRequest {
+    repeated BasketItem items = 2;
+}
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/Basket.API/Proto/basket.proto:13", "messageContains": "quantity" },
+    { "rule": "optin/unmodelled.member", "subject": "src/Basket.API/Proto/basket.proto:12", "count": 0 },
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/Basket.API/Proto/basket.proto:16", "messageContains": "UpdateBasketRequest" },
+    { "rule": "optin/unmodelled.type", "subject": "src/Basket.API/Proto/basket.proto:11", "count": 0 }
   ]
 }
 ```
@@ -1475,6 +1562,116 @@ public record WishlistItemDto(
     { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/main/java/com/eshop/backend/api/WishlistItemDto.java:9", "messageContains": "price" },
     { "rule": "optin/unmodelled.member", "subject": "src/main/java/com/eshop/backend/api/WishlistItemDto.java:7", "count": 0 },
     { "rule": "optin/unmodelled.member", "subject": "src/main/java/com/eshop/backend/api/WishlistItemDto.java:8", "count": 0 }
+  ]
+}
+```
+
+## java-storefront
+
+The Java spike's storefront: a Front End Contract is an exported interface, and a Proxy the object of its methods (`export const api = { ... }`). The house pack gives the spike's own designer vocabulary, and says what each element type can state. `price` isn't a Field of `ProductDto` (unmodelled Contract properties), and `getProducts` isn't an Operation of `Api` (unmodelled Proxy methods). The modelled ones are located: TypeScript names a method in camel case.
+
+```json case
+{ "phase": 4, "cases": ["optin/unmodelled.member"], "traces": ["JAV-FE-16", "JAV-FE-18"], "requirements": ["R28", "R49"], "packs": ["intent.core", "house.storefront"], "language": "typescript" }
+```
+
+```json pack
+{
+  "id": "house.storefront",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "languages": ["typescript"],
+  "designers": ["Front End"],
+  "vocabulary": {
+    "Front End": {
+      "entries": [
+        { "kind": "type.exists", "for": { "element": "Contract" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the Contract" },
+        { "kind": "member.exists", "for": { "element": "Field" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the Field" },
+        { "kind": "type.exists", "for": { "element": "Proxy" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the Proxy" },
+        { "kind": "member.exists", "for": { "element": "Proxy Operation" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the Proxy Operation" }
+      ]
+    }
+  },
+  "conventions": {
+    "Front End": {
+      "types": {
+        "Contract": { "typeKinds": ["interface", "typeAlias"], "states": ["property"], "note": "The storefront: a Contract is an exported interface" },
+        "Proxy": { "name": "{Name|camel}", "typeKinds": ["object"], "states": ["method"], "note": "The storefront: a Proxy is the object of its methods" }
+      }
+    }
+  }
+}
+```
+
+```json model
+{
+  "designers": {
+    "Front End": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront",
+        "elements": [
+          { "id": "product-dto", "type": "Contract", "name": "ProductDto",
+            "children": [
+              { "id": "product-dto-id", "type": "Field", "name": "Id", "typeRef": { "type": "guid" } },
+              { "id": "product-dto-name", "type": "Field", "name": "Name", "typeRef": { "type": "string" } }
+            ] },
+          { "id": "api", "type": "Proxy", "name": "Api",
+            "children": [
+              { "id": "api-get-product-by-id", "type": "Proxy Operation", "name": "GetProductById", "typeRef": { "element": "product-dto" },
+                "children": [
+                  { "id": "api-get-product-by-id-id", "type": "Parameter", "name": "id", "typeRef": { "type": "guid" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Storefront", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```typescript file src/api/types.ts
+export interface ProductDto {
+    Id: string;
+    Name: string;
+    Price: number;
+}
+```
+
+```typescript file src/api/client.ts
+import type { ProductDto } from './types';
+
+async function request<T>(method: string, path: string): Promise<T> {
+    const res = await fetch(path, { method });
+    return (await res.json()) as T;
+}
+
+export const api = {
+    getProductById(id: string): Promise<ProductDto> {
+        return request<ProductDto>('GET', `/api/products/${encodeURIComponent(id)}`);
+    },
+    getProducts(): Promise<ProductDto[]> {
+        return request<ProductDto[]>('GET', '/api/products');
+    },
+};
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "product-dto-name", "outcome": "verified", "at": "src/api/types.ts:3" },
+    { "kind": "member.exists", "element": "api-get-product-by-id", "outcome": "verified", "at": "src/api/client.ts:9" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/api/types.ts:4", "messageContains": "ProductDto.Price" },
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/api/client.ts:12", "messageContains": "api.getProducts" },
+    { "rule": "optin/unmodelled.member", "subject": "src/api/types.ts:3", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/api/client.ts:9", "count": 0 }
   ]
 }
 ```

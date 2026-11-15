@@ -149,7 +149,7 @@ The integrity tests run in phase 0 and must pass before sign-off:
 4. Every case file parses, every block validates, every `element` and association in `expect` exists in the case's model, every `at` names a case file and a line within it, every pack is inline or a stock pack the catalog plans, and every `traces` id is in `checks.json`.
 5. Every check whose disposition is a claim, scope, engine or opt-in case is traced by at least one case, and every scope case, engine case and opt-in rule in `catalog.json` is shown by one.
 6. Every claim kind with phase 1 to 4 has at least one case with each outcome: verified, contradicted and can't verify.
-7. Every requirement a case names exists in [requirements.md](requirements.md), and every case a requirement names exists: a case file, an area with at least one file (`readers/*`), or a scope, engine or opt-in case some case shows.
+7. Every requirement a case names exists in [requirements.md](requirements.md), and every case a requirement names exists: a case file, an area with at least one file (`structure/*`), or a scope, engine or opt-in case some case shows.
 8. Every construct the local Common.Drift recipe files use is in `conversion-map.json` ([conversion.md](conversion.md#the-conversion-test-phase-0)). Each codebase whose files aren't on this machine is skipped.
 
 The harness has its own unit tests: the case parser, the case validator against deliberately broken cases, the comparison against synthetic run results, and the construct keys. A case is a phase gate only once the harness is trusted to read it.

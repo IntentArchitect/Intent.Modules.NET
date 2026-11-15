@@ -982,3 +982,169 @@ message BasketItem {
   ]
 }
 ```
+
+## type-definition-written-as-items
+
+A reverse-engineered model types a collection's items with a Type-Definition named as the code writes them, `int?`, which no profile maps. The collection of it is the code's `int?[]`.
+
+```json case
+{ "phase": 1, "kinds": ["member.type"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Quoting.Domain",
+        "elements": [
+          { "id": "quote-batch", "type": "Class", "name": "QuoteBatch",
+            "children": [
+              { "id": "quote-batch-ids", "type": "Attribute", "name": "QuoteIds", "typeRef": { "type": "int?", "collection": true } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Quoting", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Quoting/QuoteBatch.cs
+namespace Quoting.Domain;
+
+public class QuoteBatch
+{
+    public int?[] QuoteIds { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "quote-batch-ids", "outcome": "verified", "at": "src/Quoting/QuoteBatch.cs:5" }
+  ]
+}
+```
+
+## association-collection
+
+A navigable association end's type is its target, and a collection of it when the end is `*` (`association.type`): `Buyer.PaymentMethods` is an `IEnumerable<PaymentMethod>`.
+
+```json case
+{ "phase": 1, "kinds": ["member.type"], "traces": ["ESC-DOM-55"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "buyer", "type": "Class", "name": "Buyer",
+            "children": [
+              { "id": "buyer-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" } }
+            ] },
+          { "id": "payment-method", "type": "Class", "name": "PaymentMethod",
+            "children": [
+              { "id": "payment-method-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "buyer-payment-methods", "type": "Association",
+          "source": { "element": "buyer", "name": "Buyer", "multiplicity": "1", "navigable": false },
+          "target": { "element": "payment-method", "name": "PaymentMethods", "multiplicity": "*", "navigable": true } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Buyer.cs
+namespace Ordering.Domain;
+
+public class Buyer
+{
+    private readonly List<PaymentMethod> _paymentMethods = new();
+
+    public int Id { get; private set; }
+
+    public IEnumerable<PaymentMethod> PaymentMethods => _paymentMethods.AsReadOnly();
+}
+```
+
+```csharp file src/Domain/PaymentMethod.cs
+namespace Ordering.Domain;
+
+public class PaymentMethod
+{
+    public int Id { get; private set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "buyer-payment-methods", "outcome": "verified", "at": "src/Domain/Buyer.cs:9" }
+  ]
+}
+```
+
+## association-collection-flag
+
+The model says a buyer has at most one payment method (`0..1`), but the code navigates a collection: the end's type is contradicted, as one finding.
+
+```json case
+{ "phase": 1, "base": "association-collection", "kinds": ["member.type"], "traces": ["ESC-DOM-55"], "requirements": ["R1", "R14"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "buyer", "type": "Class", "name": "Buyer",
+            "children": [
+              { "id": "buyer-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" } }
+            ] },
+          { "id": "payment-method", "type": "Class", "name": "PaymentMethod",
+            "children": [
+              { "id": "payment-method-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "buyer-payment-methods", "type": "Association",
+          "source": { "element": "buyer", "name": "Buyer", "multiplicity": "1", "navigable": false },
+          "target": { "element": "payment-method", "name": "PaymentMethods", "multiplicity": "0..1", "navigable": true } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "buyer-payment-methods", "outcome": "contradicted", "at": "src/Domain/Buyer.cs:9" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "buyer-payment-methods", "count": 1 }
+  ]
+}
+```

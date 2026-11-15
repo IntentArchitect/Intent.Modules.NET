@@ -1,13 +1,15 @@
 # relationship.multiplicity
 
-The multiplicities of a Domain association's two ends, as `<source>-><target>` (`1->*`, `*->0..1`), against the relationship the code configures. The claim is stated by the association, so its `element` is the association. `relationship.multiplicity` is `stated: always`: a reference navigation with no inverse collection states that many sources share one target. Over EF Core the find reads the fluent chain, and falls back to the navigation property when there is none (ESC-DOM-54); over JPA it reads the owning field's relationship annotation (JAV-DOM-23).
+The multiplicity of a Domain association's end that no navigation property states (user decision, 2026-11-15): how many of the navigation's owners each target has. Where only `Buyer.PaymentMethods` is navigable, the `Buyer` end says whether each payment method has exactly one buyer (`1`), at most one (`0..1`) or many (`*`). The navigable end's multiplicity is its property's, checked by `member.type` (a collection or not) and `member.nullable` (optional or not), so it isn't compared again here: one mismatch is one finding. The claim is the association's, on an association with exactly one navigable end whose navigation's owner the model persists (a Table or View). It waits on the navigation's `member.exists`, and is `stated: always`: the Domain designer always states an end's multiplicity.
+
+Over EF Core the rule reads the chain that configures the navigation, else EF Core's convention for the navigation alone. Over JPA it reads the owning field's relationship annotation (JAV-DOM-23).
 
 ## verified
 
-`Buyer` owns its payment methods, `1->*`. The configuration's `HasMany(...).WithOne().IsRequired()` says the same: a collection navigation (`*`), and a required principal (`1`).
+`Buyer` owns its payment methods, and only `Buyer.PaymentMethods` is navigable. The model's `Buyer` end is `1`: each payment method has exactly one buyer. The configuration's `HasMany(...).WithOne().IsRequired()` says the same.
 
 ```json case
-{ "phase": 4, "kinds": ["relationship.multiplicity"], "traces": ["ESC-DOM-55"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+{ "phase": 4, "kinds": ["relationship.multiplicity"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
 ```
 
 ```json model
@@ -84,73 +86,257 @@ public class BuyerConfiguration : IEntityTypeConfiguration<Buyer>
 ```json expect
 {
   "claims": [
-    { "kind": "relationship.multiplicity", "element": "buyer-payment-methods", "outcome": "verified", "expected": "1->*", "actual": "1->*",
+    { "kind": "relationship.multiplicity", "element": "buyer-payment-methods", "outcome": "verified", "expected": "1", "actual": "1",
       "at": "src/Infrastructure/Persistence/BuyerConfiguration.cs:11" }
   ]
 }
 ```
 
-## contradicted-collection-flag
+## contradicted-optional-owner
 
-The model says a buyer has at most one payment method (`1->0..1`), but the code navigates a collection. The navigation's collection flag decides the target end, so the claim is contradicted, and the finding shows both values (R14).
-
-This traces ESC-DOM-55 in part. The multiplicity value carries no type, so the check's other half, a navigation typed to a class other than the association's target, is left out here.
+The configuration makes the relationship optional, `IsRequired(false)`: a payment method may have no buyer. The model's `Buyer` end is `1`, so the claim is contradicted, and the finding shows both values (R14).
 
 ```json case
-{ "phase": 4, "base": "verified", "kinds": ["relationship.multiplicity"], "traces": ["ESC-DOM-55"], "requirements": ["R1", "R11", "R14"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+{ "phase": 4, "base": "verified", "kinds": ["relationship.multiplicity"], "requirements": ["R1", "R11", "R14"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
 ```
 
-```json model
+```csharp file src/Infrastructure/Persistence/BuyerConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Ordering.Domain;
+
+namespace Ordering.Infrastructure.Persistence;
+
+public class BuyerConfiguration : IEntityTypeConfiguration<Buyer>
 {
-  "designers": {
-    "Domain": {
-      "packages": [{
-        "id": "domain", "name": "Ordering.Domain",
-        "elements": [
-          { "id": "buyer", "type": "Class", "name": "Buyer",
-            "stereotypes": { "Table": {} },
-            "children": [
-              { "id": "buyer-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } }
-            ] },
-          { "id": "payment-method", "type": "Class", "name": "PaymentMethod",
-            "stereotypes": { "Table": {} },
-            "children": [
-              { "id": "payment-method-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } }
-            ] }
-        ]
-      }],
-      "associations": [
-        { "id": "buyer-payment-methods", "type": "Association",
-          "source": { "element": "buyer", "name": "Buyer", "multiplicity": "1", "navigable": false },
-          "target": { "element": "payment-method", "name": "PaymentMethods", "multiplicity": "0..1", "navigable": true } }
-      ]
-    },
-    "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
-        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    public void Configure(EntityTypeBuilder<Buyer> builder)
+    {
+        builder.HasMany(b => b.PaymentMethods).WithOne().IsRequired(false);
     }
-  }
 }
 ```
 
 ```json expect
 {
   "claims": [
-    { "kind": "relationship.multiplicity", "element": "buyer-payment-methods", "outcome": "contradicted", "expected": "1->0..1", "actual": "1->*",
+    { "kind": "relationship.multiplicity", "element": "buyer-payment-methods", "outcome": "contradicted", "expected": "1", "actual": "0..1",
       "at": "src/Infrastructure/Persistence/BuyerConfiguration.cs:11" }
   ],
   "findings": [
-    { "rule": "claim/relationship.multiplicity", "severity": "error", "subject": "buyer-payment-methods", "messageContains": "code `1->*`" }
+    { "rule": "claim/relationship.multiplicity", "severity": "error", "subject": "buyer-payment-methods", "messageContains": "code `0..1`" }
   ]
 }
 ```
 
-## cant-verify-no-navigation
+## contradicted-shared
 
-The `PaymentMethods` end is navigable, but `Buyer` has no `PaymentMethods` property and no configuration names one. The find falls back from the chain to the property and finds neither. Multiplicity isn't an existence kind and the stock rule has no `absent`, so the claim is can't verify, `notFound`, naming what was searched, rather than a guess (ESC-DOM-54; principle 3).
+`WithMany()` makes it many-to-many: a payment method is shared by many buyers, where the model says each has one.
 
 ```json case
-{ "phase": 4, "base": "verified", "without": ["src/Infrastructure/Persistence/BuyerConfiguration.cs"], "kinds": ["relationship.multiplicity"], "cases": ["engine/notFound"], "traces": ["ESC-DOM-54"], "requirements": ["R5", "R11"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+{ "phase": 4, "base": "verified", "kinds": ["relationship.multiplicity"], "requirements": ["R1", "R14"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Infrastructure/Persistence/BuyerConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Ordering.Domain;
+
+namespace Ordering.Infrastructure.Persistence;
+
+public class BuyerConfiguration : IEntityTypeConfiguration<Buyer>
+{
+    public void Configure(EntityTypeBuilder<Buyer> builder)
+    {
+        builder.HasMany(b => b.PaymentMethods).WithMany();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "relationship.multiplicity", "element": "buyer-payment-methods", "outcome": "contradicted", "expected": "1", "actual": "*",
+      "at": "src/Infrastructure/Persistence/BuyerConfiguration.cs:11" }
+  ]
+}
+```
+
+## owner-from-foreign-key
+
+The chain doesn't say whether the relationship is required; the dependent's foreign key does. `PaymentMethod.BuyerId` is an `int`, which can't be null, so each payment method has a buyer, `1`, and the key's line is where the code says it.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["relationship.multiplicity"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/PaymentMethod.cs
+namespace Ordering.Domain;
+
+public class PaymentMethod
+{
+    public int Id { get; private set; }
+
+    public int BuyerId { get; private set; }
+}
+```
+
+```csharp file src/Infrastructure/Persistence/BuyerConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Ordering.Domain;
+
+namespace Ordering.Infrastructure.Persistence;
+
+public class BuyerConfiguration : IEntityTypeConfiguration<Buyer>
+{
+    public void Configure(EntityTypeBuilder<Buyer> builder)
+    {
+        builder.HasMany(b => b.PaymentMethods).WithOne();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "relationship.multiplicity", "element": "buyer-payment-methods", "outcome": "verified", "expected": "1", "actual": "1",
+      "at": "src/Domain/PaymentMethod.cs:7" }
+  ]
+}
+```
+
+## owner-from-shadow-key
+
+eShop's payment methods hold their buyer's key in a shadow property their configuration declares, `Property<int>("BuyerId")`: an `int` can't be null, so each payment method has a buyer, `1`.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["relationship.multiplicity"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Infrastructure/Persistence/BuyerConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Ordering.Domain;
+
+namespace Ordering.Infrastructure.Persistence;
+
+public class BuyerConfiguration : IEntityTypeConfiguration<Buyer>
+{
+    public void Configure(EntityTypeBuilder<Buyer> builder)
+    {
+        builder.HasMany(b => b.PaymentMethods).WithOne();
+    }
+}
+```
+
+```csharp file src/Infrastructure/Persistence/PaymentMethodConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Ordering.Domain;
+
+namespace Ordering.Infrastructure.Persistence;
+
+public class PaymentMethodConfiguration : IEntityTypeConfiguration<PaymentMethod>
+{
+    public void Configure(EntityTypeBuilder<PaymentMethod> builder)
+    {
+        builder.Property<int>("BuyerId");
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "relationship.multiplicity", "element": "buyer-payment-methods", "outcome": "verified", "expected": "1", "actual": "1",
+      "at": "src/Infrastructure/Persistence/PaymentMethodConfiguration.cs:11" }
+  ]
+}
+```
+
+## from-the-dependent
+
+A database-first context configures each relationship from its dependent: `PaymentMethod`'s `HasOne(p => p.Buyer).WithMany(b => b.PaymentMethods)`. Its `HasOne` is the `Buyer` end, and the foreign key it names, an `int`, makes it required, `1`. The chain is the relationship's because its `WithMany` names the navigation and its `HasOne` navigation is a `Buyer`: another class's inverse may share the navigation's name.
+
+```json case
+{ "phase": 4, "base": "verified", "without": ["src/Infrastructure/Persistence/BuyerConfiguration.cs"], "kinds": ["relationship.multiplicity"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/PaymentMethod.cs
+namespace Ordering.Domain;
+
+public class PaymentMethod
+{
+    public int Id { get; private set; }
+
+    public int BuyerId { get; private set; }
+
+    public Buyer Buyer { get; private set; } = null!;
+}
+```
+
+```csharp file src/Infrastructure/Persistence/PaymentMethodConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Ordering.Domain;
+
+namespace Ordering.Infrastructure.Persistence;
+
+public class PaymentMethodConfiguration : IEntityTypeConfiguration<PaymentMethod>
+{
+    public void Configure(EntityTypeBuilder<PaymentMethod> builder)
+    {
+        builder.HasOne(p => p.Buyer).WithMany(b => b.PaymentMethods).HasForeignKey(p => p.BuyerId);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "relationship.multiplicity", "element": "buyer-payment-methods", "outcome": "verified", "expected": "1", "actual": "1",
+      "at": "src/Domain/PaymentMethod.cs:7" }
+  ]
+}
+```
+
+## collection-by-convention-shadow-key
+
+No configuration names the relationship, and the payment method has no `BuyerId`: the context maps both entities, and EF Core makes the relationship one-to-many by its convention, with a shadow foreign key that can be null. A payment method may have no buyer, `0..1`, where the model says `1`.
+
+```json case
+{ "phase": 4, "base": "verified", "without": ["src/Infrastructure/Persistence/BuyerConfiguration.cs"], "kinds": ["relationship.multiplicity"], "requirements": ["R1", "R14"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Infrastructure/Persistence/OrderingContext.cs
+using Microsoft.EntityFrameworkCore;
+using Ordering.Domain;
+
+namespace Ordering.Infrastructure.Persistence;
+
+public class OrderingContext(DbContextOptions<OrderingContext> options) : DbContext(options)
+{
+    public DbSet<Buyer> Buyers => Set<Buyer>();
+
+    public DbSet<PaymentMethod> PaymentMethods => Set<PaymentMethod>();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "relationship.multiplicity", "element": "buyer-payment-methods", "outcome": "contradicted", "expected": "1", "actual": "0..1",
+      "at": "src/Domain/Buyer.cs:9" }
+  ]
+}
+```
+
+## blocked-no-navigation
+
+`Buyer` has no `PaymentMethods` property, so the navigation's `member.exists` is contradicted, and the relationship it would configure can't be read: the claim is blocked by it, one finding for the one missing property.
+
+```json case
+{ "phase": 4, "base": "verified", "without": ["src/Infrastructure/Persistence/BuyerConfiguration.cs"], "kinds": ["relationship.multiplicity", "member.exists"], "cases": ["engine/blocked"], "requirements": ["R5"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
 ```
 
 ```csharp file src/Domain/Buyer.cs
@@ -165,20 +351,66 @@ public class Buyer
 ```json expect
 {
   "claims": [
-    { "kind": "relationship.multiplicity", "element": "buyer-payment-methods", "outcome": "cantVerify", "reason": "notFound" }
-  ],
-  "findings": [
-    { "rule": "claim/relationship.multiplicity", "severity": "error", "subject": "buyer-payment-methods" }
+    { "kind": "member.exists", "element": "buyer-payment-methods", "outcome": "contradicted" },
+    { "kind": "relationship.multiplicity", "element": "buyer-payment-methods", "outcome": "cantVerify", "reason": "blocked", "blockedBy": "member.exists" }
   ]
 }
 ```
 
-## verified-optional-reference
+## no-claim-unpersisted-owner
 
-An order may have no buyer yet, `*->0..1`. The configuration's `HasOne(o => o.Buyer).WithMany()` gives the many side, and the reference end's optionality comes from the foreign key it names: `BuyerId` is `int?`, so the end is `0..1` (ESC-DOM-56). The rule combines the chain and the key property, and names the key property as deciding, since its nullability decides the end: `at` is `BuyerId`'s line.
+`Buyer` has no Table or View stereotype, so the model doesn't persist it, and no configuration or DbContext maps it: `Buyer.PaymentMethods` is a plain property, not a mapped relationship. The association states no multiplicity to check, so there is no claim and no finding, though `PaymentMethod` is a table (user decision, 2026-11-15). A Table class nothing maps is `entity.persisted`'s one finding, not one per relationship.
 
 ```json case
-{ "phase": 4, "kinds": ["relationship.multiplicity"], "traces": ["ESC-DOM-56"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+{ "phase": 4, "base": "verified", "without": ["src/Infrastructure/Persistence/BuyerConfiguration.cs"], "kinds": ["relationship.multiplicity"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "buyer", "type": "Class", "name": "Buyer",
+            "children": [
+              { "id": "buyer-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } }
+            ] },
+          { "id": "payment-method", "type": "Class", "name": "PaymentMethod",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "payment-method-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "buyer-payment-methods", "type": "Association",
+          "source": { "element": "buyer", "name": "Buyer", "multiplicity": "1", "navigable": false },
+          "target": { "element": "payment-method", "name": "PaymentMethods", "multiplicity": "*", "navigable": true } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "relationship.multiplicity", "element": "buyer-payment-methods", "absent": true }
+  ]
+}
+```
+
+## verified-many-to-one
+
+An order may have a buyer, and only `Order.Buyer` is navigable. The model's `Orders` end is `*`: a buyer has many orders. The configuration's `HasOne(o => o.Buyer).WithMany()` says the same.
+
+```json case
+{ "phase": 4, "kinds": ["relationship.multiplicity"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
 ```
 
 ```json model
@@ -257,146 +489,49 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 ```json expect
 {
   "claims": [
-    { "kind": "relationship.multiplicity", "element": "order-buyer", "outcome": "verified", "expected": "*->0..1", "actual": "*->0..1",
-      "at": "src/Domain/Order.cs:7" }
+    { "kind": "relationship.multiplicity", "element": "order-buyer", "outcome": "verified", "expected": "*", "actual": "*",
+      "at": "src/Infrastructure/Persistence/OrderConfiguration.cs:11" }
   ]
 }
 ```
 
-## contradicted-required-end
+## verified-many-to-one-by-convention
 
-The model says every order has a buyer (`*->1`), but the foreign key `BuyerId` is `int?`, so the code lets an order have none. The key's nullability decides, so the claim is contradicted (ESC-DOM-56).
+No configuration names the relationship; the context maps both entities, and EF Core makes a reference navigation with no inverse many-to-one, so a buyer has many orders, `*`. The navigation is where the code says it.
 
 ```json case
-{ "phase": 4, "base": "verified-optional-reference", "kinds": ["relationship.multiplicity"], "traces": ["ESC-DOM-56"], "requirements": ["R1", "R14"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+{ "phase": 4, "base": "verified-many-to-one", "without": ["src/Infrastructure/Persistence/OrderConfiguration.cs"], "kinds": ["relationship.multiplicity"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
 ```
 
-```json model
+```csharp file src/Infrastructure/Persistence/OrderingContext.cs
+using Microsoft.EntityFrameworkCore;
+using Ordering.Domain;
+
+namespace Ordering.Infrastructure.Persistence;
+
+public class OrderingContext(DbContextOptions<OrderingContext> options) : DbContext(options)
 {
-  "designers": {
-    "Domain": {
-      "packages": [{
-        "id": "domain", "name": "Ordering.Domain",
-        "elements": [
-          { "id": "order", "type": "Class", "name": "Order",
-            "stereotypes": { "Table": {} },
-            "children": [
-              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } },
-              { "id": "order-buyer-id", "type": "Attribute", "name": "BuyerId", "typeRef": { "type": "int", "nullable": true },
-                "stereotypes": { "Foreign Key": { "Association": { "ref": "order-buyer" } } } }
-            ] },
-          { "id": "buyer", "type": "Class", "name": "Buyer",
-            "stereotypes": { "Table": {} },
-            "children": [
-              { "id": "buyer-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } }
-            ] }
-        ]
-      }],
-      "associations": [
-        { "id": "order-buyer", "type": "Association",
-          "source": { "element": "order", "name": "Orders", "multiplicity": "*", "navigable": false },
-          "target": { "element": "buyer", "name": "Buyer", "multiplicity": "1", "navigable": true } }
-      ]
-    },
-    "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
-        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
-    }
-  }
+    public DbSet<Order> Orders => Set<Order>();
+
+    public DbSet<Buyer> Buyers => Set<Buyer>();
 }
 ```
 
 ```json expect
 {
   "claims": [
-    { "kind": "relationship.multiplicity", "element": "order-buyer", "outcome": "contradicted", "expected": "*->1", "actual": "*->0..1",
-      "at": "src/Domain/Order.cs:7" }
-  ],
-  "findings": [
-    { "rule": "claim/relationship.multiplicity", "severity": "error", "subject": "order-buyer", "messageContains": "code `*->0..1`" }
-  ]
-}
-```
-
-## verified-from-navigation-property
-
-No configuration names the relationship and `Order` has no foreign key property, only the navigation. The find falls back to the `Buyer` property (ESC-DOM-54), and with no foreign key the end's optionality is the property's own: `Buyer?` in a nullable context is `0..1` (ESC-DOM-56). `Buyer` has no collection of orders, so nothing states a source end other than many.
-
-```json case
-{ "phase": 4, "base": "verified-optional-reference", "without": ["src/Infrastructure/Persistence/OrderConfiguration.cs"], "kinds": ["relationship.multiplicity"], "traces": ["ESC-DOM-54", "ESC-DOM-56"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
-```
-
-```json model
-{
-  "designers": {
-    "Domain": {
-      "packages": [{
-        "id": "domain", "name": "Ordering.Domain",
-        "elements": [
-          { "id": "order", "type": "Class", "name": "Order",
-            "stereotypes": { "Table": {} },
-            "children": [
-              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } }
-            ] },
-          { "id": "buyer", "type": "Class", "name": "Buyer",
-            "stereotypes": { "Table": {} },
-            "children": [
-              { "id": "buyer-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } }
-            ] }
-        ]
-      }],
-      "associations": [
-        { "id": "order-buyer", "type": "Association",
-          "source": { "element": "order", "name": "Orders", "multiplicity": "*", "navigable": false },
-          "target": { "element": "buyer", "name": "Buyer", "multiplicity": "0..1", "navigable": true } }
-      ]
-    },
-    "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
-        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
-    }
-  }
-}
-```
-
-```xml file src/Domain/Ordering.Domain.csproj
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-</Project>
-```
-
-```csharp file src/Domain/Order.cs
-namespace Ordering.Domain;
-
-public class Order
-{
-    public int Id { get; private set; }
-
-    public Buyer? Buyer { get; private set; }
-}
-```
-
-```json expect
-{
-  "claims": [
-    { "kind": "relationship.multiplicity", "element": "order-buyer", "outcome": "verified", "expected": "*->0..1", "actual": "*->0..1",
-      "at": "src/Domain/Order.cs:7" }
+    { "kind": "relationship.multiplicity", "element": "order-buyer", "outcome": "verified", "expected": "*", "actual": "*",
+      "at": "src/Domain/Order.cs:9" }
   ]
 }
 ```
 
 ## java-verified-many-to-one
 
-The same claim over JPA. The owning field `product` in `OrderLine.java` is a single `Product` with `@ManyToOne(optional = false)`: many lines share one product, and the product is required, `*->1` (JAV-DOM-23, JAV-DOM-25).
+The same claim over JPA. The owning field `product` in `OrderLine.java` is `@ManyToOne`: many lines share one product, so the model's `OrderLines` end, `*`, is the code's (JAV-DOM-23). Whether a line must have a product is the `Product` end's, which `member.nullable` reads from `optional = false`.
 
 ```json case
-{ "phase": 4, "kinds": ["relationship.multiplicity"], "traces": ["JAV-DOM-23", "JAV-DOM-25"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
+{ "phase": 4, "kinds": ["relationship.multiplicity"], "traces": ["JAV-DOM-23"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
 ```
 
 ```json model
@@ -469,55 +604,15 @@ public class Product {
 ```json expect
 {
   "claims": [
-    { "kind": "relationship.multiplicity", "element": "order-line-product", "outcome": "verified", "expected": "*->1", "actual": "*->1",
+    { "kind": "relationship.multiplicity", "element": "order-line-product", "outcome": "verified", "expected": "*", "actual": "*",
       "at": "src/main/java/com/shop/domain/OrderLine.java:14" }
-  ]
-}
-```
-
-## java-contradicted-optional
-
-The field is `@ManyToOne` with no `optional = false`, no `@JoinColumn(nullable = false)` and no `@NotNull`, so the code lets a line have no product: `*->0..1`. The model's `Product` end is `1`, so the claim is contradicted (JAV-DOM-25).
-
-```json case
-{ "phase": 4, "base": "java-verified-many-to-one", "kinds": ["relationship.multiplicity"], "traces": ["JAV-DOM-25"], "requirements": ["R1", "R14"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
-```
-
-```java file src/main/java/com/shop/domain/OrderLine.java
-package com.shop.domain;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import java.util.UUID;
-
-@Entity
-public class OrderLine {
-    @Id
-    private UUID id;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
-}
-```
-
-```json expect
-{
-  "claims": [
-    { "kind": "relationship.multiplicity", "element": "order-line-product", "outcome": "contradicted", "expected": "*->1", "actual": "*->0..1",
-      "at": "src/main/java/com/shop/domain/OrderLine.java:14" }
-  ],
-  "findings": [
-    { "rule": "claim/relationship.multiplicity", "severity": "error", "subject": "order-line-product", "messageContains": "code `*->0..1`" }
   ]
 }
 ```
 
 ## java-contradicted-annotation
 
-The model makes each line's product its own (`1->1`), which JPA states with `@OneToOne` or `@Embedded`. The code's `@ManyToOne` says many lines share a product, so the annotation doesn't match the multiplicities (JAV-DOM-23).
+The model makes each line's product its own (the `OrderLine` end is `1`), which JPA states with `@OneToOne` and a cascade, or `@Embedded`. The code's `@ManyToOne` says many lines share a product, so the annotation doesn't match the model (JAV-DOM-23).
 
 ```json case
 { "phase": 4, "base": "java-verified-many-to-one", "kinds": ["relationship.multiplicity"], "traces": ["JAV-DOM-23"], "requirements": ["R1"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
@@ -559,7 +654,7 @@ The model makes each line's product its own (`1->1`), which JPA states with `@On
 ```json expect
 {
   "claims": [
-    { "kind": "relationship.multiplicity", "element": "order-line-product", "outcome": "contradicted", "expected": "1->1", "actual": "*->1",
+    { "kind": "relationship.multiplicity", "element": "order-line-product", "outcome": "contradicted", "expected": "1", "actual": "*",
       "at": "src/main/java/com/shop/domain/OrderLine.java:14" }
   ]
 }
@@ -567,7 +662,7 @@ The model makes each line's product its own (`1->1`), which JPA states with `@On
 
 ## java-verified-composition
 
-`Order` owns its lines, `1->*`. The owning field is a `List<OrderLine>` with `@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)`: the cascade makes the order the lines' owner, so the source end is `1` (JAV-DOM-23, JAV-DOM-24).
+`Order` owns its lines: the `Order` end is `1`. The owning field is a `List<OrderLine>` with `@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)`: the cascade makes the order the lines' owner (JAV-DOM-23, JAV-DOM-24).
 
 ```json case
 { "phase": 4, "kinds": ["relationship.multiplicity"], "traces": ["JAV-DOM-23", "JAV-DOM-24"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
@@ -624,7 +719,7 @@ public class Order {
     private UUID id;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "order_id", nullable = false)
+    @JoinColumn(name = "order_id")
     private List<OrderLine> lines = new ArrayList<>();
 }
 ```
@@ -646,7 +741,7 @@ public class OrderLine {
 ```json expect
 {
   "claims": [
-    { "kind": "relationship.multiplicity", "element": "order-lines", "outcome": "verified", "expected": "1->*", "actual": "1->*",
+    { "kind": "relationship.multiplicity", "element": "order-lines", "outcome": "verified", "expected": "1", "actual": "1",
       "at": "src/main/java/com/shop/domain/Order.java:17" }
   ]
 }
@@ -654,7 +749,7 @@ public class OrderLine {
 
 ## java-contradicted-not-composition
 
-The same field with a plain `@OneToMany`: no cascade, no orphan removal, so nothing makes the order the lines' owner and the annotation reads as `0..1->*`. The model says composition, `1->*`, so the claim is contradicted (JAV-DOM-24).
+The same field with a plain `@OneToMany`: no cascade, no orphan removal and a join column that can be null, so a line may belong to no order, `0..1`. The model says composition, `1` (JAV-DOM-24).
 
 ```json case
 { "phase": 4, "base": "java-verified-composition", "kinds": ["relationship.multiplicity"], "traces": ["JAV-DOM-24"], "requirements": ["R1", "R14"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
@@ -685,11 +780,50 @@ public class Order {
 ```json expect
 {
   "claims": [
-    { "kind": "relationship.multiplicity", "element": "order-lines", "outcome": "contradicted", "expected": "1->*", "actual": "0..1->*",
+    { "kind": "relationship.multiplicity", "element": "order-lines", "outcome": "contradicted", "expected": "1", "actual": "0..1",
       "at": "src/main/java/com/shop/domain/Order.java:16" }
   ],
   "findings": [
-    { "rule": "claim/relationship.multiplicity", "severity": "error", "subject": "order-lines", "messageContains": "code `0..1->*`" }
+    { "rule": "claim/relationship.multiplicity", "severity": "error", "subject": "order-lines", "messageContains": "code `0..1`" }
+  ]
+}
+```
+
+## java-required-join-column
+
+No cascade, but the join column can't be null: every line has an order, `1` (JAV-DOM-25's other end).
+
+```json case
+{ "phase": 4, "base": "java-verified-composition", "kinds": ["relationship.multiplicity"], "traces": ["JAV-DOM-25"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
+```
+
+```java file src/main/java/com/shop/domain/Order.java
+package com.shop.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+@Entity
+public class Order {
+    @Id
+    private UUID id;
+
+    @OneToMany
+    @JoinColumn(name = "order_id", nullable = false)
+    private List<OrderLine> lines = new ArrayList<>();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "relationship.multiplicity", "element": "order-lines", "outcome": "verified", "expected": "1", "actual": "1",
+      "at": "src/main/java/com/shop/domain/Order.java:16" }
   ]
 }
 ```

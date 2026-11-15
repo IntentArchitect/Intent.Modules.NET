@@ -40,6 +40,7 @@ Each entry produces claims of one kind from model elements of one shape. Its sch
 | `discriminator`  | Optional. An expression telling apart several claims of this kind on one element                                                                                                         |
 | `parameterNames` | Optional. For operations: an expression listing the parameter names in order, choosing between overloads ([rules.md](rules.md#locating-an-elements-code))                               |
 | `dependsOn`      | Optional. The claim kind, on this element or `parent`, that must be verified first; usually `type.exists` or `member.exists`                                                             |
+| `waitsOn`        | Optional. Further claim kinds, on this element or `parent`, that block it when the code contradicts them, where the model states them; they don't locate its code. A table's columns wait on `parent:entity.persisted`, so a table nothing maps is one finding |
 | `source`         | The model feature in words, for messages: "the Table stereotype's Name"                                                                                                                  |
 | `fixHint`        | Optional. A sentence added to a contradicted finding, with placeholders                                                                                                                  |
 
@@ -61,7 +62,7 @@ This is how a house or module pack gives its own rules what they need from its o
 
 ### Example
 
-From the stock Domain pack. A table name is claimed only where the model sets it (decision 4); multiplicity is always stated:
+From the stock Domain pack. A table name is claimed only where the model sets it (decision 4); multiplicity is always stated, and claimed only for the end no navigation states, as the navigable end is its property's `member.type` and `member.nullable` (the relational extension states it in code, `Multiplicities`, which this entry mirrors):
 
 ```json
 {
@@ -79,8 +80,8 @@ From the stock Domain pack. A table name is claimed only where the model sets it
     },
     {
       "kind": "relationship.multiplicity",
-      "for": { "association": "Association", "where": "source.element.hasStereotype('Table') || target.element.hasStereotype('Table')" },
-      "value": "source.multiplicity + '->' + target.multiplicity",
+      "for": { "association": "Association", "where": "target.isNavigable && !source.isNavigable && (source.element.hasStereotype('Table') || source.element.hasStereotype('View')) || source.isNavigable && !target.isNavigable && (target.element.hasStereotype('Table') || target.element.hasStereotype('View'))" },
+      "value": "if(source.isNavigable, target.multiplicity, source.multiplicity)",
       "bindings": {
         "Source": "source.element.name",
         "Target": "target.element.name",

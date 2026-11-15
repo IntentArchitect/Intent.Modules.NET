@@ -102,7 +102,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
       "at": "src/Infrastructure/Persistence/OrderConfiguration.cs:11" }
   ],
   "findings": [
-    { "rule": "claim/column.name", "severity": "error", "subject": "order-payment-id", "messageContains": "Column stereotype" }
+    { "rule": "claim/column.name", "severity": "error", "subject": "order-payment-id", "messageContains": "the attribute's Column Name" }
   ]
 }
 ```

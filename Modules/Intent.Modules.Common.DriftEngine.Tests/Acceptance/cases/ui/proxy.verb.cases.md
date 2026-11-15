@@ -161,3 +161,145 @@ export const api = {
   ]
 }
 ```
+
+## eshop-http-verb
+
+eShopCustom's Blazor catalog proxy: a Service Proxy Operation's Backend Operation stereotype names the backend Operation, whose Http Settings Verb is the model's value. `GetFromJsonAsync` sends a GET. The house pack gives the vocabulary for eShopCustom's own stereotype; reading the verb from the proxy method's `HttpClient` call is the stock rule's, as `engine/unreadable`'s house recipe does for a few calls.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.verb"], "traces": ["ESC-FE-60"], "requirements": ["R2", "R28"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
+```
+
+```json pack
+{
+  "id": "house.eshopcustom",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "languages": ["csharp"],
+  "designers": ["User Interface"],
+  "kinds": [
+    { "kind": "proxy.verb", "label": "proxy verb", "valueType": "text", "comparer": "exact", "stated": "always", "existence": false }
+  ],
+  "vocabulary": {
+    "User Interface": {
+      "entries": [
+        {
+          "kind": "proxy.verb",
+          "for": { "element": "Operation", "where": "parent.specialization == 'Service Proxy' && hasStereotype('Backend Operation')" },
+          "value": "stereotype('Backend Operation').Operation.stereotype('Http Settings').Verb",
+          "bindings": { "Proxy": "parent.name", "Operation": "name" },
+          "own": ["Proxy", "Operation"],
+          "source": "the Http Settings Verb of the backend Operation its Backend Operation stereotype names"
+        }
+      ]
+    }
+  }
+}
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "catalog-api", "name": "Catalog.API",
+        "elements": [
+          { "id": "catalog-api-service", "type": "Service", "name": "CatalogApi",
+            "stereotypes": { "Http Service Settings": { "Route": "api/catalog" } },
+            "children": [
+              { "id": "get-item-by-id", "type": "Operation", "name": "GetItemById",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "items/{id}" } },
+                "children": [
+                  { "id": "get-item-by-id-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "User Interface": {
+      "packages": [{
+        "id": "webappcomponents", "name": "WebAppComponents",
+        "elements": [
+          { "id": "catalog-service", "type": "Service Proxy", "name": "CatalogService",
+            "children": [
+              { "id": "catalog-service-get-catalog-item", "type": "Operation", "name": "GetCatalogItem",
+                "stereotypes": { "Backend Operation": { "Operation": { "ref": "get-item-by-id" } } },
+                "children": [
+                  { "id": "catalog-service-get-catalog-item-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/WebAppComponents/Services/CatalogService.cs
+using System.Net.Http.Json;
+using eShop.WebAppComponents.Catalog;
+
+namespace eShop.WebAppComponents.Services;
+
+public class CatalogService(HttpClient httpClient)
+{
+    private readonly string remoteServiceBaseUrl = "api/catalog/";
+
+    public Task<CatalogItem?> GetCatalogItem(int id)
+    {
+        var uri = $"{remoteServiceBaseUrl}items/{id}";
+        return httpClient.GetFromJsonAsync<CatalogItem>(uri);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.verb", "element": "catalog-service-get-catalog-item", "outcome": "verified",
+      "expected": "GET", "actual": "GET", "at": "src/WebAppComponents/Services/CatalogService.cs:13" }
+  ]
+}
+```
+
+## eshop-http-verb-contradicted
+
+The proxy now posts the item's id with `PostAsJsonAsync`, and the backend Operation answers GET.
+
+```json case
+{ "phase": "later", "base": "eshop-http-verb", "kinds": ["proxy.verb"], "traces": ["ESC-FE-60"], "requirements": ["R2", "R14"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
+```
+
+```csharp file src/WebAppComponents/Services/CatalogService.cs
+using System.Net.Http.Json;
+using eShop.WebAppComponents.Catalog;
+
+namespace eShop.WebAppComponents.Services;
+
+public class CatalogService(HttpClient httpClient)
+{
+    private readonly string remoteServiceBaseUrl = "api/catalog/";
+
+    public async Task<CatalogItem?> GetCatalogItem(int id)
+    {
+        var response = await httpClient.PostAsJsonAsync($"{remoteServiceBaseUrl}items", id);
+        return await response.Content.ReadFromJsonAsync<CatalogItem>();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.verb", "element": "catalog-service-get-catalog-item", "outcome": "contradicted",
+      "expected": "GET", "actual": "POST", "at": "src/WebAppComponents/Services/CatalogService.cs:12" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.verb", "severity": "error", "subject": "catalog-service-get-catalog-item" }
+  ]
+}
+```

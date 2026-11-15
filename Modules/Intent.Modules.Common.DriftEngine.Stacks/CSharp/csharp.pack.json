@@ -27,7 +27,7 @@
       },
       "collections": ["T[]", "List<T>", "IList<T>", "ICollection<T>", "IEnumerable<T>", "IReadOnlyList<T>", "IReadOnlyCollection<T>", "HashSet<T>", "ISet<T>", "IReadOnlySet<T>", "IQueryable<T>"],
       "async": [{ "wrapper": "Task<T>", "void": true }, { "wrapper": "ValueTask<T>", "void": true }],
-      "injectedParameters": ["CancellationToken"],
+      "injectedParameters": ["CancellationToken", "ServerCallContext"],
       "nullable": {
         "suffix": "?",
         "wrappers": ["Nullable<T>"],

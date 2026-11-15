@@ -48,11 +48,16 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
     };
 
-    // The core's kinds and every stock extension's, in code or in its packs.
-    private static readonly IReadOnlySet<string> Kinds = Pack.Stock("intent.core")!.Kinds
+    // The core's and stock designer packs' kinds, and every stock extension's, in code or in its packs.
+    private static readonly IReadOnlySet<string> Kinds = new[] { "intent.core", "intent.domain", "intent.services" }.SelectMany(x => Pack.Stock(x)!.Kinds)
         .Concat(StockExtensions.All.SelectMany(x => x.Kinds.Concat(x.Packs.SelectMany(p => p.Kinds))))
         .Select(x => x.Kind)
         .ToHashSet(StringComparer.Ordinal);
+
+    private static readonly IReadOnlySet<string> Frameworks = new HashSet<string>(StringComparer.Ordinal)
+    {
+        "intent.efcore", "intent.aspnetcore", "intent.jpa", "intent.springmvc", "intent.mediatr", "intent.nservicebus"
+    };
 
     public JsonNode Run(EngineInput input)
     {
@@ -60,11 +65,14 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
         var packs = input.StockPacks.Select(x => Pack.Stock(x)).OfType<Pack>().Concat(input.InlinePacks.Select(Pack.Parse)).ToList();
         // The languages and the vocabularies that read no code (intent.rdbms, intent.http: a case's intent.domain and
         // intent.services) always; a framework's extension only when the case names it, so a case can leave a kind unread.
+        // What a handler handles, sends, publishes, invokes and acts on is read from any framework's code, so it comes with each.
         var extensions = StockExtensions.All.Where(x => !x.ClaimReaders.Any())
             .Concat(input.StockPacks.Select(StockExtensions.Find).OfType<IDriftExtension>())
+            .Concat(input.StockPacks.Any(Frameworks.Contains) ? [StockExtensions.Find("intent.messaging")!, StockExtensions.Find("intent.interactions")!] : [])
             .Distinct()
             .ToList();
-        var result = DriftEngine.Run(new DriftInput(FixtureModel.Build(input.Model), input.OutputFolder, packs, extensions));
+        var designers = FixtureModel.Build(input.Model, out var references);
+        var result = DriftEngine.Run(new DriftInput(designers, input.OutputFolder, packs, extensions) { References = references });
         return JsonSerializer.SerializeToNode(result, Options)!;
     }
 
@@ -86,19 +94,9 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
 
     public string? CannotRun(AcceptanceCase @case)
     {
-        // Phase 1, and phase 4's Java cases and parameter.source cases: the Java language and the binding rule (a source is
-        // stated only by its attribute) are built ahead of the rest of that phase. So are the opt-in rules' phase 2 and 4
-        // cases, with the Drift Check: phase 4's stacks, EF Core and ASP.NET Core, are built. So is the TypeScript language,
-        // which the later cases that read TypeScript wait for.
+        // A case runs whatever phase it names once the engine has its kinds, packs, rules and language: a phase says when a
+        // case was planned for, not whether what it checks is built.
         var meta = @case.Meta!;
-        var optIn = @case.Area == "optin" || meta.Texts("cases").Any(x => x.StartsWith("optin/", StringComparison.Ordinal) || x == "scope/gate");
-        var typeScript = meta.Text("language") == "typescript" && meta["phase"]?.ToString() is "4" or "later";
-        if (meta["phase"]?.ToString() != "1" && !(meta["phase"]?.ToString() == "4" && (meta.Text("language") == "java" || meta.Texts("kinds").Contains("parameter.source"))) &&
-            !(optIn && meta["phase"]?.ToString() is "2" or "4") && !typeScript)
-        {
-            return $"Phase {meta["phase"]} case; the engine is at phase 1.";
-        }
-
         if (meta.Texts("kinds").Concat(@case.Expect.Items("claims").Select(x => x.Text("kind")!)).FirstOrDefault(x => !Kinds.Contains(x)) is { } kind)
         {
             return $"The engine has no rule for {kind} yet.";
@@ -121,24 +119,24 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
             return $"The find path step '{step.Split(' ')[0]}' isn't built yet.";
         }
 
-        if (meta.Texts("cases").Contains("engine/noVocabulary"))
-        {
-            return "Coverage of the model (noVocabulary findings) isn't built yet.";
-        }
 
         var inline = @case.Packs.Select(x => x.Text("id")).ToHashSet(StringComparer.Ordinal);
-        if (meta.Texts("packs").FirstOrDefault(x => Pack.Stock(x) is null && StockExtensions.Find(x) is null && !inline.Contains(x)) is { } pack)
+        // MediatR's and NServiceBus's handlers, sends and publishes are read by the framework-neutral messaging and interactions
+        // readers, so a case naming either has what it needs without a pack of its own.
+        if (meta.Texts("packs").FirstOrDefault(x => Pack.Stock(x) is null && StockExtensions.Find(x) is null && !inline.Contains(x)
+                                                    && x is not ("intent.mediatr" or "intent.nservicebus")) is { } pack)
         {
             return $"The engine doesn't ship {pack} yet.";
         }
 
-        // A pack of conventions alone needs only find paths; recipes and queries need the full expression language.
-        if (@case.Packs.Any(x => x["rules"] is not null || x["queries"] is not null || x["vocabulary"] is not null))
+        // A pack of conventions alone needs only find paths, and vocabulary the expression language; recipes and queries
+        // need a rule language the engine doesn't have.
+        if (@case.Packs.Any(x => x["rules"] is not null || x["queries"] is not null))
         {
             return "Inline packs need the full expression language.";
         }
 
-        if (meta.Text("language") is { } language && language is not ("csharp" or "java"))
+        if (meta.Text("language") is { } language && language is not ("csharp" or "java" or "typescript" or "protobuf"))
         {
             return $"The engine has no {language} reader yet.";
         }

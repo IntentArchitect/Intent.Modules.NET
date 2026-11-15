@@ -106,6 +106,142 @@ public class Order
 }
 ```
 
+## folder-names-the-directory
+
+Two in-scope classes are named `Order`, and neither namespace ends with the element's `Reporting` folder: the one in `src/Reporting` declares the root namespace. Its folder is the element's, so it is the one.
+
+```json case
+{ "phase": 1, "kinds": ["type.exists"], "requirements": ["R43"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "reporting", "type": "Folder", "name": "Reporting",
+            "children": [
+              { "id": "order", "type": "Class", "name": "Order" }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Reporting/Order.cs
+namespace Shop;
+
+public partial class Order
+{
+}
+```
+
+```csharp file src/Sales/Order.cs
+namespace Shop.Sales;
+
+public class Order
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "order", "outcome": "verified", "at": "src/Reporting/Order.cs:3" }
+  ]
+}
+```
+
+## library-type
+
+A message the code handles comes from a contracts package it references: it uses `Ping` and declares no type of the name. The type exists, read from its use. Its declaration isn't in the code, so its Property can't be read, and that claim waits on it without a finding.
+
+```json case
+{ "phase": 1, "kinds": ["type.exists"], "requirements": ["R2", "R5"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "external", "name": "External.Messages", "type": "Eventing Package",
+        "elements": [
+          { "id": "ping", "type": "Message", "name": "Ping",
+            "children": [
+              { "id": "ping-source-address", "type": "Property", "name": "SourceAddress", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Crm", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Diagnostics/PingHandler.cs
+using Contracts.Diagnostics;
+
+namespace Crm.Diagnostics;
+
+public class PingHandler : IHandleMessages<Ping>
+{
+    public Task Handle(Ping message, IMessageHandlerContext context) => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "ping", "outcome": "verified", "at": "src/Diagnostics/PingHandler.cs:5" },
+    { "kind": "member.exists", "element": "ping-source-address", "outcome": "cantVerify", "reason": "blocked" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "count": 0 },
+    { "rule": "claim/member.exists", "count": 0 }
+  ]
+}
+```
+
+## library-type-unused
+
+The code no longer handles `Ping`, nor uses it anywhere, so the modelled message is in neither the code nor anything it uses.
+
+```json case
+{ "phase": 1, "base": "library-type", "kinds": ["type.exists"], "requirements": ["R8"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```csharp file src/Diagnostics/PingHandler.cs
+namespace Crm.Diagnostics;
+
+public class PingHandler
+{
+    public Task Handle(string message) => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "ping", "outcome": "contradicted", "actual": "absent" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "severity": "error", "subject": "ping" }
+  ]
+}
+```
+
 ## out-of-scope
 
 The only `Order` is in a folder a scope row excludes. The file's name matches the type's, so the claim is can't verify, `outOfScope`, naming the file and the row, rather than contradicted (R25). The excluded file is never read.

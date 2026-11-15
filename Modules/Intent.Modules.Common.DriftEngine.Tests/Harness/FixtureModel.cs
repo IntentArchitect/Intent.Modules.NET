@@ -14,9 +14,18 @@ internal sealed class FixtureModel
     private readonly Dictionary<string, IElement> _typeDefinitions = new(StringComparer.Ordinal);
     private readonly List<(ITypeReference Reference, JsonNode Data)> _typeRefs = [];
     private readonly Dictionary<string, IAssociationEnd> _targetEnds = new(StringComparer.Ordinal);
+
+    // An element's "generalization" is a Generalization link from it to its base, built with the other links.
+    private readonly List<JsonNode> _generalizations = [];
     private readonly List<(IAssociationEnd End, ITypeReference Reference, string Element, string From)> _ends = [];
 
-    public static IReadOnlyDictionary<string, IReadOnlyList<IPackage>> Build(JsonNode model)
+    public static IReadOnlyDictionary<string, IReadOnlyList<IPackage>> Build(JsonNode model) => Build(model, out _);
+
+    /// <param name="references">
+    /// Each designer's packages another application owns (the model's <c>references</c>), built with the rest so this
+    /// application's links can point into them.
+    /// </param>
+    public static IReadOnlyDictionary<string, IReadOnlyList<IPackage>> Build(JsonNode model, out IReadOnlyDictionary<string, IReadOnlyList<IPackage>> references)
     {
         var fixture = new FixtureModel();
         var designers = new Dictionary<string, IReadOnlyList<IPackage>>(StringComparer.Ordinal);
@@ -25,8 +34,17 @@ internal sealed class FixtureModel
             designers[name] = designer.Items("packages").Select(fixture.Package).ToList();
         }
 
+        var referenced = new Dictionary<string, IReadOnlyList<IPackage>>(StringComparer.Ordinal);
+        foreach (var (name, designer) in model["references"]?.AsObject() ?? [])
+        {
+            referenced[name] = designer.Items("packages").Select(fixture.Package).ToList();
+        }
+
+        references = referenced;
+
         // Associations link elements anywhere in the model, so they're built once every element exists.
-        foreach (var association in (model["designers"]?.AsObject() ?? []).SelectMany(x => x.Value!.Items("associations")).ToList())
+        var sections = (model["designers"]?.AsObject() ?? []).Concat(model["references"]?.AsObject() ?? []);
+        foreach (var association in sections.SelectMany(x => x.Value!.Items("associations")).Concat(fixture._generalizations).ToList())
         {
             fixture.Association(association);
         }
@@ -48,7 +66,8 @@ internal sealed class FixtureModel
             end.Package.Returns(package);
         }
 
-        foreach (var (id, element) in fixture._elements)
+        // A target end is an element too, so an association may start from it, as a publish does from a handler's subscription.
+        foreach (var (id, element) in fixture._elements.Select(x => (x.Key, x.Value)).Concat(fixture._targetEnds.Select(x => (x.Key, (IElement)x.Value))))
         {
             var associated = fixture._ends.Where(x => x.From == id).Select(x => x.End).ToList();
             element.AssociatedElements.Returns(associated);
@@ -115,6 +134,17 @@ internal sealed class FixtureModel
         var element = Substitute.For<IElement>();
         var id = data.Text("id")!;
         _elements[id] = element;
+        if (data.Text("generalization") is { } generalization)
+        {
+            _generalizations.Add(new JsonObject
+            {
+                ["id"] = $"{id}:generalization",
+                ["type"] = "Generalization",
+                ["source"] = new JsonObject { ["element"] = id, ["navigable"] = false },
+                ["target"] = new JsonObject { ["element"] = generalization }
+            });
+        }
+
         var stereotypes = Stereotypes(data);
         var typeReference = data["typeRef"] is { } typeRef ? TypeReference(typeRef) : null;
         var children = data.Items("children").Select(x => Element(x, element, package)).ToList();

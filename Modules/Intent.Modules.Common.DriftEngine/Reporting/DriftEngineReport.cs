@@ -24,13 +24,16 @@ namespace Intent.Modules.Common.DriftEngine.Reporting
 
         /// <summary>
         /// The designers the engine reads, by the name packs give them. The ids are each designer module's own
-        /// (<c>ApiMetadataDesignerExtensions</c>), copied so the engine needs none of those modules installed.
+        /// (<c>ApiMetadataDesignerExtensions</c>), copied so the engine needs none of those modules installed. A designer
+        /// here that no pack or extension reads is reported as unchecked (R7), so the SDK's lack of a list of an
+        /// application's designers doesn't hide one.
         /// </summary>
         private static readonly IReadOnlyDictionary<string, string> DesignerIds = new Dictionary<string, string>
         {
             ["Codebase Structure"] = "0701433c-36c0-4569-b1f4-9204986b587d",
             ["Domain"] = "6ab29b31-27af-4f56-a67c-986d82097d63",
-            ["Services"] = "81104ae6-2bc5-4bae-b05a-f987b0372d81"
+            ["Services"] = "81104ae6-2bc5-4bae-b05a-f987b0372d81",
+            ["User Interface"] = "f492faed-0665-4513-9853-5a230721786f"
         };
 
         // Every stock pack and extension runs; one whose designer isn't installed makes no claims. Choosing them on the Root
@@ -99,7 +102,7 @@ namespace Intent.Modules.Common.DriftEngine.Reporting
             var elements = designers.Values
                 .SelectMany(x => x)
                 .SelectMany(x => Descendants(x.ChildElements))
-                .SelectMany(x => new[] { x }.Concat(x.AssociatedElements ?? Enumerable.Empty<IAssociationEnd>()))
+                .SelectMany(x => new[] { x }.Concat(DriftEngine.Ends(x)))
                 .GroupBy(x => x.Id)
                 .ToDictionary(x => x.Key, x => x.First());
             foreach (var finding in result.Findings)

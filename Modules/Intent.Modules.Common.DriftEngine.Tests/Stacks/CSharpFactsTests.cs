@@ -383,6 +383,33 @@ public class CSharpFactsTests
     }
 
     [Fact]
+    public void A_member_s_text_is_Common_Drift_s_canonical_text()
+    {
+        // The expected text is what Common.Drift's CodeText gives for this method, so converted recipes' regular expressions
+        // read the same text (R34). A probe of both over the five copied codebases (2,459 files, 81,170 members and
+        // statements) found none that differ.
+        var graph = Read(""""
+            public class Orders
+            {
+                [HttpGet("{id:guid}")]
+                public async Task<ActionResult<OrderDto?>> Get([FromRoute] Guid id, CancellationToken ct = default)
+                {
+                    var url = $"orders/{id}?page={page,5:N0}&x={(a ? "y" : "z")}";
+                    var raw = $$"""{"id": {{id}}}""";
+                    var items = await _db.Orders.Where(x => x.Total >= 10 && !x.IsDeleted).Select(x => new { x.Id, Name = x.Name ?? "" }).ToListAsync(ct);
+                    int[] counts = [1, 2, ..others];
+                    if (items is { Count: > 0 } list && list[0]?.Id is not null) { return Ok(items!); }
+                    return NotFound();
+                }
+            }
+            """");
+
+        Member(graph.Types.Single(), "Get").Text.ShouldBe(""""
+            [HttpGet("{id:guid}")]public async Task<ActionResult<OrderDto?>>Get([FromRoute]Guid id,CancellationToken ct=default){var url=$"orders/{id}?page={page,5:N0}&x={(a?"y":"z")}";var raw=$$"""{"id": {{id}}}""";var items=await _db.Orders.Where(x=>x.Total>=10&&!x.IsDeleted).Select(x=>new{x.Id,Name=x.Name??""}).ToListAsync(ct);int[]counts=[1,2,..others];if(items is{Count:>0}list&&list[0]?.Id is not null){return Ok(items!);}return NotFound();}
+            """");
+    }
+
+    [Fact]
     public void Top_level_statements_are_a_unit_with_their_lambdas_code_and_not_the_types_declared_after_them()
     {
         var program = Units.Files.Single().TopLevel!;
@@ -413,6 +440,7 @@ public class CSharpFactsTests
         var options = program.Calls.Single(x => x.Name == "AddSwaggerGen").Arguments.Single().Function!;
         options.Parameters.Single().Type.ShouldBeNull();
         options.Assignments.Single().Target.ShouldBe("o.Title");
+        options.Assignments.Single().Receiver!.Text.ShouldBe("o");
         options.Returns.ShouldBeEmpty();
     }
 

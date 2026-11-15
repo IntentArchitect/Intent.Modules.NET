@@ -5,6 +5,15 @@
   "requires": [{ "id": "intent.core", "version": "^1.0.0" }],
   "languages": ["csharp"],
   "designers": ["Services"],
+  "kinds": [
+    { "kind": "subscription.handler", "label": "message handler", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "message.copy", "label": "message copy", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "intent.invokes", "label": "invokes", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "intent.creates", "label": "creates", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "intent.updates", "label": "updates", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "intent.deletes", "label": "deletes", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "intent.queries", "label": "queries", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true }
+  ],
   "vocabulary": {
     "Services": {
       "designer": "Services",
@@ -12,6 +21,7 @@
         { "kind": "type.exists", "for": { "element": "DTO" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the DTO" },
         { "kind": "type.kind", "for": { "element": "DTO" }, "dependsOn": "type.exists", "source": "the element type" },
         { "kind": "type.abstract", "for": { "element": "DTO" }, "value": "abstract", "dependsOn": "type.exists", "source": "the DTO's Abstract" },
+        { "kind": "type.generalization", "for": { "element": "DTO" }, "value": "join(map(where(associations('Generalization'), isTarget), type.name), ', ')", "dependsOn": "type.exists", "source": "the DTO's Generalization" },
         { "kind": "type.exists", "for": { "element": "Command" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the command" },
         { "kind": "type.kind", "for": { "element": "Command" }, "dependsOn": "type.exists", "source": "the element type" },
         { "kind": "type.exists", "for": { "element": "Query" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the query" },
@@ -30,14 +40,31 @@
         { "kind": "type.kind", "for": { "element": "Enum" }, "dependsOn": "type.exists", "source": "the element type" },
         { "kind": "member.exists", "for": { "element": "Enum-Literal" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the literal" },
         { "kind": "enum.literal.value", "for": { "element": "Enum-Literal" }, "value": "value", "dependsOn": "parent:type.exists", "source": "the literal's value" },
-        { "kind": "type.namespace", "for": { "element": "DTO" }, "value": "stereotype('File Config').Namespace", "dependsOn": "type.exists", "source": "the DTO's File Config Namespace" },
-        { "kind": "type.file", "for": { "element": "DTO" }, "value": "stereotype('File Config').Filename", "dependsOn": "type.exists", "source": "the DTO's File Config Filename" },
-        { "kind": "type.namespace", "for": { "element": "Enum" }, "value": "stereotype('File Config').Namespace", "dependsOn": "type.exists", "source": "the enum's File Config Namespace" },
-        { "kind": "type.file", "for": { "element": "Enum" }, "value": "stereotype('File Config').Filename", "dependsOn": "type.exists", "source": "the enum's File Config Filename" },
-        { "kind": "type.namespace", "for": { "element": "Service" }, "value": "stereotype('File Config').Namespace", "dependsOn": "type.exists", "source": "the service's File Config Namespace" },
-        { "kind": "type.file", "for": { "element": "Service" }, "value": "stereotype('File Config').Filename", "dependsOn": "type.exists", "source": "the service's File Config Filename" },
-        { "kind": "type.namespace", "for": { "element": "Service Proxy" }, "value": "stereotype('File Config').Namespace", "dependsOn": "type.exists", "source": "the service proxy's File Config Namespace" },
-        { "kind": "type.file", "for": { "element": "Service Proxy" }, "value": "stereotype('File Config').Filename", "dependsOn": "type.exists", "source": "the service proxy's File Config Filename" }
+        { "kind": "type.exists", "for": { "element": "Message" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the message" },
+        { "kind": "type.kind", "for": { "element": "Message" }, "dependsOn": "type.exists", "source": "the element type" },
+        { "kind": "type.exists", "for": { "element": "Integration Command" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the integration command" },
+        { "kind": "type.kind", "for": { "element": "Integration Command" }, "dependsOn": "type.exists", "source": "the element type" },
+        { "kind": "member.exists", "for": { "element": "Property" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the property" },
+        { "kind": "member.type", "for": { "element": "Property" }, "value": "type", "dependsOn": "member.exists", "source": "the property's type" },
+        { "kind": "member.nullable", "for": { "element": "Property" }, "value": "type.isNullable", "dependsOn": "member.exists", "source": "the property's Is Nullable" },
+        { "kind": "type.exists", "for": { "element": "Eventing DTO" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the eventing DTO" },
+        { "kind": "type.kind", "for": { "element": "Eventing DTO" }, "dependsOn": "type.exists", "source": "the element type" },
+        { "kind": "member.exists", "for": { "element": "Eventing DTO-Field" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the field" },
+        { "kind": "member.type", "for": { "element": "Eventing DTO-Field" }, "value": "type", "dependsOn": "member.exists", "source": "the field's type" },
+        { "kind": "member.nullable", "for": { "element": "Eventing DTO-Field" }, "value": "type.isNullable", "dependsOn": "member.exists", "source": "the field's Is Nullable" },
+        { "kind": "type.exists", "for": { "element": "Integration Event Handler" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the integration event handler" },
+        { "kind": "type.kind", "for": { "element": "Integration Event Handler" }, "dependsOn": "type.exists", "source": "the element type" },
+        { "kind": "type.exists", "for": { "element": "Domain Event Handler" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the domain event handler" },
+        { "kind": "type.kind", "for": { "element": "Domain Event Handler" }, "dependsOn": "type.exists", "source": "the element type" },
+        { "kind": "subscription.handler", "for": { "associationEnd": "Subscribe Integration Event" }, "value": "self", "dependsOn": "parent:type.exists", "source": "its Subscribe Integration Event link" },
+        { "kind": "subscription.handler", "for": { "associationEnd": "Subscribe Integration Command" }, "value": "self", "dependsOn": "parent:type.exists", "source": "its Subscribe Integration Command link" },
+        { "kind": "subscription.handler", "for": { "associationEnd": "Domain Event Handler Association" }, "value": "self", "dependsOn": "parent:type.exists", "source": "its Domain Event Handler Association link" },
+        { "kind": "message.copy", "for": { "associationEnd": "Integration Event Subscription" }, "value": "self", "dependsOn": "parent:type.exists", "source": "its Integration Event Subscription link" },
+        { "kind": "intent.invokes", "for": { "associationEnd": "Perform Invocation" }, "value": "self", "dependsOn": "parent:member.exists", "source": "its Perform Invocation link" },
+        { "kind": "intent.creates", "for": { "associationEnd": "Create Entity Action" }, "value": "self", "dependsOn": "parent:member.exists", "source": "its Create Entity Action link" },
+        { "kind": "intent.updates", "for": { "associationEnd": "Update Entity Action" }, "value": "self", "dependsOn": "parent:member.exists", "source": "its Update Entity Action link" },
+        { "kind": "intent.deletes", "for": { "associationEnd": "Delete Entity Action" }, "value": "self", "dependsOn": "parent:member.exists", "source": "its Delete Entity Action link" },
+        { "kind": "intent.queries", "for": { "associationEnd": "Query Entity Action" }, "value": "self", "dependsOn": "parent:member.exists", "source": "its Query Entity Action link" }
       ]
     }
   },
@@ -50,7 +77,12 @@
         "Query": { "typeKinds": ["class", "record"], "states": ["property", "field"] },
         "Service": { "typeKinds": ["class", "interface"], "states": ["method"] },
         "Service Proxy": { "typeKinds": ["class", "interface"], "states": ["method"] },
-        "Enum": { "typeKinds": ["enum"], "states": ["enumMember"] }
+        "Enum": { "typeKinds": ["enum"], "states": ["enumMember"] },
+        "Message": { "typeKinds": ["class", "record"], "states": ["property", "field"] },
+        "Integration Command": { "typeKinds": ["class", "record"], "states": ["property", "field"] },
+        "Eventing DTO": { "typeKinds": ["class", "record"], "states": ["property", "field"] },
+        "Integration Event Handler": { "typeKinds": ["class"], "states": ["method"] },
+        "Domain Event Handler": { "typeKinds": ["class"], "states": ["method"] }
       }
     }
   }

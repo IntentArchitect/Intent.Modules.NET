@@ -5,8 +5,10 @@ using Intent.Modules.Common.DriftEngine.Stacks.AspNetCore;
 using Intent.Modules.Common.DriftEngine.Stacks.CSharp;
 using Intent.Modules.Common.DriftEngine.Stacks.EfCore;
 using Intent.Modules.Common.DriftEngine.Stacks.Http;
+using Intent.Modules.Common.DriftEngine.Stacks.Interactions;
 using Intent.Modules.Common.DriftEngine.Stacks.Java;
 using Intent.Modules.Common.DriftEngine.Stacks.Jpa;
+using Intent.Modules.Common.DriftEngine.Stacks.Messaging;
 using Intent.Modules.Common.DriftEngine.Stacks.Protobuf;
 using Intent.Modules.Common.DriftEngine.Stacks.Relational;
 using Intent.Modules.Common.DriftEngine.Stacks.SpringMvc;
@@ -32,12 +34,15 @@ public static class StockExtensions
         new JavaExtension(),
         new TypeScriptExtension(node),
         new ProtobufExtension(),
+        new GrpcExtension(),
         new RelationalExtension(),
         new HttpExtension(),
         new EfCoreExtension(),
         new AspNetCoreExtension(),
         new JpaExtension(),
-        new SpringMvcExtension()
+        new SpringMvcExtension(),
+        new MessagingExtension(),
+        new InteractionsExtension()
     ];
 
     /// <summary>A stock extension by its id, or null.</summary>

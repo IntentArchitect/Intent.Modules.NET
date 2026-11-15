@@ -30,7 +30,7 @@ A claim is one checkable statement the model makes about the code.
 | `own`            | Which placeholders name the claim's own element, for the wrong-element check                                                           | `["Entity"]`                               |
 | `parameterNames` | An operation's parameter names, in order, telling overloads apart                                                                      | `["orderId", "reason"]`                    |
 | `source`         | The model feature that states the value, for fix messages                                                                              | the `Table` stereotype's `Name`            |
-| `dependsOn`      | The claim this one is blocked by when that isn't verified, usually its owner's existence                                               | `type.exists` on `Order`                   |
+| `dependsOn`      | The claim this one is blocked by when that isn't verified, usually its owner's existence; or the claim it waits on that the code contradicts | `type.exists` on `Order`                   |
 | `origin`         | The pack and vocabulary entry that produced it                                                                                         | `intent.domain@1.0.0`, entry `table.name`  |
 
 A claim's identity is its designer, element, kind and discriminator. It is the same on every run, so a finding can be traced across runs and exceptions can never drift onto another claim.
@@ -81,7 +81,7 @@ Every claim ends as exactly one outcome ([R1](requirements.md)). The engine deci
 | #  | Condition                                                                                                                      | Outcome                                                            |
 | -- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
 | 1  | No active rule reads the claim's kind for this element                                                                         | can't verify, `noRule`                                             |
-| 2  | The claim it `dependsOn` isn't verified                                                                                        | can't verify, `blocked`                                            |
+| 2  | The claim it `dependsOn` isn't verified, or a claim it `waitsOn` is contradicted                                               | can't verify, `blocked`                                            |
 | 3  | The rule threw, or returned something malformed                                                                                | can't verify, `ruleFailed`                                         |
 | 4  | A file the rule needed couldn't be read by its reader                                                                          | can't verify, `readerFailed`                                       |
 | 5  | The rule needs a reader capability the reader lacks (name resolution, for example)                                             | can't verify, `unresolved`                                         |
@@ -98,6 +98,7 @@ Two consequences worth stating:
 
 - **A `whenSet` kind never takes a value from silence.** A modelled table name with no `ToTable` is contradicted, even if EF Core's convention gives the same name (decision 4). A recipe for a `whenSet` kind with `default` or `absent` is a configuration error.
 - **A missing type is one finding.** `type.exists` on `Order` is contradicted; every claim on `Order` and its members is `blocked`, and the one finding says how many ([R5](requirements.md)).
+- **So is a table nothing maps.** `entity.persisted` on `Order` is contradicted; its table name, key, indexes, columns and relationships wait on it (`waitsOn`), so they are `blocked` and counted in its one finding. A claim it waits on that can't be verified (no DbContext in scope) blocks nothing: that is no evidence the class isn't mapped, so its claims are checked on their own.
 
 ### Stated always, or only when set
 

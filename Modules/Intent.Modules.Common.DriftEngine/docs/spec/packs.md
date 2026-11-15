@@ -68,7 +68,7 @@ Module upgrades never change a house pack ([R53](requirements.md)); it's in the 
 | `intent.rdbms`       | Relational vocabulary, framework-neutral: tables, keys, columns, indexes, foreign keys, from the RDBMS stereotypes. Reads no code | 1     |
 | `intent.http`        | HTTP vocabulary, framework-neutral: routes, verbs, parameter sources, security. Reads no code   | 1     |
 | `intent.efcore`      | Reads the relational claims from EF Core's fluent API and attributes, and the migration snapshot | 4     |
-| `intent.aspnetcore`  | Reads the HTTP claims from controllers and minimal APIs: routes, verbs, binding, security, versioning | 4     |
+| `intent.aspnetcore`  | Reads the HTTP claims from controllers and minimal APIs: routes, verbs, binding, security, versioning; and reports an Operation whose empty Route puts it where Web API 2 doesn't serve it ([rules.md](rules.md#routes-web-api-2-serves-conventionally)) | 4     |
 | `intent.nservicebus` | Message handlers, sends and publishes                                                           | 4     |
 | `intent.java`        | The Java reader and language profile                                                            | 4     |
 | `intent.springmvc`   | Routes, verbs, binding, status and security over Spring MVC                                     | 4     |
@@ -77,7 +77,8 @@ Module upgrades never change a house pack ([R53](requirements.md)); it's in the 
 | `intent.blazor`      | Razor component rules for the User Interface kinds: routes, titles, parameters, injection, security | later |
 | `intent.typescript`  | The TypeScript reader (with Vue single-file components) and the TypeScript language profile     | later |
 | `intent.protobuf`    | The Protobuf reader (proto2, proto3 and editions) and the Protobuf language profile             | later |
-| `intent.grpc`        | gRPC service conventions, protoc's naming, and `ServerCallContext` as an injected parameter     | later |
+| `intent.grpc`        | gRPC service conventions: a Proto Message DTO is the `.proto` message of its name. The Protobuf profile names fields as protoc does (`ProductId` is `product_id`), and the C# profile has `ServerCallContext` as an injected parameter | 1 |
+| `intent.messaging`   | Domain events raised, integration events published and commands sent, whatever does it: the `intent.raises`, `intent.publishes` and `intent.sends` links, and every message type and raise the diagram could show and doesn't, on by default ([rules.md](rules.md#messages-the-diagram-could-show)) | 1 |
 
 Phase 2's demonstrations (eShopCustom's Front End State Store and Architecture Layer) are house packs, which is the point: no stock pack and no engine change.
 

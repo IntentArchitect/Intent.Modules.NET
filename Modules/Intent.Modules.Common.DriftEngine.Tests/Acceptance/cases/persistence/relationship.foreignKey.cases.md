@@ -163,12 +163,12 @@ public class Order
 }
 ```
 
-## contradicted-not-stated
+## verified-by-convention
 
-The configuration has no `HasForeignKey`. EF Core's convention would pick `BuyerId` from the navigation's name, but a `whenSet` value is never taken from a convention: the code doesn't state the key, so the modelled `BuyerId` is contradicted, with the code side "not stated" (decision 4).
+The configuration has no `HasForeignKey`, and EF Core's convention picks `BuyerId` from the navigation's name, the property the model marks. The Domain designer marks every relationship's foreign key, so it can't leave a conventional one unstated as a `whenSet` value elsewhere can: the code's key is the one EF Core discovers, read from the convention as `key`'s `Id` is (ESC-DOM-57).
 
 ```json case
-{ "phase": 4, "base": "verified", "kinds": ["relationship.foreignKey"], "traces": ["ESC-DOM-57"], "requirements": ["R4"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+{ "phase": 4, "base": "verified", "kinds": ["relationship.foreignKey"], "traces": ["ESC-DOM-57"], "requirements": ["R2", "R3"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
 ```
 
 ```csharp file src/Infrastructure/Persistence/OrderConfiguration.cs
@@ -190,7 +190,85 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 ```json expect
 {
   "claims": [
-    { "kind": "relationship.foreignKey", "element": "order-buyer", "outcome": "contradicted", "expected": "BuyerId", "actual": null, "fromSilence": false }
+    { "kind": "relationship.foreignKey", "element": "order-buyer", "outcome": "verified", "expected": "BuyerId", "actual": "BuyerId", "fromSilence": true }
+  ]
+}
+```
+
+## contradicted-not-stated
+
+The model marks `PurchaserId` as the foreign key, but the configuration has no `HasForeignKey`, and EF Core's convention looks for `BuyerId`, which `Order` doesn't have: it would add a shadow `BuyerId`, not use `PurchaserId`. The code doesn't state the modelled key, so it is contradicted, with the code side "not stated" (decision 4).
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["relationship.foreignKey"], "traces": ["ESC-DOM-57"], "requirements": ["R4"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } },
+              { "id": "order-purchaser-id", "type": "Attribute", "name": "PurchaserId", "typeRef": { "type": "int", "nullable": true },
+                "stereotypes": { "Foreign Key": { "Association": { "ref": "order-buyer" } } } }
+            ] },
+          { "id": "buyer", "type": "Class", "name": "Buyer",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "buyer-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "order-buyer", "type": "Association",
+          "source": { "element": "order", "name": "Orders", "multiplicity": "*", "navigable": false },
+          "target": { "element": "buyer", "name": "Buyer", "multiplicity": "0..1", "navigable": true } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Order.cs
+namespace Ordering.Domain;
+
+public class Order
+{
+    public int Id { get; private set; }
+    public int? PurchaserId { get; private set; }
+    public Buyer? Buyer { get; private set; }
+}
+```
+
+```csharp file src/Infrastructure/Persistence/OrderConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Ordering.Domain;
+
+namespace Ordering.Infrastructure.Persistence;
+
+public class OrderConfiguration : IEntityTypeConfiguration<Order>
+{
+    public void Configure(EntityTypeBuilder<Order> builder)
+    {
+        builder.HasOne(o => o.Buyer).WithMany();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "relationship.foreignKey", "element": "order-buyer", "outcome": "contradicted", "expected": "PurchaserId", "actual": null, "fromSilence": false }
   ],
   "findings": [
     { "rule": "claim/relationship.foreignKey", "severity": "error", "subject": "order-buyer", "messageContains": "doesn't state" }

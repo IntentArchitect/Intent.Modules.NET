@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.DriftEngine.Code;
 using Intent.Modules.Common.DriftEngine.Extensions;
@@ -47,10 +48,13 @@ internal sealed class JpaClaims : IClaimReader
 {
     private static readonly HashSet<string> Relationships = ["ManyToOne", "OneToOne"];
 
+    /// <summary>A text store type a <c>columnDefinition</c> names: <c>varchar(50)</c>, <c>nchar(1)</c>, <c>text</c>.</summary>
+    private static readonly Regex TextType = new(@"^\s*(n?varchar|n?char|n?text)\b", RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
+
     public IReadOnlyCollection<string> Kinds { get; } = new HashSet<string>(StringComparer.Ordinal)
     {
-        "table.name", "table.schema", "table.key", "index.columns", "index.unique", "index.filter", "column.name", "column.type", "column.maxLength",
-        "column.precision", "column.scale", "column.valueGeneration", "member.nullable"
+        "entity.persisted", "table.name", "table.schema", "table.kind", "key", "index.columns", "index.unique", "index.filter", "column.name", "column.type", "column.maxLength",
+        "column.precision", "column.scale", "column.textType", "key.generated", "member.nullable", "relationship.multiplicity"
     };
 
     public ClaimReading? Read(ClaimContext context)
@@ -63,18 +67,38 @@ internal sealed class JpaClaims : IClaimReader
 
         switch (context.Kind)
         {
+            case "entity.persisted":
+            {
+                // @Entity maps a table, @Embeddable columns of the tables that embed it; JPA maps nothing else.
+                var type = context.Type!;
+                return jpa.Mapped.Contains(type) && type.Attributes.FirstOrDefault(x => x.Name is "Entity" or "Embeddable") is { } mapping
+                    ? ClaimReading.Stated("true", mapping.At)
+                    : ClaimReading.Absent(type.At, "false");
+            }
             case "table.name" or "table.schema":
             {
                 var type = context.Type!;
                 var table = type.Attributes.FirstOrDefault(x => x.Name == "Table");
                 return Value(table?.Named.GetValueOrDefault(context.Kind == "table.name" ? "name" : "schema"), table?.At ?? type.At);
             }
-            case "table.key":
+            case "table.kind":
+            {
+                // Hibernate maps a query (@Subselect) or a view-backed entity (@View) rather than a table; anything else is a table.
+                var type = context.Type!;
+                return type.Attributes.FirstOrDefault(x => x.Name is "Subselect" or "View") is { } view
+                    ? ClaimReading.Stated("View", view.At)
+                    : type.Attributes.FirstOrDefault(x => x.Name == "Table") is { } table
+                        ? ClaimReading.Stated("Table", table.At)
+                        : ClaimReading.Defaulted("Table", type.At);
+            }
+            case "key":
                 return Key(context);
             case "index.columns" or "index.unique" or "index.filter":
                 return Index(context);
             case "member.nullable":
                 return Nullable(context, jpa);
+            case "relationship.multiplicity":
+                return Multiplicity(context, jpa);
             default:
                 return Column(context.Kind, context.Member!);
         }
@@ -197,6 +221,42 @@ internal sealed class JpaClaims : IClaimReader
         return ClaimReading.Defaulted("true", member.At);
     }
 
+    /// <summary>
+    /// How many owners each target has, for a relationship's end that no navigation states, from the owning field's
+    /// relationship annotation: <c>@ManyToOne</c> and <c>@ManyToMany</c>, many; <c>@Embedded</c> and
+    /// <c>@ElementCollection</c>, one; <c>@OneToMany</c> and <c>@OneToOne</c>, one when the owner owns the target (a cascade
+    /// that removes it, <c>orphanRemoval = true</c>) or the join column can't be null, else at most one.
+    /// </summary>
+    private static ClaimReading? Multiplicity(ClaimContext context, JpaCode jpa)
+    {
+        if (context.ExpectedValue is not Relational.ModelMultiplicity relationship || context.MemberOf(relationship.Navigation) is not { } field
+            || context.TypeOf(relationship.Owner) is not { } owner || !jpa.Mapped.Contains(owner))
+        {
+            return null;
+        }
+
+        var annotations = field.Attributes;
+        if (annotations.FirstOrDefault(x => x.Name is "ManyToOne" or "ManyToMany") is { } many)
+        {
+            return ClaimReading.Stated("*", many.At);
+        }
+
+        if (annotations.FirstOrDefault(x => x.Name is "Embedded" or "ElementCollection") is { } embedded)
+        {
+            return ClaimReading.Stated("1", embedded.At);
+        }
+
+        if (annotations.FirstOrDefault(x => x.Name is "OneToMany" or "OneToOne") is { } one)
+        {
+            var owned = one.Named.GetValueOrDefault("orphanRemoval") == "true"
+                        || one.Named.GetValueOrDefault("cascade") is { } cascade && (cascade.Contains("ALL", StringComparison.Ordinal) || cascade.Contains("REMOVE", StringComparison.Ordinal));
+            var required = annotations.FirstOrDefault(x => x.Name == "JoinColumn")?.Named.GetValueOrDefault("nullable") == "false";
+            return ClaimReading.Stated(owned || required ? "1" : "0..1", one.At);
+        }
+
+        return ClaimReading.CantVerify("notFound", $"`{owner.Name}.{field.Name}` has no JPA relationship annotation (`@ManyToOne`, `@OneToMany`, `@OneToOne`, `@ManyToMany`, `@Embedded`), so how many `{owner.Name}`s each has can't be read.", field.At);
+    }
+
     /// <summary>What a field's <c>@Column</c> or <c>@GeneratedValue</c> states for a column kind.</summary>
     private static ClaimReading Column(string kind, MemberNode member)
     {
@@ -209,11 +269,17 @@ internal sealed class JpaClaims : IClaimReader
             "column.maxLength" => Value(Named("length"), column?.At ?? member.At),
             "column.precision" => Value(Named("precision"), column?.At ?? member.At),
             "column.scale" => Value(Named("scale"), column?.At ?? member.At),
-            // The Primary Key's Data source: JPA generates a key only with @GeneratedValue, so without it the key is user
-            // supplied.
+            // Hibernate's @Nationalized is NVARCHAR; a columnDefinition names the type; without either it's the provider's.
+            "column.textType" => member.Attributes.FirstOrDefault(x => x.Name == "Nationalized") is { } nationalized
+                ? ClaimReading.Stated("NVARCHAR", nationalized.At)
+                : TextType.Match(Named("columnDefinition") ?? "") is { Success: true } text
+                    ? ClaimReading.Stated(text.Groups[1].Value.ToLowerInvariant() switch { "varchar" or "char" => "VARCHAR", "nvarchar" or "nchar" => "NVARCHAR", var other => other.ToUpperInvariant() }, column!.At)
+                    : ClaimReading.Absent(column?.At ?? member.At, "DEFAULT"),
+            // The Primary Key's Data source: @GeneratedValue has JPA generate it; without it the code doesn't state one, as JPA
+            // leaves an unannotated key to the code (decision 4).
             _ => member.Attributes.FirstOrDefault(x => x.Name == "GeneratedValue") is { } generated
                 ? ClaimReading.Stated("Auto-generated", generated.At)
-                : ClaimReading.Defaulted("User supplied", member.At)
+                : ClaimReading.Absent(member.At)
         };
     }
 

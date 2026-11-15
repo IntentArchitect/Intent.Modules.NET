@@ -264,9 +264,10 @@ internal static class CaseValidator
             }
         }
 
-        if (model["designers"] is JsonObject designers)
+        // Another application's packages, which this one's links may point into, are part of the model too.
+        foreach (var section in new[] { model["designers"], model["references"] }.OfType<JsonObject>())
         {
-            foreach (var (_, designer) in designers)
+            foreach (var (_, designer) in section)
             {
                 foreach (var package in designer.Items("packages"))
                 {

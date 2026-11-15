@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace Intent.Modules.Common.DriftEngine.Code;
 
 /// <summary>A type reference as written in code (code-reader.md, Type references).</summary>
@@ -662,7 +664,17 @@ public sealed class FileNode
     /// single-file component's template's. Empty for a file without markup.
     /// </summary>
     public IReadOnlyList<MarkupNode> Markup { get; init; } = [];
+
+    /// <summary>
+    /// Where its reader couldn't parse it cleanly, each with the parser's diagnostic (code-reader.md, Failures): a missing
+    /// token the parser inserted, a token it skipped. The file is still read; a value read from code there may not be what
+    /// was meant, so its claim can't be verified (<c>readerFailed</c>).
+    /// </summary>
+    public IReadOnlyList<SyntaxError> Errors { get; init; } = [];
 }
+
+/// <summary>A span of a file its reader couldn't parse cleanly, and the parser's diagnostic.</summary>
+public sealed record SyntaxError(Span At, string Message);
 
 /// <summary>
 /// An element written in markup, the same whatever the language: a Razor component's <c>&lt;CatalogListItem Item="@item" /&gt;</c>,
@@ -796,7 +808,14 @@ public sealed class FunctionNode
 }
 
 /// <summary>A plain assignment in a unit: what it assigns, as written (<c>o.Title</c>), and the value.</summary>
-public sealed record AssignmentNode(string Target, ValueNode Value, Span At);
+public sealed record AssignmentNode(string Target, ValueNode Value, Span At)
+{
+    /// <summary>
+    /// What the member it assigns belongs to, when that is written: <c>order</c> in <c>order.Status = status</c>, with what the
+    /// code says it is. Null for a local, or the type's own member (<c>Status = status</c>, <c>this.Status = status</c>).
+    /// </summary>
+    public ValueNode? Receiver { get; init; }
+}
 
 /// <summary>
 /// What the language readers produced from the in-scope files, in no language's terms. A language keeps its own syntax
@@ -987,6 +1006,37 @@ public sealed class CodeGraph
     /// <c>id</c>. A value given several ways is known only when they agree.
     /// </summary>
     public LiteralNode StringOf(ValueNode value) => StringValues.Of(value);
+
+    /// <summary>
+    /// The string a constant stands for, by its name as the code writes it where only text is kept, as an attribute's
+    /// argument is: <c>AuthorizationRoles.Reader</c> for a type's field, a bare name for one of <paramref name="from"/>'s
+    /// own. Null when it isn't a name, or the code doesn't give it one string.
+    /// </summary>
+    public string? ConstantOf(string name, TypeNode from) => LiteralOf(name, from) is { Kind: "string" } literal ? literal.Value : null;
+
+    /// <summary>
+    /// The literal a constant stands for, named as <see cref="ConstantOf"/>'s are: a string, or a number or boolean a
+    /// <c>const</c> or <c>readonly</c> (Java's <c>final</c>) field is initialised with (<c>OrderConstraints.DescriptionMaxLength</c>).
+    /// Null when it isn't a name, or the code doesn't give it one value: a field set in a constructor has none until it runs.
+    /// </summary>
+    public LiteralNode? LiteralOf(string name, TypeNode from)
+    {
+        if (!Regex.IsMatch(name, @"^[A-Za-z_]\w*(\.[A-Za-z_]\w*)*$"))
+        {
+            return null;
+        }
+
+        var dot = name.LastIndexOf('.');
+        var owner = dot < 0 ? from : TypeFor(new TypeRefNode { Text = name[..dot], Name = name[..dot].Split('.')[^1], QualifiedName = name[..dot] }, from);
+        if (owner is null || FieldOf(owner, name[(dot + 1)..]) is not { Member: { Value: { } value } member })
+        {
+            return null;
+        }
+
+        return StringOf(value) is { Kind: "string" } text ? text
+            : value.Literal is { Kind: "number" or "boolean" } literal && member.Modifiers.Any(x => x is "const" or "readonly" or "final") ? literal
+            : null;
+    }
 
     /// <summary>
     /// The in-scope type a reference names, seen from code in <paramref name="from"/>: of several with the name, the one in

@@ -577,6 +577,9 @@ public class JavaFactsTests
         find.Returns.Single().Text.ShouldBe("id");
         find.Assignments.Select(x => x.Target).ShouldBe(["o.status", "this.total"]);
 
+        // What a member is assigned on, but not this.
+        find.Assignments.Select(x => x.Receiver?.Text).ShouldBe(["o", null]);
+
         var each = find.Calls.Single(x => x.Name == "forEach").Arguments.Single().Function!;
         each.Parameters.Single().Name.ShouldBe("o");
         each.Parameters.Single().Type.ShouldBeNull();

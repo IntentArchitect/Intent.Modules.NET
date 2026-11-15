@@ -231,12 +231,12 @@ The attribute has no MaxLength, and the code says `HasMaxLength(200)`. An unset 
 }
 ```
 
-## unreadable
+## verified-constant
 
-The configuration takes the length from a constant in another class. `HasMaxLength(OrderConstraints.DescriptionMaxLength)` states a length, but not as a literal the rule reads, so the claim is can't verify, `unreadable`, naming the line (R5), the outcome claims-and-findings.md's example message describes.
+The configuration takes the length from a constant in another class. `HasMaxLength(OrderConstraints.DescriptionMaxLength)` states the constant's value, `200`, which the code declares, so the claim is verified as a literal would be.
 
 ```json case
-{ "phase": 4, "base": "verified", "kinds": ["column.maxLength"], "cases": ["engine/unreadable"], "requirements": ["R5", "R11"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+{ "phase": 4, "base": "verified", "kinds": ["column.maxLength"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
 ```
 
 ```csharp file src/Infrastructure/Persistence/OrderConfiguration.cs
@@ -261,6 +261,39 @@ namespace Shop.Domain;
 public static class OrderConstraints
 {
     public const int DescriptionMaxLength = 200;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "column.maxLength", "element": "order-description", "outcome": "verified", "expected": "200", "actual": "200",
+      "at": "src/Infrastructure/Persistence/OrderConfiguration.cs:11" }
+  ]
+}
+```
+
+## unreadable
+
+The configuration takes the length from options bound at run time. `HasMaxLength(limits.Value.DescriptionMaxLength)` states a length, but not as a literal or a constant the code declares, so the claim is can't verify, `unreadable`, naming the line (R5), the outcome claims-and-findings.md's example message describes.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["column.maxLength"], "cases": ["engine/unreadable"], "requirements": ["R5", "R11"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Infrastructure/Persistence/OrderConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Shop.Domain;
+
+namespace Shop.Infrastructure.Persistence;
+
+public class OrderConfiguration(Microsoft.Extensions.Options.IOptions<OrderLimits> limits) : IEntityTypeConfiguration<Order>
+{
+    public void Configure(EntityTypeBuilder<Order> builder)
+    {
+        builder.Property(o => o.Description).HasMaxLength(limits.Value.DescriptionMaxLength);
+    }
 }
 ```
 

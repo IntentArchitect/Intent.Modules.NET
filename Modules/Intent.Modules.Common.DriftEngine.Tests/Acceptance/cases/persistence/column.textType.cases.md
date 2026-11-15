@@ -281,6 +281,66 @@ No Text Constraints on the attribute, so the model says `DEFAULT`, and the confi
 }
 ```
 
+## not-claimed-with-column-type
+
+No Text Constraints on the attribute, but its Column stereotype's Type is `char(1)`, a store type that settles its text type, which `column.type` checks. The model doesn't leave the text type to the provider, so there is no `DEFAULT` claim against the configuration's `IsUnicode(false)`, which states the same `char(1)` with `IsFixedLength()`.
+
+```json case
+{ "phase": 4, "base": "contradicted-unmodelled", "kinds": ["column.textType"], "requirements": ["R4"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } },
+              { "id": "order-description", "type": "Attribute", "name": "Description", "typeRef": { "type": "string" },
+                "stereotypes": { "Column": { "Type": "char(1)" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Infrastructure/Persistence/OrderConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Shop.Domain;
+
+namespace Shop.Infrastructure.Persistence;
+
+public class OrderConfiguration : IEntityTypeConfiguration<Order>
+{
+    public void Configure(EntityTypeBuilder<Order> builder)
+    {
+        builder.Property(o => o.Description).HasMaxLength(1).IsUnicode(false).IsFixedLength();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "column.textType", "element": "order-description", "absent": true }
+  ],
+  "findings": [
+    { "rule": "claim/column.textType", "count": 0 }
+  ]
+}
+```
+
 ## out-of-scope
 
 The only configuration for `Order` sits in a folder a scope row excludes. The engine never opens it, but its path matches the find's named step, so the claim is can't verify, `outOfScope`, naming the file and the row (R25). Shadow lookup comes before silence in the outcome order, so an `always` kind doesn't read `DEFAULT` from code it was never allowed to see.

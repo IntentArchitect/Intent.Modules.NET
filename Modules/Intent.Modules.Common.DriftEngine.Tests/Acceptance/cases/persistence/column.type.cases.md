@@ -144,7 +144,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
       "at": "src/Infrastructure/Persistence/OrderConfiguration.cs:11" }
   ],
   "findings": [
-    { "rule": "claim/column.type", "severity": "error", "subject": "order-order-date", "messageContains": "Column stereotype" }
+    { "rule": "claim/column.type", "severity": "error", "subject": "order-order-date", "messageContains": "the attribute's Column Type" }
   ]
 }
 ```

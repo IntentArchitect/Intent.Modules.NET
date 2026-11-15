@@ -29,7 +29,9 @@
       "nullable": {
         "notStated": "Their field's type isn't declared in an in-scope .proto file, so whether it is a message, which a field can leave unset, or an enum isn't known; bring the file that declares it into scope to check them."
       },
-      "typeKinds": ["message", "enum", "service"]
+      "typeKinds": ["message", "enum", "service"],
+      "kindOf": { "message": ["class", "record"], "service": ["class", "interface"] },
+      "naming": { "field": "{Name|snake}", "property": "{Name|snake}" }
     }
   }
 }

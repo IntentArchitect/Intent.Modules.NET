@@ -24,6 +24,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Common.DriftEngine.Core\Intent.Modules.Common.DriftEngine.Core.csproj" />
     <ProjectReference Include="..\Intent.Modules.Common.DriftEngine.Stacks\Intent.Modules.Common.DriftEngine.Stacks.csproj" />
+    <!-- The module, for the base a module's extension derives from. -->
+    <ProjectReference Include="..\Intent.Modules.Common.DriftEngine\Intent.Modules.Common.DriftEngine.csproj" />
   </ItemGroup>
 
   <ItemGroup>

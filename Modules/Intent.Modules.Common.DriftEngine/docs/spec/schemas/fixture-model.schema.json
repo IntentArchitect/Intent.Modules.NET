@@ -10,6 +10,11 @@
     "designers": {
       "type": "object",
       "additionalProperties": { "$ref": "#/$defs/designer" }
+    },
+    "references": {
+      "description": "Each designer's packages another application owns, which this application's designers reference: read for what they say and linked to, never claimed on.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/designer" }
     }
   },
   "$defs": {

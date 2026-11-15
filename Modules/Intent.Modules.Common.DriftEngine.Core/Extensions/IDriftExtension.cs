@@ -53,7 +53,23 @@ public interface IDriftExtension
 
     /// <summary>"Must be modelled" rules a team turns on in the model (<see cref="IOptInRule"/>).</summary>
     IEnumerable<IOptInRule> OptInRules => [];
+
+    /// <summary>
+    /// What its claim sources, claim readers and rules read of the model in code, besides the elements they claim on: element
+    /// types, stereotypes (one property, or all of them) and association types (vocabulary.md, Coverage of the model). A
+    /// model feature nothing reads, and nothing declares non-checkable, is an <c>engine/noVocabulary</c> finding.
+    /// </summary>
+    IEnumerable<ModelFeature> Reads => [];
+
+    /// <summary>The model features it declares non-checkable, each with its reason (R32), as a pack's <c>nonClaims</c> are.</summary>
+    IEnumerable<ModelFeature> NonClaims => [];
 }
+
+/// <summary>
+/// A model feature of one designer: an element type, a stereotype (all its properties when <see cref="Property"/> is
+/// null), or an association type. Give one of them. <see cref="Reason"/> is what a non-claim says.
+/// </summary>
+public sealed record ModelFeature(string Designer, string? Element = null, string? Stereotype = null, string? Property = null, string? Association = null, string? Reason = null);
 
 /// <summary>
 /// A rule over the model and the code together (plan.md, block 4): a check that isn't one claim's value, such as every
@@ -166,6 +182,13 @@ public sealed class ClaimSpec
     /// </summary>
     public ClaimRef? DependsOn { get; init; }
 
+    /// <summary>
+    /// Further claims it waits on, once <see cref="DependsOn"/> is verified, where the model states them: they don't locate
+    /// its code, and block it only when contradicted. A persisted class's columns wait on its <c>entity.persisted</c>, so a
+    /// table nothing maps is one finding.
+    /// </summary>
+    public IReadOnlyList<ClaimRef> WaitsOn { get; init; } = [];
+
     /// <summary>Where the model states it, for the finding: <c>its Perform Invocation links</c>.</summary>
     public string? Source { get; init; }
 
@@ -266,12 +289,20 @@ public interface IValueComparer
     string Name { get; }
 
     bool Same(string expected, string actual);
+
+    /// <summary>
+    /// A value's canonical text (claims-and-findings.md, Values), which the report and run result show for both sides once
+    /// they are compared: a route's without its leading and trailing <c>/</c> or its parameters' constraints. As read, by default.
+    /// </summary>
+    string Canonical(string value) => value;
 }
 
-/// <summary>A comparer from a function.</summary>
-public sealed class ValueComparer(string name, Func<string, string, bool> same) : IValueComparer
+/// <summary>A comparer from a function, and its canonical text from another.</summary>
+public sealed class ValueComparer(string name, Func<string, string, bool> same, Func<string, string>? canonical = null) : IValueComparer
 {
     public string Name => name;
 
     public bool Same(string expected, string actual) => same(expected, actual);
+
+    public string Canonical(string value) => canonical is null ? value : canonical(value);
 }

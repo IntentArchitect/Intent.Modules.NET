@@ -12,6 +12,7 @@
         { "kind": "type.exists", "for": { "element": "Class" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the class" },
         { "kind": "type.kind", "for": { "element": "Class" }, "dependsOn": "type.exists", "source": "the element type" },
         { "kind": "type.abstract", "for": { "element": "Class" }, "value": "abstract", "dependsOn": "type.exists", "source": "the class's Abstract" },
+        { "kind": "type.generalization", "for": { "element": "Class" }, "value": "join(map(where(associations('Generalization'), isTarget), type.name), ', ')", "dependsOn": "type.exists", "source": "the class's Generalization" },
         { "kind": "type.exists", "for": { "element": "Enum" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the enum" },
         { "kind": "type.kind", "for": { "element": "Enum" }, "dependsOn": "type.exists", "source": "the element type" },
         { "kind": "member.exists", "for": { "element": "Attribute" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the attribute" },
@@ -26,10 +27,6 @@
         { "kind": "operation.parameters", "for": { "element": "Class Constructor" }, "dependsOn": "member.exists", "source": "the constructor's parameters" },
         { "kind": "member.exists", "for": { "element": "Enum-Literal" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the literal" },
         { "kind": "enum.literal.value", "for": { "element": "Enum-Literal" }, "value": "value", "dependsOn": "parent:type.exists", "source": "the literal's value" },
-        { "kind": "type.namespace", "for": { "element": "Class" }, "value": "stereotype('File Config').Namespace", "dependsOn": "type.exists", "source": "the class's File Config Namespace" },
-        { "kind": "type.file", "for": { "element": "Class" }, "value": "stereotype('File Config').Filename", "dependsOn": "type.exists", "source": "the class's File Config Filename" },
-        { "kind": "type.namespace", "for": { "element": "Enum" }, "value": "stereotype('File Config').Namespace", "dependsOn": "type.exists", "source": "the enum's File Config Namespace" },
-        { "kind": "type.file", "for": { "element": "Enum" }, "value": "stereotype('File Config').Filename", "dependsOn": "type.exists", "source": "the enum's File Config Filename" },
         { "kind": "member.exists", "for": { "associationEnd": "Association" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the association end" },
         { "kind": "member.type", "for": { "associationEnd": "Association" }, "value": "type", "dependsOn": "member.exists", "source": "the association end's type and multiplicity" },
         { "kind": "member.nullable", "for": { "associationEnd": "Association", "where": "!type.isCollection" }, "value": "type.isNullable", "dependsOn": "member.exists", "source": "the association end's multiplicity" },
@@ -55,7 +52,7 @@
         "Enum": { "typeKinds": ["enum"], "states": ["enumMember"] },
         "Domain Event": { "typeKinds": ["class", "record"], "states": ["property", "field"] },
         "Value Object": { "typeKinds": ["class", "record", "struct"], "states": ["property", "field"] },
-        "Repository": { "typeKinds": ["interface"], "states": ["method"] },
+        "Repository": { "typeKinds": ["interface", "class"], "states": ["method"] },
         "Domain Service": { "typeKinds": ["class"], "states": ["method"] },
         "Data Contract": { "typeKinds": ["class", "record"], "states": ["property", "field"] }
       }

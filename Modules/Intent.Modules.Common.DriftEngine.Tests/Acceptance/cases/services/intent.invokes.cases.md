@@ -421,3 +421,215 @@ eShopCustom's orders page calls the ordering service proxy's `GetOrders` from `O
   ]
 }
 ```
+
+## from-handler-subscription
+
+An Integration Event Handler's handling of `OrderStatusChangedToPaidIntegrationEvent` invokes `WebhooksSender.SendAll`. The invocation is drawn from the subscription, an association end, not from an element, so it is only claimed when the engine collects the links that start at a link's end. The handler calls it through the injected interface.
+
+```json case
+{ "phase": 6, "kinds": ["intent.invokes"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [
+        {
+          "id": "services", "name": "Webhooks.API",
+          "elements": [
+            { "id": "paid-handler", "type": "Integration Event Handler", "name": "OrderPaidHandler" },
+            { "id": "webhooks-sender", "type": "Service", "name": "WebhooksSender",
+              "children": [
+                { "id": "webhooks-sender-send-all", "type": "Operation", "name": "SendAll",
+                  "children": [
+                    { "id": "webhooks-sender-send-all-order-id", "type": "Parameter", "name": "orderId", "typeRef": { "type": "int" } }
+                  ] }
+              ] }
+          ]
+        },
+        {
+          "id": "eventing", "name": "Webhooks.Eventing", "type": "Eventing Package",
+          "elements": [
+            { "id": "status-changed-to-paid", "type": "Message", "name": "OrderStatusChangedToPaidIntegrationEvent" }
+          ]
+        }
+      ],
+      "associations": [
+        { "id": "handler-subscribes-paid", "type": "Subscribe Integration Event",
+          "source": { "element": "paid-handler" }, "target": { "element": "status-changed-to-paid" } },
+        { "id": "subscription-invokes-send-all", "type": "Perform Invocation",
+          "source": { "element": "handler-subscribes-paid" }, "target": { "element": "webhooks-sender-send-all" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Webhooks", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Webhooks.API/IntegrationEvents/OrderStatusChangedToPaidIntegrationEvent.cs
+namespace Webhooks.API.IntegrationEvents;
+
+public record OrderStatusChangedToPaidIntegrationEvent(int OrderId);
+```
+
+```csharp file src/Webhooks.API/Services/WebhooksSender.cs
+namespace Webhooks.API.Services;
+
+public interface IWebhooksSender
+{
+    Task SendAll(int orderId);
+}
+
+public class WebhooksSender : IWebhooksSender
+{
+    public Task SendAll(int orderId) => Task.CompletedTask;
+}
+```
+
+```csharp file src/Webhooks.API/IntegrationEvents/OrderPaidHandler.cs
+using Webhooks.API.Services;
+
+namespace Webhooks.API.IntegrationEvents;
+
+public class OrderPaidHandler(IWebhooksSender sender) : IHandleMessages<OrderStatusChangedToPaidIntegrationEvent>
+{
+    public async Task Handle(OrderStatusChangedToPaidIntegrationEvent message, IMessageHandlerContext context)
+    {
+        await sender.SendAll(message.OrderId);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "subscription-invokes-send-all", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Webhooks.API/IntegrationEvents/OrderPaidHandler.cs:9" }
+  ]
+}
+```
+
+## from-handler-subscription-not-called
+
+The handler no longer calls `SendAll`, so the invocation drawn from its subscription isn't in the code. The finding names the handler, not the subscription's end.
+
+```json case
+{ "phase": 6, "base": "from-handler-subscription", "kinds": ["intent.invokes"], "requirements": ["R8"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Webhooks.API/IntegrationEvents/OrderPaidHandler.cs
+using Webhooks.API.Services;
+
+namespace Webhooks.API.IntegrationEvents;
+
+public class OrderPaidHandler(IWebhooksSender sender) : IHandleMessages<OrderStatusChangedToPaidIntegrationEvent>
+{
+    public async Task Handle(OrderStatusChangedToPaidIntegrationEvent message, IMessageHandlerContext context)
+    {
+        await Task.CompletedTask;
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "subscription-invokes-send-all", "outcome": "contradicted", "expected": "present", "actual": "absent" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "subscription-invokes-send-all", "messageContains": "`OrderPaidHandler`'s handling of `OrderStatusChangedToPaidIntegrationEvent` invokes `WebhooksSender.SendAll` in the model, but it isn't in the code" }
+  ]
+}
+```
+
+## minimal-api-lambda
+
+`CreateSubscription` is a Minimal API endpoint whose handler is a lambda, so it is no method of the router class. Its invocation of `GrantUrlTesterService.TestGrantUrl` is read in the lambda's body.
+
+```json case
+{ "phase": 6, "kinds": ["intent.invokes"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Webhooks.API",
+        "elements": [
+          { "id": "grant-url-tester", "type": "Service", "name": "GrantUrlTesterService",
+            "children": [
+              { "id": "grant-url-tester-test", "type": "Operation", "name": "TestGrantUrl",
+                "children": [
+                  { "id": "grant-url-tester-test-url", "type": "Parameter", "name": "url", "typeRef": { "type": "string" } }
+                ] }
+            ] },
+          { "id": "webhooks-api", "type": "Service", "name": "WebHooksApi",
+            "stereotypes": { "Http Service Settings": { "Route": "api/webhooks" } },
+            "children": [
+              { "id": "create-subscription", "type": "Operation", "name": "CreateSubscription",
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "/" } } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "create-subscription-invokes-test", "type": "Perform Invocation",
+          "source": { "element": "create-subscription" }, "target": { "element": "grant-url-tester-test" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Webhooks", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Webhooks.API/Services/GrantUrlTesterService.cs
+namespace Webhooks.API.Services;
+
+public interface IGrantUrlTesterService
+{
+    Task<bool> TestGrantUrl(string url);
+}
+
+public class GrantUrlTesterService : IGrantUrlTesterService
+{
+    public Task<bool> TestGrantUrl(string url) => Task.FromResult(true);
+}
+```
+
+```csharp file src/Webhooks.API/Apis/WebHooksApi.cs
+using Webhooks.API.Services;
+
+namespace Webhooks.API.Apis;
+
+public static class WebHooksApi
+{
+    public static RouteGroupBuilder MapWebHooksApi(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/webhooks");
+
+        api.MapPost("/", async (string url, IGrantUrlTesterService grantUrlTester) =>
+        {
+            var granted = await grantUrlTester.TestGrantUrl(url);
+            return granted ? Results.Ok() : Results.BadRequest();
+        });
+
+        return api;
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "create-subscription-invokes-test", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Webhooks.API/Apis/WebHooksApi.cs:13" }
+  ]
+}
+```

@@ -488,3 +488,206 @@ The model adds a `month` Parameter that the action doesn't take: contradicted, `
   ]
 }
 ```
+
+## grpc-rpc
+
+A gRPC Service Operation's one Parameter is the rpc's request message (`services.grpc.operation.rpc`). The service's override also takes gRPC's `ServerCallContext`, which the C# language profile counts as injected, as it does a `CancellationToken`, so the override's parameters are the modelled `request`.
+
+```json case
+{ "phase": 2, "kinds": ["operation.parameters"], "traces": ["ESC-SVC-79"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Basket.API",
+        "elements": [
+          { "id": "get-basket-request", "type": "DTO", "name": "GetBasketRequest", "stereotypes": { "Proto Message": {} } },
+          { "id": "update-basket-request", "type": "DTO", "name": "UpdateBasketRequest", "stereotypes": { "Proto Message": {} } },
+          { "id": "customer-basket-response", "type": "DTO", "name": "CustomerBasketResponse", "stereotypes": { "Proto Message": {} } },
+          { "id": "basket-service", "type": "Service", "name": "BasketService",
+            "stereotypes": { "gRPC Service": { "Proto File": "Proto/basket.proto", "Proto Service": "Basket" } },
+            "children": [
+              { "id": "basket-service-get-basket", "type": "Operation", "name": "GetBasket", "typeRef": { "element": "customer-basket-response" },
+                "children": [
+                  { "id": "basket-service-get-basket-request", "type": "Parameter", "name": "request", "typeRef": { "element": "get-basket-request" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Basket.API/Grpc/BasketService.cs
+namespace eShop.Basket.API.Grpc;
+
+public class BasketService(IBasketRepository repository) : Basket.BasketBase
+{
+    public override async Task<CustomerBasketResponse> GetBasket(GetBasketRequest request, ServerCallContext context)
+    {
+        var data = await repository.GetBasketAsync(context.GetUserIdentity());
+        return data is null ? new() : MapToCustomerBasketResponse(data);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.parameters", "element": "basket-service-get-basket", "outcome": "verified" }
+  ]
+}
+```
+
+## java-proxy-parameters
+
+A Java spike storefront Proxy Operation's Parameters are its method's, by position, name and type. The house pack gives the spike's own Front End designer vocabulary; TypeScript names the method in camel case and writes the model's `guid` as `string`.
+
+```json case
+{ "phase": 4, "kinds": ["operation.parameters"], "traces": ["JAV-FE-10"], "requirements": ["R2", "R28", "R41"], "packs": ["intent.core", "house.storefront"], "language": "typescript" }
+```
+
+```json pack
+{
+  "id": "house.storefront",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "languages": ["typescript"],
+  "designers": ["Front End"],
+  "vocabulary": {
+    "Front End": {
+      "entries": [
+        { "kind": "type.exists", "for": { "element": "Proxy" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the Proxy" },
+        { "kind": "member.exists", "for": { "element": "Proxy Operation" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the Proxy Operation" },
+        { "kind": "operation.parameters", "for": { "element": "Proxy Operation" }, "dependsOn": "member.exists", "source": "the Proxy Operation's parameters" }
+      ]
+    }
+  },
+  "conventions": {
+    "Front End": {
+      "types": {
+        "Proxy": { "name": "{Name|camel}", "typeKinds": ["object"], "states": ["method"], "note": "The storefront: a Proxy is the object of its methods" }
+      }
+    }
+  }
+}
+```
+
+```json model
+{
+  "designers": {
+    "Front End": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront",
+        "elements": [
+          { "id": "api", "type": "Proxy", "name": "Api",
+            "children": [
+              { "id": "api-add-address", "type": "Proxy Operation", "name": "AddAddress", "typeRef": { "type": "string" },
+                "children": [
+                  { "id": "api-add-address-customer-id", "type": "Parameter", "name": "customerId", "typeRef": { "type": "guid" } },
+                  { "id": "api-add-address-line", "type": "Parameter", "name": "line", "typeRef": { "type": "string" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Storefront", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/api/client.ts
+async function request<T>(method: string, path: string, body?: unknown): Promise<T> {
+    const res = await fetch(path, { method, body: JSON.stringify(body) });
+    return (await res.json()) as T;
+}
+
+export const api = {
+    addAddress(customerId: string, line: string): Promise<string> {
+        return request<string>('POST', `/api/customers/${encodeURIComponent(customerId)}/addresses`, { line });
+    },
+};
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.parameters", "element": "api-add-address", "outcome": "verified" }
+  ]
+}
+```
+
+## java-proxy-parameters-reordered
+
+The method takes `line` before `customerId`: the Parameters are compared by position, so the order the model gives isn't the code's.
+
+```json case
+{ "phase": 4, "base": "java-proxy-parameters", "kinds": ["operation.parameters"], "traces": ["JAV-FE-10"], "requirements": ["R1", "R11"], "packs": ["intent.core", "house.storefront"], "language": "typescript" }
+```
+
+```typescript file src/api/client.ts
+async function request<T>(method: string, path: string, body?: unknown): Promise<T> {
+    const res = await fetch(path, { method, body: JSON.stringify(body) });
+    return (await res.json()) as T;
+}
+
+export const api = {
+    addAddress(line: string, customerId: string): Promise<string> {
+        return request<string>('POST', `/api/customers/${encodeURIComponent(customerId)}/addresses`, { line });
+    },
+};
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.parameters", "element": "api-add-address", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.parameters", "severity": "error", "subject": "api-add-address" }
+  ]
+}
+```
+
+## grpc-rpc-other-request
+
+The override takes `UpdateBasketRequest`, another rpc's request message, so it isn't the modelled rpc's.
+
+```json case
+{ "phase": 2, "base": "grpc-rpc", "kinds": ["operation.parameters"], "traces": ["ESC-SVC-79"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```csharp file src/Basket.API/Grpc/BasketService.cs
+namespace eShop.Basket.API.Grpc;
+
+public class BasketService(IBasketRepository repository) : Basket.BasketBase
+{
+    public override async Task<CustomerBasketResponse> GetBasket(UpdateBasketRequest request, ServerCallContext context)
+    {
+        var data = await repository.GetBasketAsync(context.GetUserIdentity());
+        return data is null ? new() : MapToCustomerBasketResponse(data);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.parameters", "element": "basket-service-get-basket", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.parameters", "severity": "error", "subject": "basket-service-get-basket" }
+  ]
+}
+```

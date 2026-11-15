@@ -322,3 +322,134 @@ public static class OrdersApi
   ]
 }
 ```
+
+## verified-constant
+
+The header's name is a constant the code declares, `RequestHeaders.RequestId`, whose value is `x-requestid`.
+
+```json case
+{ "phase": 4, "base": "verified-header-name", "kinds": ["parameter.name"], "traces": ["ESC-SVC-29"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class RequestHeaders
+{
+    public const string RequestId = "x-requestid";
+}
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+        api.MapPut("/cancel", CancelOrderAsync);
+        api.MapGet("/", GetOrdersByUserAsync);
+        return api;
+    }
+
+    public static async Task<Results<Ok, BadRequest<string>>> CancelOrderAsync(
+        [FromHeader(Name = RequestHeaders.RequestId)] Guid requestId,
+        CancelOrderCommand command,
+        [AsParameters] OrderServices services)
+    {
+        var requestCancelOrder = new IdentifiedCommand<CancelOrderCommand, bool>(command, requestId);
+        var commandResult = await services.Mediator.Send(requestCancelOrder);
+        return commandResult ? TypedResults.Ok() : TypedResults.BadRequest("Cancel order failed to process.");
+    }
+
+    public static async Task<Ok<IEnumerable<OrderSummary>>> GetOrdersByUserAsync(
+        [FromQuery(Name = "page")] int pageIndex,
+        [AsParameters] OrderServices services)
+    {
+        var userId = services.IdentityService.GetUserIdentity();
+        return TypedResults.Ok(await services.Queries.GetOrdersFromUserAsync(userId, pageIndex));
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "parameter.name", "element": "request-id", "outcome": "verified", "expected": "x-requestid", "actual": "x-requestid",
+      "at": "src/Ordering.API/Apis/OrdersApi.cs:19" }
+  ]
+}
+```
+
+## java-header-and-query
+
+Over Spring MVC: `@RequestHeader("x-requestid")` names the header as its first argument, and `@RequestParam(name = "page")` names the query string parameter; a different name is contradicted.
+
+```json case
+{ "phase": 4, "kinds": ["parameter.name"], "requirements": ["R1", "R2", "R33"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc"], "language": "java" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "eShop.Backend",
+        "elements": [
+          { "id": "orders-controller", "type": "Service", "name": "OrdersController",
+            "children": [
+              { "id": "cancel-order", "type": "Operation", "name": "CancelOrder",
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "/api/orders/{orderId}/cancel" } },
+                "children": [
+                  { "id": "request-id", "type": "Parameter", "name": "requestId", "typeRef": { "type": "string" },
+                    "stereotypes": { "Parameter Settings": { "Source": "From Header", "Header Name": "x-requestid" } } }
+                ] },
+              { "id": "get-orders", "type": "Operation", "name": "GetOrders",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "/api/orders" } },
+                "children": [
+                  { "id": "page-index", "type": "Parameter", "name": "pageIndex", "typeRef": { "type": "int" },
+                    "stereotypes": { "Parameter Settings": { "Source": "From Query", "Query String Name": "pageIndex" } } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/main/java/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```java file src/main/java/com/eshop/backend/api/OrdersController.java
+package com.eshop.backend.api;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class OrdersController {
+    @PostMapping("/api/orders/{orderId}/cancel")
+    public void cancelOrder(@RequestHeader("x-requestid") String requestId) {
+    }
+
+    @GetMapping("/api/orders")
+    public void getOrders(@RequestParam(name = "page") int pageIndex) {
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "parameter.name", "element": "request-id", "outcome": "verified", "expected": "x-requestid", "actual": "x-requestid",
+      "at": "src/main/java/com/eshop/backend/api/OrdersController.java:12" },
+    { "kind": "parameter.name", "element": "page-index", "outcome": "contradicted", "expected": "pageIndex", "actual": "page",
+      "at": "src/main/java/com/eshop/backend/api/OrdersController.java:16" }
+  ],
+  "findings": [
+    { "rule": "claim/parameter.name", "severity": "error", "subject": "page-index", "messageContains": "code `page`" }
+  ]
+}
+```

@@ -7,6 +7,12 @@ namespace Intent.Modules.Common.DriftEngine;
 /// <summary>A place in a file. Lines and columns count from 1.</summary>
 public sealed record Span(string File, int Line, int? Column = null, int? EndLine = null, int? EndColumn = null)
 {
+    /// <summary>The other span lies within this one: a call within the value it is part of. A missing column is the line's edge.</summary>
+    public bool Contains(Span inner) =>
+        inner.File == File
+        && (inner.Line, inner.Column ?? 0).CompareTo((Line, Column ?? 0)) >= 0
+        && (inner.EndLine ?? inner.Line, inner.EndColumn ?? 0).CompareTo((EndLine ?? Line, EndColumn ?? int.MaxValue)) <= 0;
+
     public override string ToString() => $"{File}:{Line}";
 }
 
@@ -32,7 +38,8 @@ public sealed class Reading
 
     public IReadOnlyList<Span>? Candidates { get; init; }
 
-    /// <summary>The finding's text as the claim reader worded it; null when the engine words it.</summary>
+    /// <summary>The finding's text as the claim reader worded it; null when the engine words it. The finding carries it, not the result.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string? Message { get; init; }
 }
 
@@ -60,7 +67,13 @@ public sealed class Claim
 
     public required IReadOnlyList<string> Path { get; init; }
 
+    [System.Text.Json.Serialization.JsonIgnore]
     public required string Expected { get; set; }
+
+    /// <summary>The value the model states; none when it states none, such as a class with no Generalization.</summary>
+    [System.Text.Json.Serialization.JsonPropertyName("expected")]
+    [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.Never)]
+    public string? ExpectedValueText => Expected.Length == 0 ? null : Expected;
 
     public required string Stated { get; init; }
 
@@ -82,6 +95,9 @@ public sealed class Claim
 
     /// <summary>The claim it waits on, as stated: a pack's <c>dependsOn</c> resolved to its element, or a claim source's.</summary>
     internal ClaimRef? Needs { get; init; }
+
+    /// <summary>The claims it also waits on, once <see cref="Needs"/> is verified: a pack's <c>waitsOn</c>, or a claim source's.</summary>
+    internal IReadOnlyList<ClaimRef> WaitsOn { get; init; } = [];
 
     internal object? ExpectedValue { get; init; }
 

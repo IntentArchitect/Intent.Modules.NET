@@ -46,6 +46,7 @@
         "discriminator": { "$ref": "#/$defs/expression" },
         "parameterNames": { "$ref": "#/$defs/expression" },
         "dependsOn": { "type": "string", "pattern": "^(parent:)?[a-z][A-Za-z]*(\\.[a-z][A-Za-z]*)*$" },
+        "waitsOn": { "type": "array", "items": { "type": "string", "pattern": "^(parent:)?[a-z][A-Za-z]*(\\.[a-z][A-Za-z]*)*$" } },
         "source": { "type": "string", "minLength": 1 },
         "fixHint": { "type": "string" },
         "note": { "type": "string" }

@@ -1617,3 +1617,100 @@ export interface OrderLineItemDto {
   ]
 }
 ```
+
+## association-navigation
+
+A navigable association end is a property of the class it starts from: `Buyer.PaymentMethods` (`association.missing` in eShopCustom's terms). Its `member.type` and `member.nullable` compare it, and `relationship.multiplicity` the end with no navigation.
+
+```json case
+{ "phase": 1, "kinds": ["member.exists"], "traces": ["ESC-DOM-54"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "buyer", "type": "Class", "name": "Buyer",
+            "children": [
+              { "id": "buyer-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" } }
+            ] },
+          { "id": "payment-method", "type": "Class", "name": "PaymentMethod",
+            "children": [
+              { "id": "payment-method-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "buyer-payment-methods", "type": "Association",
+          "source": { "element": "buyer", "name": "Buyer", "multiplicity": "1", "navigable": false },
+          "target": { "element": "payment-method", "name": "PaymentMethods", "multiplicity": "*", "navigable": true } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Buyer.cs
+namespace Ordering.Domain;
+
+public class Buyer
+{
+    private readonly List<PaymentMethod> _paymentMethods = new();
+
+    public int Id { get; private set; }
+
+    public IEnumerable<PaymentMethod> PaymentMethods => _paymentMethods.AsReadOnly();
+}
+```
+
+```csharp file src/Domain/PaymentMethod.cs
+namespace Ordering.Domain;
+
+public class PaymentMethod
+{
+    public int Id { get; private set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "buyer-payment-methods", "outcome": "verified", "at": "src/Domain/Buyer.cs:9" }
+  ]
+}
+```
+
+## association-navigation-missing
+
+`Buyer` has no `PaymentMethods` property, so the navigable end isn't in the code.
+
+```json case
+{ "phase": 1, "base": "association-navigation", "kinds": ["member.exists"], "traces": ["ESC-DOM-54"], "requirements": ["R8"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Buyer.cs
+namespace Ordering.Domain;
+
+public class Buyer
+{
+    public int Id { get; private set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "buyer-payment-methods", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "buyer-payment-methods", "messageContains": "PaymentMethods" }
+  ]
+}
+```

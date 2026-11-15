@@ -87,7 +87,10 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
             Creations = inside.OfType<ObjectCreationExpressionSyntax>().Select(Creation).OfType<CreationNode>().ToList(),
             Assignments = inside.OfType<AssignmentExpressionSyntax>()
                 .Where(x => x.IsKind(SyntaxKind.SimpleAssignmentExpression) && x.Parent is not InitializerExpressionSyntax)
-                .Select(x => new AssignmentNode(Normalise(x.Left), Value(x.Right, x.SpanStart), CSharpReader.SpanOf(x, file)))
+                .Select(x => new AssignmentNode(Normalise(x.Left), Value(x.Right, x.SpanStart), CSharpReader.SpanOf(x, file))
+                {
+                    Receiver = x.Left is MemberAccessExpressionSyntax { Expression: not ThisExpressionSyntax and not BaseExpressionSyntax } access ? Value(access.Expression, x.SpanStart) : null
+                })
                 .ToList(),
             Changes = inside.Select(Changed).OfType<ExpressionSyntax>().Select(Normalise).ToList(),
             Returns = returned is not null
@@ -205,6 +208,8 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
             SimpleNameSyntax simple => (simple.Identifier.Text, null),
             MemberAccessExpressionSyntax { Expression: ThisExpressionSyntax } access => (access.Name.Identifier.Text, null),
             MemberAccessExpressionSyntax access => (access.Name.Identifier.Text, access.Expression),
+            // item?.RemoveStock(units): made on what the ?. is applied to.
+            MemberBindingExpressionSyntax binding => (binding.Name.Identifier.Text, binding.FirstAncestorOrSelf<ConditionalAccessExpressionSyntax>()?.Expression),
             _ => ((string?)null, (ExpressionSyntax?)null)
         };
         if (name is null)
@@ -294,6 +299,9 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
                 .Where(x => Changed(x) is IdentifierNameSyntax changed && changed.Identifier.Text == identifier.Identifier.Text)
                 .Select(x => new ValueNode { Text = Normalise(x), At = CSharpReader.SpanOf(x, file) })
         ],
+        // A loop's variable is given each item of what it loops over: foreach (var order in orders).
+        IdentifierNameSyntax item when item.Ancestors().OfType<ForEachStatementSyntax>().FirstOrDefault(x => x.Identifier.Text == item.Identifier.Text) is { } loop =>
+            [Value(loop.Expression, loop.Expression.SpanStart)],
         ConditionalExpressionSyntax conditional => [Value(conditional.WhenTrue, before), Value(conditional.WhenFalse, before)],
         BinaryExpressionSyntax coalesce when coalesce.IsKind(SyntaxKind.CoalesceExpression) => [Value(coalesce.Left, before), Value(coalesce.Right, before)],
         InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax { Name.Identifier.Text: "ToString" } access, ArgumentList.Arguments.Count: 0 } => [Value(access.Expression, before)],

@@ -669,3 +669,107 @@ public class WishlistService {
   ]
 }
 ```
+
+## java-storefront-links
+
+The Java spike's Vue storefront, against its own Front End designer, which has no Rendered Component, Navigates To or Uses links yet. The page renders `ProductCard`, links to `/basket`, and calls the proxy's `getProducts`; the router's record for `/admin` points at `AdminPage`, which no Page models. The house pack's conventions say which of the storefront's calls are links: a PascalCase tag, a `RouterLink`'s `to`, a call of the `api` proxy, and a route record's component.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.interaction"], "traces": ["JAV-FE-13", "JAV-FE-14", "JAV-FE-15"], "requirements": ["R49"], "packs": ["intent.core", "house.storefront"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "Front End": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront",
+        "elements": [
+          { "id": "products-page", "type": "Page", "name": "ProductsPage", "stereotypes": { "Page Route": { "Path": "/products" } } },
+          { "id": "basket-page", "type": "Page", "name": "BasketPage", "stereotypes": { "Page Route": { "Path": "/basket" } } },
+          { "id": "product-card", "type": "Component", "name": "ProductCard" },
+          { "id": "api", "type": "Proxy", "name": "Api",
+            "children": [
+              { "id": "api-get-products", "type": "Proxy Operation", "name": "GetProducts" }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Storefront", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.interaction" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```json pack
+{
+  "id": "house.storefront",
+  "version": "1.0.0",
+  "languages": ["typescript"],
+  "designers": ["Front End"],
+  "conventions": {
+    "Front End": {
+      "interactions": [
+        { "kind": "render", "find": "type > markup with ^<([A-Z]\\w*)", "name": "{Class} renders $1", "files": "src/**/*.vue" },
+        { "kind": "navigate", "find": "type > markup with ^<RouterLink\\b[^>]*\\bto=\"([^\"]*)\"", "name": "{Class} navigates to $1", "files": "src/**/*.vue" },
+        { "kind": "use", "find": "type > call with \\bapi\\.(\\w+)\\(", "name": "{Class} calls api.$1", "files": "src/**/*.vue" },
+        { "kind": "route", "find": "type > call with \\{\\s*path:\\s*'([^']*)',\\s*component:\\s*(\\w+)", "name": "the route {$1} renders $2", "files": "src/router.ts" }
+      ]
+    }
+  }
+}
+```
+
+```vue file src/pages/ProductsPage.vue
+<script setup lang="ts">
+import { onMounted, ref } from 'vue';
+import { api } from '../api/client';
+import type { ProductDto } from '../api/types';
+import ProductCard from '../components/ProductCard.vue';
+
+const products = ref<ProductDto[]>([]);
+
+onMounted(async () => {
+    products.value = await api.getProducts({ includeDeactivated: false });
+});
+</script>
+
+<template>
+    <div class="products">
+        <ProductCard v-for="product in products" :key="product.Id" :product="product" />
+        <RouterLink to="/basket">View basket</RouterLink>
+    </div>
+</template>
+```
+
+```typescript file src/router.ts
+import { createRouter, createWebHistory } from 'vue-router';
+import ProductsPage from './pages/ProductsPage.vue';
+import BasketPage from './pages/BasketPage.vue';
+import AdminPage from './pages/AdminPage.vue';
+
+export const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        { path: '/products', component: ProductsPage },
+        { path: '/basket', component: BasketPage },
+        { path: '/admin', component: AdminPage },
+    ],
+});
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.interaction", "severity": "error", "subject": "src/pages/ProductsPage.vue:16", "messageContains": "ProductsPage renders ProductCard" },
+    { "rule": "optin/unmodelled.interaction", "severity": "error", "subject": "src/pages/ProductsPage.vue:17", "messageContains": "ProductsPage navigates to /basket" },
+    { "rule": "optin/unmodelled.interaction", "severity": "error", "subject": "src/pages/ProductsPage.vue:10", "messageContains": "ProductsPage calls api.getProducts" },
+    { "rule": "optin/unmodelled.interaction", "severity": "error", "subject": "src/router.ts:11", "messageContains": "AdminPage" }
+  ]
+}
+```

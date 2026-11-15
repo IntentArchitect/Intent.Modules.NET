@@ -224,6 +224,32 @@ Each opt-in rule has one default severity, an error. A team that wants some of a
 
 Opt-in rules are policy (block 5) and arrive in phase 1 with scope. Each case's phase is the latest phase of the packs and kinds it relies on: a rule over Domain conventions is phase 1, one over EF Core configuration phase 4.
 
+## Messages the diagram could show
+
+Domain events, integration events and integration commands are the one exception to principle 1 (user decision, 2026-11-14): they are always significant, so they are checked both ways by default, with no `Drift Check` row. The test is whether the diagram could show it: "if the diagram can't reflect it, it's not drift; if the diagram could reflect it and they're not in sync, it's drift." Other interactions stay case by case: a query that fetches the aggregate a service exists for may matter, incidental lookups are noise, so `unmodelled.interaction` stays opt-in.
+
+The messaging pack, `intent.messaging`, reads them whatever the codebase raises them through (`AddDomainEvent`, an outbox, a bus, its own wrapper):
+
+- **A link** (`Domain Event Origin`, `Publish Integration Event`, `Send Integration Command`) is an `intent.raises`, `intent.publishes` or `intent.sends` claim on its target end. It is verified when the code it starts from hands a new message of the linked type to a call: a constructor's or operation's method, a command's method that takes it, or a handler's method that takes what it subscribes to, each with the code's own methods it calls, its class's and its collaborators' (a field of an interface the code implements is each implementation). A message handed to a library's method (a bus, an outbox, a list) is raised. One handed to a method of the code is raised only when that method hands the parameter on in turn, into a call that does, something it creates, or something it keeps: a method that only reads it processes it in place. A call in what a method returns, when the method returns the message, builds it for its caller (`return Task.FromResult(message)`). When the code doesn't raise it, the link is contradicted, at the method.
+- **A message type the diagram doesn't show** is reported by `messaging/unmodelled.message`, at its declaration, in checked code only. The messages are the modelled ones and every type of the code that has what all the modelled ones of that kind derive from or implement (`INotification`, an `IntegrationEvent` base); with none modelled there is nothing to learn from, and nothing is reported.
+- **A raise no link covers** is reported by `messaging/unmodelled.raise`, `.publish` or `.send`, at the call, when the diagram has somewhere to draw the link from, which the fix names:
+  - a modelled constructor, operation, command, query or handler subscription whose code reaches the call, itself or through the code's own methods it calls, nearest first: a helper's send is the handler's that calls it;
+  - a method of a modelled class or service, which the diagram can show as an operation;
+  - a method of a handler of a modelled message, which the diagram can show as a subscription.
+
+  A raise from code the diagram can't show, such as a background router, isn't drift: only its message must be modelled. When the message isn't modelled either, the raise's finding asks for both, and the message has no finding of its own.
+
+A Severity Overrides row can lower a `messaging/*` rule like any other. A per-technology pack (NServiceBus, MassTransit) may sharpen the reading, such as telling a publish from a send, and a house extension may add a mechanism the neutral reading can't see, such as an interceptor that creates events from state changes.
+
+## Routes Web API 2 serves conventionally
+
+ASP.NET Web API 2's attribute routing covers only actions with a `[Route]` of their own. A controller's `[RoutePrefix]` doesn't route the others: Web API 2 serves them on its conventional routes, the first `MapHttpRoute` template with a `{controller}` (`api/{controller}/{id}` by default), with the action's `{controller}` and `{action}` filled in and an optional value it doesn't take (`id = RouteParameter.Optional`) left out. So an unattributed `PostAsync` on `EndowmentController` is at `api/Endowment`, outside its controller's prefix. The `intent.aspnetcore` extension reads it two ways:
+
+- **A Route the Operation states** is compared with that route as an absolute one, `~/api/Endowment`, which is how the model writes a route outside its service's.
+- **An empty Route** makes no `operation.route` claim (it is stated only when set), yet it puts the endpoint at its service's Route. When Web API 2 serves the action elsewhere, `aspnetcore/conventional.route` reports it at the action, asking for a `[Route]` in the code or the absolute route in the model. A service whose Route is the conventional route itself (a controller with no prefix, modelled at `api/Claims`) isn't reported.
+
+A parameter's source reads the same route: such an action binds from the conventional template, not its controller's prefix.
+
 ## Recipe validation
 
 Validation runs on demand, from the model, the code and the packs, never during a Software Factory run ([R50](requirements.md)). It keeps Common.Drift's checks and extends them to every rule kind:

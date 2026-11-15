@@ -73,9 +73,9 @@ Constructs the format has but none of the five uses, which the converter still h
 
 ### Kinds
 
-All Common.Drift fact kinds keep their names and placeholders, so recipes need no renaming:
+All Common.Drift fact kinds keep their names and placeholders, so recipes need no renaming, except `column.required`, which becomes `member.nullable` (change 11):
 
-- **Domain**: `table.name`, `table.schema`, `table.kind`, `key`, `column.name`, `column.type`, `column.textType`, `column.maxLength`, `column.required`, `column.precision`, `column.scale`, `column.default`, `relationship.multiplicity`, `relationship.foreignKey`, `index.columns`, `index.unique`, `intent.raises`.
+- **Domain**: `table.name`, `table.schema`, `table.kind`, `key`, `column.name`, `column.type`, `column.textType`, `column.maxLength`, `column.precision`, `column.scale`, `column.default`, `relationship.multiplicity`, `relationship.foreignKey`, `index.columns`, `index.unique`, `intent.raises`.
 - **Services**: `service.route`, `operation.verb`, `operation.route`, `security`, `security.roles`, `security.policy`, `parameter.source`, `intent.creates`, `intent.updates`, `intent.deletes`, `intent.queries`, `intent.invokes`, `intent.publishes`, `intent.sends`.
 - **User Interface** (Intent.UI.Guardrails.Contracts, not in the configure-drift-check skill): `component.kind`, `page.route`, `intent.navigates`, `intent.opens`, `intent.uses`, and `intent.invokes`, `security`, `security.roles`, `security.policy`, with placeholders `{Folder}`, `{Component}`, `{Invoked}`, `{Route}`, `{RouteStart}`, `{Page}`, `{Dialog}` and `{Child}`. The `intent.ui` pack (phase 6) gives them vocabulary.
 
@@ -95,6 +95,8 @@ The engine's decisions change some verdicts on the same model and code. Phase 6'
 | 8  | Unmodelled public members are reported only with the `unmodelled.member` opt-in rule on.                                                                                                                                    | 1        | none: proposed as an opt-in row where the codebase relied on it                                                                                                                                                                 |
 | 9  | `own` conventions report only once their opt-in row is on. The converter proposes the row, so accepting it keeps the verdicts.                                                                                              | 1        | all 53 `own` entries                                                                                                                                                                                                            |
 | 10 | A find ending at several places is `ambiguous` and names every candidate. The verdict, can't verify, is the same.                                                                                                           | R43      | none known                                                                                                                                                                                                                      |
+| 11 | `column.required` is `member.nullable`: Is Nullable is the only requiredness the model states. A required column on a nullable property (`bool?` with `.IsRequired()`), which the model can't express, is no longer drift. | 16       | `column.required` (4 files)                                                                                                                                                                                                     |
+| 12 | `relationship.multiplicity` is the end no navigation states, its value that end's multiplicity (`1`), not `<source>-><target>`: the navigable end is `member.type`'s and `member.nullable`'s. A recipe's read cases that give both ends convert to the unnavigated end's half. | 16       | `relationship.multiplicity` (2 files)                                                                                                                                                                                           |
 
 ## What the converter can't decide
 

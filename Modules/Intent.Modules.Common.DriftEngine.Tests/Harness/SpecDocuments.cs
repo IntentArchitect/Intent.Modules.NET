@@ -13,7 +13,7 @@ internal static class SpecDocuments
 
     private static readonly Regex RequirementRow = new(@"^\|\s*(?<id>R\d+)\s*\|", RegexOptions.CultureInvariant);
     private static readonly Regex Backticked = new("`(?<text>[^`]+)`", RegexOptions.CultureInvariant);
-    private static readonly Regex CaseName = new(@"^[a-z]+/([A-Za-z][A-Za-z.]*|\*)$", RegexOptions.CultureInvariant);
+    private static readonly Regex CaseName = new(@"^[a-z]+/([A-Za-z][A-Za-z.-]*|\*)$", RegexOptions.CultureInvariant);
 
     /// <summary>Every check row of the eight <c>| # | Check |</c> tables.</summary>
     public static IReadOnlyList<ClassifiedCheck> Checks(string path)

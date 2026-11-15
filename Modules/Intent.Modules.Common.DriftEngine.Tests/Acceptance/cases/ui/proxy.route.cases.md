@@ -162,3 +162,145 @@ export const api = {
   ]
 }
 ```
+
+## eshop-http-route
+
+eShopCustom's Blazor catalog proxy builds its URI from a field and an interpolation: `api/catalog/` and `items/{id}`, the string the engine's value evaluation gives. The backend Operation its Backend Operation stereotype names is at `api/catalog` and `items/{id}`, so the routes match segment by segment, the hole against the parameter. The house pack gives the vocabulary for eShopCustom's own stereotype; reading the path from the proxy's `HttpClient` call is the stock rule's.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.route"], "traces": ["ESC-FE-61"], "requirements": ["R2", "R10", "R28"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
+```
+
+```json pack
+{
+  "id": "house.eshopcustom",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "languages": ["csharp"],
+  "designers": ["User Interface"],
+  "kinds": [
+    { "kind": "proxy.route", "label": "proxy route", "valueType": "text", "comparer": "route", "stated": "always", "existence": false }
+  ],
+  "vocabulary": {
+    "User Interface": {
+      "entries": [
+        {
+          "kind": "proxy.route",
+          "for": { "element": "Operation", "where": "parent.specialization == 'Service Proxy' && hasStereotype('Backend Operation')" },
+          "value": "stereotype('Backend Operation').Operation.parent.stereotype('Http Service Settings').Route + '/' + stereotype('Backend Operation').Operation.stereotype('Http Settings').Route",
+          "bindings": { "Proxy": "parent.name", "Operation": "name" },
+          "own": ["Proxy", "Operation"],
+          "source": "the Service and Operation routes of the backend Operation its Backend Operation stereotype names"
+        }
+      ]
+    }
+  }
+}
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "catalog-api", "name": "Catalog.API",
+        "elements": [
+          { "id": "catalog-api-service", "type": "Service", "name": "CatalogApi",
+            "stereotypes": { "Http Service Settings": { "Route": "api/catalog" } },
+            "children": [
+              { "id": "get-item-by-id", "type": "Operation", "name": "GetItemById",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "items/{id}" } },
+                "children": [
+                  { "id": "get-item-by-id-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "User Interface": {
+      "packages": [{
+        "id": "webappcomponents", "name": "WebAppComponents",
+        "elements": [
+          { "id": "catalog-service", "type": "Service Proxy", "name": "CatalogService",
+            "children": [
+              { "id": "catalog-service-get-catalog-item", "type": "Operation", "name": "GetCatalogItem",
+                "stereotypes": { "Backend Operation": { "Operation": { "ref": "get-item-by-id" } } },
+                "children": [
+                  { "id": "catalog-service-get-catalog-item-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/WebAppComponents/Services/CatalogService.cs
+using System.Net.Http.Json;
+using eShop.WebAppComponents.Catalog;
+
+namespace eShop.WebAppComponents.Services;
+
+public class CatalogService(HttpClient httpClient)
+{
+    private readonly string remoteServiceBaseUrl = "api/catalog/";
+
+    public Task<CatalogItem?> GetCatalogItem(int id)
+    {
+        var uri = $"{remoteServiceBaseUrl}items/{id}";
+        return httpClient.GetFromJsonAsync<CatalogItem>(uri);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.route", "element": "catalog-service-get-catalog-item", "outcome": "verified",
+      "expected": "api/catalog/items/{id}", "at": "src/WebAppComponents/Services/CatalogService.cs:13" }
+  ]
+}
+```
+
+## eshop-http-route-contradicted
+
+The proxy asks for `items/by/{id}`, a path the backend Operation doesn't serve.
+
+```json case
+{ "phase": "later", "base": "eshop-http-route", "kinds": ["proxy.route"], "traces": ["ESC-FE-61"], "requirements": ["R2", "R14"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
+```
+
+```csharp file src/WebAppComponents/Services/CatalogService.cs
+using System.Net.Http.Json;
+using eShop.WebAppComponents.Catalog;
+
+namespace eShop.WebAppComponents.Services;
+
+public class CatalogService(HttpClient httpClient)
+{
+    private readonly string remoteServiceBaseUrl = "api/catalog/";
+
+    public Task<CatalogItem?> GetCatalogItem(int id)
+    {
+        var uri = $"{remoteServiceBaseUrl}items/by/{id}";
+        return httpClient.GetFromJsonAsync<CatalogItem>(uri);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.route", "element": "catalog-service-get-catalog-item", "outcome": "contradicted",
+      "expected": "api/catalog/items/{id}", "at": "src/WebAppComponents/Services/CatalogService.cs:13" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.route", "severity": "error", "subject": "catalog-service-get-catalog-item" }
+  ]
+}
+```

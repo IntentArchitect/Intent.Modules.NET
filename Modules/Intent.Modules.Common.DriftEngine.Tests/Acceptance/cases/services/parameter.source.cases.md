@@ -1,6 +1,6 @@
 # parameter.source
 
-Where a Parameter is bound from: the `Parameter Settings` stereotype's Source (`From Header`, `From Route`, `From Query`, `From Body`, `From Form`). A Source of `Default`, or no stereotype, states nothing: the model leaves the binding to the framework, so there's no claim. Against the code's binding attribute: `[FromHeader]`, `[FromRoute]`, `[FromQuery]`, `[FromBody]` or `[FromForm]`; over Spring MVC, `@PathVariable`, `@RequestParam`, `@RequestBody` and `@RequestHeader`. A binding the framework infers, from the route template or the parameter's type, isn't the code stating one, so a modelled source with no attribute is contradicted as not stated (the user's decision, 2026-11-13: a parameter the code binds by inference is modelled `Default`). A parameter injected from services isn't bound from the request at all. `parameter.source` is `stated: whenSet`.
+Where a Parameter is bound from: the `Parameter Settings` stereotype's Source (`From Header`, `From Route`, `From Query`, `From Body`, `From Form`). A Source of `Default`, or no stereotype, states nothing: the model leaves the binding to the framework, so there's no claim. Against the code's binding attribute: `[FromHeader]`, `[FromRoute]`, `[FromQuery]`, `[FromBody]` or `[FromForm]`; over Spring MVC, `@PathVariable`, `@RequestParam`, `@RequestBody` and `@RequestHeader`. With no attribute, it is where ASP.NET binds the parameter (the user's decision, 2026-11-14, replacing 2026-11-13's: the Services model is a logical projection of the endpoint, so a parameter the route names is a route parameter, attribute or not): a name in the route template is the route, a simple type the query string, any other type the body, for a Minimal API, an `[ApiController]` and a Web API 2 controller alike. A parameter injected from services isn't bound from the request at all. `parameter.source` is `stated: whenSet`.
 
 The fixtures adapt eShopCustom's `Ordering.API/Apis/OrdersApi.cs` and the Java spike's `OrdersController`.
 
@@ -107,9 +107,9 @@ public static class OrdersApi
 }
 ```
 
-## contradicted-route-template-not-stated
+## verified-route-template
 
-`orderId` has no attribute. ASP.NET binds it from the route, because the endpoint's pattern `{orderId:int}` names it, but that is inference, not the code stating a source, so the modelled `From Route` is contradicted as not stated. The fix is `[FromRoute]` in the code, or Source `Default` in the model. Traces ESC-SVC-28 (the route template).
+`orderId` has no attribute. The endpoint's pattern `{orderId:int}` names it, so ASP.NET binds it from the route, as the model says. Traces ESC-SVC-28 (the route template).
 
 ```json case
 { "phase": 4, "base": "verified-from-attribute", "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R2", "R4"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -118,17 +118,14 @@ public static class OrdersApi
 ```json expect
 {
   "claims": [
-    { "kind": "parameter.source", "element": "order-id", "outcome": "contradicted", "expected": "From Route", "actual": null, "fromSilence": false }
-  ],
-  "findings": [
-    { "rule": "claim/parameter.source", "severity": "error", "subject": "order-id", "messageContains": "doesn't state" }
+    { "kind": "parameter.source", "element": "order-id", "outcome": "verified", "expected": "From Route", "actual": "From Route", "at": "src/Ordering.API/Apis/OrdersApi.cs:27" }
   ]
 }
 ```
 
-## contradicted-simple-type-not-stated
+## verified-simple-type
 
-`status` is a `string?` with no attribute that no route names. ASP.NET binds a simple type from the query string, but the code doesn't state it, so the modelled `From Query` is contradicted as not stated. Traces ESC-SVC-28 (simple types).
+`status` is a `string?` with no attribute that no route names. ASP.NET binds a simple type from the query string, as the model says. Traces ESC-SVC-28 (simple types).
 
 ```json case
 { "phase": 4, "base": "verified-from-attribute", "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R2", "R4"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -137,17 +134,14 @@ public static class OrdersApi
 ```json expect
 {
   "claims": [
-    { "kind": "parameter.source", "element": "status", "outcome": "contradicted", "expected": "From Query", "actual": null, "fromSilence": false }
-  ],
-  "findings": [
-    { "rule": "claim/parameter.source", "severity": "error", "subject": "status", "messageContains": "doesn't state" }
+    { "kind": "parameter.source", "element": "status", "outcome": "verified", "expected": "From Query", "actual": "From Query", "at": "src/Ordering.API/Apis/OrdersApi.cs:32" }
   ]
 }
 ```
 
-## contradicted-complex-type-not-stated
+## verified-complex-type
 
-`command` is a `CancelOrderCommand` with no attribute. ASP.NET binds a complex type from the body, but the code doesn't state it, so the modelled `From Body` is contradicted as not stated. Traces ESC-SVC-28 (complex types).
+`command` is a `CancelOrderCommand` with no attribute. ASP.NET binds a complex type from the body, as the model says. Traces ESC-SVC-28 (complex types).
 
 ```json case
 { "phase": 4, "base": "verified-from-attribute", "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R2", "R4"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -156,10 +150,201 @@ public static class OrdersApi
 ```json expect
 {
   "claims": [
-    { "kind": "parameter.source", "element": "command", "outcome": "contradicted", "expected": "From Body", "actual": null, "fromSilence": false }
+    { "kind": "parameter.source", "element": "command", "outcome": "verified", "expected": "From Body", "actual": "From Body", "at": "src/Ordering.API/Apis/OrdersApi.cs:18" }
+  ]
+}
+```
+
+## contradicted-route-template
+
+The model binds `orderId` from the query string, but the endpoint's pattern `{orderId:int}` names it, so ASP.NET binds it from the route: the diagram doesn't show the endpoint as it is. Traces ESC-SVC-28 (the route template).
+
+```json case
+{ "phase": 4, "base": "verified-from-attribute", "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R1", "R14"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Ordering.API",
+        "elements": [
+          { "id": "orders-api", "type": "Service", "name": "OrdersApi",
+            "stereotypes": { "Http Service Settings": { "Route": "api/orders" } },
+            "children": [
+              { "id": "get-order", "type": "Operation", "name": "GetOrderAsync",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "{orderId}" } },
+                "children": [
+                  { "id": "order-id", "type": "Parameter", "name": "orderId", "typeRef": { "type": "int" },
+                    "stereotypes": { "Parameter Settings": { "Source": "From Query" } } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "parameter.source", "element": "order-id", "outcome": "contradicted", "expected": "From Query", "actual": "From Route", "at": "src/Ordering.API/Apis/OrdersApi.cs:27" }
   ],
   "findings": [
-    { "rule": "claim/parameter.source", "severity": "error", "subject": "command", "messageContains": "doesn't state" }
+    { "rule": "claim/parameter.source", "severity": "error", "subject": "order-id", "messageContains": "From Route" }
+  ]
+}
+```
+
+## verified-controllers
+
+Controllers bind alike. `BasketController` is an `[ApiController]`: `id` is named by the action's route under the controller's, so it is the route; `filter` is a simple type, the query string; `item` is complex, the body. `LegacyBasketController` is a Web API 2 controller (it derives from `System.Web.Http`'s `ApiController`): `id` is named by its `[RoutePrefix]`, which routes the action because the action has a `[Route]` of its own, and `item` is complex, the body. Traces ESC-SVC-28.
+
+```json case
+{ "phase": 4, "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R2", "R4"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Basket.API",
+        "elements": [
+          { "id": "basket-item", "type": "DTO", "name": "BasketItem" },
+          { "id": "basket-controller", "type": "Service", "name": "BasketController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/basket" } },
+            "children": [
+              { "id": "update", "type": "Operation", "name": "Update",
+                "stereotypes": { "Http Settings": { "Verb": "PUT", "Route": "{id}" } },
+                "children": [
+                  { "id": "update-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" },
+                    "stereotypes": { "Parameter Settings": { "Source": "From Route" } } },
+                  { "id": "update-filter", "type": "Parameter", "name": "filter", "typeRef": { "type": "string" },
+                    "stereotypes": { "Parameter Settings": { "Source": "From Query" } } },
+                  { "id": "update-item", "type": "Parameter", "name": "item", "typeRef": { "element": "basket-item" },
+                    "stereotypes": { "Parameter Settings": { "Source": "From Body" } } }
+                ] }
+            ] },
+          { "id": "legacy-controller", "type": "Service", "name": "LegacyBasketController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/legacy/{id}" } },
+            "children": [
+              { "id": "legacy-update", "type": "Operation", "name": "Update",
+                "stereotypes": { "Http Settings": { "Verb": "PUT" } },
+                "children": [
+                  { "id": "legacy-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" },
+                    "stereotypes": { "Parameter Settings": { "Source": "From Route" } } },
+                  { "id": "legacy-item", "type": "Parameter", "name": "item", "typeRef": { "element": "basket-item" },
+                    "stereotypes": { "Parameter Settings": { "Source": "From Body" } } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Basket", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Basket.API/Controllers/BasketController.cs
+namespace Basket.API.Controllers;
+
+public class BasketItem
+{
+    public int Quantity { get; set; }
+}
+
+[ApiController]
+[Route("api/basket")]
+public class BasketController : ControllerBase
+{
+    [HttpPut("{id}")]
+    public IActionResult Update(int id, string filter, BasketItem item) => Ok();
+}
+
+[RoutePrefix("api/legacy/{id}")]
+public class LegacyBasketController : ApiController
+{
+    [HttpPut]
+    [Route("")]
+    public IHttpActionResult Update(int id, BasketItem item) => Ok();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "parameter.source", "element": "update-id", "outcome": "verified", "actual": "From Route" },
+    { "kind": "parameter.source", "element": "update-filter", "outcome": "verified", "actual": "From Query" },
+    { "kind": "parameter.source", "element": "update-item", "outcome": "verified", "actual": "From Body" },
+    { "kind": "parameter.source", "element": "legacy-id", "outcome": "verified", "actual": "From Route" },
+    { "kind": "parameter.source", "element": "legacy-item", "outcome": "verified", "actual": "From Body" }
+  ]
+}
+```
+
+## several-routes-the-modelled-one
+
+A Web API 2 action answers two routes, and only the second names `fileName`: by the first, `fileName` comes from the query string, by the second from the route. The diagram shows one route, the first, and binds `fileName` from the query string, as that route does. Traces ESC-SVC-28 (the route template).
+
+```json case
+{ "phase": 4, "kinds": ["parameter.source"], "traces": ["ESC-SVC-28"], "requirements": ["R2", "R4"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Rules.Api",
+        "elements": [
+          { "id": "rules-controller", "type": "Service", "name": "RulesController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/rules" } },
+            "children": [
+              { "id": "run", "type": "Operation", "name": "RunAsync",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "run" } },
+                "children": [
+                  { "id": "file-name", "type": "Parameter", "name": "fileName", "typeRef": { "type": "string" },
+                    "stereotypes": { "Parameter Settings": { "Source": "From Query" } } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Rules", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Rules.Api/Controllers/RulesController.cs
+namespace Rules.Api.Controllers;
+
+[RoutePrefix("api/rules")]
+public class RulesController : ApiController
+{
+    [HttpGet]
+    [Route("run")]
+    [Route("run/{fileName}")]
+    public IHttpActionResult RunAsync(string fileName) => Ok();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "parameter.source", "element": "file-name", "outcome": "verified", "actual": "From Query" }
   ]
 }
 ```

@@ -128,19 +128,63 @@ public static class OrdersApi
 
 ## no-rule
 
-The NServiceBus pack isn't active, and nothing else reads sends, so the claim is can't verify, `noRule`.
+No framework's extension is active. The messaging extension, which states the send's claim and reads it, comes with each, so nothing claims the link at all: the run reports it as modelled and unchecked (R7) rather than leaving it out silently.
 
 ```json case
-{ "phase": 4, "base": "verified", "kinds": ["intent.sends"], "cases": ["engine/noRule"], "requirements": ["R5"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+{ "phase": 4, "base": "verified", "kinds": ["intent.sends"], "cases": ["engine/noVocabulary"], "requirements": ["R7"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "engine/noVocabulary", "severity": "error", "subject": "create-order-sends-charge-payment", "messageContains": "Send Integration Command" },
+    { "rule": "claim/intent.sends", "count": 0 }
+  ]
+}
+```
+
+## unreadable
+
+The endpoint sends a command a factory method built. A send is there, but the reader can't tell which command it is, so the claim is can't verify, `unreadable`: neither verified nor reported missing.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["intent.sends"], "cases": ["engine/unreadable"], "requirements": ["R5"], "packs": ["intent.core", "intent.services", "intent.aspnetcore", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapPost("/", CreateOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Ok<Guid>> CreateOrderAsync(CreateOrderRequest request, IMessageSession messageSession)
+    {
+        var orderId = Guid.NewGuid();
+        var command = PaymentCommands.Charge(orderId, request.Total);
+
+        await messageSession.Send(command);
+
+        return TypedResults.Ok(orderId);
+    }
+}
 ```
 
 ```json expect
 {
   "claims": [
-    { "kind": "intent.sends", "element": "create-order-sends-charge-payment", "outcome": "cantVerify", "reason": "noRule" }
+    { "kind": "intent.sends", "element": "create-order-sends-charge-payment", "outcome": "cantVerify", "reason": "unreadable",
+      "at": "src/Ordering.API/Apis/OrdersApi.cs:19" }
   ],
   "findings": [
-    { "rule": "claim/intent.sends", "severity": "error", "subject": "create-order-sends-charge-payment", "messageContains": "no rule" }
+    { "rule": "claim/intent.sends", "severity": "error", "subject": "create-order-sends-charge-payment", "messageContains": "can't read" }
   ]
 }
 ```
