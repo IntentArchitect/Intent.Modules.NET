@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Intent.Engine;
@@ -45,6 +46,7 @@ namespace Intent.Modules.Common.DriftEngine.Reporting
         /// <param name="node">Intent Architect's own Node.js, which runs TypeScript's parser.</param>
         public static void Report(IDriftContext context, IReadOnlyList<IDriftExtension> extensions, INodeRunner node)
         {
+            var started = Stopwatch.GetTimestamp();
             var application = context.Application;
             var config = application.GetApplicationConfig();
             var output = Path.GetFullPath(Path.Combine(config.DirectoryPath, config.OutputLocation));
@@ -71,6 +73,7 @@ namespace Intent.Modules.Common.DriftEngine.Reporting
                 }
             }
 
+            var model = Stopwatch.GetElapsedTime(started);
             RunResult result;
             try
             {
@@ -95,6 +98,10 @@ namespace Intent.Modules.Common.DriftEngine.Reporting
             Logging.Log.Info($"Drift engine: checked {result.Claims.Count} claims against {result.Files.Count} files: " +
                 $"{result.Claims.Count(x => x.Outcome == "verified")} verified, {result.Claims.Count(x => x.Outcome == "contradicted")} contradicted, " +
                 $"{result.Claims.Count(x => x.Outcome == "cantVerify")} can't verify.");
+            var timings = $"Drift engine timings: model {model.TotalMilliseconds:0} ms, " +
+                string.Join(", ", result.Timings.Take(result.Timings.Count(x => !x.What.StartsWith("kind ")) + 8)
+                    .Select(x => $"{x.What} {x.Milliseconds:0} ms{(x.Count is { } count ? $" ({count})" : "")}"));
+            Logging.Log.Info(timings);
 
             // The report holds only drift: an Area is created by its first finding and declares no categories, so nothing
             // shows as "Clean".

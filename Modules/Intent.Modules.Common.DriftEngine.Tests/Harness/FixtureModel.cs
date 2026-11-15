@@ -18,6 +18,7 @@ internal sealed class FixtureModel
     // An element's "generalization" is a Generalization link from it to its base, built with the other links.
     private readonly List<JsonNode> _generalizations = [];
     private readonly List<(IAssociationEnd End, ITypeReference Reference, string Element, string From)> _ends = [];
+    private readonly List<(IStereotypeProperty<IElement> Property, string Id)> _lookups = [];
 
     public static IReadOnlyDictionary<string, IReadOnlyList<IPackage>> Build(JsonNode model) => Build(model, out _);
 
@@ -64,6 +65,12 @@ internal sealed class FixtureModel
             var package = fixture._elements.GetValueOrDefault(from)?.Package;
             reference.Element.Returns(target);
             end.Package.Returns(package);
+        }
+
+        // A stereotype's lookup gives the element it names: an element, or an association's id for its target end.
+        foreach (var (property, id) in fixture._lookups)
+        {
+            property.Value.Returns(fixture._elements.GetValueOrDefault(id) ?? fixture._targetEnds.GetValueOrDefault(id));
         }
 
         // A target end is an element too, so an association may start from it, as a publish does from a handler's subscription.
@@ -148,6 +155,8 @@ internal sealed class FixtureModel
         var stereotypes = Stereotypes(data);
         var typeReference = data["typeRef"] is { } typeRef ? TypeReference(typeRef) : null;
         var children = data.Items("children").Select(x => Element(x, element, package)).ToList();
+        var genericTypes = data.Texts("genericTypes").Select(GenericType).ToList();
+        element.GenericTypes.Returns(genericTypes);
         element.Id.Returns(id);
         element.Name.Returns(data.Text("name"));
         element.SpecializationType.Returns(data.Text("type"));
@@ -161,6 +170,13 @@ internal sealed class FixtureModel
         element.TypeReference.Returns(typeReference);
         element.ChildElements.Returns(children);
         return element;
+    }
+
+    private static IGenericType GenericType(string name)
+    {
+        var type = Substitute.For<IGenericType>();
+        type.Name.Returns(name);
+        return type;
     }
 
     private ITypeReference TypeReference(JsonNode data)
@@ -191,13 +207,14 @@ internal sealed class FixtureModel
     }
 
     /// <summary>
-    /// Each stereotype property as Intent hands it over: an element reference <c>{ "ref": id }</c> as the element's id, as
-    /// Intent stores a lookup; an item list (an array of objects) as one stereotype per row; a list of texts as one per line.
+    /// Each stereotype property as Intent hands it over: an element reference <c>{ "ref": id }</c> as a lookup, its text the
+    /// element's id, as Intent stores it, and its typed value the element; an item list (an array of objects) as one
+    /// stereotype per row; a list of texts as one per line.
     /// </summary>
-    private static IReadOnlyList<IStereotype> Stereotypes(JsonNode data) =>
+    private IReadOnlyList<IStereotype> Stereotypes(JsonNode data) =>
         (data["stereotypes"]?.AsObject() ?? []).Select(x => Stereotype(x.Key, x.Value?.AsObject() ?? [])).ToList();
 
-    private static IStereotype Stereotype(string name, JsonObject properties)
+    private IStereotype Stereotype(string name, JsonObject properties)
     {
         var values = properties.Select(x => Property(x.Key, x.Value)).ToList();
         var stereotype = Substitute.For<IStereotype>();
@@ -206,7 +223,7 @@ internal sealed class FixtureModel
         return stereotype;
     }
 
-    private static IStereotypeProperty Property(string key, JsonNode? value)
+    private IStereotypeProperty Property(string key, JsonNode? value)
     {
         if (value is JsonArray rows && rows.All(x => x is JsonObject))
         {
@@ -215,6 +232,16 @@ internal sealed class FixtureModel
             list.Key.Returns(key);
             list.Value.Returns(items);
             return list;
+        }
+
+        // A lookup resolves once every element exists, as a type reference does.
+        if (value is JsonObject lookup && lookup.Text("ref") is { } referenced)
+        {
+            var element = Substitute.For<IStereotypeProperty<IElement>>();
+            element.Key.Returns(key);
+            ((IStereotypeProperty)element).Value.Returns(referenced);
+            _lookups.Add((element, referenced));
+            return element;
         }
 
         var property = Substitute.For<IStereotypeProperty>();

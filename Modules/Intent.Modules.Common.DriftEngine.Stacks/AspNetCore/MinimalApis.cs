@@ -9,15 +9,22 @@ namespace Intent.Modules.Common.DriftEngine.Stacks.AspNetCore;
 
 /// <summary>
 /// One Minimal API endpoint: <c>group.MapPut("/cancel", CancelOrderAsync)</c> in a router type's mapping method.
-/// <paramref name="Security"/> is what is chained on the endpoint itself (<c>RequireAuthorization</c> or <c>AllowAnonymous</c>).
+/// <paramref name="Authorization"/> is what is chained on the endpoint itself (<c>RequireAuthorization</c> or
+/// <c>AllowAnonymous</c>), <paramref name="GroupAuthorization"/> what is chained on its group.
 /// </summary>
 /// <param name="Handler">The handler method's name; for a lambda, the name <c>.WithName("...")</c> gives the endpoint, if any.</param>
 /// <param name="Lambda">A lambda handler as a method: its parameters, its return type where written, and its body.</param>
 /// <param name="Template">The pattern: a string literal's value, otherwise the argument as written (<paramref name="TemplateWritten"/>).</param>
 /// <param name="Group">Its groups' prefixes joined; one given as anything but a literal is as written, and is <paramref name="GroupWritten"/>.</param>
-internal sealed record MinimalEndpoint(string Router, string? Handler, string Verb, string Template, Span At, string? Group, Span? GroupAt, string? Security, Span? SecurityAt,
-    MemberNode? Lambda = null, bool TemplateWritten = false, string? GroupWritten = null)
+internal sealed record MinimalEndpoint(string Router, string? Handler, string Verb, string Template, Span At, string? Group, Span? GroupAt,
+    Authorization? Authorization, Authorization? GroupAuthorization, MemberNode? Lambda = null, bool TemplateWritten = false, string? GroupWritten = null)
 {
+    /// <summary>The API versions its groups declare (<c>HasApiVersion(1.0)</c>), in the order written.</summary>
+    public IReadOnlyList<VersionValue> GroupVersions { get; init; } = [];
+
+    /// <summary>The API versions the endpoint itself declares (<c>HasApiVersion</c>) or narrows its groups' to (<c>MapToApiVersion</c>).</summary>
+    public IReadOnlyList<VersionValue> Versions { get; init; } = [];
+
     /// <summary>The pattern, a string constant's value where the code names one (<c>OrderRoutes.ById</c>); null when the code doesn't give it.</summary>
     public string? TemplateIn(CodeGraph code) => TemplateWritten ? Constant(code, Template) : Template;
 
@@ -28,16 +35,42 @@ internal sealed record MinimalEndpoint(string Router, string? Handler, string Ve
     private string? Constant(CodeGraph code, string name) => code.Types.FirstOrDefault(x => x.Name == Router) is { } router ? code.ConstantOf(name, router) : null;
 }
 
+/// <summary>
+/// An argument that names a role, a policy or a version: a literal's value, else the argument as written, for the claim
+/// reader to read as a constant the code declares, or to report it can't.
+/// </summary>
+internal sealed record WrittenValue(string? Literal, string Written);
+
+/// <summary>
+/// <c>RequireAuthorization(...)</c> or <c>AllowAnonymous()</c> (<paramref name="Kind"/>), where it is called, and the roles and
+/// policies its arguments name: a policy's name, <c>new AuthorizeAttribute { Roles = ..., Policy = ... }</c>, or a policy
+/// builder's <c>RequireRole(...)</c>. <paramref name="Opaque"/> holds an argument it can't tell is either, as written: a
+/// constant may be a policy's name, a variable a policy.
+/// </summary>
+internal sealed record Authorization(string Kind, Span At, IReadOnlyList<WrittenValue> Roles, IReadOnlyList<WrittenValue> Policies, IReadOnlyList<string> Opaque)
+{
+    public bool Anonymous => Kind == "AllowAnonymous";
+
+    /// <summary>An attribute of the code's own deriving from <c>AuthorizeAttribute</c>, which may set roles and a policy itself.</summary>
+    public bool Custom { get; init; }
+}
+
+/// <summary>An API version as written: <c>HasApiVersion(1.0)</c>, <c>(1, 0)</c> and <c>(new ApiVersion(1, 0))</c> are <c>1.0</c>.</summary>
+internal sealed record VersionValue(string? Version, string Written, Span At);
+
 /// <summary>What <see cref="MinimalApiReader"/> found in the in-scope code.</summary>
 internal sealed class MinimalApiModel
 {
     public List<MinimalEndpoint> Endpoints { get; } = [];
 
     /// <summary>
-    /// A router's security: chained on its group (<c>app.MapGroup("x").RequireAuthorization()</c>), or on a call of its
-    /// mapping method anywhere in scope (<c>orders.MapOrdersApiV1().RequireAuthorization()</c> in Program.cs).
+    /// A router's security chained on a call of its mapping method anywhere in scope (<c>orders.MapOrdersApiV1().RequireAuthorization()</c>
+    /// in Program.cs): it applies to the group the method returns, so to the router's endpoints.
     /// </summary>
-    public Dictionary<string, (string Security, Span At)> RouterSecurity { get; } = new(StringComparer.Ordinal);
+    public Dictionary<string, Authorization> RouterSecurity { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>The types that map endpoints or groups, by name: a router whose method maps nothing still is one.</summary>
+    public HashSet<string> Routers { get; } = new(StringComparer.Ordinal);
 }
 
 /// <summary>
@@ -69,6 +102,11 @@ internal sealed class MinimalApiReader : ICodeReader
                 if (call.Expression is not MemberAccessExpressionSyntax access || call.FirstAncestorOrSelf<BaseTypeDeclarationSyntax>() is not { } router)
                 {
                     continue;
+                }
+
+                if (access.Name.Identifier.Text is "MapGroup" or "MapMethods" || Verbs.ContainsKey(access.Name.Identifier.Text))
+                {
+                    model.Routers.Add(router.Identifier.Text);
                 }
 
                 // MapMethods("/x", ["PUT"], handler) maps the verbs it lists; several are joined, which no one verb matches.
@@ -104,14 +142,14 @@ internal sealed class MinimalApiReader : ICodeReader
                 }
 
                 var group = Group(access.Expression, file);
-                var (security, securityAt) = Chained(call, file);
+                var chained = Chained(call, file);
                 var (pattern, written) = template is LiteralExpressionSyntax literal ? (literal.Token.ValueText, false) : (template.ToString(), true);
                 model.Endpoints.Add(new MinimalEndpoint(router.Identifier.Text, name, verb, pattern, SpanOf(call, file),
-                    group.Prefix, group.At, security, securityAt, lambda is null ? null : Method(lambda, name ?? $"{verb} {pattern}", file, graph), written, group.Written));
-                if (group.Security is { } groupSecurity)
+                    group.Prefix, group.At, chained.Authorization, group.Authorization, lambda is null ? null : Method(lambda, name ?? $"{verb} {pattern}", file, graph), written, group.Written)
                 {
-                    model.RouterSecurity[router.Identifier.Text] = (groupSecurity, group.SecurityAt!);
-                }
+                    GroupVersions = group.Versions,
+                    Versions = chained.Versions
+                });
 
                 if (call.FirstAncestorOrSelf<MethodDeclarationSyntax>() is { } mapper)
                 {
@@ -125,9 +163,9 @@ internal sealed class MinimalApiReader : ICodeReader
             foreach (var call in tree.GetRoot().DescendantNodes().OfType<InvocationExpressionSyntax>())
             {
                 if (call.Expression is MemberAccessExpressionSyntax access && mappers.TryGetValue(access.Name.Identifier.Text, out var router)
-                    && Chained(call, file) is ({ } security, { } at))
+                    && Chained(call, file).Authorization is { } authorization)
                 {
-                    model.RouterSecurity[router] = (security, at);
+                    model.RouterSecurity[router] = authorization;
                 }
             }
         }
@@ -182,16 +220,16 @@ internal sealed class MinimalApiReader : ICodeReader
     }
 
     /// <summary>
-    /// The <c>MapGroup</c> prefixes and security of the builder an endpoint is mapped on, following a local variable to its
-    /// initializer: <c>var api = app.MapGroup("api/orders").HasApiVersion(1.0);</c>.
+    /// The <c>MapGroup</c> prefixes, security and API versions of the builder an endpoint is mapped on, following a local
+    /// variable to its initializer: <c>var api = app.MapGroup("api/orders").HasApiVersion(1.0);</c>.
     /// </summary>
-    private static (string? Prefix, Span? At, string? Security, Span? SecurityAt, string? Written) Group(ExpressionSyntax builder, string file)
+    private static (string? Prefix, Span? At, Authorization? Authorization, IReadOnlyList<VersionValue> Versions, string? Written) Group(ExpressionSyntax builder, string file)
     {
         var prefixes = new List<string>();
         string? written = null;
         Span? at = null;
-        string? security = null;
-        Span? securityAt = null;
+        Authorization? authorization = null;
+        var versions = new List<VersionValue>();
         var seen = new HashSet<string>(StringComparer.Ordinal);
         var current = builder;
         while (true)
@@ -210,9 +248,11 @@ internal sealed class MinimalApiReader : ICodeReader
                         prefixes.Insert(0, named.ToString());
                         at ??= SpanOf(call, file);
                         break;
-                    case "RequireAuthorization" or "AllowAnonymous" when security is null:
-                        security = access.Name.Identifier.Text;
-                        securityAt = SpanOf(access.Name, file);
+                    case "RequireAuthorization" or "AllowAnonymous" when authorization is null:
+                        authorization = Authorize(call, access, file);
+                        break;
+                    case "HasApiVersion":
+                        versions.InsertRange(0, Versions(call, file));
                         break;
                 }
 
@@ -226,23 +266,112 @@ internal sealed class MinimalApiReader : ICodeReader
             }
             else
             {
-                return (prefixes.Count == 0 ? null : string.Join("/", prefixes.Select(x => x.Trim('/'))), at, security, securityAt, written);
+                return (prefixes.Count == 0 ? null : string.Join("/", prefixes.Select(x => x.Trim('/'))), at, authorization, versions, written);
             }
         }
     }
 
-    /// <summary>The <c>RequireAuthorization</c> or <c>AllowAnonymous</c> chained after a call.</summary>
-    private static (string? Security, Span? At) Chained(InvocationExpressionSyntax call, string file)
+    /// <summary>
+    /// The <c>RequireAuthorization</c> or <c>AllowAnonymous</c> chained after a call, and the API versions chained on it:
+    /// <c>HasApiVersion</c>, or <c>MapToApiVersion</c>, which narrows its group's.
+    /// </summary>
+    private static (Authorization? Authorization, IReadOnlyList<VersionValue> Versions) Chained(InvocationExpressionSyntax call, string file)
     {
+        Authorization? authorization = null;
+        var versions = new List<VersionValue>();
         for (SyntaxNode node = call; node.Parent is MemberAccessExpressionSyntax access && access.Parent is InvocationExpressionSyntax next; node = next)
         {
-            if (access.Name.Identifier.Text is "RequireAuthorization" or "AllowAnonymous")
+            switch (access.Name.Identifier.Text)
             {
-                return (access.Name.Identifier.Text, SpanOf(access.Name, file));
+                case "RequireAuthorization" or "AllowAnonymous" when authorization is null:
+                    authorization = Authorize(next, access, file);
+                    break;
+                case "HasApiVersion" or "MapToApiVersion":
+                    versions.AddRange(Versions(next, file));
+                    break;
             }
         }
 
-        return (null, null);
+        return (authorization, versions);
+    }
+
+    /// <summary>
+    /// What a <c>RequireAuthorization(...)</c> names: a policy's name (a literal, or a constant the claim reader reads), an
+    /// <c>AuthorizeAttribute</c>'s <c>Roles</c> and <c>Policy</c>, or the roles a policy builder's <c>RequireRole</c> requires.
+    /// </summary>
+    private static Authorization Authorize(InvocationExpressionSyntax call, MemberAccessExpressionSyntax access, string file)
+    {
+        var roles = new List<WrittenValue>();
+        var policies = new List<WrittenValue>();
+        var opaque = new List<string>();
+        foreach (var argument in call.ArgumentList.Arguments.Select(x => x.Expression))
+        {
+            switch (argument)
+            {
+                case LiteralExpressionSyntax:
+                    policies.Add(Written(argument));
+                    break;
+                case BaseObjectCreationExpressionSyntax creation:
+                    policies.AddRange(creation.ArgumentList?.Arguments.Select(x => Written(x.Expression)) ?? []);
+                    foreach (var assignment in creation.Initializer?.Expressions.OfType<AssignmentExpressionSyntax>() ?? [])
+                    {
+                        switch ((assignment.Left as IdentifierNameSyntax)?.Identifier.Text)
+                        {
+                            case "Roles":
+                                roles.Add(Written(assignment.Right));
+                                break;
+                            case "Policy":
+                                policies.Add(Written(assignment.Right));
+                                break;
+                        }
+                    }
+
+                    break;
+                case AnonymousFunctionExpressionSyntax lambda:
+                    roles.AddRange(lambda.DescendantNodes().OfType<InvocationExpressionSyntax>()
+                        .Where(x => x.Expression is MemberAccessExpressionSyntax { Name.Identifier.Text: "RequireRole" })
+                        .SelectMany(x => x.ArgumentList.Arguments.Select(a => Written(a.Expression))));
+                    break;
+                default:
+                    opaque.Add(argument.ToString());
+                    break;
+            }
+        }
+
+        return new Authorization(access.Name.Identifier.Text, SpanOf(access.Name, file), roles, policies, opaque);
+    }
+
+    private static WrittenValue Written(ExpressionSyntax value) =>
+        new(value is LiteralExpressionSyntax literal && literal.IsKind(Microsoft.CodeAnalysis.CSharp.SyntaxKind.StringLiteralExpression) ? literal.Token.ValueText : null, value.ToString());
+
+    /// <summary>
+    /// The versions <c>HasApiVersion</c> or <c>MapToApiVersion</c> gives: <c>(1.0)</c>, <c>(1, 0)</c>, <c>("1.0")</c> or
+    /// <c>(new ApiVersion(1, 0))</c> are <c>1.0</c>. Anything else is as written, with no version, for the claim reader to
+    /// read as a constant or report it can't.
+    /// </summary>
+    private static IEnumerable<VersionValue> Versions(InvocationExpressionSyntax call, string file)
+    {
+        var at = SpanOf(call, file);
+        var arguments = call.ArgumentList.Arguments.Select(x => x.Expression).ToList();
+        if (arguments is [BaseObjectCreationExpressionSyntax { ArgumentList: { } created }])
+        {
+            arguments = created.Arguments.Select(x => x.Expression).ToList();
+        }
+
+        if (arguments.Count == 0)
+        {
+            yield break;
+        }
+
+        if (arguments.All(x => x is LiteralExpressionSyntax))
+        {
+            var parts = arguments.Cast<LiteralExpressionSyntax>().Select(x => x.IsKind(Microsoft.CodeAnalysis.CSharp.SyntaxKind.StringLiteralExpression) ? x.Token.ValueText : x.Token.Text).ToList();
+            // (major, minor) or (major, minor, status); a single argument is the version itself.
+            yield return new VersionValue(parts.Count == 1 ? parts[0] : $"{parts[0]}.{parts[1]}{(parts.Count > 2 ? $"-{parts[2]}" : "")}", call.ArgumentList.ToString(), at);
+            yield break;
+        }
+
+        yield return new VersionValue(null, string.Join(", ", arguments.Select(x => x.ToString())), at);
     }
 
     private static Span SpanOf(SyntaxNode node, string file)
@@ -280,8 +409,8 @@ internal sealed class MinimalApiClaims : IClaimReader
 
     public IReadOnlyCollection<string> Kinds { get; } = new HashSet<string>(StringComparer.Ordinal)
     {
-        "member.exists", "service.route", "service.secured", "operation.verb", "operation.route", "operation.secured", "operation.anonymous", "operation.returns",
-        "operation.parameters", "operation.status"
+        "member.exists", "service.route", "operation.verb", "operation.route", "operation.returns", "operation.parameters", "operation.status",
+        "endpoint.exists", "security", "security.roles", "security.policy", "service.versions", "operation.versions"
     };
 
     public ClaimReading? Read(ClaimContext context)
@@ -294,14 +423,19 @@ internal sealed class MinimalApiClaims : IClaimReader
             return Returns(context, handler);
         }
 
-        if (context.Code.Get<MinimalApiModel>() is not { Endpoints.Count: > 0 } model)
+        if (context.Code.Get<MinimalApiModel>() is not { } model || model.Endpoints.Count == 0 && model.Routers.Count == 0)
         {
             return null;
         }
 
         if (context.Kind == "member.exists")
         {
-            return Lambda(context, model);
+            return model.Endpoints.Count == 0 ? null : Lambda(context, model);
+        }
+
+        if (context.Kind == "endpoint.exists")
+        {
+            return Endpoint(context, model);
         }
 
         if (context.Kind.StartsWith("service.", StringComparison.Ordinal))
@@ -313,26 +447,27 @@ internal sealed class MinimalApiClaims : IClaimReader
                 return null;
             }
 
-            if (context.Kind == "service.route")
+            if (context.Kind == "service.versions")
             {
-                if (endpoints.FirstOrDefault(x => x.GroupWritten is not null && x.GroupIn(context.Code) is null) is { } unread)
-                {
-                    return Unreadable($"The group's prefix is `{unread.GroupWritten}`", unread.GroupAt!);
-                }
-
-                var groups = endpoints.Select(x => x.GroupIn(context.Code)).Distinct().ToList();
-                return groups is [{ } group]
-                    ? ClaimReading.Stated(group, endpoints[0].GroupAt!)
-                    : groups is [null] ? ClaimReading.Absent(endpoints[0].At) : ClaimReading.CantVerify("ambiguous", $"its endpoints are mapped on {groups.Count} different groups.");
+                // A versioned API maps a group per version (CatalogApi's v1 and v2): the router serves their union.
+                return Versioning.Read(context, endpoints.SelectMany(x => x.GroupVersions.Concat(x.Versions)).DistinctBy(x => (x.Written, x.At)).ToList(), type,
+                    endpoints[0].GroupAt ?? endpoints[0].At);
             }
 
-            return model.RouterSecurity.TryGetValue(type.Name, out var security)
-                ? ClaimReading.Stated(security.Security == "RequireAuthorization" ? "true" : "false", security.At)
-                : ClaimReading.Absent(endpoints[0].GroupAt ?? endpoints[0].At, "false");
+            if (endpoints.FirstOrDefault(x => x.GroupWritten is not null && x.GroupIn(context.Code) is null) is { } unread)
+            {
+                return Unreadable($"The group's prefix is `{unread.GroupWritten}`", unread.GroupAt!);
+            }
+
+            var groups = endpoints.Select(x => x.GroupIn(context.Code)).Distinct().ToList();
+            return groups is [{ } group]
+                ? ClaimReading.Stated(group, endpoints[0].GroupAt!)
+                : groups is [null] ? ClaimReading.Absent(endpoints[0].At) : ClaimReading.CantVerify("ambiguous", $"its endpoints are mapped on {groups.Count} different groups.");
         }
 
-        if (context.Member is not { } member || context.Owner(context.Element) is not { } service || context.TypeOf(service) is not { } router
-            || model.Endpoints.FirstOrDefault(x => x.Router == router.Name && (x.Lambda is { } lambda ? lambda.At == member.At : x.Handler == member.Name)) is not { } endpoint)
+        if ((context.Member ?? context.MemberOf(context.Element)) is not { } member
+            || context.Owner(context.Element) is not { } service || context.TypeOf(service) is not { } router
+            || (context.Located<MinimalEndpoint>() ?? EndpointOf(model, router, member)) is not { } endpoint)
         {
             return null;
         }
@@ -345,8 +480,9 @@ internal sealed class MinimalApiClaims : IClaimReader
             "operation.route" => endpoint.TemplateIn(context.Code) is { } template
                 ? ClaimReading.Stated(template, endpoint.At)
                 : Unreadable($"The pattern is `{endpoint.Template}`", endpoint.At),
-            "operation.secured" => endpoint.Security == "RequireAuthorization" ? ClaimReading.Stated("true", endpoint.SecurityAt!) : ClaimReading.Absent(endpoint.At, "false"),
-            "operation.anonymous" => endpoint.Security == "AllowAnonymous" ? ClaimReading.Stated("true", endpoint.SecurityAt!) : ClaimReading.Absent(endpoint.At, "false"),
+            "security" or "security.roles" or "security.policy" => Security.Read(context, Levels(context.Code, model, endpoint, member, router), router, endpoint.At),
+            // The endpoint's own versions, else its groups', which it serves.
+            "operation.versions" => Versioning.Read(context, endpoint.Versions.Count > 0 ? endpoint.Versions : endpoint.GroupVersions, router, endpoint.At),
             "operation.returns" when endpoint.Lambda is not null && member.Type is null => LambdaReturns(context, endpoint, member),
             "operation.returns" => Returns(context, member),
             "operation.status" => Http.SuccessStatus.Read(context, member),
@@ -354,9 +490,53 @@ internal sealed class MinimalApiClaims : IClaimReader
         };
     }
 
+    private static MinimalEndpoint? EndpointOf(MinimalApiModel model, TypeNode router, MemberNode member) =>
+        model.Endpoints.FirstOrDefault(x => x.Router == router.Name && (x.Lambda is { } lambda ? lambda.At == member.At : x.Handler == member.Name));
+
     /// <summary>
-    /// An operation whose endpoint's handler is a lambda, not a method of the router: the lambda <c>.WithName</c> names
-    /// after it, or else the only lambda mapped with the operation's verb and route.
+    /// The places that may secure an endpoint, most specific first: its own <c>RequireAuthorization</c> or <c>AllowAnonymous</c>,
+    /// its handler's attributes, its group's call, and its router's mapping call (in Program.cs).
+    /// </summary>
+    private static List<Authorization> Levels(CodeGraph code, MinimalApiModel model, MinimalEndpoint endpoint, MemberNode member, TypeNode router) =>
+        new[] { endpoint.Authorization }
+            .Concat(Security.Attributes(code, member.Attributes, router))
+            .Append(endpoint.GroupAuthorization)
+            .Append(model.RouterSecurity.GetValueOrDefault(router.Name))
+            .OfType<Authorization>()
+            .ToList();
+
+    /// <summary>
+    /// The endpoint an Operation is (<c>endpoint.exists</c>): the router's mapping of its handler method, or of the lambda
+    /// <c>member.exists</c> found for it. An Operation without Http Settings states it isn't one.
+    /// </summary>
+    private static ClaimReading? Endpoint(ClaimContext context, MinimalApiModel model)
+    {
+        if (context.Type is not { } router || !model.Routers.Contains(router.Name) && model.Endpoints.All(x => x.Router != router.Name))
+        {
+            return null;
+        }
+
+        var member = context.MemberOf(context.Element);
+        var endpoint = member is null
+            ? model.Endpoints.FirstOrDefault(x => x.Router == router.Name && x.Handler == context.Element.Name)
+            : EndpointOf(model, router, member);
+        var modelled = context.Expected != "absent";
+        if (endpoint is null)
+        {
+            return ClaimReading.Compared("absent", member?.At ?? router.At, !modelled,
+                $"`{router.Name}.{context.Element.Name}` isn't in the code as an endpoint: no `MapGet`, `MapPost`, `MapPut`, `MapDelete`, `MapPatch` or `MapMethods` in `{router.Name}` maps {(member is null ? "it" : $"`{member.Name}`")}. The model states it in the operation's Http Settings. Map it, or remove its Http Settings.");
+        }
+
+        return modelled
+            ? ClaimReading.Found(endpoint, endpoint.At)
+            : ClaimReading.Compared("present", endpoint.At, false,
+                $"`{router.Name}.{context.Element.Name}` is mapped as an endpoint ({endpoint.Verb} {endpoint.Template}, {endpoint.At}), and the Operation has no Http Settings, so the model says it isn't one. Give it Http Settings, or stop mapping it.");
+    }
+
+    /// <summary>
+    /// An operation whose endpoint's handler isn't a method of the router of its name: the lambda <c>.WithName</c> names
+    /// after it, or else the only endpoint mapped with the operation's verb and route, a lambda or a method group whose
+    /// method has another name (<c>CancelOrderAsync</c> for the Operation <c>CancelOrder</c>).
     /// </summary>
     private static ClaimReading? Lambda(ClaimContext context, MinimalApiModel model)
     {
@@ -365,12 +545,39 @@ internal sealed class MinimalApiClaims : IClaimReader
             return null;
         }
 
-        var lambdas = model.Endpoints.Where(x => x.Router == router.Name && x.Lambda is not null).ToList();
+        var endpoints = model.Endpoints.Where(x => x.Router == router.Name).ToList();
         var verb = context.Model.Stereotype(context.Element, "Http Settings", "Verb");
         var route = context.Model.Stereotype(context.Element, "Http Settings", "Route");
-        var match = lambdas.FirstOrDefault(x => x.Handler == context.Element.Name)
-                    ?? (lambdas.Where(x => x.Handler is null && string.Equals(x.Verb, verb, StringComparison.OrdinalIgnoreCase) && Route(x.TemplateIn(context.Code) ?? x.Template) == Route(route ?? "")).ToList() is [var only] ? only : null);
-        return match is null ? null : ClaimReading.Found(match.Lambda! with { Name = context.Element.Name });
+        var match = endpoints.FirstOrDefault(x => x.Lambda is not null && x.Handler == context.Element.Name)
+                    ?? (endpoints.Where(x => (x.Lambda is null || x.Handler is null) && string.Equals(x.Verb, verb, StringComparison.OrdinalIgnoreCase)
+                                             && Route(x.TemplateIn(context.Code) ?? x.Template) == Route(route ?? "")).ToList() is [var only] ? only : null);
+        return match switch
+        {
+            { Lambda: { } lambda } => ClaimReading.Found(lambda with { Name = context.Element.Name }),
+            { Handler: { } handler } when router.Members.Where(x => x is { Kind: "method" } && x.Name == handler).ToList() is [var method] => ClaimReading.Found(method),
+            _ => null
+        };
+    }
+
+    /// <summary>
+    /// The Minimal API router a Service is, when no type has its name: the type whose endpoints are mapped on a group whose
+    /// prefix is the Service's Route (eShop's <c>OrdersApi</c> maps <c>api/orders</c>, the <c>Orders</c> Service's), as the
+    /// route comparer reads both.
+    /// </summary>
+    internal static ClaimReading? Router(ClaimContext context)
+    {
+        if (context.Code.Get<MinimalApiModel>() is not { } model || context.Model.Stereotype(context.Element, "Http Service Settings", "Route") is not { Length: > 0 } route)
+        {
+            return null;
+        }
+
+        var names = model.Endpoints.Where(x => x.GroupIn(context.Code) is { } group && Route(group) == Route(route)).Select(x => x.Router).ToHashSet(StringComparer.Ordinal);
+        return context.Code.Types.Where(x => names.Contains(x.Name)).ToList() switch
+        {
+            [var router] => ClaimReading.Found(router),
+            [] => null,
+            var several => ClaimReading.CantVerify("ambiguous", $"{several.Count} Minimal API routers map the group `{route}`.", several[0].At, several.Select(x => x.At).ToList())
+        };
     }
 
     private static ClaimReading Unreadable(string what, Span at) =>
@@ -516,9 +723,10 @@ internal sealed class MinimalApiClaims : IClaimReader
         var code = member.Parameters.Where(x => !IsInjected(x, context.Code)).ToList();
         var model = context.Element.ChildElements.Where(x => x.SpecializationType == "Parameter").ToList();
         // What the request binds; a model that also lists what is injected, as one drawn from the method does, states the
-        // method's whole signature, which is as true.
+        // method's whole signature, which is as true. A parameter.type claim compares its parameter's type, once.
         bool Same(IReadOnlyList<ParameterNode> parameters) => parameters.Count == model.Count && parameters.Zip(model).All(x =>
-            x.First.Name.TrimStart('@') == x.Second.Name.TrimStart('@') && x.First.Type is { } type && x.Second.TypeReference is { Element: not null } modelType && context.TypeMatches(modelType, type));
+            x.First.Name.TrimStart('@') == x.Second.Name.TrimStart('@') && x.First.Type is { } type && x.Second.TypeReference is { Element: not null } modelType
+            && (context.ClaimOn(x.Second, "parameter.type") is not null || context.TypeMatches(modelType, type)));
         return ClaimReading.Compared(string.Join(", ", code.Select(x => $"{x.Name}: {x.Type?.Text ?? "?"}")), member.At, Same(code) || Same(member.Parameters));
     }
 

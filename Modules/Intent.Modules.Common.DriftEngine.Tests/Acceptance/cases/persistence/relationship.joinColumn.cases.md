@@ -236,12 +236,12 @@ The end has no Foreign Key stereotype, though the code names `order_id`. An unse
 }
 ```
 
-## cant-verify-unreadable
+## verified-constant
 
-The join column's name is a constant, `Columns.ORDER_ID`, not a literal. The code does state a name, so the claim isn't "not stated", but the rule can't read its value without evaluating the constant: the read case for a non-literal name is marked `unreadable`, and the claim is can't verify, `unreadable`, at the annotation.
+The join column's name is a constant the code declares, `Columns.ORDER_ID`, not a literal. A constant the code declares states its value as a literal would, so the claim is verified.
 
 ```json case
-{ "phase": 4, "base": "verified", "kinds": ["relationship.joinColumn"], "cases": ["engine/unreadable"], "traces": ["JAV-DOM-27"], "requirements": ["R5", "R11"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
+{ "phase": 4, "base": "verified", "kinds": ["relationship.joinColumn"], "traces": ["JAV-DOM-27"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
 ```
 
 ```java file src/main/java/com/shop/domain/Order.java
@@ -275,6 +275,46 @@ final class Columns {
 
     private Columns() {
     }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "relationship.joinColumn", "element": "order-lines", "outcome": "verified", "expected": "order_id", "actual": "order_id",
+      "at": "src/main/java/com/shop/domain/Order.java:18" }
+  ]
+}
+```
+
+## cant-verify-unreadable
+
+The join column's name is a constant, `Columns.ORDER_ID`, that no in-scope file declares: `Columns` is generated at build time. The code does state a name, so the claim isn't "not stated", but the rule can't read its value without the code that declares it: the claim is can't verify, `unreadable`, at the annotation.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["relationship.joinColumn"], "cases": ["engine/unreadable"], "traces": ["JAV-DOM-27"], "requirements": ["R5", "R11"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
+```
+
+```java file src/main/java/com/shop/domain/Order.java
+package com.shop.domain;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+@Entity
+public class Order {
+    @Id
+    private UUID id;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = Columns.ORDER_ID, nullable = false)
+    private List<OrderLine> lines = new ArrayList<>();
 }
 ```
 

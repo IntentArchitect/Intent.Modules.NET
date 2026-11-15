@@ -115,12 +115,21 @@ internal static class CSharpReader
                 var component = razor is not null && declaration == razor.Component;
                 var kind = component ? "component" : Kind(declaration);
                 var ns = Namespace(declaration);
-                var key = $"{ns}.{declaration.Identifier.Text}";
+                var name = declaration.Identifier.Text;
+
+                // With neither a project's root namespace nor an @namespace, Razor names a component by its checksum
+                // (__GeneratedComponent.AspNetCore_<sha>); it is still the component its file names, in no known namespace.
+                if (component && ns == "__GeneratedComponent")
+                {
+                    (ns, name) = ("", Path.GetFileNameWithoutExtension(file));
+                }
+
+                var key = $"{ns}.{name}";
                 if (!parts.TryGetValue(key, out var type))
                 {
                     type = new TypeNode
                     {
-                        Name = declaration.Identifier.Text,
+                        Name = name,
                         Namespace = ns,
                         Kind = kind,
                         At = SpanOf(declaration, file),

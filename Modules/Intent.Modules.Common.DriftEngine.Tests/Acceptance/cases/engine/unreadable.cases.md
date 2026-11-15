@@ -9,7 +9,7 @@ The model says `SetPaidStatus` raises `OrderStatusChangedToPaidDomainEvent`. The
 eShopCustom's Domain module gave an `AddDomainEvent` whose event it couldn't identify a warning.
 
 ```json case
-{ "phase": 1, "cases": ["engine/unreadable"], "traces": ["ESC-DOM-32"], "requirements": ["R1", "R5"], "packs": ["intent.core", "intent.domain", "house.shop"], "language": "csharp" }
+{ "phase": 1, "cases": ["engine/unreadable"], "traces": ["ESC-DOM-32"], "requirements": ["R1", "R5"], "packs": ["intent.core", "intent.domain", "intent.messaging", "house.shop"], "language": "csharp" }
 ```
 
 ```json pack

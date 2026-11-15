@@ -135,7 +135,16 @@ public sealed record PackRef(string Id, string Version);
 public sealed record FileRead(string Path, string Reader);
 
 /// <summary>What one run produces (run-result.schema.json).</summary>
-public sealed record RunResult(IReadOnlyList<Claim> Claims, IReadOnlyList<Finding> Findings, Coverage Coverage, IReadOnlyList<PackRef> Packs, IReadOnlyList<FileRead> Files);
+public sealed record RunResult(IReadOnlyList<Claim> Claims, IReadOnlyList<Finding> Findings, Coverage Coverage, IReadOnlyList<PackRef> Packs, IReadOnlyList<FileRead> Files)
+{
+    /// <summary>How long each part of the run took, for the log; not part of the result's schema.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public IReadOnlyList<Timing> Timings { get; init; } = [];
+}
+
+/// <summary>How long a part of the run took: reading code (<c>code</c>, each language and reader), building and reading claims
+/// (<c>kind X</c> is one kind's own reading, with its claim count), rules, opt-in and the total.</summary>
+public sealed record Timing(string What, double Milliseconds, int? Count = null);
 
 /// <summary>
 /// One run's input: the application's designers as Intent model objects (decision 2), the folder holding its code, and

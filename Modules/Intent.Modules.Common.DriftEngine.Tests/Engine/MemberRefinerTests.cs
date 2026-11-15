@@ -133,7 +133,9 @@ public class MemberRefinerTests
     public void Without_the_house_the_stack_cant_read_its_helpers()
     {
         var result = Run(Controller, house: false);
-        Outcome(result, "operation.parameters", "get-orders").ShouldBe("contradicted");
+        // An endpoint's parameter has its type compared by its own parameter.type claim, so the mismatch is one finding.
+        Outcome(result, "parameter.type", "get-orders-status").ShouldBe("contradicted");
+        Outcome(result, "operation.parameters", "get-orders").ShouldBe("verified");
         Outcome(result, "operation.returns", "place-order").ShouldBe("cantVerify");
         Outcome(result, "operation.returns", "cancel-order").ShouldBe("cantVerify");
     }
@@ -143,6 +145,8 @@ public class MemberRefinerTests
     {
         var result = Run(Controller, house: true);
         Outcome(result, "operation.parameters", "get-orders").ShouldBe("verified");
+        // A parameter's claims read the handler as the house refines it for the operation's parameters.
+        Outcome(result, "parameter.type", "get-orders-status").ShouldBe("verified");
         Outcome(result, "operation.returns", "place-order").ShouldBe("verified");
         Outcome(result, "operation.returns", "cancel-order").ShouldBe("verified");
         Outcome(result, "operation.parameters", "place-order").ShouldBe("verified");
@@ -155,7 +159,7 @@ public class MemberRefinerTests
             .Replace("Http.parseEnum(OrderStatus.class", "Http.parseEnum(ReturnStatus.class", StringComparison.Ordinal)
             .Replace("Http.created(null)", "Http.created(orders.place(null))", StringComparison.Ordinal);
         var result = Run(planted, house: true);
-        Outcome(result, "operation.parameters", "get-orders").ShouldBe("contradicted");
+        Outcome(result, "parameter.type", "get-orders-status").ShouldBe("contradicted");
         Outcome(result, "operation.returns", "cancel-order").ShouldBe("contradicted");
         Outcome(result, "operation.returns", "place-order").ShouldBe("verified");
     }

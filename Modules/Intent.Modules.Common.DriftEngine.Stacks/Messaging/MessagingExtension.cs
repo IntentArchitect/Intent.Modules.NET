@@ -68,11 +68,39 @@ internal sealed class MessageLinkSource : IClaimSource
                         Kind = link.Kind,
                         Expected = "present",
                         DependsOn = DependsOn(link.Designer, source),
-                        Source = $"its {link.Link} link"
+                        Source = $"its {link.Link} link",
+                        Bindings = Bindings(model, link, source, target.Target)
                     };
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// The placeholders a recipe for the link reads, Common.Drift's names (vocabulary.md, Placeholders): a Domain link's
+    /// <c>{Entity}</c>, <c>{Member}</c> and <c>{DomainEvent}</c>; a Services link's <c>{Service}</c>, <c>{Operation}</c> and <c>{Message}</c>.
+    /// </summary>
+    private static Dictionary<string, string> Bindings(ModelContext model, MessageLink link, IElement source, IElement message)
+    {
+        var owner = model.Owner(source);
+        if (link.Designer == "Domain")
+        {
+            return new Dictionary<string, string> { ["Entity"] = owner?.Name ?? "", ["Member"] = source.Name, ["DomainEvent"] = message.Name };
+        }
+
+        // An operation's service, or a subscription's handler; a command sends from itself.
+        var bindings = new Dictionary<string, string> { ["Message"] = message.Name };
+        if (source is IAssociationEnd || source.SpecializationType == "Operation")
+        {
+            bindings["Service"] = owner?.Name ?? "";
+        }
+
+        if (source is not IAssociationEnd)
+        {
+            bindings["Operation"] = source.Name;
+        }
+
+        return bindings;
     }
 
     /// <summary>A handler's subscriptions: the target ends of its own associations, which a publish or send may start from.</summary>

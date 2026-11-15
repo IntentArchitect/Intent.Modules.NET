@@ -203,7 +203,7 @@ public class OrderingContext : DbContext
 
 ## one-finding-for-an-unmapped-table
 
-Nothing maps `Order`, and its configuration also names its column differently from the model's Column Name. A table nothing maps is one finding (user decision, 2026-11-15: "flag it once"): its table name, table kind, key and columns wait on `entity.persisted` (`waitsOn`), so they are blocked, and the one finding counts them, rather than a finding per column for a configuration that never runs.
+Nothing maps `Order`, and its configuration also names its column differently from the model's Column Name. A table nothing maps is one finding (user decision, 2026-11-15: "flag it once"): its table name, table kind, key and columns wait on `entity.persisted` (`waitsOn`), so they are blocked, and the one finding counts them, rather than a finding per column for a configuration that never runs. The six it counts are the table name, table kind and key, the column name, and each attribute's `column.mapped`.
 
 ```json case
 { "phase": 4, "base": "verified", "kinds": ["entity.persisted", "table.name", "column.name"], "cases": ["engine/blocked"], "traces": ["ESC-DOM-10"], "requirements": ["R1", "R3", "R5"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
@@ -289,7 +289,7 @@ public class OrderingContext : DbContext
     { "kind": "column.name", "element": "order-payment-id", "outcome": "cantVerify", "reason": "blocked", "blockedBy": "entity.persisted" }
   ],
   "findings": [
-    { "rule": "claim/entity.persisted", "severity": "error", "subject": "order", "messageContains": "4 claims on it can't be checked until it is" }
+    { "rule": "claim/entity.persisted", "severity": "error", "subject": "order", "messageContains": "6 claims on it can't be checked until it is" }
   ]
 }
 ```

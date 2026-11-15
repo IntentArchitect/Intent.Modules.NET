@@ -32,13 +32,33 @@ public sealed record FindHit(TypeNode Type, MemberNode? Member, object Node, Spa
 /// A find path over the graph (rules.md, Recipes): steps joined by <c> &gt; </c>, each a kind of node, optionally
 /// <c>with</c> a .NET regular expression its canonical text must match somewhere. <c>type</c> (or <c>class</c>) starts it;
 /// <c>method</c>, <c>property</c>, <c>field</c>, <c>constructor</c> and <c>member</c> go into a type's members, <c>parameter</c>
-/// into a member's parameters, <c>call</c> into a member's calls (every member's, after a type), <c>annotation</c> onto the
-/// node before, and <c>markup</c> into the markup elements of a type's files, or those inside the element before. An element's
-/// text holds the elements inside it, so <c>markup with</c> keeps only the innermost elements that match (rules.md, Recipes).
+/// into a member's parameters, <c>call</c> into a member's calls (every member's, after a type), <c>chain</c> into its call
+/// chains (<see cref="Chains"/>), <c>annotation</c> onto the node before, and <c>markup</c> into the markup elements of a type's
+/// files, or those inside the element before. An element's text holds the elements inside it, and a chain's the chains in its
+/// arguments, so <c>markup with</c> and <c>chain with</c> keep only the innermost that match (rules.md, Recipes).
 /// </summary>
 public static class FindPath
 {
     private static readonly string[] MemberKinds = ["method", "property", "field", "constructor", "member"];
+
+    /// <summary>
+    /// The call chains among a unit's calls (code-reader.md, <c>chain</c>), each as its last call, whose canonical text is the
+    /// whole chain: a call no other call is made on (<see cref="CallNode.On"/>), so
+    /// <c>builder.Property("_card").HasColumnName("Card")</c> is one chain, <c>HasColumnName</c>'s, and a call made on nothing
+    /// is a chain of one. A chain in another's arguments, such as a lambda's, is a chain of its own.
+    /// </summary>
+    public static IEnumerable<CallNode> Chains(IReadOnlyCollection<CallNode> calls)
+    {
+        var madeOn = calls.Select(x => x.On).OfType<CallNode>().ToHashSet(ReferenceEqualityComparer.Instance);
+        return calls.Where(x => !x.IsReference && !madeOn.Contains(x));
+    }
+
+    /// <summary>
+    /// Of places whose text matched, the innermost: one is dropped when another of them lies within it, as a chain whose
+    /// argument holds a matching chain, or an element holding a matching element, matches only because of it.
+    /// </summary>
+    internal static List<T> Innermost<T>(IReadOnlyList<T> places, Func<T, object> node, Func<T, Span> at) =>
+        places.Where(x => !places.Any(y => !ReferenceEquals(node(x), node(y)) && at(x).Contains(at(y)) && !at(y).Contains(at(x)))).ToList();
 
     /// <param name="path">The find path.</param>
     /// <param name="types">The types it starts at.</param>
@@ -61,6 +81,10 @@ public static class FindPath
             hits = step == "markup"
                 ? hits.SelectMany(hit => Markup(hit, with, code))
                 : hits.SelectMany(hit => Next(hit, step)).SelectMany(hit => Match(hit, with));
+            if (step == "chain" && with is not null)
+            {
+                hits = Innermost(hits.ToList(), x => x.Node, x => x.At);
+            }
         }
 
         return hits;
@@ -89,7 +113,7 @@ public static class FindPath
     {
         var at = step.IndexOf(" with ", StringComparison.Ordinal);
         var kind = (at < 0 ? step : step[..at]).Trim();
-        if (kind is not ("type" or "class" or "call" or "annotation" or "parameter" or "markup") && !MemberKinds.Contains(kind))
+        if (kind is not ("type" or "class" or "call" or "chain" or "annotation" or "parameter" or "markup") && !MemberKinds.Contains(kind))
         {
             throw new ArgumentException($"A find path has a step this engine doesn't read: '{step}'.");
         }
@@ -101,6 +125,7 @@ public static class FindPath
     {
         "type" or "class" => hit.Member is null && hit.Node is TypeNode ? [hit] : [],
         "call" => (hit.Member is { } member ? [member] : hit.Type.Members).SelectMany(m => m.Calls.Select(c => hit with { Member = m, Node = c, At = c.At })),
+        "chain" => (hit.Member is { } member ? [member] : hit.Type.Members).SelectMany(m => Chains(m.Calls).Select(c => hit with { Member = m, Node = c, At = c.At })),
         "annotation" => (hit.Node switch { TypeNode t => t.Attributes, MemberNode m => m.Attributes, ParameterNode p => p.Attributes, _ => [] }).Select(a => hit with { Node = a, At = a.At }),
         "parameter" => hit.Node is MemberNode owner ? owner.Parameters.Select(p => hit with { Node = p, At = p.At }) : [],
         _ => hit.Node is TypeNode type
@@ -124,7 +149,7 @@ public static class FindPath
         TypeNode type => type.Text,
         MemberNode member => member.Text,
         ParameterNode parameter => parameter.Text,
-        CallNode call => call.Text,
+        CallNode call => call.Canonical,
         MarkupNode element => element.Text,
         AttributeNode attribute => attribute.Arguments.Count == 0 ? attribute.Name : $"{attribute.Name}({string.Join(",", attribute.Arguments)})",
         _ => ""

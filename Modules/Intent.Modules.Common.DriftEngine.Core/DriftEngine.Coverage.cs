@@ -249,7 +249,7 @@ public sealed partial class DriftEngine
                     reads.Elements.Add(element);
                 }
 
-                if (entry["for"]?["associationEnd"]?.GetValue<string>() is { } association)
+                if ((entry["for"]?["associationEnd"] ?? entry["for"]?["association"])?.GetValue<string>() is { } association)
                 {
                     reads.Associations.Add(association);
                 }

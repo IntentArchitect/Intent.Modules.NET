@@ -12,7 +12,8 @@
     { "kind": "intent.creates", "label": "creates", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
     { "kind": "intent.updates", "label": "updates", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
     { "kind": "intent.deletes", "label": "deletes", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
-    { "kind": "intent.queries", "label": "queries", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true }
+    { "kind": "intent.queries", "label": "queries", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "service.implementation", "label": "implementation", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true }
   ],
   "vocabulary": {
     "Services": {
@@ -22,6 +23,7 @@
         { "kind": "type.kind", "for": { "element": "DTO" }, "dependsOn": "type.exists", "source": "the element type" },
         { "kind": "type.abstract", "for": { "element": "DTO" }, "value": "abstract", "dependsOn": "type.exists", "source": "the DTO's Abstract" },
         { "kind": "type.generalization", "for": { "element": "DTO" }, "value": "join(map(where(associations('Generalization'), isTarget), type.name), ', ')", "dependsOn": "type.exists", "source": "the DTO's Generalization" },
+        { "kind": "type.generics", "for": { "element": "DTO", "where": "exists(genericTypes)" }, "value": "genericTypes", "dependsOn": "type.exists", "source": "the DTO's generic types" },
         { "kind": "type.exists", "for": { "element": "Command" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the command" },
         { "kind": "type.kind", "for": { "element": "Command" }, "dependsOn": "type.exists", "source": "the element type" },
         { "kind": "type.exists", "for": { "element": "Query" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the query" },
@@ -29,6 +31,7 @@
         { "kind": "member.exists", "for": { "element": "DTO-Field" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the field" },
         { "kind": "member.type", "for": { "element": "DTO-Field" }, "value": "type", "dependsOn": "member.exists", "source": "the field's type" },
         { "kind": "member.nullable", "for": { "element": "DTO-Field" }, "value": "type.isNullable", "dependsOn": "member.exists", "source": "the field's Is Nullable" },
+        { "kind": "member.wireName", "for": { "element": "DTO-Field", "where": "stereotype('Serialization Settings')['Naming Convention'] == 'Custom'" }, "value": "stereotype('Serialization Settings')['Custom Name']", "dependsOn": "member.exists", "source": "the field's Serialization Settings Custom Name" },
         { "kind": "type.exists", "for": { "element": "Service" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the service" },
         { "kind": "type.kind", "for": { "element": "Service" }, "dependsOn": "type.exists", "source": "the element type" },
         { "kind": "type.exists", "for": { "element": "Service Proxy" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the service proxy" },
@@ -38,7 +41,7 @@
         { "kind": "operation.parameters", "for": { "element": "Operation" }, "dependsOn": "member.exists", "source": "the operation's parameters" },
         { "kind": "type.exists", "for": { "element": "Enum" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the enum" },
         { "kind": "type.kind", "for": { "element": "Enum" }, "dependsOn": "type.exists", "source": "the element type" },
-        { "kind": "member.exists", "for": { "element": "Enum-Literal" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the literal" },
+        { "kind": "enum.literals", "for": { "element": "Enum" }, "value": "join(map(children('Enum-Literal'), name), ', ')", "dependsOn": "type.exists", "waitsOn": ["type.kind"], "source": "the enum's literals" },
         { "kind": "enum.literal.value", "for": { "element": "Enum-Literal" }, "value": "value", "dependsOn": "parent:type.exists", "source": "the literal's value" },
         { "kind": "type.exists", "for": { "element": "Message" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the message" },
         { "kind": "type.kind", "for": { "element": "Message" }, "dependsOn": "type.exists", "source": "the element type" },
@@ -56,9 +59,9 @@
         { "kind": "type.kind", "for": { "element": "Integration Event Handler" }, "dependsOn": "type.exists", "source": "the element type" },
         { "kind": "type.exists", "for": { "element": "Domain Event Handler" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the domain event handler" },
         { "kind": "type.kind", "for": { "element": "Domain Event Handler" }, "dependsOn": "type.exists", "source": "the element type" },
-        { "kind": "subscription.handler", "for": { "associationEnd": "Subscribe Integration Event" }, "value": "self", "dependsOn": "parent:type.exists", "source": "its Subscribe Integration Event link" },
-        { "kind": "subscription.handler", "for": { "associationEnd": "Subscribe Integration Command" }, "value": "self", "dependsOn": "parent:type.exists", "source": "its Subscribe Integration Command link" },
-        { "kind": "subscription.handler", "for": { "associationEnd": "Domain Event Handler Association" }, "value": "self", "dependsOn": "parent:type.exists", "source": "its Domain Event Handler Association link" },
+        { "kind": "subscription.handler", "for": { "associationEnd": "Subscribe Integration Event" }, "value": "self", "bindings": { "Service": "otherEnd.element.name", "Message": "element.name" }, "dependsOn": "parent:type.exists", "source": "its Subscribe Integration Event link" },
+        { "kind": "subscription.handler", "for": { "associationEnd": "Subscribe Integration Command" }, "value": "self", "bindings": { "Service": "otherEnd.element.name", "Message": "element.name" }, "dependsOn": "parent:type.exists", "source": "its Subscribe Integration Command link" },
+        { "kind": "subscription.handler", "for": { "associationEnd": "Domain Event Handler Association" }, "value": "self", "bindings": { "Service": "otherEnd.element.name", "Message": "element.name" }, "dependsOn": "parent:type.exists", "source": "its Domain Event Handler Association link" },
         { "kind": "message.copy", "for": { "associationEnd": "Integration Event Subscription" }, "value": "self", "dependsOn": "parent:type.exists", "source": "its Integration Event Subscription link" },
         { "kind": "intent.invokes", "for": { "associationEnd": "Perform Invocation" }, "value": "self", "dependsOn": "parent:member.exists", "source": "its Perform Invocation link" },
         { "kind": "intent.creates", "for": { "associationEnd": "Create Entity Action" }, "value": "self", "dependsOn": "parent:member.exists", "source": "its Create Entity Action link" },

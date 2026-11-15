@@ -171,6 +171,7 @@ internal sealed class JavaBody(BlockContext body, TypeNode owner, string file, C
             TypeArguments = site.TypeArguments,
             Target = resolved.Targets is [var target] ? target : null,
             Text = JavaReader.TextOf(site.Whole),
+            CanonicalOf = () => JavaReader.Canonical(site.Whole),
             At = JavaReader.SpanOf(site.Whole, file)
         };
     }
@@ -223,6 +224,7 @@ internal sealed class JavaBody(BlockContext body, TypeNode owner, string file, C
             IsReference = true,
             Target = targets is [var target] ? target : null,
             Text = JavaReader.TextOf(reference),
+            CanonicalOf = () => JavaReader.Canonical(reference),
             At = JavaReader.SpanOf(reference, file)
         };
     }

@@ -960,6 +960,7 @@ The Java spike's Front End Proxies are object literals in a TypeScript file, `ex
         {
           "kind": "operation.returns",
           "for": { "element": "Proxy Operation" },
+          "value": "type",
           "bindings": { "Operation": "camel(name)", "ProxyFile": "parent.stereotype('Implementation').Path" },
           "own": ["Operation"],
           "source": "the Proxy Operation's type"
@@ -1052,7 +1053,7 @@ export const api = {
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "api-get-product-by-id", "outcome": "verified", "expected": "ProductDto?", "actual": "ProductDto | null", "at": "src/api/client.ts:10" },
+    { "kind": "operation.returns", "element": "api-get-product-by-id", "outcome": "verified", "expected": "ProductDto?", "actual": "ProductDto|null", "at": "src/api/client.ts:10" },
     { "kind": "operation.returns", "element": "api-list-products", "outcome": "verified", "expected": "ProductDto[]", "actual": "ProductDto[]", "at": "src/api/client.ts:15" }
   ],
   "findings": [

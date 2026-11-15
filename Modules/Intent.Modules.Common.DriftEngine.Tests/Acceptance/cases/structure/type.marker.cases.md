@@ -400,10 +400,10 @@ public record CreateOrderDraftCommand(string BuyerId) : IRequest<OrderDraftDto>;
 
 ## java-entity-verified
 
-The JPA pack states that a Class with a Primary Key is a JPA entity: the `Entity` marker, read as the `@Entity` annotation through the Java reader's annotation nodes (R33, R46). The spike checked that a Class is an entity type, not an enum or a helper.
+The spike checked that a Class is an entity type, not an enum or a helper. That `@Entity` maps the class is `entity.persisted`'s fact, which JPA reads from the annotation, so it isn't a marker too: one missing `@Entity` is one finding (user decision, 2026-11-15: "flag it once"). The model states that a class is persisted with its Table stereotype, not with a Primary Key, so a stock `Entity` marker on every Class with a Primary Key would claim what the model doesn't say, and on C# code nothing would read it. `Customer` shows JPA is in the code.
 
 ```json case
-{ "phase": 4, "kinds": ["type.marker"], "traces": ["JAV-DOM-04"], "requirements": ["R2", "R33", "R46"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
+{ "phase": 4, "kinds": ["entity.persisted", "type.marker"], "traces": ["JAV-DOM-04"], "requirements": ["R2", "R33", "R46"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
 ```
 
 ```json model
@@ -414,6 +414,7 @@ The JPA pack states that a Class with a Primary Key is a JPA entity: the `Entity
         "id": "domain", "name": "Shop.Domain",
         "elements": [
           { "id": "order-line-item", "type": "Class", "name": "OrderLineItem",
+            "stereotypes": { "Table": {} },
             "children": [
               { "id": "order-line-item-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "guid" },
                 "stereotypes": { "Primary Key": {} } }
@@ -443,21 +444,36 @@ public class OrderLineItem {
 }
 ```
 
+```java file src/main/java/com/shop/domain/Customer.java
+package com.shop.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import java.util.UUID;
+
+@Entity
+public class Customer {
+    @Id
+    private UUID id;
+}
+```
+
 ```json expect
 {
   "claims": [
-    { "kind": "type.marker", "element": "order-line-item", "key": "Entity", "outcome": "verified", "expected": "true", "actual": "true",
-      "at": "src/main/java/com/shop/domain/OrderLineItem.java:7" }
+    { "kind": "entity.persisted", "element": "order-line-item", "outcome": "verified", "expected": "true", "actual": "true",
+      "at": "src/main/java/com/shop/domain/OrderLineItem.java:7" },
+    { "kind": "type.marker", "element": "order-line-item", "absent": true, "note": "Mapping the class is entity.persisted's fact, not a marker" }
   ]
 }
 ```
 
 ## java-entity-unannotated
 
-The class kept its `@Id` field and lost `@Entity`: a helper class, not an entity. The marker is contradicted from silence.
+The class kept its `@Id` field and lost `@Entity`: a helper class, not an entity. JPA maps nothing it doesn't annotate, so `entity.persisted` is contradicted from silence, one finding.
 
 ```json case
-{ "phase": 4, "base": "java-entity-verified", "kinds": ["type.marker"], "traces": ["JAV-DOM-04"], "requirements": ["R1", "R3", "R33"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
+{ "phase": 4, "base": "java-entity-verified", "kinds": ["entity.persisted"], "traces": ["JAV-DOM-04"], "requirements": ["R1", "R3", "R33"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
 ```
 
 ```java file src/main/java/com/shop/domain/OrderLineItem.java
@@ -475,11 +491,11 @@ public class OrderLineItem {
 ```json expect
 {
   "claims": [
-    { "kind": "type.marker", "element": "order-line-item", "key": "Entity", "outcome": "contradicted", "expected": "true", "actual": "false",
+    { "kind": "entity.persisted", "element": "order-line-item", "outcome": "contradicted", "expected": "true", "actual": "false",
       "fromSilence": true }
   ],
   "findings": [
-    { "rule": "claim/type.marker", "severity": "error", "subject": "order-line-item", "messageContains": "OrderLineItem" }
+    { "rule": "claim/entity.persisted", "severity": "error", "subject": "order-line-item", "messageContains": "OrderLineItem" }
   ]
 }
 ```

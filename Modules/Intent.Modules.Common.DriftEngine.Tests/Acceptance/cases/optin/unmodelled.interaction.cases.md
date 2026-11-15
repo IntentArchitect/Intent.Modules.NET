@@ -137,7 +137,7 @@ The same model and code, with the rule on. The raise is a call a Domain Event Or
 The model links the constructor to the event with a Domain Event Origin. Its `intent.raises` claim reads the raise, which locates the call, so the rule reports nothing.
 
 ```json case
-{ "phase": 6, "base": "on", "kinds": ["intent.raises"], "cases": ["optin/unmodelled.interaction"], "traces": ["ESC-DOM-31"], "requirements": ["R49"], "packs": ["intent.core", "intent.domain", "house.ordering"], "language": "csharp" }
+{ "phase": 6, "base": "on", "kinds": ["intent.raises"], "cases": ["optin/unmodelled.interaction"], "traces": ["ESC-DOM-31"], "requirements": ["R49"], "packs": ["intent.core", "intent.domain", "intent.messaging", "house.ordering"], "language": "csharp" }
 ```
 
 ```json model

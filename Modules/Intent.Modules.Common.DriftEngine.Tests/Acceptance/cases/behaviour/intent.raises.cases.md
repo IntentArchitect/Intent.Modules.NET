@@ -9,7 +9,7 @@ The recipe cases trace ESC-DOM-30 in part: a recipe reads one member's body and 
 `SetShippedStatus` adds `new OrderShippedDomainEvent(this)` in its own body, and the model links it to `OrderShippedDomainEvent` (ESC-DOM-30, a direct raise).
 
 ```json case
-{ "phase": 6, "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R2", "R46"], "packs": ["intent.core", "intent.domain", "house.eshop"], "language": "csharp" }
+{ "phase": 6, "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R2", "R46"], "packs": ["intent.core", "intent.domain", "intent.messaging", "house.eshop"], "language": "csharp" }
 ```
 
 ```json pack
@@ -123,7 +123,7 @@ public record OrderShippedDomainEvent(Order Order) : INotification;
 The constructor doesn't build the event itself: it calls the private helper `AddOrderStartedDomainEvent`, named after the event, as eShop's `Order` does. The recipe's second read case finds the call, so the link to `OrderStartedDomainEvent` is verified (ESC-DOM-30, a helper named after the event).
 
 ```json case
-{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R2", "R46"], "packs": ["intent.core", "intent.domain", "house.eshop"], "language": "csharp" }
+{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R2", "R46"], "packs": ["intent.core", "intent.domain", "intent.messaging", "house.eshop"], "language": "csharp" }
 ```
 
 ```json expect
@@ -140,7 +140,7 @@ The constructor doesn't build the event itself: it calls the private helper `Add
 `SetShippedStatus` changes the order's state and raises nothing. The member is found and its body raises no `OrderShippedDomainEvent`, so the recipe's `default` applies: the code states, by saying nothing, that the member doesn't raise it, and the modelled link is contradicted (ESC-DOM-30).
 
 ```json case
-{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R1", "R3", "R11"], "packs": ["intent.core", "intent.domain", "house.eshop"], "language": "csharp" }
+{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R1", "R3", "R11"], "packs": ["intent.core", "intent.domain", "intent.messaging", "house.eshop"], "language": "csharp" }
 ```
 
 ```csharp file src/Domain/Order.cs
@@ -185,7 +185,7 @@ public class Order : Entity
 `SetShippedStatus` hands the work to a `Shipment`, and it is `Shipment.Ship` that adds `OrderShippedDomainEvent`. The rule reads the linked member's own body; a call into another class isn't followed, so the event reads as not raised and the link is contradicted. The fix is in the model: link the event to the member that raises it (ESC-DOM-30).
 
 ```json case
-{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R1", "R3"], "packs": ["intent.core", "intent.domain", "house.eshop"], "language": "csharp" }
+{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R1", "R3"], "packs": ["intent.core", "intent.domain", "intent.messaging", "house.eshop"], "language": "csharp" }
 ```
 
 ```csharp file src/Domain/Order.cs

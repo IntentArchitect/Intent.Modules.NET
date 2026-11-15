@@ -166,6 +166,7 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
             TypeArguments = TypeArgumentsOf(invocation.Expression),
             Target = call.Targets is [var target] ? target : null,
             Text = Normalise(invocation),
+            CanonicalOf = () => CSharpReader.Canonical(invocation),
             At = CSharpReader.SpanOf(invocation, file)
         };
     }
@@ -195,6 +196,7 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
             IsReference = true,
             Target = call.Targets is [var target] ? target : null,
             Text = Normalise(expression),
+            CanonicalOf = () => CSharpReader.Canonical(expression),
             At = CSharpReader.SpanOf(expression, file)
         };
     }

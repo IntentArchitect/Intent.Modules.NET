@@ -121,7 +121,7 @@ public static class CatalogApi
 
 ## unresolved
 
-basislink5's API project turns nullable reference types off, so the action's `string expDate` says nothing about whether it may be null: can't verify, `unresolved`, never a guess either way (R35). basislink5's house pack says a Service is the controller class of its name.
+basislink5's API project turns nullable reference types off, so the action's `string expDate` says nothing about whether it may be null: can't verify, `unresolved`, never a guess either way (R35). Its `string commodity` is the same, so the one note counts both. basislink5's house pack says a Service is the controller class of its name.
 
 ```json case
 { "phase": 2, "kinds": ["parameter.nullable"], "cases": ["engine/unresolved"], "traces": ["ESC-SVC-30"], "requirements": ["R1", "R5", "R35"], "packs": ["intent.core", "intent.services", "house.basislink"], "language": "csharp" }
@@ -216,7 +216,7 @@ namespace Basislink.API.Controllers.Grain
   ],
   "findings": [
     { "rule": "claim/parameter.nullable", "subject": "futures-controller-get-safex-exp-date", "count": 0 },
-    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 1 nullability claims (Services 1)" }
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 2 nullability claims (Services 2)" }
   ]
 }
 ```

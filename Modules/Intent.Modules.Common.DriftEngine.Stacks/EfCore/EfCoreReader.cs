@@ -63,6 +63,12 @@ internal sealed class EfCoreReader : ICodeReader
 
                 Add(Config(model, Name(chainedType), invocation, file), Calls((InvocationExpressionSyntax)top, file, csharp).Skip(1).ToList());
             }
+            else if (invocation.Expression is MemberAccessExpressionSyntax { Name: GenericNameSyntax { Identifier.Text: "Owned", TypeArgumentList.Arguments: [var ownedType] } name }
+                     && invocation.ArgumentList.Arguments.Count == 0)
+            {
+                // modelBuilder.Owned<Address>(): Address is owned wherever an entity holds it.
+                model.Owned.TryAdd(Name(ownedType), SpanOf(name, file));
+            }
         }
 
         foreach (var method in root.DescendantNodes().OfType<MethodDeclarationSyntax>())
@@ -75,6 +81,7 @@ internal sealed class EfCoreReader : ICodeReader
                 if (method.FirstAncestorOrSelf<TypeDeclarationSyntax>() is { } configuration)
                 {
                     model.Configurations[configuration.Identifier.Text] = Name(entityType);
+                    model.Entities[Name(entityType)].ConfigurationClasses.Add((configuration.Identifier.Text, SpanOf(configuration, file)));
                 }
             }
         }

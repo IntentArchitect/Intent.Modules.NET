@@ -84,6 +84,12 @@ public sealed class EntityConfig
     /// has no member by that name.
     /// </summary>
     public Dictionary<string, (TypeRefNode Type, Span At)> Declared { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>
+    /// The <c>IEntityTypeConfiguration&lt;T&gt;</c> classes that configure it, each where it is declared. Two configure the same
+    /// entity name when two namespaces each have one, so a reader keeps those whose file reaches the entity's namespace.
+    /// </summary>
+    public List<(string Name, Span At)> ConfigurationClasses { get; } = [];
 }
 
 /// <summary>
@@ -99,6 +105,9 @@ public sealed class EfCoreModel
 
     /// <summary>Each <c>IEntityTypeConfiguration&lt;T&gt;</c> class's entity, by the configuration's class name.</summary>
     public Dictionary<string, string> Configurations { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>The types the model owns wherever they are used, by name: <c>modelBuilder.Owned&lt;Address&gt;()</c>.</summary>
+    public Dictionary<string, Span> Owned { get; } = new(StringComparer.Ordinal);
 
     /// <summary>
     /// The contexts that map an entity: by a <c>DbSet</c>, <c>Entity&lt;T&gt;</c>, or applying its configuration, one by one

@@ -12,7 +12,7 @@ public sealed class AspNetCoreExtension : IDriftExtension
 {
     public string Id => "intent.aspnetcore";
 
-    public IEnumerable<ICodeReader> Readers { get; } = [new MinimalApiReader(), new AspNetCoreDetector()];
+    public IEnumerable<ICodeReader> Readers { get; } = [new MinimalApiReader(), new ApiVersioningReader(), new AspNetCoreDetector()];
 
     // The Minimal API reader comes first (the later one does) and passes on anything that isn't an endpoint.
     public IEnumerable<IClaimReader> ClaimReaders { get; } = [new AspNetCoreClaims(), new MinimalApiClaims()];
@@ -76,7 +76,8 @@ internal sealed class AspNetCoreDetector : ICodeReader
 
     public void Read(CodeGraph graph)
     {
-        if (graph.Get<MinimalApiModel>() is { Endpoints.Count: > 0 }
+        // A router that maps a group, but no endpoint yet, is still ASP.NET Core's: an Operation it no longer maps is missing.
+        if (graph.Get<MinimalApiModel>() is { Endpoints.Count: > 0 } or { Routers.Count: > 0 }
             || graph.Types.Any(x => x.Kind != "component" && x.Attributes.Concat(x.Members.SelectMany(m => m.Attributes)).Any(a => Attributes.Contains(a.Name))
                                     || graph.Supertypes(x).Any(s => s is "ControllerBase" or "Controller" or "ApiController")))
         {
@@ -101,8 +102,8 @@ internal sealed class AspNetCoreClaims : IClaimReader
 
     public IReadOnlyCollection<string> Kinds { get; } = new HashSet<string>(StringComparer.Ordinal)
     {
-        "service.route", "operation.verb", "operation.route", "parameter.source", "parameter.name", "service.secured", "service.roles", "operation.secured",
-        "operation.roles", "operation.anonymous", "operation.status"
+        "type.exists", "service.route", "operation.verb", "operation.route", "parameter.source", "parameter.name", "operation.status", "endpoint.exists", "security",
+        "security.roles", "security.policy", "service.versions", "operation.versions", "api.versionScheme"
     };
 
     /// <summary>The attributes whose <c>Name</c> is the name a parameter is bound by: Web API 2's <c>[FromUri]</c> too.</summary>
@@ -118,6 +119,8 @@ internal sealed class AspNetCoreClaims : IClaimReader
 
         switch (context.Kind)
         {
+            case "type.exists":
+                return Controller(context);
             case "service.route":
             {
                 // Web API 2's [RoutePrefix] is the controller's route, as ASP.NET Core's [Route] on the controller is.
@@ -168,17 +171,122 @@ internal sealed class AspNetCoreClaims : IClaimReader
             }
             case "parameter.name":
                 return BoundName(context);
-            case "service.secured" or "service.roles":
-                return Secured(context.Code, context.Kind, context.Type!, context.Type!.Attributes, context.Type.At);
             case "operation.status":
                 return Http.SuccessStatus.Read(context, context.Member!);
+            case "api.versionScheme":
+                return Versioning.Scheme(context);
+            case "endpoint.exists":
+                return Endpoint(context);
+            case "service.versions":
+            {
+                // A controller's [ApiVersion]s, its bases' and its actions' included.
+                var type = context.Type!;
+                if (!IsController(context.Code, type))
+                {
+                    return NotAController(type);
+                }
+
+                var declared = new[] { type }.Concat(context.Code.Bases(type)).SelectMany(x => x.Attributes).Concat(type.Members.SelectMany(x => x.Attributes));
+                return Versioning.Read(context, Versioning.Attributes(declared, "ApiVersion"), type, type.At);
+            }
             default:
             {
-                var member = context.Member!;
-                var owner = context.Code.Types.FirstOrDefault(x => x.Members.Contains(member)) ?? context.TypeOf(context.Owner(context.Element)!)!;
-                return Secured(context.Code, context.Kind, owner, member.Attributes, member.At);
+                // An action's security and versions: its own attributes, then its controller's.
+                var member = context.Member ?? context.MemberOf(context.Element);
+                var owner = (member is null ? null : context.Code.Types.FirstOrDefault(x => x.Members.Contains(member))) ?? context.TypeOf(context.Owner(context.Element)!);
+                if (member is null || owner is null)
+                {
+                    return null;
+                }
+
+                if (!IsController(context.Code, owner))
+                {
+                    return NotAController(owner);
+                }
+
+                if (context.Kind == "operation.versions")
+                {
+                    var own = Versioning.Attributes(member.Attributes, "MapToApiVersion", "ApiVersion");
+                    return Versioning.Read(context, own.Count > 0 ? own : Versioning.Attributes(new[] { owner }.Concat(context.Code.Bases(owner)).SelectMany(x => x.Attributes), "ApiVersion"),
+                        owner, member.At);
+                }
+
+                return Security.Read(context, Security.Attributes(context.Code, member.Attributes, owner).Concat(Security.OfType(context.Code, owner)).ToList(), owner, member.At);
             }
         }
+    }
+
+    /// <summary>
+    /// A controller: one ASP.NET Core or Web API 2 discovers, by <c>[ApiController]</c> or <c>[Controller]</c>, a controller
+    /// base, or a name ending <c>Controller</c>.
+    /// </summary>
+    internal static bool IsController(CodeGraph code, TypeNode type) =>
+        type.Kind == "class"
+        && (type.Name.EndsWith("Controller", StringComparison.Ordinal)
+            || new[] { type }.Concat(code.Bases(type)).Any(x => x.Attributes.Any(a => a.Name is "ApiController" or "Controller"))
+            || code.Supertypes(type).Any(x => x is "ControllerBase" or "Controller" or "ApiController"));
+
+    /// <summary>
+    /// A Service that serves HTTP, whose name no type of the code has, is the controller named for it as Spring MVC's is:
+    /// <c>OrdersService</c> is <c>OrdersController</c>; with no such controller, the Minimal API router that maps its Route
+    /// as a group (<see cref="MinimalApiClaims.Router"/>). A type of the Service's own name (or its interface's) is left to
+    /// the engine's rule, so this only finds what it would have reported missing.
+    /// </summary>
+    private static ClaimReading? Controller(ClaimContext context)
+    {
+        var element = context.Element;
+        if (element.SpecializationType != "Service" || context.Claim.Designer != "Services"
+            || !context.Model.HasStereotype(element, "Http Service Settings") && !element.ChildElements.Any(x => context.Model.HasStereotype(x, "Http Settings"))
+            || context.Code.Types.Any(x => x.Name == element.Name || x.Name == $"I{element.Name}"))
+        {
+            return null;
+        }
+
+        var name = (element.Name.EndsWith("Service", StringComparison.Ordinal) ? element.Name[..^"Service".Length] : element.Name) + "Controller";
+        return context.Code.Types.Where(x => x.Name == name && IsController(context.Code, x)).ToList() switch
+        {
+            [var controller] => ClaimReading.Found(controller),
+            [] => MinimalApiClaims.Router(context),
+            var several => ClaimReading.CantVerify("ambiguous", $"{several.Count} controllers are named `{name}`.", several[0].At, several.Select(x => x.At).ToList())
+        };
+    }
+
+    private static ClaimReading NotAController(TypeNode type) =>
+        ClaimReading.CantVerify("unresolved", $"`{type.Name}` is neither a controller nor a Minimal API router, so the code doesn't say how it serves its endpoints.", type.At);
+
+    /// <summary>
+    /// An Operation's action (<c>endpoint.exists</c>): every public method of a controller is one unless <c>[NonAction]</c>,
+    /// as ASP.NET Core and Web API 2 discover them. One without Http Settings states it isn't.
+    /// </summary>
+    private static ClaimReading? Endpoint(ClaimContext context)
+    {
+        if (context.Type is not { } type)
+        {
+            return null;
+        }
+
+        if (!IsController(context.Code, type))
+        {
+            return NotAController(type);
+        }
+
+        if (context.MemberOf(context.Element) is not { } member)
+        {
+            return ClaimReading.CantVerify("unresolved", $"`{type.Name}` has no one method that is `{context.Element.Name}`, so whether it is an action isn't known.", type.At);
+        }
+
+        var modelled = context.Expected != "absent";
+        var action = member is { Kind: "method", Access: "public", IsStatic: false } && member.Attributes.All(x => x.Name != "NonAction");
+        if (!action)
+        {
+            return ClaimReading.Compared("absent", member.At, !modelled,
+                $"`{type.Name}.{member.Name}` isn't in the code as an endpoint: it isn't a public instance method of the controller{(member.Attributes.Any(x => x.Name == "NonAction") ? ", as `[NonAction]` says" : "")}. The model states it in the operation's Http Settings. Make it an action, or remove its Http Settings.");
+        }
+
+        return modelled
+            ? ClaimReading.Found(member)
+            : ClaimReading.Compared("present", member.At, false,
+                $"`{type.Name}.{member.Name}` is an action of the controller, and the Operation has no Http Settings, so the model says it isn't an endpoint. Give it Http Settings, or mark the method `[NonAction]`.");
     }
 
     private static ClaimReading Value(string? value, Span at) => value is null ? ClaimReading.Absent(at) : ClaimReading.Stated(value, at);
@@ -208,43 +316,6 @@ internal sealed class AspNetCoreClaims : IClaimReader
             ? ClaimReading.Stated(value, binding.At)
             : ClaimReading.CantVerify("unreadable", $"The code can't read `{name.Text}`, the name `[{binding.Name}]` gives: it isn't a string constant of the in-scope code.", binding.At);
     }
-
-    /// <summary>
-    /// <c>[Authorize]</c> and <c>[AllowAnonymous]</c>, and the roles <c>[Authorize(Roles = "...")]</c> names. An attribute
-    /// of the code's own that derives from <c>AuthorizeAttribute</c> is one, as ASP.NET Core applies it; roles given as a
-    /// constant are its value (<c>Roles = AuthorizationRoles.Reader</c>). An attribute that authorizes some other way is a
-    /// house extension's to read.
-    /// </summary>
-    private static ClaimReading Secured(CodeGraph code, string kind, TypeNode from, IReadOnlyList<AttributeNode> attributes, Span at)
-    {
-        if (kind == "operation.anonymous")
-        {
-            var anonymous = attributes.FirstOrDefault(x => x.Name == "AllowAnonymous");
-            return anonymous is null ? ClaimReading.Absent(at, "false") : ClaimReading.Stated("true", anonymous.At);
-        }
-
-        var authorize = attributes.Where(x => x.Name == "Authorize" || Authorizes(code, x, from)).ToList();
-        if (kind.EndsWith(".secured", StringComparison.Ordinal))
-        {
-            return authorize.Count > 0 ? ClaimReading.Stated("true", authorize[0].At) : ClaimReading.Absent(at, "false");
-        }
-
-        var named = authorize.FirstOrDefault(x => x.Named.ContainsKey("Roles"));
-        if (named is null)
-        {
-            return ClaimReading.Absent(authorize.FirstOrDefault()?.At ?? at);
-        }
-
-        var roles = named.Values.FirstOrDefault(x => x.Name == "Roles");
-        return ClaimReading.Stated(roles is { Literal: null } ? code.ConstantOf(roles.Text, from) ?? named.Named["Roles"] : named.Named["Roles"], named.At);
-    }
-
-    /// <summary>The attribute is a class of the code's own (<c>X</c> or <c>XAttribute</c>) that derives from <c>AuthorizeAttribute</c>.</summary>
-    private static bool Authorizes(CodeGraph code, AttributeNode attribute, TypeNode from) =>
-        new[] { $"{attribute.Name}Attribute", attribute.Name }
-            .Select(x => code.TypeFor(new TypeRefNode { Text = x, Name = x, QualifiedName = x }, from))
-            .FirstOrDefault(x => x is not null) is { } type
-        && code.Supertypes(type).Any(x => x is "AuthorizeAttribute" or "Authorize");
 
     /// <summary>Route tokens: <c>[controller]</c> is the class name less <c>Controller</c>, <c>[action]</c> the method's.</summary>
     private static string Tokens(string template, string controller, string? action)

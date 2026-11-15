@@ -12,18 +12,25 @@ internal sealed class Expression
 {
     private readonly string _text;
     private readonly IElement _self;
+
+    /// <summary>The item of an entry's <c>each</c> list this claim is for, as <c>item</c>; null outside one.</summary>
+    private readonly object? _item;
     private int _position;
 
-    private Expression(string text, IElement self)
+    private Expression(string text, IElement self, object? item)
     {
         _text = text;
         _self = self;
+        _item = item;
     }
 
     /// <summary>Text, a bool, an element, a type reference, a stereotype, or null for nothing.</summary>
-    public static object? Evaluate(string text, IElement self)
+    public static object? Evaluate(string text, IElement self) => Evaluate(text, self, null);
+
+    /// <summary>As <see cref="Evaluate(string, IElement)"/>, with <c>item</c> the entry's <c>each</c> item it is evaluated for.</summary>
+    public static object? Evaluate(string text, IElement self, object? item)
     {
-        var expression = new Expression(text, self);
+        var expression = new Expression(text, self, item);
         var value = expression.Coalesce();
         expression.SkipSpace();
         if (expression._position != text.Length)
@@ -42,6 +49,8 @@ internal sealed class Expression
         bool b => b ? "true" : "false",
         ITypeReference type => TypeText(type),
         IElement element => element.Name,
+        // A list is its items' text in order, joined as a list's canonical text is; an empty one is nothing.
+        IEnumerable items => items.Cast<object?>().Select(Text).OfType<string>().ToList() is { Count: > 0 } texts ? string.Join(", ", texts) : null,
         _ => value.ToString()
     };
 
@@ -179,8 +188,8 @@ internal sealed class Expression
             var each = Argument();
             Expect(")");
             return name == "where"
-                ? list.Where(x => Truthy(Evaluate(each, x))).ToList()
-                : list.Select(x => Evaluate(each, x)).ToList();
+                ? list.Where(x => Truthy(Evaluate(each, x, _item))).ToList()
+                : list.Select(x => Evaluate(each, x, _item)).ToList();
         }
 
         if (Accept("("))
@@ -192,6 +201,8 @@ internal sealed class Expression
         {
             "true" => true,
             "false" => false,
+            // An entry's each item: item.element.name names the message a handler's subscription is to.
+            "item" => _item,
             _ => Member(_self, name)
         };
     }
@@ -248,9 +259,12 @@ internal sealed class Expression
     private static object? Member(object? owner, string name) => owner switch
     {
         null => null,
-        IAssociationEnd end when name is "association" or "isSource" or "isTarget" or "otherEnd" or "multiplicity" or "isNavigable" or "element" => name switch
+        // An association is selected as its target end, so source and target read its ends from either.
+        IAssociationEnd end when name is "association" or "isSource" or "isTarget" or "otherEnd" or "multiplicity" or "isNavigable" or "element" or "source" or "target" => name switch
         {
             "association" => end.Association,
+            "source" => end.Association?.SourceEnd,
+            "target" => end.Association?.TargetEnd,
             "isSource" => end.Association is { } association && !IsTarget(association, end),
             "isTarget" => end.Association is { } association && IsTarget(association, end),
             "otherEnd" => end.OtherEnd(),
@@ -274,6 +288,8 @@ internal sealed class Expression
             "abstract" => element.IsAbstract,
             "static" => element.IsStatic,
             "value" => element.Value,
+            // Its generic type parameters' names, in order.
+            "genericTypes" => (element.GenericTypes ?? []).Select(x => x.Name).ToList(),
             _ => throw new FormatException($"An element has no '{name}'.")
         },
         IPackage package => name switch

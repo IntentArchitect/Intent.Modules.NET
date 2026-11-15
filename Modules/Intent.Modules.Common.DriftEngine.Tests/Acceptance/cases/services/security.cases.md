@@ -577,7 +577,7 @@ A Blazor page is secured if and only if it is `[Authorize]`. eShopCustom's Front
         "security": {
           "find": "file:src/WebApp/Components/{Folder}/{Component}.razor",
           "read": [
-            { "match": "@attribute\\s+\\[Authorize\\b", "value": "Secured" }
+            { "match": "@attribute\\s*\\[Authorize\\b", "value": "Secured" }
           ],
           "default": "None"
         }

@@ -3,7 +3,9 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common.DriftEngine.Code;
 using Intent.Modules.Common.DriftEngine.Extensions;
 using Intent.Modules.Common.DriftEngine.OptIn;
+using Intent.Modules.Common.DriftEngine.Packs;
 using Intent.Modules.Common.DriftEngine.Scope;
+using Intent.Modules.Common.DriftEngine.Vocabulary;
 
 namespace Intent.Modules.Common.DriftEngine;
 
@@ -17,7 +19,8 @@ internal sealed record LocatedCode(HashSet<TypeNode> Types, HashSet<MemberNode> 
 public sealed partial class DriftEngine
 {
     /// <summary>The engine's own opt-in rules; a module's rule of the same id replaces one.</summary>
-    private static readonly IOptInRule[] StockOptInRules = [new UnmodelledFile(), new UnmodelledType(), new UnmodelledMember()];
+    private static readonly IOptInRule[] StockOptInRules =
+        [new UnmodelledFile(), new UnmodelledType(), new UnmodelledMember(), new UnmodelledInteraction(), new UnmodelledExposed(), new UnmodelledValue()];
 
     private CheckModel _check = null!;
     private LocatedCode? _locatedCode;
@@ -41,6 +44,10 @@ public sealed partial class DriftEngine
                     break;
                 case MemberNode member:
                     members.Add(member);
+                    break;
+                // A claim that locates several members at once: an enum's literals.
+                case IEnumerable<MemberNode> several:
+                    members.UnionWith(several);
                     break;
             }
         }
@@ -91,9 +98,111 @@ public sealed partial class DriftEngine
     /// <summary>Every pack's conventions of one list: <c>members</c>, <c>interactions</c> or <c>exposed</c>.</summary>
     internal IEnumerable<(string Designer, JsonNode Convention)> CodeConventions(string list) => _packs.SelectMany(x => x.CodeConventions(list));
 
-    /// <summary>The opt-in rules the Drift Check turns on, each narrowed by its rows' globs and its exceptions.</summary>
-    private List<Finding> OptIn()
+    /// <summary>
+    /// <c>unmodelled.value</c>'s reading (rules.md, Opt-in rules): for each element a <c>whenSet</c> kind's vocabulary entry
+    /// selects, ignoring its <c>where</c> and <c>when</c>, that has no claim of the kind, a probe claim with no expected value
+    /// is read by the kind's rule as a claim would be. A value the code states is reported; silence, a default and anything
+    /// that can't be verified aren't. Probes are never claims of the run, and locate nothing.
+    /// </summary>
+    internal IReadOnlyList<UnmodelledCode> UnmodelledValues()
     {
+        var found = new List<UnmodelledCode>();
+        var failures = _extensionFailures.Count;
+        var probed = new HashSet<(string, string, string)>();
+        foreach (var designer in _input.Designers.Keys)
+        {
+            var elements = Elements(designer);
+            foreach (var pack in _packs)
+            {
+                foreach (var entry in pack.Vocabulary(designer))
+                {
+                    if (entry["kind"]?.GetValue<string>() is not { } kind || !_kinds.TryGetValue(kind, out var definition) || definition.Stated != "whenSet" || entry["each"] is not null)
+                    {
+                        continue;
+                    }
+
+                    var specialization = entry["for"]?["element"]?.GetValue<string>();
+                    var association = entry["for"]?["associationEnd"]?.GetValue<string>();
+                    var whole = entry["for"]?["association"]?.GetValue<string>();
+                    var selected = whole is not null ? Associations(elements, whole)
+                        : association is not null ? NavigableEnds(elements, association)
+                        : specialization is not null ? elements.Where(x => x.SpecializationType == specialization) : [];
+                    foreach (var element in selected)
+                    {
+                        if (ClaimOn(designer, element, kind) is not null || !probed.Add((designer, element.Id, kind)) || Probe(designer, pack, entry, element, definition) is not { } probe)
+                        {
+                            continue;
+                        }
+
+                        Evaluate(probe);
+                        if (probe.Reading is not { From: "code", Value: { Length: > 0 } value, At: { File.Length: > 0 } at })
+                        {
+                            continue;
+                        }
+
+                        var type = probe.Needs?.Kind == "member.exists" && Owner(element) is { } parent ? parent.Name : element.Name;
+                        var name = type == element.Name ? element.Name : $"{type}.{element.Name}";
+                        found.Add(new UnmodelledCode(probe.Area, at, name,
+                            $"`{name}` {definition.Label}: the code states `{value}` ({at}), which the model leaves unset; it would state it in {probe.SourceText}. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
+                            element.Id, type));
+                    }
+                }
+            }
+        }
+
+        // A reader that fails on a probe has failed on nothing the model states.
+        _extensionFailures.RemoveRange(failures, _extensionFailures.Count - failures);
+        return found;
+    }
+
+    /// <summary>A claim as the vocabulary entry would state it, with no value: null when what it waits on isn't claimed, as it then reads nothing.</summary>
+    private Claim? Probe(string designer, Pack pack, JsonNode entry, IElement element, KindDefinition definition)
+    {
+        var needs = Needs(designer, element, entry["dependsOn"]?.GetValue<string>());
+        if (needs is not null && !_index.ContainsKey(needs))
+        {
+            return null;
+        }
+
+        IReadOnlyDictionary<string, string>? bindings;
+        try
+        {
+            bindings = (entry["bindings"] as JsonObject)?.ToDictionary(x => x.Key, x => Expression.Text(Expression.Evaluate(x.Value!.GetValue<string>(), element)) ?? "");
+        }
+        catch (FormatException)
+        {
+            bindings = null;
+        }
+
+        return new Claim
+        {
+            Kind = definition.Kind,
+            Designer = designer,
+            Element = element.Id,
+            Path = PathOf(element),
+            Expected = "",
+            Stated = definition.Stated,
+            Bindings = bindings,
+            Origin = pack.Id,
+            Source = element,
+            Definition = definition,
+            Needs = needs,
+            WaitsOn = (entry["waitsOn"] as JsonArray)?.Select(x => Needs(designer, element, x!.GetValue<string>())).OfType<ClaimRef>().ToList() ?? [],
+            SourceText = entry["source"]?.GetValue<string>() ?? definition.Kind,
+            Area = pack.Data["vocabulary"]?[designer]?["area"]?.GetValue<string>() ?? designer
+        };
+    }
+
+    /// <summary>
+    /// The opt-in rules the Drift Check turns on, each narrowed by its rows' globs and its exceptions. Code a rule already
+    /// reports as differing from the model (a <c>ModelCode</c> finding at its file and line, such as the raise
+    /// <c>messaging/unmodelled.raise</c> reports) isn't reported again, so one place is one finding.
+    /// </summary>
+    private List<Finding> OptIn(IReadOnlyList<Finding> reported)
+    {
+        var places = reported.Where(x => x.Category == "ModelCode" && x.Subject is { File: not null, Line: not null })
+            .Select(x => (x.Subject.File!, x.Subject.Line!.Value))
+            .ToHashSet();
         var rules = StockOptInRules.Select(x => (Extension: "intent.core", Rule: x))
             .Concat(_extensions.SelectMany(x => x.OptInRules.Select(r => (Extension: x.Id, Rule: r))))
             .GroupBy(x => $"optin/{x.Rule.Id}")
@@ -137,6 +246,11 @@ public sealed partial class DriftEngine
                 if (_check.Exceptions.LastOrDefault(x => x.Rule == id && x.Matches(code.At.File, code.Name, code.Type)) is { } exception)
                 {
                     matched.Add(exception);
+                    continue;
+                }
+
+                if (places.Contains((code.At.File, code.At.Line)))
+                {
                     continue;
                 }
 

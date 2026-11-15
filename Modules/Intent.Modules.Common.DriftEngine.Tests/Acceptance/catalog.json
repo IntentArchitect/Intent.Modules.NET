@@ -1027,6 +1027,8 @@
     "intent.springmvc",
     "intent.jpa",
     "intent.mediatr",
+    "intent.mediator",
+    "intent.wolverine",
     "intent.blazor",
     "intent.typescript",
     "intent.grpc"

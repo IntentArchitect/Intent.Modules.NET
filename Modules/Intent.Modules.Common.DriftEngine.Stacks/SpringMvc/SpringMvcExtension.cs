@@ -62,8 +62,8 @@ internal sealed class SpringMvcClaims : IClaimReader
 
     public IReadOnlyCollection<string> Kinds { get; } = new HashSet<string>(StringComparer.Ordinal)
     {
-        "type.exists", "operation.returns", "operation.parameters", "service.route", "operation.verb", "operation.route", "parameter.source", "parameter.name", "service.secured", "service.roles",
-        "operation.secured", "operation.roles", "operation.anonymous", "operation.status"
+        "type.exists", "operation.returns", "operation.parameters", "service.route", "operation.verb", "operation.route", "parameter.source", "parameter.name",
+        "operation.status", "endpoint.exists", "security", "security.roles", "security.policy", "parameter.type", "parameter.nullable", "parameter.default"
     };
 
     public ClaimReading? Read(ClaimContext context)
@@ -150,10 +150,105 @@ internal sealed class SpringMvcClaims : IClaimReader
                 (int, Span)? stated = Http.SuccessStatus.StatusOf(named) is { } status ? (status, annotation!.At) : null;
                 return Http.SuccessStatus.Read(context, member, stated);
             }
-            case "service.secured" or "service.roles":
-                return Secured(context.Kind, context.Type!.Attributes, context.Type.At);
+            case "endpoint.exists":
+                return Endpoint(context, spring);
+            case "parameter.type" or "parameter.nullable" or "parameter.default":
+                return Parameter(context, spring);
             default:
-                return Secured(context.Kind, context.Member!.Attributes, context.Member.At);
+                return Secured(context, spring);
+        }
+    }
+
+    /// <summary>The mapping annotations that make a controller's method a handler.</summary>
+    private static bool Mapped(MemberNode member) => member.Attributes.Any(x => Verbs.ContainsKey(x.Name) || x.Name == "RequestMapping");
+
+    /// <summary>
+    /// An Operation's handler (<c>endpoint.exists</c>): its controller's method of its name in camel case, with a
+    /// <c>*Mapping</c> annotation. A method without one isn't an endpoint, as an Operation without Http Settings states.
+    /// </summary>
+    private static ClaimReading? Endpoint(ClaimContext context, SpringMvcCode spring)
+    {
+        if (context.Type is not { } type || !spring.Controllers.Contains(type))
+        {
+            return null;
+        }
+
+        if (context.MemberOf(context.Element) is not { } member)
+        {
+            return ClaimReading.CantVerify("unresolved", $"`{type.Name}` has no one method that is `{context.Element.Name}`, so whether it is a handler isn't known.", type.At);
+        }
+
+        var modelled = context.Expected != "absent";
+        if (!Mapped(member))
+        {
+            return ClaimReading.Compared("absent", member.At, !modelled,
+                $"`{type.Name}.{member.Name}` isn't in the code as an endpoint: no `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, `@PatchMapping` or `@RequestMapping` maps it. The model states it in the operation's Http Settings. Map it, or remove its Http Settings.");
+        }
+
+        return modelled
+            ? ClaimReading.Found(member)
+            : ClaimReading.Compared("present", member.At, false,
+                $"`{type.Name}.{member.Name}` is mapped as an endpoint, and the Operation has no Http Settings, so the model says it isn't one. Give it Http Settings, or remove its mapping.");
+    }
+
+    /// <summary>
+    /// A handler's parameter as Spring binds it: by its name, the name its binding annotation gives, or, for the request body,
+    /// the <c>@RequestBody</c> one whatever its Java name. Its type; whether it may be null, which a primitive never is, an
+    /// <c>Optional</c> always is, and a bound one is when its annotation says <c>required = false</c> and gives no
+    /// <c>defaultValue</c> (an unbound one is as the Java profile reads its type, the engine's rule); and the
+    /// <c>defaultValue</c> its annotation gives, the only default Java can state. A method of any other type is left to the
+    /// engine's rule.
+    /// </summary>
+    private static ClaimReading? Parameter(ClaimContext context, SpringMvcCode spring)
+    {
+        if (context.Member is not { } member || context.Owner(context.Element) is not { } operation || context.Owner(operation) is not { } service
+            || context.TypeOf(service) is not { } owner || !spring.Controllers.Contains(owner))
+        {
+            return null;
+        }
+
+        var body = context.ClaimOn(context.Element, "parameter.source")?.Expected is { } source
+            ? source == "From Body"
+            : context.Element.TypeReference is { IsCollection: false, Element: IElement { SpecializationType: "DTO" or "Command" } };
+        var parameter = member.Parameters.FirstOrDefault(x => string.Equals(x.Name, context.Element.Name, StringComparison.OrdinalIgnoreCase))
+                        ?? member.Parameters.FirstOrDefault(x => Binding(x) is not (null or "RequestBody") && string.Equals(BoundName(x), context.Element.Name, StringComparison.OrdinalIgnoreCase))
+                        ?? (body ? member.Parameters.FirstOrDefault(x => Binding(x) == "RequestBody") : null);
+        if (parameter is null)
+        {
+            return null;
+        }
+
+        var binding = parameter.Attributes.FirstOrDefault(x => BindingSources.ContainsKey(x.Name));
+        string? Named(string name) => binding?.Values.FirstOrDefault(x => x.Name == name) is { } value ? value.Literal ?? value.Text : null;
+        switch (context.Kind)
+        {
+            case "parameter.type":
+                return parameter.Type is { } type && context.ExpectedValue is ITypeReference model
+                    ? ClaimReading.Compared(type.Text, parameter.At, context.TypeMatches(model, type))
+                    : ClaimReading.CantVerify("notFound", $"`{member.Name}`'s `{parameter.Name}` has no type.", parameter.At);
+            case "parameter.default":
+                return Named("defaultValue") is { } defaultValue ? ClaimReading.Stated(defaultValue, binding!.At) : ClaimReading.Absent(binding?.At ?? parameter.At);
+            default:
+            {
+                if (parameter.Type is { IsPredefinedValueType: true, IsArray: false })
+                {
+                    return ClaimReading.Stated("false", parameter.At);
+                }
+
+                if (parameter.Type is { Name: "Optional" })
+                {
+                    return ClaimReading.Stated("true", parameter.At);
+                }
+
+                if (binding is null)
+                {
+                    return null;
+                }
+
+                // Spring requires a bound parameter unless it says otherwise, and one with a default is never null.
+                var optional = Named("required") == "false" && Named("defaultValue") is null;
+                return ClaimReading.Stated(optional ? "true" : "false", binding.At);
+            }
         }
     }
 
@@ -324,7 +419,9 @@ internal sealed class SpringMvcClaims : IClaimReader
             var bound = body
                 ? code.FirstOrDefault(x => Binding(x) == "RequestBody")
                 : code.FirstOrDefault(x => Binding(x) != "RequestBody" && string.Equals(BoundName(x), parameter.Name, StringComparison.OrdinalIgnoreCase));
-            same &= bound is { Type: { } boundType } && matched.Add(bound) && parameter.TypeReference is { Element: not null } model && context.TypeMatches(model, boundType);
+            // A parameter.type claim compares its parameter's type, so a mismatch is one finding.
+            same &= bound is { Type: { } boundType } && matched.Add(bound) && parameter.TypeReference is { Element: not null } model
+                    && (context.ClaimOn(parameter, "parameter.type") is not null || context.TypeMatches(model, boundType));
         }
 
         same &= matched.Count == code.Count;
@@ -341,37 +438,50 @@ internal sealed class SpringMvcClaims : IClaimReader
         return binding?.Named.GetValueOrDefault("name") ?? binding?.Named.GetValueOrDefault("value") ?? binding?.Arguments.FirstOrDefault() ?? parameter.Name;
     }
 
+    /// <summary>The security annotations Spring reads from a handler or its controller.</summary>
+    private static readonly HashSet<string> SecurityAnnotations = ["PreAuthorize", "Secured", "RolesAllowed", "PermitAll", "DenyAll"];
+
     /// <summary>
-    /// <c>@PreAuthorize</c>, <c>@Secured</c>, <c>@RolesAllowed</c> and <c>@PermitAll</c>. <c>permitAll()</c> is anonymous,
-    /// <c>isAuthenticated()</c> any signed-in caller, <c>hasRole</c> and <c>hasAnyRole</c> their roles; Spring's
-    /// <c>ROLE_</c> prefix isn't part of a role's name. Another expression is a house extension's to read.
+    /// How Spring secures a handler (<c>security</c>, <c>security.roles</c>, <c>security.policy</c>): its own security
+    /// annotations, else its controller's, as a method's override its class's. <c>@PreAuthorize("permitAll()")</c> and
+    /// <c>@PermitAll</c> are anonymous (<c>Unsecured</c>); any other <c>@PreAuthorize</c>, <c>@Secured</c>,
+    /// <c>@RolesAllowed</c> or <c>@DenyAll</c> secures it; with none it is <c>None</c>. Roles are <c>hasRole</c>'s and
+    /// <c>hasAnyRole</c>'s, <c>@Secured</c>'s and <c>@RolesAllowed</c>'s, without Spring's <c>ROLE_</c> prefix; another
+    /// expression is a house extension's to read. Spring Security names no policies, so a modelled Policy is never stated.
     /// </summary>
-    private static ClaimReading Secured(string kind, IReadOnlyList<AttributeNode> attributes, Span at)
+    private static ClaimReading? Secured(ClaimContext context, SpringMvcCode spring)
     {
-        var preAuthorize = attributes.FirstOrDefault(x => x.Name == "PreAuthorize" && x.Arguments.Count > 0);
-        var expression = preAuthorize?.Arguments[0].Trim();
-        var permitAll = attributes.FirstOrDefault(x => x.Name == "PermitAll") ?? (expression == "permitAll()" ? preAuthorize : null);
-        if (kind == "operation.anonymous")
+        if (context.Member is not { } member || context.Owner(context.Element) is not { } service || context.TypeOf(service) is not { } owner
+            || !spring.Controllers.Contains(owner))
         {
-            return permitAll is null ? ClaimReading.Absent(at, "false") : ClaimReading.Stated("true", permitAll.At);
+            return null;
         }
 
-        var secured = (expression is not null && expression != "permitAll()" ? preAuthorize : null)
-                      ?? attributes.FirstOrDefault(x => x.Name is "Secured" or "RolesAllowed");
-        if (kind.EndsWith(".secured", StringComparison.Ordinal))
+        var annotations = new[] { member.Attributes, (IReadOnlyList<AttributeNode>)owner.Attributes }
+            .Select(x => x.Where(a => SecurityAnnotations.Contains(a.Name) && (a.Name != "PreAuthorize" || a.Arguments.Count > 0)).ToList())
+            .FirstOrDefault(x => x.Count > 0) ?? [];
+        var permitAll = annotations.FirstOrDefault(x => x.Name == "PermitAll" || x.Name == "PreAuthorize" && x.Arguments[0].Trim() == "permitAll()");
+        var secured = annotations.FirstOrDefault(x => x != permitAll);
+        switch (context.Kind)
         {
-            return secured is null ? ClaimReading.Absent(at, "false") : ClaimReading.Stated("true", secured.At);
+            case "security":
+                return permitAll is not null ? ClaimReading.Stated("Unsecured", permitAll.At)
+                    : secured is not null ? ClaimReading.Stated("Secured", secured.At)
+                    : ClaimReading.Absent(member.At, "None");
+            case "security.policy":
+                return ClaimReading.Absent(secured?.At ?? member.At);
         }
 
-        if (secured is null || expression == "isAuthenticated()")
+        var expression = secured?.Name == "PreAuthorize" ? secured.Arguments[0].Trim() : null;
+        if (secured is null || secured.Name == "DenyAll" || expression == "isAuthenticated()")
         {
-            return ClaimReading.Absent(secured?.At ?? at);
+            return ClaimReading.Absent(secured?.At ?? member.At);
         }
 
         IEnumerable<string> roles;
-        if (secured.Name == "PreAuthorize")
+        if (expression is not null)
         {
-            if (HasRole.Match(expression!) is not { Success: true } match)
+            if (HasRole.Match(expression) is not { Success: true } match)
             {
                 return ClaimReading.CantVerify("unreadable", $"`@PreAuthorize(\"{expression}\")` isn't a role check this extension reads.", secured.At);
             }

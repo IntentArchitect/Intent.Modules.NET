@@ -160,6 +160,59 @@ public class Order
 }
 ```
 
+## package-breaks-a-folder-tie
+
+Each service keeps its own copy of a message in an `IntegrationEvents/Events` folder, so both in-scope `OrderStockItem`s end with the element's folders equally. Its package, `Catalog.API`, names one of them in its namespace and path, so that one is it. eShop10 is one application spanning every project, and its messages were told apart this way once the Guardrails `File Config` was gone.
+
+```json case
+{ "phase": 1, "kinds": ["type.exists"], "requirements": ["R43"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "catalog", "name": "Catalog.API",
+        "elements": [
+          { "id": "integration-events", "type": "Folder", "name": "IntegrationEvents",
+            "children": [
+              { "id": "events", "type": "Folder", "name": "Events",
+                "children": [
+                  { "id": "stock-item", "type": "Class", "name": "OrderStockItem" }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Ordering.API/IntegrationEvents/Events/OrderStockItem.cs
+namespace Shop.Ordering.API.IntegrationEvents.Events;
+
+public record OrderStockItem(int ProductId, int Units);
+```
+
+```csharp file src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs
+namespace Shop.Catalog.API.IntegrationEvents.Events;
+
+public record OrderStockItem(int ProductId, int Units);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "stock-item", "outcome": "verified", "at": "src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs:3" }
+  ]
+}
+```
+
 ## library-type
 
 A message the code handles comes from a contracts package it references: it uses `Ping` and declares no type of the name. The type exists, read from its use. Its declaration isn't in the code, so its Property can't be read, and that claim waits on it without a finding.

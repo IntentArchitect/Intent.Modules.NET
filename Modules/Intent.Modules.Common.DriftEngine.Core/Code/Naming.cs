@@ -16,6 +16,18 @@ internal static class Naming
             ? x.Groups[2].Value.Split('|', StringSplitOptions.RemoveEmptyEntries).Aggregate(value, Filter)
             : x.Value);
 
+    // A brace a backslash escapes is a regular expression's own: \{ is a literal brace.
+    private static readonly Regex Unescaped = new(@"(?<!\\)\{(\w+)((?:\|[^|{}]+)*)\}", RegexOptions.CultureInvariant);
+
+    /// <summary>
+    /// As <see cref="Fill(string, IReadOnlyDictionary{string, string})"/>, each value escaped for where it goes, such as
+    /// <see cref="Regex.Escape"/> for a recipe's regular expression; a brace a backslash escapes is no placeholder.
+    /// </summary>
+    public static string Fill(string text, IReadOnlyDictionary<string, string> values, Func<string, string> escape) => Unescaped.Replace(text, x =>
+        values.TryGetValue(x.Groups[1].Value, out var value)
+            ? escape(x.Groups[2].Value.Split('|', StringSplitOptions.RemoveEmptyEntries).Aggregate(value, Filter))
+            : x.Value);
+
     /// <summary>
     /// The name a model name has in the code, through the first of a language profile's <c>naming</c> patterns for these
     /// kinds of code (<c>type</c>, <c>interface</c>, <c>property</c>, <c>field</c>, <c>method</c>, ...), or as modelled when

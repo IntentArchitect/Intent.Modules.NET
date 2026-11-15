@@ -56,7 +56,7 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
 
     private static readonly IReadOnlySet<string> Frameworks = new HashSet<string>(StringComparer.Ordinal)
     {
-        "intent.efcore", "intent.aspnetcore", "intent.jpa", "intent.springmvc", "intent.mediatr", "intent.nservicebus"
+        "intent.efcore", "intent.aspnetcore", "intent.jpa", "intent.springmvc", "intent.mediatr", "intent.mediator", "intent.wolverine", "intent.nservicebus"
     };
 
     public JsonNode Run(EngineInput input)
@@ -65,8 +65,10 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
         var packs = input.StockPacks.Select(x => Pack.Stock(x)).OfType<Pack>().Concat(input.InlinePacks.Select(Pack.Parse)).ToList();
         // The languages and the vocabularies that read no code (intent.rdbms, intent.http: a case's intent.domain and
         // intent.services) always; a framework's extension only when the case names it, so a case can leave a kind unread.
-        // What a handler handles, sends, publishes, invokes and acts on is read from any framework's code, so it comes with each.
-        var extensions = StockExtensions.All.Where(x => !x.ClaimReaders.Any())
+        // A member's serialized name is read from its own language's attributes, whatever framework the case names, so it comes
+        // with the languages. What a handler handles, sends, publishes, invokes and acts on is read from any framework's code,
+        // so it comes with each.
+        var extensions = StockExtensions.All.Where(x => !x.ClaimReaders.Any() || x.Id == "intent.serialization")
             .Concat(input.StockPacks.Select(StockExtensions.Find).OfType<IDriftExtension>())
             .Concat(input.StockPacks.Any(Frameworks.Contains) ? [StockExtensions.Find("intent.messaging")!, StockExtensions.Find("intent.interactions")!] : [])
             .Distinct()
@@ -85,12 +87,9 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
     /// <summary>Cases whose engine work isn't one of the checks below, each with what it waits for.</summary>
     private static readonly IReadOnlyDictionary<string, string> WaitingOn = new Dictionary<string, string>
     {
-        ["optin/unmodelled.type#services-router"] = MinimalApiService,
-        ["optin/unmodelled.member#endpoint-in-router"] = MinimalApiService,
-        ["optin/unmodelled.member#request-parameter"] = MinimalApiService
+        ["optin/unmodelled.interaction#java-storefront-links"] =
+            "Vue <script setup> code isn't read as a unit yet, so its calls aren't the component's, and a router's route records aren't nodes a find path can reach one by one (front end).",
     };
-
-    private const string MinimalApiService = "Locating a Service as the Minimal API router that maps its routes isn't built yet (phase 4).";
 
     public string? CannotRun(AcceptanceCase @case)
     {
@@ -102,41 +101,22 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
             return $"The engine has no rule for {kind} yet.";
         }
 
-        if (meta.Texts("cases").FirstOrDefault(x => x is "optin/unmodelled.interaction" or "optin/unmodelled.exposed" or "optin/unmodelled.value") is { } rule)
-        {
-            return $"The opt-in rule {rule} isn't built yet.";
-        }
-
         if (WaitingOn.GetValueOrDefault(@case.FullId) is { } waiting)
         {
             return waiting;
         }
 
-        // Find path steps beyond types, members, parameters, calls, annotations and markup.
-        var unescaped = new JsonSerializerOptions { Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping };
-        if (@case.Packs.SelectMany(x => x.ToJsonString(unescaped).Split(" > ")).FirstOrDefault(x => x.StartsWith("chain", StringComparison.Ordinal)) is { } step)
-        {
-            return $"The find path step '{step.Split(' ')[0]}' isn't built yet.";
-        }
-
-
         var inline = @case.Packs.Select(x => x.Text("id")).ToHashSet(StringComparer.Ordinal);
-        // MediatR's and NServiceBus's handlers, sends and publishes are read by the framework-neutral messaging and interactions
-        // readers, so a case naming either has what it needs without a pack of its own.
+        // NServiceBus's handlers, sends and publishes are read by the framework-neutral messaging and interactions readers, so a
+        // case naming it has what it needs without a pack of its own.
         if (meta.Texts("packs").FirstOrDefault(x => Pack.Stock(x) is null && StockExtensions.Find(x) is null && !inline.Contains(x)
-                                                    && x is not ("intent.mediatr" or "intent.nservicebus")) is { } pack)
+                                                    && x is not "intent.nservicebus") is { } pack)
         {
             return $"The engine doesn't ship {pack} yet.";
         }
 
-        // A pack of conventions alone needs only find paths, and vocabulary the expression language; recipes and queries
-        // need a rule language the engine doesn't have.
-        if (@case.Packs.Any(x => x["rules"] is not null || x["queries"] is not null))
-        {
-            return "Inline packs need the full expression language.";
-        }
-
-        if (meta.Text("language") is { } language && language is not ("csharp" or "java" or "typescript" or "protobuf"))
+        // A recipe reads any file as text, so a case whose language is text needs no reader of its own.
+        if (meta.Text("language") is { } language && language is not ("csharp" or "java" or "typescript" or "protobuf" or "text"))
         {
             return $"The engine has no {language} reader yet.";
         }

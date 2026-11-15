@@ -5,6 +5,10 @@
   "requires": [{ "id": "intent.core", "version": "^1.0.0" }],
   "languages": ["csharp"],
   "designers": ["Domain"],
+  "kinds": [
+    { "kind": "repository.entity", "label": "repository entity", "valueType": "type", "comparer": "type", "stated": "always" },
+    { "kind": "repository.implementation", "label": "repository implementation", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true }
+  ],
   "vocabulary": {
     "Domain": {
       "designer": "Domain",
@@ -25,7 +29,7 @@
         { "kind": "operation.parameters", "for": { "element": "Operation" }, "dependsOn": "member.exists", "source": "the operation's parameters" },
         { "kind": "member.exists", "for": { "element": "Class Constructor" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the constructor" },
         { "kind": "operation.parameters", "for": { "element": "Class Constructor" }, "dependsOn": "member.exists", "source": "the constructor's parameters" },
-        { "kind": "member.exists", "for": { "element": "Enum-Literal" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the literal" },
+        { "kind": "enum.literals", "for": { "element": "Enum" }, "value": "join(map(children('Enum-Literal'), name), ', ')", "dependsOn": "type.exists", "waitsOn": ["type.kind"], "source": "the enum's literals" },
         { "kind": "enum.literal.value", "for": { "element": "Enum-Literal" }, "value": "value", "dependsOn": "parent:type.exists", "source": "the literal's value" },
         { "kind": "member.exists", "for": { "associationEnd": "Association" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the association end" },
         { "kind": "member.type", "for": { "associationEnd": "Association" }, "value": "type", "dependsOn": "member.exists", "source": "the association end's type and multiplicity" },
@@ -40,7 +44,9 @@
         { "kind": "type.exists", "for": { "element": "Domain Service" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the domain service" },
         { "kind": "type.exists", "for": { "element": "Data Contract" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the data contract" },
         { "kind": "type.kind", "for": { "element": "Data Contract" }, "dependsOn": "type.exists", "source": "the element type" },
-        { "kind": "type.exists", "for": { "element": "Repository" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the repository" }
+        { "kind": "type.exists", "for": { "element": "Repository" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the repository" },
+        { "kind": "repository.entity", "for": { "element": "Repository", "where": "exists(type.name)" }, "value": "type", "dependsOn": "type.exists", "source": "the repository's type" },
+        { "kind": "repository.implementation", "for": { "element": "Repository" }, "value": "self", "dependsOn": "type.exists", "source": "the repository" }
       ]
     }
   },

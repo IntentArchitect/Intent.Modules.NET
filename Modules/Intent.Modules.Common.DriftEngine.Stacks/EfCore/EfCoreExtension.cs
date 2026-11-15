@@ -18,7 +18,7 @@ public sealed class EfCoreExtension : IDriftExtension
     public IEnumerable<IClaimReader> ClaimReaders { get; } = [new EfCoreClaims()];
 }
 
-internal sealed class EfCoreClaims : IClaimReader
+internal sealed partial class EfCoreClaims : IClaimReader
 {
     /// <summary>A text store type and its length: <c>varchar(50)</c>, <c>nchar(1)</c>, <c>ntext</c>.</summary>
     private static readonly Regex TextType = new(@"^\s*(n?varchar|n?char|n?text)\s*(?:\(\s*(\d+)\s*\)|\(\s*max\s*\))?\s*$", RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
@@ -28,7 +28,9 @@ internal sealed class EfCoreClaims : IClaimReader
     public IReadOnlyCollection<string> Kinds { get; } = new HashSet<string>(StringComparer.Ordinal)
     {
         "entity.persisted", "table.name", "table.schema", "key", "index.columns", "index.unique", "index.filter", "relationship.foreignKey", "relationship.multiplicity", "table.kind", "column.name", "column.type",
-        "column.textType", "column.maxLength", "column.precision", "column.scale", "column.default", "key.generated", "member.nullable", "member.exists"
+        "column.textType", "column.maxLength", "column.precision", "column.scale", "column.default", "key.generated", "member.nullable", "member.exists",
+        "column.mapped", "column.owned", "column.enumStorage", "column.version", "column.backingField", "column.hilo", "relationship.onDelete",
+        "relationship.reference", "relationship.navigable", "relationship.joinColumn"
     };
 
     public ClaimReading? Read(ClaimContext context)
@@ -79,6 +81,26 @@ internal sealed class EfCoreClaims : IClaimReader
             }
             case "member.nullable":
                 return Required(context, model);
+            case "column.mapped":
+                return Mapped(context, model);
+            case "column.owned":
+                return Owned(context, model);
+            case "column.version":
+                return Version(context, model);
+            case "column.enumStorage":
+                return EnumStorage(context, model);
+            case "column.hilo":
+                return HiLo(context, model);
+            case "column.backingField":
+                return BackingField(context, model);
+            case "relationship.onDelete":
+                return OnDelete(context, model);
+            case "relationship.reference":
+                return Reference(context, model);
+            case "relationship.navigable":
+                return Navigable(context, model);
+            case "relationship.joinColumn":
+                return JoinColumn(context, model);
             default:
             {
                 var member = context.Member!;

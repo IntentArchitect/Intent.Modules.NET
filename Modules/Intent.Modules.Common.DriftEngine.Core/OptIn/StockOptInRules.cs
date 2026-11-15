@@ -130,10 +130,143 @@ internal sealed class UnmodelledMember : IOptInRule
         }
     }
 
-    private static IEnumerable<string> FindPaths(JsonNode? find) => find switch
+    internal static IEnumerable<string> FindPaths(JsonNode? find) => find switch
     {
         JsonArray list => list.Select(x => x!.GetValue<string>()),
         JsonValue value => [value.GetValue<string>()],
         _ => []
     };
+}
+
+/// <summary>
+/// <c>unmodelled.interaction</c>: a call, or a markup element, that a designer's <c>interactions</c> conventions find in
+/// checked code and that no <c>intent.*</c> claim located: a raise, send or call the model's links could state and don't.
+/// Every checked type is looked in, not only located ones, since an interaction in a method the model doesn't have is as
+/// unmodelled as one in a method it has.
+/// </summary>
+internal sealed class UnmodelledInteraction : IOptInRule
+{
+    public string Id => "unmodelled.interaction";
+
+    public IEnumerable<UnmodelledCode> Find(RuleContext context)
+    {
+        var types = context.Code.Types.Where(x => context.Scope.Checks(x.At.File)).ToList();
+        // What the model's links located: the places their claims read.
+        var linked = context.Claims.Where(x => x.Kind.StartsWith("intent.", StringComparison.Ordinal) && x.Reading?.At is { File.Length: > 0 })
+            .Select(x => x.Reading!.At!)
+            .ToLookup(x => x.File, StringComparer.Ordinal);
+        var reported = new HashSet<object>(ReferenceEqualityComparer.Instance);
+        foreach (var (designer, convention) in context.Engine.CodeConventions("interactions"))
+        {
+            var files = UnmodelledType.Globs(convention["files"]);
+            var kind = convention["kind"]?.GetValue<string>() ?? "interaction";
+            foreach (var hit in UnmodelledMember.FindPaths(convention["find"]).SelectMany(x => FindPath.Run(x, types, context.Code)))
+            {
+                if ((files.Count > 0 && !files.Any(x => x.IsMatch(hit.At.File))) || linked[hit.At.File].Any(x => DriftEngine.Inside(hit.At, x)) || !reported.Add(hit.Node))
+                {
+                    continue;
+                }
+
+                var name = hit.Name(convention["name"]?.GetValue<string>());
+                var owner = context.ElementOf(hit.Type);
+                yield return new UnmodelledCode(owner?.Designer ?? designer, hit.At, name,
+                    $"`{name}` ({hit.At}) is a {kind} the {designer} designer's links can state, but no link in the model states it. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
+                    owner?.Element.Id, hit.Type.Name);
+            }
+        }
+    }
+}
+
+/// <summary>
+/// <c>unmodelled.exposed</c>: an in-scope type an endpoint exposes that no element describes. A designer's <c>exposed</c>
+/// conventions find where a type is exposed (a parameter, or a member, whose type it is); the rule follows that type to its
+/// declaration, through type arguments and union members, then the types of its public properties in turn, and reports each
+/// checked type on the way that no claim located. Library types, which aren't declared in scope, are passed through.
+/// </summary>
+internal sealed class UnmodelledExposed : IOptInRule
+{
+    public string Id => "unmodelled.exposed";
+
+    public IEnumerable<UnmodelledCode> Find(RuleContext context)
+    {
+        var types = context.Code.Types.Where(x => context.Scope.Checks(x.At.File)).ToList();
+        var reported = new HashSet<TypeNode>();
+        foreach (var (designer, convention) in context.Engine.CodeConventions("exposed"))
+        {
+            var files = UnmodelledType.Globs(convention["files"]);
+            var kind = convention["kind"]?.GetValue<string>() ?? "exposed type";
+            foreach (var hit in UnmodelledMember.FindPaths(convention["find"]).SelectMany(x => FindPath.Run(x, types, context.Code)))
+            {
+                if (files.Count > 0 && !files.Any(x => x.IsMatch(hit.At.File)))
+                {
+                    continue;
+                }
+
+                var by = hit.Node is ParameterNode parameter && hit.Member is { } member ? $"{hit.Type.Name}.{member.Name}({parameter.Name})" : hit.Name(null);
+                foreach (var type in Exposed(context.Code, hit))
+                {
+                    if (!context.Scope.Checks(type.At.File) || context.IsLocated(type) || !reported.Add(type))
+                    {
+                        continue;
+                    }
+
+                    yield return new UnmodelledCode(designer, type.At, type.Name,
+                        $"`{type.Name}` is exposed as the {kind} of `{by}` ({hit.At}), but no element of the {designer} designer describes it. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
+                        Type: type.Name);
+                }
+            }
+        }
+    }
+
+    /// <summary>The in-scope types a place exposes: its type, what that type is written of, and its public properties' types, transitively.</summary>
+    private static IEnumerable<TypeNode> Exposed(CodeGraph code, FindHit hit)
+    {
+        var root = hit.Node switch { ParameterNode parameter => parameter.Type, MemberNode member => member.Type, _ => null };
+        var seen = new HashSet<TypeNode>();
+        var queue = new Queue<(TypeRefNode Type, TypeNode From)>();
+        if (root is not null)
+        {
+            queue.Enqueue((root, hit.Type));
+        }
+
+        while (queue.TryDequeue(out var current))
+        {
+            foreach (var inner in current.Type.Arguments.Concat(current.Type.Union))
+            {
+                queue.Enqueue((inner, current.From));
+            }
+
+            if (Resolve(code, current.Type, current.From) is not { } type || !seen.Add(type))
+            {
+                continue;
+            }
+
+            yield return type;
+            foreach (var property in code.MembersOf(type).Where(x => x.Kind is "property" or "field" && x.Access == "public" && x.Type is not null))
+            {
+                queue.Enqueue((property.Type!, type));
+            }
+        }
+    }
+
+    /// <summary>
+    /// The in-scope type a reference names, as its file's imports and namespaces resolve it, else the only in-scope type of
+    /// its name. A generic type parameter is none.
+    /// </summary>
+    private static TypeNode? Resolve(CodeGraph code, TypeRefNode type, TypeNode from) =>
+        from.TypeParameters.Contains(type.Name) ? null
+            : code.TypeFor(type, from) ?? (code.Types.Where(x => x.Name == type.Name).Take(2).ToList() is [var only] ? only : null);
+}
+
+/// <summary>
+/// <c>unmodelled.value</c>: an explicit value the code states for a <c>whenSet</c> kind that the model leaves unset. For
+/// each element a <c>whenSet</c> vocabulary entry selects (its <c>for</c>, ignoring <c>where</c> and <c>when</c>) with no
+/// claim of that kind, the kind's rule reads the code as it would for a claim; a value read from the code is reported where
+/// the code states it. Silence is never a value, so a framework's convention is never reported.
+/// </summary>
+internal sealed class UnmodelledValue : IOptInRule
+{
+    public string Id => "unmodelled.value";
+
+    public IEnumerable<UnmodelledCode> Find(RuleContext context) => context.Engine.UnmodelledValues();
 }

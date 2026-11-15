@@ -44,7 +44,7 @@ internal sealed class JpaDetector : ICodeReader
     }
 }
 
-internal sealed class JpaClaims : IClaimReader
+internal sealed partial class JpaClaims : IClaimReader
 {
     private static readonly HashSet<string> Relationships = ["ManyToOne", "OneToOne"];
 
@@ -54,7 +54,9 @@ internal sealed class JpaClaims : IClaimReader
     public IReadOnlyCollection<string> Kinds { get; } = new HashSet<string>(StringComparer.Ordinal)
     {
         "entity.persisted", "table.name", "table.schema", "table.kind", "key", "index.columns", "index.unique", "index.filter", "column.name", "column.type", "column.maxLength",
-        "column.precision", "column.scale", "column.textType", "key.generated", "member.nullable", "relationship.multiplicity"
+        "column.precision", "column.scale", "column.textType", "key.generated", "member.nullable", "relationship.multiplicity",
+        "column.mapped", "column.owned", "column.version", "column.enumStorage", "relationship.navigable", "relationship.joinColumn", "repository.entity",
+        "repository.implementation"
     };
 
     public ClaimReading? Read(ClaimContext context)
@@ -99,6 +101,22 @@ internal sealed class JpaClaims : IClaimReader
                 return Nullable(context, jpa);
             case "relationship.multiplicity":
                 return Multiplicity(context, jpa);
+            case "column.mapped":
+                return context.Member is { } mapped ? Mapped(mapped) : null;
+            case "column.owned":
+                return context.Member is { } owned ? Owned(context, owned) : null;
+            case "column.version":
+                return context.Member is { } version ? Version(version) : null;
+            case "column.enumStorage":
+                return context.Member is { } stored ? EnumStorage(stored) : null;
+            case "relationship.navigable":
+                return Navigable(context);
+            case "relationship.joinColumn":
+                return JoinColumn(context);
+            case "repository.entity":
+                return RepositoryEntity(context);
+            case "repository.implementation":
+                return RepositoryImplementation(context);
             default:
                 return Column(context.Kind, context.Member!);
         }

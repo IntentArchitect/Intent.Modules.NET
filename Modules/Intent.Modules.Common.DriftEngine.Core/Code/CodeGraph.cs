@@ -268,6 +268,17 @@ public sealed class CallNode
     /// <summary>The call as written, whitespace normalised, for a finding to quote.</summary>
     public string Text { get; init; } = "";
 
+    private string? _canonical;
+
+    /// <summary>
+    /// Its canonical text (code-reader.md, Canonical text), which a find step's regular expression reads, whatever the layout:
+    /// <c>AddSubscription&lt;A,B&gt;()</c>. <see cref="Text"/> when its language gives none.
+    /// </summary>
+    public string Canonical => _canonical ??= CanonicalOf?.Invoke() ?? Text;
+
+    /// <summary>Gives <see cref="Canonical"/> the first time it is read; the language sets it.</summary>
+    public Func<string>? CanonicalOf { get; init; }
+
     public required Span At { get; init; }
 }
 

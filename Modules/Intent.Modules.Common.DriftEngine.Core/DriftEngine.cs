@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Globalization;
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
@@ -127,12 +128,16 @@ public sealed partial class DriftEngine
     private RunResult Run()
     {
         var findings = new List<Finding>();
-        ReadCode();
-        BuildClaims();
-        foreach (var claim in _claims)
+        var run = Stopwatch.GetTimestamp();
+        Timed("code", ReadCode);
+        Timed("claims.build", BuildClaims);
+        Timed("claims.read", () =>
         {
-            Evaluate(claim);
-        }
+            foreach (var claim in _claims)
+            {
+                Evaluate(claim);
+            }
+        });
 
         if (_scope.Rows.Count == 0)
         {
@@ -152,9 +157,9 @@ public sealed partial class DriftEngine
                 .OrderBy(x => x.Key, StringComparer.Ordinal)
                 .Select(x => NotStatedFinding(x.ToList())));
 
-            findings.AddRange(Rules());
-            findings.AddRange(OptIn());
-            findings.AddRange(Unread());
+            Timed("rules", () => findings.AddRange(Rules()));
+            Timed("optin", () => findings.AddRange(OptIn(findings)));
+            Timed("unread", () => findings.AddRange(Unread()));
         }
 
         findings.AddRange(_graph.Failures.Select(x => new Finding("engine/readerFailed", ScopeArea, "Code", "error",
@@ -162,7 +167,20 @@ public sealed partial class DriftEngine
         findings.AddRange(_extensionFailures.GroupBy(x => x.Extension).Select(x => new Finding("config/pluginFailed", ScopeArea, "Code", "error",
             $"The {x.Key} extension failed: {x.First().Error} Claims it reads can't be verified.", new Anchor(Text: x.Key))));
         findings.AddRange(_packFindings.DistinctBy(x => x.Message));
-        return new RunResult(_claims, Overridden(findings), Coverage(), _packs.Select(x => new PackRef(x.Id, x.Version)).ToList(), FilesRead());
+        _timings.Add(new Timing("total", Stopwatch.GetElapsedTime(run).TotalMilliseconds));
+        _timings.AddRange(_kindTimes.OrderByDescending(x => x.Value.Ticks)
+            .Select(x => new Timing($"kind {x.Key}", TimeSpan.FromTicks(x.Value.Ticks * TimeSpan.TicksPerSecond / Stopwatch.Frequency).TotalMilliseconds, x.Value.Count)));
+        return new RunResult(_claims, Overridden(findings), Coverage(), _packs.Select(x => new PackRef(x.Id, x.Version)).ToList(), FilesRead()) { Timings = _timings };
+    }
+
+    /// <summary>How long each part of the run took, for the log.</summary>
+    private readonly List<Timing> _timings = [];
+
+    private void Timed(string what, Action action, int? count = null)
+    {
+        var started = Stopwatch.GetTimestamp();
+        action();
+        _timings.Add(new Timing(what, Stopwatch.GetElapsedTime(started).TotalMilliseconds, count));
     }
 
     private const string ScopeArea = "Drift Scope (DriftEngine)";
@@ -292,7 +310,7 @@ public sealed partial class DriftEngine
 
             try
             {
-                language.Read(_input.OutputFolder, files, _graph);
+                Timed($"code {language.Name}", () => language.Read(_input.OutputFolder, files, _graph), files.Count);
                 read[language.Name] = files.Count;
             }
             catch (Exception e)
@@ -329,7 +347,7 @@ public sealed partial class DriftEngine
             {
                 try
                 {
-                    reader.Read(_graph);
+                    Timed($"code {extension.Id} {reader.GetType().Name}", () => reader.Read(_graph));
                 }
                 catch (Exception e)
                 {
@@ -380,6 +398,12 @@ public sealed partial class DriftEngine
             {
                 foreach (var entry in pack.Vocabulary(designer))
                 {
+                    // An extending entry makes no claims: it adds placeholders to those another entry makes (Extended).
+                    if (entry["extends"] is not null)
+                    {
+                        continue;
+                    }
+
                     // An entry for a kind no pack or extension defines can't make a claim; the pack's other entries still run.
                     if (entry["kind"]?.GetValue<string>() is not { } kind || !_kinds.ContainsKey(kind))
                     {
@@ -390,20 +414,32 @@ public sealed partial class DriftEngine
 
                     var specialization = entry["for"]?["element"]?.GetValue<string>();
                     var association = entry["for"]?["associationEnd"]?.GetValue<string>();
+                    var whole = entry["for"]?["association"]?.GetValue<string>();
                     var where = entry["for"]?["where"]?.GetValue<string>();
-                    var selected = association is null
-                        ? elements.Where(x => x.SpecializationType == specialization)
+                    // The claim exists only where `when` is true (vocabulary.md, Entries).
+                    var when = entry["when"]?.GetValue<string>();
+                    var selected = whole is not null ? Associations(elements, whole)
+                        : association is null ? elements.Where(x => x.SpecializationType == specialization)
                         : NavigableEnds(elements, association);
                     foreach (var element in selected)
                     {
-                        if (where is not null && Expression.Evaluate(where, element) is not true)
+                        if (where is not null && Expression.Evaluate(where, element) is not true
+                            || when is not null && Expression.Evaluate(when, element) is not true)
                         {
                             continue;
                         }
 
-                        if (Build(designer, pack, entry, element) is { } claim)
+                        // An entry with each makes a claim per item of its list, as item, told apart by its discriminator: one
+                        // registration per message a handler subscribes to.
+                        var items = entry["each"]?.GetValue<string>() is { } each
+                            ? (Expression.Evaluate(each, element) as System.Collections.IEnumerable)?.Cast<object?>().ToList() ?? []
+                            : new List<object?> { null };
+                        foreach (var item in items)
                         {
-                            Add(claim, replace: false);
+                            if (Build(designer, pack, entry, element, item) is { } claim)
+                            {
+                                Add(claim, replace: false);
+                            }
                         }
                     }
                 }
@@ -488,6 +524,7 @@ public sealed partial class DriftEngine
             Path = PathOf(spec.Element),
             Expected = expected,
             Stated = definition.Stated,
+            Bindings = spec.Bindings,
             Origin = extension,
             Source = spec.Element,
             Definition = definition,
@@ -499,11 +536,11 @@ public sealed partial class DriftEngine
         };
     }
 
-    private Claim? Build(string designer, Pack pack, JsonNode entry, IElement element)
+    private Claim? Build(string designer, Pack pack, JsonNode entry, IElement element, object? item = null)
     {
         var kind = entry["kind"]!.GetValue<string>();
         var definition = _kinds[kind];
-        var value = entry["value"] is { } valueExpression ? Expression.Evaluate(valueExpression.GetValue<string>(), element) : null;
+        var value = entry["value"] is { } valueExpression ? Expression.Evaluate(valueExpression.GetValue<string>(), element, item) : null;
         string? expected = kind switch
         {
             "type.kind" => string.Join(", ", TypeKinds(designer, element)),
@@ -530,10 +567,13 @@ public sealed partial class DriftEngine
             Kind = kind,
             Designer = designer,
             Element = element.Id,
+            // Several claims of a kind on one element are told apart by it: a marker's name, a subscription's message.
+            Discriminator = entry["discriminator"]?.GetValue<string>() is { } discriminator ? Expression.Text(Expression.Evaluate(discriminator, element, item)) : null,
             Path = PathOf(element),
             Expected = expected,
             Stated = definition.Stated,
-            Bindings = (entry["bindings"] as JsonObject)?.ToDictionary(x => x.Key, x => Expression.Text(Expression.Evaluate(x.Value!.GetValue<string>(), element)) ?? ""),
+            Bindings = Extended(designer, kind, element, item,
+                (entry["bindings"] as JsonObject)?.ToDictionary(x => x.Key, x => Expression.Text(Expression.Evaluate(x.Value!.GetValue<string>(), element, item)) ?? "", StringComparer.Ordinal)),
             Origin = pack.Id,
             Source = element,
             Definition = definition,
@@ -544,6 +584,44 @@ public sealed partial class DriftEngine
             Area = pack.Data["vocabulary"]?[designer]?["area"]?.GetValue<string>() ?? designer
         };
     }
+
+    /// <summary>
+    /// A claim's bindings with the placeholders extending entries add (vocabulary.md, Extending another pack's entry): each
+    /// pack's entry whose <c>extends</c> names the claim's kind and whose <c>for</c> selects its element. The extended entry
+    /// still decides whether the claim exists, its value and its source. Only the kind of <c>extends</c> is matched: one
+    /// entry claims a kind on an element, and the stock vocabularies have moved between packs (what cases call
+    /// <c>intent.domain/column.name</c> is <c>intent.rdbms</c>'s entry now). A placeholder the claim already binds is a
+    /// <c>config/vocabularyConflict</c> error, and the first binding stands.
+    /// </summary>
+    private Dictionary<string, string>? Extended(string designer, string kind, IElement element, object? item, Dictionary<string, string>? bindings)
+    {
+        foreach (var pack in _packs)
+        {
+            foreach (var entry in pack.Vocabulary(designer))
+            {
+                if (entry["extends"]?.GetValue<string>() is not { } extends || extends[(extends.LastIndexOf('/') + 1)..] != kind || !Selects(entry["for"], element))
+                {
+                    continue;
+                }
+
+                foreach (var (key, expression) in entry["bindings"] as JsonObject ?? [])
+                {
+                    bindings ??= new Dictionary<string, string>(StringComparer.Ordinal);
+                    if (!bindings.TryAdd(key, Expression.Text(Expression.Evaluate(expression!.GetValue<string>(), element, item)) ?? "") && _conflicts.Add((pack.Id, designer, extends, key)))
+                    {
+                        _packFindings.Add(new Finding("config/vocabularyConflict", ScopeArea, "Code", "error",
+                            $"Pack `{pack.Id}`'s {designer} vocabulary extends `{extends}` with `{{{key}}}`, which its claims already bind, so the extension's binding isn't used. Bind another placeholder, or remove it.",
+                            new Anchor(Text: pack.Id)));
+                    }
+                }
+            }
+        }
+
+        return bindings;
+    }
+
+    /// <summary>Each extending entry's placeholder reported as a conflict, so it is reported once, not once per claim.</summary>
+    private readonly HashSet<(string Pack, string Designer, string Extends, string Key)> _conflicts = [];
 
     /// <summary>A vocabulary entry's <c>dependsOn</c>: a kind on the same element, or <c>parent:</c> a kind on its owner.</summary>
     private static ClaimRef? Needs(string designer, IElement element, string? dependsOn)
@@ -578,6 +656,16 @@ public sealed partial class DriftEngine
     private static IEnumerable<IElement> NavigableEnds(IEnumerable<IElement> elements, string association) =>
         elements.SelectMany(Ends)
             .Where(x => x.IsNavigable && x.Association?.SpecializationType == association)
+            .GroupBy(x => x.Id)
+            .Select(x => x.First());
+
+    /// <summary>
+    /// The associations of a type (vocabulary.md, <c>{ "association": ... }</c>), each as its target end, which Intent gives
+    /// the association's id: the claim is the association's, and <c>source</c> and <c>target</c> read its ends.
+    /// </summary>
+    private static IEnumerable<IElement> Associations(IEnumerable<IElement> elements, string association) =>
+        elements.SelectMany(Ends)
+            .Where(x => x.Association?.SpecializationType == association && IsTargetEnd(x))
             .GroupBy(x => x.Id)
             .Select(x => x.First());
 
@@ -657,6 +745,12 @@ public sealed partial class DriftEngine
                 Cant(claim, "blocked", new Reading { Detail = "Its type is a library's the code references, whose declaration isn't read." });
                 return;
             }
+
+            if (_textOnly.Contains(dependency))
+            {
+                Cant(claim, "blocked", new Reading { Detail = $"A recipe found its code as text, where no {dependency.Kind.Split('.')[0]} the readers read is declared." });
+                return;
+            }
         }
 
         // The claims it also waits on, where the model states them: a column waits on its table's entity.persisted. Only one
@@ -676,6 +770,43 @@ public sealed partial class DriftEngine
         {
             Cant(claim, "outOfScope", new Reading { Detail = "No Drift Scope is set, so no file is in scope." });
             return;
+        }
+
+        // Each kind's own reading time: what a reading spends evaluating other claims counts to theirs.
+        var outer = _nested;
+        _nested = 0;
+        var started = Stopwatch.GetTimestamp();
+        try
+        {
+            ReadClaim(claim);
+        }
+        finally
+        {
+            var total = Stopwatch.GetTimestamp() - started;
+            var (ticks, count) = _kindTimes.GetValueOrDefault(claim.Kind);
+            _kindTimes[claim.Kind] = (ticks + total - _nested, count + 1);
+            _nested = outer + total;
+        }
+    }
+
+    /// <summary>Ticks spent reading the claims a reading evaluates, so each kind's time is its own.</summary>
+    private long _nested;
+
+    /// <summary>Each kind's reading time and claim count.</summary>
+    private readonly Dictionary<string, (long Ticks, int Count)> _kindTimes = new(StringComparer.Ordinal);
+
+    private void ReadClaim(Claim claim)
+    {
+        // A parameter's claims read its operation's method as the house reads it for the operation's parameters: a String
+        // its house binds as an enum (eShop.Backend's Http.parseEnum) is that enum for parameter.type too.
+        if (claim.Kind.StartsWith("parameter.", StringComparison.Ordinal) && Owner(claim.Source) is { } operation
+            && ClaimOn(claim.Designer, operation, "operation.parameters") is { } signature)
+        {
+            Evaluate(signature);
+            if (_refined.TryGetValue(signature, out var refinedSignature))
+            {
+                _refined[claim] = refinedSignature;
+            }
         }
 
         // A house's refiners give the located member as the house reads it, in extension order, so a later one refines what
@@ -699,7 +830,7 @@ public sealed partial class DriftEngine
 
         // A pack's recipe for the kind replaces the built-in rule; of several, the last pack's wins, so a house pack
         // (loaded after the stock packs) overrides a stock pack's.
-        if (_packs.Select(x => x.Recipe(claim.Designer, claim.Kind)).LastOrDefault(x => x is not null) is { } recipe)
+        if (RecipeFor(claim) is { } recipe)
         {
             Recipe(claim, recipe);
             return;
@@ -846,8 +977,39 @@ public sealed partial class DriftEngine
                 Compare(claim, string.Join(", ", names), type.At, "code", names.Contains(claim.Expected));
                 break;
             }
+            case "type.location":
+            {
+                // The path of the file declaring the type, from the output folder; a partial type is in each of its files.
+                var type = OwnType(claim);
+                var same = type.Files.Any(x => Same(claim, x));
+                Compare(claim, same ? claim.Expected : type.At.File, type.At, "code", same);
+                break;
+            }
+            case "type.generics":
+            {
+                // The type's own type parameters by name, in order; constraints aren't part of their names.
+                var type = OwnType(claim);
+                var parameters = string.Join(", ", type.TypeParameters);
+                Compare(claim, parameters.Length > 0 ? parameters : "none", type.At, "code", Same(claim, parameters));
+                break;
+            }
+            case "type.marker":
+                Marker(claim);
+                break;
+            case "enum.literals":
+                EnumLiterals(claim);
+                break;
             case "enum.literal.value":
                 LiteralValue(claim);
+                break;
+            case "repository.entity":
+                RepositoryEntity(claim);
+                break;
+            case "repository.implementation":
+                RepositoryImplementation(claim);
+                break;
+            case "parameter.type" or "parameter.nullable" or "parameter.default":
+                Parameter(claim);
                 break;
             case "operation.parameters":
             {
@@ -858,9 +1020,11 @@ public sealed partial class DriftEngine
                 var code = Stated(member);
                 var model = Parameters(claim.Source);
                 // A model that also lists what is injected (a gRPC ServerCallContext), as one drawn from the method does, states
-                // the whole signature, which is as true. C#'s @ only escapes a keyword: @event is event.
+                // the whole signature, which is as true. C#'s @ only escapes a keyword: @event is event. A parameter with a
+                // parameter.type claim of its own (an HTTP endpoint's) has its type compared there, so a mismatch is one finding.
                 bool Matches(IReadOnlyList<ParameterNode> stated) => stated.Count == model.Count && stated.Zip(model).All(x =>
-                    x.First.Name.TrimStart('@') == x.Second.Name.TrimStart('@') && x.First.Type is { } type && x.Second.TypeReference is { Element: not null } modelType && TypeMatches(modelType, type));
+                    x.First.Name.TrimStart('@') == x.Second.Name.TrimStart('@') && x.First.Type is { } type && x.Second.TypeReference is { Element: not null } modelType
+                    && (ClaimOn(claim.Designer, x.Second, "parameter.type") is not null || TypeMatches(modelType, type)));
                 bool Same(MemberNode declared) => Matches(Stated(declared)) || Matches(declared.Parameters);
                 Compare(claim, string.Join(", ", code.Select(x => $"{x.Name}: {x.Type?.Text ?? "?"}")), member.At, "code", Same(member) || Counterparts(member).Any(Same));
                 break;
@@ -967,9 +1131,33 @@ public sealed partial class DriftEngine
                 .Max();
             var scored = candidates.Select(x => (Type: x, Score: Score(x))).ToList();
             var best = scored.Max(x => x.Score);
-            if (best > 0 && scored.Count(x => x.Score == best) == 1)
+            var top = scored.Where(x => x.Score == best).Select(x => x.Type).ToList();
+
+            // Projects repeat each other's folders (each service its own IntegrationEvents/Events, holding its copy of a
+            // message): of the types its folders match equally, the one whose namespace or path names most of the element's
+            // package's segments is it, as eShop's Catalog.API.Eventing package names src/Catalog.API.
+            if (best > 0 && top.Count > 1)
             {
-                candidates = [scored.First(x => x.Score == best).Type];
+                var package = (element.Package?.Name ?? "").Split('.', StringSplitOptions.RemoveEmptyEntries);
+                int Named(TypeNode type)
+                {
+                    var parts = type.Namespace.Split('.')
+                        .Concat(type.Files.SelectMany(f => (Path.GetDirectoryName(f) ?? "").Split('/', '\\', '.')))
+                        .ToHashSet(StringComparer.OrdinalIgnoreCase);
+                    return package.Count(parts.Contains);
+                }
+
+                var named = top.Select(x => (Type: x, Score: Named(x))).ToList();
+                var most = named.Max(x => x.Score);
+                if (most > 0 && named.Count(x => x.Score == most) == 1)
+                {
+                    top = [named.First(x => x.Score == most).Type];
+                }
+            }
+
+            if (best > 0 && top.Count == 1)
+            {
+                candidates = top;
             }
         }
 
@@ -998,7 +1186,8 @@ public sealed partial class DriftEngine
 
     /// <summary>
     /// The value written on the enum member: one the language's numbering would give isn't stated (decision 4). The claim
-    /// waits on the enum; a literal that isn't there is its <c>member.exists</c> claim's finding, so this one waits on that too.
+    /// waits on the enum; a literal that isn't there is its enum's <c>enum.literals</c> finding (or a pack's <c>member.exists</c>
+    /// on the literal), so this one waits on that too.
     /// </summary>
     private void LiteralValue(Claim claim)
     {
@@ -1016,6 +1205,17 @@ public sealed partial class DriftEngine
         var type = OwnType(claim);
         if (type.Members.FirstOrDefault(x => x.Kind == "enumMember" && x.Name == claim.Source.Name) is not { } literal)
         {
+            if (Owner(claim.Source) is { } owner && ClaimOn(claim.Designer, owner, "enum.literals") is { } literals)
+            {
+                Evaluate(literals);
+                if (literals.Outcome != "verified")
+                {
+                    claim.DependsOn = new ClaimRef(literals.Designer, literals.Element, literals.Kind);
+                    Cant(claim, "blocked", new Reading { Detail = $"Waits on {literals.Kind}" });
+                    return;
+                }
+            }
+
             Cant(claim, "notFound", new Reading { At = type.At, Detail = $"`{type.Name}` has no member named `{claim.Source.Name}`." });
             return;
         }
@@ -1029,6 +1229,124 @@ public sealed partial class DriftEngine
         }
 
         Compare(claim, literal.Value.Text, literal.At, "code", Same(claim, literal.Value.Text));
+    }
+
+    /// <summary>
+    /// The model's literals, in model order, against the enum's members: each must be there and in that order, and the code
+    /// may have more (<c>subsequence</c>). One finding names what is missing or out of order. The literals it finds are
+    /// located, so the <c>unmodelled.member</c> rule reports only the code's others.
+    /// </summary>
+    private void EnumLiterals(Claim claim)
+    {
+        var type = OwnType(claim);
+        var members = type.Members.Where(x => x.Kind == "enumMember").ToList();
+        var model = Ordered(claim.Expected);
+        _located[claim] = members.Where(x => model.Contains(x.Name)).ToList();
+        var actual = string.Join(", ", members.Select(x => x.Name));
+        Compare(claim, actual.Length > 0 ? actual : "none", type.At, "code", Same(claim, actual));
+        if (claim.Outcome != "contradicted")
+        {
+            return;
+        }
+
+        var missing = model.Where(x => members.All(m => m.Name != x)).ToList();
+        var what = missing.Count > 0
+            ? $"the code has no {string.Join(", ", missing.Select(x => $"`{x}`"))}"
+            : "the code has them all, in another order";
+        claim.Reading = new Reading
+        {
+            Value = claim.Reading!.Value, From = claim.Reading.From, At = claim.Reading.At,
+            Message = $"`{Display(claim)}` {Label(claim)}: {what} (model `{claim.Expected}`, code `{claim.Reading.Value}`, {type.At}). The model states it in {claim.SourceText}."
+        };
+    }
+
+    /// <summary>
+    /// A named marker, both ways (the discriminator, else the <c>Marker</c> binding): the type has it when one of its
+    /// supertypes, through its in-scope bases, or one of its annotations is named for it. Without it the code states
+    /// <c>false</c> by saying nothing. A recipe reads a marker the code states some other way.
+    /// </summary>
+    private void Marker(Claim claim)
+    {
+        var type = OwnType(claim);
+        if ((claim.Discriminator ?? claim.Bindings?.GetValueOrDefault("Marker")) is not { Length: > 0 } marker)
+        {
+            Cant(claim, "unresolved", new Reading { At = type.At, Detail = "Its vocabulary names no marker: give the entry a discriminator naming it." });
+            return;
+        }
+
+        var annotation = type.Attributes.FirstOrDefault(x => x.Name == marker || x.Name == AttributeName(marker));
+        var present = annotation is not null || _graph.Supertypes(type).Any(x => x == marker || x.EndsWith("." + marker, StringComparison.Ordinal));
+        var value = present ? "true" : "false";
+        Compare(claim, value, annotation?.At ?? type.At, present ? "code" : "absent", Same(claim, value));
+    }
+
+    /// <summary>
+    /// A modelled parameter, found by name in its operation's method (rules.md, Locating an element's code): its type, its
+    /// nullability, or its default as written. A parameter the method doesn't have is <c>notFound</c>: that it is missing is
+    /// <c>operation.parameters</c>' contradiction.
+    /// </summary>
+    private void Parameter(Claim claim)
+    {
+        if (LocatedMember(claim) is not { } member)
+        {
+            Cant(claim, "unresolved", new Reading { Detail = $"No claim locates the method that takes {claim.Source.Name}." });
+            return;
+        }
+
+        var name = claim.Source.Name.TrimStart('@');
+        var named = Naming.InCode(ProfileOf(member), name, ["parameter"]);
+        if ((member.Parameters.FirstOrDefault(x => x.Name.TrimStart('@') == name) ?? member.Parameters.FirstOrDefault(x => x.Name == named)) is not { } parameter)
+        {
+            // A parameter that isn't there is its parameter.type claim's one finding; its nullability and default wait on it.
+            if (claim.Kind != "parameter.type" && ClaimOn(claim.Designer, claim.Source, "parameter.type") is { } type)
+            {
+                claim.DependsOn = new ClaimRef(type.Designer, type.Element, type.Kind);
+                Cant(claim, "blocked", new Reading { Detail = $"Waits on {type.Kind}" });
+                return;
+            }
+
+            Cant(claim, "notFound", new Reading { At = member.At, Detail = $"`{member.Name}` has no parameter named `{name}`." });
+            return;
+        }
+
+        switch (claim.Kind)
+        {
+            case "parameter.type":
+                if (parameter.Type is null || claim.ExpectedValue is not ITypeReference model)
+                {
+                    Cant(claim, "notFound", new Reading { At = parameter.At, Detail = $"`{member.Name}`'s `{parameter.Name}` has no type." });
+                    break;
+                }
+
+                Compare(claim, parameter.Type.Text, parameter.At, "code", TypeMatches(model, parameter.Type));
+                break;
+            case "parameter.nullable":
+                if (_graph.UngovernedFiles.TryGetValue(parameter.At.File, out var project))
+                {
+                    Cant(claim, "readerFailed", new Reading { At = parameter.At, Detail = $"{project}, which sets {parameter.At.File}'s nullable context, can't be read." });
+                    break;
+                }
+
+                if (parameter.Type?.Nullable is null or "unknown")
+                {
+                    Cant(claim, "unresolved", new Reading { At = parameter.At, Value = "unknown", Detail = $"{parameter.At.File} doesn't state whether `{parameter.Type?.Text}` is nullable." });
+                    break;
+                }
+
+                Compare(claim, parameter.Type.Nullable, parameter.At, "code", parameter.Type.Nullable == claim.Expected);
+                break;
+            default:
+                // A default the code doesn't write isn't stated, whatever a binder would supply (decision 4).
+                if (parameter.Default is null)
+                {
+                    claim.Outcome = "contradicted";
+                    claim.Reading = new Reading { At = parameter.At };
+                    break;
+                }
+
+                Compare(claim, parameter.Default, parameter.At, "code", Same(claim, parameter.Default));
+                break;
+        }
     }
 
     private void MemberExists(Claim claim)
@@ -1068,6 +1386,14 @@ public sealed partial class DriftEngine
             var field = Naming.InCode(ProfileOf(owner), element.Name, ["field"]);
             member = _graph.MembersOf(owner).FirstOrDefault(x => x is { Kind: "property" } && x.Name == property || x is { Kind: "field" } && x.Name == field);
             searched = property == field ? $"a property named `{property}` in `{owner.Name}`" : $"a property `{property}` or a field `{field}` in `{owner.Name}`";
+
+            // An attribute persisted from a private field, with no property of its name, is the field its member.backingField
+            // claim names (rules.md, Locating an element's code).
+            if (member is null && ClaimOn(claim.Designer, element, "member.backingField") is { Expected.Length: > 0 } backing)
+            {
+                member = _graph.MembersOf(owner).FirstOrDefault(x => x is { Kind: "field" } && x.Name == backing.Expected);
+                searched += $", or the field `{backing.Expected}` its backing field names";
+            }
         }
 
         if (member is null)
@@ -1363,100 +1689,6 @@ public sealed partial class DriftEngine
     internal Claim? ClaimOn(string designer, IElement element, string kind, string? discriminator = null) =>
         _index.GetValueOrDefault(new ClaimRef(designer, element.Id, kind, discriminator));
 
-    /// <summary>
-    /// A recipe (rules.md, Recipes), the subset built so far: a <c>find</c> of <c>type:</c>, <c>class:</c>,
-    /// <c>method:</c>, <c>property:</c>, <c>annotation:</c> and <c>annotation with &lt;regex&gt;</c> steps, and
-    /// <c>read</c> cases giving a fixed <c>value</c>. Placeholders name the element and its owners by element type:
-    /// an Operation's recipe has <c>{Operation}</c> and <c>{Service}</c>.
-    /// </summary>
-    private void Recipe(Claim claim, JsonNode recipe)
-    {
-        var placeholders = new Dictionary<string, string>(StringComparer.Ordinal);
-        for (var element = claim.Source; element is not null; element = Owner(element))
-        {
-            placeholders.TryAdd(element.SpecializationType.Replace(" ", "").Replace("-", ""), element.Name);
-        }
-
-        string Fill(string text) => Naming.Fill(text, placeholders);
-
-        IReadOnlyList<object> nodes = [];
-        Span? at = null;
-        foreach (var step in (recipe["find"]?.GetValue<string>() ?? "").Split('>', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).Select(Fill))
-        {
-            nodes = step switch
-            {
-                _ when step.StartsWith("type:", StringComparison.Ordinal) || step.StartsWith("class:", StringComparison.Ordinal) =>
-                    LocatedTypes(claim, step[(step.IndexOf(':') + 1)..]),
-                _ when step.StartsWith("method:", StringComparison.Ordinal) =>
-                    nodes.OfType<TypeNode>().SelectMany(x => x.Members).Where(x => x.Kind == "method" && x.Name == step["method:".Length..]).ToList<object>(),
-                _ when step.StartsWith("property:", StringComparison.Ordinal) =>
-                    nodes.OfType<TypeNode>().SelectMany(x => x.Members).Where(x => x.Kind == "property" && x.Name == step["property:".Length..]).ToList<object>(),
-                _ when step.StartsWith("annotation with ", StringComparison.Ordinal) =>
-                    Annotations(nodes).Where(x => new Regex(step["annotation with ".Length..], RegexOptions.CultureInvariant).IsMatch(x.Name)).ToList<object>(),
-                _ when step.StartsWith("annotation:", StringComparison.Ordinal) =>
-                    Annotations(nodes).Where(x => x.Name == AttributeName(step["annotation:".Length..])).ToList<object>(),
-                _ => throw new InvalidOperationException($"The recipe for {claim.Kind} has a find step this engine doesn't read yet: '{step}'.")
-            };
-            if (nodes.Count == 0)
-            {
-                break;
-            }
-
-            at = SpanOf(nodes[0]);
-        }
-
-        at ??= _types.Values.FirstOrDefault()?.At;
-        if (nodes.Count == 0)
-        {
-            Compare(claim, "none", at ?? new Span("", 1, 1, 1, 1), "absent", false);
-            return;
-        }
-
-        if (nodes.Count > 1 && recipe["matches"]?.GetValue<string>() != "any")
-        {
-            Cant(claim, "ambiguous", new Reading { Candidates = nodes.Select(SpanOf).ToList() });
-            return;
-        }
-
-        var value = (recipe["read"] as JsonArray)?.Select(x => x?["value"]?.ToString()).FirstOrDefault(x => x is not null);
-        Apply(claim, value is null ? ClaimReading.Absent(SpanOf(nodes[0])) : ClaimReading.Stated(value, SpanOf(nodes[0])));
-    }
-
-    /// <summary>The types of a name; of several, the ones a claim on this element or its owners located.</summary>
-    private List<object> LocatedTypes(Claim claim, string name)
-    {
-        var candidates = _graph.Types.Where(x => x.Name == name).ToList();
-        if (candidates.Count > 1)
-        {
-            for (var current = Dependency(claim); current is not null; current = Dependency(current))
-            {
-                if (_types.TryGetValue(current, out var located) && located.Name == name)
-                {
-                    return [located];
-                }
-            }
-        }
-
-        return candidates.ToList<object>();
-    }
-
-    private static IEnumerable<AttributeNode> Annotations(IEnumerable<object> nodes) => nodes.SelectMany(x => x switch
-    {
-        TypeNode type => type.Attributes,
-        MemberNode member => member.Attributes,
-        _ => (IEnumerable<AttributeNode>)[]
-    });
-
-    private static string AttributeName(string name) => name.EndsWith("Attribute", StringComparison.Ordinal) ? name[..^"Attribute".Length] : name;
-
-    private static Span SpanOf(object node) => node switch
-    {
-        TypeNode type => type.At,
-        MemberNode member => member.At,
-        AttributeNode attribute => attribute.At,
-        _ => throw new InvalidOperationException($"No location for {node.GetType().Name}.")
-    };
-
     private TypeNode OwnType(Claim claim) => _types[Dependency(claim)!];
 
     private MemberNode OwnMember(Claim claim) => _refined.TryGetValue(claim, out var refined) ? refined : _members[Dependency(claim)!];
@@ -1484,21 +1716,28 @@ public sealed partial class DriftEngine
 
     // ---- Findings (P6) ----
 
-    private Finding Report(Claim claim)
-    {
-        // A member, or a member's parameter, is named with its owner: Order.Total, Orders.Get.id. A link that starts at another
-        // link's end is named with that end's owner: a subscription's handler.
-        var display = Owner(claim.Source) is { } parent && OnMember(claim)
+    /// <summary>
+    /// What a finding calls the claim's element. A member, or a member's parameter, is named with its owner: Order.Total,
+    /// Orders.Get.id. A link that starts at another link's end is named with that end's owner: a subscription's handler.
+    /// </summary>
+    private string Display(Claim claim) =>
+        Owner(claim.Source) is { } parent && OnMember(claim)
             ? $"{(parent is IAssociationEnd && Owner(parent) is { } holder ? holder.Name : NameOf(parent))}.{NameOf(claim.Source)}"
             : NameOf(claim.Source);
-        // One of several claims of its kind says which: `Customer` (IX_Customer_Email) columns.
-        var label = claim.Discriminator is { } key ? $"({key}) {claim.Definition.Label}" : claim.Definition.Label;
+
+    /// <summary>What a finding calls the value; one of several claims of its kind says which: `Customer` (IX_Customer_Email) columns.</summary>
+    private static string Label(Claim claim) => claim.Discriminator is { } key ? $"({key}) {claim.Definition.Label}" : claim.Definition.Label;
+
+    private Finding Report(Claim claim)
+    {
+        var display = Display(claim);
+        var label = Label(claim);
         var reading = claim.Reading!;
         var message = (claim.Outcome, claim.Reason) switch
         {
             ("contradicted", _) when reading.Message is not null => $"{reading.Message}{Blocked(claim)}",
-            ("contradicted", _) when claim.Definition.Existence =>
-                $"`{display}` isn't in the code. Searched {reading.Detail} for {reading.Searched![0]}.{Blocked(claim)}",
+            ("contradicted", _) when claim.Definition.Existence && reading.Searched is { Count: > 0 } =>
+                $"`{display}` isn't in the code. Searched {reading.Detail} for {reading.Searched[0]}.{Blocked(claim)}",
             // Silence that states a value (R3): no IsUnique() is an index that isn't unique.
             ("contradicted", _) when reading is { From: "absent", Value: not (null or "none") } =>
                 $"`{display}` {label}: model `{claim.Expected}`, code `{reading.Value}`, which it states by saying nothing ({reading.At}). The model states it in {claim.SourceText}.{Blocked(claim)}",

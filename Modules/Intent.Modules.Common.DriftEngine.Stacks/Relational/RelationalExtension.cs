@@ -1,5 +1,6 @@
 using System.Text.RegularExpressions;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.DriftEngine.Code;
 using Intent.Modules.Common.DriftEngine.Extensions;
 using Intent.Modules.Common.DriftEngine.Packs;
 
@@ -18,10 +19,11 @@ public sealed class RelationalExtension : IDriftExtension
 
     public IEnumerable<Pack> Packs { get; } = [StockExtensions.LoadPack("intent.rdbms")];
 
-    public IEnumerable<IClaimSource> ClaimSources { get; } = [new AttributeIndexes(), new ForeignKeys(), new Multiplicities()];
+    public IEnumerable<IClaimSource> ClaimSources { get; } = [new AttributeIndexes(), new ForeignKeys(), new Multiplicities(), new JoinColumns(), new Navigabilities()];
 
     // AttributeIndexes reads the Index stereotype, and a Foreign Key's Column Name, and ForeignKeys its Association, in code
-    // rather than vocabulary. Multiplicities reads an unnavigated association end, which no vocabulary selects.
+    // rather than vocabulary. Multiplicities and Navigabilities read an unnavigated association end, which no vocabulary
+    // selects; JoinColumns an end's Foreign Key Column Name.
     public IEnumerable<ModelFeature> Reads { get; } =
     [
         new("Domain", Stereotype: "Index"),
@@ -172,6 +174,137 @@ internal sealed class Multiplicities : IClaimSource
     private static string? Multiplicity(IAssociationEnd end) => end.TypeReference is not { } type ? null
         : type.IsCollection ? type.IsNullable ? "*" : "1..*"
         : type.IsNullable ? "0..1" : "1";
+}
+
+/// <summary>
+/// Whether an association's source end is navigable, between two classes the model persists: <paramref name="Source"/> is
+/// that end, a property of <paramref name="TargetClass"/> leading back to <paramref name="SourceClass"/> when it is navigable;
+/// <paramref name="Target"/> is the target end, a property of <paramref name="SourceClass"/>.
+/// </summary>
+public sealed record ModelNavigability(IAssociationEnd Source, IAssociationEnd Target, IElement SourceClass, IElement TargetClass);
+
+/// <summary>
+/// The <c>relationship.navigable</c> claims: one per association between two classes with Table or View, on the association
+/// (its target end), valued with whether its source end is navigable. Where it is, the claim waits on that end's
+/// <c>member.exists</c>, so a missing back-reference is that one finding and this claim reads how the framework maps the
+/// one there. Where it isn't, the claim waits on the target end's, the navigation the framework would pair a back-reference
+/// with, and states the code has none.
+/// </summary>
+internal sealed class Navigabilities : IClaimSource
+{
+    private const string Designer = "Domain";
+
+    public IEnumerable<ClaimSpec> Claims(ModelContext model)
+    {
+        if (!model.Designers.Contains(Designer))
+        {
+            yield break;
+        }
+
+        var associations = model.Elements(Designer, "Class")
+            .SelectMany(x => x.AssociatedElements ?? [])
+            .Where(x => x.Association?.SpecializationType == "Association")
+            .DistinctBy(x => x.Association!.Id);
+        foreach (var any in associations)
+        {
+            var target = any.IsTargetEnd() ? any : any.OtherEnd();
+            var source = target?.OtherEnd();
+            if (target is null || source is null || !source.IsNavigable && !target.IsNavigable
+                || source.TypeReference?.Element is not IElement sourceClass || target.TypeReference?.Element is not IElement targetClass
+                || !Persisted(model, sourceClass) || !Persisted(model, targetClass))
+            {
+                continue;
+            }
+
+            var navigation = source.IsNavigable ? source : target;
+            yield return new ClaimSpec
+            {
+                Designer = Designer,
+                Element = target,
+                Kind = "relationship.navigable",
+                Expected = source.IsNavigable ? "true" : "false",
+                Value = new ModelNavigability(source, target, sourceClass, targetClass),
+                DependsOn = new ClaimRef(Designer, navigation.Id, "member.exists"),
+                WaitsOn = [new ClaimRef(Designer, sourceClass.Id, "entity.persisted"), new ClaimRef(Designer, targetClass.Id, "entity.persisted"), new ClaimRef(Designer, targetClass.Id, "type.exists")],
+                Source = $"the {(string.IsNullOrEmpty(source.Name) ? sourceClass.Name : source.Name)} end's navigability, from {targetClass.Name} to {sourceClass.Name}"
+            };
+        }
+    }
+
+    private static bool Persisted(ModelContext model, IElement type) => model.HasStereotype(type, "Table") || model.HasStereotype(type, "View");
+}
+
+/// <summary>
+/// The navigation properties a class holds for the model's other associations: a candidate back-reference one of them
+/// draws belongs to that association, not to the one a <c>relationship.navigable</c> claim is about.
+/// </summary>
+internal static class Navigations
+{
+    public static IReadOnlySet<MemberNode> DrawnElsewhere(ClaimContext context, ModelNavigability relationship) =>
+        (relationship.TargetClass.AssociatedElements ?? [])
+            .Where(x => x.IsNavigable && x.Association?.Id != relationship.Target.Association?.Id)
+            .Select(context.MemberOf)
+            .OfType<MemberNode>()
+            .ToHashSet();
+
+    /// <summary>A member typed as <paramref name="toward"/>, or a collection of it.</summary>
+    public static bool Holds(MemberNode member, TypeNode toward) =>
+        member.Type is { } type && (type.Name == toward.Name || type.Arguments.Any(x => x.Name == toward.Name));
+}
+
+/// <summary>
+/// The join column an association's Foreign Key stereotype names on <paramref name="Keyed"/>, held by the navigation whose code
+/// declares it, <paramref name="Owning"/>: the keyed end when it is navigable (a one-to-many's <c>Order.lines</c> with
+/// <c>@JoinColumn(name = "order_id")</c>), else the other end. <paramref name="Owner"/> is the class that navigation is on.
+/// </summary>
+public sealed record ModelJoinColumn(IAssociationEnd Keyed, IAssociationEnd Owning, IElement Owner);
+
+/// <summary>
+/// The <c>relationship.joinColumn</c> claims: one per association whose end has a Foreign Key Column Name, on the association
+/// (its target end), valued with that name, waiting on the owning navigation's <c>member.exists</c>.
+/// </summary>
+internal sealed class JoinColumns : IClaimSource
+{
+    private const string Designer = "Domain";
+
+    public IEnumerable<ClaimSpec> Claims(ModelContext model)
+    {
+        if (!model.Designers.Contains(Designer))
+        {
+            yield break;
+        }
+
+        var associations = model.Elements(Designer, "Class")
+            .SelectMany(x => x.AssociatedElements ?? [])
+            .Where(x => x.Association?.SpecializationType == "Association")
+            .DistinctBy(x => x.Association!.Id);
+        foreach (var any in associations)
+        {
+            var target = any.IsTargetEnd() ? any : any.OtherEnd();
+            if (target is null || new[] { target, target.OtherEnd() }.OfType<IAssociationEnd>().FirstOrDefault(x => model.Stereotype(x, "Foreign Key", "Column Name") is { Length: > 0 }) is not { } keyed)
+            {
+                continue;
+            }
+
+            var owning = keyed.IsNavigable ? keyed : keyed.OtherEnd() is { IsNavigable: true } other ? other : null;
+            if (owning is null || model.Owner(owning) is not { } owner)
+            {
+                continue;
+            }
+
+            yield return new ClaimSpec
+            {
+                Designer = Designer,
+                Element = target,
+                Kind = "relationship.joinColumn",
+                Expected = model.Stereotype(keyed, "Foreign Key", "Column Name"),
+                Value = new ModelJoinColumn(keyed, owning, owner),
+                DependsOn = new ClaimRef(Designer, owning.Id, "member.exists"),
+                WaitsOn = [new ClaimRef(Designer, owner.Id, "entity.persisted")],
+                Source = $"the Foreign Key Column Name on the {(string.IsNullOrEmpty(keyed.Name) ? keyed.TypeReference?.Element?.Name : keyed.Name)} end"
+            };
+        }
+    }
 }
 
 /// <summary>

@@ -192,6 +192,12 @@ public sealed class ClaimSpec
     /// <summary>Where the model states it, for the finding: <c>its Perform Invocation links</c>.</summary>
     public string? Source { get; init; }
 
+    /// <summary>
+    /// Its placeholders for a recipe that reads its kind (vocabulary.md, Placeholders), as a vocabulary entry's
+    /// <c>bindings</c> give them: <c>{Entity}</c>, <c>{Member}</c> and <c>{DomainEvent}</c> for a Domain Event Origin.
+    /// </summary>
+    public IReadOnlyDictionary<string, string>? Bindings { get; init; }
+
     /// <summary>The report Area its finding goes in; the designer by default.</summary>
     public string? Area { get; init; }
 }
