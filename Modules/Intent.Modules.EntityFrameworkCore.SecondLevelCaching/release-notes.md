@@ -1,4 +1,4 @@
-### Version 1.0.0
+### Version 1.1.0
 
 - Improvement: Updated NuGet package versions:
   - `EFCoreSecondLevelCacheInterceptor` 5.3.13 → 5.6.1

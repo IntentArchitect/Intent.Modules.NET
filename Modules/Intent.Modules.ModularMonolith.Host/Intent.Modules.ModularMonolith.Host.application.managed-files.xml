@@ -11,7 +11,7 @@
   <file path="FactoryExtensions/TemplateSuppressorExtension.cs" deviationsHash="F04FB544E14B4C25667B9A8B116BC0F09C7DEA509B515966ED40F0884622EA05" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.ModularMonolith.Host.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.ModularMonolith.Host.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
-  <file path="NugetPackages.cs" deviationsHash="CF72033E5E4FCEC615E6630949BEC4D80E8C3B24CC8020566D40E9F135EBE7FE" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="NugetPackages.cs" deviationsHash="5066B87AA4591055F1A03DFAA57A043D2919923E424939DAC271E74A9C11280A" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Templates/ModuleConfiguration/ModuleConfigurationTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ModuleConfiguration/ModuleConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/ModuleInstallerInterface/ModuleInstallerInterfaceTemplatePartial.cs" deviationsHash="1AFCF57593B221BC572EDE1CAA03EEDA87DCD33C3066DB3075CB6BFC1564C9EB" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />

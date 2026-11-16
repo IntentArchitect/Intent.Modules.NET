@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<managedFiles version="1" applicationId="5311cab8-33e1-4f7b-a09b-6a41623db2ca">
+  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
+  <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
+  <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
+  <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Api/Controllers/BlogsController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Api/EntityFrameworkCore.Postgres.EF11.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Api/Program.cs" templateId="Intent.AspNetCore.Program" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Application/BlogSummaryDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Application/Common/Pagination/PagedList.cs" templateId="Intent.EntityFrameworkCore.PagedList" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Application/CreateBlogDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Application/EntityFrameworkCore.Postgres.EF11.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Application/Implementation/BlogsService.cs" deviationsHash="B878080460281BA29C287181AC5FCE53F905C5BC42B8FAAF1538D15E07230A78" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Application/Interfaces/IBlogsService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Domain/Blog.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Domain/Common/UpdateHelper.cs" templateId="Intent.Entities.UpdateHelper" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Domain/EntityFrameworkCore.Postgres.EF11.Domain.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Domain/Post.cs" templateId="Intent.Entities.DomainEntity" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Domain/Repositories/IBlogRepository.cs" deviationsHash="80DA6F96B1B192207C5FC08F07F76CBCFF78A21105BD7DCAD2C5D5164B20F0C4" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Infrastructure/EntityFrameworkCore.Postgres.EF11.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Infrastructure/Persistence/Configurations/BlogConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Infrastructure/Persistence/Configurations/Converters/UtcDateTimeOffsetConverter.cs" templateId="Intent.EntityFrameworkCore.UtcDateTimeOffsetConverter" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Infrastructure/Repositories/BlogRepository.cs" deviationsHash="612BAF706DD3F6EE60038A8592F78838CB3C99573D83A16D4427B6464A3DD59D" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
+  <file path="EntityFrameworkCore.Postgres.EF11.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
+  <file path="EntityFrameworkCore.Postgres.EF11.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+</managedFiles>

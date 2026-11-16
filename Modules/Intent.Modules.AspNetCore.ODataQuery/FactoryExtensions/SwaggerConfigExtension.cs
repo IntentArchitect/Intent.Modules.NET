@@ -1,13 +1,15 @@
 using System.Linq;
 using Intent.Engine;
-using Intent.Modules.AspNetCore.ODataQuery.Templates;
+using Intent.Modules.AspNetCore.ODataQuery.Templates.ODataQuerySwaggerFilter;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -24,21 +26,29 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
 
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
-            if (template == null)
+            // An application can have several hosts, each with its own Swagger configuration.
+            foreach (var template in application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Distribution.SwashbuckleConfiguration"))
             {
-                return;
+                var @class = template.CSharpFile.Classes.First();
+
+                var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);
+                if (configureSwaggerOptionsBlock == null)
+                {
+                    continue;
+                }
+
+                // Each host references the filter in its own project, placed by the filter's Template Output.
+                if (template.OutputTarget.FindTemplateInstance(ODataQuerySwaggerFilterTemplate.TemplateId) is not { } filterTemplate ||
+                    !filterTemplate.CanRunTemplate())
+                {
+                    Logging.Log.Warning($"OData Query: project '{template.OutputTarget.GetProject().Name}' configures Swagger but has no OData query filter it can reference, " +
+                        "so its OpenAPI document will not describe the OData query options. " +
+                        $"To describe them, add a Template Output for {ODataQuerySwaggerFilterTemplate.TemplateId} under that project in the Codebase Structure designer.");
+                    continue;
+                }
+
+                configureSwaggerOptionsBlock.AddStatement($@"options.OperationFilter<{template.GetTypeName(filterTemplate)}>();");
             }
-
-            var @class = template.CSharpFile.Classes.First();
-
-            var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);
-            if (configureSwaggerOptionsBlock == null)
-            {
-                return;
-            }
-
-            configureSwaggerOptionsBlock.AddStatement($@"options.OperationFilter<{template.GetODataQuerySwaggerFilterName()}>();");
         }
         private static CSharpLambdaBlock GetConfigureSwaggerOptionsBlock(CSharpClass @class)
         {

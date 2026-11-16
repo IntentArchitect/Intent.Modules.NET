@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a9333c98-d2cf-4b15-98af-f24d27525caa" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CreatePersonCommand</name>
+  <display>CreatePersonCommand: void</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <typeReference id="18fc0084-a772-4d37-b215-cb96287ca15a" />
+  <parentFolderId>2fac21be-06b3-480f-9c3b-8c89b1391775</parentFolderId>
+  <packageId>3ce157b5-8640-408b-8f59-654d831dcbf4</packageId>
+  <packageName>N_ServiceBus.LearnerTransport.NET11.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <element id="84fb74b6-ba9a-4ac6-aa87-0c8ac6b66504" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>FirstName</name>
+      <display>FirstName: string</display>
+      <typeReference id="c0275e28-b5ff-4628-aefa-a98cac792789">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>a9333c98-d2cf-4b15-98af-f24d27525caa</parentFolderId>
+      <packageId>3ce157b5-8640-408b-8f59-654d831dcbf4</packageId>
+      <packageName>N_ServiceBus.LearnerTransport.NET11.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="7a5746cf-baf1-48c8-8249-79f8141d4374" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>LastName</name>
+      <display>LastName: string</display>
+      <typeReference id="5f419d54-bd0e-41ae-bbe7-a18da42f8ee9">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>a9333c98-d2cf-4b15-98af-f24d27525caa</parentFolderId>
+      <packageId>3ce157b5-8640-408b-8f59-654d831dcbf4</packageId>
+      <packageName>N_ServiceBus.LearnerTransport.NET11.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <association id="3bb2e058-8b0f-4da1-96a1-92f9ce77b32c">
+      <sourceEnd id="d3c0eb7f-58ea-415a-b68b-16b6aaa55e4b" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+        <display>sent by : People.CreatePersonCommand</display>
+        <typeReference id="b114a057-72a4-4495-9f80-9ee4a85ee8b9">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="3bb2e058-8b0f-4da1-96a1-92f9ce77b32c" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+        <display>[send] CreatePersonIdentity</display>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="2205be3c-7d55-4175-a79d-9c7598a90541">
+          <typeId>eb20ef8f-c54e-4e48-a59c-a1b6272c22f4</typeId>
+          <typeName>CreatePersonIdentity</typeName>
+          <typePackageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</typePackageName>
+          <typePackageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</typePackageId>
+        </typeReference>
+        <mappings>
+          <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+            <source applicationId="e5432075-8bd5-4430-ba9b-e3f4cbf3df80" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a9333c98-d2cf-4b15-98af-f24d27525caa" location="[N_ServiceBus.LearnerTransport.NET11].[Services].[CreatePersonCommand]" />
+            <target applicationId="e5432075-8bd5-4430-ba9b-e3f4cbf3df80" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="eb20ef8f-c54e-4e48-a59c-a1b6272c22f4" location="[N_ServiceBus.LearnerTransport.NET11].[Services].[CreatePersonIdentity]" />
+            <mappedEnds>
+              <mappedEnd>
+                <expression>{FirstName}</expression>
+                <path>
+                  <target id="eb20ef8f-c54e-4e48-a59c-a1b6272c22f4" name="CreatePersonIdentity" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+                  <target id="7dc7f1f0-fa30-4f11-9453-a2254c6faee3" name="FirstName" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+                <sources>
+                  <source identifier="FirstName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                    <path>
+                      <target id="a9333c98-d2cf-4b15-98af-f24d27525caa" name="CreatePersonCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                      <target id="84fb74b6-ba9a-4ac6-aa87-0c8ac6b66504" name="FirstName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+              <mappedEnd>
+                <expression>{LastName}</expression>
+                <path>
+                  <target id="eb20ef8f-c54e-4e48-a59c-a1b6272c22f4" name="CreatePersonIdentity" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+                  <target id="263f1d49-517d-458f-b3d0-70ea26e52bea" name="LastName" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+                <sources>
+                  <source identifier="LastName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                    <path>
+                      <target id="a9333c98-d2cf-4b15-98af-f24d27525caa" name="CreatePersonCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                      <target id="7a5746cf-baf1-48c8-8249-79f8141d4374" name="LastName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+            </mappedEnds>
+          </mapping>
+        </mappings>
+      </targetEnd>
+      <associationType>Send Integration Command</associationType>
+      <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+    </association>
+  </children>
+</class>

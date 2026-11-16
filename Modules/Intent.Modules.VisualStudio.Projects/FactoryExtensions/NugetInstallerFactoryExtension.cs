@@ -167,7 +167,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             DependencyVersionOverwriteBehaviorOption dependencyVersionOverwriteBehavior)
         {
             string report;
-            var (projectPackages, highestVersions) = DeterminePackages(nuGetProjectSchemeProcessors, applicationProjects);
+            var projectPackages = DeterminePackages(nuGetProjectSchemeProcessors, applicationProjects);
 
             ConsolidateRequestedPackages(projectPackages);
 
@@ -182,7 +182,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                            $"{Environment.NewLine}" +
                            $"{report}");
 
-                ConsolidatePackageVersions(projectPackages, highestVersions);
+                ConsolidatePackageVersions(projectPackages);
             }
 
             foreach (var projectPackage in projectPackages)
@@ -234,7 +234,11 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         /// <param name="projectPackages"></param>
         internal void ConsolidateRequestedPackages(IReadOnlyCollection<NuGetProject> projectPackages)
         {
-            ConsolidateVersionsUpfront(projectPackages);
+            foreach (var sameFrameworkProjects in projectPackages.GroupBy(x => x.TargetFrameworks))
+            {
+                ConsolidateVersionsUpfront(sameFrameworkProjects.ToArray());
+            }
+
             RemoveTransitiveDependencies(projectPackages);
         }
 
@@ -465,31 +469,14 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         /// <summary>
         /// Internal so available to unit tests
         /// </summary>
-        internal (IReadOnlyCollection<NuGetProject> Projects, Dictionary<string, VersionInfo> HighestVersions) DeterminePackages(
+        internal IReadOnlyCollection<NuGetProject> DeterminePackages(
             IDictionary<VisualStudioProjectScheme, INuGetSchemeProcessor> nuGetProjectSchemeProcessors,
             IEnumerable<IVisualStudioProjectTemplate> applicationProjectTemplates)
         {
-            var projects = new List<NuGetProject>();
-
-            var highestVersions = new Dictionary<string, VersionInfo>();
-            foreach (var template in applicationProjectTemplates.OrderBy(x => x.Name))
-            {
-                var projectNugetInfo = DetermineProjectNugetPackageInfo(
-                    nuGetProjectSchemeProcessors,
-                     template);
-                foreach (var nuGetVersion in projectNugetInfo.HighestVersions)
-                {
-                    if (!highestVersions.TryGetValue(nuGetVersion.Key, out var highestVersion) ||
-                        (highestVersion != null &&
-                         highestVersion < nuGetVersion.Value))
-                    {
-                        highestVersions[nuGetVersion.Key] = nuGetVersion.Value;
-                    }
-                }
-                projects.Add(projectNugetInfo);
-            }
-
-            return (projects, highestVersions);
+            return applicationProjectTemplates
+                .OrderBy(x => x.Name)
+                .Select(template => DetermineProjectNugetPackageInfo(nuGetProjectSchemeProcessors, template))
+                .ToList();
         }
 
         internal static NuGetProject DetermineProjectNugetPackageInfo(
@@ -559,10 +546,33 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 InstalledPackages = installedPackages,
                 HighestVersions = highestVersionsInProject,
                 Name = template.Name,
+                TargetFrameworks = string.Join(";", template.GetTargetFrameworks()
+                    .Select(x => x.Trim().ToLowerInvariant())
+                    .Distinct()
+                    .OrderBy(x => x, StringComparer.Ordinal)),
                 FilePath = template.FilePath,
                 Processor = processor,
                 OutputTarget = template.OutputTarget,
             };
+        }
+
+        private static void ConsolidatePackageVersions(IReadOnlyCollection<NuGetProject> projectPackages)
+        {
+            foreach (var sameFrameworkProjects in projectPackages.GroupBy(x => x.TargetFrameworks))
+            {
+                ConsolidatePackageVersions(sameFrameworkProjects.ToArray(), GetHighestVersions(sameFrameworkProjects));
+            }
+
+            static Dictionary<string, VersionInfo> GetHighestVersions(IEnumerable<NuGetProject> projects)
+            {
+                var highestVersions = new Dictionary<string, VersionInfo>();
+                foreach (var nuGetVersion in projects.SelectMany(x => x.HighestVersions))
+                {
+                    AddUpdatePackageVersion(highestVersions, nuGetVersion.Key, nuGetVersion.Value);
+                }
+
+                return highestVersions;
+            }
         }
 
         private static void ConsolidatePackageVersions(IReadOnlyCollection<NuGetProject> projectPackages, IDictionary<string, VersionInfo> highestVersions)
@@ -591,6 +601,19 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         }
 
         private static string GetPackagesWithMultipleVersionsReport(IEnumerable<NuGetProject> nuGetProjects)
+        {
+            var reports = nuGetProjects
+                .GroupBy(x => x.TargetFrameworks)
+                .Select(GetSameFrameworkPackagesWithMultipleVersionsReport)
+                .Where(x => x != null)
+                .ToArray();
+
+            return reports.Any()
+                ? string.Join(Environment.NewLine, reports)
+                : null;
+        }
+
+        private static string GetSameFrameworkPackagesWithMultipleVersionsReport(IEnumerable<NuGetProject> nuGetProjects)
         {
             var resolvedProjects = nuGetProjects
                 .Select(x => new

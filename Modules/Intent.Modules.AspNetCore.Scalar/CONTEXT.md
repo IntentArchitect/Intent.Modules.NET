@@ -11,6 +11,15 @@ endpoints need.
   them, so `HttpQueryDocumentTransformer` builds the `QUERY` operations from the API descriptions itself, and
   `UseHttpQueryOpenApi` answers `/openapi/{documentName}.json`: it serializes the document as 3.1 and rewrites
   the version to 3.2, which Scalar 2.18.7 reads and sends. Proven in the HttpQuery spike before templating.
+- **On Microsoft.OpenApi 3.x (.NET 11) no `QUERY` support is generated (since 1.1.0).**
+  `Microsoft.AspNetCore.OpenApi` 11 defaults `OpenApiOptions.OpenApiVersion` to 3.2 and describes `QUERY` actions
+  itself (body, responses, XML-doc summary), so `HttpQueryHelper.NeedsHttpQueryOpenApi` is false whenever
+  `MicrosoftOpenApiVersion.IsV3` is true: no transformer, no `UseHttpQueryOpenApi`.
+  - Rejected: carrying the .NET 10 relabel to .NET 11. Microsoft.OpenApi 3.x's `SerializeAsV31` writes `QUERY`
+    as `x-oai-additionalOperations.QUERY`, so the relabelled document claimed 3.2.0 without a native `query`
+    operation. The `Scalar.NET11.Bearer` runtime tests caught it.
+  - Rejected: keeping the transformer on 3.x. A spike without it produced the same native `query` operation
+    from the framework alone.
 - **Everything `QUERY` is gated on .NET 10 and on any operation using `QUERY`**
   (`HttpQueryHelper.NeedsHttpQueryOpenApi`), so other apps see no diff. On earlier targets the `QUERY`
   endpoints still work; they are just not documented.
@@ -20,6 +29,13 @@ endpoints need.
   - Rejected: `StartupFile.AddAppConfiguration<CSharpStatement>(..., priority: -2)` in an `OnBuild` at 100. It
     placed the line correctly but left a stray blank line before `MapControllers` in apps without Serilog.
   - Rejected: the string overload of `AddAppConfiguration`, which drops the priority and lands after the endpoints.
+- **The Microsoft.OpenApi 3.x code shape follows the package version, not the framework (since 1.1.0).**
+  `Microsoft.AspNetCore.OpenApi` 11 depends on `Microsoft.OpenApi` 3.x, where content values are
+  `IOpenApiMediaType` with a read-only `Schema`. `MicrosoftOpenApiVersion.IsV3` checks the resolved
+  `Microsoft.AspNetCore.OpenApi` major (>= 11), so the generated code moves together with the NuGet entry,
+  including when a version is locked. The 3.x shape pattern-matches to the concrete `OpenApiMediaType` before
+  setting `Schema`, and casts to `IOpenApiMediaType` where a dictionary is built.
+  - Rejected: a second `GetMaxNetAppVersion() >= 11` check, which would drift from the package actually installed.
 
 ## Invariants & Constraints
 - `Scalar.AspNetCore` must stay at 2.18.7 or later; earlier versions cannot send `QUERY` requests.

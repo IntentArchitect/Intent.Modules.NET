@@ -1,4 +1,4 @@
-### Version 4.2.20
+### Version 4.3.0
 
 - Improvement: Updated NuGet package versions:
   - `Microsoft.Extensions.Configuration.EnvironmentVariables` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)

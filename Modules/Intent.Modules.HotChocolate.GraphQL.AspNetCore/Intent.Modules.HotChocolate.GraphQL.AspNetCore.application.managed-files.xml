@@ -7,7 +7,7 @@
   <file path="Intent.HotChocolate.GraphQL.AspNetCore.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.HotChocolate.GraphQL.AspNetCore.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
-  <file path="Templates/GraphQLConfiguration/GraphQLConfigurationTemplatePartial.cs" deviationsHash="69CE7F38B586C8C71830738AAC2D5301B34155B35F7EDADF3ADBFCE429E4F39F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/GraphQLConfiguration/GraphQLConfigurationTemplatePartial.cs" deviationsHash="0A0FA2D32215CDC4773FEE5D8C179E025F76DD0EE53A7137284477F1D853D31B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/GraphQLConfiguration/GraphQLConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
 </managedFiles>

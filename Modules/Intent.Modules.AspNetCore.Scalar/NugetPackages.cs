@@ -19,6 +19,10 @@ namespace Intent.Modules.AspNetCore.Scalar
             NugetRegistry.Register(MicrosoftAspNetCoreOpenApiPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.WebUtilities", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting", "11.0.0")
+                            .WithNugetDependency("Microsoft.OpenApi", "3.11.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.OpenApi", "2.13.0"),
                         ( >= 9, >= 0) => new PackageVersion("9.0.23")

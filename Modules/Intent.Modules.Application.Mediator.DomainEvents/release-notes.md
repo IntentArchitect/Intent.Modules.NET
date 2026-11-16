@@ -1,4 +1,4 @@
-### Version 1.0.1
+### Version 1.1.0
 
 - Fixed: The handler skill told agents to search for a `// IntentInitialGen` marker that generated stubs never contain; it now looks for bodies that still throw `NotImplementedException`.
 

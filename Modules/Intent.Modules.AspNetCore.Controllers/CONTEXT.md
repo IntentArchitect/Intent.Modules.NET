@@ -28,6 +28,14 @@ Generates ASP.NET Core MVC controllers from Services designer elements, plus the
     `[Http{Verb}]` emission for one verb.
 - **`QUERY` is GET-like everywhere responses are decided** (`Utils` return switch, `CanReturnNotFound`, the XML
   and `ProducesResponseType` switches): a `QUERY` request is safe and idempotent, only with its criteria in the body.
+- **`BinaryContentFilter` follows the Swashbuckle version for the Microsoft.OpenApi 3.x shape (since 7.2.0).**
+  Swashbuckle 11 depends on `Microsoft.OpenApi` 3.x, which types request body content as `IOpenApiMediaType`, so
+  the filter's dictionary value type switches when the resolved `Swashbuckle.AspNetCore` major is 11 or later.
+  On that path the filter also initialises `operation.Parameters ??= []`, because 3.x types it as nullable (CS8602).
+  This module does not register that package: the lookup goes through `NugetRegistry.GetVersion`, which throws for
+  an unregistered package, so it is guarded by `ExecutionContext.InstalledModules` containing
+  `Intent.AspNetCore.Swashbuckle` (the MassTransit precedent). Rejected: a framework check, which drifts from a
+  locked version; a module dependency on Swashbuckle, since the filter only runs alongside its configuration.
 
 ## Invariants & Constraints
 - **The `Body = Mode.Merge` on `OnException` needs RoslynWeaver 5.0.2 or later**, so the module depends on

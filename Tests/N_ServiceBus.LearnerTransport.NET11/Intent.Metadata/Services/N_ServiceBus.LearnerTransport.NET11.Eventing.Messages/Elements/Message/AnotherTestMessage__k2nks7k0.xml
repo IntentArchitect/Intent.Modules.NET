@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="09fe37f7-1afc-41b6-acb1-3e4f74266cf6" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>AnotherTestMessage</name>
+  <display>AnotherTestMessage</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>7c84b3ec-174b-4fde-bffe-4c91429243d3</parentFolderId>
+  <packageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</packageId>
+  <packageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</packageName>
+  <children>
+    <element id="51aad4de-5b89-4faa-a42a-9933879d3e9b" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Message</name>
+      <display>Message: string</display>
+      <typeReference id="969a7fd2-b4e4-4f85-b9d4-5cbb5bfa3697">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>09fe37f7-1afc-41b6-acb1-3e4f74266cf6</parentFolderId>
+      <packageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</packageId>
+      <packageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</packageName>
+    </element>
+  </children>
+</class>

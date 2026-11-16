@@ -1,4 +1,4 @@
-### Version 3.12.4
+### Version 3.13.0
 
 - Improvement: Updated NuGet package versions:
   - `FluentValidation.DependencyInjectionExtensions` 12.1.1 → 12.2.0

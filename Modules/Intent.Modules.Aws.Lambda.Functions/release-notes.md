@@ -1,4 +1,4 @@
-### Version 1.0.8
+### Version 1.1.0
 
 - Improvement: Updated NuGet package versions:
   - `Amazon.Lambda.Annotations` 2.2.0 → 2.4.2

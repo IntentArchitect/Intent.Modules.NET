@@ -205,6 +205,7 @@
     <application id="f8ed0666-9d96-4b22-a569-3e203152124c" name="EventingSubscribers" solutionFolder="Eventing" relativePath="EventingSubscribers/EventingSubscribers.application.config" />
     <application id="c9e96aa7-003d-479b-9463-c3eba62a5617" name="N_ServiceBus.AzureServiceBus" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.AzureServiceBus/N_ServiceBus.AzureServiceBus.application.config" />
     <application id="d69bfc1f-2e5b-4609-b1da-c715bf152c84" name="N_ServiceBus.LearnerTransport" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.LearnerTransport/N_ServiceBus.LearnerTransport.application.config" />
+    <application id="e5432075-8bd5-4430-ba9b-e3f4cbf3df80" name="N_ServiceBus.LearnerTransport.NET11" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.LearnerTransport.NET11/N_ServiceBus.LearnerTransport.NET11.application.config" />
     <application id="d5971438-3fe8-4d7b-abb3-01978c0f447b" name="N_ServiceBus.RabbitMQ" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.RabbitMQ/N_ServiceBus.RabbitMQ.application.config" />
     <application id="d49a4f09-2df2-4b45-8069-7d331a523704" name="N_ServiceBus.SQS" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.SQS/N_ServiceBus.SQS.application.config" />
     <application id="9a70e843-df93-406b-9619-d4b264619d72" name="N_ServiceBus.SqlServer" solutionFolder="Eventing/NServiceBus" relativePath="N_ServiceBus.SqlServer/N_ServiceBus.SqlServer.application.config" />
@@ -247,5 +248,9 @@
     <application id="73e5d8aa-fba0-4efe-8945-609a652e0a2c" name="TestMediator.Consolidated" solutionFolder="Mediator" relativePath="TestMediator.Consolidated/TestMediator.Consolidated.application.config" />
     <application id="834e87e5-ed8e-4686-b1b0-1206369152a9" name="TestMediator.Quartz" solutionFolder="Mediator" relativePath="TestMediator.Quartz/TestMediator.Quartz.application.config" />
     <application id="a53de4b1-ff24-4892-a63f-8d16d66cebc9" name="TestMediator.Hangfire" solutionFolder="Mediator" relativePath="TestMediator.Hangfire/TestMediator.Hangfire.application.config" />
+    <application id="f0c7b7ca-19bb-4d6e-87d1-76e645baccea" name="EntityFrameworkCore.SqlServer.EF11" solutionFolder="Data Access/Entity Framework" relativePath="EntityFrameworkCore.SqlServer.EF11/EntityFrameworkCore.SqlServer.EF11.application.config" />
+    <application id="856b64e4-4f8c-43f5-97b0-75e4a7c691e1" name="Scalar.NET11.Bearer" solutionFolder="OpenAPI/Scalar" relativePath="Scalar.NET11.Bearer/Scalar.NET11.Bearer.application.config" />
+    <application id="bce8d2b9-9e01-4ab3-8f25-1d0ffddbd832" name="SwashbuckleSettings.NET11" solutionFolder="OpenAPI/Swashbuckle" relativePath="SwashbuckleSettings.NET11/SwashbuckleSettings.NET11.application.config" />
+    <application id="5311cab8-33e1-4f7b-a09b-6a41623db2ca" name="EntityFrameworkCore.Postgres.EF11" solutionFolder="Data Access/Entity Framework" relativePath="EntityFrameworkCore.Postgres.EF11/EntityFrameworkCore.Postgres.EF11.application.config" />
   </applications>
 </solution>

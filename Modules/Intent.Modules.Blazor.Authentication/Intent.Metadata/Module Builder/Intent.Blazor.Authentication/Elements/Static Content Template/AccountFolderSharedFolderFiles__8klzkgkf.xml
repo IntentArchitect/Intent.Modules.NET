@@ -18,6 +18,8 @@
         <property name="52e01775-62a6-4b04-86ee-9d36efe20f70" display="Binary File Globbing Patterns" value="*.jpg&#xA;*.png&#xA;*.xlsx&#xA;*.ico&#xA;*.pdf" isActive="true" />
         <property name="db0f79b6-2905-4771-9400-ed2bc024d1e1" display="Role" value="Startup,Blazor" isActive="true" />
         <property name="1b9fff50-1498-482a-a64d-11c5b92d0856" display="Default Location" value="Components/Account/Shared" isActive="true" />
+        <property name="1f892287-3e9b-4c05-99b8-79fe86d06865" display="Severity" value="0 - None" isActive="true" />
+        <property name="d36792c9-bc55-4d1e-8d22-b000019b6703" display="Classification" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

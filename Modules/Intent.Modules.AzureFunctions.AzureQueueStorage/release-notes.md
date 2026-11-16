@@ -1,4 +1,4 @@
-### Version 1.1.2
+### Version 1.2.0
 
 - Improvement: Updated NuGet package versions:
   - `Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues` 5.5.4 → 5.5.5

@@ -1,4 +1,4 @@
-### Version 3.13.5
+### Version 3.14.0
 
 - Improvement: Updated NuGet package versions:
   - `FluentValidation` 12.1.1 → 12.2.0

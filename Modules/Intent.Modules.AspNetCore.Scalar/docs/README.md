@@ -21,6 +21,8 @@ The HTTP `QUERY` method can only be described from OpenAPI 3.2. When the applica
 - Generates `HttpQueryDocumentTransformer`, which adds the `QUERY` operations to the OpenAPI document.
 - Adds `app.UseHttpQueryOpenApi()` to the request pipeline, which serves `/openapi/{documentName}.json` as OpenAPI 3.2 so Scalar can show and send `QUERY` requests.
 
+On .NET 11, `Microsoft.AspNetCore.OpenApi` writes OpenAPI 3.2 and describes `QUERY` operations itself, so neither is generated.
+
 On earlier .NET versions, or with no `QUERY` operations, none of this is generated and `QUERY` endpoints are left out of the OpenAPI document.
 
 ## Settings

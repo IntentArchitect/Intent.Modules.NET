@@ -101,7 +101,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
                         method.Override().Protected();
                         method.AddParameter(EntityTypeName, "domainEntity");
                         method.AddParameter(entityDocumentName, "document");
-                        method.WithExpressionBody($@"ReflectionHelper.ForceSetProperty(domainEntity, ""{pkAttribute.IdAttribute.Name}"", document.{pkAttribute.IdAttribute.Name})");
+                        method.WithExpressionBody($@"{this.GetReflectionHelperName()}.ForceSetProperty(domainEntity, ""{pkAttribute.IdAttribute.Name}"", document.{pkAttribute.IdAttribute.Name})");
                     });
                 });
         }

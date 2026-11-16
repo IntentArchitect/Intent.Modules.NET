@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ad5ec444-0da1-45f5-a7a5-1b028d6213b2" type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+  <name>TalkToPersonCommand</name>
+  <display>TalkToPersonCommand</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>7c84b3ec-174b-4fde-bffe-4c91429243d3</parentFolderId>
+  <packageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</packageId>
+  <packageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c45c1bba-04ce-4ba3-88e6-c69b6ce3d1ca" name="NServiceBus">
+      <definitionPackageName>Intent.Eventing.NServiceBus</definitionPackageName>
+      <definitionPackageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</definitionPackageId>
+      <properties>
+        <property name="7fb26481-5156-4067-ad30-b55b48f2bfbe" display="Endpoint Name" value="talk-person" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="f9c51bce-ad6e-4c30-b2e9-60f22abaa3fc" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Message</name>
+      <display>Message: string</display>
+      <typeReference id="2a5da85b-3454-48be-a27f-4dcd9ae3d4e6">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>ad5ec444-0da1-45f5-a7a5-1b028d6213b2</parentFolderId>
+      <packageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</packageId>
+      <packageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</packageName>
+    </element>
+    <element id="11a3e12e-3081-41de-b044-e03dd1ff8800" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>FirstName</name>
+      <display>FirstName: string</display>
+      <typeReference id="986631a9-7e35-494b-8f7f-06d2ef94c143">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>ad5ec444-0da1-45f5-a7a5-1b028d6213b2</parentFolderId>
+      <packageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</packageId>
+      <packageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</packageName>
+    </element>
+    <element id="1371cda6-62e1-4cdb-8878-68e88466e118" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>LastName</name>
+      <display>LastName: string</display>
+      <typeReference id="11622878-23b7-441e-ada9-9864d4d48a7a">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>ad5ec444-0da1-45f5-a7a5-1b028d6213b2</parentFolderId>
+      <packageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</packageId>
+      <packageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</packageName>
+    </element>
+  </children>
+</class>

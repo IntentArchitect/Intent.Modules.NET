@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="79002ecf-a843-47dc-b939-a7074e9f4577" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <order>1</order>
+  <parentFolderId>ac805aba-f3d9-44e7-b04b-27dc38e16e42</parentFolderId>
+  <packageId>ac805aba-f3d9-44e7-b04b-27dc38e16e42</packageId>
+  <packageName>N_ServiceBus.LearnerTransport.NET11.Domain</packageName>
+  <diagram>
+    <targetPackageId>ac805aba-f3d9-44e7-b04b-27dc38e16e42</targetPackageId>
+  </diagram>
+</class>

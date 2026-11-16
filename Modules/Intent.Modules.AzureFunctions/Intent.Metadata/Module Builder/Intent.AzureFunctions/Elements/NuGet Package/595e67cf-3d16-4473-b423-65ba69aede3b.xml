@@ -119,6 +119,101 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="dc727488-5bca-4e1f-aa06-1bf7201eec1b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>11.0.0</name>
+      <display>11.0.0 ( &gt;= .NETCoreApp,Version=v11.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>595e67cf-3d16-4473-b423-65ba69aede3b</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v11.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="32dd7da0-d206-44c6-b8d8-eabafe5f1656" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Cosmos</name>
+          <display>Microsoft.Azure.Cosmos (3.63.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.63.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dc727488-5bca-4e1f-aa06-1bf7201eec1b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b9bcb51c-e0cb-4810-a7de-dfe6d67bb572" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <display>Microsoft.EntityFrameworkCore (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dc727488-5bca-4e1f-aa06-1bf7201eec1b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c032f7cc-b8b0-4671-8e0a-1763f9bc3d40" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dc727488-5bca-4e1f-aa06-1bf7201eec1b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0834ba89-8103-488c-af4a-07c9c656e05a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dc727488-5bca-4e1f-aa06-1bf7201eec1b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="77915859-018a-48d7-b903-7d41af274520" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Newtonsoft.Json</name>
+          <display>Newtonsoft.Json (13.0.4)</display>
+          <isAbstract>false</isAbstract>
+          <value>13.0.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>dc727488-5bca-4e1f-aa06-1bf7201eec1b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="f14f0c58-27c6-4b3e-82f1-321e37f9a615" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>3.1.32</name>
       <display>3.1.32 ( &gt;= .NETStandard,Version=v2.0 )</display>

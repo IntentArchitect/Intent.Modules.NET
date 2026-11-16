@@ -13,6 +13,7 @@ namespace Redis.Om.Repositories.Infrastructure.Persistence.Documents
     internal class IdTestingDocument : IIdTestingDocument, IRedisOmDocument<IdTesting, IdTestingDocument>
     {
         [RedisIdField]
+        [Indexed]
         public string Identifier { get; set; } = default!;
         [Indexed]
         public string Id { get; set; } = default!;

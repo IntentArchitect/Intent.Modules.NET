@@ -1,4 +1,4 @@
-### Version 1.1.4
+### Version 1.2.0
 
 - Improvement: Updated NuGet package versions:
   - `WolverineFx` 5.39.5 → 5.41.0

@@ -35,7 +35,7 @@
         <mappingSettingsId>cf512bcf-7b14-47ee-9c62-cf1b40fd2b7f</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="d0e76c06-b1dd-4de8-b740-93f608e4fc2a" name="GetInvoicesQuery" type="element" specialization="Query" />
+          <target id="d0e76c06-b1dd-4de8-b740-93f608e4fc2a" name="GetInvoicesQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>24b8387a-9c06-46cb-8c28-8c5264ade1a7</parentFolderId>
@@ -68,8 +68,8 @@
         <mappingSettingsId>cf512bcf-7b14-47ee-9c62-cf1b40fd2b7f</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c5dad6f1-8d21-4a45-8c4c-007b12fc8f00" name="ProductsService" type="element" specialization="Service" />
-          <target id="1b95ef27-c717-4694-bd83-9179b36e1777" name="FindProducts" type="element" specialization="Operation" />
+          <target id="c5dad6f1-8d21-4a45-8c4c-007b12fc8f00" name="ProductsService" type="element" specialization="Service" specializationId="b16578a5-27b1-4047-a8df-f0b783d706bd" />
+          <target id="1b95ef27-c717-4694-bd83-9179b36e1777" name="FindProducts" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>24b8387a-9c06-46cb-8c28-8c5264ade1a7</parentFolderId>
@@ -103,8 +103,8 @@
         <mappingSettingsId>cf512bcf-7b14-47ee-9c62-cf1b40fd2b7f</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c5dad6f1-8d21-4a45-8c4c-007b12fc8f00" name="ProductsService" type="element" specialization="Service" />
-          <target id="51bfa3fc-4ecb-41e5-a366-e88c18ac97a5" name="FindProductById" type="element" specialization="Operation" />
+          <target id="c5dad6f1-8d21-4a45-8c4c-007b12fc8f00" name="ProductsService" type="element" specialization="Service" specializationId="b16578a5-27b1-4047-a8df-f0b783d706bd" />
+          <target id="51bfa3fc-4ecb-41e5-a366-e88c18ac97a5" name="FindProductById" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>24b8387a-9c06-46cb-8c28-8c5264ade1a7</parentFolderId>
@@ -134,7 +134,7 @@
             <mappingSettingsId>cf512bcf-7b14-47ee-9c62-cf1b40fd2b7f</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="63fc88a3-04af-4500-aa80-29f4df12afee" name="id" type="element" specialization="Parameter" />
+              <target id="63fc88a3-04af-4500-aa80-29f4df12afee" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>06c381eb-ea84-4432-8ead-65eb4bd84bac</parentFolderId>
@@ -170,7 +170,7 @@
         <mappingSettingsId>79d0e613-7688-4b73-8f84-79eba94b8b46</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="73696d1b-c858-45bf-bb22-380d9e130b6f" name="Customer" type="element" specialization="Class" />
+          <target id="73696d1b-c858-45bf-bb22-380d9e130b6f" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>24b8387a-9c06-46cb-8c28-8c5264ade1a7</parentFolderId>
@@ -200,7 +200,7 @@
             <mappingSettingsId>79d0e613-7688-4b73-8f84-79eba94b8b46</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="62b94dbe-f05f-402f-b276-e32c18abac6d" name="Id" type="element" specialization="Attribute" />
+              <target id="62b94dbe-f05f-402f-b276-e32c18abac6d" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>ca39856e-72b6-4ea8-bf1f-45a550b42ecf</parentFolderId>
@@ -235,7 +235,7 @@
         <mappingSettingsId>79d0e613-7688-4b73-8f84-79eba94b8b46</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="73696d1b-c858-45bf-bb22-380d9e130b6f" name="Customer" type="element" specialization="Class" />
+          <target id="73696d1b-c858-45bf-bb22-380d9e130b6f" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>24b8387a-9c06-46cb-8c28-8c5264ade1a7</parentFolderId>
@@ -281,7 +281,7 @@
         <mappingSettingsId>79d0e613-7688-4b73-8f84-79eba94b8b46</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="e9295fd6-c250-428e-b4b2-3757104b45b8" name="Invoice" type="element" specialization="Class" />
+          <target id="e9295fd6-c250-428e-b4b2-3757104b45b8" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>24b8387a-9c06-46cb-8c28-8c5264ade1a7</parentFolderId>

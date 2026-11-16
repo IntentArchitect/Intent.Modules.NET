@@ -33,6 +33,10 @@
       <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
       <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
       <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b7dc433a-8d6d-4cae-88e3-780e5aa0c418" name="GraphQL Enabled">
           <addedByDefault>false</addedByDefault>
@@ -90,6 +94,10 @@
       <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
       <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
       <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b7dc433a-8d6d-4cae-88e3-780e5aa0c418" name="GraphQL Enabled">
           <addedByDefault>false</addedByDefault>
@@ -146,6 +154,10 @@
       <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
       <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
       <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b7dc433a-8d6d-4cae-88e3-780e5aa0c418" name="GraphQL Enabled">
           <addedByDefault>false</addedByDefault>
@@ -178,6 +190,10 @@
       <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
       <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
       <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b7dc433a-8d6d-4cae-88e3-780e5aa0c418" name="GraphQL Enabled">
           <addedByDefault>false</addedByDefault>
@@ -259,6 +275,10 @@
       <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
       <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
       <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b7dc433a-8d6d-4cae-88e3-780e5aa0c418" name="GraphQL Enabled">
           <addedByDefault>false</addedByDefault>
@@ -287,6 +307,88 @@
           </typeReference>
           <isMapped>false</isMapped>
           <parentFolderId>a54b07ad-ac56-43f5-9873-ccf796c6d0d7</parentFolderId>
+          <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+          <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="25bded94-abe7-494d-8896-11e9bda19f37" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>ArchiveProduct</name>
+      <display>ArchiveProduct(id: guid, reason: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="b64ba3e6-9765-49cd-963d-11cf49417325">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</parentFolderId>
+      <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+      <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b7dc433a-8d6d-4cae-88e3-780e5aa0c418" name="GraphQL Enabled">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.HotChocolate.GraphQL.Dispatch.Services</definitionPackageName>
+          <definitionPackageId>4da197c7-6b64-4e7f-9a50-660fe67c563d</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="87a4d610-421e-4c14-a7ff-bf359f43b4fd" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1514e972-30ef-46ce-a0f2-1fccfc4e06f7">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>25bded94-abe7-494d-8896-11e9bda19f37</parentFolderId>
+          <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
+          <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="230883c0-4010-44ba-b2eb-614d23d54644" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>reason</name>
+          <display>in : reason: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="053cc472-2901-4dbe-b0b1-84a6a1532e6d">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>25bded94-abe7-494d-8896-11e9bda19f37</parentFolderId>
           <packageId>938547ab-30fd-4ac7-8603-e3cd287d048a</packageId>
           <packageName>GraphQL.CQRS.TestApplication.Services</packageName>
           <stereotypes />

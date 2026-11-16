@@ -58,7 +58,6 @@
   <file path="Blazor.InteractiveServer.Jwt/Components/Account/Shared/StatusMessage.razor" templateId="Intent.Blazor.Templates.Server.RazorServerComponentTemplate" />
   <file path="Blazor.InteractiveServer.Jwt/Components/Account/Shared/StatusMessage.razor.cs" templateId="Intent.Blazor.Templates.Server.RazorServerComponentCodeBehindTemplate" />
   <file path="Blazor.InteractiveServer.Jwt/Components/Account/Shared/UserInfo.cs" templateId="Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate" />
-  <file path="Blazor.InteractiveServer.Jwt/Components/Account/Shared/_Imports.razor" templateId="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration" />
   <file path="Blazor.InteractiveServer.Jwt/Components/App.razor" deviationsHash="E0BE650613544298684B76B62018A23BD40969D3C357D30F70F63995683C981E" templateId="Intent.Blazor.Templates.Server.AppRazorTemplate" />
   <file path="Blazor.InteractiveServer.Jwt/Components/Layout/AppBrand.razor" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />
   <file path="Blazor.InteractiveServer.Jwt/Components/Layout/AppBrand.razor.css" templateId="Intent.Modules.Blazor.Components.MudBlazor.Templates.StaticContentTemplateRegistrations.ThemeArtifactsStaticContentTemplateRegistration" />

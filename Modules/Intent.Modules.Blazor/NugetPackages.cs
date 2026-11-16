@@ -20,6 +20,14 @@ namespace Intent.Modules.Blazor
             NugetRegistry.Register(MicrosoftAspNetCoreComponentsWebAssemblyPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.EnvironmentVariables", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "11.0.0")
+                            .WithNugetDependency("Microsoft.JSInterop.WebAssembly", "11.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "10.0.15")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "10.0.15")
@@ -56,6 +64,9 @@ namespace Intent.Modules.Blazor
             NugetRegistry.Register(MicrosoftAspNetCoreComponentsWebAssemblyAuthenticationPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Components.Authorization", "11.0.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "11.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.AspNetCore.Components.Authorization", "10.0.15")
                             .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "10.0.15"),
@@ -80,6 +91,9 @@ namespace Intent.Modules.Blazor
             NugetRegistry.Register(MicrosoftAspNetCoreComponentsWebAssemblyServerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Components.WebAssembly", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Localization.Abstractions", "11.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.AspNetCore.Components.WebAssembly", "10.0.15"),
                         ( >= 9, >= 0) => new PackageVersion("9.0.23"),

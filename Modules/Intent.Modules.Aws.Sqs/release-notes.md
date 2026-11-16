@@ -1,4 +1,4 @@
-### Version 1.1.3
+### Version 1.2.0
 
 - Improvement: Updated NuGet package versions:
   - `Amazon.Lambda.SQSEvents` 3.0.0 → 3.0.1

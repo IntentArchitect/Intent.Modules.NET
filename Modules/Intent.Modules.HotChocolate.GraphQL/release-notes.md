@@ -1,5 +1,6 @@
 ### Version 5.1.0
 
+- Fixed: Applications failed at startup when an operation exposed as a GraphQL mutation had no return type. Mutations without a return type are now left out with a warning, and a mutation type with none left is not generated.
 - Improvement: Updated NuGet package versions:
   - `HotChocolate` 16.4.0 → 16.7.5 (net10.0, net9.0, net8.0); 14.3.1 → 14.3.5 (net7.0, net6.0, netstandard2.0)
 

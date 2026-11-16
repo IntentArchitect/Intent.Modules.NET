@@ -25,6 +25,10 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.TypeSchemaFilter
         {
             var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
             var openApiNamespace = isMicrosoftOpenApi_2_4_1 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
+            // Microsoft.OpenApi 3.x marks the single Example obsolete in favour of the Examples list
+            var exampleAssignment = MicrosoftOpenApiVersion.IsV3(OutputTarget)
+                ? (Func<string, string>)(value => $"concreteSchema.Examples = [JsonValue.Create({value})];")
+                : value => $"concreteSchema.Example = JsonValue.Create({value});";
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -54,11 +58,11 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.TypeSchemaFilter
                             {
                                 outerIf.AddIfStatement("context.Type == typeof(TimeSpan) || context.Type == typeof(TimeSpan?)", stmt =>
                                 {
-                                    stmt.AddStatement("concreteSchema.Example = JsonValue.Create(\"00:00:00\");");
+                                    stmt.AddStatement(exampleAssignment("\"00:00:00\""));
                                 });
                                 outerIf.AddIfStatement("context.Type == typeof(DateOnly) || context.Type == typeof(DateOnly?)", stmt =>
                                 {
-                                    stmt.AddStatement("concreteSchema.Example = JsonValue.Create(DateTime.Today.ToString(\"yyyy-MM-dd\"));");
+                                    stmt.AddStatement(exampleAssignment("DateTime.Today.ToString(\"yyyy-MM-dd\")"));
                                 });
                             });
                         }

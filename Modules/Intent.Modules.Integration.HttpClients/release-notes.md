@@ -8,6 +8,7 @@
   - `Microsoft.Extensions.Caching.Memory` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0)
   - `Microsoft.Extensions.Http` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)
   - `System.Text.Json` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)
+- Improvement: Added .NET 11 NuGet package versions.
 
 ### Version 6.2.0
 

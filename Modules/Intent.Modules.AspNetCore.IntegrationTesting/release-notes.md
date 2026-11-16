@@ -11,6 +11,7 @@
   - `Testcontainers.MongoDb` 4.13.0 → 4.16.0
   - `Testcontainers.MsSql` 4.13.0 → 4.16.0
   - `Testcontainers.PostgreSql` 4.13.0 → 4.16.0
+- Improvement: Added .NET 11 NuGet package versions.
 
 ### Version 2.0.21
 

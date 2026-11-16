@@ -28,6 +28,8 @@ The HTTP `QUERY` method can only be described from OpenAPI 3.2, which Swashbuckl
 - `OpenApi32DocumentSerializer`, which serves the document as OpenAPI 3.2.
 - A Swagger UI index page that loads swagger-ui 5.34.1 from unpkg, since the swagger-ui bundled with Swashbuckle cannot send `QUERY` requests. The page needs internet access to load.
 
+On .NET 11, Swashbuckle 11 describes `QUERY` operations itself, so the module only sets `SwaggerOptions.OpenApiVersion` to OpenAPI 3.2 and generates the Swagger UI index page.
+
 On earlier .NET versions, or with no `QUERY` operations, none of this is generated and `QUERY` endpoints are left out of the Swagger document.
 
 ## Settings

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e0992dfa-cf21-45eb-ab19-a3a89860183b" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Models</name>
+  <display>Models</display>
+  <parentFolderId>5d047f30-7054-432f-8936-5b2fde001481</parentFolderId>
+  <packageId>c3f94440-0692-4def-bf3b-16f5d3024bc6</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</class>

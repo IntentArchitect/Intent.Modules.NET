@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="91e0c31a-bbb3-42ee-8292-a2c2f84fb665" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Tasks</name>
+  <display>Tasks</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>791eee69-05d8-4815-b31d-3e180f1db897</parentFolderId>
+  <packageId>cba83286-8d23-45ae-b996-ec6009c0f936</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="991242d6-d8f8-4fd4-af5e-b377816ac7d9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.ModuleTask</name>
+      <display>Intent.ModuleBuilder.Templates.ModuleTask</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>91e0c31a-bbb3-42ee-8292-a2c2f84fb665</parentFolderId>
+      <packageId>cba83286-8d23-45ae-b996-ec6009c0f936</packageId>
+      <packageName>root</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

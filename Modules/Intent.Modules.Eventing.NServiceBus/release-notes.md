@@ -1,4 +1,4 @@
-### Version 1.0.5
+### Version 1.1.0
 
 - Improvement: Updated NuGet package versions:
   - `Microsoft.Data.SqlClient` 7.0.2 → 7.1.1

@@ -1,4 +1,4 @@
-### Version 1.3.1
+### Version 1.4.0
 
 - Improvement: Updated NuGet package versions:
   - `Azure.Messaging.ServiceBus` 7.20.2 → 7.21.0

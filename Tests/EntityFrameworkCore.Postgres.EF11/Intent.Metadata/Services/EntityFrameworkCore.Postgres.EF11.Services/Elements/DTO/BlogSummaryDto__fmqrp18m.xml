@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ac4f4fc5-f810-455b-ad70-7d8d4748f62f" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>BlogSummaryDto</name>
+  <display>BlogSummaryDto</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</parentFolderId>
+  <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+  <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+  <children>
+    <element id="f09f9bd6-71eb-46e7-b85c-4ce99f4975c2" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <typeReference id="298618ad-e4f2-4cbd-8870-6008dfd41c52">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>ac4f4fc5-f810-455b-ad70-7d8d4748f62f</parentFolderId>
+      <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+      <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+    </element>
+    <element id="7c317cee-6a96-478e-b4fd-77b09eaaa8e9" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Name</name>
+      <display>Name: string</display>
+      <typeReference id="3fdc3eca-3e07-4c24-8531-b38dc3cb4185">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>ac4f4fc5-f810-455b-ad70-7d8d4748f62f</parentFolderId>
+      <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+      <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+    </element>
+    <element id="7bf2c1c9-66e5-4cc2-9d9d-b5c788abec54" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>PostCount</name>
+      <display>PostCount: int</display>
+      <typeReference id="5d72d129-fdef-429c-8d1d-010719fbf813">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>ac4f4fc5-f810-455b-ad70-7d8d4748f62f</parentFolderId>
+      <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+      <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+    </element>
+  </children>
+</class>

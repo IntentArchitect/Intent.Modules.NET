@@ -1,4 +1,4 @@
-### Version 4.1.20
+### Version 4.2.0
 
 - Improvement: Updated NuGet package versions:
   - `Microsoft.Extensions.Configuration.Abstractions` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)

@@ -77,6 +77,59 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="00bdf108-7e69-4b18-92d1-c5da461e9bfb" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>11.0.0</name>
+      <display>11.0.0 ( &gt;= .NETCoreApp,Version=v11.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a9f2f599-1b7a-4443-873c-6d9fbc9ac3d2</parentFolderId>
+      <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+      <packageName>Intent.Blazor.Authentication</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v11.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e222db68-414a-40cf-8ffa-eb5ea7e016f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00bdf108-7e69-4b18-92d1-c5da461e9bfb</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2d4a04fb-2da8-4678-b352-5ba6af433874" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
+          <display>Microsoft.Extensions.Identity.Stores (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00bdf108-7e69-4b18-92d1-c5da461e9bfb</parentFolderId>
+          <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+          <packageName>Intent.Blazor.Authentication</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="406fdf1f-455c-435f-80eb-04a4127a4320" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.3.14</name>
       <display>2.3.14 ( &gt;= .NETStandard,Version=v2.0 )</display>

@@ -1,4 +1,4 @@
-### Version 1.0.1
+### Version 1.1.0
 
 - Improvement: The Domain drift check reports through Intent.Common.DriftReporting: its findings are the Domain Area of the application's one drift report (`.cache/drift/<application>/DriftReport.mdx`), and a run with drift fails with one error naming the report. The per-designer `DomainDriftReport.mdx` and its template are gone; a `DomainDriftReporter` factory extension contributes the designer instead.
 - Improvement: Extracted and generalized Drift Module

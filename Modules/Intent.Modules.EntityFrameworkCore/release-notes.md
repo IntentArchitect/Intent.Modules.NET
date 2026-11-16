@@ -1,4 +1,4 @@
-### Version 5.2.2
+### Version 5.3.0
 
 - Improvement: Updated NuGet package versions:
   - `Microsoft.EntityFrameworkCore` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
@@ -13,6 +13,9 @@
   - `Npgsql.EntityFrameworkCore.PostgreSQL` 10.0.2 → 10.0.3
   - `Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite` 10.0.2 → 10.0.3
   - `Oracle.EntityFrameworkCore` 10.23.26200 → 10.23.26400 (net10.0); 9.23.80 → 9.23.26400 (net9.0); 8.23.80 → 8.23.26400 (net8.0)
+- Improvement: Added .NET 11 NuGet package versions.
+- Improvement: On .NET 11, PostgreSQL uses the `Npgsql.EntityFrameworkCore.PostgreSQL` 11.0.0-rc.3 pre-release until Npgsql 11 is released.
+- Improvement: The Software Factory now reports a clear error when the MySQL database provider is used on .NET 11, because `Pomelo.EntityFrameworkCore.MySql` does not support Entity Framework Core 11 yet.
 
 ### Version 5.2.1
 

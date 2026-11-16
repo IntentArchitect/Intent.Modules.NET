@@ -233,7 +233,8 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HttpQueryDocumentFilte
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && HttpQueryHelper.NeedsHttpQueryOpenApi(OutputTarget);
+            // Swashbuckle 11 (Microsoft.OpenApi 3.x) describes QUERY actions itself.
+            return base.CanRunTemplate() && HttpQueryHelper.NeedsHttpQueryOpenApi(OutputTarget) && !MicrosoftOpenApiVersion.IsV3(OutputTarget);
         }
 
         [IntentManaged(Mode.Fully)]

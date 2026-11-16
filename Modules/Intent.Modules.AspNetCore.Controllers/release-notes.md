@@ -2,6 +2,7 @@
 
 - New Feature: Operations modelled with the HTTP `QUERY` verb generate `[HttpQuery]` actions, backed by a generated `HttpQueryAttribute`, and respond like `GET` operations.
 - Improvement: Installing or updating this module also updates an installed `Intent.AspNetCore.Swashbuckle` to its first version that describes `QUERY` endpoints.
+- Improvement: Added .NET 11 support. With `Swashbuckle.AspNetCore` 11, the generated `BinaryContentFilter` uses the `Microsoft.OpenApi` 3.x API and compiles without nullable warnings.
 
 ### Version 7.1.16
 

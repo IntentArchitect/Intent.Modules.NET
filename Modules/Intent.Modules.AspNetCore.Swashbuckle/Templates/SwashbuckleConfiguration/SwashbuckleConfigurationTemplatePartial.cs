@@ -81,8 +81,9 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
 
                                 lambdaBlock.AddStatement("options.CustomSchemaIds(SchemaIdSelector);");
 
+                                var path = UseType("System.IO.Path");
                                 lambdaBlock.AddStatement(
-                                    "var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $\"{Assembly.GetExecutingAssembly().GetName().Name}.xml\");",
+                                    $"var apiXmlFile = {path}.Combine(AppContext.BaseDirectory, $\"{{Assembly.GetExecutingAssembly().GetName().Name}}.xml\");",
                                     s => s.SeparatedFromPrevious());
                                 lambdaBlock.AddIfStatement("File.Exists(apiXmlFile)", @if =>
                                 {
@@ -94,7 +95,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                                 if (TryGetTemplate<ICSharpTemplate>("Intent.Application.DependencyInjection.DependencyInjection", out _))
                                 {
                                     lambdaBlock.AddStatement(
-                                        $"var applicationXmlFile = Path.Combine(AppContext.BaseDirectory," +
+                                        $"var applicationXmlFile = {path}.Combine(AppContext.BaseDirectory," +
                                         $" $\"{{typeof({GetTypeName("Intent.Application.DependencyInjection.DependencyInjection")}).Assembly.GetName().Name}}.xml\");",
                                         s => s.SeparatedFromPrevious());
                                     lambdaBlock.AddIfStatement("File.Exists(applicationXmlFile)", @if =>
@@ -109,7 +110,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                                 if (TryGetTemplate<ICSharpTemplate>("Intent.Entities.NotFoundException", out _))
                                 {
                                     lambdaBlock.AddStatement(
-                                        $"var domainXmlFile = Path.Combine(AppContext.BaseDirectory," +
+                                        $"var domainXmlFile = {path}.Combine(AppContext.BaseDirectory," +
                                         $" $\"{{typeof({GetTypeName("Intent.Entities.NotFoundException")}).Assembly.GetName().Name}}.xml\");");
 
                                     lambdaBlock.AddIfStatement("File.Exists(domainXmlFile)", @if =>
@@ -242,15 +243,26 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
             throw new InvalidOperationException("Could not find the AddSwaggerGen options lambda to register the HTTP QUERY OpenAPI support in.");
         }
 
-        var documentFilterName = this.GetHttpQueryDocumentFilterName();
-        var documentSerializerName = this.GetOpenApi32DocumentSerializerName();
+        if (MicrosoftOpenApiVersion.IsV3(OutputTarget))
+        {
+            // Swashbuckle 11 describes QUERY actions itself and writes OpenAPI 3.2 natively once asked to.
+            file.AddUsing("Microsoft.OpenApi");
+            addSwaggerGen.InsertBelow(new CSharpInvocationStatement("services.Configure<SwaggerOptions>")
+                .AddArgument(new CSharpLambdaBlock("options")
+                    .AddStatement("options.OpenApiVersion = OpenApiSpecVersion.OpenApi3_2;")));
+        }
+        else
+        {
+            var documentFilterName = this.GetHttpQueryDocumentFilterName();
+            var documentSerializerName = this.GetOpenApi32DocumentSerializerName();
 
-        swaggerGenOptions.AddStatement($"options.DocInclusionPredicate({documentFilterName}.ExcludeFromMainPass);");
-        swaggerGenOptions.AddStatement($"options.DocumentFilter<{documentFilterName}>();");
+            swaggerGenOptions.AddStatement($"options.DocInclusionPredicate({documentFilterName}.ExcludeFromMainPass);");
+            swaggerGenOptions.AddStatement($"options.DocumentFilter<{documentFilterName}>();");
 
-        addSwaggerGen.InsertBelow(new CSharpInvocationStatement("services.Configure<SwaggerOptions>")
-            .AddArgument(new CSharpLambdaBlock("options")
-                .AddStatement($"options.CustomDocumentSerializer = new {documentSerializerName}();")));
+            addSwaggerGen.InsertBelow(new CSharpInvocationStatement("services.Configure<SwaggerOptions>")
+                .AddArgument(new CSharpLambdaBlock("options")
+                    .AddStatement($"options.CustomDocumentSerializer = new {documentSerializerName}();")));
+        }
         addSwaggerGen.InsertBelow(new CSharpInvocationStatement("services.Configure<SwaggerUIOptions>")
             .AddArgument(new CSharpLambdaBlock("options")
                 .AddStatement("options.IndexStream = () => new MemoryStream(Encoding.UTF8.GetBytes(SwaggerUiIndex));")));

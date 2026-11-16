@@ -1,4 +1,4 @@
-### Version 1.0.38
+### Version 1.1.0
 
 - Improvement: Updated NuGet package versions:
   - `Finbuckle.MultiTenant` 9.4.10 → 9.4.16

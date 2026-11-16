@@ -1,4 +1,4 @@
-### Version 1.0.8
+### Version 1.1.0
 
 - Improvement: Updated NuGet package versions:
   - `Grpc.AspNetCore` 2.80.0 → 2.85.0

@@ -31,6 +31,7 @@
   - `Microsoft.Extensions.Logging` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1); 6.0.0 → 6.0.1 (net6.0)
   - `Microsoft.NET.Sdk.Functions` 4.2.0 → 4.6.0
   - `RabbitMQ.Client` 7.2.1 → 7.2.2
+- Improvement: Added .NET 11 NuGet package versions.
 
 > ⚠️ **BREAKING CHANGES**
 >

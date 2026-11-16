@@ -44,6 +44,8 @@ namespace WebAndWorker.Api.Configuration
                         options.IncludeXmlComments(domainXmlFile);
                     }
 
+                    options.DocumentFilter<ExcludeODataDocumentFilter>();
+                    options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                     options.SchemaFilter<GeoJsonSchemaFilter>();
                     options.OperationFilter<BinaryContentFilter>();
                     options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();

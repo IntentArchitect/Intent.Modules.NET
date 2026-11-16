@@ -29,6 +29,9 @@ namespace Intent.Modules.Blazor.Authentication
             NugetRegistry.Register(MicrosoftAspNetCoreIdentityEntityFrameworkCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "11.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.15")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "10.0.15"),
@@ -58,6 +61,12 @@ namespace Intent.Modules.Blazor.Authentication
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreSqlServerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.Data.SqlClient", "7.1.1")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "11.0.0")
+                            .WithNugetDependency("System.Security.Cryptography.Pkcs", "10.0.13"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.Data.SqlClient", "6.1.7")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.15")

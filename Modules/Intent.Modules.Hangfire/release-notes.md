@@ -1,4 +1,4 @@
-### Version 1.0.14
+### Version 1.1.0
 
 - Fixed: A Hangfire Job linked to a command did not compile when `Intent.Application.Mediator` was installed instead of MediatR; it now injects `Mediator.ISender`.
 - Improvement: Updated NuGet package versions:

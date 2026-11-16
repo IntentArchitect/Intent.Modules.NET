@@ -1,4 +1,4 @@
-### Version 1.0.17
+### Version 1.1.0
 
 - Fixed: Scheduled Jobs that publish a command failed to generate when `Intent.Application.Mediator` is installed. The job now sends the command with Mediator's `ISender`.
 - Improvement: Updated NuGet package versions:

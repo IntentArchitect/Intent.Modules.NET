@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f0d9b552-4422-40e1-8547-9f2c5a929d8a" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>In-memory widget store exercising the OpenAPI shapes generated on .NET 11 (route parameters hidden from body, HTTP QUERY, binary upload, JSON merge patch).</comment>
+  <name>WidgetService</name>
+  <display>WidgetService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</parentFolderId>
+  <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+  <packageName>Scalar.NET11.Bearer.Services</packageName>
+  <children>
+    <element id="c8b409f7-b24d-4215-a3ad-62c76eb0c2cc" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateWidget</name>
+      <display>CreateWidget(dto: WidgetDto): guid</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="88adf791-4bc1-49bf-abb9-092b902ec2b3">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>f0d9b552-4422-40e1-8547-9f2c5a929d8a</parentFolderId>
+      <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+      <packageName>Scalar.NET11.Bearer.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/widgets" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="201 (Created)" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="1f22d471-e3a4-46b8-a743-a81bc2ddb4c7" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: WidgetDto</display>
+          <typeReference id="4e583da7-6c35-4118-afbd-fe2a958816e2">
+            <typeId>7822d74d-21a6-455d-95b6-96f9dd121461</typeId>
+            <typeName>WidgetDto</typeName>
+            <typePackageName>Scalar.NET11.Bearer.Services</typePackageName>
+            <typePackageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</typePackageId>
+          </typeReference>
+          <parentFolderId>c8b409f7-b24d-4215-a3ad-62c76eb0c2cc</parentFolderId>
+          <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+          <packageName>Scalar.NET11.Bearer.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+      </children>
+    </element>
+    <element id="71214bac-85c8-42b1-83cd-0f4ad3fb6e73" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment>The route carries {id} and WidgetDto also has Id; the OpenAPI body schema must not show id.</comment>
+      <name>UpdateWidget</name>
+      <display>UpdateWidget(id: guid, dto: WidgetDto): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="ad73e190-c37c-42cf-af7f-5e310b02d908" />
+      <parentFolderId>f0d9b552-4422-40e1-8547-9f2c5a929d8a</parentFolderId>
+      <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+      <packageName>Scalar.NET11.Bearer.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/widgets/{id}" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="4d4b19cc-bf49-4d55-b63d-937bfbfa9d75" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <typeReference id="c2040abb-6ff2-4489-933f-86a26213492d">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <typeName>guid</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>71214bac-85c8-42b1-83cd-0f4ad3fb6e73</parentFolderId>
+          <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+          <packageName>Scalar.NET11.Bearer.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="f1007e1f-1e21-4721-8d7d-cc0cee33595b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: WidgetDto</display>
+          <typeReference id="18621115-5b5c-4711-81f2-c3e6c9d40300">
+            <typeId>7822d74d-21a6-455d-95b6-96f9dd121461</typeId>
+            <typeName>WidgetDto</typeName>
+            <typePackageName>Scalar.NET11.Bearer.Services</typePackageName>
+            <typePackageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</typePackageId>
+          </typeReference>
+          <parentFolderId>71214bac-85c8-42b1-83cd-0f4ad3fb6e73</parentFolderId>
+          <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+          <packageName>Scalar.NET11.Bearer.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+      </children>
+    </element>
+    <element id="2b9e7aaa-1c73-44fa-b880-5fc38e65544b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment>HTTP QUERY endpoint: the search criteria travel in the request body.</comment>
+      <name>SearchWidgets</name>
+      <display>SearchWidgets(criteria: WidgetSearchCriteriaDto): WidgetDto[*]</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="9f743895-7205-4631-a650-4ce0e7a23923">
+        <typeId>7822d74d-21a6-455d-95b6-96f9dd121461</typeId>
+        <typeName>WidgetDto</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>Scalar.NET11.Bearer.Services</typePackageName>
+        <typePackageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</typePackageId>
+      </typeReference>
+      <parentFolderId>f0d9b552-4422-40e1-8547-9f2c5a929d8a</parentFolderId>
+      <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+      <packageName>Scalar.NET11.Bearer.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="QUERY" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/widgets/search" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="663ab26a-92a3-47b1-9d20-84583141b461" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>criteria</name>
+          <display>in : criteria: WidgetSearchCriteriaDto</display>
+          <typeReference id="1ec175eb-80c6-4131-bf87-da25054bab23">
+            <typeId>6656eb58-3676-4f1d-bff8-b6188da63293</typeId>
+            <typeName>WidgetSearchCriteriaDto</typeName>
+            <typePackageName>Scalar.NET11.Bearer.Services</typePackageName>
+            <typePackageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</typePackageId>
+          </typeReference>
+          <parentFolderId>2b9e7aaa-1c73-44fa-b880-5fc38e65544b</parentFolderId>
+          <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+          <packageName>Scalar.NET11.Bearer.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+      </children>
+    </element>
+    <element id="b04718c5-e184-4a52-9949-19953bcab690" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment>Binary upload: stores the uploaded bytes in memory and returns a new id.</comment>
+      <name>UploadWidgetImage</name>
+      <display>UploadWidgetImage(content: Stream, filename: string?, contentType: string?, contentLength: long?): guid</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="aff47079-2401-426b-95ad-d8d94136b97d">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>f0d9b552-4422-40e1-8547-9f2c5a929d8a</parentFolderId>
+      <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+      <packageName>Scalar.NET11.Bearer.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="d30e48e8-389e-4b70-84fd-e3bac44cfe19" name="File Transfer">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="920234c1-6edb-4ceb-b6af-76f459bfb348" display="Mime Type Filter" value="*/*" />
+            <property name="c0ea27fb-2e0b-4542-b294-da9d2b12565e" display="Maximum File Size (in bytes)" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/widgets/images" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="05223440-92c8-4405-bb75-6b53616b275b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>content</name>
+          <display>in : content: Stream</display>
+          <typeReference id="916c9050-7e6e-402c-8006-6528b695b46b">
+            <typeId>fd4ead8e-92e9-47c2-97a6-81d898525ea0</typeId>
+            <typeName>Stream</typeName>
+            <typePackageName>Intent.Metadata.WebApi</typePackageName>
+            <typePackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</typePackageId>
+          </typeReference>
+          <parentFolderId>b04718c5-e184-4a52-9949-19953bcab690</parentFolderId>
+          <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+          <packageName>Scalar.NET11.Bearer.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="faad9894-66cf-4c14-91a2-b57db905735d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>filename</name>
+          <display>in : filename: string?</display>
+          <typeReference id="ad78cb99-303d-4e1c-8722-208173b08e27">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <isNullable>true</isNullable>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>b04718c5-e184-4a52-9949-19953bcab690</parentFolderId>
+          <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+          <packageName>Scalar.NET11.Bearer.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="d4c5a080-4a3a-4355-ae36-90d2fc459626" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>contentType</name>
+          <display>in : contentType: string?</display>
+          <typeReference id="a8049dec-db04-4836-b1c6-95378af4c043">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <isNullable>true</isNullable>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>b04718c5-e184-4a52-9949-19953bcab690</parentFolderId>
+          <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+          <packageName>Scalar.NET11.Bearer.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Header" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" value="Content-Type" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="e1b2b05a-0507-455e-a486-5a39ee1ca750" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>contentLength</name>
+          <display>in : contentLength: long?</display>
+          <typeReference id="5a1436ea-dbd8-48e3-8dd1-05cb8de9d594">
+            <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+            <typeName>long</typeName>
+            <isNullable>true</isNullable>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>b04718c5-e184-4a52-9949-19953bcab690</parentFolderId>
+          <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+          <packageName>Scalar.NET11.Bearer.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Header" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" value="Content-Length" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+      </children>
+    </element>
+    <element id="1ba26da8-bccc-41f7-89cc-930c531a21f8" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment>JSON merge patch (RFC 7396) of a widget's name.</comment>
+      <name>PatchWidget</name>
+      <display>PatchWidget(id: guid, dto: PatchWidgetDto): WidgetDto</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="333e9919-90c0-4c6e-88ed-a69ca8150ba4">
+        <typeId>7822d74d-21a6-455d-95b6-96f9dd121461</typeId>
+        <typeName>WidgetDto</typeName>
+        <typePackageName>Scalar.NET11.Bearer.Services</typePackageName>
+        <typePackageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</typePackageId>
+      </typeReference>
+      <parentFolderId>f0d9b552-4422-40e1-8547-9f2c5a929d8a</parentFolderId>
+      <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+      <packageName>Scalar.NET11.Bearer.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PATCH" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/widgets/{id}" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="3d6938a6-d5ef-4d6c-8c79-3de550d6a6d1" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <typeReference id="8d128290-f026-4dba-a8ae-87c21fe6ae90">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <typeName>guid</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>1ba26da8-bccc-41f7-89cc-930c531a21f8</parentFolderId>
+          <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+          <packageName>Scalar.NET11.Bearer.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="35a7d4bb-1e09-454c-86d0-b6c8edc98883" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: PatchWidgetDto</display>
+          <typeReference id="e2d53bea-9dab-4fee-b0e1-9a4dd3201e67">
+            <typeId>cebeabb1-11f9-4851-97b6-3448a4240f01</typeId>
+            <typeName>PatchWidgetDto</typeName>
+            <typePackageName>Scalar.NET11.Bearer.Services</typePackageName>
+            <typePackageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</typePackageId>
+          </typeReference>
+          <parentFolderId>1ba26da8-bccc-41f7-89cc-930c531a21f8</parentFolderId>
+          <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+          <packageName>Scalar.NET11.Bearer.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

@@ -1,7 +1,9 @@
-### Version 1.0.12
+### Version 1.1.0
 
 - Improvement: Updated NuGet package versions:
   - `Microsoft.AspNetCore.OData` 9.4.1 → 9.5.0 (net8.0); 7.7.9 → 7.8.1 (netstandard2.0)
+- Fixed: The Software Factory no longer fails with "More than one instance" when the application has more than one host. OData and its Swagger settings are now configured in each host that has controllers.
+- Fixed: The OData document filter is only generated in a host that configures Swashbuckle, so a host using Scalar (or no Swagger) no longer fails to compile, including when another host in the same application uses Swashbuckle.
 
 ### Version 1.0.11
 
@@ -45,7 +47,7 @@
 
 ### Version 1.0.1
 
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5.
 - Improvement: Updated NuGet package versions.
 
 ### Version 1.0.0

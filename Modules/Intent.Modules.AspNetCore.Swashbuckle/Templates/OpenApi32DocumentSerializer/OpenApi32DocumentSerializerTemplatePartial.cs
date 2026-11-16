@@ -57,7 +57,8 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.OpenApi32DocumentSeria
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && HttpQueryHelper.NeedsHttpQueryOpenApi(OutputTarget);
+            // Swashbuckle 11 (Microsoft.OpenApi 3.x) writes OpenAPI 3.2 itself.
+            return base.CanRunTemplate() && HttpQueryHelper.NeedsHttpQueryOpenApi(OutputTarget) && !MicrosoftOpenApiVersion.IsV3(OutputTarget);
         }
 
         [IntentManaged(Mode.Fully)]

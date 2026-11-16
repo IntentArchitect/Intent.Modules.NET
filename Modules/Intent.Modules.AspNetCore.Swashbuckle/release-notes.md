@@ -1,8 +1,9 @@
 ### Version 6.1.0
 
 - New Feature: On .NET 10, `QUERY` operations appear in the Swagger document, which is served as OpenAPI 3.2, and Swagger UI can send them.
+- Improvement: Added .NET 11 support. `Swashbuckle.AspNetCore` 11 describes `QUERY` operations itself and is set to write OpenAPI 3.2, and the generated filters use the `Microsoft.OpenApi` 3.x API it brings in, without obsolete-member warnings.
 - Improvement: Updated NuGet package versions:
-  - `Swashbuckle.AspNetCore` 10.2.3 → 10.3.1 (net9.0, net8.0)
+  - `Swashbuckle.AspNetCore` 11.0.0 (net11.0, new); 10.2.3 → 10.3.1 (net9.0, net8.0)
 
 ### Version 6.0.5
 

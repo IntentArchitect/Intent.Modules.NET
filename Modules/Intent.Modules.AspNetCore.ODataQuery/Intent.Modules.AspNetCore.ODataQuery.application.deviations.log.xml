@@ -25,8 +25,8 @@
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:56:17.0339312Z</updatedAt>
-      <deviationsHash>B6533A35A88589B2DA87A19498839470E1FD4C178E4E215CF2888A595EB1F4B4</deviationsHash>
+      <updatedAt>2026-11-12T08:15:23.8458951Z</updatedAt>
+      <deviationsHash>6DB6EB967B3FEACB3F9C4032ED5114328685DB09D6CE21E11E58B8571BC27C81</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#79f071dc-8f83-4823-983e-118dcedc3d7d</correlationId>
@@ -34,8 +34,8 @@
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:56:17.0339659Z</updatedAt>
-      <deviationsHash>57569177E2375F18809E7FE1C5A14C9F8E186657270B026A6168360685D1865C</deviationsHash>
+      <updatedAt>2026-11-12T08:15:23.8459363Z</updatedAt>
+      <deviationsHash>269F5BCCC4580CA239FEB351DFA5C4550A70078403380B8700BEA8A6840137C6</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#d03b3262-faad-40cc-9961-40b9b913596b</correlationId>
@@ -43,8 +43,8 @@
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:56:17.0339926Z</updatedAt>
-      <deviationsHash>B6C5B9516DA4028C69B456C613B83600D3064D6B61550DA68CDFB6E0B61612B9</deviationsHash>
+      <updatedAt>2026-11-12T08:15:23.8459525Z</updatedAt>
+      <deviationsHash>4C5768A2638DAB4074AC299A12694C1C5A2397796638DCC705A5932C2E393070</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#794c2498-93df-46ce-ae0d-f10794f995e8</correlationId>
@@ -52,8 +52,8 @@
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:56:17.0340635Z</updatedAt>
-      <deviationsHash>2B315FB22BB6D761103655B261C84B40FBF50002D1AF4C36853075EFF6547485</deviationsHash>
+      <updatedAt>2026-11-12T08:15:23.8459891Z</updatedAt>
+      <deviationsHash>3C7D78137389BA70F052DCA6659554DA1D57A5537A0A2DC297A7958926D676A0</deviationsHash>
     </file>
   </files>
   <customFiles>

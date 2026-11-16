@@ -29,12 +29,15 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var startupTemplate = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-            if (startupTemplate is null)
+            // An application can have several hosts, each with its own startup template, so configure each one.
+            foreach (var startupTemplate in application.FindTemplateInstances<IAppStartupTemplate>(IAppStartupTemplate.RoleName))
             {
-                return;
+                ConfigureOData(startupTemplate);
             }
+        }
 
+        private static void ConfigureOData(IAppStartupTemplate startupTemplate)
+        {
             startupTemplate.CSharpFile.OnBuild(file =>
             {
                 startupTemplate.StartupFile.ConfigureServices((statements, context) =>
@@ -50,7 +53,11 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                         var statementsToCheck = new List<CSharpStatement>();
                         ExtractPossibleStatements(statements, statementsToCheck);
 
-                        var lastConfigStatement = (CSharpInvocationStatement)statementsToCheck.Last(p => p.HasMetadata("configure-services-controllers"));
+                        // Hosts without controllers (e.g. worker services) have nothing to attach OData to.
+                        if (statementsToCheck.LastOrDefault(p => p.HasMetadata("configure-services-controllers")) is not CSharpInvocationStatement lastConfigStatement)
+                        {
+                            return;
+                        }
                         var addODataStatement = statements.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "odata")
                             as CSharpInvocationStatement;
                         if (addODataStatement is null)

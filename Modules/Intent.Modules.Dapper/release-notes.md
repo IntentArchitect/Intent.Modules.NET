@@ -1,4 +1,4 @@
-### Version 1.0.0-beta.15
+### Version 1.1.0
 
 - Improvement: Updated NuGet package versions:
   - `Dapper` 2.1.79 → 2.1.89

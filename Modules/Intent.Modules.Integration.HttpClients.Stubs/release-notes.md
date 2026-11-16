@@ -1,4 +1,4 @@
-### Version 1.0.1
+### Version 1.1.0
 
 - Improvement: Updated NuGet package versions:
   - `Microsoft.Extensions.Configuration.Binder` 10.0.2 → 11.0.0 (net10.0); 10.0.2 → 10.0.15 (net9.0, net8.0, netstandard2.0)

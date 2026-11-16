@@ -357,6 +357,11 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "11.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Analyzers", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "11.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "10.0.15")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Analyzers", "10.0.15")
@@ -401,6 +406,12 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreCosmosPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.63.2")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "11.0.0")
+                            .WithNugetDependency("Newtonsoft.Json", "13.0.4"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.Azure.Cosmos", "3.63.2")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "10.0.15")
@@ -431,6 +442,17 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreDesignPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Humanizer.Core", "3.0.10")
+                            .WithNugetDependency("Microsoft.Build.Framework", "18.9.6")
+                            .WithNugetDependency("Microsoft.CodeAnalysis.CSharp", "5.9.0")
+                            .WithNugetDependency("Microsoft.CodeAnalysis.CSharp.Workspaces", "5.9.0")
+                            .WithNugetDependency("Microsoft.CodeAnalysis.Workspaces.MSBuild", "5.9.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "11.0.0")
+                            .WithNugetDependency("Mono.TextTemplating", "3.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "18.0.2")
@@ -474,6 +496,10 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreInMemoryPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "11.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "10.0.15")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "10.0.15")
@@ -494,6 +520,11 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreProxiesPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Castle.Core", "5.2.1")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "11.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Castle.Core", "5.2.1")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "10.0.15")
@@ -519,6 +550,12 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreSqlServerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.Data.SqlClient", "7.1.1")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "11.0.0")
+                            .WithNugetDependency("System.Security.Cryptography.Pkcs", "10.0.13"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.Data.SqlClient", "6.1.7")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.15")

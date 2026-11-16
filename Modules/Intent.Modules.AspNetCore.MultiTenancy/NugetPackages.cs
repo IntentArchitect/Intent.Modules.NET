@@ -72,6 +72,10 @@ namespace Intent.Modules.AspNetCore.MultiTenancy
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreInMemoryPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "11.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "10.0.15")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "10.0.15")

@@ -1,4 +1,4 @@
-### Version 2.1.1
+### Version 2.2.0
 
 - Improvement: Updated NuGet package versions:
   - `Azure.Identity` added 1.21.0 (net10.0)

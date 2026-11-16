@@ -21,6 +21,8 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis
             NugetRegistry.Register(StackExchangeRedisPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("StackExchange.Redis", "2.7.27"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.15")
                             .WithNugetDependency("Microsoft.Extensions.Options", "10.0.15")

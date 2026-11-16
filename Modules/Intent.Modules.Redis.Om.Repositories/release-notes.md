@@ -2,6 +2,8 @@
 
 - Improvement: Updated NuGet package versions:
   - `Microsoft.Extensions.Hosting.Abstractions` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1)
+- Fixed: Generated Redis OM repositories didn't compile (`CS0103 The name 'ReflectionHelper' does not exist`) because the `ReflectionHelper` namespace wasn't imported.
+- Fixed: Applications failed at startup with `Fields arguments are missing` (an empty `FT.CREATE` schema) when a document's `Id` had no `Indexed` stereotype. The id is now always indexed.
 
 > ⚠️ **BREAKING CHANGES**
 >

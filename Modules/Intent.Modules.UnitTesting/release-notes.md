@@ -1,4 +1,4 @@
-### Version 1.1.3
+### Version 1.2.0
 
 - Improvement: Updated NuGet package versions:
   - `coverlet.collector` 10.0.1 → 10.1.0

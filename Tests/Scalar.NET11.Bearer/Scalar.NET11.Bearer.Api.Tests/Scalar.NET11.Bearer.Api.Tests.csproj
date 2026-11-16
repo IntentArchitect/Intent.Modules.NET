@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Scalar.NET11.Bearer.Api\Scalar.NET11.Bearer.Api.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="11.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
+  </ItemGroup>
+
+</Project>

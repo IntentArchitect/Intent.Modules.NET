@@ -1,4 +1,4 @@
-### Version 2.0.22
+### Version 2.1.0
 
 - Improvement: Updated NuGet package versions:
   - `Azure.Extensions.AspNetCore.Configuration.Secrets` 1.5.1 → 1.5.2

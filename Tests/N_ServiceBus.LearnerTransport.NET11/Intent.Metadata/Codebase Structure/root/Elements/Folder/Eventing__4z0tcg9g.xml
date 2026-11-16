@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="382ce447-0500-4b43-be79-ebb6e2b1dc3a" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Eventing</name>
+  <display>Eventing</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>253a2b06-22ef-49ef-bec5-01a5dca53393</parentFolderId>
+  <packageId>b89989d1-d71e-4936-9615-4234fc7fe9d9</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="66e557f0-cbe4-418c-8db0-9b65be40339c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.CompositeMessageBus</name>
+      <display>Intent.Eventing.Contracts.CompositeMessageBus</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <parentFolderId>382ce447-0500-4b43-be79-ebb6e2b1dc3a</parentFolderId>
+      <packageId>b89989d1-d71e-4936-9615-4234fc7fe9d9</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="b0e1d7b6-5aa3-43df-9bd5-a0e2b8a8401e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.MessageBrokerRegistry</name>
+      <display>Intent.Eventing.Contracts.MessageBrokerRegistry</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <parentFolderId>382ce447-0500-4b43-be79-ebb6e2b1dc3a</parentFolderId>
+      <packageId>b89989d1-d71e-4936-9615-4234fc7fe9d9</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="b12a0ac0-f287-4e42-8b6b-d78974bc2ea8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.MessageBrokerResolver</name>
+      <display>Intent.Eventing.Contracts.MessageBrokerResolver</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <parentFolderId>382ce447-0500-4b43-be79-ebb6e2b1dc3a</parentFolderId>
+      <packageId>b89989d1-d71e-4936-9615-4234fc7fe9d9</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="74097793-6729-4b6b-b560-58ac784641e4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.NServiceBus.NServiceBusMessageBus</name>
+      <display>Intent.Eventing.NServiceBus.NServiceBusMessageBus</display>
+      <externalReference>Intent.Eventing.NServiceBus</externalReference>
+      <parentFolderId>382ce447-0500-4b43-be79-ebb6e2b1dc3a</parentFolderId>
+      <packageId>b89989d1-d71e-4936-9615-4234fc7fe9d9</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="d28b79d7-d191-4909-94df-8fc4bc5e5584" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.NServiceBus.NServiceBusMessageHandler</name>
+      <display>Intent.Eventing.NServiceBus.NServiceBusMessageHandler</display>
+      <externalReference>Intent.Eventing.NServiceBus</externalReference>
+      <parentFolderId>382ce447-0500-4b43-be79-ebb6e2b1dc3a</parentFolderId>
+      <packageId>b89989d1-d71e-4936-9615-4234fc7fe9d9</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+  </children>
+</class>

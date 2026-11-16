@@ -13,14 +13,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#79f528ec-7567-4f78-a651-2665b71d942c</correlationId>
       <path>Templates/GraphQLConfiguration/GraphQLConfigurationTemplatePartial.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T06:55:09.2342025Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:24:01.933598Z</approvedAt>
-      <deviationsHash>69CE7F38B586C8C71830738AAC2D5301B34155B35F7EDADF3ADBFCE429E4F39F</deviationsHash>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-14T17:46:33.3326668Z</updatedAt>
+      <deviationsHash>0A0FA2D32215CDC4773FEE5D8C179E025F76DD0EE53A7137284477F1D853D31B</deviationsHash>
       <fileHash>0E641416E8B5498BE0B6D6FBB3EDB03E0922359DB9799EDD19CB71D2ED268E58</fileHash>
     </file>
   </files>

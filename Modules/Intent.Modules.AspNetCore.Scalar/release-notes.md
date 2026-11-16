@@ -1,8 +1,9 @@
 ### Version 1.1.0
 
 - New Feature: On .NET 10, `QUERY` operations appear in the OpenAPI document, which is served as OpenAPI 3.2 so Scalar can show and send them.
+- Improvement: Added .NET 11 support. `Microsoft.AspNetCore.OpenApi` 11 writes OpenAPI 3.2 and describes `QUERY` operations itself, so no `QUERY` support is generated there, and the generated transformers use the `Microsoft.OpenApi` 3.x API it brings in.
 - Improvement: Updated NuGet package versions:
-  - `Microsoft.AspNetCore.OpenApi` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
+  - `Microsoft.AspNetCore.OpenApi` 11.0.0 (net11.0, new); 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0)
   - `Scalar.AspNetCore` 2.16.11 → 2.20.0
 
 ### Version 1.0.10

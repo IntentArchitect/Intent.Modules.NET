@@ -335,3 +335,57 @@ the FK lives on the dependent, which is `OtherEnd()` when `OtherEnd().IsNullable
 otherwise — mirroring exactly how `WithForeignKey` picks the end it reads the FK columns from.
 Keep the two in step; they must agree or the generic argument names a type that does not own the
 key.
+
+## NuGet Package Versions — New Framework Entries Come From Fetch Latest
+
+The `NuGet Packages` entries (and so `NugetPackages.cs`) come only from Module Builder's "Get latest from
+NuGet.org" (Fetch Latest) action, or the `module-nuget-bump` skill that drives the same model — never
+hand-modelled (user decision, .NET 11 pilot, 2026-11-10).
+
+**Adding a new framework's entries leaves the existing ones alone.** Fetch Latest rewrites any *unlocked*
+entry: it moves it to the newest patch on nuget.org and rebuilds its dependency children, including
+back-filling children on older entries that had none. Those children are not inert: the Visual Studio
+module's `NugetInstallerFactoryExtension.RemoveTransitiveDependencies` drops a requested package from a
+`.csproj` when another requested package's entry lists it, so a back-fill changes what existing net6/net7
+apps get. So the v11.0 entries (5.3.0) were added by temp-locking every unlocked entry, running Fetch
+Latest, and unlocking the same entries again: the run only added entries. Moving existing lines is the
+periodic NuGet bump's job (`module-nuget-bump`), which keeps v8.0/v9.0 locked.
+
+**Only packages with an 11.x build get a v11.0 entry**: the eight `Microsoft.EntityFrameworkCore*`
+packages (11.0.0), plus Npgsql below. Oracle, Pomelo and ErikEJ have no net11 build yet, so net11 apps
+resolve their v10.0 (or older) entry.
+
+**Npgsql's v11.0 entries are the `11.0.0-rc.3` pre-release, modelled by hand** (user decision,
+2026-11-13: "use previews of 11 for now"). They are the one exception to "Fetch Latest only": Fetch Latest
+queries stable versions, and Npgsql had no 11.0.0 when EF Core 11.0.0 shipped. Npgsql 10.0.3 on EF Core
+11 was the alternative and was rejected: it is built against EF Core 10. rc.3 pins EF Core and Relational
+to exactly `11.0.0-rc.3.26522.148`, so restore warns NU1608 when the EF module's own 11.0.0 entries win;
+a net11 app on rc.3 + EF Core 11.0.0 builds and runs against PostgreSQL 17 (create, filtered `Include`,
+`DateOnly`). **Retire it at Npgsql 11.0.0 GA**: the entries are unlocked, so the next Fetch Latest moves
+them to GA and replaces the dependency children.
+
+**MySQL fails generation on .NET 11 and later** (`DependencyInjectionExtension.EnsureMySqlProviderSupportsTargetFramework`,
+a `FriendlyException`, user decision 2026-11-13). Pomelo 9.0.0, its newest release, needs EF Core
+Relational [9.0.0, 9.0.999]; on EF Core 11 it throws `MissingMethodException`
+(`RelationalDbContextOptionsBuilder.TranslateParameterizedCollectionsToConstants`) when the model is
+built, so the app compiles but cannot start. Failing the Software Factory run is better than generating
+it. Oracle's `MySql.EntityFrameworkCore` has an 11.0 preview, but this module only supports Pomelo.
+Remove the guard when Pomelo ships an EF Core 11 build. Pomelo 9.0.0 on EF Core 10 (net10) fails the
+same way (`AbstractionsStrings.ArgumentIsEmpty`); that is older than this ticket and is not guarded.
+
+**`Microsoft.EntityFrameworkCore.Tools` 11.0.0 is the v10.0 entry and has no dependencies**, unlike 10.x,
+which depends on `Microsoft.EntityFrameworkCore.Design`. Its nuspec declares only `net10.0`, so the NuGet
+bump put 11.0.0 on v10.0, and net10 and net11 apps both get it; a v11.0 entry would be identical, so there
+is none. This needs no template change: `DbMigrationsReadMeTemplate` requests Design and Tools itself,
+and `RemoveTransitiveDependencies` only pruned Design because the Tools entry listed it. On net10 and
+net11 both now stay explicit references.
+
+**A framework's entry may be a newer major than the framework itself, in every module, not only here**
+(user decision, 2026-11-15, closing review finding M1). The bump puts the newest version whose nuspec supports
+the framework on its entry, so net10 apps get `Microsoft.Extensions.*` 11.0.0 from about 14 modules
+(Application/Infrastructure DependencyInjection, WindowsServiceHost, Kafka, ...) next to EF Core 10.0.15, as
+net8/net9 apps already got 10.x. That is supported: NuGet refuses a package with no compatible target
+(NU1202), EF Core 10 only needs `Microsoft.Extensions.*` 10.0 or later, and the packages take precedence over
+the shared framework's copies. So those modules get no v11.0 entry and their v10.0 entry stays on 11.x.
+Rejected: pinning net10 to 10.x across those modules, which only buys staying on the LTS release's package line
+and costs a version bump in each.

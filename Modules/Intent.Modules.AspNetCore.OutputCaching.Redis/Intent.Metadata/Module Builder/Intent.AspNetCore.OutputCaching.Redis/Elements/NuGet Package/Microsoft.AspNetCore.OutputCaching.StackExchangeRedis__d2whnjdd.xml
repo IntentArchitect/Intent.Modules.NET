@@ -91,6 +91,45 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="ed1318f9-18f0-443a-9fcf-eb9099a00c86" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>11.0.0</name>
+      <display>11.0.0 ( &gt;= .NETCoreApp,Version=v11.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4934faae-04ac-4d86-a3cf-25a3fa335ca7</parentFolderId>
+      <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
+      <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v11.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="a0c15b0b-fe3a-4513-9c31-29a11ba6c25d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>StackExchange.Redis</name>
+          <display>StackExchange.Redis (2.7.27)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.7.27</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ed1318f9-18f0-443a-9fcf-eb9099a00c86</parentFolderId>
+          <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
+          <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="2a0be597-fd6c-4deb-a398-410d7a3007f5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.0.34</name>
       <display>8.0.34 ( &gt;= .NETCoreApp,Version=v8.0 )</display>

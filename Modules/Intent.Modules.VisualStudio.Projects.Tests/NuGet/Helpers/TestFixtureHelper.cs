@@ -20,7 +20,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
 
 internal static class TestFixtureHelper
 {
-    public static IVisualStudioProjectTemplate CreateProject(VisualStudioProjectScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall)
+    public static IVisualStudioProjectTemplate CreateProject(VisualStudioProjectScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall, IEnumerable<string> targetFrameworks = null)
     {
         var element = Substitute.For<IElement>();
         element.Id.Returns(string.Empty);
@@ -37,7 +37,8 @@ internal static class TestFixtureHelper
             testVersion: testVersion,
             testPackage: testPackage,
             nugetPackagesToInstall: nugetPackagesToInstall,
-            project: project);
+            project: project,
+            targetFrameworks: targetFrameworks);
     }
 
 
@@ -81,15 +82,18 @@ internal static class TestFixtureHelper
     public class ProjectImplementation : IVisualStudioProjectTemplate
     {
         private readonly IDictionary<string, string> _nugetPackagesToInstall;
+        private readonly IEnumerable<string> _targetFrameworks;
 
         public ProjectImplementation(
             VisualStudioProjectScheme? scheme,
             TestVersion testVersion,
             TestPackage testPackage,
             IDictionary<string, string> nugetPackagesToInstall,
-            IVisualStudioProject project)
+            IVisualStudioProject project,
+            IEnumerable<string> targetFrameworks = null)
         {
             _nugetPackagesToInstall = nugetPackagesToInstall;
+            _targetFrameworks = targetFrameworks ?? new List<string>();
 
             Project = project;
             Name = $"{(scheme.HasValue ? scheme.Value.ToString() : "null")}_{testVersion}_{(int)testPackage}";
@@ -120,7 +124,7 @@ internal static class TestFixtureHelper
 
         public IEnumerable<string> GetTargetFrameworks()
         {
-            return new List<string>();
+            return _targetFrameworks;
         }
 
         public IVisualStudioProject Project { get; }

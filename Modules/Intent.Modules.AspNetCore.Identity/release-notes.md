@@ -1,7 +1,8 @@
-### Version 4.2.13
+### Version 4.3.0
 
 - Improvement: Updated NuGet package versions:
   - `Microsoft.AspNetCore.Identity.EntityFrameworkCore` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0); 2.3.11 → 2.3.14 (netstandard2.0)
+- Improvement: Added .NET 11 NuGet package versions.
 
 ### Version 4.2.12
 

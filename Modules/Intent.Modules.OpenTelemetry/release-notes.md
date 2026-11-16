@@ -1,4 +1,4 @@
-### Version 2.2.18
+### Version 2.3.0
 
 - Improvement: Updated NuGet package versions:
   - `Azure.Monitor.OpenTelemetry.AspNetCore` 1.5.0 → 1.6.0

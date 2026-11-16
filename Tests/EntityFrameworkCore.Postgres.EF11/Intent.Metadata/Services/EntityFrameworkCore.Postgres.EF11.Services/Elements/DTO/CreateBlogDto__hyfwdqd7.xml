@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ad28c8e6-1dcc-424c-a3be-a08dceae46df" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CreateBlogDto</name>
+  <display>CreateBlogDto</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</parentFolderId>
+  <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+  <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+  <children>
+    <element id="1ca3c625-fc8c-4a08-8472-269a5c5e0fcd" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Name</name>
+      <display>Name: string</display>
+      <typeReference id="850fd9dc-2607-4464-adc8-8f7bdc9f79ea">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>ad28c8e6-1dcc-424c-a3be-a08dceae46df</parentFolderId>
+      <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+      <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+    </element>
+    <element id="f17124e0-23ba-4cc3-aadd-4a2b5ccd80fb" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>FirstPostTitle</name>
+      <display>FirstPostTitle: string</display>
+      <typeReference id="0f19b491-69b5-4ab0-b9d9-8b5cb371bdf7">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>ad28c8e6-1dcc-424c-a3be-a08dceae46df</parentFolderId>
+      <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+      <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+    </element>
+    <element id="1de10858-0802-472e-b3f9-ef7802b902f9" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>FirstPostPublishedOn</name>
+      <display>FirstPostPublishedOn: date</display>
+      <typeReference id="716009d5-a9fe-499e-a877-d92319772e4a">
+        <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+        <typeName>date</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>ad28c8e6-1dcc-424c-a3be-a08dceae46df</parentFolderId>
+      <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+      <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+    </element>
+  </children>
+</class>

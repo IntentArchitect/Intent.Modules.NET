@@ -1,4 +1,4 @@
-### Version 1.0.1
+### Version 1.1.0
 
 - Improvement: The Services drift check reports through Intent.Common.DriftReporting: its findings are the Services Area of the application's one drift report (`.cache/drift/<application>/DriftReport.mdx`), and a run with drift fails with one error naming the report. The per-designer `ServicesDriftReport.mdx` and its template are gone; a `ServicesDriftReporter` factory extension contributes the designer instead.
 - Improvement: Extracted and generalized Drift Module

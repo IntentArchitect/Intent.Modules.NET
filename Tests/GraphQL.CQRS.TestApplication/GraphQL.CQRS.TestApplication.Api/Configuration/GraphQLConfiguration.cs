@@ -34,6 +34,7 @@ namespace GraphQL.CQRS.TestApplication.Api.Configuration
                 .AddTypeExtension<Query>()
                 .AddTypeExtension<CustomerQueries>()
                 .AddTypeExtension<InvoiceQueries>()
+                .AddTypeExtension<NotificationsQueries>()
                 .AddTypeExtension<ProductsQueries>();
         }
 

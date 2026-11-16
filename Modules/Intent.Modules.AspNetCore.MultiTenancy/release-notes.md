@@ -6,6 +6,8 @@
   - `Finbuckle.MultiTenant.EntityFrameworkCore` 9.4.10 → 9.4.16
   - `Microsoft.EntityFrameworkCore.InMemory` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0)
   - `Microsoft.Extensions.Hosting.Abstractions` added 11.0.0 (net10.0)
+- Improvement: Added .NET 11 NuGet package versions.
+- Fixed: The Software Factory no longer fails with "More than one instance" when the application has more than one host. Multitenancy and its Swagger tenant header are now configured in each host that has a multi-tenancy configuration.
 
 > ⚠️ **BREAKING CHANGES**
 >

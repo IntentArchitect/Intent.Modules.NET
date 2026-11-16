@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Newtonsoft.Json;
+using NuGet.Versioning;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -25,6 +28,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
         {
             var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
             var openApiModelsNamespace = isMicrosoftOpenApi_2_4_1 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
+            // Swashbuckle 11 depends on Microsoft.OpenApi 3.x, which types request body content as IOpenApiMediaType.
+            // The filter only generates alongside Intent.AspNetCore.Swashbuckle, which registers the package.
+            var usesMicrosoftOpenApiV3 = isMicrosoftOpenApi_2_4_1 &&
+                                         ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.AspNetCore.Swashbuckle") &&
+                                         NuGetVersion.Parse(NugetRegistry.GetVersion("Swashbuckle.AspNetCore", OutputTarget.GetMaxNetAppVersion()).Version).Major >= 11;
+            var mediaTypeValueType = usesMicrosoftOpenApiV3 ? "IOpenApiMediaType" : "OpenApiMediaType";
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"BinaryContentFilter", @class =>
@@ -54,6 +63,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
                         {
                             stmt.AddStatement("return;");
                         });
+
+                        if (usesMicrosoftOpenApiV3)
+                        {
+                            // Microsoft.OpenApi 3.x types Parameters as nullable
+                            method.AddStatement("operation.Parameters ??= [];");
+                        }
 
                         if (isMicrosoftOpenApi_2_4_1)
                         {
@@ -92,11 +107,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
 
                         AddUsing("System.Collections.Generic");
 
-                        method.AddStatement(@"operation.RequestBody = new OpenApiRequestBody() 
-            { 
+                        method.AddStatement($@"operation.RequestBody = new OpenApiRequestBody()
+            {{
                 Required = true,
-                Content = new Dictionary<string, OpenApiMediaType>()
-            };");
+                Content = new Dictionary<string, {mediaTypeValueType}>()
+            }};");
 
                         if (isMicrosoftOpenApi_2_4_1)
                         {

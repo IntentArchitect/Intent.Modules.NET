@@ -1,4 +1,4 @@
-### Version 2.1.2
+### Version 2.2.0
 
 - Improvement: Updated NuGet package versions:
   - `Dapr.AspNetCore` 1.18.4 → 1.19.1

@@ -1,4 +1,4 @@
-### Version 1.0.1
+### Version 1.1.0
 
 - Improvement: Scheduled Jobs from `Intent.QuartzScheduler` and Hangfire Jobs from `Intent.Hangfire` can publish commands.
 - Fixed: The handler skills told agents to search for a `// IntentInitialGen` marker that generated stubs never contain; they now look for bodies that still throw `NotImplementedException`.

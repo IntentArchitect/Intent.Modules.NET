@@ -78,6 +78,8 @@ namespace Intent.Modules.Integration.HttpClients
             NugetRegistry.Register(MicrosoftAspNetCoreWebUtilitiesPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "11.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.Net.Http.Headers", "10.0.15"),
                         ( >= 9, >= 0) => new PackageVersion("9.0.23")

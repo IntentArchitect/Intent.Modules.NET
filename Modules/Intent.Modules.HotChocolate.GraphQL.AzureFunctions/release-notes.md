@@ -1,5 +1,6 @@
 ### Version 2.1.0
 
+- Fixed: Applications failed at startup (`The object type Mutation has to at least define one field`) when every GraphQL mutation had no return type. The mutation type is now only registered when it has fields.
 - Improvement: Updated NuGet package versions:
   - `HotChocolate.AzureFunctions` 16.4.0 → 16.7.5 (net10.0, net9.0, net8.0); 14.3.1 → 14.3.5 (net7.0, net6.0)
 

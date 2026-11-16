@@ -25,6 +25,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
         public HideRouteParametersFromBodyOperationFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             var isMicrosoftOpenApi_2_4_1 = OutputTarget.GetMaxNetAppVersion().Major >= 8;
+            var usesMicrosoftOpenApiV3 = MicrosoftOpenApiVersion.IsV3(OutputTarget);
             var openApiNamespace = isMicrosoftOpenApi_2_4_1 ? "Microsoft.OpenApi" : "Microsoft.OpenApi.Models";
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -113,11 +114,22 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
                             method.AddForEachStatement("contentType", "requestBodyContent.Keys.ToList()", forEach =>
                             {
                                 forEach.BeforeSeparator = CSharpCodeSeparatorType.None;
-                                forEach.AddStatement("var content = requestBodyContent[contentType];");
-                                forEach.AddIfStatement("content == null", stmt =>
+                                if (usesMicrosoftOpenApiV3)
                                 {
-                                    stmt.AddStatement("continue;");
-                                });
+                                    // Schema can only be set on the concrete OpenApiMediaType
+                                    forEach.AddIfStatement("requestBodyContent[contentType] is not OpenApiMediaType content", stmt =>
+                                    {
+                                        stmt.AddStatement("continue;");
+                                    });
+                                }
+                                else
+                                {
+                                    forEach.AddStatement("var content = requestBodyContent[contentType];");
+                                    forEach.AddIfStatement("content == null", stmt =>
+                                    {
+                                        stmt.AddStatement("continue;");
+                                    });
+                                }
                                 forEach.AddStatement("var schema = content.Schema;");
                                 forEach.AddIfStatement("schema == null", stmt =>
                                 {

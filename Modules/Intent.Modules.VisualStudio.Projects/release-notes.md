@@ -2,6 +2,9 @@
 
 - Improvement: Updated NuGet package versions:
   - `Microsoft.Extensions.Hosting` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1)
+- Improvement: Added `.NET 11` to the `Target Framework` property and C# `15.0` to the `Language Version` property in the Visual Studio designer.
+- Improvement: A `.NET 11` project with `Language Version` set to `default` now gets C# 15.
+- Fixed: In a solution whose projects target different .NET versions, NuGet package versions were raised to the highest version requested by any project, so a .NET 10 project could get a package built only for .NET 11. Versions are now only aligned between projects with the same target frameworks. This also applies to the _Consolidate Package Versions_ setting and the multiple-versions warning.
 
 > ⚠️ **BREAKING CHANGES**
 >

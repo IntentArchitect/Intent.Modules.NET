@@ -147,6 +147,115 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="80016e7f-fe16-4a4a-858e-8ef8bb9928f4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>11.0.0</name>
+      <display>11.0.0 ( &gt;= .NETCoreApp,Version=v11.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b6a6527c-94d3-4eda-ac90-87a610a5250c</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v11.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="f78fc9c8-fc92-44f8-91d3-db656830f7f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Sqlite.Core</name>
+          <display>Microsoft.EntityFrameworkCore.Sqlite.Core (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>80016e7f-fe16-4a4a-858e-8ef8bb9928f4</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a1cc0ed8-1429-429c-9a06-de507d2c3cd7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>80016e7f-fe16-4a4a-858e-8ef8bb9928f4</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="12b7ea08-d430-4ec1-973d-6788aeecb4c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyModel</name>
+          <display>Microsoft.Extensions.DependencyModel (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>80016e7f-fe16-4a4a-858e-8ef8bb9928f4</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="22cee4a5-149c-4174-849d-10e78d2ea653" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>80016e7f-fe16-4a4a-858e-8ef8bb9928f4</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ca4d9e5a-c0f1-407d-8451-9779f0243538" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>SQLitePCLRaw.bundle_e_sqlite3</name>
+          <display>SQLitePCLRaw.bundle_e_sqlite3 (3.0.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.0.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>80016e7f-fe16-4a4a-858e-8ef8bb9928f4</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5e1f9d62-e278-451a-8714-4f52c735d1e0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>SQLitePCLRaw.core</name>
+          <display>SQLitePCLRaw.core (3.0.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.0.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>80016e7f-fe16-4a4a-858e-8ef8bb9928f4</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="7759fec7-e3a6-4520-aab2-93da680094cb" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>3.1.32</name>
       <display>3.1.32 ( &gt;= .NETStandard,Version=v2.0 )</display>

@@ -1,4 +1,4 @@
-### Version 2.0.6
+### Version 2.1.0
 
 - Improvement: Updated NuGet package versions:
   - `Microsoft.AspNetCore.Http.Abstractions` 2.3.11 → 2.3.14

@@ -309,5 +309,21 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="fd5a428a-ac15-447e-a584-9d83f836749a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.OData.EntityFramework.ExcludeODataDocumentFilter</name>
+      <display>Intent.AspNetCore.OData.EntityFramework.ExcludeODataDocumentFilter</display>
+      <externalReference>Intent.AspNetCore.OData.EntityFramework</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>88042e91-e889-4293-aa34-42398caab096</parentFolderId>
+      <packageId>cc4879a3-df01-497d-af3e-ed16ab8d623f</packageId>
+      <packageName>root</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

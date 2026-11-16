@@ -10,9 +10,10 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates;
 public static class HttpQueryHelper
 {
     // Microsoft.OpenApi 2.x and HttpMethod.Query only line up from .NET 10, and older targets have no QUERY-aware pipeline to describe.
+    // On Microsoft.OpenApi 3.x (Microsoft.AspNetCore.OpenApi 11) the framework writes OpenAPI 3.2 and describes QUERY itself.
     public static bool NeedsHttpQueryOpenApi(IOutputTarget outputTarget)
     {
-        if (outputTarget.GetMaxNetAppVersion().Major < 10)
+        if (outputTarget.GetMaxNetAppVersion().Major < 10 || MicrosoftOpenApiVersion.IsV3(outputTarget))
         {
             return false;
         }

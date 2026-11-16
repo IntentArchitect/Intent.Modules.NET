@@ -31,6 +31,7 @@ namespace GraphQL.CQRS.TestApplication.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<INotificationsService, NotificationsService>();
             services.AddTransient<IProductsService, ProductsService>();
             return services;
         }

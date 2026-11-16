@@ -88,6 +88,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(MicrosoftAspNetCoreMvcTestingPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.TestHost", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting", "11.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.AspNetCore.TestHost", "10.0.15")
                             .WithNugetDependency("Microsoft.Extensions.DependencyModel", "10.0.15")
@@ -115,6 +119,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(MicrosoftAspNetCoreWebUtilitiesPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "11.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.Net.Http.Headers", "10.0.15"),
                         ( >= 9, >= 0) => new PackageVersion("9.0.23")

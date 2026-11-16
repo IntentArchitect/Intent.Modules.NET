@@ -4,12 +4,12 @@
   <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="Api/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
-  <file path="FactoryExtensions/StartupExtension.cs" deviationsHash="CBD0884615C880DC456129F7160D0346E41CE4125E56B7D14C1C1ED9315C7B32" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/SwaggerConfigExtension.cs" deviationsHash="E1C92EBA86413A175F600DEC570D4A727CA93E6F19F9A3ACC595127C3D02F0A7" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/StartupExtension.cs" deviationsHash="D8B60C1FD91AF19BF136B7E24E741945690F64D9F926D67AA85B8F654F43D3FB" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/SwaggerConfigExtension.cs" deviationsHash="0867D8EBEB3EBB807C17E3E952234135BD7552979254CEE9CEE7D033053050FA" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.AspNetCore.OData.EntityFramework.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.AspNetCore.OData.EntityFramework.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
-  <file path="Templates/ExcludeODataDocumentFilter/ExcludeODataDocumentFilterTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ExcludeODataDocumentFilter/ExcludeODataDocumentFilterTemplatePartial.cs" deviationsHash="FEF4C62C89386D406CDB5BC836E3D66C77AF248B6B35E454F7A075C74AA3A2F3" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ExcludeODataDocumentFilter/ExcludeODataDocumentFilterTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/ODataAggregateController/ODataAggregateControllerTemplatePartial.cs" deviationsHash="74EA4D7C78660B0DBA094A30C02AA038C96B51B6607DE8121DF6D63A04C6936E" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ODataAggregateController/ODataAggregateControllerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />

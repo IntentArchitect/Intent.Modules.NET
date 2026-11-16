@@ -270,6 +270,87 @@ https://intent-architect.monday.com/boards/2883919780/pulses/18385968939</commen
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="25940fff-7fea-48e1-b5a5-f935b06e852f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>11.0.0</name>
+      <display>11.0.0 ( &gt;= .NETCoreApp,Version=v11.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>eb12fafb-a1e6-4858-9162-a588056ad58e</parentFolderId>
+      <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+      <packageName>Intent.ModularMonolith.Host</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v11.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="71f041ed-e29e-4dc1-98f9-34c0cda030fa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.ApiDescription.Server</name>
+          <display>Microsoft.Extensions.ApiDescription.Server (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>25940fff-7fea-48e1-b5a5-f935b06e852f</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9f8867e1-452e-41a5-8f76-022108989932" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.Swagger</name>
+          <display>Swashbuckle.AspNetCore.Swagger (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>25940fff-7fea-48e1-b5a5-f935b06e852f</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d3c02b97-f3aa-4550-87df-65fb3d8edc09" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerGen</name>
+          <display>Swashbuckle.AspNetCore.SwaggerGen (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>25940fff-7fea-48e1-b5a5-f935b06e852f</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="617be47c-d5e9-45ed-83da-d0c2048a7bfb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerUI</name>
+          <display>Swashbuckle.AspNetCore.SwaggerUI (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>25940fff-7fea-48e1-b5a5-f935b06e852f</parentFolderId>
+          <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+          <packageName>Intent.ModularMonolith.Host</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="5045950b-266c-47ec-b8ca-9037ca740ca3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.1.4</name>
       <display>8.1.4 ( &gt;= .NETStandard,Version=v2.0 )</display>

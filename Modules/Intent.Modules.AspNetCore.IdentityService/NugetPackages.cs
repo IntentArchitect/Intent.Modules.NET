@@ -33,6 +33,9 @@ namespace Intent.Modules.AspNetCore.IdentityService
             NugetRegistry.Register(MicrosoftAspNetCoreIdentityEntityFrameworkCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "11.0.0"),
                         ( >= 10, >= 0) => new PackageVersion("10.0.15")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "10.0.15")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "10.0.15"),
