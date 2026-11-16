@@ -6,7 +6,7 @@ eShopCustom's Domain module compared one of a type's declarations and warned abo
 
 ## type-declared-twice
 
-`Order` was moved into an `Orders` folder and the old file was never deleted, so two classes named `Order` are in scope. The type claim is `ambiguous`, naming both. `Id`'s claims depend on finding `Order`, so they are `blocked` behind it and counted in its finding rather than reported one by one.
+`Order` was moved into an `Orders` folder and the old file was never deleted, so two classes named `Order` are in scope. The type claim is `ambiguous`, naming both. `Id`'s claims depend on finding `Order`, so they are `blocked` behind it, with no finding of their own, rather than reported one by one.
 
 ```json case
 { "phase": 1, "cases": ["engine/ambiguous", "engine/blocked"], "traces": ["ESC-DOM-15"], "requirements": ["R5", "R43"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
@@ -61,7 +61,7 @@ public class Order
   "findings": [
     { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "src/Domain/Order.cs:3" },
     { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "src/Domain/Orders/Order.cs:3" },
-    { "rule": "claim/member.exists", "subject": "order-id", "count": 0, "note": "Blocked claims are counted in the blocking claim's finding" }
+    { "rule": "claim/member.exists", "subject": "order-id", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

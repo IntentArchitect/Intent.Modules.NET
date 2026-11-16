@@ -221,9 +221,12 @@ public sealed partial class DriftEngine
             return;
         }
 
-        // Several places are one only when they are one type's parts; a recipe reading any of several takes the first.
+        // Several places are one only when they are one type's parts: files a type is declared across (a Razor component's
+        // .razor and its code-behind, R37) are read together. A recipe reading any of several takes the first.
         hits = hits.OrderBy(x => x.At.File, StringComparer.Ordinal).ThenBy(x => x.At.Line).ToList();
-        if (hits.Count > 1 && recipe["matches"]?.GetValue<string>() != "any")
+        var parts = hits.Count > 1 && hits.All(x => x.Member is null) && hits.Select(x => x.File).Distinct().Count() == hits.Count
+                    && (_graph.Types.Any(t => hits.All(h => t.Files.Contains(h.File))) || hits.Select(x => CodeBehindOf(x.File)).Distinct().Count() == 1);
+        if (hits.Count > 1 && !parts && recipe["matches"]?.GetValue<string>() != "any")
         {
             Cant(claim, "ambiguous", new Reading { Candidates = hits.Select(x => x.At).ToList() });
             return;
@@ -231,7 +234,7 @@ public sealed partial class DriftEngine
 
         var unit = hits[0];
         var cases = (recipe["read"] as JsonArray ?? []).OfType<JsonObject>().ToList();
-        if (ReadCases(claim, rule, cases, [unit], values))
+        if (ReadCases(claim, rule, cases, parts ? hits : [unit], values))
         {
             return;
         }
@@ -252,7 +255,9 @@ public sealed partial class DriftEngine
         // Found, and no read case matched: the recipe's default, as silence, else what the outcome order says.
         if (recipe["default"]?.ToString() is { } @default)
         {
-            Apply(claim, ClaimReading.Defaulted(Presence(claim, Naming.Fill(@default, values).Trim()), unit.At));
+            // The recipe's unstated says what the code lacks, for the finding: no href to /checkout in CartPage's files.
+            Apply(claim, ClaimReading.Defaulted(Presence(claim, Naming.Fill(@default, values).Trim()), unit.At,
+                recipe["unstated"]?.GetValue<string>() is { } unstated ? Naming.Fill(unstated, values) : null));
         }
         else if (claim.Stated == "whenSet")
         {
@@ -264,6 +269,10 @@ public sealed partial class DriftEngine
             Cant(claim, "notFound", new Reading { At = unit.At, Detail = $"`{searched}` found {unit.At}, but no read case of the recipe matches there." });
         }
     }
+
+    /// <summary>A file with its code-behind, as one: <c>MainLayout.razor.cs</c> is <c>MainLayout.razor</c>'s.</summary>
+    private static string CodeBehindOf(string file) =>
+        file.EndsWith(".cs", StringComparison.OrdinalIgnoreCase) && Path.GetExtension(file[..^3]).Length > 0 ? file[..^3] : file;
 
     /// <summary>
     /// The read cases, in order, over the places of one level (the code the find found, or what an inherit target gives):

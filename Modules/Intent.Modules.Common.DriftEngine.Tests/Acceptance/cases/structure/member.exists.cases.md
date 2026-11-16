@@ -57,7 +57,7 @@ public class Order
 
 ## contradicted-missing
 
-`Order` is in the code but has no `OrderDate`. The type is found, so the member's claim isn't blocked: it is contradicted, and the finding says the member isn't in the code (R8, R11).
+`Order` is in the code but has no `OrderDate`. The type is found, so the member's claim isn't blocked: it is contradicted, and the finding says the member isn't in the code and links `Order`'s declaration, where it belongs (R8, R11). It says nothing of how the engine searched.
 
 ```json case
 { "phase": 1, "base": "verified", "kinds": ["member.exists"], "traces": ["ESC-DOM-33"], "requirements": ["R8", "R11"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
@@ -76,10 +76,11 @@ public class Order
 {
   "claims": [
     { "kind": "type.exists", "element": "order", "outcome": "verified", "at": "src/Domain/Order.cs:3" },
-    { "kind": "member.exists", "element": "order-order-date", "outcome": "contradicted" }
+    { "kind": "member.exists", "element": "order-order-date", "outcome": "contradicted", "at": "src/Domain/Order.cs:3" }
   ],
   "findings": [
-    { "rule": "claim/member.exists", "severity": "error", "subject": "order-order-date", "messageContains": "isn't in the code" }
+    { "rule": "claim/member.exists", "severity": "error", "subject": "order-order-date", "messageContains": "`Order.OrderDate` isn't in the code." },
+    { "rule": "claim/member.exists", "subject": "order-order-date", "messageContains": "Searched", "count": 0 }
   ]
 }
 ```

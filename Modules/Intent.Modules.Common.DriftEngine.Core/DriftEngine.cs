@@ -546,7 +546,8 @@ public sealed partial class DriftEngine
             "type.kind" => string.Join(", ", TypeKinds(designer, element)),
             "operation.parameters" => string.Join(", ", Parameters(element).Select(x => $"{x.Name}: {(x.TypeReference is { Element: not null } type ? Expression.TypeText(type) : "?")}")),
             "operation.returns" when value is null => "void",
-            _ when definition.ValueType == "presence" => "present",
+            // A presence the model states as absent (a proxy Operation with no Backend Operation sends no request) is one.
+            _ when definition.ValueType == "presence" => Expression.Text(value) == "absent" ? "absent" : "present",
             _ => Expression.Text(value)
         };
 
@@ -1107,6 +1108,14 @@ public sealed partial class DriftEngine
                 .ToList();
         }
 
+        // A Razor component and its code-behind are one component (R37), whatever namespace each part ends up in: the
+        // component the .razor file declares is it.
+        if (candidates.Count > 1 && candidates.SelectMany(x => x.Files).Select(x => x.EndsWith(".razor.cs", StringComparison.OrdinalIgnoreCase) ? x[..^3] : x).Distinct().Count() == 1
+            && candidates.Where(x => x.Kind == "component").ToList() is [var component])
+        {
+            candidates = [component];
+        }
+
         // A model whose File Config names the type's namespace and file, as one the Guardrails contracts generate from does,
         // says which of several types with the name it is: services each keep a copy of a message they share. It locates the
         // type; it isn't checked (user decision, 2026-11-14: it is for finding the right files).
@@ -1122,8 +1131,9 @@ public sealed partial class DriftEngine
         if (candidates.Count > 1)
         {
             // Designer folders become namespaces, or the folders the files are in: of several types with the name, the one
-            // whose namespace or folder ends with most of the element's folders is it.
-            var folders = Folders(element);
+            // whose namespace or folder ends with most of the element's folders is it. A folder named as a namespace
+            // (eShop10's User Interface folder HybridApp.Components.Layout) is each of its segments.
+            var folders = Folders(element).SelectMany(x => x.Split('.', StringSplitOptions.RemoveEmptyEntries)).ToList();
 
             int Score(TypeNode type) => type.Files
                 .Select(f => TrailingMatch(Path.GetDirectoryName(f)?.Split('/', '\\') ?? [], folders))
@@ -1396,9 +1406,10 @@ public sealed partial class DriftEngine
             }
         }
 
+        // A member the code lacks belongs in its owner: the finding links the owner's declaration.
         if (member is null)
         {
-            Missing(claim, owner.Name, searched);
+            Missing(claim, owner.Name, searched, owner.At);
             return;
         }
 
@@ -1515,9 +1526,10 @@ public sealed partial class DriftEngine
         return null;
     }
 
-    private void Missing(Claim claim, string fileStem, string searchedFor) => Missing(claim, [fileStem], searchedFor);
+    private void Missing(Claim claim, string fileStem, string searchedFor, Span? at = null) => Missing(claim, [fileStem], searchedFor, at);
 
-    private void Missing(Claim claim, IReadOnlyList<string> fileStems, string searchedFor)
+    /// <param name="at">Where the missing code belongs, when that is known: a member's owner.</param>
+    private void Missing(Claim claim, IReadOnlyList<string> fileStems, string searchedFor, Span? at = null)
     {
         var shadow = _files.FirstOrDefault(x => !x.Decision.In && x.Decision.Builtin is null && fileStems.Any(stem => IsNamedFor(x.Path, stem)));
         if (shadow.Path is not null)
@@ -1527,7 +1539,7 @@ public sealed partial class DriftEngine
         }
 
         claim.Outcome = "contradicted";
-        claim.Reading = new Reading { Value = "absent", Searched = [searchedFor], Detail = $"{_files.Count(x => x.Decision.In && LanguageOf(x.Path) is not null)} in-scope files" };
+        claim.Reading = new Reading { Value = "absent", At = at, Searched = [searchedFor], Detail = $"{_files.Count(x => x.Decision.In && LanguageOf(x.Path) is not null)} in-scope files" };
     }
 
     /// <summary>How many of <paramref name="folders"/>' last names end <paramref name="ns"/>, compared case-insensitively.</summary>
@@ -1606,6 +1618,11 @@ public sealed partial class DriftEngine
                 break;
             default:
                 Compare(claim, Canonical(claim, reading.Value!), reading.At!, reading.From, Same(claim, reading.Value!));
+                if (reading.Detail is { } unstated)
+                {
+                    claim.Reading = new Reading { Value = claim.Reading!.Value, From = claim.Reading.From, At = claim.Reading.At, Detail = unstated };
+                }
+
                 break;
         }
 
@@ -1613,8 +1630,19 @@ public sealed partial class DriftEngine
         claim.Expected = Canonical(claim, claim.Expected);
     }
 
-    private bool Same(Claim claim, string actual) =>
-        _comparers.TryGetValue(claim.Definition.Comparer, out var comparer) ? comparer.Same(claim.Expected, actual) : actual == claim.Expected;
+    private bool Same(Claim claim, string actual)
+    {
+        // A set whose items have a comparer of their own: each item the model states is one the code has, compared by it.
+        if (claim.Definition is { Comparer: "subset" or "set", ItemComparer: { } name } && _comparers.TryGetValue(name, out var item))
+        {
+            var expected = Ordered(claim.Expected);
+            var code = Ordered(actual);
+            bool Within(List<string> items, List<string> of) => items.All(x => of.Any(y => item.Same(x, y)));
+            return Within(expected, code) && (claim.Definition.Comparer == "subset" || Within(code, expected));
+        }
+
+        return _comparers.TryGetValue(claim.Definition.Comparer, out var comparer) ? comparer.Same(claim.Expected, actual) : actual == claim.Expected;
+    }
 
     private Dictionary<string, IReadOnlyList<SyntaxError>>? _errors;
 
@@ -1632,7 +1660,10 @@ public sealed partial class DriftEngine
     {
         if (claim.Definition.ValueType == "set" && value is not ("none" or ""))
         {
-            value = string.Join(", ", value.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).Order(StringComparer.Ordinal));
+            // Each item as its own comparer writes it: /cart as the route cart.
+            var item = claim.Definition.ItemComparer is { } name && _comparers.TryGetValue(name, out var found) ? found : null;
+            value = string.Join(", ", value.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
+                .Select(x => item?.Canonical(x) ?? x).Where(x => x.Length > 0).Order(StringComparer.Ordinal));
         }
 
         return _comparers.TryGetValue(claim.Definition.Comparer, out var comparer) ? comparer.Canonical(value) : value;
@@ -1733,26 +1764,33 @@ public sealed partial class DriftEngine
         var display = Display(claim);
         var label = Label(claim);
         var reading = claim.Reading!;
+        // What disagrees and where the model states it. Where the code states it is the finding's file link, so the
+        // message doesn't repeat it; how the engine searched and the claims a missing element blocks are its own business.
         var message = (claim.Outcome, claim.Reason) switch
         {
-            ("contradicted", _) when reading.Message is not null => $"{reading.Message}{Blocked(claim)}",
+            ("contradicted", _) when reading.Message is not null => reading.Message,
             ("contradicted", _) when claim.Definition.Existence && reading.Searched is { Count: > 0 } =>
-                $"`{display}` isn't in the code. Searched {reading.Detail} for {reading.Searched[0]}.{Blocked(claim)}",
+                $"`{display}` isn't in the code.",
+            // Something there or not: "in the model, not in the code", not "model `present`, code `absent`".
+            ("contradicted", _) when claim.Definition.ValueType == "presence" =>
+                claim.Expected == "absent"
+                    ? $"`{display}` {label}: in the code, not in the model. The model would state it in {claim.SourceText}."
+                    : $"`{display}` {label}: in the model, not in the code. The model states it in {claim.SourceText}.",
             // Silence that states a value (R3): no IsUnique() is an index that isn't unique.
             ("contradicted", _) when reading is { From: "absent", Value: not (null or "none") } =>
-                $"`{display}` {label}: model `{claim.Expected}`, code `{reading.Value}`, which it states by saying nothing ({reading.At}). The model states it in {claim.SourceText}.{Blocked(claim)}",
+                $"`{display}` {label}: model `{claim.Expected}`, code `{reading.Value}`, which it states by saying nothing. The model states it in {claim.SourceText}.",
             ("contradicted", _) when reading.From == "absent" || reading is { From: null, Value: null } =>
-                $"`{display}` {label}: model `{claim.Expected}`, the code doesn't state it ({reading.At}). The model states it in {claim.SourceText}.{Blocked(claim)}",
+                $"`{display}` {label}: model `{claim.Expected}`, the code doesn't state it. The model states it in {claim.SourceText}.",
             ("contradicted", _) when reading.From == "default" =>
-                $"`{display}` {label}: model `{claim.Expected}`, the code doesn't state it, so it is `{reading.Value}` ({reading.At}). The model states it in {claim.SourceText}.{Blocked(claim)}",
+                $"`{display}` {label}: model `{claim.Expected}`, the code doesn't state it{(reading.Detail is { } unstated ? $" ({unstated})" : "")}, so it is `{reading.Value}`. The model states it in {claim.SourceText}.",
             ("contradicted", _) =>
-                $"`{display}` {label}: model `{claim.Expected}`, code `{reading.Value}` ({reading.At}). The model states it in {claim.SourceText}.{Blocked(claim)}",
+                $"`{display}` {label}: model `{claim.Expected}`, code `{reading.Value}`. The model states it in {claim.SourceText}.",
             (_, "ambiguous") =>
-                $"`{display}` {label} can't be verified: {reading.Candidates!.Count} {(claim.Definition.Existence ? "in-scope types match" : "places in the in-scope code state it")}, at {string.Join(", ", reading.Candidates)}.{Blocked(claim)}",
+                $"`{display}` {label} can't be verified: {reading.Candidates!.Count} {(claim.Definition.Existence ? "in-scope types match" : "places in the in-scope code state it")}, at {string.Join(", ", reading.Candidates)}.",
             (_, "outOfScope") when reading.ShadowFile is not null && reading.ScopeRow is not null =>
-                $"`{display}` {label} can't be verified: {reading.ShadowFile} may hold it, but scope row {ScopeRowText(reading.ScopeRow)} excludes that file, so it isn't read.{Blocked(claim)}",
+                $"`{display}` {label} can't be verified: {reading.ShadowFile} may hold it, but scope row {ScopeRowText(reading.ScopeRow)} excludes that file, so it isn't read.",
             (_, "outOfScope") when reading.ShadowFile is not null =>
-                $"`{display}` {label} can't be verified: {reading.ShadowFile} may hold it, but no Drift Scope row includes that file, so it isn't read.{Blocked(claim)}",
+                $"`{display}` {label} can't be verified: {reading.ShadowFile} may hold it, but no Drift Scope row includes that file, so it isn't read.",
             (_, "unresolved") =>
                 $"`{display}` {label} can't be verified: {reading.Detail}",
             _ => $"`{display}` {label} can't be verified ({claim.Reason}). {reading.Detail}"
@@ -1777,16 +1815,6 @@ public sealed partial class DriftEngine
 
         return false;
     }
-
-    private string Blocked(Claim claim)
-    {
-        var count = BlockedOn(claim);
-        return count == 0 ? "" : $" {count} claim{(count == 1 ? "" : "s")} on it can't be checked until it is.";
-    }
-
-    /// <summary>The claims waiting on <paramref name="claim"/>, and those waiting on them.</summary>
-    private int BlockedOn(Claim claim) =>
-        _claims.Where(x => x.Reason == "blocked" && x.DependsOn is { } on && on.Element == claim.Element && on.Kind == claim.Kind).Sum(x => 1 + BlockedOn(x));
 
     private string ScopeRowText(string id)
     {

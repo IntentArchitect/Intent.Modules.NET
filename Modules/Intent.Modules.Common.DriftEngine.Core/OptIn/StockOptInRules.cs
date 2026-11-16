@@ -13,7 +13,7 @@ internal sealed class UnmodelledFile : IOptInRule
     public IEnumerable<UnmodelledCode> Find(RuleContext context) => context.Code.Files
         .Where(x => context.Scope.Checks(x.Path) && !context.IsLocated(x.Path))
         .Select(x => new UnmodelledCode(null, new Span(x.Path, 1), x.Path,
-            $"`{x.Path}` is in scope, but the model describes none of its code: no claim located anything in it. Model what it holds, or add an exception with a reason to the Root Folder's Drift Check."));
+            $"Nothing in the model describes the code in `{x.Path}`. Model what it holds, or add an exception with a reason to the Root Folder's Drift Check."));
 }
 
 /// <summary>
@@ -43,7 +43,7 @@ internal sealed class UnmodelledType : IOptInRule
                 if ((files.Count == 0 || files.Any(x => x.IsMatch(type.At.File))) && (kinds is null || kinds.Contains(type.Kind)) && !context.IsLocated(type) && reported.Add(type))
                 {
                     yield return new UnmodelledCode(designer, type.At, type.Name,
-                        $"`{type.Name}` follows the {designer} designer's {elementType} convention (`{find}`), but no {elementType} in the model describes it. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
+                        $"`{type.Name}` isn't in the model: no {elementType} in the {designer} designer describes it. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
                         Type: type.Name);
                 }
             }
@@ -170,7 +170,7 @@ internal sealed class UnmodelledInteraction : IOptInRule
                 var name = hit.Name(convention["name"]?.GetValue<string>());
                 var owner = context.ElementOf(hit.Type);
                 yield return new UnmodelledCode(owner?.Designer ?? designer, hit.At, name,
-                    $"`{name}` ({hit.At}) is a {kind} the {designer} designer's links can state, but no link in the model states it. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
+                    $"`{name}` is a {kind} the {designer} designer's links can state, but no link in the model states it. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
                     owner?.Element.Id, hit.Type.Name);
             }
         }
@@ -211,7 +211,7 @@ internal sealed class UnmodelledExposed : IOptInRule
                     }
 
                     yield return new UnmodelledCode(designer, type.At, type.Name,
-                        $"`{type.Name}` is exposed as the {kind} of `{by}` ({hit.At}), but no element of the {designer} designer describes it. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
+                        $"`{type.Name}` is exposed as the {kind} of `{by}`, but no element of the {designer} designer describes it. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
                         Type: type.Name);
                 }
             }

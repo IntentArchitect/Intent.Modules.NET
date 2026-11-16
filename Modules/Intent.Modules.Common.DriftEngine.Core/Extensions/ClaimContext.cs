@@ -160,6 +160,9 @@ public sealed class ClaimReading
     /// <summary>The code doesn't state it, so the framework's default applies.</summary>
     public static ClaimReading Defaulted(string value, Span at) => new("default", value, at);
 
+    /// <summary>The code doesn't state it, so the default applies; <paramref name="unstated"/> says what it lacks, for the finding.</summary>
+    public static ClaimReading Defaulted(string value, Span at, string? unstated) => new("default", value, at, detail: unstated);
+
     /// <summary>The value can't be read: <paramref name="reason"/> as claims-and-findings.md names it (<c>unresolved</c>, <c>ambiguous</c>, ...).</summary>
     public static ClaimReading CantVerify(string reason, string detail, Span? at = null, IReadOnlyList<Span>? candidates = null) =>
         new("cantVerify", null, at, reason, detail, candidates);

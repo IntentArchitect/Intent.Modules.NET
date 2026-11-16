@@ -2,6 +2,7 @@ using System.Text.Json.Nodes;
 using Intent.Modules.Common.DriftEngine.Extensions;
 using Intent.Modules.Common.DriftEngine.Packs;
 using Intent.Modules.Common.DriftEngine.Stacks.AspNetCore;
+using Intent.Modules.Common.DriftEngine.Stacks.Blazor;
 using Intent.Modules.Common.DriftEngine.Stacks.Cqrs;
 using Intent.Modules.Common.DriftEngine.Stacks.CSharp;
 using Intent.Modules.Common.DriftEngine.Stacks.EfCore;
@@ -13,6 +14,7 @@ using Intent.Modules.Common.DriftEngine.Stacks.Mediator;
 using Intent.Modules.Common.DriftEngine.Stacks.MediatR;
 using Intent.Modules.Common.DriftEngine.Stacks.Messaging;
 using Intent.Modules.Common.DriftEngine.Stacks.Protobuf;
+using Intent.Modules.Common.DriftEngine.Stacks.Proxies;
 using Intent.Modules.Common.DriftEngine.Stacks.Relational;
 using Intent.Modules.Common.DriftEngine.Stacks.Serialization;
 using Intent.Modules.Common.DriftEngine.Stacks.SpringMvc;
@@ -53,7 +55,9 @@ public static class StockExtensions
         new WolverineExtension(),
         new MessagingExtension(),
         new InteractionsExtension(),
-        new SerializationExtension()
+        new SerializationExtension(),
+        new BlazorExtension(),
+        new ProxiesExtension()
     ];
 
     /// <summary>A stock extension by its id, or null.</summary>

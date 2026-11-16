@@ -212,7 +212,7 @@ public static class OrdersApi
 
 ## blocked-when-endpoint-missing
 
-No endpoint is mapped for `CancelOrderAsync`: the handler method is there but nothing maps it. `endpoint.exists` is contradicted, and the verb, which depends on it, is can't verify, `blocked`, counted in the endpoint's one finding.
+No endpoint is mapped for `CancelOrderAsync`: the handler method is there but nothing maps it. `endpoint.exists` is contradicted, and the verb, which depends on it, is can't verify, `blocked`, with no finding of its own.
 
 ```json case
 { "phase": 4, "base": "verified", "kinds": ["operation.verb", "endpoint.exists"], "cases": ["engine/blocked"], "requirements": ["R5", "R8"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }

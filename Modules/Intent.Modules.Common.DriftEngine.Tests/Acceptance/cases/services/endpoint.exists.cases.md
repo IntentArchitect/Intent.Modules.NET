@@ -245,7 +245,7 @@ The Operation has no `Http Settings`, so the model says it isn't an endpoint, bu
 
 ## blocked-when-router-missing
 
-The router class itself isn't in the code. `type.exists` on the Service is contradicted, and the endpoint, which depends on its router, is can't verify, `blocked`: one finding for the missing router counts it.
+The router class itself isn't in the code. `type.exists` on the Service is contradicted, and the endpoint, which depends on its router, is can't verify, `blocked`: only the missing router is reported.
 
 ```json case
 { "phase": 4, "base": "verified-by-handler-name", "without": ["src/Ordering.API/Apis/OrdersApi.cs"], "kinds": ["endpoint.exists", "type.exists"], "cases": ["engine/blocked"], "requirements": ["R5", "R8"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }

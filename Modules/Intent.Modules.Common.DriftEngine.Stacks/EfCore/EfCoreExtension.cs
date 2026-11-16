@@ -27,8 +27,8 @@ internal sealed partial class EfCoreClaims : IClaimReader
 
     public IReadOnlyCollection<string> Kinds { get; } = new HashSet<string>(StringComparer.Ordinal)
     {
-        "entity.persisted", "table.name", "table.schema", "key", "index.columns", "index.unique", "index.filter", "relationship.foreignKey", "relationship.multiplicity", "table.kind", "column.name", "column.type",
-        "column.textType", "column.maxLength", "column.precision", "column.scale", "column.default", "key.generated", "member.nullable", "member.exists",
+        "entity.persisted", "table.name", "table.schema", "key", "index.columns", "index.unique", "index.filter", "index.name", "relationship.foreignKey", "relationship.multiplicity", "table.kind", "column.name", "column.type",
+        "column.textType", "column.maxLength", "column.precision", "column.scale", "column.default", "column.defaultSql", "key.generated", "member.nullable", "member.exists",
         "column.mapped", "column.owned", "column.enumStorage", "column.version", "column.backingField", "column.hilo", "relationship.onDelete",
         "relationship.reference", "relationship.navigable", "relationship.joinColumn"
     };
@@ -62,7 +62,7 @@ internal sealed partial class EfCoreClaims : IClaimReader
             }
             case "key":
                 return Key(context, context.Type!, model);
-            case "index.columns" or "index.unique" or "index.filter":
+            case "index.columns" or "index.unique" or "index.filter" or "index.name":
                 return Index(context, context.Type!, model);
             case "relationship.foreignKey":
                 return RelationshipForeignKey(context, model);
@@ -364,6 +364,10 @@ internal sealed partial class EfCoreClaims : IClaimReader
                 return unique is null
                     ? ClaimReading.Absent(chain[0].At, "false")
                     : ClaimReading.Stated(unique.Arguments is [] or ["true"] ? "true" : "false", unique.At);
+            case "index.name":
+                // HasDatabaseName, else the name a named index is given (HasIndex(e => e.A, "IX_A")), which is its database name.
+                var databaseName = chain.LastOrDefault(x => x.Name is "HasDatabaseName" or "HasName");
+                return Value(databaseName?.Arguments.FirstOrDefault() ?? chain[0].Arguments.ElementAtOrDefault(1), databaseName?.At ?? chain[0].At);
             default:
                 var filter = chain.LastOrDefault(x => x.Name == "HasFilter");
                 return Value(filter?.Arguments.FirstOrDefault(), filter?.At ?? chain[0].At);
@@ -659,6 +663,8 @@ internal sealed partial class EfCoreClaims : IClaimReader
                 return Last("HasDefaultValueSql", "HasDefaultValue") is { } value
                     ? (value.Name == "HasDefaultValueSql" ? value.Arguments.FirstOrDefault() : value.Written.FirstOrDefault(), value.At)
                     : (null, null);
+            case "column.defaultSql":
+                return Last("HasDefaultValueSql", "HasDefaultValue") is { } given ? (given.Name == "HasDefaultValueSql" ? "true" : "false", given.At) : (null, null);
             case "key.generated":
             {
                 // The Primary Key's Data source: User supplied is ValueGeneratedNever(), Auto-generated a call that has the

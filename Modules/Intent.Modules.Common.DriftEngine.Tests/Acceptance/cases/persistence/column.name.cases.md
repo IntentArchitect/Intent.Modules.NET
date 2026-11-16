@@ -260,7 +260,7 @@ The attribute has no Column stereotype, and the code says `HasColumnName("Paymen
 
 ## blocked-when-member-missing
 
-`Order` has no `PaymentId` property at all. `member.exists` is contradicted, and the column name, which depends on it, is can't verify, `blocked`: the missing member's one finding counts it, rather than a second finding about its column (R5).
+`Order` has no `PaymentId` property at all. `member.exists` is contradicted, and the column name, which depends on it, is can't verify, `blocked`: only the missing member's finding is reported, not a second one about its column (R5).
 
 ```json case
 { "phase": 4, "base": "verified", "kinds": ["column.name", "member.exists"], "cases": ["engine/blocked"], "requirements": ["R5", "R8"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }

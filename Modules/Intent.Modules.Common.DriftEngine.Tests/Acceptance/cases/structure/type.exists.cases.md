@@ -50,7 +50,7 @@ public class Order
 
 ## contradicted-missing
 
-`Order` isn't in the code. One finding says so and counts the claims it blocks; its members' claims are can't verify, `blocked`, with no finding of their own.
+`Order` isn't in the code. One finding says so; its members' claims are can't verify, `blocked`, with no finding of their own.
 
 ```json case
 { "phase": 1, "base": "verified", "without": ["src/Domain/Order.cs"], "kinds": ["type.exists", "member.exists"], "cases": ["engine/blocked"], "traces": ["ESC-DOM-12"], "requirements": ["R5", "R8", "R11"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
@@ -73,7 +73,7 @@ public class Customer
   ],
   "findings": [
     { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "isn't in the code" },
-    { "rule": "claim/member.exists", "count": 0, "note": "A blocked claim is counted in its owner's finding, not reported apart" }
+    { "rule": "claim/member.exists", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

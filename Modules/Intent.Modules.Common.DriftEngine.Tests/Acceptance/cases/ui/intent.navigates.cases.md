@@ -191,7 +191,7 @@ eShopCustom's `navigation.missing`: the cart page has lost its link to checkout,
       "expected": "present", "actual": "absent", "fromSilence": true }
   ],
   "findings": [
-    { "rule": "claim/intent.navigates", "severity": "error", "subject": "cart-navigates-to-checkout", "messageContains": "checkout" }
+    { "rule": "claim/intent.navigates", "severity": "error", "subject": "cart-navigates-to-checkout", "messageContains": "`Checkout` navigates: in the model, not in the code." }
   ]
 }
 ```

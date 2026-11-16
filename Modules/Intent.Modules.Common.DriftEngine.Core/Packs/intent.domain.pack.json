@@ -47,6 +47,9 @@
         { "kind": "type.exists", "for": { "element": "Repository" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the repository" },
         { "kind": "repository.entity", "for": { "element": "Repository", "where": "exists(type.name)" }, "value": "type", "dependsOn": "type.exists", "source": "the repository's type" },
         { "kind": "repository.implementation", "for": { "element": "Repository" }, "value": "self", "dependsOn": "type.exists", "source": "the repository" }
+      ],
+      "nonClaims": [
+        { "for": { "stereotype": "[Static Constructor]" }, "reason": "Marks a static operation that creates its class; that it is static (member.static) and what it returns (operation.returns) are checked." }
       ]
     }
   },

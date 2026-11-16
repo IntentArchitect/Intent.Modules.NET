@@ -268,7 +268,7 @@ Only the core and Domain packs are active, so nothing reads a table name: no EF 
 
 ## blocked-when-type-missing
 
-`Order` itself isn't in the code. `type.exists` is contradicted, and the table name, which depends on it, is can't verify, `blocked`: one finding for the missing type counts it, rather than one per claim (R5). Its configuration still names it, but the code's own types live in `Shop.Domain`, where the model places it, so it isn't a library's type the code references (structure/type.exists#library-type).
+`Order` itself isn't in the code. `type.exists` is contradicted, and the table name, which depends on it, is can't verify, `blocked`: only the missing type is reported, rather than one finding per claim (R5). Its configuration still names it, but the code's own types live in `Shop.Domain`, where the model places it, so it isn't a library's type the code references (structure/type.exists#library-type).
 
 ```json case
 { "phase": 4, "base": "verified", "without": ["src/Domain/Order.cs"], "kinds": ["table.name", "type.exists"], "cases": ["engine/blocked"], "requirements": ["R5", "R8"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }

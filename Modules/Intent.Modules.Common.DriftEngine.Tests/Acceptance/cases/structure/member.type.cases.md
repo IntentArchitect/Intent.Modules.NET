@@ -145,7 +145,7 @@ public class Order
 
 ## blocked
 
-`Order` has no `Total`. Its `member.exists` claim is contradicted, and its type claim waits on that one: can't verify, `blocked`. A blocked claim isn't a finding of its own; the member's finding counts it (R5).
+`Order` has no `Total`. Its `member.exists` claim is contradicted, and its type claim waits on that one: can't verify, `blocked`. A blocked claim has no finding of its own; only the member's finding is reported (R5).
 
 ```json case
 { "phase": 1, "base": "verified", "kinds": ["member.type", "member.exists"], "cases": ["engine/blocked"], "requirements": ["R1", "R5", "R8"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
@@ -172,7 +172,7 @@ public class Order
   ],
   "findings": [
     { "rule": "claim/member.exists", "severity": "error", "subject": "order-total" },
-    { "rule": "claim/member.type", "count": 0, "note": "a blocked claim is counted in the finding of the claim it waits on" }
+    { "rule": "claim/member.type", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

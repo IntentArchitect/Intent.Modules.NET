@@ -139,7 +139,7 @@ public class CatalogItem
   ],
   "findings": [
     { "rule": "claim/type.exists", "severity": "error", "subject": "paginated-items", "messageContains": "isn't in the code" },
-    { "rule": "claim/type.generics", "count": 0, "note": "Counted in the missing type's finding" }
+    { "rule": "claim/type.generics", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

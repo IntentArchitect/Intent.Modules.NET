@@ -8,7 +8,14 @@ namespace Intent.Modules.Common.DriftEngine.Packs;
 /// <param name="Comparer">The comparer's name: the engine's <c>exact</c>, <c>ignoreCase</c>, <c>number</c>, <c>set</c> or <c>subset</c>, or an extension's.</param>
 /// <param name="Stated"><c>always</c>, or <c>whenSet</c> for a value that is no claim when the model leaves it empty.</param>
 /// <param name="Existence">The claim is that the element is in the code at all, so its finding says where was searched.</param>
-public sealed record KindDefinition(string Kind, string Label, string ValueType = "text", string Comparer = "exact", string Stated = "always", bool Existence = false);
+public sealed record KindDefinition(string Kind, string Label, string ValueType = "text", string Comparer = "exact", string Stated = "always", bool Existence = false)
+{
+    /// <summary>
+    /// For a set, the comparer its items compare and are written with: a page's routes as routes. A property, not a
+    /// parameter, so extensions compiled against the constructor keep working.
+    /// </summary>
+    public string? ItemComparer { get; init; }
+}
 
 /// <summary>A pack in its single-file form (packs.md): kinds, vocabulary, conventions and language profiles, as data.</summary>
 public sealed class Pack
@@ -34,7 +41,7 @@ public sealed class Pack
             x["valueType"]?.GetValue<string>() ?? "text",
             x["comparer"]?.GetValue<string>() ?? "exact",
             x["stated"]?.GetValue<string>() ?? "always",
-            x["existence"]?.GetValue<bool>() ?? false));
+            x["existence"]?.GetValue<bool>() ?? false) { ItemComparer = x["itemComparer"]?.GetValue<string>() });
 
     /// <summary>The vocabulary entries for one designer.</summary>
     public IEnumerable<JsonNode> Vocabulary(string designer) => (Data["vocabulary"]?[designer]?["entries"] as JsonArray ?? []).OfType<JsonNode>();

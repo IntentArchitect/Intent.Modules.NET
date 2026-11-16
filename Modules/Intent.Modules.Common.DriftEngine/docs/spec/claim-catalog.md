@@ -86,6 +86,8 @@ From the EF Core and JPA packs, phase 4.
 | `column.precision`          | precision                 | whenSet | `number`     | 4     | JAV-DOM 17                             |
 | `column.scale`              | scale                     | whenSet | `number`     | 4     | JAV-DOM 17                             |
 | `column.default`            | default                   | whenSet | `exact`      | 4     | conversion only                        |
+| `column.defaultSql`         | SQL expression default    | whenSet | `exact`      | 4     | conversion only                        |
+| `index.name`                | index name                | whenSet | `exact`      | 4     | conversion only                        |
 | `column.mapped`             | mapped                    | always  | `exact`      | 4     | ESC-DOM 39                             |
 | `column.owned`              | owned                     | always  | `exact`      | 4     | ESC-DOM 38                             |
 | `column.enumStorage`        | enum storage              | whenSet | `exact`      | 4     | ESC-DOM 51                             |
@@ -152,21 +154,21 @@ From the ASP.NET Core, Spring MVC and NServiceBus packs, phase 4, except where m
 | ------------------- | ------------------ | ------- | ---------- | ----- | -------------------------- |
 | `component.kind`    | component kind     | always  | `exact`    | 6     | ESC-FE 8, 10, 11           |
 | `page.route`        | page route         | whenSet | `subset` of `route` | 6     | ESC-FE 12; JAV-FE 4        |
-| `page.title`        | page title         | whenSet | `contains` | later | ESC-FE 13                  |
-| `property.query`    | query parameter    | always  | `exact`    | later | ESC-FE 18                  |
-| `property.route`    | route parameter    | always  | `exact`    | later | ESC-FE 19                  |
-| `property.bindable` | bindable           | always  | `exact`    | later | ESC-FE 20                  |
+| `page.title`        | page title         | whenSet | `contains` | 6     | ESC-FE 13                  |
+| `property.query`    | query parameter    | always  | `exact`    | 6     | ESC-FE 18                  |
+| `property.route`    | route parameter    | always  | `exact`    | 6     | ESC-FE 19                  |
+| `property.bindable` | bindable           | always  | `exact`    | 6     | ESC-FE 20                  |
 | `intent.uses`       | uses               | always  | `presence` | 6     | ESC-FE 27, 69; JAV-FE 5, 7 |
 | `intent.navigates`  | navigates          | always  | `presence` | 6     | ESC-FE 32; JAV-FE 6        |
 | `intent.opens`      | opens              | always  | `presence` | 6     | conversion only            |
-| `intent.target`     | interaction target | always  | `type`     | later | ESC-FE 30, 38              |
-| `proxy.request`     | proxy request      | always  | `presence` | later | ESC-FE 56, 58, 59          |
-| `proxy.verb`        | proxy verb         | always  | `exact`    | later | ESC-FE 60; JAV-FE 11       |
-| `proxy.route`       | proxy route        | always  | `route`    | later | ESC-FE 61; JAV-FE 11       |
-| `proxy.version`     | proxy API version  | whenSet | `version`  | later | ESC-FE 62                  |
-| `proxy.header`      | proxy header       | whenSet | `subset`   | later | ESC-FE 63                  |
-| `proxy.rpc`         | RPC method         | always  | `exact`    | later | ESC-FE 64                  |
-| `proxy.grpcService` | gRPC service       | always  | `exact`    | later | ESC-FE 65                  |
+| `intent.target`     | interaction target | always  | `type`     | 6     | ESC-FE 30, 38              |
+| `proxy.request`     | proxy request      | always  | `presence` | 6     | ESC-FE 56, 58, 59          |
+| `proxy.verb`        | proxy verb         | always  | `exact`    | 6     | ESC-FE 60; JAV-FE 11       |
+| `proxy.route`       | proxy route        | always  | `route`    | 6     | ESC-FE 61; JAV-FE 11       |
+| `proxy.version`     | proxy API version  | whenSet | `version`  | 6     | ESC-FE 62                  |
+| `proxy.header`      | proxy header       | whenSet | `subset`   | 6     | ESC-FE 63                  |
+| `proxy.rpc`         | RPC method         | always  | `exact`    | 6     | ESC-FE 64                  |
+| `proxy.grpcService` | gRPC service       | always  | `exact`    | 6     | ESC-FE 65                  |
 
 ### Architecture
 

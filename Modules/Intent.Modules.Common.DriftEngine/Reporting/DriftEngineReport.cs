@@ -39,7 +39,7 @@ namespace Intent.Modules.Common.DriftEngine.Reporting
 
         // Every stock pack and extension runs; one whose designer isn't installed makes no claims. Choosing them on the Root
         // Folder's Drift Check stereotype (scope.md) replaces these lists when that stereotype is modelled.
-        private static readonly string[] StockPacks = { "intent.domain", "intent.services" };
+        private static readonly string[] StockPacks = { "intent.domain", "intent.services", "intent.ui" };
 
         /// <param name="context">The drift report's context.</param>
         /// <param name="extensions">The extensions installed modules registered; they run after the stock ones, so theirs win.</param>

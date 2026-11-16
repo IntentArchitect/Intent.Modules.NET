@@ -20,6 +20,8 @@ internal sealed class FixtureModel
     private readonly List<(IAssociationEnd End, ITypeReference Reference, string Element, string From)> _ends = [];
     private readonly List<(IStereotypeProperty<IElement> Property, string Id)> _lookups = [];
 
+    private readonly List<(IStereotypeProperty<IElement[]> Property, IReadOnlyList<string> Ids)> _multiLookups = [];
+
     public static IReadOnlyDictionary<string, IReadOnlyList<IPackage>> Build(JsonNode model) => Build(model, out _);
 
     /// <param name="references">
@@ -71,6 +73,11 @@ internal sealed class FixtureModel
         foreach (var (property, id) in fixture._lookups)
         {
             property.Value.Returns(fixture._elements.GetValueOrDefault(id) ?? fixture._targetEnds.GetValueOrDefault(id));
+        }
+
+        foreach (var (property, ids) in fixture._multiLookups)
+        {
+            property.Value.Returns(ids.Select(x => fixture._elements.GetValueOrDefault(x)).OfType<IElement>().ToArray());
         }
 
         // A target end is an element too, so an association may start from it, as a publish does from a handler's subscription.
@@ -225,6 +232,18 @@ internal sealed class FixtureModel
 
     private IStereotypeProperty Property(string key, JsonNode? value)
     {
+        // Several element references (Api Version Settings' Applicable Versions), as Intent hands them over: the elements,
+        // its text their ids.
+        if (value is JsonArray refs && refs.Count > 0 && refs.All(x => x is JsonObject { Count: 1 } item && item.Text("ref") is not null))
+        {
+            var ids = refs.Select(x => x!.AsObject().Text("ref")!).ToList();
+            var elements = Substitute.For<IStereotypeProperty<IElement[]>>();
+            elements.Key.Returns(key);
+            ((IStereotypeProperty)elements).Value.Returns(string.Join(",", ids));
+            _multiLookups.Add((elements, ids));
+            return elements;
+        }
+
         if (value is JsonArray rows && rows.All(x => x is JsonObject))
         {
             var items = rows.Select(x => Stereotype(key, x!.AsObject())).ToArray();

@@ -1,0 +1,86 @@
+{
+  "id": "intent.ui",
+  "version": "1.0.0",
+  "description": "User Interface designer vocabulary: components, pages, layouts, model definitions, service proxies and the links between them",
+  "requires": [{ "id": "intent.core", "version": "^1.0.0" }],
+  "languages": ["csharp"],
+  "designers": ["User Interface"],
+  "kinds": [
+    { "kind": "component.kind", "label": "component kind", "valueType": "text", "comparer": "exact", "stated": "always", "existence": false },
+    { "kind": "page.route", "label": "page route", "valueType": "set", "comparer": "subset", "itemComparer": "route", "stated": "whenSet", "existence": false },
+    { "kind": "page.title", "label": "page title", "valueType": "text", "comparer": "contains", "stated": "whenSet", "existence": false },
+    { "kind": "property.query", "label": "query parameter", "valueType": "bool", "comparer": "exact", "stated": "always", "existence": false },
+    { "kind": "property.route", "label": "route parameter", "valueType": "bool", "comparer": "exact", "stated": "always", "existence": false },
+    { "kind": "property.bindable", "label": "bindable", "valueType": "bool", "comparer": "exact", "stated": "always", "existence": false },
+    { "kind": "intent.uses", "label": "uses", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "intent.navigates", "label": "navigates", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "intent.opens", "label": "opens", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "intent.target", "label": "interaction target", "valueType": "type", "comparer": "type", "stated": "always", "existence": false },
+    { "kind": "intent.invokes", "label": "invokes", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "proxy.request", "label": "proxy request", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true },
+    { "kind": "proxy.verb", "label": "proxy verb", "valueType": "text", "comparer": "exact", "stated": "always", "existence": false },
+    { "kind": "proxy.route", "label": "proxy route", "valueType": "text", "comparer": "route", "stated": "always", "existence": false },
+    { "kind": "proxy.version", "label": "proxy API version", "valueType": "text", "comparer": "version", "stated": "whenSet", "existence": false },
+    { "kind": "proxy.header", "label": "proxy header", "valueType": "set", "comparer": "subset", "stated": "whenSet", "existence": false },
+    { "kind": "proxy.rpc", "label": "RPC method", "valueType": "text", "comparer": "exact", "stated": "always", "existence": false },
+    { "kind": "proxy.grpcService", "label": "gRPC service", "valueType": "text", "comparer": "exact", "stated": "always", "existence": false }
+  ],
+  "vocabulary": {
+    "User Interface": {
+      "designer": "User Interface",
+      "entries": [
+        { "kind": "type.exists", "for": { "element": "Component" }, "value": "self", "bindings": { "Name": "name", "Component": "name", "Folder": "if(parent.specialization == 'Folder', parent.name, '')" }, "own": ["Name", "Component", "Folder"], "source": "the component" },
+        { "kind": "type.exists", "for": { "element": "Layout" }, "value": "self", "bindings": { "Name": "name", "Component": "name", "Folder": "if(parent.specialization == 'Folder', parent.name, '')" }, "own": ["Name", "Component", "Folder"], "source": "the layout" },
+        { "kind": "type.exists", "for": { "element": "Model Definition" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the model definition" },
+        { "kind": "type.exists", "for": { "element": "Service Proxy" }, "value": "self", "bindings": { "Name": "name", "Proxy": "name" }, "own": ["Name", "Proxy"], "source": "the service proxy" },
+        { "kind": "component.kind", "for": { "element": "Component" }, "value": "if(hasStereotype('Page'), 'Page', if(hasStereotype('Dialog'), 'Dialog', 'Component'))", "bindings": { "Component": "name", "Folder": "if(parent.specialization == 'Folder', parent.name, '')" }, "own": ["Component", "Folder"], "dependsOn": "type.exists", "source": "the component's Page or Dialog stereotype" },
+        { "kind": "component.kind", "for": { "element": "Layout" }, "value": "'Layout'", "bindings": { "Component": "name", "Folder": "if(parent.specialization == 'Folder', parent.name, '')" }, "own": ["Component", "Folder"], "dependsOn": "type.exists", "source": "the element type" },
+        { "kind": "security", "for": { "element": "Component" }, "value": "if(hasStereotype('Unsecured'), 'Unsecured', if(hasStereotype('Secured'), 'Secured', 'None'))", "dependsOn": "type.exists", "source": "the component's Secured or Unsecured stereotype" },
+        { "kind": "security.roles", "for": { "element": "Component", "where": "hasStereotype('Secured')" }, "value": "stereotype('Secured').Roles ?? join(map(stereotype('Secured')['Security Roles'], name), ', ')", "dependsOn": "type.exists", "waitsOn": ["security"], "source": "the component's Secured Roles" },
+        { "kind": "security.policy", "for": { "element": "Component", "where": "hasStereotype('Secured')" }, "value": "stereotype('Secured').Policy", "dependsOn": "type.exists", "waitsOn": ["security"], "source": "the component's Secured Policy" },
+        { "kind": "page.route", "for": { "element": "Component", "where": "hasStereotype('Page')" }, "value": "split(stereotype('Page').Route, ',')", "bindings": { "Component": "name", "Page": "name", "Route": "trimStart(stereotype('Page').Route, '/')" }, "own": ["Component", "Page", "Route"], "dependsOn": "type.exists", "source": "the Page stereotype's Route" },
+        { "kind": "page.title", "for": { "element": "Component", "where": "hasStereotype('Page')" }, "value": "stereotype('Page').Title", "bindings": { "Component": "name" }, "own": ["Component"], "dependsOn": "type.exists", "source": "the Page stereotype's Title" },
+        { "kind": "member.exists", "for": { "element": "Property" }, "value": "self", "bindings": { "Component": "parent.name", "Property": "name" }, "own": ["Property"], "dependsOn": "parent:type.exists", "source": "the property" },
+        { "kind": "member.type", "for": { "element": "Property" }, "value": "type", "dependsOn": "member.exists", "source": "the property's type" },
+        { "kind": "property.query", "for": { "element": "Property", "where": "parent.specialization == 'Component'" }, "value": "hasStereotype('Query Parameter') || hasStereotype('[Query Parameter]')", "dependsOn": "member.exists", "source": "the property's [Query Parameter] stereotype" },
+        { "kind": "property.route", "for": { "element": "Property", "where": "parent.specialization == 'Component'" }, "value": "hasStereotype('Route Parameter') || hasStereotype('[Route Parameter]')", "dependsOn": "member.exists", "source": "the property's [Route Parameter] stereotype" },
+        { "kind": "property.bindable", "for": { "element": "Property", "where": "parent.specialization == 'Component'" }, "value": "hasStereotype('Bindable') || hasStereotype('[Bindable]')", "dependsOn": "member.exists", "source": "the property's [Bindable] stereotype" },
+        { "kind": "member.exists", "for": { "element": "Event Emitter" }, "value": "self", "bindings": { "Component": "parent.name", "Event": "name" }, "own": ["Event"], "dependsOn": "parent:type.exists", "source": "the event emitter" },
+        { "kind": "member.type", "for": { "element": "Event Emitter" }, "value": "type", "dependsOn": "member.exists", "source": "the event emitter's type" },
+        { "kind": "member.exists", "for": { "element": "Component Operation" }, "value": "self", "bindings": { "Component": "parent.name", "Operation": "name" }, "own": ["Operation"], "dependsOn": "parent:type.exists", "source": "the component operation" },
+        { "kind": "operation.returns", "for": { "element": "Component Operation" }, "value": "type", "dependsOn": "member.exists", "source": "the component operation's return type" },
+        { "kind": "operation.parameters", "for": { "element": "Component Operation" }, "dependsOn": "member.exists", "source": "the component operation's parameters" },
+        { "kind": "member.exists", "for": { "element": "Operation" }, "value": "self", "bindings": { "Proxy": "parent.name", "Operation": "name" }, "own": ["Operation"], "dependsOn": "parent:type.exists", "source": "the operation" },
+        { "kind": "operation.returns", "for": { "element": "Operation" }, "value": "type", "dependsOn": "member.exists", "source": "the operation's return type" },
+        { "kind": "operation.parameters", "for": { "element": "Operation" }, "dependsOn": "member.exists", "source": "the operation's parameters" },
+        { "kind": "intent.uses", "for": { "association": "Composition" }, "value": "self", "bindings": { "Component": "if(source.element.specialization == 'Component Operation', source.element.parent.name, source.element.name)", "Child": "target.element.name" }, "own": ["Component", "Child"], "source": "its Composition" },
+        { "kind": "intent.target", "for": { "association": "Composition" }, "value": "target.element", "dependsOn": "intent.uses", "source": "the component its Composition targets" },
+        { "kind": "intent.uses", "for": { "element": "Display Component" }, "value": "self", "bindings": { "Component": "parent.parent.name", "Child": "type.name" }, "own": ["Component", "Child"], "source": "the layout's Display Component" },
+        { "kind": "intent.navigates", "for": { "association": "Navigation" }, "value": "self", "bindings": { "Component": "if(source.element.specialization == 'Component Operation', source.element.parent.name, source.element.name)", "Page": "target.element.name", "Route": "trimStart(target.element.stereotype('Page').Route, '/')", "RouteStart": "before(trimStart(target.element.stereotype('Page').Route, '/'), '/{')" }, "own": ["Component", "Page", "Route", "RouteStart"], "source": "its Navigation" },
+        { "kind": "intent.opens", "for": { "association": "Show Dialog" }, "value": "self", "bindings": { "Component": "if(source.element.specialization == 'Component Operation', source.element.parent.name, source.element.name)", "Dialog": "target.element.name" }, "own": ["Component", "Dialog"], "source": "its Show Dialog" },
+        { "kind": "intent.target", "for": { "association": "Call Service Operation" }, "value": "target.element.parent", "bindings": { "Component": "if(source.element.specialization == 'Component Operation', source.element.parent.name, source.element.name)", "Invoked": "target.element.name" }, "own": ["Component", "Invoked"], "source": "the service proxy its Call Service Operation targets" },
+        { "kind": "intent.invokes", "for": { "association": "Call Service Operation Action" }, "value": "self", "bindings": { "Component": "if(source.element.specialization == 'Component Operation', source.element.parent.name, source.element.name)", "Invoked": "target.element.name" }, "own": ["Component", "Invoked"], "source": "its Call Service Operation Action" },
+        { "kind": "intent.target", "for": { "association": "Call Service Operation Action" }, "value": "target.element.parent", "dependsOn": "intent.invokes", "source": "the service proxy its Call Service Operation Action targets" }
+      ],
+      "nonClaims": [
+        { "for": { "element": "Folder" }, "reason": "Folders organise the model; what is in them is checked." },
+        { "for": { "element": "Diagram" }, "reason": "A diagram is a view of the model, not a statement about the code." },
+        { "for": { "element": "Comment" }, "reason": "Documentation." },
+        { "for": { "element": "Type-Definition" }, "reason": "Names a type from outside the model, such as a library's, for members to use; every member typed by it is checked." },
+        { "for": { "stereotype": "Folder Options" }, "reason": "How the designer shows a folder; folders organise the model." },
+        { "for": { "stereotype": "Composable" }, "reason": "The trait the designer gives a component that isn't a page; component.kind checks what the component is." }
+      ]
+    }
+  },
+  "conventions": {
+    "User Interface": {
+      "designer": "User Interface",
+      "types": {
+        "Component": { "typeKinds": ["component", "class"], "states": ["property", "method"] },
+        "Layout": { "typeKinds": ["component", "class"], "states": ["property"] },
+        "Model Definition": { "typeKinds": ["class", "record"], "states": ["property", "field", "method"] },
+        "Service Proxy": { "typeKinds": ["class", "interface"], "states": ["method"] }
+      }
+    }
+  }
+}

@@ -233,7 +233,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 
 ## blocked-when-type-missing
 
-`Order` itself isn't in the code. `type.exists` on `Order` is contradicted, and the reference on its attribute, which depends on it, is can't verify, `blocked`: the one finding for the missing type counts it (R5).
+`Order` itself isn't in the code. `type.exists` on `Order` is contradicted, and the reference on its attribute, which depends on it, is can't verify, `blocked`: only the missing type is reported (R5).
 
 ```json case
 { "phase": 4, "base": "verified", "without": ["src/Domain/Order.cs"], "kinds": ["relationship.reference", "type.exists"], "cases": ["engine/blocked"], "requirements": ["R5", "R8"], "packs": ["intent.core", "intent.domain", "intent.efcore", "eshop.domain"], "language": "csharp" }
@@ -247,7 +247,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
   ],
   "findings": [
     { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "isn't in the code" },
-    { "rule": "claim/relationship.reference", "subject": "order-payment-id", "count": 0, "note": "A blocked claim is counted in its owner's finding, not reported apart" }
+    { "rule": "claim/relationship.reference", "subject": "order-payment-id", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

@@ -116,7 +116,7 @@ The `.proto` the stereotype names isn't in the code. The find finds nothing, and
     { "kind": "file.exists", "element": "basket-grpc", "outcome": "contradicted", "expected": "present" }
   ],
   "findings": [
-    { "rule": "claim/file.exists", "severity": "error", "subject": "basket-grpc", "messageContains": "basket.proto" }
+    { "rule": "claim/file.exists", "severity": "error", "subject": "basket-grpc", "messageContains": "`BasketService` isn't in the code." }
   ]
 }
 ```
@@ -330,7 +330,7 @@ defineProps<{ inStock: boolean }>();
     { "kind": "file.exists", "element": "cart-store", "outcome": "verified" }
   ],
   "findings": [
-    { "rule": "claim/file.exists", "severity": "error", "subject": "stock-pill", "messageContains": "StockPill.vue" }
+    { "rule": "claim/file.exists", "severity": "error", "subject": "stock-pill", "messageContains": "`StockPill` isn't in the code." }
   ]
 }
 ```
@@ -449,7 +449,7 @@ The products controller isn't in the API layer, so the file its convention requi
     { "kind": "file.exists", "element": "orders-service", "outcome": "verified" }
   ],
   "findings": [
-    { "rule": "claim/file.exists", "severity": "error", "subject": "products-service", "messageContains": "ProductsController.java" }
+    { "rule": "claim/file.exists", "severity": "error", "subject": "products-service", "messageContains": "`ProductsService` isn't in the code." }
   ]
 }
 ```

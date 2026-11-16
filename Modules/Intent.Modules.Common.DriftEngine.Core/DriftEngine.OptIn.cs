@@ -143,7 +143,7 @@ public sealed partial class DriftEngine
                         var type = probe.Needs?.Kind == "member.exists" && Owner(element) is { } parent ? parent.Name : element.Name;
                         var name = type == element.Name ? element.Name : $"{type}.{element.Name}";
                         found.Add(new UnmodelledCode(probe.Area, at, name,
-                            $"`{name}` {definition.Label}: the code states `{value}` ({at}), which the model leaves unset; it would state it in {probe.SourceText}. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
+                            $"`{name}` {definition.Label}: the code states `{value}`, which the model leaves unset; it would state it in {probe.SourceText}. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
                             element.Id, type));
                     }
                 }

@@ -190,7 +190,7 @@ The field has `@Version`, and the model's `Version` attribute lacks the stereoty
 
 ## blocked-when-member-missing
 
-`StockItem` has no `version` field at all. `member.exists` is contradicted, and the version claim, which depends on it, is can't verify, `blocked`, counted in the missing member's one finding (R5).
+`StockItem` has no `version` field at all. `member.exists` is contradicted, and the version claim, which depends on it, is can't verify, `blocked`, with no finding of its own (R5).
 
 ```json case
 { "phase": 4, "base": "verified", "kinds": ["column.version", "member.exists"], "cases": ["engine/blocked"], "requirements": ["R5", "R8"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa", "house.eshopjava"], "language": "java" }

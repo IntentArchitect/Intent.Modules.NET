@@ -155,7 +155,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 
 ## blocked-when-member-missing
 
-`Order` has no `Address` property. `member.exists` is contradicted, and whether it is owned, which depends on it, is can't verify, `blocked`, counted in the missing member's one finding (R5).
+`Order` has no `Address` property. `member.exists` is contradicted, and whether it is owned, which depends on it, is can't verify, `blocked`, with no finding of its own (R5).
 
 ```json case
 { "phase": 4, "base": "verified", "kinds": ["column.owned", "member.exists"], "cases": ["engine/blocked"], "requirements": ["R5", "R8"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }

@@ -245,7 +245,7 @@ public class OrderCancelledDomainEvent
   ],
   "findings": [
     { "rule": "claim/type.exists", "severity": "error", "subject": "address", "messageContains": "isn't in the code" },
-    { "rule": "claim/type.base", "count": 0, "note": "Counted in the missing type's finding" }
+    { "rule": "claim/type.base", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

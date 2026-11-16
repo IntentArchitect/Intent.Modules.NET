@@ -221,7 +221,7 @@ public class Order
   ],
   "findings": [
     { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "src/Reporting/Order.cs:3" },
-    { "rule": "claim/type.marker", "subject": "order", "count": 0, "note": "Counted in the ambiguous type's finding" }
+    { "rule": "claim/type.marker", "subject": "order", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

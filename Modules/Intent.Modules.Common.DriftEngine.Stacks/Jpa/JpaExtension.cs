@@ -53,7 +53,7 @@ internal sealed partial class JpaClaims : IClaimReader
 
     public IReadOnlyCollection<string> Kinds { get; } = new HashSet<string>(StringComparer.Ordinal)
     {
-        "entity.persisted", "table.name", "table.schema", "table.kind", "key", "index.columns", "index.unique", "index.filter", "column.name", "column.type", "column.maxLength",
+        "entity.persisted", "table.name", "table.schema", "table.kind", "key", "index.columns", "index.unique", "index.filter", "index.name", "column.name", "column.type", "column.maxLength",
         "column.precision", "column.scale", "column.textType", "key.generated", "member.nullable", "relationship.multiplicity",
         "column.mapped", "column.owned", "column.version", "column.enumStorage", "relationship.navigable", "relationship.joinColumn", "repository.entity",
         "repository.implementation"
@@ -95,7 +95,7 @@ internal sealed partial class JpaClaims : IClaimReader
             }
             case "key":
                 return Key(context);
-            case "index.columns" or "index.unique" or "index.filter":
+            case "index.columns" or "index.unique" or "index.filter" or "index.name":
                 return Index(context);
             case "member.nullable":
                 return Nullable(context, jpa);
@@ -197,6 +197,7 @@ internal sealed partial class JpaClaims : IClaimReader
         {
             "index.columns" => ClaimReading.Stated(string.Join(", ", found.Columns), found.At),
             "index.unique" => ClaimReading.Stated(found.Unique ? "true" : "false", found.At),
+            "index.name" => found.Name is { } indexName ? ClaimReading.Stated(indexName, found.At) : ClaimReading.Absent(found.At),
             // JPA has no filtered index.
             _ => ClaimReading.Absent(found.At)
         };

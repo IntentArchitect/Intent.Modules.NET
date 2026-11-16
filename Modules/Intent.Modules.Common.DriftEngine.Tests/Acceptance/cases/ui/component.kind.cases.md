@@ -276,10 +276,10 @@ The other direction of the same check: the code derives `LayoutComponentBase`, a
 
 ## cant-verify-file-missing
 
-eShopCustom's `component.missing`: the model has a Checkout page with no `Checkout.razor` in scope. The find finds nothing, the kind is not an existence kind and the recipe has no `absent`, so the claim is can't verify, `notFound`, an error naming what was searched.
+eShopCustom's `component.missing`: the model has a Checkout page with no `Checkout.razor` in scope. The `intent.ui` pack claims each component's type, and its kind waits on it, so the missing component is one finding, its `type.exists`, and the kind it blocks has none (one mismatch, one finding).
 
 ```json case
-{ "phase": 6, "base": "verified-page", "kinds": ["component.kind"], "cases": ["engine/notFound"], "traces": ["ESC-FE-08"], "requirements": ["R5", "R11"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 6, "base": "verified-page", "kinds": ["component.kind"], "cases": ["engine/blocked"], "traces": ["ESC-FE-08"], "requirements": ["R5", "R11"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
 ```
 
 ```json model
@@ -310,11 +310,12 @@ eShopCustom's `component.missing`: the model has a Checkout page with no `Checko
 ```json expect
 {
   "claims": [
-    { "kind": "component.kind", "element": "checkout-page", "outcome": "cantVerify", "reason": "notFound" },
+    { "kind": "component.kind", "element": "checkout-page", "outcome": "cantVerify", "reason": "blocked", "blockedBy": "type.exists" },
     { "kind": "component.kind", "element": "cart-page", "outcome": "verified" }
   ],
   "findings": [
-    { "rule": "claim/component.kind", "severity": "error", "subject": "checkout-page" }
+    { "rule": "claim/type.exists", "severity": "error", "subject": "checkout-page" },
+    { "rule": "claim/component.kind", "subject": "checkout-page", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

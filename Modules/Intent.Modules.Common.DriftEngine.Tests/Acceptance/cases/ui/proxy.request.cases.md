@@ -192,7 +192,7 @@ public class CatalogService(HttpClient httpClient) : ICatalogService
       "expected": "present", "actual": "absent", "fromSilence": true }
   ],
   "findings": [
-    { "rule": "claim/proxy.request", "severity": "error", "subject": "catalog-service-get-catalog-item", "messageContains": "GetCatalogItem" }
+    { "rule": "claim/proxy.request", "severity": "error", "subject": "catalog-service-get-catalog-item", "messageContains": "`GetCatalogItem` proxy request: in the model, not in the code." }
   ]
 }
 ```
@@ -238,7 +238,7 @@ eShopCustom's `proxy.mapping`: the catalog proxy's `GetCatalogItem` has no Backe
   ],
   "findings": [
     { "rule": "claim/proxy.request", "severity": "error", "subject": "catalog-service-get-catalog-item",
-      "messageContains": "src/WebAppComponents/Services/CatalogService.cs:13" }
+      "messageContains": "`GetCatalogItem` proxy request: in the code, not in the model." }
   ]
 }
 ```

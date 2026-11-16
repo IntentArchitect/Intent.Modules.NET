@@ -90,7 +90,7 @@ public interface IOrderRepository : IRepository<Buyer>
 
 ## blocked-when-interface-missing
 
-`IOrderRepository` isn't in the code. `type.exists` on the repository is contradicted, and the entity claim, which depends on it, is can't verify, `blocked`, counted in the one finding for the missing interface (R5).
+`IOrderRepository` isn't in the code. `type.exists` on the repository is contradicted, and the entity claim, which depends on it, is can't verify, `blocked`, with no finding of its own (R5).
 
 ```json case
 { "phase": 4, "base": "verified", "without": ["src/Domain/Repositories/IOrderRepository.cs"], "kinds": ["repository.entity", "type.exists"], "cases": ["engine/blocked"], "requirements": ["R5", "R8"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
@@ -104,7 +104,7 @@ public interface IOrderRepository : IRepository<Buyer>
   ],
   "findings": [
     { "rule": "claim/type.exists", "severity": "error", "subject": "order-repository", "messageContains": "isn't in the code" },
-    { "rule": "claim/repository.entity", "subject": "order-repository", "count": 0, "note": "A blocked claim is counted in its owner's finding, not reported apart" }
+    { "rule": "claim/repository.entity", "subject": "order-repository", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

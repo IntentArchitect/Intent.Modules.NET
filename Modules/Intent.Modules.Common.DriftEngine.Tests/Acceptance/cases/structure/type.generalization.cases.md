@@ -161,7 +161,7 @@ public class Customer : Entity
   ],
   "findings": [
     { "rule": "claim/type.exists", "severity": "error", "subject": "invoice", "messageContains": "isn't in the code" },
-    { "rule": "claim/type.generalization", "count": 0, "note": "Counted in the missing type's finding" }
+    { "rule": "claim/type.generalization", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

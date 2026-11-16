@@ -109,7 +109,7 @@ public class Order
   ],
   "findings": [
     { "rule": "claim/type.exists", "severity": "error", "subject": "order-status", "messageContains": "isn't in the code" },
-    { "rule": "claim/type.kind", "count": 0, "note": "Counted in the missing type's finding" }
+    { "rule": "claim/type.kind", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

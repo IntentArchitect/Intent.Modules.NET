@@ -95,7 +95,7 @@ public class OrderLine {
 
 ## contradicted-missing-back-reference
 
-The model says a line navigates to its order, but `OrderLine` has no `Order` field: the relationship is mapped from the order's side only, with a join column. The navigable source end is a member, so `member.exists` finds it missing, and that is the one finding (JAV-DOM-26): the navigability claim waits on it and is blocked, counted in the member's finding, rather than a second finding for the same missing field.
+The model says a line navigates to its order, but `OrderLine` has no `Order` field: the relationship is mapped from the order's side only, with a join column. The navigable source end is a member, so `member.exists` finds it missing, and that is the one finding (JAV-DOM-26): the navigability claim waits on it and is blocked, with no finding of its own, rather than a second finding for the same missing field.
 
 ```json case
 { "phase": 4, "base": "verified", "kinds": ["relationship.navigable", "member.exists"], "cases": ["engine/blocked"], "traces": ["JAV-DOM-26"], "requirements": ["R1", "R5", "R8"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
@@ -145,7 +145,7 @@ public class OrderLine {
   ],
   "findings": [
     { "rule": "claim/member.exists", "severity": "error", "messageContains": "isn't in the code" },
-    { "rule": "claim/relationship.navigable", "count": 0, "note": "A blocked claim is counted in the missing member's finding, not reported apart" }
+    { "rule": "claim/relationship.navigable", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

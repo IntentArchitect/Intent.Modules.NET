@@ -232,7 +232,13 @@ internal sealed class Expression
         "hasStereotype" => Stereotypes(self).Any(x => x.Name == Text(arguments[0])),
         // The stereotype on the nearest folder holding it, else its package, that has it: enclosing('Schema').Name.
         "enclosing" => self is IElement element ? Enclosing(element, Text(arguments[0])) : null,
-        "children" => (self as IElement)?.ChildElements.Where(x => x.SpecializationType == Text(arguments[0])).ToList() ?? (self as IPackage)?.ChildElements.Where(x => x.SpecializationType == Text(arguments[0])).ToList(),
+        // Of the element itself, or of the one its second argument gives: children('Parameter', stereotype('Backend Operation').Operation).
+        "children" => (arguments.Count > 1 ? arguments[1] : self) switch
+        {
+            IElement owner => owner.ChildElements.Where(x => x.SpecializationType == Text(arguments[0])).ToList(),
+            IPackage owner => owner.ChildElements.Where(x => x.SpecializationType == Text(arguments[0])).ToList(),
+            _ => null
+        },
         // The association ends leading away from it, of associations of a specialization: associations('Generalization').
         "associations" => ((self as IElement)?.AssociatedElements ?? []).Where(x => x.Association?.SpecializationType == Text(arguments[0])).ToList(),
         "if" => Truthy(arguments[0]) ? arguments[1] : arguments.ElementAtOrDefault(2),
@@ -247,6 +253,10 @@ internal sealed class Expression
         "trimStart" => Text(arguments[0]) is { } start && Text(arguments[1]) is { Length: > 0 } prefix && start.StartsWith(prefix, StringComparison.Ordinal) ? start[prefix.Length..] : Text(arguments[0]),
         "trimEnd" => Text(arguments[0]) is { } end && Text(arguments[1]) is { Length: > 0 } suffix && end.EndsWith(suffix, StringComparison.Ordinal) ? end[..^suffix.Length] : Text(arguments[0]),
         "replace" => Text(arguments[0])?.Replace(Text(arguments[1]) ?? "", Text(arguments[2]) ?? "", StringComparison.Ordinal),
+        // The text before the first occurrence of a separator, or all of it: a route's start, before('item/{id}', '/{') is item.
+        "before" => Text(arguments[0]) is { } whole && Text(arguments[1]) is { Length: > 0 } separator && whole.IndexOf(separator, StringComparison.Ordinal) is var index and >= 0
+            ? whole[..index]
+            : Text(arguments[0]),
         "join" => arguments[0] is IEnumerable list and not string
             ? string.Join(Text(arguments[1]) ?? ", ", list.Cast<object?>().Select(Text).OfType<string>())
             : Text(arguments[0]),

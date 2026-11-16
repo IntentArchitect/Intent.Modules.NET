@@ -158,7 +158,7 @@ public abstract class Document
 
 ## blocked
 
-`Document` isn't in the code, so there is no modifier to read. `type.abstract` is can't verify, `blocked` behind the contradicted `type.exists`, and counted in its finding (R5).
+`Document` isn't in the code, so there is no modifier to read. `type.abstract` is can't verify, `blocked` behind the contradicted `type.exists`, with no finding of its own (R5).
 
 ```json case
 { "phase": 1, "base": "verified", "without": ["src/Domain/Billing/Document.cs"], "kinds": ["type.exists", "type.abstract"], "cases": ["engine/blocked"], "requirements": ["R5", "R8"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
@@ -181,7 +181,7 @@ public class Invoice
   ],
   "findings": [
     { "rule": "claim/type.exists", "severity": "error", "subject": "document", "messageContains": "isn't in the code" },
-    { "rule": "claim/type.abstract", "count": 0, "note": "Counted in the missing type's finding" }
+    { "rule": "claim/type.abstract", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }
 ```

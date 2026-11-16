@@ -97,8 +97,8 @@ Every claim ends as exactly one outcome ([R1](requirements.md)). The engine deci
 Two consequences worth stating:
 
 - **A `whenSet` kind never takes a value from silence.** A modelled table name with no `ToTable` is contradicted, even if EF Core's convention gives the same name (decision 4). A recipe for a `whenSet` kind with `default` or `absent` is a configuration error.
-- **A missing type is one finding.** `type.exists` on `Order` is contradicted; every claim on `Order` and its members is `blocked`, and the one finding says how many ([R5](requirements.md)).
-- **So is a table nothing maps.** `entity.persisted` on `Order` is contradicted; its table name, key, indexes, columns and relationships wait on it (`waitsOn`), so they are `blocked` and counted in its one finding. A claim it waits on that can't be verified (no DbContext in scope) blocks nothing: that is no evidence the class isn't mapped, so its claims are checked on their own.
+- **A missing type is one finding.** `type.exists` on `Order` is contradicted; every claim on `Order` and its members is `blocked`, with no finding of its own ([R5](requirements.md)).
+- **So is a table nothing maps.** `entity.persisted` on `Order` is contradicted; its table name, key, indexes, columns and relationships wait on it (`waitsOn`), so they are `blocked` behind its one finding. A claim it waits on that can't be verified (no DbContext in scope) blocks nothing: that is no evidence the class isn't mapped, so its claims are checked on their own.
 
 ### Stated always, or only when set
 
@@ -142,7 +142,7 @@ A finding is one row of the drift report. Claim outcomes produce most of them; s
 | `severity` | From [Policy](#policy)                                                                                    |
 | `message`  | One or two sentences: what disagrees, and which model property and code state it ([R14](requirements.md)) |
 | `subject`  | What the finding is about: a model element, a file and line, or text                                      |
-| `against`  | What it was compared with: a file and line, or the files searched                                         |
+| `against`  | What it was compared with: a file and line; for a missing member, its owner's declaration                 |
 | `claims`   | The claims the finding reports: one, or a blocked owner's and its dependants'                             |
 
 ### Onto Intent.Common.DriftReporting
@@ -151,26 +151,27 @@ The engine reports through the hub exactly as Common.Drift does, in its own Area
 
 | Finding                                                    | Area                        | Category                    | Subject                              | Against                                                    |
 | ---------------------------------------------------------- | --------------------------- | --------------------------- | ------------------------------------ | ---------------------------------------------------------- |
-| A contradicted or can't-verify claim                       | `<Designer> (DriftEngine)`  | `ModelCode`                 | `Element`, the innermost element     | `File` (path and line), or `Text` naming what was searched |
+| A contradicted or can't-verify claim                       | `<Designer> (DriftEngine)`  | `ModelCode`                 | `Element`, the innermost element     | `File` (path and line): where the code states it, or where a missing member belongs; none for a missing type |
 | A model feature with no vocabulary (`engine/noVocabulary`) | `<Designer> (DriftEngine)`  | `ModelCode`                 | `Element`                            | none                                                       |
 | A designer with content and no vocabulary                  | `<Designer> (DriftEngine)`  | `ModelCode`                 | `Text`, the designer                 | none                                                       |
 | An opt-in rule's finding (`optin/*`)                       | the designer the rule names | `ModelCode`                 | `File` (path and line)               | `Element`, the nearest modelled owner, if any              |
 | A reader failure for a file (`engine/readerFailed`)        | `DriftEngine`               | `Code`                      | `File`                               | none                                                       |
 | Scope and configuration (`scope/*`, `config/*`)            | `DriftEngine`               | `Code`                      | `Element` (the scope host) or `Text` | none                                                       |
 
-`Rule` on the hub's finding is the finding's `rule`. Claims `blocked` by another aren't separate rows; the blocking claim's message counts them.
+`Rule` on the hub's finding is the finding's `rule`. Claims `blocked` by another aren't separate rows. The hub names an element subject with the elements that own it, each a link: `Order`.`Total`.
 
 The report holds only drift (decision 30). Info findings, the scope coverage listing (`scope/coverage`) and the `engine/notStated` note, go to the Software Factory log and never to the report. An Area is created by its first finding and declares no categories, so the report never shows an Area or category as clean.
 
 ### Messages
 
-Messages name the element and the claim's label, never an id. Code goes in backticks, which the hub renders as code.
+Messages name the element and the claim's label, never an id. Code goes in backticks, which the hub renders as code. They say what disagrees and where the model states it, nothing about the engine's own working: not what it searched, nor how many claims a missing element blocks, nor the file and line the finding already links.
 
 | Outcome                  | Example message                                                                                                                                                           |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Contradicted, value      | Table name of `Order`: model `Orders`, code `Order`. Change the Table stereotype's Name, or the code's `ToTable`.                                                         |
 | Contradicted, not stated | Table name of `Order`: model `Orders`, but the code doesn't state one. Add `ToTable` to the code, or clear the Table stereotype's Name if the convention's name is right. |
-| Contradicted, missing    | Class `Order` isn't in the code. Searched 41 files under `src/Domain`. 14 claims on it can't be verified.                                                                 |
+| Contradicted, missing    | `Order.OrderDate` isn't in the code.                                                                                                                                      |
+| Contradicted, presence   | `GetCatalogItem` proxy request: in the code, not in the model. The model would state it in the Backend Operation stereotype on the Service Proxy's Operation.              |
 | `ambiguous`              | Class `Order`: 2 types match, `src/Domain/Order.cs:5` and `src/Legacy/Order.cs:3`.                                                                                        |
 | `outOfScope`             | Class `Order` isn't in scope. `src/Legacy/Order.cs`, which the Root Folder's scope row `src/Legacy/**` excludes ("being replaced by `src/Domain`"), may hold it.          |
 | `unreadable`             | Max length of `Order.Name`: the code states it at `OrderConfiguration.cs:12` in a form the rule can't read.                                                               |
