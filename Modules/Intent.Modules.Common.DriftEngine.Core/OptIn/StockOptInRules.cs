@@ -17,9 +17,10 @@ internal sealed class UnmodelledFile : IOptInRule
 }
 
 /// <summary>
-/// <c>unmodelled.type</c>: an in-scope type that follows an element type's convention, by the convention's <c>find</c> and
-/// <c>files</c>, and that no claim located. A stock pack's conventions have no <c>find</c>, so a house pack says what its
-/// code's element types look like.
+/// <c>unmodelled.type</c>: an in-scope type that no claim located. The Drift Check row's Glob says where the rule looks, so
+/// the model alone sets it up (user decision, 2026-11-16). A module that wants more, such as only a base class's subclasses,
+/// gives a convention a <c>find</c>: within its <c>files</c> only the types it finds are reported, as that element type.
+/// A type nested in another is part of it, and what a file declares outside its types isn't a type.
 /// </summary>
 internal sealed class UnmodelledType : IOptInRule
 {
@@ -27,28 +28,65 @@ internal sealed class UnmodelledType : IOptInRule
 
     public IEnumerable<UnmodelledCode> Find(RuleContext context)
     {
-        var types = context.Code.Types.Where(x => context.Scope.Checks(x.At.File)).ToList();
-        var reported = new HashSet<TypeNode>();
-        foreach (var (designer, elementType, convention) in context.Engine.TypeConventions())
+        var types = context.Code.Types.Where(x => context.Scope.Checks(x.At.File) && x.Kind != "module").ToList();
+        var patterns = context.Engine.TypeConventions()
+            .Where(x => x.Convention["find"] is not null)
+            .Select(x => new Pattern(x.Designer, x.ElementType, Globs(x.Convention["files"]),
+                FindPath.Run(x.Convention["find"]!.GetValue<string>(), types, context.Code).Select(h => h.Type)
+                    .Where(t => (x.Convention["typeKinds"] as JsonArray)?.Any(k => k!.GetValue<string>() == t.Kind) ?? true)
+                    .ToHashSet()))
+            .ToList();
+        var byFile = types.ToLookup(x => x.At.File, StringComparer.Ordinal);
+        var designers = context.Engine.LocatedTypes()
+            .GroupBy(x => Folder(x.Type.At.File)!, StringComparer.Ordinal)
+            .ToDictionary(x => x.Key, x => x.GroupBy(c => c.Claim.Designer).OrderByDescending(c => c.Count()).First().Key, StringComparer.Ordinal);
+        foreach (var type in types)
         {
-            if (convention["find"]?.GetValue<string>() is not { } find)
+            if (context.IsLocated(type) || byFile[type.At.File].Any(x => x != type && Encloses(x.At, type.At)))
             {
                 continue;
             }
 
-            var files = Globs(convention["files"]);
-            var kinds = (convention["typeKinds"] as JsonArray)?.Select(x => x!.GetValue<string>()).ToHashSet();
-            foreach (var type in FindPath.Run(find, types, context.Code).Select(x => x.Type).Distinct())
+            var applying = patterns.Where(x => x.Files.Count == 0 || x.Files.Any(g => g.IsMatch(type.At.File))).ToList();
+            if (applying.Count == 0)
             {
-                if ((files.Count == 0 || files.Any(x => x.IsMatch(type.At.File))) && (kinds is null || kinds.Contains(type.Kind)) && !context.IsLocated(type) && reported.Add(type))
-                {
-                    yield return new UnmodelledCode(designer, type.At, type.Name,
-                        $"`{type.Name}` isn't in the model: no {elementType} in the {designer} designer describes it. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
-                        Type: type.Name);
-                }
+                var designer = DesignerNear(designers, type.At.File);
+                yield return new UnmodelledCode(designer, type.At, type.Name,
+                    $"`{type.Name}` isn't in the model. Model it{(designer is null ? "" : $" in the {designer} designer")}, or add an exception with a reason to the Root Folder's Drift Check.",
+                    Type: type.Name);
+            }
+            else if (applying.FirstOrDefault(x => x.Found.Contains(type)) is { } pattern)
+            {
+                yield return new UnmodelledCode(pattern.Designer, type.At, type.Name,
+                    $"`{type.Name}` isn't in the model: no {pattern.ElementType} in the {pattern.Designer} designer describes it. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
+                    Type: type.Name);
             }
         }
     }
+
+    private sealed record Pattern(string Designer, string ElementType, IReadOnlyList<GlobPattern> Files, HashSet<TypeNode> Found);
+
+    private static bool Encloses(Span outer, Span inner) =>
+        outer.File == inner.File && (outer.Line < inner.Line || outer.Line == inner.Line && (outer.Column ?? 0) < (inner.Column ?? 0)) && inner.Line <= (outer.EndLine ?? outer.Line);
+
+    /// <summary>
+    /// The designer whose elements describe the types nearest the file, by the folders' located types: its folder's, else
+    /// the closest folder's above it. A type of an entities folder is reported with the Domain designer's findings.
+    /// </summary>
+    private static string? DesignerNear(IReadOnlyDictionary<string, string> designers, string file)
+    {
+        for (var folder = Folder(file); folder is not null; folder = folder.Length == 0 ? null : Folder(folder))
+        {
+            if (designers.TryGetValue(folder, out var designer))
+            {
+                return designer;
+            }
+        }
+
+        return null;
+    }
+
+    private static string? Folder(string path) => path.LastIndexOf('/') is var i and >= 0 ? path[..i] : path.Length == 0 ? null : "";
 
     internal static IReadOnlyList<GlobPattern> Globs(JsonNode? files) => files switch
     {

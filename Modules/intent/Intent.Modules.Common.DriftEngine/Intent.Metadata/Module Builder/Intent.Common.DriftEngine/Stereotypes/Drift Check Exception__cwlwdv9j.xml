@@ -11,6 +11,9 @@
   <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction>const matches = (properties["Match"].value ?? "").split("\n").map(x =&gt; x.trim()).filter(x =&gt; x.length &gt; 0);
+const reason = properties["Reason"].value;
+return `${matches.join(", ")}${reason ? ` — ${reason}` : ""}`;</displayFunction>
   <displayAsAnnotation>false</displayAsAnnotation>
   <displayAsText>true</displayAsText>
   <autoAdd>false</autoAdd>
@@ -29,10 +32,10 @@
       <placeholder>e.g. optin/unmodelled.type</placeholder>
     </property>
     <property id="6340b854-4902-45bf-bfd5-f544e431d603">
-      <hint>A file glob relative to the output folder, a type's name, or the name the rule gives the code (Type.Member).</hint>
+      <hint>One or more, one per line: a file glob relative to the output folder, a type's name, or the name the rule gives the code (Type.Member). Code skipped for one reason is one row.</hint>
       <name>Match</name>
       <type>string</type>
-      <controlType>text</controlType>
+      <controlType>textarea</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>e.g. OrderingDomainException</placeholder>
     </property>

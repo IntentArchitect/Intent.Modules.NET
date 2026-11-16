@@ -16,6 +16,8 @@ public sealed class EfCoreExtension : IDriftExtension
     public IEnumerable<ICodeReader> Readers { get; } = [new EfCoreReader()];
 
     public IEnumerable<IClaimReader> ClaimReaders { get; } = [new EfCoreClaims()];
+
+    public IEnumerable<IOptInRule> OptInRules { get; } = [new UnmodelledIndexes()];
 }
 
 internal sealed partial class EfCoreClaims : IClaimReader
@@ -114,12 +116,64 @@ internal sealed partial class EfCoreClaims : IClaimReader
 
                 var arguments = new Arguments(context);
                 var (value, at) = Column(context.Kind, calls, member, arguments);
+                if (value is not null && at is { } given && StatedOtherwise(context, model, calls, value))
+                {
+                    return ClaimReading.Defaulted(value, given);
+                }
+
                 return value is null && arguments.Unread is { } unread ? arguments.Unreadable(unread)
                     // A string property that states no text type leaves it to the provider: the model's DEFAULT.
                     : value is null && context.Kind == "column.textType" ? ClaimReading.Absent(at ?? member.At, "DEFAULT")
                     : Value(value, at ?? member.At);
             }
         }
+    }
+
+    /// <summary>
+    /// A store type, or the precision and scale in one, that the model states other than as the kind asks, when the model
+    /// leaves the kind unset (<c>unmodelled.value</c>'s probe): a text type is its text type and length (column.textType,
+    /// column.maxLength), a decimal type its precision and scale, so <c>varchar(50)</c> on an attribute whose Text
+    /// Constraints say VARCHAR and 50 isn't a column type the model lacks. A decimal type the model has no precision for is
+    /// reported once, as its column type, not again as its precision and scale. A key generation that is EF Core's own
+    /// for the key is what the model's Default Data source says.
+    /// </summary>
+    private static bool StatedOtherwise(ClaimContext context, EfCoreModel model, IReadOnlyList<FluentCall> calls, string value)
+    {
+        if (context.ClaimOn(context.Element, context.Kind) is not null)
+        {
+            return false;
+        }
+
+        return context.Kind switch
+        {
+            "column.type" => TextType.IsMatch(value) && context.ClaimOn(context.Element, "column.textType") is not null
+                             || DecimalType.IsMatch(value) && context.ClaimOn(context.Element, "column.precision") is not null,
+            "column.precision" or "column.scale" => calls.All(x => x.Name != "HasPrecision"),
+            // A length the model states in the attribute's Column Type, char(1).
+            "column.maxLength" => context.ClaimOn(context.Element, "column.type") is { } typed && TextType.IsMatch(typed.Expected),
+            "key.generated" => value == ConventionalGeneration(context, model),
+            _ => false
+        };
+    }
+
+    /// <summary>
+    /// How EF Core generates a key's values when the code doesn't say: a key of one integer or Guid property on add, any other
+    /// key's never. The key is HasKey's, else the [Key] properties, else, by convention, a property named Id or
+    /// <c>&lt;Entity&gt;Id</c>; with a HasKey the convention doesn't apply.
+    /// </summary>
+    private static string? ConventionalGeneration(ClaimContext context, EfCoreModel model)
+    {
+        if (context.Member is not { Type: { } type } member || Owner(context) is not { } owner)
+        {
+            return null;
+        }
+
+        var hasKey = EntityOf(context, model, owner)?.Calls.LastOrDefault(x => x.Name == "HasKey");
+        var keyed = context.Code.MembersOf(owner).Where(x => x.Attributes.Any(a => a.Name == "Key")).Select(x => x.Name).ToList();
+        var single = hasKey is not null ? hasKey.Selected is [var only] && only == member.Name
+            : keyed.Count > 0 ? keyed is [var annotated] && annotated == member.Name
+            : string.Equals(member.Name, "Id", StringComparison.OrdinalIgnoreCase) || string.Equals(member.Name, owner.Name + "Id", StringComparison.OrdinalIgnoreCase);
+        return single && type.Name.TrimEnd('?') is "int" or "long" or "short" or "Guid" or "Int32" or "Int64" or "Int16" ? "Auto-generated" : "User supplied";
     }
 
     /// <summary>
@@ -303,17 +357,27 @@ internal sealed partial class EfCoreClaims : IClaimReader
 
     /// <summary>
     /// HasKey, else [Key] on its properties, else [PrimaryKey] on the type. A key is a set: EF orders a composite key by
-    /// HasKey, the model by its attributes.
+    /// HasKey, the model by its attributes. A keyless entity says so, <c>HasNoKey()</c> or <c>[Keyless]</c>: its key is
+    /// <c>none</c>, what the model states for a Table or View with no Primary Key. A key wins over a HasNoKey beside it.
     /// </summary>
     private static ClaimReading Key(ClaimContext context, TypeNode type, EfCoreModel model)
     {
-        var hasKey = EntityOf(context, model, type)?.Calls.LastOrDefault(x => x.Name == "HasKey");
+        var config = EntityOf(context, model, type);
+        var hasKey = config?.Calls.LastOrDefault(x => x.Name == "HasKey");
         var keyed = context.Code.MembersOf(type).Where(x => x.Attributes.Any(a => a.Name == "Key")).ToList();
         var primaryKey = type.Attributes.FirstOrDefault(x => x.Name == "PrimaryKey");
         var (columns, at) = hasKey is not null ? (hasKey.Selected, hasKey.At)
             : keyed.Count > 0 ? (keyed.Select(x => x.Name).ToList(), keyed[0].At)
             : primaryKey is not null ? (primaryKey.Arguments.Select(x => x.Trim('"')).ToList(), primaryKey.At)
             : ((IReadOnlyList<string>)[], type.At);
+        // A context can declare both, one per condition (a key for an in-memory test provider, HasNoKey for the database):
+        // the one the model states is the code's.
+        var keyless = config?.Calls.LastOrDefault(x => x.Name == "HasNoKey")?.At ?? type.Attributes.FirstOrDefault(x => x.Name == "Keyless")?.At;
+        if (keyless is not null && (columns.Count == 0 || context.Expected == "none"))
+        {
+            return ClaimReading.Stated("none", keyless);
+        }
+
         if (columns.Count > 0)
         {
             return ClaimReading.Stated(string.Join(", ", columns), at);
@@ -324,8 +388,9 @@ internal sealed partial class EfCoreClaims : IClaimReader
         // Without one the entity has no key EF Core accepts, so there is nothing to read, not a key to compare.
         var conventional = context.Code.MembersOf(type).FirstOrDefault(x => x.Kind == "property" && x.Access == "public"
             && (string.Equals(x.Name, "Id", StringComparison.OrdinalIgnoreCase) || string.Equals(x.Name, $"{type.Name}Id", StringComparison.OrdinalIgnoreCase)));
-        return conventional is not null
-            ? ClaimReading.Defaulted(conventional.Name, conventional.At)
+        return conventional is not null ? ClaimReading.Defaulted(conventional.Name, conventional.At)
+            // A keyless entity the code doesn't declare keyless: EF Core would refuse it.
+            : context.Expected == "none" ? ClaimReading.Absent(type.At)
             : ClaimReading.CantVerify("notFound", $"`{type.Name}` has no `HasKey`, `[Key]` or `[PrimaryKey]`, and no public `Id` or `{type.Name}Id` property EF Core would take as its key.", type.At);
     }
 
@@ -431,8 +496,9 @@ internal sealed partial class EfCoreClaims : IClaimReader
             return ClaimReading.Stated(string.Join(", ", Named(navigationProperty)!.Split(',', StringSplitOptions.TrimEntries)), navigationProperty.At);
         }
 
-        // Every modelled column is one EF Core discovers for one of the relationship's navigations.
-        var conventional = located.All(member => member is not null
+        // Every modelled column is one EF Core discovers for one of the relationship's navigations. With none modelled (a
+        // probe), what EF Core discovers is its convention, which the model needn't state.
+        var conventional = located.Count > 0 && located.All(member => member is not null
                                                  && key.Navigations.Any(navigation => ConventionalForeignKey(context, dependent, member, model, navigation) is not null));
         return conventional
             ? ClaimReading.Defaulted(string.Join(", ", key.Columns), located[0]!.At)
@@ -509,27 +575,82 @@ internal sealed partial class EfCoreClaims : IClaimReader
     /// a shadow property its configuration declares (<c>Property&lt;int&gt;("BuyerId")</c>), whose <c>IsRequired</c> or type
     /// says. Null when the dependent has none, a shadow property EF Core makes nullable.
     /// </summary>
-    private static ClaimReading? Owners(ClaimContext context, EfCoreModel model, TypeNode owner, TypeNode? dependent, string? named)
-    {
-        if (dependent is null)
-        {
-            return null;
-        }
+    private static ClaimReading? Owners(ClaimContext context, EfCoreModel model, TypeNode owner, TypeNode? dependent, string? named) =>
+        dependent is not null && KeyRequired(context, model, owner, dependent, named) is (var required, var at) ? ClaimReading.Stated(required ? "1" : "0..1", at) : null;
 
+    /// <summary>Whether the dependent's foreign key to the owner can't be null, and where the code says so (<see cref="Owners"/>).</summary>
+    private static (bool Required, Span At)? KeyRequired(ClaimContext context, EfCoreModel model, TypeNode owner, TypeNode dependent, string? named)
+    {
         bool IsKey(string name) => named is not null ? name == named : string.Equals(name, owner.Name + "Id", StringComparison.OrdinalIgnoreCase);
-        var configured = EntityOf(context, model, dependent)?.Properties.FirstOrDefault(x => IsKey(x.Key)).Value;
+        var config = EntityOf(context, model, dependent);
+        var configured = config?.Properties.FirstOrDefault(x => IsKey(x.Key)).Value;
         if (configured?.LastOrDefault(x => x.Name == "IsRequired") is { } required)
         {
-            return ClaimReading.Stated(required.Arguments is ["false"] ? "0..1" : "1", required.At);
+            return (required.Arguments is not ["false"], required.At);
+        }
+
+        // A key's columns are always required: a link table's foreign keys are its primary key.
+        if (config?.Calls.FirstOrDefault(x => x.Name == "HasKey" && x.Selected.Any(IsKey)) is { } primaryKey)
+        {
+            return (true, primaryKey.At);
         }
 
         if (context.Code.MembersOf(dependent).FirstOrDefault(x => x.Kind == "property" && IsKey(x.Name)) is { Type: { } type } key)
         {
-            return ClaimReading.Stated(type.Nullable == "false" ? "1" : "0..1", key.At);
+            return (type.Nullable == "false", key.At);
         }
 
         return configured?.FirstOrDefault(x => x.Name == "Property")?.TypeArguments is [var shadow]
-            ? ClaimReading.Stated(!shadow.NullableMarked && (shadow.IsPredefinedValueType || shadow.Nullable == "false") ? "1" : "0..1", configured[0].At)
+            ? (!shadow.NullableMarked && (shadow.IsPredefinedValueType || shadow.Nullable == "false"), configured[0].At)
+            : null;
+    }
+
+    /// <summary>
+    /// Whether a reference navigation may be null, where its C# type can't say (outside a nullable context), as EF Core
+    /// decides it: the relationship's <c>IsRequired</c>, else the navigation's foreign key, required when it can't be null.
+    /// The key is the one the chain names (<c>HasForeignKey</c>), else <c>[ForeignKey]</c>, else EF Core's by convention: the
+    /// navigation's or the principal's name and <c>Id</c>. A navigation whose own class holds no such key (a principal's to
+    /// its dependent in a one-to-one) isn't read.
+    /// </summary>
+    private static ClaimReading? Navigation(ClaimContext context, EfCoreModel model, IAssociationEnd end)
+    {
+        if (context.Member is not { } navigation || navigation.Type?.Nullable is not (null or "unknown") || navigation.Type.IsArray
+            || context.Code.UngovernedFiles.ContainsKey(navigation.At.File)
+            || context.Owner(end) is not { } ownerElement || context.TypeOf(ownerElement) is not { } dependent
+            || end.TypeReference?.Element is not IElement principalElement || context.TypeOf(principalElement) is not { } principal
+            || navigation.Type.Name != principal.Name)
+        {
+            return null;
+        }
+
+        // The relationship's chain: the dependent's HasOne by this navigation, or the principal's Has... whose WithOne names it
+        // and whose own navigation (or type argument) leads to the dependent.
+        bool LeadsToDependent(FluentCall call) => call.Selected is [var named]
+            ? context.Code.MembersOf(principal).Any(x => x.Name == named && x.Type is { } held && (held.Name == dependent.Name || held.Arguments.Any(a => a.Name == dependent.Name)))
+            : call.TypeArguments.Any(x => x.Name == dependent.Name);
+        var chains = (EntityOf(context, model, dependent)?.Chains.Where(x => x[0].Name == "HasOne" && x[0].Selected is [var named] && named == navigation.Name) ?? [])
+            .Concat(EntityOf(context, model, principal)?.Chains.Where(x => x[0].Name is "HasMany" or "HasOne" && LeadsToDependent(x[0])
+                && x.Any(c => c.Name == "WithOne" && c.Selected is [var named] && named == navigation.Name)) ?? [])
+            .ToList();
+        if (chains.Count > 1)
+        {
+            return ClaimReading.CantVerify("ambiguous", $"{chains.Count} chains configure `{dependent.Name}.{navigation.Name}`.", chains[0][0].At, chains.Select(x => x[0].At).ToList());
+        }
+
+        var chain = chains.FirstOrDefault();
+        if (chain?.LastOrDefault(x => x.Name == "IsRequired") is { } required)
+        {
+            return ClaimReading.Stated(required.Arguments is ["false"] ? "true" : "false", required.At);
+        }
+
+        var members = context.Code.MembersOf(dependent).ToList();
+        var key = chain?.LastOrDefault(x => x.Name == "HasForeignKey")?.Selected is [var stated] ? stated
+            : navigation.Attributes.FirstOrDefault(x => x.Name == "ForeignKey")?.Arguments is [var annotated] ? annotated.Trim('"')
+            : members.FirstOrDefault(x => x.Attributes.Any(a => a.Name == "ForeignKey" && a.Arguments is [var on] && on.Trim('"') == navigation.Name))?.Name
+              ?? members.FirstOrDefault(x => x.Kind == "property" && (string.Equals(x.Name, navigation.Name + "Id", StringComparison.OrdinalIgnoreCase)
+                                                                     || string.Equals(x.Name, principal.Name + "Id", StringComparison.OrdinalIgnoreCase)))?.Name;
+        return key is not null && KeyRequired(context, model, principal, dependent, key) is (var isRequired, var at)
+            ? ClaimReading.Stated(isRequired ? "false" : "true", at)
             : null;
     }
 
@@ -575,11 +696,16 @@ internal sealed partial class EfCoreClaims : IClaimReader
     /// EF Core's own rule for nullability where the C# type can't state it (outside a nullable context): <c>IsRequired()</c>
     /// or <c>[Required]</c> makes a mapped property's column required; without either, EF Core maps a reference type as
     /// optional (decision 13: an extension adds a rule to another's kind). Anywhere else the engine's own rule reads it, and
-    /// association ends are left to their foreign keys.
+    /// an association end is its navigation's relationship (<see cref="Navigation"/>).
     /// </summary>
     private static ClaimReading? Required(ClaimContext context, EfCoreModel model)
     {
-        if (context.Element is IAssociationEnd || context.Member is not { } member || member.Type?.Nullable is not (null or "unknown")
+        if (context.Element is IAssociationEnd end)
+        {
+            return Navigation(context, model, end);
+        }
+
+        if (context.Member is not { } member || member.Type?.Nullable is not (null or "unknown")
             || context.Code.UngovernedFiles.ContainsKey(member.At.File)
             || context.Owner(context.Element) is not { } ownerElement || context.TypeOf(ownerElement) is not { } type
             || EntityOf(context, model, type) is not { } entity)

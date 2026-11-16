@@ -59,7 +59,7 @@
           "description": "Globs relative to the output folder; placeholders allowed"
         },
         "name": { "type": "string", "description": "The type's name: {Name} is the element's name, with the placeholder filters (I{Name}, {Name|trimEnd:Service}Controller); defaults to the language profile's naming" },
-        "find": { "type": "string", "description": "unmodelled.type: a find path locating every type that follows the convention" },
+        "find": { "type": "string", "description": "unmodelled.type: optional; a find path that narrows the rule, within the convention's files, to the types it reaches" },
         "files": { "$ref": "rules.schema.json#/$defs/files" },
         "states": {
           "type": "array",

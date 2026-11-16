@@ -6,14 +6,22 @@ namespace Intent.Modules.Common.DriftEngine.Scope;
 /// <summary>An <c>Opt-in Rules</c> row: a rule turned on, narrowed to the files its globs match (none: every file in scope).</summary>
 internal sealed record OptInRow(int Number, string Rule, IReadOnlyList<GlobPattern> Globs);
 
-/// <summary>An <c>Exceptions</c> row: code an opt-in rule must not report, and why.</summary>
+/// <summary>
+/// An <c>Exceptions</c> row: code an opt-in rule must not report, and why. Its Match lists one or more entries, one per line,
+/// so code skipped for one reason (helper classes) is one row.
+/// </summary>
 internal sealed record ExceptionRow(int Number, string Rule, string Match, string? Reason)
 {
-    private readonly GlobPattern _glob = new(Match);
+    private readonly (string Entry, GlobPattern Glob)[] _entries =
+        Match.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(x => (x, new GlobPattern(x))).ToArray();
 
-    /// <summary>A file glob, a type's name, <c>Type.Member</c>, or the name the rule gives the code.</summary>
-    public bool Matches(string file, string name, string? type) =>
-        string.Equals(Match, name, StringComparison.Ordinal) || string.Equals(Match, type, StringComparison.Ordinal) || _glob.IsMatch(file);
+    public IEnumerable<string> Entries => _entries.Select(x => x.Entry);
+
+    /// <summary>The entry that matches: a file glob, a type's name, <c>Type.Member</c>, or the name the rule gives the code.</summary>
+    public string? MatchOf(string file, string name, string? type) =>
+        _entries.FirstOrDefault(x => string.Equals(x.Entry, name, StringComparison.Ordinal) || string.Equals(x.Entry, type, StringComparison.Ordinal) || x.Glob.IsMatch(file)).Entry;
+
+    public bool Matches(string file, string name, string? type) => MatchOf(file, name, type) is not null;
 }
 
 /// <summary>A <c>Severity Overrides</c> row: findings whose rule id matches (<c>*</c> for any run of characters) take its severity.</summary>

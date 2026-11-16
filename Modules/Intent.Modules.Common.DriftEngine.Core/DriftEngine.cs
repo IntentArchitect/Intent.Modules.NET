@@ -416,6 +416,7 @@ public sealed partial class DriftEngine
                     var association = entry["for"]?["associationEnd"]?.GetValue<string>();
                     var whole = entry["for"]?["association"]?.GetValue<string>();
                     var where = entry["for"]?["where"]?.GetValue<string>();
+                    var applies = entry["for"]?["applies"]?.GetValue<string>();
                     // The claim exists only where `when` is true (vocabulary.md, Entries).
                     var when = entry["when"]?.GetValue<string>();
                     var selected = whole is not null ? Associations(elements, whole)
@@ -423,7 +424,8 @@ public sealed partial class DriftEngine
                         : NavigableEnds(elements, association);
                     foreach (var element in selected)
                     {
-                        if (where is not null && Expression.Evaluate(where, element) is not true
+                        if (applies is not null && Expression.Evaluate(applies, element) is not true
+                            || where is not null && Expression.Evaluate(where, element) is not true
                             || when is not null && Expression.Evaluate(when, element) is not true)
                         {
                             continue;
@@ -507,14 +509,25 @@ public sealed partial class DriftEngine
         var expected = spec.Expected;
         if (string.IsNullOrEmpty(expected))
         {
+            // No claim, but what the source would claim if the model set it: unmodelled.value's probe, as a vocabulary
+            // entry's is.
             if (definition.Stated == "whenSet")
             {
+                _unsetSpecs.Add((extension, spec));
                 return null;
             }
 
             expected = definition.ValueType switch { "bool" => "false", "set" => "none", "presence" => "present", _ => "" };
         }
 
+        return ClaimFrom(extension, spec, definition, expected);
+    }
+
+    /// <summary>A claim source's claims of a <c>whenSet</c> kind that the model leaves unset, for <c>unmodelled.value</c>.</summary>
+    private readonly List<(string Extension, ClaimSpec Spec)> _unsetSpecs = [];
+
+    private Claim ClaimFrom(string extension, ClaimSpec spec, KindDefinition definition, string expected)
+    {
         return new Claim
         {
             Kind = spec.Kind,

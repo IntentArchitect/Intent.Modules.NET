@@ -747,3 +747,161 @@ public class OrderLine {
   ]
 }
 ```
+
+## ef-navigation-required-nullable-disabled
+
+Nullable reference types are off, so `Order.Buyer`'s type can't say whether an order may have no buyer. EF Core decides it from the relationship: no `IsRequired`, so the foreign key `HasForeignKey` names, an `int` that can't be null, makes it required. The model's `1` agrees.
+
+```json case
+{ "phase": 4, "kinds": ["member.nullable"], "requirements": ["R2", "R3"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } },
+              { "id": "order-buyer-id", "type": "Attribute", "name": "BuyerId", "typeRef": { "type": "int" } }
+            ] },
+          { "id": "buyer", "type": "Class", "name": "Buyer",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "buyer-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "order-buyer", "type": "Association",
+          "source": { "element": "order", "name": "Orders", "multiplicity": "*", "navigable": false },
+          "target": { "element": "buyer", "name": "Buyer", "multiplicity": "1", "navigable": true } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Domain/Ordering.Domain.csproj
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+</Project>
+```
+
+```csharp file src/Domain/Order.cs
+namespace Ordering.Domain;
+
+public class Order
+{
+    public int Id { get; private set; }
+
+    public int BuyerId { get; private set; }
+
+    public Buyer Buyer { get; private set; }
+}
+```
+
+```csharp file src/Domain/Buyer.cs
+namespace Ordering.Domain;
+
+public class Buyer
+{
+    public int Id { get; private set; }
+}
+```
+
+```csharp file src/Domain/Persistence/OrderConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Ordering.Domain.Persistence;
+
+public class OrderConfiguration : IEntityTypeConfiguration<Order>
+{
+    public void Configure(EntityTypeBuilder<Order> builder)
+    {
+        builder.HasOne(o => o.Buyer).WithMany().HasForeignKey(o => o.BuyerId);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.nullable", "element": "order-buyer", "outcome": "verified", "expected": "false", "actual": "false", "at": "src/Domain/Order.cs:7" }
+  ]
+}
+```
+
+## ef-navigation-optional-contradicted
+
+The same relationship, with the foreign key an `int?`: EF Core makes the navigation optional, and the model says every order has a buyer.
+
+```json case
+{ "phase": 4, "base": "ef-navigation-required-nullable-disabled", "kinds": ["member.nullable"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Order.cs
+namespace Ordering.Domain;
+
+public class Order
+{
+    public int Id { get; private set; }
+
+    public int? BuyerId { get; private set; }
+
+    public Buyer Buyer { get; private set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.nullable", "element": "order-buyer", "outcome": "contradicted", "expected": "false", "actual": "true", "at": "src/Domain/Order.cs:7" }
+  ]
+}
+```
+
+## ef-navigation-is-required
+
+The chain's own `IsRequired(false)` decides, whatever the foreign key's type: the navigation is optional.
+
+```json case
+{ "phase": 4, "base": "ef-navigation-required-nullable-disabled", "kinds": ["member.nullable"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Persistence/OrderConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Ordering.Domain.Persistence;
+
+public class OrderConfiguration : IEntityTypeConfiguration<Order>
+{
+    public void Configure(EntityTypeBuilder<Order> builder)
+    {
+        builder.HasOne(o => o.Buyer).WithMany().HasForeignKey(o => o.BuyerId).IsRequired(false);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.nullable", "element": "order-buyer", "outcome": "contradicted", "expected": "false", "actual": "true", "at": "src/Domain/Persistence/OrderConfiguration.cs:10" }
+  ]
+}
+```

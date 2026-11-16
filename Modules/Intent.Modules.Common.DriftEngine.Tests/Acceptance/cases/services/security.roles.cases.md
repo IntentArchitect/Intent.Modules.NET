@@ -238,3 +238,113 @@ The Operation is `Secured` with no Roles, and the endpoint requires `Manager,Adm
   ]
 }
 ```
+
+## custom-attribute-sets-roles
+
+The controller is secured by the code's own `[StaffOnly]`, which derives from `AuthorizeAttribute` and sets its roles in its constructor, as ASP.NET Core reads them from the instance. The model's `Staff, Admin` are those roles.
+
+```json case
+{ "phase": 4, "kinds": ["security.roles"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Ordering.API",
+        "elements": [
+          { "id": "orders-controller", "type": "Service", "name": "OrdersController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/orders" }, "Secured": { "Roles": "Staff, Admin" } },
+            "children": [
+              { "id": "cancel-order", "type": "Operation", "name": "Cancel",
+                "stereotypes": { "Http Settings": { "Verb": "PUT", "Route": "{orderId}/cancel" } },
+                "children": [
+                  { "id": "cancel-order-order-id", "type": "Parameter", "name": "orderId", "typeRef": { "type": "int" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Ordering.API/Security/StaffOnlyAttribute.cs
+using Microsoft.AspNetCore.Authorization;
+
+namespace Ordering.API.Security;
+
+public class StaffOnlyAttribute : AuthorizeAttribute
+{
+    public StaffOnlyAttribute()
+    {
+        Roles = "Staff,Admin";
+    }
+}
+```
+
+```csharp file src/Ordering.API/Controllers/OrdersController.cs
+using Microsoft.AspNetCore.Mvc;
+using Ordering.API.Security;
+
+namespace Ordering.API.Controllers;
+
+[ApiController]
+[Route("api/orders")]
+[StaffOnly]
+public class OrdersController : ControllerBase
+{
+    [HttpPut("{orderId}/cancel")]
+    public IActionResult Cancel(int orderId)
+    {
+        return Ok();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "security.roles", "element": "cancel-order", "outcome": "verified", "expected": "Admin, Staff", "at": "src/Ordering.API/Security/StaffOnlyAttribute.cs:7" }
+  ]
+}
+```
+
+## custom-attribute-sets-none
+
+The code's own attribute derives from `AuthorizeAttribute` and runs its own checks, but sets no roles, so it requires none. The model's roles are contradicted, read as the code saying nothing, rather than can't verify.
+
+```json case
+{ "phase": 4, "base": "custom-attribute-sets-roles", "kinds": ["security.roles"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Security/StaffOnlyAttribute.cs
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Filters;
+
+namespace Ordering.API.Security;
+
+public class StaffOnlyAttribute : AuthorizeAttribute, IAuthorizationFilter
+{
+    public void OnAuthorization(AuthorizationFilterContext context)
+    {
+        // TokenData.Roles = ...
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "security.roles", "element": "cancel-order", "outcome": "contradicted", "expected": "Admin, Staff" }
+  ],
+  "findings": [
+    { "rule": "claim/security.roles", "severity": "error", "subject": "cancel-order", "messageContains": "doesn't state" }
+  ]
+}
+```

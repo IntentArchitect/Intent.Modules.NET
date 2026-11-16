@@ -366,3 +366,61 @@ public class OrderingContext : DbContext
   ]
 }
 ```
+
+## code-only-key-reported-when-opted-in
+
+The model as `not-claimed-without-foreign-key` has it, no attribute with Foreign Key, and the code's `HasForeignKey` names `BuyerId`. Still no claim; with `optin/unmodelled.value` on, the key the code states and the model leaves unset is reported where the code states it, as Common.Drift's empty foreign key fact caught it.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["relationship.foreignKey"], "cases": ["optin/unmodelled.value"], "requirements": ["R4", "R49"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } },
+              { "id": "order-buyer-id", "type": "Attribute", "name": "BuyerId", "typeRef": { "type": "int", "nullable": true } }
+            ] },
+          { "id": "buyer", "type": "Class", "name": "Buyer",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "buyer-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "order-buyer", "type": "Association",
+          "source": { "element": "order", "name": "Orders", "multiplicity": "*", "navigable": false },
+          "target": { "element": "buyer", "name": "Buyer", "multiplicity": "0..1", "navigable": true } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.value" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "relationship.foreignKey", "element": "order-buyer", "absent": true }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.value", "severity": "error", "subject": "src/Infrastructure/Persistence/OrderConfiguration.cs:11",
+      "messageContains": "`Order.Buyer` foreign key: the code states `BuyerId`, which the model leaves unset" },
+    { "rule": "claim/relationship.foreignKey", "count": 0 }
+  ]
+}
+```

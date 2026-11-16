@@ -343,3 +343,161 @@ public class Order {
   ]
 }
 ```
+
+## keyless-verified
+
+A Table with no Primary Key attribute states that it has no key, `none`, as a database-first model of a keyless table or view does. The code says so with `HasNoKey()` in its inline configuration, the shape `Scaffold-DbContext` writes.
+
+```json case
+{ "phase": 4, "kinds": ["key"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "sales-summary", "type": "Class", "name": "SalesSummary",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "sales-summary-region", "type": "Attribute", "name": "Region", "typeRef": { "type": "string" } },
+              { "id": "sales-summary-total", "type": "Attribute", "name": "Total", "typeRef": { "type": "decimal" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/SalesSummary.cs
+namespace Shop.Domain;
+
+public partial class SalesSummary
+{
+    public string Region { get; set; }
+
+    public decimal Total { get; set; }
+}
+```
+
+```csharp file src/Data/ShopContext.cs
+using Microsoft.EntityFrameworkCore;
+using Shop.Domain;
+
+namespace Shop.Data;
+
+public class ShopContext : DbContext
+{
+    public DbSet<SalesSummary> SalesSummaries { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<SalesSummary>(entity =>
+        {
+            entity.HasNoKey();
+            entity.ToTable("SalesSummary");
+        });
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "key", "element": "sales-summary", "outcome": "verified", "expected": "none", "actual": "none", "at": "src/Data/ShopContext.cs:14" }
+  ]
+}
+```
+
+## keyless-with-a-conditional-key
+
+The context gives `SalesSummary` a shadow key only on the in-memory test provider, and declares it keyless otherwise. The model describes the database, keyless, and the code declares that too, so the claim is verified rather than read from the first key it meets.
+
+```json case
+{ "phase": 4, "base": "keyless-verified", "kinds": ["key"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Data/ShopContext.cs
+using Microsoft.EntityFrameworkCore;
+using Shop.Domain;
+
+namespace Shop.Data;
+
+public class ShopContext : DbContext
+{
+    public DbSet<SalesSummary> SalesSummaries { get; set; }
+
+    public bool IsInMemory { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<SalesSummary>(entity =>
+        {
+            if (IsInMemory)
+            {
+                modelBuilder.Entity<SalesSummary>().Property<int>("Id");
+                modelBuilder.Entity<SalesSummary>().HasKey("Id");
+            }
+            else
+                entity.HasNoKey();
+
+            entity.ToTable("SalesSummary");
+        });
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "key", "element": "sales-summary", "outcome": "verified", "expected": "none", "actual": "none", "at": "src/Data/ShopContext.cs:22" }
+  ]
+}
+```
+
+## keyless-contradicted
+
+The model's `SalesSummary` still has no key, but the code gives it one, `Region`.
+
+```json case
+{ "phase": 4, "base": "keyless-verified", "kinds": ["key"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Data/ShopContext.cs
+using Microsoft.EntityFrameworkCore;
+using Shop.Domain;
+
+namespace Shop.Data;
+
+public class ShopContext : DbContext
+{
+    public DbSet<SalesSummary> SalesSummaries { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<SalesSummary>(entity =>
+        {
+            entity.HasKey(e => e.Region);
+            entity.ToTable("SalesSummary");
+        });
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "key", "element": "sales-summary", "outcome": "contradicted", "expected": "none", "actual": "Region", "at": "src/Data/ShopContext.cs:14" }
+  ],
+  "findings": [
+    { "rule": "claim/key", "severity": "error", "subject": "sales-summary", "messageContains": "`SalesSummary` primary key: model `none`, code `Region`." }
+  ]
+}
+```

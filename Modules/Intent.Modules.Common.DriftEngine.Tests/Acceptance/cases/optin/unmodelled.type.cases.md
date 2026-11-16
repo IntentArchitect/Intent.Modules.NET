@@ -1,8 +1,8 @@
 # optin/unmodelled.type
 
-The opt-in rule that reports an in-scope type which follows an element type's convention and which no claim located (rules.md, "Opt-in must be modelled rules"). By principle 1 such a type is never drift on its own: the rule is off until the Root Folder's `Drift Check` lists it under `Opt-in Rules`, it reads only in-scope code, and each finding can be excepted with a reason (R49).
+The opt-in rule that reports an in-scope type no claim located (rules.md, "Opt-in must be modelled rules"). By principle 1 such a type is never drift on its own: the rule is off until the Root Folder's `Drift Check` lists it under `Opt-in Rules`, it reads only in-scope code, and each finding can be excepted with a reason (R49).
 
-The conventions come from packs: a convention's `find` locates every type that follows it, as Common.Drift's `own` entries did. The stock packs have no conventions for eShop's own style, so each case brings a small inline house pack with the conventions it needs. A type is located when a claim's reading came from it or from code inside it, so a modelled type is never reported.
+The row is all the rule needs (user decision, 2026-11-16): its Glob says where to look, as a Common.Drift `own` entry's `files` did, and every type there the model doesn't describe is reported, with the designer whose elements describe the types in its folder, or the nearest folder above it, when there is one. A module that wants more, such as only a base class's subclasses, gives an element type's convention a `find`: within the convention's `files` only the types it finds are reported, as that element type. Most cases here bring a small inline house pack to show that narrowing; `glob-only`, `whole-scope` and `pattern-narrows-its-files` show the rule without one and beside one. A type is located when a claim's reading came from it or from code inside it, so a modelled type is never reported. A type nested in another is part of it, never reported on its own.
 
 A finding's subject is the file and the line where the type's node starts. For an annotated Java type that is its first annotation.
 
@@ -218,6 +218,52 @@ The rule is on, and an `Exceptions` row names `Buyer` by its type name, with a r
   "findings": [
     { "rule": "optin/unmodelled.type", "subject": "src/Domain/BuyerAggregate/Buyer.cs:3", "count": 0, "note": "Excepted" },
     { "rule": "optin/staleException", "count": 0 }
+  ]
+}
+```
+
+## excepted-several-in-one-row
+
+One `Exceptions` row lists several types, one per line, for one reason: code skipped for the same reason is one row. `Buyer` is excepted by it; `Ghost`, which the code doesn't have, is the row's one stale entry, and the warning names it alone.
+
+```json case
+{ "phase": 2, "base": "off-by-default", "cases": ["optin/unmodelled.type"], "requirements": ["R49"], "packs": ["intent.core", "intent.domain", "house.ordering"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "children": [
+              { "id": "order-description", "type": "Attribute", "name": "Description", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": {
+            "Opt-in Rules": [ { "Rule": "optin/unmodelled.type" } ],
+            "Exceptions": [ { "Rule": "optin/unmodelled.type", "Match": "Buyer\nGhost", "Reason": "Owned by other teams' applications" } ]
+          }
+        } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.type", "subject": "src/Domain/BuyerAggregate/Buyer.cs:3", "count": 0, "note": "Excepted" },
+    { "rule": "optin/staleException", "severity": "warning", "messageContains": "`Ghost`" },
+    { "rule": "optin/staleException", "messageContains": "Buyer", "count": 0 }
   ]
 }
 ```
@@ -1562,6 +1608,203 @@ export interface BasketDto {
   "findings": [
     { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/api/types.ts:5", "messageContains": "BasketDto" },
     { "rule": "optin/unmodelled.type", "subject": "src/api/types.ts:1", "count": 0 }
+  ]
+}
+```
+
+## glob-only
+
+No pack says what the code's types look like: the row's Glob, `src/Domain/**`, is the whole setup, as a Common.Drift `own` entry's `files` was. `Buyer` and the SeedWork's `Entity` are under it and no claim located them, so each is reported, with the Domain designer, whose `Order` is in `Buyer`'s folder and in the folder above `Entity`'s. `Order` is located; its nested `Snapshot` is part of it; `OrderService` is outside the Glob.
+
+```json case
+{ "phase": 2, "cases": ["optin/unmodelled.type"], "requirements": ["R49"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "children": [
+              { "id": "order-description", "type": "Attribute", "name": "Description", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.type", "Glob": "src/Domain/**" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Order.cs
+namespace Ordering.Domain;
+
+public class Order
+{
+    public string Description { get; private set; }
+
+    private sealed class Snapshot
+    {
+    }
+}
+```
+
+```csharp file src/Domain/Buyer.cs
+namespace Ordering.Domain;
+
+public class Buyer
+{
+    public string Name { get; private set; }
+}
+```
+
+```csharp file src/Domain/SeedWork/Entity.cs
+namespace Ordering.Domain.SeedWork;
+
+public abstract class Entity
+{
+}
+```
+
+```csharp file src/Application/OrderService.cs
+namespace Ordering.Application;
+
+public class OrderService
+{
+    public void Ship()
+    {
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "order", "outcome": "verified", "at": "src/Domain/Order.cs:3" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/Domain/Buyer.cs:3",
+      "messageContains": "`Buyer` isn't in the model. Model it in the Domain designer, or add an exception with a reason to the Root Folder's Drift Check." },
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/Domain/SeedWork/Entity.cs:3", "messageContains": "`Entity` isn't in the model. Model it in the Domain designer" },
+    { "rule": "optin/unmodelled.type", "subject": "src/Domain/Order.cs:3", "count": 0, "note": "Located by its type.exists claim" },
+    { "rule": "optin/unmodelled.type", "messageContains": "Snapshot", "count": 0, "note": "Nested in Order, so part of it" },
+    { "rule": "optin/unmodelled.type", "messageContains": "OrderService", "count": 0, "note": "Outside the row's Glob" }
+  ]
+}
+```
+
+## whole-scope
+
+The same code, with a row that has no Glob: the rule looks at every type in scope. `OrderService` is reported too. No located type is in its folder or a folder above it, so no designer is named.
+
+```json case
+{ "phase": 2, "base": "glob-only", "cases": ["optin/unmodelled.type"], "requirements": ["R49"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "children": [
+              { "id": "order-description", "type": "Attribute", "name": "Description", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.type" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/Application/OrderService.cs:3",
+      "messageContains": "`OrderService` isn't in the model. Model it, or add an exception with a reason to the Root Folder's Drift Check." },
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/Domain/Buyer.cs:3", "messageContains": "Buyer" },
+    { "rule": "optin/unmodelled.type", "subject": "src/Domain/Order.cs:3", "count": 0 }
+  ]
+}
+```
+
+## pattern-narrows-its-files
+
+The house pack's Class convention finds the types deriving `Entity` in `src/Domain/**/*.cs`, and the row has no Glob. Within the convention's files only what it finds is reported: `Buyer`, as a Class, and not the SeedWork's `Utc`. Outside them the row alone decides, so `OrderService` is reported as any type is.
+
+```json case
+{ "phase": 2, "base": "off-by-default", "cases": ["optin/unmodelled.type"], "requirements": ["R49"], "packs": ["intent.core", "intent.domain", "house.ordering"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "children": [
+              { "id": "order-description", "type": "Attribute", "name": "Description", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.type" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/SeedWork/Utc.cs
+namespace Ordering.Domain.SeedWork;
+
+public static class Utc
+{
+    public static DateTime Now() => DateTime.UtcNow;
+}
+```
+
+```csharp file src/Application/OrderService.cs
+namespace Ordering.Application;
+
+public class OrderService
+{
+    public void Ship()
+    {
+    }
+}
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/Domain/BuyerAggregate/Buyer.cs:3", "messageContains": "`Buyer` isn't in the model: no Class in the Domain designer describes it." },
+    { "rule": "optin/unmodelled.type", "messageContains": "Utc", "count": 0, "note": "In the convention's files, and not what it finds" },
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/Application/OrderService.cs:3", "messageContains": "`OrderService` isn't in the model." }
   ]
 }
 ```

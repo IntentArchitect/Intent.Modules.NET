@@ -119,11 +119,11 @@ public class HttpEndpointTests
     }
 
     [Fact]
-    public void A_derived_attribute_naming_no_roles_may_set_them_itself()
+    public void A_derived_attribute_whose_class_sets_no_roles_requires_none()
     {
         var result = Run(("src/Shop.Api/Roles.cs", Roles), ("src/Shop.Api/OrdersController.cs", Controller.Replace("[ShopAuthorize(Roles = AuthorizationRoles.Reader)]", "[ShopAuthorize]", StringComparison.Ordinal)));
         Claim(result, "security", "get").Outcome.ShouldBe("verified");
-        Claim(result, "security.roles", "get").ShouldSatisfyAllConditions(x => x.Outcome.ShouldBe("cantVerify"), x => x.Reason.ShouldBe("unreadable"));
+        Claim(result, "security.roles", "get").Outcome.ShouldBe("contradicted");
     }
 
     [Fact]

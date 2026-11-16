@@ -80,15 +80,16 @@ internal sealed class ForeignKeys : IClaimSource
                 .Select(attribute => (Type: type, Attribute: attribute, End: Association(attribute))))
             .Where(x => x.End is not null)
             .GroupBy(x => (x.Type.Id, x.End!.Id));
+        var withKeys = new HashSet<string>();
         foreach (var group in keyed)
         {
             var (type, _, end) = group.First();
+            withKeys.Add(end!.Id);
             var columns = group.Select(x => x.Attribute.Name).ToList();
             // An end is named for the navigation on the other class that leads to its own: the end whose type is the
             // principal is the dependent's navigation to it.
-            var toPrincipal = (end!.OtherEnd()?.TypeReference?.Element as IElement)?.Id == type.Id ? end : end.OtherEnd()!;
+            var toPrincipal = (end.OtherEnd()?.TypeReference?.Element as IElement)?.Id == type.Id ? end : end.OtherEnd()!;
             var principal = toPrincipal.TypeReference?.Element as IElement;
-            static string? Named(IAssociationEnd? navigation) => string.IsNullOrEmpty(navigation?.Name) ? null : navigation.Name;
             yield return new ClaimSpec
             {
                 Designer = Designer,
@@ -101,6 +102,42 @@ internal sealed class ForeignKeys : IClaimSource
                 Source = $"the Foreign Key stereotype on {string.Join(" and ", columns)}"
             };
         }
+
+        // A one-to-many with no Foreign Key attributes leaves its key unset: the claim it would be, with no value, so
+        // unmodelled.value can report a key the code gives it. The dependent is the class on the many side; a one-to-one
+        // or a many-to-many doesn't say which table holds a key.
+        foreach (var end in ends.Values.Where(x => x.IsTargetEnd() && !withKeys.Contains(x.Id) && x.Association?.SpecializationType == "Association"))
+        {
+            if (end.OtherEnd() is not { } source || end.TypeReference?.Element is not IElement target || source.TypeReference?.Element is not IElement origin)
+            {
+                continue;
+            }
+
+            var (dependent, principal) = (end.TypeReference.IsCollection, source.TypeReference.IsCollection) switch
+            {
+                (true, false) => (target, origin),
+                (false, true) => (origin, target),
+                _ => ((IElement?)null, (IElement?)null)
+            };
+            if (dependent is null)
+            {
+                continue;
+            }
+
+            var toPrincipal = (end.OtherEnd()?.TypeReference?.Element as IElement)?.Id == dependent.Id ? end : source;
+            yield return new ClaimSpec
+            {
+                Designer = Designer,
+                Element = end,
+                Kind = "relationship.foreignKey",
+                Value = new ModelForeignKey(dependent, principal, [], Named(toPrincipal), Named(toPrincipal.OtherEnd())),
+                DependsOn = new ClaimRef(Designer, dependent.Id, "type.exists"),
+                WaitsOn = [new ClaimRef(Designer, dependent.Id, "entity.persisted")],
+                Source = $"a Foreign Key stereotype on {dependent.Name}'s attributes"
+            };
+        }
+
+        static string? Named(IAssociationEnd? navigation) => string.IsNullOrEmpty(navigation?.Name) ? null : navigation.Name;
 
         // The association end the Foreign Key's Association names, as its target end: the association's own element. A lookup
         // is handed over as the element, or as its id, as Intent stores it.

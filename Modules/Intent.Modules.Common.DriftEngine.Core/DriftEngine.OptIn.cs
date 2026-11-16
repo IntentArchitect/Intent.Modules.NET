@@ -124,35 +124,59 @@ public sealed partial class DriftEngine
                     var specialization = entry["for"]?["element"]?.GetValue<string>();
                     var association = entry["for"]?["associationEnd"]?.GetValue<string>();
                     var whole = entry["for"]?["association"]?.GetValue<string>();
+                    // `where` tests that the value is set, which a probe is for; `applies` says where the kind applies at all.
+                    var applies = entry["for"]?["applies"]?.GetValue<string>();
                     var selected = whole is not null ? Associations(elements, whole)
                         : association is not null ? NavigableEnds(elements, association)
                         : specialization is not null ? elements.Where(x => x.SpecializationType == specialization) : [];
-                    foreach (var element in selected)
+                    foreach (var element in selected.Where(x => applies is null || Expression.Evaluate(applies, x) is true))
                     {
                         if (ClaimOn(designer, element, kind) is not null || !probed.Add((designer, element.Id, kind)) || Probe(designer, pack, entry, element, definition) is not { } probe)
                         {
                             continue;
                         }
 
-                        Evaluate(probe);
-                        if (probe.Reading is not { From: "code", Value: { Length: > 0 } value, At: { File.Length: > 0 } at })
-                        {
-                            continue;
-                        }
-
-                        var type = probe.Needs?.Kind == "member.exists" && Owner(element) is { } parent ? parent.Name : element.Name;
-                        var name = type == element.Name ? element.Name : $"{type}.{element.Name}";
-                        found.Add(new UnmodelledCode(probe.Area, at, name,
-                            $"`{name}` {definition.Label}: the code states `{value}`, which the model leaves unset; it would state it in {probe.SourceText}. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
-                            element.Id, type));
+                        Report(probe, element, definition);
                     }
                 }
             }
         }
 
+        // What claim sources would claim if the model set it, such as a relationship's foreign key with no Foreign Key
+        // attributes, probed the same way; a source states it with its value left unset.
+        foreach (var (extension, spec) in _unsetSpecs)
+        {
+            var definition = _kinds[spec.Kind];
+            if (ClaimOn(spec.Designer, spec.Element, spec.Kind) is not null || !probed.Add((spec.Designer, spec.Element.Id + spec.Discriminator, spec.Kind))
+                || spec.DependsOn is { } needs && !_index.ContainsKey(needs) || spec.WaitsOn.Any(x => !_index.ContainsKey(x)))
+            {
+                continue;
+            }
+
+            Report(ClaimFrom(extension, spec, definition, ""), spec.Element, definition);
+        }
+
         // A reader that fails on a probe has failed on nothing the model states.
         _extensionFailures.RemoveRange(failures, _extensionFailures.Count - failures);
         return found;
+
+        void Report(Claim probe, IElement element, KindDefinition definition)
+        {
+            Evaluate(probe);
+            // A flag the code turns off says what the model does by leaving it unset.
+            if (probe.Reading is not { From: "code", Value: { Length: > 0 } value, At: { File.Length: > 0 } at } || definition.ValueType == "bool" && value == "false")
+            {
+                return;
+            }
+
+            var type = probe.Needs?.Kind == "member.exists" && Owner(element) is { } parent ? parent.Name : element.Name;
+            // An association end is named by the class whose navigation it is: Order.Buyer.
+            var name = element is IAssociationEnd && Owner(element) is { } holder ? $"{holder.Name}.{NameOf(element)}"
+                : type == element.Name ? element.Name : $"{type}.{element.Name}";
+            found.Add(new UnmodelledCode(probe.Area, at, name,
+                $"`{name}` {definition.Label}: the code states `{value}`, which the model leaves unset; it would state it in {probe.SourceText}. Model it, or add an exception with a reason to the Root Folder's Drift Check.",
+                element.Id, type));
+        }
     }
 
     /// <summary>A claim as the vocabulary entry would state it, with no value: null when what it waits on isn't claimed, as it then reads nothing.</summary>
@@ -160,6 +184,13 @@ public sealed partial class DriftEngine
     {
         var needs = Needs(designer, element, entry["dependsOn"]?.GetValue<string>());
         if (needs is not null && !_index.ContainsKey(needs))
+        {
+            return null;
+        }
+
+        // What it waits on says where the kind applies: a parameter's source waits on its operation being an endpoint, which a
+        // business class's operation isn't claimed to be, so there is nothing there to probe.
+        if ((entry["waitsOn"] as JsonArray)?.Select(x => Needs(designer, element, x!.GetValue<string>())).Any(x => x is not null && !_index.ContainsKey(x)) == true)
         {
             return null;
         }
@@ -234,7 +265,8 @@ public sealed partial class DriftEngine
                 continue;
             }
 
-            var matched = new HashSet<ExceptionRow>();
+            // Each entry of a row's Match that excepted something: one that excepts nothing is stale on its own.
+            var matched = new HashSet<(ExceptionRow, string)>();
             foreach (var code in found.OrderBy(x => x.At.File, StringComparer.Ordinal).ThenBy(x => x.At.Line))
             {
                 // A row's glob narrows the rule within scope; it never widens it, and Context code is read, not checked.
@@ -245,7 +277,7 @@ public sealed partial class DriftEngine
 
                 if (_check.Exceptions.LastOrDefault(x => x.Rule == id && x.Matches(code.At.File, code.Name, code.Type)) is { } exception)
                 {
-                    matched.Add(exception);
+                    matched.Add((exception, exception.MatchOf(code.At.File, code.Name, code.Type)!));
                     continue;
                 }
 
@@ -259,10 +291,13 @@ public sealed partial class DriftEngine
             }
 
             // Only a rule that ran can say its exception matches nothing: one for a rule that's off waits for it.
-            foreach (var exception in _check.Exceptions.Where(x => x.Rule == id && !matched.Contains(x)))
+            foreach (var exception in _check.Exceptions.Where(x => x.Rule == id))
             {
-                findings.Add(new Finding("optin/staleException", ScopeArea, "Code", "warning",
-                    $"Exception row {exception.Number} of the Drift Check ({id}, `{exception.Match}`) matches nothing. Remove it, or correct its Match.", Root));
+                foreach (var entry in exception.Entries.Where(x => !matched.Contains((exception, x))))
+                {
+                    findings.Add(new Finding("optin/staleException", ScopeArea, "Code", "warning",
+                        $"Exception row {exception.Number} of the Drift Check ({id}, `{entry}`) matches nothing. Remove it, or correct its Match.", Root));
+                }
             }
         }
 

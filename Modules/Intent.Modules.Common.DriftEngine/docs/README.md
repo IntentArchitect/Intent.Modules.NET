@@ -27,11 +27,11 @@ Code the model doesn't mention isn't drift on its own, so by default nothing rep
 | List | Row | What it does |
 | --- | --- | --- |
 | Opt-in Rules | Rule, Glob | Turns a rule on, optionally narrowed to some files: `optin/unmodelled.file`, `.type`, `.member`, `.interaction`, `.exposed` or `.value`, or a module's own |
-| Exceptions | Rule, Match, Reason | Code a rule mustn't report: a file glob, a type's name, or `Type.Member`. One that matches nothing is a warning. |
+| Exceptions | Rule, Match, Reason | Code a rule mustn't report: file globs, type names or `Type.Member`s, one per line, with one reason for them all. An entry that matches nothing is a warning. |
 | Severity Overrides | Rule, Severity, Reason | Another severity for the findings whose rule matches (`*` matches anything): `optin/unmodelled.*` as Warning while the model catches up |
 
 - **`unmodelled.file`**: an in-scope file in which no claim located anything.
-- **`unmodelled.type`**: a type that follows an element type's convention (a house pack's `find`), which no element describes.
+- **`unmodelled.type`**: a type under the row's Glob, such as `Data/Model/Entities/**`, that no element describes. The row is the whole setup; a module can narrow it further with a convention's `find`, such as only a base class's subclasses.
 - **`unmodelled.member`**: a public member of a modelled type, of a kind its element type can state (a Class's properties, fields, constructors and methods; a DTO's properties), that the model doesn't state. Overrides of a modelled base, `Equals`/`GetHashCode`/`ToString`, a record's primary constructor, and a modelled field's Java accessors aren't reported.
 - **`unmodelled.interaction`**: a call the model's interactions could show that no link describes, such as a query of an entity with no Query Entity Action. Messages the diagram could show are already drift by default (below), so they aren't reported twice.
 - **`unmodelled.exposed`**: a type an endpoint takes or returns, or one reached through its type arguments and public properties, that no element describes. The types an endpoint exposes come from a convention's `exposed` find path.

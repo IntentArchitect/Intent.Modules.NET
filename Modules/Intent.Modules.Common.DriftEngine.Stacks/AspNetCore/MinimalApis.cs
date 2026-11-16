@@ -53,6 +53,9 @@ internal sealed record Authorization(string Kind, Span At, IReadOnlyList<Written
 
     /// <summary>An attribute of the code's own deriving from <c>AuthorizeAttribute</c>, which may set roles and a policy itself.</summary>
     public bool Custom { get; init; }
+
+    /// <summary>A <see cref="Custom"/> attribute's class, when it is in scope: what its constructors set is what it requires.</summary>
+    public TypeNode? Class { get; init; }
 }
 
 /// <summary>An API version as written: <c>HasApiVersion(1.0)</c>, <c>(1, 0)</c> and <c>(new ApiVersion(1, 0))</c> are <c>1.0</c>.</summary>

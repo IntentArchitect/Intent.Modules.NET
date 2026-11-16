@@ -1013,7 +1013,7 @@
     "comparers",
     "report"
   ],
-  "optIn": ["unmodelled.type", "unmodelled.member", "unmodelled.interaction", "unmodelled.exposed", "unmodelled.file", "unmodelled.value"],
+  "optIn": ["unmodelled.type", "unmodelled.member", "unmodelled.interaction", "unmodelled.exposed", "unmodelled.file", "unmodelled.value", "unmodelled.index"],
   "packs": [
     "intent.core",
     "intent.domain",

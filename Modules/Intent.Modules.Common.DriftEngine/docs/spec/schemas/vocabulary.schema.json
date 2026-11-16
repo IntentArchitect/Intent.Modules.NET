@@ -28,7 +28,8 @@
         "association": { "type": "string", "description": "An association specialization" },
         "package": { "type": "string", "description": "A package specialization" },
         "stereotype": { "type": "string", "description": "A stereotype name; only in nonClaims" },
-        "where": { "$ref": "#/$defs/expression" }
+        "where": { "$ref": "#/$defs/expression" },
+        "applies": { "$ref": "#/$defs/expression", "description": "Where the kind applies at all, beside where's test that the value is set: unmodelled.value's probe drops where and keeps this" }
       }
     },
     "entry": {
