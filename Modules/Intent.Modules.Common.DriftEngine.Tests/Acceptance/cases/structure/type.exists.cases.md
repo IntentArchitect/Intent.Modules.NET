@@ -563,35 +563,10 @@ public class OrderRepository(OrderingContext context)
 
 ## proto-message
 
-eShopCustom's `Proto Message` stereotype says a DTO is a message in a `.proto` file, not a C# type. The Services pack's vocabulary still claims the DTO's type; the house pack's recipe replaces the structure rule for those DTOs and finds the `message` declaration as text (R38, R46).
+eShopCustom's `Proto Message` stereotype says a DTO is a message in a `.proto` file, not a C# type. The Services pack's vocabulary still claims the DTO's type. The Protobuf reader makes each `message` declaration a type node, so the structure rule locates the DTO by name like any type.
 
 ```json case
-{ "phase": 2, "kinds": ["type.exists"], "traces": ["ESC-SVC-82"], "requirements": ["R2", "R38", "R46", "R53"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "text" }
-```
-
-```json pack
-{
-  "id": "house.eshop",
-  "version": "1.0.0",
-  "engine": "^1.0.0",
-  "requires": [{ "id": "intent.services", "version": "^1.0.0" }],
-  "languages": ["csharp"],
-  "designers": ["Services"],
-  "rules": {
-    "Services": {
-      "facts": {
-        "type.exists": {
-          "for": { "element": "DTO", "where": "hasStereotype('Proto Message')" },
-          "replaces": "intent.core/type.exists",
-          "files": "src/**/*.proto",
-          "find": "file with \\bmessage {Type}\\b",
-          "read": [{ "match": "\\bmessage {Type}\\b", "value": "present" }],
-          "note": "A Proto Message is declared in a .proto file, read as text"
-        }
-      }
-    }
-  }
-}
+{ "phase": 2, "kinds": ["type.exists"], "traces": ["ESC-SVC-82"], "requirements": ["R2"], "packs": ["intent.core", "intent.services"], "language": "protobuf" }
 ```
 
 ```json model
@@ -639,10 +614,10 @@ message BasketItem {
 
 ## proto-message-missing
 
-The `.proto` no longer declares `BasketItem`; `CustomerBasketResponse` still names it as a field type, which isn't a declaration.
+The `.proto` no longer declares `BasketItem`; `CustomerBasketResponse` still names it as a field type, which isn't a declaration. A `.proto` reaches a type no in-scope file declares only through an import of a file the engine doesn't read, and this one imports nothing, so `BasketItem` isn't anywhere.
 
 ```json case
-{ "phase": 2, "base": "proto-message", "kinds": ["type.exists"], "traces": ["ESC-SVC-82"], "requirements": ["R1", "R8"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "text" }
+{ "phase": 2, "base": "proto-message", "kinds": ["type.exists"], "traces": ["ESC-SVC-82"], "requirements": ["R1", "R8"], "packs": ["intent.core", "intent.services"], "language": "protobuf" }
 ```
 
 ```protobuf file src/Basket.API/Proto/basket.proto
@@ -662,6 +637,34 @@ message CustomerBasketResponse {
   ],
   "findings": [
     { "rule": "claim/type.exists", "severity": "error", "subject": "basket-item" }
+  ]
+}
+```
+
+## proto-message-imported
+
+The `.proto` doesn't declare `BasketItem`, but it imports `catalog/basket_item.proto`, a file the engine doesn't read. The message may be declared there, as a library's type is, so the field that names it says it exists.
+
+```json case
+{ "phase": 2, "base": "proto-message", "kinds": ["type.exists"], "traces": ["ESC-SVC-82"], "requirements": ["R2"], "packs": ["intent.core", "intent.services"], "language": "protobuf" }
+```
+
+```protobuf file src/Basket.API/Proto/basket.proto
+syntax = "proto3";
+
+package BasketApi;
+
+import "catalog/basket_item.proto";
+
+message CustomerBasketResponse {
+    repeated BasketItem items = 1;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "basket-item", "outcome": "verified", "at": "src/Basket.API/Proto/basket.proto:8" }
   ]
 }
 ```
@@ -785,10 +788,10 @@ public interface CatalogBrand
 
 ## spring-controller
 
-The Java spike's Services are Spring controllers: a Service is the `@RestController` class named after it, with `Service` replaced by `Controller`. The storefront's house pack replaces the structure rule for Services with a recipe that finds the class by that name and requires the annotation (R33, R46).
+The Java spike's Services are Spring controllers: a Service is the class named after it, with `Service` replaced by `Controller`. The storefront's house pack names a Service's type that way in its conventions, so the structure rule locates `OrdersController` (R33).
 
 ```json case
-{ "phase": 4, "kinds": ["type.exists"], "traces": ["JAV-SVC-02"], "requirements": ["R2", "R33", "R46"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc", "house.storefront"], "language": "java" }
+{ "phase": 4, "kinds": ["type.exists"], "traces": ["JAV-SVC-02"], "requirements": ["R2", "R33"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc", "house.storefront"], "language": "java" }
 ```
 
 ```json pack
@@ -799,16 +802,10 @@ The Java spike's Services are Spring controllers: a Service is the `@RestControl
   "requires": [{ "id": "intent.services", "version": "^1.0.0" }, { "id": "intent.java", "version": "^1.0.0" }],
   "languages": ["java"],
   "designers": ["Services"],
-  "rules": {
+  "conventions": {
     "Services": {
-      "facts": {
-        "type.exists": {
-          "for": { "element": "Service" },
-          "replaces": "intent.core/type.exists",
-          "find": "type:{Type|trimEnd:Service}Controller > annotation:RestController",
-          "read": [{ "match": "RestController", "value": "present" }],
-          "note": "A Service is its @RestController class"
-        }
+      "types": {
+        "Service": { "name": "{Name|trimEnd:Service}Controller", "note": "A Service is its controller class" }
       }
     }
   }
@@ -856,10 +853,35 @@ public class OrdersController {
 
 ## spring-controller-not-rest
 
-The class is an MVC `@Controller`, not a `@RestController`. The find's annotation step finds nothing, so the Service's type isn't in the code: contradicted.
+The class is an MVC `@Controller`, not a `@RestController`. The class of the Service's name is there, so the type is verified; the house pack also states that a Service's class is a `@RestController`, as a marker the structure rule reads from its annotations, and that is contradicted.
 
 ```json case
-{ "phase": 4, "base": "spring-controller", "kinds": ["type.exists"], "traces": ["JAV-SVC-02"], "requirements": ["R1", "R8", "R33"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc", "house.storefront"], "language": "java" }
+{ "phase": 4, "base": "spring-controller", "kinds": ["type.exists", "type.marker"], "traces": ["JAV-SVC-02"], "requirements": ["R1", "R33", "R41"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc", "house.storefront"], "language": "java" }
+```
+
+```json pack
+{
+  "id": "house.storefront",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "requires": [{ "id": "intent.services", "version": "^1.0.0" }, { "id": "intent.java", "version": "^1.0.0" }],
+  "languages": ["java"],
+  "designers": ["Services"],
+  "vocabulary": {
+    "Services": {
+      "entries": [
+        { "kind": "type.marker", "for": { "element": "Service" }, "discriminator": "'RestController'", "value": "true", "dependsOn": "type.exists", "source": "the storefront's rule that a Service is a REST controller" }
+      ]
+    }
+  },
+  "conventions": {
+    "Services": {
+      "types": {
+        "Service": { "name": "{Name|trimEnd:Service}Controller", "note": "A Service is its controller class" }
+      }
+    }
+  }
+}
 ```
 
 ```java file src/main/java/com/shop/api/OrdersController.java
@@ -877,10 +899,11 @@ public class OrdersController {
 ```json expect
 {
   "claims": [
-    { "kind": "type.exists", "element": "orders-service", "outcome": "contradicted" }
+    { "kind": "type.exists", "element": "orders-service", "outcome": "verified" },
+    { "kind": "type.marker", "element": "orders-service", "key": "RestController", "outcome": "contradicted", "expected": "true", "actual": "false" }
   ],
   "findings": [
-    { "rule": "claim/type.exists", "severity": "error", "subject": "orders-service" }
+    { "rule": "claim/type.marker", "severity": "error", "subject": "orders-service" }
   ]
 }
 ```
@@ -1007,18 +1030,6 @@ The Java spike's Front End designer has Contracts, the API's types as the Vue ap
       "entries": [
         { "kind": "type.exists", "for": { "element": "Contract" }, "bindings": { "Type": "name" }, "own": ["Type"], "source": "the Contract" }
       ]
-    }
-  },
-  "rules": {
-    "Front End": {
-      "facts": {
-        "type.exists": {
-          "files": "src/**/*.ts",
-          "find": "file with \\bexport (?:interface|type) {Type}\\b",
-          "read": [{ "match": "\\bexport (?:interface|type) {Type}\\b", "value": "present" }],
-          "note": "A Contract is an exported interface or type alias, read as text"
-        }
-      }
     }
   }
 }

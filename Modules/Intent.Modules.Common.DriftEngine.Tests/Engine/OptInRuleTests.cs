@@ -10,7 +10,7 @@ namespace Intent.Modules.Common.DriftEngine.Tests.Engine;
 /// A module's own "must be modelled" rule finds code and nothing else: the engine turns it on from the Root Folder's
 /// <c>Drift Check</c>, keeps what a Context row decides and what an exception matches out of the report, and applies the
 /// model's severity overrides, as it does for its own rules. A module's <see cref="IDriftRule"/> finding about a Context
-/// file is dropped too: that code is read, not checked.
+/// file is dropped too: that code is read, not checked. A later module's rule of the same id replaces an earlier one.
 /// </summary>
 public class OptInRuleTests
 {
@@ -107,7 +107,17 @@ public class OptInRuleTests
             .ShouldBe(["src/Domain/LegacyHandler.cs", "src/Domain/PlaceOrderHandler.cs"], ignoreOrder: true);
     }
 
-    private static RunResult Run(string? check)
+    [Fact]
+    public void A_later_modules_rule_of_the_same_id_replaces_the_earlier_one()
+    {
+        var result = Run(check: null, new OverrideExtension());
+        result.Findings.ShouldNotContain(x => x.Rule == "house/handlerSuffix");
+        var replaced = result.Findings.Where(x => x.Rule == "scope/replacedRule").ShouldHaveSingleItem();
+        replaced.Severity.ShouldBe("info");
+        replaced.Message.ShouldBe("The house.override extension's rule `house/handlerSuffix` replaces the house extension's, which doesn't run.");
+    }
+
+    private static RunResult Run(string? check, params IDriftExtension[] later)
     {
         var stereotypes = new JsonObject
         {
@@ -152,7 +162,7 @@ public class OptInRuleTests
             Write(root, "src/Api/ApiHandler.cs", ApiHandler);
             string[] stock = ["intent.core", "intent.domain"];
             var packs = stock.Select(Pack.Stock).OfType<Pack>().ToList();
-            var extensions = StockExtensions.All.Where(x => !x.ClaimReaders.Any()).Append(new HouseExtension()).ToList();
+            var extensions = StockExtensions.All.Where(x => !x.ClaimReaders.Any()).Append(new HouseExtension()).Concat(later).ToList();
             return DriftEngine.Run(new DriftInput(FixtureModel.Build(model), root, packs, extensions));
         }
         finally
@@ -190,8 +200,25 @@ public class OptInRuleTests
     /// <summary>A finding about every handler's file, Context or not: the engine drops the Context one.</summary>
     private sealed class HandlerSuffix : IDriftRule
     {
+        public string Id => "house/handlerSuffix";
+
         public IEnumerable<Finding> Check(RuleContext context) => context.Code.Types
             .Where(x => x.Name.EndsWith("Handler", StringComparison.Ordinal))
             .Select(x => new Finding("house/handlerSuffix", "Handlers", "Code", "warning", $"`{x.Name}` is a handler.", new Anchor(File: x.At.File, Line: x.At.Line)));
+    }
+
+    /// <summary>A module registered after the house's, turning its handler rule off with one of the same id that reports nothing.</summary>
+    private sealed class OverrideExtension : IDriftExtension
+    {
+        public string Id => "house.override";
+
+        public IEnumerable<IDriftRule> Rules => [new Off()];
+
+        private sealed class Off : IDriftRule
+        {
+            public string Id => "house/handlerSuffix";
+
+            public IEnumerable<Finding> Check(RuleContext context) => [];
+        }
     }
 }

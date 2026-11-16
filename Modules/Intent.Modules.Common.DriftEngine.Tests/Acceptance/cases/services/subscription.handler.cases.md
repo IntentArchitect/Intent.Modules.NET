@@ -116,10 +116,10 @@ Only the core and Services packs are active, so nothing reads which messages a h
 
 ## eshop-integration-event-handler
 
-eShopCustom's handlers implement its own event bus interface, `IIntegrationEventHandler<M>`, which no stock pack knows, so the house pack brings the recipe: the handler class (`{Service}`, the association's source) implements it for the subscribed message (`{Message}`, its target); a handler that doesn't reads `absent`. Traces ESC-SVC-61.
+eShopCustom's handlers implement its own event bus interface, `IIntegrationEventHandler<M>`, which no framework's extension knows. The stock messaging extension, `intent.messaging`, reads it whatever the framework: the handler class has a method that takes the subscribed message, or declares a base over it. The reading is at `Handle`, the method that takes it. Traces ESC-SVC-61.
 
 ```json case
-{ "phase": 4, "base": "verified", "without": ["src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededHandler.cs"], "kinds": ["subscription.handler"], "traces": ["ESC-SVC-61"], "requirements": ["R2", "R46", "R51"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": 4, "base": "verified", "without": ["src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededHandler.cs"], "kinds": ["subscription.handler"], "traces": ["ESC-SVC-61"], "requirements": ["R2", "R51"], "packs": ["intent.core", "intent.services", "intent.messaging"], "language": "csharp" }
 ```
 
 ```json model
@@ -153,32 +153,6 @@ eShopCustom's handlers implement its own event bus interface, `IIntegrationEvent
 }
 ```
 
-```json pack
-{
-  "id": "house.eshop",
-  "version": "1.0.0",
-  "requires": [{ "id": "intent.services", "version": "^1.0.0" }],
-  "languages": ["csharp"],
-  "designers": ["Services"],
-  "rules": {
-    "Services": {
-      "files": "src/**/*.cs",
-      "facts": {
-        "subscription.handler": {
-          "for": { "association": "Subscribe Integration Event" },
-          "find": "class:{Service}",
-          "read": [
-            { "match": "[:,]\\s*IIntegrationEventHandler<{Message}>", "value": "present", "part": "declaration" }
-          ],
-          "default": "absent",
-          "note": "eShop's own event bus interface. {Service} is the handler and {Message} the subscribed message, as the Services vocabulary binds them"
-        }
-      }
-    }
-  }
-}
-```
-
 ```csharp file src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededIntegrationEventHandler.cs
 namespace eShop.Ordering.API.Application.IntegrationEvents.EventHandling;
 
@@ -196,17 +170,17 @@ public class OrderPaymentSucceededIntegrationEventHandler(IMediator mediator) : 
 {
   "claims": [
     { "kind": "subscription.handler", "element": "handler-subscribes-payment-succeeded", "outcome": "verified", "expected": "present", "actual": "present",
-      "at": "src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededIntegrationEventHandler.cs:3" }
+      "at": "src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededIntegrationEventHandler.cs:5" }
   ]
 }
 ```
 
 ## eshop-integration-event-handler-wrong-message
 
-The handler implements `IIntegrationEventHandler<OrderPaymentFailedIntegrationEvent>`. The class is found and the house recipe's read doesn't match, so it reads `absent`: contradicted. Traces ESC-SVC-61.
+The handler implements `IIntegrationEventHandler<OrderPaymentFailedIntegrationEvent>`. The class is found, but no method takes `OrderPaymentSucceededIntegrationEvent` and no base is over it, so it reads `absent`: contradicted. Traces ESC-SVC-61.
 
 ```json case
-{ "phase": 4, "base": "eshop-integration-event-handler", "kinds": ["subscription.handler"], "traces": ["ESC-SVC-61"], "requirements": ["R1", "R8"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": 4, "base": "eshop-integration-event-handler", "kinds": ["subscription.handler"], "traces": ["ESC-SVC-61"], "requirements": ["R1", "R8"], "packs": ["intent.core", "intent.services", "intent.messaging"], "language": "csharp" }
 ```
 
 ```csharp file src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededIntegrationEventHandler.cs

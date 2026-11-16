@@ -32,6 +32,8 @@ internal sealed class ConventionalRoutes : IDriftRule
 {
     private const string Designer = "Services";
 
+    public string Id => "aspnetcore/conventional.route";
+
     public IEnumerable<Finding> Check(RuleContext context)
     {
         if (context.Code.Get<AspNetCoreCode>() is null || !context.Model.Designers.Contains(Designer))

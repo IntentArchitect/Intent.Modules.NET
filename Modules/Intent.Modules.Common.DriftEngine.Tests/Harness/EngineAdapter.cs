@@ -10,7 +10,8 @@ namespace Intent.Modules.Common.DriftEngine.Tests.Harness;
 /// <summary>What one engine run is given: a case's model, its code files written to a folder, and its packs.</summary>
 /// <param name="Model">The case's <c>model</c> block. The adapter turns it into Intent's model objects (decision 2).</param>
 /// <param name="OutputFolder">The folder standing for the application's output folder, holding the case's files.</param>
-/// <param name="Packs">The packs the case names: stock pack ids, and the case's own single-file packs.</param>
+/// <param name="StockPacks">The stock packs and house extensions the case names, by id.</param>
+/// <param name="InlinePacks">The case's own single-file packs.</param>
 internal sealed record EngineInput(JsonNode Model, string OutputFolder, IReadOnlyList<string> StockPacks, IReadOnlyList<JsonNode> InlinePacks);
 
 /// <summary>
@@ -69,10 +70,12 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
         // with the languages. What a handler handles, sends, publishes, invokes and acts on is read from any framework's code,
         // so it comes with each. .NET's own HTTP and gRPC clients are read wherever their code is, as a case's house pack gives
         // a proxy's vocabulary and leaves the reading to them; Blazor's components come with the User Interface vocabulary.
+        // A house extension comes last, as a module's is registered after the stock ones, so its readers are asked first.
         var extensions = StockExtensions.All.Where(x => !x.ClaimReaders.Any() || x.Id is "intent.serialization" or "intent.proxies")
             .Concat(input.StockPacks.Contains("intent.ui") ? [StockExtensions.Find("intent.blazor")!] : [])
             .Concat(input.StockPacks.Select(StockExtensions.Find).OfType<IDriftExtension>())
             .Concat(input.StockPacks.Any(Frameworks.Contains) ? [StockExtensions.Find("intent.messaging")!, StockExtensions.Find("intent.interactions")!] : [])
+            .Concat(input.StockPacks.Select(HouseExtensions.Find).OfType<IDriftExtension>())
             .Distinct()
             .ToList();
         var designers = FixtureModel.Build(input.Model, out var references);
@@ -111,14 +114,13 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
         var inline = @case.Packs.Select(x => x.Text("id")).ToHashSet(StringComparer.Ordinal);
         // NServiceBus's handlers, sends and publishes are read by the framework-neutral messaging and interactions readers, so a
         // case naming it has what it needs without a pack of its own.
-        if (meta.Texts("packs").FirstOrDefault(x => Pack.Stock(x) is null && StockExtensions.Find(x) is null && !inline.Contains(x)
-                                                    && x is not "intent.nservicebus") is { } pack)
+        if (meta.Texts("packs").FirstOrDefault(x => Pack.Stock(x) is null && StockExtensions.Find(x) is null && HouseExtensions.Find(x) is null
+                                                    && !inline.Contains(x) && x is not "intent.nservicebus") is { } pack)
         {
             return $"The engine doesn't ship {pack} yet.";
         }
 
-        // A recipe reads any file as text, so a case whose language is text needs no reader of its own.
-        if (meta.Text("language") is { } language && language is not ("csharp" or "java" or "typescript" or "protobuf" or "text"))
+        if (meta.Text("language") is { } language && language is not ("csharp" or "java" or "typescript" or "protobuf"))
         {
             return $"The engine has no {language} reader yet.";
         }

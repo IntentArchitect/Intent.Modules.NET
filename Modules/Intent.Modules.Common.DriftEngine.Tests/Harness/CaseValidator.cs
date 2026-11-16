@@ -66,9 +66,9 @@ internal static class CaseValidator
         }
 
         var inlinePacks = @case.Packs.Select(x => x.Text("id")).OfType<string>().ToHashSet(StringComparer.Ordinal);
-        foreach (var pack in meta.Texts("packs").Where(x => !AcceptanceData.StockPacks.Contains(x) && !inlinePacks.Contains(x)))
+        foreach (var pack in meta.Texts("packs").Where(x => !AcceptanceData.StockPacks.Contains(x) && !inlinePacks.Contains(x) && HouseExtensions.Find(x) is null))
         {
-            Error($"uses pack '{pack}', which is neither a stock pack in catalog.json nor one of the case's pack blocks");
+            Error($"uses pack '{pack}', which is neither a stock pack in catalog.json, a house extension, nor one of the case's pack blocks");
         }
 
         foreach (var pack in inlinePacks.Where(x => !meta.Texts("packs").Contains(x)))

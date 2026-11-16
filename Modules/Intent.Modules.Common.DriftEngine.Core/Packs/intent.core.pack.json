@@ -37,13 +37,7 @@
         { "for": { "element": "Folder" }, "reason": "Folders organise the model; what is in them is checked." },
         { "for": { "element": "Diagram" }, "reason": "A diagram is a view of the model, not a statement about the code." },
         { "for": { "element": "Comment" }, "reason": "Documentation." },
-        { "for": { "element": "Type-Definition" }, "reason": "Names a type from outside the model, such as a library's, for members to use; every member typed by it is checked." },
-        { "for": { "stereotype": "Type Configuration" }, "reason": "How the Guardrails contract templates write the type; code generation settings, not design. What the element states is checked." },
-        { "for": { "stereotype": "Operation Configuration" }, "reason": "How the Guardrails contract templates write the method; code generation settings, not design. What the element states is checked." },
-        { "for": { "stereotype": "Property Configuration" }, "reason": "How the Guardrails contract templates write the property; code generation settings, not design. What the element states is checked." },
-        { "for": { "stereotype": "Async Configuration" }, "reason": "How the Guardrails contract templates write an async method; code generation settings, not design. Its return type is checked through Task." },
-        { "for": { "stereotype": "Collection Type" }, "reason": "Which collection class the Guardrails contract templates write; code generation settings, not design. The member's type and multiplicity are checked." },
-        { "for": { "stereotype": "File Config", "property": "No Namespace" }, "reason": "How the Guardrails contract templates write the file; code generation settings, not design." }
+        { "for": { "element": "Type-Definition" }, "reason": "Names a type from outside the model, such as a library's, for members to use; every member typed by it is checked." }
       ]
     },
     "Services": {
@@ -51,13 +45,7 @@
         { "for": { "element": "Folder" }, "reason": "Folders organise the model; what is in them is checked." },
         { "for": { "element": "Diagram" }, "reason": "A diagram is a view of the model, not a statement about the code." },
         { "for": { "element": "Comment" }, "reason": "Documentation." },
-        { "for": { "element": "Type-Definition" }, "reason": "Names a type from outside the model, such as a library's, for members to use; every member typed by it is checked." },
-        { "for": { "stereotype": "Type Configuration" }, "reason": "How the Guardrails contract templates write the type; code generation settings, not design. What the element states is checked." },
-        { "for": { "stereotype": "Operation Configuration" }, "reason": "How the Guardrails contract templates write the method; code generation settings, not design. What the element states is checked." },
-        { "for": { "stereotype": "Property Configuration" }, "reason": "How the Guardrails contract templates write the property; code generation settings, not design. What the element states is checked." },
-        { "for": { "stereotype": "Async Configuration" }, "reason": "How the Guardrails contract templates write an async method; code generation settings, not design. Its return type is checked through Task." },
-        { "for": { "stereotype": "Collection Type" }, "reason": "Which collection class the Guardrails contract templates write; code generation settings, not design. The member's type and multiplicity are checked." },
-        { "for": { "stereotype": "File Config", "property": "No Namespace" }, "reason": "How the Guardrails contract templates write the file; code generation settings, not design." }
+        { "for": { "element": "Type-Definition" }, "reason": "Names a type from outside the model, such as a library's, for members to use; every member typed by it is checked." }
       ]
     },
     "User Interface": {

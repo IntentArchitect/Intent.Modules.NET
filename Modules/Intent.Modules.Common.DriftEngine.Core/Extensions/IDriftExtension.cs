@@ -28,7 +28,7 @@ public interface IDriftExtension
     /// </summary>
     IEnumerable<IClaimSource> ClaimSources => [];
 
-    /// <summary>Its claim kinds, vocabulary, conventions, recipes and language profiles, as data.</summary>
+    /// <summary>Its claim kinds, vocabulary, conventions and language profiles, as data.</summary>
     IEnumerable<Pack> Packs => [];
 
     /// <summary>
@@ -78,6 +78,12 @@ public sealed record ModelFeature(string Designer, string? Element = null, strin
 /// </summary>
 public interface IDriftRule
 {
+    /// <summary>
+    /// The rule's id: <c>messaging/unmodelled</c>. A module's rule of the same id replaces it, the last registered winning,
+    /// so a house that disagrees with a stock rule copies it and changes it, or turns it off with one that reports nothing.
+    /// </summary>
+    string Id { get; }
+
     /// <returns>
     /// Its findings. Each names its Area, as the report shows it; the engine marks the Area as its own, so the findings
     /// sit apart from another checker's. A finding whose subject is a file a Context scope row decides isn't reported: that
@@ -129,6 +135,13 @@ public interface ILanguage
 
     /// <summary>It reads the file, by its path.</summary>
     bool Reads(string path);
+
+    /// <summary>
+    /// A file reaches a library's type only through an import of a file the engine doesn't read, so a type it uses that
+    /// nothing in scope declares, with no such import, isn't anywhere: Protobuf, where even a well-known type is imported.
+    /// False for C# and Java, which reach a library's types without naming a file.
+    /// </summary>
+    bool LibrariesNeedImports => false;
 
     /// <param name="root">The output folder.</param>
     /// <param name="files">Its in-scope files, relative to <paramref name="root"/>, with <c>/</c> separators, in order.</param>
@@ -193,8 +206,8 @@ public sealed class ClaimSpec
     public string? Source { get; init; }
 
     /// <summary>
-    /// Its placeholders for a recipe that reads its kind (vocabulary.md, Placeholders), as a vocabulary entry's
-    /// <c>bindings</c> give them: <c>{Entity}</c>, <c>{Member}</c> and <c>{DomainEvent}</c> for a Domain Event Origin.
+    /// Named values from the model that a claim reader reads, as a vocabulary entry's <c>bindings</c> give them: the
+    /// <c>Repository</c> a repository's implementation is named for, or the <c>Marker</c> a marker claim looks for.
     /// </summary>
     public IReadOnlyDictionary<string, string>? Bindings { get; init; }
 

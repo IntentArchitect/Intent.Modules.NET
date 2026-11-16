@@ -87,10 +87,14 @@ internal sealed class Components : IClaimReader
                     : ClaimReading.Stated(string.Join(", ", routes.Select(x => x.Arguments[0]).Order(StringComparer.Ordinal)), routes[0].At);
             case "security":
             {
-                // @attribute [Authorize] secures a page; [AllowAnonymous] opens it.
-                var authorize = type!.Attributes.FirstOrDefault(x => x.Name is "Authorize" or "AllowAnonymous");
-                var value = authorize?.Name switch { "Authorize" => "Secured", "AllowAnonymous" => "Unsecured", _ => "None" };
-                return ClaimReading.Compared(value, authorize?.At ?? type.At, value == context.Expected);
+                // @attribute [Authorize] secures a page; [AllowAnonymous] opens it. A page with neither is None, from silence.
+                if (type!.Attributes.FirstOrDefault(x => x.Name is "Authorize" or "AllowAnonymous") is not { } authorize)
+                {
+                    return ClaimReading.Absent(type.At, "None");
+                }
+
+                var value = authorize.Name == "Authorize" ? "Secured" : "Unsecured";
+                return ClaimReading.Compared(value, authorize.At, value == context.Expected);
             }
             case "security.roles" or "security.policy":
             {
@@ -167,25 +171,25 @@ internal sealed class Members : IClaimReader
                     ? ClaimReading.Compared(passed?.Text ?? "none", member.At, passed is not null && context.TypeMatches(model, passed))
                     : ClaimReading.Compared(passed?.Text ?? "none", member.At, passed is null);
             }
+            // What the code leaves out is false from silence: no [SupplyParameterFromQuery], no route segment, no callback.
             case "property.query":
             {
-                var query = member.Attributes.Any(x => x.Name == "SupplyParameterFromQuery");
-                return ClaimReading.Compared(query ? "true" : "false", member.At, (query ? "true" : "false") == context.Expected);
+                return member.Attributes.Any(x => x.Name == "SupplyParameterFromQuery")
+                    ? ClaimReading.Compared("true", member.At, context.Expected == "true")
+                    : ClaimReading.Absent(member.At, "false");
             }
             case "property.route":
             {
                 // Blazor binds a route parameter to the parameter property of its name, whatever its case.
                 var name = Regex.Escape(member.Name);
                 var bound = BlazorExtension.Routes(type).Any(x => Regex.IsMatch(x.Arguments[0], $@"\{{\*?{name}(?:[:?=}}])", RegexOptions.IgnoreCase));
-                return ClaimReading.Compared(bound ? "true" : "false", member.At, (bound ? "true" : "false") == context.Expected);
+                return bound ? ClaimReading.Compared("true", member.At, context.Expected == "true") : ClaimReading.Absent(member.At, "false");
             }
             default:
             {
                 // @bind-X binds a parameter X with an XChanged callback beside it.
                 var changed = context.Code.MembersOf(type).FirstOrDefault(x => x.Name == member.Name + "Changed" && x.Kind == "property" && BlazorExtension.IsCallback(x.Type));
-                return changed is not null
-                    ? ClaimReading.Compared("true", changed.At, context.Expected == "true")
-                    : ClaimReading.Compared("false", member.At, context.Expected == "false");
+                return changed is not null ? ClaimReading.Compared("true", changed.At, context.Expected == "true") : ClaimReading.Absent(member.At, "false");
             }
         }
     }

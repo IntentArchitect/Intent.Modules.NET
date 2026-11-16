@@ -71,9 +71,6 @@ public sealed class Pack
 
     public JsonNode? Profile(string language) => Data["profiles"]?[language];
 
-    /// <summary>A recipe for a claim kind in one designer (rules.md, Recipes), or null when the pack has none.</summary>
-    public JsonNode? Recipe(string designer, string kind) => Data["rules"]?[designer]?["facts"]?[kind];
-
     public static Pack Parse(JsonNode data) => new(data);
 
     /// <summary>A stock pack shipped inside the engine, or null when the engine has no pack of that id.</summary>

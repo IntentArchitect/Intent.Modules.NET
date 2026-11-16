@@ -2,14 +2,14 @@
 
 The type is wired into the application: a hosted service registered with `AddHostedService<T>()`, a gRPC service mapped with `MapGrpcService<T>()`, an integration event subscription wired with `AddSubscription<TEvent, THandler>()`. It is an existence kind with a `later` phase: no phase gate needs it yet, and no stock pack reads it. These cases show what eShopCustom's Services module checked, stated by its house pack. The registration kind (or, for a subscription, the event) is the claim's discriminator, so a type can be registered in several ways.
 
-One recipe reads every registration: the vocabulary binds `Registration` to the call as C#'s canonical text writes it (no whitespace between tokens), and the recipe finds the call node whose text contains it (R34, R46). In a chain such as `AddRabbitMqEventBus(...).AddSubscription<...>()`, only the outer call's text contains the registration, so one node matches.
+One claim reader of the house's module (`house.readers`) reads every registration: the vocabulary binds `Registration` to the call as C#'s canonical text writes it (no whitespace between tokens), and the reader finds the call whose text contains it (R34, R46). In a chain such as `AddRabbitMqEventBus(...).AddSubscription<...>()`, the outer call's text holds the inner's too, so the shortest is the registration.
 
 ## hosted-service-registered
 
 `GracePeriodManagerService` is a Hosted Service, and the order processor registers it.
 
 ```json case
-{ "phase": "later", "kinds": ["type.registered"], "traces": ["ESC-SVC-71"], "requirements": ["R2", "R28", "R34", "R46"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "kinds": ["type.registered"], "traces": ["ESC-SVC-71"], "requirements": ["R2", "R28", "R34", "R46"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```json pack
@@ -55,17 +55,6 @@ One recipe reads every registration: the vocabulary binds `Registration` to the 
           "fixHint": "Wire the subscription with AddSubscription."
         }
       ]
-    }
-  },
-  "rules": {
-    "Services": {
-      "facts": {
-        "type.registered": {
-          "find": "call with {Registration}\\(",
-          "read": [{ "match": "{Registration}\\(", "value": "present" }],
-          "note": "The registration call; a call node, not a statement, so a block or method body around it doesn't match too"
-        }
-      }
     }
   },
   "conventions": {
@@ -141,7 +130,7 @@ public static class Extensions
 The registration was removed. The class is still there, so `type.exists` is verified, and the registration it needs is missing: contradicted (R8).
 
 ```json case
-{ "phase": "later", "base": "hosted-service-registered", "kinds": ["type.exists", "type.registered"], "traces": ["ESC-SVC-71"], "requirements": ["R1", "R8", "R11"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "base": "hosted-service-registered", "kinds": ["type.exists", "type.registered"], "traces": ["ESC-SVC-71"], "requirements": ["R1", "R8", "R11"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```csharp file src/OrderProcessor/Extensions/Extensions.cs
@@ -174,7 +163,7 @@ public static class Extensions
 `BasketService` is a gRPC Service, and the basket API maps it.
 
 ```json case
-{ "phase": "later", "base": "hosted-service-registered", "without": ["src/OrderProcessor/Services/GracePeriodManagerService.cs", "src/OrderProcessor/Extensions/Extensions.cs"], "kinds": ["type.registered"], "traces": ["ESC-SVC-77"], "requirements": ["R2", "R46"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "base": "hosted-service-registered", "without": ["src/OrderProcessor/Services/GracePeriodManagerService.cs", "src/OrderProcessor/Extensions/Extensions.cs"], "kinds": ["type.registered"], "traces": ["ESC-SVC-77"], "requirements": ["R2", "R46"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```json model
@@ -235,7 +224,7 @@ app.Run();
 The basket API's handler subscribes to `OrderStartedIntegrationEvent`, and the event bus wires that subscription. One claim per subscribed event, keyed by the event's name.
 
 ```json case
-{ "phase": "later", "base": "hosted-service-registered", "without": ["src/OrderProcessor/Services/GracePeriodManagerService.cs", "src/OrderProcessor/Extensions/Extensions.cs"], "kinds": ["type.registered"], "traces": ["ESC-SVC-62"], "requirements": ["R2", "R30", "R46"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "base": "hosted-service-registered", "without": ["src/OrderProcessor/Services/GracePeriodManagerService.cs", "src/OrderProcessor/Extensions/Extensions.cs"], "kinds": ["type.registered"], "traces": ["ESC-SVC-62"], "requirements": ["R2", "R30", "R46"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```json model

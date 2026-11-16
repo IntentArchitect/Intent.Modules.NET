@@ -1,9 +1,9 @@
 # Packs
 
-A pack bundles what the engine needs for one technology, or for one codebase's house style: claim kinds, vocabulary, rules, conventions, language profiles and plug-ins ([R51](requirements.md)). New languages, stacks and vocabulary arrive as packs, never as engine changes (principle 5).
+A pack bundles the data the engine needs for one technology, or for one codebase's house style: claim kinds, vocabulary, conventions and language profiles ([R51](requirements.md)). It never says how to read code: that is a claim reader's, in C#, in a module's extension ([rules.md](rules.md#plug-ins)). New languages, stacks and vocabulary arrive as packs and extensions, never as engine changes (principle 5).
 
 - **Stack packs** ship in modules: one for EF Core, one for ASP.NET Core, one for Java, and so on.
-- **A house pack** belongs to one codebase. It lives with the code and holds what is particular to it: recipes for its own patterns, conventions, vocabulary for its own designers, and overrides of stack pack rules.
+- **A house pack** belongs to one codebase and holds what is particular to it: conventions and vocabulary for its own designers and stereotypes. What its own patterns need reading is its module's claim readers.
 
 ## Layout
 
@@ -14,16 +14,14 @@ A pack is a folder:
   pack.json                       the manifest
   kinds.json                      claim kinds it defines
   vocabulary/<designer>.json      vocabulary entries and non-claims, per designer
-  rules/<designer>.json           recipes and queries, per designer
   conventions/<designer>.json     where each element type's code is, and opt-in rule conventions
   profiles/<language>.json        language profiles
-  plugins/*.dll                   plug-ins
   tests/*.cases.md                its own acceptance cases
 ```
 
 A small pack can be one file instead, `<id>.pack.json`, with each folder's content as a section of the same name. House packs usually are.
 
-The schemas are [`schemas/pack.schema.json`](schemas/pack.schema.json) (the manifest and the single-file form), [`schemas/claim-kinds.schema.json`](schemas/claim-kinds.schema.json), [`schemas/vocabulary.schema.json`](schemas/vocabulary.schema.json), [`schemas/rules.schema.json`](schemas/rules.schema.json), [`schemas/conventions.schema.json`](schemas/conventions.schema.json) and [`schemas/language-profile.schema.json`](schemas/language-profile.schema.json).
+The schemas are [`schemas/pack.schema.json`](schemas/pack.schema.json) (the manifest and the single-file form), [`schemas/claim-kinds.schema.json`](schemas/claim-kinds.schema.json), [`schemas/vocabulary.schema.json`](schemas/vocabulary.schema.json), [`schemas/conventions.schema.json`](schemas/conventions.schema.json) and [`schemas/language-profile.schema.json`](schemas/language-profile.schema.json).
 
 ## The manifest
 
@@ -33,10 +31,9 @@ The schemas are [`schemas/pack.schema.json`](schemas/pack.schema.json) (the mani
 | `version`   | Semantic version. Any change to what the pack checks changes it.                                 |
 | `engine`    | The engine versions it works with, as a range                                                    |
 | `requires`  | Other packs it builds on, with version ranges: the EF Core pack requires the Domain and C# packs |
-| `languages` | The languages its readers and rules apply to                                                     |
-| `designers` | The designers it has vocabulary or rules for                                                     |
+| `languages` | The languages its conventions and profiles apply to                                              |
+| `designers` | The designers it has vocabulary or conventions for                                               |
 | `plugins`   | Each plug-in file, with its SHA-256                                                              |
-| `replaces`  | Rules of other packs it replaces, `<pack>/<kind>`, each with a reason                            |
 
 ## Choosing packs
 
@@ -61,10 +58,10 @@ Module upgrades never change a house pack ([R53](requirements.md)); it's in the 
 
 | Pack                 | Provides                                                                                        | Phase |
 | -------------------- | ----------------------------------------------------------------------------------------------- | ----- |
-| `intent.core`        | Structure kinds, comparers, the C# and text readers, the C# language profile                    | 1     |
+| `intent.core`        | Structure kinds, comparers, the C# reader, the C# language profile                              | 1     |
 | `intent.domain`      | Domain designer vocabulary: structure, persistence, `intent.raises`                             | 1     |
 | `intent.services`    | Services designer vocabulary: structure, HTTP, security, `intent.*`                             | 1     |
-| `intent.ui`          | User Interface designer vocabulary, for converted recipes                                       | 6     |
+| `intent.ui`          | User Interface designer vocabulary, read by `intent.blazor`                                     | 6     |
 | `intent.rdbms`       | Relational vocabulary, framework-neutral: tables, keys, columns, indexes, foreign keys, from the RDBMS stereotypes. Reads no code | 1     |
 | `intent.http`        | HTTP vocabulary, framework-neutral: routes, verbs, parameter sources, security. Reads no code   | 1     |
 | `intent.efcore`      | Reads the relational claims from EF Core's fluent API and attributes, and the migration snapshot | 4     |
@@ -86,46 +83,43 @@ A `later` pack has acceptance cases but no phase gate yet. Its cases fix what it
 
 ## Who ships what
 
-Vocabulary belongs with the stereotype or element type it reads; rules belong with the technology they read.
+Vocabulary belongs with the stereotype or element type it reads; claim readers belong with the technology they read.
 
 - **A module's own stereotypes** (eShopCustom's On Delete, Backing Field and Enum Storage; the Java spike's Repository and Version) get their vocabulary from a pack the module ships, or, until it does, from the codebase's house pack. No stock pack knows them.
-- **Rules are keyed by kind**, so a stack pack's rule reads a kind whichever pack's vocabulary stated the claim. The EF Core pack reads `relationship.onDelete` from `OnDelete(…)` for any vocabulary that states it.
-- **A kind no stack pack reads** gets its rule from the same pack as its vocabulary.
+- **Readers are keyed by kind**, so a stack extension's reader reads a kind whichever pack's vocabulary stated the claim. The EF Core extension reads `relationship.onDelete` from `OnDelete(…)` for any vocabulary that states it.
+- **A kind no stack extension reads** gets its reader from the module that ships its vocabulary.
 - **Conventions** for an element type come from the pack that knows the element type, and a pack that requires it may override them ([rules.md](rules.md#which-conventions-apply)).
 
-The suite's cases bring module vocabulary as inline packs, as a house pack would.
+The suite's cases bring module vocabulary as inline packs, as a house pack would, and a house module's readers as the test extension `house.readers`.
 
 ## A house pack
 
-basislink5's, in single-file form, as phase 6's converter would start it from its Common.Drift `domain.drift.json` (one recipe shown):
+eShopCustom's, in single-file form: the vocabulary for its own Backing Field stereotype. Its module's claim reader reads the field; the pack only says what the model states.
 
 ```json
 {
-  "id": "house.basislink",
+  "id": "house.eshopcustom",
   "version": "1.0.0",
   "engine": "^1.0.0",
-  "requires": [{ "id": "intent.domain", "version": "^1.0.0" }, { "id": "intent.services", "version": "^1.0.0" }],
+  "requires": [{ "id": "intent.domain", "version": "^1.0.0" }],
   "languages": ["csharp"],
-  "designers": ["Domain", "Services"],
-  "rules": {
+  "designers": ["Domain"],
+  "vocabulary": {
     "Domain": {
-      "files": "Basislink.Data/Model/**/*.cs",
-      "facts": {
-        "table.name": {
-          "find": "statement:Entity<{Entity}>",
-          "read": [
-            { "match": "To(?:Table|View)\\(\"([^\"]+)\"" },
-            { "match": "DbSet<{Entity}>(\\w+)\\{", "note": "No ToTable: EF names the table after the DbSet." }
-          ],
-          "inherit": "property with DbSet<{Entity}>"
+      "entries": [
+        {
+          "kind": "member.backingField",
+          "for": { "element": "Attribute", "where": "hasStereotype('Backing Field')" },
+          "value": "stereotype('Backing Field').Field",
+          "bindings": { "Entity": "parent.name", "BackingField": "stereotype('Backing Field').Field" },
+          "dependsOn": "parent:type.exists",
+          "source": "the Backing Field stereotype's Field"
         }
-      }
+      ]
     }
   }
 }
 ```
-
-Its second read case takes the table name from the `DbSet` property when there is no `ToTable`, which re-derives EF Core's convention. Decision 4 makes that unnecessary, but the converter can't tell a convention from any other read case, so it keeps it; [conversion.md](conversion.md#what-the-converter-cant-decide) lists it for the adoption review.
 
 ## A pack's own cases
 

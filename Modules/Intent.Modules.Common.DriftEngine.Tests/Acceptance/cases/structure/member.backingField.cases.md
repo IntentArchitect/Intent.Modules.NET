@@ -1,6 +1,6 @@
 # member.backingField
 
-An attribute persisted from a private field names that field: eShopCustom's own Backing Field stereotype, with its Field property. No stock pack knows that stereotype, so eShopCustom's house pack gives the vocabulary and the rule (R28). It is a `stated: whenSet` kind: the claim exists only where the stereotype names a field, and a named field the code doesn't have is contradicted as not stated, never verified from a convention (decision 4, R4). The kind's phase is `later`, so these cases trace the check rather than gate a phase.
+An attribute persisted from a private field names that field: eShopCustom's own Backing Field stereotype, with its Field property. No stock pack knows that stereotype, so eShopCustom's house pack gives the vocabulary and its module's claim reader (`house.readers`) reads the entity's field of that name (R28). It is a `stated: whenSet` kind: the claim exists only where the stereotype names a field, and a named field the code doesn't have is contradicted as not stated, never verified from a convention (decision 4, R4). The kind's phase is `later`, so these cases trace the check rather than gate a phase.
 
 ESC-DOM-40 also compares the field's type with the attribute's. This kind compares only the field's name; the type half isn't shown here.
 
@@ -9,7 +9,7 @@ ESC-DOM-40 also compares the field's type with the attribute's. This kind compar
 `PaymentMethod`'s `Expiration` and `CardTypeId` are persisted from the private fields `_expiration` and `_cardTypeId`, as their Backing Field stereotypes say. `Alias` has no Backing Field, so it gives no claim.
 
 ```json case
-{ "phase": "later", "kinds": ["member.backingField"], "traces": ["ESC-DOM-40"], "requirements": ["R2", "R28", "R31", "R53"], "packs": ["intent.core", "intent.domain", "house.eshop.domain"], "language": "csharp" }
+{ "phase": "later", "kinds": ["member.backingField"], "traces": ["ESC-DOM-40"], "requirements": ["R2", "R28", "R31", "R53"], "packs": ["intent.core", "intent.domain", "house.eshop.domain", "house.readers"], "language": "csharp" }
 ```
 
 ```json pack
@@ -34,18 +34,6 @@ ESC-DOM-40 also compares the field's type with the attribute's. This kind compar
           "fixHint": "Set the Backing Field to the field the code has, or add the field."
         }
       ]
-    }
-  },
-  "rules": {
-    "Domain": {
-      "files": "src/**/*.cs",
-      "facts": {
-        "member.backingField": {
-          "find": "type:{Entity} > field with \\b{BackingField}\\b",
-          "read": [{ "node": "name" }],
-          "note": "The field's declared name. A find that ends nowhere leaves the value not stated."
-        }
-      }
     }
   }
 }
@@ -107,7 +95,7 @@ public class PaymentMethod : Entity
 The class's field is `_expiry`, not `_expiration`. `PaymentMethod` is found, the find ends nowhere, and the kind is `whenSet`, so the claim is contradicted with the code side not stated: `attribute.field-missing` in eShopCustom's terms (R4).
 
 ```json case
-{ "phase": "later", "base": "verified", "kinds": ["member.backingField"], "traces": ["ESC-DOM-40"], "requirements": ["R4", "R11"], "packs": ["intent.core", "intent.domain", "house.eshop.domain"], "language": "csharp" }
+{ "phase": "later", "base": "verified", "kinds": ["member.backingField"], "traces": ["ESC-DOM-40"], "requirements": ["R4", "R11"], "packs": ["intent.core", "intent.domain", "house.eshop.domain", "house.readers"], "language": "csharp" }
 ```
 
 ```csharp file src/Ordering.Domain/AggregatesModel/BuyerAggregate/PaymentMethod.cs

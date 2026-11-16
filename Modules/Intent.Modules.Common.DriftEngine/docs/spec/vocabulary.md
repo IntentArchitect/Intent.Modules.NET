@@ -39,7 +39,7 @@ Each entry produces claims of one kind from model elements of one shape. Its sch
 | `own`            | The placeholders that name the claim's own element, for the wrong-element check                                                                                                          |
 | `discriminator`  | Optional. An expression telling apart several claims of this kind on one element                                                                                                         |
 | `parameterNames` | Optional. For operations: an expression listing the parameter names in order, choosing between overloads ([rules.md](rules.md#locating-an-elements-code))                               |
-| `dependsOn`      | Optional. The claim kind, on this element or `parent`, that must be verified first; usually `type.exists` or `member.exists`                                                             |
+| `dependsOn`      | Optional. The claim kind, on this element or `parent`, that must be verified first; usually `type.exists` or `member.exists`. A structure kind that reads what an existence claim located (`member.type`, `operation.returns`, `type.kind`…) depends on its element's (an enum literal's on its enum's) when none is given |
 | `waitsOn`        | Optional. Further claim kinds, on this element or `parent`, that block it when the code contradicts them, where the model states them; they don't locate its code. A table's columns wait on `parent:entity.persisted`, so a table nothing maps is one finding |
 | `source`         | The model feature in words, for messages: "the Table stereotype's Name"                                                                                                                  |
 | `fixHint`        | Optional. A sentence added to a contradicted finding, with placeholders                                                                                                                  |
@@ -127,7 +127,7 @@ And from a phase 2 house pack for the Layers eShopCustom's Architecture module a
 
 ## Placeholders
 
-Bindings are what rules see. The stock packs keep Common.Drift's placeholder names so its recipes convert unchanged ([conversion.md](conversion.md)):
+Bindings are what claim readers see by name, and what a convention's find path and name fill in. The stock packs keep Common.Drift's placeholder names, so its checks map onto the engine's by name ([conversion.md](conversion.md)):
 
 | Designer       | Placeholders                                                                                                              |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -135,7 +135,7 @@ Bindings are what rules see. The stock packs keep Common.Drift's placeholder nam
 | Services       | `{Service}`, `{Operation}`, `{Folder}`, `{Parameter}`, `{Entity}`, `{Member}`, `{Invoked}`, `{InvokedOwner}`, `{Message}` |
 | User Interface | `{Folder}`, `{Component}`, `{Invoked}`, `{Route}`, `{RouteStart}`, `{Page}`, `{Dialog}`, `{Child}`                        |
 
-`{Folder}` keeps Common.Drift's meaning: the name of the element's nearest designer folder. Structure kinds add the language-neutral `{Type}`, `{TypeKind}`, `{Namespace}` and `{FolderPath}` (the element's designer folders joined by `/`). A binding whose expression is empty gives an empty placeholder, which recipes can use as a switch, as Common.Drift's do.
+`{Folder}` keeps Common.Drift's meaning: the name of the element's nearest designer folder. Structure kinds add the language-neutral `{Type}`, `{TypeKind}`, `{Namespace}` and `{FolderPath}` (the element's designer folders joined by `/`). A binding whose expression is empty gives an empty placeholder, which a claim reader can use as a switch, as Common.Drift's recipes did.
 
 ## Expressions
 
@@ -199,6 +199,8 @@ A pack declares what has nothing to check in `nonClaims`, each with a reason ([R
 ```
 
 The coverage listing shows every non-claim in use, with its pack and reason, so a reviewer sees what isn't checked and why.
+
+A non-claim only explains what nothing reads. A pack or extension that reads the feature overrides it, whichever pack declared it: a house pack can check a stereotype a stock pack declares non-checkable, or part of a designer another pack declares non-checkable as a whole. Its claims are checked, the non-claim isn't listed, and what it leaves unread is reported as above.
 
 ## Conflicts
 

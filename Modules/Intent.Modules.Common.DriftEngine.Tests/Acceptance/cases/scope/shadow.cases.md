@@ -122,18 +122,6 @@ eShopCustom's Architecture module reported a Layer whose Path lies outside its A
         }
       ]
     }
-  },
-  "rules": {
-    "Codebase Structure": {
-      "facts": {
-        "layer.populated": {
-          "find": "file:{Path}/**/*.cs",
-          "matches": "any",
-          "read": [{ "match": ".", "value": "true" }],
-          "absent": "false"
-        }
-      }
-    }
   }
 }
 ```

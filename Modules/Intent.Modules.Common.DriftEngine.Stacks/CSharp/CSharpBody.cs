@@ -257,7 +257,8 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
             GivenOf = sourced ? () => Given(bare, before) : null,
             Parameter = sourced && bare is IdentifierNameSyntax named && Local(named, before) is null ? ParameterOf(named) : null,
             Field = sourced ? FieldRead(bare, before) : null,
-            Call = sourced && bare is InvocationExpressionSyntax invocation ? Call(invocation) : null,
+            // An awaited call's value is what the call gives once awaited: await factory.MakeAsync(id) is MakeAsync's.
+            Call = sourced && (bare is AwaitExpressionSyntax awaited ? Bare(awaited.Expression) : bare) is InvocationExpressionSyntax invocation ? Call(invocation) : null,
             Trimmed = sourced ? Trimmed(bare, before) : null,
             At = CSharpReader.SpanOf(expression, file)
         };
@@ -288,8 +289,8 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
         (binary.Left is BinaryExpressionSyntax left && left.IsKind(SyntaxKind.AddExpression) ? Operands(left) : [binary.Left]).Append(binary.Right);
 
     /// <summary>
-    /// The values it stands for: a local's (<see cref="LocalValues"/>), a conditional's branches, both sides of a <c>??</c>,
-    /// what <c>x.ToString()</c> and <c>new Uri(x)</c> are made from.
+    /// The values it stands for: a local's (<see cref="LocalValues"/>), a conditional's branches, a switch expression's arms,
+    /// both sides of a <c>??</c>, what <c>x.ToString()</c> and <c>new Uri(x)</c> are made from.
     /// </summary>
     private IReadOnlyList<ValueNode> Given(ExpressionSyntax bare, int before) => bare switch
     {
@@ -305,11 +306,16 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
         IdentifierNameSyntax item when item.Ancestors().OfType<ForEachStatementSyntax>().FirstOrDefault(x => x.Identifier.Text == item.Identifier.Text) is { } loop =>
             [Value(loop.Expression, loop.Expression.SpanStart)],
         ConditionalExpressionSyntax conditional => [Value(conditional.WhenTrue, before), Value(conditional.WhenFalse, before)],
+        SwitchExpressionSyntax @switch => Arms(@switch).Select(x => Value(x, before)).ToList(),
         BinaryExpressionSyntax coalesce when coalesce.IsKind(SyntaxKind.CoalesceExpression) => [Value(coalesce.Left, before), Value(coalesce.Right, before)],
         InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax { Name.Identifier.Text: "ToString" } access, ArgumentList.Arguments.Count: 0 } => [Value(access.Expression, before)],
         ObjectCreationExpressionSyntax { ArgumentList.Arguments: [var uri, ..] } creation when creation.Type.ToString() is "Uri" or "System.Uri" => [Value(uri.Expression, before)],
         _ => []
     };
+
+    /// <summary>What a switch expression's arms give; an arm that throws gives nothing.</summary>
+    private static IEnumerable<ExpressionSyntax> Arms(SwitchExpressionSyntax @switch) =>
+        @switch.Arms.Select(x => x.Expression).Where(x => x is not ThrowExpressionSyntax);
 
     /// <summary>The parameter of this member or of a lambda in it that a name is, as the unit's own node.</summary>
     private ParameterNode? ParameterOf(IdentifierNameSyntax identifier)
@@ -427,6 +433,11 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
                 var whenTrue = TypesOf(conditional.WhenTrue, before, depth);
                 var whenFalse = TypesOf(conditional.WhenFalse, before, depth);
                 return ([..whenTrue.Types, ..whenFalse.Types], whenTrue.Known && whenFalse.Known);
+            }
+            case SwitchExpressionSyntax @switch:
+            {
+                var arms = Arms(@switch).Select(x => TypesOf(x, before, depth)).ToList();
+                return (arms.SelectMany(x => x.Types).ToList(), arms.All(x => x.Known));
             }
             case ThisExpressionSyntax:
                 return ([OwnerRef()], true);

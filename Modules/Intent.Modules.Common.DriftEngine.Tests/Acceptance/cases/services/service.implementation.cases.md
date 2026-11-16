@@ -1,6 +1,6 @@
 # service.implementation
 
-An application service's implementation, against eShopCustom's module stereotype `Application Service`: the Service describes an interface `I<Name>`, and its `Implementation` property names the class that implements it (the Service's own name when it is empty). The stereotype is eShopCustom's own, so the house pack brings the vocabulary (a claim on each Service with the stereotype, binding the class it names) and the recipe: that class's declaration implements `I<Name>`. `service.implementation` is an existence kind: a named class missing from the code is contradicted (R8), and one that is there but doesn't implement the interface states `absent`, from silence. Other classes implementing the interface are unmodelled code, never drift by themselves (principle 1). The kind arrives `later`.
+An application service's implementation, against eShopCustom's module stereotype `Application Service`: the Service describes an interface `I<Name>`, and its `Implementation` property names the class that implements it (the Service's own name when it is empty). The stereotype is eShopCustom's own, so the house pack brings the vocabulary (a claim on each Service with the stereotype, binding the class it names) and its module's claim reader (`house.readers`) reads the code: that class implements `I<Name>`. `service.implementation` is an existence kind: a named class missing from the code is contradicted (R8), and one that is there but doesn't implement the interface states `absent`, from silence. Other classes implementing the interface are unmodelled code, never drift by themselves (principle 1). The kind arrives `later`.
 
 eShopCustom also lets an Application Service with no interface describe its class directly; that is a different check, outside this kind.
 
@@ -11,7 +11,7 @@ The fixtures adapt eShopCustom's `Basket.API/Repositories` and `Ordering.API/App
 `BasketRepository` is an Application Service whose Implementation is `RedisBasketRepository`, and that class implements `IBasketRepository`. Traces ESC-SVC-65.
 
 ```json case
-{ "phase": "later", "kinds": ["service.implementation"], "traces": ["ESC-SVC-65"], "requirements": ["R2", "R28"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "kinds": ["service.implementation"], "traces": ["ESC-SVC-65"], "requirements": ["R2", "R28"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```json model
@@ -63,18 +63,6 @@ The fixtures adapt eShopCustom's `Basket.API/Repositories` and `Ordering.API/App
         }
       ]
     }
-  },
-  "rules": {
-    "Services": {
-      "facts": {
-        "service.implementation": {
-          "find": "type:{Implementation}",
-          "read": [{ "match": ":\\s*([\\w.<>]+\\s*,\\s*)*I{Service}\\b", "value": "present", "part": "declaration" }],
-          "default": "absent",
-          "note": "The named class implements the interface the Service describes"
-        }
-      }
-    }
   }
 }
 ```
@@ -116,7 +104,7 @@ public class RedisBasketRepository(ILogger<RedisBasketRepository> logger, IConne
 `OrderQueries` is an Application Service with no Implementation, so its class is `OrderQueries`, which implements `IOrderQueries`. Traces ESC-SVC-65 (the Service's own name).
 
 ```json case
-{ "phase": "later", "base": "implementation-verified", "without": ["src/Basket.API/Repositories/IBasketRepository.cs", "src/Basket.API/Repositories/RedisBasketRepository.cs"], "kinds": ["service.implementation"], "traces": ["ESC-SVC-65"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "base": "implementation-verified", "without": ["src/Basket.API/Repositories/IBasketRepository.cs", "src/Basket.API/Repositories/RedisBasketRepository.cs"], "kinds": ["service.implementation"], "traces": ["ESC-SVC-65"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```json model
@@ -175,7 +163,7 @@ public class OrderQueries(OrderingContext context) : IOrderQueries
 The Implementation still names `RedisBasketRepository`, but the code's only implementation is `CosmosBasketRepository`. The class the model names isn't in the code. Traces ESC-SVC-65.
 
 ```json case
-{ "phase": "later", "base": "implementation-verified", "without": ["src/Basket.API/Repositories/RedisBasketRepository.cs"], "kinds": ["service.implementation"], "traces": ["ESC-SVC-65"], "requirements": ["R8"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "base": "implementation-verified", "without": ["src/Basket.API/Repositories/RedisBasketRepository.cs"], "kinds": ["service.implementation"], "traces": ["ESC-SVC-65"], "requirements": ["R8"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```csharp file src/Basket.API/Repositories/CosmosBasketRepository.cs
@@ -194,7 +182,7 @@ public class CosmosBasketRepository(Container container) : IBasketRepository
 ```json expect
 {
   "claims": [
-    { "kind": "service.implementation", "element": "basket-repository", "outcome": "contradicted", "expected": "present", "actual": "absent" }
+    { "kind": "service.implementation", "element": "basket-repository", "outcome": "contradicted", "expected": "present", "actual": "none" }
   ],
   "findings": [
     { "rule": "claim/service.implementation", "severity": "error", "subject": "basket-repository", "messageContains": "isn't in the code" }
@@ -207,7 +195,7 @@ public class CosmosBasketRepository(Container container) : IBasketRepository
 `RedisBasketRepository` is there, but it no longer declares `IBasketRepository`. The class is found and states no interface, so the claim reads `absent`, from silence. Traces ESC-SVC-65.
 
 ```json case
-{ "phase": "later", "base": "implementation-verified", "kinds": ["service.implementation"], "traces": ["ESC-SVC-65"], "requirements": ["R1", "R3"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "base": "implementation-verified", "kinds": ["service.implementation"], "traces": ["ESC-SVC-65"], "requirements": ["R1", "R3"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```csharp file src/Basket.API/Repositories/RedisBasketRepository.cs
@@ -240,7 +228,7 @@ public class RedisBasketRepository(ILogger<RedisBasketRepository> logger, IConne
 A second class, `InMemoryBasketRepository`, also implements `IBasketRepository`. eShopCustom warned that only the interface was compared; here the claim is about the class the model names, which implements the interface, so it is verified, and the other implementation is unmodelled code that nothing reports. Traces ESC-SVC-65 (several implementations).
 
 ```json case
-{ "phase": "later", "base": "implementation-verified", "kinds": ["service.implementation"], "traces": ["ESC-SVC-65"], "requirements": ["R2", "R4"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "base": "implementation-verified", "kinds": ["service.implementation"], "traces": ["ESC-SVC-65"], "requirements": ["R2", "R4"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```csharp file src/Basket.API/Repositories/InMemoryBasketRepository.cs

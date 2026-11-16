@@ -2,40 +2,14 @@
 
 A page's routes: the Page stereotype's Route in the User Interface designer, or the Route stereotype's Path in the Java spike's Front End designer. The kind is a set compared with `subset`, its items compared as routes (`itemComparer: route`): the model's route must be among the routes the code serves for the page, and further routes the code serves aren't drift (principle 1; claim-catalog.md, Notes on kinds). The `route` item comparer ignores a leading or trailing `/`, case in literal segments, and parameter constraints. The kind is `stated: whenSet`, so a modelled route the code doesn't state is contradicted, never taken from a convention (decision 4).
 
-The Blazor cases use the `intent.ui` pack's vocabulary and eShopCustom's house rule. A Blazor page states its routes with one `@page` directive each, so the rule is a query over the `directive` nodes: each `@page` row is one item of its component's set (rules.md, Queries). A recipe can't do it, since a find that ends at several directives is `ambiguous`. The Vue cases use the Java spike's house pack, which gives the kind and the Front End designer's vocabulary as well, since no stock pack knows that designer.
+The Blazor cases use the `intent.ui` pack and the Blazor reader. A Blazor page states its routes with one `@page` directive each, and each is one item of its component's set. The Vue cases use the Java spike's house pack, which gives the kind and the Front End designer's vocabulary, since no stock pack knows that designer, and its module's claim reader (`house.readers`), which reads the page's record in `router.ts`.
 
 ## verified-constraint
 
 The model's route `/item/{itemId}` and the code's `@page "/item/{itemId:int}"` differ only by the leading `/` and the parameter's constraint, which the `route` item comparer ignores.
 
 ```json case
-{ "phase": 6, "kinds": ["page.route"], "traces": ["ESC-FE-12"], "requirements": ["R2", "R10", "R38", "R47"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
-```
-
-```json pack
-{
-  "id": "house.eshopcustom",
-  "version": "1.0.0",
-  "engine": "^1.0.0",
-  "requires": [{ "id": "intent.ui", "version": "^1.0.0" }],
-  "languages": ["csharp"],
-  "designers": ["User Interface"],
-  "rules": {
-    "User Interface": {
-      "files": ["src/WebApp/Components/**/*.razor"],
-      "facts": {
-        "page.route": {
-          "query": [
-            { "from": "code:directive" },
-            { "where": "directive == 'page'" },
-            { "reading": { "claim": { "Component": "parent.name" }, "item": "replace(value, '\"', '')", "at": "span" } }
-          ],
-          "note": "A directive's parent is the component its .razor file declares; each @page is one route of that component"
-        }
-      }
-    }
-  }
-}
+{ "phase": 6, "kinds": ["page.route"], "traces": ["ESC-FE-12"], "requirements": ["R2", "R10", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```json model
@@ -94,7 +68,7 @@ The model's route `/item/{itemId}` and the code's `@page "/item/{itemId:int}"` d
 The Cart page answers on `/cart` and on the older `/basket`, one `@page` each. The model names only `/cart`, which is among the code's routes, so the claim is verified: the code's set is `basket, cart`, sorted, and the route the model doesn't mention isn't drift.
 
 ```json case
-{ "phase": 6, "base": "verified-constraint", "without": ["src/WebApp/Components/Pages/Item/ItemPage.razor"], "kinds": ["page.route"], "cases": ["engine/comparers"], "traces": ["ESC-FE-12"], "requirements": ["R1", "R10", "R47"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 6, "base": "verified-constraint", "without": ["src/WebApp/Components/Pages/Item/ItemPage.razor"], "kinds": ["page.route"], "cases": ["engine/comparers"], "traces": ["ESC-FE-12"], "requirements": ["R1", "R10"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```json model
@@ -144,7 +118,7 @@ The Cart page answers on `/cart` and on the older `/basket`, one `@page` each. T
 eShopCustom's `page.route`: the model says the Cart page is at `/bag`, and its `@page` directives say `/cart` and `/basket`. The model's route is in neither, so the claim is contradicted, and the finding names the routes the code does serve.
 
 ```json case
-{ "phase": 6, "base": "verified-extra-route", "kinds": ["page.route"], "traces": ["ESC-FE-12"], "requirements": ["R2", "R11", "R14"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 6, "base": "verified-extra-route", "kinds": ["page.route"], "traces": ["ESC-FE-12"], "requirements": ["R2", "R11", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```json model
@@ -186,7 +160,7 @@ eShopCustom's `page.route`: the model says the Cart page is at `/bag`, and its `
 The model gives the Cart page the route `/cart`, and its file has no `@page`. The route is `whenSet`, the page's component is in the code, and no `@page` row reaches its claim, so the claim is contradicted with the code side "not stated" (R4). Nothing derives a route from the file's name or folder, and the query has no `absent`, which a `whenSet` kind refuses.
 
 ```json case
-{ "phase": 6, "base": "verified-extra-route", "kinds": ["page.route"], "traces": ["ESC-FE-12"], "requirements": ["R4"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 6, "base": "verified-extra-route", "kinds": ["page.route"], "traces": ["ESC-FE-12"], "requirements": ["R4"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```razor file src/WebApp/Components/Pages/Cart/CartPage.razor
@@ -208,10 +182,10 @@ The model gives the Cart page the route `/cart`, and its file has no `@page`. Th
 
 ## java-verified
 
-The Java spike's Vue storefront registers its pages in `router.ts`, one `{ path, component }` record each. The house recipe reads the `path` of the page's record, a set of one route; the vocabulary splits the model's Path into a set the same way. The file is read as text, whose canonical form drops the whitespace around punctuation (code-reader.md, Canonical text).
+The Java spike's Vue storefront registers its pages in `router.ts`, one `{ path, component }` record each. The house module's reader reads the `path` of the page's record, a set of one route; the vocabulary splits the model's Path into a set the same way.
 
 ```json case
-{ "phase": 6, "kinds": ["page.route"], "traces": ["JAV-FE-04"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.java", "house.shop"], "language": "typescript" }
+{ "phase": 6, "kinds": ["page.route"], "traces": ["JAV-FE-04"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
 ```
 
 ```json pack
@@ -237,18 +211,6 @@ The Java spike's Vue storefront registers its pages in `router.ts`, one `{ path,
           "source": "the Route stereotype's Path"
         }
       ]
-    }
-  },
-  "rules": {
-    "Front End": {
-      "files": ["src/**/*.ts", "src/**/*.vue"],
-      "facts": {
-        "page.route": {
-          "find": "file:src/router.ts",
-          "read": [{ "match": "\\{path:'([^']*)',component:{Page}\\}" }],
-          "unstated": "no `{ path, component: {Page} }` record in `src/router.ts`"
-        }
-      }
     }
   }
 }
@@ -304,7 +266,7 @@ export const router = createRouter({
 The model's Route Path says `/product/:id`, and the router mounts the page at `/products/:id`.
 
 ```json case
-{ "phase": 6, "base": "java-verified", "kinds": ["page.route"], "traces": ["JAV-FE-04"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.java", "house.shop"], "language": "typescript" }
+{ "phase": 6, "base": "java-verified", "kinds": ["page.route"], "traces": ["JAV-FE-04"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
 ```
 
 ```json model

@@ -267,6 +267,7 @@ internal sealed class JavaBody(BlockContext body, TypeNode owner, string file, C
             Literal = JavaReader.LiteralOf(expression),
             Function = Unwrapped(expression) is ExpressionLambdaContext lambda ? Lambda(lambda.lambdaExpression()) : null,
             Creations = types.Select(x => _createdBy.TryGetValue(x, out var creation) ? Creation(creation) : null).OfType<CreationNode>().ToList(),
+            Call = Inner(Unwrapped(expression)) is { } call ? Call(call) : null,
             At = JavaReader.SpanOf(expression, file)
         };
     }

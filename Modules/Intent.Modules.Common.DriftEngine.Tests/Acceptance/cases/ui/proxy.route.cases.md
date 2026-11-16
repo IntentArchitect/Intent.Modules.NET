@@ -2,14 +2,14 @@
 
 The path a front end's proxy operation sends its request to, against the route of the backend Operation it calls: the Service's Http Service Settings Route followed by the Operation's Http Settings Route, with `[controller]` standing for the Service's name without its `Service` suffix. In the Java spike's Front End designer, a Proxy Operation has a Calls association to that Operation. The kind is `stated: always` and compares with the `route` comparer, which ignores a leading or trailing `/` and case in literal segments.
 
-The kind is `later`, so these cases' house pack gives the kind, the Front End designer's vocabulary and the rule. The claim sits on the Calls association. The rule reads the path argument of the `request('VERB', path)` call in the proxy method, as text, and turns each `${encodeURIComponent(name)}` hole into the route parameter `{name}`.
+No stock pack knows the Front End designer, so these cases' house pack gives the kind and its vocabulary. The claim sits on the Calls association. The proxy method states the route as the path argument of its `request('VERB', path)` call, where each `${encodeURIComponent(name)}` hole is the route parameter `{name}`, which its module's claim reader (`house.readers`) reads.
 
 ## verified
 
 The client builds `/api/products/${encodeURIComponent(id)}`, which reads as `/api/products/{id}`. The model's route is `api/[controller]` on `ProductsService` and `{id}` on its Operation, so `api/Products/{id}`; the two differ only in the leading `/` and the literal segment's case.
 
 ```json case
-{ "phase": "later", "kinds": ["proxy.route"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R10", "R28", "R30"], "packs": ["intent.core", "intent.java", "house.shop"], "language": "typescript" }
+{ "phase": "later", "kinds": ["proxy.route"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R10", "R28", "R30"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
 ```
 
 ```json pack
@@ -38,19 +38,6 @@ The client builds `/api/products/${encodeURIComponent(id)}`, which reads as `/ap
           "source": "the called Operation's Service route and Http Settings Route"
         }
       ]
-    }
-  },
-  "rules": {
-    "Front End": {
-      "files": ["src/**/*.ts"],
-      "facts": {
-        "proxy.route": {
-          "find": "file:{File}",
-          "read": [{ "match": "\\b{Operation}\\([^)]*\\):[^{]*\\{return request<[^>]*>\\('\\w+',[`']([^`']*)[`']" }],
-          "replace": [{ "match": "\\$\\{encodeURIComponent\\((\\w+)\\)\\}", "with": "{$1}" }],
-          "unstated": "no `request(…, path)` in `{Operation}` in `{File}`"
-        }
-      }
     }
   }
 }
@@ -132,7 +119,7 @@ export const api = {
 The client now sends to `/api/product/…`, a segment the backend's route doesn't have.
 
 ```json case
-{ "phase": "later", "base": "verified", "kinds": ["proxy.route"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.java", "house.shop"], "language": "typescript" }
+{ "phase": "later", "base": "verified", "kinds": ["proxy.route"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
 ```
 
 ```typescript file src/api/client.ts
@@ -165,7 +152,7 @@ export const api = {
 
 ## eshop-http-route
 
-eShopCustom's Blazor catalog proxy builds its URI from a field and an interpolation: `api/catalog/` and `items/{id}`, the string the engine's value evaluation gives. The backend Operation its Backend Operation stereotype names is at `api/catalog` and `items/{id}`, so the routes match segment by segment, the hole against the parameter. The house pack gives the vocabulary for eShopCustom's own stereotype; reading the path from the proxy's `HttpClient` call is the stock rule's.
+eShopCustom's Blazor catalog proxy builds its URI from a field and an interpolation: `api/catalog/` and `items/{id}`, the string the engine's value evaluation gives. The backend Operation its Backend Operation stereotype names is at `api/catalog` and `items/{id}`, so the routes match segment by segment, the hole against the parameter. The house pack gives the vocabulary for eShopCustom's own stereotype; reading the path from the proxy's `HttpClient` call is the stock proxy reader's.
 
 ```json case
 { "phase": "later", "kinds": ["proxy.route"], "traces": ["ESC-FE-61"], "requirements": ["R2", "R10", "R28"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }

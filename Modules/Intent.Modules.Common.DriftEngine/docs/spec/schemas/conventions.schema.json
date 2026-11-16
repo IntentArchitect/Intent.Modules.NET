@@ -47,6 +47,13 @@
     "note": { "type": "string" }
   },
   "$defs": {
+    "files": {
+      "description": "Globs narrowing a convention within scope; they never widen it",
+      "oneOf": [
+        { "type": "string", "minLength": 1 },
+        { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 }
+      ]
+    },
     "typeConvention": {
       "type": "object",
       "additionalProperties": false,
@@ -60,7 +67,7 @@
         },
         "name": { "type": "string", "description": "The type's name: {Name} is the element's name, with the placeholder filters (I{Name}, {Name|trimEnd:Service}Controller); defaults to the language profile's naming" },
         "find": { "type": "string", "description": "unmodelled.type: optional; a find path that narrows the rule, within the convention's files, to the types it reaches" },
-        "files": { "$ref": "rules.schema.json#/$defs/files" },
+        "files": { "$ref": "#/$defs/files" },
         "states": {
           "type": "array",
           "items": { "enum": ["property", "field", "constructor", "method", "event", "enumMember"] },
@@ -78,7 +85,7 @@
         "kind": { "type": "string", "minLength": 1, "description": "How findings name this kind of code" },
         "find": { "oneOf": [{ "type": "string" }, { "type": "array", "items": { "type": "string" }, "minItems": 1 }] },
         "name": { "type": "string", "description": "How a finding names each place: {Class}, {Method}, {Member}, {Name}, {File}, $1…" },
-        "files": { "$ref": "rules.schema.json#/$defs/files" },
+        "files": { "$ref": "#/$defs/files" },
         "note": { "type": "string" }
       }
     }

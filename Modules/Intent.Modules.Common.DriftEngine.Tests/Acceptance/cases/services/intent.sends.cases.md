@@ -82,6 +82,61 @@ public static class OrdersApi
 }
 ```
 
+## verified-built-by-own-factory
+
+The endpoint sends what the code's own `PaymentCommands.ChargeAsync` returns once awaited, and that method returns a new `ChargePaymentCommand`. The reading follows the awaited call into the method, so the send is verified, located at the send.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["intent.sends"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapPost("/", CreateOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Ok<Guid>> CreateOrderAsync(CreateOrderRequest request, IMessageSession messageSession)
+    {
+        var orderId = Guid.NewGuid();
+
+        await messageSession.Send(await PaymentCommands.ChargeAsync(orderId, request.Total));
+
+        return TypedResults.Ok(orderId);
+    }
+}
+```
+
+```csharp file src/Ordering.API/Apis/PaymentCommands.cs
+namespace Ordering.API.Apis;
+
+public static class PaymentCommands
+{
+    public static async Task<ChargePaymentCommand> ChargeAsync(Guid orderId, decimal total)
+    {
+        await Task.Yield();
+        return new ChargePaymentCommand(orderId, total);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "create-order-sends-charge-payment", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Ordering.API/Apis/OrdersApi.cs:18" }
+  ]
+}
+```
+
 ## contradicted-published-not-sent
 
 The endpoint publishes `ChargePaymentCommand` instead of sending it. A publish goes to every subscriber, a send to the command's one receiver, so the modelled send isn't in the code.

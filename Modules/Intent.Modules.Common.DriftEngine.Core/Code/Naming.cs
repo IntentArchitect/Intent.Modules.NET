@@ -5,7 +5,7 @@ namespace Intent.Modules.Common.DriftEngine.Code;
 
 /// <summary>
 /// <c>{Name}</c> placeholders, optionally filtered and chained (<c>{Name|trimEnd:Service}Controller</c>, <c>{Name|camel}</c>):
-/// the placeholder filters of rules.md, Recipes, worded as Common.Drift's. A placeholder with no value is left as written.
+/// the placeholder filters of rules.md, Find paths, worded as Common.Drift's. A placeholder with no value is left as written.
 /// </summary>
 internal static class Naming
 {
@@ -21,7 +21,7 @@ internal static class Naming
 
     /// <summary>
     /// As <see cref="Fill(string, IReadOnlyDictionary{string, string})"/>, each value escaped for where it goes, such as
-    /// <see cref="Regex.Escape"/> for a recipe's regular expression; a brace a backslash escapes is no placeholder.
+    /// <see cref="Regex.Escape"/> for a find path's regular expression; a brace a backslash escapes is no placeholder.
     /// </summary>
     public static string Fill(string text, IReadOnlyDictionary<string, string> values, Func<string, string> escape) => Unescaped.Replace(text, x =>
         values.TryGetValue(x.Groups[1].Value, out var value)

@@ -68,39 +68,11 @@ internal sealed class MessageLinkSource : IClaimSource
                         Kind = link.Kind,
                         Expected = "present",
                         DependsOn = DependsOn(link.Designer, source),
-                        Source = $"its {link.Link} link",
-                        Bindings = Bindings(model, link, source, target.Target)
+                        Source = $"its {link.Link} link"
                     };
                 }
             }
         }
-    }
-
-    /// <summary>
-    /// The placeholders a recipe for the link reads, Common.Drift's names (vocabulary.md, Placeholders): a Domain link's
-    /// <c>{Entity}</c>, <c>{Member}</c> and <c>{DomainEvent}</c>; a Services link's <c>{Service}</c>, <c>{Operation}</c> and <c>{Message}</c>.
-    /// </summary>
-    private static Dictionary<string, string> Bindings(ModelContext model, MessageLink link, IElement source, IElement message)
-    {
-        var owner = model.Owner(source);
-        if (link.Designer == "Domain")
-        {
-            return new Dictionary<string, string> { ["Entity"] = owner?.Name ?? "", ["Member"] = source.Name, ["DomainEvent"] = message.Name };
-        }
-
-        // An operation's service, or a subscription's handler; a command sends from itself.
-        var bindings = new Dictionary<string, string> { ["Message"] = message.Name };
-        if (source is IAssociationEnd || source.SpecializationType == "Operation")
-        {
-            bindings["Service"] = owner?.Name ?? "";
-        }
-
-        if (source is not IAssociationEnd)
-        {
-            bindings["Operation"] = source.Name;
-        }
-
-        return bindings;
     }
 
     /// <summary>A handler's subscriptions: the target ends of its own associations, which a publish or send may start from.</summary>
@@ -353,9 +325,13 @@ internal sealed class MessageLinkReader : IClaimReader
 
         var unit = units[0];
         var where = units.Count == 1 ? $"`{MessageCode.Display(unit.Type, unit.Member)}`" : $"any of {string.Join(", ", units.Select(x => $"`{MessageCode.Display(x.Type, x.Member)}`"))}";
-        // A publish of a value the code doesn't type, such as a factory method's, may be this message or another.
-        if (link.Own is { } own && units.SelectMany(x => x.Member.Calls)
-                .FirstOrDefault(x => Interactions.Reach.Words(x.Name).Contains(own) && x.Arguments.Any(a => !a.IsKnown && a.Creations.Count == 0)) is { } unreadable)
+        // A message handed on that the code doesn't say, such as a library factory's, may be this message or another.
+        var supertypes = type is not null ? context.Code.Supertypes(type) : [];
+        if (units.SelectMany(x => x.Member.Calls.Select(call => (x.Type, x.Member, Call: call)))
+                .FirstOrDefault(x => (link.Own is not { } own || Interactions.Reach.Words(x.Call.Name).Contains(own))
+                    && x.Call.Arguments.Select((a, i) => (Value: a, Index: i))
+                        .Any(a => MessageCode.Untyped(context.Code, x.Type, a.Value, supertypes) && MessageCode.HandsOn(context.Code, x.Type, x.Member, x.Call, a.Index, message.Name)))
+                is { Call: { } unreadable })
         {
             return ClaimReading.CantVerify("unreadable",
                 $"{where} {link.Verb} a message the code doesn't type, so it can't read whether it is `{message.Name}`.", unreadable.At);
@@ -384,6 +360,8 @@ internal sealed class MessageLinkReader : IClaimReader
 internal sealed class UnmodelledMessages : IDriftRule
 {
     private sealed record Send(TypeNode Type, MemberNode Member, CallNode Call, TypeNode Message, IElement? Modelled);
+
+    public string Id => "messaging/unmodelled";
 
     public IEnumerable<Finding> Check(RuleContext context)
     {
@@ -460,7 +438,7 @@ internal sealed class UnmodelledMessages : IDriftRule
                 {
                     for (var i = 0; i < call.Arguments.Count; i++)
                     {
-                        foreach (var created in call.Arguments[i].Creations)
+                        foreach (var created in MessageCode.Created(context.Code, type, call.Arguments[i]))
                         {
                             if (MessageCode.Resolve(context.Code, created, type, messages.Keys) is { } message
                                 && !seen.Contains((call, message))
@@ -672,7 +650,7 @@ internal static class MessageCode
             foreach (var call in current.Member.Calls)
             {
                 var root = current.Root ?? call;
-                if (call.Arguments.Select((x, i) => (Value: x, Index: i)).Any(a => a.Value.Creations.Any(c => isMessage(c) && HandsOn(code, current.Type, current.Member, call, a.Index, c))))
+                if (call.Arguments.Select((x, i) => (Value: x, Index: i)).Any(a => Created(code, current.Type, a.Value).Any(c => isMessage(c) && HandsOn(code, current.Type, current.Member, call, a.Index, c))))
                 {
                     yield return (root, call);
                 }
@@ -686,6 +664,55 @@ internal static class MessageCode
     }
 
     /// <summary>
+    /// The messages a value can be: what it creates, or each message the code's own method it is the result of can return,
+    /// through the methods that method returns the result of in turn. <c>AddDomainEvent(StatusChanged())</c> raises each
+    /// event <c>StatusChanged()</c> returns, whichever branch returns it: a link says what the code can do, not what it
+    /// always does.
+    /// </summary>
+    public static IEnumerable<CreationNode> Created(CodeGraph code, TypeNode from, ValueNode value) => Created(code, from, value, 0);
+
+    private static IEnumerable<CreationNode> Created(CodeGraph code, TypeNode from, ValueNode value, int depth)
+    {
+        foreach (var creation in value.Creations)
+        {
+            yield return creation;
+        }
+
+        if (depth >= 3 || value.Call is not { } call)
+        {
+            yield break;
+        }
+
+        foreach (var body in Bodies(code, from, call))
+        {
+            foreach (var creation in (body.Member.Body?.Returns ?? []).SelectMany(x => Created(code, body.Type, x, depth + 1)))
+            {
+                yield return creation;
+            }
+        }
+    }
+
+    /// <summary>
+    /// The value may be a message the code doesn't say: a type the code doesn't give, or one the message derives from or
+    /// implements, such as a library factory's <c>INotification</c>. The result of the code's own method is what that
+    /// method returns (<see cref="Created"/>), so a helper that returns other messages says it isn't this one.
+    /// </summary>
+    /// <param name="supertypes">What the message derives from or implements (<see cref="CodeGraph.Supertypes"/>).</param>
+    public static bool Untyped(CodeGraph code, TypeNode from, ValueNode value, IReadOnlyCollection<string> supertypes) => Untyped(code, from, value, supertypes, 0);
+
+    private static bool Untyped(CodeGraph code, TypeNode from, ValueNode value, IReadOnlyCollection<string> supertypes, int depth)
+    {
+        if (depth < 3 && value.Call is { } call && Bodies(code, from, call) is { Count: > 0 } bodies)
+        {
+            return bodies.Any(x => (x.Member.Body?.Returns ?? []).Any(r => Untyped(code, x.Type, r, supertypes, depth + 1)));
+        }
+
+        return !value.IsKnown || value.Types.Any(x => code.TypeFor(x, from) is { } type
+            ? supertypes.Contains(type.Namespace.Length > 0 ? $"{type.Namespace}.{type.Name}" : type.Name)
+            : supertypes.Contains(x.QualifiedName) || supertypes.Contains(x.Name));
+    }
+
+    /// <summary>
     /// The call hands the message it is given as an argument on, out of the code. A library's method (a bus, an outbox, the
     /// list behind an entity base's <c>AddDomainEvent</c>) takes it. A method of the code takes it on only when its body does
     /// with the parameter it binds to (<see cref="Passes"/>): one that only reads it processes it in place
@@ -693,7 +720,11 @@ internal static class MessageCode
     /// returns when the method returns the message: it builds it for its caller (<c>return Task.FromResult(message)</c>).
     /// </summary>
     public static bool HandsOn(CodeGraph code, TypeNode type, MemberNode member, CallNode call, int argument, CreationNode message) =>
-        HandsOn(code, type, member, call, argument, message.Type.Name, new HashSet<MemberNode>(ReferenceEqualityComparer.Instance));
+        HandsOn(code, type, member, call, argument, message.Type.Name);
+
+    /// <inheritdoc cref="HandsOn(CodeGraph, TypeNode, MemberNode, CallNode, int, CreationNode)"/>
+    public static bool HandsOn(CodeGraph code, TypeNode type, MemberNode member, CallNode call, int argument, string message) =>
+        HandsOn(code, type, member, call, argument, message, new HashSet<MemberNode>(ReferenceEqualityComparer.Instance));
 
     private static bool HandsOn(CodeGraph code, TypeNode type, MemberNode member, CallNode call, int argument, string message, HashSet<MemberNode> seen)
     {

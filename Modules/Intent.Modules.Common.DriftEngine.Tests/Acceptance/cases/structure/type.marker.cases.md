@@ -7,7 +7,7 @@ A named marker, both ways: modelled means the code has it, not modelled means it
 `Order` owns its `OrderItem`s by composition. No composition owns `Order`, so it is an aggregate root and implements `IAggregateRoot`; `OrderItem` is owned and doesn't, which is verified from silence. The vocabulary reads ownership from the association ends leading away from the class: an end that is its association's source, with multiplicity `1`, is a composite owner (`.isSource`).
 
 ```json case
-{ "phase": 2, "kinds": ["type.marker"], "traces": ["ESC-DOM-20"], "requirements": ["R2", "R3", "R28", "R30", "R46"], "packs": ["intent.core", "intent.domain", "house.eshop"], "language": "csharp" }
+{ "phase": 2, "kinds": ["type.marker"], "traces": ["ESC-DOM-20"], "requirements": ["R2", "R3", "R28", "R30"], "packs": ["intent.core", "intent.domain", "house.eshop"], "language": "csharp" }
 ```
 
 ```json pack
@@ -55,18 +55,6 @@ A named marker, both ways: modelled means the code has it, not modelled means it
           "fixHint": "A Plain Class isn't an aggregate root: remove IAggregateRoot, or remove the Plain Class stereotype."
         }
       ]
-    }
-  },
-  "rules": {
-    "Domain": {
-      "facts": {
-        "type.marker": {
-          "find": "type:{Type}",
-          "read": [{ "match": ":[^{]*\\b{Marker}\\b", "part": "declaration", "value": "true" }],
-          "default": "false",
-          "note": "A marker is a base class or an interface in the type's base list"
-        }
-      }
     }
   }
 }
@@ -310,7 +298,7 @@ public class CardType : Entity
 A type that implements MediatR's `IRequest` is a request, which the Services designer models as a Command. The house pack claims "no `IRequest`" for every DTO. `OrderDraftDto` is a plain record and verifies from silence; `CreateOrderDraftCommand` was modelled as a DTO but implements `IRequest<OrderDraftDto>`, so its claim is contradicted.
 
 ```json case
-{ "phase": 2, "kinds": ["type.marker"], "traces": ["ESC-SVC-43"], "requirements": ["R1", "R2", "R3", "R28", "R46"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": 2, "kinds": ["type.marker"], "traces": ["ESC-SVC-43"], "requirements": ["R1", "R2", "R3", "R28"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
 ```
 
 ```json pack
@@ -336,18 +324,6 @@ A type that implements MediatR's `IRequest` is a request, which the Services des
           "fixHint": "Model a request as a Command, or remove IRequest from the DTO."
         }
       ]
-    }
-  },
-  "rules": {
-    "Services": {
-      "facts": {
-        "type.marker": {
-          "find": "type:{Type}",
-          "read": [{ "match": ":[^{]*\\b{Marker}\\b", "part": "declaration", "value": "true" }],
-          "default": "false",
-          "note": "A marker is a base class or an interface in the type's base list"
-        }
-      }
     }
   }
 }
@@ -403,7 +379,7 @@ public record CreateOrderDraftCommand(string BuyerId) : IRequest<OrderDraftDto>;
 The spike checked that a Class is an entity type, not an enum or a helper. That `@Entity` maps the class is `entity.persisted`'s fact, which JPA reads from the annotation, so it isn't a marker too: one missing `@Entity` is one finding (user decision, 2026-11-15: "flag it once"). The model states that a class is persisted with its Table stereotype, not with a Primary Key, so a stock `Entity` marker on every Class with a Primary Key would claim what the model doesn't say, and on C# code nothing would read it. `Customer` shows JPA is in the code.
 
 ```json case
-{ "phase": 4, "kinds": ["entity.persisted", "type.marker"], "traces": ["JAV-DOM-04"], "requirements": ["R2", "R33", "R46"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
+{ "phase": 4, "kinds": ["entity.persisted", "type.marker"], "traces": ["JAV-DOM-04"], "requirements": ["R2", "R33"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
 ```
 
 ```json model

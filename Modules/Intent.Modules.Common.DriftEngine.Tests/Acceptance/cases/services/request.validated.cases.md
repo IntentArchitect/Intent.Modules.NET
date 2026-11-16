@@ -1,6 +1,6 @@
 # request.validated
 
-A Command's FluentValidation validator, against eShopCustom's module stereotypes: `Validated` on a Command states a validator deriving `AbstractValidator<X>`, and `Identified Command` with its `Validated` property checked states one deriving `AbstractValidator<IdentifiedCommand<X, R>>`, which validates the idempotency wrapper. Both stereotypes are eShopCustom's own, so the house pack brings the vocabulary (two entries for one kind, told apart by a discriminator) and the recipe. `request.validated` is an existence kind: a stated validator the code lacks is contradicted (R8). A validator the model doesn't state is unmodelled code, which is never drift by itself (principle 1). The kind arrives `later`, with the other MediatR kinds.
+A Command's FluentValidation validator, against eShopCustom's module stereotypes: `Validated` on a Command states a validator deriving `AbstractValidator<X>`, and `Identified Command` with its `Validated` property checked states one deriving `AbstractValidator<IdentifiedCommand<X, R>>`, which validates the idempotency wrapper. Both stereotypes are eShopCustom's own, so the house pack brings the vocabulary (two entries for one kind, told apart by a discriminator), and its module's claim reader (`house.readers`) reads the validator from the code. `request.validated` is an existence kind: a stated validator the code lacks is contradicted (R8). A validator the model doesn't state is unmodelled code, which is never drift by itself (principle 1). The kind arrives `later`, with the other MediatR kinds.
 
 The fixtures adapt eShopCustom's `Ordering.API/Application/Validations`.
 
@@ -9,7 +9,7 @@ The fixtures adapt eShopCustom's `Ordering.API/Application/Validations`.
 `CancelOrderCommand` is `Validated`, and `CancelOrderCommandValidator` derives `AbstractValidator<CancelOrderCommand>`. Traces ESC-SVC-55.
 
 ```json case
-{ "phase": "later", "kinds": ["request.validated"], "traces": ["ESC-SVC-55"], "requirements": ["R2", "R28"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "kinds": ["request.validated"], "traces": ["ESC-SVC-55"], "requirements": ["R2", "R28"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```json model
@@ -63,17 +63,6 @@ The fixtures adapt eShopCustom's `Ordering.API/Application/Validations`.
         }
       ]
     }
-  },
-  "rules": {
-    "Services": {
-      "facts": {
-        "request.validated": {
-          "find": "type with :\\s*AbstractValidator<\\s*{Validates}\\b",
-          "read": [{ "match": "\\S", "value": "present" }],
-          "note": "A validator of the Command, or of the Command wrapped in IdentifiedCommand"
-        }
-      }
-    }
   }
 }
 ```
@@ -104,13 +93,13 @@ public class CancelOrderCommandValidator : AbstractValidator<CancelOrderCommand>
 The validator's file is gone, so nothing validates `CancelOrderCommand` before its handler runs. Traces ESC-SVC-55.
 
 ```json case
-{ "phase": "later", "base": "validated-verified", "without": ["src/Ordering.API/Application/Validations/CancelOrderCommandValidator.cs"], "kinds": ["request.validated"], "traces": ["ESC-SVC-55"], "requirements": ["R8"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "base": "validated-verified", "without": ["src/Ordering.API/Application/Validations/CancelOrderCommandValidator.cs"], "kinds": ["request.validated"], "traces": ["ESC-SVC-55"], "requirements": ["R8"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```json expect
 {
   "claims": [
-    { "kind": "request.validated", "element": "cancel-order-command", "key": "Validated", "outcome": "contradicted", "expected": "present", "actual": "absent" }
+    { "kind": "request.validated", "element": "cancel-order-command", "key": "Validated", "outcome": "contradicted", "expected": "present", "actual": "none" }
   ],
   "findings": [
     { "rule": "claim/request.validated", "severity": "error", "subject": "cancel-order-command", "messageContains": "isn't in the code" }
@@ -123,7 +112,7 @@ The validator's file is gone, so nothing validates `CancelOrderCommand` before i
 `CreateOrderCommand` is an Identified Command with `Validated` checked, and `IdentifiedCommandValidator` derives `AbstractValidator<IdentifiedCommand<CreateOrderCommand, bool>>`. The Command has no `Validated` stereotype of its own, so this is its only `request.validated` claim. Traces ESC-SVC-54.
 
 ```json case
-{ "phase": "later", "base": "validated-verified", "without": ["src/Ordering.API/Application/Validations/CancelOrderCommandValidator.cs"], "kinds": ["request.validated"], "traces": ["ESC-SVC-54"], "requirements": ["R2", "R28"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "base": "validated-verified", "without": ["src/Ordering.API/Application/Validations/CancelOrderCommandValidator.cs"], "kinds": ["request.validated"], "traces": ["ESC-SVC-54"], "requirements": ["R2", "R28"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```json model
@@ -176,7 +165,7 @@ public class IdentifiedCommandValidator : AbstractValidator<IdentifiedCommand<Cr
 The validator validates `CreateOrderCommand` itself, not the `IdentifiedCommand<CreateOrderCommand, bool>` the endpoint sends, so MediatR never runs it on that request. The Identified Command's `Validated` states a validator of the wrapper, which isn't in the code. Traces ESC-SVC-54.
 
 ```json case
-{ "phase": "later", "base": "identified-validated-verified", "kinds": ["request.validated"], "traces": ["ESC-SVC-54"], "requirements": ["R8"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "base": "identified-validated-verified", "kinds": ["request.validated"], "traces": ["ESC-SVC-54"], "requirements": ["R8"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```csharp file src/Ordering.API/Application/Validations/IdentifiedCommandValidator.cs
@@ -194,7 +183,7 @@ public class IdentifiedCommandValidator : AbstractValidator<CreateOrderCommand>
 ```json expect
 {
   "claims": [
-    { "kind": "request.validated", "element": "create-order-command", "key": "Identified Command", "outcome": "contradicted", "expected": "present", "actual": "absent" },
+    { "kind": "request.validated", "element": "create-order-command", "key": "Identified Command", "outcome": "contradicted", "expected": "present", "actual": "none" },
     { "kind": "request.validated", "element": "create-order-command", "key": "Validated", "absent": true }
   ],
   "findings": [
@@ -208,7 +197,7 @@ public class IdentifiedCommandValidator : AbstractValidator<CreateOrderCommand>
 `CancelOrderCommand` has no `Validated` stereotype, and `CancelOrderCommandValidator` is in the code. eShopCustom reported the validator as Backlog; here there is no claim, and nothing is reported (principle 1). Traces ESC-SVC-55 (the code-to-model direction).
 
 ```json case
-{ "phase": "later", "base": "validated-verified", "kinds": ["request.validated"], "traces": ["ESC-SVC-55"], "requirements": ["R4"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": "later", "base": "validated-verified", "kinds": ["request.validated"], "traces": ["ESC-SVC-55"], "requirements": ["R4"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```json model

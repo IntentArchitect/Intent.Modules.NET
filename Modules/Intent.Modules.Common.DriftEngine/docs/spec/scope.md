@@ -68,7 +68,7 @@ basislink5 needs this: test helpers live in production files beside the code the
 ## What scope decides
 
 - **Readers read only in-scope files** ([R22](requirements.md)). An out-of-scope file is never opened, and the run result's `files` proves it.
-- **Readings come only from in-scope code**, for every rule kind: recipes, queries and plug-ins.
+- **Readings come only from in-scope code**, for every rule: the structure rules and every module's claim readers.
 - **Opt-in rules report only in-scope code** ([R49](requirements.md)).
 - **A `Context` row reads without checking** ([R20](requirements.md)). Some code is needed for what it says about other code, but isn't code the model describes: the composition root that registers handlers, the DbContext, a shared base class. Its files are read, so claims verify from them and rules use what they say, but no finding is about their own code: opt-in rules skip them, and a rule's finding whose subject is one of them is dropped. Within the folder an element's rows resolve as usual, so a Context row can sit inside an In row's glob, and the last matching row wins. The coverage listing names them as read for context only.
 - **Packs and the house pack aren't code.** They are read wherever they are.

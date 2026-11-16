@@ -1,13 +1,13 @@
 # file.exists
 
-A file an element stands for: a gRPC service's `.proto`, a Vue component's `.vue`, a file a layer's convention requires. The path comes from vocabulary (R28, R30), and a recipe finds the file with a `file:` step and reads it as text, so any language works (R38, R46). It is an existence kind: a missing file is contradicted (R8). A recipe that also needs something inside the file, such as the service a `.proto` declares, gives `default: "absent"`, so a file that exists but doesn't declare it is contradicted from silence (R3).
+A file an element stands for: a gRPC service's `.proto`, a Vue component's `.vue`, a file a layer's convention requires. The path comes from vocabulary (R28, R30), and no stock pack reads it, so a house module's claim reader (`house.readers`) looks for the file among the files the Drift Scope decides, whatever its language (R38, R46). It is an existence kind: a missing file is contradicted (R8). A file the scope leaves out is can't verify, `outOfScope`. Where the claim also needs something inside the file, such as the service a `.proto` declares, a file that exists but doesn't declare it is contradicted from silence (R3).
 
 ## proto-file-verified
 
 eShopCustom's gRPC Service stereotype names the `.proto` that defines the service, relative to the first Source, and the service it declares. `basket.proto` is there and declares `service Basket`.
 
 ```json case
-{ "phase": 2, "kinds": ["file.exists"], "traces": ["ESC-SVC-75"], "requirements": ["R2", "R28", "R30", "R38", "R46"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "text" }
+{ "phase": 2, "kinds": ["file.exists"], "traces": ["ESC-SVC-75"], "requirements": ["R2", "R28", "R30", "R38", "R46"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "protobuf" }
 ```
 
 ```json pack
@@ -32,18 +32,6 @@ eShopCustom's gRPC Service stereotype names the `.proto` that defines the servic
           "fixHint": "Add the .proto file declaring the service, or change the gRPC Service stereotype."
         }
       ]
-    }
-  },
-  "rules": {
-    "Services": {
-      "facts": {
-        "file.exists": {
-          "find": "file:{File}",
-          "read": [{ "match": "\\bservice {ProtoService}\\b", "value": "present" }],
-          "default": "absent",
-          "note": "The .proto is read as text, and must declare the Proto Service"
-        }
-      }
     }
   }
 }
@@ -107,7 +95,7 @@ message BasketItem {
 The `.proto` the stereotype names isn't in the code. The find finds nothing, and the kind is an existence kind, so the claim is contradicted (R8).
 
 ```json case
-{ "phase": 2, "base": "proto-file-verified", "without": ["src/Basket.API/Proto/basket.proto"], "kinds": ["file.exists"], "traces": ["ESC-SVC-75"], "requirements": ["R1", "R8", "R11"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "text" }
+{ "phase": 2, "base": "proto-file-verified", "without": ["src/Basket.API/Proto/basket.proto"], "kinds": ["file.exists"], "traces": ["ESC-SVC-75"], "requirements": ["R1", "R8", "R11"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "protobuf" }
 ```
 
 ```json expect
@@ -126,7 +114,7 @@ The `.proto` the stereotype names isn't in the code. The find finds nothing, and
 The `.proto` is there, but its service was renamed `BasketApi`. The file doesn't declare the Proto Service the model names, so the recipe's `default` applies and the claim is contradicted from silence (R3).
 
 ```json case
-{ "phase": 2, "base": "proto-file-verified", "kinds": ["file.exists"], "traces": ["ESC-SVC-75"], "requirements": ["R1", "R3"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "text" }
+{ "phase": 2, "base": "proto-file-verified", "kinds": ["file.exists"], "traces": ["ESC-SVC-75"], "requirements": ["R1", "R3"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "protobuf" }
 ```
 
 ```protobuf file src/Basket.API/Proto/basket.proto
@@ -164,7 +152,7 @@ message CustomerBasketResponse {
 The `.proto` files are out of scope: a row excludes the contracts shared with other services. Nothing in scope matches the `file:` step, but the step's path names the excluded file, so the claim is can't verify, `outOfScope`, naming the row, rather than contradicted. The excluded file is never read (R22, R25).
 
 ```json case
-{ "phase": 2, "base": "proto-file-verified", "kinds": ["file.exists"], "requirements": ["R22", "R25"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "text" }
+{ "phase": 2, "base": "proto-file-verified", "kinds": ["file.exists"], "requirements": ["R22", "R25"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "protobuf" }
 ```
 
 ```json model
@@ -207,7 +195,7 @@ The `.proto` files are out of scope: a row excludes the contracts shared with ot
 The Java spike's Front End designer has Layouts, Pages, Components, Stores, Composables, Utilities and Proxies, each standing for a `.vue` or `.ts` file named after it in the folder its designer folders give, or at its Implementation stereotype's Path. The TypeScript reader, which reads Vue single-file components as `component` types, arrives later with intent.typescript; until then the storefront's house pack finds the file by path and reads it as text (R38). A file's existence needs nothing more. `StockPill` is in `components`; the cart Store names its file.
 
 ```json case
-{ "phase": 4, "kinds": ["file.exists"], "traces": ["JAV-FE-02"], "requirements": ["R2", "R28", "R38", "R46"], "packs": ["intent.core", "intent.java", "house.storefront"], "language": "typescript" }
+{ "phase": 4, "kinds": ["file.exists"], "traces": ["JAV-FE-02"], "requirements": ["R2", "R28", "R38", "R46"], "packs": ["intent.core", "intent.java", "house.storefront", "house.readers"], "language": "typescript" }
 ```
 
 ```json pack
@@ -235,17 +223,6 @@ The Java spike's Front End designer has Layouts, Pages, Components, Stores, Comp
           "fixHint": "Add the store's .ts file, or set its Implementation Path."
         }
       ]
-    }
-  },
-  "rules": {
-    "Front End": {
-      "facts": {
-        "file.exists": {
-          "find": "file:{File}",
-          "read": [{ "match": "^", "value": "present" }],
-          "note": "Any file at the path, read as text"
-        }
-      }
     }
   }
 }
@@ -310,7 +287,7 @@ export const useCartStore = defineStore('cart', {
 `StockPill` was renamed `StockBadge` in the code and not in the model. Nothing is at `src/components/StockPill.vue`, so the claim is contradicted.
 
 ```json case
-{ "phase": 4, "base": "vue-files-verified", "without": ["src/components/StockPill.vue"], "kinds": ["file.exists"], "traces": ["JAV-FE-02"], "requirements": ["R1", "R8", "R11"], "packs": ["intent.core", "intent.java", "house.storefront"], "language": "typescript" }
+{ "phase": 4, "base": "vue-files-verified", "without": ["src/components/StockPill.vue"], "kinds": ["file.exists"], "traces": ["JAV-FE-02"], "requirements": ["R1", "R8", "R11"], "packs": ["intent.core", "intent.java", "house.storefront", "house.readers"], "language": "typescript" }
 ```
 
 ```vue file src/components/StockBadge.vue
@@ -342,7 +319,7 @@ The Java spike's architecture gave each layer a path and file conventions: every
 The storefront's house pack holds the convention: the entry's `for` is its selection, and its `File` binding is the layer's path and the pattern, written with the expression functions (`trimEnd` for Remove Suffix). The spike's model held conventions as File Convention elements under each Layer, selecting another designer's elements; vocabulary selects only within the designer it is for, so the pack, not the model, states them.
 
 ```json case
-{ "phase": 4, "kinds": ["file.exists"], "traces": ["JAV-ARC-04"], "requirements": ["R2", "R28", "R30", "R51", "R53"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc", "house.storefront"], "language": "java" }
+{ "phase": 4, "kinds": ["file.exists"], "traces": ["JAV-ARC-04"], "requirements": ["R2", "R28", "R30", "R51", "R53"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc", "house.storefront", "house.readers"], "language": "java" }
 ```
 
 ```json pack
@@ -365,17 +342,6 @@ The storefront's house pack holds the convention: the entry's `for` is its selec
           "note": "The API layer's path is src/main/java/com/shop/api"
         }
       ]
-    }
-  },
-  "rules": {
-    "Services": {
-      "facts": {
-        "file.exists": {
-          "find": "file:{File}",
-          "read": [{ "match": "^", "value": "present" }],
-          "note": "Any file at the path the convention gives"
-        }
-      }
     }
   }
 }
@@ -439,7 +405,7 @@ public class ProductsController {
 The products controller isn't in the API layer, so the file its convention requires is missing.
 
 ```json case
-{ "phase": 4, "base": "file-convention", "without": ["src/main/java/com/shop/api/ProductsController.java"], "kinds": ["file.exists"], "traces": ["JAV-ARC-04"], "requirements": ["R1", "R8", "R11"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc", "house.storefront"], "language": "java" }
+{ "phase": 4, "base": "file-convention", "without": ["src/main/java/com/shop/api/ProductsController.java"], "kinds": ["file.exists"], "traces": ["JAV-ARC-04"], "requirements": ["R1", "R8", "R11"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc", "house.storefront", "house.readers"], "language": "java" }
 ```
 
 ```json expect

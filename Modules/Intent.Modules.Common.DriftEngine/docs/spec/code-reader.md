@@ -1,6 +1,6 @@
 # Code readers (block 2)
 
-A code reader turns the in-scope files of one language into the **code graph**: one shape for every language, so structure comparison, recipes and queries work the same over C#, Java or anything a pack adds ([R33](requirements.md)). Its schema is [`schemas/code-graph.schema.json`](schemas/code-graph.schema.json).
+A code reader turns the in-scope files of one language into the **code graph**: one shape for every language, so structure comparison, claim readers and find paths work the same over C#, Java or anything a module adds ([R33](requirements.md)). Its schema is [`schemas/code-graph.schema.json`](schemas/code-graph.schema.json).
 
 Readers read files. They never build, restore, load or run the codebase ([R18](requirements.md), decision 3). A framework's own view of the code comes only from artifacts committed beside it, such as EF Core's migration snapshot.
 
@@ -66,10 +66,10 @@ What string a value is, as far as the code says without running it, is the same 
 | Fact        | What the value is                                                                                                   |
 | ----------- | ------------------------------------------------------------------------------------------------------------------- |
 | `joined`    | A `+` chain's operands, flattened; C#'s `string.Concat` and TypeScript's `concat` give theirs                      |
-| `given`     | What it stands for, one per way the code gives it: a local's initializer and plain assignments before the use, a conditional's branches, both sides of `??` (and TypeScript's `\|\|`), what `x.ToString()`, `String(x)`, `new Uri(x)` or `new URL(x)` is made from. Any other change to the local before the use (`+=`, `++`, C#'s `ref` or `out`) is a way whose text isn't known |
+| `given`     | What it stands for, one per way the code gives it: a local's initializer and plain assignments before the use, a conditional's branches, a C# switch expression's arms (an arm that throws gives nothing), both sides of `??` (and TypeScript's `\|\|`), what `x.ToString()`, `String(x)`, `new Uri(x)` or `new URL(x)` is made from. Any other change to the local before the use (`+=`, `++`, C#'s `ref` or `out`) is a way whose text isn't known |
 | `parameter` | The parameter of its unit it names                                                                                  |
 | `field`     | The field or property it reads: its type's own, or another's through the type's, object's or module's name (`Routes.Catalog`, a module's `const`) |
-| `call`      | The call it is the result of, with the method it reaches                                                            |
+| `call`      | The call it is the result of, with the method it reaches; for C#'s `await x.MakeAsync()`, the call it awaits       |
 | `trimmed`   | A trim, and the characters it takes: C#'s `TrimEnd('&', '?')`, TypeScript's `trim()`                                |
 
 The result is a `string` literal when the code gives all of it, otherwise `interpolated`: its text, and as holes the values whose text it doesn't give, each placed where it is written. `GetFromJsonAsync(uri)` after `var uri = $"{remoteServiceBaseUrl}items/{id}";` is `api/catalog/items/` and the hole `id`. The evaluation follows:

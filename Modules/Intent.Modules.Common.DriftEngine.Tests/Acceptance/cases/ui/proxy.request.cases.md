@@ -2,7 +2,7 @@
 
 A Service Proxy's Operation, in the User Interface designer, sends a request to the backend: its method makes an HTTP call or a gRPC call. It is a `presence` kind, an existence kind, `stated: always`, claimed on each Operation of a Service Proxy. An Operation with eShopCustom's Backend Operation stereotype states that it sends a request; one without states that it sends none, so a request the code sends for it is reported, naming the request.
 
-The kind is `later`, so these cases' house pack gives the kind, its vocabulary and its rule. The vocabulary asks only whether the Backend Operation stereotype is applied; the stereotype's Operation property, which names the backend Operation, isn't read here, so the fixtures leave it out. The rule reads the body of the proxy class's method: a call on an injected HTTP or gRPC client, which is how eShopCustom's proxies send their requests.
+These cases' house pack gives the kind and the vocabulary for eShopCustom's own stereotype. The vocabulary asks only whether the Backend Operation stereotype is applied; the stereotype's Operation property, which names the backend Operation, isn't read here, so the fixtures leave it out. The stock proxy reader reads the proxy class's method: a call on its `HttpClient` or on a generated gRPC client, which is how eShopCustom's proxies send their requests.
 
 ## verified-http
 
@@ -34,19 +34,6 @@ eShopCustom's catalog proxy reads one item with `GetFromJsonAsync` on its `HttpC
           "source": "the Backend Operation stereotype on the Service Proxy's Operation"
         }
       ]
-    }
-  },
-  "rules": {
-    "User Interface": {
-      "files": ["src/WebApp/Services/**/*.cs", "src/WebAppComponents/Services/**/*.cs"],
-      "facts": {
-        "proxy.request": {
-          "find": "type:{Proxy} > method:{Operation}",
-          "read": [{ "match": "\\b_?\\w*[Cc]lient\\.\\w+Async\\b", "part": "body", "value": "present" }],
-          "default": "absent",
-          "unstated": "no HTTP or gRPC client call in {Proxy}.{Operation}"
-        }
-      }
     }
   }
 }
@@ -162,7 +149,7 @@ public class BasketService(GrpcBasketClient basketClient)
 
 ## contradicted-no-request
 
-eShopCustom's `proxy.request`: the catalog proxy's `GetCatalogItem` has been stubbed to return nothing, so it sends no request. The method is found and its body has no client call, so its silence says `absent`.
+eShopCustom's `proxy.request`: the catalog proxy's `GetCatalogItem` has been stubbed to return nothing, so it sends no request. The method is found and makes no client call, so its silence contradicts the claim.
 
 ```json case
 { "phase": "later", "base": "verified-http", "kinds": ["proxy.request"], "cases": ["engine/silence"], "traces": ["ESC-FE-59"], "requirements": ["R3", "R8"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
@@ -189,7 +176,7 @@ public class CatalogService(HttpClient httpClient) : ICatalogService
 {
   "claims": [
     { "kind": "proxy.request", "element": "catalog-service-get-catalog-item", "outcome": "contradicted",
-      "expected": "present", "actual": "absent", "fromSilence": true }
+      "expected": "present", "fromSilence": true }
   ],
   "findings": [
     { "rule": "claim/proxy.request", "severity": "error", "subject": "catalog-service-get-catalog-item", "messageContains": "`GetCatalogItem` proxy request: in the model, not in the code." }
@@ -238,7 +225,7 @@ eShopCustom's `proxy.mapping`: the catalog proxy's `GetCatalogItem` has no Backe
   ],
   "findings": [
     { "rule": "claim/proxy.request", "severity": "error", "subject": "catalog-service-get-catalog-item",
-      "messageContains": "`GetCatalogItem` proxy request: in the code, not in the model." }
+      "messageContains": "GetCatalogItem sends a request" }
   ]
 }
 ```

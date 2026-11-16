@@ -35,19 +35,6 @@ The Domain Layer's Path holds three C# files. The find ends at all three, and `m
         }
       ]
     }
-  },
-  "rules": {
-    "Codebase Structure": {
-      "facts": {
-        "layer.populated": {
-          "find": "file:{Path}/**/*.cs",
-          "matches": "any",
-          "read": [{ "match": "\\S", "value": "true" }],
-          "absent": "false",
-          "unstated": "no C# file under `{Path}`"
-        }
-      }
-    }
   }
 }
 ```
@@ -233,19 +220,6 @@ The Java spike's Architecture check: a Layer whose Path holds no source file is 
           "source": "the Layer and its Layer Settings Path"
         }
       ]
-    }
-  },
-  "rules": {
-    "Codebase Structure": {
-      "facts": {
-        "layer.populated": {
-          "find": ["file:{Path}/**/*.java", "file:{Path}/**/*.ts", "file:{Path}/**/*.vue"],
-          "matches": "any",
-          "read": [{ "match": "\\S", "value": "true" }],
-          "absent": "false",
-          "unstated": "no source file under `{Path}`"
-        }
-      }
     }
   }
 }

@@ -1,22 +1,19 @@
 # Rules (blocks 3 and 4)
 
-A rule reads a claim's value from the code graph and returns a [reading](claims-and-findings.md#the-reading). There are four kinds, and all return the same reading ([R45](requirements.md)):
+A rule reads a claim's value from the code graph and returns a [reading](claims-and-findings.md#the-reading) ([R45](requirements.md)). There are two kinds:
 
-| Kind      | For                                                                                          | Written as                                                   | Phase                          |
-| --------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------ |
-| Structure | Types, members, signatures and enums, for any language with a language profile (block 3)     | built in, configured by conventions and the language profile | 1                              |
-| Recipe    | A value at one place in the code: find it, then read it                                      | JSON, a superset of Common.Drift's                           | 1                              |
-| Query     | A value that needs joining code with code, or code with the model, such as a layer's imports | JSON pipeline                                                | 3                              |
-| Plug-in   | Anything else                                                                                | C#, in a pack                                                | 1 (interfaces), 4 (first uses) |
+| Kind         | For                                                                                       | Written as                                                   |
+| ------------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| Structure    | Types, members, signatures and enums, for any language with a language profile (block 3)  | built in, configured by conventions and the language profile |
+| Claim reader | Anything else: a framework's code, or what a house's own stereotypes state                | C#, in a module's extension ([Plug-ins](#plug-ins))           |
+
+Reading code is C# only. A pack is data, its vocabulary, conventions and language profiles, and never says how to read code (user decision, 2026-11-16: recipes, a JSON way of reading code beside claim readers, were removed, so a check has one way in).
 
 ## Choosing a rule
 
-A pack's rules file maps claim kinds to rules for one designer, optionally narrowed by element (`for`, as in [vocabulary](vocabulary.md#a-vocabulary-entry)). A kind may map to one rule or to a list of rules, each narrowed by its own `for`, so one pack can read a kind differently for two element types. Exactly one rule must apply to each claim:
+For each claim, the extensions' claim readers come first, the most recently registered first, then the engine's structure rules. The engine registers the stock extensions before any module's, so a module's reader is asked before a stock one, and can read any kind, the engine's included ([R46](requirements.md)). A reader returns nothing for a claim it doesn't read, and the next is asked; a claim nothing reads is `noRule`. So a house that disagrees with a stock reading for some of its code reads just those claims and leaves the rest to the stock reader.
 
-- none gives `noRule` for that claim;
-- two from one pack are a `config/ruleConflict` error, and so are two from different packs, unless one declares `"replaces": "<pack>/<kind>"`, which is how a house pack overrides a stack pack's recipe for its codebase.
-
-A rule is keyed by kind, not by the pack whose vocabulary produced the claim. A framework pack's rule therefore reads claims a module's or a house pack's vocabulary states, such as On Delete from eShopCustom's own stereotype ([packs.md](packs.md#who-ships-what)).
+A reader is keyed by kind, not by the pack whose vocabulary produced the claim. A framework's reader therefore reads claims a module's or a house pack's vocabulary states, such as On Delete from eShopCustom's own stereotype ([packs.md](packs.md#who-ships-what)).
 
 ## Structure (block 3)
 
@@ -74,121 +71,37 @@ The `type` comparer maps the model's type through `types` and `collections`, the
 
 Result wrappers beyond async ones belong to frameworks, so the conventions of a framework pack list them, with `T` for the result and `…` for any further type arguments: ASP.NET Core's `ActionResult<T>`, `Ok<T>`, `Results<Ok<T>, …>`; Spring's `ResponseEntity<T>`. `operation.returns` unwraps them as it unwraps `Task<T>`.
 
-## Recipes
+## Find paths
 
-A recipe finds one place in the code and reads a value from it. The format is Common.Drift's, unchanged, with additions ([R46](requirements.md)). A pack's recipes for one designer are a file shaped like Common.Drift's recipe file:
+A convention's `find` ([`schemas/conventions.schema.json`](schemas/conventions.schema.json)) reaches places in the code graph: the code an `unmodelled.*` opt-in rule looks at, or the types a type convention narrows to. Its steps are joined by ` > `, each a kind of node, optionally `with` a .NET regular expression its canonical text must match somewhere ([code-reader.md](code-reader.md#canonical-text)). `type:` (or `class:`) starts it; `method`, `property`, `field`, `constructor` and `member` go into a type's members, `parameter` into a member's parameters, `call` into a member's calls, `chain` into its call chains, `annotation` onto the node before, and `markup` into the markup elements of a type's files or of the element before. `^` and `$` anchor to the start and end of a node's text. A markup element's text includes its children's, so `markup with` keeps only the innermost elements that match.
 
-```json
-{
-  "designer": "Domain",
-  "files": "src/**/*.cs",
-  "facts": {
-    "column.maxLength": {
-      "find": "class:{Entity}Configuration > chain:Property(x=>x.{Attribute})",
-      "read": [{ "match": "\\.HasMaxLength\\((\\d+)\\)" }]
-    }
-  }
-}
-```
+Names in a find path, and a convention's `name`, are `{Name}` placeholders, filtered and chained as Common.Drift's were: `camel`, `pascal`, `kebab`, `lower`, `upper`, `trimStart:`, `trimEnd:` and `replace:` (`{Name|trimEnd:Service}Controller`).
 
-`files` narrows a recipe within scope; it can never widen it ([scope.md](scope.md#what-scope-decides)). `own` and `exceptions` aren't part of a pack's recipe file: they become opt-in rules and the model's exceptions ([conversion.md](conversion.md)).
-
-### What carries over unchanged
-
-Every recipe property (`find`, `read`, `default`, `absent`, `unstated`, `inherit`, `replace`, `case`, `files`, `note`), every read case property (`match`, `value`, `part`, `in`, `case`, `unreadable`), every find step (`class:`, `method:` with its overload form, `property:`, `parameter:`, `statement:`, `chain:`, `file:`, `<kind> with <regex>`, a bare `<kind>`), every placeholder filter (`camel`, `pascal`, `kebab`, `lower`, `upper`, `trimStart:`, `trimEnd:`, `replace:`), .NET regular expressions, and `//` comments. Each reads the same canonical text it read in Common.Drift ([code-reader.md](code-reader.md#canonical-text)).
-
-A `<kind> with <regex>` step keeps the nodes of that kind whose canonical text the regular expression matches anywhere, as Common.Drift's does; `^` and `$` anchor to the start and end of the node's text. A markup element's text includes its children's, so for `markup` the step keeps only the innermost matching elements: an element is dropped when an element inside it matches too.
-
-A read case gives text. For a `type` kind, that text is read as a type written in the file's language and resolved where the file's reader resolves names; a `node` read case that names a type ref field (`node: "type"`, `node: "returnType"`) gives that type ref as it is.
-
-Two behaviours change, both listed in [conversion.md](conversion.md#semantic-changes):
-
-- `default` and `absent` are refused for a `whenSet` kind (a `config/silenceForWhenSet` error). The model states those values only where the code does (decision 4).
-- A find that ends at several places is `ambiguous` and names every candidate.
-
-### Additions
-
-| Addition                       | Example                                                   | Why                                                                                    |
-| ------------------------------ | --------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `type:Name` step               | `type:{Entity}`                                           | `class:` reads as C#; `type:` names any language's types. `class:` stays as an alias.  |
-| `annotation:Name` step         | `type:{Entity} > annotation:Table`                        | C# attributes, Java annotations and decorators as nodes, not regular expressions       |
-| `call:Name` step               | `method:Configure > call:ToTable`                         | A call, whatever the chain around it                                                   |
-| `markup:Tag`                   | `type:{Component} > markup:PageTitle`                     | Markup without regular expressions. A Razor directive is the code it compiles to: `@page` is `annotation:Route` |
-| framework node steps           | `ef.entity:{Entity}`                                      | Framework readers' nodes                                                               |
-| `base` step                    | `type:{Entity} > base`                                    | The base types, nearest first; needs `resolution`                                      |
-| `node` read case               | `{ "node": "arguments[0].literal" }`                      | Read a node field, with no regular expression                                          |
-| `map`                          | `"map": { "nvarchar": "NVARCHAR", "varchar": "VARCHAR" }` | A value table applied after `replace`                                                  |
-| `pascal`, `camel` for `case`   | `"case": "pascal"`                                        | Case conversion for read values, beside `upper` and `lower`                            |
-| `inherit` as a list            | `"inherit": ["method", "class"]`                          | Common.Drift already accepted it; now documented                                       |
-| `compare`                      | `"compare": "ignoreCase"`                                 | A recipe-specific comparer, such as SQL types that differ only in case in one codebase |
-| `matches: "any"`               | `"matches": "any"`                                        | For `presence` and `bool` kinds: a find that ends at several places reads its first, in path and line order, rather than `ambiguous`. A Layer holding many files is populated by any of them |
-
-## Queries
-
-A query is a JSON pipeline over code nodes and model elements. It reads values that need a join, which no single find can reach ([R47](requirements.md)). Its schema is [`schemas/query.schema.json`](schemas/query.schema.json).
-
-| Step       | Does                                                                                                                   |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `from`     | Starts rows from code nodes of a kind (`code:import`) or model elements of a specialization (`model:Layer`)            |
-| `where`    | Keeps rows for which an expression is true                                                                             |
-| `let`      | Adds fields from expressions                                                                                           |
-| `flatMap`  | One row per item of a list field                                                                                       |
-| `resolve`  | Follows a type ref or call to its declaration; needs `resolution`, else `unresolved`                                   |
-| `ownerOf`  | Finds the model element whose path (an expression, such as a stereotype's Path) is the longest prefix of a file's path |
-| `distinct` | Removes duplicate rows                                                                                                 |
-| `group`    | Groups by fields, collecting others into lists                                                                         |
-| `reading`  | Ends the query: for each claim, by its bindings, the value read and where each part of it is                           |
-
-Expressions are [vocabulary's](vocabulary.md#expressions), plus the fields of code nodes.
-
-How rows become readings:
-
-- With `item`, the rows that reach one claim are collected into its list or set value, each item with its own `at`.
-- With `value`, the rows that reach one claim must agree; rows with different values make the claim `ambiguous`, naming each.
-- A claim no row reaches takes the query rule's `absent` value when it has one, marked as silence; `"absent": ""` with `item` gives an empty list or set, so a Layer that imports nothing verifies under `within`. Without `absent` the claim is `notFound`. As for recipes, `absent` is refused for a `whenSet` kind (`config/silenceForWhenSet`).
-
-Example, for `layer.dependencies` (phase 3): each Layer's model value is the set of Layers it may depend on, and the code's is the set of Layers its files import from.
-
-```json
-"layer.dependencies": {
-  "query": [
-    { "from": "code:import" },
-    { "ownerOf": { "path": "file", "among": "model:Layer", "by": "stereotype('Layer Settings').Path", "as": "fromLayer" } },
-    { "resolve": { "target": "target", "as": "imported" } },
-    { "ownerOf": { "path": "imported.file", "among": "model:Layer", "by": "stereotype('Layer Settings').Path", "as": "toLayer" } },
-    { "where": "exists(fromLayer) && exists(toLayer) && fromLayer != toLayer" },
-    { "reading": { "claim": { "Layer": "fromLayer.name" }, "item": "toLayer.name", "at": "span" } }
-  ],
-  "compare": "within"
-}
-```
-
-The `within` comparer verifies when every Layer the code imports from is one the model allows. When it isn't, the finding names each offending import and its line:
-
-> Layer dependencies of `Domain`: the code depends on `Infrastructure` at `src/Domain/Order.cs:3`, which the model doesn't allow. Remove the import, or add a May Depend On from `Domain` to `Infrastructure`.
-
-eShopCustom's planted break 28 (`using` Infrastructure in `Order.cs`) is that case. A C# `using` names a namespace, not a type, so for C# `resolve` maps the namespace to the files declaring it; the Java spike's planted case imports a class.
+A find path only finds code. Reading a value from what it finds is a claim reader's job.
 
 ## Plug-ins
 
-A plug-in is a .NET assembly in a pack, implementing one or more of these interfaces ([R48](requirements.md)). Phase 1 fixes their exact signatures; this is their contract.
+A module extends the engine in C#, through its extension (`DriftEngineExtensionBase`), with one or more of these ([R48](requirements.md)):
 
 | Interface          | Given                                                    | Returns                                                       |
 | ------------------ | -------------------------------------------------------- | ------------------------------------------------------------- |
 | `ICodeReader`      | in-scope files of its languages, and the project nodes   | graph nodes and edges, and its capabilities                   |
 | `IFrameworkReader` | committed artifacts its patterns match                   | framework nodes, located in the artifacts                     |
-| `IClaimReader`     | one claim (kind, element, bindings) and the scoped graph | a reading                                                     |
+| `IClaimReader`     | one claim (kind, element, bindings) and the scoped graph | a reading, or nothing to leave the claim to the next rule     |
 | `IValueComparer`   | the expected value and a reading                         | verified or contradicted, with the text to show for each side |
 | `IModelFunction`   | a model element and arguments                            | a value; it declares the stereotypes and properties it reads  |
 | `IOptInRule`       | the scoped graph and the claims' readings                | the code it finds unmodelled                                  |
+| `IDriftRule`       | the scoped graph, the model and the claims' readings     | findings that are no one claim's, under its own id            |
+
+A claim reader that finds the code it needs only in a file the Drift Scope leaves out says so (`ClaimReading.OutOfScope`), and the claim is can't verify, `outOfScope`, naming the scope row. One that finds nothing anywhere states silence without a place (`ClaimReading.Absent(null, value)`).
+
+An `IDriftRule` has an id (`messaging/unmodelled`, `aspnetcore/conventional.route`), and only the last registered rule of each id runs: a module's rule replaces a stock one of its id (user decision, 2026-11-16), and the Software Factory log says which it replaced (`scope/replacedRule`). A house that disagrees with a stock rule copies it and changes it, or turns it off with one of the same id that reports nothing. An opt-in rule is replaced the same way, by its id.
 
 The rules a plug-in must follow:
 
 - It sees only in-scope code, through the graph. It never opens files itself.
 - It never writes anything: no files, no model.
-- It throws only for its own bugs. A throw is caught and becomes `ruleFailed` on each claim the plug-in was reading, plus one `config/pluginFailed` finding.
-
-Any rule, not only a plug-in, fails as `ruleFailed` when it returns something malformed: a value that doesn't fit the kind's value type (text for a `bool` or `number` kind), or a node field path that doesn't exist on the node it reached. What can be checked without code (a recipe that doesn't parse, a query step naming an unknown field of a model element, a read case's bad regular expression) is checked when the pack loads, as a `config/ruleInvalid` error, and the rule doesn't run.
+- It throws only for its own bugs. A throw is caught and becomes `ruleFailed` on each claim it was reading, naming the module.
 
 ## Opt-in "must be modelled" rules
 
@@ -233,7 +146,7 @@ Domain events, integration events and integration commands are the one exception
 
 The messaging pack, `intent.messaging`, reads them whatever the codebase raises them through (`AddDomainEvent`, an outbox, a bus, its own wrapper):
 
-- **A link** (`Domain Event Origin`, `Publish Integration Event`, `Send Integration Command`) is an `intent.raises`, `intent.publishes` or `intent.sends` claim on its target end. It is verified when the code it starts from hands a new message of the linked type to a call: a constructor's or operation's method, a command's method that takes it, or a handler's method that takes what it subscribes to, each with the code's own methods it calls, its class's and its collaborators' (a field of an interface the code implements is each implementation). A message handed to a library's method (a bus, an outbox, a list) is raised. One handed to a method of the code is raised only when that method hands the parameter on in turn, into a call that does, something it creates, or something it keeps: a method that only reads it processes it in place. A call in what a method returns, when the method returns the message, builds it for its caller (`return Task.FromResult(message)`). When the code doesn't raise it, the link is contradicted, at the method.
+- **A link** (`Domain Event Origin`, `Publish Integration Event`, `Send Integration Command`) is an `intent.raises`, `intent.publishes` or `intent.sends` claim on its target end. It is verified when the code it starts from hands a new message of the linked type to a call: a constructor's or operation's method, a command's method that takes it, or a handler's method that takes what it subscribes to, each with the code's own methods it calls, its class's and its collaborators' (a field of an interface the code implements is each implementation). A message handed to a library's method (a bus, an outbox, a list) is raised. One handed to a method of the code is raised only when that method hands the parameter on in turn, into a call that does, something it creates, or something it keeps: a method that only reads it processes it in place. A call in what a method returns, when the method returns the message, builds it for its caller (`return Task.FromResult(message)`). A link says the code can raise the message, not that it always does (user decision, 2026-11-16): a raise in any branch bears it out, and so does a raise of what a method of the code returns, awaited or not, when one of the messages it can return is the linked one (`AddDomainEvent(StatusChanged())`). A message handed on that the code doesn't say, such as a library factory's or one typed only as what the message derives from (`INotification`), is can't verify, `unreadable`. When the code doesn't raise it, the link is contradicted, at the method.
 - **A message type the diagram doesn't show** is reported by `messaging/unmodelled.message`, at its declaration, in checked code only. The messages are the modelled ones and every type of the code that has what all the modelled ones of that kind derive from or implement (`INotification`, an `IntegrationEvent` base); with none modelled there is nothing to learn from, and nothing is reported.
 - **A raise no link covers** is reported by `messaging/unmodelled.raise`, `.publish` or `.send`, at the call, when the diagram has somewhere to draw the link from, which the fix names:
   - a modelled constructor, operation, command, query or handler subscription whose code reaches the call, itself or through the code's own methods it calls, nearest first: a helper's send is the handler's that calls it;
@@ -252,13 +165,3 @@ ASP.NET Web API 2's attribute routing covers only actions with a `[Route]` of th
 - **An empty Route** makes no `operation.route` claim (it is stated only when set), yet it puts the endpoint at its service's Route. When Web API 2 serves the action elsewhere, `aspnetcore/conventional.route` reports it at the action, asking for a `[Route]` in the code or the absolute route in the model. A service whose Route is the conventional route itself (a controller with no prefix, modelled at `api/Claims`) isn't reported.
 
 A parameter's source reads the same route: such an action binds from the conventional template, not its controller's prefix.
-
-## Recipe validation
-
-Validation runs on demand, from the model, the code and the packs, never during a Software Factory run ([R50](requirements.md)). It keeps Common.Drift's checks and extends them to every rule kind:
-
-- **The probe**: change, in memory, the code each reading came from, read again, and warn when the same value comes back.
-- **The wrong-element check**: for each kind and owner, warn when a reading for one element came from code naming a sibling's own placeholder (`own`).
-- **Counts by source**: per kind, how many readings came from code, from inheritance and from silence. Silence readings are listed so a recipe that verifies everything from `absent` stands out.
-
-Phase 1 builds it; its acceptance cases live with phase 1, not in this suite.

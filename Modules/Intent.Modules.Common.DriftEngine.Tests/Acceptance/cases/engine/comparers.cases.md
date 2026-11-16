@@ -1,6 +1,6 @@
 # engine/comparers
 
-Each claim kind names its comparer, and both sides are trimmed first (R10). One case per comparer, each on a kind that uses it, showing what that comparer accepts or rejects that plain equality wouldn't. The kinds' own case files cover every outcome; these show the comparers side by side. Kinds that no stock pack reads take their rule from a house pack, as they will in a real codebase.
+Each claim kind names its comparer, and both sides are trimmed first (R10). One case per comparer, each on a kind that uses it, showing what that comparer accepts or rejects that plain equality wouldn't. The kinds' own case files cover every outcome; these show the comparers side by side. Kinds that no stock pack reads take their vocabulary from a house pack and their reading from a house module, as they will in a real codebase.
 
 The `version` comparer has no case: its only kind, `proxy.version`, takes its model value from the backend operation a proxy operation is mapped to, which vocabulary can't yet read.
 
@@ -456,10 +456,10 @@ public interface IAuditedEvent
 
 ## within
 
-`within` verifies when every code item is in the model, which may allow more. Infrastructure may depend on Domain and Application, and its code imports only from Domain.
+`within` verifies when every code item is in the model, which may allow more. Infrastructure may depend on Domain and Application, and its code imports only from Domain. No module reads a Layer's dependencies yet, so the case waits for one.
 
 ```json case
-{ "phase": 3, "kinds": ["layer.dependencies"], "cases": ["engine/comparers"], "requirements": ["R10", "R47"], "packs": ["intent.core", "house.shop"], "language": "csharp" }
+{ "phase": 3, "kinds": ["layer.dependencies"], "cases": ["engine/comparers"], "requirements": ["R10", "R46"], "packs": ["intent.core", "house.shop"], "language": "csharp" }
 ```
 
 ```json pack
@@ -484,23 +484,6 @@ public interface IAuditedEvent
           "source": "the Layer's May Depend On associations"
         }
       ]
-    }
-  },
-  "rules": {
-    "Codebase Structure": {
-      "facts": {
-        "layer.dependencies": {
-          "query": [
-            { "from": "code:import" },
-            { "ownerOf": { "path": "file", "among": "model:Layer", "by": "stereotype('Layer Settings').Path", "as": "fromLayer" } },
-            { "resolve": { "target": "target", "as": "imported" } },
-            { "ownerOf": { "path": "imported.file", "among": "model:Layer", "by": "stereotype('Layer Settings').Path", "as": "toLayer" } },
-            { "where": "exists(fromLayer) && exists(toLayer) && fromLayer != toLayer" },
-            { "reading": { "claim": { "Layer": "fromLayer.name" }, "item": "toLayer.name", "at": "span" } }
-          ],
-          "compare": "within"
-        }
-      }
     }
   }
 }
@@ -567,44 +550,7 @@ public class ShopDbContext : DbContext
 `contains` verifies when the code's text contains the model's. The page's Title is `Order history`; its `<PageTitle>` adds the site's name.
 
 ```json case
-{ "phase": "later", "kinds": ["page.title"], "cases": ["engine/comparers"], "requirements": ["R10", "R28"], "packs": ["intent.core", "house.shop"], "language": "csharp" }
-```
-
-```json pack
-{
-  "id": "house.shop",
-  "version": "1.0.0",
-  "engine": "^1.0.0",
-  "languages": ["csharp"],
-  "designers": ["User Interface"],
-  "kinds": [
-    { "kind": "page.title", "label": "page title", "valueType": "text", "comparer": "contains", "stated": "whenSet", "existence": false }
-  ],
-  "vocabulary": {
-    "User Interface": {
-      "entries": [
-        {
-          "kind": "page.title",
-          "for": { "element": "Component", "where": "hasStereotype('Page')" },
-          "value": "stereotype('Page').Title",
-          "bindings": { "Component": "name" },
-          "own": ["Component"],
-          "source": "the Page stereotype's Title"
-        }
-      ]
-    }
-  },
-  "rules": {
-    "User Interface": {
-      "facts": {
-        "page.title": {
-          "find": "file:src/WebApp/Components/**/{Component}.razor",
-          "read": [{ "match": "<PageTitle>([^<@]*)</PageTitle>" }]
-        }
-      }
-    }
-  }
-}
+{ "phase": "later", "kinds": ["page.title"], "cases": ["engine/comparers"], "requirements": ["R10", "R28"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```json model

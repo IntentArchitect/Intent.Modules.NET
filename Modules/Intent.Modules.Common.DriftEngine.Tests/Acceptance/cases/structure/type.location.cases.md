@@ -2,7 +2,7 @@
 
 Where the type's file must be. The value comes from vocabulary, not from the element alone (R28, R41): the codebase's house pack mirrors the element's designer folders under a source folder, as eShopCustom's modules mirrored them under their first Source and the Java spike under its domain package. The type is located anywhere in scope, so a type in the wrong folder is found (`type.exists` verified) and its location contradicted, rather than reported missing.
 
-The structure reading is the path of the file that declares the type. eShopCustom's Domain module checked the whole path, `<folders>/<Name>.cs`, so its cases compare paths. Its Services and Front End modules checked the folder only, because a file may declare several types (eShop's `CatalogItem.cs` declares `CatalogBrand` too), so their house packs replace the reading with a recipe that reads the declaring file's folder (R46, R48).
+The structure reading is the path of the file that declares the type. eShopCustom's Domain module checked the whole path, `<folders>/<Name>.cs`, so its cases compare paths. Its Services and Front End modules checked the folder only, because a file may declare several types (eShop's `CatalogItem.cs` declares `CatalogBrand` too), so their modules replace the reading with a claim reader of their own (`house.readers`) that reads the declaring file's folder (R46, R48).
 
 ## verified
 
@@ -177,7 +177,7 @@ public class Order
 eShopCustom's Services module checked that a type's file is in the folder mirroring its model folders, whatever the file's name. `OrderDraftDto` is declared in `CreateOrderDraftCommand.cs`, beside the command that returns it, which is in the right folder, so both claims are verified.
 
 ```json case
-{ "phase": 2, "kinds": ["type.location"], "traces": ["ESC-SVC-12"], "requirements": ["R2", "R28", "R46", "R48"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": 2, "kinds": ["type.location"], "traces": ["ESC-SVC-12"], "requirements": ["R2", "R28", "R46", "R48"], "packs": ["intent.core", "intent.services", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```json pack
@@ -210,19 +210,6 @@ eShopCustom's Services module checked that a type's file is in the folder mirror
           "source": "the DTO's folders in the Services designer"
         }
       ]
-    }
-  },
-  "rules": {
-    "Services": {
-      "facts": {
-        "type.location": {
-          "replaces": "intent.core/type.location",
-          "find": "type:{Type}",
-          "read": [{ "node": "file" }],
-          "replace": [{ "match": "/[^/]+$", "with": "" }],
-          "note": "The folder of the file that declares the type; a file may declare several types"
-        }
-      }
     }
   }
 }
@@ -280,7 +267,7 @@ public record OrderDraftDto(decimal Total);
 eShopCustom's Front End module checked components, model definitions and service proxies the same way, against the User Interface designer's folders under each project. No stock pack before phase 6 knows that designer, so the house pack locates its elements too (R28, R53). `CatalogBrand` is declared in `CatalogItem.cs`, in its model folder.
 
 ```json case
-{ "phase": 2, "kinds": ["type.location"], "traces": ["ESC-FE-09", "ESC-FE-40", "ESC-FE-51"], "requirements": ["R2", "R28", "R30", "R37", "R46", "R53"], "packs": ["intent.core", "house.eshop"], "language": "csharp" }
+{ "phase": 2, "kinds": ["type.location"], "traces": ["ESC-FE-09", "ESC-FE-40", "ESC-FE-51"], "requirements": ["R2", "R28", "R30", "R37", "R46", "R53"], "packs": ["intent.core", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```json pack
@@ -324,19 +311,6 @@ eShopCustom's Front End module checked components, model definitions and service
           "source": "the Service Proxy's folders in the User Interface designer"
         }
       ]
-    }
-  },
-  "rules": {
-    "User Interface": {
-      "facts": {
-        "type.location": {
-          "replaces": "intent.core/type.location",
-          "find": "type:{Type}",
-          "read": [{ "node": "file" }],
-          "replace": [{ "match": "/[^/]+$", "with": "" }],
-          "note": "The folder of the file that declares the type; a file may declare several types"
-        }
-      }
     }
   },
   "conventions": {
@@ -432,7 +406,7 @@ public class CatalogService(HttpClient httpClient)
 The service proxy was moved into the `Catalog` folder. Its model folder is `Services`, so its location is contradicted.
 
 ```json case
-{ "phase": 2, "base": "front-end-folders", "without": ["src/WebAppComponents/Services/CatalogService.cs"], "kinds": ["type.location"], "traces": ["ESC-FE-51"], "requirements": ["R1", "R11", "R14"], "packs": ["intent.core", "house.eshop"], "language": "csharp" }
+{ "phase": 2, "base": "front-end-folders", "without": ["src/WebAppComponents/Services/CatalogService.cs"], "kinds": ["type.location"], "traces": ["ESC-FE-51"], "requirements": ["R1", "R11", "R14"], "packs": ["intent.core", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```csharp file src/WebAppComponents/Catalog/CatalogService.cs

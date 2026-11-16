@@ -28,6 +28,8 @@ internal sealed class ProtobufLanguage : ILanguage
 
     public bool Reads(string path) => path.EndsWith(".proto", StringComparison.OrdinalIgnoreCase);
 
+    public bool LibrariesNeedImports => true;
+
     public void Read(string root, IReadOnlyList<string> files, CodeGraph graph) => ProtobufReader.Read(root, files, graph);
 }
 

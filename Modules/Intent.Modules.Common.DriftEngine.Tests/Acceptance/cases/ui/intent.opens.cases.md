@@ -1,37 +1,13 @@
 # intent.opens
 
-A component opens a dialog: a Show Dialog association in the User Interface designer, from the component (or one of its Component Operations) to a Component with the Dialog stereotype. It is a `presence` kind, an existence kind, `stated: always`, and the claim sits on the association. No eShopCustom or Java spike check states it: the kind comes from Common.Drift's User Interface facts, so these cases show the converted recipe, with the `intent.ui` pack's `{Component}` and `{Dialog}` placeholders.
+A component opens a dialog: a Show Dialog association in the User Interface designer, from the component (or one of its Component Operations) to a Component with the Dialog stereotype. It is a `presence` kind, an existence kind, `stated: always`, and the claim sits on the association. No eShopCustom or Java spike check states it: the kind comes from Common.Drift's User Interface facts. The `intent.ui` pack gives the vocabulary, and the Blazor reader finds a `Show` or `Open` call, or its `Async` form, whose type argument is the dialog.
 
 ## verified
 
 The cart page asks before removing an item, opening the `RemoveItemDialog` through the dialog service, and the model has a Show Dialog from the page to that dialog.
 
 ```json case
-{ "phase": 6, "kinds": ["intent.opens"], "requirements": ["R2", "R8", "R46"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
-```
-
-```json pack
-{
-  "id": "house.eshopcustom",
-  "version": "1.0.0",
-  "engine": "^1.0.0",
-  "requires": [{ "id": "intent.ui", "version": "^1.0.0" }],
-  "languages": ["csharp"],
-  "designers": ["User Interface"],
-  "rules": {
-    "User Interface": {
-      "files": ["src/WebApp/Components/**/*.razor", "src/WebApp/Components/**/*.razor.cs"],
-      "facts": {
-        "intent.opens": {
-          "find": "file:src/WebApp/Components/**/{Component}.razor*",
-          "read": [{ "match": "\\b(?:Show|Open)(?:Async)?<{Dialog}>", "value": "present" }],
-          "default": "absent",
-          "unstated": "no `ShowAsync<{Dialog}>` in {Component}'s files"
-        }
-      }
-    }
-  }
-}
+{ "phase": 6, "kinds": ["intent.opens"], "requirements": ["R2", "R8"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```json model
@@ -93,10 +69,10 @@ The cart page asks before removing an item, opening the `RemoveItemDialog` throu
 
 ## contradicted-not-opened
 
-The cart page now removes items without asking, and the model's Show Dialog still says it opens the dialog. The page's file is found and no read case matches, so its silence says `absent`.
+The cart page now removes items without asking, and the model's Show Dialog still says it opens the dialog. The page is found and nothing in it opens the dialog, so its silence says `absent`.
 
 ```json case
-{ "phase": 6, "base": "verified", "kinds": ["intent.opens"], "cases": ["engine/silence"], "requirements": ["R3", "R8"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 6, "base": "verified", "kinds": ["intent.opens"], "cases": ["engine/silence"], "requirements": ["R3", "R8"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```razor file src/WebApp/Components/Pages/Cart/CartPage.razor
@@ -117,7 +93,7 @@ The cart page now removes items without asking, and the model's Show Dialog stil
 {
   "claims": [
     { "kind": "intent.opens", "element": "cart-opens-remove-item", "outcome": "contradicted",
-      "expected": "present", "actual": "absent", "fromSilence": true }
+      "expected": "present", "actual": "none", "fromSilence": true }
   ],
   "findings": [
     { "rule": "claim/intent.opens", "severity": "error", "subject": "cart-opens-remove-item", "messageContains": "RemoveItemDialog" }

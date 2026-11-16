@@ -2,14 +2,14 @@
 
 The HTTP verb a front end's proxy operation sends, against the backend Operation it calls. In the Java spike's Front End designer, a Proxy Operation has a Calls association to a Services designer Operation, whose Http Settings stereotype's Verb is the model's value. The kind is `stated: always` and compares exactly.
 
-The kind is `later`, so these cases' house pack gives the kind, the Front End designer's vocabulary and the rule. The claim sits on the Calls association. The rule reads the first argument of the `request('VERB', path)` call in the proxy method, in the Proxy's file, as text.
+No stock pack knows the Front End designer, so these cases' house pack gives the kind and its vocabulary. The claim sits on the Calls association. The proxy method states the verb as the first argument of its `request('VERB', path)` call, which its module's claim reader (`house.readers`) reads.
 
 ## verified
 
 The storefront's API client reads one product with a `GET`, and the called backend Operation's Http Settings Verb is `GET`.
 
 ```json case
-{ "phase": "later", "kinds": ["proxy.verb"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R28", "R30", "R38"], "packs": ["intent.core", "intent.java", "house.shop"], "language": "typescript" }
+{ "phase": "later", "kinds": ["proxy.verb"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R28", "R30", "R38"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
 ```
 
 ```json pack
@@ -38,18 +38,6 @@ The storefront's API client reads one product with a `GET`, and the called backe
           "source": "the called Operation's Http Settings Verb"
         }
       ]
-    }
-  },
-  "rules": {
-    "Front End": {
-      "files": ["src/**/*.ts"],
-      "facts": {
-        "proxy.verb": {
-          "find": "file:{File}",
-          "read": [{ "match": "\\b{Operation}\\([^)]*\\):[^{]*\\{return request<[^>]*>\\('(\\w+)'" }],
-          "unstated": "no `request('VERB', …)` in `{Operation}` in `{File}`"
-        }
-      }
     }
   }
 }
@@ -131,7 +119,7 @@ export const api = {
 The proxy method now sends a `POST`, and the backend Operation it calls answers `GET`.
 
 ```json case
-{ "phase": "later", "base": "verified", "kinds": ["proxy.verb"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.java", "house.shop"], "language": "typescript" }
+{ "phase": "later", "base": "verified", "kinds": ["proxy.verb"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
 ```
 
 ```typescript file src/api/client.ts
@@ -164,7 +152,7 @@ export const api = {
 
 ## eshop-http-verb
 
-eShopCustom's Blazor catalog proxy: a Service Proxy Operation's Backend Operation stereotype names the backend Operation, whose Http Settings Verb is the model's value. `GetFromJsonAsync` sends a GET. The house pack gives the vocabulary for eShopCustom's own stereotype; reading the verb from the proxy method's `HttpClient` call is the stock rule's, as `engine/unreadable`'s house recipe does for a few calls.
+eShopCustom's Blazor catalog proxy: a Service Proxy Operation's Backend Operation stereotype names the backend Operation, whose Http Settings Verb is the model's value. `GetFromJsonAsync` sends a GET. The house pack gives the vocabulary for eShopCustom's own stereotype; reading the verb from the proxy method's `HttpClient` call is the stock proxy reader's.
 
 ```json case
 { "phase": "later", "kinds": ["proxy.verb"], "traces": ["ESC-FE-60"], "requirements": ["R2", "R28"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }

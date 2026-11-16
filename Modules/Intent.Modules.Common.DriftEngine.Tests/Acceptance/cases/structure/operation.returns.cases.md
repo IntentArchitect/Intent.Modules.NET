@@ -114,6 +114,106 @@ public class Order
 }
 ```
 
+## house-entry-without-depends-on
+
+A house's own designer, `Ledger`: a Book is a class and its Ledger Operations are its methods. The house pack's `operation.returns` entry names no `dependsOn`. The engine's rule reads the method the operation's `member.exists` claim located, so the claim depends on that claim, as a stock entry's does, and `Balance` returning `decimal` verifies it.
+
+```json case
+{ "phase": 2, "kinds": ["operation.returns"], "requirements": ["R2", "R8"], "packs": ["intent.core", "house.ledger"], "language": "csharp" }
+```
+
+```json pack
+{
+  "id": "house.ledger",
+  "version": "1.0.0",
+  "languages": ["csharp"],
+  "designers": ["Ledger"],
+  "vocabulary": {
+    "Ledger": {
+      "entries": [
+        { "kind": "type.exists", "for": { "element": "Book" }, "value": "self", "source": "the Book" },
+        { "kind": "member.exists", "for": { "element": "Ledger Operation" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the Ledger Operation" },
+        { "kind": "operation.returns", "for": { "element": "Ledger Operation" }, "value": "type", "source": "the Ledger Operation's type" }
+      ]
+    }
+  }
+}
+```
+
+```json model
+{
+  "designers": {
+    "Ledger": {
+      "packages": [{
+        "id": "ledger", "name": "Accounts",
+        "elements": [
+          { "id": "general-ledger", "type": "Book", "name": "GeneralLedger",
+            "children": [
+              { "id": "general-ledger-balance", "type": "Ledger Operation", "name": "Balance", "typeRef": { "type": "decimal" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Accounts", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Accounts/GeneralLedger.cs
+namespace Accounts;
+
+public class GeneralLedger
+{
+    public decimal Balance() => 0m;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "general-ledger", "outcome": "verified" },
+    { "kind": "member.exists", "element": "general-ledger-balance", "outcome": "verified" },
+    { "kind": "operation.returns", "element": "general-ledger-balance", "outcome": "verified", "expected": "decimal", "actual": "decimal", "at": "src/Accounts/GeneralLedger.cs:5" }
+  ]
+}
+```
+
+## house-entry-without-existence-claim
+
+The house pack claims `operation.returns` on a Ledger Operation but no `member.exists`, so nothing locates the method its rule would read: can't verify, `blocked`, where the engine once failed.
+
+```json case
+{ "phase": 2, "base": "house-entry-without-depends-on", "kinds": ["operation.returns"], "cases": ["engine/blocked"], "requirements": ["R5", "R8"], "packs": ["intent.core", "house.ledger"], "language": "csharp" }
+```
+
+```json pack
+{
+  "id": "house.ledger",
+  "version": "1.0.0",
+  "languages": ["csharp"],
+  "designers": ["Ledger"],
+  "vocabulary": {
+    "Ledger": {
+      "entries": [
+        { "kind": "type.exists", "for": { "element": "Book" }, "value": "self", "source": "the Book" },
+        { "kind": "operation.returns", "for": { "element": "Ledger Operation" }, "value": "type", "source": "the Ledger Operation's type" }
+      ]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "general-ledger-balance", "outcome": "cantVerify", "reason": "blocked" }
+  ]
+}
+```
+
 ## async-unwrapped
 
 A Repository's operations are the methods of its interface. The C# profile unwraps `Task<Order>` to `Order` and `ValueTask<int>` to `int`, and reads a bare `Task` as returning nothing, which is what `UpdateAsync`, with no type reference, says.
@@ -940,10 +1040,10 @@ public class InventoryController {
 
 ## typescript-proxy-operation
 
-The Java spike's Front End Proxies are object literals in a TypeScript file, `export const api = { … }`, whose methods are the Proxy Operations. The TypeScript reader (intent.typescript, `later`) gives each method a `method` node, but the object literal is no type the structure comparison could locate, so the storefront's house pack reads the claim with a recipe: the method in the file the Proxy's Implementation stereotype names, and the argument of its `Promise<…>`. That text is read as a TypeScript type and resolved through the file's imports (rules.md, Recipes), so `ProductDto` is the interface the Contract is located as. `ProductDto | null` matches the model's nullable `ProductDto`, nullability aside, and `ProductDto[]` a collection of it.
+The Java spike's Front End Proxies are object literals in a TypeScript file, `export const api = { … }`, whose methods are the Proxy Operations. The TypeScript reader (intent.typescript, `later`) makes the object literal an `object` type with a `method` node for each method, and the storefront's house pack's conventions name a Proxy's type in camel case, so the structure comparison locates each Proxy Operation's method in `api`. The method's return is the argument of its `Promise<…>`, the TypeScript profile's async wrapper, so `ProductDto` is the interface the Contract is located as. `ProductDto | null` matches the model's nullable `ProductDto`, nullability aside, and `ProductDto[]` a collection of it.
 
 ```json case
-{ "phase": "later", "kinds": ["operation.returns"], "traces": ["JAV-FE-09"], "requirements": ["R2", "R28", "R42", "R46"], "packs": ["intent.core", "intent.typescript", "house.storefront"], "language": "typescript" }
+{ "phase": "later", "kinds": ["operation.returns"], "traces": ["JAV-FE-09"], "requirements": ["R2", "R28", "R42"], "packs": ["intent.core", "intent.typescript", "house.storefront"], "language": "typescript" }
 ```
 
 ```json pack
@@ -957,12 +1057,13 @@ The Java spike's Front End Proxies are object literals in a TypeScript file, `ex
   "vocabulary": {
     "Front End": {
       "entries": [
+        { "kind": "type.exists", "for": { "element": "Proxy" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the Proxy" },
+        { "kind": "member.exists", "for": { "element": "Proxy Operation" }, "value": "self", "dependsOn": "parent:type.exists", "source": "the Proxy Operation" },
         {
           "kind": "operation.returns",
           "for": { "element": "Proxy Operation" },
           "value": "type",
-          "bindings": { "Operation": "camel(name)", "ProxyFile": "parent.stereotype('Implementation').Path" },
-          "own": ["Operation"],
+          "dependsOn": "member.exists",
           "source": "the Proxy Operation's type"
         }
       ]
@@ -971,19 +1072,8 @@ The Java spike's Front End Proxies are object literals in a TypeScript file, `ex
   "conventions": {
     "Front End": {
       "types": {
-        "Contract": { "typeKinds": ["interface", "typeAlias"], "locations": ["src/api/*.ts"], "note": "Contracts are exported interfaces or type aliases in src/api" }
-      }
-    }
-  },
-  "rules": {
-    "Front End": {
-      "facts": {
-        "operation.returns": {
-          "files": "src/**/*.ts",
-          "find": "file:{ProxyFile} > method:{Operation}",
-          "read": [{ "match": "\\)\\s*:\\s*Promise<(.+)>\\s*\\{" }],
-          "note": "Every proxy method is async: its return is the argument of Promise<T>, read as a TypeScript type"
-        }
+        "Contract": { "typeKinds": ["interface", "typeAlias"], "locations": ["src/api/*.ts"], "note": "Contracts are exported interfaces or type aliases in src/api" },
+        "Proxy": { "name": "{Name|camel}", "typeKinds": ["object"], "note": "The storefront: a Proxy is the object of its methods" }
       }
     }
   }
@@ -1053,8 +1143,8 @@ export const api = {
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "api-get-product-by-id", "outcome": "verified", "expected": "ProductDto?", "actual": "ProductDto|null", "at": "src/api/client.ts:10" },
-    { "kind": "operation.returns", "element": "api-list-products", "outcome": "verified", "expected": "ProductDto[]", "actual": "ProductDto[]", "at": "src/api/client.ts:15" }
+    { "kind": "operation.returns", "element": "api-get-product-by-id", "outcome": "verified", "expected": "ProductDto?", "actual": "Promise<ProductDto|null>", "at": "src/api/client.ts:10" },
+    { "kind": "operation.returns", "element": "api-list-products", "outcome": "verified", "expected": "ProductDto[]", "actual": "Promise<ProductDto[]>", "at": "src/api/client.ts:15" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "count": 0 }
@@ -1094,7 +1184,7 @@ export const api = {
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "api-list-products", "outcome": "contradicted", "expected": "ProductDto[]", "actual": "ProductDto", "at": "src/api/client.ts:15" }
+    { "kind": "operation.returns", "element": "api-list-products", "outcome": "contradicted", "expected": "ProductDto[]", "actual": "Promise<ProductDto>", "at": "src/api/client.ts:15" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "severity": "error", "subject": "api-list-products" }

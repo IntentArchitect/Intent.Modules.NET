@@ -9,7 +9,7 @@ Give each codebase a visual of its design intent that is guaranteed true in the 
 - The visual shows intention, not everything the code does.
 - A drift check flags any stated claim that stops being true, whichever side changed. That keeps agents, and people, honest.
 - It works on any codebase in any language.
-- Modules extend the engine through code: their own designers, stereotypes, readers and rules. Everything the custom drift modules did (eShopCustom, the Java spike) stays within reach. The engine is the shared foundation, not the ceiling; recipes are a shortcut for simple claims, not the limit.
+- Modules extend the engine through code: their own designers, stereotypes, readers and rules. Everything the custom drift modules did (eShopCustom, the Java spike) stays within reach. The engine is the shared foundation, not the ceiling. Reading code is only ever C# in a module (user decision, 2026-11-16: recipes, a second, JSON way, were removed).
 - Code generation is only for bootstrapping.
 
 ## Principles
@@ -30,7 +30,7 @@ Every phase must keep these.
 | 1 | Open vocabulary             | Any designer, element type or stereotype can carry checkable claims, whether it is stock or a module's own.                                                                           |
 | 2 | A code reader per language  | Reads symbols, members, signatures and references the same way for every language. Where the framework can describe itself (EF Core's model, OpenAPI), facts come from the framework. |
 | 3 | Describe-only structure     | Compares the types, members and signatures the code reader finds with the model, and writes nothing into the code.                                                                    |
-| 4 | Rules beyond find-and-regex | Declarative recipes for most claims. Queries over model and code for rules like layer imports. Small code plug-ins for the rest.                                                      |
+| 4 | Rules beyond find-and-regex | Claim readers and rules in C#, in modules' extensions, over the code graph and the model: one way to read code.                                                                      |
 | 5 | Policy in the engine        | Every claim ends as verified, contradicted or can't-verify. Exceptions carry a reason. Severities and scope are set here.                                                             |
 
 ### Scope (part of block 5)
@@ -47,13 +47,13 @@ Brownfield code is full of junk, so the engine must be told what is in and what 
 
 ### Stack packs
 
-A stack pack bundles the readers, recipes and conventions for one technology (EF Core, ASP.NET Core, NServiceBus, Spring MVC, JPA, Vue…). A codebase combines the packs it uses and adds one small pack for its house style. Packs are what get pre-built, so reuse comes without losing flexibility.
+A stack module bundles the readers, vocabulary and conventions for one technology (EF Core, ASP.NET Core, NServiceBus, Spring MVC, JPA, Vue…). A codebase combines the packs it uses and adds one small pack for its house style. Packs are what get pre-built, so reuse comes without losing flexibility.
 
 ## What we reuse
 
 - **From Common.Drift:**
-  - recipes as data;
-  - the probe, recipe validation and the wrong-element check;
+  - vocabulary and conventions as data (its recipes were removed, 2026-11-16: reading code is C#);
+  - the probe, validation and the wrong-element check;
   - "can't be verified";
   - the AI skills and the report hub.
 - **From module building:**
@@ -65,7 +65,7 @@ A stack pack bundles the readers, recipes and conventions for one technology (EF
 ## Decisions
 
 - **A new module, Intent.Common.DriftEngine.** Clients on Common.Drift are migrated later. To keep that migration cheap:
-  - design the formats so Common.Drift recipes convert automatically;
+  - keep Common.Drift's kind and placeholder names, so its recipe files map onto stock and house readers;
   - report through Intent.Common.DriftReporting, with the engine's own files, so both engines can run side by side.
 - **The second language is Java.**
 - **Adopting a real codebase takes 2 hours at most.**
@@ -78,13 +78,13 @@ Each phase ends with a review. Phases are verified with unit tests, fixtures and
 
 | Phase                       | Delivers                                                                                                                                                                                                                                                                                               | Done when                                                                                                                                    |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0. Specification            | Requirements; the interfaces between the blocks (claim and finding model, code-reader schema, rule API, pack format); the scope model. An acceptance suite of unit tests and fixtures, built from the 321 checks reduced to intent claims, the real codebases and scope cases. Common.Drift recipes must convert. | Signed off                                                                                                                                   |
+| 0. Specification            | Requirements; the interfaces between the blocks (claim and finding model, code-reader schema, rule API, pack format); the scope model. An acceptance suite of unit tests and fixtures, built from the 321 checks reduced to intent claims, the real codebases and scope cases. Common.Drift's recipe files must map onto the engine. | Signed off                                                                                                                                   |
 | 1. Foundations              | Intent.Common.DriftEngine with blocks 2, 3 and 5, including scope, and a C# reader                                                                                                                                                                                                                     | eShopCustom's structure checks pass with zero hand-written files changed (user decision, 2026-11-13: eShopCustom is the system; basislink5 and CrmBus are examples). Excluded junk is not read, and the report holds only drift. |
 | 2. Open vocabulary          | Block 1                                                                                                                                                                                                                                                                                                | A Front End Store and an Architecture Layer are checked with no core change                                                                  |
 | 3. Rules beyond regex       | Block 4, piloted on Architecture (layers, May Depend On, imports)                                                                                                                                                                                                                                      | Planted import violations are caught in C# (eShopCustom) and Java (the spike)                                                                |
 | 4. Java and the first packs | A Java reader, plus packs for Spring MVC, JPA, EF Core, ASP.NET Core and NServiceBus                                                                                                                                                                                                                   | The Java spike's Domain and Services claims are checked with no Java-specific code in the core                                               |
 | 5. Adoption flow            | AI skills that set scope, build a curated intent model, choose packs and verify                                                                                                                                                                                                                        | A real codebase is adopted in 2 hours or less, with no code changes                                                                          |
-| 6. Migration (later)        | A recipe converter and a side-by-side run                                                                                                                                                                                                                                                              | basislink5 and CrmBus give the same results on the new engine                                                                                |
+| 6. Migration (later)        | A converter that maps recipe files onto stock and house readers, and a side-by-side run                                                                                                                                                                                                                | basislink5 and CrmBus give the same results on the new engine                                                                                |
 
 ## Evidence and inputs
 

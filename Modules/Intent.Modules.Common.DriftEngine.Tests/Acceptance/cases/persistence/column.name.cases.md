@@ -459,19 +459,6 @@ eShopCustom's `PaymentMethod` keeps its card number in a private field with no p
         }
       ]
     }
-  },
-  "rules": {
-    "Domain": {
-      "facts": {
-        "column.name": {
-          "for": { "element": "Attribute", "where": "hasStereotype('Backing Field')" },
-          "replaces": "intent.efcore/column.name",
-          "find": "class:{Entity}Configuration > chain:Property(\"{BackingField}\")",
-          "read": [{ "match": "\\.HasColumnName\\(\"([^\"]+)\"\\)" }],
-          "note": "A field mapped by name: the column name is on the field's chain."
-        }
-      }
-    }
   }
 }
 ```

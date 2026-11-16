@@ -1,42 +1,15 @@
 # engine/unreadable
 
-A rule can recognise that the code states a value in a form it can't read: a read case marked `unreadable` matched. The claim is can't verify, `unreadable` (outcome step 8), and the finding says where the code states it. It is never compared, so it is neither verified by luck nor contradicted by a misreading. Like every can't verify it is an error (open question 2); eShopCustom's modules reported these as warnings.
+A reader can recognise that the code states a value in a form it can't read. The claim is can't verify, `unreadable` (outcome step 8), and the finding says where the code states it. It is never compared, so it is neither verified by luck nor contradicted by a misreading. Like every can't verify it is an error (open question 2); eShopCustom's modules reported these as warnings.
 
 ## domain-event-not-identified
 
-The model says `SetPaidStatus` raises `OrderStatusChangedToPaidDomainEvent`. The method calls `AddDomainEvent` with an event a helper builds from the order's status, so which event it raises can't be read from its body. The house pack's recipe (eShopCustom's domain-events recipe, as converted) marks a bare `AddDomainEvent(` as unreadable after its two forms that name the event, so the claim is can't verify, `unreadable`, rather than read as `absent` from the recipe's `default` and contradicted.
+The model says `SetPaidStatus` raises `OrderStatusChangedToPaidDomainEvent`. The method calls `AddDomainEvent` with an event a library's factory builds from the order's status, so no code the engine reads says which event it raises. The stock messaging extension reads the event `AddDomainEvent` is handed as one the code doesn't type, so the claim is can't verify, `unreadable`, rather than read as `absent` and contradicted. Had a method of the code built it, the reading would follow it to the events it returns (`behaviour/intent.raises#verified-returned-by-helper`).
 
 eShopCustom's Domain module gave an `AddDomainEvent` whose event it couldn't identify a warning.
 
 ```json case
-{ "phase": 1, "cases": ["engine/unreadable"], "traces": ["ESC-DOM-32"], "requirements": ["R1", "R5"], "packs": ["intent.core", "intent.domain", "intent.messaging", "house.shop"], "language": "csharp" }
-```
-
-```json pack
-{
-  "id": "house.shop",
-  "version": "1.0.0",
-  "engine": "^1.0.0",
-  "requires": [{ "id": "intent.domain", "version": "^1.0.0" }],
-  "languages": ["csharp"],
-  "designers": ["Domain"],
-  "rules": {
-    "Domain": {
-      "facts": {
-        "intent.raises": {
-          "files": "src/Domain/**/*.cs",
-          "find": "class:{Entity} > method:{Member}",
-          "read": [
-            { "part": "body", "match": "\\bnew {DomainEvent}\\b", "value": "present" },
-            { "part": "body", "match": "\\bAdd{DomainEvent}\\(", "value": "present" },
-            { "part": "body", "match": "\\bAddDomainEvent\\(", "unreadable": true, "note": "An event built elsewhere: which one it is can't be read here." }
-          ],
-          "default": "absent"
-        }
-      }
-    }
-  }
-}
+{ "phase": 1, "cases": ["engine/unreadable"], "traces": ["ESC-DOM-32"], "requirements": ["R1", "R5"], "packs": ["intent.core", "intent.domain", "intent.messaging"], "language": "csharp" }
 ```
 
 ```json model
@@ -72,6 +45,7 @@ namespace Shop.Domain;
 
 public class Order : Entity
 {
+    private readonly IOrderEventFactory _events;
     private OrderStatus _status;
 
     public void SetPaidStatus()
@@ -82,14 +56,8 @@ public class Order : Entity
         }
 
         _status = OrderStatus.Paid;
-        AddDomainEvent(StatusChangedEvent());
+        AddDomainEvent(_events.StatusChanged(Id, _status));
     }
-
-    private INotification StatusChangedEvent() => _status switch
-    {
-        OrderStatus.Paid => new OrderStatusChangedToPaidDomainEvent(Id),
-        _ => new OrderStatusChangedDomainEvent(Id, _status)
-    };
 }
 ```
 
@@ -180,9 +148,9 @@ public static class OrdersApi
 
 ## proxy-verb-built-elsewhere
 
-The front end's ordering proxy has two operations, each with eShopCustom's Backend Operation stereotype naming the backend Operation it calls. The house pack's `proxy.verb` vocabulary follows that stereotype's Operation property to the backend Operation and states its Http Settings Verb. `GetOrders` calls `GetFromJsonAsync`, which reads as `GET`, and is verified. `CancelOrder` sends an `HttpRequestMessage` that an injected request factory builds, so the code states a verb, but somewhere this method doesn't show. The rule's last read case marks a bare `SendAsync(` as unreadable, so the claim is can't verify, `unreadable`: not contradicted as unstated, and not read as some other verb.
+The front end's ordering proxy has two operations, each with eShopCustom's Backend Operation stereotype naming the backend Operation it calls. The house pack's `proxy.verb` vocabulary follows that stereotype's Operation property to the backend Operation and states its Http Settings Verb. `GetOrders` calls `GetFromJsonAsync`, which reads as `GET`, and is verified. `CancelOrder` sends an `HttpRequestMessage` that an injected request factory builds, so the code states a verb, but somewhere this method doesn't show. The stock proxy reader reads a sent request's verb only from an `HttpRequestMessage` the method creates, so the claim is can't verify, `unreadable`: not contradicted as unstated, and not read as some other verb.
 
-eShopCustom's Front End module warned on request readings it couldn't verify: several requests or rpc calls in one method, a verb it couldn't read, an absolute or computed URI, computed or unknown headers, or a computed `api-version`. This case shows the verb; each of the others is the same outcome from a read case marked `unreadable` in the kind's rule.
+eShopCustom's Front End module warned on request readings it couldn't verify: several requests or rpc calls in one method, a verb it couldn't read, an absolute or computed URI, computed or unknown headers, or a computed `api-version`. This case shows the verb.
 
 ```json case
 { "phase": "later", "kinds": ["proxy.verb"], "cases": ["engine/unreadable"], "traces": ["ESC-FE-72"], "requirements": ["R1", "R5", "R30"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
@@ -210,24 +178,6 @@ eShopCustom's Front End module warned on request readings it couldn't verify: se
           "source": "the Http Settings Verb of the backend Operation its Backend Operation stereotype names"
         }
       ]
-    }
-  },
-  "rules": {
-    "User Interface": {
-      "files": ["src/WebAppComponents/Services/**/*.cs"],
-      "facts": {
-        "proxy.verb": {
-          "find": "type:{Proxy} > method:{Operation}",
-          "read": [
-            { "part": "body", "match": "\\.GetFromJsonAsync\\b", "value": "GET" },
-            { "part": "body", "match": "\\.PostAsJsonAsync\\b", "value": "POST" },
-            { "part": "body", "match": "\\.PutAsJsonAsync\\b", "value": "PUT" },
-            { "part": "body", "match": "\\.DeleteAsync\\b", "value": "DELETE" },
-            { "part": "body", "match": "\\.SendAsync\\(", "unreadable": true, "note": "A request message built elsewhere: its verb can't be read here." }
-          ],
-          "unstated": "no HTTP client call in {Proxy}.{Operation}"
-        }
-      }
     }
   }
 }
@@ -309,7 +259,7 @@ public class OrderingService(HttpClient httpClient, IOrderingRequests requests)
     { "kind": "proxy.verb", "element": "ordering-service-cancel-order", "outcome": "cantVerify", "reason": "unreadable" }
   ],
   "findings": [
-    { "rule": "claim/proxy.verb", "severity": "error", "subject": "ordering-service-cancel-order", "messageContains": "can't read" }
+    { "rule": "claim/proxy.verb", "severity": "error", "subject": "ordering-service-cancel-order", "messageContains": "can't be verified" }
   ]
 }
 ```

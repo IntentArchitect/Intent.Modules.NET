@@ -385,10 +385,10 @@ eShopCustom's Front End module held every adopted `.razor` file to the same stri
 
 ## unlayered
 
-eShopCustom's Architecture module warned about files under its Sources that no Layer covers. Its Layers sit on the Root Folder with a Layer Settings Path; the house pack's `layer.populated` query gives each in-scope file the Layer whose Path is its longest prefix and reads every such file, so every file inside a Layer is located by its Layer's claim. With `unmodelled.file` on, `Program.cs`, in no Layer, is reported, and a `Severity Overrides` row makes it the warning eShopCustom gave (R13). eShopCustom gave one warning per Source with a count of files; the engine reports each file, and has no finding that groups an opt-in rule's findings.
+eShopCustom's Architecture module warned about files under its Sources that no Layer covers. Its Layers sit on the Root Folder with a Layer Settings Path; the house module's `layer.populated` reader gives each in-scope file the Layer whose Path is its longest prefix and reads every such file, so every file inside a Layer is located by its Layer's claim. No reader for it is built yet, so the case waits. With `unmodelled.file` on, `Program.cs`, in no Layer, is reported, and a `Severity Overrides` row makes it the warning eShopCustom gave (R13). eShopCustom gave one warning per Source with a count of files; the engine reports each file, and has no finding that groups an opt-in rule's findings.
 
 ```json case
-{ "phase": 3, "kinds": ["layer.populated"], "cases": ["optin/unmodelled.file"], "traces": ["ESC-ARC-07"], "requirements": ["R13", "R47", "R49"], "packs": ["intent.core", "house.eshop"], "language": "csharp" }
+{ "phase": 3, "kinds": ["layer.populated"], "cases": ["optin/unmodelled.file"], "traces": ["ESC-ARC-07"], "requirements": ["R13", "R46", "R49"], "packs": ["intent.core", "house.eshop"], "language": "csharp" }
 ```
 
 ```json model
@@ -435,21 +435,6 @@ eShopCustom's Architecture module warned about files under its Sources that no L
           "source": "the Layer and its Layer Settings Path"
         }
       ]
-    }
-  },
-  "rules": {
-    "Codebase Structure": {
-      "facts": {
-        "layer.populated": {
-          "query": [
-            { "from": "code:file" },
-            { "ownerOf": { "path": "file", "among": "model:Layer", "by": "stereotype('Layer Settings').Path", "as": "layer" } },
-            { "where": "exists(layer)" },
-            { "reading": { "claim": { "Layer": "layer.name" }, "value": "true", "at": "span" } }
-          ],
-          "note": "Every file under a Layer's Path is part of its reading"
-        }
-      }
     }
   }
 }
@@ -599,10 +584,10 @@ public class JsonConfig {
 
 ## vue-files
 
-The Java spike's storefront: every `.ts` and `.vue` file under `src` is owned by an element, except tests, declaration files, `main.ts` and `router.ts`. No reader parses TypeScript or Vue, but the text reader reads every file, and a house `file.exists` rule locates each Component's `.vue` file, which is all this rule needs. Tests and declaration files are out of scope; `main.ts` and `router.ts` are excepted. `format.ts` is owned by nothing, so it is reported.
+The Java spike's storefront: every `.ts` and `.vue` file under `src` is owned by an element, except tests, declaration files, `main.ts` and `router.ts`. A house module's `file.exists` reader (`house.readers`) locates each Component's `.vue` file, which is all this rule needs. Tests and declaration files are out of scope; `main.ts` and `router.ts` are excepted. `format.ts` is owned by nothing, so it is reported.
 
 ```json case
-{ "phase": 4, "cases": ["optin/unmodelled.file", "scope/gate"], "traces": ["JAV-FE-12"], "requirements": ["R22", "R49"], "packs": ["intent.core", "intent.java", "house.storefront"], "language": "typescript" }
+{ "phase": 4, "cases": ["optin/unmodelled.file", "scope/gate"], "traces": ["JAV-FE-12"], "requirements": ["R22", "R49"], "packs": ["intent.core", "intent.java", "house.storefront", "house.readers"], "language": "typescript" }
 ```
 
 ```json model
@@ -646,15 +631,8 @@ The Java spike's storefront: every `.ts` and `.vue` file under `src` is owned by
   "vocabulary": {
     "Front End": {
       "entries": [
-        { "kind": "file.exists", "for": { "element": "Component" }, "bindings": { "Component": "name" }, "own": ["Component"], "source": "the Component" }
+        { "kind": "file.exists", "for": { "element": "Component" }, "bindings": { "Component": "name", "File": "'src/components/' + name + '.vue'" }, "own": ["Component"], "source": "the Component" }
       ]
-    }
-  },
-  "rules": {
-    "Front End": {
-      "facts": {
-        "file.exists": { "find": "file:src/components/{Component}.vue", "read": [{ "match": "<template>", "value": "true" }] }
-      }
     }
   }
 }

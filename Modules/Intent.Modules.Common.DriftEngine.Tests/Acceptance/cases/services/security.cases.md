@@ -409,10 +409,10 @@ Only the core and Services packs are active, so nothing reads how an endpoint is
 
 ## grpc-class-and-override
 
-eShopCustom's gRPC services carry its own `gRPC Service` stereotype, which no stock pack knows, so the house pack brings vocabulary for their Operations and a recipe: `[AllowAnonymous]` or `[Authorize]` on the method, else inherited from the class, else `None`. The class is `[Authorize]`, and `GetBasket` overrides it with `[AllowAnonymous]`; the model secures the Service and marks `GetBasket` `Unsecured`. ASP.NET Core's minimal API pack isn't active, so exactly one rule reads these claims. Traces ESC-SVC-16, its attribute part: a `.RequireAuthorization()` chained on `MapGrpcService<BasketService>()` in another file needs a cross-file rule (a plug-in, as for ESC-SVC-14) that no stock pack declares for gRPC, so it isn't shown here.
+eShopCustom's gRPC services carry its own `gRPC Service` stereotype, which no stock pack knows, so the house pack brings vocabulary for their Operations, and its module's claim reader (`house.readers`) reads them, since ASP.NET Core's reads only controllers and Minimal APIs: `[AllowAnonymous]` or `[Authorize]` on the method, else inherited from the class, else `None`. The class is `[Authorize]`, and `GetBasket` overrides it with `[AllowAnonymous]`; the model secures the Service and marks `GetBasket` `Unsecured`. Traces ESC-SVC-16, its attribute part: a `.RequireAuthorization()` chained on `MapGrpcService<BasketService>()` in another file needs a cross-file rule (a plug-in, as for ESC-SVC-14) that no stock pack declares for gRPC, so it isn't shown here.
 
 ```json case
-{ "phase": 4, "kinds": ["security"], "traces": ["ESC-SVC-16"], "requirements": ["R2", "R28", "R46"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+{ "phase": 4, "kinds": ["security"], "traces": ["ESC-SVC-16"], "requirements": ["R2", "R28", "R46"], "packs": ["intent.core", "intent.services", "intent.aspnetcore", "house.eshop", "house.readers"], "language": "csharp" }
 ```
 
 ```json model
@@ -460,24 +460,6 @@ eShopCustom's gRPC services carry its own `gRPC Service` stereotype, which no st
         }
       ]
     }
-  },
-  "rules": {
-    "Services": {
-      "files": "src/**/*.cs",
-      "facts": {
-        "security": {
-          "for": { "element": "Operation", "where": "parent.hasStereotype('gRPC Service')" },
-          "find": "class:{Service} > method:{Operation}",
-          "read": [
-            { "match": "\\[AllowAnonymous\\]", "value": "Unsecured", "part": "declaration" },
-            { "match": "\\[Authorize\\b", "value": "Secured", "part": "declaration" }
-          ],
-          "inherit": "class",
-          "default": "None",
-          "note": "A method's own attribute wins; else the class's; else nothing secures it"
-        }
-      }
-    }
   }
 }
 ```
@@ -519,10 +501,10 @@ public class BasketService(IBasketRepository repository) : Basket.BasketBase
 
 ## blazor-page-authorize
 
-A Blazor page is secured if and only if it is `[Authorize]`. eShopCustom's Front End checks were its own, so the house pack brings the User Interface designer's vocabulary for a page's `Secured` stereotype and a recipe over the `.razor` file's `@attribute [Authorize]`; a page without it states `None`. The `Orders` page is `Secured` and its file has the attribute. Traces ESC-FE-14.
+A Blazor page is secured if and only if it is `[Authorize]`. The `intent.ui` pack gives the User Interface designer's vocabulary for a component's `Secured` stereotype, and the Blazor reader reads the `.razor` file's `@attribute [Authorize]`; a page without it states `None`. The `Orders` page is `Secured` and its file has the attribute. Traces ESC-FE-14.
 
 ```json case
-{ "phase": 4, "kinds": ["security"], "traces": ["ESC-FE-14"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.services", "house.webapp"], "language": "text" }
+{ "phase": 4, "kinds": ["security"], "traces": ["ESC-FE-14"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.services", "intent.ui"], "language": "csharp" }
 ```
 
 ```json model
@@ -545,43 +527,6 @@ A Blazor page is secured if and only if it is `[Authorize]`. eShopCustom's Front
     "Codebase Structure": {
       "packages": [{ "id": "root", "name": "WebApp", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
-    }
-  }
-}
-```
-
-```json pack
-{
-  "id": "house.webapp",
-  "version": "1.0.0",
-  "requires": [{ "id": "intent.services", "version": "^1.0.0" }],
-  "languages": ["text"],
-  "designers": ["User Interface"],
-  "vocabulary": {
-    "User Interface": {
-      "entries": [
-        {
-          "kind": "security",
-          "for": { "element": "Component", "where": "hasStereotype('Page')" },
-          "value": "if(hasStereotype('Secured'), 'Secured', 'None')",
-          "bindings": { "Folder": "folderPath", "Component": "name" },
-          "own": ["Component"],
-          "source": "the page's Secured stereotype"
-        }
-      ]
-    }
-  },
-  "rules": {
-    "User Interface": {
-      "facts": {
-        "security": {
-          "find": "file:src/WebApp/Components/{Folder}/{Component}.razor",
-          "read": [
-            { "match": "@attribute\\s*\\[Authorize\\b", "value": "Secured" }
-          ],
-          "default": "None"
-        }
-      }
     }
   }
 }
@@ -621,7 +566,7 @@ A Blazor page is secured if and only if it is `[Authorize]`. eShopCustom's Front
 The `Catalog` page gains `@attribute [Authorize]`, and the model doesn't secure it: the "only if" half, contradicted. Traces ESC-FE-14.
 
 ```json case
-{ "phase": 4, "base": "blazor-page-authorize", "kinds": ["security"], "traces": ["ESC-FE-14"], "requirements": ["R1"], "packs": ["intent.core", "intent.services", "house.webapp"], "language": "text" }
+{ "phase": 4, "base": "blazor-page-authorize", "kinds": ["security"], "traces": ["ESC-FE-14"], "requirements": ["R1"], "packs": ["intent.core", "intent.services", "intent.ui"], "language": "csharp" }
 ```
 
 ```razor file src/WebApp/Components/Pages/Catalog.razor

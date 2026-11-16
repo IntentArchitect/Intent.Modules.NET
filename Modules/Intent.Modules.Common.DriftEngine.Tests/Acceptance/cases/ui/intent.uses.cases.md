@@ -2,38 +2,14 @@
 
 A component renders, or uses, another: a Composition, or a Display Component in a Layout's header, body, sider or footer, in the User Interface designer; a Rendered Component or a Uses association in the Java spike's Front End designer. It is a `presence` kind, an existence kind, `stated: always`: the code either renders the target or doesn't. The claim sits on the model feature that states it: the association for a Composition or Uses, the element for a Display Component or Rendered Component (vocabulary.md, A vocabulary entry).
 
-The Blazor cases use the `intent.ui` pack's vocabulary, with Common.Drift's placeholders (`{Component}` for the component that renders, `{Child}` for the one rendered), and eShopCustom's house recipe. The recipe's `default` makes a found component file that doesn't render the target say `absent` from silence. The Vue cases use the Java spike's house pack, which gives the Front End designer's vocabulary too.
+The Blazor cases use the `intent.ui` pack's vocabulary, and the Blazor reader finds the target's tag in the rendering component's markup. A found component that doesn't render the target says `absent` from silence. The Vue cases use the Java spike's house pack, which gives the Front End designer's vocabulary too.
 
 ## verified-composition
 
 eShopCustom's catalog page renders a `CatalogListItem` for each item, and the model has a Composition from the page to that component, which lives in another package.
 
 ```json case
-{ "phase": 6, "kinds": ["intent.uses"], "traces": ["ESC-FE-27"], "requirements": ["R2", "R8", "R38"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
-```
-
-```json pack
-{
-  "id": "house.eshopcustom",
-  "version": "1.0.0",
-  "engine": "^1.0.0",
-  "requires": [{ "id": "intent.ui", "version": "^1.0.0" }],
-  "languages": ["csharp"],
-  "designers": ["User Interface"],
-  "rules": {
-    "User Interface": {
-      "files": ["src/WebApp/Components/**/*.razor"],
-      "facts": {
-        "intent.uses": {
-          "find": "file:src/WebApp/Components/**/{Component}.razor",
-          "read": [{ "match": "<(?:[\\w.]+\\.)?{Child}\\b", "value": "present" }],
-          "default": "absent",
-          "unstated": "no `<{Child}>` in {Component}'s markup"
-        }
-      }
-    }
-  }
-}
+{ "phase": 6, "kinds": ["intent.uses"], "traces": ["ESC-FE-27"], "requirements": ["R2", "R8", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```json model
@@ -99,10 +75,10 @@ eShopCustom's catalog page renders a `CatalogListItem` for each item, and the mo
 
 ## contradicted-composition-missing
 
-eShopCustom's `composition.missing`: the catalog page now renders its items inline, and the model's Composition still says it renders `CatalogListItem`. The page's file is found and no read case matches, so its silence says `absent`.
+eShopCustom's `composition.missing`: the catalog page now renders its items inline, and the model's Composition still says it renders `CatalogListItem`. The page is found and its markup has no `<CatalogListItem>`, so its silence says `absent`.
 
 ```json case
-{ "phase": 6, "base": "verified-composition", "kinds": ["intent.uses"], "cases": ["engine/silence"], "traces": ["ESC-FE-27"], "requirements": ["R3", "R8", "R14"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 6, "base": "verified-composition", "kinds": ["intent.uses"], "cases": ["engine/silence"], "traces": ["ESC-FE-27"], "requirements": ["R3", "R8", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```razor file src/WebApp/Components/Pages/Catalog/Catalog.razor
@@ -123,7 +99,7 @@ eShopCustom's `composition.missing`: the catalog page now renders its items inli
 {
   "claims": [
     { "kind": "intent.uses", "element": "catalog-renders-list-item", "outcome": "contradicted",
-      "expected": "present", "actual": "absent", "fromSilence": true }
+      "expected": "present", "actual": "none", "fromSilence": true }
   ],
   "findings": [
     { "rule": "claim/intent.uses", "severity": "error", "subject": "catalog-renders-list-item", "messageContains": "CatalogListItem" }
@@ -136,7 +112,7 @@ eShopCustom's `composition.missing`: the catalog page now renders its items inli
 The designer has no Composition from a Layout, so what eShopCustom's main layout renders is modelled as Display Components in its Layout Header and Layout Footer; eShopCustom only warned about them. Here each is a claim on its Display Component: the header bar is rendered, and the footer bar, which the layout no longer renders, is contradicted.
 
 ```json case
-{ "phase": 6, "base": "verified-composition", "without": ["src/WebApp/Components/Pages/Catalog/Catalog.razor"], "kinds": ["intent.uses"], "traces": ["ESC-FE-69"], "requirements": ["R2", "R3", "R8", "R30"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 6, "base": "verified-composition", "without": ["src/WebApp/Components/Pages/Catalog/Catalog.razor"], "kinds": ["intent.uses"], "traces": ["ESC-FE-69"], "requirements": ["R2", "R3", "R8", "R30"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```json model
@@ -189,7 +165,7 @@ The designer has no Composition from a Layout, so what eShopCustom's main layout
     { "kind": "intent.uses", "element": "main-layout-header-bar", "outcome": "verified",
       "at": "src/WebApp/Components/Layout/MainLayout.razor:3" },
     { "kind": "intent.uses", "element": "main-layout-footer-bar", "outcome": "contradicted",
-      "expected": "present", "actual": "absent", "fromSilence": true }
+      "expected": "present", "actual": "none", "fromSilence": true }
   ],
   "findings": [
     { "rule": "claim/intent.uses", "severity": "error", "subject": "main-layout-footer-bar", "messageContains": "FooterBar" }
@@ -199,10 +175,10 @@ The designer has no Composition from a Layout, so what eShopCustom's main layout
 
 ## java-rendered-component
 
-The Java spike's catalog page renders a product image and a stock pill, the second in kebab case as Vue templates allow. Each Rendered Component is a claim, found by its PascalCase or kebab-case tag inside the page's template. The page's file comes from its Implementation stereotype's Path. A component the template doesn't render is contradicted.
+The Java spike's catalog page renders a product image and a stock pill, the second in kebab case as Vue templates allow. Each Rendered Component is a claim, found by its PascalCase or kebab-case tag inside the page's template. The page's file comes from its Implementation stereotype's Path, and the house module's claim reader (`house.readers`) reads the page's template. A component the template doesn't render is contradicted.
 
 ```json case
-{ "phase": 6, "kinds": ["intent.uses"], "traces": ["JAV-FE-05"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.java", "house.shop"], "language": "typescript" }
+{ "phase": 6, "kinds": ["intent.uses"], "traces": ["JAV-FE-05"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
 ```
 
 ```json pack
@@ -228,19 +204,6 @@ The Java spike's catalog page renders a product image and a stock pill, the seco
           "source": "the Rendered Component"
         }
       ]
-    }
-  },
-  "rules": {
-    "Front End": {
-      "files": ["src/**/*.vue"],
-      "facts": {
-        "intent.uses": {
-          "find": "file:{File}",
-          "read": [{ "match": "(?<=<template>.*)<(?:{Child}|{Child|kebab})\\b", "value": "present" }],
-          "default": "absent",
-          "unstated": "no `<{Child}>` or `<{Child|kebab}>` in the template of `{File}`"
-        }
-      }
     }
   }
 }
@@ -314,10 +277,10 @@ defineProps<{ products: { Id: string; Name: string; InStock: boolean }[] }>();
 
 ## java-uses-import
 
-The Java spike's cart page uses the cart store: a Uses association, which the code states as a relative value import of the store's file. A type-only import (`import type`) uses no value at runtime, so the checkout page, which imports only the store's types, is contradicted.
+The Java spike's cart page uses the cart store: a Uses association, which the code states as a relative value import of the store's file. A type-only import (`import type`) uses no value at runtime, so the checkout page, which imports only the store's types, is contradicted. The house module's claim reader (`house.readers`) reads the page's imports.
 
 ```json case
-{ "phase": 6, "kinds": ["intent.uses"], "traces": ["JAV-FE-07"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.java", "house.shop"], "language": "typescript" }
+{ "phase": 6, "kinds": ["intent.uses"], "traces": ["JAV-FE-07"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
 ```
 
 ```json pack
@@ -346,19 +309,6 @@ The Java spike's cart page uses the cart store: a Uses association, which the co
           "source": "the Uses association"
         }
       ]
-    }
-  },
-  "rules": {
-    "Front End": {
-      "files": ["src/**/*.vue", "src/**/*.ts"],
-      "facts": {
-        "intent.uses": {
-          "find": "file:{File}",
-          "read": [{ "match": "\\bimport(?! type\\b)[^;]*from'(?:\\.\\.?/)+{Used}(?:\\.vue|\\.ts)?'", "value": "present" }],
-          "default": "absent",
-          "unstated": "no value import of `{Used}` in `{File}`"
-        }
-      }
     }
   }
 }

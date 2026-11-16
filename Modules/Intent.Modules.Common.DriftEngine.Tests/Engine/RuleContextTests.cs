@@ -107,6 +107,8 @@ public class RuleContextTests
 
     private sealed class Audit : IDriftRule
     {
+        public string Id => "house/audit";
+
         public IEnumerable<Finding> Check(RuleContext context)
         {
             var model = context.Model;

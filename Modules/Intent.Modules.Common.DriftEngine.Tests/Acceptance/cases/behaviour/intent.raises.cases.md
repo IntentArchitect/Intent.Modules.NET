@@ -1,42 +1,17 @@
 # intent.raises
 
-A Domain Event Origin (Intent.Modelers.Domain.Events) from a class's constructor or operation to a Domain Event says that member raises the event. The claim is stated by the association, so its `element` is the association. The stock messaging extension, `intent.messaging`, states and reads it whatever raises the event (user decision, 2026-11-14): the member, or a private method of its class it calls, transitively, hands a new event to a call (`stock-reading`). A house pack's recipe for the kind replaces that reading, as the other cases show with eShopCustom's house pack, `house.eshop`, holding its Common.Drift domain-events recipe as converted: find the member, `class:{Entity} > method:{Member}` (a constructor by its class's name), and read its body for `new {DomainEvent}` or a call of a helper named after the event, `Add{DomainEvent}(…)`. A member whose body raises nothing contradicts the link, and a silent reading is located at the member. The recipe cases' gate is phase 6.
+A Domain Event Origin (Intent.Modelers.Domain.Events) from a class's constructor or operation to a Domain Event says that member raises the event. The claim is stated by the association, so its `element` is the association. The stock messaging extension, `intent.messaging`, states and reads it whatever raises the event (user decision, 2026-11-14): the member, or a private method of its class it calls, transitively, hands a new event to a call. A member whose code raises nothing contradicts the link, and the reading is located at the member.
 
-The recipe cases trace ESC-DOM-30 in part: a recipe reads one member's body and can't follow calls, so only the helper named after the event is covered there. The stock reading follows private calls of any name, as the check did.
+The cases trace ESC-DOM-30. The stock reading follows private calls of any name, as the check did, so a helper named after the event is read like any other.
+
+A link says the member can raise the event, not that it always does (user decision, 2026-11-16). A raise in any branch bears it out, and so does a raise of what a method of the code returns, when one of the events it can return is this one.
 
 ## verified-direct
 
 `SetShippedStatus` adds `new OrderShippedDomainEvent(this)` in its own body, and the model links it to `OrderShippedDomainEvent` (ESC-DOM-30, a direct raise).
 
 ```json case
-{ "phase": 6, "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R2", "R46"], "packs": ["intent.core", "intent.domain", "intent.messaging", "house.eshop"], "language": "csharp" }
-```
-
-```json pack
-{
-  "id": "house.eshop",
-  "version": "1.0.0",
-  "engine": "^1.0.0",
-  "description": "eShopCustom's house pack: its Common.Drift domain-events recipe, as converted.",
-  "requires": [{ "id": "intent.domain", "version": "^1.0.0" }],
-  "languages": ["csharp"],
-  "designers": ["Domain"],
-  "rules": {
-    "Domain": {
-      "facts": {
-        "intent.raises": {
-          "files": "src/Domain/**/*.cs",
-          "find": "class:{Entity} > method:{Member}",
-          "read": [
-            { "part": "body", "match": "\\bnew {DomainEvent}\\b", "value": "present" },
-            { "part": "body", "match": "\\bAdd{DomainEvent}\\(", "value": "present" }
-          ],
-          "default": "absent"
-        }
-      }
-    }
-  }
-}
+{ "phase": 6, "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.messaging"], "language": "csharp" }
 ```
 
 ```json model
@@ -120,10 +95,10 @@ public record OrderShippedDomainEvent(Order Order) : INotification;
 
 ## verified-helper-named-after-event
 
-The constructor doesn't build the event itself: it calls the private helper `AddOrderStartedDomainEvent`, named after the event, as eShop's `Order` does. The recipe's second read case finds the call, so the link to `OrderStartedDomainEvent` is verified (ESC-DOM-30, a helper named after the event).
+The constructor doesn't build the event itself: it calls the private helper `AddOrderStartedDomainEvent`, named after the event, as eShop's `Order` does. The stock reading follows the call into the helper, which adds the event, so the link to `OrderStartedDomainEvent` is verified, located at the constructor's call (ESC-DOM-30, a helper named after the event).
 
 ```json case
-{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R2", "R46"], "packs": ["intent.core", "intent.domain", "intent.messaging", "house.eshop"], "language": "csharp" }
+{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.messaging"], "language": "csharp" }
 ```
 
 ```json expect
@@ -135,12 +110,104 @@ The constructor doesn't build the event itself: it calls the private helper `Add
 }
 ```
 
-## contradicted-not-raised
+## verified-raised-conditionally
 
-`SetShippedStatus` changes the order's state and raises nothing. The member is found and its body raises no `OrderShippedDomainEvent`, so the recipe's `default` applies: the code states, by saying nothing, that the member doesn't raise it, and the modelled link is contradicted (ESC-DOM-30).
+`SetShippedStatus` raises `OrderShippedDomainEvent` only when the order is paid. The code to raise it is there, so the link is verified, located at the raise (ESC-DOM-30).
 
 ```json case
-{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R1", "R3", "R11"], "packs": ["intent.core", "intent.domain", "intent.messaging", "house.eshop"], "language": "csharp" }
+{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.messaging"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Order.cs
+namespace Ordering.Domain;
+
+public class Order : Entity
+{
+    public Order(string userId)
+    {
+        AddOrderStartedDomainEvent(userId);
+    }
+
+    public bool IsPaid { get; private set; }
+
+    public void SetShippedStatus()
+    {
+        if (IsPaid)
+        {
+            AddDomainEvent(new OrderShippedDomainEvent(this));
+        }
+    }
+
+    private void AddOrderStartedDomainEvent(string userId)
+    {
+        AddDomainEvent(new OrderStartedDomainEvent(this, userId));
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.raises", "element": "order-set-shipped-raises-shipped", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Domain/Order.cs:16" }
+  ]
+}
+```
+
+## verified-returned-by-helper
+
+`SetShippedStatus` raises whatever `StatusChangedEvent()` returns, and that method returns `OrderShippedDomainEvent` in one arm of its switch. The code can raise the event, so the link is verified, located at the raise (ESC-DOM-30).
+
+```json case
+{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.messaging"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Order.cs
+namespace Ordering.Domain;
+
+public class Order : Entity
+{
+    private OrderStatus _status;
+
+    public Order(string userId)
+    {
+        AddOrderStartedDomainEvent(userId);
+    }
+
+    public void SetShippedStatus()
+    {
+        _status = OrderStatus.Shipped;
+        AddDomainEvent(StatusChangedEvent());
+    }
+
+    private void AddOrderStartedDomainEvent(string userId)
+    {
+        AddDomainEvent(new OrderStartedDomainEvent(this, userId));
+    }
+
+    private INotification StatusChangedEvent() => _status switch
+    {
+        OrderStatus.Shipped => new OrderShippedDomainEvent(this),
+        _ => new OrderStatusChangedDomainEvent(this, _status)
+    };
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.raises", "element": "order-set-shipped-raises-shipped", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Domain/Order.cs:15" }
+  ]
+}
+```
+
+## contradicted-not-raised
+
+`SetShippedStatus` changes the order's state and raises nothing. The member is found, and neither its body nor a method it calls hands on an `OrderShippedDomainEvent`, so the code reads as not raising it, located at the member, and the modelled link is contradicted (ESC-DOM-30).
+
+```json case
+{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R1", "R3", "R11"], "packs": ["intent.core", "intent.domain", "intent.messaging"], "language": "csharp" }
 ```
 
 ```csharp file src/Domain/Order.cs
@@ -170,7 +237,7 @@ public class Order : Entity
 ```json expect
 {
   "claims": [
-    { "kind": "intent.raises", "element": "order-set-shipped-raises-shipped", "outcome": "contradicted", "expected": "present", "actual": "absent", "fromSilence": true,
+    { "kind": "intent.raises", "element": "order-set-shipped-raises-shipped", "outcome": "contradicted", "expected": "present", "actual": "absent",
       "at": "src/Domain/Order.cs:12" },
     { "kind": "intent.raises", "element": "order-ctor-raises-started", "outcome": "verified" }
   ],
@@ -180,65 +247,9 @@ public class Order : Entity
 }
 ```
 
-## contradicted-raised-by-another-class
-
-`SetShippedStatus` hands the work to a `Shipment`, and it is `Shipment.Ship` that adds `OrderShippedDomainEvent`. The rule reads the linked member's own body; a call into another class isn't followed, so the event reads as not raised and the link is contradicted. The fix is in the model: link the event to the member that raises it (ESC-DOM-30).
-
-```json case
-{ "phase": 6, "base": "verified-direct", "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R1", "R3"], "packs": ["intent.core", "intent.domain", "intent.messaging", "house.eshop"], "language": "csharp" }
-```
-
-```csharp file src/Domain/Order.cs
-namespace Ordering.Domain;
-
-public class Order : Entity
-{
-    private readonly Shipment _shipment = new();
-
-    public Order(string userId)
-    {
-        AddOrderStartedDomainEvent(userId);
-    }
-
-    public void SetShippedStatus()
-    {
-        _shipment.Ship(this);
-    }
-
-    private void AddOrderStartedDomainEvent(string userId)
-    {
-        AddDomainEvent(new OrderStartedDomainEvent(this, userId));
-    }
-}
-```
-
-```csharp file src/Domain/Shipment.cs
-namespace Ordering.Domain;
-
-public class Shipment : Entity
-{
-    public void Ship(Order order)
-    {
-        AddDomainEvent(new OrderShippedDomainEvent(order));
-    }
-}
-```
-
-```json expect
-{
-  "claims": [
-    { "kind": "intent.raises", "element": "order-set-shipped-raises-shipped", "outcome": "contradicted", "expected": "present", "actual": "absent", "fromSilence": true,
-      "at": "src/Domain/Order.cs:12" }
-  ],
-  "findings": [
-    { "rule": "claim/intent.raises", "severity": "error", "subject": "order-set-shipped-raises-shipped" }
-  ]
-}
-```
-
 ## stock-reading
 
-With no house pack, the stock messaging extension reads each Domain Event Origin from the code itself. The constructor raises `OrderStartedDomainEvent` through a private method it calls, so the reading is located at that call; `SetShippedStatus` raises `OrderShippedDomainEvent` in its own body. The case doesn't build on `verified-direct`, whose pack block it would inherit.
+The stock messaging extension reads both Domain Event Origins from the code, and nothing else is reported. The constructor raises `OrderStartedDomainEvent` through a private method it calls, so the reading is located at that call; `SetShippedStatus` raises `OrderShippedDomainEvent` in its own body.
 
 ```json case
 { "phase": 1, "kinds": ["intent.raises"], "traces": ["ESC-DOM-30"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.messaging"], "language": "csharp" }

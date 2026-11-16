@@ -325,7 +325,7 @@ public sealed record CallTarget(TypeNode Type, MemberNode Member)
 /// A value in a body, such as a call's argument, and the types the code says it can be without running it: a creation is
 /// its type; a local is what it is given before it is used (its initializer and each assignment, one type each), or its
 /// declared type when one of those isn't known; a parameter, field or property is its declared type; a cast is what it
-/// casts, or else the cast's type; a conditional is both its branches.
+/// casts, or else the cast's type; a conditional is both its branches, and a C# switch expression each of its arms.
 /// </summary>
 public sealed class ValueNode
 {
@@ -374,8 +374,9 @@ public sealed class ValueNode
 
     /// <summary>
     /// The values it is, one per way the code gives it, when it stands for another: what a local is given before the use
-    /// (its initializer and each plain assignment), a conditional's two branches, both sides of a <c>??</c>, and what a
-    /// conversion that keeps the text is made from (<c>x.ToString()</c>, <c>new Uri(x)</c>). Empty for anything else.
+    /// (its initializer and each plain assignment), a conditional's two branches, a switch expression's arms, both sides of
+    /// a <c>??</c>, and what a conversion that keeps the text is made from (<c>x.ToString()</c>, <c>new Uri(x)</c>). Empty
+    /// for anything else.
     /// </summary>
     public IReadOnlyList<ValueNode> Given => _given ??= GivenOf?.Invoke() ?? [];
 

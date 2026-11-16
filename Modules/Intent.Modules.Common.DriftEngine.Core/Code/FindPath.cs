@@ -29,13 +29,13 @@ public sealed record FindHit(TypeNode Type, MemberNode? Member, object Node, Spa
 }
 
 /// <summary>
-/// A find path over the graph (rules.md, Recipes): steps joined by <c> &gt; </c>, each a kind of node, optionally
+/// A find path over the graph, as a convention gives one (rules.md, Find paths): steps joined by <c> &gt; </c>, each a kind of node, optionally
 /// <c>with</c> a .NET regular expression its canonical text must match somewhere. <c>type</c> (or <c>class</c>) starts it;
 /// <c>method</c>, <c>property</c>, <c>field</c>, <c>constructor</c> and <c>member</c> go into a type's members, <c>parameter</c>
 /// into a member's parameters, <c>call</c> into a member's calls (every member's, after a type), <c>chain</c> into its call
 /// chains (<see cref="Chains"/>), <c>annotation</c> onto the node before, and <c>markup</c> into the markup elements of a type's
 /// files, or those inside the element before. An element's text holds the elements inside it, and a chain's the chains in its
-/// arguments, so <c>markup with</c> and <c>chain with</c> keep only the innermost that match (rules.md, Recipes).
+/// arguments, so <c>markup with</c> and <c>chain with</c> keep only the innermost that match (rules.md, Find paths).
 /// </summary>
 public static class FindPath
 {

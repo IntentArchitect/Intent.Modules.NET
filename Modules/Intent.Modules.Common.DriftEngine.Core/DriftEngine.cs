@@ -185,12 +185,19 @@ public sealed partial class DriftEngine
 
     private const string ScopeArea = "Drift Scope (DriftEngine)";
 
-    /// <summary>The extensions' rules, over in-scope code. Their Areas are marked as the engine's, like its claims'.</summary>
+    /// <summary>
+    /// The extensions' rules, over in-scope code, the last registered of each id: a module's rule replaces a stock one of its
+    /// id, and the Software Factory log says so. Their Areas are marked as the engine's, like its claims'.
+    /// </summary>
     private List<Finding> Rules()
     {
         var findings = new List<Finding>();
         var context = new RuleContext(this, _graph, _codeScope, _claims);
-        foreach (var (extension, rule) in _extensions.SelectMany(x => x.Rules.Select(r => (x.Id, r))))
+        var rules = _extensions.SelectMany(x => x.Rules.Select(r => (Extension: x.Id, Rule: r))).GroupBy(x => x.Rule.Id, StringComparer.Ordinal).ToList();
+        findings.AddRange(rules.Where(x => x.Count() > 1).Select(x => new Finding("scope/replacedRule", ScopeArea, "Code", "info",
+            $"The {x.Last().Extension} extension's rule `{x.Key}` replaces the {string.Join(" and ", x.SkipLast(1).Select(r => r.Extension).Distinct())} extension's, which doesn't run.",
+            new Anchor(Text: x.Last().Extension))));
+        foreach (var (extension, rule) in rules.Select(x => x.Last()))
         {
             try
             {
@@ -541,7 +548,7 @@ public sealed partial class DriftEngine
             Origin = extension,
             Source = spec.Element,
             Definition = definition,
-            Needs = spec.DependsOn,
+            Needs = spec.DependsOn ?? Needs(spec.Designer, spec.Element, Locating(spec.Kind)),
             WaitsOn = spec.WaitsOn,
             ExpectedValue = spec.Value,
             SourceText = spec.Source ?? spec.Kind,
@@ -591,7 +598,7 @@ public sealed partial class DriftEngine
             Origin = pack.Id,
             Source = element,
             Definition = definition,
-            Needs = Needs(designer, element, entry["dependsOn"]?.GetValue<string>()),
+            Needs = Needs(designer, element, entry["dependsOn"]?.GetValue<string>() ?? Locating(kind)),
             WaitsOn = (entry["waitsOn"] as JsonArray)?.Select(x => Needs(designer, element, x!.GetValue<string>())).OfType<ClaimRef>().ToList() ?? [],
             ExpectedValue = value,
             SourceText = entry["source"]?.GetValue<string>() ?? kind,
@@ -636,6 +643,47 @@ public sealed partial class DriftEngine
 
     /// <summary>Each extending entry's placeholder reported as a conflict, so it is reported once, not once per claim.</summary>
     private readonly HashSet<(string Pack, string Designer, string Extends, string Key)> _conflicts = [];
+
+    /// <summary>An extending entry's <c>for</c>: the element type, or the association a claim's end belongs to, and its <c>where</c>.</summary>
+    private static bool Selects(JsonNode? @for, IElement element)
+    {
+        if (@for is null)
+        {
+            return true;
+        }
+
+        if (@for["element"]?.GetValue<string>() is { } type && element.SpecializationType != type)
+        {
+            return false;
+        }
+
+        if ((@for["association"] ?? @for["associationEnd"])?.GetValue<string>() is { } association && (element as IAssociationEnd)?.Association?.SpecializationType != association)
+        {
+            return false;
+        }
+
+        try
+        {
+            return @for["where"]?.GetValue<string>() is not { } where || Expression.Evaluate(where, element) is true;
+        }
+        catch (FormatException)
+        {
+            return false;
+        }
+    }
+
+    /// <summary>
+    /// The existence claim whose located type or member the engine's own rule for a kind reads, which a claim depends on
+    /// when its vocabulary entry or claim source names none: its element's type or member, an enum literal's enum.
+    /// </summary>
+    private static string? Locating(string kind) => kind switch
+    {
+        "type.kind" or "type.abstract" or "type.namespace" or "type.base" or "type.generalization" or "type.file" or "type.location" or "type.generics"
+            or "type.marker" or "enum.literals" => "type.exists",
+        "enum.literal.value" => "parent:type.exists",
+        "member.type" or "member.nullable" or "member.static" or "operation.returns" or "operation.nullable" or "operation.parameters" => "member.exists",
+        _ => null
+    };
 
     /// <summary>A vocabulary entry's <c>dependsOn</c>: a kind on the same element, or <c>parent:</c> a kind on its owner.</summary>
     private static ClaimRef? Needs(string designer, IElement element, string? dependsOn)
@@ -759,12 +807,6 @@ public sealed partial class DriftEngine
                 Cant(claim, "blocked", new Reading { Detail = "Its type is a library's the code references, whose declaration isn't read." });
                 return;
             }
-
-            if (_textOnly.Contains(dependency))
-            {
-                Cant(claim, "blocked", new Reading { Detail = $"A recipe found its code as text, where no {dependency.Kind.Split('.')[0]} the readers read is declared." });
-                return;
-            }
         }
 
         // The claims it also waits on, where the model states them: a column waits on its table's entity.persisted. Only one
@@ -842,14 +884,6 @@ public sealed partial class DriftEngine
             }
         }
 
-        // A pack's recipe for the kind replaces the built-in rule; of several, the last pack's wins, so a house pack
-        // (loaded after the stock packs) overrides a stock pack's.
-        if (RecipeFor(claim) is { } recipe)
-        {
-            Recipe(claim, recipe);
-            return;
-        }
-
         // An extension's claim reader comes before the engine's own structure rules, and a later extension's before an
         // earlier one's, so a module's reader can read any kind, the engine's included.
         foreach (var (extension, reader) in _extensions.SelectMany(x => x.ClaimReaders.Select(r => (x.Id, r))).Reverse())
@@ -876,6 +910,14 @@ public sealed partial class DriftEngine
                 Apply(claim, reading);
                 return;
             }
+        }
+
+        // The engine's own rule for these kinds reads the type or member their existence claim located. Nothing located one
+        // when the model states no such claim, or a claim reader verified it without the code's declaration.
+        if (Locating(claim.Kind) is { } existence && (existence == "member.exists" ? LocatedMember(claim) is null : LocatedType(claim) is null))
+        {
+            Cant(claim, "blocked", new Reading { Detail = $"Waits on {existence.Replace("parent:", "its owner's ")}, which located no declaration." });
+            return;
         }
 
         switch (claim.Kind)
@@ -1149,18 +1191,6 @@ public sealed partial class DriftEngine
             candidates = [component];
         }
 
-        // A model whose File Config names the type's namespace and file, as one the Guardrails contracts generate from does,
-        // says which of several types with the name it is: services each keep a copy of a message they share. It locates the
-        // type; it isn't checked (user decision, 2026-11-14: it is for finding the right files).
-        if (candidates.Count > 1 && FileConfig(element) is var (ns, file) && (ns is not null || file is not null))
-        {
-            var named = candidates.Where(x => (ns is null || x.Namespace == ns) && (file is null || x.Files.Any(f => Path.GetFileNameWithoutExtension(f) == file))).ToList();
-            if (named.Count > 0)
-            {
-                candidates = named;
-            }
-        }
-
         if (candidates.Count > 1)
         {
             // Designer folders become namespaces, or the folders the files are in: of several types with the name, the one
@@ -1306,7 +1336,7 @@ public sealed partial class DriftEngine
     /// <summary>
     /// A named marker, both ways (the discriminator, else the <c>Marker</c> binding): the type has it when one of its
     /// supertypes, through its in-scope bases, or one of its annotations is named for it. Without it the code states
-    /// <c>false</c> by saying nothing. A recipe reads a marker the code states some other way.
+    /// <c>false</c> by saying nothing. A module's claim reader reads a marker the code states some other way.
     /// </summary>
     private void Marker(Claim claim)
     {
@@ -1322,6 +1352,8 @@ public sealed partial class DriftEngine
         var value = present ? "true" : "false";
         Compare(claim, value, annotation?.At ?? type.At, present ? "code" : "absent", Same(claim, value));
     }
+
+    private static string AttributeName(string name) => name.EndsWith("Attribute", StringComparison.Ordinal) ? name[..^"Attribute".Length] : name;
 
     /// <summary>
     /// A modelled parameter, found by name in its operation's method (rules.md, Locating an element's code): its type, its
@@ -1547,7 +1579,7 @@ public sealed partial class DriftEngine
     private Span? UseOf(IReadOnlyCollection<string> names)
     {
         bool Named(TypeRefNode? type) => type is not null && (names.Contains(type.Name) || type.Arguments.Any(Named));
-        foreach (var type in _graph.Types)
+        foreach (var type in _graph.Types.Where(x => MayUseLibrary(x.At.File)))
         {
             if (type.BaseTypes.Any(Named))
             {
@@ -1563,6 +1595,13 @@ public sealed partial class DriftEngine
 
         return null;
     }
+
+    /// <summary>
+    /// The file can use a library's type: its language reaches one without an import, or it imports a file the engine
+    /// doesn't read (<see cref="ILanguage.LibrariesNeedImports"/>).
+    /// </summary>
+    private bool MayUseLibrary(string file) =>
+        LanguageOf(file) is not { LibrariesNeedImports: true } || _graph.Files.FirstOrDefault(x => x.Path == file) is not { } node || node.Imports.Any(x => x.File is null);
 
     private void Missing(Claim claim, string fileStem, string searchedFor, Span? at = null) => Missing(claim, [fileStem], searchedFor, at);
 
@@ -1581,14 +1620,6 @@ public sealed partial class DriftEngine
     }
 
     /// <summary>How many of <paramref name="folders"/>' last names end <paramref name="ns"/>, compared case-insensitively.</summary>
-    /// <summary>The namespace and file name an element's File Config names; null for each it leaves empty.</summary>
-    private static (string? Namespace, string? File) FileConfig(IElement element)
-    {
-        var config = element.Stereotypes?.FirstOrDefault(x => x.Name == "File Config");
-        string? Value(string key) => config?.Properties.FirstOrDefault(x => x.Key == key)?.Value?.Trim() is { Length: > 0 } value ? value : null;
-        return (Value("Namespace"), Value("Filename"));
-    }
-
     private static int TrailingMatch(IReadOnlyList<string> ns, IReadOnlyList<string> folders)
     {
         var count = 0;
@@ -1621,6 +1652,9 @@ public sealed partial class DriftEngine
         {
             case "cantVerify":
                 Cant(claim, reading.Reason!, new Reading { At = reading.At, Detail = reading.Detail, Candidates = reading.Candidates });
+                break;
+            case "outOfScope":
+                Cant(claim, "outOfScope", new Reading { ShadowFile = reading.Detail, ScopeRow = _files.FirstOrDefault(x => x.Path == reading.Detail).Decision?.Row?.Id });
                 break;
             // A whenSet kind takes no value from silence: the code doesn't state it (R4).
             case "absent" when reading.Value is null && claim.Stated == "whenSet":
@@ -1758,9 +1792,9 @@ public sealed partial class DriftEngine
     internal Claim? ClaimOn(string designer, IElement element, string kind, string? discriminator = null) =>
         _index.GetValueOrDefault(new ClaimRef(designer, element.Id, kind, discriminator));
 
-    private TypeNode OwnType(Claim claim) => _types[Dependency(claim)!];
+    private TypeNode OwnType(Claim claim) => LocatedType(claim)!;
 
-    private MemberNode OwnMember(Claim claim) => _refined.TryGetValue(claim, out var refined) ? refined : _members[Dependency(claim)!];
+    private MemberNode OwnMember(Claim claim) => LocatedMember(claim)!;
 
     private static void Verify(Claim claim, Reading reading)
     {

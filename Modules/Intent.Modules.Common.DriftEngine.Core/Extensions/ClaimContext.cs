@@ -146,10 +146,11 @@ public sealed class ClaimReading
         new(same ? "compared:same" : "compared:different", actual, at, message: message);
 
     /// <summary>
-    /// The code doesn't state it; <paramref name="at"/> is where it would. With a value, the silence is that value (no
-    /// <c>[AllowAnonymous]</c> is <c>false</c>); without one, the claim is contradicted.
+    /// The code doesn't state it; <paramref name="at"/> is where it would, or null when no code is that place (nothing derives
+    /// the handler that would say so). With a value, the silence is that value (no <c>[AllowAnonymous]</c> is <c>false</c>);
+    /// without one, the claim is contradicted.
     /// </summary>
-    public static ClaimReading Absent(Span at, string? value = null) => new("absent", value, at);
+    public static ClaimReading Absent(Span? at, string? value = null) => new("absent", value, at);
 
     /// <summary>
     /// For an existence kind: what the claim says exists isn't in the code. The finding says where was searched
@@ -162,6 +163,12 @@ public sealed class ClaimReading
 
     /// <summary>The code doesn't state it, so the default applies; <paramref name="unstated"/> says what it lacks, for the finding.</summary>
     public static ClaimReading Defaulted(string value, Span at, string? unstated) => new("default", value, at, detail: unstated);
+
+    /// <summary>
+    /// The code that would state it is in <paramref name="file"/>, which the Drift Scope leaves out (<see cref="CodeScope.Includes"/>):
+    /// can't verify, <c>outOfScope</c>, naming the scope row that excludes the file, so the finding says which row to change.
+    /// </summary>
+    public static ClaimReading OutOfScope(string file) => new("outOfScope", null, null, "outOfScope", detail: file);
 
     /// <summary>The value can't be read: <paramref name="reason"/> as claims-and-findings.md names it (<c>unresolved</c>, <c>ambiguous</c>, ...).</summary>
     public static ClaimReading CantVerify(string reason, string detail, Span? at = null, IReadOnlyList<Span>? candidates = null) =>

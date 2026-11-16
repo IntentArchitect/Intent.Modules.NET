@@ -1370,10 +1370,10 @@ public class StockItem {
 
 ## java-proxy-operation
 
-The Java spike's own Front End designer has Proxies, whose Operations are the methods of an object literal in a TypeScript file. No stock pack knows that designer, and no reader parses TypeScript, so the storefront's house pack states the claim and reads it as text (R28, R38): the method `getProductById(` in the file the Proxy's Implementation stereotype names. A Front End Proxy Operation is named in Pascal case in the model, so the binding camel-cases it.
+The Java spike's own Front End designer has Proxies, whose Operations are the methods of an object literal in a TypeScript file, `export const api = { … }`. No stock pack knows that designer, so the storefront's house pack states the claims (R28). The TypeScript reader makes the object literal an `object` type with its methods, and the house pack's conventions name a Proxy's type in camel case, so the Proxy `Api` is `api`. A Front End Proxy Operation is named in Pascal case in the model, and TypeScript names a method in camel case, so `GetProductById` is `getProductById`.
 
 ```json case
-{ "phase": 4, "kinds": ["member.exists"], "traces": ["JAV-FE-08"], "requirements": ["R2", "R28", "R30", "R38", "R51", "R53"], "packs": ["intent.core", "intent.java", "house.storefront"], "language": "typescript" }
+{ "phase": 4, "kinds": ["member.exists"], "traces": ["JAV-FE-08"], "requirements": ["R2", "R28", "R30", "R51", "R53"], "packs": ["intent.core", "intent.java", "house.storefront"], "language": "typescript" }
 ```
 
 ```json pack
@@ -1386,27 +1386,22 @@ The Java spike's own Front End designer has Proxies, whose Operations are the me
   "vocabulary": {
     "Front End": {
       "entries": [
+        { "kind": "type.exists", "for": { "element": "Proxy" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the Proxy" },
         {
           "kind": "member.exists",
           "for": { "element": "Proxy Operation" },
-          "bindings": { "Operation": "camel(name)", "ProxyFile": "parent.stereotype('Implementation').Path" },
-          "own": ["Operation"],
+          "value": "self",
+          "dependsOn": "parent:type.exists",
           "source": "the Proxy Operation",
           "fixHint": "Add the method to the Proxy's file, or remove the Proxy Operation."
         }
       ]
     }
   },
-  "rules": {
+  "conventions": {
     "Front End": {
-      "files": "src/**/*.ts",
-      "facts": {
-        "member.exists": {
-          "find": "file:{ProxyFile}",
-          "read": [{ "match": "\\b{Operation}\\(", "value": "present" }],
-          "default": "absent",
-          "note": "The file is read as text: a method of the proxy object is its name and an opening parenthesis"
-        }
+      "types": {
+        "Proxy": { "name": "{Name|camel}", "typeKinds": ["object"], "note": "The storefront: a Proxy is the object of its methods" }
       }
     }
   }
@@ -1469,10 +1464,10 @@ export const api = {
 
 ## java-proxy-operation-missing
 
-The proxy object has no `getProductById`. The file is found and no read case matches, so the recipe's `default` applies: the reading is `absent`, from silence, and the existence claim is contradicted.
+The proxy object has no `getProductById`. The Proxy's type is found and has no method of that name, so the existence claim is contradicted.
 
 ```json case
-{ "phase": 4, "base": "java-proxy-operation", "kinds": ["member.exists"], "cases": ["engine/silence"], "traces": ["JAV-FE-08"], "requirements": ["R3", "R8"], "packs": ["intent.core", "intent.java", "house.storefront"], "language": "typescript" }
+{ "phase": 4, "base": "java-proxy-operation", "kinds": ["member.exists"], "traces": ["JAV-FE-08"], "requirements": ["R8"], "packs": ["intent.core", "intent.java", "house.storefront"], "language": "typescript" }
 ```
 
 ```typescript file src/api/client.ts
@@ -1494,7 +1489,7 @@ export const api = {
 ```json expect
 {
   "claims": [
-    { "kind": "member.exists", "element": "api-get-product-by-id", "outcome": "contradicted", "fromSilence": true }
+    { "kind": "member.exists", "element": "api-get-product-by-id", "outcome": "contradicted" }
   ],
   "findings": [
     { "rule": "claim/member.exists", "severity": "error", "subject": "api-get-product-by-id" }
@@ -1504,10 +1499,10 @@ export const api = {
 
 ## java-contract-field
 
-A Front End Contract's Field is a property of the exported interface of that name. The house pack reads `src/api/types.ts` as text, looking inside `export interface ProductDto` for `Price:`, optionally `Price?:`.
+A Front End Contract's Field is a property of the exported interface of that name. The house pack's conventions say a Contract is an interface or type alias in `src/api/types.ts`, and the TypeScript reader gives `ProductDto` its properties, `Price` among them.
 
 ```json case
-{ "phase": 4, "kinds": ["member.exists"], "traces": ["JAV-FE-17"], "requirements": ["R2", "R28", "R30", "R38", "R51", "R53"], "packs": ["intent.core", "intent.java", "house.storefront"], "language": "typescript" }
+{ "phase": 4, "kinds": ["member.exists"], "traces": ["JAV-FE-17"], "requirements": ["R2", "R28", "R30", "R51", "R53"], "packs": ["intent.core", "intent.java", "house.storefront"], "language": "typescript" }
 ```
 
 ```json pack
@@ -1520,26 +1515,21 @@ A Front End Contract's Field is a property of the exported interface of that nam
   "vocabulary": {
     "Front End": {
       "entries": [
+        { "kind": "type.exists", "for": { "element": "Contract" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the Contract" },
         {
           "kind": "member.exists",
           "for": { "element": "Field" },
-          "bindings": { "Contract": "parent.name", "Field": "name" },
-          "own": ["Field"],
+          "value": "self",
+          "dependsOn": "parent:type.exists",
           "source": "the Contract's Field"
         }
       ]
     }
   },
-  "rules": {
+  "conventions": {
     "Front End": {
-      "files": "src/**/*.ts",
-      "facts": {
-        "member.exists": {
-          "find": "file:src/api/types.ts",
-          "read": [{ "match": "(?<=export interface {Contract}\\{[^}]*)\\b{Field}\\??:", "value": "present" }],
-          "default": "absent",
-          "note": "Contracts live in src/api/types.ts, one exported interface each"
-        }
+      "types": {
+        "Contract": { "typeKinds": ["interface", "typeAlias"], "locations": ["src/api/types.ts"], "note": "Contracts live in src/api/types.ts, one exported interface each" }
       }
     }
   }
@@ -1590,10 +1580,10 @@ export interface ProductDto {
 
 ## java-contract-field-missing
 
-`ProductDto` has no `Price`. A `Price` elsewhere in the file, in another interface, doesn't count: the read case looks only inside `ProductDto`'s body.
+`ProductDto` has no `Price`. A `Price` elsewhere in the file, in another interface, doesn't count: a Field is looked for only among its Contract's members.
 
 ```json case
-{ "phase": 4, "base": "java-contract-field", "kinds": ["member.exists"], "cases": ["engine/silence"], "traces": ["JAV-FE-17"], "requirements": ["R3", "R8"], "packs": ["intent.core", "intent.java", "house.storefront"], "language": "typescript" }
+{ "phase": 4, "base": "java-contract-field", "kinds": ["member.exists"], "traces": ["JAV-FE-17"], "requirements": ["R8"], "packs": ["intent.core", "intent.java", "house.storefront"], "language": "typescript" }
 ```
 
 ```typescript file src/api/types.ts
@@ -1614,7 +1604,7 @@ export interface OrderLineItemDto {
 {
   "claims": [
     { "kind": "member.exists", "element": "product-dto-id", "outcome": "verified", "at": "src/api/types.ts:3" },
-    { "kind": "member.exists", "element": "product-dto-price", "outcome": "contradicted", "fromSilence": true }
+    { "kind": "member.exists", "element": "product-dto-price", "outcome": "contradicted" }
   ]
 }
 ```

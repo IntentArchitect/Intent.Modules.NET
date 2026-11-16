@@ -1,6 +1,6 @@
 # engine/noVocabulary
 
-Nothing modelled is skipped silently (R6, R7). For each designer with content, the engine works out every model feature it holds (an element's specialization, each applied stereotype, each stereotype property set away from its default, each association's specialization, each type reference) and which features the active packs' vocabulary reads. A feature nothing reads is an `engine/noVocabulary` error, once per element and feature, in the designer's `<Designer> (DriftEngine)` Area with the element as its subject. A designer with content and no vocabulary at all is reported once instead. A pack can declare a feature non-checkable, with a reason, and it is then neither claimed nor reported (R32).
+Nothing modelled is skipped silently (R6, R7). For each designer with content, the engine works out every model feature it holds (an element's specialization, each applied stereotype, each stereotype property set away from its default, each association's specialization, each type reference) and which features the active packs' vocabulary reads. A feature nothing reads is an `engine/noVocabulary` error, once per element and feature, in the designer's `<Designer> (DriftEngine)` Area with the element as its subject. A designer with content and no vocabulary at all is reported once instead. A pack can declare a feature non-checkable, with a reason, and it is then not reported (R32). A non-claim only explains what nothing reads: a pack that reads the feature overrides another's non-claim for it, so its claims are checked and what it leaves unread is reported.
 
 eShopCustom's Domain, Services and Front End modules, and the Java spike's Domain check, each failed the run on model content they couldn't compare (`unsupported.model`), so the model could never claim more than the check verified. The engine keeps that rule for every designer, with the list of what can be compared coming from packs rather than from each module's code.
 
@@ -86,6 +86,132 @@ The same model, with a house pack that declares the `Container` stereotype non-c
   "findings": [
     { "rule": "engine/noVocabulary", "subject": "order", "count": 0 },
     { "rule": "scope/coverage", "severity": "info", "messageContains": "Cosmos DB container settings are applied at deployment, not in code" }
+  ]
+}
+```
+
+## claimed-overrides-a-stereotype-non-claim
+
+`Order` carries a house `Placement` stereotype. One house pack declares the whole stereotype non-checkable; another reads its Path as the class's file. Reading it overrides the non-claim: the file is checked, the non-claim isn't listed, and Placement's Region, which nothing reads, is reported.
+
+```json case
+{ "phase": 2, "cases": ["engine/noVocabulary", "scope/coverage"], "requirements": ["R6", "R32"], "packs": ["intent.core", "intent.domain", "house.legacy", "house.shop"], "language": "csharp" }
+```
+
+```json pack house.legacy
+{
+  "id": "house.legacy",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "requires": [{ "id": "intent.domain", "version": "^1.0.0" }],
+  "languages": ["csharp"],
+  "designers": ["Domain"],
+  "vocabulary": {
+    "Domain": {
+      "nonClaims": [
+        { "for": { "stereotype": "Placement" }, "reason": "Placement told the old generator where to write a class" }
+      ]
+    }
+  }
+}
+```
+
+```json pack house.shop
+{
+  "id": "house.shop",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "requires": [{ "id": "intent.domain", "version": "^1.0.0" }],
+  "languages": ["csharp"],
+  "designers": ["Domain"],
+  "vocabulary": {
+    "Domain": {
+      "entries": [
+        { "kind": "type.location", "for": { "element": "Class", "where": "hasStereotype('Placement')" }, "value": "stereotype('Placement').Path", "dependsOn": "type.exists", "source": "the class's Placement Path" }
+      ]
+    }
+  }
+}
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "stereotypes": { "Placement": { "Path": "src/Domain/Order.cs", "Region": "EU" } },
+            "children": [
+              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Order.cs
+namespace Shop.Domain;
+
+public class Order
+{
+    public string Id { get; set; } = Guid.NewGuid().ToString();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.location", "element": "order", "outcome": "verified", "at": "src/Domain/Order.cs:3" }
+  ],
+  "findings": [
+    { "rule": "engine/noVocabulary", "severity": "error", "subject": "order", "messageContains": "Region" },
+    { "rule": "scope/coverage", "messageContains": "old generator", "count": 0 }
+  ]
+}
+```
+
+## claimed-overrides-a-designer-non-claim
+
+The model of `unread-stereotype`, with a house pack that declares the whole Domain designer non-checkable. The Domain pack reads the designer, so the non-claim isn't used: `Order` is checked, its unread `Container` stereotype is still reported, and the non-claim isn't listed.
+
+```json case
+{ "phase": 2, "base": "unread-stereotype", "cases": ["engine/noVocabulary", "scope/coverage"], "requirements": ["R7", "R32"], "packs": ["intent.core", "intent.domain", "house.legacy"], "language": "csharp" }
+```
+
+```json pack
+{
+  "id": "house.legacy",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "requires": [{ "id": "intent.domain", "version": "^1.0.0" }],
+  "languages": ["csharp"],
+  "designers": ["Domain"],
+  "vocabulary": {
+    "Domain": {
+      "nonClaims": [
+        { "reason": "The old generator owned the Domain designer" }
+      ]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "order", "outcome": "verified", "at": "src/Domain/Order.cs:3" }
+  ],
+  "findings": [
+    { "rule": "engine/noVocabulary", "severity": "error", "subject": "order", "messageContains": "Container" },
+    { "rule": "scope/coverage", "messageContains": "old generator", "count": 0 }
   ]
 }
 ```

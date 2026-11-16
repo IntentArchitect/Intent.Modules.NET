@@ -37,7 +37,7 @@ public class CaseRunTests
             var input = new EngineInput(
                 @case.Model!,
                 outputFolder,
-                @case.Meta.Texts("packs").Where(AcceptanceData.StockPacks.Contains).ToList(),
+                @case.Meta.Texts("packs").Where(x => AcceptanceData.StockPacks.Contains(x) || HouseExtensions.Find(x) is not null).ToList(),
                 @case.Packs.ToList());
             var result = engine.Run(input);
 

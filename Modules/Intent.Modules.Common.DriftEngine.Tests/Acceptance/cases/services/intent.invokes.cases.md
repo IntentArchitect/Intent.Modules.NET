@@ -313,10 +313,10 @@ public class CreateOrderCommandHandler(
 
 ## blazor-page-calls-service-proxy
 
-eShopCustom's orders page calls the ordering service proxy's `GetOrders` from `OnInitializedAsync`, through the member `@inject` gives it. Its Front End checks were its own, so the house pack brings the User Interface designer's vocabulary for a `Call Service Operation Action` and a recipe: the page injects the proxy's type (by name or `I<Name>`) and, after the calling Component Operation is declared, calls the Operation through that member. Traces ESC-FE-35.
+eShopCustom's orders page calls the ordering service proxy's `GetOrders` from `OnInitializedAsync`, through the member `@inject` gives it. The `intent.ui` pack gives the vocabulary for a `Call Service Operation Action`, and the Blazor reader reads only the calling Component Operation's method, where it finds the Operation called on the proxy's type (by name or `I<Name>`). Traces ESC-FE-35.
 
 ```json case
-{ "phase": 6, "kinds": ["intent.invokes"], "traces": ["ESC-FE-35"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.services", "house.webapp"], "language": "text" }
+{ "phase": 6, "kinds": ["intent.invokes"], "traces": ["ESC-FE-35"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.services", "intent.ui"], "language": "csharp" }
 ```
 
 ```json model
@@ -348,50 +348,6 @@ eShopCustom's orders page calls the ordering service proxy's `GetOrders` from `O
     "Codebase Structure": {
       "packages": [{ "id": "root", "name": "WebApp", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
-    }
-  }
-}
-```
-
-```json pack
-{
-  "id": "house.webapp",
-  "version": "1.0.0",
-  "requires": [{ "id": "intent.services", "version": "^1.0.0" }],
-  "languages": ["text"],
-  "designers": ["User Interface"],
-  "vocabulary": {
-    "User Interface": {
-      "entries": [
-        {
-          "kind": "intent.invokes",
-          "for": { "association": "Call Service Operation Action" },
-          "value": "'present'",
-          "bindings": {
-            "Folder": "source.element.parent.folderPath",
-            "Component": "source.element.parent.name",
-            "Operation": "source.element.name",
-            "Invoked": "target.element.name",
-            "InvokedOwner": "target.element.parent.name"
-          },
-          "own": ["Component"],
-          "source": "the Call Service Operation association"
-        }
-      ]
-    }
-  },
-  "rules": {
-    "User Interface": {
-      "facts": {
-        "intent.invokes": {
-          "find": "file:src/WebApp/Components/{Folder}/{Component}.razor",
-          "read": [
-            { "match": "@inject\\s+I?{InvokedOwner}\\s+(\\w+)[\\s\\S]*\\b{Operation}\\s*\\([\\s\\S]*?\\b\\1\\.{Invoked}\\(", "value": "present" }
-          ],
-          "default": "absent",
-          "note": "A call through the member injected with the proxy's type, after the calling operation is declared"
-        }
-      }
     }
   }
 }

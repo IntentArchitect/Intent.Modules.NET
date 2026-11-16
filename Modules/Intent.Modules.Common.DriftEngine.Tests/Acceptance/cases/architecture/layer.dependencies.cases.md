@@ -9,7 +9,7 @@ No single find reaches this, so the house pack's rule is a query (R47), as rules
 eShopCustom's Ordering service: Infrastructure may depend on Domain, and its `OrderingContext` imports Domain's namespace. Its `Microsoft.EntityFrameworkCore` import names a namespace no in-scope file declares, so it is ignored. Code the Domain Layer doesn't import is not a claim this case is about.
 
 ```json case
-{ "phase": 3, "kinds": ["layer.dependencies"], "traces": ["ESC-ARC-08"], "requirements": ["R2", "R10", "R45", "R47"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 3, "kinds": ["layer.dependencies"], "traces": ["ESC-ARC-08"], "requirements": ["R2", "R10", "R45", "R46"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
 ```
 
 ```json pack
@@ -35,23 +35,6 @@ eShopCustom's Ordering service: Infrastructure may depend on Domain, and its `Or
           "fixHint": "Remove the import, or add a May Depend On from the Layer to the one it imports from."
         }
       ]
-    }
-  },
-  "rules": {
-    "Codebase Structure": {
-      "facts": {
-        "layer.dependencies": {
-          "query": [
-            { "from": "code:import" },
-            { "ownerOf": { "path": "file", "among": "model:Layer", "by": "stereotype('Layer Settings').Path", "as": "fromLayer" } },
-            { "resolve": { "target": "target", "as": "imported" } },
-            { "ownerOf": { "path": "imported.file", "among": "model:Layer", "by": "stereotype('Layer Settings').Path", "as": "toLayer" } },
-            { "where": "exists(fromLayer) && exists(toLayer) && fromLayer != toLayer" },
-            { "reading": { "claim": { "Layer": "fromLayer.name" }, "item": "toLayer.name", "at": "span" } }
-          ],
-          "compare": "within"
-        }
-      }
     }
   }
 }
@@ -118,7 +101,7 @@ public class OrderingContext : DbContext
 eShopCustom's planted break: `Order.cs` in the Domain Layer gains a `using` of Infrastructure's namespace, and Domain has no May Depend On to Infrastructure. Infrastructure is not within Domain's allowed set, which is empty, so the claim is contradicted, and the finding names the import's file and line. Infrastructure's own claim still verifies.
 
 ```json case
-{ "phase": 3, "base": "verified", "kinds": ["layer.dependencies"], "traces": ["ESC-ARC-08"], "requirements": ["R10", "R11", "R14", "R47"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 3, "base": "verified", "kinds": ["layer.dependencies"], "traces": ["ESC-ARC-08"], "requirements": ["R10", "R11", "R14", "R46"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
 ```
 
 ```csharp file src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs
@@ -151,7 +134,7 @@ public class Order
 The Domain Layer imports Infrastructure three ways: a `using static` of a type, an alias naming a type, and a `global using` of the namespace. Each resolves to `OrderingContext.cs`, so each is an offending import, and the finding names every one with its line. Domain's `global using` of its own SeedWork namespace stays within the Layer and is not named.
 
 ```json case
-{ "phase": 3, "base": "verified", "kinds": ["layer.dependencies"], "traces": ["ESC-ARC-08"], "requirements": ["R10", "R11", "R47"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 3, "base": "verified", "kinds": ["layer.dependencies"], "traces": ["ESC-ARC-08"], "requirements": ["R10", "R11", "R46"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
 ```
 
 ```csharp file src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs
@@ -200,7 +183,7 @@ public abstract class Entity
 The Application Layer's Path lies inside the API Layer's. A command handler under `src/Ordering.API/Application` belongs to Application, the longer Path, and Application may depend only on Domain. Its import of Infrastructure is contradicted even though API may depend on Infrastructure; were the shorter Path to win, the import would pass. Its import of Domain is allowed and not named.
 
 ```json case
-{ "phase": 3, "base": "verified", "kinds": ["layer.dependencies"], "traces": ["ESC-ARC-08"], "requirements": ["R11", "R47"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 3, "base": "verified", "kinds": ["layer.dependencies"], "traces": ["ESC-ARC-08"], "requirements": ["R11", "R46"], "packs": ["intent.core", "house.eshopcustom"], "language": "csharp" }
 ```
 
 ```json model
@@ -321,7 +304,7 @@ Phase 2's house pack states the Layers' dependencies, but its rule, a query, arr
 The Java spike's planted break: `Order.java` in the domain package imports the application layer's `CatalogService`, and Domain may depend on nothing. Application's `CatalogService` imports a domain class, which its May Depend On allows. The `java.util.List` import names a library class no in-scope file declares, so it is ignored. The query is eShopCustom's, unchanged; only the reader differs, and a Java import resolves to the class's file.
 
 ```json case
-{ "phase": 4, "kinds": ["layer.dependencies"], "traces": ["JAV-ARC-02"], "requirements": ["R2", "R33", "R47"], "packs": ["intent.core", "intent.java", "house.shop"], "language": "java" }
+{ "phase": 4, "kinds": ["layer.dependencies"], "traces": ["JAV-ARC-02"], "requirements": ["R2", "R33", "R46"], "packs": ["intent.core", "intent.java", "house.shop"], "language": "java" }
 ```
 
 ```json pack
@@ -347,23 +330,6 @@ The Java spike's planted break: `Order.java` in the domain package imports the a
           "source": "the Layer's May Depend On associations"
         }
       ]
-    }
-  },
-  "rules": {
-    "Codebase Structure": {
-      "facts": {
-        "layer.dependencies": {
-          "query": [
-            { "from": "code:import" },
-            { "ownerOf": { "path": "file", "among": "model:Layer", "by": "stereotype('Layer Settings').Path", "as": "fromLayer" } },
-            { "resolve": { "target": "target", "as": "imported" } },
-            { "ownerOf": { "path": "imported.file", "among": "model:Layer", "by": "stereotype('Layer Settings').Path", "as": "toLayer" } },
-            { "where": "exists(fromLayer) && exists(toLayer) && fromLayer != toLayer" },
-            { "reading": { "claim": { "Layer": "fromLayer.name" }, "item": "toLayer.name", "at": "span" } }
-          ],
-          "compare": "within"
-        }
-      }
     }
   }
 }

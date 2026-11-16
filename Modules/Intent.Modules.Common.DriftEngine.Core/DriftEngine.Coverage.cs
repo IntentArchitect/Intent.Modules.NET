@@ -82,17 +82,15 @@ public sealed partial class DriftEngine
             var elements = Elements(designer);
             var packages = Packages(designer);
             var reads = ReadsOf(designer);
-            var designerNonClaim = nonClaims.FirstOrDefault(x => x.Designer == designer && x.Feature == "");
-            if (designerNonClaim is not null)
-            {
-                designerNonClaim.Uses += elements.Count;
-                continue;
-            }
-
             if (!reads.Any)
             {
-                // A designer no pack or extension reads at all is one finding, not one per element (R7).
-                if (elements.Count > 0)
+                // A designer no pack or extension reads at all is one finding, not one per element (R7), unless one declares it
+                // non-checkable. A non-claim only explains what nothing reads, so a pack that reads the designer overrides it.
+                if (nonClaims.FirstOrDefault(x => x.Designer == designer && x.Feature == "") is { } designerNonClaim)
+                {
+                    designerNonClaim.Uses += elements.Count;
+                }
+                else if (elements.Count > 0)
                 {
                     findings.Add(new Finding(NoVocabulary, $"{designer} (DriftEngine)", "ModelCode", "error",
                         $"The {designer} designer has {elements.Count} elements, and no installed pack or extension says what any of them states in code, so none of it is checked. Install the module whose extension reads the {designer} designer, or declare it non-checkable with a reason.",
@@ -177,14 +175,15 @@ public sealed partial class DriftEngine
     {
         foreach (var stereotype in owner.Stereotypes ?? [])
         {
-            if (covered($"stereotype:{stereotype.Name}") is { } whole)
-            {
-                whole.Uses++;
-                continue;
-            }
-
             if (!reads.Stereotypes.TryGetValue(stereotype.Name, out var properties))
             {
+                // A pack that reads the stereotype overrides another's non-claim for it, as for an element or a link.
+                if (covered($"stereotype:{stereotype.Name}") is { } whole)
+                {
+                    whole.Uses++;
+                    continue;
+                }
+
                 yield return new Finding(NoVocabulary, $"{designer} (DriftEngine)", "ModelCode", "error",
                     $"{display}'s `{stereotype.Name}` stereotype: no pack says what it states in code, so it isn't checked. Add vocabulary for it, or declare it non-checkable with a reason.",
                     subject);
@@ -265,8 +264,8 @@ public sealed partial class DriftEngine
                 }
             }
 
-            // The stereotypes and properties its entries' expressions name, and its conventions' and rules' for the designer.
-            var text = string.Join("\n", new[] { vocabulary, pack.Data["conventions"]?[designer], pack.Data["rules"]?[designer] }.OfType<JsonNode>().Select(x => x.ToJsonString(Unescaped)));
+            // The stereotypes and properties its entries' expressions name, and its conventions' for the designer.
+            var text = string.Join("\n", new[] { vocabulary, pack.Data["conventions"]?[designer] }.OfType<JsonNode>().Select(x => x.ToJsonString(Unescaped)));
             foreach (Match match in StereotypeExpression.Matches(text))
             {
                 var property = match.Groups["property"].Success ? match.Groups["property"].Value : match.Groups["quoted"].Success ? match.Groups["quoted"].Value : null;
@@ -320,14 +319,6 @@ public sealed partial class DriftEngine
             {
                 reads.Stereotype(read.Stereotype, read.Property);
             }
-        }
-
-        // A File Config's namespace and file locate a type among several of its name (DriftEngine.TypeExists), in a designer
-        // something reads.
-        if (reads.Any)
-        {
-            reads.Stereotype("File Config", "Namespace");
-            reads.Stereotype("File Config", "Filename");
         }
 
         if (designer == CodebaseStructure)

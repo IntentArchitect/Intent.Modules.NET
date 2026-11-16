@@ -2,42 +2,14 @@
 
 A component navigates to a page: a Navigation in the User Interface designer, or a Navigates To association in the Java spike's Front End designer. It is a `presence` kind, an existence kind, `stated: always`, and the claim sits on the association that states it.
 
-The Blazor cases use the `intent.ui` pack's vocabulary, with Common.Drift's placeholders (`{Component}`, `{Page}`, and `{Route}` and `{RouteStart}`, the target page's route without its leading `/`), and eShopCustom's house recipe, converted from eShop's: an `href`, a form `action` or a `NavigateTo` whose URI is the target's route. A navigation whose URI is computed is can't verify, `unreadable`. The Vue cases use the Java spike's house pack, which gives the Front End designer's vocabulary too.
+The Blazor cases use the `intent.ui` pack's vocabulary, and the Blazor reader reads the navigation: an `href`, a form `action` or a `NavigateTo` whose URI is the target's route. A navigation whose URI is computed is can't verify, `unreadable`. The Vue cases use the Java spike's house pack, which gives the Front End designer's vocabulary too.
 
 ## verified-href
 
 The cart page links to checkout with an `href`, and the model has a Navigation from the cart page to the Checkout page.
 
 ```json case
-{ "phase": 6, "kinds": ["intent.navigates"], "traces": ["ESC-FE-32"], "requirements": ["R2", "R8", "R38"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
-```
-
-```json pack
-{
-  "id": "house.eshopcustom",
-  "version": "1.0.0",
-  "engine": "^1.0.0",
-  "requires": [{ "id": "intent.ui", "version": "^1.0.0" }],
-  "languages": ["csharp"],
-  "designers": ["User Interface"],
-  "rules": {
-    "User Interface": {
-      "files": ["src/WebApp/Components/**/*.razor", "src/WebApp/Components/**/*.razor.cs"],
-      "facts": {
-        "intent.navigates": {
-          "find": "file:src/WebApp/Components/**/{Component}.razor*",
-          "read": [
-            { "match": "(?:\\bNavigateTo\\(\\$?|\\b[Hh]ref=|\\baction=)\"/?{Route}[\"?#]", "value": "present" },
-            { "match": "\\bNavigateTo\\(\\$\"/?{RouteStart}/\\{", "value": "present" },
-            { "match": "\\bNavigateTo\\((?![\"$])[^;]*|\\b[Hh]ref=\"@[^\"]*\"", "unreadable": true }
-          ],
-          "default": "absent",
-          "unstated": "no `NavigateTo`, `href` or form `action` to `/{Route}` in {Component}'s files"
-        }
-      }
-    }
-  }
-}
+{ "phase": 6, "kinds": ["intent.navigates"], "traces": ["ESC-FE-32"], "requirements": ["R2", "R8", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```json model
@@ -101,7 +73,7 @@ The cart page links to checkout with an `href`, and the model has a Navigation f
 eShopCustom's checkout page sends the user to their orders after placing one. The model's Navigation starts at the page's `HandleSubmitAsync` Component Operation, and the code's `NavigateTo` is in that method.
 
 ```json case
-{ "phase": 6, "base": "verified-href", "kinds": ["intent.navigates"], "traces": ["ESC-FE-32"], "requirements": ["R2", "R8"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 6, "base": "verified-href", "kinds": ["intent.navigates"], "traces": ["ESC-FE-32"], "requirements": ["R2", "R8"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```json model
@@ -167,10 +139,10 @@ eShopCustom's checkout page sends the user to their orders after placing one. Th
 
 ## contradicted-missing
 
-eShopCustom's `navigation.missing`: the cart page has lost its link to checkout, and the model's Navigation still says it navigates there. The file is found and no read case matches, so its silence says `absent`.
+eShopCustom's `navigation.missing`: the cart page has lost its link to checkout, and the model's Navigation still says it navigates there. The page is found and nothing in it navigates to the checkout route, so its silence says `absent`.
 
 ```json case
-{ "phase": 6, "base": "verified-href", "kinds": ["intent.navigates"], "cases": ["engine/silence"], "traces": ["ESC-FE-32"], "requirements": ["R3", "R8", "R14"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 6, "base": "verified-href", "kinds": ["intent.navigates"], "cases": ["engine/silence"], "traces": ["ESC-FE-32"], "requirements": ["R3", "R8", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```razor file src/WebApp/Components/Pages/Cart/CartPage.razor
@@ -188,7 +160,7 @@ eShopCustom's `navigation.missing`: the cart page has lost its link to checkout,
 {
   "claims": [
     { "kind": "intent.navigates", "element": "cart-navigates-to-checkout", "outcome": "contradicted",
-      "expected": "present", "actual": "absent", "fromSilence": true }
+      "expected": "present", "actual": "none", "fromSilence": true }
   ],
   "findings": [
     { "rule": "claim/intent.navigates", "severity": "error", "subject": "cart-navigates-to-checkout", "messageContains": "`Checkout` navigates: in the model, not in the code." }
@@ -198,10 +170,10 @@ eShopCustom's `navigation.missing`: the cart page has lost its link to checkout,
 
 ## cant-verify-computed-uri
 
-The cart page's link builds its URI in code, so the recipe can't tell where it goes. The read case for a computed `href` matches, and the claim is can't verify, `unreadable`, naming the line, rather than passing or failing on a guess.
+The cart page's link builds its URI in code, so the reader can't tell where it goes. The claim is can't verify, `unreadable`, at the link's line, rather than passing or failing on a guess.
 
 ```json case
-{ "phase": 6, "base": "verified-href", "kinds": ["intent.navigates"], "cases": ["engine/unreadable"], "requirements": ["R5", "R11"], "packs": ["intent.core", "intent.ui", "house.eshopcustom"], "language": "csharp" }
+{ "phase": 6, "base": "verified-href", "kinds": ["intent.navigates"], "cases": ["engine/unreadable"], "requirements": ["R5", "R11"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
 ```
 
 ```razor file src/WebApp/Components/Pages/Cart/CartPage.razor
@@ -230,10 +202,10 @@ The cart page's link builds its URI in code, so the recipe can't tell where it g
 
 ## java-router-link
 
-The Java spike's cart page links to checkout with a `RouterLink`, and the model has a Navigates To from the cart page to the checkout page. The checkout page has no link back to the cart, so its Navigates To is contradicted.
+The Java spike's cart page links to checkout with a `RouterLink`, and the model has a Navigates To from the cart page to the checkout page. The checkout page has no link back to the cart, so its Navigates To is contradicted. No stock pack knows the Front End designer, so the house pack gives the kind and vocabulary, and its module's claim reader (`house.readers`) reads the page's `to` attributes and `router.push` calls.
 
 ```json case
-{ "phase": 6, "kinds": ["intent.navigates"], "traces": ["JAV-FE-06"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.java", "house.shop"], "language": "typescript" }
+{ "phase": 6, "kinds": ["intent.navigates"], "traces": ["JAV-FE-06"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
 ```
 
 ```json pack
@@ -263,22 +235,6 @@ The Java spike's cart page links to checkout with a `RouterLink`, and the model 
           "source": "the Navigates To association"
         }
       ]
-    }
-  },
-  "rules": {
-    "Front End": {
-      "files": ["src/**/*.vue", "src/**/*.ts"],
-      "facts": {
-        "intent.navigates": {
-          "find": "file:{File}",
-          "read": [
-            { "match": "\\bto=\"{Route}\"", "value": "present" },
-            { "match": "\\brouter\\.(?:push|replace)\\(['\"`]{Route}['\"`]", "value": "present" }
-          ],
-          "default": "absent",
-          "unstated": "no `to=\"{Route}\"` or `router.push('{Route}')` in `{File}`"
-        }
-      }
     }
   }
 }
