@@ -24,7 +24,10 @@
   - whether a navigation is required, where nullable reference types are off;
   - roles and policy set by a custom `AuthorizeAttribute`;
   - foreign keys and store types the code states and the model leaves unset;
-  - a new opt-in rule, `unmodelled.index`, for indexes the model lacks.
+  - a new opt-in rule, `unmodelled.index`, for indexes the model lacks;
+  - whether every operation's parameters and return may be null, and its parameters' defaults, not only an HTTP endpoint's;
+  - the API versions an endpoint serves, and a primary key a class inherits from a modelled base class;
+  - a new opt-in rule, `unmodelled.endpoint`, for Minimal API endpoints the model lacks. A modelled class's interface and a handler's message method are part of what they belong to, not unmodelled code.
 - Improvement: A finding says only what disagrees and how to fix it: "`Order.OrderDate` isn't in the code.", "`Shipment` isn't in the model: no Class in the Domain designer describes it.", without how the code was searched or the file and line its link already shows.
 - Improvement: The Software Factory log says how long each run took: reading the model, each language and reader, building and reading claims (the slowest kinds), rules and opt-in rules.
 - Improvement: Values the code gives as constants it declares are read as their values; anything else it can't read, a line it can't parse, or an index declared twice is reported as can't verify rather than compared as written.

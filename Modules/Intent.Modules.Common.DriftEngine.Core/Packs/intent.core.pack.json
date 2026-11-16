@@ -24,6 +24,7 @@
     { "kind": "member.static", "label": "static", "valueType": "bool", "comparer": "exact", "stated": "always" },
     { "kind": "member.backingField", "label": "backing field", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
     { "kind": "operation.returns", "label": "return type", "valueType": "type", "comparer": "type", "stated": "always" },
+    { "kind": "operation.nullable", "label": "return nullable", "valueType": "bool", "comparer": "exact", "stated": "always" },
     { "kind": "operation.parameters", "label": "parameters", "valueType": "list", "comparer": "type", "stated": "always" },
     { "kind": "parameter.type", "label": "parameter type", "valueType": "type", "comparer": "type", "stated": "always" },
     { "kind": "parameter.nullable", "label": "parameter nullable", "valueType": "bool", "comparer": "exact", "stated": "always" },

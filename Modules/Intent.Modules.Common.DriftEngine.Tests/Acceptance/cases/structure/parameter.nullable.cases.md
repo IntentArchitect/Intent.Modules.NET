@@ -341,3 +341,70 @@ public class InventoryController {
   ]
 }
 ```
+
+## renamed-by-the-class
+
+A class may rename the parameters its interface declares, as `operation.parameters` allows: `CatalogAI` calls `ICatalogAI`'s `item` `items`. The parameter is found on the interface's declaration, so its nullability is verified rather than reported as a parameter the method doesn't have.
+
+```json case
+{ "phase": 2, "kinds": ["parameter.nullable", "operation.parameters"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Catalog.API",
+        "elements": [
+          { "id": "catalog-ai", "type": "Service", "name": "CatalogAI",
+            "children": [
+              { "id": "catalog-ai-embeddings", "type": "Operation", "name": "GetEmbeddingsAsync",
+                "children": [
+                  { "id": "catalog-ai-embeddings-item", "type": "Parameter", "name": "item", "typeRef": { "type": "string" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Catalog.API/Services/ICatalogAI.cs
+#nullable enable
+
+namespace Catalog.API.Services;
+
+public interface ICatalogAI
+{
+    Task GetEmbeddingsAsync(string item);
+}
+```
+
+```csharp file src/Catalog.API/Services/CatalogAI.cs
+#nullable enable
+
+namespace Catalog.API.Services;
+
+public class CatalogAI : ICatalogAI
+{
+    public Task GetEmbeddingsAsync(string items) => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.parameters", "element": "catalog-ai-embeddings", "outcome": "verified" },
+    { "kind": "parameter.nullable", "element": "catalog-ai-embeddings-item", "outcome": "verified", "expected": "false", "actual": "false", "at": "src/Catalog.API/Services/ICatalogAI.cs:7" }
+  ],
+  "findings": [
+    { "rule": "claim/parameter.nullable", "count": 0 }
+  ]
+}
+```

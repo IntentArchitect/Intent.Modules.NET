@@ -203,8 +203,9 @@ By principle 1, code the model doesn't mention is never drift. A team that wants
 | `unmodelled.file`        | An in-scope file in which no claim located anything                                                                          | eShopCustom's Strict scope mode          |
 | `unmodelled.value`       | An explicit value the code states for a `whenSet` kind that the model leaves unset (a `ToTable` with no modelled table name) | decision 6                               |
 | `unmodelled.index`       | An index the EF Core configuration declares (`HasIndex`) that no Index element or Index stereotype describes                  | Common.Drift's `own` entry for indexes   |
+| `unmodelled.endpoint`    | A Minimal API endpoint, a lambda or a method group, that no Operation's `endpoint.exists` located                             | Common.Drift's `own` entry for endpoints |
 
-Code is **located** when some claim's reading came from it or from code inside it, as Common.Drift's ownership is. An element's type is located by its `type.exists` reading, so "the type an element is located as" and "code a claim located" are the same idea.
+Code is **located** when some claim's reading came from it or from code inside it, as Common.Drift's ownership is. An element's type is located by its `type.exists` reading, so "the type an element is located as" and "code a claim located" are the same idea. A located class's interfaces are located with it, since a Service's, Domain Service's or Repository's interface beside its class is no element of its own, and a subscription's reading locates every method of the handler that takes its message.
 
 What each rule looks at, precisely:
 
@@ -213,6 +214,7 @@ What each rule looks at, precisely:
 - **`unmodelled.interaction`** reports the calls the conventions' `interactions` reach inside located methods that no `intent.*` claim located.
 - **`unmodelled.exposed`** follows what an endpoint exposes: each located operation's parameter types and unwrapped return type, then, transitively, the types of those types' public properties. It reports each in-scope type on the way that no element describes. Library types and generic type parameters are skipped.
 - **`unmodelled.file`** reports in-scope files in which no claim located anything.
+- **`unmodelled.endpoint`** (ASP.NET Core's) reports each Minimal API endpoint the code maps, a lambda or a method group, that no `endpoint.exists` located, named by its verb and route. A controller's actions are public methods, which `unmodelled.member` reports, and a router or controller no Service describes is `unmodelled.type`'s, so neither is reported twice.
 - **`unmodelled.value`** runs a `whenSet` kind's rule for each element of the specialization the kind's vocabulary entry selects (its `for`, ignoring `where` and `when`) that has no claim of that kind, and reports each value read from code. Silence is never a value, so a framework convention is never reported.
 
 A finding's subject is where the code is: the line a node starts on (its first attribute or annotation, if it has any), or line 1 for a file. It is in the Area of the designer whose convention or element found it (`Domain (DriftEngine)`), and names the element whose type holds the code, if any; `unmodelled.file`'s is in `Drift Scope (DriftEngine)`. A rule reports nothing in a file a `Context` scope row decides: that code is read, not checked ([scope.md](scope.md#what-scope-decides)).

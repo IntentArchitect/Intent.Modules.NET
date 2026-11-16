@@ -166,7 +166,8 @@ internal static class CSharpReader
                         bodies.Add((member, body, type, file));
                     }
 
-                    foreach (var typeRef in member.Parameters.Select(x => x.Type).Prepend(member.Type).OfType<TypeRefNode>())
+                    // Type arguments too: Task<Buyer?> returns a nullable Buyer.
+                    foreach (var typeRef in member.Parameters.Select(x => x.Type).Prepend(member.Type).OfType<TypeRefNode>().SelectMany(WithArguments))
                     {
                         referenceTypesNullable.Add((typeRef, nullableContext));
                     }
@@ -211,6 +212,8 @@ internal static class CSharpReader
     }
 
     private static HashSet<string> ValueTypes(CodeGraph graph) => graph.Types.Where(x => x.Kind is "struct" or "enum").Select(x => x.Name).ToHashSet(StringComparer.Ordinal);
+
+    private static IEnumerable<TypeRefNode> WithArguments(TypeRefNode type) => type.Arguments.SelectMany(WithArguments).Prepend(type);
 
     private static string Nullability(TypeRefNode type, bool context, HashSet<string> valueTypes) =>
         type.NullableMarked || type.Name == "Nullable"

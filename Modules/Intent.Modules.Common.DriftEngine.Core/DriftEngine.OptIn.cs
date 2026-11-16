@@ -68,6 +68,10 @@ public sealed partial class DriftEngine
         }
 
         types.UnionWith(_graph.Types.Where(x => x.Members.Any(members.Contains)));
+
+        // A located class's interfaces are its code: a Service's, Domain Service's or Repository's interface beside its class
+        // is no element of its own.
+        types.UnionWith(types.Where(x => x.Kind != "interface").SelectMany(_graph.Bases).Where(x => x.Kind == "interface").ToList());
         var files = new HashSet<string>(spans.Select(x => x.File), StringComparer.Ordinal);
         files.UnionWith(types.SelectMany(x => x.Files));
         files.UnionWith(members.Select(x => x.At.File));

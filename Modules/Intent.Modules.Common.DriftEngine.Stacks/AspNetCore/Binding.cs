@@ -68,9 +68,10 @@ internal static class Binding
         var body = endpoint is not null
                    || new[] { owner }.Concat(code.Bases(owner)).Any(x => x.Attributes.Any(a => a.Name == "ApiController"))
                    || WebApi2(code, owner);
+        // What ASP.NET infers is its convention, not a value the code states, so unmodelled.value doesn't report it.
         if (Source(code, owner, parameter, route, body, endpoint is not null, nested: false) is { } source)
         {
-            return ClaimReading.Stated(source, parameter.At);
+            return ClaimReading.Defaulted(source, parameter.At, "no binding attribute");
         }
 
         return ClaimReading.CantVerify("inferred",

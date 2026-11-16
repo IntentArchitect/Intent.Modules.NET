@@ -163,6 +163,16 @@
       "phase": 1
     },
     {
+      "kind": "operation.nullable",
+      "label": "return nullable",
+      "area": "structure",
+      "valueType": "bool",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 1
+    },
+    {
       "kind": "operation.parameters",
       "label": "parameters",
       "area": "structure",
@@ -1013,7 +1023,7 @@
     "comparers",
     "report"
   ],
-  "optIn": ["unmodelled.type", "unmodelled.member", "unmodelled.interaction", "unmodelled.exposed", "unmodelled.file", "unmodelled.value", "unmodelled.index"],
+  "optIn": ["unmodelled.type", "unmodelled.member", "unmodelled.interaction", "unmodelled.exposed", "unmodelled.file", "unmodelled.value", "unmodelled.index", "unmodelled.endpoint"],
   "packs": [
     "intent.core",
     "intent.domain",

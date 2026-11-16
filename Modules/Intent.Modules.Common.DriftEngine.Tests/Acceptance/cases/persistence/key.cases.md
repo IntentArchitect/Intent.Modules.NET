@@ -501,3 +501,50 @@ public class ShopContext : DbContext
   ]
 }
 ```
+
+## inherited-from-a-modelled-base
+
+The model has the SeedWork base too: an abstract `Entity` with the `Id` Primary Key, and `Order` derives it through a Generalization, so `Order`'s key is the inherited `Id` and is verified against the code's. An abstract base with no Table or View isn't a table of its own, so `Entity` has no key claim.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["key"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "entity", "type": "Class", "name": "Entity", "abstract": true,
+            "children": [
+              { "id": "entity-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } }
+            ] },
+          { "id": "order", "type": "Class", "name": "Order", "generalization": "entity",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "order-order-date", "type": "Attribute", "name": "OrderDate", "typeRef": { "type": "datetime" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "key", "element": "order", "outcome": "verified", "expected": "Id", "actual": "Id", "at": "src/Domain/SeedWork/Entity.cs:5" },
+    { "kind": "key", "element": "entity", "absent": true }
+  ],
+  "findings": [
+    { "rule": "claim/key", "count": 0 }
+  ]
+}
+```

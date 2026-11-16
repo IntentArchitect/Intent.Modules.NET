@@ -185,17 +185,20 @@ internal sealed class SubscriptionReader : IClaimReader
             context.Code.TypeFor(reference, from) is { } resolved ? resolved == located || resolved.Name == message.Name : reference.Name == message.Name;
         bool Over(TypeRefNode reference, TypeNode from) => reference.Arguments.Any(x => Is(x, from) || Over(x, from));
 
+        // The methods that take the message are where it is handled (a framework's Handle, and the implementation method a
+        // partial half hands it to), so they are the subscription's code, not unmodelled members.
+        var methods = type.Members.Where(x => x.Kind == "method" && x.Parameters.Any(p => p.Type is { } t && (Is(t, type) || Over(t, type)))).ToList();
+        if (methods.Count > 0)
+        {
+            return ClaimReading.Found(methods, methods[0].At);
+        }
+
         foreach (var current in new[] { type }.Concat(context.Code.Bases(type)))
         {
             if (current.BaseTypes.Any(x => Over(x, current)))
             {
                 return ClaimReading.Compared("present", type.At, true);
             }
-        }
-
-        if (type.Members.FirstOrDefault(x => x.Kind == "method" && x.Parameters.Any(p => p.Type is { } t && (Is(t, type) || Over(t, type)))) is { } method)
-        {
-            return ClaimReading.Compared("present", method.At, true);
         }
 
         var association = end.Association?.SpecializationType ?? "subscription";

@@ -949,6 +949,26 @@ public sealed partial class DriftEngine
                     : actual == "void");
                 break;
             }
+            case "operation.nullable":
+            {
+                // Whether what the method returns, through the profile's async wrappers, may be null: C#'s Task<Order?>.
+                var member = OwnMember(claim);
+                if (_graph.UngovernedFiles.TryGetValue(member.At.File, out var project))
+                {
+                    Cant(claim, "readerFailed", new Reading { At = member.At, Detail = $"{project}, which sets {member.At.File}'s nullable context, can't be read." });
+                    break;
+                }
+
+                var returns = Unwrapped(member);
+                if (returns?.Nullable is null or "unknown")
+                {
+                    Cant(claim, "unresolved", new Reading { At = member.At, Value = "unknown", Detail = $"{member.At.File} doesn't state whether `{returns?.Text}` is nullable." });
+                    break;
+                }
+
+                Compare(claim, returns.Nullable, member.At, "code", returns.Nullable == claim.Expected);
+                break;
+            }
             case "type.namespace":
             {
                 var type = OwnType(claim);
@@ -1318,10 +1338,15 @@ public sealed partial class DriftEngine
 
         var name = claim.Source.Name.TrimStart('@');
         var named = Naming.InCode(ProfileOf(member), name, ["parameter"]);
-        if ((member.Parameters.FirstOrDefault(x => x.Name.TrimStart('@') == name) ?? member.Parameters.FirstOrDefault(x => x.Name == named)) is not { } parameter)
+        ParameterNode? Named(MemberNode declared) =>
+            declared.Parameters.FirstOrDefault(x => x.Name.TrimStart('@') == name) ?? declared.Parameters.FirstOrDefault(x => x.Name == named);
+        // A class may rename the parameters its interface declares, as operation.parameters allows.
+        if ((Named(member) ?? Counterparts(member).Select(Named).FirstOrDefault(x => x is not null)) is not { } parameter)
         {
-            // A parameter that isn't there is its parameter.type claim's one finding; its nullability and default wait on it.
-            if (claim.Kind != "parameter.type" && ClaimOn(claim.Designer, claim.Source, "parameter.type") is { } type)
+            // A parameter that isn't there is its parameter.type claim's one finding, else its operation's parameters'; its
+            // nullability and default wait on it.
+            if (claim.Kind != "parameter.type" && (ClaimOn(claim.Designer, claim.Source, "parameter.type")
+                                                   ?? (Owner(claim.Source) is IElement operation ? ClaimOn(claim.Designer, operation, "operation.parameters") : null)) is { } type)
             {
                 claim.DependsOn = new ClaimRef(type.Designer, type.Element, type.Kind);
                 Cant(claim, "blocked", new Reading { Detail = $"Waits on {type.Kind}" });

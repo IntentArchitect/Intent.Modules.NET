@@ -1808,3 +1808,70 @@ public class OrderService
   ]
 }
 ```
+
+## interface-of-a-modelled-class
+
+A located class's interfaces are its code: Intent's own Domain Service, Repository and Service output is an interface beside its class, and no element describes the interface on its own. `BuyerLookup` is the `BuyerLookup` Domain Service, so `IBuyerLookup`, which it implements, isn't reported. `IClock` is implemented by nothing the model describes: reported.
+
+```json case
+{ "phase": 2, "cases": ["optin/unmodelled.type"], "requirements": ["R49"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "buyer-lookup", "type": "Domain Service", "name": "BuyerLookup" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.type", "Glob": "src/Domain/**" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Services/IBuyerLookup.cs
+namespace Ordering.Domain.Services;
+
+public interface IBuyerLookup
+{
+    bool Exists(string email);
+}
+```
+
+```csharp file src/Domain/Services/BuyerLookup.cs
+namespace Ordering.Domain.Services;
+
+public class BuyerLookup : IBuyerLookup
+{
+    public bool Exists(string email) => false;
+}
+```
+
+```csharp file src/Domain/Services/IClock.cs
+namespace Ordering.Domain.Services;
+
+public interface IClock
+{
+    DateTime Now { get; }
+}
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.type", "subject": "src/Domain/Services/IBuyerLookup.cs:3", "count": 0, "note": "The interface of a located class" },
+    { "rule": "optin/unmodelled.type", "subject": "src/Domain/Services/BuyerLookup.cs:3", "count": 0 },
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/Domain/Services/IClock.cs:3", "messageContains": "`IClock` isn't in the model." }
+  ]
+}
+```

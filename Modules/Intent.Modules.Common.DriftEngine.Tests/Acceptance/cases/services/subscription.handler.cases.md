@@ -6,7 +6,7 @@ The fixtures adapt eShopCustom's `Ordering.API` integration and domain event han
 
 ## verified
 
-`OrderPaymentSucceededHandler` subscribes to `OrderPaymentSucceededIntegrationEvent` and implements `IHandleMessages<OrderPaymentSucceededIntegrationEvent>`.
+`OrderPaymentSucceededHandler` subscribes to `OrderPaymentSucceededIntegrationEvent` and implements `IHandleMessages<OrderPaymentSucceededIntegrationEvent>`. The reading is at `Handle`, the method that takes the message, so it is the subscription's code and `optin/unmodelled.member` never reports it.
 
 ```json case
 { "phase": 4, "kinds": ["subscription.handler"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
@@ -59,7 +59,7 @@ public class OrderPaymentSucceededHandler : IHandleMessages<OrderPaymentSucceede
 {
   "claims": [
     { "kind": "subscription.handler", "element": "handler-subscribes-payment-succeeded", "outcome": "verified", "expected": "present", "actual": "present",
-      "at": "src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededHandler.cs:3" }
+      "at": "src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededHandler.cs:5" }
   ]
 }
 ```
@@ -235,7 +235,7 @@ public class OrderPaymentSucceededIntegrationEventHandler(IMediator mediator) : 
 
 ## domain-event-handler-across-partial-parts
 
-A Domain Event Handler subscribed to `OrderStartedDomainEvent`, whose class is split in two partial parts: one handles the event, the other declares `INotificationHandler<OrderStartedDomainEvent>`. The parts of a partial type are read as one type (R37), so the subscription is found on the second part. MediatR's pack arrives `later`. Traces ESC-SVC-60.
+A Domain Event Handler subscribed to `OrderStartedDomainEvent`, whose class is split in two partial parts: one handles the event, the other declares `INotificationHandler<OrderStartedDomainEvent>`. The parts of a partial type are read as one type (R37), so the subscription is found on the second part, and read at `Handle` in the first. MediatR's pack arrives `later`. Traces ESC-SVC-60.
 
 ```json case
 { "phase": "later", "kinds": ["subscription.handler"], "traces": ["ESC-SVC-60"], "requirements": ["R2", "R37"], "packs": ["intent.core", "intent.domain", "intent.services", "intent.mediatr"], "language": "csharp" }
@@ -298,7 +298,7 @@ public partial class ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandl
 {
   "claims": [
     { "kind": "subscription.handler", "element": "handler-handles-order-started", "outcome": "verified", "expected": "present", "actual": "present",
-      "at": "src/Ordering.API/Application/DomainEventHandlers/ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler.Notification.cs:3" }
+      "at": "src/Ordering.API/Application/DomainEventHandlers/ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler.cs:5" }
   ]
 }
 ```

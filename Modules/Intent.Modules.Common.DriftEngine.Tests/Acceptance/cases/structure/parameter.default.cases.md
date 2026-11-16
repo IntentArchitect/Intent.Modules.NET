@@ -186,6 +186,66 @@ public static class CatalogApi
 }
 ```
 
+## domain-constructor
+
+Any operation's or constructor's parameter, not only an HTTP endpoint's: `OrderItem`'s constructor defaults `units` to `1`, as modelled, and its nullable `discount` is a `decimal?`. The `units` default and both parameters' nullability are verified.
+
+```json case
+{ "phase": 2, "kinds": ["parameter.default", "parameter.nullable"], "traces": ["ESC-DOM-64"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "order-item", "type": "Class", "name": "OrderItem",
+            "children": [
+              { "id": "order-item-ctor", "type": "Class Constructor", "name": "OrderItem",
+                "children": [
+                  { "id": "order-item-ctor-units", "type": "Parameter", "name": "units", "typeRef": { "type": "int" }, "value": "1" },
+                  { "id": "order-item-ctor-discount", "type": "Parameter", "name": "discount", "typeRef": { "type": "decimal", "nullable": true } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Ordering.Domain/OrderItem.cs
+namespace Ordering.Domain;
+
+public class OrderItem
+{
+    public OrderItem(int units = 1, decimal? discount = null)
+    {
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "parameter.default", "element": "order-item-ctor-units", "outcome": "verified", "expected": "1", "actual": "1", "at": "src/Ordering.Domain/OrderItem.cs:5" },
+    { "kind": "parameter.default", "element": "order-item-ctor-discount", "absent": true },
+    { "kind": "parameter.nullable", "element": "order-item-ctor-units", "outcome": "verified", "expected": "false", "actual": "false" },
+    { "kind": "parameter.nullable", "element": "order-item-ctor-discount", "outcome": "verified", "expected": "true", "actual": "true" }
+  ],
+  "findings": [
+    { "rule": "claim/parameter.default", "count": 0 },
+    { "rule": "claim/parameter.nullable", "count": 0 }
+  ]
+}
+```
+
 ## blocked
 
 `CatalogApi` has no `GetItemsByName`. The operation's `member.exists` claim is contradicted, and the default's claim waits on it: can't verify, `blocked`, rather than contradicted as not stated by a method that isn't there.

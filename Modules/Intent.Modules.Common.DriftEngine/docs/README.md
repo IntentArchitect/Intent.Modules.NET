@@ -26,7 +26,7 @@ Code the model doesn't mention isn't drift on its own, so by default nothing rep
 
 | List | Row | What it does |
 | --- | --- | --- |
-| Opt-in Rules | Rule, Glob | Turns a rule on, optionally narrowed to some files: `optin/unmodelled.file`, `.type`, `.member`, `.interaction`, `.exposed` or `.value`, or a module's own |
+| Opt-in Rules | Rule, Glob | Turns a rule on, optionally narrowed to some files: `optin/unmodelled.file`, `.type`, `.member`, `.interaction`, `.exposed`, `.value`, `.index` or `.endpoint`, or a module's own |
 | Exceptions | Rule, Match, Reason | Code a rule mustn't report: file globs, type names or `Type.Member`s, one per line, with one reason for them all. An entry that matches nothing is a warning. |
 | Severity Overrides | Rule, Severity, Reason | Another severity for the findings whose rule matches (`*` matches anything): `optin/unmodelled.*` as Warning while the model catches up |
 
@@ -36,6 +36,8 @@ Code the model doesn't mention isn't drift on its own, so by default nothing rep
 - **`unmodelled.interaction`**: a call the model's interactions could show that no link describes, such as a query of an entity with no Query Entity Action. Messages the diagram could show are already drift by default (below), so they aren't reported twice.
 - **`unmodelled.exposed`**: a type an endpoint takes or returns, or one reached through its type arguments and public properties, that no element describes. The types an endpoint exposes come from a convention's `exposed` find path.
 - **`unmodelled.value`**: a value the code states explicitly that the model leaves unset, such as a `ToTable` for a class with no Table Name, or a success status for an operation with none.
+- **`unmodelled.index`**: an EF Core `HasIndex` that no Index describes.
+- **`unmodelled.endpoint`**: a Minimal API endpoint, such as `api.MapGet("/catalogtypes", async (...) => ...)`, that no Operation describes. A controller's actions are `unmodelled.member`'s.
 
 Each finding is an error unless an override says otherwise, and a row without a reason, or naming a rule no installed module provides, is a configuration error.
 

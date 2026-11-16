@@ -239,6 +239,10 @@ internal sealed class Expression
             IPackage owner => owner.ChildElements.Where(x => x.SpecializationType == Text(arguments[0])).ToList(),
             _ => null
         },
+        // Of the element and the classes it derives from through Generalization, nearest first: inherited('Attribute').
+        "inherited" => self is IElement derived
+            ? Ancestry(derived).SelectMany(x => x.ChildElements.Where(c => c.SpecializationType == Text(arguments[0]))).ToList()
+            : null,
         // The association ends leading away from it, of associations of a specialization: associations('Generalization').
         "associations" => ((self as IElement)?.AssociatedElements ?? []).Where(x => x.Association?.SpecializationType == Text(arguments[0])).ToList(),
         "if" => Truthy(arguments[0]) ? arguments[1] : arguments.ElementAtOrDefault(2),
@@ -358,6 +362,17 @@ internal sealed class Expression
         }
 
         return (element.Package?.Stereotypes ?? []).FirstOrDefault(x => x.Name == name);
+    }
+
+    /// <summary>The element, then the classes it derives from through Generalization, nearest first.</summary>
+    private static IEnumerable<IElement> Ancestry(IElement element)
+    {
+        var seen = new HashSet<string>(StringComparer.Ordinal);
+        for (var current = element; current is not null && seen.Add(current.Id);
+             current = current.AssociatedElements.FirstOrDefault(x => x.Association is { SpecializationType: "Generalization" } association && IsTarget(association, x))?.TypeReference?.Element as IElement)
+        {
+            yield return current;
+        }
     }
 
     private static bool IsTarget(IAssociation association, IAssociationEnd end) =>

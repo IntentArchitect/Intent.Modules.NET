@@ -1675,3 +1675,65 @@ export const api = {
   ]
 }
 ```
+
+## handler-message-method
+
+An Integration Event Handler's `Handle` takes the message its subscription names, so the subscription's reading is there and the method is its code, not an unmodelled member. `Retry` is a public method nothing in the model states: reported.
+
+```json case
+{ "phase": 4, "cases": ["optin/unmodelled.member"], "requirements": ["R49"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [
+        {
+          "id": "services", "name": "Ordering.API",
+          "elements": [
+            { "id": "payment-succeeded-handler", "type": "Integration Event Handler", "name": "OrderPaymentSucceededHandler" }
+          ]
+        },
+        {
+          "id": "eventing", "name": "Ordering.Eventing", "type": "Eventing Package",
+          "elements": [
+            { "id": "payment-succeeded", "type": "Message", "name": "OrderPaymentSucceededIntegrationEvent" }
+          ]
+        }
+      ],
+      "associations": [
+        { "id": "handler-subscribes-payment-succeeded", "type": "Subscribe Integration Event",
+          "source": { "element": "payment-succeeded-handler" }, "target": { "element": "payment-succeeded" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```csharp file src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededHandler.cs
+namespace Ordering.API.Application.IntegrationEvents.EventHandling;
+
+public class OrderPaymentSucceededHandler : IHandleMessages<OrderPaymentSucceededIntegrationEvent>
+{
+    public Task Handle(OrderPaymentSucceededIntegrationEvent message, IMessageHandlerContext context) => Task.CompletedTask;
+
+    public Task Retry(IMessageHandlerContext context) => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.member", "subject": "src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededHandler.cs:5", "count": 0, "note": "The subscription's code" },
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededHandler.cs:7", "messageContains": "OrderPaymentSucceededHandler.Retry" }
+  ]
+}
+```

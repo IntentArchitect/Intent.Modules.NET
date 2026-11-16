@@ -38,14 +38,16 @@
         { "kind": "security.policy", "for": { "element": "Operation", "where": "hasStereotype('Http Settings') && hasStereotype('Secured')" }, "value": "stereotype('Secured').Policy ?? join(map(stereotype('Secured')['Security Policies'], name), ', ')", "dependsOn": "member.exists", "waitsOn": ["endpoint.exists", "security"], "source": "the operation's Secured Policy" },
         { "kind": "security.policy", "for": { "element": "Operation", "where": "hasStereotype('Http Settings') && !hasStereotype('Secured') && !hasStereotype('Unsecured') && parent.hasStereotype('Secured')" }, "value": "parent.stereotype('Secured').Policy ?? join(map(parent.stereotype('Secured')['Security Policies'], name), ', ')", "dependsOn": "member.exists", "waitsOn": ["endpoint.exists", "security"], "source": "its service's Secured Policy" },
         { "kind": "api.versionScheme", "for": { "element": "Service", "where": "hasStereotype('Api Version Settings')" }, "value": "'url segment'", "dependsOn": "type.exists", "source": "the service's Api Version Settings, which put the version in the route" },
+        { "kind": "service.versions", "for": { "element": "Service", "applies": "count(where(children('Operation'), hasStereotype('Api Version Settings'))) == '0'", "where": "hasStereotype('Api Version Settings')" }, "value": "join(map(stereotype('Api Version Settings')['Applicable Versions'], name), ', ')", "dependsOn": "type.exists", "source": "the service's Api Version Settings Applicable Versions" },
+        { "kind": "operation.versions", "for": { "element": "Operation", "where": "hasStereotype('Http Settings') && hasStereotype('Api Version Settings')" }, "value": "join(map(stereotype('Api Version Settings')['Applicable Versions'], name), ', ')", "dependsOn": "member.exists", "waitsOn": ["endpoint.exists"], "source": "the operation's Api Version Settings Applicable Versions" },
+        { "kind": "operation.versions", "for": { "element": "Operation", "where": "hasStereotype('Http Settings') && !hasStereotype('Api Version Settings') && parent.hasStereotype('Api Version Settings')" }, "value": "join(map(parent.stereotype('Api Version Settings')['Applicable Versions'], name), ', ')", "dependsOn": "member.exists", "waitsOn": ["endpoint.exists"], "source": "its service's Api Version Settings Applicable Versions" },
         { "kind": "operation.status", "for": { "element": "Operation", "where": "hasStereotype('Http Settings')" }, "value": "number(stereotype('Http Settings')['Success Response Code'])", "dependsOn": "member.exists", "waitsOn": ["endpoint.exists"], "source": "the operation's Http Settings Success Response Code" }
       ],
       "nonClaims": [
         { "for": { "element": "Security Configuration" }, "reason": "Holds the roles Secured stereotypes name; each endpoint's roles are checked." },
         { "for": { "element": "Role" }, "reason": "A role Secured stereotypes name; each endpoint's roles are checked." },
-        { "for": { "element": "Api Version" }, "reason": "Holds the versions Api Version Settings name; each versioned service's scheme is checked." },
-        { "for": { "element": "Version" }, "reason": "A version Api Version Settings name; each versioned service's scheme is checked." },
-        { "for": { "stereotype": "Api Version Settings", "property": "Applicable Versions" }, "reason": "No stack reads which versions a controller or router serves for it yet; the scheme it states is checked." }
+        { "for": { "element": "Api Version" }, "reason": "Holds the versions Api Version Settings name; each versioned service's and endpoint's versions are checked." },
+        { "for": { "element": "Version" }, "reason": "A version Api Version Settings name; each versioned service's and endpoint's versions are checked." }
       ]
     }
   }

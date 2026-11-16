@@ -18,6 +18,8 @@ public sealed class AspNetCoreExtension : IDriftExtension
     public IEnumerable<IClaimReader> ClaimReaders { get; } = [new AspNetCoreClaims(), new MinimalApiClaims()];
 
     public IEnumerable<IDriftRule> Rules { get; } = [new ConventionalRoutes()];
+
+    public IEnumerable<IOptInRule> OptInRules { get; } = [new UnmodelledEndpoints()];
 }
 
 /// <summary>
