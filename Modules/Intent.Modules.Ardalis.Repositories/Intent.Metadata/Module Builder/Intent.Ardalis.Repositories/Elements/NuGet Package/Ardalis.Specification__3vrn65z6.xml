@@ -53,6 +53,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cc21e637-8af3-4ef5-9066-deb60bee4eda</parentFolderId>
+      <packageId>d975a64b-f9ee-4581-903e-ebc035209c39</packageId>
+      <packageName>Intent.Ardalis.Repositories</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -73,6 +75,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7e71e8db-0654-45ef-8202-6cdb35fea6f1</parentFolderId>
+          <packageId>d975a64b-f9ee-4581-903e-ebc035209c39</packageId>
+          <packageName>Intent.Ardalis.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -84,6 +88,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7e71e8db-0654-45ef-8202-6cdb35fea6f1</parentFolderId>
+          <packageId>d975a64b-f9ee-4581-903e-ebc035209c39</packageId>
+          <packageName>Intent.Ardalis.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -96,6 +102,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cc21e637-8af3-4ef5-9066-deb60bee4eda</parentFolderId>
+      <packageId>d975a64b-f9ee-4581-903e-ebc035209c39</packageId>
+      <packageName>Intent.Ardalis.Repositories</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
