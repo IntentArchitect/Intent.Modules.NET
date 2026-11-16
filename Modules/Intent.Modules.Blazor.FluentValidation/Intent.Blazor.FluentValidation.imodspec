@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Blazor.FluentValidation</id>
   <version>1.5.0-pre.0</version>
-  <supportedClientVersions>[5.0.0-a,6.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[5.1.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Support for validating Blazor modles with the FluentValidation library.</summary>
   <description>Support for validating Blazor modles with the FluentValidation library.</description>
   <authors>Intent Architect</authors>

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.VisualStudio.Projects</id>
   <version>4.2.0-pre.1</version>
-  <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[5.1.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-visualstudio-projects/intent-visualstudio-projects.html</projectUrl>

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AmazonS3.ObjectStorage</id>
   <version>1.2.0-pre.0</version>
-  <supportedClientVersions>[4.4.0-a,6.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[5.1.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Introduces an Object storage client that can link with Amazon S3.</summary>
   <description>Introduces an Object storage client that can link with Amazon S3.</description>
   <authors>Intent Architect</authors>

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.SonarQube</id>
   <version>1.1.0-pre.0</version>
-  <supportedClientVersions>[4.4.0-a,6.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[5.1.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Provides real-time code quality analysis and feedback on the quality, readability and complexity of your code.</summary>
   <description>Provides real-time code quality analysis and feedback on the quality, readability and complexity of your code.</description>
   <projectUrl>https://docs.intentarchitect.com/articles/modules-dotnet/intent-sonarqube/intent-sonarqube.html</projectUrl>

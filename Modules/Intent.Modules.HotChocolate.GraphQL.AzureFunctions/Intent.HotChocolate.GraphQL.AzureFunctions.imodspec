@@ -2,7 +2,7 @@
 <package>
   <id>Intent.HotChocolate.GraphQL.AzureFunctions</id>
   <version>2.1.0-pre.1</version>
-  <supportedClientVersions>[4.4.0-a, 6.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[5.1.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>HotChocolate integration with Azure Functions.</summary>
   <description>HotChocolate integration with Azure Functions.</description>
   <authors>Intent Architect</authors>

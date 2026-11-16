@@ -16,7 +16,7 @@
   <file path="Templates/Templates/IndexCreationService/IndexCreationServiceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel" />
   <file path="Templates/Templates/RedisOmConfiguration/RedisOmConfigurationTemplatePartial.cs" deviationsHash="05844078DA7E8E1612B868C3F469F442A55B1CF6FD7A037FDAE520D6EC6A0D7E" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/Templates/RedisOmConfiguration/RedisOmConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/Templates/RedisOmDocument/RedisOmDocumentTemplatePartial.cs" deviationsHash="15B392FA167AC506898CAA2F830D853532338A01F3BB8C4F3745C50250644C95" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/Templates/RedisOmDocument/RedisOmDocumentTemplatePartial.cs" deviationsHash="5FFF128440DD72AF19062DE588E6DE64DF45C3119786803175096F9D95ED9938" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/Templates/RedisOmDocument/RedisOmDocumentTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/Templates/RedisOmDocumentInterface/RedisOmDocumentInterfaceTemplatePartial.cs" deviationsHash="75F06A61CD721C9984C88B86A6F18DB402AF349FA85CCF67D988DEA8C1C0B9D8" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/Templates/RedisOmDocumentInterface/RedisOmDocumentInterfaceTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />

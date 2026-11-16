@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Eventing.NServiceBus</id>
   <version>1.1.0-pre.0</version>
-  <supportedClientVersions>[5.0.0-a, 6.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[5.1.0-a, 6.0.0-a)</supportedClientVersions>
   <summary>Integrates NServiceBus as the message broker for publishing and subscribing to integration events and commands.</summary>
   <description>Integrates NServiceBus as the message broker for publishing and subscribing to integration events and commands.</description>
   <authors>Intent Architect</authors>

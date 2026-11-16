@@ -2,7 +2,7 @@
 <package>
   <id>Intent.EntityFrameworkCore.SecondLevelCaching</id>
   <version>1.1.0-pre.0</version>
-  <supportedClientVersions>[4.4.0-a,6.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[5.1.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Provides second level caching for EF Core using https://github.com/VahidN/EFCoreSecondLevelCacheInterceptor.</summary>
   <description>Provides second level caching for EF Core using https://github.com/VahidN/EFCoreSecondLevelCacheInterceptor.</description>
   <authors>Intent Architect</authors>

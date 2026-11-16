@@ -6,7 +6,7 @@
   <file path="Intent.HotChocolate.GraphQL.AzureFunctions.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.HotChocolate.GraphQL.AzureFunctions.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
-  <file path="Templates/GraphQLConfig/GraphQLConfigTemplatePartial.cs" deviationsHash="D4598CE0ED511225B22A5420C781C215F06F6F54A6E523473359B321A54E9D1D" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/GraphQLConfig/GraphQLConfigTemplatePartial.cs" deviationsHash="8143AD81D41C9172E98713672676ADCDAF72ADCD8DD204E3B17C11A7AC4F6285" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/GraphQLConfig/GraphQLConfigTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/GraphQLFunction/GraphQLFunctionTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/GraphQLFunction/GraphQLFunctionTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />

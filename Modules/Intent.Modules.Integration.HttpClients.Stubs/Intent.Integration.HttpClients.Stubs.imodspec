@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Integration.HttpClients.Stubs</id>
   <version>1.1.0-pre.0</version>
-  <supportedClientVersions>[5.0.0-a,6.0.0)</supportedClientVersions>
+  <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
   <summary>Generates developer-owned stub implementations for Integration HttpClient service contracts.</summary>
   <description>Generates developer-owned stub implementations for Integration HttpClient service contracts.</description>
   <authors>Intent Architect</authors>
