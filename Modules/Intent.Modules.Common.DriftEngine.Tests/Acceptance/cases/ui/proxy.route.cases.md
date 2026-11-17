@@ -2,14 +2,14 @@
 
 The path a front end's proxy operation sends its request to, against the route of the backend Operation it calls: the Service's Http Service Settings Route followed by the Operation's Http Settings Route, with `[controller]` standing for the Service's name without its `Service` suffix. In the Java spike's Front End designer, a Proxy Operation has a Calls association to that Operation. The kind is `stated: always` and compares with the `route` comparer, which ignores a leading or trailing `/` and case in literal segments.
 
-No stock pack knows the Front End designer, so these cases' house pack gives the kind and its vocabulary. The claim sits on the Calls association. The proxy method states the route as the path argument of its `request('VERB', path)` call, where each `${encodeURIComponent(name)}` hole is the route parameter `{name}`, which its module's claim reader (`house.readers`) reads.
+No stock pack knows the Front End designer, so these cases' house pack extends `intent.ui`: it claims where the Proxy is (`type.exists`, from its Implementation Path) and the stock `proxy.route` on its Calls association. The stock Vue reader (`intent.vue`) follows the proxy method's `request('VERB', path)` call into the module's own `request` helper, to its `fetch`, and reads the URL with the helper's `path` bound to what the method passes, so each `${encodeURIComponent(name)}` is a value standing for a route parameter. The reading is placed at the method's `request(...)` call.
 
 ## verified
 
 The client builds `/api/products/${encodeURIComponent(id)}`, which reads as `/api/products/{id}`. The model's route is `api/[controller]` on `ProductsService` and `{id}` on its Operation, so `api/Products/{id}`; the two differ only in the leading `/` and the literal segment's case.
 
 ```json case
-{ "phase": "later", "kinds": ["proxy.route"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R10", "R28", "R30"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
+{ "phase": "later", "kinds": ["proxy.route"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R10", "R28", "R30"], "packs": ["intent.core", "intent.ui", "house.shop"], "language": "typescript" }
 ```
 
 ```json pack
@@ -17,23 +17,25 @@ The client builds `/api/products/${encodeURIComponent(id)}`, which reads as `/ap
   "id": "house.shop",
   "version": "1.0.0",
   "engine": "^1.0.0",
-  "requires": [{ "id": "intent.java", "version": "^1.0.0" }],
+  "requires": [{ "id": "intent.ui", "version": "^1.0.0" }],
   "languages": ["typescript"],
   "designers": ["Front End"],
-  "kinds": [
-    { "kind": "proxy.route", "label": "proxy route", "valueType": "route", "comparer": "route", "stated": "always", "existence": false }
-  ],
   "vocabulary": {
     "Front End": {
       "entries": [
         {
+          "kind": "type.exists",
+          "for": { "element": "Proxy" },
+          "value": "self",
+          "bindings": { "Name": "name", "Proxy": "name", "Path": "stereotype('Implementation').Path" },
+          "own": ["Name"],
+          "source": "the proxy's Implementation Path"
+        },
+        {
           "kind": "proxy.route",
           "for": { "association": "Calls" },
           "value": "replace(target.element.parent.stereotype('Http Service Settings').Route, '[controller]', trimEnd(target.element.parent.name, 'Service')) + '/' + target.element.stereotype('Http Settings').Route",
-          "bindings": {
-            "File": "source.element.parent.stereotype('Implementation').Path",
-            "Operation": "source.element.name"
-          },
+          "bindings": { "Operation": "source.element.name" },
           "own": ["Operation"],
           "source": "the called Operation's Service route and Http Settings Route"
         }
@@ -109,7 +111,7 @@ export const api = {
 {
   "claims": [
     { "kind": "proxy.route", "element": "get-product-by-id-calls-backend", "outcome": "verified",
-      "expected": "api/Products/{id}", "at": "src/api/client.ts:10" }
+      "expected": "api/Products/{id}", "actual": "api/products/{id}", "at": "src/api/client.ts:11" }
   ]
 }
 ```
@@ -119,7 +121,7 @@ export const api = {
 The client now sends to `/api/product/…`, a segment the backend's route doesn't have.
 
 ```json case
-{ "phase": "later", "base": "verified", "kinds": ["proxy.route"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
+{ "phase": "later", "base": "verified", "kinds": ["proxy.route"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.ui", "house.shop"], "language": "typescript" }
 ```
 
 ```typescript file src/api/client.ts
@@ -142,10 +144,64 @@ export const api = {
 {
   "claims": [
     { "kind": "proxy.route", "element": "get-product-by-id-calls-backend", "outcome": "contradicted",
-      "expected": "api/Products/{id}", "at": "src/api/client.ts:10" }
+      "expected": "api/Products/{id}", "actual": "api/product/{id}", "at": "src/api/client.ts:11" }
   ],
   "findings": [
     { "rule": "claim/proxy.route", "severity": "error", "subject": "get-product-by-id-calls-backend" }
+  ]
+}
+```
+
+## vue-standard-http-request
+
+The standard User Interface designer (2.0.0): a Proxy Operation that calls no backend Operation states its request with the HTTP Request stereotype, a Verb and a Route relative to the Base URL. The stock Vue reader reads an axios call's verb method and URL; the code's `/api/legacy/stock` isn't the modelled `api/stock/{sku}`.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.route", "proxy.verb"], "requirements": ["R2", "R10", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "stock-proxy", "type": "Proxy", "name": "StockClient", "children": [
+            { "id": "get-stock", "type": "Proxy Operation", "name": "GetStock",
+              "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "api/stock/{sku}" } },
+              "children": [ { "id": "get-stock-sku", "type": "Parameter", "name": "sku", "typeRef": { "type": "string" } } ] }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/stockClient.ts
+import axios from 'axios';
+
+export const stockClient = {
+    getStock(sku: string): Promise<number> {
+        return axios.get(`/api/legacy/stock?sku=${sku}`).then((x) => x.data);
+    },
+};
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "stock-proxy", "outcome": "verified", "at": "src/stockClient.ts:3" },
+    { "kind": "proxy.verb", "element": "get-stock", "outcome": "verified", "expected": "GET", "actual": "GET", "at": "src/stockClient.ts:5" },
+    { "kind": "proxy.route", "element": "get-stock", "outcome": "contradicted", "expected": "api/stock/{sku}", "actual": "api/legacy/stock", "at": "src/stockClient.ts:5" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.route", "severity": "error", "subject": "get-stock" }
   ]
 }
 ```

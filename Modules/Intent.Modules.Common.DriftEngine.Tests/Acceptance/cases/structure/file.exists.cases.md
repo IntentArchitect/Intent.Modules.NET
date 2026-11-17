@@ -419,3 +419,58 @@ The products controller isn't in the API layer, so the file its convention requi
   ]
 }
 ```
+
+## owned-files
+
+The standard User Interface designer (2.0.0): an element's Implementation stereotype lists the extra files it owns, each a path from the front end's own root. The engine's own rule reads `file.exists` from a `File` binding, with no house reader: each owned file must be in the code, at that path or one ending with it. The page's stylesheet is there and its test file isn't, so that one is contradicted.
+
+```json case
+{ "phase": 6, "kinds": ["file.exists"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "pages", "type": "Folder", "name": "pages", "children": [
+            { "id": "cart-page", "type": "Page", "name": "CartPage",
+              "stereotypes": {
+                "Page": { "Route": "/cart" },
+                "Implementation": { "Owned Files": [ { "Path": "pages/CartPage.css" }, { "Path": "pages/CartPage.spec.ts" } ] }
+              } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```vue file src/pages/CartPage.vue
+<script setup lang="ts">
+const title = 'Cart';
+</script>
+```
+
+```text file src/pages/CartPage.css
+.cart { display: grid; }
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "file.exists", "element": "cart-page", "key": "pages/CartPage.css", "outcome": "verified", "at": "src/pages/CartPage.css:1" },
+    { "kind": "file.exists", "element": "cart-page", "key": "pages/CartPage.spec.ts", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/file.exists", "severity": "error", "subject": "cart-page" }
+  ]
+}
+```

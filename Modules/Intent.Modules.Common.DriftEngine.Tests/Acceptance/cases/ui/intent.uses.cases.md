@@ -175,10 +175,10 @@ The designer has no Composition from a Layout, so what eShopCustom's main layout
 
 ## java-rendered-component
 
-The Java spike's catalog page renders a product image and a stock pill, the second in kebab case as Vue templates allow. Each Rendered Component is a claim, found by its PascalCase or kebab-case tag inside the page's template. The page's file comes from its Implementation stereotype's Path, and the house module's claim reader (`house.readers`) reads the page's template. A component the template doesn't render is contradicted.
+The Java spike's catalog page renders a product image and a stock pill, the second in kebab case as Vue templates allow. Each Rendered Component is a claim, found by its PascalCase or kebab-case tag inside the page's template. The Front End designer is the Java spike's own, which no stock pack knows, so its house pack extends `intent.ui`: it claims where its pages and components are (`type.exists`, from each one's Implementation Path) and the stock `intent.uses` on its Rendered Component, a child element typed by the component it renders. The stock Vue reader (`intent.vue`) reads the page's template. A component the template doesn't render is contradicted.
 
 ```json case
-{ "phase": 6, "kinds": ["intent.uses"], "traces": ["JAV-FE-05"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
+{ "phase": 6, "kinds": ["intent.uses"], "traces": ["JAV-FE-05"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.ui", "house.shop"], "language": "typescript" }
 ```
 
 ```json pack
@@ -186,20 +186,33 @@ The Java spike's catalog page renders a product image and a stock pill, the seco
   "id": "house.shop",
   "version": "1.0.0",
   "engine": "^1.0.0",
-  "requires": [{ "id": "intent.java", "version": "^1.0.0" }],
+  "requires": [{ "id": "intent.ui", "version": "^1.0.0" }],
   "languages": ["typescript"],
   "designers": ["Front End"],
-  "kinds": [
-    { "kind": "intent.uses", "label": "uses", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true }
-  ],
   "vocabulary": {
     "Front End": {
       "entries": [
         {
+          "kind": "type.exists",
+          "for": { "element": "Page" },
+          "value": "self",
+          "bindings": { "Name": "name", "Component": "name", "Path": "stereotype('Implementation').Path" },
+          "own": ["Name"],
+          "source": "the page's Implementation Path"
+        },
+        {
+          "kind": "type.exists",
+          "for": { "element": "Component" },
+          "value": "self",
+          "bindings": { "Name": "name", "Component": "name", "Path": "stereotype('Implementation').Path" },
+          "own": ["Name"],
+          "source": "the component's Implementation Path"
+        },
+        {
           "kind": "intent.uses",
           "for": { "element": "Rendered Component" },
           "value": "'present'",
-          "bindings": { "File": "parent.stereotype('Implementation').Path", "Child": "type.name" },
+          "bindings": { "Child": "type.name" },
           "own": ["Child"],
           "source": "the Rendered Component"
         }
@@ -264,23 +277,40 @@ defineProps<{ products: { Id: string; Name: string; InStock: boolean }[] }>();
 </template>
 ```
 
+```vue file src/components/ProductImage.vue
+<script setup lang="ts">
+defineProps<{ productId: string }>();
+</script>
+```
+
+```vue file src/components/StockPill.vue
+<script setup lang="ts">
+defineProps<{ inStock: boolean }>();
+</script>
+```
+
+```vue file src/components/PriceTag.vue
+<script setup lang="ts">
+defineProps<{ price: number }>();
+</script>
+```
+
 ```json expect
 {
   "claims": [
     { "kind": "intent.uses", "element": "catalog-page-product-image", "outcome": "verified", "at": "src/pages/CatalogPage.vue:13" },
     { "kind": "intent.uses", "element": "catalog-page-stock-pill", "outcome": "verified", "at": "src/pages/CatalogPage.vue:15" },
-    { "kind": "intent.uses", "element": "catalog-page-price-tag", "outcome": "contradicted",
-      "expected": "present", "actual": "absent", "fromSilence": true }
+    { "kind": "intent.uses", "element": "catalog-page-price-tag", "outcome": "contradicted", "expected": "present" }
   ]
 }
 ```
 
 ## java-uses-import
 
-The Java spike's cart page uses the cart store: a Uses association, which the code states as a relative value import of the store's file. A type-only import (`import type`) uses no value at runtime, so the checkout page, which imports only the store's types, is contradicted. The house module's claim reader (`house.readers`) reads the page's imports.
+The Java spike's cart page uses the cart store: a Uses association, which the code states as a relative value import of the store's file. A type-only import (`import type`) uses no value at runtime, so the checkout page, which imports only the store's types, is contradicted. The house pack claims where the pages and the store are, and the stock Vue reader (`intent.vue`) reads the page's imports of the store's file.
 
 ```json case
-{ "phase": 6, "kinds": ["intent.uses"], "traces": ["JAV-FE-07"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
+{ "phase": 6, "kinds": ["intent.uses"], "traces": ["JAV-FE-07"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.ui", "house.shop"], "language": "typescript" }
 ```
 
 ```json pack
@@ -288,23 +318,33 @@ The Java spike's cart page uses the cart store: a Uses association, which the co
   "id": "house.shop",
   "version": "1.0.0",
   "engine": "^1.0.0",
-  "requires": [{ "id": "intent.java", "version": "^1.0.0" }],
+  "requires": [{ "id": "intent.ui", "version": "^1.0.0" }],
   "languages": ["typescript"],
   "designers": ["Front End"],
-  "kinds": [
-    { "kind": "intent.uses", "label": "uses", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true }
-  ],
   "vocabulary": {
     "Front End": {
       "entries": [
         {
+          "kind": "type.exists",
+          "for": { "element": "Page" },
+          "value": "self",
+          "bindings": { "Name": "name", "Component": "name", "Path": "stereotype('Implementation').Path" },
+          "own": ["Name"],
+          "source": "the page's Implementation Path"
+        },
+        {
+          "kind": "type.exists",
+          "for": { "element": "Store" },
+          "value": "self",
+          "bindings": { "Name": "name", "Store": "name", "Path": "stereotype('Implementation').Path" },
+          "own": ["Name"],
+          "source": "the store's Implementation Path"
+        },
+        {
           "kind": "intent.uses",
           "for": { "association": "Uses" },
           "value": "'present'",
-          "bindings": {
-            "File": "source.element.stereotype('Implementation').Path",
-            "Used": "trimStart(trimEnd(trimEnd(target.element.stereotype('Implementation').Path, '.ts'), '.vue'), 'src/')"
-          },
+          "bindings": { "Used": "target.element.name" },
           "own": ["Used"],
           "source": "the Uses association"
         }
@@ -379,12 +419,119 @@ defineProps<{ lines: CartLine[] }>();
 </template>
 ```
 
+```typescript file src/stores/cart.ts
+import { defineStore } from 'pinia';
+
+export interface CartLine {
+    ProductId: string;
+    Quantity: number;
+}
+
+export const MAX_QUANTITY = 99;
+
+export function clampQuantity(value: number): number {
+    return Math.min(value, MAX_QUANTITY);
+}
+
+export const useCartStore = defineStore('cart', () => ({ lines: [] as CartLine[] }));
+```
+
 ```json expect
 {
   "claims": [
+    { "kind": "type.exists", "element": "cart-store", "outcome": "verified", "at": "src/stores/cart.ts:14" },
     { "kind": "intent.uses", "element": "cart-page-uses-cart-store", "outcome": "verified", "at": "src/pages/CartPage.vue:3" },
-    { "kind": "intent.uses", "element": "checkout-page-uses-cart-store", "outcome": "contradicted",
-      "expected": "present", "actual": "absent", "fromSilence": true }
+    { "kind": "intent.uses", "element": "checkout-page-uses-cart-store", "outcome": "contradicted", "expected": "present" }
+  ]
+}
+```
+
+## vue-standard-uses-and-composition
+
+The standard User Interface designer (2.0.0) draws a page placing a component as a Composition, and a page depending on a store or a utility as a Uses association. The stock Vue reader reads a Composition as the child's tag in the page's template, resolving to the component the child is located as, and a Uses as a value import of the file the store or utility is located in: the Pinia store by its `defineStore` id, the utility by its file's name in the folder its designer folders name. The catalog page imports the store but not the utility, so that Uses is contradicted.
+
+```json case
+{ "phase": 6, "kinds": ["intent.uses"], "requirements": ["R2", "R3", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "pages", "type": "Folder", "name": "pages", "children": [
+            { "id": "catalog-page", "type": "Page", "name": "CatalogPage", "stereotypes": { "Page": { "Route": "/" } } }
+          ] },
+          { "id": "components", "type": "Folder", "name": "components", "children": [
+            { "id": "stock-pill", "type": "Component", "name": "StockPill" }
+          ] },
+          { "id": "stores", "type": "Folder", "name": "stores", "children": [
+            { "id": "cart", "type": "Store", "name": "Cart" }
+          ] },
+          { "id": "utils", "type": "Folder", "name": "utils", "children": [
+            { "id": "format", "type": "Utility", "name": "Format" }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "catalog-places-stock-pill", "type": "Composition", "source": { "element": "catalog-page" }, "target": { "element": "stock-pill" } },
+        { "id": "catalog-uses-cart", "type": "Uses", "source": { "element": "catalog-page" }, "target": { "element": "cart" } },
+        { "id": "catalog-uses-format", "type": "Uses", "source": { "element": "catalog-page" }, "target": { "element": "format" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```vue file src/pages/CatalogPage.vue
+<script setup lang="ts">
+import StockPill from '../components/StockPill.vue';
+import { useCartStore } from '../stores/cart';
+
+const cart = useCartStore();
+</script>
+
+<template>
+    <StockPill :in-stock="cart.lines.length > 0" />
+</template>
+```
+
+```vue file src/components/StockPill.vue
+<script setup lang="ts">
+defineProps<{ inStock: boolean }>();
+</script>
+```
+
+```typescript file src/stores/cart.ts
+import { defineStore } from 'pinia';
+
+export const useCartStore = defineStore('cart', () => ({ lines: [] as string[] }));
+```
+
+```typescript file src/utils/format.ts
+export function formatMoney(value: number): string {
+    return `$${value.toFixed(2)}`;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "cart", "outcome": "verified", "at": "src/stores/cart.ts:3" },
+    { "kind": "type.exists", "element": "format", "outcome": "verified", "at": "src/utils/format.ts:1" },
+    { "kind": "intent.uses", "element": "catalog-places-stock-pill", "outcome": "verified", "at": "src/pages/CatalogPage.vue:9" },
+    { "kind": "intent.uses", "element": "catalog-uses-cart", "outcome": "verified", "at": "src/pages/CatalogPage.vue:3" },
+    { "kind": "intent.uses", "element": "catalog-uses-format", "outcome": "contradicted", "expected": "present" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "catalog-uses-format" },
+    { "rule": "claim/intent.uses", "subject": "catalog-uses-cart", "count": 0 }
   ]
 }
 ```

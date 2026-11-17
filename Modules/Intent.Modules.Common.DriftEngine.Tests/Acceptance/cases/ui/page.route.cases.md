@@ -2,7 +2,7 @@
 
 A page's routes: the Page stereotype's Route in the User Interface designer, or the Route stereotype's Path in the Java spike's Front End designer. The kind is a set compared with `subset`, its items compared as routes (`itemComparer: route`): the model's route must be among the routes the code serves for the page, and further routes the code serves aren't drift (principle 1; claim-catalog.md, Notes on kinds). The `route` item comparer ignores a leading or trailing `/`, case in literal segments, and parameter constraints. The kind is `stated: whenSet`, so a modelled route the code doesn't state is contradicted, never taken from a convention (decision 4).
 
-The Blazor cases use the `intent.ui` pack and the Blazor reader. A Blazor page states its routes with one `@page` directive each, and each is one item of its component's set. The Vue cases use the Java spike's house pack, which gives the kind and the Front End designer's vocabulary, since no stock pack knows that designer, and its module's claim reader (`house.readers`), which reads the page's record in `router.ts`.
+The Blazor cases use the `intent.ui` pack and the Blazor reader. A Blazor page states its routes with one `@page` directive each, and each is one item of its component's set. The Vue cases use the Java spike's own Front End designer, which no stock pack knows: its house pack extends `intent.ui`, claiming the stock kinds on its own elements with the stock bindings (where a page is, its route), and the stock Vue reader (`intent.vue`) reads the page's record in `router.ts`. A route written `/products/:id`, as vue-router and the Front End designer write it, is `/products/{id}`.
 
 ## verified-constraint
 
@@ -182,10 +182,10 @@ The model gives the Cart page the route `/cart`, and its file has no `@page`. Th
 
 ## java-verified
 
-The Java spike's Vue storefront registers its pages in `router.ts`, one `{ path, component }` record each. The house module's reader reads the `path` of the page's record, a set of one route; the vocabulary splits the model's Path into a set the same way.
+The Java spike's Vue storefront registers its pages in `router.ts`, one `{ path, component }` record each. The stock Vue reader reads the `path` of the record whose component is the page its `type.exists` claim located, a set of one route; the vocabulary splits the model's Path into a set the same way.
 
 ```json case
-{ "phase": 6, "kinds": ["page.route"], "traces": ["JAV-FE-04"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
+{ "phase": 6, "kinds": ["page.route"], "traces": ["JAV-FE-04"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.ui", "house.shop"], "language": "typescript" }
 ```
 
 ```json pack
@@ -193,21 +193,27 @@ The Java spike's Vue storefront registers its pages in `router.ts`, one `{ path,
   "id": "house.shop",
   "version": "1.0.0",
   "engine": "^1.0.0",
-  "requires": [{ "id": "intent.java", "version": "^1.0.0" }],
+  "requires": [{ "id": "intent.ui", "version": "^1.0.0" }],
   "languages": ["typescript"],
   "designers": ["Front End"],
-  "kinds": [
-    { "kind": "page.route", "label": "page route", "valueType": "set", "comparer": "subset", "itemComparer": "route", "stated": "whenSet", "existence": false }
-  ],
   "vocabulary": {
     "Front End": {
       "entries": [
+        {
+          "kind": "type.exists",
+          "for": { "element": "Page" },
+          "value": "self",
+          "bindings": { "Name": "name", "Component": "name", "Path": "stereotype('Implementation').Path" },
+          "own": ["Name"],
+          "source": "the page's Implementation Path"
+        },
         {
           "kind": "page.route",
           "for": { "element": "Page" },
           "value": "split(stereotype('Route').Path, ',')",
           "bindings": { "Page": "name" },
           "own": ["Page"],
+          "dependsOn": "type.exists",
           "source": "the Route stereotype's Path"
         }
       ]
@@ -253,10 +259,29 @@ export const router = createRouter({
 });
 ```
 
+```vue file src/pages/CatalogPage.vue
+<template>
+    <h1>Catalog</h1>
+</template>
+```
+
+```vue file src/pages/ProductDetailsPage.vue
+<script setup lang="ts">
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+</script>
+
+<template>
+    <h1>{{ route.params.id }}</h1>
+</template>
+```
+
 ```json expect
 {
   "claims": [
-    { "kind": "page.route", "element": "product-details-page", "outcome": "verified", "at": "src/router.ts:9" }
+    { "kind": "type.exists", "element": "product-details-page", "outcome": "verified", "at": "src/pages/ProductDetailsPage.vue:2" },
+    { "kind": "page.route", "element": "product-details-page", "outcome": "verified", "actual": "products/{id}", "at": "src/router.ts:9" }
   ]
 }
 ```
@@ -266,8 +291,9 @@ export const router = createRouter({
 The model's Route Path says `/product/:id`, and the router mounts the page at `/products/:id`.
 
 ```json case
-{ "phase": 6, "base": "java-verified", "kinds": ["page.route"], "traces": ["JAV-FE-04"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
+{ "phase": 6, "base": "java-verified", "kinds": ["page.route"], "traces": ["JAV-FE-04"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.ui", "house.shop"], "language": "typescript" }
 ```
+
 
 ```json model
 {
@@ -299,6 +325,71 @@ The model's Route Path says `/product/:id`, and the router mounts the page at `/
   ],
   "findings": [
     { "rule": "claim/page.route", "severity": "error", "subject": "product-details-page" }
+  ]
+}
+```
+
+## vue-standard-page
+
+The standard User Interface designer (2.0.0): a Page element's Page stereotype gives its Route in the model's syntax, `/products/{id}`. The stock Vue reader reads the route record that mounts the page, `/products/:id`, as `products/{id}`, so the two match.
+
+```json case
+{ "phase": 6, "kinds": ["page.route"], "requirements": ["R2", "R10", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "pages", "type": "Folder", "name": "pages", "children": [
+            { "id": "product-details-page", "type": "Page", "name": "ProductDetailsPage", "stereotypes": { "Page": { "Route": "/products/{id}" } } },
+            { "id": "cart-page", "type": "Page", "name": "CartPage", "stereotypes": { "Page": { "Route": "/basket" } } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/router.ts
+import type { RouteRecordRaw } from 'vue-router';
+import ProductDetailsPage from './pages/ProductDetailsPage.vue';
+import CartPage from './pages/CartPage.vue';
+
+export const routes: RouteRecordRaw[] = [
+    { path: '/products/:id', component: ProductDetailsPage },
+    { path: '/cart', component: CartPage },
+];
+```
+
+```vue file src/pages/ProductDetailsPage.vue
+<script setup lang="ts">
+const title = 'Product';
+</script>
+```
+
+```vue file src/pages/CartPage.vue
+<script setup lang="ts">
+const title = 'Cart';
+</script>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "page.route", "element": "product-details-page", "outcome": "verified", "expected": "products/{id}", "actual": "products/{id}", "at": "src/router.ts:6" },
+    { "kind": "page.route", "element": "cart-page", "outcome": "contradicted", "expected": "basket", "actual": "cart", "at": "src/router.ts:7" }
+  ],
+  "findings": [
+    { "rule": "claim/page.route", "severity": "error", "subject": "cart-page" }
   ]
 }
 ```

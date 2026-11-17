@@ -202,10 +202,10 @@ The cart page's link builds its URI in code, so the reader can't tell where it g
 
 ## java-router-link
 
-The Java spike's cart page links to checkout with a `RouterLink`, and the model has a Navigates To from the cart page to the checkout page. The checkout page has no link back to the cart, so its Navigates To is contradicted. No stock pack knows the Front End designer, so the house pack gives the kind and vocabulary, and its module's claim reader (`house.readers`) reads the page's `to` attributes and `router.push` calls.
+The Java spike's cart page links to checkout with a `RouterLink`, and the model has a Navigates To from the cart page to the checkout page. The checkout page has no link back to the cart, so its Navigates To is contradicted. No stock pack knows the Front End designer, so its house pack extends `intent.ui`: it claims where each page is (`type.exists` with its Implementation Path) and the stock `intent.navigates` on its own association, with the target's route as the `Route` binding, and the stock Vue reader (`intent.vue`) reads the page's `to` attributes and `router.push` calls.
 
 ```json case
-{ "phase": 6, "kinds": ["intent.navigates"], "traces": ["JAV-FE-06"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
+{ "phase": 6, "kinds": ["intent.navigates"], "traces": ["JAV-FE-06"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.ui", "house.shop"], "language": "typescript" }
 ```
 
 ```json pack
@@ -213,21 +213,25 @@ The Java spike's cart page links to checkout with a `RouterLink`, and the model 
   "id": "house.shop",
   "version": "1.0.0",
   "engine": "^1.0.0",
-  "requires": [{ "id": "intent.java", "version": "^1.0.0" }],
+  "requires": [{ "id": "intent.ui", "version": "^1.0.0" }],
   "languages": ["typescript"],
   "designers": ["Front End"],
-  "kinds": [
-    { "kind": "intent.navigates", "label": "navigates", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true }
-  ],
   "vocabulary": {
     "Front End": {
       "entries": [
+        {
+          "kind": "type.exists",
+          "for": { "element": "Page" },
+          "value": "self",
+          "bindings": { "Name": "name", "Component": "name", "Path": "stereotype('Implementation').Path" },
+          "own": ["Name"],
+          "source": "the page's Implementation Path"
+        },
         {
           "kind": "intent.navigates",
           "for": { "association": "Navigates To" },
           "value": "'present'",
           "bindings": {
-            "File": "source.element.stereotype('Implementation').Path",
             "Page": "target.element.name",
             "Route": "target.element.stereotype('Route').Path"
           },
@@ -310,8 +314,105 @@ async function placed(orderId: string) {
 {
   "claims": [
     { "kind": "intent.navigates", "element": "cart-navigates-to-checkout", "outcome": "verified", "at": "src/pages/CartPage.vue:11" },
-    { "kind": "intent.navigates", "element": "checkout-navigates-to-cart", "outcome": "contradicted",
-      "expected": "present", "actual": "absent", "fromSilence": true }
+    { "kind": "intent.navigates", "element": "checkout-navigates-to-cart", "outcome": "contradicted", "expected": "present" }
+  ]
+}
+```
+
+## vue-standard-navigation
+
+The standard User Interface designer (2.0.0): a Navigation from the layout to the catalog page, whose route is the root `/`, and from the checkout page to the order page at `/orders/{id}`. The stock Vue reader takes each target's routes from its `page.route` claim and reads the source's `<RouterLink to>` and `router.push(...)`: the layout's `to="/"` goes to the root, and the checkout's `` router.push(`/orders/${orderId}`) `` to the order page, its value standing for the `{id}` segment. The checkout page has no link back to the catalog, so that Navigation is contradicted.
+
+```json case
+{ "phase": 6, "kinds": ["intent.navigates"], "requirements": ["R2", "R3", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "app", "type": "Layout", "name": "App" },
+          { "id": "pages", "type": "Folder", "name": "pages", "children": [
+            { "id": "catalog-page", "type": "Page", "name": "CatalogPage", "stereotypes": { "Page": { "Route": "/" } } },
+            { "id": "checkout-page", "type": "Page", "name": "CheckoutPage", "stereotypes": { "Page": { "Route": "/checkout" } } },
+            { "id": "order-page", "type": "Page", "name": "OrderPage", "stereotypes": { "Page": { "Route": "/orders/{id}" } } }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "app-to-catalog", "type": "Navigation", "source": { "element": "app" }, "target": { "element": "catalog-page" } },
+        { "id": "checkout-to-order", "type": "Navigation", "source": { "element": "checkout-page" }, "target": { "element": "order-page" } },
+        { "id": "checkout-to-catalog", "type": "Navigation", "source": { "element": "checkout-page" }, "target": { "element": "catalog-page" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/router.ts
+import type { RouteRecordRaw } from 'vue-router';
+import CatalogPage from './pages/CatalogPage.vue';
+import CheckoutPage from './pages/CheckoutPage.vue';
+import OrderPage from './pages/OrderPage.vue';
+
+export const routes: RouteRecordRaw[] = [
+    { path: '/', component: CatalogPage },
+    { path: '/checkout', component: CheckoutPage },
+    { path: '/orders/:id', component: OrderPage },
+];
+```
+
+```vue file src/App.vue
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router';
+</script>
+
+<template>
+    <RouterLink to="/" class="brand">eShop</RouterLink>
+    <RouterView />
+</template>
+```
+
+```vue file src/pages/CatalogPage.vue
+<script setup lang="ts">
+const title = 'Catalog';
+</script>
+```
+
+```vue file src/pages/CheckoutPage.vue
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+async function placed(orderId: string) {
+    await router.push(`/orders/${orderId}`);
+}
+</script>
+```
+
+```vue file src/pages/OrderPage.vue
+<script setup lang="ts">
+const title = 'Order';
+</script>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "app-to-catalog", "outcome": "verified", "at": "src/App.vue:6" },
+    { "kind": "intent.navigates", "element": "checkout-to-order", "outcome": "verified", "at": "src/pages/CheckoutPage.vue:7" },
+    { "kind": "intent.navigates", "element": "checkout-to-catalog", "outcome": "contradicted", "expected": "present" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.navigates", "severity": "error", "subject": "checkout-to-catalog" }
   ]
 }
 ```

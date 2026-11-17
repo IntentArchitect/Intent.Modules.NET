@@ -2,14 +2,14 @@
 
 The HTTP verb a front end's proxy operation sends, against the backend Operation it calls. In the Java spike's Front End designer, a Proxy Operation has a Calls association to a Services designer Operation, whose Http Settings stereotype's Verb is the model's value. The kind is `stated: always` and compares exactly.
 
-No stock pack knows the Front End designer, so these cases' house pack gives the kind and its vocabulary. The claim sits on the Calls association. The proxy method states the verb as the first argument of its `request('VERB', path)` call, which its module's claim reader (`house.readers`) reads.
+No stock pack knows the Front End designer, so these cases' house pack extends `intent.ui`: it claims where the Proxy is (`type.exists`, from its Implementation Path) and the stock `proxy.verb` on its Calls association. The stock Vue reader (`intent.vue`) follows the proxy method's `request('VERB', path)` call into the module's own `request` helper, whose `fetch` sends `{ method }`, the helper's parameter, so the verb is what the method passes. The reading is placed at the method's `request(...)` call.
 
 ## verified
 
 The storefront's API client reads one product with a `GET`, and the called backend Operation's Http Settings Verb is `GET`.
 
 ```json case
-{ "phase": "later", "kinds": ["proxy.verb"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R28", "R30", "R38"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
+{ "phase": "later", "kinds": ["proxy.verb"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R28", "R30", "R38"], "packs": ["intent.core", "intent.ui", "house.shop"], "language": "typescript" }
 ```
 
 ```json pack
@@ -17,23 +17,25 @@ The storefront's API client reads one product with a `GET`, and the called backe
   "id": "house.shop",
   "version": "1.0.0",
   "engine": "^1.0.0",
-  "requires": [{ "id": "intent.java", "version": "^1.0.0" }],
+  "requires": [{ "id": "intent.ui", "version": "^1.0.0" }],
   "languages": ["typescript"],
   "designers": ["Front End"],
-  "kinds": [
-    { "kind": "proxy.verb", "label": "proxy verb", "valueType": "text", "comparer": "exact", "stated": "always", "existence": false }
-  ],
   "vocabulary": {
     "Front End": {
       "entries": [
         {
+          "kind": "type.exists",
+          "for": { "element": "Proxy" },
+          "value": "self",
+          "bindings": { "Name": "name", "Proxy": "name", "Path": "stereotype('Implementation').Path" },
+          "own": ["Name"],
+          "source": "the proxy's Implementation Path"
+        },
+        {
           "kind": "proxy.verb",
           "for": { "association": "Calls" },
           "value": "target.element.stereotype('Http Settings').Verb",
-          "bindings": {
-            "File": "source.element.parent.stereotype('Implementation').Path",
-            "Operation": "source.element.name"
-          },
+          "bindings": { "Operation": "source.element.name" },
           "own": ["Operation"],
           "source": "the called Operation's Http Settings Verb"
         }
@@ -109,7 +111,7 @@ export const api = {
 {
   "claims": [
     { "kind": "proxy.verb", "element": "get-product-by-id-calls-backend", "outcome": "verified",
-      "expected": "GET", "actual": "GET", "at": "src/api/client.ts:10" }
+      "expected": "GET", "actual": "GET", "at": "src/api/client.ts:11" }
   ]
 }
 ```
@@ -119,7 +121,7 @@ export const api = {
 The proxy method now sends a `POST`, and the backend Operation it calls answers `GET`.
 
 ```json case
-{ "phase": "later", "base": "verified", "kinds": ["proxy.verb"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.java", "house.shop", "house.readers"], "language": "typescript" }
+{ "phase": "later", "base": "verified", "kinds": ["proxy.verb"], "traces": ["JAV-FE-11"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.ui", "house.shop"], "language": "typescript" }
 ```
 
 ```typescript file src/api/client.ts
@@ -142,10 +144,98 @@ export const api = {
 {
   "claims": [
     { "kind": "proxy.verb", "element": "get-product-by-id-calls-backend", "outcome": "contradicted",
-      "expected": "GET", "actual": "POST", "at": "src/api/client.ts:10" }
+      "expected": "GET", "actual": "POST", "at": "src/api/client.ts:11" }
   ],
   "findings": [
     { "rule": "claim/proxy.verb", "severity": "error", "subject": "get-product-by-id-calls-backend" }
+  ]
+}
+```
+
+## vue-standard-backend-call
+
+The standard User Interface designer (2.0.0): a Proxy whose Implementation Path names its file, `api/client.ts` from the front end's own root, and a Proxy Operation with a Call Service Operation Action to the backend Operation in another application's Services designer. The verb and route are the called Operation's. The stock Vue reader locates the Proxy as the `api` object in that file, follows each method's `request(...)` into the module's own helper and reads its `fetch` with the helper's parameters bound to what the method passes; the base URL before the path isn't part of the route. `placeOrder` sends a `PUT` where the backend answers `POST`.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.verb", "proxy.route"], "requirements": ["R2", "R10", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "api-folder", "type": "Folder", "name": "api", "children": [
+            { "id": "api", "type": "Proxy", "name": "Api", "stereotypes": { "Implementation": { "Path": "api/client.ts" } }, "children": [
+              { "id": "get-order", "type": "Proxy Operation", "name": "GetOrderById", "children": [
+                { "id": "get-order-id", "type": "Parameter", "name": "id", "typeRef": { "type": "string" } }
+              ] },
+              { "id": "place-order", "type": "Proxy Operation", "name": "PlaceOrder", "children": [
+                { "id": "place-order-data", "type": "Parameter", "name": "data", "typeRef": { "type": "object" } }
+              ] }
+            ] }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "get-order-calls-backend", "type": "Call Service Operation Action", "source": { "element": "get-order" }, "target": { "element": "orders-get-by-id" } },
+        { "id": "place-order-calls-backend", "type": "Call Service Operation Action", "source": { "element": "place-order" }, "target": { "element": "orders-place" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "backend", "name": "Backend",
+        "elements": [
+          { "id": "orders-service", "type": "Service", "name": "OrdersService", "stereotypes": { "Http Service Settings": { "Route": "api/orders" } }, "children": [
+            { "id": "orders-get-by-id", "type": "Operation", "name": "GetOrderById", "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "{id}" } } },
+            { "id": "orders-place", "type": "Operation", "name": "PlaceOrder", "stereotypes": { "Http Settings": { "Verb": "POST" } } }
+          ] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```typescript file src/api/client.ts
+const baseUrl = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8080';
+
+async function request<T>(method: string, path: string, body?: unknown): Promise<T> {
+    const res = await fetch(`${baseUrl}${path}`, { method, body: body === undefined ? undefined : JSON.stringify(body) });
+    return (await res.json()) as T;
+}
+
+export const api = {
+    getOrderById(id: string): Promise<unknown> {
+        return request<unknown>('GET', `/api/orders/${encodeURIComponent(id)}`);
+    },
+
+    placeOrder(data: object): Promise<string> {
+        return request<string>('PUT', '/api/orders', data);
+    },
+};
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "api", "outcome": "verified", "at": "src/api/client.ts:8" },
+    { "kind": "proxy.verb", "element": "get-order-calls-backend", "outcome": "verified", "expected": "GET", "actual": "GET", "at": "src/api/client.ts:10" },
+    { "kind": "proxy.route", "element": "get-order-calls-backend", "outcome": "verified", "expected": "api/orders/{id}", "actual": "api/orders/{id}", "at": "src/api/client.ts:10" },
+    { "kind": "proxy.verb", "element": "place-order-calls-backend", "outcome": "contradicted", "expected": "POST", "actual": "PUT", "at": "src/api/client.ts:14" },
+    { "kind": "proxy.route", "element": "place-order-calls-backend", "outcome": "verified", "expected": "api/orders", "at": "src/api/client.ts:14" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.verb", "severity": "error", "subject": "place-order-calls-backend" },
+    { "rule": "claim/proxy.route", "count": 0 }
   ]
 }
 ```

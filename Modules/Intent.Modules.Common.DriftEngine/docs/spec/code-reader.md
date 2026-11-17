@@ -61,7 +61,7 @@ A literal value, the same whatever the language's quoting: `kind` (`string`, `ch
 
 ### String values
 
-What string a value is, as far as the code says without running it, is the same evaluation for every language (`CodeGraph.StringOf`), so a rule reads a proxy's request URI or a page's navigation as the code builds it. Each language gives its values the facts it needs:
+What string a value is, as far as the code says without running it, is the same evaluation for every language (`CodeGraph.StringOf`), so a rule reads a proxy's request URI or a page's navigation as the code builds it. A value written in a helper is read as the calls into it give it (`StringOf(value, through)`, the calls outermost first, each binding its method's parameters to its arguments): a request helper's `fetch(`${baseUrl}${path}`)` reached by `request('GET', `/api/orders/${id}`)`. Each language gives its values the facts it needs:
 
 | Fact        | What the value is                                                                                                   |
 | ----------- | ------------------------------------------------------------------------------------------------------------------- |

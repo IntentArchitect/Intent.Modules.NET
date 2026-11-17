@@ -324,11 +324,13 @@ internal sealed class Expression
             _ => throw new FormatException($"A type reference has no '{name}'.")
         },
         // A property holding an element gives the element (a Foreign Key's Association is its association end), and one
-        // holding several the elements (Secured's Security Roles).
+        // holding several the elements (Secured's Security Roles). An item list gives its rows, each read as a stereotype
+        // (Implementation's Owned Files: item.Path).
         IStereotype stereotype => stereotype.Properties.FirstOrDefault(x => x.Key == name) switch
         {
             IStereotypeProperty<IElement> { Value: { } element } => element,
             IStereotypeProperty<IElement[]> { Value: { } elements } => elements,
+            IStereotypeProperty<IStereotype[]> { Value: { } rows } => rows,
             var property => property?.Value
         },
         _ => throw new FormatException($"'{name}' can't be read from {owner.GetType().Name}.")

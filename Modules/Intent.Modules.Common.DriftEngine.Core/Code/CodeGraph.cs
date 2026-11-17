@@ -1020,6 +1020,13 @@ public sealed class CodeGraph
     public LiteralNode StringOf(ValueNode value) => StringValues.Of(value);
 
     /// <summary>
+    /// The string a value written in a method of the code is when the calls in <paramref name="through"/> lead to it, outermost
+    /// first, each binding its method's parameters to its arguments: a request helper's <c>fetch(`${baseUrl}${path}`)</c>, reached
+    /// by <c>request('GET', `/api/orders/${id}`)</c>, is <c>/api/orders/</c> and <c>id</c> after the base URL.
+    /// </summary>
+    public LiteralNode StringOf(ValueNode value, IReadOnlyList<CallNode> through) => StringValues.Of(value, through);
+
+    /// <summary>
     /// The string a constant stands for, by its name as the code writes it where only text is kept, as an attribute's
     /// argument is: <c>AuthorizationRoles.Reader</c> for a type's field, a bare name for one of <paramref name="from"/>'s
     /// own. Null when it isn't a name, or the code doesn't give it one string.

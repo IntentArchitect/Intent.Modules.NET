@@ -293,3 +293,108 @@ eShopCustom's `component.missing`: the model has a Checkout page with no `Checko
   ]
 }
 ```
+
+## vue-standard-designer
+
+The standard User Interface designer (2.0.0) has Page, Layout and Component element types, each its own kind. In a Vue front end the stock Vue reader (`intent.vue`) reads what the code makes each one: a page is a component a vue-router route record mounts, a layout one whose template hosts a `<RouterView>`, and anything else is a plain component, which it states by saying nothing.
+
+```json case
+{ "phase": 6, "kinds": ["component.kind"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "app", "type": "Layout", "name": "App" },
+          { "id": "pages", "type": "Folder", "name": "pages", "children": [
+            { "id": "cart-page", "type": "Page", "name": "CartPage", "stereotypes": { "Page": { "Route": "/cart" } } }
+          ] },
+          { "id": "components", "type": "Folder", "name": "components", "children": [
+            { "id": "stock-pill", "type": "Component", "name": "StockPill" }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/router.ts
+import type { RouteRecordRaw } from 'vue-router';
+import CartPage from './pages/CartPage.vue';
+
+export const routes: RouteRecordRaw[] = [
+    { path: '/cart', component: CartPage },
+];
+```
+
+```vue file src/App.vue
+<script setup lang="ts">
+import { RouterView } from 'vue-router';
+</script>
+
+<template>
+    <header>eShop</header>
+    <RouterView />
+</template>
+```
+
+```vue file src/pages/CartPage.vue
+<script setup lang="ts">
+const title = 'Cart';
+</script>
+```
+
+```vue file src/components/StockPill.vue
+<script setup lang="ts">
+defineProps<{ inStock: boolean }>();
+</script>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "component.kind", "element": "app", "outcome": "verified", "expected": "Layout", "actual": "Layout", "at": "src/App.vue:7" },
+    { "kind": "component.kind", "element": "cart-page", "outcome": "verified", "expected": "Page", "actual": "Page", "at": "src/router.ts:5" },
+    { "kind": "component.kind", "element": "stock-pill", "outcome": "verified", "expected": "Component", "actual": "Component" }
+  ]
+}
+```
+
+## vue-layout-without-router-view
+
+The layout's template no longer hosts a `<RouterView>`: nothing in the code makes `App` a layout, so the model's Layout is contradicted, the code stating a plain component by saying nothing.
+
+```json case
+{ "phase": 6, "base": "vue-standard-designer", "kinds": ["component.kind"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```vue file src/App.vue
+<script setup lang="ts">
+const brand = 'eShop';
+</script>
+
+<template>
+    <header>{{ brand }}</header>
+    <slot />
+</template>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "component.kind", "element": "app", "outcome": "contradicted", "expected": "Layout", "actual": "Component" }
+  ],
+  "findings": [
+    { "rule": "claim/component.kind", "severity": "error", "subject": "app" }
+  ]
+}
+```

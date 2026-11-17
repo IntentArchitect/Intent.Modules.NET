@@ -69,10 +69,11 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
         // A member's serialized name is read from its own language's attributes, whatever framework the case names, so it comes
         // with the languages. What a handler handles, sends, publishes, invokes and acts on is read from any framework's code,
         // so it comes with each. .NET's own HTTP and gRPC clients are read wherever their code is, as a case's house pack gives
-        // a proxy's vocabulary and leaves the reading to them; Blazor's components come with the User Interface vocabulary.
+        // a proxy's vocabulary and leaves the reading to them; Blazor's and Vue's components come with the User Interface
+        // vocabulary, and a case with a house designer's pack names intent.vue to have Vue read its claims.
         // A house extension comes last, as a module's is registered after the stock ones, so its readers are asked first.
         var extensions = StockExtensions.All.Where(x => !x.ClaimReaders.Any() || x.Id is "intent.serialization" or "intent.proxies")
-            .Concat(input.StockPacks.Contains("intent.ui") ? [StockExtensions.Find("intent.blazor")!] : [])
+            .Concat(input.StockPacks.Contains("intent.ui") ? [StockExtensions.Find("intent.blazor")!, StockExtensions.Find("intent.vue")!] : [])
             .Concat(input.StockPacks.Select(StockExtensions.Find).OfType<IDriftExtension>())
             .Concat(input.StockPacks.Any(Frameworks.Contains) ? [StockExtensions.Find("intent.messaging")!, StockExtensions.Find("intent.interactions")!] : [])
             .Concat(input.StockPacks.Select(HouseExtensions.Find).OfType<IDriftExtension>())

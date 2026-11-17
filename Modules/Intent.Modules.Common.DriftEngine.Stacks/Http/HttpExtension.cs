@@ -23,14 +23,17 @@ public sealed class HttpExtension : IDriftExtension
     public IEnumerable<IValueComparer> Comparers { get; } =
     [
         // Segments compare case-insensitively, without leading or trailing slashes or parameter constraints ({id:int} is {id}).
-        // A query string isn't part of a route: a model's api/orders?api-version={version} maps api/orders.
+        // A query string isn't part of a route: a model's api/orders?api-version={version} maps api/orders. A parameter written
+        // :id, as vue-router, Express and Angular write one, is {id}.
         new ValueComparer("route", (expected, actual) => string.Equals(Route(actual), Route(expected), StringComparison.OrdinalIgnoreCase),
             route => Constraint.Replace(route.Trim().Trim('/'), "$1}")),
         // A set of API versions, each compared as a version: 1, v1 and 1.0 are one item.
         new ValueComparer("versions", (expected, actual) => Versions(expected).SetEquals(Versions(actual)))
     ];
 
-    private static string Route(string route) => Constraint.Replace(WithoutQuery(route).Trim().Trim('/'), "$1}");
+    private static string Route(string route) => Constraint.Replace(Colon.Replace(WithoutQuery(route).Trim().Trim('/'), "$1{$2$3}"), "$1}");
+
+    private static readonly Regex Colon = new(@"(^|/):(\w+)(\?)?(?=/|$)", RegexOptions.CultureInvariant);
 
     /// <summary>The route before its query string: the first <c>?</c> outside a parameter, which an optional one ({id?}) has inside.</summary>
     private static string WithoutQuery(string route)

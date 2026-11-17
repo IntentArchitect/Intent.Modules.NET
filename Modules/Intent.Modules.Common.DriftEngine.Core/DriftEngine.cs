@@ -1072,6 +1072,9 @@ public sealed partial class DriftEngine
             case "type.marker":
                 Marker(claim);
                 break;
+            case "file.exists":
+                FileExists(claim);
+                break;
             case "enum.literals":
                 EnumLiterals(claim);
                 break;
@@ -1331,6 +1334,29 @@ public sealed partial class DriftEngine
             Value = claim.Reading!.Value, From = claim.Reading.From, At = claim.Reading.At,
             Message = $"`{Display(claim)}` {Label(claim)}: {what} (model `{claim.Expected}`, code `{claim.Reading.Value}`, {type.At}). The model states it in {claim.SourceText}."
         };
+    }
+
+    /// <summary>
+    /// A file the model names (the <c>File</c> binding, such as an Implementation stereotype's Owned File) is in the code: the
+    /// file of that path, or one whose path ends with it, as a path from a front end's own root does. A file the scope leaves
+    /// out is out of scope, never missing.
+    /// </summary>
+    private void FileExists(Claim claim)
+    {
+        if (claim.Bindings?.GetValueOrDefault("File") is not { Length: > 0 } named)
+        {
+            Cant(claim, "unresolved", new Reading { Detail = "Its vocabulary names no file: give the entry a File binding." });
+            return;
+        }
+
+        var path = Regex.Replace(named.Trim().Replace('\\', '/'), @"^(\./)+|^/+", "");
+        var file = _files.Where(x => x.Path == path || x.Path.EndsWith("/" + path, StringComparison.Ordinal))
+            .OrderByDescending(x => x.Decision.In).ThenBy(x => x.Path.Length).FirstOrDefault();
+        Apply(claim, file.Path is null
+            ? ClaimReading.Missing("the code", $"`{path}`")
+            : file.Decision.In
+                ? ClaimReading.Found(file.Path, new Span(file.Path, 1))
+                : ClaimReading.OutOfScope(file.Path));
     }
 
     /// <summary>

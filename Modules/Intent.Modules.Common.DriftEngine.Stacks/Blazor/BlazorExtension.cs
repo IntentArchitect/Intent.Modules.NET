@@ -30,19 +30,26 @@ public sealed class BlazorExtension : IDriftExtension
 
     internal static bool IsCallback(TypeRefNode? type) => type?.Name is "EventCallback";
 
-    /// <summary>The component an element is in: itself, or the Component or Layout holding a Property, operation or Display Component.</summary>
-    internal static IElement? ComponentOf(IElement? element)
+    /// <summary>
+    /// The element whose code a link starts in, and the code: the element itself, or the nearest element holding it that a
+    /// <c>type.exists</c> claim located (a component operation's, a region's or a Display Component's component), whatever
+    /// the designer calls them.
+    /// </summary>
+    internal static (IElement Element, TypeNode Type)? CodeOf(ClaimContext context, IElement? element)
     {
         for (var current = element; current is not null; current = current.ParentElement)
         {
-            if (current.SpecializationType is "Component" or "Layout")
+            if (context.TypeOf(current) is { } type)
             {
-                return current;
+                return (current, type);
             }
         }
 
         return null;
     }
+
+    /// <summary>A binding the claim's vocabulary gives.</summary>
+    internal static bool Binds(ClaimContext context, string name) => context.Claim.Bindings?.ContainsKey(name) == true;
 }
 
 /// <summary>What a component is, a page's routes and title, and its <c>[Authorize]</c>.</summary>
@@ -129,9 +136,11 @@ internal sealed class Members : IClaimReader
 
     public ClaimReading? Read(ClaimContext context)
     {
+        // A Property or an Event Emitter of a component, whatever its designer calls them: the vocabulary binds Property or Event.
         var element = context.Element;
-        if (element.SpecializationType is not ("Property" or "Event Emitter") || element.ParentElement?.SpecializationType is not ("Component" or "Layout")
-            || context.TypeOf(element.ParentElement) is not { } type || !BlazorExtension.IsRazor(type))
+        var callback = BlazorExtension.Binds(context, "Event");
+        if (context.Kind == "member.exists" && !callback && !BlazorExtension.Binds(context, "Property")
+            || element.ParentElement is null || context.TypeOf(element.ParentElement) is not { } type || !BlazorExtension.IsRazor(type))
         {
             return null;
         }
@@ -149,7 +158,6 @@ internal sealed class Members : IClaimReader
             case "member.exists":
             {
                 // A parent sets a component's Property, and handles its Event Emitter, only through a parameter.
-                var callback = element.SpecializationType == "Event Emitter";
                 if (!BlazorExtension.IsParameter(member) || callback && !BlazorExtension.IsCallback(member.Type))
                 {
                     return ClaimReading.Compared(callback ? "not an EventCallback parameter" : "not a parameter", member.At, false,
@@ -161,7 +169,7 @@ internal sealed class Members : IClaimReader
             case "member.type":
             {
                 // An Event Emitter's type is what its EventCallback<T> passes; a bare EventCallback passes nothing.
-                if (element.SpecializationType != "Event Emitter" || !BlazorExtension.IsCallback(member.Type))
+                if (!BlazorExtension.IsCallback(member.Type))
                 {
                     return null;
                 }
@@ -209,22 +217,28 @@ internal sealed class Links : IClaimReader
             { SpecializationType: "Display Component" } display => (display, display.TypeReference?.Element as IElement),
             _ => (null, null)
         };
-        if (BlazorExtension.ComponentOf(source) is not { } component || target is null || context.TypeOf(component) is not { } type || !BlazorExtension.IsRazor(type))
+        if (BlazorExtension.CodeOf(context, source) is not { } located || target is null || !BlazorExtension.IsRazor(located.Type))
         {
             return null;
         }
 
         // From one of its operations, only that method's code is read.
+        var (component, type) = located;
         var methods = context.Code.MembersOf(type).Where(x => x.Kind == "method").ToList();
-        if (source!.SpecializationType == "Component Operation" && methods.FirstOrDefault(x => x.Name == source.Name) is { } operation)
+        if (source != component && methods.FirstOrDefault(x => x.Name == source!.Name) is { } operation)
         {
             methods = [operation];
         }
 
         var calls = methods.SelectMany(x => x.Calls).ToList();
         var markup = context.Code.MarkupOf(type).ToList();
+        // What a component uses that isn't a component (a store, service, utility or proxy) is injected.
+        var used = context.TypeOf(target);
         return context.Kind switch
         {
+            "intent.uses" when used is { Kind: not "component" } || BlazorExtension.Binds(context, "Used") => Injected(context, type, target, used) is { } injected
+                ? ClaimReading.Found(injected, injected.At)
+                : ClaimReading.Absent(type.At),
             "intent.uses" => markup.FirstOrDefault(x => x.Component?.Name == target.Name) is { } tag
                 ? ClaimReading.Found(tag, tag.At)
                 : ClaimReading.Absent(type.At),
@@ -298,6 +312,19 @@ internal sealed class Links : IClaimReader
     }
 
     private static string Qualified(TypeNode type) => type.Namespace.Length > 0 ? $"{type.Namespace}.{type.Name}" : type.Name;
+
+    /// <summary>
+    /// The member a component has the target injected into (<c>@inject</c>, <c>[Inject]</c>, a field or property of its type):
+    /// typed as the type the target is located as, an interface of it, or, with nothing located, a type of its name.
+    /// </summary>
+    private static MemberNode? Injected(ClaimContext context, TypeNode component, IElement target, TypeNode? located) =>
+        context.Code.MembersOf(component)
+            .Where(x => x.Kind is "property" or "field" && x.Type is { } t
+                        && (located is not null
+                            ? context.Code.TypeFor(t, component) is { } resolved && (resolved == located || context.Code.Bases(located).Contains(resolved))
+                            : t.Name == target.Name || t.Name == $"I{target.Name}"))
+            .OrderByDescending(x => x.Attributes.Any(a => a.Name == "Inject"))
+            .FirstOrDefault();
 
     /// <summary>
     /// An <c>href</c>, a form's <c>action</c> or a <c>NavigateTo</c> to the target page's route, a value in it standing for a

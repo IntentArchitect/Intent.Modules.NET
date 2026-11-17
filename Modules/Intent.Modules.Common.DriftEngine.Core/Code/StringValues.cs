@@ -13,9 +13,37 @@ internal static class StringValues
 
     private static readonly IReadOnlyDictionary<ParameterNode, List<Part>> Unbound = new Dictionary<ParameterNode, List<Part>>();
 
-    public static LiteralNode Of(ValueNode value)
+    public static LiteralNode Of(ValueNode value) => Literal(Evaluate(value, Unbound, 0));
+
+    /// <summary>
+    /// A value written in a method of the code, as the calls into it give it: <paramref name="through"/> runs from the outermost
+    /// call to the one into the method holding the value, and each binds its method's parameters to its arguments, read with the
+    /// bindings of the calls before it.
+    /// </summary>
+    public static LiteralNode Of(ValueNode value, IReadOnlyList<CallNode> through)
     {
-        var parts = Evaluate(value, Unbound, 0);
+        var bindings = Unbound;
+        foreach (var call in through)
+        {
+            if (call.Target?.Member.Body is not { } body)
+            {
+                return Literal([Hole(value)]);
+            }
+
+            var bound = new Dictionary<ParameterNode, List<Part>>();
+            for (var i = 0; i < body.Parameters.Count && i < call.Arguments.Count; i++)
+            {
+                bound[body.Parameters[i]] = Evaluate(call.Arguments[i], bindings, 1);
+            }
+
+            bindings = bound;
+        }
+
+        return Literal(Evaluate(value, bindings, 0));
+    }
+
+    private static LiteralNode Literal(List<Part> parts)
+    {
         return parts.All(x => x.Hole is null)
             ? new LiteralNode { Kind = "string", Value = string.Concat(parts.Select(x => x.Text)) }
             : new LiteralNode

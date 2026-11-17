@@ -18,8 +18,8 @@ internal static class HouseExtensions
 /// <summary>
 /// What eShopCustom's and the Java spike's own modules check that no stock reader reads: registrations, an application
 /// service's implementation, the files elements stand for, the folder a type is in, backing fields, a request's validator,
-/// identified commands and wrapped invocations, and a Vue front end's links, uses and routes. Each reads only claims whose
-/// vocabulary binds what it needs, and leaves the rest to the next rule.
+/// identified commands and wrapped invocations. Each reads only claims whose vocabulary binds what it needs, and leaves the
+/// rest to the next rule. A Vue front end's links, uses, routes and requests are the stock Vue reader's (<c>intent.vue</c>).
 /// </summary>
 internal sealed class HouseReaders : IDriftExtension
 {
@@ -28,7 +28,7 @@ internal sealed class HouseReaders : IDriftExtension
     public IEnumerable<IClaimReader> ClaimReaders =>
     [
         new Registered(), new Implemented(), new FileExists(), new Folder(), new BackingField(), new Validated(), new Identified(), new Wrapped(),
-        new GrpcSecurity(), new Navigates(), new Uses(), new Route(), new Request()
+        new GrpcSecurity()
     ];
 
     private static string? Bound(ClaimContext context, string name) =>
@@ -265,149 +265,6 @@ internal sealed class HouseReaders : IDriftExtension
         }
     }
 
-    /// <summary>A Vue page links to a route with a <c>to</c> attribute, or goes there with <c>router.push</c> or <c>router.replace</c>.</summary>
-    private sealed class Navigates : IClaimReader
-    {
-        public IReadOnlyCollection<string> Kinds => ["intent.navigates"];
-
-        public ClaimReading? Read(ClaimContext context)
-        {
-            if (context.Claim.Designer != "Front End" || Bound(context, "File") is not { } path || Bound(context, "Route") is not { } route)
-            {
-                return null;
-            }
-
-            if (context.Code.Files.FirstOrDefault(x => x.Path == path) is not { } file)
-            {
-                return ClaimReading.Missing("the code", $"`{path}`");
-            }
-
-            if (file.Markup.SelectMany(x => x.DescendantsAndSelf()).SelectMany(x => x.Attributes)
-                    .FirstOrDefault(x => x is { Name: "to", Directive: null } && x.Value == route) is { } link)
-            {
-                return ClaimReading.Found(link, link.At);
-            }
-
-            if (CallsIn(context.Code, file).FirstOrDefault(x => x is { Name: "push" or "replace", Receiver: "router" } && x.Arguments.FirstOrDefault()?.Literal?.Value == route) is { } call)
-            {
-                return ClaimReading.Found(call, call.At);
-            }
-
-            return ClaimReading.Defaulted("absent", new Span(path, 1), $"no `to=\"{route}\"` or `router.push('{route}')` in `{path}`");
-        }
-    }
-
-    /// <summary>A Vue component renders a child in its template (<c>Child</c>), or imports a module as a value (<c>Used</c>).</summary>
-    private sealed class Uses : IClaimReader
-    {
-        public IReadOnlyCollection<string> Kinds => ["intent.uses"];
-
-        public ClaimReading? Read(ClaimContext context)
-        {
-            if (context.Claim.Designer != "Front End" || Bound(context, "File") is not { } path)
-            {
-                return null;
-            }
-
-            if (context.Code.Files.FirstOrDefault(x => x.Path == path) is not { } file)
-            {
-                return ClaimReading.Missing("the code", $"`{path}`");
-            }
-
-            if (Bound(context, "Child") is { } child)
-            {
-                var kebab = Regex.Replace(child, "(?<=[a-z0-9])([A-Z])", "-$1").ToLowerInvariant();
-                return file.Markup.SelectMany(x => x.DescendantsAndSelf()).FirstOrDefault(x => x.Tag == child || x.Tag == kebab) is { } tag
-                    ? ClaimReading.Found(tag, tag.At)
-                    : ClaimReading.Defaulted("absent", new Span(path, 1), $"no `<{child}>` or `<{kebab}>` in the template of `{path}`");
-            }
-
-            if (Bound(context, "Used") is { } used)
-            {
-                return file.Imports.FirstOrDefault(x => !x.TypeOnly && x.Module is { } module && Relative(module) == used) is { } import
-                    ? ClaimReading.Found(import, import.At)
-                    : ClaimReading.Defaulted("absent", new Span(path, 1), $"no value import of `{used}` in `{path}`");
-            }
-
-            return null;
-        }
-
-        /// <summary>A relative module without its leading <c>./</c> and <c>../</c> and its extension: <c>stores/cart</c> for <c>../stores/cart.ts</c>.</summary>
-        private static string Relative(string module) =>
-            Regex.Replace(Regex.Replace(module, @"^(\.\.?/)+", ""), @"\.(vue|ts)$", "");
-    }
-
-    /// <summary>A Vue page's route, from its <c>{ path, component }</c> record in <c>src/router.ts</c>.</summary>
-    private sealed class Route : IClaimReader
-    {
-        private const string Router = "src/router.ts";
-
-        public IReadOnlyCollection<string> Kinds => ["page.route"];
-
-        public ClaimReading? Read(ClaimContext context)
-        {
-            if (context.Claim.Designer != "Front End" || Bound(context, "Page") is not { } page)
-            {
-                return null;
-            }
-
-            var record = context.Code.Files.FirstOrDefault(x => x.Path == Router) is { } file
-                ? Values(CallsIn(context.Code, file).SelectMany(x => x.Arguments))
-                    .FirstOrDefault(x => x.Members.Any(m => m.Member == "component" && m.Value.Text == page))
-                : null;
-            return record?.Members.FirstOrDefault(x => x.Member == "path")?.Value.Literal?.Value is { } route
-                ? ClaimReading.Stated(route, record.At)
-                : ClaimReading.Absent(new Span(Router, 1));
-        }
-
-        /// <summary>The values and everything they hold: object members, array items and what a name is given.</summary>
-        private static IEnumerable<ValueNode> Values(IEnumerable<ValueNode> roots)
-        {
-            var seen = new HashSet<ValueNode>();
-            var pending = new Stack<ValueNode>(roots);
-            while (pending.TryPop(out var value))
-            {
-                if (!seen.Add(value))
-                {
-                    continue;
-                }
-
-                yield return value;
-                foreach (var inner in value.Members.Select(x => x.Value).Concat(value.Items).Concat(value.Given))
-                {
-                    pending.Push(inner);
-                }
-            }
-        }
-    }
-
-    /// <summary>
-    /// A storefront proxy operation's call to its own <c>request(verb, path)</c> helper: the verb, and the path with each
-    /// <c>${encodeURIComponent(id)}</c> as the route parameter <c>{id}</c>.
-    /// </summary>
-    private sealed class Request : IClaimReader
-    {
-        public IReadOnlyCollection<string> Kinds => ["proxy.verb", "proxy.route"];
-
-        public ClaimReading? Read(ClaimContext context)
-        {
-            if (context.Claim.Designer != "Front End" || Bound(context, "File") is not { } path || Bound(context, "Operation") is not { } operation)
-            {
-                return null;
-            }
-
-            var method = context.Code.Types.Where(x => x.Files.Contains(path)).SelectMany(x => x.Members).FirstOrDefault(x => x.Name == operation);
-            if (method?.Calls.FirstOrDefault(x => x.Name == "request" && x.Arguments.Count >= 2) is not { } call)
-            {
-                return ClaimReading.CantVerify("notFound", $"No `request(…)` in `{operation}` in `{path}`.");
-            }
-
-            var value = context.Kind == "proxy.verb"
-                ? call.Arguments[0].Literal?.Value ?? call.Arguments[0].Text.Trim('\'', '"', '`')
-                : Regex.Replace(Regex.Replace(call.Arguments[1].Text.Trim('\'', '"', '`'), @"\$\{encodeURIComponent\((\w+)\)\}", "{$1}"), @"\$\{(\w+)\}", "{$1}");
-            return ClaimReading.Stated(value, method.At);
-        }
-    }
 }
 
 /// <summary>A module whose claim reader throws, as one with a bug does: its claims are can't verify, <c>ruleFailed</c>.</summary>

@@ -589,3 +589,90 @@ public static class WebHooksApi
   ]
 }
 ```
+
+## vue-page-calls-proxy-operation
+
+The standard User Interface designer (2.0.0): a Call Service Operation Action from a page, and one from a utility, to a Proxy's operations. The stock Vue reader follows the caller's code, a `<script setup>`'s top-level code included, and the code's own functions it calls, to the call of the proxy's method on the object the Proxy is located as: the catalog page calls `api.getProducts` itself, and the checkout utility `api.placeOrder`. The catalog page doesn't call `api.placeOrder`, so that link is contradicted.
+
+```json case
+{ "phase": "later", "kinds": ["intent.invokes", "intent.target"], "requirements": ["R2", "R3", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "pages", "type": "Folder", "name": "pages", "children": [
+            { "id": "catalog-page", "type": "Page", "name": "CatalogPage", "stereotypes": { "Page": { "Route": "/" } } }
+          ] },
+          { "id": "checkout-folder", "type": "Folder", "name": "checkout", "children": [
+            { "id": "submit-checkout", "type": "Utility", "name": "SubmitCheckout" }
+          ] },
+          { "id": "api-folder", "type": "Folder", "name": "api", "children": [
+            { "id": "api", "type": "Proxy", "name": "Api", "stereotypes": { "Implementation": { "Path": "api/client.ts" } }, "children": [
+              { "id": "get-products", "type": "Proxy Operation", "name": "GetProducts" },
+              { "id": "place-order", "type": "Proxy Operation", "name": "PlaceOrder" }
+            ] }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "catalog-calls-get-products", "type": "Call Service Operation Action", "source": { "element": "catalog-page" }, "target": { "element": "get-products" } },
+        { "id": "submit-calls-place-order", "type": "Call Service Operation Action", "source": { "element": "submit-checkout" }, "target": { "element": "place-order" } },
+        { "id": "catalog-calls-place-order", "type": "Call Service Operation Action", "source": { "element": "catalog-page" }, "target": { "element": "place-order" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/api/client.ts
+export const api = {
+    getProducts(): Promise<string[]> {
+        return fetch('/api/products').then((x) => x.json());
+    },
+
+    placeOrder(): Promise<string> {
+        return fetch('/api/orders', { method: 'POST' }).then((x) => x.text());
+    },
+};
+```
+
+```typescript file src/checkout/submitCheckout.ts
+import { api } from '../api/client';
+
+export async function submitCheckout(): Promise<string> {
+    return await api.placeOrder();
+}
+```
+
+```vue file src/pages/CatalogPage.vue
+<script setup lang="ts">
+import { ref } from 'vue';
+import { api } from '../api/client';
+
+const products = ref<string[]>([]);
+api.getProducts().then((x) => { products.value = x; });
+</script>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "catalog-calls-get-products", "outcome": "verified", "at": "src/pages/CatalogPage.vue:6" },
+    { "kind": "intent.target", "element": "catalog-calls-get-products", "outcome": "verified", "actual": "api" },
+    { "kind": "intent.invokes", "element": "submit-calls-place-order", "outcome": "verified", "at": "src/checkout/submitCheckout.ts:4" },
+    { "kind": "intent.invokes", "element": "catalog-calls-place-order", "outcome": "contradicted", "expected": "present" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "catalog-calls-place-order" }
+  ]
+}
+```
