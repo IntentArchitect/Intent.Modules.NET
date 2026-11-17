@@ -476,6 +476,241 @@ public static class OrdersApi
 }
 ```
 
+## action-result-body
+
+A controller action returning `IActionResult`, or `Task<IActionResult>`, doesn't state what it succeeds with, so the ASP.NET Core stack reads each return for the success result it builds, and what that carries is what the action returns: `Ok(data)` is `data`'s type, here what `ICommodityService.GetAllAsync` gives once awaited, `CommodityDTO[]`. `commodity is null ? NotFound() : Ok(commodity)` is an error result, which the model doesn't state, or a `CommodityDTO`; `NoContent()` has no body, so `Delete` returns nothing.
+
+```json case
+{ "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "BasisLink.Api",
+        "elements": [
+          { "id": "commodity-dto", "type": "DTO", "name": "CommodityDTO",
+            "children": [
+              { "id": "commodity-dto-code", "type": "DTO-Field", "name": "Code", "typeRef": { "type": "string" } }
+            ] },
+          { "id": "commodity-material-service", "type": "Service", "name": "CommodityMaterialService",
+            "stereotypes": { "Http Service Settings": { "Route": "api/commodity-material" } },
+            "children": [
+              { "id": "commodity-material-get-all", "type": "Operation", "name": "GetAll", "typeRef": { "element": "commodity-dto", "collection": true },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "" } } },
+              { "id": "commodity-material-get", "type": "Operation", "name": "Get", "typeRef": { "element": "commodity-dto" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "{id}" } },
+                "children": [
+                  { "id": "commodity-material-get-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                ] },
+              { "id": "commodity-material-delete", "type": "Operation", "name": "Delete",
+                "stereotypes": { "Http Settings": { "Verb": "DELETE", "Route": "{id}" } },
+                "children": [
+                  { "id": "commodity-material-delete-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "BasisLink", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/BasisLink.Api/Commodities/CommodityDTO.cs
+namespace BasisLink.Api.Commodities;
+
+public class CommodityDTO
+{
+    public string Code { get; set; } = "";
+}
+
+public interface ICommodityService
+{
+    Task<CommodityDTO[]> GetAllAsync();
+
+    Task<CommodityDTO?> FindAsync(int id);
+
+    Task DeleteAsync(int id);
+}
+```
+
+```csharp file src/BasisLink.Api/Controllers/CommodityMaterialController.cs
+using BasisLink.Api.Commodities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BasisLink.Api.Controllers;
+
+[ApiController]
+[Route("api/commodity-material")]
+public class CommodityMaterialController : ControllerBase
+{
+    private readonly ICommodityService _commodities;
+
+    public CommodityMaterialController(ICommodityService commodities)
+    {
+        _commodities = commodities;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var data = await _commodities.GetAllAsync();
+        return Ok(data);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        var commodity = await _commodities.FindAsync(id);
+        return commodity is null ? NotFound() : Ok(commodity);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        await _commodities.DeleteAsync(id);
+        return NoContent();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "commodity-material-get-all", "outcome": "verified", "expected": "CommodityDTO[]", "actual": "Task<IActionResult> with CommodityDTO[]" },
+    { "kind": "operation.returns", "element": "commodity-material-get", "outcome": "verified", "expected": "CommodityDTO", "actual": "Task<IActionResult> with CommodityDTO?" },
+    { "kind": "operation.returns", "element": "commodity-material-delete", "outcome": "verified", "actual": "Task<IActionResult> with no body" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "count": 0 }
+  ]
+}
+```
+
+## action-result-body-contradicted
+
+`Get` now succeeds with every commodity, `Ok(await _commodities.GetAllAsync())`, against the model's single `CommodityDTO`; `Delete` succeeds with `Ok(id)`, an `int`, against a model that returns nothing. Both are contradicted.
+
+```json case
+{ "phase": 4, "base": "action-result-body", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/BasisLink.Api/Controllers/CommodityMaterialController.cs
+using BasisLink.Api.Commodities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BasisLink.Api.Controllers;
+
+[ApiController]
+[Route("api/commodity-material")]
+public class CommodityMaterialController : ControllerBase
+{
+    private readonly ICommodityService _commodities;
+
+    public CommodityMaterialController(ICommodityService commodities)
+    {
+        _commodities = commodities;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var data = await _commodities.GetAllAsync();
+        return Ok(data);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        return Ok(await _commodities.GetAllAsync());
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        await _commodities.DeleteAsync(id);
+        return Ok(id);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "commodity-material-get-all", "outcome": "verified", "expected": "CommodityDTO[]" },
+    { "kind": "operation.returns", "element": "commodity-material-get", "outcome": "contradicted", "expected": "CommodityDTO", "actual": "Task<IActionResult> with CommodityDTO[]" },
+    { "kind": "operation.returns", "element": "commodity-material-delete", "outcome": "contradicted", "actual": "Task<IActionResult> with int" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "commodity-material-get" },
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "commodity-material-delete" }
+  ]
+}
+```
+
+## action-result-body-unknown
+
+`GetAll` succeeds with what a library gives, `_cache.Values` of a `Dictionary<int, object>`, and `Get` returns a result an interface the code doesn't declare builds, so what either returns isn't known: can't verify, never a guess.
+
+```json case
+{ "phase": 4, "base": "action-result-body", "kinds": ["operation.returns"], "requirements": ["R2", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/BasisLink.Api/Controllers/CommodityMaterialController.cs
+using BasisLink.Api.Commodities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BasisLink.Api.Controllers;
+
+[ApiController]
+[Route("api/commodity-material")]
+public class CommodityMaterialController : ControllerBase
+{
+    private readonly Dictionary<int, object> _cache;
+    private readonly IResultFactory _results;
+
+    public CommodityMaterialController(Dictionary<int, object> cache, IResultFactory results)
+    {
+        _cache = cache;
+        _results = results;
+    }
+
+    [HttpGet]
+    public IActionResult GetAll()
+    {
+        return Ok(_cache.Values);
+    }
+
+    [HttpGet("{id}")]
+    public IActionResult Get(int id)
+    {
+        return _results.Build(id);
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
+    {
+        return NoContent();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "commodity-material-get-all", "outcome": "cantVerify", "reason": "unresolved" },
+    { "kind": "operation.returns", "element": "commodity-material-get", "outcome": "cantVerify", "reason": "unreadable" },
+    { "kind": "operation.returns", "element": "commodity-material-delete", "outcome": "verified", "actual": "IActionResult with no body" }
+  ]
+}
+```
+
 ## component-operation
 
 A Component Operation is a method of the component's `@code` block. `OnBrandSelected` has no type reference, and its method returns a bare `Task`, which means nothing; `GetBrandCount` returns `int`.

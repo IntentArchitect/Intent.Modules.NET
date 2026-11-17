@@ -426,6 +426,12 @@ internal sealed class MinimalApiClaims : IClaimReader
             return Returns(context, handler);
         }
 
+        // One whose return type doesn't say what it succeeds with (IActionResult, IResult) returns what its body's success carries.
+        if (context.Kind == "operation.returns" && context.Member is { Type: { } untyped } action && ActionResults.IsUntyped(untyped))
+        {
+            return ActionResults.Read(context, action);
+        }
+
         if (context.Code.Get<MinimalApiModel>() is not { } model || model.Endpoints.Count == 0 && model.Routers.Count == 0)
         {
             return null;
@@ -697,7 +703,7 @@ internal sealed class MinimalApiClaims : IClaimReader
     }
 
     /// <summary>A value's type: as the code gives it, through what a local is given, or as the query it is gives it.</summary>
-    private static TypeRefNode? TypeOf(FunctionNode body, ValueNode value, int depth)
+    internal static TypeRefNode? TypeOf(FunctionNode body, ValueNode value, int depth)
     {
         if (value.IsKnown && value.Types is [var known])
         {
@@ -714,7 +720,7 @@ internal sealed class MinimalApiClaims : IClaimReader
     }
 
     /// <summary>The call a value is, under an <c>await</c>: the outermost call within it, the last of a chain.</summary>
-    private static CallNode? Outermost(FunctionNode body, Span span) =>
+    internal static CallNode? Outermost(FunctionNode body, Span span) =>
         body.Calls.Where(x => !x.IsReference && span.Contains(x.At))
             .OrderBy(x => (x.At.Line, x.At.Column ?? 0))
             .ThenByDescending(x => (x.At.EndLine ?? x.At.Line, x.At.EndColumn ?? 0))
