@@ -81,6 +81,100 @@ public static class BasketApi
 }
 ```
 
+## reached-through-a-method-passed-on
+
+The action never calls `UserRoles.GetUsersRoles` itself: it passes it to a cache helper, `GetCacheData(key, _members.GetUsersRoles)`, to run on a miss. A method passed on is one that runs, so the code's own methods the action reaches include it, and its call of `KeycloakServiceCaller.GetKeycloakUsersRole` bears the invocation out.
+
+```json case
+{ "phase": 6, "kinds": ["intent.invokes"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Basislink.API",
+        "elements": [
+          { "id": "keycloak", "type": "Service", "name": "KeycloakServiceCaller",
+            "children": [
+              { "id": "keycloak-get-users-role", "type": "Operation", "name": "GetKeycloakUsersRole", "typeRef": { "type": "string", "collection": true } }
+            ] },
+          { "id": "bid-service", "type": "Service", "name": "BidService",
+            "stereotypes": { "Http Service Settings": { "Route": "api/bid" } },
+            "children": [
+              { "id": "bid-get-open-sell-bids", "type": "Operation", "name": "GetOpenSellBids", "typeRef": { "type": "string", "collection": true },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "sell" } } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "open-sell-bids-invokes-keycloak", "type": "Perform Invocation",
+          "source": { "element": "bid-get-open-sell-bids" }, "target": { "element": "keycloak-get-users-role" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Basislink", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Basislink.API/Business/UserRoles.cs
+namespace Basislink.API.Business;
+
+public static class KeycloakServiceCaller
+{
+    public static List<string> GetKeycloakUsersRole() => new List<string>();
+}
+
+public interface ICache
+{
+    T GetCacheData<T>(string key, int seconds, Func<T> load);
+}
+
+public class UserRoles
+{
+    public List<string> GetUsersRoles() => KeycloakServiceCaller.GetKeycloakUsersRole();
+}
+```
+
+```csharp file src/Basislink.API/Controllers/BidController.cs
+using Basislink.API.Business;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Basislink.API.Controllers;
+
+[ApiController]
+[Route("api/bid")]
+public class BidController : ControllerBase
+{
+    private readonly ICache _cache;
+    private readonly UserRoles _members = new UserRoles();
+
+    public BidController(ICache cache)
+    {
+        _cache = cache;
+    }
+
+    [HttpGet("sell")]
+    public IActionResult GetOpenSellBids()
+    {
+        var roles = _cache.GetCacheData<List<string>>("users", 60, _members.GetUsersRoles);
+        return Ok(roles);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "open-sell-bids-invokes-keycloak", "outcome": "verified", "expected": "present", "actual": "present" }
+  ]
+}
+```
+
 ## app-service-not-called
 
 The endpoint reads the basket from the repository itself and never calls the application service, so the modelled invocation is contradicted. Traces ESC-SVC-37.

@@ -72,6 +72,11 @@ internal static class TypeComparer
             return false;
         }
 
+        if (code.IsAnonymous)
+        {
+            return Shaped(model, element, code, profile);
+        }
+
         // A primitive is a type definition the profile maps; a modelled element compares by name, unresolved.
         if (Written(model, profile) is { } written)
         {
@@ -87,6 +92,29 @@ internal static class TypeComparer
         var arguments = model.GenericTypeParameters?.ToList() ?? [];
         return code.Name == element.Name && (arguments.Count == 0 ||
             arguments.Count == code.Arguments.Count && arguments.Zip(code.Arguments).All(x => Matches(x.First, x.Second, profile)));
+    }
+
+    /// <summary>
+    /// An anonymous type is the model's <c>object</c>, or a modelled type of its shape: the same members, by name with case
+    /// aside (as JSON names them), each of the member's type where the code says it.
+    /// </summary>
+    private static bool Shaped(ITypeReference model, ICanBeReferencedType element, TypeRefNode code, JsonNode profile)
+    {
+        if (Written(model, profile) is { } written)
+        {
+            return written.Contains("object");
+        }
+
+        if (element is not IElement shaped)
+        {
+            return false;
+        }
+
+        var members = shaped.ChildElements
+            .Where(x => x.TypeReference?.Element is not null && !x.SpecializationType.Contains("Operation", StringComparison.Ordinal) && x.SpecializationType != "Constructor")
+            .ToDictionary(x => x.Name, StringComparer.OrdinalIgnoreCase);
+        return members.Count == code.Members.Count
+               && code.Members.All(x => members.TryGetValue(x.Name, out var member) && (x.Type is null || Matches(member.TypeReference, x.Type, profile)));
     }
 
     /// <summary>

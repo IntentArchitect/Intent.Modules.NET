@@ -448,18 +448,41 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
             case ThisExpressionSyntax:
                 return ([OwnerRef()], true);
             case InvocationExpressionSyntax invocation when depth < MaxDepth && !IsNameOf(invocation):
-                // What the method it reaches returns, with the type arguments the call passes.
-                return Resolve(invocation.Expression, invocation.ArgumentList.Arguments.Count, invocation.SpanStart, depth + 1) is { Targets: [var target] }
-                       && target.ReturnsGiven(TypeArgumentsOf(invocation.Expression)) is { } returns
-                    ? ([returns], true)
-                    : Unknown;
+            {
+                if (Resolve(invocation.Expression, invocation.ArgumentList.Arguments.Count, invocation.SpanStart, depth + 1) is not { } resolved)
+                {
+                    return Unknown;
+                }
+
+                // What the method it reaches returns, with the type arguments the call passes; of several overloads, the
+                // ones its arguments' types fit, when they all return the same.
+                var typeArguments = TypeArgumentsOf(invocation.Expression);
+                if (resolved.Targets.Count > 0)
+                {
+                    return Fitting(resolved.Targets, invocation, depth + 1).Select(x => x.ReturnsGiven(typeArguments)).ToList() is [{ } returns, ..] given
+                           && given.All(x => x?.Text == returns.Text)
+                        ? ([returns], true)
+                        : Unknown;
+                }
+
+                // A library's method: what a well-known one gives, or what a query chain does.
+                var library = LibraryResults.Of(resolved.Name, resolved.Receiver, resolved.ReceiverType, typeArguments, invocation.ArgumentList.Arguments.Count)
+                              ?? Query(invocation, before, depth);
+                return library is null ? Unknown : ([library], true);
+            }
+            case AnonymousObjectCreationExpressionSyntax anonymous:
+                return ([Anonymous(anonymous, before, depth)], true);
+            case LiteralExpressionSyntax literal when LiteralType(literal) is { } literalType:
+                return ([literalType], true);
+            case InterpolatedStringExpressionSyntax:
+                return ([Predefined("string")], true);
             case AwaitExpressionSyntax awaited:
             {
                 // What a Task<T> or ValueTask<T> gives when awaited.
                 var (types, known) = TypesOf(awaited.Expression, before, depth);
                 return known && types.All(x => x is { Name: "Task" or "ValueTask", Arguments.Count: 1 }) ? (types.Select(x => x.Arguments[0]).ToList(), true) : Unknown;
             }
-            case IdentifierNameSyntax identifier when depth < MaxDepth:
+            case IdentifierNameSyntax identifier:
                 return Named(identifier, before, depth);
             case MemberAccessExpressionSyntax { Expression: ThisExpressionSyntax } access:
                 return FieldOf(owner, access.Name.Identifier.Text);
@@ -474,6 +497,165 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
         }
     }
 
+    /// <summary>
+    /// Of a call's overloads, the ones its arguments' types fit, position by position: an argument whose type the code doesn't
+    /// say, or a parameter of <c>object</c> or a type parameter, fits any. A call with named arguments, or none that fit,
+    /// keeps them all.
+    /// </summary>
+    private IReadOnlyList<CallTarget> Fitting(IReadOnlyList<CallTarget> targets, InvocationExpressionSyntax invocation, int depth)
+    {
+        var arguments = invocation.ArgumentList.Arguments;
+        if (targets.Count < 2 || arguments.Any(x => x.NameColon is not null))
+        {
+            return targets;
+        }
+
+        var types = arguments.Select(x => ArgumentType(x.Expression, invocation.SpanStart, depth)).ToList();
+        var fitting = targets.Where(target => types.Select((type, i) => type is null || i >= target.Member.Parameters.Count
+                                                                          || Fits(target.Member.Parameters[i].Type, type, target)).All(x => x)).ToList();
+        return fitting.Count > 0 ? fitting : targets;
+    }
+
+    private bool Fits(TypeRefNode? parameter, TypeRefNode argument, CallTarget target)
+    {
+        if (parameter is null || parameter.Name is "object" or "Object" || target.Member.TypeParameters.Contains(parameter.Name) || target.Type.TypeParameters.Contains(parameter.Name))
+        {
+            return true;
+        }
+
+        if (parameter.IsArray != argument.IsArray)
+        {
+            return false;
+        }
+
+        // The argument's own type, or one it derives from or implements.
+        return parameter.Name == argument.Name || graph.TypeFor(argument, owner) is { } type && graph.Supertypes(type).Contains(parameter.Name);
+    }
+
+    /// <summary>An argument's type: as the code says, or the enum a member of it names (<c>BidTypeGroup.MarketPlace</c>).</summary>
+    private TypeRefNode? ArgumentType(ExpressionSyntax expression, int before, int depth)
+    {
+        if (TypesOf(expression, before, depth) is { Known: true, Types: [var known] })
+        {
+            return known;
+        }
+
+        return expression is MemberAccessExpressionSyntax { Expression: IdentifierNameSyntax or QualifiedNameSyntax or MemberAccessExpressionSyntax } access
+               && graph.TypeFor(CSharpReader.TypeRef(SyntaxFactory.ParseTypeName(access.Expression.ToString())), owner) is { Kind: "enum" } named
+            ? new TypeRefNode { Text = named.Name, Name = named.Name, QualifiedName = named.Namespace.Length == 0 ? named.Name : $"{named.Namespace}.{named.Name}" }
+            : null;
+    }
+
+    /// <summary>
+    /// What a query chain gives (<see cref="Sequences"/>): its operators read down to what it starts on, then each applied in
+    /// turn, a <c>Select</c> projecting to what its lambda returns and a <c>GroupBy</c> to groups whose type isn't read. A chain
+    /// is walked, not recursed into, so however long it is it costs no more stack: a fluent chain can run to hundreds of calls.
+    /// </summary>
+    private TypeRefNode? Query(InvocationExpressionSyntax invocation, int before, int depth)
+    {
+        var operators = new List<(string Name, InvocationExpressionSyntax Call)>();
+        ExpressionSyntax start = invocation;
+        while (start is InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax access } call && Sequences.IsOperator(access.Name.Identifier.Text))
+        {
+            operators.Add((access.Name.Identifier.Text, call));
+            start = access.Expression;
+        }
+
+        if (operators.Count == 0)
+        {
+            return null;
+        }
+
+        operators.Reverse();
+
+        // A chain that projects first doesn't need what it starts on. What it starts on is part of the call, not a value the
+        // call follows, so reading it spends no depth.
+        TypeRefNode? element = null;
+        if (operators[0].Name != "Select")
+        {
+            if (TypesOf(start, before, depth) is not { Known: true, Types: [var source] } || Sequences.ElementOf(source) is not { } first)
+            {
+                return null;
+            }
+
+            element = first;
+        }
+
+        TypeRefNode? result = null;
+        foreach (var (name, call) in operators)
+        {
+            if (name == "GroupBy")
+            {
+                // Its groups' type isn't read, so only a Select after it can say what the chain gives.
+                (element, result) = (null, null);
+                continue;
+            }
+
+            if (name == "Select")
+            {
+                element = Projection(call, depth);
+            }
+            else if (result is not null)
+            {
+                element = Sequences.ElementOf(result);
+            }
+
+            if (element is null || Sequences.Given(name, element) is not { } given)
+            {
+                return null;
+            }
+
+            result = given;
+        }
+
+        return result;
+    }
+
+    /// <summary>What a <c>Select</c>'s lambda returns, when its expression body's type is known: <c>x =&gt; new OrderDto { ... }</c>.</summary>
+    private TypeRefNode? Projection(InvocationExpressionSyntax select, int depth) =>
+        select.ArgumentList.Arguments is [{ Expression: LambdaExpressionSyntax { ExpressionBody: { } body } }]
+        && TypesOf(body, body.SpanStart, depth + 1) is { Known: true, Types: [var projected] }
+            ? projected
+            : null;
+
+    /// <summary>
+    /// An anonymous type, <c>new { Id = id, x.Key.Silo }</c>: each member by the name it is given, or the name it is read by,
+    /// with its type where the code says it.
+    /// </summary>
+    private TypeRefNode Anonymous(AnonymousObjectCreationExpressionSyntax anonymous, int before, int depth)
+    {
+        var members = anonymous.Initializers.Select(x => new TypeMemberNode(
+            x.NameEquals?.Name.Identifier.Text ?? x.Expression switch
+            {
+                MemberAccessExpressionSyntax access => access.Name.Identifier.Text,
+                IdentifierNameSyntax identifier => identifier.Identifier.Text,
+                _ => Normalise(x.Expression)
+            },
+            depth < MaxDepth && TypesOf(x.Expression, before, depth + 1) is { Known: true, Types: [var type] } ? type : null)).ToList();
+        var text = $"new {{ {string.Join(", ", members.Select(x => x.Name))} }}";
+        return new TypeRefNode { Text = text, Name = text, QualifiedName = text, IsAnonymous = true, Members = members, Language = CSharpLanguage.LanguageName };
+    }
+
+    /// <summary>A literal's type, as the compiler gives it: <c>"x"</c> a string, <c>18.4m</c> a decimal; null for <c>null</c> and <c>default</c>.</summary>
+    private static TypeRefNode? LiteralType(LiteralExpressionSyntax literal) =>
+        literal.Token.Value switch
+        {
+            string => Predefined("string"),
+            char => Predefined("char"),
+            bool => Predefined("bool"),
+            int => Predefined("int"),
+            uint => Predefined("uint"),
+            long => Predefined("long"),
+            ulong => Predefined("ulong"),
+            float => Predefined("float"),
+            double => Predefined("double"),
+            decimal => Predefined("decimal"),
+            _ => null
+        };
+
+    private static TypeRefNode Predefined(string keyword) =>
+        new() { Text = keyword, Name = keyword, QualifiedName = keyword, IsPredefinedValueType = keyword != "string", Language = CSharpLanguage.LanguageName };
+
     /// <summary>What a cast or a typed local wraps says more than its declared type, which is what it is when that isn't known.</summary>
     private static (List<TypeRefNode> Types, bool Known) OrDeclared((List<TypeRefNode> Types, bool Known) value, TypeSyntax declared) =>
         value.Known && value.Types.Count > 0 ? value : ([CSharpReader.TypeRef(declared)], true);
@@ -487,6 +669,12 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
         var name = identifier.Identifier.Text;
         if (Local(identifier, before) is { } local)
         {
+            // Only following a local's values recurses, so only that stops at the depth; a parameter or field is its declared type.
+            if (depth >= MaxDepth)
+            {
+                return Unknown;
+            }
+
             var given = LocalValues(local, name, before).Select(x => TypesOf(x, x.SpanStart, depth + 1)).ToList();
             (List<TypeRefNode> Types, bool Known) value = (given.SelectMany(x => x.Types).ToList(), given.Count > 0 && given.All(x => x.Known));
             return local.Parent is VariableDeclarationSyntax { Type.IsVar: false } declaration ? OrDeclared(value, declaration.Type) : value;

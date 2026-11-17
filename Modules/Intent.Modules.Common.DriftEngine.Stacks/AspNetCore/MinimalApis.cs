@@ -401,7 +401,12 @@ internal sealed class MinimalApiClaims : IClaimReader
         ["PushStreamHttpResult"] = new() { Text = "Stream", Name = "Stream", QualifiedName = "System.IO.Stream" },
         ["PhysicalFileHttpResult"] = new() { Text = "Stream", Name = "Stream", QualifiedName = "System.IO.Stream" },
         ["VirtualFileHttpResult"] = new() { Text = "Stream", Name = "Stream", QualifiedName = "System.IO.Stream" },
-        ["FileContentHttpResult"] = new() { Text = "byte[]", Name = "byte", QualifiedName = "byte", IsArray = true }
+        // An array's element is its one type argument, as the comparer reads it.
+        ["FileContentHttpResult"] = new()
+        {
+            Text = "byte[]", Name = "byte", QualifiedName = "byte", IsArray = true,
+            Arguments = [new TypeRefNode { Text = "byte", Name = "byte", QualifiedName = "byte", IsPredefinedValueType = true }]
+        }
     };
 
     /// <summary>Parameters the framework supplies; they're never part of the modelled signature.</summary>

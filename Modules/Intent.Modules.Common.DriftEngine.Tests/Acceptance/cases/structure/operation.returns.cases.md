@@ -711,6 +711,676 @@ public class CommodityMaterialController : ControllerBase
 }
 ```
 
+## action-result-file
+
+`GetTemplate` sends a file, `File(excelData, contentType, fileName)`, whose content is the `byte[]` `ITemplateService.Build` gives, so the action returns `byte[]`.
+
+```json case
+{ "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "BasisLink.Api",
+        "elements": [
+          { "id": "bid-import-service", "type": "Service", "name": "BidImportService",
+            "stereotypes": { "Http Service Settings": { "Route": "api/bid-import" } },
+            "children": [
+              { "id": "bid-import-get-template", "type": "Operation", "name": "GetTemplate", "typeRef": { "type": "binary" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "template" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "BasisLink", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/BasisLink.Api/Controllers/BidImportController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace BasisLink.Api.Controllers;
+
+public interface ITemplateService
+{
+    byte[] Build();
+}
+
+[ApiController]
+[Route("api/bid-import")]
+public class BidImportController : ControllerBase
+{
+    private readonly ITemplateService _templates;
+
+    public BidImportController(ITemplateService templates)
+    {
+        _templates = templates;
+    }
+
+    [HttpGet("template")]
+    public IActionResult GetTemplate()
+    {
+        var excelData = _templates.Build();
+        var contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+        var fileName = "BidImportTemplate.xlsx";
+        return File(excelData, contentType, fileName);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "bid-import-get-template", "outcome": "verified", "actual": "IActionResult with byte[]" }
+  ]
+}
+```
+
+## action-result-file-contradicted
+
+The model says `GetTemplate` returns a collection of strings, which the file's `byte[]` isn't: contradicted, compared item by item as any array is, where the rule once failed.
+
+```json case
+{ "phase": 4, "base": "action-result-file", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "BasisLink.Api",
+        "elements": [
+          { "id": "bid-import-service", "type": "Service", "name": "BidImportService",
+            "stereotypes": { "Http Service Settings": { "Route": "api/bid-import" } },
+            "children": [
+              { "id": "bid-import-get-template", "type": "Operation", "name": "GetTemplate", "typeRef": { "type": "string", "collection": true },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "template" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "BasisLink", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "bid-import-get-template", "outcome": "contradicted", "actual": "IActionResult with byte[]" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "bid-import-get-template" }
+  ]
+}
+```
+
+## action-result-body-values
+
+What an action's success carries is read as the code types it. A literal is its own type: `Ok("Cache Cleared")` a `string`, `Ok($"…")` too, `Ok(true)` a `bool`. A `Select` projects to what its lambda returns, so `notifications.Select(x => new NotificationDTO { … })` is a sequence of `NotificationDTO`. Of `BidTypes.Get`'s overloads, the one whose parameter the argument's enum fits, `Get(BidTypeGroup)`, is the one called. And C#'s `dynamic` is the model's `object`.
+
+```json case
+{ "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "BasisLink.Api",
+        "elements": [
+          { "id": "notification-dto", "type": "DTO", "name": "NotificationDTO",
+            "children": [
+              { "id": "notification-dto-text", "type": "DTO-Field", "name": "Text", "typeRef": { "type": "string" } }
+            ] },
+          { "id": "bid-type-dto", "type": "DTO", "name": "BidTypeDTO",
+            "children": [
+              { "id": "bid-type-dto-name", "type": "DTO-Field", "name": "Name", "typeRef": { "type": "string" } }
+            ] },
+          { "id": "feature-service", "type": "Service", "name": "FeatureService",
+            "stereotypes": { "Http Service Settings": { "Route": "api/feature" } },
+            "children": [
+              { "id": "feature-clear-cache", "type": "Operation", "name": "ClearCache", "typeRef": { "type": "string" },
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "cache/clear" } } },
+              { "id": "feature-describe", "type": "Operation", "name": "Describe", "typeRef": { "type": "string" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "describe/{id}" } },
+                "children": [
+                  { "id": "feature-describe-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                ] },
+              { "id": "feature-is-enabled", "type": "Operation", "name": "IsEnabled", "typeRef": { "type": "bool" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "enabled" } } },
+              { "id": "feature-get-notifications", "type": "Operation", "name": "GetNotifications", "typeRef": { "element": "notification-dto", "collection": true },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "notifications" } } },
+              { "id": "feature-get-bid-types", "type": "Operation", "name": "GetBidTypes", "typeRef": { "element": "bid-type-dto", "collection": true },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "bid-types" } } },
+              { "id": "feature-get-open-bids-count", "type": "Operation", "name": "GetOpenBidsCount", "typeRef": { "type": "object" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "open-bids/count" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "BasisLink", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/BasisLink.Api/Business/Features.cs
+namespace BasisLink.Api.Business;
+
+public enum BidTypeGroup
+{
+    MarketPlace,
+    Tender
+}
+
+public class NotificationDTO
+{
+    public string Text { get; set; } = "";
+}
+
+public class BidTypeDTO
+{
+    public string Name { get; set; } = "";
+}
+
+public class Notification
+{
+    public string Message { get; set; } = "";
+}
+
+public class BidTypes
+{
+    public BidTypeDTO Get(int id) => new BidTypeDTO();
+
+    public List<BidTypeDTO> Get(BidTypeGroup group) => new List<BidTypeDTO>();
+
+    public List<BidTypeDTO> Get() => new List<BidTypeDTO>();
+}
+
+public class Bids
+{
+    public dynamic GetOpenBidsCount() => new { Count = 0 };
+}
+```
+
+```csharp file src/BasisLink.Api/Controllers/FeatureController.cs
+using BasisLink.Api.Business;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BasisLink.Api.Controllers;
+
+[ApiController]
+[Route("api/feature")]
+public class FeatureController : ControllerBase
+{
+    private readonly List<Notification> _notifications = new List<Notification>();
+    private readonly BidTypes _bidTypes = new BidTypes();
+    private readonly Bids _bids = new Bids();
+
+    [HttpPost("cache/clear")]
+    public IActionResult ClearCache()
+    {
+        return Ok("Cache Cleared");
+    }
+
+    [HttpGet("describe/{id}")]
+    public IActionResult Describe(int id)
+    {
+        return Ok($"Feature {id}");
+    }
+
+    [HttpGet("enabled")]
+    public IActionResult IsEnabled()
+    {
+        return Ok(true);
+    }
+
+    [HttpGet("notifications")]
+    public IActionResult GetNotifications()
+    {
+        var result = _notifications.Select(x => new NotificationDTO { Text = x.Message });
+        return Ok(result);
+    }
+
+    [HttpGet("bid-types")]
+    public IActionResult GetBidTypes()
+    {
+        return Ok(_bidTypes.Get(BidTypeGroup.MarketPlace));
+    }
+
+    [HttpGet("open-bids/count")]
+    public IActionResult GetOpenBidsCount()
+    {
+        return Ok(_bids.GetOpenBidsCount());
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "feature-clear-cache", "outcome": "verified", "actual": "IActionResult with string" },
+    { "kind": "operation.returns", "element": "feature-describe", "outcome": "verified", "actual": "IActionResult with string" },
+    { "kind": "operation.returns", "element": "feature-is-enabled", "outcome": "verified", "actual": "IActionResult with bool" },
+    { "kind": "operation.returns", "element": "feature-get-notifications", "outcome": "verified", "actual": "IActionResult with IEnumerable<NotificationDTO>" },
+    { "kind": "operation.returns", "element": "feature-get-bid-types", "outcome": "verified", "actual": "IActionResult with List<BidTypeDTO>" },
+    { "kind": "operation.returns", "element": "feature-get-open-bids-count", "outcome": "verified", "actual": "IActionResult with dynamic" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "count": 0 }
+  ]
+}
+```
+
+## action-result-body-values-contradicted
+
+`ClearCache` now succeeds with `Ok(1)`, an `int`, and `GetBidTypes` with `Get(42)`, the overload that returns one `BidTypeDTO`, against the model's string and collection: both contradicted.
+
+```json case
+{ "phase": 4, "base": "action-result-body-values", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/BasisLink.Api/Controllers/FeatureController.cs
+using BasisLink.Api.Business;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BasisLink.Api.Controllers;
+
+[ApiController]
+[Route("api/feature")]
+public class FeatureController : ControllerBase
+{
+    private readonly List<Notification> _notifications = new List<Notification>();
+    private readonly BidTypes _bidTypes = new BidTypes();
+    private readonly Bids _bids = new Bids();
+
+    [HttpPost("cache/clear")]
+    public IActionResult ClearCache()
+    {
+        return Ok(1);
+    }
+
+    [HttpGet("describe/{id}")]
+    public IActionResult Describe(int id)
+    {
+        return Ok($"Feature {id}");
+    }
+
+    [HttpGet("enabled")]
+    public IActionResult IsEnabled()
+    {
+        return Ok(true);
+    }
+
+    [HttpGet("notifications")]
+    public IActionResult GetNotifications()
+    {
+        var result = _notifications.Select(x => new NotificationDTO { Text = x.Message });
+        return Ok(result);
+    }
+
+    [HttpGet("bid-types")]
+    public IActionResult GetBidTypes()
+    {
+        return Ok(_bidTypes.Get(42));
+    }
+
+    [HttpGet("open-bids/count")]
+    public IActionResult GetOpenBidsCount()
+    {
+        return Ok(_bids.GetOpenBidsCount());
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "feature-clear-cache", "outcome": "contradicted", "actual": "IActionResult with int" },
+    { "kind": "operation.returns", "element": "feature-get-bid-types", "outcome": "contradicted", "actual": "IActionResult with BidTypeDTO" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "feature-clear-cache" },
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "feature-get-bid-types" }
+  ]
+}
+```
+
+## action-result-body-shapes
+
+More of what an action's success carries is read as the code types it:
+
+- An anonymous object is the modelled type of its shape, its members by name with case aside: `new { Id = id }` is `IdResult`'s one `Id`. Against the model's `object` it is any shape: `new { Success = success, Message = $"…" }`.
+- A `GroupBy(...).Select(x => new { x.Key.Silo }).ToList()` is a list of that anonymous shape, `SiloDTO`'s.
+- A deserializer's or a mapper's type argument is what it gives: `JsonConvert.DeserializeObject<AnalysisDTO>(json)`, `Mapper.Map<BidDTO>(bid)`. The fallback `Ok()` beside a body returns nothing of its type, not another type.
+- A `DateTime`'s `ToLocalTime()` is a `DateTime`.
+- A query over what the code's own method gives keeps its element: `GetCacheData<IEnumerable<GradeDTO>>(...).ToList()`, then `Where(...).FirstOrDefault()`, is one `GradeDTO`.
+- A file sent as bytes is the model's `Stream` as much as its `binary`.
+
+```json case
+{ "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Basislink.API",
+        "elements": [
+          { "id": "id-result", "type": "DTO", "name": "IdResult",
+            "children": [ { "id": "id-result-id", "type": "DTO-Field", "name": "Id", "typeRef": { "type": "int" } } ] },
+          { "id": "silo-dto", "type": "DTO", "name": "SiloDTO",
+            "children": [ { "id": "silo-dto-silo", "type": "DTO-Field", "name": "silo", "typeRef": { "type": "string" } } ] },
+          { "id": "analysis-dto", "type": "DTO", "name": "AnalysisDTO",
+            "children": [ { "id": "analysis-dto-summary", "type": "DTO-Field", "name": "Summary", "typeRef": { "type": "string" } } ] },
+          { "id": "bid-dto", "type": "DTO", "name": "BidDTO",
+            "children": [ { "id": "bid-dto-number", "type": "DTO-Field", "name": "Number", "typeRef": { "type": "int" } } ] },
+          { "id": "grade-dto", "type": "DTO", "name": "GradeDTO",
+            "children": [ { "id": "grade-dto-link", "type": "DTO-Field", "name": "link", "typeRef": { "type": "string" } } ] },
+          { "id": "shapes-service", "type": "Service", "name": "ShapesService",
+            "stereotypes": { "Http Service Settings": { "Route": "api/shapes" } },
+            "children": [
+              { "id": "shapes-add-member", "type": "Operation", "name": "AddMember", "typeRef": { "element": "id-result" },
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "member" } } },
+              { "id": "shapes-add-role", "type": "Operation", "name": "AddRole", "typeRef": { "type": "object" },
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "role" } } },
+              { "id": "shapes-get-silos", "type": "Operation", "name": "GetSilos", "typeRef": { "element": "silo-dto", "collection": true },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "silos" } } },
+              { "id": "shapes-analyze", "type": "Operation", "name": "Analyze", "typeRef": { "element": "analysis-dto" },
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "analyze" } } },
+              { "id": "shapes-create-bid", "type": "Operation", "name": "CreateBid", "typeRef": { "element": "bid-dto" },
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "bid" } } },
+              { "id": "shapes-get-expiry", "type": "Operation", "name": "GetExpiry", "typeRef": { "type": "datetime" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "expiry" } } },
+              { "id": "shapes-get-grade", "type": "Operation", "name": "GetGrade", "typeRef": { "element": "grade-dto" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "grade/{material}" } },
+                "children": [ { "id": "shapes-get-grade-material", "type": "Parameter", "name": "material", "typeRef": { "type": "string" } } ] },
+              { "id": "shapes-get-template", "type": "Operation", "name": "GetTemplate", "typeRef": { "element": "stream" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "template" } } }
+            ] }
+        ]
+      }, {
+        "id": "types", "name": "Types",
+        "elements": [ { "id": "stream", "type": "Type-Definition", "name": "Stream" } ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Basislink", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Basislink.API/Business/Business.cs
+namespace Basislink.API.Business;
+
+public class Bid
+{
+    public int Number { get; set; }
+
+    public string silo { get; set; } = "";
+}
+
+public class BidDTO
+{
+    public int Number { get; set; }
+}
+
+public class AnalysisDTO
+{
+    public string Summary { get; set; } = "";
+}
+
+public class GradeDTO
+{
+    public string link { get; set; } = "";
+}
+
+public interface ICache
+{
+    T GetCacheData<T>(string key, int seconds, Func<T> load);
+}
+
+public class Bids
+{
+    public List<Bid> GetBidSummary() => new List<Bid>();
+
+    public DateTime GetDefaultBidExpiryDate() => DateTime.UtcNow;
+
+    public int CreateMember() => 1;
+
+    public IEnumerable<GradeDTO> GetGrades() => new List<GradeDTO>();
+
+    public byte[] BuildTemplate() => new byte[0];
+}
+```
+
+```csharp file src/Basislink.API/Controllers/ShapesController.cs
+using AutoMapper;
+using Basislink.API.Business;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+
+namespace Basislink.API.Controllers;
+
+[ApiController]
+[Route("api/shapes")]
+public class ShapesController : ControllerBase
+{
+    private readonly Bids _bids = new Bids();
+    private readonly ICache _cache;
+    private readonly IMapper _mapper;
+
+    public ShapesController(ICache cache, IMapper mapper)
+    {
+        _cache = cache;
+        _mapper = mapper;
+    }
+
+    [HttpPost("member")]
+    public IActionResult AddMember()
+    {
+        var id = _bids.CreateMember();
+        return Ok(new { Id = id });
+    }
+
+    [HttpPost("role")]
+    public IActionResult AddRole(bool success)
+    {
+        return Ok(new { Success = success, Message = $"Role assigned {success}" });
+    }
+
+    [HttpGet("silos")]
+    public IActionResult GetSilos()
+    {
+        var silos = _bids.GetBidSummary().GroupBy(x => new { x.silo }).Select(x => new { x.Key.silo }).ToList();
+        return Ok(silos);
+    }
+
+    [HttpPost("analyze")]
+    public IActionResult Analyze(string response)
+    {
+        try
+        {
+            var jsonResponse = JsonConvert.DeserializeObject<AnalysisDTO>(response);
+            return Ok(jsonResponse);
+        }
+        catch
+        {
+            return Ok();
+        }
+    }
+
+    [HttpPost("bid")]
+    public IActionResult CreateBid(Bid bid)
+    {
+        return Ok(_mapper.Map<BidDTO>(bid));
+    }
+
+    [HttpGet("expiry")]
+    public IActionResult GetExpiry()
+    {
+        return Ok(_bids.GetDefaultBidExpiryDate().ToLocalTime());
+    }
+
+    [HttpGet("grade/{material}")]
+    public IActionResult GetGrade(string material)
+    {
+        var all = _cache.GetCacheData<IEnumerable<GradeDTO>>("grades", 60, _bids.GetGrades).ToList();
+        var grade = all.Where(x => x.link == material).FirstOrDefault();
+        return Ok(grade);
+    }
+
+    [HttpGet("template")]
+    public IActionResult GetTemplate()
+    {
+        var excelData = _bids.BuildTemplate();
+        return File(excelData, "application/octet-stream", "Template.xlsx");
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "shapes-add-member", "outcome": "verified", "actual": "IActionResult with new { Id }" },
+    { "kind": "operation.returns", "element": "shapes-add-role", "outcome": "verified", "actual": "IActionResult with new { Success, Message }" },
+    { "kind": "operation.returns", "element": "shapes-get-silos", "outcome": "verified", "actual": "IActionResult with List<new { silo }>" },
+    { "kind": "operation.returns", "element": "shapes-analyze", "outcome": "verified", "actual": "IActionResult with AnalysisDTO" },
+    { "kind": "operation.returns", "element": "shapes-create-bid", "outcome": "verified", "actual": "IActionResult with BidDTO" },
+    { "kind": "operation.returns", "element": "shapes-get-expiry", "outcome": "verified", "actual": "IActionResult with DateTime" },
+    { "kind": "operation.returns", "element": "shapes-get-grade", "outcome": "verified", "actual": "IActionResult with GradeDTO" },
+    { "kind": "operation.returns", "element": "shapes-get-template", "outcome": "verified", "actual": "IActionResult with byte[]" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "count": 0 }
+  ]
+}
+```
+
+## action-result-body-shapes-contradicted
+
+`AddMember` now succeeds with `new { Id = id, Name = "x" }`, a member `IdResult` lacks, and `CreateBid` maps to `AnalysisDTO`: both contradicted.
+
+```json case
+{ "phase": 4, "base": "action-result-body-shapes", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Basislink.API/Controllers/ShapesController.cs
+using AutoMapper;
+using Basislink.API.Business;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+
+namespace Basislink.API.Controllers;
+
+[ApiController]
+[Route("api/shapes")]
+public class ShapesController : ControllerBase
+{
+    private readonly Bids _bids = new Bids();
+    private readonly ICache _cache;
+    private readonly IMapper _mapper;
+
+    public ShapesController(ICache cache, IMapper mapper)
+    {
+        _cache = cache;
+        _mapper = mapper;
+    }
+
+    [HttpPost("member")]
+    public IActionResult AddMember()
+    {
+        var id = _bids.CreateMember();
+        return Ok(new { Id = id, Name = "x" });
+    }
+
+    [HttpPost("role")]
+    public IActionResult AddRole(bool success)
+    {
+        return Ok(new { Success = success, Message = $"Role assigned {success}" });
+    }
+
+    [HttpGet("silos")]
+    public IActionResult GetSilos()
+    {
+        var silos = _bids.GetBidSummary().GroupBy(x => new { x.silo }).Select(x => new { x.Key.silo }).ToList();
+        return Ok(silos);
+    }
+
+    [HttpPost("analyze")]
+    public IActionResult Analyze(string response)
+    {
+        try
+        {
+            var jsonResponse = JsonConvert.DeserializeObject<AnalysisDTO>(response);
+            return Ok(jsonResponse);
+        }
+        catch
+        {
+            return Ok();
+        }
+    }
+
+    [HttpPost("bid")]
+    public IActionResult CreateBid(Bid bid)
+    {
+        return Ok(_mapper.Map<AnalysisDTO>(bid));
+    }
+
+    [HttpGet("expiry")]
+    public IActionResult GetExpiry()
+    {
+        return Ok(_bids.GetDefaultBidExpiryDate().ToLocalTime());
+    }
+
+    [HttpGet("grade/{material}")]
+    public IActionResult GetGrade(string material)
+    {
+        var all = _cache.GetCacheData<IEnumerable<GradeDTO>>("grades", 60, _bids.GetGrades).ToList();
+        var grade = all.Where(x => x.link == material).FirstOrDefault();
+        return Ok(grade);
+    }
+
+    [HttpGet("template")]
+    public IActionResult GetTemplate()
+    {
+        var excelData = _bids.BuildTemplate();
+        return File(excelData, "application/octet-stream", "Template.xlsx");
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "shapes-add-member", "outcome": "contradicted", "actual": "IActionResult with new { Id, Name }" },
+    { "kind": "operation.returns", "element": "shapes-create-bid", "outcome": "contradicted", "actual": "IActionResult with AnalysisDTO" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "shapes-add-member" },
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "shapes-create-bid" }
+  ]
+}
+```
+
 ## component-operation
 
 A Component Operation is a method of the component's `@code` block. `OnBrandSelected` has no type reference, and its method returns a bare `Task`, which means nothing; `GetBrandCount` returns `int`.

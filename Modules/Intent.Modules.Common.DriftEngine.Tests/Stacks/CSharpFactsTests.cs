@@ -284,11 +284,30 @@ public class CSharpFactsTests
     {
         var audits = Calls("Place").Where(x => x is { Name: "Audit", IsReference: false }).ToList();
         audits[0].Arguments.Single().Types.Single().Name.ShouldBe("OrderDto");
-        audits[1].Arguments.Single().IsKnown.ShouldBeFalse();
+        // Find(1) takes one argument as both overloads can, and its int fits only Find(int).
+        audits[1].Arguments.Single().Types.Single().Name.ShouldBe("OrderDto");
 
         // A method's own type parameter isn't a type the code names.
         audits[2].Arguments.Single().IsKnown.ShouldBeFalse();
         Calls("Place").Single(x => x.Name == "Created").Arguments[1].Types.Single().Name.ShouldBe("OrderDto");
+    }
+
+    [Fact]
+    public void A_fluent_chain_of_library_calls_however_long_is_read_without_exhausting_the_stack()
+    {
+        // A chain of a library's calls was once typed by building each call's node afresh, a level of recursion per call, so
+        // a long enough one crashed the Software Factory with a stack overflow.
+        var chain = string.Concat(Enumerable.Repeat(".Append(\"x\")", 1000));
+        var graph = Read($$"""
+            namespace Shop;
+
+            public class Report
+            {
+                public string Build(System.Text.StringBuilder text) => text{{chain}}.ToString();
+            }
+            """);
+
+        graph.Types.Single().Members.Single(x => x.Name == "Build").Calls.Count.ShouldBe(1001);
     }
 
     [Fact]

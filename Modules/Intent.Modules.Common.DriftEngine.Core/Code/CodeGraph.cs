@@ -41,11 +41,23 @@ public sealed class TypeRefNode
     public LiteralNode? Literal { get; init; }
 
     /// <summary>
+    /// A type the code doesn't name, only shapes: C#'s <c>new { Id = id }</c>. It is its <see cref="Members"/>, and matches a
+    /// modelled type of the same shape (<see cref="TypeComparer"/>).
+    /// </summary>
+    public bool IsAnonymous { get; init; }
+
+    /// <summary>An anonymous type's members, in order, each with its type when the code says it; empty for any other type.</summary>
+    public IReadOnlyList<TypeMemberNode> Members { get; init; } = [];
+
+    /// <summary>
     /// The language it is written in, as its reader says: it is compared under that language's profile, so one run reads
     /// several languages. Null: the run's primary language.
     /// </summary>
     public string? Language { get; init; }
 }
+
+/// <summary>A member of an anonymous type: its name, and its type when the code says it.</summary>
+public sealed record TypeMemberNode(string Name, TypeRefNode? Type);
 
 /// <summary>
 /// A member as written. A record only so a refiner (<see cref="Extensions.IMemberRefiner"/>) can give it as the house reads

@@ -761,7 +761,9 @@ internal static class MessageCode
     /// <summary>
     /// The code's own methods a call reaches, with their bodies: its type's, inherited ones included, or, through what it is
     /// called on, a collaborator's (<c>_packer.Pack(...)</c>). A method an interface or abstract method stands for is each
-    /// implementation's the code has. None for a library's method. Found once per call and run.
+    /// implementation's the code has. None for a library's method. A method passed on as a value (<c>GetCacheData(key,
+    /// gradeBO.GetGradeDifferences)</c>) is one that runs, as <c>CallsFrom</c> has it, so a reference reaches its method too.
+    /// Found once per call and run.
     /// </summary>
     public static IReadOnlyList<(TypeNode Type, MemberNode Member)> Bodies(CodeGraph code, TypeNode from, CallNode call)
     {
@@ -772,7 +774,7 @@ internal static class MessageCode
 
         if (!known.Calls.TryGetValue(call, out var bodies))
         {
-            known.Calls[call] = bodies = call.IsReference ? [] : FindBodies(code, from, call).ToList();
+            known.Calls[call] = bodies = FindBodies(code, from, call).ToList();
         }
 
         return bodies;
@@ -780,7 +782,8 @@ internal static class MessageCode
 
     private static IEnumerable<(TypeNode Type, MemberNode Member)> FindBodies(CodeGraph code, TypeNode from, CallNode call)
     {
-        foreach (var target in code.Targets(call.Name, call.Receiver, call.ReceiverType, call.Arguments.Count, from))
+        // A reference has no arguments of its own: it reaches any overload.
+        foreach (var target in code.Targets(call.Name, call.Receiver, call.ReceiverType, call.IsReference ? null : call.Arguments.Count, from))
         {
             if (HasBody(target.Type, target.Member))
             {

@@ -22,7 +22,7 @@
         "datetimeoffset": ["DateTimeOffset", "System.DateTimeOffset"],
         "date": ["DateOnly", "System.DateOnly"],
         "time": ["TimeOnly", "System.TimeOnly", "TimeSpan", "System.TimeSpan"],
-        "object": ["object", "Object", "System.Object"],
+        "object": ["object", "Object", "System.Object", "dynamic"],
         "binary": ["byte[]"]
       },
       "collections": ["T[]", "List<T>", "IList<T>", "ICollection<T>", "IEnumerable<T>", "IReadOnlyList<T>", "IReadOnlyCollection<T>", "HashSet<T>", "ISet<T>", "IReadOnlySet<T>", "IQueryable<T>"],

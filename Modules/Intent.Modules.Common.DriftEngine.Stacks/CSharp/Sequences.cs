@@ -38,8 +38,36 @@ internal static class Sequences
             return null;
         }
 
-        var name = call.Name.EndsWith("Async", StringComparison.Ordinal) ? call.Name[..^"Async".Length] : call.Name;
-        return name switch
+        return Awaited(call.Name, element);
+    }
+
+    /// <summary>A query operator this reads, async or not: one that keeps, picks, counts, lists or projects the elements, or groups them.</summary>
+    public static bool IsOperator(string name)
+    {
+        var bare = Bare(name);
+        return Keep.Contains(bare) || One.Contains(bare) || bare is "ToList" or "ToArray" or "Count" or "LongCount" or "Any" or "All" or "Contains" or "Select" or "GroupBy";
+    }
+
+    /// <summary>A sequence's element type: an array's, or one of the sequences a chain can start on; null for anything else.</summary>
+    public static TypeRefNode? ElementOf(TypeRefNode? sequence) => sequence switch
+    {
+        { IsArray: true, Arguments: [var element] } => element,
+        { Arguments: [var element] } when Sources.Contains(sequence.Name) => element,
+        _ => null
+    };
+
+    /// <summary>
+    /// What an operator gives as written, on a sequence of <paramref name="element"/> (for a <c>Select</c>, of what it projects
+    /// to): an async one's (<c>ToListAsync</c>) is a <c>Task</c> of what it gives awaited.
+    /// </summary>
+    public static TypeRefNode? Given(string name, TypeRefNode element) =>
+        Awaited(name, element) is not { } result ? null
+        : name.EndsWith("Async", StringComparison.Ordinal) ? Generic("Task", "System.Threading.Tasks.Task", result)
+        : result;
+
+    /// <summary>What an operator gives once awaited, on a sequence of <paramref name="element"/>.</summary>
+    private static TypeRefNode? Awaited(string name, TypeRefNode element) =>
+        Bare(name) switch
         {
             "ToList" => Generic("List", "System.Collections.Generic.List", element),
             // An array's element is its one type argument.
@@ -47,28 +75,44 @@ internal static class Sequences
             "Count" => Named("int"),
             "LongCount" => Named("long"),
             "Any" or "All" or "Contains" => Named("bool"),
-            _ when One.Contains(name) => element,
+            var bare when One.Contains(bare) => element,
             // An unfinished query is serialized as the sequence it is.
-            _ when Keep.Contains(name) => Generic("IEnumerable", "System.Collections.Generic.IEnumerable", element),
+            var bare when Keep.Contains(bare) || bare == "Select" => Generic("IEnumerable", "System.Collections.Generic.IEnumerable", element),
             _ => null
         };
-    }
 
-    /// <summary>The element type of the sequence a call is made on: what an operator before it keeps, or what it starts on.</summary>
+    private static string Bare(string name) => name.EndsWith("Async", StringComparison.Ordinal) ? name[..^"Async".Length] : name;
+
+    /// <summary>
+    /// The element type of the sequence a call is made on: what an operator before it keeps, what a <c>Select</c> before it
+    /// projects to, or what it starts on. A call that is a <c>Select</c> gives its projection.
+    /// </summary>
     private static TypeRefNode? Element(CallNode call)
     {
-        if (call.On is { } on)
+        if (call.Name == "Select")
         {
-            return Keep.Contains(on.Name) ? Element(on) : null;
+            return Projected(call);
         }
 
-        return call.ReceiverType switch
+        // Made on another operator, the sequence is what that one gives; made on any other call, what the call is typed as.
+        if (call.On is { } on && (Keep.Contains(on.Name) || on.Name == "Select"))
         {
-            { IsArray: true, Arguments: [var element] } => element,
-            { Arguments: [var element] } sequence when Sources.Contains(sequence.Name) => element,
-            _ => null
-        };
+            return Element(on);
+        }
+
+        return ElementOf(call.ReceiverType);
     }
+
+    /// <summary>
+    /// What a <c>Select</c>'s lambda returns, when the code says and every return agrees: <c>x =&gt; new OrderDto { ... }</c> is
+    /// <c>OrderDto</c>. An anonymous type, or a projection the code doesn't type, leaves it unknown.
+    /// </summary>
+    private static TypeRefNode? Projected(CallNode select) =>
+        select.Arguments is [{ Function.Returns: [_, ..] returns }]
+        && returns.Select(x => x is { IsKnown: true, Types: [var only] } ? only : null).ToList() is [{ } first, ..] types
+        && types.All(x => x?.Text == first.Text)
+            ? first
+            : null;
 
     private static TypeRefNode Generic(string name, string qualified, TypeRefNode element) =>
         new() { Text = $"{name}<{element.Text}>", Name = name, QualifiedName = qualified, Arguments = [element] };

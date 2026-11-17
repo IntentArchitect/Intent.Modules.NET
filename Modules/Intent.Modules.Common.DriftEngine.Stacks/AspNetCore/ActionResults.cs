@@ -32,11 +32,18 @@ internal static class ActionResults
 
     private static readonly TypeRefNode Stream = new() { Text = "Stream", Name = "Stream", QualifiedName = "System.IO.Stream" };
 
-    private static readonly TypeRefNode Bytes = new() { Text = "byte[]", Name = "byte", QualifiedName = "byte", IsArray = true };
+    // An array's element is its one type argument, as the comparer reads it.
+    private static readonly TypeRefNode Bytes = new()
+    {
+        Text = "byte[]", Name = "byte", QualifiedName = "byte", IsArray = true,
+        Arguments = [new TypeRefNode { Text = "byte", Name = "byte", QualifiedName = "byte", IsPredefinedValueType = true }]
+    };
 
     private static readonly TypeRefNode Text = new() { Text = "string", Name = "string", QualifiedName = "string" };
 
     private const int MaxDepth = 3;
+
+    private static bool IsFile(TypeRefNode body) => ReferenceEquals(body, Stream) || ReferenceEquals(body, Bytes);
 
     /// <summary>A return type that doesn't state what it succeeds with, under <c>Task</c> or <c>ValueTask</c>.</summary>
     public static bool IsUntyped(TypeRefNode type) =>
@@ -64,7 +71,17 @@ internal static class ActionResults
             return ClaimReading.CantVerify("unreadable", $"`{member.Name}` returns `{returns.Text}`, which doesn't state the type of its body, and it builds no success result.", member.At);
         }
 
-        var same = successes.All(x => context.ExpectedValue is ITypeReference model ? x.Body is not null && context.TypeMatches(model, x.Body) : x.Body is null);
+        // A success with no body beside ones with a body (a fallback Ok()) is the operation returning nothing of its type.
+        if (successes.Any(x => x.Body is not null))
+        {
+            successes.RemoveAll(x => x.Body is null);
+        }
+
+        // A file is a file, whether the code sends its bytes or a stream: either is the model's Stream or binary.
+        bool Matches(ITypeReference model, TypeRefNode body) =>
+            context.TypeMatches(model, body) || IsFile(body) && (context.TypeMatches(model, Stream) || context.TypeMatches(model, Bytes));
+
+        var same = successes.All(x => context.ExpectedValue is ITypeReference model ? x.Body is not null && Matches(model, x.Body) : x.Body is null);
         var actual = string.Join(" or ", successes.Select(x => x.Body?.Text ?? "no body").Distinct());
         return ClaimReading.Compared($"{returns.Text} with {actual}", successes[0].At, same);
     }
