@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1581b6bc-7ae9-4e55-b0d1-a884a4f6066e" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>OrderPaymentFailedIntegrationEventHandler</name>
+  <display>OrderPaymentFailedIntegrationEventHandler</display>
+  <parentFolderId>fa445298-64eb-4674-a5e0-df4671852d6b</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <association id="e72e5b86-ccb9-48ec-9084-9e2862f873ac">
+      <sourceEnd id="0cac53a2-e160-49e2-b4c5-b76b89da6371" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+        <display>handled by: EventHandling.OrderPaymentFailedIntegrationEventHandler</display>
+        <typeReference id="dac6da85-fec7-4bf7-b6d5-8846a404a528">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="e72e5b86-ccb9-48ec-9084-9e2862f873ac" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+        <name>Handler</name>
+        <display>[handles] OrderPaymentFailedIntegrationEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="0abf6ce8-8b57-4caf-97cb-469c759fafa5">
+          <typeId>a76e47c1-7a20-4999-a247-c9b513d6a85a</typeId>
+          <typeName>OrderPaymentFailedIntegrationEvent</typeName>
+          <typePackageName>Ordering.API.Eventing</typePackageName>
+          <typePackageId>54cb363b-5140-4891-b45f-ee554a76d9c4</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Subscribe Integration Event</associationType>
+      <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+    </association>
+  </children>
+</class>

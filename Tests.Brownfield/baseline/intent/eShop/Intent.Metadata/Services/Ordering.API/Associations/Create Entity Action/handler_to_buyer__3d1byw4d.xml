@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d25d0731-7640-4301-a7af-2bbdff618dec">
+  <sourceEnd id="0ec19825-8a42-4d84-8c5c-082f1e7b520b" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler.handler</display>
+    <typeReference id="36283f10-eedf-493a-aa63-034b8920f3ea">
+      <typeId>e4e5d2bb-d7fd-4d1f-aba3-f6aed5b7c407</typeId>
+      <typeName>handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="d25d0731-7640-4301-a7af-2bbdff618dec" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>buyer</name>
+    <display>[create] buyer: Buyer</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="bec18416-83dd-4946-a779-a8831be86dd7">
+      <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+      <typeName>Buyer</typeName>
+      <typePackageName>Ordering</typePackageName>
+      <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+</association>

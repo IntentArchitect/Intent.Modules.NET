@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c2c90d40-ca71-4c8a-a610-dd1cfab761b9" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>CatchAllHandler</name>
+  <display>CatchAllHandler</display>
+  <parentFolderId>3ce157b5-8640-408b-8f59-654d831dcbf4</parentFolderId>
+  <packageId>3ce157b5-8640-408b-8f59-654d831dcbf4</packageId>
+  <packageName>N_ServiceBus.LearnerTransport.NET11.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <association id="3184dc3e-311d-4dfe-b867-f5e29c23edc5">
+      <sourceEnd id="9d1fd60c-8665-43fa-ac80-939f46b4065e" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+        <display>handled by: N_ServiceBus.LearnerTransport.NET11.Services.CatchAllHandler</display>
+        <typeReference id="7561b640-3782-4ba5-bf6e-aba98cfce860">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="3184dc3e-311d-4dfe-b867-f5e29c23edc5" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+        <name>Handler</name>
+        <display>[handles] OrderAnimal</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="e0a12602-fc81-4dd6-b9ae-e507ed0e94ae">
+          <typeId>b6893bbc-196c-4222-bce3-48974c907b2d</typeId>
+          <typeName>OrderAnimal</typeName>
+          <typePackageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</typePackageName>
+          <typePackageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Subscribe Integration Command</associationType>
+      <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+    </association>
+    <association id="4206cf35-12c7-4018-8993-668b37ff3feb">
+      <sourceEnd id="a8ce47ee-7ce8-4337-9dfe-0b8589767163" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+        <display>handled by: N_ServiceBus.LearnerTransport.NET11.Services.CatchAllHandler</display>
+        <typeReference id="ee68392c-4532-4a2e-a054-505a41198614">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="4206cf35-12c7-4018-8993-668b37ff3feb" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+        <name>Handler</name>
+        <display>[handles] MakeSoundCommand</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="40843ab1-4f8a-49c1-894e-a5d41a1de0b9">
+          <typeId>131b9428-885e-4a5c-8548-ef1f17311a7b</typeId>
+          <typeName>MakeSoundCommand</typeName>
+          <typePackageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</typePackageName>
+          <typePackageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Subscribe Integration Command</associationType>
+      <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+    </association>
+    <association id="c5b7a516-51e0-45ff-bad0-2573299e95a5">
+      <sourceEnd id="f8f453e4-9bdc-400c-aa42-acaa6fb07d3b" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+        <display>handled by: N_ServiceBus.LearnerTransport.NET11.Services.CatchAllHandler</display>
+        <typeReference id="0724b2c8-c672-4b75-ae50-eb0e809dae11">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="c5b7a516-51e0-45ff-bad0-2573299e95a5" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+        <name>Handler</name>
+        <display>[handles] TalkToPersonCommand</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="1a182cff-8835-4776-bb2e-12d1a82c06cf">
+          <typeId>ad5ec444-0da1-45f5-a7a5-1b028d6213b2</typeId>
+          <typeName>TalkToPersonCommand</typeName>
+          <typePackageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</typePackageName>
+          <typePackageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Subscribe Integration Command</associationType>
+      <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+    </association>
+    <association id="1221fa2d-2483-42ce-8599-20fe65c8cf1f">
+      <sourceEnd id="d31adbbb-82ed-42ee-8280-d5c90fbc2c4e" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+        <display>handled by: N_ServiceBus.LearnerTransport.NET11.Services.CatchAllHandler</display>
+        <typeReference id="8921e6a3-1416-4ac2-abdd-be79e9db1878">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="1221fa2d-2483-42ce-8599-20fe65c8cf1f" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+        <name>Handler</name>
+        <display>[handles] CreatePersonIdentity</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="12d8cb2f-e147-4c16-94a6-180b9dd10b05">
+          <typeId>eb20ef8f-c54e-4e48-a59c-a1b6272c22f4</typeId>
+          <typeName>CreatePersonIdentity</typeName>
+          <typePackageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</typePackageName>
+          <typePackageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Subscribe Integration Command</associationType>
+      <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+    </association>
+  </children>
+</class>

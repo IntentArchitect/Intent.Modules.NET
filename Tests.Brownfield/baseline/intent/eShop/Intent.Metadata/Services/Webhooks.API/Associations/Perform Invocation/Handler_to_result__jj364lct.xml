@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="47bd05ef-6fd7-4c4f-9db4-dab228f5a8ad">
+  <sourceEnd id="9ddaf703-8452-4cdf-9c6e-0b69e7b35bae" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderStatusChangedToShippedIntegrationEventHandler.Handler</display>
+    <typeReference id="d3be2845-a98d-4f43-89fb-00e333d7b4f2">
+      <typeId>a0e27313-df10-451b-9e21-42d2f9da0de8</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Webhooks.API</typePackageName>
+      <typePackageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="47bd05ef-6fd7-4c4f-9db4-dab228f5a8ad" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = GetSubscriptionsOfType(...): WebhookSubscription[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c91a340c-0b7a-4b43-92b9-f0d05ca3fbb1">
+      <typeId>7543fe73-dd71-4634-b36a-3c476d0bc71b</typeId>
+      <typeName>GetSubscriptionsOfType</typeName>
+      <isCollection>true</isCollection>
+      <typePackageName>Webhooks.API</typePackageName>
+      <typePackageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

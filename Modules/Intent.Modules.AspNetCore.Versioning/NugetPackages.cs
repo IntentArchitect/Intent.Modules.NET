@@ -19,7 +19,7 @@ namespace Intent.Modules.AspNetCore.Versioning
             NugetRegistry.Register(AspVersioningMvcPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
+                        ( >= 10, >= 0) => new PackageVersion("10.0.0", locked: true)
                             .WithNugetDependency("Asp.Versioning.Http", "10.0.0"),
                         ( >= 8, >= 0) => new PackageVersion("8.1.1")
                             .WithNugetDependency("Asp.Versioning.Http", "8.1.1"),
@@ -31,7 +31,7 @@ namespace Intent.Modules.AspNetCore.Versioning
             NugetRegistry.Register(AspVersioningMvcApiExplorerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.0")
+                        ( >= 10, >= 0) => new PackageVersion("10.0.0", locked: true)
                             .WithNugetDependency("Asp.Versioning.Mvc", "10.0.0"),
                         ( >= 8, >= 0) => new PackageVersion("8.1.1")
                             .WithNugetDependency("Asp.Versioning.Mvc", "8.1.1"),

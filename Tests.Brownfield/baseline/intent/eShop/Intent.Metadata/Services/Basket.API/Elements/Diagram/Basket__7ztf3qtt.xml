@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4750ab73-f49a-4a3a-88e7-4cc6f83fe147" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Basket</name>
+  <display>Basket</display>
+  <parentFolderId>0efbb3fd-5ffe-4498-9213-41862c0cc2a8</parentFolderId>
+  <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+  <packageName>Basket.API</packageName>
+  <diagram>
+    <targetPackageId>4750ab73-f49a-4a3a-88e7-4cc6f83fe147</targetPackageId>
+  </diagram>
+</class>

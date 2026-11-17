@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="559fc284-22c9-4446-80f3-5ade2ab1d738" zIndex="0">
+  <name>OrderItem</name>
+  <position x="0" y="70" />
+  <size width="200" height="250" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b0f95c15-d452-4c5f-9f5f-a42fc2e25e79" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>OrderCancelledDomainEvent</name>
+  <display>OrderCancelledDomainEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>c0f108b7-b82b-4acc-8dbd-513464e49eaa</parentFolderId>
+  <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+  <packageName>Ordering</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="42c50d5f-97a1-47b2-b76a-f7bb5936650f" name="File Config">
+      <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+      <properties>
+        <property name="5f63aaa1-52b4-4d58-8d7e-ae603eb859cb" display="Filename" />
+        <property name="7c7215ab-c007-428c-8522-e902e97dc022" display="Namespace" value="eShop.Ordering.Domain.Events" />
+        <property name="4e9b0fd3-b81c-4726-ab42-bc1f6813bdd9" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="2489aec2-4369-4505-aa1f-87ba395c6da4" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Order</name>
+      <display>Order: Order</display>
+      <typeReference id="6ff01832-a956-40c6-bb76-86f337d1fbd5">
+        <typeId>40cec252-97ea-4da2-aaf1-86a50002a76a</typeId>
+        <typeName>Order</typeName>
+        <typePackageName>Ordering</typePackageName>
+        <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+      </typeReference>
+      <parentFolderId>b0f95c15-d452-4c5f-9f5f-a42fc2e25e79</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+    </element>
+  </children>
+</class>

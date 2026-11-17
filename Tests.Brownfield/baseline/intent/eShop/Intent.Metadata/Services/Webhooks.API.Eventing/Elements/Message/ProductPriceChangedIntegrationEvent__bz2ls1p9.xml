@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="16abbb9e-fa9b-4d38-9821-61203f342b87" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>ProductPriceChangedIntegrationEvent</name>
+  <display>ProductPriceChangedIntegrationEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>8be35d8c-aa77-496a-b2ad-e71bbc237aea</parentFolderId>
+  <packageId>55b30ef0-516f-4925-b317-cccca4d8e700</packageId>
+  <packageName>Webhooks.API.Eventing</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="9bb8b979-bcb2-4908-91d5-b65028475bb6" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="2f0cd31c-9b25-410b-bb47-ccb513504353" display="Type" value="positional record" />
+        <property name="7d854ec0-7ba8-48f5-a08e-539ef5fcb359" display="Modifiers" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="e8bac8b6-28fc-4a04-b06e-eea459818878" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>ProductId</name>
+      <display>ProductId: int</display>
+      <typeReference id="26fe0688-b6f4-4cba-987f-cabdca2c0bc2">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>16abbb9e-fa9b-4d38-9821-61203f342b87</parentFolderId>
+      <packageId>55b30ef0-516f-4925-b317-cccca4d8e700</packageId>
+      <packageName>Webhooks.API.Eventing</packageName>
+    </element>
+    <element id="f52bde84-5fea-4b49-8c53-cc8a3efea907" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>NewPrice</name>
+      <display>NewPrice: decimal</display>
+      <typeReference id="e5a5fac5-6388-424b-a918-8f3dd5067fdc">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>16abbb9e-fa9b-4d38-9821-61203f342b87</parentFolderId>
+      <packageId>55b30ef0-516f-4925-b317-cccca4d8e700</packageId>
+      <packageName>Webhooks.API.Eventing</packageName>
+    </element>
+    <element id="0d4badd3-31f0-4313-8b60-7cf4ed84f51b" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OldPrice</name>
+      <display>OldPrice: decimal</display>
+      <typeReference id="dc465404-6389-4cea-8c78-4ce92c98d9cd">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>16abbb9e-fa9b-4d38-9821-61203f342b87</parentFolderId>
+      <packageId>55b30ef0-516f-4925-b317-cccca4d8e700</packageId>
+      <packageName>Webhooks.API.Eventing</packageName>
+    </element>
+  </children>
+</class>

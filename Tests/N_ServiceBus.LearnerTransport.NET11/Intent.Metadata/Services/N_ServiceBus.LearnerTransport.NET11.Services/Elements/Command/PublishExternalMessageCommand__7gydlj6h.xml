@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="44df426c-b8b2-46d9-a7ef-ebb8fecc3c25" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>PublishExternalMessageCommand</name>
+  <display>PublishExternalMessageCommand: void</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <typeReference id="606ea8dc-179f-460e-b4fa-b681394a813b" />
+  <parentFolderId>d5419d76-0f53-4b74-8c02-a219017e45d1</parentFolderId>
+  <packageId>3ce157b5-8640-408b-8f59-654d831dcbf4</packageId>
+  <packageName>N_ServiceBus.LearnerTransport.NET11.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/external-message-publish/publish-external-message" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="1ce82002-c967-486e-99e5-85bbeff8eb49" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Message</name>
+      <display>Message: string</display>
+      <typeReference id="25095e6e-4296-4db8-9691-8aaac7df6c58">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>44df426c-b8b2-46d9-a7ef-ebb8fecc3c25</parentFolderId>
+      <packageId>3ce157b5-8640-408b-8f59-654d831dcbf4</packageId>
+      <packageName>N_ServiceBus.LearnerTransport.NET11.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
+          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
+          <properties>
+            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" />
+            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" />
+            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" />
+            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
+            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" />
+            <property name="a4fdee2f-36d9-463c-bb2e-54579a16083e" display="Regular Expression Message" isActive="false" />
+            <property name="25d15e9b-7dbd-403e-837d-2fcfc786d3f2" display="Regular Expression Timeout" value="1" isActive="false" />
+            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" />
+            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" />
+            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
+            <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" />
+            <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" />
+            <property name="f43fcab6-5f8f-42e4-96d2-83d79cedfab9" display="Must Message" isActive="false" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <association id="66e8d504-184e-410d-977b-8ed442ea6305">
+      <sourceEnd id="85a7d21a-d49f-4688-8d5e-76e2d069b1fa" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+        <display>published by : ExternalMessagePublish.PublishExternalMessageCommand</display>
+        <typeReference id="c640585b-47fd-4ad2-b632-9f957f659e6f">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="66e8d504-184e-410d-977b-8ed442ea6305" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+        <display>[publish] TestMessage</display>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="2760eb2e-a5cd-4f4f-941d-6127e151fbe9">
+          <typeId>d6607df5-4383-4acb-a532-d140267f3655</typeId>
+          <typeName>TestMessage</typeName>
+          <typePackageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</typePackageName>
+          <typePackageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</typePackageId>
+        </typeReference>
+        <mappings>
+          <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+            <source applicationId="e5432075-8bd5-4430-ba9b-e3f4cbf3df80" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="44df426c-b8b2-46d9-a7ef-ebb8fecc3c25" location="[N_ServiceBus.LearnerTransport.NET11].[Services].[PublishExternalMessageCommand]" />
+            <target applicationId="e5432075-8bd5-4430-ba9b-e3f4cbf3df80" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d6607df5-4383-4acb-a532-d140267f3655" location="[N_ServiceBus.LearnerTransport.NET11].[Services].[TestMessage]" />
+            <mappedEnds>
+              <mappedEnd>
+                <expression>{Message}</expression>
+                <path>
+                  <target id="d6607df5-4383-4acb-a532-d140267f3655" name="TestMessage" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+                  <target id="1584bbb2-a1db-4f1b-9619-5c73f3436a01" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+                <sources>
+                  <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                    <path>
+                      <target id="44df426c-b8b2-46d9-a7ef-ebb8fecc3c25" name="PublishExternalMessageCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                      <target id="1ce82002-c967-486e-99e5-85bbeff8eb49" name="Message" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                    </path>
+                  </source>
+                </sources>
+              </mappedEnd>
+            </mappedEnds>
+          </mapping>
+        </mappings>
+      </targetEnd>
+      <associationType>Publish Integration Event</associationType>
+      <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+    </association>
+  </children>
+</class>

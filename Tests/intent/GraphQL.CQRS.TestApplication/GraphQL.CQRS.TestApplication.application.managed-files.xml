@@ -23,6 +23,7 @@
   <file path="GraphQL.CQRS.TestApplication.Api/GraphQL/Mutations/ProductsMutations.cs" templateId="Intent.HotChocolate.GraphQL.MutationType" />
   <file path="GraphQL.CQRS.TestApplication.Api/GraphQL/Queries/CustomerQueries.cs" templateId="Intent.HotChocolate.GraphQL.QueryType" />
   <file path="GraphQL.CQRS.TestApplication.Api/GraphQL/Queries/InvoiceQueries.cs" templateId="Intent.HotChocolate.GraphQL.QueryType" />
+  <file path="GraphQL.CQRS.TestApplication.Api/GraphQL/Queries/NotificationsQueries.cs" templateId="Intent.HotChocolate.GraphQL.QueryType" />
   <file path="GraphQL.CQRS.TestApplication.Api/GraphQL/Queries/ProductsQueries.cs" templateId="Intent.HotChocolate.GraphQL.QueryType" />
   <file path="GraphQL.CQRS.TestApplication.Api/GraphQL/Queries/Query.cs" deviationsHash="216176936CB122A624A88578FAEFDAF78F03C01EEB69EDFE113F37E522017112" templateId="Intent.HotChocolate.GraphQL.QueryType" />
   <file path="GraphQL.CQRS.TestApplication.Api/GraphQL/Subscriptions/Subscription.cs" templateId="Intent.HotChocolate.GraphQL.SubscriptionType" />
@@ -73,7 +74,9 @@
   <file path="GraphQL.CQRS.TestApplication.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
   <file path="GraphQL.CQRS.TestApplication.Application/GraphQL.CQRS.TestApplication.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="GraphQL.CQRS.TestApplication.Application/IValidationService.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidationServiceInterface" />
+  <file path="GraphQL.CQRS.TestApplication.Application/Implementation/NotificationsService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
   <file path="GraphQL.CQRS.TestApplication.Application/Implementation/ProductsService.cs" templateId="Intent.Application.ServiceImplementations.ServiceImplementation" />
+  <file path="GraphQL.CQRS.TestApplication.Application/Interfaces/INotificationsService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
   <file path="GraphQL.CQRS.TestApplication.Application/Interfaces/IProductsService.cs" templateId="Intent.Application.Contracts.ServiceContract" />
   <file path="GraphQL.CQRS.TestApplication.Application/Invoices/CreateInvoice/CreateInvoiceCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
   <file path="GraphQL.CQRS.TestApplication.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
@@ -127,7 +130,7 @@
   <file path="GraphQL.CQRS.TestApplication.Domain/Repositories/IProfitCenterRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="GraphQL.CQRS.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="GraphQL.CQRS.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="GraphQL.CQRS.TestApplication.Infrastructure/GraphQL.CQRS.TestApplication.Infrastructure.csproj" deviationsHash="095F37015A48964754CFEF81E92E89B9F59272EB0E3FFE96C481B2E4B7C08653" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="GraphQL.CQRS.TestApplication.Infrastructure/GraphQL.CQRS.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="GraphQL.CQRS.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="GraphQL.CQRS.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="GraphQL.CQRS.TestApplication.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

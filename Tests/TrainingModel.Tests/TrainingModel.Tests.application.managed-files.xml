@@ -199,6 +199,6 @@
   <file path="TrainingModel.Tests.Infrastructure/Repositories/ProductRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="TrainingModel.Tests.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="TrainingModel.Tests.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
-  <file path="TrainingModel.Tests.Infrastructure/TrainingModel.Tests.Infrastructure.csproj" deviationsHash="1628ABA9F6AFA17C86EC6E2A9C8BF9D0DE94DFB94F4C1DD9817BEBB7607C4A1C" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TrainingModel.Tests.Infrastructure/TrainingModel.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TrainingModel.Tests.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

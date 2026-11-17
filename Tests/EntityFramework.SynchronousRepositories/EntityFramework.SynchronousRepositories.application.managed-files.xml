@@ -65,7 +65,7 @@
   <file path="EntityFramework.SynchronousRepositories.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="EntityFramework.SynchronousRepositories.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="EntityFramework.SynchronousRepositories.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EntityFramework.SynchronousRepositories.Infrastructure/EntityFramework.SynchronousRepositories.Infrastructure.csproj" deviationsHash="7028A46CFB45E946DF75417327D8C6BF70EB20A967AEBFA7836B0A089FBBA983" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFramework.SynchronousRepositories.Infrastructure/EntityFramework.SynchronousRepositories.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFramework.SynchronousRepositories.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EntityFramework.SynchronousRepositories.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="EntityFramework.SynchronousRepositories.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

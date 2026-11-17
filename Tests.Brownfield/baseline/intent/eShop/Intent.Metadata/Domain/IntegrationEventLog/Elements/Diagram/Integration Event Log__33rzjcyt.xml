@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="55362b2d-c853-4773-bdfe-2c75e1ed8c91" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Integration Event Log</name>
+  <display>Integration Event Log</display>
+  <parentFolderId>d74f2c9e-14a4-44a3-a17c-a05e4a4101a8</parentFolderId>
+  <packageId>acaba6c8-9c89-47ab-8ce4-9177aa7759d3</packageId>
+  <packageName>IntegrationEventLog</packageName>
+  <diagram>
+    <targetPackageId>55362b2d-c853-4773-bdfe-2c75e1ed8c91</targetPackageId>
+  </diagram>
+</class>

@@ -103,6 +103,7 @@
   <file path="WebAndWorker.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
   <file path="WebAndWorker.Api/Filters/BinaryContentFilter.cs" templateId="Intent.AspNetCore.Controllers.BinaryContentFilter" />
   <file path="WebAndWorker.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="WebAndWorker.Api/Filters/ExcludeODataDocumentFilter.cs" templateId="Intent.AspNetCore.OData.EntityFramework.ExcludeODataDocumentFilter" />
   <file path="WebAndWorker.Api/Filters/GeoJsonSchemaFilter.cs" templateId="Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter" />
   <file path="WebAndWorker.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="WebAndWorker.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
@@ -188,6 +189,7 @@
   <file path="WebAndWorker.Mobile.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/BinaryContentFilter.cs" templateId="Intent.AspNetCore.Controllers.BinaryContentFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
+  <file path="WebAndWorker.Mobile.Api/Filters/ExcludeODataDocumentFilter.cs" templateId="Intent.AspNetCore.OData.EntityFramework.ExcludeODataDocumentFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/GeoJsonSchemaFilter.cs" templateId="Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
   <file path="WebAndWorker.Mobile.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />

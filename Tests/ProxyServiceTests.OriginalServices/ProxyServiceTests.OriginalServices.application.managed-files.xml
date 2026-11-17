@@ -111,7 +111,7 @@
   <file path="ProxyServiceTests.OriginalServices.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="ProxyServiceTests.OriginalServices.Infrastructure/Persistence/Configurations/AccountConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
   <file path="ProxyServiceTests.OriginalServices.Infrastructure/Persistence/Configurations/ClientConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
-  <file path="ProxyServiceTests.OriginalServices.Infrastructure/ProxyServiceTests.OriginalServices.Infrastructure.csproj" deviationsHash="59313EEF7525E587D93F9D8884DBC7ADDC14443750D88E9869C9BFE88E281B09" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ProxyServiceTests.OriginalServices.Infrastructure/ProxyServiceTests.OriginalServices.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="ProxyServiceTests.OriginalServices.Infrastructure/Repositories/AccountRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="ProxyServiceTests.OriginalServices.Infrastructure/Repositories/ClientRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="ProxyServiceTests.OriginalServices.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />

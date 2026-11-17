@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Intent.Modules.Domain.Guardrails.Contracts.Drift;
+using Intent.Modules.Common.Drift;
 using Shouldly;
 using Xunit;
 using static Intent.Modules.Guardrails.Contracts.Tests.Drift;
@@ -138,7 +138,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             var report = Check("Services", Recipe, Model(), Code());
 
             report.WrongLines.ShouldBeEmpty();
-            report.NeedsAttention.ShouldBeFalse("a report with nothing to act on isn't written");
+            DriftFindings.Of(report).ShouldBeEmpty("a check with nothing to act on adds nothing to the drift report");
         }
 
         [Fact]

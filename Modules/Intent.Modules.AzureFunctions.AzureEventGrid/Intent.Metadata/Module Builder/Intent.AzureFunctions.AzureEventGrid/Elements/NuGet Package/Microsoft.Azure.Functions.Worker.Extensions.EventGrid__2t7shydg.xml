@@ -54,6 +54,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d9f80920-5e90-4980-8364-31710a92465b</parentFolderId>
+          <packageId>0e7abe02-deab-48dc-a46f-4c54dcce6418</packageId>
+          <packageName>Intent.AzureFunctions.AzureEventGrid</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -65,6 +67,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d9f80920-5e90-4980-8364-31710a92465b</parentFolderId>
+          <packageId>0e7abe02-deab-48dc-a46f-4c54dcce6418</packageId>
+          <packageName>Intent.AzureFunctions.AzureEventGrid</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -76,6 +80,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d9f80920-5e90-4980-8364-31710a92465b</parentFolderId>
+          <packageId>0e7abe02-deab-48dc-a46f-4c54dcce6418</packageId>
+          <packageName>Intent.AzureFunctions.AzureEventGrid</packageName>
           <stereotypes />
           <metadata />
           <childElements />

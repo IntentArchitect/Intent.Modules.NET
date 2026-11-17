@@ -1,3 +1,10 @@
+### Version 6.1.0
+
+- New Feature: On .NET 10, `QUERY` operations appear in the Swagger document, which is served as OpenAPI 3.2, and Swagger UI can send them.
+- Improvement: Added .NET 11 support. `Swashbuckle.AspNetCore` 11 describes `QUERY` operations itself and is set to write OpenAPI 3.2, and the generated filters use the `Microsoft.OpenApi` 3.x API it brings in, without obsolete-member warnings.
+- Improvement: Updated NuGet package versions:
+  - `Swashbuckle.AspNetCore` 11.0.0 (net11.0, new); 10.2.3 → 10.3.1 (net9.0, net8.0)
+
 ### Version 6.0.5
 
 - Improvement: Added default Template Classification and Priorities.
@@ -13,6 +20,7 @@
 - Fixed: `TypeSchemaFilter` no longer wraps the `TimeSpan`/`DateOnly` OpenAPI `example` value in an extra JSON object on .NET 8+. The example is now emitted as a plain string (e.g. `"00:00:00"`), matching the documented OpenAPI schema shape.
 
 ### Version 6.0.2
+
 - Fixed an issue in `HideRouteParametersFromBodyOperationFilter` where omitted non-nullable string properties could cause ASP.NET model validation failures in certain request scenarios. Updated route-body parameter reconciliation behavior for string properties to preserve compatibility with common document database and user-supplied identifier patterns.
 
 ### Version 6.0.1
@@ -23,8 +31,7 @@
 
 - Improvement: Updated to work with Microsoft.OpenApi (2.4.1) library version.
 
-> ⚠️ NOTE
-> The migration to Microsoft.OpenApi (2.4.1) includes API changes that may impact custom Swashbuckle Filters. Please review and update your filter implementations to ensure compatibility after upgrading.
+> ⚠️ NOTE The migration to Microsoft.OpenApi (2.4.1) includes API changes that may impact custom Swashbuckle Filters. Please review and update your filter implementations to ensure compatibility after upgrading.
 
 ### Version 5.2.3
 
@@ -44,11 +51,10 @@
 - Fixed: Schema identifier generation to ensure generated swagger schema is OpenAPI compliant.
 
 > ⚠️ NOTE
-> 
+>
 > Nested types will be separated by `.` and no longer `_` (you can override this in code if you need to).
-> 
-> When using simple schema identifiers, generic types will use `Of` and `And` to separate generic types and parameters.
-> When using full-namespace identifiers, the identifier will use `_Of_` and `_And_` to separate generic types and parameters.
+>
+> When using simple schema identifiers, generic types will use `Of` and `And` to separate generic types and parameters. When using full-namespace identifiers, the identifier will use `_Of_` and `_And_` to separate generic types and parameters.
 
 ### Version 5.1.11
 

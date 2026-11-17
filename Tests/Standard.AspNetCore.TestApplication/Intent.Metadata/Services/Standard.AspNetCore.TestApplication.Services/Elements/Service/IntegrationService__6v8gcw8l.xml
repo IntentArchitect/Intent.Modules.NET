@@ -53,6 +53,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -158,6 +162,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -228,6 +236,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -333,6 +345,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -403,6 +419,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -472,6 +492,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -508,6 +532,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -544,6 +572,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -580,6 +612,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -616,6 +652,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -652,6 +692,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -688,6 +732,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -724,6 +772,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -757,6 +809,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -781,6 +837,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>true</addedByDefault>
@@ -818,6 +878,10 @@
       <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -860,6 +924,84 @@
               <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
               <properties>
                 <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="cfea644f-2792-4004-bb83-ad997947aa76" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment>HTTP QUERY endpoint: the criteria travel in the request body.</comment>
+      <name>QueryBodyParamOp</name>
+      <display>QueryBodyParamOp(param1: CustomDTO): CustomDTO[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="33bdece9-1c8f-4a1b-8635-02cda4484722">
+        <typeId>2ddf8f24-e1b0-43f0-9a37-3f68508f4d08</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
+        <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>50e51363-aac1-4d50-b7cf-040716c7b4ef</parentFolderId>
+      <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+      <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="QUERY" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="[action]" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="1620a49f-d0d1-40e5-89c3-67d0e908f515" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param1</name>
+          <display>in : param1: CustomDTO</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3ee00fa7-b632-497e-b1a0-dfae8439763c">
+            <typeId>2ddf8f24-e1b0-43f0-9a37-3f68508f4d08</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
+            <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>cfea644f-2792-4004-bb83-ad997947aa76</parentFolderId>
+          <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+          <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Body" isActive="true" />
                 <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
                 <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
               </properties>

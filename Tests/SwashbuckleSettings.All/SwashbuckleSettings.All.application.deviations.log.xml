@@ -35,19 +35,6 @@
       <deviationsHash>8C408883A1297389FBF6424C3557A41BCBB2D258A364CA2676672766B0D8BA2A</deviationsHash>
     </file>
     <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#7f4ddf17-6d9d-44d4-abde-709dd16ea791</correlationId>
-      <path>SwashbuckleSettings.All.Application/SwashbuckleSettings.All.Application.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-02T15:47:57.9554393Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2026-07-06T05:53:20.3564787Z</approvedAt>
-      <deviationsHash>FB2DB19BF1A6F1073B366FE9FD6A3C7B26D3682138895BF6C88A87BD12B45244</deviationsHash>
-      <fileHash>4D85E4187624DCE5F22B53B13578A510C5D49DDFDE5EBF530E524861E5111BAF</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#5a939c1b-d7b1-43ea-94de-4605232f2537</correlationId>
       <path>SwashbuckleSettings.All.Application/UpdateWidget/UpdateWidgetHandler.cs</path>
       <count>1</count>

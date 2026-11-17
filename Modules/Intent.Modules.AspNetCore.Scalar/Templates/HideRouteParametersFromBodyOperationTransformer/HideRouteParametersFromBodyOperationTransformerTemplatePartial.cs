@@ -24,6 +24,7 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.HideRouteParametersFromBody
         public HideRouteParametersFromBodyOperationTransformerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             var usesMicrosoftOpenApiV2 = OutputTarget.GetProject().GetMaxNetAppVersion().Major >= 10;
+            var usesMicrosoftOpenApiV3 = MicrosoftOpenApiVersion.IsV3(OutputTarget);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Linq")
@@ -93,7 +94,18 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates.HideRouteParametersFromBody
                         method.AddForEachStatement("contentType", "operation.RequestBody.Content.Keys.ToList()", forEach =>
                         {
                             forEach.BeforeSeparator = CSharpCodeSeparatorType.None;
-                            forEach.AddStatement("var content = operation.RequestBody.Content[contentType];");
+                            if (usesMicrosoftOpenApiV3)
+                            {
+                                // Microsoft.OpenApi 3.x: the content is an IOpenApiMediaType, whose Schema can only be set on the concrete OpenApiMediaType
+                                forEach.AddIfStatement("operation.RequestBody.Content[contentType] is not OpenApiMediaType content", stmt =>
+                                {
+                                    stmt.AddStatement("continue;");
+                                });
+                            }
+                            else
+                            {
+                                forEach.AddStatement("var content = operation.RequestBody.Content[contentType];");
+                            }
                             forEach.AddStatement("var schema = content.Schema;");
                             forEach.AddIfStatement("schema == null", stmt =>
                             {

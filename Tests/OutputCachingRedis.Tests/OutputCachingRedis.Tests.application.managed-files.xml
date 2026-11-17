@@ -154,7 +154,7 @@
   <file path="OutputCachingRedis.Tests.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="OutputCachingRedis.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="OutputCachingRedis.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
-  <file path="OutputCachingRedis.Tests.Infrastructure/OutputCachingRedis.Tests.Infrastructure.csproj" deviationsHash="01C14C9DDAD4D95F920F24937C32F7456113EAFFD4D0CE23EB3E0B01E5C91B7F" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="OutputCachingRedis.Tests.Infrastructure/OutputCachingRedis.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="OutputCachingRedis.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="OutputCachingRedis.Tests.Infrastructure/Persistence/Configurations/AccountConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
   <file path="OutputCachingRedis.Tests.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

@@ -17,148 +17,23 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="f87c9dc0-3ab5-43eb-95c1-914133a8e803" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.1.8</name>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>922d0697-a213-40fa-9f4a-07342ea06183</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="e7b81e96-843b-4bef-a3ab-a7ec84a8855b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MessagePackAnalyzer</name>
-          <isAbstract>false</isAbstract>
-          <value>3.1.8</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="2ddd6bec-ab96-48ec-9a17-689ce7a44add" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MessagePack.Annotations</name>
-          <isAbstract>false</isAbstract>
-          <value>3.1.8</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a3dbfbe8-30fe-4d99-ae4e-ce3d00eb594d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Bcl.AsyncInterfaces</name>
-          <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="27083b27-c947-4bf5-b51e-2dec77511569" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.NET.StringTools</name>
-          <isAbstract>false</isAbstract>
-          <value>17.11.4</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="771d42e1-b8a1-461a-92f6-713cfc9ddaf4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Collections.Immutable</name>
-          <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b8d75148-0d44-4f60-b94b-9167d5824a20" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Reflection.Emit</name>
-          <isAbstract>false</isAbstract>
-          <value>4.7.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="465049ec-b9fc-48d4-be69-2d294933da72" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Reflection.Emit.Lightweight</name>
-          <isAbstract>false</isAbstract>
-          <value>4.7.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="54220d1f-8e8b-4c91-8857-9f82378bf9e2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Threading.Tasks.Extensions</name>
-          <isAbstract>false</isAbstract>
-          <value>4.5.4</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="91808e8f-d9cf-478e-ab13-301b74b3c839" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Memory</name>
-          <isAbstract>false</isAbstract>
-          <value>4.5.5</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8e5af357-ea26-4985-af9b-7436154b74b7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Runtime.CompilerServices.Unsafe</name>
-          <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="348a769b-9024-4ee0-8d45-dfad78c42364" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.1.8</name>
+      <name>3.1.12</name>
+      <display>3.1.12 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>922d0697-a213-40fa-9f4a-07342ea06183</parentFolderId>
+      <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+      <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -172,35 +47,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="51d4c64c-29ec-4388-be25-2657ce219723" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MessagePackAnalyzer</name>
-          <isAbstract>false</isAbstract>
-          <value>3.1.8</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>348a769b-9024-4ee0-8d45-dfad78c42364</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="bd90c64d-55cf-4bae-a625-fc74f86cd97b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="49baa09d-040d-4f2a-bd73-8cf215fe53f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MessagePack.Annotations</name>
+          <display>MessagePack.Annotations (3.1.12)</display>
           <isAbstract>false</isAbstract>
-          <value>3.1.8</value>
+          <value>3.1.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>348a769b-9024-4ee0-8d45-dfad78c42364</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="69fe1a49-f984-4ec0-afe1-a54732c71df9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a93ec6a1-25b6-40d8-b9a7-bb2b59605010" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MessagePackAnalyzer</name>
+          <display>MessagePackAnalyzer (3.1.12)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.1.12</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>348a769b-9024-4ee0-8d45-dfad78c42364</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fc67aace-9258-474b-b7f8-80debfec7110" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.NET.StringTools</name>
+          <display>Microsoft.NET.StringTools (17.11.4)</display>
           <isAbstract>false</isAbstract>
           <value>17.11.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>348a769b-9024-4ee0-8d45-dfad78c42364</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -208,11 +92,15 @@
       </childElements>
     </childElement>
     <childElement id="6813f182-2448-4554-af5b-4baf747a0000" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.1.8</name>
+      <name>3.1.12</name>
+      <display>3.1.12 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>922d0697-a213-40fa-9f4a-07342ea06183</parentFolderId>
+      <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+      <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -226,35 +114,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="25f77797-d7fd-4661-b927-dbc979b2fe99" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MessagePackAnalyzer</name>
-          <isAbstract>false</isAbstract>
-          <value>3.1.8</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>6813f182-2448-4554-af5b-4baf747a0000</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c498d4cd-0c34-4ef0-a230-2d326e8355dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7340bbb4-3545-4d5f-b2db-55059c40fd9c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MessagePack.Annotations</name>
+          <display>MessagePack.Annotations (3.1.12)</display>
           <isAbstract>false</isAbstract>
-          <value>3.1.8</value>
+          <value>3.1.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6813f182-2448-4554-af5b-4baf747a0000</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a89e07b8-1941-4a10-8a1c-a04d64d88bd9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f8702b73-c124-4517-aa11-bfd945dcd312" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MessagePackAnalyzer</name>
+          <display>MessagePackAnalyzer (3.1.12)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.1.12</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6813f182-2448-4554-af5b-4baf747a0000</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="44a3c072-92b6-4427-90ef-9fc907205704" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.NET.StringTools</name>
+          <display>Microsoft.NET.StringTools (17.11.4)</display>
           <isAbstract>false</isAbstract>
           <value>17.11.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6813f182-2448-4554-af5b-4baf747a0000</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -262,11 +159,15 @@
       </childElements>
     </childElement>
     <childElement id="b9df9bfd-898d-4ff4-b994-1bf1340f2e5d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.1.8</name>
+      <name>3.1.12</name>
+      <display>3.1.12 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>922d0697-a213-40fa-9f4a-07342ea06183</parentFolderId>
+      <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+      <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -280,46 +181,223 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e971fe36-4740-415e-aeda-85ff78e024da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MessagePackAnalyzer</name>
-          <isAbstract>false</isAbstract>
-          <value>3.1.8</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>b9df9bfd-898d-4ff4-b994-1bf1340f2e5d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c326b6b7-23fa-467a-bfa7-24e17ac0c9c4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a25e42b8-c913-4322-9ab6-c977aefbd1cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MessagePack.Annotations</name>
+          <display>MessagePack.Annotations (3.1.12)</display>
           <isAbstract>false</isAbstract>
-          <value>3.1.8</value>
+          <value>3.1.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b9df9bfd-898d-4ff4-b994-1bf1340f2e5d</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cbfb5530-7983-491d-9501-67569f3b0470" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="96161718-1132-4fc1-9ee3-ccc89a12b2c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MessagePackAnalyzer</name>
+          <display>MessagePackAnalyzer (3.1.12)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.1.12</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b9df9bfd-898d-4ff4-b994-1bf1340f2e5d</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="113c3f98-5bc2-4db8-ba9c-ccaec3d8b4eb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.NET.StringTools</name>
+          <display>Microsoft.NET.StringTools (17.11.4)</display>
           <isAbstract>false</isAbstract>
           <value>17.11.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b9df9bfd-898d-4ff4-b994-1bf1340f2e5d</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2ae98520-e3c7-4c50-810d-3d0e483a1a9f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0e679ae2-cd3b-4484-957b-ff153c7d597a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Collections.Immutable</name>
+          <display>System.Collections.Immutable (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b9df9bfd-898d-4ff4-b994-1bf1340f2e5d</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="f87c9dc0-3ab5-43eb-95c1-914133a8e803" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.1.12</name>
+      <display>3.1.12 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>922d0697-a213-40fa-9f4a-07342ea06183</parentFolderId>
+      <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+      <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5b3d936e-38a2-4458-a6c8-876a75188cd2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MessagePack.Annotations</name>
+          <display>MessagePack.Annotations (3.1.12)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.1.12</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8a3a4641-d72b-467d-a759-6575c04f29f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MessagePackAnalyzer</name>
+          <display>MessagePackAnalyzer (3.1.12)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.1.12</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="06d75d8d-a979-4cdc-8148-e01a9f328ee2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <display>Microsoft.Bcl.AsyncInterfaces (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="938694ac-42ce-49ef-9331-cc67a2af6e07" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.NET.StringTools</name>
+          <display>Microsoft.NET.StringTools (17.11.4)</display>
+          <isAbstract>false</isAbstract>
+          <value>17.11.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="48e1d454-fade-408d-85b6-1488d1fccc42" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Collections.Immutable</name>
+          <display>System.Collections.Immutable (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f9c8f37a-3754-4dc9-9e6c-b48eca39015a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Memory</name>
+          <display>System.Memory (4.5.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.5.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="826465d9-7469-4e63-8171-ac0827457447" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Reflection.Emit</name>
+          <display>System.Reflection.Emit (4.7.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.7.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="20061aee-cc4e-4f26-9b3b-b6178e053e2a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Reflection.Emit.Lightweight</name>
+          <display>System.Reflection.Emit.Lightweight (4.7.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.7.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ef8cea7a-a8ff-4d20-9b40-a3d92d5455dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Runtime.CompilerServices.Unsafe</name>
+          <display>System.Runtime.CompilerServices.Unsafe (6.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ee0b8293-facc-4878-8995-e40d9696c414" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.5.4)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.5.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f87c9dc0-3ab5-43eb-95c1-914133a8e803</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />

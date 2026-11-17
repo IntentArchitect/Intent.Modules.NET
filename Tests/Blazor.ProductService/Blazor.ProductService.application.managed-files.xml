@@ -75,7 +75,7 @@
   <file path="Blazor.ProductService.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="Blazor.ProductService.Domain/Repositories/IProductRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="Blazor.ProductService.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
-  <file path="Blazor.ProductService.Infrastructure/Blazor.ProductService.Infrastructure.csproj" deviationsHash="2EFFB1CE333C2FF9CDD4255A8922A1F65B90B7E0628089EA4F712BE2222AB7F1" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Blazor.ProductService.Infrastructure/Blazor.ProductService.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Blazor.ProductService.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="Blazor.ProductService.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Blazor.ProductService.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

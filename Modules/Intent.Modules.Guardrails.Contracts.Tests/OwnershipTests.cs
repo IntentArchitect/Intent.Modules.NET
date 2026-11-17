@@ -1,5 +1,6 @@
+using System.Linq;
 using System.Collections.Generic;
-using Intent.Modules.Domain.Guardrails.Contracts.Drift;
+using Intent.Modules.Common.Drift;
 using Shouldly;
 using Xunit;
 using static Intent.Modules.Guardrails.Contracts.Tests.Drift;
@@ -109,7 +110,10 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
             services.WrongLines.ShouldBeEmpty();
             services.UnusedExceptions.ShouldBe(new[] { "`OrdersController.Gone`" });
-            services.ToMarkdown().ShouldBe("# Services drift report\n\n## Warnings\n\n| Warning | Detail |\n| --- | --- |\n| Exception matches nothing | `OrdersController.Gone`: remove it from `guardrails/services.drift.json`. |\n");
+            DriftFindings.Of(services).ShouldBe(new[]
+            {
+                "Warning Code | guardrails/services.drift.json | — | The exception `OrdersController.Gone` matches nothing: remove it from `guardrails/services.drift.json`."
+            });
         }
 
         [Fact]

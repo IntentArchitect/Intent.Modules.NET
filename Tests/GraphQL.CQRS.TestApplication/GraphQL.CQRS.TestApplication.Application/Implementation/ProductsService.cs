@@ -56,5 +56,12 @@ namespace GraphQL.CQRS.TestApplication.Application.Implementation
             // TODO: Implement DeleteProduct (ProductsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+        public async Task ArchiveProduct(Guid id, string reason, CancellationToken cancellationToken = default)
+        {
+            // TODO: Implement ArchiveProduct (ProductsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
+        }
     }
 }

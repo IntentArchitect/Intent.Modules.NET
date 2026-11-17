@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="0474fba0-817d-4739-9f18-1674283bc4e8" zIndex="0">
+  <name>CreateOrderDraftCommand</name>
+  <position x="400" y="740" />
+  <size width="200" height="60" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

@@ -1,0 +1,14 @@
+{
+  "id": "DL1",
+  "title": "Delete: a feature and everything only it uses",
+  "lane": "ai",
+  "prompt": "We're dropping order drafts. Remove the draft endpoint and everything only it uses.",
+  "done": "the draft endpoint and the code only it used (CreateOrderDraftCommand, its handler and the draft DTO, unless used elsewhere) are gone",
+  "expect": [
+    {
+      "id": "model",
+      "net": "visible",
+      "text": "The Services designer no longer has the draft operation, CreateOrderDraftCommand or the draft DTO, and nothing else was removed with them. Visuals on saved diagrams don't count: the agent is told to leave saved diagrams alone."
+    }
+  ]
+}

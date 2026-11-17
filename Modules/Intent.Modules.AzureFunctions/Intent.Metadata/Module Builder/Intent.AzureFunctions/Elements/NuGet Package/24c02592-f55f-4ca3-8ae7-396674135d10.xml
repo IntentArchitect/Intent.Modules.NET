@@ -26,9 +26,10 @@
   <metadata />
   <childElements>
     <childElement id="fd5392fc-b1ee-45e3-80f4-ae17849e6294" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.2.0</name>
-      <display>4.2.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>4.6.0</name>
+      <display>4.6.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>24c02592-f55f-4ca3-8ae7-396674135d10</parentFolderId>
@@ -46,7 +47,134 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="321101fb-32cb-4261-812f-543852e5f636" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Analyzers</name>
+          <display>Microsoft.Azure.Functions.Analyzers (1.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fd5392fc-b1ee-45e3-80f4-ae17849e6294</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="54a03363-c2bd-4b67-a87c-b7feb98820ce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.WebJobs</name>
+          <display>Microsoft.Azure.WebJobs (3.0.32)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.0.32</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fd5392fc-b1ee-45e3-80f4-ae17849e6294</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9787ea9a-bd81-4d03-b850-ec25170d858d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.WebJobs.Extensions</name>
+          <display>Microsoft.Azure.WebJobs.Extensions (3.0.6)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.0.6</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fd5392fc-b1ee-45e3-80f4-ae17849e6294</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0c2c7b42-e7ad-4659-a032-7b1948926876" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.WebJobs.Extensions.Http</name>
+          <display>Microsoft.Azure.WebJobs.Extensions.Http (3.2.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fd5392fc-b1ee-45e3-80f4-ae17849e6294</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9a2eff4c-7136-436f-987a-fb65c7f83372" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator</name>
+          <display>Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator (4.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fd5392fc-b1ee-45e3-80f4-ae17849e6294</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="eb832b82-8098-4b51-8132-5f39a9526d17" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Newtonsoft.Json</name>
+          <display>Newtonsoft.Json (13.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>13.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fd5392fc-b1ee-45e3-80f4-ae17849e6294</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4b43dd7b-3b2a-4469-ad2d-36ddea5af40f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Net.Http</name>
+          <display>System.Net.Http (4.3.4)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.3.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fd5392fc-b1ee-45e3-80f4-ae17849e6294</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="04953f9a-3e3c-4287-864f-28505618aa30" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Encodings.Web</name>
+          <display>System.Text.Encodings.Web (4.7.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.7.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fd5392fc-b1ee-45e3-80f4-ae17849e6294</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="33e179f6-0821-40a1-af02-3f12558b94a6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.RegularExpressions</name>
+          <display>System.Text.RegularExpressions (4.3.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.3.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fd5392fc-b1ee-45e3-80f4-ae17849e6294</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

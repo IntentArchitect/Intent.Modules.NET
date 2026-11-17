@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="416441ff-bdbc-4117-8aa6-4d376ffacd06" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <comment>No-op: Handle returns Task.CompletedTask.</comment>
+  <name>ProductPriceChangedIntegrationEventHandler</name>
+  <display>ProductPriceChangedIntegrationEventHandler</display>
+  <parentFolderId>bae189ff-f2a2-41d2-bb39-d04682e21f83</parentFolderId>
+  <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+  <packageName>Webhooks.API</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <association id="cbc4f053-1569-4cfc-b69a-36934ae715ce">
+      <sourceEnd id="1b31a5af-267d-46af-bdf6-c4ef842d52f9" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+        <display>handled by: IntegrationEvents.ProductPriceChangedIntegrationEventHandler</display>
+        <typeReference id="0707ac78-c0f6-485f-9389-5f180c3b65e0">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="cbc4f053-1569-4cfc-b69a-36934ae715ce" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+        <name>Handler</name>
+        <display>[handles] ProductPriceChangedIntegrationEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="0012b871-9d5c-49e5-83f7-b34868e09c10">
+          <typeId>16abbb9e-fa9b-4d38-9821-61203f342b87</typeId>
+          <typeName>ProductPriceChangedIntegrationEvent</typeName>
+          <typePackageName>Webhooks.API.Eventing</typePackageName>
+          <typePackageId>55b30ef0-516f-4925-b317-cccca4d8e700</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Subscribe Integration Event</associationType>
+      <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+    </association>
+  </children>
+</class>

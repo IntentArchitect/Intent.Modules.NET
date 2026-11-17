@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="977cb6d4-8cd2-4866-a35e-baeeda60c5b2" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>GrantUrlTesterService</name>
+  <display>GrantUrlTesterService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>34952c6e-e8d2-41b0-8aed-200618e444f3</parentFolderId>
+  <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+  <packageName>Webhooks.API</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="6bbf9e89-c521-4122-aa53-3fc7786f1157" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="fd8a5276-96d8-4990-9b66-a9ffacca7749" display="Type" />
+        <property name="b08b54e6-92e3-45eb-a233-0c79b4d76aab" display="Modifiers" value="none" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="daba8831-b286-415d-a6bb-b3166a516fbe" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>TestGrantUrl</name>
+      <display>TestGrantUrl(urlHook: string, url: string, token: string): bool</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="d7696772-8d47-44d0-9e5a-4b67cac9984b">
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+        <typeName>bool</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>977cb6d4-8cd2-4866-a35e-baeeda60c5b2</parentFolderId>
+      <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+      <packageName>Webhooks.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="f540d74c-bd25-4136-bda5-62b1cecc1f96" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>urlHook</name>
+          <display>in : urlHook: string</display>
+          <typeReference id="22c709eb-583e-4e1e-bdb9-febc72d4904d">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>daba8831-b286-415d-a6bb-b3166a516fbe</parentFolderId>
+          <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+          <packageName>Webhooks.API</packageName>
+        </element>
+        <element id="ea102aa4-a6b2-40a1-ac71-4163aede8d02" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>url</name>
+          <display>in : url: string</display>
+          <typeReference id="bf90334b-6471-4301-b2db-c301fae4609a">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>daba8831-b286-415d-a6bb-b3166a516fbe</parentFolderId>
+          <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+          <packageName>Webhooks.API</packageName>
+        </element>
+        <element id="4f7a6928-70b4-47cb-be5a-d953357dfc3a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>token</name>
+          <display>in : token: string</display>
+          <typeReference id="b280a050-abb8-4111-8ac6-42c295235672">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>daba8831-b286-415d-a6bb-b3166a516fbe</parentFolderId>
+          <packageId>a8cf87a6-f010-4cdc-9c56-f780efe3622c</packageId>
+          <packageName>Webhooks.API</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

@@ -1,0 +1,17 @@
+{
+  "id": "RN1",
+  "title": "Rename: the Buyer aggregate to Customer",
+  "lane": "ai",
+  "prompt": "Rename the Buyer aggregate to Customer throughout Ordering: the entity, its repository, events and handlers. Keep the database table and column names as they are.",
+  "done": "Ordering's Buyer aggregate is Customer throughout: the entity, its repository, and the domain events and handlers that name it",
+  "expect": [
+    {
+      "id": "identity",
+      "net": "blind",
+      "text": "The Domain designer's Customer is the Buyer element renamed in place, keeping its attributes, operations and associations."
+    },
+    { "id": "repository", "net": "visible", "text": "The repository is renamed (ICustomerRepository) in the model and the code." },
+    { "id": "events", "net": "visible", "text": "Domain events and handlers whose names said Buyer are renamed in the model and the code, the same in both." },
+    { "id": "table", "net": "visible", "text": "The table and column names are unchanged: buyers in the code and the model, and no migration renames them." }
+  ]
+}

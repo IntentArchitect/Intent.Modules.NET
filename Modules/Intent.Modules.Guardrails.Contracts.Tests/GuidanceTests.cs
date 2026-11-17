@@ -5,25 +5,33 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Intent.Configuration;
 using Intent.Engine;
+using Intent.Modules.Common.Drift;
+using Intent.Modules.Common.Drift.Templates;
 using Intent.Modules.Common.FileBuilders.MarkdownFileBuilder;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Domain.Guardrails.Contracts.Drift;
-using Intent.Modules.Domain.Guardrails.Contracts.Templates;
+using Intent.Modules.Services.Guardrails.Contracts.Drift;
+using Intent.Templates;
 using NSubstitute;
 using DomainGuides = Intent.Modules.Domain.Guardrails.Contracts.Templates.DriftRecipeGuides;
 using ServicesGuides = Intent.Modules.Services.Guardrails.Contracts.Templates.DriftRecipeGuides;
+using UiGuides = Intent.Modules.UI.Guardrails.Contracts.Templates.DriftRecipeGuides;
 using Shouldly;
 using Xunit;
 
 namespace Intent.Modules.Guardrails.Contracts.Tests
 {
-    /// <summary>The rule and skills the Guardrails modules write, rendered as the templates render them.</summary>
+    /// <summary>The rule and skills the drift module writes for the Guardrails designers, rendered as the templates render them.</summary>
     public class GuidanceTests
     {
+        private static readonly IReadOnlyList<DriftDesigner> Both = new[] { DomainDrift.Designer, ServicesDrift.Designer };
+        private static readonly IReadOnlyList<DriftDesigner> DomainOnly = new[] { DomainDrift.Designer };
+        private static readonly IReadOnlyList<DriftDesigner> ServicesOnly = new[] { ServicesDrift.Designer };
+
         [Fact]
         public void Every_JSON_example_in_configure_drift_check_is_a_valid_recipe()
         {
-            var skill = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts")));
+            var skill = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context(), Both));
 
             var examples = Regex.Matches(skill, "```json\n(.*?)\n```", RegexOptions.Singleline).Select(x => x.Groups[1].Value)
                 .Where(x => !x.Contains("\"...\"") && !x.Contains("<fact>"))
@@ -34,7 +42,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 var json = example.TrimStart().StartsWith("{")
                     ? example
                     : example.TrimStart().StartsWith("\"own\"") || example.TrimStart().StartsWith("\"exceptions\"") ? $"{{{example}}}" : $"{{\"facts\":{{{example}}}}}";
-                var problems = new[] { FactKinds.Domain, FactKinds.Services }.Select(x => RecipeFile.Parse(json, x).Problems).ToList();
+                var problems = new[] { FactKinds.Domain, FactKinds.Services }.Select(x => RecipeFile.Parse(json, x, FactKinds.For(x)).Problems).ToList();
                 problems.ShouldContain(x => x.Count == 0, $"Example isn't a valid recipe for either designer:\n{example}\n{string.Join("\n", problems.SelectMany(x => x).Select(x => $"{x.Subject}: {x.Message}"))}");
             }
         }
@@ -47,7 +55,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 (FactKinds.Domain, DomainGuides.EfCore), (FactKinds.Domain, DomainGuides.MongoDb), (FactKinds.Domain, DomainGuides.CosmosDb),
                 (FactKinds.Domain, DomainGuides.DomainEvents),
                 (FactKinds.Services, ServicesGuides.AspNetCoreControllers), (FactKinds.Services, ServicesGuides.MinimalApis), (FactKinds.Services, ServicesGuides.FastEndpoints),
-                (FactKinds.Services, ServicesGuides.HandlerIntent)
+                (FactKinds.Services, ServicesGuides.HandlerIntent),
+                (FactKinds.Ui, UiGuides.Blazor), (FactKinds.Ui, UiGuides.Angular), (FactKinds.Ui, UiGuides.React)
             })
             {
                 var blocks = Guides.JsonBlocks(guide);
@@ -55,22 +64,22 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 foreach (var block in blocks)
                 {
                     var json = block.TrimStart().StartsWith("{") ? block : $"{{\"facts\":{{{block}}}}}";
-                    var problems = RecipeFile.Parse(json, designer).Problems;
+                    var problems = RecipeFile.Parse(json, designer, FactKinds.For(designer)).Problems;
                     problems.ShouldBeEmpty($"{string.Join("\n", problems.Select(x => $"{x.Subject}: {x.Message}"))}\n{block}");
                 }
             }
         }
 
         [Fact]
-        public void The_skill_indexes_the_guides_of_each_installed_designer()
+        public void The_skill_indexes_the_guides_of_each_contributed_designer()
         {
-            var both = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts")));
+            var both = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context(), Both));
             foreach (var guide in new[] { "ef-core", "mongodb", "cosmos-db", "domain-events", "aspnetcore-controllers", "minimal-apis", "fastendpoints", "handler-intent" })
             {
                 both.ShouldContain($"[references/{guide}.md](references/{guide}.md)");
             }
 
-            var servicesOnly = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context("Intent.Services.Guardrails.Contracts")));
+            var servicesOnly = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context(), ServicesOnly));
             servicesOnly.ShouldContain("[references/minimal-apis.md](references/minimal-apis.md)");
             servicesOnly.ShouldContain("[references/handler-intent.md](references/handler-intent.md)");
             servicesOnly.ShouldNotContain("references/ef-core.md");
@@ -80,7 +89,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         [Fact]
         public void Each_technology_guide_is_written_beside_the_configure_drift_check_skill()
         {
-            var context = Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts");
+            var context = Context();
             var outputTarget = Substitute.For<IOutputTarget>();
             outputTarget.ExecutionContext.Returns(context);
             outputTarget.Metadata.Returns(new Dictionary<string, object>());
@@ -93,7 +102,10 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 ("aspnetcore-controllers", ServicesGuides.AspNetCoreControllers, new Services.Guardrails.Contracts.Templates.AspNetCoreControllersRecipeGuide.AspNetCoreControllersRecipeGuideTemplate(outputTarget)),
                 ("minimal-apis", ServicesGuides.MinimalApis, new Services.Guardrails.Contracts.Templates.MinimalApisRecipeGuide.MinimalApisRecipeGuideTemplate(outputTarget)),
                 ("fastendpoints", ServicesGuides.FastEndpoints, new Services.Guardrails.Contracts.Templates.FastEndpointsRecipeGuide.FastEndpointsRecipeGuideTemplate(outputTarget)),
-                ("handler-intent", ServicesGuides.HandlerIntent, new Services.Guardrails.Contracts.Templates.HandlerIntentRecipeGuide.HandlerIntentRecipeGuideTemplate(outputTarget))
+                ("handler-intent", ServicesGuides.HandlerIntent, new Services.Guardrails.Contracts.Templates.HandlerIntentRecipeGuide.HandlerIntentRecipeGuideTemplate(outputTarget)),
+                ("blazor", UiGuides.Blazor, new UI.Guardrails.Contracts.Templates.BlazorRecipeGuide.BlazorRecipeGuideTemplate(outputTarget)),
+                ("angular", UiGuides.Angular, new UI.Guardrails.Contracts.Templates.AngularRecipeGuide.AngularRecipeGuideTemplate(outputTarget)),
+                ("react", UiGuides.React, new UI.Guardrails.Contracts.Templates.ReactRecipeGuide.ReactRecipeGuideTemplate(outputTarget))
             };
 
             foreach (var (file, guide, template) in templates)
@@ -107,30 +119,30 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         }
 
         [Fact]
-        public void The_skill_lists_every_fact_of_each_installed_designer()
+        public void The_skill_lists_every_fact_of_each_contributed_designer()
         {
-            var both = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts")));
+            var both = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context(), Both));
             foreach (var kind in FactKinds.All)
             {
                 both.ShouldContain($"| `{kind.Key}` | {kind.Label} |");
             }
 
-            var servicesOnly = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context("Intent.Services.Guardrails.Contracts")));
+            var servicesOnly = Render(ModelSyncGuidance.ConfigureDriftCheckSkill(Context(), ServicesOnly));
             servicesOnly.ShouldContain("`guardrails/services.drift.json`");
             servicesOnly.ShouldNotContain("| `column.textType` |");
-            servicesOnly.ShouldContain("`intent/.cache/guardrails/Acme/ServicesDriftReport.mdx`");
-            servicesOnly.ShouldNotContain("DomainDriftReport");
+            servicesOnly.ShouldContain("Each designer is an Area of the drift report (`intent/.cache/drift/Acme/DriftReport.mdx`, in the `.cache` folder beside the solution's `.isln` file)");
+            servicesOnly.ShouldNotContain(".cache/guardrails");
         }
 
         [Fact]
         public void The_rule_and_skills_render_as_written()
         {
-            var context = Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts");
+            var context = Context();
             var documents = new Dictionary<string, string>
             {
-                ["guardrails-model-sync.md"] = ModelSyncGuidance.Rule(context),
-                ["sync-model.md"] = ModelSyncGuidance.Skill(context),
-                ["configure-drift-check.md"] = ModelSyncGuidance.ConfigureDriftCheckSkill(context)
+                ["guardrails-model-sync.md"] = ModelSyncGuidance.Rule(context, Both),
+                ["sync-model.md"] = ModelSyncGuidance.Skill(context, Both),
+                ["configure-drift-check.md"] = ModelSyncGuidance.ConfigureDriftCheckSkill(context, Both)
             };
 
             var folder = Path.Combine(Path.GetTempPath(), "guardrails-guidance");
@@ -141,7 +153,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 File.WriteAllText(Path.Combine(folder, name), rendered);
                 rendered.ShouldStartWith("---\ndescription: ");
                 rendered.ShouldNotContain("|| ");
-                rendered.ShouldContain("`intent/.cache/guardrails/Acme/DomainDriftReport.mdx` and `intent/.cache/guardrails/Acme/ServicesDriftReport.mdx`, in the `.cache` folder beside the solution's `.isln` file");
+                rendered.ShouldContain("`intent/.cache/drift/Acme/DriftReport.mdx`, in the `.cache` folder beside the solution's `.isln` file");
+                rendered.ShouldNotContain("DriftReport.mdx` and");
                 rendered.ShouldNotContain("root of the application's output");
                 rendered.ShouldNotContain(".gitignore");
             }
@@ -150,7 +163,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         [Fact]
         public void The_reverse_engineer_skills_name_their_reports_actual_path()
         {
-            var context = Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts");
+            var context = Context();
             var outputTarget = Substitute.For<IOutputTarget>();
             outputTarget.ExecutionContext.Returns(context);
             outputTarget.Metadata.Returns(new Dictionary<string, object>());
@@ -158,8 +171,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             var domain = new Domain.Guardrails.Contracts.Templates.ReverseEngineerDomainSkill.ReverseEngineerDomainSkillTemplate(outputTarget).MarkdownFile.ToString();
             var services = new Services.Guardrails.Contracts.Templates.ReverseEngineerServicesSkill.ReverseEngineerServicesSkillTemplate(outputTarget).MarkdownFile.ToString();
 
-            domain.ShouldContain("The adoption isn't finished until a run finds no drift and no warnings, so it writes no `intent/.cache/guardrails/Acme/DomainDriftReport.mdx`, and the user has approved the model changes");
-            services.ShouldContain("The adoption isn't finished until a run finds no drift and no warnings, so it writes no `intent/.cache/guardrails/Acme/ServicesDriftReport.mdx`, and the user has approved the model changes");
+            domain.ShouldContain("The adoption isn't finished until a run finds no drift and no warnings, so the drift report, `intent/.cache/drift/Acme/DriftReport.mdx`, has no findings in its Domain Area (or no report is staged at all), and the user has approved the model changes");
+            services.ShouldContain("The adoption isn't finished until a run finds no drift and no warnings, so the drift report, `intent/.cache/drift/Acme/DriftReport.mdx`, has no findings in its Services Area (or no report is staged at all), and the user has approved the model changes");
             foreach (var skill in new[] { domain, services })
             {
                 skill.ShouldNotContain("<<DriftReport>>");
@@ -169,14 +182,34 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         }
 
         [Fact]
-        public void The_validate_drift_recipes_skill_runs_each_installed_designers_task()
+        public void The_reverse_engineer_ui_skill_names_its_report_stays_in_budget_and_links_the_designer_reference_it_ships()
         {
-            var context = Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts");
+            var context = Context();
             var outputTarget = Substitute.For<IOutputTarget>();
             outputTarget.ExecutionContext.Returns(context);
             outputTarget.Metadata.Returns(new Dictionary<string, object>());
+            var skillTemplate = new UI.Guardrails.Contracts.Templates.ReverseEngineerUiSkill.ReverseEngineerUiSkillTemplate(outputTarget);
+            var referenceTemplate = new UI.Guardrails.Contracts.Templates.UserInterfaceDesigner1Reference.UserInterfaceDesigner1ReferenceTemplate(outputTarget);
 
-            var both = new Domain.Guardrails.Contracts.Templates.ValidateDriftRecipesSkill.ValidateDriftRecipesSkillTemplate(outputTarget).MarkdownFile.ToString().Replace("\r\n", "\n");
+            var skill = skillTemplate.MarkdownFile.ToString().Replace("\r\n", "\n");
+
+            skill.ShouldStartWith("---\ndescription: ");
+            skill.ShouldContain("so the drift report, `intent/.cache/drift/Acme/DriftReport.mdx`, has no findings in its UI Area");
+            skill.ShouldNotContain("<<DriftReport>>");
+            System.Text.Encoding.UTF8.GetByteCount(skill).ShouldBeLessThan(48 * 1024);
+            skillTemplate.GetTemplateFileConfig().LocationInProject.Replace('\\', '/').ShouldBe("reverse-engineer-ui");
+
+            // The "Model it" table links the reference for each designer version; each must be one this module writes.
+            var config = referenceTemplate.GetTemplateFileConfig();
+            config.LocationInProject.Replace('\\', '/').ShouldBe("reverse-engineer-ui/references");
+            skill.ShouldContain($"[references/{config.FileName}.md](references/{config.FileName}.md)");
+            Regex.Matches(skill, @"\]\((references/[^)]+)\)").Select(x => x.Groups[1].Value).ShouldBe(new[] { "references/user-interface-designer-1.md" });
+        }
+
+        [Fact]
+        public void The_validate_drift_recipes_skill_runs_each_contributed_designers_task()
+        {
+            var both = Render(ModelSyncGuidance.ValidateDriftRecipesSkill(Context(), Both));
 
             both.ShouldStartWith("---\ndescription: ");
             both.ShouldContain("| Domain | `guardrails/domain.drift.json` | `Intent.Domain.Guardrails.Contracts.ValidateDriftRecipes` |\n| Services | `guardrails/services.drift.json` | `Intent.Services.Guardrails.Contracts.ValidateDriftRecipes` |\n");
@@ -191,7 +224,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 both.ShouldContain($"`{key}`", customMessage: "the skill describes every field the task returns");
             }
 
-            var servicesOnly = Render(ModelSyncGuidance.ValidateDriftRecipesSkill(Context("Intent.Services.Guardrails.Contracts")));
+            var servicesOnly = Render(ModelSyncGuidance.ValidateDriftRecipesSkill(Context(), ServicesOnly));
             servicesOnly.ShouldContain("`Intent.Services.Guardrails.Contracts.ValidateDriftRecipes`");
             servicesOnly.ShouldNotContain("Intent.Domain.Guardrails.Contracts.ValidateDriftRecipes");
         }
@@ -199,34 +232,26 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         [Fact]
         public void The_intent_drift_reference_is_written_beside_the_sync_model_skill_which_points_its_intent_rows_at_it()
         {
-            var context = Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts");
+            var context = Context();
             var outputTarget = Substitute.For<IOutputTarget>();
             outputTarget.ExecutionContext.Returns(context);
             outputTarget.Metadata.Returns(new Dictionary<string, object>());
 
-            foreach (var template in new MarkdownBaseTemplate<object>[]
-            {
-                new Domain.Guardrails.Contracts.Templates.IntentDriftReference.IntentDriftReferenceTemplate(outputTarget),
-                new Services.Guardrails.Contracts.Templates.IntentDriftReference.IntentDriftReferenceTemplate(outputTarget)
-            })
-            {
-                var config = template.GetTemplateFileConfig();
-                config.FileName.ShouldBe("intent-drift");
-                config.FileExtension.ShouldBe("md");
-                config.LocationInProject.Replace('\\', '/').ShouldBe("sync-model/references");
-                template.MarkdownFile.ToString().Replace("\r\n", "\n").ShouldBe(Render(ModelSyncGuidance.IntentDrift(context)));
-            }
+            var config = new Common.Drift.Templates.IntentDriftReference.IntentDriftReferenceTemplate(outputTarget).GetTemplateFileConfig();
+            config.FileName.ShouldBe("intent-drift");
+            config.FileExtension.ShouldBe("md");
+            config.LocationInProject.Replace('\\', '/').ShouldBe("sync-model/references");
 
-            var skill = Render(ModelSyncGuidance.Skill(context));
+            var skill = Render(ModelSyncGuidance.Skill(context, Both));
             skill.ShouldContain("\n| `<element>` *raises*, *creates*, *updates*, *deletes*, *queries*, *invokes*, *publishes*, *sends*: model `…`, code (none) (…), or can't be verified | ");
             skill.ShouldContain("follow [references/intent-drift.md](references/intent-drift.md) before changing either side |\n| `<element>` *fact*: model `…`, code `…` |");
 
-            var reference = Render(ModelSyncGuidance.IntentDrift(context));
+            var reference = Render(ModelSyncGuidance.IntentDrift(context, Both));
             reference.ShouldStartWith("# Resolving intent drift\n\nAn intent row (*raises*, *creates*, *updates*, *deletes*, *queries*, *invokes*, *publishes*, *sends*) is about one association the model gives an element: a `Domain Event Origin`, from a constructor or operation to a Domain Event it raises; an entity action");
             reference.ShouldContain("modelling that element first if the model doesn't have it. If this element now calls that one (sends its Command, calls its Service operation), add a `Perform Invocation` to it too. The next run checks it there, which confirms the move |\n");
             reference.ShouldContain("such as a domain event a constructor or operation starts raising, or something a handler starts doing (an entity it acts on, a call, an event it publishes or a command it sends). When the work moved");
 
-            var domainOnly = Render(ModelSyncGuidance.IntentDrift(Context("Intent.Domain.Guardrails.Contracts")));
+            var domainOnly = Render(ModelSyncGuidance.IntentDrift(context, DomainOnly));
             domainOnly.ShouldContain("An intent row (*raises*) is about one association the model gives an element: a `Domain Event Origin`, from a constructor or operation to a Domain Event it raises. It says");
             domainOnly.ShouldContain("modelling that element first if the model doesn't have it. The next run checks it there");
             domainOnly.ShouldNotContain("Perform Invocation");
@@ -234,13 +259,35 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         }
 
         [Fact]
+        public void The_rule_and_skills_are_written_once_some_module_registers_a_designers_reporter()
+        {
+            var context = Context();
+            var outputTarget = Substitute.For<IOutputTarget>();
+            outputTarget.ExecutionContext.Returns(context);
+            outputTarget.Metadata.Returns(new Dictionary<string, object>());
+            context.OutputTargets.Returns(new[] { outputTarget });
+            var rule = new Common.Drift.Templates.ModelSyncRule.ModelSyncRuleTemplate(outputTarget);
+
+            outputTarget.TemplateInstances.Returns(new ITemplate[] { rule });
+            rule.CanRunTemplate().ShouldBeFalse();
+            ModelSyncGuidance.Designers(context).ShouldBeEmpty();
+
+            // Registered in reverse: the order is the designers'.
+            DriftHub.Register(context,
+                new Services.Guardrails.Contracts.FactoryExtensions.ServicesDriftReporter(),
+                new Domain.Guardrails.Contracts.FactoryExtensions.DomainDriftReporter());
+            rule.CanRunTemplate().ShouldBeTrue();
+            ModelSyncGuidance.Designers(context).ShouldBe(Both, "one per designer, in their order");
+        }
+
+        [Fact]
         public void The_rule_says_a_new_interaction_is_never_reported()
         {
-            var both = Render(ModelSyncGuidance.Rule(Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts")));
+            var both = Render(ModelSyncGuidance.Rule(Context(), Both));
             both.ShouldContain("| Its entity actions, `Perform Invocation`, `Publish Integration Event` and `Send Integration Command` |\n\nThe check reports a modelled interaction the code no longer performs, but never a new one, such as a domain event a constructor or operation starts raising, or something a handler starts doing (an entity it acts on, a call, an event it publishes or a command it sends): add it to the model as you write the code.\n\n## The Software Factory checks it");
             both.ShouldContain("1. Check that the model shows what the code you changed now does, including anything new it does: nothing reports that.\n2. Save every designer");
 
-            var servicesOnly = Render(ModelSyncGuidance.Rule(Context("Intent.Services.Guardrails.Contracts")));
+            var servicesOnly = Render(ModelSyncGuidance.Rule(Context(), ServicesOnly));
             servicesOnly.ShouldContain("but never a new one, such as something a handler starts doing (an entity it acts on, a call, an event it publishes or a command it sends): add it");
             servicesOnly.ShouldNotContain("Domain Event Origin");
         }
@@ -248,8 +295,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         [Fact]
         public void No_guidance_mentions_the_recipe_check_table_any_more()
         {
-            var context = Context("Intent.Domain.Guardrails.Contracts", "Intent.Services.Guardrails.Contracts");
-            foreach (var markdown in new[] { ModelSyncGuidance.Rule(context), ModelSyncGuidance.Skill(context), ModelSyncGuidance.ConfigureDriftCheckSkill(context) })
+            var context = Context();
+            foreach (var markdown in new[] { ModelSyncGuidance.Rule(context, Both), ModelSyncGuidance.Skill(context, Both), ModelSyncGuidance.ConfigureDriftCheckSkill(context, Both) })
             {
                 markdown.ShouldNotContain("Recipe check");
                 markdown.ShouldContain("validate-drift-recipes");
@@ -261,23 +308,17 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             return new MarkdownFile("SKILL").FromMarkdown(markdown).ToString().Replace("\r\n", "\n");
         }
 
-        private static ISoftwareFactoryExecutionContext Context(params string[] installedModules)
+        private static IApplication Context()
         {
-            var modules = installedModules.Select(id =>
-            {
-                var module = Substitute.For<IIntentInstalledModule>();
-                module.ModuleId.Returns(id);
-                return module;
-            }).ToList();
             var solution = Substitute.For<ISolutionConfig>();
             // A path as this OS writes it, as Intent Architect gives it: on the Linux CI agent a backslash isn't a separator.
             solution.SolutionRootLocation.Returns(Path.Combine(Path.GetPathRoot(Path.GetTempPath()), "Repos", "Acme", "intent") + Path.DirectorySeparatorChar);
             var application = Substitute.For<IApplicationConfig>();
             application.Name.Returns("Acme");
-            var context = Substitute.For<ISoftwareFactoryExecutionContext>();
-            context.InstalledModules.Returns(modules);
+            var context = Substitute.For<IApplication>();
             context.GetSolutionConfig().Returns(solution);
             context.GetApplicationConfig().Returns(application);
+            context.EventDispatcher.Returns(DriftHub.Dispatcher());
             return context;
         }
     }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="506ea6dc-3840-409c-ae22-f21d7e4762bc" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ProductImageUrlProvider</name>
+  <display>ProductImageUrlProvider</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>f9ad17ae-d281-46ee-b575-261caf1ce41c</parentFolderId>
+  <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+  <packageName>WebApp</packageName>
+  <children>
+    <element id="c1645797-7f2e-434e-a852-31907a567cbe" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetProductImageUrl</name>
+      <display>GetProductImageUrl(productId: int): string</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="016f1b37-5fcd-49db-9a01-ed62ac7072c0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>506ea6dc-3840-409c-ae22-f21d7e4762bc</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <children>
+        <element id="2e2288d9-710a-4975-9d04-48ab9ac59d3d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>productId</name>
+          <display>in : productId: int</display>
+          <typeReference id="3cc0ee44-1206-4411-a588-00645346f2c3">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>c1645797-7f2e-434e-a852-31907a567cbe</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

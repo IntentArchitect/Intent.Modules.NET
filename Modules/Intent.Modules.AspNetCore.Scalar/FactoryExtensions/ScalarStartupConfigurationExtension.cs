@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Scalar.Templates;
 using Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -57,6 +59,14 @@ namespace Intent.Modules.AspNetCore.Scalar.FactoryExtensions
             }
             catch (System.Exception)
             {
+            }
+
+            if (HttpQueryHelper.NeedsHttpQueryOpenApi(template.OutputTarget))
+            {
+                // Answers /openapi/{documentName}.json as OpenAPI 3.2 ahead of MapOpenApi (priority 0), after UseAuthorization (-5).
+                application.EventDispatcher.Publish(
+                    ApplicationBuilderRegistrationRequest.ToRegister(extensionMethodName: "UseHttpQueryOpenApi")
+                        .WithPriority(-2));
             }
 
             template.CSharpFile.AfterBuild(_ =>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ca316491-9660-4de1-882b-6b401ec704e4">
+  <sourceEnd id="41f2427b-b60f-47d0-ba8f-16fb59944f49" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderStockRejectedIntegrationEventHandler.Handler</display>
+    <typeReference id="13453153-437e-4998-b7b9-e9add933c945">
+      <typeId>6c92af61-9d6a-43c2-ae7f-a945943b4e0f</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="ca316491-9660-4de1-882b-6b401ec704e4" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = SetStockRejectedOrderStatusCommand(...): bool</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="abdde4e6-6bc1-4cc0-a6f2-16acd1766f92">
+      <typeId>5cd3bf65-29dd-40f5-ad7c-f3df9d9fba37</typeId>
+      <typeName>SetStockRejectedOrderStatusCommand</typeName>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

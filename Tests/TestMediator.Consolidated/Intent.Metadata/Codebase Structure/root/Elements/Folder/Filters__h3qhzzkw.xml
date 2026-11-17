@@ -134,5 +134,27 @@
         <entry key="status" value="assigned" />
       </metadata>
     </element>
+    <element id="a073ab23-ce33-4bdf-88b4-9dadc2362830" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <parentFolderId>b6c3c6da-4115-4266-8488-607b4632a45b</parentFolderId>
+      <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="3a07c063-56ef-460e-b26a-51b4db80444d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer</name>
+      <display>Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <parentFolderId>b6c3c6da-4115-4266-8488-607b4632a45b</parentFolderId>
+      <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
+      <packageName>root</packageName>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
   </children>
 </class>

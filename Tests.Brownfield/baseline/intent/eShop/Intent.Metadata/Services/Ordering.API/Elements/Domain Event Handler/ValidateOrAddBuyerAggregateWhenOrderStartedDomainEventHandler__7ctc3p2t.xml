@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="26cfcc6a-56a8-4dfa-ac38-ec0302e758e8" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler</name>
+  <display>ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler</display>
+  <parentFolderId>ea181e59-618a-4ecb-b586-8373088d231c</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <children>
+    <association id="e4e5d2bb-d7fd-4d1f-aba3-f6aed5b7c407">
+      <sourceEnd id="6420d674-892c-4fd1-a444-a67bc400f123" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+        <display>: ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler</display>
+        <typeReference id="01b81c6f-248e-4733-9c0d-85850008d51a">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="e4e5d2bb-d7fd-4d1f-aba3-f6aed5b7c407" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+        <name>handler</name>
+        <display>[handles] OrderStartedDomainEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="b38dbdf6-15e9-4f31-90a7-ef2ce73dabcd">
+          <typeId>46a7e61e-fe51-49f5-97dc-6a104b5c9334</typeId>
+          <typeName>OrderStartedDomainEvent</typeName>
+          <typePackageName>Ordering</typePackageName>
+          <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Domain Event Handler Association</associationType>
+      <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+    </association>
+  </children>
+</class>

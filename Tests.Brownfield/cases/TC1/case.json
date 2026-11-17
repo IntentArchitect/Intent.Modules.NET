@@ -1,0 +1,14 @@
+{
+  "id": "TC1",
+  "title": "New technology: an ASP.NET Core controller",
+  "lane": "ai",
+  "prompt": "From now on admin endpoints are ASP.NET Core controllers. Add GET /api/catalog/admin/stock-report as a controller, returning items at or below their restock threshold.",
+  "done": "GET /api/catalog/admin/stock-report is served by an ASP.NET Core controller and returns the items at or below their restock threshold",
+  "expect": [
+    {
+      "id": "modelled",
+      "net": "blind",
+      "text": "The Services designer has the stock-report operation (GET api/catalog/admin/stock-report) with the contract it returns. Until the drift recipes cover controllers, nothing reports it if it's missing."
+    }
+  ]
+}

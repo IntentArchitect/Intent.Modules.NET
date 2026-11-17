@@ -24,403 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="48ca3500-e891-46dc-81bb-bc66f8e7a12f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.4.0</name>
-      <display>14.1.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>26cbdf56-20d1-4179-aeea-b6524bddc25a</parentFolderId>
-      <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
-      <packageName>Intent.HotChocolate.GraphQL</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="e052fbd6-f07d-46ed-9347-97d82aea9aa3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Authorization</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0600f2aa-56a6-4955-a080-a46381e098c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Execution.Projections</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a29ee039-94f9-46a7-ba5a-510f34c16506" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.CursorPagination.Extensions</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0ab1a108-00ba-43a0-8463-cd6a694a11c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.CursorPagination</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="28084d22-290d-4ac0-9d2e-492f09e291a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.Mutations</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0ebb17b4-3f1b-4ba6-9efc-414a57331a12" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.Queries</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="77b1de39-9551-444e-ab44-3e78baff78e9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="db2e26e4-7d4c-4703-8a00-0a028e6c86e6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Validation</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="137784d1-ebe8-448c-bf42-ac547f3b80d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.CostAnalysis</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="2d904830-57d1-44a3-95e5-1602cb82eec8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>14.3.1</name>
-      <display>14.1.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>26cbdf56-20d1-4179-aeea-b6524bddc25a</parentFolderId>
-      <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
-      <packageName>Intent.HotChocolate.GraphQL</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="3466bd6e-18fe-4a8c-99d1-e7ec8b079ebb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Authorization</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a9bc8cc5-5d16-4fcb-a9cb-d0c19d84c260" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Execution</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="3ad11a28-8599-4e4b-9e8f-8b095b213469" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Fetching</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="db5d4693-3234-4c58-9d9f-bfb060a4b89b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.CursorPagination</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0c80d67a-12e7-4ebb-87c4-aa407c798604" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.Mutations</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="31f7a684-7855-449b-89fb-e9f3c21fcd55" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.OffsetPagination</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b5e752c5-28ce-46df-b548-7588310e11c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.Queries</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8a7ea25c-591a-42b9-ac4f-c03dca852268" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="f5dffb5f-65c6-4770-82e7-ca35d821bb52" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Validation</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="30bcc1bc-ee6d-4d5e-93c5-3e61545424f3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>14.3.1</name>
-      <display>14.1.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>26cbdf56-20d1-4179-aeea-b6524bddc25a</parentFolderId>
-      <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
-      <packageName>Intent.HotChocolate.GraphQL</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="cde1b5c8-7586-4002-bb9f-211429dff946" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Authorization</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="79b47752-28f1-4877-b510-b78590635efc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Execution</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4c8f5be4-ad47-4aee-833a-1c65b025171a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Fetching</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4676548a-4e6f-4e18-99b3-77f111b248f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.CursorPagination</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c3101e21-641d-45c7-9460-f1b9c85a9010" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.Mutations</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="196eeb97-d823-48ea-b2dc-759b061e8e3a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.OffsetPagination</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1a7d1ab5-29b6-48ae-a40f-45442b60c03f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.Queries</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d2b05715-f3fd-46cc-8c2f-0e1f3b30f0bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="f08e5a2c-6a99-4d66-ae33-c724224343f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Validation</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ee0ac2ec-871f-441e-bfe3-c30a727dea6d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.CostAnalysis</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="014ab9e0-9307-49eb-8412-9948fe1e169f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Pagination.Mappings</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="98182416-1706-4407-be5e-e422acb45d89" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>14.3.1</name>
-      <display>14.1.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>14.3.5</name>
+      <display>14.3.5 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -441,101 +47,609 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8c7f083e-9f77-41ef-a796-9945a7bd4df0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e94bc634-f74b-40dd-8e26-a59d482bb9d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Authorization</name>
+          <display>HotChocolate.Authorization (14.3.5)</display>
           <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
+          <value>14.3.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6639dc07-dad6-4386-9e12-2eb63bbb7190" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e2a85615-8f4e-4633-82a4-561ad99eb83d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Execution</name>
+          <display>HotChocolate.Execution (14.3.5)</display>
           <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
+          <value>14.3.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6da263d0-ff78-4d93-9237-c12110e5645c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="75b24be4-9a53-4633-896d-49f71d7ef24b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Fetching</name>
+          <display>HotChocolate.Fetching (14.3.5)</display>
           <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
+          <value>14.3.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="09f48f8a-6af3-4855-879b-23946b2ab84c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.CursorPagination</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="2a54d10f-1e23-47fb-9912-9a147caa3f17" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.Mutations</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="97e3405f-34fa-44d8-b91a-49ded35c6b8f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.OffsetPagination</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="54bb7167-2c51-49b6-b007-11322fbfe0e7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.Queries</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="868e224d-a37d-4178-8e86-06b5f154a0a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b05a0a5b-f86c-46db-b311-8211e4c04220" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types</name>
+          <display>HotChocolate.Types (14.3.5)</display>
           <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
+          <value>14.3.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="980c405a-d379-45be-85ea-1e1b5683e655" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Validation</name>
+        <childElement id="b32d5f01-7b25-4916-b2a8-1021a09eab47" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.CursorPagination</name>
+          <display>HotChocolate.Types.CursorPagination (14.3.5)</display>
           <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
+          <value>14.3.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="18089f68-f63a-4418-8c65-822b2ad4c65d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.Mutations</name>
+          <display>HotChocolate.Types.Mutations (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="368eff55-4152-4213-b25d-01acf6578703" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.OffsetPagination</name>
+          <display>HotChocolate.Types.OffsetPagination (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3367df96-0d3f-45a5-92bc-048430be3d9a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.Queries</name>
+          <display>HotChocolate.Types.Queries (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7df7b4af-8f43-45ae-8a0f-2c69f6a35ee0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Validation</name>
+          <display>HotChocolate.Validation (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>98182416-1706-4407-be5e-e422acb45d89</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="2d904830-57d1-44a3-95e5-1602cb82eec8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>14.3.5</name>
+      <display>14.3.5 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>26cbdf56-20d1-4179-aeea-b6524bddc25a</parentFolderId>
+      <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+      <packageName>Intent.HotChocolate.GraphQL</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b3e5c19d-413e-429b-b742-d5b580731666" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Authorization</name>
+          <display>HotChocolate.Authorization (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5f5c6ddc-6a57-44ff-880d-cc62048b039c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Execution</name>
+          <display>HotChocolate.Execution (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a9581f0a-ea2f-4217-8b5c-9fa39c67630d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Fetching</name>
+          <display>HotChocolate.Fetching (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fb997f67-8ed0-4ee6-b024-95d1c04e43e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types</name>
+          <display>HotChocolate.Types (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8ac67fdb-80d3-446a-a4aa-cd5934cd0494" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.CursorPagination</name>
+          <display>HotChocolate.Types.CursorPagination (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="36c8a6e7-9244-45cf-92d7-679a21a64e4d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.Mutations</name>
+          <display>HotChocolate.Types.Mutations (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b0c251fa-583c-49a2-bbbe-3534852eb4a4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.OffsetPagination</name>
+          <display>HotChocolate.Types.OffsetPagination (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c0165814-6e27-48fa-93cb-57ec63de6e7e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.Queries</name>
+          <display>HotChocolate.Types.Queries (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="689d6ce6-8a01-4e25-8bd1-06f5fd2cea5a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Validation</name>
+          <display>HotChocolate.Validation (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2d904830-57d1-44a3-95e5-1602cb82eec8</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="30bcc1bc-ee6d-4d5e-93c5-3e61545424f3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>14.3.5</name>
+      <display>14.3.5 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>26cbdf56-20d1-4179-aeea-b6524bddc25a</parentFolderId>
+      <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+      <packageName>Intent.HotChocolate.GraphQL</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d06095a0-2d67-49a1-9ad6-6c7c3030910f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Authorization</name>
+          <display>HotChocolate.Authorization (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b9236595-86f2-4637-b1b6-b1c0b4a42f8b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.CostAnalysis</name>
+          <display>HotChocolate.CostAnalysis (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0bc4d050-0793-4a88-aaeb-52754e0c7760" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Execution</name>
+          <display>HotChocolate.Execution (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="aa0729d6-dfa0-4b12-9d86-3a9749ac70a9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Fetching</name>
+          <display>HotChocolate.Fetching (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="37aba359-720f-4087-b878-ba8223d3116f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Pagination.Mappings</name>
+          <display>HotChocolate.Pagination.Mappings (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a77a3a42-d4b7-4933-abfb-beb9dce7ed7c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types</name>
+          <display>HotChocolate.Types (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5d5e4e39-493a-4ae5-96aa-e28591070f42" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.CursorPagination</name>
+          <display>HotChocolate.Types.CursorPagination (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="37092f1d-4e8a-447b-b7aa-b368554b89af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.Mutations</name>
+          <display>HotChocolate.Types.Mutations (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8a96f68e-b86d-4f6a-a2b3-7e31a4424b2b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.OffsetPagination</name>
+          <display>HotChocolate.Types.OffsetPagination (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cbd9c5f3-16e8-4619-9998-4d7f0b16bc8f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.Queries</name>
+          <display>HotChocolate.Types.Queries (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ff48b85a-3641-45b4-a741-44223f16ed2b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Validation</name>
+          <display>HotChocolate.Validation (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>30bcc1bc-ee6d-4d5e-93c5-3e61545424f3</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="48ca3500-e891-46dc-81bb-bc66f8e7a12f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>16.7.5</name>
+      <display>16.7.5 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>26cbdf56-20d1-4179-aeea-b6524bddc25a</parentFolderId>
+      <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+      <packageName>Intent.HotChocolate.GraphQL</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="99511244-23ee-4544-8572-2084b5f1d0b0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Authorization</name>
+          <display>HotChocolate.Authorization (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2ab5baac-057f-42f7-ad1f-28331fc9fcd1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.CostAnalysis</name>
+          <display>HotChocolate.CostAnalysis (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ad7a44db-fe10-472d-b3d7-30d9d4a68d97" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Execution.Projections</name>
+          <display>HotChocolate.Execution.Projections (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fed6fcc7-1924-41bc-8a91-80cc136388cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types</name>
+          <display>HotChocolate.Types (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b76919cd-335c-4f56-a68b-153553b3a608" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.CursorPagination</name>
+          <display>HotChocolate.Types.CursorPagination (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="dda7deed-d432-4af3-83c2-06e3d45228b9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.CursorPagination.Extensions</name>
+          <display>HotChocolate.Types.CursorPagination.Extensions (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b75bbbbc-58d2-42a8-8fb3-6bbcb73e2924" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.Mutations</name>
+          <display>HotChocolate.Types.Mutations (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ce9e12c3-b313-45bc-9acc-a39bfd87d30d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.Queries</name>
+          <display>HotChocolate.Types.Queries (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e383608d-26a7-47d4-9047-78b1539996df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Validation</name>
+          <display>HotChocolate.Validation (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -543,11 +657,15 @@
       </childElements>
     </childElement>
     <childElement id="28da011f-8b4b-4e8c-9bf1-8479d2e6ff64" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.4.0</name>
+      <name>16.7.5</name>
+      <display>16.7.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>26cbdf56-20d1-4179-aeea-b6524bddc25a</parentFolderId>
+      <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+      <packageName>Intent.HotChocolate.GraphQL</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -561,101 +679,128 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="23866d2a-21c9-4662-bc84-8d79f4ba09c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cd880fed-b346-4ce8-9b08-a36228fd7676" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Authorization</name>
+          <display>HotChocolate.Authorization (16.7.5)</display>
           <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
+          <value>16.7.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1ca798a1-9085-48b6-a4b1-e05eb842880a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Execution.Projections</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="7e49b306-a6bd-4b13-9de3-e4036f1723c5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.CursorPagination.Extensions</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="03753473-bda0-450f-a7bc-57191b5fcb91" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.CursorPagination</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8f32a7dd-09fc-417b-9b6c-da3acfa5bd78" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.Mutations</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="74328666-6fbd-41f8-bfd8-b8a3102376ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.Queries</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="cbfe7e68-4f41-444d-a95b-34690a714f9f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="83b13362-c505-4919-a707-537a545d5a65" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Validation</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="19775031-199c-47b8-b462-717389cac9f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a1c7e590-b080-48ed-904d-808d1e938d91" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.CostAnalysis</name>
+          <display>HotChocolate.CostAnalysis (16.7.5)</display>
           <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
+          <value>16.7.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a30c3fac-5cad-4134-92f8-99409c6514aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Execution.Projections</name>
+          <display>HotChocolate.Execution.Projections (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fcd06745-737b-4a49-b92d-fe91ce4c1959" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types</name>
+          <display>HotChocolate.Types (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a47f3f33-55a2-4a29-aa86-a0beeb02c4f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.CursorPagination</name>
+          <display>HotChocolate.Types.CursorPagination (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9ed1faac-51bf-4fa0-8a60-aa6b6fb8f365" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.CursorPagination.Extensions</name>
+          <display>HotChocolate.Types.CursorPagination.Extensions (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="14f29acb-f337-43d6-b0a4-4cddc139abc8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.Mutations</name>
+          <display>HotChocolate.Types.Mutations (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="880e3c31-a872-4058-9c58-c0099d793ae6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.Queries</name>
+          <display>HotChocolate.Types.Queries (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7435ab71-70da-4f0e-90d3-83bba94e2881" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Validation</name>
+          <display>HotChocolate.Validation (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -663,11 +808,15 @@
       </childElements>
     </childElement>
     <childElement id="e66310c6-556a-4826-89e5-4966a0cc558c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.4.0</name>
+      <name>16.7.5</name>
+      <display>16.7.5 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>26cbdf56-20d1-4179-aeea-b6524bddc25a</parentFolderId>
+      <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+      <packageName>Intent.HotChocolate.GraphQL</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -681,101 +830,128 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e2aa05b1-8ad5-4735-9db8-fd9ec15b18f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f0fe58e2-ad71-4307-b16f-38aa6264219f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Authorization</name>
+          <display>HotChocolate.Authorization (16.7.5)</display>
           <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
+          <value>16.7.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ea10aaef-775f-4ba8-90bf-be2c6611a049" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Execution.Projections</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="736b0b3f-2d50-4fa2-87b4-465bb20bdf4a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.CursorPagination.Extensions</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0d523a75-8018-4257-8603-b525bac6e44d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.CursorPagination</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ec32d848-d426-4eb9-87db-5f3ea4d61a0d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.Mutations</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a09dfd06-58f7-45db-9369-e6a9bc91f196" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types.Queries</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="30f5449a-88a5-4fd8-b997-722d3c5d22c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Types</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="332616fc-dc6b-408f-b51d-495c79f6ca4a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.Validation</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ba7f2ae3-1c41-4210-a20a-46fc5548d8d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2278572d-f59e-4c03-9460-b571a624bc45" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.CostAnalysis</name>
+          <display>HotChocolate.CostAnalysis (16.7.5)</display>
           <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
+          <value>16.7.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8aaa7694-2b47-451e-9f72-cd434b598634" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Execution.Projections</name>
+          <display>HotChocolate.Execution.Projections (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6a94d9a0-162c-49f4-b016-b6c016b2aac3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types</name>
+          <display>HotChocolate.Types (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0a7393e7-fc42-490d-9ecd-224b1f3b2273" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.CursorPagination</name>
+          <display>HotChocolate.Types.CursorPagination (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fa516484-fb20-485c-857c-ed9dc9001539" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.CursorPagination.Extensions</name>
+          <display>HotChocolate.Types.CursorPagination.Extensions (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0ea3dde7-d702-4a40-a43e-2c8e08146639" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.Mutations</name>
+          <display>HotChocolate.Types.Mutations (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8c349abd-eb48-423c-9d39-9af4731ff4db" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Types.Queries</name>
+          <display>HotChocolate.Types.Queries (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ab55fc06-8c61-434d-abef-075485d93a34" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.Validation</name>
+          <display>HotChocolate.Validation (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e66310c6-556a-4826-89e5-4966a0cc558c</parentFolderId>
+          <packageId>d7ae9cef-12ce-472c-8620-6e6cf12cbc41</packageId>
+          <packageName>Intent.HotChocolate.GraphQL</packageName>
           <stereotypes />
           <metadata />
           <childElements />

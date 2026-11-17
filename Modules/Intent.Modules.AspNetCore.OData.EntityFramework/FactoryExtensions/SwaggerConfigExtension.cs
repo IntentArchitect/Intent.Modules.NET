@@ -1,13 +1,15 @@
 using System.Linq;
 using Intent.Engine;
-using Intent.Modules.AspNetCore.OData.EntityFramework.Templates;
+using Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ExcludeODataDocumentFilter;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -24,25 +26,38 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
-            if (template == null)
+            foreach (var template in application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Distribution.SwashbuckleConfiguration"))
             {
-                return;
-            }
-
-            template.CSharpFile.OnBuild(file =>
-            {
-                var @class = file.Classes.First();
-                var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);
-                file.AddUsing("System.Linq");
-                if (configureSwaggerOptionsBlock is null)
+                template.CSharpFile.OnBuild(file =>
                 {
-                    return;
-                }
+                    var @class = file.Classes.First();
+                    var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);
+                    file.AddUsing("System.Linq");
+                    if (configureSwaggerOptionsBlock is null)
+                    {
+                        return;
+                    }
 
-                configureSwaggerOptionsBlock.AddStatement($@"options.DocumentFilter<{template.GetExcludeODataDocumentFilterName()}>();");
-                configureSwaggerOptionsBlock.AddStatement("options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());");
-            });
+                    // The filter is placed by its own "Startup" role, independently of where Swashbuckle is
+                    // configured, so a Swagger-enabled host may have no filter it can reach. Resolve the
+                    // reachable instance here and name it directly: the template-id GetTypeName overload falls
+                    // back to an unscoped lookup that picks up (or trips over) other hosts' filters.
+                    if (template.OutputTarget.FindTemplateInstance(ExcludeODataDocumentFilterTemplate.TemplateId) is not { } filterTemplate ||
+                        !filterTemplate.CanRunTemplate())
+                    {
+                        Logging.Log.Warning(
+                            $"OData: project '{template.OutputTarget.GetProject().Name}' configures Swagger but has no OData document filter it can reference, " +
+                            "so its OpenAPI document will include the OData routes. " +
+                            $"To exclude them, add a Template Output for {ExcludeODataDocumentFilterTemplate.TemplateId} under that project in the Codebase Structure designer.");
+                    }
+                    else
+                    {
+                        configureSwaggerOptionsBlock.AddStatement($@"options.DocumentFilter<{template.GetTypeName(filterTemplate)}>();");
+                    }
+
+                    configureSwaggerOptionsBlock.AddStatement("options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());");
+                });
+            }
         }
 
         private static CSharpLambdaBlock? GetConfigureSwaggerOptionsBlock(CSharpClass @class)

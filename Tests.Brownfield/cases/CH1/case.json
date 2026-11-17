@@ -1,0 +1,10 @@
+{
+  "id": "CH1",
+  "title": "Change: a max length",
+  "lane": "ai",
+  "prompt": "Catalog item names can now be up to 100 characters.",
+  "done": "CatalogItem.Name allows up to 100 characters in the code: its EF configuration and any validation",
+  "expect": [
+    { "id": "model", "net": "visible", "text": "The Domain designer gives CatalogItem.Name a max length of 100." }
+  ]
+}

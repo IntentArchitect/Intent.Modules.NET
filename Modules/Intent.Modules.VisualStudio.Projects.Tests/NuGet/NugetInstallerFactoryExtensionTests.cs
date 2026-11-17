@@ -484,6 +484,67 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             Assert.False(testCase.Test.RequestedPackages.ContainsKey("RoslynWeaver"));
         }
 
+        [Fact]
+        public void NuGetPackageConsolidationTest_KeepsVersionsPerTargetFramework()
+        {
+            // Arrange
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+            testCase.Api.TargetFrameworks = "net11.0";
+            testCase.Application.TargetFrameworks = "net10.0";
+            testCase.Domain.TargetFrameworks = "net10.0";
+            testCase.Infrastructure.TargetFrameworks = "net10.0";
+            testCase.Test.TargetFrameworks = "net11.0";
+
+            testCase.Api.RequestedPackages.AddNuGet("Swashbuckle.AspNetCore", "11.0.0", c =>
+            {
+                c.Dependencies.Add(new NugetPackageDependency("Microsoft.OpenApi", "3.11.0"));
+            });
+            testCase.Infrastructure.RequestedPackages.AddNuGet("Swashbuckle.AspNetCore", "10.3.1", c =>
+            {
+                c.Dependencies.Add(new NugetPackageDependency("Microsoft.OpenApi", "2.7.5"));
+            });
+            testCase.Application.RequestedPackages.AddNuGet("Microsoft.OpenApi", "2.7.5");
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+            Assert.Equal("11.0.0", testCase.Api.RequestedPackages["Swashbuckle.AspNetCore"].VersionInfo.Version);
+            Assert.Equal("10.3.1", testCase.Infrastructure.RequestedPackages["Swashbuckle.AspNetCore"].VersionInfo.Version);
+            Assert.Equal("2.7.5", testCase.Application.RequestedPackages["Microsoft.OpenApi"].VersionInfo.Version);
+        }
+
+        [Fact]
+        public void ConsolidatePackageVersionsSettingKeepsVersionsPerTargetFramework()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, true);
+            var saved = new List<(string path, string content)>();
+            var projects = new[]
+            {
+                TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Sdk, TestVersion.High, TestPackage.One, new Dictionary<string, string>(), ["net11.0"]),
+                TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.One, new Dictionary<string, string>(), ["net10.0"]),
+            };
+
+            // Act
+            sut.Execute(
+                nuGetProjectSchemeProcessors: new Dictionary<VisualStudioProjectScheme, INuGetSchemeProcessor>
+                {
+                    [VisualStudioProjectScheme.Sdk] = TestFixtureHelper.CreateSdkProcessor()
+                },
+                applicationProjects: projects,
+                tracing: tracing,
+                saveProjectDelegate: (path, content) => saved.Add((path, content)),
+                dependencyVersionOverwriteBehavior: DependencyVersionOverwriteBehaviorOption.IfNewer);
+
+            // Assert
+            Assert.Empty(tracing.InfoEntries);
+            Assert.Empty(saved);
+        }
+
     }
 
     internal static class NugetHelperExtensions

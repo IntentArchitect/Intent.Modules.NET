@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Aws.Common</id>
-  <version>1.0.8</version>
-  <supportedClientVersions>[4.4.0-a,6.0.0-a)</supportedClientVersions>
+  <version>1.1.0-pre.0</version>
+  <supportedClientVersions>[5.1.0-a,6.0.0-a)</supportedClientVersions>
   <summary>Common functionality for modules for AWS technologies.</summary>
   <description>Common functionality for modules for AWS technologies.</description>
   <authors>Intent Architect</authors>

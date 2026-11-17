@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6ff79b93-9f27-4696-9160-0f21665b0155" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>BasketItem</name>
+  <display>BasketItem</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>6820de74-32f8-4846-b38b-a6cf17e59a81</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <children>
+    <element id="98d0ddc4-c2db-4d18-95eb-6c8ad40e61d6" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Id</name>
+      <display>Id: string</display>
+      <typeReference id="61dff0c9-e7f5-42c3-ab47-82cb3fb1e5f6">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6ff79b93-9f27-4696-9160-0f21665b0155</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="d4363d22-e88b-4a91-a023-29e684ea8df8" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>ProductId</name>
+      <display>ProductId: int</display>
+      <typeReference id="ff2999aa-51b4-4665-858a-dc1d842512e4">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6ff79b93-9f27-4696-9160-0f21665b0155</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="17f771e4-2c30-4f93-997f-98660bffa687" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>ProductName</name>
+      <display>ProductName: string</display>
+      <typeReference id="545acceb-de82-40e1-a677-7055602d259d">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6ff79b93-9f27-4696-9160-0f21665b0155</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="487278e0-c679-4c8a-8dc4-782f49745f08" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>UnitPrice</name>
+      <display>UnitPrice: decimal</display>
+      <typeReference id="90e7a475-6799-4319-b211-3a491938fd47">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6ff79b93-9f27-4696-9160-0f21665b0155</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="11f7462f-55e1-4f7b-9336-2259341324df" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>OldUnitPrice</name>
+      <display>OldUnitPrice: decimal</display>
+      <typeReference id="a4c91094-3164-4aae-a83a-7b4898dd315b">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6ff79b93-9f27-4696-9160-0f21665b0155</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="537e2322-2710-40fd-be07-79674a3ae32c" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Quantity</name>
+      <display>Quantity: int</display>
+      <typeReference id="3df1b1b8-4428-4276-959b-d1cbe2e9b3ac">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6ff79b93-9f27-4696-9160-0f21665b0155</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <element id="e1ecbc18-60c7-4abe-8ce6-9999018a190d" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>PictureUrl</name>
+      <display>PictureUrl: string</display>
+      <typeReference id="a16dbdec-924a-4d5e-a60d-db865f2d7522">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6ff79b93-9f27-4696-9160-0f21665b0155</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+  </children>
+</class>

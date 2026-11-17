@@ -116,7 +116,7 @@
   <file path="SecurityConfig.Tests.Infrastructure/Repositories/CustomerRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="SecurityConfig.Tests.Infrastructure/Repositories/ProductRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="SecurityConfig.Tests.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
-  <file path="SecurityConfig.Tests.Infrastructure/SecurityConfig.Tests.Infrastructure.csproj" deviationsHash="87B439222EC72A34914E5864FB4BF7E4A410E4316554A81432C036C7617F2A1A" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="SecurityConfig.Tests.Infrastructure/SecurityConfig.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="SecurityConfig.Tests.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
   <file path="SecurityConfig.Tests.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

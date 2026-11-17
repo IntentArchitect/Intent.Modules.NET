@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<associationVisual id="26dc09f5-cecc-454d-90bc-c303c7ba86c1" zIndex="0">
+  <name>PaymentMethods_to_CardType</name>
+  <sourceId>436c2166-3812-4d0a-9575-5e33a44c1396</sourceId>
+  <targetId>a3369344-c726-402f-8c05-4c8252547e92</targetId>
+  <targetPrefPoint x="100" y="40" />
+</associationVisual>

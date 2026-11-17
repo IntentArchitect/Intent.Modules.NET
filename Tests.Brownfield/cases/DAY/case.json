@@ -1,0 +1,19 @@
+{
+  "id": "DAY",
+  "title": "A day's work: three requests in one chat",
+  "lane": "ai",
+  "turns": [
+    { "prompt": "GET /api/orders returns a user's orders in no particular order. Return the newest first." },
+    {
+      "prompt": "Buyers can leave a delivery note (optional, up to 500 characters) when they create an order. Store it on the order and return it in the order details."
+    },
+    { "prompt": "Only users in the Admin role may ship or cancel orders." }
+  ],
+  "done": "all three requests are done: GET /api/orders returns orders newest first; creating an order accepts an optional delivery note of up to 500 characters that the order stores and GET /api/orders/{orderId} returns; and ship and cancel require the Admin role",
+  "expect": [
+    { "id": "domain", "net": "visible", "text": "The Domain designer's Order has the delivery note: an optional string with max length 500." },
+    { "id": "request", "net": "visible", "text": "The Services designer's create order request or command has the optional delivery note field." },
+    { "id": "details", "net": "visible", "text": "The Services designer's order details contract has the delivery note." },
+    { "id": "roles", "net": "visible", "text": "The Services designer secures the ship and cancel operations with the Admin role, and only those two." }
+  ]
+}

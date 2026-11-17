@@ -119,7 +119,7 @@
   <file path="AwsLambdaFunction.Domain/Repositories/IEfClientRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="AwsLambdaFunction.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="AwsLambdaFunction.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
-  <file path="AwsLambdaFunction.Infrastructure/AwsLambdaFunction.Infrastructure.csproj" deviationsHash="1BF78A7E7702A527F8AAE8885A8E5B8CAA72DE816FD87D6AE67050482E81B906" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AwsLambdaFunction.Infrastructure/AwsLambdaFunction.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AwsLambdaFunction.Infrastructure/Configuration/AwsConfiguration.cs" templateId="Intent.Aws.Common.AwsConfiguration" />
   <file path="AwsLambdaFunction.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="AwsLambdaFunction.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />

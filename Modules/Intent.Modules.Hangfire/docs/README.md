@@ -16,6 +16,8 @@ This module creates the required infrastructure to run Hangfire in a .NET web ap
 * Optional Hangfire Dashboard registration and configuration
 * Job generation
 
+A `Hangfire Job` can be modeled to publish a command if you are using MediatR or Mediator.
+
 ## Hangfire Application Settings
 
 The following configuration settings are available on the `Application Settings` screen.

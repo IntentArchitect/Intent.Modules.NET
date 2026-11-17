@@ -18,6 +18,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Interfaces
         Task<List<ProductDto>> FindProducts(CancellationToken cancellationToken = default);
         Task<ProductDto> UpdateProduct(Guid id, ProductUpdateDto dto, CancellationToken cancellationToken = default);
         Task<ProductDto> DeleteProduct(Guid id, CancellationToken cancellationToken = default);
+        Task ArchiveProduct(Guid id, string reason, CancellationToken cancellationToken = default);
 
     }
 }

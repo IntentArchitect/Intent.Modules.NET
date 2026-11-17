@@ -1,0 +1,13 @@
+@page "/"
+@using eShop.Web.Client.Contracts.Catalog.Services
+
+<PageTitle>Catalog</PageTitle>
+<SectionContent SectionName="page-header-title">Ready for a new adventure?</SectionContent>
+<MudGrid>
+    @foreach (var item in Model?.Data ?? [])
+    {
+        <MudItem xs="3">
+            <MudText>@item.Name</MudText>
+        </MudItem>
+    }
+</MudGrid>

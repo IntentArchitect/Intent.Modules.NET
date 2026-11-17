@@ -157,7 +157,7 @@
   <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/Repositories/ITestDecimalsRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
-  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.csproj" deviationsHash="67F176B7BDD09E8102256D93AD730026BF79B677E627DCE9CD5FCB08BC1D422B" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

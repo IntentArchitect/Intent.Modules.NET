@@ -1,0 +1,21 @@
+@page "/orders"
+@using eShop.Web.Client.Contracts.Ordering.Services.Orders
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "Customer, Admin")]
+
+<PageTitle>Orders</PageTitle>
+<SectionContent SectionName="page-header-subtitle">Orders</SectionContent>
+
+@if (Model is not null)
+{
+    <MudDataGrid T="OrderSummaryDto"
+                 Items="@Model"
+                 Hover="true" Elevation="1">
+        <Columns>
+            <PropertyColumn Title="Order Number"
+                            Property="x => x.OrderNumber"/>
+            <PropertyColumn Title="Total"
+                            Property="x => x.Total" />
+        </Columns>
+    </MudDataGrid>
+}

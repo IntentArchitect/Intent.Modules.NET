@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="393362d4-18c4-4e01-bb4d-d35a1d6cd2f2" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>TemporalProduct</name>
+  <display>TemporalProduct</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>296b6654-7df9-4da4-942a-f9210d934470</parentFolderId>
+  <packageId>296b6654-7df9-4da4-942a-f9210d934470</packageId>
+  <packageName>LocalDomain</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="abd54fa8-f51e-4cd9-b3ce-6512968c2d0c" name="Temporal Table">
+      <definitionPackageName>Intent.EntityFrameworkCore.TemporalTables</definitionPackageName>
+      <definitionPackageId>1585256a-0514-4990-b997-4c198e9d7ffa</definitionPackageId>
+      <properties>
+        <property name="2982900b-2f11-4980-bb4d-1982c7ca755e" display="Period Start Column Name" value="StartDate" />
+        <property name="bef0c148-17f7-47f1-baf8-952d4fc30a63" display="Period End Column Name" value="EndDate" />
+        <property name="97dc9f2e-6ba9-4faa-8119-9adce2aabcb6" display="History Table Name" value="ProductArchive" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="11908a85-e05a-42b3-99ec-595e1b9c812e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id1</name>
+      <display>Id1: guid</display>
+      <typeReference id="43afd16d-2167-4b2a-8db2-2ebb40d0b2b9">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>393362d4-18c4-4e01-bb4d-d35a1d6cd2f2</parentFolderId>
+      <packageId>296b6654-7df9-4da4-942a-f9210d934470</packageId>
+      <packageName>LocalDomain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+    </element>
+    <element id="39698959-de93-498b-9192-1a165bee0af5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <typeReference id="ddcc7fd2-3a7a-4a56-876b-6eab7eb99955">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>393362d4-18c4-4e01-bb4d-d35a1d6cd2f2</parentFolderId>
+      <packageId>296b6654-7df9-4da4-942a-f9210d934470</packageId>
+      <packageName>LocalDomain</packageName>
+    </element>
+    <element id="00c1da99-1624-4fec-99f0-88f4e024b432" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <typeReference id="1d9bd997-0963-4dd6-ac40-3ad23354d68a">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>393362d4-18c4-4e01-bb4d-d35a1d6cd2f2</parentFolderId>
+      <packageId>296b6654-7df9-4da4-942a-f9210d934470</packageId>
+      <packageName>LocalDomain</packageName>
+    </element>
+    <element id="93d815b2-4d2b-4a20-82df-b93237085d68" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Price</name>
+      <display>Price: decimal</display>
+      <typeReference id="d1646a1a-afa9-4872-95f4-9afc0a148e27">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <typeName>decimal</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>393362d4-18c4-4e01-bb4d-d35a1d6cd2f2</parentFolderId>
+      <packageId>296b6654-7df9-4da4-942a-f9210d934470</packageId>
+      <packageName>LocalDomain</packageName>
+    </element>
+  </children>
+</class>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8c3087e9-cc7c-471c-b6b7-b2a392589ea9" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Ordering - Aggregates</name>
+  <display>Ordering - Aggregates</display>
+  <parentFolderId>18fc7188-9a6d-4eb9-ba69-ae6b43ffa739</parentFolderId>
+  <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+  <packageName>Ordering</packageName>
+  <diagram>
+    <targetPackageId>8c3087e9-cc7c-471c-b6b7-b2a392589ea9</targetPackageId>
+  </diagram>
+</class>

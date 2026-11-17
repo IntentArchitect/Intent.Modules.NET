@@ -63,7 +63,7 @@
   <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Persistence/Configurations/RoleConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
-  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.csproj" deviationsHash="56A40752D444349187C3F3D081EA0DA3716BC78472EC2CF2B7A1879BCAAC8811" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure/Repositories/RoleRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="Publish.AspNetCore.MassTransit.OutBoxNone.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />

@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="ffa64333-64c2-402d-96ab-2ee6d7133949" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.0.101.1</name>
-      <display>4.0.10 ( &gt;= Any,Version=v0.0 )</display>
+      <name>4.0.110.3</name>
+      <display>4.0.110.3 ( &gt;= Any,Version=v0.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,13 +47,16 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4b10a5cd-b6e3-48fe-b3f8-35ce213bcf66" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f49d3e3b-19c8-45fd-b75f-2b092b219287" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AWSSDK.Core</name>
+          <display>AWSSDK.Core (4.0.103)</display>
           <isAbstract>false</isAbstract>
-          <value>4.0.100.3</value>
+          <value>4.0.103</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ffa64333-64c2-402d-96ab-2ee6d7133949</parentFolderId>
+          <packageId>519202d6-a4a4-48f5-8fde-70ff3bfd63ba</packageId>
+          <packageName>Intent.Aws.DynamoDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />

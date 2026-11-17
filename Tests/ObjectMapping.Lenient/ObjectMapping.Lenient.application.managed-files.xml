@@ -25,7 +25,7 @@
   <file path="ObjectMapping.Lenient.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="ObjectMapping.Lenient.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="ObjectMapping.Lenient.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
-  <file path="ObjectMapping.Lenient.Application.Tests/ObjectMapping.Lenient.Application.Tests.csproj" deviationsHash="5E2DDC11F5017FAEA1DF6E73D4633CF071ABCDD6ADA1023049D1E0A5F8232489" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ObjectMapping.Lenient.Application.Tests/ObjectMapping.Lenient.Application.Tests.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="ObjectMapping.Lenient.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
   <file path="ObjectMapping.Lenient.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
   <file path="ObjectMapping.Lenient.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />

@@ -24,48 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="eac5341b-b0c7-4a28-9aa4-412f6fcc5ddd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.15.1</name>
-      <display>3.15.1 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>f2873657-e4ee-4048-b357-c7e0686773cc</parentFolderId>
-      <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-      <packageName>Intent.Security.MSAL</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="014119ec-8c73-4d8c-a73b-35505ca2f3c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web</name>
-          <display>Microsoft.Identity.Web (3.15.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>3.15.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>eac5341b-b0c7-4a28-9aa4-412f6fcc5ddd</parentFolderId>
-          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-          <packageName>Intent.Security.MSAL</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="0528715f-11a6-4481-b431-782d4e7ac71a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.15.1</name>
-      <display>3.15.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>3.16.0</name>
+      <display>3.16.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -86,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f0340578-1db3-48a3-94be-513bffc5f6f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d5b1e5af-9285-42a5-a855-9a0726b40e1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
-          <display>Microsoft.Identity.Web (3.15.1)</display>
+          <display>Microsoft.Identity.Web (3.16.0)</display>
           <isAbstract>false</isAbstract>
-          <value>3.15.1</value>
+          <value>3.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0528715f-11a6-4481-b431-782d4e7ac71a</parentFolderId>
@@ -102,9 +63,48 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="eac5341b-b0c7-4a28-9aa4-412f6fcc5ddd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.16.0</name>
+      <display>3.16.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f2873657-e4ee-4048-b357-c7e0686773cc</parentFolderId>
+      <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+      <packageName>Intent.Security.MSAL</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5a8b211f-fe49-46fb-8394-e535e9146858" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web</name>
+          <display>Microsoft.Identity.Web (3.16.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.16.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>eac5341b-b0c7-4a28-9aa4-412f6fcc5ddd</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="428d9067-6289-484d-b1cf-7fd92e25973a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.12.2</name>
-      <display>4.12.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>4.18.0</name>
+      <display>4.18.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -125,11 +125,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="33d9fe63-5449-4578-91a8-92f5f9f377a8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7f1f90af-2493-4e93-b1e3-dd2eebc446e6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
-          <display>Microsoft.Identity.Web (4.12.2)</display>
+          <display>Microsoft.Identity.Web (4.18.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.12.2</value>
+          <value>4.18.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>428d9067-6289-484d-b1cf-7fd92e25973a</parentFolderId>
@@ -142,8 +142,8 @@
       </childElements>
     </childElement>
     <childElement id="a9597a76-e537-4bfa-8607-931b554ad2ac" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.12.2</name>
-      <display>4.12.2 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>4.18.0</name>
+      <display>4.18.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -164,11 +164,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c09d6cad-3cbc-4d79-826b-02d7c1588bff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="dd73e922-2777-4a38-b210-d677c1854c4a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
-          <display>Microsoft.Identity.Web (4.12.2)</display>
+          <display>Microsoft.Identity.Web (4.18.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.12.2</value>
+          <value>4.18.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a9597a76-e537-4bfa-8607-931b554ad2ac</parentFolderId>

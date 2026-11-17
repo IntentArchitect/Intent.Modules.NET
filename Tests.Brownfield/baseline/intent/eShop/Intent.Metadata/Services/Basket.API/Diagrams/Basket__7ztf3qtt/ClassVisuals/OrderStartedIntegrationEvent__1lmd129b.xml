@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="90992917-6bf8-4997-a871-e5a20ceb8356" zIndex="0">
+  <name>OrderStartedIntegrationEvent</name>
+  <position x="0" y="220" />
+  <size width="200" height="70" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

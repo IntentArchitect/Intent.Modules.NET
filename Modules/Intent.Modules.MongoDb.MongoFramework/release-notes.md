@@ -1,3 +1,8 @@
+### Version 1.1.0
+
+- Improvement: Updated NuGet package versions:
+  - `Finbuckle.MultiTenant` 9.4.10 → 9.4.16
+
 ### Version 1.0.37
 
 - Fixed: removed a stray NuGet version arm that pinned `Finbuckle.MultiTenant` to 10.0.2 for .NET 10 applications. That version conflicted with `Intent.Modules.AspNetCore.MultiTenancy`'s single `9.4.10` pin (which deliberately has no separate .NET 10 arm), risking a version mismatch when this module is combined with the root multi-tenancy module in a .NET 10 application. .NET 8/9 applications were unaffected and already resolved to `9.4.10`.
@@ -61,7 +66,7 @@
 ### Version 1.0.22
 
 - Improvement: Updated NuGet package versions.
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5.
 
 ### Version 1.0.21
 

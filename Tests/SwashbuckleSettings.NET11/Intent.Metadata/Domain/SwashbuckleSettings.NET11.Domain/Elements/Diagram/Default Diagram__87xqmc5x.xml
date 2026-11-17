@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a3f47377-4e24-472e-a5ad-f9bded9f1df9" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <order>1</order>
+  <parentFolderId>85267cd9-6afd-46bd-91f0-f2177c3a7dea</parentFolderId>
+  <packageId>85267cd9-6afd-46bd-91f0-f2177c3a7dea</packageId>
+  <packageName>SwashbuckleSettings.NET11.Domain</packageName>
+  <diagram>
+    <targetPackageId>85267cd9-6afd-46bd-91f0-f2177c3a7dea</targetPackageId>
+  </diagram>
+</class>

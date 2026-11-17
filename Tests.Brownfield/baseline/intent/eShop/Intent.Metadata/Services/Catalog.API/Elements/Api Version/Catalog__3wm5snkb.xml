@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="17694c38-ea2b-4cd4-a3bf-d6e4c33e2039" type="Api Version" typeId="0ec760ae-98d8-4e8e-953c-d00691ff7e28">
+  <name>Catalog</name>
+  <display>Catalog</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>c7d9613d-ef78-402d-a6b9-749c777f297a</parentFolderId>
+  <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+  <packageName>Catalog.API</packageName>
+  <children>
+    <element id="afda879f-7be4-4585-9fb6-5addf7740cda" type="Version" typeId="95f4362b-8193-41cb-bd65-c17d6be3f96b">
+      <name>1.0</name>
+      <display>1.0</display>
+      <parentFolderId>17694c38-ea2b-4cd4-a3bf-d6e4c33e2039</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1cefa0f4-0fce-4a35-9f8d-389ecfd66b56" name="Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="7248493f-2e26-4f51-99b0-ed0e2ae6b511" display="Is Deprecated" value="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="16e60bf2-d390-4c9f-a52b-1aac48df8684" type="Version" typeId="95f4362b-8193-41cb-bd65-c17d6be3f96b">
+      <name>2.0</name>
+      <display>2.0</display>
+      <parentFolderId>17694c38-ea2b-4cd4-a3bf-d6e4c33e2039</parentFolderId>
+      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+      <packageName>Catalog.API</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1cefa0f4-0fce-4a35-9f8d-389ecfd66b56" name="Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="7248493f-2e26-4f51-99b0-ed0e2ae6b511" display="Is Deprecated" value="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+  </children>
+</class>

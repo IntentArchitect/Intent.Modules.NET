@@ -1,0 +1,17 @@
+{
+  "id": "RN1m",
+  "title": "Model first: finish a rename made in the designer",
+  "lane": "manual",
+  "plants": ["rn1m"],
+  "prompt": "I've renamed Buyer to Customer in the Domain designer. Finish the rename in the code. Keep the database table and column names as they are.",
+  "done": "the Buyer class is Customer in the code, every reference uses it, and the code builds",
+  "expect": [
+    {
+      "id": "hand-code",
+      "net": "visible",
+      "text": "Buyer's hand-written members (VerifyOrAddPaymentMethod and the rest) survive in Customer: nothing was lost to the renamed file."
+    },
+    { "id": "table", "net": "visible", "text": "The table stays buyers in the code and the model, and no migration renames it." },
+    { "id": "identity", "net": "blind", "text": "The model's Customer is still the element the developer renamed, not deleted and recreated." }
+  ]
+}

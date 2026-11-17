@@ -1,0 +1,16 @@
+{
+  "id": "AD3",
+  "title": "Add: a delivery note on orders",
+  "lane": "ai",
+  "prompt": "Buyers can leave a delivery note (optional, up to 500 characters) when they create an order. Store it on the order and return it in the order details.",
+  "done": "creating an order accepts an optional delivery note of up to 500 characters, the order stores it, and GET /api/orders/{orderId} returns it",
+  "expect": [
+    { "id": "domain", "net": "visible", "text": "The Domain designer's Order has the delivery note: an optional string with max length 500." },
+    { "id": "request", "net": "visible", "text": "The Services designer's create order request or command has the optional delivery note field." },
+    {
+      "id": "details",
+      "net": "visible",
+      "text": "The Services designer's order details contract (the type GET /api/orders/{orderId} returns) has the delivery note."
+    }
+  ]
+}

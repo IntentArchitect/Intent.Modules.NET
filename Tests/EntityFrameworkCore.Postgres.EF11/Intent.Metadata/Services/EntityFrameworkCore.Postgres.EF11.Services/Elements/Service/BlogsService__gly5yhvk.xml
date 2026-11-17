@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bab368d3-43dc-4e8d-89a9-0fd33f5bd478" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>BlogsService</name>
+  <display>BlogsService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</parentFolderId>
+  <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+  <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/blogs" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="becb9ee8-d0f5-4127-a6fe-694bcb7fd5eb" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment>Creates a blog with its first post.</comment>
+      <name>CreateBlog</name>
+      <display>CreateBlog(dto: CreateBlogDto): guid</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="c5ae8b26-a394-4d10-b04f-572a11c35857">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <typeName>guid</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>bab368d3-43dc-4e8d-89a9-0fd33f5bd478</parentFolderId>
+      <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+      <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="ae0074a1-a1a1-4bae-9995-506379e40eba" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: CreateBlogDto</display>
+          <typeReference id="7fde0e50-b85f-45bf-9b46-a92fb484e54d">
+            <typeId>ad28c8e6-1dcc-424c-a3be-a08dceae46df</typeId>
+            <typeName>CreateBlogDto</typeName>
+            <typePackageName>EntityFrameworkCore.Postgres.EF11.Services</typePackageName>
+            <typePackageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</typePackageId>
+          </typeReference>
+          <parentFolderId>becb9ee8-d0f5-4127-a6fe-694bcb7fd5eb</parentFolderId>
+          <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+          <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+        </element>
+        <association id="191c8041-05c0-46f8-9965-594996103f82">
+          <sourceEnd id="afd35554-808b-43e0-a3f3-5b05340dbf0f" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+            <display>created by : BlogsService.CreateBlog</display>
+            <typeReference id="89e4ece4-eca3-4aed-b47a-2ef97218d59b">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="191c8041-05c0-46f8-9965-594996103f82" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+            <name>blog</name>
+            <display>[create] blog: Blog</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="257ccd21-3f9f-4f13-a081-5e9d969c97a8">
+              <typeId>84e2176b-ecdc-4e83-bc00-b2577e103ef6</typeId>
+              <typeName>Blog</typeName>
+              <typePackageName>EntityFrameworkCore.Postgres.EF11.Domain</typePackageName>
+              <typePackageId>9e660ce7-7357-4d30-9094-f957a8eb71fd</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Create Entity Action</associationType>
+          <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="05c02ac6-e1d9-43aa-85e1-69affc7303f8" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment>Returns blogs that have posts published on or after 'since', counting only those posts (filtered Include).</comment>
+      <name>GetBlogsWithPostsSince</name>
+      <display>GetBlogsWithPostsSince(since: date): BlogSummaryDto[*]</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="b3adbf66-f562-47c2-a4f3-07f2be9b246d">
+        <typeId>ac4f4fc5-f810-455b-ad70-7d8d4748f62f</typeId>
+        <typeName>BlogSummaryDto</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>EntityFrameworkCore.Postgres.EF11.Services</typePackageName>
+        <typePackageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</typePackageId>
+      </typeReference>
+      <parentFolderId>bab368d3-43dc-4e8d-89a9-0fd33f5bd478</parentFolderId>
+      <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+      <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="8da796a9-6dee-4f7a-8399-42a3ff4c0d2d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>since</name>
+          <display>in : since: date</display>
+          <typeReference id="dd0c4580-568a-4e38-be45-64b3a0d82dd8">
+            <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+            <typeName>date</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>05c02ac6-e1d9-43aa-85e1-69affc7303f8</parentFolderId>
+          <packageId>c23d3842-21cc-4ac3-88ae-dd39d59ee552</packageId>
+          <packageName>EntityFrameworkCore.Postgres.EF11.Services</packageName>
+        </element>
+        <association id="7e040505-f82b-43b7-985f-1194898a1f78">
+          <sourceEnd id="e54f0c49-5857-4ad4-8843-b1508678c2b0" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+            <display>: GetBlogsWithPostsSince</display>
+            <typeReference id="4a8c8a4d-da10-4cdd-8ae2-834a031df322">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="7e040505-f82b-43b7-985f-1194898a1f78" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+            <name>blogs</name>
+            <display>[query] blogs: Blog[*]?</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="632d2f7e-df1b-46e7-8a33-66b632ea223a">
+              <typeId>84e2176b-ecdc-4e83-bc00-b2577e103ef6</typeId>
+              <typeName>Blog</typeName>
+              <isNullable>true</isNullable>
+              <isCollection>true</isCollection>
+              <typePackageName>EntityFrameworkCore.Postgres.EF11.Domain</typePackageName>
+              <typePackageId>9e660ce7-7357-4d30-9094-f957a8eb71fd</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Query Entity Action</associationType>
+          <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+        </association>
+      </children>
+    </element>
+  </children>
+</class>

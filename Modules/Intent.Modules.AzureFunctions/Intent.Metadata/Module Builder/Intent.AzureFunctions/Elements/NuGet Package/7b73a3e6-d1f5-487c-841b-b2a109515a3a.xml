@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="7b73a3e6-d1f5-487c-841b-b2a109515a3a" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
-  <comment>In Process Azure Functions</comment>
+  <comment>In Process Azure Functions. Held at 4.9.0: 4.10.0 and later pull Microsoft.Extensions.* 8.x (via Microsoft.Extensions.Azure 1.12+), above the net6.0 in-process Microsoft.Extensions.* 6.x locks; consumers fail restore with NU1605 or load newer Microsoft.Extensions assemblies under the in-process host. Checked 2026-11-11 with Get-NuGetBumpCandidates.ps1's lock-compatibility check.</comment>
   <name>Microsoft.Azure.WebJobs.Extensions.CosmosDB</name>
   <display>Microsoft.Azure.WebJobs.Extensions.CosmosDB [locked]</display>
   <isAbstract>false</isAbstract>
@@ -26,9 +26,10 @@
   <metadata />
   <childElements>
     <childElement id="bb054f28-84c5-4b04-8220-2c812bdc2f4b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.3.0</name>
-      <display>4.3.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>4.9.0</name>
+      <display>4.9.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7b73a3e6-d1f5-487c-841b-b2a109515a3a</parentFolderId>
@@ -46,7 +47,78 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="b568e094-25a8-426a-b327-0dabdad0ff8f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Core.NewtonsoftJson</name>
+          <display>Microsoft.Azure.Core.NewtonsoftJson (2.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bb054f28-84c5-4b04-8220-2c812bdc2f4b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9d226941-58a6-437f-9d7c-b8e992e0edd5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Cosmos</name>
+          <display>Microsoft.Azure.Cosmos (3.44.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.44.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bb054f28-84c5-4b04-8220-2c812bdc2f4b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="20c3c07c-6fe1-4351-a91e-a4827e5c2671" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.WebJobs</name>
+          <display>Microsoft.Azure.WebJobs (3.0.41)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.0.41</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bb054f28-84c5-4b04-8220-2c812bdc2f4b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4727d75c-5a2e-485a-8554-6a34f87dd0df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.CSharp</name>
+          <display>Microsoft.CSharp (4.7.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.7.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bb054f28-84c5-4b04-8220-2c812bdc2f4b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ab4e1a38-42ca-4623-94ae-3090918ad665" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Azure</name>
+          <display>Microsoft.Extensions.Azure (1.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bb054f28-84c5-4b04-8220-2c812bdc2f4b</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

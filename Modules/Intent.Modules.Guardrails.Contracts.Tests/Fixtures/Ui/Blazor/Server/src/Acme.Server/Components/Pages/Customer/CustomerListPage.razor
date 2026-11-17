@@ -1,0 +1,20 @@
+@page "/customer/list"
+
+<MudPaper Class="pa-4 mb-4" Elevation="0">
+    <MudText Typo="Typo.h4">Customers</MudText>
+</MudPaper>
+<MudButton Variant="Variant.Filled"
+           Color="Color.Primary"
+           StartIcon="@Icons.Material.Filled.Add"
+           OnClick="@NavigateToCustomerAddPage">
+    Add Customer
+</MudButton>
+<MudTable ServerData="LoadServerData" @ref="_table" Hover="true">
+    <RowTemplate>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd>
+            <MudIconButton Icon="@Icons.Material.Filled.Edit"
+                           OnClick="@(() => NavigateToCustomerEditPage(context.Id))" />
+        </MudTd>
+    </RowTemplate>
+</MudTable>

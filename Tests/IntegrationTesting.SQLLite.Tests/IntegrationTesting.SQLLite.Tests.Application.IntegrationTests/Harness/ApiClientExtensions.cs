@@ -43,6 +43,21 @@ namespace IntegrationTesting.SQLLite.Tests.Application.IntegrationTests.Harness
             client.DeleteAsync(requestUri, cancellationToken);
 
         /// <summary>
+        /// Sends an HTTP QUERY request: a safe, idempotent read whose criteria travel in the JSON body.
+        /// </summary>
+        public static Task<HttpResponseMessage> QueryAsJsonNoThrowAsync<TBody>(
+            this HttpClient client,
+            string requestUri,
+            TBody body,
+            CancellationToken cancellationToken) =>
+            client.SendAsync(
+                new HttpRequestMessage(HttpMethod.Query, requestUri)
+                {
+                    Content = JsonContent.Create(body, options: JsonOptions)
+                },
+                cancellationToken);
+
+        /// <summary>
         /// Reads a success body using the server's serializer settings.
         /// </summary>
         public static async Task<T> ReadContentAsync<T>(

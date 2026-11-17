@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="46a7e61e-fe51-49f5-97dc-6a104b5c9334" zIndex="0">
+  <name>OrderStartedDomainEvent</name>
+  <position x="0" y="1020" />
+  <size width="200" height="70" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

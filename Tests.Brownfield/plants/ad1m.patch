@@ -1,0 +1,738 @@
+diff --git a/intent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml b/intent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml
+index 5fddeb7..1223efb 100644
+--- a/intent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml
++++ b/intent/eShop/Intent.Metadata/Domain/Catalog/Elements/Class/CatalogItem__fnk0x2x8.xml
+@@ -251,6 +251,21 @@
+       <packageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</packageId>
+       <packageName>Catalog</packageName>
+     </element>
++    <element id="7c4713f4-3486-4955-94fb-e00db71594a2" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
++      <comment>Whether the item has been discontinued and is no longer offered for sale. Defaults to false.</comment>
++      <name>IsDiscontinued</name>
++      <display>IsDiscontinued: bool = false</display>
++      <value>false</value>
++      <typeReference id="a3be6fba-5019-4114-a747-d9ac50dddb69">
++        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
++        <typeName>bool</typeName>
++        <typePackageName>Intent.Common.Types</typePackageName>
++        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
++      </typeReference>
++      <parentFolderId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</parentFolderId>
++      <packageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</packageId>
++      <packageName>Catalog</packageName>
++    </element>
+     <element id="1e8780da-f3e6-4082-a23d-80fa3df5f97e" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+       <name>CatalogItem</name>
+       <display>CatalogItem(name: string)</display>
+diff --git a/intent/eShop/Intent.Metadata/Services/Basket.API.Eventing/Basket.API.Eventing.pkg.config b/intent/eShop/Intent.Metadata/Services/Basket.API.Eventing/Basket.API.Eventing.pkg.config
+index 0551148..6a47d2f 100644
+--- a/intent/eShop/Intent.Metadata/Services/Basket.API.Eventing/Basket.API.Eventing.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/Basket.API.Eventing/Basket.API.Eventing.pkg.config
+@@ -36,4 +36,7 @@
+       <module>Intent.Services.Guardrails.Contracts</module>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/Basket.API/Associations/Perform Invocation/Handler_to_result__1jb1hw1g.xml b/intent/eShop/Intent.Metadata/Services/Basket.API/Associations/Perform Invocation/Handler_to_result__1jb1hw1g.xml
+index 158ddf0..d21490a 100644
+--- a/intent/eShop/Intent.Metadata/Services/Basket.API/Associations/Perform Invocation/Handler_to_result__1jb1hw1g.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Basket.API/Associations/Perform Invocation/Handler_to_result__1jb1hw1g.xml	
+@@ -2,6 +2,7 @@
+ <association id="a0a01616-9551-41f2-bd32-1bfdd5732b5e">
+   <sourceEnd id="c81760a1-91ee-4503-aaf0-39a954a950cd" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStartedIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="b1d4e73f-dc75-4609-b787-2d3924ee87af">
+       <typeId>3e03c7c5-bf9a-44a0-b0e7-bc3e0d28c33c</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Basket.API/Basket.API.pkg.config b/intent/eShop/Intent.Metadata/Services/Basket.API/Basket.API.pkg.config
+index a12721d..4d6b5db 100644
+--- a/intent/eShop/Intent.Metadata/Services/Basket.API/Basket.API.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/Basket.API/Basket.API.pkg.config
+@@ -40,4 +40,7 @@
+       <module>Intent.Services.Guardrails.Contracts</module>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/Catalog.API.Eventing/Catalog.API.Eventing.pkg.config b/intent/eShop/Intent.Metadata/Services/Catalog.API.Eventing/Catalog.API.Eventing.pkg.config
+index 507a565..0f63037 100644
+--- a/intent/eShop/Intent.Metadata/Services/Catalog.API.Eventing/Catalog.API.Eventing.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/Catalog.API.Eventing/Catalog.API.Eventing.pkg.config
+@@ -36,4 +36,7 @@
+       <module>Intent.Services.Guardrails.Contracts</module>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_PublishThroughEventBusAsync__688s97xf.xml b/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_PublishThroughEventBusAsync__688s97xf.xml
+index 5bf2f65..c726188 100644
+--- a/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_PublishThroughEventBusAsync__688s97xf.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_PublishThroughEventBusAsync__688s97xf.xml	
+@@ -2,6 +2,7 @@
+ <association id="afd9ec02-e134-4d1b-bce2-30c8dc9543ee">
+   <sourceEnd id="30360a6d-15ae-4681-ab0a-a6945e82df25" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStatusChangedToAwaitingValidationIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="a6bd590b-0c2a-442f-b71c-f3d9d5c2de6c">
+       <typeId>f2d1f327-c213-4ada-8d15-b84db9a73c57</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_SaveEventAndCatalogContextChangesAsync__k2bctsh5.xml b/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_SaveEventAndCatalogContextChangesAsync__k2bctsh5.xml
+index e588cd7..4e70750 100644
+--- a/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_SaveEventAndCatalogContextChangesAsync__k2bctsh5.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Perform Invocation/Handler_to_SaveEventAndCatalogContextChangesAsync__k2bctsh5.xml	
+@@ -2,6 +2,7 @@
+ <association id="52b510f7-b56a-432d-a716-6c7520792811">
+   <sourceEnd id="d9cd2484-f80a-45cf-a96f-c3949f006660" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStatusChangedToAwaitingValidationIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="8da5ede8-787e-4533-b88c-087396c43025">
+       <typeId>f2d1f327-c213-4ada-8d15-b84db9a73c57</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockConfirmedIntegrationEvent__kbwkbf6k.xml b/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockConfirmedIntegrationEvent__kbwkbf6k.xml
+index 41abebb..fb1e691 100644
+--- a/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockConfirmedIntegrationEvent__kbwkbf6k.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockConfirmedIntegrationEvent__kbwkbf6k.xml	
+@@ -2,6 +2,7 @@
+ <association id="a0d00efb-681f-4e30-8adf-9b8f1c555cbc">
+   <sourceEnd id="b2a955a0-2308-4569-8f4b-cb30aaedd1d0" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+     <display>published by : OrderStatusChangedToAwaitingValidationIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="7ca40478-96d3-46f1-9d89-7c33a1f9d694">
+       <typeId>f2d1f327-c213-4ada-8d15-b84db9a73c57</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockRejectedIntegrationEvent__b5p1jxml.xml b/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockRejectedIntegrationEvent__b5p1jxml.xml
+index 4f19173..1051a08 100644
+--- a/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockRejectedIntegrationEvent__b5p1jxml.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Publish Integration Event/Handler_to_OrderStockRejectedIntegrationEvent__b5p1jxml.xml	
+@@ -2,6 +2,7 @@
+ <association id="ed945793-b804-45fe-b543-163e6d85a58d">
+   <sourceEnd id="43f179d1-4855-4837-8730-de09ea13557d" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+     <display>published by : OrderStatusChangedToAwaitingValidationIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="630209f8-6bdc-4dd8-b526-b424d4b75a31">
+       <typeId>f2d1f327-c213-4ada-8d15-b84db9a73c57</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Query Entity Action/Handler_to_catalogItems__1knd0gbz.xml b/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Query Entity Action/Handler_to_catalogItems__1knd0gbz.xml
+index 939f53d..5af9aff 100644
+--- a/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Query Entity Action/Handler_to_catalogItems__1knd0gbz.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Query Entity Action/Handler_to_catalogItems__1knd0gbz.xml	
+@@ -2,6 +2,7 @@
+ <association id="f7f6b516-4520-4404-affb-47d20cc32c82">
+   <sourceEnd id="b60123da-63f8-4b4b-9f40-aed8e1baeee6" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+     <display>: Handler</display>
++    <order>0</order>
+     <typeReference id="7f470fc7-39ef-44b8-9dd8-d61d52a6d066">
+       <typeId>f2d1f327-c213-4ada-8d15-b84db9a73c57</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Update Entity Action/Handler_to_catalogItem__58y34wvg.xml b/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Update Entity Action/Handler_to_catalogItem__58y34wvg.xml
+index 3985b9d..9246dd1 100644
+--- a/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Update Entity Action/Handler_to_catalogItem__58y34wvg.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Catalog.API/Associations/Update Entity Action/Handler_to_catalogItem__58y34wvg.xml	
+@@ -2,6 +2,7 @@
+ <association id="cf92844c-64ce-412b-9fb4-d6a6c3aafd0c">
+   <sourceEnd id="6ab17417-ad94-4df2-9d1b-76519e726ee6" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+     <display>updated by : OrderStatusChangedToPaidIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="ee925b46-574a-41a6-99fa-8d3cc241b6ef">
+       <typeId>dbd8fa97-afbf-4514-a3e6-53a14d37f134</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Catalog.API/Catalog.API.pkg.config b/intent/eShop/Intent.Metadata/Services/Catalog.API/Catalog.API.pkg.config
+index f8be0ef..7e574af 100644
+--- a/intent/eShop/Intent.Metadata/Services/Catalog.API/Catalog.API.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/Catalog.API/Catalog.API.pkg.config
+@@ -48,4 +48,7 @@
+       <module>Intent.Services.Guardrails.Contracts</module>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/Catalog.API/Elements/Service/CatalogApi__fgmllgqd.xml b/intent/eShop/Intent.Metadata/Services/Catalog.API/Elements/Service/CatalogApi__fgmllgqd.xml
+index 12dd5aa..6f8c01e 100644
+--- a/intent/eShop/Intent.Metadata/Services/Catalog.API/Elements/Service/CatalogApi__fgmllgqd.xml
++++ b/intent/eShop/Intent.Metadata/Services/Catalog.API/Elements/Service/CatalogApi__fgmllgqd.xml
+@@ -2324,5 +2324,128 @@
+         </association>
+       </children>
+     </element>
++    <element id="ea2c0515-ca68-45b7-93f7-6ec580c1525a" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
++      <comment>Marks the catalog item as discontinued (sets IsDiscontinued to true). Returns 404 Not Found when no item has the given id, otherwise 204 No Content.</comment>
++      <name>DiscontinueItem</name>
++      <display>DiscontinueItem(services: CatalogServices, id: int): Results&lt;NoContent, NotFound&gt;</display>
++      <sort-children>by-type-then-manually</sort-children>
++      <typeReference id="afb69dfa-3edf-426b-aa3d-6d1e40e01d47">
++        <typeId>d2bd49af-e3ee-408d-9556-b45ec3ffd1e3</typeId>
++        <typeName>Results&lt;NoContent, NotFound&gt;</typeName>
++        <typePackageName>Catalog.API</typePackageName>
++        <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
++      </typeReference>
++      <parentFolderId>29aeedc2-9202-4e2b-970e-fa13d98d6f70</parentFolderId>
++      <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
++      <packageName>Catalog.API</packageName>
++      <traits>
++        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
++        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
++      </traits>
++      <stereotypes>
++        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
++          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
++          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
++          <properties>
++            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
++            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
++            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
++            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
++            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
++          </properties>
++        </stereotype>
++        <stereotype stereotypeDefinitionId="f5ebf7a5-e3bf-4fbb-8abc-2b7dc60fa510" name="Operation Configuration">
++          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
++          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
++          <properties>
++            <property name="544879fe-733f-4ee3-b79f-a3e60f7ab738" display="Access Modifier" value="public" />
++            <property name="7e333b7d-8ccd-4d5d-8524-f2ece1a9bffe" display="Static" value="true" />
++            <property name="a2299ed6-52fb-47c6-8862-7a5a577331e5" display="Virtual" value="false" />
++            <property name="66b619a2-07cd-49c0-b3b5-ca02a446eae0" display="Override" value="false" />
++            <property name="71819e78-dd2b-496d-b95d-b2e5ef612762" display="Sealed" value="false" />
++            <property name="56ec2cca-c1db-48b0-8eca-48a7d97b9dbd" display="New" value="false" />
++          </properties>
++        </stereotype>
++        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
++          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
++          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
++          <properties>
++            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" />
++            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="items/{id:int}/discontinue" />
++            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
++            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="204 (No Content)" />
++          </properties>
++        </stereotype>
++        <stereotype stereotypeDefinitionId="20855f03-c663-4ec6-b106-de06be98f1fe" name="Api Version Settings">
++          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
++          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
++          <properties>
++            <property name="599d08af-a12c-4cb1-95cc-ebe8568a5d4c" display="Applicable Versions" value="[&quot;16e60bf2-d390-4c9f-a52b-1aac48df8684&quot;]" />
++          </properties>
++        </stereotype>
++      </stereotypes>
++      <children>
++        <element id="a8a676bb-5520-4af7-88b4-d3af897404c5" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
++          <name>services</name>
++          <display>in : services: CatalogServices</display>
++          <typeReference id="e3f533b7-7ff8-4c29-b20c-cddeb171ec82">
++            <typeId>2c3c61e6-1750-45d1-b27d-799bf07ecc54</typeId>
++            <typeName>CatalogServices</typeName>
++            <typePackageName>Catalog.API</typePackageName>
++            <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
++          </typeReference>
++          <parentFolderId>ea2c0515-ca68-45b7-93f7-6ec580c1525a</parentFolderId>
++          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
++          <packageName>Catalog.API</packageName>
++        </element>
++        <element id="d71a6535-e067-4358-9444-74497b96d46f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
++          <name>id</name>
++          <display>in : id: int</display>
++          <typeReference id="476d1007-f681-4056-a492-0aa630937b8f">
++            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
++            <typeName>int</typeName>
++            <typePackageName>Intent.Common.Types</typePackageName>
++            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
++          </typeReference>
++          <parentFolderId>ea2c0515-ca68-45b7-93f7-6ec580c1525a</parentFolderId>
++          <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
++          <packageName>Catalog.API</packageName>
++          <stereotypes>
++            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
++              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
++              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
++              <properties>
++                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Route" />
++                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
++                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
++              </properties>
++            </stereotype>
++          </stereotypes>
++        </element>
++        <association id="4cc317e4-511f-4682-a700-54f865804bee">
++          <sourceEnd id="85cfea48-12a4-478d-af6d-a5703d480fb0" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
++            <display>updated by : CatalogApi.DiscontinueItem</display>
++            <typeReference id="9f185fd1-5104-414c-82e8-4fa86ba701b5">
++              <isNavigable>false</isNavigable>
++            </typeReference>
++          </sourceEnd>
++          <targetEnd id="4cc317e4-511f-4682-a700-54f865804bee" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
++            <name>catalogItem</name>
++            <display>[update] catalogItem: CatalogItem</display>
++            <traits>
++              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
++            </traits>
++            <typeReference id="0d1612ea-bae2-402c-b846-67eb62f09887">
++              <typeId>ddb1b0c5-258f-4a81-9c0b-a67c52a489ef</typeId>
++              <typeName>CatalogItem</typeName>
++              <typePackageName>Catalog</typePackageName>
++              <typePackageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</typePackageId>
++            </typeReference>
++          </targetEnd>
++          <associationType>Update Entity Action</associationType>
++          <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
++        </association>
++      </children>
++    </element>
+   </children>
+ </class>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/OrderProcessor.Eventing/OrderProcessor.Eventing.pkg.config b/intent/eShop/Intent.Metadata/Services/OrderProcessor.Eventing/OrderProcessor.Eventing.pkg.config
+index 6a70ef3..07658f6 100644
+--- a/intent/eShop/Intent.Metadata/Services/OrderProcessor.Eventing/OrderProcessor.Eventing.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/OrderProcessor.Eventing/OrderProcessor.Eventing.pkg.config
+@@ -36,4 +36,7 @@
+       <module>Intent.Services.Guardrails.Contracts</module>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/OrderProcessor/OrderProcessor.pkg.config b/intent/eShop/Intent.Metadata/Services/OrderProcessor/OrderProcessor.pkg.config
+index c8dd1cd..4d78cd5 100644
+--- a/intent/eShop/Intent.Metadata/Services/OrderProcessor/OrderProcessor.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/OrderProcessor/OrderProcessor.pkg.config
+@@ -40,4 +40,7 @@
+       <path>../OrderProcessor.Eventing/OrderProcessor.Eventing.pkg.config</path>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Create Entity Action/handler_to_buyer__3d1byw4d.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Create Entity Action/handler_to_buyer__3d1byw4d.xml
+index dc20875..6a687f5 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Create Entity Action/handler_to_buyer__3d1byw4d.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Create Entity Action/handler_to_buyer__3d1byw4d.xml	
+@@ -2,6 +2,7 @@
+ <association id="d25d0731-7640-4301-a7af-2bbdff618dec">
+   <sourceEnd id="0ec19825-8a42-4d84-8c5c-082f1e7b520b" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+     <display>created by : ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler.handler</display>
++    <order>0</order>
+     <typeReference id="36283f10-eedf-493a-aa63-034b8920f3ea">
+       <typeId>e4e5d2bb-d7fd-4d1f-aba3-f6aed5b7c407</typeId>
+       <typeName>handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__1d3zcxxt.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__1d3zcxxt.xml
+index 06110dc..c2cbd95 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__1d3zcxxt.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__1d3zcxxt.xml	
+@@ -2,6 +2,7 @@
+ <association id="b4492114-190b-48e5-afbe-9830e15cf9ef">
+   <sourceEnd id="23dcf25f-2745-4923-9ed8-7710742a4657" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStockConfirmedIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="04003f16-6785-4c04-865c-62b772f1d191">
+       <typeId>688f14a3-882c-4be8-bd82-0964ef5ec797</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__2l7bf32n.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__2l7bf32n.xml
+index 6a8c6fa..3c1f8c5 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__2l7bf32n.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__2l7bf32n.xml	
+@@ -2,6 +2,7 @@
+ <association id="583f7325-1b4c-4ee4-9781-ea9f5655163e">
+   <sourceEnd id="fbd00de9-1c5f-49ea-8f99-dbfafe52e5bc" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : GracePeriodConfirmedIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="9abb999a-0a12-445d-9a80-c7d6109a9ce5">
+       <typeId>13d622a2-0be3-4208-a34b-3d8fd74ceb87</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__3h1x44ry.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__3h1x44ry.xml
+index 9f849f2..17d0d27 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__3h1x44ry.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__3h1x44ry.xml	
+@@ -2,6 +2,7 @@
+ <association id="78f66f32-bc4a-428d-a0fc-d72fd4684725">
+   <sourceEnd id="21cdf1ac-95f8-4c6c-8823-aab83993ff12" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderPaymentSucceededIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="05a31313-85c3-441b-8eef-97c4a9b645e5">
+       <typeId>c215b2f9-93d4-4ebc-851f-0e70e4c17f62</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__b1hh3qwg.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__b1hh3qwg.xml
+index 4afc276..667c9c5 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__b1hh3qwg.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__b1hh3qwg.xml	
+@@ -2,6 +2,7 @@
+ <association id="ca316491-9660-4de1-882b-6b401ec704e4">
+   <sourceEnd id="41f2427b-b60f-47d0-ba8f-16fb59944f49" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStockRejectedIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="13453153-437e-4998-b7b9-e9add933c945">
+       <typeId>6c92af61-9d6a-43c2-ae7f-a945943b4e0f</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__j2b4mbcb.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__j2b4mbcb.xml
+index 8c37382..9861655 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__j2b4mbcb.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Perform Invocation/Handler_to_result__j2b4mbcb.xml	
+@@ -2,6 +2,7 @@
+ <association id="00b697e8-9087-4a12-b666-3b074c6815ec">
+   <sourceEnd id="0792007b-f814-481f-85d6-2336ae14169c" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderPaymentFailedIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="f616f44f-61e1-4f77-b8b3-9a7860826d2b">
+       <typeId>e72e5b86-ccb9-48ec-9084-9e2862f873ac</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToAwaitingValidationIntegrationEvent__bc5r1dqv.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToAwaitingValidationIntegrationEvent__bc5r1dqv.xml
+index f478f06..fe70755 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToAwaitingValidationIntegrationEvent__bc5r1dqv.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToAwaitingValidationIntegrationEvent__bc5r1dqv.xml	
+@@ -2,6 +2,7 @@
+ <association id="c681e995-497b-41e0-9ddd-54f900adc5f5">
+   <sourceEnd id="cdfd4dd1-5c69-434e-b1fa-6f5c5df19fdb" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+     <display>published by : OrderStatusChangedToAwaitingValidationDomainEventHandler.handler</display>
++    <order>0</order>
+     <typeReference id="61c499a3-4033-433b-ba94-4a42643238eb">
+       <typeId>9160c79c-ec59-4bb3-b2ee-14d363d044dc</typeId>
+       <typeName>handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToCancelledIntegrationEvent__jr0gg1qn.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToCancelledIntegrationEvent__jr0gg1qn.xml
+index 944ce18..7cb568c 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToCancelledIntegrationEvent__jr0gg1qn.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToCancelledIntegrationEvent__jr0gg1qn.xml	
+@@ -2,6 +2,7 @@
+ <association id="619e3ff2-4b8b-45ed-a159-65a6b61d09c4">
+   <sourceEnd id="d443d8ed-ffeb-4baf-8c2b-2bb2fe0b04a2" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+     <display>published by : OrderCancelledDomainEventHandler.handler</display>
++    <order>0</order>
+     <typeReference id="9729d4de-2194-4952-9ed5-61ffdc320728">
+       <typeId>3bd93869-4698-4dbc-96ee-ccb9dfb3efa0</typeId>
+       <typeName>handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToPaidIntegrationEvent__4zmtpj7x.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToPaidIntegrationEvent__4zmtpj7x.xml
+index ea99147..9677a4f 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToPaidIntegrationEvent__4zmtpj7x.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToPaidIntegrationEvent__4zmtpj7x.xml	
+@@ -2,6 +2,7 @@
+ <association id="77722d48-ddb2-4283-b799-9535af12deaf">
+   <sourceEnd id="4ab66b8e-8fd4-43ff-85ec-17e64abcd8bf" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+     <display>published by : OrderStatusChangedToPaidDomainEventHandler.handler</display>
++    <order>0</order>
+     <typeReference id="37a047b3-32b8-4ebb-b6c5-46b60d6c1720">
+       <typeId>9f51e580-01a2-4a66-8849-d8a7794fe765</typeId>
+       <typeName>handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToShippedIntegrationEvent__fdtdqrh2.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToShippedIntegrationEvent__fdtdqrh2.xml
+index 0a55762..3f55533 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToShippedIntegrationEvent__fdtdqrh2.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToShippedIntegrationEvent__fdtdqrh2.xml	
+@@ -2,6 +2,7 @@
+ <association id="8f1a15c2-6063-4439-9097-02397f84b64b">
+   <sourceEnd id="26e385be-9741-454b-b0ef-e751a1c8f4b7" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+     <display>published by : OrderShippedDomainEventHandler.handler</display>
++    <order>0</order>
+     <typeReference id="c420fe65-7eb8-4941-bac5-219315cc8a96">
+       <typeId>30df1a6f-1554-4121-bfcc-d2d0e4f548cd</typeId>
+       <typeName>handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToStockConfirmedIntegrationEvent__l534jc57.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToStockConfirmedIntegrationEvent__l534jc57.xml
+index c9afea4..3d056ce 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToStockConfirmedIntegrationEvent__l534jc57.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToStockConfirmedIntegrationEvent__l534jc57.xml	
+@@ -2,6 +2,7 @@
+ <association id="816e7a08-aba7-49c8-9d21-0d9608863f01">
+   <sourceEnd id="e8ee5c5e-1742-45d3-8344-dcbda51c5c50" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+     <display>published by : OrderStatusChangedToStockConfirmedDomainEventHandler.handler</display>
++    <order>0</order>
+     <typeReference id="d65f323c-112b-4e14-bed1-eeb1a1da605b">
+       <typeId>45c249c6-5ac0-4393-9d52-b45fb3c44df8</typeId>
+       <typeName>handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToSubmittedIntegrationEvent__c4w772kl.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToSubmittedIntegrationEvent__c4w772kl.xml
+index 2d128f7..f0fdb15 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToSubmittedIntegrationEvent__c4w772kl.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Publish Integration Event/handler_to_OrderStatusChangedToSubmittedIntegrationEvent__c4w772kl.xml	
+@@ -2,6 +2,7 @@
+ <association id="5f0770a1-4e2a-4c6d-a362-5db3aae6f71e">
+   <sourceEnd id="65c1c47a-64e8-411e-99a3-fdabad960ecd" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+     <display>published by : ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler.handler</display>
++    <order>0</order>
+     <typeReference id="38461c7f-54e2-4b5b-8587-e9e94065f2e7">
+       <typeId>e4e5d2bb-d7fd-4d1f-aba3-f6aed5b7c407</typeId>
+       <typeName>handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_buyer1__hhlyw826.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_buyer1__hhlyw826.xml
+index 3c00589..30365e4 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_buyer1__hhlyw826.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_buyer1__hhlyw826.xml	
+@@ -2,6 +2,7 @@
+ <association id="0beb52e0-36fc-47ff-bd67-0e74b2e6b17b">
+   <sourceEnd id="f27d4805-b6c3-4f7f-86e5-2dd96873cc26" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+     <display>updated by : ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler.handler</display>
++    <order>0</order>
+     <typeReference id="fd6a63c0-67ab-4318-ba32-a43d788b418c">
+       <typeId>e4e5d2bb-d7fd-4d1f-aba3-f6aed5b7c407</typeId>
+       <typeName>handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_order__786yt3wm.xml b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_order__786yt3wm.xml
+index 3025630..a6a7986 100644
+--- a/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_order__786yt3wm.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Ordering.API/Associations/Update Entity Action/handler_to_order__786yt3wm.xml	
+@@ -2,6 +2,7 @@
+ <association id="13701f69-02ee-4b17-90d4-0fd73c3ddeb5">
+   <sourceEnd id="4a5bef4f-9aa3-48d2-8aa9-25db435ce6c4" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+     <display>updated by : UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.handler</display>
++    <order>0</order>
+     <typeReference id="7dcc223e-fad3-4d94-bf58-e295c5f47886">
+       <typeId>4ac4acfd-c48a-4c89-96f1-915cdd897439</typeId>
+       <typeName>handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/PaymentProcessor.Eventing/PaymentProcessor.Eventing.pkg.config b/intent/eShop/Intent.Metadata/Services/PaymentProcessor.Eventing/PaymentProcessor.Eventing.pkg.config
+index 2822686..c965db3 100644
+--- a/intent/eShop/Intent.Metadata/Services/PaymentProcessor.Eventing/PaymentProcessor.Eventing.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/PaymentProcessor.Eventing/PaymentProcessor.Eventing.pkg.config
+@@ -36,4 +36,7 @@
+       <module>Intent.Services.Guardrails.Contracts</module>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentFailedIntegrationEvent__jc5l2y92.xml b/intent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentFailedIntegrationEvent__jc5l2y92.xml
+index 02c2650..1dc205a 100644
+--- a/intent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentFailedIntegrationEvent__jc5l2y92.xml	
++++ b/intent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentFailedIntegrationEvent__jc5l2y92.xml	
+@@ -2,6 +2,7 @@
+ <association id="7c7fb9ec-8b31-4ace-93ca-99a088a0419a">
+   <sourceEnd id="c975c3c4-038c-4a54-9249-5b4783d53c18" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+     <display>published by : OrderStatusChangedToStockConfirmedIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="bd82c9cf-bae4-458d-9764-62c1032b29c8">
+       <typeId>222cf9ef-26be-4eb6-8575-98aad86e853b</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentSucceededIntegrationEvent__byvvkmjn.xml b/intent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentSucceededIntegrationEvent__byvvkmjn.xml
+index c62e3eb..7361e20 100644
+--- a/intent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentSucceededIntegrationEvent__byvvkmjn.xml	
++++ b/intent/eShop/Intent.Metadata/Services/PaymentProcessor/Associations/Publish Integration Event/Handler_to_OrderPaymentSucceededIntegrationEvent__byvvkmjn.xml	
+@@ -2,6 +2,7 @@
+ <association id="01a8a19e-6d70-4652-a710-5a9201de722e">
+   <sourceEnd id="5b768a12-fbea-450f-a252-96827dedaec5" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+     <display>published by : OrderStatusChangedToStockConfirmedIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="964ab8ec-9976-40a9-a449-b100a02272db">
+       <typeId>222cf9ef-26be-4eb6-8575-98aad86e853b</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/PaymentProcessor/PaymentProcessor.pkg.config b/intent/eShop/Intent.Metadata/Services/PaymentProcessor/PaymentProcessor.pkg.config
+index 23e8ddf..0e494ae 100644
+--- a/intent/eShop/Intent.Metadata/Services/PaymentProcessor/PaymentProcessor.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/PaymentProcessor/PaymentProcessor.pkg.config
+@@ -40,4 +40,7 @@
+       <path>../PaymentProcessor.Eventing/PaymentProcessor.Eventing.pkg.config</path>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/WebApp.Eventing/WebApp.Eventing.pkg.config b/intent/eShop/Intent.Metadata/Services/WebApp.Eventing/WebApp.Eventing.pkg.config
+index 23d9811..9bf9ee6 100644
+--- a/intent/eShop/Intent.Metadata/Services/WebApp.Eventing/WebApp.Eventing.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/WebApp.Eventing/WebApp.Eventing.pkg.config
+@@ -36,4 +36,7 @@
+       <module>Intent.Services.Guardrails.Contracts</module>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__27rvrhxm.xml b/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__27rvrhxm.xml
+index 8d5902f..2fcbbdc 100644
+--- a/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__27rvrhxm.xml	
++++ b/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__27rvrhxm.xml	
+@@ -2,6 +2,7 @@
+ <association id="46979020-d82c-46a9-b57d-cfb6d10c8a80">
+   <sourceEnd id="214644c4-d93d-4b89-b530-59f9f3c5b568" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStatusChangedToCancelledIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="bd4aeebb-4fad-4945-b081-326dfabc8743">
+       <typeId>05161ab0-c060-4b05-b9c5-471d8cc346a5</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__52frwydl.xml b/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__52frwydl.xml
+index 20fbd89..d6e9a02 100644
+--- a/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__52frwydl.xml	
++++ b/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__52frwydl.xml	
+@@ -2,6 +2,7 @@
+ <association id="208f7c49-d060-4ae4-b815-6243e2ca7e02">
+   <sourceEnd id="f51bc30a-0909-4fbe-ad0c-bc9dc32f79ae" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStatusChangedToPaidIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="09d0f646-d7e8-4b7d-a089-8c023f20482a">
+       <typeId>a5eb4326-2f83-48dd-989a-75ee9efba0c8</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__79vjhg0t.xml b/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__79vjhg0t.xml
+index 95905ed..d13a7c7 100644
+--- a/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__79vjhg0t.xml	
++++ b/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__79vjhg0t.xml	
+@@ -2,6 +2,7 @@
+ <association id="b55be269-2fa4-4c7e-9ae7-68fd02405b17">
+   <sourceEnd id="47da7176-8086-400c-a734-990a64c02d3b" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStatusChangedToStockConfirmedIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="6a00423c-2fd1-4deb-bf89-987767befdf5">
+       <typeId>0d7ae6b8-42e2-4fe5-84be-b714cbc8ddbf</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__bxtxbmyp.xml b/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__bxtxbmyp.xml
+index 1bdc650..fd2dc73 100644
+--- a/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__bxtxbmyp.xml	
++++ b/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__bxtxbmyp.xml	
+@@ -2,6 +2,7 @@
+ <association id="0d89269e-b2d0-4e8e-bf8e-cd9031a3f3e2">
+   <sourceEnd id="ced48223-a8f6-446f-8ebe-f640ef946624" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStatusChangedToShippedIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="8e6737be-9961-4f2c-9c33-870bc84b245e">
+       <typeId>c517e227-132a-4980-a812-005250ea5f78</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__hn4hdtph.xml b/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__hn4hdtph.xml
+index 3aa40b1..efac405 100644
+--- a/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__hn4hdtph.xml	
++++ b/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__hn4hdtph.xml	
+@@ -2,6 +2,7 @@
+ <association id="e19770e2-ddf5-4b1b-87ee-42a189aedb7d">
+   <sourceEnd id="b7a04a44-e45b-483a-b245-31a4d2c0bdac" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStatusChangedToSubmittedIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="e2a06a33-a1dc-4105-8e15-3a22ee1d5bd7">
+       <typeId>954e3374-00f5-4f02-ab8e-a8cfccc29e4f</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__k2kpps94.xml b/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__k2kpps94.xml
+index c16c8a5..3a8a5fa 100644
+--- a/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__k2kpps94.xml	
++++ b/intent/eShop/Intent.Metadata/Services/WebApp/Associations/Perform Invocation/Handler_to_NotifyOrderStatusChangedAsync__k2kpps94.xml	
+@@ -2,6 +2,7 @@
+ <association id="a2ea2cf7-f6e4-462a-8010-5cf4c3e67a94">
+   <sourceEnd id="66623154-7085-4e66-9634-8d19250c1b9f" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStatusChangedToAwaitingValidationIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="0db15956-0c67-463a-abf6-4a2a00d8760f">
+       <typeId>94f748d8-2617-4e81-9fe0-709b0329ae58</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/WebApp/WebApp.pkg.config b/intent/eShop/Intent.Metadata/Services/WebApp/WebApp.pkg.config
+index 167af05..7338030 100644
+--- a/intent/eShop/Intent.Metadata/Services/WebApp/WebApp.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/WebApp/WebApp.pkg.config
+@@ -44,4 +44,7 @@
+       <path>../WebAppComponents/WebAppComponents.pkg.config</path>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/WebAppComponents/WebAppComponents.pkg.config b/intent/eShop/Intent.Metadata/Services/WebAppComponents/WebAppComponents.pkg.config
+index 99ed561..537ae8c 100644
+--- a/intent/eShop/Intent.Metadata/Services/WebAppComponents/WebAppComponents.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/WebAppComponents/WebAppComponents.pkg.config
+@@ -36,4 +36,7 @@
+       <module>Intent.Services.Guardrails.Contracts</module>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/WebhookClient/WebhookClient.pkg.config b/intent/eShop/Intent.Metadata/Services/WebhookClient/WebhookClient.pkg.config
+index 06cb6d9..99aab96 100644
+--- a/intent/eShop/Intent.Metadata/Services/WebhookClient/WebhookClient.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/WebhookClient/WebhookClient.pkg.config
+@@ -36,4 +36,7 @@
+       <module>Intent.Services.Guardrails.Contracts</module>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/Webhooks.API.Eventing/Webhooks.API.Eventing.pkg.config b/intent/eShop/Intent.Metadata/Services/Webhooks.API.Eventing/Webhooks.API.Eventing.pkg.config
+index bafc51b..136a9c6 100644
+--- a/intent/eShop/Intent.Metadata/Services/Webhooks.API.Eventing/Webhooks.API.Eventing.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/Webhooks.API.Eventing/Webhooks.API.Eventing.pkg.config
+@@ -36,4 +36,7 @@
+       <module>Intent.Services.Guardrails.Contracts</module>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file
+diff --git a/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__hljz9l59.xml b/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__hljz9l59.xml
+index f63f1a0..07b5d6d 100644
+--- a/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__hljz9l59.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__hljz9l59.xml	
+@@ -2,6 +2,7 @@
+ <association id="61b9b1e1-dfce-4cc0-8db4-ee545d084512">
+   <sourceEnd id="2b7ad3f3-921a-448e-a7be-56092d152956" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStatusChangedToShippedIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="2162f56d-7487-4628-a8f5-1aec2596204c">
+       <typeId>a0e27313-df10-451b-9e21-42d2f9da0de8</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__jzxx741v.xml b/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__jzxx741v.xml
+index afbb97f..ff0a453 100644
+--- a/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__jzxx741v.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_SendAll__jzxx741v.xml	
+@@ -2,6 +2,7 @@
+ <association id="57aaf1f5-5455-4b10-a203-e5bfb2168c0e">
+   <sourceEnd id="8ed8d6be-99dd-4eda-9444-9af807df7716" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStatusChangedToPaidIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="1030e87b-4f74-4843-a6e1-de67fa14d4bf">
+       <typeId>2dc61eed-69ba-416b-aa14-c5be5030e52b</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__hym22s1s.xml b/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__hym22s1s.xml
+index e719592..49fb9a0 100644
+--- a/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__hym22s1s.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__hym22s1s.xml	
+@@ -2,6 +2,7 @@
+ <association id="1b23dce6-36e0-4db1-aa0d-8e317ab30292">
+   <sourceEnd id="7fc7219e-9a2c-4de8-8328-0dcd86b38bc5" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStatusChangedToPaidIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="0f1d83dc-7da7-45ea-a20f-99f13dc88c8f">
+       <typeId>2dc61eed-69ba-416b-aa14-c5be5030e52b</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__jj364lct.xml b/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__jj364lct.xml
+index 1ea4cbf..043ba71 100644
+--- a/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__jj364lct.xml	
++++ b/intent/eShop/Intent.Metadata/Services/Webhooks.API/Associations/Perform Invocation/Handler_to_result__jj364lct.xml	
+@@ -2,6 +2,7 @@
+ <association id="47bd05ef-6fd7-4c4f-9db4-dab228f5a8ad">
+   <sourceEnd id="9ddaf703-8452-4cdf-9c6e-0b69e7b35bae" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+     <display>called by : OrderStatusChangedToShippedIntegrationEventHandler.Handler</display>
++    <order>0</order>
+     <typeReference id="d3be2845-a98d-4f43-89fb-00e333d7b4f2">
+       <typeId>a0e27313-df10-451b-9e21-42d2f9da0de8</typeId>
+       <typeName>Handler</typeName>
+diff --git a/intent/eShop/Intent.Metadata/Services/Webhooks.API/Webhooks.API.pkg.config b/intent/eShop/Intent.Metadata/Services/Webhooks.API/Webhooks.API.pkg.config
+index b22fee8..b76b03e 100644
+--- a/intent/eShop/Intent.Metadata/Services/Webhooks.API/Webhooks.API.pkg.config
++++ b/intent/eShop/Intent.Metadata/Services/Webhooks.API/Webhooks.API.pkg.config
+@@ -44,4 +44,7 @@
+       <path>../Webhooks.API.Eventing/Webhooks.API.Eventing.pkg.config</path>
+     </reference>
+   </references>
++  <metadata>
++    <entry key="initialized-version" value="1" />
++  </metadata>
+ </package>
+\ No newline at end of file

@@ -1,0 +1,15 @@
+{
+  "id": "AD5",
+  "title": "Add: a domain event raised by an existing operation",
+  "lane": "ai",
+  "prompt": "Raise a new OrderItemDiscountChangedDomainEvent, with the order item's id and the new discount, whenever OrderItem.SetNewDiscount changes the discount.",
+  "done": "OrderItem.SetNewDiscount raises OrderItemDiscountChangedDomainEvent, carrying the order item's id and the new discount, whenever it changes the discount",
+  "expect": [
+    {
+      "id": "event",
+      "net": "visible",
+      "text": "The Domain designer has OrderItemDiscountChangedDomainEvent with the order item's id and the discount, as in the code."
+    },
+    { "id": "origin", "net": "blind", "text": "OrderItem's SetNewDiscount operation has a Domain Event Origin to OrderItemDiscountChangedDomainEvent." }
+  ]
+}

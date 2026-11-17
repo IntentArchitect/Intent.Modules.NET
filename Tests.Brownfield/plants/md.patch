@@ -1,0 +1,377 @@
+diff --git a/src/Catalog.API/Apis/CatalogApi.cs b/src/Catalog.API/Apis/CatalogApi.cs
+index e201d7d..dde9cf1 100644
+--- a/src/Catalog.API/Apis/CatalogApi.cs
++++ b/src/Catalog.API/Apis/CatalogApi.cs
+@@ -152,7 +152,7 @@ public static class CatalogApi
+         }
+         if (type is { Length: > 0 })
+         {
+-            root = root.Where(c => type.Contains(c.CatalogTypeId));
++            root = root.Where(c => c.CatalogTypeId != null && type.Contains(c.CatalogTypeId.Value));
+         }
+         if (brand is { Length: > 0 })
+         {
+@@ -187,7 +187,7 @@ public static class CatalogApi
+         var brandScope = items;
+         if (type is { Length: > 0 })
+         {
+-            brandScope = brandScope.Where(c => type.Contains(c.CatalogTypeId));
++            brandScope = brandScope.Where(c => c.CatalogTypeId != null && type.Contains(c.CatalogTypeId.Value));
+         }
+         var brandCounts = await brandScope
+             .GroupBy(c => c.CatalogBrandId)
+@@ -201,7 +201,7 @@ public static class CatalogApi
+         }
+         var typeCounts = await typeScope
+             .GroupBy(c => c.CatalogTypeId)
+-            .Select(g => new CatalogFacetCount(g.Key, g.Count()))
++            .Select(g => new CatalogFacetCount(g.Key ?? 0, g.Count()))
+             .ToListAsync();
+ 
+         return TypedResults.Ok(new CatalogFacets(
+diff --git a/src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs b/src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs
+index 5992d29..7121dca 100644
+--- a/src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs
++++ b/src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs
+@@ -8,7 +8,13 @@ class CatalogItemEntityTypeConfiguration
+         builder.ToTable("Catalog");
+ 
+         builder.Property(ci => ci.Name)
+-            .HasMaxLength(50);
++            .HasMaxLength(60);
++
++        builder.Property(ci => ci.Description)
++            .HasColumnName("item_description");
++
++        builder.Property(ci => ci.Price)
++            .HasPrecision(18, 2);
+ 
+         builder.Property(ci => ci.Embedding)
+             .HasColumnType("vector(384)");
+@@ -17,7 +23,8 @@ class CatalogItemEntityTypeConfiguration
+             .WithMany();
+ 
+         builder.HasOne(ci => ci.CatalogType)
+-            .WithMany();
++            .WithMany()
++            .IsRequired(false);
+ 
+         builder.HasIndex(ci => ci.Name);
+     }
+diff --git a/src/Catalog.API/Model/CatalogItem.cs b/src/Catalog.API/Model/CatalogItem.cs
+index 801caf2..6a9fe05 100644
+--- a/src/Catalog.API/Model/CatalogItem.cs
++++ b/src/Catalog.API/Model/CatalogItem.cs
+@@ -23,7 +23,7 @@ public class CatalogItem
+ 
+     public string? PictureFileName { get; set; }
+ 
+-    public int CatalogTypeId { get; set; }
++    public int? CatalogTypeId { get; set; }
+ 
+     public CatalogType? CatalogType { get; set; }
+ 
+diff --git a/src/Ordering.API/Apis/OrdersApi.cs b/src/Ordering.API/Apis/OrdersApi.cs
+index 159ab3b..4367480 100644
+--- a/src/Ordering.API/Apis/OrdersApi.cs
++++ b/src/Ordering.API/Apis/OrdersApi.cs
+@@ -17,18 +17,19 @@ public static class OrdersApi
+         var api = app.MapGroup("api/orders").HasApiVersion(1.0);
+ 
+         api.MapPut("/cancel", CancelOrderAsync);
+-        api.MapPut("/ship", ShipOrderAsync);
+-        api.MapGet("{orderId:int}", GetOrderAsync);
++        api.MapPost("/ship", ShipOrderAsync);
++        api.MapGet("{orderId:int}", GetOrderAsync).AllowAnonymous();
+         api.MapGet("/", GetOrdersByUserAsync);
+-        api.MapGet("/cardtypes", GetCardTypesAsync);
++        api.MapGet("/card-types", GetCardTypesAsync);
+         api.MapPost("/draft", CreateOrderDraftAsync);
+         api.MapPost("/", CreateOrderAsync);
++        api.MapGet("{orderId:int}/status", GetOrderStatusAsync);
+ 
+         return api;
+     }
+ 
+     public static async Task<Results<Ok, BadRequest<string>, ProblemHttpResult>> CancelOrderAsync(
+-        [FromHeader(Name = "x-requestid")] Guid requestId,
++        [FromQuery(Name = "requestId")] Guid requestId,
+         CancelOrderCommand command,
+         [AsParameters] OrderServices services)
+     {
+@@ -98,6 +99,19 @@ public static class OrdersApi
+         }
+     }
+ 
++    public static async Task<Results<Ok<string>, NotFound>> GetOrderStatusAsync(int orderId, [AsParameters] OrderServices services)
++    {
++        try
++        {
++            var order = await services.Queries.GetOrderAsync(orderId);
++            return TypedResults.Ok(order.Status);
++        }
++        catch
++        {
++            return TypedResults.NotFound();
++        }
++    }
++
+     public static async Task<Ok<IEnumerable<OrderSummary>>> GetOrdersByUserAsync([AsParameters] OrderServices services)
+     {
+         var userId = services.IdentityService.GetUserIdentity();
+diff --git a/src/Ordering.API/Application/Commands/CancelOrderCommand.cs b/src/Ordering.API/Application/Commands/CancelOrderCommand.cs
+index ec417ae..c9669fd 100644
+--- a/src/Ordering.API/Application/Commands/CancelOrderCommand.cs
++++ b/src/Ordering.API/Application/Commands/CancelOrderCommand.cs
+@@ -6,5 +6,5 @@ using Intent.RoslynWeaver.Attributes;
+ 
+ namespace eShop.Ordering.API.Application.Commands;
+ 
+-public record CancelOrderCommand(int OrderNumber) : IRequest<bool>;
++public record CancelOrderCommand(int OrderNumber, string Reason = null) : IRequest<bool>;
+ 
+diff --git a/src/Ordering.API/Application/Commands/CreateOrderDraftCommandHandler.cs b/src/Ordering.API/Application/Commands/CreateOrderDraftCommandHandler.cs
+index 88297fa..618b0db 100644
+--- a/src/Ordering.API/Application/Commands/CreateOrderDraftCommandHandler.cs
++++ b/src/Ordering.API/Application/Commands/CreateOrderDraftCommandHandler.cs
+@@ -40,7 +40,7 @@ public record OrderDraftDTO
+                 ProductId = oi.ProductId,
+                 UnitPrice = oi.UnitPrice,
+                 PictureUrl = oi.PictureUrl,
+-                Units = oi.Units,
++                Units = (int)oi.Units,
+                 ProductName = oi.ProductName
+             }),
+             Total = order.GetTotal()
+diff --git a/src/Ordering.API/Application/DomainEventHandlers/OrderShippedDomainEventHandler.cs b/src/Ordering.API/Application/DomainEventHandlers/OrderShippedDomainEventHandler.cs
+index 498af70..6ea976d 100644
+--- a/src/Ordering.API/Application/DomainEventHandlers/OrderShippedDomainEventHandler.cs
++++ b/src/Ordering.API/Application/DomainEventHandlers/OrderShippedDomainEventHandler.cs
+@@ -32,8 +32,5 @@ public class OrderShippedDomainEventHandler
+ 
+         var order = await _orderRepository.GetAsync(domainEvent.Order.Id);
+         var buyer = await _buyerRepository.FindByIdAsync(order.BuyerId.Value);
+-
+-        var integrationEvent = new OrderStatusChangedToShippedIntegrationEvent(order.Id, order.OrderStatus, buyer.Name, buyer.IdentityGuid);
+-        await _orderingIntegrationEventService.AddAndSaveEventAsync(integrationEvent);
+     }
+ }
+diff --git a/src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToAwaitingValidationDomainEventHandler.cs b/src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToAwaitingValidationDomainEventHandler.cs
+index c48bbeb..f061892 100644
+--- a/src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToAwaitingValidationDomainEventHandler.cs
++++ b/src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToAwaitingValidationDomainEventHandler.cs
+@@ -34,7 +34,7 @@ public class OrderStatusChangedToAwaitingValidationDomainEventHandler
+         var buyer = await _buyerRepository.FindByIdAsync(order.BuyerId.Value);
+ 
+         var orderStockList = domainEvent.OrderItems
+-            .Select(orderItem => new OrderStockItem(orderItem.ProductId, orderItem.Units));
++            .Select(orderItem => new OrderStockItem(orderItem.ProductId, (int)orderItem.Units));
+ 
+         var integrationEvent = new OrderStatusChangedToAwaitingValidationIntegrationEvent(order.Id, order.OrderStatus, buyer.Name, buyer.IdentityGuid, orderStockList);
+         await _orderingIntegrationEventService.AddAndSaveEventAsync(integrationEvent);
+diff --git a/src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToPaidDomainEventHandler.cs b/src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToPaidDomainEventHandler.cs
+index 69592cb..43aa2f9 100644
+--- a/src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToPaidDomainEventHandler.cs
++++ b/src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToPaidDomainEventHandler.cs
+@@ -33,7 +33,7 @@ public class OrderStatusChangedToPaidDomainEventHandler : INotificationHandler<O
+         var buyer = await _buyerRepository.FindByIdAsync(order.BuyerId.Value);
+ 
+         var orderStockList = domainEvent.OrderItems
+-            .Select(orderItem => new OrderStockItem(orderItem.ProductId, orderItem.Units));
++            .Select(orderItem => new OrderStockItem(orderItem.ProductId, (int)orderItem.Units));
+ 
+         var integrationEvent = new OrderStatusChangedToPaidIntegrationEvent(
+             domainEvent.OrderId,
+diff --git a/src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToStockConfirmedDomainEventHandler.cs b/src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToStockConfirmedDomainEventHandler.cs
+index 45acd58..54c72a2 100644
+--- a/src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToStockConfirmedDomainEventHandler.cs
++++ b/src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToStockConfirmedDomainEventHandler.cs
+@@ -31,9 +31,7 @@ public class OrderStatusChangedToStockConfirmedDomainEventHandler
+         OrderingApiTrace.LogOrderStatusUpdated(_logger, domainEvent.OrderId, OrderStatus.StockConfirmed);
+ 
+         var order = await _orderRepository.GetAsync(domainEvent.OrderId);
+-        var buyer = await _buyerRepository.FindByIdAsync(order.BuyerId.Value);
+-
+-        var integrationEvent = new OrderStatusChangedToStockConfirmedIntegrationEvent(order.Id, order.OrderStatus, buyer.Name, buyer.IdentityGuid);
++        var integrationEvent = new OrderStatusChangedToStockConfirmedIntegrationEvent(order.Id, order.OrderStatus, null, null);
+         await _orderingIntegrationEventService.AddAndSaveEventAsync(integrationEvent);
+     }
+ }
+diff --git a/src/Ordering.API/Application/DomainEventHandlers/UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.cs b/src/Ordering.API/Application/DomainEventHandlers/UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.cs
+index b4bb52b..c5b4420 100644
+--- a/src/Ordering.API/Application/DomainEventHandlers/UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.cs
++++ b/src/Ordering.API/Application/DomainEventHandlers/UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.cs
+@@ -9,13 +9,16 @@ namespace eShop.Ordering.API.Application.DomainEventHandlers;
+ public class UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler : INotificationHandler<BuyerAndPaymentMethodVerifiedDomainEvent>
+ {
+     private readonly IOrderRepository _orderRepository;
++    private readonly IOrderingIntegrationEventService _orderingIntegrationEventService;
+     private readonly ILogger _logger;
+ 
+     public UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler(
+         IOrderRepository orderRepository,
++        IOrderingIntegrationEventService orderingIntegrationEventService,
+         ILogger<UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler> logger)
+     {
+         _orderRepository = orderRepository ?? throw new ArgumentNullException(nameof(orderRepository));
++        _orderingIntegrationEventService = orderingIntegrationEventService;
+         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+     }
+ 
+@@ -27,5 +30,8 @@ public class UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler : IN
+         var orderToUpdate = await _orderRepository.GetAsync(domainEvent.OrderId);
+         orderToUpdate.SetPaymentMethodVerified(domainEvent.Buyer.Id, domainEvent.Payment.Id);
+         OrderingApiTrace.LogOrderPaymentMethodUpdated(_logger, domainEvent.OrderId, nameof(domainEvent.Payment), domainEvent.Payment.Id);
++
++        var integrationEvent = new OrderStatusChangedToSubmittedIntegrationEvent(orderToUpdate.Id, orderToUpdate.OrderStatus, domainEvent.Buyer.Name, domainEvent.Buyer.IdentityGuid);
++        await _orderingIntegrationEventService.AddAndSaveEventAsync(integrationEvent);
+     }
+ }
+diff --git a/src/Ordering.API/Application/OrderNumberFormatter.cs b/src/Ordering.API/Application/OrderNumberFormatter.cs
+new file mode 100644
+index 0000000..adf2fcb
+--- /dev/null
++++ b/src/Ordering.API/Application/OrderNumberFormatter.cs
+@@ -0,0 +1,6 @@
++namespace eShop.Ordering.API.Application;
++
++public static class OrderNumberFormatter
++{
++    public static string Format(int orderNumber) => $"ORD-{orderNumber:D8}";
++}
+diff --git a/src/Ordering.API/Application/Queries/OrderQueries.cs b/src/Ordering.API/Application/Queries/OrderQueries.cs
+index 6e21c8e..db9c589 100644
+--- a/src/Ordering.API/Application/Queries/OrderQueries.cs
++++ b/src/Ordering.API/Application/Queries/OrderQueries.cs
+@@ -35,7 +35,7 @@ public class OrderQueries(OrderingContext context)
+             OrderItems = order.OrderItems.Select(oi => new Orderitem
+             {
+                 ProductName = oi.ProductName,
+-                Units = oi.Units,
++                Units = (int)oi.Units,
+                 UnitPrice = (double)oi.UnitPrice,
+                 PictureUrl = oi.PictureUrl
+             }).ToList()
+diff --git a/src/Ordering.Domain/AggregatesModel/CouponAggregate/Coupon.cs b/src/Ordering.Domain/AggregatesModel/CouponAggregate/Coupon.cs
+new file mode 100644
+index 0000000..60065f4
+--- /dev/null
++++ b/src/Ordering.Domain/AggregatesModel/CouponAggregate/Coupon.cs
+@@ -0,0 +1,20 @@
++namespace eShop.Ordering.Domain.AggregatesModel.CouponAggregate;
++
++public class Coupon : Entity, IAggregateRoot
++{
++    public string Code { get; private set; }
++
++    public decimal Discount { get; private set; }
++
++    public bool Consumed { get; private set; }
++
++    protected Coupon() { }
++
++    public Coupon(string code, decimal discount)
++    {
++        Code = code;
++        Discount = discount;
++    }
++
++    public void Consume() => Consumed = true;
++}
+diff --git a/src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs b/src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs
+index df703aa..b31ddcf 100644
+--- a/src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs
++++ b/src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs
+@@ -24,6 +24,8 @@ public class Order
+ 
+     public OrderStatus OrderStatus { get; private set; }
+ 
++    public int Priority { get; private set; }
++
+     public string Description { get; private set; }
+ 
+     // Draft orders have this set to true. Currently we don't check anywhere the draft status of an Order, but we could do it if needed
+@@ -117,8 +119,6 @@ public class Order
+     {
+         if (OrderStatus == OrderStatus.AwaitingValidation)
+         {
+-            AddDomainEvent(new OrderStatusChangedToStockConfirmedDomainEvent(Id));
+-
+             OrderStatus = OrderStatus.StockConfirmed;
+             Description = "All the items were confirmed with available stock.";
+         }
+diff --git a/src/Ordering.Domain/AggregatesModel/OrderAggregate/OrderItem.cs b/src/Ordering.Domain/AggregatesModel/OrderAggregate/OrderItem.cs
+index 6d7666b..2b159e6 100644
+--- a/src/Ordering.Domain/AggregatesModel/OrderAggregate/OrderItem.cs
++++ b/src/Ordering.Domain/AggregatesModel/OrderAggregate/OrderItem.cs
+@@ -20,7 +20,7 @@ public class OrderItem
+ 
+     public decimal Discount { get; private set; }
+ 
+-    public int Units { get; private set; }
++    public long Units { get; private set; }
+ 
+     public int ProductId { get; private set; }
+ 
+diff --git a/src/Ordering.Infrastructure/EntityConfigurations/BuyerEntityTypeConfiguration.cs b/src/Ordering.Infrastructure/EntityConfigurations/BuyerEntityTypeConfiguration.cs
+index 9de21b5..0e4d402 100644
+--- a/src/Ordering.Infrastructure/EntityConfigurations/BuyerEntityTypeConfiguration.cs
++++ b/src/Ordering.Infrastructure/EntityConfigurations/BuyerEntityTypeConfiguration.cs
+@@ -5,7 +5,7 @@ class BuyerEntityTypeConfiguration
+ {
+     public void Configure(EntityTypeBuilder<Buyer> buyerConfiguration)
+     {
+-        buyerConfiguration.ToTable("buyers");
++        buyerConfiguration.ToTable("ordering_buyers");
+ 
+         buyerConfiguration.Ignore(b => b.DomainEvents);
+ 
+diff --git a/src/Ordering.Infrastructure/EntityConfigurations/CardTypeEntityTypeConfiguration.cs b/src/Ordering.Infrastructure/EntityConfigurations/CardTypeEntityTypeConfiguration.cs
+index 40d5e90..de14137 100644
+--- a/src/Ordering.Infrastructure/EntityConfigurations/CardTypeEntityTypeConfiguration.cs
++++ b/src/Ordering.Infrastructure/EntityConfigurations/CardTypeEntityTypeConfiguration.cs
+@@ -11,7 +11,6 @@ class CardTypeEntityTypeConfiguration
+             .ValueGeneratedNever();
+ 
+         cardTypesConfiguration.Property(ct => ct.Name)
+-            .HasMaxLength(200)
+-            .IsRequired();
++            .HasMaxLength(200);
+     }
+ }
+diff --git a/src/Ordering.Infrastructure/EntityConfigurations/CouponEntityTypeConfiguration.cs b/src/Ordering.Infrastructure/EntityConfigurations/CouponEntityTypeConfiguration.cs
+new file mode 100644
+index 0000000..1b30cc9
+--- /dev/null
++++ b/src/Ordering.Infrastructure/EntityConfigurations/CouponEntityTypeConfiguration.cs
+@@ -0,0 +1,18 @@
++using eShop.Ordering.Domain.AggregatesModel.CouponAggregate;
++
++namespace eShop.Ordering.Infrastructure.EntityConfigurations;
++
++class CouponEntityTypeConfiguration
++    : IEntityTypeConfiguration<Coupon>
++{
++    public void Configure(EntityTypeBuilder<Coupon> couponConfiguration)
++    {
++        couponConfiguration.ToTable("coupons");
++
++        couponConfiguration.Ignore(c => c.DomainEvents);
++
++        couponConfiguration.Property(c => c.Code)
++            .HasMaxLength(50)
++            .IsRequired();
++    }
++}
+diff --git a/src/Ordering.Infrastructure/OrderingContext.cs b/src/Ordering.Infrastructure/OrderingContext.cs
+index 0b265de..ee97892 100644
+--- a/src/Ordering.Infrastructure/OrderingContext.cs
++++ b/src/Ordering.Infrastructure/OrderingContext.cs
+@@ -41,6 +41,7 @@ public class OrderingContext : DbContext, IUnitOfWork
+         modelBuilder.ApplyConfiguration(new OrderItemEntityTypeConfiguration());
+         modelBuilder.ApplyConfiguration(new CardTypeEntityTypeConfiguration());
+         modelBuilder.ApplyConfiguration(new BuyerEntityTypeConfiguration());
++        modelBuilder.ApplyConfiguration(new CouponEntityTypeConfiguration());
+         modelBuilder.UseIntegrationEventLogs();
+     }
+ 

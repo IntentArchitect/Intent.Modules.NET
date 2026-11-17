@@ -22,7 +22,7 @@
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
-  <file path="Subscribe.MassTransit.DomainInteractionsRepro.Api/Subscribe.MassTransit.DomainInteractionsRepro.Api.csproj" deviationsHash="080A69CD8025C1427FC187EF4D352DF65045662327CCA15263872050626E0D4A" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.MassTransit.DomainInteractionsRepro.Api/Subscribe.MassTransit.DomainInteractionsRepro.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Application/AssemblyAttributes.cs" templateId="Intent.Eventing.Contracts.AssemblyAttributes" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Application/CatalogueDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
@@ -62,7 +62,7 @@
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Application/GetCatalogueById/GetCatalogueByIdQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Application/IntegrationEvents/CatalogueCreatedIntegrationEvent.cs" templateId="Intent.Eventing.Contracts.IntegrationEventMessage" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Application/IntegrationEvents/EventHandlers/CatalogueCreatedIntegrationEventHandler.cs" templateId="Intent.Eventing.Contracts.IntegrationEventHandler" />
-  <file path="Subscribe.MassTransit.DomainInteractionsRepro.Application/Subscribe.MassTransit.DomainInteractionsRepro.Application.csproj" deviationsHash="EE760965542EFC7FBF401853CE91C3E495C6FFEA356480ADF836A5434C0EFA52" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.MassTransit.DomainInteractionsRepro.Application/Subscribe.MassTransit.DomainInteractionsRepro.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Domain/Common/Interfaces/IUnitOfWork.cs" templateId="Intent.Entities.Repositories.Api.UnitOfWorkInterface" />
@@ -84,6 +84,6 @@
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Infrastructure/Persistence/Configurations/CatalogueConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Infrastructure/Repositories/CatalogueRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
-  <file path="Subscribe.MassTransit.DomainInteractionsRepro.Infrastructure/Subscribe.MassTransit.DomainInteractionsRepro.Infrastructure.csproj" deviationsHash="E9AA2354E2C422B69954AC5515DF8E9973A181F09EEE7C30682DE1A828E2262A" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.MassTransit.DomainInteractionsRepro.Infrastructure/Subscribe.MassTransit.DomainInteractionsRepro.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Subscribe.MassTransit.DomainInteractionsRepro.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

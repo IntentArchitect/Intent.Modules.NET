@@ -1,3 +1,10 @@
+### Version 2.1.0
+
+- Improvement: Updated NuGet package versions:
+  - `FluentValidation` 12.1.1 → 12.2.0
+  - `MassTransit` 9.1.2 → 9.2.6
+  - `Swashbuckle.AspNetCore` 11.0.0 (net11.0, new); 10.2.3 → 10.3.1 (net9.0, net8.0)
+
 ### Version 2.0.2
 
 - Fixed: Handler AI skills (re-scoped to the `AI.Context.Skills.Handler` role) were no longer suppressed on the Modular Monolith host, so the host regenerated bare skill files that contended with the enriched ones produced by the modules (shared output folder). The host now also suppresses the `AI.Context.Skills.Handler` role.
@@ -12,8 +19,7 @@
 - Improvement: Updated to work with Microsoft.OpenApi (2.4.1) library version.
 - Improvement: Supported module updates.
 
-> ⚠️ NOTE
-> The migration to Microsoft.OpenApi (2.4.1) includes API changes that may impact custom Swashbuckle Filters. Please review and update your filter implementations to ensure compatibility after upgrading.
+> ⚠️ NOTE The migration to Microsoft.OpenApi (2.4.1) includes API changes that may impact custom Swashbuckle Filters. Please review and update your filter implementations to ensure compatibility after upgrading.
 
 ### Version 1.0.12
 

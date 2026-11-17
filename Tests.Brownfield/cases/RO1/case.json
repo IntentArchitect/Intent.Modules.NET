@@ -1,0 +1,9 @@
+{
+  "id": "RO1",
+  "title": "Read only: a question about the system",
+  "lane": "ai",
+  "readOnly": true,
+  "expectSoftwareFactory": false,
+  "prompt": "Which Ordering.API endpoints publish integration events, and which events?",
+  "done": "The answer names the Ordering.API endpoints that lead to integration events being published, and which events, consistently with the code (including events published by the domain event handlers an endpoint's command triggers), and the agent changed nothing"
+}

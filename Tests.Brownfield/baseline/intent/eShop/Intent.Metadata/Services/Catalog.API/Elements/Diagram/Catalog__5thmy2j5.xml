@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="abfa3f54-8716-4ff3-a2b0-b9f6d2127ca6" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Catalog</name>
+  <display>Catalog</display>
+  <parentFolderId>94b27cdf-5673-45f4-9591-2f383a1f9da2</parentFolderId>
+  <packageId>c7d9613d-ef78-402d-a6b9-749c777f297a</packageId>
+  <packageName>Catalog.API</packageName>
+  <diagram>
+    <targetPackageId>abfa3f54-8716-4ff3-a2b0-b9f6d2127ca6</targetPackageId>
+  </diagram>
+</class>

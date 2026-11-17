@@ -1,0 +1,179 @@
+diff --git a/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Buyer__5txjf5ss.xml b/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Customer__5txjf5ss.xml
+similarity index 98%
+rename from intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Buyer__5txjf5ss.xml
+rename to intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Customer__5txjf5ss.xml
+index 110d173..fc04525 100644
+--- a/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Buyer__5txjf5ss.xml
++++ b/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Customer__5txjf5ss.xml
+@@ -1,8 +1,8 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <class id="61a67154-8048-4011-bf04-19be21396a2f" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+   <comment>Aggregate root (IAggregateRoot). Key: Id (int) is declared on the SeedWork Entity base class, so it isn't modelled here. Id uses the HiLo sequence buyerseq.</comment>
+-  <name>Buyer</name>
+-  <display>Buyer</display>
++  <name>Customer</name>
++  <display>Customer</display>
+   <sort-children>by-type-then-manually</sort-children>
+   <parentFolderId>32875a8c-cdfa-4a47-952a-cb7963507c2e</parentFolderId>
+   <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+@@ -80,7 +80,7 @@
+     </element>
+     <element id="69f9c4b5-26af-46bf-bcd0-755ba2425174" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+       <name>Buyer</name>
+-      <display>Buyer()</display>
++      <display>Customer()</display>
+       <parentFolderId>61a67154-8048-4011-bf04-19be21396a2f</parentFolderId>
+       <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+       <packageName>Ordering</packageName>
+@@ -96,7 +96,7 @@
+     </element>
+     <element id="4d70b03e-624f-48d9-a58c-f57ad325ebdc" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+       <name>Buyer</name>
+-      <display>Buyer(identity: string, name: string)</display>
++      <display>Customer(identity: string, name: string)</display>
+       <sort-children>by-type-then-manually</sort-children>
+       <parentFolderId>61a67154-8048-4011-bf04-19be21396a2f</parentFolderId>
+       <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+@@ -260,7 +260,7 @@
+       <comment>HasMany(b =&gt; b.PaymentMethods).WithOne(): read-only view of the _paymentMethods field; the foreign key is the shadow property BuyerId (cascade delete).</comment>
+       <sourceEnd id="e3df57fc-c806-4b80-a8f0-685e485bb8ba" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+         <name>Buyer</name>
+-        <display>Buyer: Buyer</display>
++        <display>Buyer: Customer</display>
+         <typeReference id="6361e825-0f64-4049-9e7d-7f582882d0d3">
+           <isNavigable>false</isNavigable>
+         </typeReference>
+diff --git a/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Order__5q9r8drv.xml b/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Order__5q9r8drv.xml
+index 07cded7..9fef92d 100644
+--- a/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Order__5q9r8drv.xml
++++ b/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Class/Order__5q9r8drv.xml
+@@ -704,10 +704,10 @@
+       </sourceEnd>
+       <targetEnd id="03e72b51-e8a8-44c1-b870-f2df7464f245" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+         <name>Buyer</name>
+-        <display>Buyer: Buyer?</display>
++        <display>Buyer: Customer?</display>
+         <typeReference id="a9689b15-ca43-4322-bdb5-3c3555a1ba16">
+           <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+-          <typeName>Buyer</typeName>
++          <typeName>Customer</typeName>
+           <isNullable>true</isNullable>
+           <typePackageName>Ordering</typePackageName>
+           <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+diff --git a/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Domain Event/BuyerAndPaymentMethodVerifiedDomainEvent__j7bp37jv.xml b/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Domain Event/BuyerAndPaymentMethodVerifiedDomainEvent__j7bp37jv.xml
+index 1925489..a5db90a 100644
+--- a/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Domain Event/BuyerAndPaymentMethodVerifiedDomainEvent__j7bp37jv.xml	
++++ b/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Domain Event/BuyerAndPaymentMethodVerifiedDomainEvent__j7bp37jv.xml	
+@@ -20,10 +20,10 @@
+   <children>
+     <element id="daca1a6a-1ce7-480c-a704-2f866aa0e009" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+       <name>Buyer</name>
+-      <display>Buyer: Buyer</display>
++      <display>Buyer: Customer</display>
+       <typeReference id="fa307bde-5b7a-461f-bddd-31ecb7f450b8">
+         <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+-        <typeName>Buyer</typeName>
++        <typeName>Customer</typeName>
+         <typePackageName>Ordering</typePackageName>
+         <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+       </typeReference>
+diff --git a/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Repository/BuyerRepository__2q8qwssk.xml b/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Repository/BuyerRepository__2q8qwssk.xml
+index 8efb437..afa6a7d 100644
+--- a/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Repository/BuyerRepository__2q8qwssk.xml
++++ b/intent/eShop/Intent.Metadata/Domain/Ordering/Elements/Repository/BuyerRepository__2q8qwssk.xml
+@@ -2,11 +2,11 @@
+ <class id="f4995627-749b-4cbb-b246-93233bcd30ee" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+   <comment>Implements IBuyerRepository (IRepository&lt;Buyer&gt;) over OrderingContext.</comment>
+   <name>BuyerRepository</name>
+-  <display>BuyerRepository&lt;Buyer&gt;</display>
++  <display>BuyerRepository&lt;Customer&gt;</display>
+   <sort-children>manually</sort-children>
+   <typeReference id="326b4039-57f7-410b-9023-e1ab145a604f">
+     <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+-    <typeName>Buyer</typeName>
++    <typeName>Customer</typeName>
+     <typePackageName>Ordering</typePackageName>
+     <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+   </typeReference>
+@@ -27,11 +27,11 @@
+   <children>
+     <element id="90517293-1272-4978-a955-8dab7c83683f" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+       <name>Add</name>
+-      <display>Add(buyer: Buyer): Buyer</display>
++      <display>Add(buyer: Customer): Customer</display>
+       <sort-children>by-type-then-manually</sort-children>
+       <typeReference id="12587b96-50c6-4046-bc3d-3190a37e6f22">
+         <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+-        <typeName>Buyer</typeName>
++        <typeName>Customer</typeName>
+         <typePackageName>Ordering</typePackageName>
+         <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+       </typeReference>
+@@ -44,10 +44,10 @@
+       <children>
+         <element id="18341711-0d1f-49b3-9f5e-9c011cb5c966" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+           <name>buyer</name>
+-          <display>in : buyer: Buyer</display>
++          <display>in : buyer: Customer</display>
+           <typeReference id="c101ca34-fa33-4700-b06e-c8b1ef94818b">
+             <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+-            <typeName>Buyer</typeName>
++            <typeName>Customer</typeName>
+             <typePackageName>Ordering</typePackageName>
+             <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+           </typeReference>
+@@ -59,11 +59,11 @@
+     </element>
+     <element id="9e8a4303-bb21-4d5c-9189-b4affc39a3aa" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+       <name>Update</name>
+-      <display>Update(buyer: Buyer): Buyer</display>
++      <display>Update(buyer: Customer): Customer</display>
+       <sort-children>by-type-then-manually</sort-children>
+       <typeReference id="a0713146-85b2-42ca-845c-d9afb41153ba">
+         <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+-        <typeName>Buyer</typeName>
++        <typeName>Customer</typeName>
+         <typePackageName>Ordering</typePackageName>
+         <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+       </typeReference>
+@@ -76,10 +76,10 @@
+       <children>
+         <element id="5b4508a3-9523-4055-97bf-bd09b9fb0048" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+           <name>buyer</name>
+-          <display>in : buyer: Buyer</display>
++          <display>in : buyer: Customer</display>
+           <typeReference id="cfcd4009-408e-4f68-872c-96b09a57694e">
+             <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+-            <typeName>Buyer</typeName>
++            <typeName>Customer</typeName>
+             <typePackageName>Ordering</typePackageName>
+             <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+           </typeReference>
+@@ -91,11 +91,11 @@
+     </element>
+     <element id="089a7b71-9998-456f-b547-6b31bc23903d" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+       <name>FindAsync</name>
+-      <display>FindAsync(identity: string): Buyer</display>
++      <display>FindAsync(identity: string): Customer</display>
+       <sort-children>by-type-then-manually</sort-children>
+       <typeReference id="0ad9c906-f43e-4fdd-ac3f-76c7a959dc01">
+         <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+-        <typeName>Buyer</typeName>
++        <typeName>Customer</typeName>
+         <typePackageName>Ordering</typePackageName>
+         <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+       </typeReference>
+@@ -136,11 +136,11 @@
+     </element>
+     <element id="e43b1751-1fb9-4420-8cce-621eaa212cf6" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+       <name>FindByIdAsync</name>
+-      <display>FindByIdAsync(id: int): Buyer</display>
++      <display>FindByIdAsync(id: int): Customer</display>
+       <sort-children>by-type-then-manually</sort-children>
+       <typeReference id="84575585-ee78-42b2-ba98-58fb501ed00b">
+         <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+-        <typeName>Buyer</typeName>
++        <typeName>Customer</typeName>
+         <typePackageName>Ordering</typePackageName>
+         <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+       </typeReference>

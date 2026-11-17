@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="534931e7-499b-4039-89f3-3270e1d132a5" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <comment>Contributes the Services designer to the drift check: a drift reporter (Intent.Common.DriftReporting) that runs the shared check after template execution and adds its findings to the drift report's Services Area.</comment>
+  <name>ServicesDriftReporter</name>
+  <display>ServicesDriftReporter</display>
+  <parentFolderId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</parentFolderId>
+  <packageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</packageId>
+  <packageName>Intent.Services.Guardrails.Contracts</packageName>
+</class>

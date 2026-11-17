@@ -1,0 +1,123 @@
+{
+  "id": "MD1",
+  "title": "Detection: report the drift a developer's hand edits caused",
+  "lane": "manual",
+  "plants": ["md"],
+  "readOnly": true,
+  "expectClean": false,
+  "prompt": "Run the Software Factory and list exactly the drift it reports. Change nothing.",
+  "done": "The agent ran the Software Factory, listed the drift it reported, and changed nothing in the code or the model",
+  "expect": [
+    {
+      "id": "r1",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes CatalogItem.Name's max length: 60 in the code (its EF configuration), 50 in the model."
+    },
+    {
+      "id": "r2",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes CardType.Name: not required in the code (its IsRequired() was removed), required in the model."
+    },
+    {
+      "id": "r3",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes Buyer's table name: ordering_buyers in the code, buyers in the model."
+    },
+    {
+      "id": "r4",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes CatalogItem.Description's column name: item_description in the code, none in the model."
+    },
+    {
+      "id": "r5",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes CatalogItem.Price's precision (18, scale 2) in the code, which the model doesn't state."
+    },
+    {
+      "id": "r6",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes CatalogItem.CatalogTypeId's type: int? in the code, int in the model. (The model already has the CatalogType relationship as optional, 0..1, so the foreign key is the only difference.)"
+    },
+    { "id": "r7", "kind": "row", "net": "visible", "text": "The drift the agent lists includes OrderItem.Units' type: long in the code, int in the model." },
+    { "id": "r8", "kind": "row", "net": "visible", "text": "The drift the agent lists includes Order.Priority as in the code but not modelled." },
+    {
+      "id": "r9",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes the Coupon entity (and its entity configuration) as in the code but not modelled."
+    },
+    {
+      "id": "r10",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes Order.SetStockConfirmedStatus no longer raising OrderStatusChangedToStockConfirmedDomainEvent, which the model says it raises."
+    },
+    {
+      "id": "r11",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes the card types endpoint's route: /card-types in the code, /cardtypes in the model."
+    },
+    {
+      "id": "r12",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes the ship order endpoint's verb: POST in the code, PUT in the model."
+    },
+    {
+      "id": "r13",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes the get order endpoint (GetOrderAsync) being anonymous in the code (AllowAnonymous) while the model secures it."
+    },
+    {
+      "id": "r14",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes the cancel order endpoint's request id parameter: bound from the query in the code, from a header in the model."
+    },
+    {
+      "id": "r15",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes the new GET {orderId}/status endpoint (GetOrderStatusAsync) as in the code but not modelled."
+    },
+    { "id": "r16", "kind": "row", "net": "visible", "text": "The drift the agent lists includes CancelOrderCommand's Reason as in the code but not modelled." },
+    {
+      "id": "r17",
+      "kind": "row",
+      "net": "visible",
+      "text": "The drift the agent lists includes OrderShippedDomainEventHandler no longer publishing OrderStatusChangedToShippedIntegrationEvent, which the model says it publishes."
+    },
+    {
+      "id": "r18",
+      "kind": "noRow",
+      "net": "visible",
+      "text": "The drift the agent lists does not include the Buyer query removed from OrderStatusChangedToStockConfirmedDomainEventHandler: no query is modelled on any Ordering domain event handler, so removing one isn't drift."
+    },
+    {
+      "id": "r19",
+      "kind": "noRow",
+      "net": "blind",
+      "text": "The drift the agent lists does not include the publish of OrderStatusChangedToSubmittedIntegrationEvent newly added to UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler: the check never reports an interaction the code gains. (Mentioning it as a change the check can't see is fine.)"
+    },
+    {
+      "id": "r20",
+      "kind": "noRow",
+      "net": "blind",
+      "text": "The drift the agent lists does not include the new static class OrderNumberFormatter: no ownership convention covers it."
+    },
+    {
+      "id": "extra",
+      "kind": "noRow",
+      "net": "visible",
+      "text": "The drift the agent lists contains nothing beyond the edits above. A row that follows directly from one of them, such as CatalogTypeId's nullability alongside the CatalogType relationship, counts as part of that edit."
+    }
+  ]
+}

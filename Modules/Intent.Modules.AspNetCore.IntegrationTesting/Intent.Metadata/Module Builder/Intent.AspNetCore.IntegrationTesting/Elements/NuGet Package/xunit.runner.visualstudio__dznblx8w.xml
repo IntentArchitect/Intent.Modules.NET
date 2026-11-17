@@ -48,8 +48,9 @@
       <childElements />
     </childElement>
     <childElement id="63f1c097-142d-46f3-a335-2aef6b696734" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <comment>Paired with xunit.v3, which is locked: xunit.v3 4.0 makes CollectionBehavior(DisableTestParallelization/...) a compile error and removes xunit.v3.mtp-v1. https://xunit.net/releases/v3/4.0.0. 2026-11-11.</comment>
       <name>3.1.5</name>
-      <display>3.1.5 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>3.1.5 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -63,7 +64,7 @@
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
             <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="true" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

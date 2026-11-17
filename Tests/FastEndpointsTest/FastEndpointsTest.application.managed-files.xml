@@ -27,6 +27,7 @@
   <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/GetAggregateRootCompositeManyBByIdQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/GetAggregateRootCompositeManyBSQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/GetAggregateRootsQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/SearchAggregateRootsQueryEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/UpdateAggregateRootCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="FastEndpointsTest.Api/FastEndpoints/AggregateRoots/UpdateAggregateRootCompositeManyBCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="FastEndpointsTest.Api/FastEndpoints/AggregateWithUniqueConstraintIndexElements/CreateAggregateWithUniqueConstraintIndexElementCommandEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
@@ -86,6 +87,7 @@
   <file path="FastEndpointsTest.Api/FastEndpoints/Versioned/TestQueryV2Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="FastEndpointsTest.Api/FastEndpointsTest.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="FastEndpointsTest.Api/Filters/HideRouteParametersFromBodyOperationTransformer.cs" templateId="Intent.AspNetCore.Scalar.HideRouteParametersFromBodyOperationTransformer" />
+  <file path="FastEndpointsTest.Api/Filters/HttpQueryDocumentTransformer.cs" templateId="Intent.AspNetCore.Scalar.HttpQueryDocumentTransformer" />
   <file path="FastEndpointsTest.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
   <file path="FastEndpointsTest.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="FastEndpointsTest.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
@@ -173,6 +175,9 @@
   <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRoots/GetAggregateRootsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
   <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRoots/GetAggregateRootsQueryHandler.cs" templateId="Intent.Application.MediatR.QueryHandler" />
   <file path="FastEndpointsTest.Application/AggregateRoots/GetAggregateRoots/GetAggregateRootsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/SearchAggregateRoots/SearchAggregateRootsQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/SearchAggregateRoots/SearchAggregateRootsQueryHandler.cs" deviationsHash="77CE7ABB89279CD408AC7EBC2F17DA861C132A40C10EC49FD2447C6E8651395D" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="FastEndpointsTest.Application/AggregateRoots/SearchAggregateRoots/SearchAggregateRootsQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
   <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
   <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommandHandler.cs" templateId="Intent.Application.MediatR.CommandHandler" />
   <file path="FastEndpointsTest.Application/AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />

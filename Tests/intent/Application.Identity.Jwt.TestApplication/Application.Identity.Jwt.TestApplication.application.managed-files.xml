@@ -41,7 +41,7 @@
   <file path="Application.Identity.Jwt.TestApplication.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
   <file path="Application.Identity.Jwt.TestApplication.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="Application.Identity.Jwt.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
-  <file path="Application.Identity.Jwt.TestApplication.Infrastructure/Application.Identity.Jwt.TestApplication.Infrastructure.csproj" deviationsHash="776251A730DE054A074F167C470324E100DA8262B0A29DF2E5101EB8DCA23F5A" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Application.Identity.Jwt.TestApplication.Infrastructure/Application.Identity.Jwt.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Application.Identity.Jwt.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="Application.Identity.Jwt.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Application.Identity.Jwt.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

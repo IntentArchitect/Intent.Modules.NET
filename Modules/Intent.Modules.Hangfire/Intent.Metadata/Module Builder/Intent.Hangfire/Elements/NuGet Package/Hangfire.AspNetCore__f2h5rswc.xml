@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="0a49738d-5117-4d97-bb0e-acd29a4ba941" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.8.23</name>
-      <display>1.8.23 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>1.8.25</name>
+      <display>1.8.25 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c9719238-b2b1-400c-ab6d-1f9552e52838" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bfed3fe4-13ca-40fa-aabf-cd1aa9ac4586" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Hangfire.NetCore</name>
-          <display>Hangfire.NetCore (1.8.23)</display>
+          <display>Hangfire.NetCore (1.8.25)</display>
           <isAbstract>false</isAbstract>
-          <value>1.8.23</value>
+          <value>1.8.25</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0a49738d-5117-4d97-bb0e-acd29a4ba941</parentFolderId>
@@ -61,7 +61,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c1610562-6a1c-4185-aed8-d707a2cb6914" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b1643e73-812c-41f8-af61-7079213618f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Antiforgery</name>
           <display>Microsoft.AspNetCore.Antiforgery (2.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -75,7 +75,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3392f196-a82e-4395-9763-a3ff58bfa365" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="16baa864-b31b-4e58-8d3e-a69fc06dd50b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Http.Abstractions</name>
           <display>Microsoft.AspNetCore.Http.Abstractions (2.0.0)</display>
           <isAbstract>false</isAbstract>

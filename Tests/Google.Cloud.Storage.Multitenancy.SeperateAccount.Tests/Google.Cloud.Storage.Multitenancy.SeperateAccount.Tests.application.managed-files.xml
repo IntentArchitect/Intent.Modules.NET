@@ -61,7 +61,7 @@
   <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application/Customers/CustomerDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
   <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application/Customers/CustomerDtoMappingExtensions.cs" templateId="Intent.Application.Dtos.AutoMapper.MappingExtensions" />
   <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
-  <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application/Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.csproj" deviationsHash="70FFBD4F371BC11D7864B5A990E93A20B9C50A0E5ADAF7103AEA7D0BE52F2F14" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application/Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
   <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
   <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
@@ -78,7 +78,7 @@
   <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure/CloudStorage/GoogleCloudStorageMultiTenantConnectionFactory.cs" templateId="Intent.Google.CloudStorage.GoogleCloudStorageMultiTenantConnectionFactory" />
   <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure/Configuration/GoogleCloudStorageConfiguration.cs" templateId="Intent.Google.CloudStorage.GoogleCloudStorageConfiguration" />
   <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure/Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure.csproj" deviationsHash="0A3CAA9C7D2CA0DE7E9A25B0F45E1F4AB746C5FA30A436000BCA12B7286ACD38" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure/Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure/MultiTenant/ITenantConnections.cs" templateId="Intent.Modules.AspNetCore.MultiTenancy.TenantConnectionsInterfaceTemplate" />
   <file path="Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure/MultiTenant/TenantExtendedInfo.cs" templateId="Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo" />

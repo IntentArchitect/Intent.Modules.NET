@@ -1,0 +1,3 @@
+{
+  "prompt": "Remove PictureUrl from order items in the designers: delete the PictureUrl attribute from OrderItem in the Domain designer, and delete the PictureUrl field from every Services designer DTO, command or query field that carries an order item's picture URL."
+}

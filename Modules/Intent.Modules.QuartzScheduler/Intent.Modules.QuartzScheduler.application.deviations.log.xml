@@ -10,6 +10,15 @@
       <updatedAt>2026-09-02T13:57:45.7140627Z</updatedAt>
       <deviationsHash>0A2F23BBC0671E39D27731BE8D44FD8F5E0DC4DCE77F7BE2B1A00D76C8FA059B</deviationsHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#50aab102-9800-451c-8f9f-8e3667e6b2cd</correlationId>
+      <path>Templates/ScheduledJob/ScheduledJobTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-03T10:35:14.3137633Z</updatedAt>
+      <deviationsHash>36E5F488B7914828F5726AAF1E969601AD01E44E406B467691C232BCA091ED42</deviationsHash>
+    </file>
   </files>
   <customFiles>
     <customFile>

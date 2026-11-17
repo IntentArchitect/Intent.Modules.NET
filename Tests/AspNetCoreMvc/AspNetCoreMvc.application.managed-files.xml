@@ -94,7 +94,7 @@
   <file path="AspNetCoreMvc.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
   <file path="AspNetCoreMvc.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="AspNetCoreMvc.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
-  <file path="AspNetCoreMvc.Infrastructure/AspNetCoreMvc.Infrastructure.csproj" deviationsHash="99DAA93F77E7DA1DE3C471B8E5FD2BF3626E2A6F49A02D604BD9F68385CD0599" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AspNetCoreMvc.Infrastructure/AspNetCoreMvc.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AspNetCoreMvc.Infrastructure/Configuration/MassTransitConfiguration.cs" templateId="Intent.Eventing.MassTransit.MassTransitConfiguration" />
   <file path="AspNetCoreMvc.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="AspNetCoreMvc.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />

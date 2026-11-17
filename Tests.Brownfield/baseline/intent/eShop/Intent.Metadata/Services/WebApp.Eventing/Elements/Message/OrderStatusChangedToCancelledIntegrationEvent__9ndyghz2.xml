@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cf91c08b-2e4e-4fd3-8a95-94d35cbf9329" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>OrderStatusChangedToCancelledIntegrationEvent</name>
+  <display>OrderStatusChangedToCancelledIntegrationEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>a5619690-0a59-4a24-b086-1f9f6c3e238d</parentFolderId>
+  <packageId>ef659f8f-5ed1-438e-89fe-b1084786fbe1</packageId>
+  <packageName>WebApp.Eventing</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="9bb8b979-bcb2-4908-91d5-b65028475bb6" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="2f0cd31c-9b25-410b-bb47-ccb513504353" display="Type" value="record" />
+        <property name="7d854ec0-7ba8-48f5-a08e-539ef5fcb359" display="Modifiers" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="a8268032-90eb-4ec9-9bf7-5ab5aa60886f" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c7b26cd6-fc4b-40ad-9f6e-888090700814" display="Filename" />
+        <property name="9a07d677-d2bc-4280-b624-1f75c202400d" display="Namespace" value="eShop.WebApp.Services.OrderStatus.IntegrationEvents" />
+        <property name="f0309c6d-985e-48ef-8ef0-89c60bdaab01" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="9f438d83-3dad-49ce-89c6-a335a502518f" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: int</display>
+      <typeReference id="8a60a5b4-72b1-483e-b2b8-5a5d5dd6a028">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>cf91c08b-2e4e-4fd3-8a95-94d35cbf9329</parentFolderId>
+      <packageId>ef659f8f-5ed1-438e-89fe-b1084786fbe1</packageId>
+      <packageName>WebApp.Eventing</packageName>
+    </element>
+    <element id="2550d696-e084-4c69-8b61-e90969d21e15" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderStatus</name>
+      <display>OrderStatus: string</display>
+      <typeReference id="429ec7f2-7304-4485-9e56-0b818027ae00">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>cf91c08b-2e4e-4fd3-8a95-94d35cbf9329</parentFolderId>
+      <packageId>ef659f8f-5ed1-438e-89fe-b1084786fbe1</packageId>
+      <packageName>WebApp.Eventing</packageName>
+    </element>
+    <element id="e96ca144-022c-4cdb-96e9-210a19d773ad" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>BuyerName</name>
+      <display>BuyerName: string</display>
+      <typeReference id="1ff3a22b-fc52-4c20-a8a9-31c1e2430e07">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>cf91c08b-2e4e-4fd3-8a95-94d35cbf9329</parentFolderId>
+      <packageId>ef659f8f-5ed1-438e-89fe-b1084786fbe1</packageId>
+      <packageName>WebApp.Eventing</packageName>
+    </element>
+    <element id="e645b48c-9b4b-4271-94c1-f5fd5677e0db" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>BuyerIdentityGuid</name>
+      <display>BuyerIdentityGuid: string</display>
+      <typeReference id="0d79e5a6-4f7e-4592-b6e2-2cab3b2b4f43">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>cf91c08b-2e4e-4fd3-8a95-94d35cbf9329</parentFolderId>
+      <packageId>ef659f8f-5ed1-438e-89fe-b1084786fbe1</packageId>
+      <packageName>WebApp.Eventing</packageName>
+    </element>
+  </children>
+</class>

@@ -1,3 +1,14 @@
+### Version 6.1.0
+
+- Fixed: Applications failed at startup (`The object type Mutation has to at least define one field`) when every GraphQL mutation had no return type. The mutation type is now only registered when it has fields.
+- Improvement: Updated NuGet package versions:
+  - `HotChocolate.AspNetCore` 16.4.0 → 16.7.5 (net10.0, net9.0, net8.0); 14.3.1 → 14.3.5 (net7.0, net6.0)
+  - `HotChocolate.AspNetCore.Authorization` 16.4.0 → 16.7.5 (net10.0, net9.0, net8.0); 14.3.1 → 14.3.5 (net7.0, net6.0)
+
+> ⚠️ **BREAKING CHANGES**
+>
+> This module update may change behaviour or cause compilation breaks in custom code you have written that relies on HotChocolate 16.7, which turns variable batching on by default and adds a member to IServerDiagnosticEvents. For details see the [HotChocolate 16.6 to 16.7 migration guide](https://chillicream.com/docs/hotchocolate/v16/migrating/migrate-from-16-6-to-16-7).
+
 ### Version 6.0.9
 
 - Improvement: Updated NuGet package versions.

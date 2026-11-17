@@ -75,23 +75,6 @@ namespace Intent.Modules.HotChocolate.GraphQL.AzureFunctions.Templates.GraphQLCo
                     {
                         method.Private().Static();
                         method.AddParameter("IRequestExecutorBuilder", "builder", param => param.WithThisModifier());
-                        var mutationResolvers = ExecutionContext.FindTemplateInstances(MutationTypeTemplate.TemplateId, (t) => true).ToList();
-                        if (!mutationResolvers.Any())
-                        {
-                            method.AddStatement("// Mutations will be configured here");
-                            method.AddStatement("return builder;");
-                            return;
-                        }
-                        method.AddStatement(new CSharpMethodChainStatement("return builder")
-                            .AddChainStatement("AddMutationConventions(applyToAllMutations: false)")
-                            .AddChainStatement("AddMutationType()"), statement =>
-                            {
-                                var chain = (CSharpMethodChainStatement)statement;
-                                foreach (var mutationResolver in mutationResolvers)
-                                {
-                                    chain.AddChainStatement($"AddTypeExtension<{GetTypeName(mutationResolver)}>()");
-                                }
-                            });
                     });
 
                     @class.AddMethod("IRequestExecutorBuilder", "AddGraphQLSubscriptions", method =>
@@ -117,6 +100,30 @@ namespace Intent.Modules.HotChocolate.GraphQL.AzureFunctions.Templates.GraphQLCo
                             });
                     });
 
+                })
+                // Which mutation types run is only settled once every template has built, so look them up after that.
+                .AfterBuild(file => AddMutationTypeRegistrations(file.Classes.First().FindMethod("AddGraphQLMutations")), 200);
+        }
+
+        private void AddMutationTypeRegistrations(CSharpClassMethod method)
+        {
+            // A mutation type with only void mutations doesn't run, and HotChocolate rejects a Mutation root with no fields.
+            var mutationResolvers = ExecutionContext.FindTemplateInstances(MutationTypeTemplate.TemplateId, (t) => true).Where(t => t.CanRunTemplate()).ToList();
+            if (!mutationResolvers.Any())
+            {
+                method.AddStatement("// Mutations will be configured here");
+                method.AddStatement("return builder;");
+                return;
+            }
+            method.AddStatement(new CSharpMethodChainStatement("return builder")
+                .AddChainStatement("AddMutationConventions(applyToAllMutations: false)")
+                .AddChainStatement("AddMutationType()"), statement =>
+                {
+                    var chain = (CSharpMethodChainStatement)statement;
+                    foreach (var mutationResolver in mutationResolvers)
+                    {
+                        chain.AddChainStatement($"AddTypeExtension<{GetTypeName(mutationResolver)}>()");
+                    }
                 });
         }
 

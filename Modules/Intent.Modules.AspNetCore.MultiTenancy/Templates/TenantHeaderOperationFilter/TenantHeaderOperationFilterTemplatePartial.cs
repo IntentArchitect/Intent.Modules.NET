@@ -72,7 +72,8 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantHeaderOperation
 
         public override void BeforeTemplateExecution()
         {
-            var configTemplate = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
+            // Register the filter in its own host's Swagger configuration: each host has its own.
+            var configTemplate = OutputTarget.FindTemplateInstance<ICSharpFileBuilderTemplate>("Distribution.SwashbuckleConfiguration");
             if (configTemplate == null)
             {
                 return;

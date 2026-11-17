@@ -51,6 +51,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>37e36dc1-0480-4391-9b77-291be837300f</parentFolderId>
+      <packageId>63bde54a-85dd-4f0c-b241-7df3ae1029b7</packageId>
+      <packageName>Intent.Ardalis.GuardClauses</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -71,6 +73,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>37e36dc1-0480-4391-9b77-291be837300f</parentFolderId>
+      <packageId>63bde54a-85dd-4f0c-b241-7df3ae1029b7</packageId>
+      <packageName>Intent.Ardalis.GuardClauses</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>

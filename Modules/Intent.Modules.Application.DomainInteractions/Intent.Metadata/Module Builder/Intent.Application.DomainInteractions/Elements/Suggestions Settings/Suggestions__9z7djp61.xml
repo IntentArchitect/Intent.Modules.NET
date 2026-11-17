@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="52105690-4c37-442b-b3e5-fb2a4ec7545d" type="Suggestions Settings" typeId="f68b5446-19f2-402d-a940-f62b3a592906">
+  <name>Suggestions</name>
+  <display>Suggestions</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fb96352e-b5f8-43c2-9736-09d21a9f00da</parentFolderId>
+  <packageId>0e923f47-102b-4bd6-80c5-eb38e6d5cf82</packageId>
+  <packageName>Intent.Application.DomainInteractions</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2b981aa2-3848-4f07-b172-34548fff98c1" type="Suggestion" typeId="0c21ab10-e87b-4e88-ab44-38ea7adf514a">
+      <name>Create CQRS Operation</name>
+      <display>Create CQRS Operation: Operation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9c3db255-207e-4cab-972b-5381df144bac">
+        <typeId>e042bb67-a1df-480c-9935-b26210f78591</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>52105690-4c37-442b-b3e5-fb2a4ec7545d</parentFolderId>
+      <packageId>0e923f47-102b-4bd6-80c5-eb38e6d5cf82</packageId>
+      <packageName>Intent.Application.DomainInteractions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="daf7d9b3-9c10-4286-b30e-7edb2e62f10e" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="bd242929-b399-4d13-88c0-d046b7161d41" display="Locations" value="[&quot;Diagram&quot;]" isActive="true" />
+            <property name="8d51eb08-f4a9-4703-ba70-de87c9417d46" display="Filter Function" value="return element.getParent().specialization == &quot;Class&quot; &amp;&amp;&#xD;&#xA;    element.getParent().getAssociations().some(x =&gt; x.typeReference.getType().specialization === &quot;Command&quot;);" isActive="true" />
+            <property name="ecb7abbb-0297-486e-bd99-cded3226d2a4" display="Display Function" isActive="true" />
+            <property name="bbf03fa4-5beb-4d27-a24f-9858af08d97f" display="Icon" isActive="true" />
+            <property name="bfd10a66-2f93-4ffd-bf35-633ff96e7e6c" display="Script" value="await CrudApi.createCQRSServiceForOperation(element, getCurrentDiagram());" isActive="true" />
+            <property name="1d9dd994-46c3-4fdc-a24b-c69f689ca283" display="Dependencies" value="[&quot;b044459e-f779-4648-aed3-9ed169c11362&quot;]" isActive="true" />
+            <property name="eb1aad5a-4eb8-46aa-84a0-9e4fec251d84" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="79fa95bf-66b4-44f7-bd1c-a8e99789c3a9" type="Suggestion" typeId="0c21ab10-e87b-4e88-ab44-38ea7adf514a">
+      <name>Create CQRS Operation</name>
+      <display>Create CQRS Operation: Operation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0baa1017-5285-4754-913a-3e2935e93945">
+        <typeId>e042bb67-a1df-480c-9935-b26210f78591</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>52105690-4c37-442b-b3e5-fb2a4ec7545d</parentFolderId>
+      <packageId>0e923f47-102b-4bd6-80c5-eb38e6d5cf82</packageId>
+      <packageName>Intent.Application.DomainInteractions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="daf7d9b3-9c10-4286-b30e-7edb2e62f10e" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="bd242929-b399-4d13-88c0-d046b7161d41" display="Locations" value="[&quot;Diagram&quot;,&quot;Model&quot;]" isActive="true" />
+            <property name="8d51eb08-f4a9-4703-ba70-de87c9417d46" display="Filter Function" value="const callServiceOperationTargetEnd = &quot;093e5909-ffe4-4510-b3ea-532f30212f3c&quot;;&#xD;&#xA;let notMapped = lookupTypesOf(callServiceOperationTargetEnd).every(x =&gt; x.typeReference.getTypeId() != element.id)&#xD;&#xA;&#xD;&#xA;return application.isModuleInstalled(&quot;Intent.Modelers.Services.CQRS&quot;) &amp;&amp;&#xD;&#xA;    application.getSettings(&quot;0ecca7c5-96f7-449a-96b9-f65ba0a4e3ad&quot;).getField(&quot;14bc1e98-930b-494c-97a9-5da4e1f3a5fa&quot;).value == &quot;advanced&quot;&#xD;&#xA;    &amp;&amp; element.getParent() &amp;&amp; element.getParent().specializationId == &quot;96ffceb2-a70a-4b69-869b-0df436c470c3&quot; // is a Repository&#xD;&#xA;    &amp;&amp; notMapped; // not already mapped" isActive="true" />
+            <property name="ecb7abbb-0297-486e-bd99-cded3226d2a4" display="Display Function" value="" isActive="true" />
+            <property name="bbf03fa4-5beb-4d27-a24f-9858af08d97f" display="Icon" isActive="true" />
+            <property name="bfd10a66-2f93-4ffd-bf35-633ff96e7e6c" display="Script" value="await RepositoryOperationApi.createCQRSService(element, getCurrentDiagram());" isActive="true" />
+            <property name="1d9dd994-46c3-4fdc-a24b-c69f689ca283" display="Dependencies" value="[&quot;e46d700b-6d81-46de-8f18-daeab8de89e7&quot;]" isActive="true" />
+            <property name="eb1aad5a-4eb8-46aa-84a0-9e4fec251d84" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="938a4735-10c6-45a1-bcfe-8614ddddbfdd" type="Suggestion" typeId="0c21ab10-e87b-4e88-ab44-38ea7adf514a">
+      <name>Create Service Operation</name>
+      <display>Create Service Operation: Operation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="76d49745-cf9f-4df8-96b8-b24e30ca05f2">
+        <typeId>e042bb67-a1df-480c-9935-b26210f78591</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>52105690-4c37-442b-b3e5-fb2a4ec7545d</parentFolderId>
+      <packageId>0e923f47-102b-4bd6-80c5-eb38e6d5cf82</packageId>
+      <packageName>Intent.Application.DomainInteractions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="daf7d9b3-9c10-4286-b30e-7edb2e62f10e" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="bd242929-b399-4d13-88c0-d046b7161d41" display="Locations" value="[&quot;Diagram&quot;,&quot;Model&quot;]" isActive="true" />
+            <property name="8d51eb08-f4a9-4703-ba70-de87c9417d46" display="Filter Function" value="const callServiceOperationTargetEnd = &quot;093e5909-ffe4-4510-b3ea-532f30212f3c&quot;;&#xD;&#xA;let notMapped = lookupTypesOf(callServiceOperationTargetEnd).every(x =&gt; x.typeReference.getTypeId() != element.id)&#xD;&#xA;&#xD;&#xA;return application.getSettings(&quot;0ecca7c5-96f7-449a-96b9-f65ba0a4e3ad&quot;).getField(&quot;14bc1e98-930b-494c-97a9-5da4e1f3a5fa&quot;).value == &quot;advanced&quot;&#xD;&#xA;    &amp;&amp; element.getParent() &amp;&amp; element.getParent().specializationId == &quot;96ffceb2-a70a-4b69-869b-0df436c470c3&quot; // is a Repository&#xD;&#xA;    &amp;&amp; notMapped;" isActive="true" />
+            <property name="ecb7abbb-0297-486e-bd99-cded3226d2a4" display="Display Function" value="" isActive="true" />
+            <property name="bbf03fa4-5beb-4d27-a24f-9858af08d97f" display="Icon" isActive="true" />
+            <property name="bfd10a66-2f93-4ffd-bf35-633ff96e7e6c" display="Script" value="await RepositoryOperationApi.createTraditionalService(element, getCurrentDiagram());" isActive="true" />
+            <property name="1d9dd994-46c3-4fdc-a24b-c69f689ca283" display="Dependencies" value="[&quot;e46d700b-6d81-46de-8f18-daeab8de89e7&quot;]" isActive="true" />
+            <property name="eb1aad5a-4eb8-46aa-84a0-9e4fec251d84" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="616272a9-4060-45cc-bab6-222229950f5a" type="Suggestion" typeId="0c21ab10-e87b-4e88-ab44-38ea7adf514a">
+      <name>Create Service Operation</name>
+      <display>Create Service Operation: Operation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7888085f-8d27-42dd-8559-d46b7b3a7003">
+        <typeId>e042bb67-a1df-480c-9935-b26210f78591</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>52105690-4c37-442b-b3e5-fb2a4ec7545d</parentFolderId>
+      <packageId>0e923f47-102b-4bd6-80c5-eb38e6d5cf82</packageId>
+      <packageName>Intent.Application.DomainInteractions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="daf7d9b3-9c10-4286-b30e-7edb2e62f10e" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="bd242929-b399-4d13-88c0-d046b7161d41" display="Locations" value="[&quot;Diagram&quot;]" isActive="true" />
+            <property name="8d51eb08-f4a9-4703-ba70-de87c9417d46" display="Filter Function" value="return element.getParent().specialization == &quot;Class&quot; &amp;&amp;&#xD;&#xA;    element.getParent().getAssociations().some(x =&gt; x.typeReference.getType().specialization === &quot;Operation&quot; &amp;&amp; x.typeReference.getType().getParent().specialization === &quot;Service&quot;);" isActive="true" />
+            <property name="ecb7abbb-0297-486e-bd99-cded3226d2a4" display="Display Function" isActive="true" />
+            <property name="bbf03fa4-5beb-4d27-a24f-9858af08d97f" display="Icon" isActive="true" />
+            <property name="bfd10a66-2f93-4ffd-bf35-633ff96e7e6c" display="Script" value="await CrudApi.createTraditionalServiceForOperation(element, getCurrentDiagram());" isActive="true" />
+            <property name="1d9dd994-46c3-4fdc-a24b-c69f689ca283" display="Dependencies" value="[&quot;b044459e-f779-4648-aed3-9ed169c11362&quot;]" isActive="true" />
+            <property name="eb1aad5a-4eb8-46aa-84a0-9e4fec251d84" display="Order Priority" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

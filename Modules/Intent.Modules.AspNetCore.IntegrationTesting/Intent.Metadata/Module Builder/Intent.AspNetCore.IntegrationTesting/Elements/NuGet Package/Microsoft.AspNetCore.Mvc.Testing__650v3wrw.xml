@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="a6f1bef4-254e-4692-a77a-a02dff6c007d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5540ed4f-a69f-4435-bc22-cb2506e4be24" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="07df1546-481f-4908-aee0-8e794bfc89ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.TestHost</name>
-          <display>Microsoft.AspNetCore.TestHost (10.0.9)</display>
+          <display>Microsoft.AspNetCore.TestHost (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6f1bef4-254e-4692-a77a-a02dff6c007d</parentFolderId>
@@ -61,11 +61,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0f8a0310-29a7-4318-a677-e59357ccf115" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="96433442-f1b6-4f43-86e2-c585e159dc05" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyModel</name>
-          <display>Microsoft.Extensions.DependencyModel (10.0.9)</display>
+          <display>Microsoft.Extensions.DependencyModel (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6f1bef4-254e-4692-a77a-a02dff6c007d</parentFolderId>
@@ -75,11 +75,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3a57e5c7-8132-403c-9160-fff7b6946aa6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="64f71a9f-0ddf-4de6-9881-c94cc96a6982" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
-          <display>Microsoft.Extensions.Hosting (10.0.9)</display>
+          <display>Microsoft.Extensions.Hosting (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6f1bef4-254e-4692-a77a-a02dff6c007d</parentFolderId>
@@ -91,9 +91,76 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="8f4f7f7b-c976-4e6a-aa36-fa779b733ce0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>11.0.0</name>
+      <display>11.0.0 ( &gt;= .NETCoreApp,Version=v11.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>654a2959-227d-4f64-b628-a38af455831e</parentFolderId>
+      <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+      <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v11.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b09dd172-18ac-4079-89ea-cea28cbcc31e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.TestHost</name>
+          <display>Microsoft.AspNetCore.TestHost (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8f4f7f7b-c976-4e6a-aa36-fa779b733ce0</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="dadaa6dd-fc32-444c-8eae-78f67bfe67c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyModel</name>
+          <display>Microsoft.Extensions.DependencyModel (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8f4f7f7b-c976-4e6a-aa36-fa779b733ce0</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3f2deb8e-28d0-4416-8e44-ef3e7a23bb0e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Hosting</name>
+          <display>Microsoft.Extensions.Hosting (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8f4f7f7b-c976-4e6a-aa36-fa779b733ce0</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="991144a7-71f4-4427-8224-e32c62aa0622" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.3.11</name>
-      <display>2.3.11 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>2.3.14</name>
+      <display>2.3.14 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -114,11 +181,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="37cf13c1-43c8-4e5e-95ed-f6ae8087f606" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="37a3153b-b504-442c-8ae1-37a7fb5b249f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Mvc.Core</name>
-          <display>Microsoft.AspNetCore.Mvc.Core (2.3.10)</display>
+          <display>Microsoft.AspNetCore.Mvc.Core (2.3.13)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.10</value>
+          <value>2.3.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>991144a7-71f4-4427-8224-e32c62aa0622</parentFolderId>
@@ -128,11 +195,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a531a777-e590-4e75-9933-c8c4b6aecc61" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6e3f8435-e212-4591-9b3d-ae339e3aef1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.TestHost</name>
-          <display>Microsoft.AspNetCore.TestHost (2.3.10)</display>
+          <display>Microsoft.AspNetCore.TestHost (2.3.13)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.10</value>
+          <value>2.3.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>991144a7-71f4-4427-8224-e32c62aa0622</parentFolderId>
@@ -142,7 +209,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c4c2a5e9-c6b3-4833-8f31-aae552a06573" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9e19ef07-a959-4d39-887a-420a1dab9748" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
           <display>System.IO.Pipelines (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -249,8 +316,8 @@
       <childElements />
     </childElement>
     <childElement id="928b499d-f105-4985-a013-5108010305a4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.28</name>
-      <display>8.0.28 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.0.34</name>
+      <display>8.0.34 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -271,11 +338,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a1b8cacb-9397-418c-a3e3-2cdfa32820b4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e3151121-359c-407e-9afd-b0d44ce67760" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.TestHost</name>
-          <display>Microsoft.AspNetCore.TestHost (8.0.28)</display>
+          <display>Microsoft.AspNetCore.TestHost (8.0.34)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.28</value>
+          <value>8.0.34</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>928b499d-f105-4985-a013-5108010305a4</parentFolderId>
@@ -285,7 +352,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5ff01237-9316-4e58-a561-3836d27759c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c030d3c6-fae3-43b3-a544-69e4b16ae506" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyModel</name>
           <display>Microsoft.Extensions.DependencyModel (8.0.2)</display>
           <isAbstract>false</isAbstract>
@@ -299,7 +366,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="059c606b-1f4c-4ef7-b694-cd535cc19203" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6c7318ad-7c05-4f9c-95c0-2a17ce972d59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
           <display>Microsoft.Extensions.Hosting (8.0.1)</display>
           <isAbstract>false</isAbstract>
@@ -316,8 +383,8 @@
       </childElements>
     </childElement>
     <childElement id="ab84b42b-511a-499c-a3e7-ba474437853f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.17</name>
-      <display>9.0.17 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>9.0.23</name>
+      <display>9.0.23 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -338,11 +405,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0d5fec10-24d5-4812-a196-d00866cdd49b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c6ad04ae-ad97-439e-8133-147fee3d56d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.TestHost</name>
-          <display>Microsoft.AspNetCore.TestHost (9.0.17)</display>
+          <display>Microsoft.AspNetCore.TestHost (9.0.23)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.17</value>
+          <value>9.0.23</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab84b42b-511a-499c-a3e7-ba474437853f</parentFolderId>
@@ -352,11 +419,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="caec50e5-2db4-4fd7-b8a3-08ce3802876d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c2aa27e2-620f-40bc-a6ae-34fb0786dc00" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyModel</name>
-          <display>Microsoft.Extensions.DependencyModel (9.0.17)</display>
+          <display>Microsoft.Extensions.DependencyModel (9.0.23)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.17</value>
+          <value>9.0.23</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab84b42b-511a-499c-a3e7-ba474437853f</parentFolderId>
@@ -366,11 +433,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="01744445-d90c-48c7-86ed-3e49f4cf041d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2b4c6243-8ebd-4fc7-9b44-8bb0af7fdb16" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
-          <display>Microsoft.Extensions.Hosting (9.0.17)</display>
+          <display>Microsoft.Extensions.Hosting (9.0.23)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.17</value>
+          <value>9.0.23</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab84b42b-511a-499c-a3e7-ba474437853f</parentFolderId>

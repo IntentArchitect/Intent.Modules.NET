@@ -4,10 +4,13 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using NuGet.Versioning;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -22,6 +25,11 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Js
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public JsonMergePatchOperationTransformerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            // Microsoft.OpenApi 3.x: the content is an IOpenApiMediaType, whose Schema can only be set on the concrete OpenApiMediaType
+            var getContent = UsesMicrosoftOpenApiV3
+                ? "operation.RequestBody.Content.TryGetValue(JsonMergePatchDocument.ContentType, out var mediaType) && mediaType is OpenApiMediaType content"
+                : "operation.RequestBody.Content.TryGetValue(JsonMergePatchDocument.ContentType, out var content)";
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.AspNetCore.OpenApi")
                 .AddUsing("Microsoft.OpenApi")
@@ -37,7 +45,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Js
                         method.AddParameter("OpenApiOperationTransformerContext", "context");
                         method.AddParameter("CancellationToken", "cancellationToken");
                         method.AddStatements(
-                            """
+                            $$"""
                                 if (context.Description.HttpMethod != "PATCH")
                                 {
                                     return;
@@ -67,7 +75,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Js
                                 payloadSchemaReference.Required?.Remove("patchExecutor");
                                 payloadSchemaReference.Properties?.Remove("patchExecutor");
 
-                                if (operation.RequestBody.Content.TryGetValue(JsonMergePatchDocument.ContentType, out var content))
+                                if ({{getContent}})
                                 {
                                     content.Schema = payloadSchemaReference;
                                 }
@@ -76,14 +84,31 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Js
                 });
         }
 
+        // OpenApiOperationTransformerContext.GetOrCreateSchemaAsync only exists from Microsoft.AspNetCore.OpenApi 10,
+        // so on earlier versions just don't generate.
+        private bool IsMicrosoftAspNetCoreOpenApi_10 => OutputTarget.GetMaxNetAppVersion().Major >= 10;
+
+        // Microsoft.AspNetCore.OpenApi 11 depends on Microsoft.OpenApi 3.x. The transformer only generates alongside
+        // Intent.AspNetCore.Scalar, which registers the package from .NET 10's Microsoft.OpenApi 2.x onwards.
+        private bool UsesMicrosoftOpenApiV3 =>
+            IsMicrosoftAspNetCoreOpenApi_10 &&
+            ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.AspNetCore.Scalar") &&
+            NuGetVersion.Parse(NugetRegistry.GetVersion("Microsoft.AspNetCore.OpenApi", OutputTarget.GetMaxNetAppVersion()).Version).Major >= 11;
+
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() &&
+                   IsMicrosoftAspNetCoreOpenApi_10 &&
                    ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.ScalarConfiguration")).Any();
         }
 
         public override void AfterTemplateRegistration()
         {
+            if (!IsMicrosoftAspNetCoreOpenApi_10)
+            {
+                return;
+            }
+
             var templates =
                 ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.ScalarConfiguration"));
 

@@ -142,7 +142,8 @@ namespace Intent.Modules.AspNetCore.ODataQuery.Templates.ODataQuerySwaggerFilter
 
         public override bool CanRunTemplate()
         {
-            return ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration")) != null;
+            // Only generate the filter in a project that configures Swagger: each host has its own configuration.
+            return OutputTarget.FindTemplateInstance<ICSharpFileBuilderTemplate>("Distribution.SwashbuckleConfiguration") != null;
         }
 
 

@@ -1,0 +1,16 @@
+@using MudBlazor
+
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h6">Add Brand</MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudForm @ref="_form" Model="Model">
+            <MudTextField @bind-Value="Model.Name" Label="Name" Required="true" />
+        </MudForm>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="SaveAsync" Disabled="_isSaving">Save</MudButton>
+    </DialogActions>
+</MudDialog>

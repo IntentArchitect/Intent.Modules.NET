@@ -44,6 +44,7 @@ namespace BlazorWebApp.Configuration
                         options.IncludeXmlComments(domainXmlFile);
                     }
 
+                    options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                     options.OperationFilter<BinaryContentFilter>();
                     options.OperationFilter<HideRouteParametersFromBodyOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();

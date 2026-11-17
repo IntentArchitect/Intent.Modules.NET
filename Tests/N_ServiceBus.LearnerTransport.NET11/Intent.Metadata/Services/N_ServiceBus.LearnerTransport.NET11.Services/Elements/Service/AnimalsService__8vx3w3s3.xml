@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3ee14f80-87ca-49bd-a7c8-7b8aeb45ff0c" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>AnimalsService</name>
+  <display>AnimalsService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>4feffae6-ccff-4946-b9fe-4d7654eeb8b5</parentFolderId>
+  <packageId>3ce157b5-8640-408b-8f59-654d831dcbf4</packageId>
+  <packageName>N_ServiceBus.LearnerTransport.NET11.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/animals" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="60805c60-a545-4e65-9800-d4bac7bb8699" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateAnimal</name>
+      <display>CreateAnimal(dto: CreateAnimalDto): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="2c492116-0e5c-4c34-9f38-e413f5a3ee13" />
+      <parentFolderId>3ee14f80-87ca-49bd-a7c8-7b8aeb45ff0c</parentFolderId>
+      <packageId>3ce157b5-8640-408b-8f59-654d831dcbf4</packageId>
+      <packageName>N_ServiceBus.LearnerTransport.NET11.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="8441bd6d-da56-4a31-804b-3022d75fa42f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: CreateAnimalDto</display>
+          <typeReference id="b871e000-2d03-4cee-8693-069fe8c11a97">
+            <typeId>92ccca70-95b3-4670-809e-01204149c7c7</typeId>
+            <typeName>CreateAnimalDto</typeName>
+            <typePackageName>N_ServiceBus.LearnerTransport.NET11.Services</typePackageName>
+            <typePackageId>3ce157b5-8640-408b-8f59-654d831dcbf4</typePackageId>
+          </typeReference>
+          <parentFolderId>60805c60-a545-4e65-9800-d4bac7bb8699</parentFolderId>
+          <packageId>3ce157b5-8640-408b-8f59-654d831dcbf4</packageId>
+          <packageName>N_ServiceBus.LearnerTransport.NET11.Services</packageName>
+        </element>
+        <association id="70df8769-1ad6-4f46-bd3a-8c87de259b68">
+          <sourceEnd id="b58ac25d-7ae4-450f-9d6d-7438a7a3a1fd" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+            <display>sent by : AnimalsService.CreateAnimal</display>
+            <typeReference id="fd4ddfb4-5826-4340-93a6-898e1268d576">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="70df8769-1ad6-4f46-bd3a-8c87de259b68" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+            <display>[send] OrderAnimal</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="ae0060e2-c0ae-4497-bb69-36e3b63319d1">
+              <typeId>b6893bbc-196c-4222-bce3-48974c907b2d</typeId>
+              <typeName>OrderAnimal</typeName>
+              <typePackageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</typePackageName>
+              <typePackageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</typePackageId>
+            </typeReference>
+            <mappings>
+              <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+                <source applicationId="e5432075-8bd5-4430-ba9b-e3f4cbf3df80" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="60805c60-a545-4e65-9800-d4bac7bb8699" location="[N_ServiceBus.LearnerTransport.NET11].[Services].[CreateAnimal]" />
+                <target applicationId="e5432075-8bd5-4430-ba9b-e3f4cbf3df80" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b6893bbc-196c-4222-bce3-48974c907b2d" location="[N_ServiceBus.LearnerTransport.NET11].[Services].[OrderAnimal]" />
+                <mappedEnds>
+                  <mappedEnd>
+                    <expression>{dto.Name}</expression>
+                    <path>
+                      <target id="b6893bbc-196c-4222-bce3-48974c907b2d" name="OrderAnimal" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+                      <target id="4d147ce2-b59c-48ce-b972-a21bb03e3d6e" name="name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                    </path>
+                    <sources>
+                      <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                        <path>
+                          <target id="60805c60-a545-4e65-9800-d4bac7bb8699" name="CreateAnimal" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                          <target id="8441bd6d-da56-4a31-804b-3022d75fa42f" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                          <target id="a0c1d8cf-36cb-41c1-ba1f-44a0f804314b" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                        </path>
+                      </source>
+                    </sources>
+                  </mappedEnd>
+                  <mappedEnd>
+                    <expression>{dto.Type}</expression>
+                    <path>
+                      <target id="b6893bbc-196c-4222-bce3-48974c907b2d" name="OrderAnimal" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+                      <target id="32d63703-b68b-4944-b606-f5a3a7cc4441" name="type" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                    </path>
+                    <sources>
+                      <source identifier="dto.Type" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                        <path>
+                          <target id="60805c60-a545-4e65-9800-d4bac7bb8699" name="CreateAnimal" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                          <target id="8441bd6d-da56-4a31-804b-3022d75fa42f" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                          <target id="d91e14c5-70c3-4d83-8a54-c5c2aa68a691" name="Type" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                        </path>
+                      </source>
+                    </sources>
+                  </mappedEnd>
+                </mappedEnds>
+              </mapping>
+            </mappings>
+          </targetEnd>
+          <associationType>Send Integration Command</associationType>
+          <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+        </association>
+      </children>
+    </element>
+  </children>
+</class>

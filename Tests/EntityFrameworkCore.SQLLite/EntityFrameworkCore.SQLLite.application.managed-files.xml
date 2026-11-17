@@ -91,7 +91,7 @@
   <file path="EntityFrameworkCore.SQLLite.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="EntityFrameworkCore.SQLLite.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
   <file path="EntityFrameworkCore.SQLLite.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EntityFrameworkCore.SQLLite.Infrastructure/EntityFrameworkCore.SQLLite.Infrastructure.csproj" deviationsHash="008D7D2810A3030F6CA853729FA62D02A3F2B1F0C8CBBFEA8CAC8EBB9DD3A9BB" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.SQLLite.Infrastructure/EntityFrameworkCore.SQLLite.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.SQLLite.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EntityFrameworkCore.SQLLite.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="EntityFrameworkCore.SQLLite.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

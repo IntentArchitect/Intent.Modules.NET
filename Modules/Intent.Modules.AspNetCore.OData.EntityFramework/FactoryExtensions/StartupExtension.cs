@@ -37,13 +37,17 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var startupTemplate = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-            if (startupTemplate is null)
-            {
-                return;
-            }
+            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary).ToList();
 
-            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary);
+            // An application can have several hosts, each with its own startup template, so configure each one.
+            foreach (var startupTemplate in application.FindTemplateInstances<IAppStartupTemplate>(IAppStartupTemplate.RoleName))
+            {
+                ConfigureOData(startupTemplate, templates);
+            }
+        }
+
+        private static void ConfigureOData(IAppStartupTemplate startupTemplate, IReadOnlyCollection<ICSharpFileBuilderTemplate> templates)
+        {
 
             var exposedAsODataEntityNames = new Dictionary<string, IEnumerable<AttributeModel>>();
             foreach (var template in templates)
@@ -83,7 +87,11 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
                     // only make the CSharpInvocationStatement change later difficult. 
                     var statementsToCheck = ExtractPossibleStatements(statements);
 
-                    var lastConfigStatement = (CSharpInvocationStatement)statementsToCheck.Last(p => p.HasMetadata("configure-services-controllers"));
+                    // Hosts without controllers (e.g. worker services) have nothing to attach OData to.
+                    if (statementsToCheck.LastOrDefault(p => p.HasMetadata("configure-services-controllers")) is not CSharpInvocationStatement lastConfigStatement)
+                    {
+                        return;
+                    }
                     var addODataStatement = statements.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "odata") as CSharpInvocationStatement;
                     if (addODataStatement is null)
                     {

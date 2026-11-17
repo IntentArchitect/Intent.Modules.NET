@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d2eea160-5486-4135-9804-25275b31785c" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
+  <name>Application.UnitTests</name>
+  <display>Application.UnitTests</display>
+  <parentFolderId>d9e76746-95bc-482f-a8b6-1f391e805855</parentFolderId>
+  <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="MSTest.Sdk" />
+        <property name="abba11c7-3b43-4228-9eac-72311a302668" display="Aspire SDK Version" value="13.0" isActive="false" />
+        <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" />
+        <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" isActive="false" />
+        <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" value="Console Application" />
+        <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" />
+        <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" />
+        <property name="d53ab03c-90cf-4b6a-b733-73b6983ab603" display="Target Framework" value="3da65706-027d-4433-9218-6b0f90ce3fc4" />
+        <property name="b9685057-b337-42d8-9536-d0185ea69b73" display="Target Frameworks" isActive="false" />
+        <property name="c9fc7052-9557-4485-a759-fa33363472b3" display="Configurations" />
+        <property name="c27f8813-bee4-4289-81e5-570e755a8f30" display="Root Namespace" />
+        <property name="a6660df2-6016-40c6-8453-8e5993f407c9" display="User Secrets Id" />
+        <property name="16ac8254-c83f-42d9-98bb-db9c0532bce6" display="Generate Runtime Configuration Files" />
+        <property name="94e630db-ee2b-4d4f-a423-19d3469178fa" display="Generate Documentation File" />
+        <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" />
+        <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" value="enable" />
+        <property name="8ee6e435-e556-439c-9712-a3f287972813" display="Runtime Identifiers" />
+        <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn)" />
+        <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" />
+        <property name="a811d3f2-253e-46de-ae72-bd6ec9f30d54" display="Generate AppSettings File" value="false" isActive="false" />
+        <property name="4fe561b9-333e-4341-8243-d569db8cd8f4" display="Generate LaunchSettings File" value="false" isActive="false" />
+        <property name="0aca4b00-3558-46c4-abcc-e4d9b8b17090" display="MSTest SDK Version" />
+        <property name="4b817fc6-d866-481a-bdc8-1fa9aa3bb97a" display="Generate Program File" value="false" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" />
+        <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" />
+        <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="false" />
+        <property name="68a31b13-148b-45da-a6ea-5a6883f86438" display="Nullable" value="enable" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+      <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+      <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+      <properties>
+        <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Test Suites] **/*&quot;,&quot;[Low - Build, Packages &amp; CI, Test Suites] Application.UnitTests.csproj&quot;]">
+          <itemList>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;c3f72f52-4bcc-48b0-b269-3dc0e0cd5d7b&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Application.UnitTests.csproj" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;733a08d8-e739-4955-88f0-6dbf82c3192e&quot;,&quot;c3f72f52-4bcc-48b0-b269-3dc0e0cd5d7b&quot;]" />
+              </properties>
+            </item>
+          </itemList>
+        </property>
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <association id="9d1c6c97-6341-46e9-b37b-878c00181079">
+      <sourceEnd id="4c832dc9-993d-4641-ae12-a24a2894b2f7" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: Application.UnitTests</display>
+        <typeReference id="8555534e-2934-48a8-8089-1d8a0102717a">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="9d1c6c97-6341-46e9-b37b-878c00181079" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: Catalog.API</display>
+        <typeReference id="c7dd5db6-1ef3-45c3-ae6c-1d9a6d750f80">
+          <typeId>d9f798ca-f0d3-488a-8730-a11d8354c018</typeId>
+          <typeName>Catalog.API</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+    <association id="222d1a34-09a3-4608-aa78-0ecaec8d3f9c">
+      <sourceEnd id="ad4f534d-5afe-4187-944c-eaefe1b84917" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: Application.UnitTests</display>
+        <typeReference id="e8d21afb-9502-442f-88f1-93f832242166">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="222d1a34-09a3-4608-aa78-0ecaec8d3f9c" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: Identity.API</display>
+        <typeReference id="0beb259e-2e03-4541-b7fd-828d4e3c1525">
+          <typeId>1b935a36-134d-4c5e-b04f-9476d62a93d3</typeId>
+          <typeName>Identity.API</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+    <association id="ebb1aae5-1215-4418-99b0-cb2474d1ef96">
+      <sourceEnd id="38641173-1f28-4f87-b2f4-35dd9fdec3c8" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: Application.UnitTests</display>
+        <typeReference id="ac8182ef-bebd-49b0-a35a-ffc0aee2c5e2">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="ebb1aae5-1215-4418-99b0-cb2474d1ef96" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: OrderProcessor</display>
+        <typeReference id="439083ac-7eb5-4011-8ffb-584aed243e0a">
+          <typeId>4094ceb3-ea90-46a1-9abc-e70968111234</typeId>
+          <typeName>OrderProcessor</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+    <association id="a66d7e00-5e16-4490-bc68-c84e34ae3c5b">
+      <sourceEnd id="90d941c8-ca58-4082-845d-f10490ca5c44" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: Application.UnitTests</display>
+        <typeReference id="fb044c18-04f9-413d-9f92-945eec908c15">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="a66d7e00-5e16-4490-bc68-c84e34ae3c5b" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: PaymentProcessor</display>
+        <typeReference id="95d766e1-8fb4-4c06-ba20-459a78de6039">
+          <typeId>98ec3263-1322-4ffe-b6f8-d3a496ce597e</typeId>
+          <typeName>PaymentProcessor</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+    <association id="3ca9d8cb-5202-4683-a4e9-d0865b5b9cde">
+      <sourceEnd id="2e2497f2-ec9a-474f-bf53-01b73f8c4a99" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: Application.UnitTests</display>
+        <typeReference id="210df971-66b5-4ef2-9e27-e09dfb676a36">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="3ca9d8cb-5202-4683-a4e9-d0865b5b9cde" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: WebhookClient</display>
+        <typeReference id="e5daedc4-5780-430a-8da4-42747caea27a">
+          <typeId>2ad1957e-ffd2-4381-96c0-90a972c29f98</typeId>
+          <typeName>WebhookClient</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+    <association id="dd3c442e-7b80-4019-8619-e47ac218d379">
+      <sourceEnd id="c54cb082-5d0f-48a0-80c8-9eca1c72b8d1" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: Application.UnitTests</display>
+        <typeReference id="457364d4-2be3-4016-b6ac-05fe165bc600">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="dd3c442e-7b80-4019-8619-e47ac218d379" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: Webhooks.API</display>
+        <typeReference id="28a3d007-af02-46cb-8bdd-f6a9b4dd9a96">
+          <typeId>bdd92cf2-51ea-4a73-aa88-6c4216fe066d</typeId>
+          <typeName>Webhooks.API</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+  </children>
+</class>

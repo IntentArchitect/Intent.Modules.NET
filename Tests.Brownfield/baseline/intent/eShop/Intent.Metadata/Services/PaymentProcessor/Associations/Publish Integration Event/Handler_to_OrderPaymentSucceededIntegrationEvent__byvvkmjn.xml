@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="01a8a19e-6d70-4652-a710-5a9201de722e">
+  <sourceEnd id="5b768a12-fbea-450f-a252-96827dedaec5" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : OrderStatusChangedToStockConfirmedIntegrationEventHandler.Handler</display>
+    <typeReference id="964ab8ec-9976-40a9-a449-b100a02272db">
+      <typeId>222cf9ef-26be-4eb6-8575-98aad86e853b</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>PaymentProcessor</typePackageName>
+      <typePackageId>601f44cb-f561-4e50-8fbc-d349b77dcd29</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="01a8a19e-6d70-4652-a710-5a9201de722e" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderPaymentSucceededIntegrationEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c0c4944b-93ec-445b-b175-3e1e118fbf00">
+      <typeId>404b6cde-e28e-4f0b-8241-ba9a0b33d557</typeId>
+      <typeName>OrderPaymentSucceededIntegrationEvent</typeName>
+      <typePackageName>PaymentProcessor.Eventing</typePackageName>
+      <typePackageId>7a5d2fb8-eca6-43b8-a98e-160a024d2cd8</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+</association>

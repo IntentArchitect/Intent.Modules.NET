@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="78f66f32-bc4a-428d-a0fc-d72fd4684725">
+  <sourceEnd id="21cdf1ac-95f8-4c6c-8823-aab83993ff12" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderPaymentSucceededIntegrationEventHandler.Handler</display>
+    <typeReference id="05a31313-85c3-441b-8eef-97c4a9b645e5">
+      <typeId>c215b2f9-93d4-4ebc-851f-0e70e4c17f62</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="78f66f32-bc4a-428d-a0fc-d72fd4684725" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = SetPaidOrderStatusCommand(...): bool</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="eec5a949-6523-4dab-bf2e-bdde4912b792">
+      <typeId>8bfd7372-5856-48df-b4c8-d3017635ee6d</typeId>
+      <typeName>SetPaidOrderStatusCommand</typeName>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

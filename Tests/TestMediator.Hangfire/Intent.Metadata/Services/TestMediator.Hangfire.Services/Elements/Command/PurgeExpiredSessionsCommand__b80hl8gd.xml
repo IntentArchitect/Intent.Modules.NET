@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="abd86e94-fd2c-40bd-9bf1-63b7bdaf83dd" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>PurgeExpiredSessionsCommand</name>
+  <display>PurgeExpiredSessionsCommand: void</display>
+  <typeReference id="8346611e-f0ce-41c8-b2dd-465d89071788" />
+  <parentFolderId>30e0a276-0af3-4eae-9e46-50b8adc9329b</parentFolderId>
+  <packageId>3f40bc50-247c-445c-ab23-69be22753323</packageId>
+  <packageName>TestMediator.Hangfire.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+</class>

@@ -25,6 +25,9 @@ This setting allows you to configure which `Database Provider` you want Entity F
 * SQLite
 * Cosmos DB
 
+> [!NOTE]
+> My SQL is not available on .NET 11 yet: its provider, `Pomelo.EntityFrameworkCore.MySql`, does not support Entity Framework Core 11. The Software Factory reports an error if a project that uses it targets .NET 11.
+
 ![Database Settings - `Database Provider`](images/database-provider.png)
 
 ### Database Settings - `Table naming convention`

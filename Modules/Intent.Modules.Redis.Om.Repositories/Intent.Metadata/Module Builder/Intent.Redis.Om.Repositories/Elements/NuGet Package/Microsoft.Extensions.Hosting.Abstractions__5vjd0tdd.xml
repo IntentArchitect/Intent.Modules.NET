@@ -24,271 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="568cc4c7-ee3d-4247-812d-dc73f81a7aa1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>4656ba54-75fd-464f-b766-7894de3da3f1</parentFolderId>
-      <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
-      <packageName>Intent.Redis.Om.Repositories</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="963636f2-5956-47c8-ab2a-83cd0a73e80d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>568cc4c7-ee3d-4247-812d-dc73f81a7aa1</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="53d89b9c-e501-4392-a473-39b76963dc41" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>568cc4c7-ee3d-4247-812d-dc73f81a7aa1</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="df690e94-6ee1-44b6-8751-7f7fe63cc169" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>568cc4c7-ee3d-4247-812d-dc73f81a7aa1</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8305c455-15c5-4117-bb0d-c401c31b7b81" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>568cc4c7-ee3d-4247-812d-dc73f81a7aa1</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ecf1a1c5-7457-4a0c-9d7f-a43bb3d10f59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>568cc4c7-ee3d-4247-812d-dc73f81a7aa1</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="5d8ad2ae-0a19-4382-a2a1-201cd64d7428" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>4656ba54-75fd-464f-b766-7894de3da3f1</parentFolderId>
-      <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
-      <packageName>Intent.Redis.Om.Repositories</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="3a98d252-db78-454e-a138-693e33794aaf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Bcl.AsyncInterfaces</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="9e50a420-8026-4ead-916d-fbb43578d2e2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="2ef61328-5932-44b8-be7c-40234bbd821f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d77be660-f8b9-4138-a438-b15d58cf5da1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e907ea22-4f1d-4534-8f52-e7248eedd06c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="946901ee-5b5f-44ec-b05a-60227cce0f91" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1c32886e-9d41-45cc-8e0a-9c9483f496c4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Threading.Tasks.Extensions</name>
-          <isAbstract>false</isAbstract>
-          <value>4.6.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="a0c1bee5-75d1-4ba8-bbb7-b04fc93ba079" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.2 ( &gt;= .NETStandard,Version=v2.1 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>4656ba54-75fd-464f-b766-7894de3da3f1</parentFolderId>
-      <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
-      <packageName>Intent.Redis.Om.Repositories</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="945340e5-c506-4267-9406-dec83c7694ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a0c1bee5-75d1-4ba8-bbb7-b04fc93ba079</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="55e34b25-7f5c-4869-98fd-5e11f6d28a41" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a0c1bee5-75d1-4ba8-bbb7-b04fc93ba079</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8fbe842b-ec77-40e4-81e6-88a127b0d9cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a0c1bee5-75d1-4ba8-bbb7-b04fc93ba079</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="7b1c46f3-a015-477f-a97c-1eca5ab822ad" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a0c1bee5-75d1-4ba8-bbb7-b04fc93ba079</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="2f60b91f-ec22-4462-85ac-5fc7836ce31a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a0c1bee5-75d1-4ba8-bbb7-b04fc93ba079</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="8d95cc37-7dc7-41f9-bf5e-e0a8449a47d4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -309,57 +47,385 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="06894e31-4f61-4c8f-8e3b-21da008bda83" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="70c15b8b-a270-47de-b23d-12eb0f4c1b2e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8d95cc37-7dc7-41f9-bf5e-e0a8449a47d4</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1a2b4113-a9cc-4a76-8b53-3840f21e93a5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a15f796e-19d0-431f-b3ac-0b6539abf50a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8d95cc37-7dc7-41f9-bf5e-e0a8449a47d4</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d4325119-9ffe-4a3c-a43f-28044ee964e9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e2419b52-3294-4f59-8e9d-4f26dde1e61b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
+          <display>Microsoft.Extensions.Diagnostics.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8d95cc37-7dc7-41f9-bf5e-e0a8449a47d4</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a3b6c7a7-48db-4819-907a-25bb552b8e54" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7eab9fcd-2724-455f-affd-0dee64c4acc5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8d95cc37-7dc7-41f9-bf5e-e0a8449a47d4</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5bebc041-8a65-4f85-a017-d1a55b9409c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fdf2553b-d410-4bdd-aa89-36f0d27a5739" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8d95cc37-7dc7-41f9-bf5e-e0a8449a47d4</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="568cc4c7-ee3d-4247-812d-dc73f81a7aa1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4656ba54-75fd-464f-b766-7894de3da3f1</parentFolderId>
+      <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+      <packageName>Intent.Redis.Om.Repositories</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="4a310fb4-8ee0-4f70-96ed-fc3da3d3ee48" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>568cc4c7-ee3d-4247-812d-dc73f81a7aa1</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="02f46351-2f23-4c7b-a7a1-cb1acec840f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>568cc4c7-ee3d-4247-812d-dc73f81a7aa1</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1b58ff29-44f8-4ae7-b6eb-75c4d755d34e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
+          <display>Microsoft.Extensions.Diagnostics.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>568cc4c7-ee3d-4247-812d-dc73f81a7aa1</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3267acc6-995b-4c88-a72a-49bf421e8ce0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>568cc4c7-ee3d-4247-812d-dc73f81a7aa1</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="24734d2d-84cf-41b8-b582-bdca29948326" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>568cc4c7-ee3d-4247-812d-dc73f81a7aa1</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a0c1bee5-75d1-4ba8-bbb7-b04fc93ba079" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4656ba54-75fd-464f-b766-7894de3da3f1</parentFolderId>
+      <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+      <packageName>Intent.Redis.Om.Repositories</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="cb7d0745-4d2f-40f5-aeb8-907210d1c0d0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a0c1bee5-75d1-4ba8-bbb7-b04fc93ba079</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7aee409a-d15a-4b00-b1bc-a712b8d77f50" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a0c1bee5-75d1-4ba8-bbb7-b04fc93ba079</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b55b6b24-f2b9-4f42-ba41-b12644df2476" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
+          <display>Microsoft.Extensions.Diagnostics.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a0c1bee5-75d1-4ba8-bbb7-b04fc93ba079</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="95bda6fc-8a54-42de-8af6-6c16a30a05e0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a0c1bee5-75d1-4ba8-bbb7-b04fc93ba079</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c5752807-b953-4099-96de-35207669af53" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a0c1bee5-75d1-4ba8-bbb7-b04fc93ba079</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="5d8ad2ae-0a19-4382-a2a1-201cd64d7428" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4656ba54-75fd-464f-b766-7894de3da3f1</parentFolderId>
+      <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+      <packageName>Intent.Redis.Om.Repositories</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="2969595b-6a2d-4128-b99a-d1085d96aeee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <display>Microsoft.Bcl.AsyncInterfaces (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9e384038-a030-4a86-810a-bcea2c3799db" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c494797c-61b9-46be-96f0-5351c62a7a32" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="078895f8-6063-4396-b9cd-403dfa59b72b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
+          <display>Microsoft.Extensions.Diagnostics.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="70ad3ebe-ae8a-4b35-9485-3ff0319d4df7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e75c09f1-f167-4cad-b920-d4e1df1ad29f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a02fedcf-830c-40ae-8e7b-5891f00bf635" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.6.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.6.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5d8ad2ae-0a19-4382-a2a1-201cd64d7428</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -367,8 +433,8 @@
       </childElements>
     </childElement>
     <childElement id="553d3149-4f8e-4927-9910-bbed2e2fd284" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>11.0.0</name>
+      <display>11.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -389,57 +455,72 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="03e0a4e6-06fb-4f33-9be0-9c6a3d3f1dfc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2cd44b92-b755-415c-a00e-91a296d58d05" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>553d3149-4f8e-4927-9910-bbed2e2fd284</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3cf188fd-7cfb-4ee2-b795-75723c017ee6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="68267f12-da77-46ef-b0a4-a7e61ca8e8db" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>553d3149-4f8e-4927-9910-bbed2e2fd284</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7d561982-9b95-4e1d-bacd-ab3436137c46" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="25df4169-8fdd-43f1-892d-83c95b2eb228" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
+          <display>Microsoft.Extensions.Diagnostics.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>553d3149-4f8e-4927-9910-bbed2e2fd284</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5d45c942-dca2-45f4-aded-4fa11e1e7498" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="83e9b14b-8fd8-497e-950c-d732c482d79c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>553d3149-4f8e-4927-9910-bbed2e2fd284</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="de9f70b1-daa5-4197-aedc-db7192798168" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="908977d5-acc5-4031-bcdc-55f0f8986b23" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>553d3149-4f8e-4927-9910-bbed2e2fd284</parentFolderId>
+          <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+          <packageName>Intent.Redis.Om.Repositories</packageName>
           <stereotypes />
           <metadata />
           <childElements />

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1451366b-e634-4d48-8b19-85c8348b137d" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Payment Processor</name>
+  <display>Payment Processor</display>
+  <parentFolderId>3dae5014-4fdd-4a7c-9838-2efff93dcd49</parentFolderId>
+  <packageId>601f44cb-f561-4e50-8fbc-d349b77dcd29</packageId>
+  <packageName>PaymentProcessor</packageName>
+  <diagram>
+    <targetPackageId>1451366b-e634-4d48-8b19-85c8348b137d</targetPackageId>
+  </diagram>
+</class>

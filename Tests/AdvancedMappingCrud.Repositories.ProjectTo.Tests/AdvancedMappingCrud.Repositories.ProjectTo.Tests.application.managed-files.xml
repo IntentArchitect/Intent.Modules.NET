@@ -94,7 +94,7 @@
   <file path="AdvancedMappingCrud.Repositories.ProjectTo.Tests.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
   <file path="AdvancedMappingCrud.Repositories.ProjectTo.Tests.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="AdvancedMappingCrud.Repositories.ProjectTo.Tests.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
-  <file path="AdvancedMappingCrud.Repositories.ProjectTo.Tests.Infrastructure/AdvancedMappingCrud.Repositories.ProjectTo.Tests.Infrastructure.csproj" deviationsHash="AFB1684283F56C16FF693D3579BDA5ED8A9B0BB6F0F395D700BB54B1281BC5BE" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AdvancedMappingCrud.Repositories.ProjectTo.Tests.Infrastructure/AdvancedMappingCrud.Repositories.ProjectTo.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AdvancedMappingCrud.Repositories.ProjectTo.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="AdvancedMappingCrud.Repositories.ProjectTo.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="AdvancedMappingCrud.Repositories.ProjectTo.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

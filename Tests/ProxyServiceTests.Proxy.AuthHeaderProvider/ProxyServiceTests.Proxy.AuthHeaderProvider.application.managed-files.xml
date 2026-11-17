@@ -110,7 +110,7 @@
   <file path="ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/HttpClients/JsonResponse.cs" templateId="Intent.Integration.HttpClients.JsonResponse" />
   <file path="ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
-  <file path="ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure.csproj" deviationsHash="FA75C3D9335D5D7EDF53F40B400231B8DE363DC1386A312BCEFADACFC3634DF4" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
   <file path="ProxyServiceTests.Proxy.AuthHeaderProvider.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />

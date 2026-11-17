@@ -19,8 +19,8 @@ namespace Intent.Modules.Blazor.Components.MudBlazor
             NugetRegistry.Register(MicrosoftAspNetCoreHttpAbstractionsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("2.3.11")
-                            .WithNugetDependency("Microsoft.AspNetCore.Http.Features", "2.3.10")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.14")
+                            .WithNugetDependency("Microsoft.AspNetCore.Http.Features", "2.3.13")
                             .WithNugetDependency("System.Text.Encodings.Web", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreHttpAbstractionsPackageName}'"),
                     }

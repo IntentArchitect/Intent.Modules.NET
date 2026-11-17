@@ -356,7 +356,7 @@
   <file path="EntityFrameworkCore.SqlServer.PkNoneProvider.Domain/ValueObjects/KeyValuePairNormal.cs" templateId="Intent.ValueObjects.ValueObject" />
   <file path="EntityFrameworkCore.SqlServer.PkNoneProvider.Domain/ValueObjects/KeyValuePairSerialized.cs" templateId="Intent.ValueObjects.ValueObject" />
   <file path="EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure/EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure.csproj" deviationsHash="A72092ACD05DAA356C5A4599B85BA7FF410AEC8F89BF2C6AF1860F119E92304D" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure/EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure/Interceptors/DataMaskConverter.cs" templateId="Intent.EntityFrameworkCore.DataMasking.DataMaskConverter" />
   <file path="EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EntityFrameworkCore.SqlServer.PkNoneProvider.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
@@ -117,6 +118,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         break;
 
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
+                        EnsureMySqlProviderSupportsTargetFramework(dependencyInjectionTemplate.OutputTarget);
                         dependencyInjectionTemplate.AddNugetDependency(NugetPackages.PomeloEntityFrameworkCoreMySql(dependencyInjectionTemplate.OutputTarget.GetProject()));
                         if (!application.Settings.GetDatabaseSettings().SuppressConnectionStringSetting())
                         {
@@ -166,6 +168,20 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     default:
                         break;
                 }
+            }
+        }
+
+        // Pomelo.EntityFrameworkCore.MySql has no release for EF Core 11: 9.0.0 fails at runtime on EF Core 11
+        // (MissingMethodException), so fail generation instead of producing an app that cannot start.
+        private static void EnsureMySqlProviderSupportsTargetFramework(IOutputTarget outputTarget)
+        {
+            var project = outputTarget.GetProject();
+            if (project.TryGetMaxNetAppVersion(out var version) && version.Major >= 11)
+            {
+                throw new FriendlyException(
+                    $"The MySQL database provider is not supported on .NET {version.Major} yet. Project `{project.Name}` targets .NET {version.Major}, " +
+                    "but `Pomelo.EntityFrameworkCore.MySql` has no release for Entity Framework Core 11. " +
+                    "Target .NET 9 or earlier in the Visual Studio designer, or choose a different `Database Provider`.");
             }
         }
 

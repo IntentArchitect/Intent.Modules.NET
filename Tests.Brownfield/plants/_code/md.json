@@ -1,0 +1,192 @@
+[
+  {
+    "note": "row 1: max length 50 -> 60",
+    "file": "src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs",
+    "find": ".HasMaxLength(50);",
+    "replace": ".HasMaxLength(60);"
+  },
+  {
+    "note": "rows 4 and 5: column name, precision",
+    "file": "src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs",
+    "find": "        builder.Property(ci => ci.Embedding)",
+    "replace": "        builder.Property(ci => ci.Description)\n            .HasColumnName(\"item_description\");\n\n        builder.Property(ci => ci.Price)\n            .HasPrecision(18, 2);\n\n        builder.Property(ci => ci.Embedding)"
+  },
+  {
+    "note": "row 6: CatalogType optional",
+    "file": "src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs",
+    "find": "        builder.HasOne(ci => ci.CatalogType)\n            .WithMany();",
+    "replace": "        builder.HasOne(ci => ci.CatalogType)\n            .WithMany()\n            .IsRequired(false);"
+  },
+  {
+    "note": "row 6: callers of the nullable foreign key",
+    "file": "src/Catalog.API/Apis/CatalogApi.cs",
+    "all": true,
+    "find": "type.Contains(c.CatalogTypeId)",
+    "replace": "c.CatalogTypeId != null && type.Contains(c.CatalogTypeId.Value)"
+  },
+  {
+    "note": "row 6: callers of the nullable foreign key",
+    "file": "src/Catalog.API/Apis/CatalogApi.cs",
+    "find": ".GroupBy(c => c.CatalogTypeId)\n            .Select(g => new CatalogFacetCount(g.Key, g.Count()))",
+    "replace": ".GroupBy(c => c.CatalogTypeId)\n            .Select(g => new CatalogFacetCount(g.Key ?? 0, g.Count()))"
+  },
+  {
+    "note": "row 6: nullable foreign key",
+    "file": "src/Catalog.API/Model/CatalogItem.cs",
+    "find": "    public int CatalogTypeId { get; set; }",
+    "replace": "    public int? CatalogTypeId { get; set; }"
+  },
+  {
+    "note": "row 2: IsRequired removed",
+    "file": "src/Ordering.Infrastructure/EntityConfigurations/CardTypeEntityTypeConfiguration.cs",
+    "find": "            .HasMaxLength(200)\n            .IsRequired();",
+    "replace": "            .HasMaxLength(200);"
+  },
+  {
+    "note": "row 3: table renamed",
+    "file": "src/Ordering.Infrastructure/EntityConfigurations/BuyerEntityTypeConfiguration.cs",
+    "find": "buyerConfiguration.ToTable(\"buyers\");",
+    "replace": "buyerConfiguration.ToTable(\"ordering_buyers\");"
+  },
+  {
+    "note": "row 7: Units int -> long",
+    "file": "src/Ordering.Domain/AggregatesModel/OrderAggregate/OrderItem.cs",
+    "find": "    public int Units { get; private set; }",
+    "replace": "    public long Units { get; private set; }"
+  },
+  {
+    "note": "row 7: caller cast",
+    "file": "src/Ordering.API/Application/Commands/CreateOrderDraftCommandHandler.cs",
+    "find": "Units = oi.Units,",
+    "replace": "Units = (int)oi.Units,"
+  },
+  {
+    "note": "row 7: caller cast",
+    "file": "src/Ordering.API/Application/Queries/OrderQueries.cs",
+    "find": "Units = oi.Units,",
+    "replace": "Units = (int)oi.Units,"
+  },
+  {
+    "note": "row 7: caller cast",
+    "file": "src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToAwaitingValidationDomainEventHandler.cs",
+    "find": "new OrderStockItem(orderItem.ProductId, orderItem.Units)",
+    "replace": "new OrderStockItem(orderItem.ProductId, (int)orderItem.Units)"
+  },
+  {
+    "note": "row 7: caller cast",
+    "file": "src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToPaidDomainEventHandler.cs",
+    "find": "new OrderStockItem(orderItem.ProductId, orderItem.Units)",
+    "replace": "new OrderStockItem(orderItem.ProductId, (int)orderItem.Units)"
+  },
+  {
+    "note": "row 8: new public property",
+    "file": "src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs",
+    "find": "    public OrderStatus OrderStatus { get; private set; }",
+    "replace": "    public OrderStatus OrderStatus { get; private set; }\n\n    public int Priority { get; private set; }"
+  },
+  {
+    "note": "row 10: domain event no longer raised",
+    "file": "src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs",
+    "find": "            AddDomainEvent(new OrderStatusChangedToStockConfirmedDomainEvent(Id));\n\n",
+    "replace": ""
+  },
+  {
+    "note": "row 9: new entity",
+    "file": "src/Ordering.Domain/AggregatesModel/CouponAggregate/Coupon.cs",
+    "create": "namespace eShop.Ordering.Domain.AggregatesModel.CouponAggregate;\n\npublic class Coupon : Entity, IAggregateRoot\n{\n    public string Code { get; private set; }\n\n    public decimal Discount { get; private set; }\n\n    public bool Consumed { get; private set; }\n\n    protected Coupon() { }\n\n    public Coupon(string code, decimal discount)\n    {\n        Code = code;\n        Discount = discount;\n    }\n\n    public void Consume() => Consumed = true;\n}\n"
+  },
+  {
+    "note": "row 9: its configuration",
+    "file": "src/Ordering.Infrastructure/EntityConfigurations/CouponEntityTypeConfiguration.cs",
+    "create": "using eShop.Ordering.Domain.AggregatesModel.CouponAggregate;\n\nnamespace eShop.Ordering.Infrastructure.EntityConfigurations;\n\nclass CouponEntityTypeConfiguration\n    : IEntityTypeConfiguration<Coupon>\n{\n    public void Configure(EntityTypeBuilder<Coupon> couponConfiguration)\n    {\n        couponConfiguration.ToTable(\"coupons\");\n\n        couponConfiguration.Ignore(c => c.DomainEvents);\n\n        couponConfiguration.Property(c => c.Code)\n            .HasMaxLength(50)\n            .IsRequired();\n    }\n}\n"
+  },
+  {
+    "note": "row 9: registered",
+    "file": "src/Ordering.Infrastructure/OrderingContext.cs",
+    "find": "        modelBuilder.ApplyConfiguration(new BuyerEntityTypeConfiguration());",
+    "replace": "        modelBuilder.ApplyConfiguration(new BuyerEntityTypeConfiguration());\n        modelBuilder.ApplyConfiguration(new CouponEntityTypeConfiguration());"
+  },
+  {
+    "note": "row 11: route",
+    "file": "src/Ordering.API/Apis/OrdersApi.cs",
+    "find": "api.MapGet(\"/cardtypes\", GetCardTypesAsync);",
+    "replace": "api.MapGet(\"/card-types\", GetCardTypesAsync);"
+  },
+  {
+    "note": "row 12: verb",
+    "file": "src/Ordering.API/Apis/OrdersApi.cs",
+    "find": "api.MapPut(\"/ship\", ShipOrderAsync);",
+    "replace": "api.MapPost(\"/ship\", ShipOrderAsync);"
+  },
+  {
+    "note": "row 13: security",
+    "file": "src/Ordering.API/Apis/OrdersApi.cs",
+    "find": "api.MapGet(\"{orderId:int}\", GetOrderAsync);",
+    "replace": "api.MapGet(\"{orderId:int}\", GetOrderAsync).AllowAnonymous();"
+  },
+  {
+    "note": "row 14: binding",
+    "file": "src/Ordering.API/Apis/OrdersApi.cs",
+    "find": "CancelOrderAsync(\n        [FromHeader(Name = \"x-requestid\")] Guid requestId,",
+    "replace": "CancelOrderAsync(\n        [FromQuery(Name = \"requestId\")] Guid requestId,"
+  },
+  {
+    "note": "row 15: new method-group endpoint",
+    "file": "src/Ordering.API/Apis/OrdersApi.cs",
+    "find": "        api.MapPost(\"/\", CreateOrderAsync);",
+    "replace": "        api.MapPost(\"/\", CreateOrderAsync);\n        api.MapGet(\"{orderId:int}/status\", GetOrderStatusAsync);"
+  },
+  {
+    "note": "row 15: its method",
+    "file": "src/Ordering.API/Apis/OrdersApi.cs",
+    "find": "    public static async Task<Ok<IEnumerable<OrderSummary>>> GetOrdersByUserAsync(",
+    "replace": "    public static async Task<Results<Ok<string>, NotFound>> GetOrderStatusAsync(int orderId, [AsParameters] OrderServices services)\n    {\n        try\n        {\n            var order = await services.Queries.GetOrderAsync(orderId);\n            return TypedResults.Ok(order.Status);\n        }\n        catch\n        {\n            return TypedResults.NotFound();\n        }\n    }\n\n    public static async Task<Ok<IEnumerable<OrderSummary>>> GetOrdersByUserAsync("
+  },
+  {
+    "note": "row 16: new command field",
+    "file": "src/Ordering.API/Application/Commands/CancelOrderCommand.cs",
+    "find": "public record CancelOrderCommand(int OrderNumber) : IRequest<bool>;",
+    "replace": "public record CancelOrderCommand(int OrderNumber, string Reason = null) : IRequest<bool>;"
+  },
+  {
+    "note": "row 17: publish removed",
+    "file": "src/Ordering.API/Application/DomainEventHandlers/OrderShippedDomainEventHandler.cs",
+    "find": "\n\n        var integrationEvent = new OrderStatusChangedToShippedIntegrationEvent(order.Id, order.OrderStatus, buyer.Name, buyer.IdentityGuid);\n        await _orderingIntegrationEventService.AddAndSaveEventAsync(integrationEvent);",
+    "replace": ""
+  },
+  {
+    "note": "row 18: repository query removed",
+    "file": "src/Ordering.API/Application/DomainEventHandlers/OrderStatusChangedToStockConfirmedDomainEventHandler.cs",
+    "find": "        var buyer = await _buyerRepository.FindByIdAsync(order.BuyerId.Value);\n\n        var integrationEvent = new OrderStatusChangedToStockConfirmedIntegrationEvent(order.Id, order.OrderStatus, buyer.Name, buyer.IdentityGuid);",
+    "replace": "        var integrationEvent = new OrderStatusChangedToStockConfirmedIntegrationEvent(order.Id, order.OrderStatus, null, null);"
+  },
+  {
+    "note": "row 19: new publish (field)",
+    "file": "src/Ordering.API/Application/DomainEventHandlers/UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.cs",
+    "find": "    private readonly IOrderRepository _orderRepository;",
+    "replace": "    private readonly IOrderRepository _orderRepository;\n    private readonly IOrderingIntegrationEventService _orderingIntegrationEventService;"
+  },
+  {
+    "note": "row 19: new publish (constructor parameter)",
+    "file": "src/Ordering.API/Application/DomainEventHandlers/UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.cs",
+    "find": "        ILogger<UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler> logger)",
+    "replace": "        IOrderingIntegrationEventService orderingIntegrationEventService,\n        ILogger<UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler> logger)"
+  },
+  {
+    "note": "row 19: new publish (assignment)",
+    "file": "src/Ordering.API/Application/DomainEventHandlers/UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.cs",
+    "find": "        _logger = logger ?? throw new ArgumentNullException(nameof(logger));",
+    "replace": "        _orderingIntegrationEventService = orderingIntegrationEventService;\n        _logger = logger ?? throw new ArgumentNullException(nameof(logger));"
+  },
+  {
+    "note": "row 19: new publish",
+    "file": "src/Ordering.API/Application/DomainEventHandlers/UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler.cs",
+    "find": "        OrderingApiTrace.LogOrderPaymentMethodUpdated(_logger, domainEvent.OrderId, nameof(domainEvent.Payment), domainEvent.Payment.Id);",
+    "replace": "        OrderingApiTrace.LogOrderPaymentMethodUpdated(_logger, domainEvent.OrderId, nameof(domainEvent.Payment), domainEvent.Payment.Id);\n\n        var integrationEvent = new OrderStatusChangedToSubmittedIntegrationEvent(orderToUpdate.Id, orderToUpdate.OrderStatus, domainEvent.Buyer.Name, domainEvent.Buyer.IdentityGuid);\n        await _orderingIntegrationEventService.AddAndSaveEventAsync(integrationEvent);"
+  },
+  {
+    "note": "row 20: new static helper",
+    "file": "src/Ordering.API/Application/OrderNumberFormatter.cs",
+    "create": "namespace eShop.Ordering.API.Application;\n\npublic static class OrderNumberFormatter\n{\n    public static string Format(int orderNumber) => $\"ORD-{orderNumber:D8}\";\n}\n"
+  }
+]

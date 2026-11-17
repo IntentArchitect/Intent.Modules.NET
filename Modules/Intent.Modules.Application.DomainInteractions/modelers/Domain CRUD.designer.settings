@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>137b6fce-1045-47a5-a72b-6bb748c8941f</id>
+  <name>Domain CRUD</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions />
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <suggestionSettings>
+    <suggestionSetting type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" locations="diagram, model">
+      <name>Create CRUD CQRS Services in Services designer</name>
+      <filterFunction>return application.isModuleInstalled("Intent.Modelers.Services.CQRS");</filterFunction>
+      <dependencies />
+      <script>if (!await promptIfUnsavedChangesAsync()) {
+    return;
+}
+await navigateToDesigner("81104ae6-2bc5-4bae-b05a-f987b0372d81", {
+    executeScript: `await CrudApi.createCQRSService(getPackages().find(x =&gt; x.specializationId == "df45eaf6-9202-4c25-8dd5-677e9ba1e906"), lookup('${element.id}'));`,
+    scriptDependencies: ["b044459e-f779-4648-aed3-9ed169c11362"]
+});</script>
+    </suggestionSetting>
+    <suggestionSetting type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" locations="diagram, model">
+      <name>Create CRUD Traditional Service in Services designer</name>
+      <dependencies />
+      <script>if (!await promptIfUnsavedChangesAsync()) {
+    return;
+}
+navigateToDesigner("81104ae6-2bc5-4bae-b05a-f987b0372d81", {
+    executeScript: `await CrudApi.createTraditionalService(getPackages().find(x =&gt; x.specializationId == "df45eaf6-9202-4c25-8dd5-677e9ba1e906"), lookup('${element.id}'));`,
+    scriptDependencies: ["b044459e-f779-4648-aed3-9ed169c11362"]
+});</script>
+    </suggestionSetting>
+    <suggestionSetting type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591" locations="diagram, model">
+      <name>Create CQRS request in Services designer</name>
+      <filterFunction>const repositorySpecializationId = "96ffceb2-a70a-4b69-869b-0df436c470c3";
+
+return element.getParent().specializationId == repositorySpecializationId &amp;&amp;
+       application.isModuleInstalled("Intent.Modelers.Services.CQRS");</filterFunction>
+      <dependencies />
+      <script>if (!await promptIfUnsavedChangesAsync()) {
+    return;
+}
+
+navigateToDesigner("81104ae6-2bc5-4bae-b05a-f987b0372d81", {
+    executeScript: `await RepositoryOperationApi.createCQRSService(lookup("${element.id}"), null);`,
+    scriptDependencies: ["e46d700b-6d81-46de-8f18-daeab8de89e7"]
+});</script>
+    </suggestionSetting>
+    <suggestionSetting type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591" locations="diagram, model">
+      <name>Create Traditional Service in Services designer</name>
+      <filterFunction>const repositorySpecializationId = "96ffceb2-a70a-4b69-869b-0df436c470c3";
+
+return element.getParent().specializationId == repositorySpecializationId &amp;&amp;
+       application.isModuleInstalled("Intent.Modelers.Services.CQRS");</filterFunction>
+      <dependencies />
+      <script>if (!await promptIfUnsavedChangesAsync()) {
+    return;
+}
+
+navigateToDesigner("81104ae6-2bc5-4bae-b05a-f987b0372d81", {
+    executeScript: `await RepositoryOperationApi.createTraditionalService(lookup("${element.id}"), null);`,
+    scriptDependencies: ["e46d700b-6d81-46de-8f18-daeab8de89e7"]
+});</script>
+    </suggestionSetting>
+  </suggestionSettings>
+  <scripts />
+</settings>

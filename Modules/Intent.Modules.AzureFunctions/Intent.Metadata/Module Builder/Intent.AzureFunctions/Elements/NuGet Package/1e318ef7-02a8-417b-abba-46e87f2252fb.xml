@@ -161,171 +161,9 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="9592f575-f047-4922-9ecf-2c0157417cdd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.1.2</name>
-      <display>3.1.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>1e318ef7-02a8-417b-abba-46e87f2252fb</parentFolderId>
-      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-      <packageName>Intent.AzureFunctions</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="54b3c58b-3877-4ee9-953c-873d2c1ad92c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.ApplicationInsights</name>
-          <display>Microsoft.ApplicationInsights (3.1.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>3.1.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>9592f575-f047-4922-9ecf-2c0157417cdd</parentFolderId>
-          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-          <packageName>Intent.AzureFunctions</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="bd543835-3c67-475f-8ba0-b059b9d9c8ae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry.Extensions.Hosting</name>
-          <display>OpenTelemetry.Extensions.Hosting (1.15.3)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.15.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>9592f575-f047-4922-9ecf-2c0157417cdd</parentFolderId>
-          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-          <packageName>Intent.AzureFunctions</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="13d74a1c-3efb-4178-ba9d-4d97638992ab" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry.Instrumentation.Http</name>
-          <display>OpenTelemetry.Instrumentation.Http (1.15.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.15.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>9592f575-f047-4922-9ecf-2c0157417cdd</parentFolderId>
-          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-          <packageName>Intent.AzureFunctions</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ce6bf4cb-b0a2-4beb-a1dd-b99637294a2b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry.Instrumentation.SqlClient</name>
-          <display>OpenTelemetry.Instrumentation.SqlClient (1.15.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.15.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>9592f575-f047-4922-9ecf-2c0157417cdd</parentFolderId>
-          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-          <packageName>Intent.AzureFunctions</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="5103f5bd-3852-4d03-b7d8-5e68a5eeaeb6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.1.2</name>
-      <display>3.1.2 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>1e318ef7-02a8-417b-abba-46e87f2252fb</parentFolderId>
-      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-      <packageName>Intent.AzureFunctions</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="07fbb2e7-1d8c-4f52-b03f-243c3a46de5e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.ApplicationInsights</name>
-          <display>Microsoft.ApplicationInsights (3.1.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>3.1.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5103f5bd-3852-4d03-b7d8-5e68a5eeaeb6</parentFolderId>
-          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-          <packageName>Intent.AzureFunctions</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d97a8478-5d31-4439-951f-8f3200ec1d6a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry.Extensions.Hosting</name>
-          <display>OpenTelemetry.Extensions.Hosting (1.15.3)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.15.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5103f5bd-3852-4d03-b7d8-5e68a5eeaeb6</parentFolderId>
-          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-          <packageName>Intent.AzureFunctions</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4ce0b8e2-7f61-4ec8-ba20-64232f503487" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry.Instrumentation.Http</name>
-          <display>OpenTelemetry.Instrumentation.Http (1.15.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.15.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5103f5bd-3852-4d03-b7d8-5e68a5eeaeb6</parentFolderId>
-          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-          <packageName>Intent.AzureFunctions</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ea2949c3-d872-4f18-8308-c2fa04130a4a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry.Instrumentation.SqlClient</name>
-          <display>OpenTelemetry.Instrumentation.SqlClient (1.15.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.15.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5103f5bd-3852-4d03-b7d8-5e68a5eeaeb6</parentFolderId>
-          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-          <packageName>Intent.AzureFunctions</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="7a68ad34-abe1-4ee7-9fbd-63a665b9f6f7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.1.2</name>
-      <display>3.1.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>3.2.0</name>
+      <display>3.2.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -346,11 +184,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f93050fb-7289-4155-a9d0-5244b4e49d0f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="abc60849-025b-4829-a169-1c3705fcbe3c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.ApplicationInsights</name>
-          <display>Microsoft.ApplicationInsights (3.1.2)</display>
+          <display>Microsoft.ApplicationInsights (3.2.0)</display>
           <isAbstract>false</isAbstract>
-          <value>3.1.2</value>
+          <value>3.2.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7a68ad34-abe1-4ee7-9fbd-63a665b9f6f7</parentFolderId>
@@ -360,11 +198,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="27fc98ef-f861-4849-a7f4-7b8c9b9e3c49" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5725c19c-a709-442c-83aa-afe5db65f31c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Extensions.Hosting</name>
-          <display>OpenTelemetry.Extensions.Hosting (1.15.3)</display>
+          <display>OpenTelemetry.Extensions.Hosting (1.19.1)</display>
           <isAbstract>false</isAbstract>
-          <value>1.15.3</value>
+          <value>1.19.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7a68ad34-abe1-4ee7-9fbd-63a665b9f6f7</parentFolderId>
@@ -374,11 +212,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="734f8cdc-72c1-4ef9-b8ab-87fa0050a280" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6634c497-06fc-4d02-baf9-081c38612a37" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Instrumentation.Http</name>
-          <display>OpenTelemetry.Instrumentation.Http (1.15.1)</display>
+          <display>OpenTelemetry.Instrumentation.Http (1.19.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.15.1</value>
+          <value>1.19.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7a68ad34-abe1-4ee7-9fbd-63a665b9f6f7</parentFolderId>
@@ -388,14 +226,176 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d6c8af31-db5a-421d-a281-64062146bfb5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="91d8bf71-26c4-4307-8bfe-f058212f0925" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Instrumentation.SqlClient</name>
-          <display>OpenTelemetry.Instrumentation.SqlClient (1.15.2)</display>
+          <display>OpenTelemetry.Instrumentation.SqlClient (1.19.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.15.2</value>
+          <value>1.19.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7a68ad34-abe1-4ee7-9fbd-63a665b9f6f7</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="5103f5bd-3852-4d03-b7d8-5e68a5eeaeb6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.2.0</name>
+      <display>3.2.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1e318ef7-02a8-417b-abba-46e87f2252fb</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8c8834b1-0ec5-4a02-a4f4-bb489cc3e1cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.ApplicationInsights</name>
+          <display>Microsoft.ApplicationInsights (3.2.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5103f5bd-3852-4d03-b7d8-5e68a5eeaeb6</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2038f009-2a34-4486-b3bb-3d34b40d241e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Extensions.Hosting</name>
+          <display>OpenTelemetry.Extensions.Hosting (1.19.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.19.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5103f5bd-3852-4d03-b7d8-5e68a5eeaeb6</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b8f5e772-6ed9-4651-8235-488c9ead0914" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Instrumentation.Http</name>
+          <display>OpenTelemetry.Instrumentation.Http (1.19.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.19.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5103f5bd-3852-4d03-b7d8-5e68a5eeaeb6</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3f0c8cb9-2ada-4cba-95f3-38fdcd1fc5df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Instrumentation.SqlClient</name>
+          <display>OpenTelemetry.Instrumentation.SqlClient (1.19.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.19.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5103f5bd-3852-4d03-b7d8-5e68a5eeaeb6</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="9592f575-f047-4922-9ecf-2c0157417cdd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.2.0</name>
+      <display>3.2.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1e318ef7-02a8-417b-abba-46e87f2252fb</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v10.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d615ef98-cdd2-470d-bcf9-bd93a3e92bf9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.ApplicationInsights</name>
+          <display>Microsoft.ApplicationInsights (3.2.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9592f575-f047-4922-9ecf-2c0157417cdd</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bd323b46-478c-45fc-bbac-24b70bcf36be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Extensions.Hosting</name>
+          <display>OpenTelemetry.Extensions.Hosting (1.19.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.19.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9592f575-f047-4922-9ecf-2c0157417cdd</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8e6ff9bc-85ec-4f74-929f-b1936d208952" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Instrumentation.Http</name>
+          <display>OpenTelemetry.Instrumentation.Http (1.19.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.19.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9592f575-f047-4922-9ecf-2c0157417cdd</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6b3a09e1-5ee7-46b5-acef-80ef65695b46" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Instrumentation.SqlClient</name>
+          <display>OpenTelemetry.Instrumentation.SqlClient (1.19.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.19.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9592f575-f047-4922-9ecf-2c0157417cdd</parentFolderId>
           <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
           <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />

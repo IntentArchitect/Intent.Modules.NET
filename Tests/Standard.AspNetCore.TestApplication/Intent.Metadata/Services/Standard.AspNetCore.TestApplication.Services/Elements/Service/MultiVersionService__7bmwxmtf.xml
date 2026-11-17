@@ -38,6 +38,10 @@
       <parentFolderId>f548406a-0688-4245-85b8-63a45f047168</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -79,6 +83,10 @@
       <parentFolderId>f548406a-0688-4245-85b8-63a45f047168</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>

@@ -188,6 +188,11 @@ namespace Intent.Modules.SharedKernel.Consumer
         {
             throw new NotImplementedException();
         }
+
+        // Hosts from Intent Architect 5.4.1 declare IApplication.GetParameter, which no published SDK has yet, so this
+        // cannot be an explicit implementation. It must stay public virtual: the runtime only maps a virtual method with a
+        // matching signature to the interface member when it loads this type. Remove once the SDK gives it a default body.
+        public virtual string GetParameter(string name) => null;
     }
 
 }

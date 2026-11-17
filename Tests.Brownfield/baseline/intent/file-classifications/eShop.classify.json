@@ -1,0 +1,1425 @@
+{
+  "application": "eShop",
+  "appRoot": "D:/Dev/Temp/eShop9",
+  "title": "eShop file classifications",
+  "classifications": [
+    {
+      "name": "Identity Server & Token Trust",
+      "color": "#C62828",
+      "question": "Can someone mint, steal or misuse a token that Ordering, Basket, Catalog and Webhooks will trust, or sign in as another buyer?"
+    },
+    {
+      "name": "Buyer Data Ownership",
+      "color": "#1565C0",
+      "question": "Can one buyer read, change or act on another buyer's orders, basket or webhook subscriptions?"
+    },
+    {
+      "name": "Buyer Card Data",
+      "color": "#AD1457",
+      "question": "Can a card number or CVV reach a log, a token, a database column or a message?"
+    },
+    {
+      "name": "Checkout & Order Submission",
+      "color": "#2E7D32",
+      "question": "Can checkout place an order at a price other than the catalog's, create it twice, or empty the basket for an order that was never placed?"
+    },
+    {
+      "name": "Order Status Saga",
+      "color": "#6A1B9A",
+      "question": "Can an order get stuck, skip a step or move twice between Submitted, AwaitingValidation, StockConfirmed, Paid, Shipped and Cancelled across Ordering, Catalog, OrderProcessor and PaymentProcessor?"
+    },
+    {
+      "name": "Catalog Items & Stock",
+      "color": "#E65100",
+      "question": "Can stock be confirmed without units or decremented twice, can an anonymous caller change items and prices, or can a picture request read files outside Pics?"
+    },
+    {
+      "name": "Event Bus & Outbox",
+      "color": "#00838F",
+      "question": "Can an integration event on eshop_event_bus be lost, published without its transaction, or handled twice?"
+    },
+    {
+      "name": "Shared Message & gRPC Contracts",
+      "color": "#5D4037",
+      "question": "Does every copy of this message, proto or catalog DTO still match its counterparts by class and property name, so RabbitMQ routes it and it deserialises?"
+    },
+    {
+      "name": "Webhook Subscriptions & Delivery",
+      "color": "#283593",
+      "question": "Can a webhook go to the wrong subscriber or an internal address, leak its token, or be accepted by WebhookClient without a valid token?"
+    },
+    {
+      "name": "Schemas & Startup Migrations",
+      "color": "#F9A825",
+      "question": "Will this change run an unsafe migration against a live database at startup, or break a schema another service reads directly?"
+    },
+    {
+      "name": "AI Concierge & Semantic Search",
+      "color": "#D81B60",
+      "question": "What buyer data reaches OpenAI or Ollama, and is the model's output trusted to change the basket, render markup or rank the catalog?"
+    },
+    {
+      "name": "Aspire Host & Service Defaults",
+      "color": "#00695C",
+      "question": "Does this change what the Aspire app exposes, how services find and trust each other, or a default every service inherits?"
+    },
+    {
+      "name": "MAUI Mobile Clients",
+      "color": "#558B2F",
+      "question": "Can the mobile apps send a token on the wrong request, trust the wrong server, or report an order that was never placed?"
+    },
+    {
+      "name": "Build, Packages & CI",
+      "color": "#4E342E",
+      "question": "Does this change which packages, feeds, warnings or CI checks protect the build?"
+    },
+    {
+      "name": "Storefront & App UI",
+      "color": "#455A64",
+      "question": "Presentation only: Razor pages, XAML views and front-end scripts."
+    },
+    {
+      "name": "Test Suites",
+      "color": "#757575",
+      "question": "Unit, functional and Playwright end-to-end tests."
+    },
+    {
+      "name": "Static Assets, Docs & Leftovers",
+      "color": "#BDBDBD",
+      "question": "Pictures, fonts, vendored libraries, docs and unused leftovers: no review needed."
+    }
+  ],
+  "plan": [
+    {
+      "classification": "Identity Server & Token Trust",
+      "importance": "high",
+      "why": "IdentityServer signs every token with the committed tempkey.jwk, with key management off (Identity.API/Program.cs:29, :37), and every API accepts tokens issued for any audience (AuthenticationExtensions.cs:49); a wrong change to clients, claims, token validation or forwarding silently grants access.",
+      "globs": [
+        "src/Identity.API/tempkey.jwk",
+        "src/Identity.API/Program.cs",
+        "src/Identity.API/Configuration/Config.cs",
+        "src/Identity.API/Services/ProfileService.cs",
+        "src/Identity.API/Quickstart/Account/AccountController.cs",
+        "src/Identity.API/Quickstart/Account/ExternalController.cs",
+        "src/Identity.API/UsersSeed.cs",
+        "src/eShop.ServiceDefaults/AuthenticationExtensions.cs",
+        "src/eShop.ServiceDefaults/ClaimsPrincipalExtensions.cs",
+        "src/eShop.ServiceDefaults/HttpClientExtensions.cs",
+        "src/WebApp/Extensions/Extensions.cs",
+        "src/WebApp/Components/Pages/User/LogIn.razor",
+        "src/eShop.AppHost/Extensions.cs"
+      ]
+    },
+    {
+      "classification": "Identity Server & Token Trust",
+      "importance": "medium",
+      "globs": [
+        "src/Identity.API/**",
+        "!src/Identity.API/wwwroot/**",
+        "!src/Identity.API/Views/**",
+        "!src/Identity.API/Models/AccountViewModels/**",
+        "!src/Identity.API/Models/ManageViewModels/**",
+        "!src/Identity.API/Models/ConsentViewModels/**",
+        "!src/Identity.API/Models/ErrorViewModel.cs",
+        "!src/Identity.API/Services/EFLoginService.cs",
+        "!src/Identity.API/Services/ILoginService.cs",
+        "!src/Identity.API/Services/RedirectService.cs",
+        "!src/Identity.API/Services/IRedirectService.cs",
+        "src/eShop.ServiceDefaults/**",
+        "src/WebhookClient/Extensions/**",
+        "src/WebhookClient/Endpoints/AuthenticationEndpoints.cs",
+        "src/WebApp/Services/LogOutService.cs",
+        "src/WebApp/Components/Pages/User/LogOut.razor"
+      ]
+    },
+    {
+      "classification": "Buyer Data Ownership",
+      "importance": "high",
+      "why": "Ordering takes the order's buyer from the request body (OrdersApi.cs:150) and returns any order to any signed-in user (OrdersApi.cs:86-99, OrderQueries.cs); Basket and Webhooks scope data by the `sub` claim alone (ServerCallContextIdentityExtensions.cs:7, WebHooksApi.cs), so one dropped filter exposes another buyer's data.",
+      "globs": [
+        "src/Ordering.API/Apis/OrdersApi.cs",
+        "src/Ordering.API/Application/Queries/OrderQueries.cs",
+        "src/Ordering.API/Infrastructure/Services/IdentityService.cs",
+        "src/Basket.API/Grpc/BasketService.cs",
+        "src/Basket.API/Extensions/ServerCallContextIdentityExtensions.cs",
+        "src/Webhooks.API/Apis/WebHooksApi.cs",
+        "src/eShop.ServiceDefaults/ClaimsPrincipalExtensions.cs",
+        "src/WebApp/Services/BasketState.cs"
+      ]
+    },
+    {
+      "classification": "Buyer Data Ownership",
+      "importance": "medium",
+      "globs": [
+        "src/Basket.API/**",
+        "src/Ordering.API/Apis/**",
+        "src/Ordering.API/Application/Queries/**",
+        "src/Ordering.API/Infrastructure/Services/**"
+      ]
+    },
+    {
+      "classification": "Buyer Card Data",
+      "importance": "high",
+      "why": "The CVV is issued as the card_security_number claim (ProfileService.cs:77) and stored as plaintext (ApplicationUser.cs:16); OrdersApi logs the whole request, card number and CVV included, when x-requestid is missing (OrdersApi.cs:143), and the CVV stays out of the database only because PaymentMethod._securityNumber is unmapped.",
+      "globs": [
+        "src/Ordering.API/Apis/OrdersApi.cs",
+        "src/Ordering.API/Application/Commands/CreateOrderCommand.cs",
+        "src/Ordering.API/Application/Behaviors/LoggingBehavior.cs",
+        "src/Ordering.Domain/AggregatesModel/BuyerAggregate/PaymentMethod.cs",
+        "src/Ordering.Infrastructure/EntityConfigurations/PaymentMethodEntityTypeConfiguration.cs",
+        "src/Identity.API/Services/ProfileService.cs",
+        "src/Identity.API/Models/ApplicationUser.cs",
+        "src/WebApp/Services/BasketState.cs",
+        "src/WebApp/Services/BasketCheckoutInfo.cs",
+        "src/ClientApp/ViewModels/CheckoutViewModel.cs"
+      ]
+    },
+    {
+      "classification": "Buyer Card Data",
+      "importance": "medium",
+      "globs": [
+        "src/Ordering.Domain/Events/OrderStartedDomainEvent.cs",
+        "src/Ordering.API/Application/Validations/CreateOrderCommandValidator.cs",
+        "src/Identity.API/Data/**"
+      ]
+    },
+    {
+      "classification": "Checkout & Order Submission",
+      "importance": "high",
+      "why": "Ordering stores the UnitPrice the client sends (BasketItemExtensions.cs:20); WebApp never checks the order POST's status before deleting the basket (OrderingService.cs:25, BasketState.cs:116); IdentifiedCommandHandler swallows exceptions, so a failed order commits partial work and its retry reads as a duplicate (IdentifiedCommandHandler.cs:99-101).",
+      "globs": [
+        "src/WebApp/Services/BasketState.cs",
+        "src/WebApp/Services/OrderingService.cs",
+        "src/WebApp/Components/Pages/Checkout/Checkout.razor",
+        "src/Ordering.API/Apis/OrdersApi.cs",
+        "src/Ordering.API/Application/Commands/CreateOrderCommandHandler.cs",
+        "src/Ordering.API/Application/Commands/IdentifiedCommandHandler.cs",
+        "src/Ordering.Infrastructure/Idempotency/RequestManager.cs",
+        "src/Ordering.API/Extensions/BasketItemExtensions.cs",
+        "src/Ordering.Domain/AggregatesModel/OrderAggregate/OrderItem.cs",
+        "src/ClientApp/ViewModels/CheckoutViewModel.cs",
+        "src/ClientApp/Services/Order/OrderService.cs"
+      ]
+    },
+    {
+      "classification": "Checkout & Order Submission",
+      "importance": "medium",
+      "globs": [
+        "src/Ordering.API/Application/Commands/**",
+        "src/Ordering.API/Application/Validations/**",
+        "src/Ordering.API/Application/Models/**",
+        "!src/Ordering.API/Application/Models/CustomerBasket.cs",
+        "src/Ordering.Infrastructure/Idempotency/**",
+        "src/WebApp/Services/**",
+        "src/WebApp/Components/Pages/Cart/**",
+        "src/WebApp/Components/Pages/Checkout/**",
+        "!**/*.css",
+        "src/WebApp/Components/Layout/CartMenu.razor",
+        "src/Basket.API/IntegrationEvents/EventHandling/**"
+      ]
+    },
+    {
+      "classification": "Order Status Saga",
+      "importance": "high",
+      "why": "Order.cs's status guards are the only protection against redelivered events, since inbound handlers send plain commands (Order.cs:109, :129, :152); OrderProcessor finds grace-period orders by raw SQL on 'Submitted' and swallows database errors (GracePeriodOrdersRepository.cs:36, :50); PaymentProcessor's outcome is one config flag (OrderStatusChangedToStockConfirmedIntegrationEventHandler.cs:27).",
+      "globs": [
+        "src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs",
+        "src/Ordering.Domain/AggregatesModel/OrderAggregate/OrderStatus.cs",
+        "src/Ordering.API/Application/IntegrationEvents/EventHandling/**",
+        "src/Ordering.API/Application/Commands/Set*Handler.cs",
+        "src/Ordering.API/Application/Commands/CancelOrderCommandHandler.cs",
+        "src/Ordering.API/Application/Commands/ShipOrderCommandHandler.cs",
+        "src/Ordering.API/Application/DomainEventHandlers/**",
+        "src/Ordering.API/Extensions/Extensions.cs",
+        "src/OrderProcessor/Services/**",
+        "src/PaymentProcessor/IntegrationEvents/EventHandling/**",
+        "src/PaymentProcessor/Program.cs",
+        "src/PaymentProcessor/PaymentOptions.cs",
+        "src/Catalog.API/IntegrationEvents/EventHandling/OrderStatusChangedTo*.cs"
+      ]
+    },
+    {
+      "classification": "Order Status Saga",
+      "importance": "medium",
+      "globs": [
+        "src/Ordering.Domain/**",
+        "src/Ordering.API/Application/**",
+        "!src/Ordering.API/Application/Models/CustomerBasket.cs",
+        "src/OrderProcessor/**",
+        "src/PaymentProcessor/**",
+        "src/WebApp/Services/OrderStatus/**",
+        "src/WebApp/Components/Pages/User/OrdersRefreshOnStatusChange.razor"
+      ]
+    },
+    {
+      "classification": "Order Status Saga",
+      "importance": "low",
+      "globs": [
+        "src/Ordering.API/**",
+        "!src/Ordering.API/Extensions/LinqSelectExtensions.cs",
+        "!src/Ordering.API/Application/Models/CustomerBasket.cs",
+        "src/Ordering.Infrastructure/**"
+      ]
+    },
+    {
+      "classification": "Catalog Items & Stock",
+      "importance": "high",
+      "why": "Catalog's item POST, PUT and DELETE have no authorization (CatalogApi.cs:106-123); the paid handler decrements stock with no de-duplication and RemoveStock throws at zero for the whole order (OrderStatusChangedToPaidIntegrationEventHandler.cs:19-26, CatalogItem.cs:70-84); only the PhysicalFileProvider in Program.cs:7-9 keeps picture reads inside Pics.",
+      "globs": [
+        "src/Catalog.API/Apis/CatalogApi.cs",
+        "src/Catalog.API/Model/CatalogItem.cs",
+        "src/Catalog.API/Program.cs",
+        "src/Catalog.API/IntegrationEvents/EventHandling/OrderStatusChangedTo*.cs"
+      ]
+    },
+    {
+      "classification": "Catalog Items & Stock",
+      "importance": "medium",
+      "globs": [
+        "src/Catalog.API/**",
+        "!src/Catalog.API/Pics/**",
+        "!src/Catalog.API/IntegrationEvents/EventHandling/AnyFutureIntegrationEventHandler.cs.txt",
+        "!src/Catalog.API/Catalog.API.http",
+        "!src/Catalog.API/Catalog.API.json",
+        "!src/Catalog.API/Catalog.API_v2.json",
+        "!src/Catalog.API/Properties/**",
+        "!src/Catalog.API/appsettings.Development.json"
+      ]
+    },
+    {
+      "classification": "Catalog Items & Stock",
+      "importance": "low",
+      "globs": [
+        "src/Catalog.API/Catalog.API.http",
+        "src/Catalog.API/Catalog.API.json",
+        "src/Catalog.API/Catalog.API_v2.json"
+      ]
+    },
+    {
+      "classification": "Event Bus & Outbox",
+      "importance": "high",
+      "why": "The RabbitMQ consumer acks a message even when its handler throws (RabbitMQEventBus.cs:170-180) and drops any message containing 'throw-fake-exception' (:163); Catalog never retries outbox rows that failed to publish (CatalogIntegrationEventService.cs:28-31), so a lost event stalls an order with no error.",
+      "globs": [
+        "src/EventBusRabbitMQ/RabbitMQEventBus.cs",
+        "src/EventBus/Extensions/EventBusBuilderExtensions.cs",
+        "src/IntegrationEventLogEF/Services/IntegrationEventLogService.cs",
+        "src/IntegrationEventLogEF/Utilities/ResilientTransaction.cs",
+        "src/IntegrationEventLogEF/IntegrationEventLogEntry.cs",
+        "src/Catalog.API/IntegrationEvents/CatalogIntegrationEventService.cs",
+        "src/Ordering.API/Application/IntegrationEvents/OrderingIntegrationEventService.cs",
+        "src/Ordering.API/Application/Behaviors/TransactionBehavior.cs",
+        "src/Ordering.Infrastructure/OrderingContext.cs",
+        "src/Ordering.Infrastructure/MediatorExtension.cs"
+      ]
+    },
+    {
+      "classification": "Event Bus & Outbox",
+      "importance": "medium",
+      "globs": [
+        "src/EventBus/**",
+        "src/EventBusRabbitMQ/**",
+        "src/IntegrationEventLogEF/**",
+        "src/Catalog.API/IntegrationEvents/**",
+        "!src/Catalog.API/IntegrationEvents/EventHandling/AnyFutureIntegrationEventHandler.cs.txt",
+        "src/Ordering.API/Application/IntegrationEvents/**",
+        "src/Ordering.API/Application/Behaviors/**"
+      ]
+    },
+    {
+      "classification": "Shared Message & gRPC Contracts",
+      "importance": "medium",
+      "globs": [
+        "src/Ordering.API/Application/IntegrationEvents/Events/**",
+        "src/Catalog.API/IntegrationEvents/Events/**",
+        "src/Basket.API/IntegrationEvents/Events/**",
+        "src/Webhooks.API/IntegrationEvents/*IntegrationEvent.cs",
+        "src/Webhooks.API/IntegrationEvents/OrderStockItem.cs",
+        "src/WebApp/Services/OrderStatus/IntegrationEvents/Events/**",
+        "src/OrderProcessor/Events/**",
+        "src/PaymentProcessor/IntegrationEvents/Events/**",
+        "src/EventBus/Events/**",
+        "src/Basket.API/Proto/**",
+        "src/ClientApp/Services/Basket/Protos/**",
+        "src/WebAppComponents/Catalog/*.cs",
+        "src/WebAppComponents/Services/**",
+        "!src/WebAppComponents/Services/PriceFormatter.cs",
+        "src/WebhookClient/Services/WebhookData.cs",
+        "src/WebhookClient/Services/WebhookType.cs",
+        "src/WebhookClient/Services/WebhookSubscriptionRequest.cs"
+      ]
+    },
+    {
+      "classification": "Shared Message & gRPC Contracts",
+      "importance": "low",
+      "globs": [
+        "src/Catalog.API/Catalog.API.json",
+        "src/Catalog.API/Catalog.API_v2.json"
+      ]
+    },
+    {
+      "classification": "Webhook Subscriptions & Delivery",
+      "importance": "high",
+      "why": "Subscriptions are chosen by type only, so every subscriber receives every buyer's paid and shipped orders (WebhooksRetriever.cs:15); outbound calls go to user-supplied URLs with no allow-list (GrantUrlTesterService.cs:21-28, WebhooksSender.cs:25); WebhookClient's token check reads a key nothing sets, so it always passes (WebhookEndpoints.cs:13, :18, :37).",
+      "globs": [
+        "src/Webhooks.API/Services/GrantUrlTesterService.cs",
+        "src/Webhooks.API/Services/WebhooksSender.cs",
+        "src/Webhooks.API/Services/WebhooksRetriever.cs",
+        "src/Webhooks.API/Apis/WebHooksApi.cs",
+        "src/Webhooks.API/Program.cs",
+        "src/Webhooks.API/IntegrationEvents/*Handler.cs",
+        "src/WebhookClient/Endpoints/WebhookEndpoints.cs"
+      ]
+    },
+    {
+      "classification": "Webhook Subscriptions & Delivery",
+      "importance": "medium",
+      "globs": [
+        "src/Webhooks.API/**",
+        "!src/Webhooks.API/Properties/**",
+        "src/WebhookClient/**",
+        "!src/WebhookClient/Components/**",
+        "!src/WebhookClient/wwwroot/**",
+        "!src/WebhookClient/Properties/**"
+      ]
+    },
+    {
+      "classification": "Schemas & Startup Migrations",
+      "importance": "high",
+      "why": "Every service applies its migrations and seed at startup in every environment (MigrateDbContextExtensions.cs:65-66, :81), and OrderProcessor reads Ordering's tables with raw SQL (GracePeriodOrdersRepository.cs:33-37), so a schema or enum-conversion change silently stops the grace period.",
+      "globs": [
+        "src/Shared/MigrateDbContextExtensions.cs",
+        "src/**/Migrations/**",
+        "!**/*.Designer.cs",
+        "src/OrderProcessor/Services/GracePeriodOrdersRepository.cs",
+        "src/Ordering.Infrastructure/EntityConfigurations/OrderEntityTypeConfiguration.cs"
+      ]
+    },
+    {
+      "classification": "Schemas & Startup Migrations",
+      "importance": "medium",
+      "globs": [
+        "src/**/Migrations/**",
+        "src/Ordering.Infrastructure/EntityConfigurations/**",
+        "src/Catalog.API/Infrastructure/**",
+        "src/Webhooks.API/Infrastructure/**",
+        "src/Identity.API/Data/**",
+        "src/IntegrationEventLogEF/IntegrationLogExtensions.cs",
+        "src/IntegrationEventLogEF/EventStateEnum.cs",
+        "src/Ordering.API/Infrastructure/OrderingContextSeed.cs",
+        "src/Shared/**"
+      ]
+    },
+    {
+      "classification": "AI Concierge & Semantic Search",
+      "importance": "high",
+      "why": "The concierge's tools hand the buyer's email, phone and address claims to the model and let it change the basket (ChatState.cs:97-111), and model-supplied image URLs are rendered as raw markup, which gives a prompt injection a channel to exfiltrate data (MessageProcessor.cs:24, :30).",
+      "globs": [
+        "src/WebApp/Components/Chatbot/ChatState.cs",
+        "src/WebApp/Components/Chatbot/MessageProcessor.cs"
+      ]
+    },
+    {
+      "classification": "AI Concierge & Semantic Search",
+      "importance": "medium",
+      "globs": [
+        "src/WebApp/Components/Chatbot/**",
+        "!**/*.css",
+        "src/Catalog.API/Services/**"
+      ]
+    },
+    {
+      "classification": "Aspire Host & Service Defaults",
+      "importance": "high",
+      "why": "Forwarded headers are switched on for every project, so any client can spoof X-Forwarded-For and defeat Identity's localhost-only diagnostics check (eShop.AppHost/Extensions.cs:36); the mobile BFF routes and WebApp's anonymous YARP proxy to catalog-api decide which internal APIs are reachable without auth (WebApp/Program.cs:32).",
+      "globs": [
+        "src/eShop.AppHost/Extensions.cs",
+        "src/WebApp/Program.cs"
+      ]
+    },
+    {
+      "classification": "Aspire Host & Service Defaults",
+      "importance": "medium",
+      "globs": [
+        "src/eShop.AppHost/**",
+        "!src/eShop.AppHost/Properties/**",
+        "src/eShop.ServiceDefaults/**",
+        "src/*/Program.cs",
+        "src/*/Extensions/Extensions.cs",
+        "src/*/appsettings.json",
+        "aspire.config.json"
+      ]
+    },
+    {
+      "classification": "Aspire Host & Service Defaults",
+      "importance": "low",
+      "globs": [
+        "src/*/appsettings.Development.json",
+        "src/*/Properties/launchSettings.json",
+        "src/Shared/ActivityExtensions.cs",
+        ".aspire/**"
+      ]
+    },
+    {
+      "classification": "MAUI Mobile Clients",
+      "importance": "high",
+      "why": "One shared HttpClient has its DefaultRequestHeaders rewritten on every call, so concurrent requests can carry another call's bearer token or client credentials (RequestProvider.cs:116, :136, :151); OrderService returns silently without a token while the checkout clears the basket and reports success (OrderService.cs:32-35, CheckoutViewModel.cs:115-127).",
+      "globs": [
+        "src/ClientApp/Services/RequestProvider/RequestProvider.cs",
+        "src/ClientApp/Services/Identity/IdentityService.cs",
+        "src/ClientApp/Services/Settings/SettingsService.cs",
+        "src/ClientApp/Services/Order/OrderService.cs",
+        "src/ClientApp/ViewModels/CheckoutViewModel.cs"
+      ]
+    },
+    {
+      "classification": "MAUI Mobile Clients",
+      "importance": "medium",
+      "globs": [
+        "src/ClientApp/Services/**",
+        "src/ClientApp/ViewModels/**",
+        "src/ClientApp/MauiProgram.cs",
+        "src/ClientApp/Platforms/**",
+        "src/HybridApp/Platforms/**",
+        "src/HybridApp/Services/**",
+        "src/HybridApp/MauiProgram.cs"
+      ]
+    },
+    {
+      "classification": "MAUI Mobile Clients",
+      "importance": "low",
+      "globs": [
+        "src/ClientApp/**",
+        "src/HybridApp/**",
+        "!src/ClientApp/Resources/**",
+        "!src/HybridApp/Resources/**",
+        "!src/HybridApp/wwwroot/**",
+        "!**/*.css"
+      ]
+    },
+    {
+      "classification": "Build, Packages & CI",
+      "importance": "high",
+      "why": "NuGet vulnerability warnings NU1901-NU1904 are suppressed for the whole repository (Directory.Build.props:11), so a package bump with a known CVE builds clean; nuget.config's package source mapping is the only guard against dependency confusion (nuget.config:5-13).",
+      "globs": [
+        "Directory.Build.props",
+        "nuget.config"
+      ]
+    },
+    {
+      "classification": "Build, Packages & CI",
+      "importance": "medium",
+      "globs": [
+        "Directory.Packages.props",
+        "Directory.Build.targets",
+        "global.json",
+        "package.json",
+        "package-lock.json",
+        ".github/workflows/**",
+        ".github/dependabot.yml",
+        "ci.yml",
+        "eShop.slnx",
+        "eShop.Web.slnf",
+        ".config/CredScanSuppressions.json",
+        "tests/Directory.Build.props"
+      ]
+    },
+    {
+      "classification": "Build, Packages & CI",
+      "importance": "low",
+      "globs": [
+        "src/**/*.csproj",
+        "tests/**/*.csproj",
+        "src/ClientApp/ClientApp.sln",
+        ".github/skills/**",
+        ".vscode/**",
+        ".config/**",
+        ".editorconfig",
+        ".gitattributes",
+        ".gitignore",
+        ".markdownlint.json",
+        ".markdownlintignore",
+        ".spectral.yml",
+        "es-metadata.yml",
+        ".worktreeinclude",
+        "src/Identity.API/libman.json",
+        "src/Identity.API/bundleconfig.json",
+        "src/Identity.API/.gitignore"
+      ]
+    },
+    {
+      "classification": "Storefront & App UI",
+      "importance": "low",
+      "globs": [
+        "src/WebApp/**",
+        "!src/WebApp/wwwroot/**",
+        "src/WebApp/wwwroot/js/**",
+        "src/WebAppComponents/**",
+        "src/WebhookClient/Components/**",
+        "src/Identity.API/Views/**",
+        "src/Identity.API/wwwroot/js/**",
+        "src/HybridApp/Components/**",
+        "!**/*.css"
+      ]
+    },
+    {
+      "classification": "Test Suites",
+      "importance": "low",
+      "globs": [
+        "tests/**",
+        "e2e/**",
+        "playwright.config.ts"
+      ]
+    },
+    {
+      "classification": "Static Assets, Docs & Leftovers",
+      "importance": "none",
+      "globs": [
+        "src/Catalog.API/Pics/**",
+        "src/WebApp/wwwroot/**",
+        "!src/WebApp/wwwroot/js/**",
+        "src/Identity.API/wwwroot/**",
+        "!src/Identity.API/wwwroot/js/**",
+        "src/HybridApp/wwwroot/**",
+        "src/WebhookClient/wwwroot/**",
+        "src/ClientApp/Resources/**",
+        "src/HybridApp/Resources/**",
+        "src/**/*.css",
+        "img/**",
+        "build/**",
+        ".devcenter/**",
+        "*.md",
+        "LICENSE",
+        "src/Catalog.API/IntegrationEvents/EventHandling/AnyFutureIntegrationEventHandler.cs.txt",
+        "src/Ordering.API/Extensions/LinqSelectExtensions.cs",
+        "src/Ordering.API/Application/Models/CustomerBasket.cs",
+        "src/Identity.API/Models/AccountViewModels/**",
+        "src/Identity.API/Models/ManageViewModels/**",
+        "src/Identity.API/Models/ConsentViewModels/**",
+        "src/Identity.API/Models/ErrorViewModel.cs",
+        "src/Identity.API/Services/EFLoginService.cs",
+        "src/Identity.API/Services/ILoginService.cs",
+        "src/Identity.API/Services/RedirectService.cs",
+        "src/Identity.API/Services/IRedirectService.cs"
+      ]
+    }
+  ],
+  "hosts": [
+    {
+      "element": "root",
+      "dir": "",
+      "kind": "custom"
+    },
+    {
+      "element": "root/.agents",
+      "dir": ".agents",
+      "kind": "custom"
+    },
+    {
+      "element": "root/.agents/instructions",
+      "dir": ".agents/instructions",
+      "kind": "custom"
+    },
+    {
+      "element": "root/.agents/skills",
+      "dir": ".agents/skills",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/Basket.API",
+      "dir": "src/Basket.API",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/Catalog.API",
+      "dir": "src/Catalog.API",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/ClientApp",
+      "dir": "src/ClientApp",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/eShop.AppHost",
+      "dir": "src/eShop.AppHost",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/eShop.ServiceDefaults",
+      "dir": "src/eShop.ServiceDefaults",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/EventBus",
+      "dir": "src/EventBus",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/EventBusRabbitMQ",
+      "dir": "src/EventBusRabbitMQ",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/HybridApp",
+      "dir": "src/HybridApp",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/Identity.API",
+      "dir": "src/Identity.API",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/IntegrationEventLogEF",
+      "dir": "src/IntegrationEventLogEF",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API",
+      "dir": "src/Ordering.API",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/Ordering.Domain",
+      "dir": "src/Ordering.Domain",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/Ordering.Infrastructure",
+      "dir": "src/Ordering.Infrastructure",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/OrderProcessor",
+      "dir": "src/OrderProcessor",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/PaymentProcessor",
+      "dir": "src/PaymentProcessor",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/WebApp",
+      "dir": "src/WebApp",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/WebAppComponents",
+      "dir": "src/WebAppComponents",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/WebhookClient",
+      "dir": "src/WebhookClient",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/src/Webhooks.API",
+      "dir": "src/Webhooks.API",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/tests/Application.UnitTests",
+      "dir": "tests/Application.UnitTests",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/tests/Basket.FunctionalTests",
+      "dir": "tests/Basket.FunctionalTests",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/tests/Basket.UnitTests",
+      "dir": "tests/Basket.UnitTests",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/tests/Catalog.FunctionalTests",
+      "dir": "tests/Catalog.FunctionalTests",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/tests/ClientApp.UnitTests",
+      "dir": "tests/ClientApp.UnitTests",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/tests/eShop.AppHost.UnitTests",
+      "dir": "tests/eShop.AppHost.UnitTests",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/tests/Ordering.FunctionalTests",
+      "dir": "tests/Ordering.FunctionalTests",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/tests/Ordering.UnitTests",
+      "dir": "tests/Ordering.UnitTests",
+      "kind": "custom"
+    },
+    {
+      "element": "root/eShop/tests/Webhooks.FunctionalTests",
+      "dir": "tests/Webhooks.FunctionalTests",
+      "kind": "custom"
+    },
+    {
+      "element": "root/.agents/instructions/Intent.Domain.Guardrails.Contracts.ModelSyncRule",
+      "dir": ".agents/instructions",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.ModelSyncRule"
+    },
+    {
+      "element": "root/.agents/instructions/Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration",
+      "dir": ".agents/instructions",
+      "kind": "template",
+      "templateId": "Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration"
+    },
+    {
+      "element": "root/.agents/instructions/Intent.Services.Guardrails.Contracts.ModelSyncRule",
+      "dir": ".agents/instructions",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ModelSyncRule"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Domain.Guardrails.Contracts.ConfigureDriftCheckSkill",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.ConfigureDriftCheckSkill"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Domain.Guardrails.Contracts.CosmosDbRecipeGuide",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.CosmosDbRecipeGuide"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Domain.Guardrails.Contracts.DomainEventsRecipeGuide",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.DomainEventsRecipeGuide"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Domain.Guardrails.Contracts.EfCoreRecipeGuide",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.EfCoreRecipeGuide"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Domain.Guardrails.Contracts.MongoDbRecipeGuide",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.MongoDbRecipeGuide"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Domain.Guardrails.Contracts.ReverseEngineerDomainSkill",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.ReverseEngineerDomainSkill"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Domain.Guardrails.Contracts.SyncModelSkill",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.SyncModelSkill"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Domain.Guardrails.Contracts.ValidateDriftRecipesSkill",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.ValidateDriftRecipesSkill"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Services.Guardrails.Contracts.AspNetCoreControllersRecipeGuide",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.AspNetCoreControllersRecipeGuide"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Services.Guardrails.Contracts.ConfigureDriftCheckSkill",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ConfigureDriftCheckSkill"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Services.Guardrails.Contracts.FastEndpointsRecipeGuide",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.FastEndpointsRecipeGuide"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Services.Guardrails.Contracts.HandlerIntentRecipeGuide",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.HandlerIntentRecipeGuide"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Services.Guardrails.Contracts.MinimalApisRecipeGuide",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.MinimalApisRecipeGuide"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Services.Guardrails.Contracts.ReverseEngineerServicesSkill",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ReverseEngineerServicesSkill"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Services.Guardrails.Contracts.SyncModelSkill",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.SyncModelSkill"
+    },
+    {
+      "element": "root/.agents/skills/Intent.Services.Guardrails.Contracts.ValidateDriftRecipesSkill",
+      "dir": ".agents/skills",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ValidateDriftRecipesSkill"
+    },
+    {
+      "element": "root/eShop/src/Basket.API/Intent.Services.Guardrails.Contracts.DtoContract",
+      "dir": "src/Basket.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.DtoContract"
+    },
+    {
+      "element": "root/eShop/src/Basket.API/Intent.Services.Guardrails.Contracts.IntegrationEventContract",
+      "dir": "src/Basket.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventContract"
+    },
+    {
+      "element": "root/eShop/src/Basket.API/Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract",
+      "dir": "src/Basket.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract"
+    },
+    {
+      "element": "root/eShop/src/Basket.API/Intent.Services.Guardrails.Contracts.ServiceContract",
+      "dir": "src/Basket.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ServiceContract"
+    },
+    {
+      "element": "root/eShop/src/Catalog.API/Intent.Domain.Guardrails.Contracts.EntityContract",
+      "dir": "src/Catalog.API",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.EntityContract"
+    },
+    {
+      "element": "root/eShop/src/Catalog.API/Intent.Services.Guardrails.Contracts.DtoContract",
+      "dir": "src/Catalog.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.DtoContract"
+    },
+    {
+      "element": "root/eShop/src/Catalog.API/Intent.Services.Guardrails.Contracts.EventingDtoContract",
+      "dir": "src/Catalog.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.EventingDtoContract"
+    },
+    {
+      "element": "root/eShop/src/Catalog.API/Intent.Services.Guardrails.Contracts.IntegrationEventContract",
+      "dir": "src/Catalog.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventContract"
+    },
+    {
+      "element": "root/eShop/src/Catalog.API/Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract",
+      "dir": "src/Catalog.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract"
+    },
+    {
+      "element": "root/eShop/src/Catalog.API/Intent.Services.Guardrails.Contracts.ServiceContract",
+      "dir": "src/Catalog.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ServiceContract"
+    },
+    {
+      "element": "root/eShop/src/Identity.API/Intent.Domain.Guardrails.Contracts.EntityContract",
+      "dir": "src/Identity.API",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.EntityContract"
+    },
+    {
+      "element": "root/eShop/src/IntegrationEventLogEF/Intent.Domain.Guardrails.Contracts.EntityContract",
+      "dir": "src/IntegrationEventLogEF",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.EntityContract"
+    },
+    {
+      "element": "root/eShop/src/IntegrationEventLogEF/Intent.Domain.Guardrails.Contracts.EnumContract",
+      "dir": "src/IntegrationEventLogEF",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.EnumContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Domain.Guardrails.Contracts.DomainContract",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.DomainContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Domain.Guardrails.Contracts.DomainServiceContract",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.DomainServiceContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Domain.Guardrails.Contracts.DriftReport",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.DriftReport"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Services.Guardrails.Contracts.CommandContract",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.CommandContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Services.Guardrails.Contracts.DomainEventHandlerContract",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.DomainEventHandlerContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Services.Guardrails.Contracts.DriftReport",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.DriftReport"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Services.Guardrails.Contracts.DtoContract",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.DtoContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Services.Guardrails.Contracts.EventingDtoContract",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.EventingDtoContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Services.Guardrails.Contracts.IntegrationCommandContract",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationCommandContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Services.Guardrails.Contracts.IntegrationEventContract",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Services.Guardrails.Contracts.QueryContract",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.QueryContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.API/Intent.Services.Guardrails.Contracts.ServiceContract",
+      "dir": "src/Ordering.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ServiceContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.Domain/Intent.Domain.Guardrails.Contracts.DomainEventContract",
+      "dir": "src/Ordering.Domain",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.DomainEventContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.Domain/Intent.Domain.Guardrails.Contracts.EntityContract",
+      "dir": "src/Ordering.Domain",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.EntityContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.Domain/Intent.Domain.Guardrails.Contracts.EnumContract",
+      "dir": "src/Ordering.Domain",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.EnumContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.Domain/Intent.Domain.Guardrails.Contracts.ValueObjectContract",
+      "dir": "src/Ordering.Domain",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.ValueObjectContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.Infrastructure/Intent.Domain.Guardrails.Contracts.EntityContract",
+      "dir": "src/Ordering.Infrastructure",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.EntityContract"
+    },
+    {
+      "element": "root/eShop/src/Ordering.Infrastructure/Intent.Domain.Guardrails.Contracts.RepositoryContract",
+      "dir": "src/Ordering.Infrastructure",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.RepositoryContract"
+    },
+    {
+      "element": "root/eShop/src/OrderProcessor/Intent.Services.Guardrails.Contracts.IntegrationEventContract",
+      "dir": "src/OrderProcessor",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventContract"
+    },
+    {
+      "element": "root/eShop/src/OrderProcessor/Intent.Services.Guardrails.Contracts.ServiceContract",
+      "dir": "src/OrderProcessor",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ServiceContract"
+    },
+    {
+      "element": "root/eShop/src/PaymentProcessor/Intent.Services.Guardrails.Contracts.IntegrationEventContract",
+      "dir": "src/PaymentProcessor",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventContract"
+    },
+    {
+      "element": "root/eShop/src/PaymentProcessor/Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract",
+      "dir": "src/PaymentProcessor",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract"
+    },
+    {
+      "element": "root/eShop/src/WebApp/Intent.Services.Guardrails.Contracts.DtoContract",
+      "dir": "src/WebApp",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.DtoContract"
+    },
+    {
+      "element": "root/eShop/src/WebApp/Intent.Services.Guardrails.Contracts.IntegrationEventContract",
+      "dir": "src/WebApp",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventContract"
+    },
+    {
+      "element": "root/eShop/src/WebApp/Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract",
+      "dir": "src/WebApp",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract"
+    },
+    {
+      "element": "root/eShop/src/WebApp/Intent.Services.Guardrails.Contracts.ServiceContract",
+      "dir": "src/WebApp",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ServiceContract"
+    },
+    {
+      "element": "root/eShop/src/WebApp/Intent.Services.Guardrails.Contracts.ServiceProxyContract",
+      "dir": "src/WebApp",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ServiceProxyContract"
+    },
+    {
+      "element": "root/eShop/src/WebAppComponents/Intent.Services.Guardrails.Contracts.DtoContract",
+      "dir": "src/WebAppComponents",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.DtoContract"
+    },
+    {
+      "element": "root/eShop/src/WebAppComponents/Intent.Services.Guardrails.Contracts.ServiceProxyContract",
+      "dir": "src/WebAppComponents",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ServiceProxyContract"
+    },
+    {
+      "element": "root/eShop/src/WebhookClient/Intent.Services.Guardrails.Contracts.DtoContract",
+      "dir": "src/WebhookClient",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.DtoContract"
+    },
+    {
+      "element": "root/eShop/src/WebhookClient/Intent.Services.Guardrails.Contracts.EnumContract",
+      "dir": "src/WebhookClient",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.EnumContract"
+    },
+    {
+      "element": "root/eShop/src/WebhookClient/Intent.Services.Guardrails.Contracts.ServiceContract",
+      "dir": "src/WebhookClient",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ServiceContract"
+    },
+    {
+      "element": "root/eShop/src/WebhookClient/Intent.Services.Guardrails.Contracts.ServiceProxyContract",
+      "dir": "src/WebhookClient",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ServiceProxyContract"
+    },
+    {
+      "element": "root/eShop/src/Webhooks.API/Intent.Domain.Guardrails.Contracts.EntityContract",
+      "dir": "src/Webhooks.API",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.EntityContract"
+    },
+    {
+      "element": "root/eShop/src/Webhooks.API/Intent.Domain.Guardrails.Contracts.EnumContract",
+      "dir": "src/Webhooks.API",
+      "kind": "template",
+      "templateId": "Intent.Domain.Guardrails.Contracts.EnumContract"
+    },
+    {
+      "element": "root/eShop/src/Webhooks.API/Intent.Services.Guardrails.Contracts.DtoContract",
+      "dir": "src/Webhooks.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.DtoContract"
+    },
+    {
+      "element": "root/eShop/src/Webhooks.API/Intent.Services.Guardrails.Contracts.EventingDtoContract",
+      "dir": "src/Webhooks.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.EventingDtoContract"
+    },
+    {
+      "element": "root/eShop/src/Webhooks.API/Intent.Services.Guardrails.Contracts.IntegrationEventContract",
+      "dir": "src/Webhooks.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventContract"
+    },
+    {
+      "element": "root/eShop/src/Webhooks.API/Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract",
+      "dir": "src/Webhooks.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract"
+    },
+    {
+      "element": "root/eShop/src/Webhooks.API/Intent.Services.Guardrails.Contracts.ServiceContract",
+      "dir": "src/Webhooks.API",
+      "kind": "template",
+      "templateId": "Intent.Services.Guardrails.Contracts.ServiceContract"
+    }
+  ],
+  "outOfScope": [
+    "intent/**",
+    ".agents/**",
+    ".claude/**"
+  ],
+  "defects": [
+    {
+      "title": "IdentityServer signing key is committed.",
+      "detail": "tempkey.jwk holds the RSA private key, is loaded by AddDeveloperSigningCredential and key management is off, so anyone with the repository can mint tokens every API trusts.",
+      "where": [
+        "src/Identity.API/tempkey.jwk:1",
+        "src/Identity.API/Program.cs:29",
+        "src/Identity.API/Program.cs:37"
+      ]
+    },
+    {
+      "title": "Client secrets are hard-coded as \"secret\".",
+      "detail": "The webapp, maui and webhooksclient OIDC clients share a literal secret, repeated in the WebApp and WebhookClient.",
+      "where": [
+        "src/Identity.API/Configuration/Config.cs:52",
+        "src/Identity.API/Configuration/Config.cs:82",
+        "src/Identity.API/Configuration/Config.cs:118",
+        "src/WebApp/Extensions/Extensions.cs:78",
+        "src/WebhookClient/Extensions/Extensions.cs:54"
+      ]
+    },
+    {
+      "title": "The CVV is issued as a token claim and stored as plaintext.",
+      "detail": "ProfileService adds card_security_number to the claims, which AlwaysIncludeUserClaimsInIdToken puts in ID tokens.",
+      "where": [
+        "src/Identity.API/Services/ProfileService.cs:76-77",
+        "src/Identity.API/Models/ApplicationUser.cs:16"
+      ]
+    },
+    {
+      "title": "Demo users with a known password are seeded in every environment.",
+      "detail": "alice and bob are created with Pass123$ and card data wherever Identity.API starts.",
+      "where": [
+        "src/Identity.API/UsersSeed.cs:33",
+        "src/Identity.API/UsersSeed.cs:78"
+      ]
+    },
+    {
+      "title": "APIs accept tokens issued for any audience.",
+      "detail": "ValidateAudience is false in the shared JWT setup, and HTTPS metadata is not required.",
+      "where": [
+        "src/eShop.ServiceDefaults/AuthenticationExtensions.cs:39",
+        "src/eShop.ServiceDefaults/AuthenticationExtensions.cs:49"
+      ]
+    },
+    {
+      "title": "An order can be placed as another buyer.",
+      "detail": "CreateOrderAsync takes the buyer's id from the request body rather than the token.",
+      "where": "src/Ordering.API/Apis/OrdersApi.cs:150"
+    },
+    {
+      "title": "Any signed-in user can read, cancel or ship any order.",
+      "detail": "GetOrderAsync, cancel and ship have no ownership or role check; a bare catch also turns database errors into 404.",
+      "where": [
+        "src/Ordering.API/Apis/OrdersApi.cs:19-20",
+        "src/Ordering.API/Apis/OrdersApi.cs:86-99"
+      ]
+    },
+    {
+      "title": "Card number and CVV are logged when x-requestid is missing.",
+      "detail": "The warning logs the whole CreateOrderRequest with {@IntegrationEvent}.",
+      "where": "src/Ordering.API/Apis/OrdersApi.cs:143"
+    },
+    {
+      "title": "IdentifiedCommandHandler swallows exceptions.",
+      "detail": "The transaction commits partial work, such as clearing the basket, and the retry is treated as a duplicate.",
+      "where": "src/Ordering.API/Application/Commands/IdentifiedCommandHandler.cs:99-101"
+    },
+    {
+      "title": "Ordering trusts the unit price the client sends.",
+      "detail": "BasketItem UnitPrice is copied into the order, and Order.GetTotal ignores the discount.",
+      "where": [
+        "src/Ordering.API/Extensions/BasketItemExtensions.cs:20",
+        "src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs:193"
+      ]
+    },
+    {
+      "title": "Cancelling for rejected stock raises no domain event.",
+      "detail": "SetCancelledStatusWhenStockIsRejected changes status without an event, so no cancelled integration event is published.",
+      "where": "src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs:163-176"
+    },
+    {
+      "title": "A CVV of four digits is rejected.",
+      "detail": "CreateOrderCommandValidator requires exactly 3 characters, but Amex is seeded as card type 1.",
+      "where": "src/Ordering.API/Application/Validations/CreateOrderCommandValidator.cs:14"
+    },
+    {
+      "title": "The grace-period poller hides database errors.",
+      "detail": "NpgsqlException is caught and an empty list returned, so orders stay Submitted with no error.",
+      "where": "src/OrderProcessor/Services/GracePeriodOrdersRepository.cs:50-53"
+    },
+    {
+      "title": "Catalog item writes are anonymous.",
+      "detail": "POST, PUT and DELETE on items have no authorization, so anyone can change prices and stock.",
+      "where": "src/Catalog.API/Apis/CatalogApi.cs:106-123"
+    },
+    {
+      "title": "The RabbitMQ consumer acks failed messages, and a test hook drops messages.",
+      "detail": "Messages are acked even when the handler throws, and any message containing 'throw-fake-exception' is discarded.",
+      "where": [
+        "src/EventBusRabbitMQ/RabbitMQEventBus.cs:163",
+        "src/EventBusRabbitMQ/RabbitMQEventBus.cs:170-180"
+      ]
+    },
+    {
+      "title": "Catalog's failed outbox events are never retried.",
+      "detail": "A publish failure marks the row PublishedFailed and nothing in Catalog re-reads it.",
+      "where": "src/Catalog.API/IntegrationEvents/CatalogIntegrationEventService.cs:28-31"
+    },
+    {
+      "title": "Stock validation confirms products it cannot find.",
+      "detail": "Unknown product ids are skipped, so an order of only unknown products is confirmed.",
+      "where": "src/Catalog.API/IntegrationEvents/EventHandling/OrderStatusChangedToAwaitingValidationIntegrationEventHandler.cs:23-35"
+    },
+    {
+      "title": "Every webhook subscriber receives every buyer's orders.",
+      "detail": "Subscriptions are selected by type only, and the payload includes BuyerName.",
+      "where": "src/Webhooks.API/Services/WebhooksRetriever.cs:15"
+    },
+    {
+      "title": "Webhook calls go to any user-supplied URL, and the token is logged.",
+      "detail": "GrantUrlTesterService and WebhooksSender call subscriber URLs with no host allow-list (SSRF) and log the shared token at Information.",
+      "where": [
+        "src/Webhooks.API/Services/GrantUrlTesterService.cs:21-34",
+        "src/Webhooks.API/Services/WebhooksSender.cs:25",
+        "src/Webhooks.API/Services/WebhooksSender.cs:40"
+      ]
+    },
+    {
+      "title": "WebhookClient's token check always passes.",
+      "detail": "It reads a top-level ValidateToken key that nothing sets, and /check echoes any token back.",
+      "where": [
+        "src/WebhookClient/Endpoints/WebhookEndpoints.cs:13",
+        "src/WebhookClient/Endpoints/WebhookEndpoints.cs:18",
+        "src/WebhookClient/Endpoints/WebhookEndpoints.cs:37"
+      ]
+    },
+    {
+      "title": "The Webhooks migration doesn't match its snapshot.",
+      "detail": "Initial creates nullable DestUrl and UserId with no indexes, while the snapshot has them required and indexed.",
+      "where": [
+        "src/Webhooks.API/Migrations/20230925222606_Initial.cs:23-25",
+        "src/Webhooks.API/Migrations/WebhooksContextModelSnapshot.cs:37"
+      ]
+    },
+    {
+      "title": "WebApp empties the basket even when the order failed, and sends a fixed test card.",
+      "detail": "OrderingService never checks the response status; BasketState always sends card 1111222233334444 / 111.",
+      "where": [
+        "src/WebApp/Services/OrderingService.cs:25",
+        "src/WebApp/Services/BasketState.cs:108-116"
+      ]
+    },
+    {
+      "title": "The concierge renders model-supplied image URLs.",
+      "detail": "MessageProcessor turns image markdown from the model into raw <img> markup.",
+      "where": [
+        "src/WebApp/Components/Chatbot/MessageProcessor.cs:24",
+        "src/WebApp/Components/Chatbot/MessageProcessor.cs:30"
+      ]
+    },
+    {
+      "title": "The mobile app shares auth headers across concurrent requests.",
+      "detail": "RequestProvider sets Authorization and x-requestid on the singleton HttpClient.DefaultRequestHeaders, and x-requestid values accumulate.",
+      "where": [
+        "src/ClientApp/Services/RequestProvider/RequestProvider.cs:116",
+        "src/ClientApp/Services/RequestProvider/RequestProvider.cs:136",
+        "src/ClientApp/Services/RequestProvider/RequestProvider.cs:151"
+      ]
+    },
+    {
+      "title": "Forwarded headers are trusted from any client.",
+      "detail": "ASPNETCORE_FORWARDEDHEADERS_ENABLED is set for every project, which defeats the localhost check on Identity diagnostics.",
+      "where": [
+        "src/eShop.AppHost/Extensions.cs:36",
+        "src/Identity.API/Quickstart/Diagnostics/DiagnosticsController.cs:14"
+      ]
+    },
+    {
+      "title": "NuGet vulnerability warnings are suppressed repository-wide.",
+      "detail": "NU1901-NU1904 are in NoWarn, marked as temporary.",
+      "where": "Directory.Build.props:11"
+    },
+    {
+      "title": "HybridApp is never built in CI.",
+      "detail": "PR validation builds eShop.Web.slnf, which leaves HybridApp out, so changes to WebAppComponents can break it unnoticed.",
+      "where": ".github/workflows/pr-validation.yml:27"
+    }
+  ],
+  "decisions": [
+    "High means a developer must review an AI's change to the file, rather than leaving it to AI review. This is the recommended definition, taken without asking: the user chose no questions after setup in /initialize-brown-field.",
+    "Themes were not put to the user for review, for the same reason; they come from four read-only scans of the code, and every High was checked against the code.",
+    "intent/**, .agents/** and .claude/** are out of scope: Intent Architect metadata, module-written agent instructions and local agent tooling.",
+    "Copies of integration events, the basket proto and shared catalog DTOs are Medium, not High: they are shared contracts, and High is kept for silent, serious failures."
+  ],
+  "notes": [
+    {
+      "tone": "info",
+      "title": "What High means here",
+      "body": "A developer must review an AI's change to these files rather than leave it to AI review. Medium files get AI review first, with a developer looking where it matters."
+    },
+    {
+      "tone": "warning",
+      "title": "Defects are recorded, not fixed",
+      "body": "The scan found real defects (committed signing key, anonymous catalog writes, webhook fan-out to every subscriber and more). They raise the importance of the files involved and are listed below; fixing them is separate work."
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-10-28",
+      "commit": "913acea",
+      "change": "Initial classification: 17 classifications, applied during /initialize-brown-field."
+    }
+  ]
+}

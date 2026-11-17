@@ -247,7 +247,7 @@
   <file path="CleanArchitecture.Dapr.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="CleanArchitecture.Dapr.Domain/Repositories/ITagRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="CleanArchitecture.Dapr.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
-  <file path="CleanArchitecture.Dapr.Infrastructure/CleanArchitecture.Dapr.Infrastructure.csproj" deviationsHash="346361CA45DEBB0A7F9A47726088EBF2295708EAF19FC4C863327E3A8EBF371D" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CleanArchitecture.Dapr.Infrastructure/CleanArchitecture.Dapr.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CleanArchitecture.Dapr.Infrastructure/Configuration/HttpClientConfiguration.cs" templateId="Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientConfigurationTemplate" />
   <file path="CleanArchitecture.Dapr.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="CleanArchitecture.Dapr.Infrastructure/Eventing/DaprMessageBus.cs" templateId="Intent.Dapr.AspNetCore.Pubsub.DaprMessageBus" />

@@ -75,18 +75,5 @@
       <deviationsHash>04EDC5FF715F234C8CCEA391E01D3A98ECF35DDB2592D8E76AFDB9E72A27E9E5</deviationsHash>
       <fileHash>EDAC8C25ECC0B0ECC8790F6A7E63A86C1EF74E769155396E260F49F5F17317C5</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#d683c72a-bfb6-4251-b8d0-910c07ec3113</correlationId>
-      <path>Entities.PrivateSetters.EF.SqlServer.Infrastructure/Entities.PrivateSetters.EF.SqlServer.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:42:20.9985454Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:10:55.9235301Z</approvedAt>
-      <deviationsHash>97B33C1FAE70A3308724CF41F4854A4F1A6E868B569DE8645047F55BFA134AB6</deviationsHash>
-      <fileHash>C3B662C9F8E4A9B59CE9A75858EC8E60353959BD7937823AB14AB7D47BC908CF</fileHash>
-    </file>
   </files>
 </deviationsLog>

@@ -1,0 +1,48 @@
+@page "/cart"
+@using eShop.Web.Client.Contracts.Basket.Services.CustomerBaskets
+@using eShop.Web.Client.Pages.Cart.Components
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<PageTitle>Cart</PageTitle>
+<SectionContent SectionName="page-header-subtitle">Cart</SectionContent>
+<MudGrid>
+    <MudItem xs="12"
+             sm="6">
+        <MudDataGrid T="BasketItemDto"
+                     Items="@Model.BasketItems"
+                     Hover="true"
+                     Striped>
+            <Columns>
+                <TemplateColumn Title="Products">
+                    <CellTemplate>
+                        <MudStack Row>
+                            <ProductImagePrice ProductId="context.Item.ProductId"
+                                               ProductName="@context.Item.ProductName"
+                                               ProductPrice="context.Item.UnitPrice" />
+                        </MudStack>
+                    </CellTemplate>
+                </TemplateColumn>
+                <TemplateColumn Title="Quantity">
+                    <CellTemplate>
+                        <MudTextField T="int"
+                                      Value="context.Item.Quantity"
+                                      ValueChanged="@(qty => SubmitUpdateAsync(qty, context.Item.ProductId))" />
+                    </CellTemplate>
+                </TemplateColumn>
+            </Columns>
+        </MudDataGrid>
+    </MudItem>
+    <MudItem xs="12" sm="3">
+        <MudText>Items: <strong>@TotalQuantity</strong></MudText>
+
+        <MudButton Href="/checkout"
+                   Variant="Variant.Filled"
+                   Color="Color.Dark"
+                   Disabled="CheckoutDisabled">
+            Check out
+        </MudButton>
+
+        <MudLink Href="/" Color="Color.Dark">Continue shopping</MudLink>
+    </MudItem>
+</MudGrid>

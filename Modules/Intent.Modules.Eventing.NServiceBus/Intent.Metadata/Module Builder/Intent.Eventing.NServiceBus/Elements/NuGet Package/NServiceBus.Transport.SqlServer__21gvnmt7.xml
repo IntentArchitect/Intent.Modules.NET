@@ -240,8 +240,8 @@
       </childElements>
     </childElement>
     <childElement id="6da4c38d-1a74-438a-a06b-02571bf0f249" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.1.0</name>
-      <display>9.1.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>9.1.1</name>
+      <display>9.1.1 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -262,7 +262,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="61648f88-bc40-4435-a69c-b2b511b7d89f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6181760e-7e64-47b5-94aa-6471bf85b980" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Data.SqlClient</name>
           <display>Microsoft.Data.SqlClient (6.1.5)</display>
           <isAbstract>false</isAbstract>
@@ -276,11 +276,25 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="acbf9198-39d0-4ad6-97a1-24f9c440c13b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9db10502-6f60-40ac-b9d9-28592e8924ec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NServiceBus</name>
           <display>NServiceBus (10.2.5)</display>
           <isAbstract>false</isAbstract>
           <value>10.2.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6da4c38d-1a74-438a-a06b-02571bf0f249</parentFolderId>
+          <packageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</packageId>
+          <packageName>Intent.Eventing.NServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="18e8bae0-0fcb-43e9-b625-6444b4f407a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Security.Cryptography.Pkcs</name>
+          <display>System.Security.Cryptography.Pkcs (9.0.21)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.21</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6da4c38d-1a74-438a-a06b-02571bf0f249</parentFolderId>

@@ -1,0 +1,52 @@
+diff --git a/src/Ordering.API/Apis/OrdersApi.cs b/src/Ordering.API/Apis/OrdersApi.cs
+index 159ab3b..a3df625 100644
+--- a/src/Ordering.API/Apis/OrdersApi.cs
++++ b/src/Ordering.API/Apis/OrdersApi.cs
+@@ -20,7 +20,6 @@ public static class OrdersApi
+         api.MapPut("/ship", ShipOrderAsync);
+         api.MapGet("{orderId:int}", GetOrderAsync);
+         api.MapGet("/", GetOrdersByUserAsync);
+-        api.MapGet("/cardtypes", GetCardTypesAsync);
+         api.MapPost("/draft", CreateOrderDraftAsync);
+         api.MapPost("/", CreateOrderAsync);
+ 
+@@ -105,12 +104,6 @@ public static class OrdersApi
+         return TypedResults.Ok(orders);
+     }
+ 
+-    public static async Task<Ok<IEnumerable<CardType>>> GetCardTypesAsync(IOrderQueries orderQueries)
+-    {
+-        var cardTypes = await orderQueries.GetCardTypesAsync();
+-        return TypedResults.Ok(cardTypes);
+-    }
+-
+     public static async Task<OrderDraftDTO> CreateOrderDraftAsync(
+         CreateOrderDraftCommand command, [AsParameters] OrderServices services)
+     {
+diff --git a/tests/Ordering.UnitTests/Application/OrdersWebApiTest.cs b/tests/Ordering.UnitTests/Application/OrdersWebApiTest.cs
+index 3d66afb..47c061c 100644
+--- a/tests/Ordering.UnitTests/Application/OrdersWebApiTest.cs
++++ b/tests/Ordering.UnitTests/Application/OrdersWebApiTest.cs
+@@ -138,22 +138,6 @@ public class OrdersWebApiTest
+         Assert.IsInstanceOfType<NotFound>(result.Result);
+     }
+ 
+-    [TestMethod]
+-    public async Task Get_cardTypes_success()
+-    {
+-        // Arrange
+-        var fakeDynamicResult = Enumerable.Empty<CardType>();
+-        _orderQueriesMock.GetCardTypesAsync()
+-            .Returns(Task.FromResult(fakeDynamicResult));
+-
+-        // Act
+-        var result = await OrdersApi.GetCardTypesAsync(_orderQueriesMock);
+-
+-        // Assert
+-        Assert.IsInstanceOfType<Ok<IEnumerable<CardType>>>(result);
+-        Assert.AreSame(fakeDynamicResult, result.Value);
+-    }
+-
+     [TestMethod]
+     public async Task Cancel_order_returns_problem_when_command_fails()
+     {

@@ -18,9 +18,9 @@ namespace Intent.Modules.Google.CloudStorage
             NugetRegistry.Register(GoogleCloudStorageV1PackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("4.15.0")
+                        ( >= 2, >= 0) => new PackageVersion("5.0.0")
                             .WithNugetDependency("Google.Api.Gax.Rest", "4.13.1")
-                            .WithNugetDependency("Google.Apis.Storage.v1", "1.74.0.4115"),
+                            .WithNugetDependency("Google.Apis.Storage.v1", "1.76.0.4250"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{GoogleCloudStorageV1PackageName}'"),
                     }
                 );

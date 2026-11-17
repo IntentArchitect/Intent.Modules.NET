@@ -25,9 +25,10 @@
   <metadata />
   <childElements>
     <childElement id="53051b4f-9888-4659-9bff-1e7496eae38b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.29.0</name>
-      <display>10.28.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>10.30.1</name>
+      <display>10.30.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3f4379ef-5148-45d7-8e7f-55067cdaef40</parentFolderId>
@@ -48,11 +49,14 @@
       <childElements>
         <childElement id="877d5dc1-89cb-4675-aef1-941b76e1cb88" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Solace.Serdes</name>
+          <display>Solace.Serdes (1.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>53051b4f-9888-4659-9bff-1e7496eae38b</parentFolderId>
+          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
+          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />

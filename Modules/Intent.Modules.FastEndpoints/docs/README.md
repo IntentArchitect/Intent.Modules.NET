@@ -66,6 +66,10 @@ public class CreateClientCommandEndpoint : Endpoint<CreateClientCommand, JsonRes
 }
 ```
 
+### HTTP QUERY endpoints
+
+Set an operation's `Http Settings` verb to `QUERY` to expose it with the HTTP `QUERY` method ([RFC 10008](https://www.rfc-editor.org/rfc/rfc10008)). The endpoint's `Configure` method calls `Query("...")`, the request body binds to the request type, and the endpoint responds like a `GET` endpoint.
+
 >[!NOTE]
 > While FastEndpoints offers a streamlined and efficient method for creating endpoints, it may not support every feature that ASP.NET Core Controllers do. The `Intent.FastEndpoints` module is currently in beta, and there might be limitations in capabilities compared to the traditional ASP.NET framework.
 >

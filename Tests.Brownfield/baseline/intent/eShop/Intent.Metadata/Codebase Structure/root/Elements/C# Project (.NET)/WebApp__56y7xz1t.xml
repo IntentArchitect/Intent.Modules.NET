@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="24337002-2fa2-48d4-8f6d-064cf2088c9d" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
+  <name>WebApp</name>
+  <display>WebApp</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>c54e5800-31e9-40ef-aea7-f78534d7eae2</parentFolderId>
+  <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk.Web" />
+        <property name="abba11c7-3b43-4228-9eac-72311a302668" display="Aspire SDK Version" value="13.0" isActive="false" />
+        <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" />
+        <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" />
+        <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" />
+        <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" />
+        <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" />
+        <property name="d53ab03c-90cf-4b6a-b733-73b6983ab603" display="Target Framework" value="3da65706-027d-4433-9218-6b0f90ce3fc4" />
+        <property name="b9685057-b337-42d8-9536-d0185ea69b73" display="Target Frameworks" isActive="false" />
+        <property name="c9fc7052-9557-4485-a759-fa33363472b3" display="Configurations" />
+        <property name="c27f8813-bee4-4289-81e5-570e755a8f30" display="Root Namespace" value="eShop.WebApp" />
+        <property name="a6660df2-6016-40c6-8453-8e5993f407c9" display="User Secrets Id" value="2d86f364-a439-47c5-9468-3b85a7d9a18e" />
+        <property name="16ac8254-c83f-42d9-98bb-db9c0532bce6" display="Generate Runtime Configuration Files" />
+        <property name="94e630db-ee2b-4d4f-a423-19d3469178fa" display="Generate Documentation File" />
+        <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" />
+        <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" value="(unspecified)" />
+        <property name="8ee6e435-e556-439c-9712-a3f287972813" display="Runtime Identifiers" />
+        <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn)" />
+        <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" />
+        <property name="a811d3f2-253e-46de-ae72-bd6ec9f30d54" display="Generate AppSettings File" value="false" />
+        <property name="4fe561b9-333e-4341-8243-d569db8cd8f4" display="Generate LaunchSettings File" value="false" />
+        <property name="0aca4b00-3558-46c4-abcc-e4d9b8b17090" display="MSTest SDK Version" isActive="false" />
+        <property name="4b817fc6-d866-481a-bdc8-1fa9aa3bb97a" display="Generate Program File" value="false" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" />
+        <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" />
+        <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="false" />
+        <property name="68a31b13-148b-45da-a6ea-5a6883f86438" display="Nullable" value="enable" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="fd52e71a-3810-4ae7-ae40-4e1514903d25" name="Launch Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="1b85d04d-e80a-4640-9fee-558711473fa8" display="Base URL" value="http://localhost:5045" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+      <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+      <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+      <properties>
+        <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Storefront &amp; App UI] **/*, !**/*.css, !wwwroot/**&quot;,&quot;[None - Static Assets, Docs &amp; Leftovers] wwwroot/**, !wwwroot/js/**&quot;,&quot;[Medium - Checkout &amp; Order Submission, Storefront &amp; App UI] Services/**, !**/*.css&quot;,&quot;[Low - Storefront &amp; App UI] wwwroot/js/**, !**/*.css&quot;,&quot;[Medium - AI Concierge &amp; Semantic Search, Storefront &amp; App UI] Components/Chatbot/**, !**/*.css&quot;,&quot;[Medium - Checkout &amp; Order Submission, Storefront &amp; App UI] Components/Pages/Cart/**, !**/*.css&quot;,&quot;[Medium - Checkout &amp; Order Submission, Storefront &amp; App UI] Components/Pages/Checkout/**, !**/*.css&quot;,&quot;[High - AI Concierge &amp; Semantic Search, Storefront &amp; App UI] Components/Chatbot/ChatState.cs, Components/Chatbot/MessageProcessor.cs&quot;,&quot;[High - Aspire Host &amp; Service Defaults, Identity Server &amp; Token Trust, Storefront &amp; App UI] Extensions/Extensions.cs&quot;,&quot;[High - Aspire Host &amp; Service Defaults, Storefront &amp; App UI] Program.cs&quot;,&quot;[High - Checkout &amp; Order Submission, Storefront &amp; App UI] Components/Pages/Checkout/Checkout.razor&quot;,&quot;[High - Identity Server &amp; Token Trust, Storefront &amp; App UI] Components/Pages/User/LogIn.razor&quot;,&quot;[Medium - Aspire Host &amp; Service Defaults, Storefront &amp; App UI] appsettings.json&quot;,&quot;[Medium - Checkout &amp; Order Submission, Storefront &amp; App UI] Components/Layout/CartMenu.razor&quot;,&quot;[Medium - Identity Server &amp; Token Trust, Storefront &amp; App UI] Components/Pages/User/LogOut.razor&quot;,&quot;[Medium - Order Status Saga, Storefront &amp; App UI] Components/Pages/User/OrdersRefreshOnStatusChange.razor&quot;,&quot;[Low - Aspire Host &amp; Service Defaults, Storefront &amp; App UI] appsettings.Development.json, Properties/launchSettings.json&quot;,&quot;[Low - Build, Packages &amp; CI, Storefront &amp; App UI] WebApp.csproj&quot;,&quot;[None - Static Assets, Docs &amp; Leftovers] Components/Chatbot/Chatbot.razor.css, Components/Chatbot/ShowChatbotButton.razor.css, Components/Layout/CartMenu.razor.css, Components/Layout/FooterBar.razor.css, Components/Layout/HeaderBar.razor.css, Components/Layout/MainLayout.razor.css, Components/Layout/UserMenu.razor.css, Components/Pages/Cart/CartPage.razor.css, Components/Pages/Catalog/Catalog.razor.css, Components/Pages/Checkout/Checkout.razor.css, Components/Pages/Item/ItemPage.razor.css, Components/Pages/User/Orders.razor.css&quot;]">
+          <itemList>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*&#xA;!**/*.css&#xA;!wwwroot/**" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="wwwroot/**&#xA;!wwwroot/js/**" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="0 - None" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;5a60d36d-76fb-4a72-91b0-2ef0e5e16adc&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/**&#xA;!**/*.css" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="wwwroot/js/**&#xA;!**/*.css" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Components/Chatbot/**&#xA;!**/*.css" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;1c44cc28-5c58-449c-b64c-7870c5e4fb50&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Components/Pages/Cart/**&#xA;!**/*.css" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Components/Pages/Checkout/**&#xA;!**/*.css" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Components/Chatbot/ChatState.cs&#xA;Components/Chatbot/MessageProcessor.cs" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;1c44cc28-5c58-449c-b64c-7870c5e4fb50&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Extensions/Extensions.cs" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;2231a2cf-1080-4fb0-9d3c-934351d1ced5&quot;,&quot;69941297-c27f-461c-b1c5-2fdc476d0bb1&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Program.cs" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;2231a2cf-1080-4fb0-9d3c-934351d1ced5&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Components/Pages/Checkout/Checkout.razor" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Components/Pages/User/LogIn.razor" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;69941297-c27f-461c-b1c5-2fdc476d0bb1&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="appsettings.json" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;2231a2cf-1080-4fb0-9d3c-934351d1ced5&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Components/Layout/CartMenu.razor" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Components/Pages/User/LogOut.razor" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;69941297-c27f-461c-b1c5-2fdc476d0bb1&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Components/Pages/User/OrdersRefreshOnStatusChange.razor" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="appsettings.Development.json&#xA;Properties/launchSettings.json" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;2231a2cf-1080-4fb0-9d3c-934351d1ced5&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="WebApp.csproj" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;733a08d8-e739-4955-88f0-6dbf82c3192e&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Components/Chatbot/Chatbot.razor.css&#xA;Components/Chatbot/ShowChatbotButton.razor.css&#xA;Components/Layout/CartMenu.razor.css&#xA;Components/Layout/FooterBar.razor.css&#xA;Components/Layout/HeaderBar.razor.css&#xA;Components/Layout/MainLayout.razor.css&#xA;Components/Layout/UserMenu.razor.css&#xA;Components/Pages/Cart/CartPage.razor.css&#xA;Components/Pages/Catalog/Catalog.razor.css&#xA;Components/Pages/Checkout/Checkout.razor.css&#xA;Components/Pages/Item/ItemPage.razor.css&#xA;Components/Pages/User/Orders.razor.css" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="0 - None" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;5a60d36d-76fb-4a72-91b0-2ef0e5e16adc&quot;]" />
+              </properties>
+            </item>
+          </itemList>
+        </property>
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="405735c3-e5b7-44a0-8264-b8bd9107fcec" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Services.Guardrails.Contracts.DtoContract</name>
+      <display>Intent.Services.Guardrails.Contracts.DtoContract</display>
+      <parentFolderId>24337002-2fa2-48d4-8f6d-064cf2088c9d</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" value="np(InternalElement.Package.Name) == &quot;WebApp&quot;" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Storefront &amp; App UI] **/*, !**/*.css, !wwwroot/**&quot;,&quot;[Medium - Checkout &amp; Order Submission, Storefront &amp; App UI] Services/**, !**/*.css&quot;,&quot;[High - Buyer Card Data, Checkout &amp; Order Submission, Storefront &amp; App UI] Services/BasketCheckoutInfo.cs&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*&#xA;!**/*.css&#xA;!wwwroot/**" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/**&#xA;!**/*.css" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/BasketCheckoutInfo.cs" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;493280a1-9e7e-4999-a49a-e3cdfd46096d&quot;,&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="54c45760-2021-4371-9746-cf0aebc7ddce" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Services.Guardrails.Contracts.IntegrationEventContract</name>
+      <display>Intent.Services.Guardrails.Contracts.IntegrationEventContract</display>
+      <parentFolderId>24337002-2fa2-48d4-8f6d-064cf2088c9d</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" value="np(Package.Name) == &quot;WebApp.Eventing&quot;" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Storefront &amp; App UI] **/*, !**/*.css, !wwwroot/**&quot;,&quot;[Medium - Checkout &amp; Order Submission, Storefront &amp; App UI] Services/**, !**/*.css&quot;,&quot;[Medium - Checkout &amp; Order Submission, Order Status Saga, Storefront &amp; App UI] Services/OrderStatus/**&quot;,&quot;[Medium - Checkout &amp; Order Submission, Order Status Saga, Shared Message &amp; gRPC Contracts, Storefront &amp; App UI] Services/OrderStatus/IntegrationEvents/Events/**&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*&#xA;!**/*.css&#xA;!wwwroot/**" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/**&#xA;!**/*.css" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/OrderStatus/**" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/OrderStatus/IntegrationEvents/Events/**" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;,&quot;2dceb4ce-a027-4b8c-aec7-7d25f20e229c&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="775913dd-2919-4ed3-8f2c-c8d6d67b177b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract</name>
+      <display>Intent.Services.Guardrails.Contracts.IntegrationEventHandlerContract</display>
+      <parentFolderId>24337002-2fa2-48d4-8f6d-064cf2088c9d</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" value="np(Package.Name) == &quot;WebApp&quot;" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Storefront &amp; App UI] **/*, !**/*.css, !wwwroot/**&quot;,&quot;[Medium - Checkout &amp; Order Submission, Storefront &amp; App UI] Services/**, !**/*.css&quot;,&quot;[Medium - Checkout &amp; Order Submission, Order Status Saga, Storefront &amp; App UI] Services/OrderStatus/**&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*&#xA;!**/*.css&#xA;!wwwroot/**" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/**&#xA;!**/*.css" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/OrderStatus/**" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="f5ada9b9-4d2f-4828-ac9f-59d4e4577353" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Services.Guardrails.Contracts.ServiceContract</name>
+      <display>Intent.Services.Guardrails.Contracts.ServiceContract</display>
+      <parentFolderId>24337002-2fa2-48d4-8f6d-064cf2088c9d</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" value="np(InternalElement.Package.Name) == &quot;WebApp&quot;" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Storefront &amp; App UI] **/*, !**/*.css, !wwwroot/**&quot;,&quot;[Medium - Checkout &amp; Order Submission, Storefront &amp; App UI] Services/**, !**/*.css&quot;,&quot;[Medium - Checkout &amp; Order Submission, Order Status Saga, Storefront &amp; App UI] Services/OrderStatus/**&quot;,&quot;[High - Buyer Card Data, Buyer Data Ownership, Checkout &amp; Order Submission, Storefront &amp; App UI] Services/BasketState.cs&quot;,&quot;[Medium - Checkout &amp; Order Submission, Identity Server &amp; Token Trust, Storefront &amp; App UI] Services/LogOutService.cs&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*&#xA;!**/*.css&#xA;!wwwroot/**" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/**&#xA;!**/*.css" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/OrderStatus/**" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/BasketState.cs" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;493280a1-9e7e-4999-a49a-e3cdfd46096d&quot;,&quot;2dc41973-2e6f-4874-abe8-d00d80e9fc6e&quot;,&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/LogOutService.cs" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;69941297-c27f-461c-b1c5-2fdc476d0bb1&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="ddf95708-9321-4ed2-9e89-7853a6765730" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Services.Guardrails.Contracts.ServiceProxyContract</name>
+      <display>Intent.Services.Guardrails.Contracts.ServiceProxyContract</display>
+      <externalReference>Intent.Services.Guardrails.Contracts</externalReference>
+      <parentFolderId>24337002-2fa2-48d4-8f6d-064cf2088c9d</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" value="np(Package.Name) == &quot;WebApp&quot;" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Storefront &amp; App UI] **/*, !**/*.css, !wwwroot/**&quot;,&quot;[Medium - Checkout &amp; Order Submission, Storefront &amp; App UI] Services/**, !**/*.css&quot;,&quot;[High - Checkout &amp; Order Submission, Storefront &amp; App UI] Services/OrderingService.cs&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*&#xA;!**/*.css&#xA;!wwwroot/**" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/**&#xA;!**/*.css" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Services/OrderingService.cs" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;344f406b-1741-4fb3-91cd-1565d447ac2a&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <association id="d3c4d345-de4d-4426-999d-faad97fac70a">
+      <sourceEnd id="e37c15e8-6bba-4c64-82ce-c3b0b8caf7f1" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: WebApp</display>
+        <typeReference id="8914926f-9889-4b9e-bb13-8a823794b2eb">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="d3c4d345-de4d-4426-999d-faad97fac70a" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: eShop.ServiceDefaults</display>
+        <typeReference id="2f00312b-3739-4c96-bc91-7a042a8d53ab">
+          <typeId>cb3c108a-a019-4f79-8c68-9a890de0f13f</typeId>
+          <typeName>eShop.ServiceDefaults</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+    <association id="55abae19-727c-460f-814c-f7b0678dca3d">
+      <sourceEnd id="df185331-c3f0-4100-b6be-4030b9c96e6b" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: WebApp</display>
+        <typeReference id="62b14ce0-8467-40f5-ad3f-2fb4fd65b060">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="55abae19-727c-460f-814c-f7b0678dca3d" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: EventBusRabbitMQ</display>
+        <typeReference id="e1700780-3035-408e-934c-d9c40b58712c">
+          <typeId>a16ece80-a8e4-484e-a94c-575bb87b2155</typeId>
+          <typeName>EventBusRabbitMQ</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+    <association id="6d50e88a-d517-41cd-aa47-9fe42191afb8">
+      <sourceEnd id="df568aac-9609-44ef-a279-2f572494f5f9" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: WebApp</display>
+        <typeReference id="1f48efbc-276d-4733-9eb6-42abe158537e">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="6d50e88a-d517-41cd-aa47-9fe42191afb8" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: WebAppComponents</display>
+        <typeReference id="4ed5c68f-6d23-4faa-88b8-585d18ca717d">
+          <typeId>c3ee077c-5b2c-4aa7-9579-ed2371afba38</typeId>
+          <typeName>WebAppComponents</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+  </children>
+</class>

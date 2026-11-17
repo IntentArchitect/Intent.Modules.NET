@@ -303,7 +303,7 @@
   <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/ITagRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="Entities.PrivateSetters.TestApplication.Domain/Repositories/Mapping/IMappingRootRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
-  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Entities.PrivateSetters.TestApplication.Infrastructure.csproj" deviationsHash="8B51ADFEEDA3A11FF27BA07E1DE9A125BD32CD89429667564EABF34BAD63E8F9" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Entities.PrivateSetters.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Entities.PrivateSetters.TestApplication.Infrastructure/Persistence/Configurations/Aggregational/ManyToManyDestConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

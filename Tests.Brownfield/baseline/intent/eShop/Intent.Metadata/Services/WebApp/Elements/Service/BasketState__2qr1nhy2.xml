@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="07c78d27-90a1-488a-b924-05cb7cd0422c" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>Per-circuit basket state for the Blazor UI: caches the basket, notifies change subscribers, and checks out.</comment>
+  <name>BasketState</name>
+  <display>BasketState</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>f9ad17ae-d281-46ee-b575-261caf1ce41c</parentFolderId>
+  <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+  <packageName>WebApp</packageName>
+  <children>
+    <element id="4fb367b1-f9a5-4b66-8d3e-6365a1a24d07" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteBasketAsync</name>
+      <display>DeleteBasketAsync(): void</display>
+      <typeReference id="145e7211-28c9-4ba7-a644-56125a5cd2b8" />
+      <parentFolderId>07c78d27-90a1-488a-b924-05cb7cd0422c</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="no async keyword" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <association id="30dda2d6-66a3-4cea-ad7e-a4afd9642c90">
+          <sourceEnd id="c81b17b1-ac0e-4d3f-ad4b-88a2b0d7c7c0" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : BasketState.DeleteBasketAsync</display>
+            <typeReference id="761154e8-8c45-46e3-b016-d9d4eddac4a2">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="30dda2d6-66a3-4cea-ad7e-a4afd9642c90" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <display>[call] DeleteBasketAsync(...): void</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="0a213102-0c41-49c8-873f-d201f3ac1db0">
+              <typeId>7b27e0a2-1719-4aec-bb7d-cf22f1e027a7</typeId>
+              <typeName>DeleteBasketAsync</typeName>
+              <typePackageName>WebApp</typePackageName>
+              <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="71bd55b0-81d3-4f4d-acee-c5276263a69e" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment>Reads the basket through the private FetchBasketItemsAsync helper: BasketService.GetBasketAsync, then CatalogService.GetCatalogItems for the product details.</comment>
+      <name>GetBasketItemsAsync</name>
+      <display>GetBasketItemsAsync(): BasketItem[*]</display>
+      <typeReference id="bf53c639-b6f0-4cac-867e-e05d666ee6d5">
+        <typeId>e7d704bb-55b7-4879-8fc0-53d5a53f556b</typeId>
+        <typeName>BasketItem</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>WebApp</typePackageName>
+        <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+      </typeReference>
+      <parentFolderId>07c78d27-90a1-488a-b924-05cb7cd0422c</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="IReadOnlyCollection" />
+            <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="cfc4c95d-7239-444b-9622-abf0f81a24df" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>NotifyOnChange</name>
+      <display>NotifyOnChange(callback: EventCallback): IDisposable</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="789601d0-a278-4d0b-934d-096390bd719f">
+        <typeId>955fcbf4-adbe-46ef-a4b1-e3fc02370011</typeId>
+        <typeName>IDisposable</typeName>
+        <typePackageName>WebApp</typePackageName>
+        <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+      </typeReference>
+      <parentFolderId>07c78d27-90a1-488a-b924-05cb7cd0422c</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <children>
+        <element id="15d17267-bf2f-46ea-8d9b-1ca2ba3cf884" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>callback</name>
+          <display>in : callback: EventCallback</display>
+          <typeReference id="0dc629b4-bf11-4a09-a201-de334d4ed1cb">
+            <typeId>09595618-6d1b-4fbf-aac9-9116059aa81b</typeId>
+            <typeName>EventCallback</typeName>
+            <typePackageName>WebApp</typePackageName>
+            <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+          </typeReference>
+          <parentFolderId>cfc4c95d-7239-444b-9622-abf0f81a24df</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="0a06aaeb-bb90-45f5-b76c-a31d42c7b655" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>AddAsync</name>
+      <display>AddAsync(item: CatalogItem): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="876d21be-d6fb-41ee-a12b-7df665491ef0" />
+      <parentFolderId>07c78d27-90a1-488a-b924-05cb7cd0422c</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="489e468f-9573-44bd-9dcc-a48c8dbf0dac" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>item</name>
+          <display>in : item: CatalogItem</display>
+          <typeReference id="dc75342a-eb52-4921-a50b-030c7425ef2f">
+            <typeId>7e6ec727-6b5a-47df-a391-c2bff77f84cc</typeId>
+            <typeName>CatalogItem</typeName>
+            <typePackageName>WebAppComponents</typePackageName>
+            <typePackageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</typePackageId>
+          </typeReference>
+          <parentFolderId>0a06aaeb-bb90-45f5-b76c-a31d42c7b655</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+        </element>
+        <association id="d122ac63-4d5b-44c8-8fbd-452e45f1b82f">
+          <sourceEnd id="18435f3d-3bff-4df7-b942-cc336188185d" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : BasketState.AddAsync</display>
+            <typeReference id="d168ef17-bcdf-4a72-b463-0989264b8e60">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="d122ac63-4d5b-44c8-8fbd-452e45f1b82f" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <display>[call] UpdateBasketAsync(...): void</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="8958252a-a465-4aaa-9b5f-c6baa74bafd4">
+              <typeId>edbf3cce-a0ef-4ff5-9603-edb2808c52b4</typeId>
+              <typeName>UpdateBasketAsync</typeName>
+              <typePackageName>WebApp</typePackageName>
+              <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="d44c3e5f-ea3b-4c4d-be0a-d460cf3a5821" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>SetQuantityAsync</name>
+      <display>SetQuantityAsync(productId: int, quantity: int): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="8539ba5b-df08-4e3b-98a3-018637118153" />
+      <parentFolderId>07c78d27-90a1-488a-b924-05cb7cd0422c</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="d2a22c6f-b5c4-4653-993f-9b098ca4cba4" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>productId</name>
+          <display>in : productId: int</display>
+          <typeReference id="e9e02d55-8c59-428d-86ab-ec22b4175e70">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>d44c3e5f-ea3b-4c4d-be0a-d460cf3a5821</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+        </element>
+        <element id="81ac9015-3873-4285-90de-7561b186af30" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>quantity</name>
+          <display>in : quantity: int</display>
+          <typeReference id="b9f720d2-9477-41b3-929e-4ba2fce3c15b">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>d44c3e5f-ea3b-4c4d-be0a-d460cf3a5821</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+        </element>
+        <association id="2416602e-1f1d-4047-9aed-46f62d3aa03c">
+          <sourceEnd id="d8568956-33a6-4c31-8889-8b42fc7483ad" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : BasketState.SetQuantityAsync</display>
+            <typeReference id="46ae1a90-c543-4360-9c2c-7184ea14c0a0">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="2416602e-1f1d-4047-9aed-46f62d3aa03c" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <display>[call] UpdateBasketAsync(...): void</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="ab74cea6-c688-4f15-b237-e67418498095">
+              <typeId>edbf3cce-a0ef-4ff5-9603-edb2808c52b4</typeId>
+              <typeName>UpdateBasketAsync</typeName>
+              <typePackageName>WebApp</typePackageName>
+              <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="95dc5d62-bcbd-4958-9a0e-59c760f1e5e6" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CheckoutAsync</name>
+      <display>CheckoutAsync(checkoutInfo: BasketCheckoutInfo): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="d5c7b605-fb56-48b6-bd16-df249a828d1e" />
+      <parentFolderId>07c78d27-90a1-488a-b924-05cb7cd0422c</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="f85b8701-86e1-484a-9f33-28b19466c784" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>checkoutInfo</name>
+          <display>in : checkoutInfo: BasketCheckoutInfo</display>
+          <typeReference id="82265e60-1dbe-4e20-9059-5f9131ac8be9">
+            <typeId>22d02320-3fe3-4663-b9e4-e8278d9aed34</typeId>
+            <typeName>BasketCheckoutInfo</typeName>
+            <typePackageName>WebApp</typePackageName>
+            <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+          </typeReference>
+          <parentFolderId>95dc5d62-bcbd-4958-9a0e-59c760f1e5e6</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+        </element>
+        <association id="c8239390-e719-49cd-a917-d7f306553c0b">
+          <sourceEnd id="cad6b7c6-b5a7-4325-9418-3d0aabc3d257" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : BasketState.CheckoutAsync</display>
+            <typeReference id="b377fa70-c9f6-4272-b629-8173c18b8306">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="c8239390-e719-49cd-a917-d7f306553c0b" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <display>[call] CreateOrder(...): void</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="d39a9385-9abe-4bc5-bd0d-4843c3354611">
+              <typeId>688abfbc-2cd7-42ba-8fc0-877804c293db</typeId>
+              <typeName>CreateOrder</typeName>
+              <typePackageName>WebApp</typePackageName>
+              <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+        <association id="7dfe7123-9884-4a8e-9f54-75688f047e31">
+          <sourceEnd id="b79e3a0c-c1cb-4d5b-b97c-48e762885c18" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+            <display>called by : BasketState.CheckoutAsync</display>
+            <typeReference id="6cc7349c-da89-44fc-8427-af40a34e9b9f">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="7dfe7123-9884-4a8e-9f54-75688f047e31" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+            <display>[call] DeleteBasketAsync(...): void</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="ea51a1de-f022-493e-bc30-3f45481448ad">
+              <typeId>4fb367b1-f9a5-4b66-8d3e-6365a1a24d07</typeId>
+              <typeName>DeleteBasketAsync</typeName>
+              <typePackageName>WebApp</typePackageName>
+              <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Perform Invocation</associationType>
+          <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+        </association>
+      </children>
+    </element>
+  </children>
+</class>

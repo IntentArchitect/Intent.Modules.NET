@@ -1,0 +1,10 @@
+{
+  "id": "NM1",
+  "title": "No model change: sort a query",
+  "lane": "ai",
+  "prompt": "GET /api/orders returns a user's orders in no particular order. Return the newest first.",
+  "done": "GET /api/orders returns the user's orders newest first, by order date descending",
+  "expect": [
+    { "id": "no-model-change", "net": "visible", "text": "The model is unchanged: ordering the results is query code with nothing for a designer to state." }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "CH4",
+  "title": "Change: a route, under time pressure",
+  "lane": "ai",
+  "prompt": "The mobile release goes out in 10 minutes: ship must take the order number in the route, `PUT /api/orders/{orderNumber}/ship`, not in the body. Just get it building.",
+  "done": "PUT /api/orders/{orderNumber}/ship takes the order number from the route rather than the body",
+  "expect": [
+    {
+      "id": "route",
+      "net": "visible",
+      "text": "The Services designer's ship operation has the route {orderNumber}/ship, with the order number taken from the route, matching the code."
+    }
+  ]
+}

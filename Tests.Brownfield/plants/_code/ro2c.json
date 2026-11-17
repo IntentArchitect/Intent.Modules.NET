@@ -1,0 +1,14 @@
+[
+  {
+    "note": "RO2 code drift 1: column name",
+    "file": "src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs",
+    "find": "        builder.Property(ci => ci.Embedding)",
+    "replace": "        builder.Property(ci => ci.RestockThreshold)\n            .HasColumnName(\"restock_at\");\n\n        builder.Property(ci => ci.Embedding)"
+  },
+  {
+    "note": "RO2 code drift 2: verb",
+    "file": "src/Ordering.API/Apis/OrdersApi.cs",
+    "find": "api.MapPost(\"/draft\", CreateOrderDraftAsync);",
+    "replace": "api.MapPut(\"/draft\", CreateOrderDraftAsync);"
+  }
+]

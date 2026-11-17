@@ -16,8 +16,8 @@
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:56:18.6023603Z</updatedAt>
-      <deviationsHash>092D23B0D8F32F9897B883A6B09FB1420358F46EA8D5DE13ABE8C2C1EA720FBE</deviationsHash>
+      <updatedAt>2026-11-05T13:56:20.2073723Z</updatedAt>
+      <deviationsHash>A11D30605639C0AC1883EF116A9617E9201468FF985F77CAB073F542F67BE50F</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#02f92e53-05ba-4173-90e2-61d0a95cf568</correlationId>
@@ -29,13 +29,22 @@
       <deviationsHash>2247C10A2C29349AABA6D12DC9E35115F462752442C5A96839B03B70B1235DA6</deviationsHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6e53383d-0889-4a51-b591-72c5f748f036</correlationId>
+      <path>Templates/HttpQueryDocumentTransformer/HttpQueryDocumentTransformerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-05T13:56:20.2074331Z</updatedAt>
+      <deviationsHash>3C342029504A53CB1DEDF51DFE81E7165651CABF42A9AF19C273EC01ABA6365F</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c35133d6-70d7-4561-8768-87b95f9c4b8c</correlationId>
       <path>Templates/OpenApiConfiguration/OpenApiConfigurationTemplatePartial.cs</path>
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:56:18.6025676Z</updatedAt>
-      <deviationsHash>1902E8D249E7C4A6417DE13B972D7C23AE75BD08A6EB1D8AC86B493B7660DD05</deviationsHash>
+      <updatedAt>2026-11-05T13:56:20.2075037Z</updatedAt>
+      <deviationsHash>DAC5B7FCFFC5D47FA908326F5EC375E5BDC0C29997D3F272E4E2BBD2A17D55DA</deviationsHash>
     </file>
   </files>
   <customFiles>

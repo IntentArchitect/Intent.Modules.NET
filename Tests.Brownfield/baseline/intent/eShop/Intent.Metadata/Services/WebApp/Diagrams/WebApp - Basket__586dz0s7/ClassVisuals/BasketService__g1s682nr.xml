@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="e62f66cb-6e46-4d5b-9511-948f4e1b1d34" zIndex="0">
+  <name>BasketService</name>
+  <position x="400" y="50" />
+  <size width="200" height="130" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

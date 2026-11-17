@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b4492114-190b-48e5-afbe-9830e15cf9ef">
+  <sourceEnd id="23dcf25f-2745-4923-9ed8-7710742a4657" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderStockConfirmedIntegrationEventHandler.Handler</display>
+    <typeReference id="04003f16-6785-4c04-865c-62b772f1d191">
+      <typeId>688f14a3-882c-4be8-bd82-0964ef5ec797</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="b4492114-190b-48e5-afbe-9830e15cf9ef" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = SetStockConfirmedOrderStatusCommand(...): bool</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="a97ef0de-7596-4ad9-992e-f6f87bf488c6">
+      <typeId>b4f85a9b-652c-43a8-9dab-5e3d94681a44</typeId>
+      <typeName>SetStockConfirmedOrderStatusCommand</typeName>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

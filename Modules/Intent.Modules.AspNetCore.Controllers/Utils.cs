@@ -51,6 +51,7 @@ internal static class Utils
         switch (operationModel.Verb)
         {
             case HttpVerb.Get:
+            case HttpVerb.Query:
             case HttpVerb.Patch:
             case HttpVerb.Put:
                 returnExpression = $"{template.ResponseMapper.GetSuccessResponseCodeOperation(operationModel.InternalElement, hasReturnType ? $"Ok({resultExpression})" : "NoContent()", resultExpression)}";
@@ -162,7 +163,7 @@ internal static class Utils
             return false;
         }
     
-        if (operation.Verb == HttpVerb.Get &&
+        if (operation.Verb is HttpVerb.Get or HttpVerb.Query &&
             operation.ReturnType?.IsCollection != true &&
             !CSharpTypeIsCollection(operation.ReturnType) &&
             operation.Parameters.Any())

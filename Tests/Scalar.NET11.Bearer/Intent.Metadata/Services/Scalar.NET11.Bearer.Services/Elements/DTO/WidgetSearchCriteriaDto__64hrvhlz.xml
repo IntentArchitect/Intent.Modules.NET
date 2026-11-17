@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6656eb58-3676-4f1d-bff8-b6188da63293" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>WidgetSearchCriteriaDto</name>
+  <display>WidgetSearchCriteriaDto</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</parentFolderId>
+  <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+  <packageName>Scalar.NET11.Bearer.Services</packageName>
+  <children>
+    <element id="8e1ce13a-bd3d-458a-a678-5b26e0f472e1" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Name</name>
+      <display>Name: string?</display>
+      <typeReference id="10e94825-4148-4622-af78-1991976a32c6">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>6656eb58-3676-4f1d-bff8-b6188da63293</parentFolderId>
+      <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+      <packageName>Scalar.NET11.Bearer.Services</packageName>
+    </element>
+  </children>
+</class>

@@ -63,6 +63,15 @@
       <fileHash>CCD0CBFBD5CC4B77CDA10A972D0711740EC913884E56C720CB441A4FB0CFF4C7</fileHash>
     </file>
     <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#6eaa82d2-8425-4061-8023-ba9ace8cce12</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/SearchCustomersTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-05T12:34:23.2760009Z</updatedAt>
+      <deviationsHash>CB5BA8657AB37345B999D5CF16BE93A63ED35626954C08CAFEC8709EE3E82319</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#389850ac-8664-4866-bd67-d7b21a0308a6</correlationId>
       <path>IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/UpdateCustomerTests.cs</path>
       <count>1</count>
@@ -126,6 +135,15 @@
       <approvedAt>2026-08-05T14:08:37.8716606Z</approvedAt>
       <deviationsHash>2FCA2A8C696DBE677FE845863B8503B0894F71361D1C37EDD955E87684D03257</deviationsHash>
       <fileHash>0C04F1736E07A395DC7C269A6DDFE367562AAAA5C4691537C021E4272DCD1D70</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#6eaa82d2-8425-4061-8023-ba9ace8cce12</correlationId>
+      <path>IntegrationTesting.SQLLite.Tests.Application/Customers/SearchCustomers/SearchCustomersQueryHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-05T12:36:12.8147818Z</updatedAt>
+      <deviationsHash>ADFA558B3DAA8290CC06AEBA067E6E34A14FE8BF107075A358CC2920D900C475</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#389850ac-8664-4866-bd67-d7b21a0308a6</correlationId>

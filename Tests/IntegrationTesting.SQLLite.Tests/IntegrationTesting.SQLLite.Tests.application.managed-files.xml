@@ -17,10 +17,13 @@
   <file path="IntegrationTesting.SQLLite.Tests.Api/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />
   <file path="IntegrationTesting.SQLLite.Tests.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
   <file path="IntegrationTesting.SQLLite.Tests.Api/Controllers/CustomersController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Controllers/HttpQueryAttribute.cs" templateId="Intent.AspNetCore.Controllers.HttpQueryAttribute" />
   <file path="IntegrationTesting.SQLLite.Tests.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
   <file path="IntegrationTesting.SQLLite.Tests.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
   <file path="IntegrationTesting.SQLLite.Tests.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
   <file path="IntegrationTesting.SQLLite.Tests.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Filters/HttpQueryDocumentFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter" />
+  <file path="IntegrationTesting.SQLLite.Tests.Api/Filters/OpenApi32DocumentSerializer.cs" templateId="Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer" />
   <file path="IntegrationTesting.SQLLite.Tests.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="IntegrationTesting.SQLLite.Tests.Api/IntegrationTesting.SQLLite.Tests.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="IntegrationTesting.SQLLite.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
@@ -33,6 +36,7 @@
   <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/DeleteCustomerTests.cs" deviationsHash="4015AFBA6D357C935AE91153207045C1510B197815948E03E56ECCFBC0B242EB" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
   <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/GetCustomerByIdTests.cs" deviationsHash="2C722BB863B8B1B244FB316B0806B59EB6AA5BB351ECDFB6E27181450FEE27B9" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
   <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/GetCustomersTests.cs" deviationsHash="5788787062A81FA2242901BCF8E4C87832DB09FA3B26C5FA5FD23E53E6B6C762" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/SearchCustomersTests.cs" deviationsHash="CB5BA8657AB37345B999D5CF16BE93A63ED35626954C08CAFEC8709EE3E82319" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
   <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/Customers/UpdateCustomerTests.cs" deviationsHash="8162989B862B77389385886C99ECBC179C79DEE326D506036F58120E2257527B" templateId="Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest" />
   <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/EFContainerFixture.cs" templateId="Intent.AspNetCore.IntegrationTesting.EFContainerFixture" />
   <file path="IntegrationTesting.SQLLite.Tests.Application.IntegrationTests/GlobalUsings.cs" templateId="Intent.Modules.AspNetCore.IntegrationTesting.Templates.StaticContentTemplateRegistrations.StaticFilesStaticContentTemplateRegistration" />
@@ -74,6 +78,9 @@
   <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/GetCustomers/GetCustomersQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
   <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs" deviationsHash="2FCA2A8C696DBE677FE845863B8503B0894F71361D1C37EDD955E87684D03257" templateId="Intent.Application.MediatR.QueryHandler" />
   <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/GetCustomers/GetCustomersQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/SearchCustomers/SearchCustomersQuery.cs" templateId="Intent.Application.MediatR.QueryModels" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/SearchCustomers/SearchCustomersQueryHandler.cs" deviationsHash="ADFA558B3DAA8290CC06AEBA067E6E34A14FE8BF107075A358CC2920D900C475" templateId="Intent.Application.MediatR.QueryHandler" />
+  <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/SearchCustomers/SearchCustomersQueryValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.QueryValidator" />
   <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
   <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs" deviationsHash="900144CA1E90199974E9B448BE54681047BD08308B54C6644C22E0A90C840BAF" templateId="Intent.Application.MediatR.CommandHandler" />
   <file path="IntegrationTesting.SQLLite.Tests.Application/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />

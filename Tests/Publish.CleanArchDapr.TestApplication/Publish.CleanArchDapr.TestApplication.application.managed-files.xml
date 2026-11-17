@@ -125,7 +125,7 @@
   <file path="Publish.CleanArchDapr.TestApplication.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
   <file path="Publish.CleanArchDapr.TestApplication.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
   <file path="Publish.CleanArchDapr.TestApplication.Infrastructure/Persistence/DaprStateStoreUnitOfWork.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreUnitOfWork" />
-  <file path="Publish.CleanArchDapr.TestApplication.Infrastructure/Publish.CleanArchDapr.TestApplication.Infrastructure.csproj" deviationsHash="26EA6A7D9867C64C593AA701D4C3A3A5B9FA5D8692C39BAF4DC65DDC0C1DF6AC" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Publish.CleanArchDapr.TestApplication.Infrastructure/Publish.CleanArchDapr.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Publish.CleanArchDapr.TestApplication.Infrastructure/Repositories/CustomerRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="Publish.CleanArchDapr.TestApplication.Infrastructure/Repositories/DaprStateStoreGenericRepository.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepository" />
   <file path="Publish.CleanArchDapr.TestApplication.Infrastructure/Repositories/DaprStateStoreRepositoryBase.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryBase" />

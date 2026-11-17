@@ -6,7 +6,7 @@
   <file path="Api/DTOFieldModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="FactoryExtensions/FluentValidationDependencyInjectionExtension.cs" deviationsHash="5EDF1CCFB49A00B38BC3CE5B475F449E6415AB5237D49B0023291A6E137B67EE" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Application.FluentValidation.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
-  <file path="Intent.Modules.Application.FluentValidation.csproj" deviationsHash="0E7D015D5E86E92409993817B3CB65F07DC2D00DD0EDFF6CE82246453FB94B3D" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Intent.Modules.Application.FluentValidation.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
   <file path="Templates/CustomValidationSkill/CustomValidationSkillTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="895881dc-7c3e-44c7-af60-d3b13b0709f1" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>TestMessageHandler</name>
+  <display>TestMessageHandler</display>
+  <parentFolderId>3ce157b5-8640-408b-8f59-654d831dcbf4</parentFolderId>
+  <packageId>3ce157b5-8640-408b-8f59-654d831dcbf4</packageId>
+  <packageName>N_ServiceBus.LearnerTransport.NET11.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <children>
+    <association id="56d491b0-ef2b-4035-81e9-cb7687afc897">
+      <sourceEnd id="e0de57e1-9a1a-49c2-91fb-68bcb4578670" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+        <display>handled by: N_ServiceBus.LearnerTransport.NET11.Services.TestMessageHandler</display>
+        <typeReference id="33f29b2b-faad-4998-b09c-f9e4286317bf">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="56d491b0-ef2b-4035-81e9-cb7687afc897" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+        <name>Handler</name>
+        <display>[handles] TestMessage</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="36b35984-8fa2-4e12-b304-56fc100e93ea">
+          <typeId>d6607df5-4383-4acb-a532-d140267f3655</typeId>
+          <typeName>TestMessage</typeName>
+          <typePackageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</typePackageName>
+          <typePackageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Subscribe Integration Event</associationType>
+      <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+    </association>
+  </children>
+</class>

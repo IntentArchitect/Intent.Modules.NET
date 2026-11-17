@@ -275,11 +275,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages#1b363e2e-7027-4c88-a488-be51864a8eae</correlationId>
       <path>NugetPackages.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-07-22T09:02:58.7698364Z</updatedAt>
-      <deviationsHash>B42DF5FD44F5FEBEA7506FC1640EC9DE97197F03E16A8C1D43CDF47CAB660104</deviationsHash>
+      <count>2</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-11-11T07:14:49.7695422Z</updatedAt>
+      <deviationsHash>C2EF0F5418E5610EB11028982A98368AB844413B8C2CA584C3B7F895DDAFF953</deviationsHash>
       <fileHash>FD85FAAE2245BBE9262FB4E83C61C29C0FAFCA3F88401F9B1E28DE0D45D7EF24</fileHash>
     </file>
     <file>

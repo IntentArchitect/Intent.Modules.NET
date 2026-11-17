@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -41,9 +42,9 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ExcludeOData
                         method.AddStatement("var keepPaths = new[] { \"/odata\", \"/odata/$metadata\" };");
 
                         method.AddStatement("var keysToRemove = swaggerDoc.Paths.Keys")
-                        .AddInvocationStatement(".Where", stmt => stmt.AddLambdaBlock("path", arg =>
-                            arg.AddStatement("return path.StartsWith(\"/odata\", StringComparison.OrdinalIgnoreCase) " +
-                            "&& !keepPaths.Contains(path, StringComparer.OrdinalIgnoreCase);")));
+                            .AddInvocationStatement(".Where", stmt => stmt.AddLambdaBlock("path", arg =>
+                                arg.AddStatement("return path.StartsWith(\"/odata\", StringComparison.OrdinalIgnoreCase) " +
+                                    "&& !keepPaths.Contains(path, StringComparer.OrdinalIgnoreCase);")));
 
                         method.AddForEachStatement("key", "keysToRemove", forEach =>
                         {
@@ -77,6 +78,13 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ExcludeOData
         public override string TransformText()
         {
             return CSharpFile.ToString();
+        }
+
+        // The filter implements Swashbuckle's IDocumentFilter, so only generate it in a host that configures Swashbuckle:
+        // in a multi-host application, another host may use Scalar instead.
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && OutputTarget.FindTemplateInstance<ICSharpFileBuilderTemplate>("Distribution.SwashbuckleConfiguration") != null;
         }
     }
 }

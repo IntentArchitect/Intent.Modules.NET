@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{54021C74-6732-4B37-A3F8-6411882869A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.Postgres.EF11.Api", "EntityFrameworkCore.Postgres.EF11.Api\EntityFrameworkCore.Postgres.EF11.Api.csproj", "{06235ED5-92B0-46C5-9E23-DA9A9377343A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{87A761EC-637D-4C6E-8030-C050F9B1A901}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.Postgres.EF11.Application", "EntityFrameworkCore.Postgres.EF11.Application\EntityFrameworkCore.Postgres.EF11.Application.csproj", "{B336C517-C848-4F31-80CA-5C9025DE58D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{32F6D897-B09A-4C6A-B5DF-6951B8B2FBDD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.Postgres.EF11.Domain", "EntityFrameworkCore.Postgres.EF11.Domain\EntityFrameworkCore.Postgres.EF11.Domain.csproj", "{8551796B-E3A8-46AF-A9C9-1BF66BA03627}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{A9A9896F-24AC-4303-B00F-DB28C647E227}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.Postgres.EF11.Infrastructure", "EntityFrameworkCore.Postgres.EF11.Infrastructure\EntityFrameworkCore.Postgres.EF11.Infrastructure.csproj", "{EF2F1E14-E48F-4151-9125-B957EF67AD8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{06235ED5-92B0-46C5-9E23-DA9A9377343A} = {54021C74-6732-4B37-A3F8-6411882869A9}
+		{B336C517-C848-4F31-80CA-5C9025DE58D8} = {87A761EC-637D-4C6E-8030-C050F9B1A901}
+		{8551796B-E3A8-46AF-A9C9-1BF66BA03627} = {32F6D897-B09A-4C6A-B5DF-6951B8B2FBDD}
+		{EF2F1E14-E48F-4151-9125-B957EF67AD8E} = {A9A9896F-24AC-4303-B00F-DB28C647E227}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06235ED5-92B0-46C5-9E23-DA9A9377343A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06235ED5-92B0-46C5-9E23-DA9A9377343A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06235ED5-92B0-46C5-9E23-DA9A9377343A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06235ED5-92B0-46C5-9E23-DA9A9377343A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B336C517-C848-4F31-80CA-5C9025DE58D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B336C517-C848-4F31-80CA-5C9025DE58D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B336C517-C848-4F31-80CA-5C9025DE58D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B336C517-C848-4F31-80CA-5C9025DE58D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8551796B-E3A8-46AF-A9C9-1BF66BA03627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8551796B-E3A8-46AF-A9C9-1BF66BA03627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8551796B-E3A8-46AF-A9C9-1BF66BA03627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8551796B-E3A8-46AF-A9C9-1BF66BA03627}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF2F1E14-E48F-4151-9125-B957EF67AD8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF2F1E14-E48F-4151-9125-B957EF67AD8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF2F1E14-E48F-4151-9125-B957EF67AD8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF2F1E14-E48F-4151-9125-B957EF67AD8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

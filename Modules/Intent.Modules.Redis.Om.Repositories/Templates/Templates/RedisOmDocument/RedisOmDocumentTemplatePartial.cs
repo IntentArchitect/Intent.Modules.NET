@@ -255,16 +255,20 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmDocume
 
         private void AddAttributesBasedOnMetadataModel(CSharpProperty documentProperty, IMetadataModel entityPropertyMetadata)
         {
-            if (IsPrimaryKey(entityPropertyMetadata))
+            // The id is always indexed: IndexCreationService creates an index for every document, and Redis rejects
+            // FT.CREATE with an empty SCHEMA. The Indexed stereotype macro misses ids that get Primary Key after creation.
+            var isPrimaryKey = IsPrimaryKey(entityPropertyMetadata);
+            if (isPrimaryKey)
             {
                 documentProperty.AddAttribute(UseType("Redis.OM.Modeling.RedisIdField"));
+                documentProperty.AddAttribute(UseType("Redis.OM.Modeling.Indexed"));
             }
 
             switch (entityPropertyMetadata)
             {
                 case AttributeModel attributeModel:
                     {
-                        if (attributeModel.HasIndexed())
+                        if (attributeModel.HasIndexed() && !isPrimaryKey)
                         {
                             documentProperty.AddAttribute(UseType("Redis.OM.Modeling.Indexed"));
                         }

@@ -126,5 +126,18 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
             var intersect = items.Where(p => ids.Contains(p.ReferenceNumber)).ToList();
             return intersect;
         }
+
+        /// <summary>
+        /// HTTP QUERY endpoint: the criteria travel in the request body.
+        /// </summary>
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public async Task<List<CustomDTO>> QueryBodyParamOp(
+            CustomDTO param1,
+            CancellationToken cancellationToken = default)
+        {
+            var items = Enumerable.Range(1, 10).Select(s => new CustomDTO { ReferenceNumber = s.ToString() }).ToArray();
+            var matches = items.Where(p => p.ReferenceNumber == param1.ReferenceNumber).ToList();
+            return matches;
+        }
     }
 }

@@ -1,0 +1,12 @@
+{
+  "id": "CH6m",
+  "title": "Model first: finish a precision change made in the designer",
+  "lane": "manual",
+  "plants": ["ch6m"],
+  "prompt": "I changed catalog item prices to 4 decimal places in the Domain designer. Finish the change.",
+  "done": "catalog item prices are stored and handled with 4 decimal places",
+  "expect": [
+    { "id": "config", "net": "visible", "text": "CatalogItem.Price has precision 18 and scale 4 in the code (its EF configuration or an attribute)." },
+    { "id": "migration", "net": "blind", "text": "A Catalog EF Core migration changes the Price column to numeric(18,4)." }
+  ]
+}

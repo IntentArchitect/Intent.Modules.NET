@@ -2,7 +2,7 @@
 name: mediator-query-handler
 description: Implements the whole body of a Mediator query handler from the interactions modelled on the query. MUST load before creating, editing or revisiting any query handler e.g. *QueryHandler.cs, and after any Software Factory run that generates a new query handler stub.
 template-id: Intent.Application.Mediator.QueryHandlerSkill
-contentHash: 863FFC10DB2C52AEC907BAD98385350B730A52C2CD652C3D2644BAC77F96E09C
+contentHash: EC03E713DDB12B8E49268E797D83F3A9CA83B46126DB26D4F507E5A1B3C7ACC5
 ---
 # Mediator Query Handler
 
@@ -12,7 +12,7 @@ Write the business logic of a query handler. In this solution the handler body i
 
 Nothing raises a task or a reminder for a new or outdated handler. Find the work yourself:
 
-- After every Software Factory run, search the Application project for `*QueryHandler.cs` files whose `Handle` body still holds the `// IntentInitialGen` marker and `throw new NotImplementedException`. Each one is a query handler nobody has written yet. Write every one you find.
+- After every Software Factory run, search the Application project for `*QueryHandler.cs` files whose `Handle` body still throws `NotImplementedException`. Each one is a query handler nobody has written yet. Write every one you find.
 - When you add, remove, reorder or change an association on a query in the designer, its handler is out of date even though no generated file changed. Update it in the same piece of work.
 
 ## Core rules

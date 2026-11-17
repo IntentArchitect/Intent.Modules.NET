@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b238e362-3155-4696-86c2-140d5958d000" type="Api Version" typeId="0ec760ae-98d8-4e8e-953c-d00691ff7e28">
+  <name>Orders</name>
+  <display>Orders</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <children>
+    <element id="b18bd830-8b95-4bfe-900f-f00bc0754649" type="Version" typeId="95f4362b-8193-41cb-bd65-c17d6be3f96b">
+      <name>1.0</name>
+      <display>1.0</display>
+      <parentFolderId>b238e362-3155-4696-86c2-140d5958d000</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1cefa0f4-0fce-4a35-9f8d-389ecfd66b56" name="Version Settings">
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="7248493f-2e26-4f51-99b0-ed0e2ae6b511" display="Is Deprecated" value="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+  </children>
+</class>

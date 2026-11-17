@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="54ea98a4-af57-4ddc-92dd-1c3a16671623" type="Scheduled Job" typeId="57b933b6-cec8-4fd5-8060-948f5e39d45e">
+  <name>PurgeExpiredSessionsJob</name>
+  <display>PurgeExpiredSessionsJob</display>
+  <parentFolderId>a8e0c223-dcb9-4eac-aa25-e80868030aad</parentFolderId>
+  <packageId>772387d4-91eb-4de8-b8b0-ebccfe5b378a</packageId>
+  <packageName>TestMediator.Quartz.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b7a34ab9-8f7f-415f-92bd-c85cfe02f29d" name="Scheduling">
+      <definitionPackageName>Intent.QuartzScheduler</definitionPackageName>
+      <definitionPackageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</definitionPackageId>
+      <properties>
+        <property name="454e03bf-a9f4-41c2-af94-66e384085a90" display="Enabled" value="true" />
+        <property name="e147ef25-fdc3-4bdb-b920-76ed7f3b47c2" display="Cron Schedule" value="0 0 * * * ?" />
+        <property name="81666ced-cb50-49d7-a85d-5a4be8d3b462" display="Disallow Concurrent Execution" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <association id="e9ee2512-0750-4f67-8842-67b5f1676341">
+      <sourceEnd id="7b25ad0c-8628-4b59-9db3-5582d3dffd8e" type="Scheduled Command Publish Source End" typeId="cdc46a25-9f81-4ea8-9a5d-d9e9a283652b">
+        <display>publishes: Maintenance.PurgeExpiredSessionsJob</display>
+        <typeReference id="94f974f9-857c-4a54-b365-0e86f0cdb8ad">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="e9ee2512-0750-4f67-8842-67b5f1676341" type="Scheduled Command Publish Target End" typeId="6c92ad1e-8353-4703-894f-12dc1db00acc">
+        <display>publishes: PurgeExpiredSessionsCommand</display>
+        <typeReference id="741a6677-3927-4574-8794-0d32a3ff7e1f">
+          <typeId>6429db6e-9735-473d-a4cf-f345025888cb</typeId>
+          <typeName>PurgeExpiredSessionsCommand</typeName>
+          <typePackageName>TestMediator.Quartz.Services</typePackageName>
+          <typePackageId>772387d4-91eb-4de8-b8b0-ebccfe5b378a</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Scheduled Command Publish</associationType>
+      <associationTypeId>411881c2-8521-4d56-91a3-54bb48bce507</associationTypeId>
+    </association>
+  </children>
+</class>

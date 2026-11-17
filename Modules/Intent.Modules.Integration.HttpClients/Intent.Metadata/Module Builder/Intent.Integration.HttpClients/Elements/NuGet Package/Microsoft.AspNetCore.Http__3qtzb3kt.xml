@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="fb835433-4192-4440-9a7a-99a37572d51b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.3.11</name>
-      <display>2.3.11 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>2.3.14</name>
+      <display>2.3.14 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c607fefa-06c3-4e54-baa2-2cf2d191bc08" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8cebf674-01d6-435d-915a-1df0af3cee8f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Http.Abstractions</name>
-          <display>Microsoft.AspNetCore.Http.Abstractions (2.3.10)</display>
+          <display>Microsoft.AspNetCore.Http.Abstractions (2.3.13)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.10</value>
+          <value>2.3.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fb835433-4192-4440-9a7a-99a37572d51b</parentFolderId>
@@ -61,11 +61,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f3c79c87-9a92-4d0e-a00d-8a0da9c12408" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4f842a1a-98d2-4b49-981a-1c84ae1b31ec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.WebUtilities</name>
-          <display>Microsoft.AspNetCore.WebUtilities (2.3.10)</display>
+          <display>Microsoft.AspNetCore.WebUtilities (2.3.13)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.10</value>
+          <value>2.3.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fb835433-4192-4440-9a7a-99a37572d51b</parentFolderId>
@@ -75,7 +75,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a9a95fa1-933a-4a78-afa4-087a042b3112" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="dc36b077-bb25-4999-ba38-0411db8417e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.ObjectPool</name>
           <display>Microsoft.Extensions.ObjectPool (8.0.11)</display>
           <isAbstract>false</isAbstract>
@@ -89,7 +89,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3d3e3503-dcb4-43d2-a727-ad6eebec9608" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0e0595dc-6907-41ac-a2d5-717b354baca1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <display>Microsoft.Extensions.Options (8.0.2)</display>
           <isAbstract>false</isAbstract>
@@ -103,11 +103,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d4f01810-8649-4b65-9f3a-fdd7eba4b5e2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="116bdd84-0bc2-4ae8-b48e-bd8c2de0d620" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
-          <display>Microsoft.Net.Http.Headers (2.3.10)</display>
+          <display>Microsoft.Net.Http.Headers (2.3.13)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.10</value>
+          <value>2.3.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fb835433-4192-4440-9a7a-99a37572d51b</parentFolderId>

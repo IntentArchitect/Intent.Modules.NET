@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="583f7325-1b4c-4ee4-9781-ea9f5655163e">
+  <sourceEnd id="fbd00de9-1c5f-49ea-8f99-dbfafe52e5bc" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : GracePeriodConfirmedIntegrationEventHandler.Handler</display>
+    <typeReference id="9abb999a-0a12-445d-9a80-c7d6109a9ce5">
+      <typeId>13d622a2-0be3-4208-a34b-3d8fd74ceb87</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="583f7325-1b4c-4ee4-9781-ea9f5655163e" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = SetAwaitingValidationOrderStatusCommand(...): bool</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="65a3c430-dd9c-4c31-9cd9-172a34120a68">
+      <typeId>fd070c17-9652-46e1-b7a5-5d68fd65a5ed</typeId>
+      <typeName>SetAwaitingValidationOrderStatusCommand</typeName>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

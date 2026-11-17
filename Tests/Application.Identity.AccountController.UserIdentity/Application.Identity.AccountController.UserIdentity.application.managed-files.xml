@@ -45,7 +45,7 @@
   <file path="Application.Identity.AccountController.UserIdentity.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
   <file path="Application.Identity.AccountController.UserIdentity.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="Application.Identity.AccountController.UserIdentity.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
-  <file path="Application.Identity.AccountController.UserIdentity.Infrastructure/Application.Identity.AccountController.UserIdentity.Infrastructure.csproj" deviationsHash="3DC55B6D00D85B7D0BAD7D8115FC768D28BE81EC361852B2C08F0B9B049CDE9E" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Application.Identity.AccountController.UserIdentity.Infrastructure/Application.Identity.AccountController.UserIdentity.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Application.Identity.AccountController.UserIdentity.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="Application.Identity.AccountController.UserIdentity.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Application.Identity.AccountController.UserIdentity.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

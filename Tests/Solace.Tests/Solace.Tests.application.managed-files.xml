@@ -170,6 +170,6 @@
   <file path="Solace.Tests.Infrastructure/Repositories/PurchaseRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="Solace.Tests.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="Solace.Tests.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
-  <file path="Solace.Tests.Infrastructure/Solace.Tests.Infrastructure.csproj" deviationsHash="2BC2480684722B73070B97AF1E6B37B21C6245C47F485E03D46D8D931C2343A0" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Solace.Tests.Infrastructure/Solace.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Solace.Tests.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

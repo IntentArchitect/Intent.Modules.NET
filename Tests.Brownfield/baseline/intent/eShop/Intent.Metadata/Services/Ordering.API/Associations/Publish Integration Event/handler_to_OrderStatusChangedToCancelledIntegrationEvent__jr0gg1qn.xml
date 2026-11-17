@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="619e3ff2-4b8b-45ed-a159-65a6b61d09c4">
+  <sourceEnd id="d443d8ed-ffeb-4baf-8c2b-2bb2fe0b04a2" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : OrderCancelledDomainEventHandler.handler</display>
+    <typeReference id="9729d4de-2194-4952-9ed5-61ffdc320728">
+      <typeId>3bd93869-4698-4dbc-96ee-ccb9dfb3efa0</typeId>
+      <typeName>handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="619e3ff2-4b8b-45ed-a159-65a6b61d09c4" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderStatusChangedToCancelledIntegrationEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="f5d693a4-68a6-4246-bbfb-927349090a9c">
+      <typeId>d72f3c8c-dd5c-4e7f-9ee6-904270715613</typeId>
+      <typeName>OrderStatusChangedToCancelledIntegrationEvent</typeName>
+      <typePackageName>Ordering.API.Eventing</typePackageName>
+      <typePackageId>54cb363b-5140-4891-b45f-ee554a76d9c4</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+</association>

@@ -1,0 +1,42 @@
+@inherits LayoutComponentBase
+
+<MudThemeProvider />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    @Intent.Merge()
+    <MudAppBar Color="Color.Transparent" Elevation="0">
+        <MudSpacer />
+        <MudMenu Icon="@Icons.Material.Filled.Person">
+            <Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+                <Authorized>
+                    <MudMenuItem Href="/orders"
+                                 Icon="@Icons.Material.Filled.Person"
+                                 IconColor="Color.Dark">
+                        My Orders
+                    </MudMenuItem>
+                </Authorized>
+                <NotAuthorized>
+                    <MudMenuItem OnClick="() => RedirectToLogin()" Icon="@Icons.Material.Filled.Person">
+                        Login
+                    </MudMenuItem>
+                </NotAuthorized>
+            </Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+        </MudMenu>
+        <MudButton Href="/cart"
+                   Variant="Variant.Filled"
+                   Class="cart-button"
+                   Color="Color.Dark">
+            <MudIcon Icon="@Icons.Material.Filled.ShoppingCart" />
+            Shopping Cart
+        </MudButton>
+    </MudAppBar>
+    @Intent.IgnoreAttributes("Class")
+    <MudMainContent Class="mt-16">
+        <HeaderBar />
+        @Body
+        <FooterBar />
+    </MudMainContent>
+</MudLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cebeabb1-11f9-4851-97b6-3448a4240f01" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>PatchWidgetDto</name>
+  <display>PatchWidgetDto</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</parentFolderId>
+  <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+  <packageName>Scalar.NET11.Bearer.Services</packageName>
+  <children>
+    <element id="de2c4a4e-1022-43f5-9b74-d718d4c530ed" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Name</name>
+      <display>Name: string?</display>
+      <typeReference id="80cb6e14-ba24-4564-b50e-a51eb0f4ae6e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>cebeabb1-11f9-4851-97b6-3448a4240f01</parentFolderId>
+      <packageId>c4a91d61-f62d-4d7c-9ae7-b994279bf528</packageId>
+      <packageName>Scalar.NET11.Bearer.Services</packageName>
+    </element>
+  </children>
+</class>

@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="e797c230-8ee5-4894-b1e0-3b51815cfd7e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.2.7</name>
-      <display>10.2.7 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>10.2.9</name>
+      <display>10.2.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />

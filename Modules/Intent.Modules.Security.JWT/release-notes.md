@@ -1,3 +1,10 @@
+### Version 4.4.0
+
+- Improvement: Updated NuGet package versions:
+  - `Duende.IdentityModel` 7.0.0 → 7.1.0
+  - `Microsoft.AspNetCore.Authentication.JwtBearer` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.28 → 8.0.34 (net8.0); 2.3.11 → 2.3.14 (netstandard2.0)
+- Improvement: Added .NET 11 NuGet package versions.
+
 ### Version 4.3.12
 
 - Fixed: `ApplicationSecurityConfiguration.cs` no longer emits an unused `using Microsoft.IdentityModel.Tokens;` when the `JWT Bearer Authentication Type` setting is `Oidc` (the default) — `TokenValidationParameters`/`SymmetricSecurityKey` from that namespace are only referenced in the `Manual` branch, so the using is now introduced there only.

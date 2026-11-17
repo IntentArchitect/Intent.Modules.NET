@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dd3a4ee3-04e3-43fb-a5cd-f8dd3a3f6ae2" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>ShipOrderCommand</name>
+  <display>ShipOrderCommand: bool</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <typeReference id="9f81a229-5944-4e13-b870-08c63eef4173">
+    <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+    <typeName>bool</typeName>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+  </typeReference>
+  <parentFolderId>87bd049a-ec04-4684-85a0-891f7666526a</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="6bbf9e89-c521-4122-aa53-3fc7786f1157" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="fd8a5276-96d8-4990-9b66-a9ffacca7749" display="Type" value="positional record" />
+        <property name="b08b54e6-92e3-45eb-a233-0c79b4d76aab" display="Modifiers" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="b2830de8-eee9-4253-9705-88ab97eb1163" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>OrderNumber</name>
+      <display>OrderNumber: int</display>
+      <typeReference id="d5add55f-5a88-4301-944b-1f68fad2ad42">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>dd3a4ee3-04e3-43fb-a5cd-f8dd3a3f6ae2</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+    </element>
+    <association id="b94fe303-3ca0-4937-8d00-2e8da0bf7865">
+      <sourceEnd id="b46d2431-ae20-4789-8a0e-26a729ba52b6" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+        <display>updated by : Commands.ShipOrderCommand</display>
+        <typeReference id="e6db6d50-f172-43ff-a9e8-178dde00c885">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="b94fe303-3ca0-4937-8d00-2e8da0bf7865" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+        <name>order</name>
+        <display>[update] order: SetShippedStatus</display>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
+        <typeReference id="9f4f761b-9a85-4be8-9e19-82549a223aa2">
+          <typeId>36dc0ee6-77e6-4890-b5f6-f0f8116c300a</typeId>
+          <typeName>SetShippedStatus</typeName>
+          <typePackageName>Ordering</typePackageName>
+          <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Update Entity Action</associationType>
+      <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+    </association>
+  </children>
+</class>

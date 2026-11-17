@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.AspNetCore.Scalar.Templates.HideRouteParametersFromBodyOperationTransformer;
+using Intent.Modules.AspNetCore.Scalar.Templates.HttpQueryDocumentTransformer;
 using Intent.Modules.AspNetCore.Scalar.Templates.OpenApiConfiguration;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -20,6 +21,11 @@ namespace Intent.Modules.AspNetCore.Scalar.Templates
         public static string GetHideRouteParametersFromBodyOperationTransformerName(this IIntentTemplate template)
         {
             return template.GetTypeName(HideRouteParametersFromBodyOperationTransformerTemplate.TemplateId);
+        }
+
+        public static string GetHttpQueryDocumentTransformerName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(HttpQueryDocumentTransformerTemplate.TemplateId);
         }
 
     }

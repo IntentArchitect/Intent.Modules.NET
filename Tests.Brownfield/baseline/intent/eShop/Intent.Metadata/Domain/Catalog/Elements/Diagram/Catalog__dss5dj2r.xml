@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="171532b9-84ed-404b-aeda-ce9411860e61" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Catalog</name>
+  <display>Catalog</display>
+  <parentFolderId>a31a042b-fab5-4fdb-b250-86c9afa09e36</parentFolderId>
+  <packageId>a00cb28d-de4a-4e4d-8084-ead9459a536d</packageId>
+  <packageName>Catalog</packageName>
+  <diagram>
+    <targetPackageId>171532b9-84ed-404b-aeda-ce9411860e61</targetPackageId>
+  </diagram>
+</class>

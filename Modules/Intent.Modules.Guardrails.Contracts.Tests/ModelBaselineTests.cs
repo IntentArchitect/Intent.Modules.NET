@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Modules.Domain.Guardrails.Contracts.Drift;
+using Intent.Modules.Common.Drift;
 using Shouldly;
 using Xunit;
 
@@ -31,6 +31,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             return DriftCheck.Run(new DriftCheckInput
             {
                 Designer = "Services",
+                Kinds = FactKinds.For(FactKinds.Services),
                 RecipePath = "guardrails/services.drift.json",
                 RecipeJson = recipe,
                 Code = new CodeFiles(files),
@@ -141,7 +142,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
             report.WrongLines.ShouldBe(new[] { $"`OrderDTO.Id` type: model `long`, code `short`. Location: `src/OrderDTO.cs:5`{BothChanged}" });
             report.PendingCount.ShouldBe(0);
-            report.ToMarkdown().ShouldContain($"| `OrderDTO.Id` type: model `long`, code `short`{BothChanged} |");
+            var findings = DriftFindings.Of(report);
+            findings.ShouldContain(x => x.StartsWith("Error Model/Code | ") && x.EndsWith($" | `OrderDTO.Id` type: model `long`, code `short`{BothChanged}"));
 
             // Still reported on the next run: the code hasn't gone back to what it was.
             Run(Dto("public long Id { get; set; }"), Dto("public short Id { get; set; }"), report.Baseline).WrongLines.Count.ShouldBe(1);

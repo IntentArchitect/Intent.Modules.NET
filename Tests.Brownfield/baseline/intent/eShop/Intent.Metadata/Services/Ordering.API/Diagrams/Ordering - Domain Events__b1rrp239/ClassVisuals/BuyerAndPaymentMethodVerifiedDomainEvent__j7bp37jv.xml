@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="1e32efea-61e4-4e19-b6cb-e6b138bb36a0" zIndex="0">
+  <name>BuyerAndPaymentMethodVerifiedDomainEvent</name>
+  <position x="0" y="850" />
+  <size width="200" height="70" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

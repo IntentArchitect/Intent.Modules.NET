@@ -24,1036 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="74258b8b-b5ff-40ad-8320-e01c4877ff2a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>1bb23a79-75d8-4d62-b5fb-5e993d84aef1</parentFolderId>
-      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-      <packageName>Intent.WindowsServiceHost</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="e8caf6c2-b123-41c0-a10a-bdc768d76371" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d7c5a038-b37b-497d-810e-bdc59486eae0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="81a614d3-fea3-43fa-ac86-078ff0fca161" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="3ac4546e-fc17-42e4-9673-39558a0b0546" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c14a4748-4b76-4d58-a756-384884d15949" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c751fdce-5dea-4f18-9923-bd8376df4217" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="99e489b1-39ca-4154-871f-d06c40e60ae9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="34d7cafa-b152-4578-84ee-e94b3f237882" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="7e1a94b4-81fb-49dc-9deb-b247be865bc6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="fd986ae7-3f18-43a2-b568-7102481d4d65" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b9329e40-d21f-490a-9a2b-bf8769097fdb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c93e1f34-7ec6-4a36-94b7-7d5c77f74781" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="49584d6d-8c3c-42bb-8563-d476d1fdd23f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="cf84b9f1-f1ee-4b16-9cad-23d658a29e67" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="014f7eb6-10fa-49ea-a29e-cbe1df4101e3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="2c3efb6d-843c-4e4a-a81b-440fa400a0d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="f529aaf3-a632-4e97-b56d-fe4b5e41cbe4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="7f8a88a0-1b6e-4d7d-89ee-4984e6239140" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="df86b6b7-9d0c-474f-a4eb-cf900b63941b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c9841b6e-1f5a-4612-a83d-ece3febf3b8a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="aee74e00-0cbe-42c3-8b3e-0c247b9faef1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ee3aeb37-8072-476a-9dbf-e2a6386beb46" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="86e4993d-546a-4709-9b6e-343228489b29" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETStandard,Version=v2.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>1bb23a79-75d8-4d62-b5fb-5e993d84aef1</parentFolderId>
-      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-      <packageName>Intent.WindowsServiceHost</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="90168c7f-4ff8-4d25-bc4c-182c8c0d77c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Bcl.AsyncInterfaces</name>
-          <display>Microsoft.Bcl.AsyncInterfaces (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="9ff6c69b-ee34-42ea-b791-b87c7c1ebfe8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="7581a9b0-e4f2-433e-86c1-aafe259644d6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="018c613f-1bd6-4767-a0aa-27393b678669" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b273569d-039b-4750-a22f-2d3147f092ec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d0be5360-377a-46e3-a1ec-580f5390df01" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e5a78ca1-41da-4795-a706-394db5f0a6d6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8f9852dc-a9c0-4b09-9419-04f427288fb9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b1f39283-20fd-4cdf-906a-6532604e4b2a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0117d000-fe0e-4e4a-a102-ef65f9a2352e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="82469363-f223-468c-ad01-5a9b5dc0b4b8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="bc9d12b6-2724-4192-bd9e-29a0933438f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="3d134cf9-eec6-46d4-ae6a-8ff4abb6b55a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="42e54867-2b66-4238-b191-cdc074a61d48" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a09b98f9-24d2-4578-8ffd-b2f9ce765092" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="41141f3c-00b6-4c94-bab6-3117653a153f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="053fa1cc-ee55-4452-a572-2da84f38c1fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="63e2ea36-e68a-4c8f-a78b-e80a59d435b4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d9ccfbd7-8fb8-44f8-bf70-2f10f4bf92f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e1b3abd1-cc8e-4667-bd4d-ea48c9f5544a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c183280c-e692-4490-a3a0-15abcc354063" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="844212b8-639a-461b-8d32-eaeda409137a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8cfecc5e-30a4-42f2-b55f-06e710f200c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="6f22d1e0-e8db-4db9-b3b6-b05a13007c89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Threading.Tasks.Extensions</name>
-          <display>System.Threading.Tasks.Extensions (4.6.3)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.6.3</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="ba7ce07f-6ec9-429c-bdc3-c9539c9029bc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETStandard,Version=v2.1 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>1bb23a79-75d8-4d62-b5fb-5e993d84aef1</parentFolderId>
-      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-      <packageName>Intent.WindowsServiceHost</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="1aa104b2-1744-40af-b057-1851068eed62" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="24a1734f-a6c8-47a7-a29a-5c0425016c64" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a200822e-0433-4a9a-adef-dde3dc37e739" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="f47776f8-8bc7-42c0-a60a-9c5a7c8b225d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="669af5f7-5c73-4c23-b836-3b46fbac435b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4974d867-5bab-4d73-a115-0ddbca9c8abf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="f5861bb1-f8a6-4b8d-9f47-6d2187f60b24" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="046f2b3a-15fa-4535-a691-5519ed1ff6f2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8ecba7f8-8382-4069-b9d7-14f2b0bb2f86" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8ce97e98-ffb1-443a-becf-c1da093c2cf9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e66f5b56-6297-4be1-aee6-c6fc7485ac0b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="7af6d491-41f7-48af-8ce1-e3270b624d4d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d71c6c7d-a589-40b8-93a5-700fd31aad77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="7adcf1a5-8871-4874-9deb-4cfc6b427231" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ce6c5d75-2807-4cce-8a21-de8336bbe16e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1524c663-f71b-408b-b226-d4e0e2300eac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="54989e61-4ff0-43fb-91e3-cea87469dc6d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="fbf1e012-6bf7-43b0-aae7-4bf7748be0d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c9394af0-6b03-49b4-83ea-10c60ded298b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e24eecb9-6fbb-4961-85a3-bf1dcdcf2e46" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="616b81e2-0dec-4a21-8f98-609c68c327d6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="cb1c52cc-fadd-474d-9e13-cbda46eb1c0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="356014a7-933f-453d-a101-fec47fda9b80" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -1074,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3a67f6e9-65d6-42a1-8a86-c1d01168fcd0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6d75f813-f10b-49ca-ad55-becffc10a38b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1088,11 +61,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="94cb5b08-50fa-486c-abe4-24541967d675" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3386f025-85eb-408d-8f84-0f5d2063369d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1102,11 +75,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="96781699-b928-41df-bc3b-d3b748e761dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="581b75e0-64b5-42b5-8d2c-634696a66775" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.Binder (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1116,11 +89,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="661e5b41-02c7-4813-87b5-107435ba7b89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f5c5c2c1-e83f-4a0b-8fff-c178f1c48643" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1130,11 +103,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1ffc9a8d-1c73-4e8f-9b19-e105f605757a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="95ec0377-9ce7-48a0-8f0a-ef1d92187d6f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1144,11 +117,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="12c36d2b-bf6f-4893-8d62-a01f31cfa7cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e277af76-7a46-4153-a16a-6c51eac6dd86" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1158,11 +131,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f526819c-f703-4259-8036-cbb8dd9feeff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7a395ccf-246a-44f5-805d-79ee61fe35e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.Json (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1172,11 +145,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="54672c79-d49a-4ed3-b2b6-1f1a6d8caa21" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ade2d3b4-9aa5-42c5-bc8d-75b2f3915cf3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1186,11 +159,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7d3c1112-58dc-4d43-8b89-ad3d7596f5bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0b528617-e2f5-4af7-af99-cb218f3955d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (10.0.9)</display>
+          <display>Microsoft.Extensions.DependencyInjection (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1200,11 +173,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d6018efc-2c19-4e1b-873c-d37887ee73ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="58e82992-b77b-4ece-b46c-06749954b357" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1214,11 +187,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7444fb5d-5cf6-4194-98b0-984f8ea60c0b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9360ae3a-c730-40db-9ccd-da6c7e9e9122" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
+          <display>Microsoft.Extensions.Diagnostics (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1228,11 +201,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fa858acf-fc4b-46d4-a4e0-d2d2ca437b1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="504acf5e-7ec8-4e05-9ae9-ab64cdab85f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1242,11 +215,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1bd6435b-e0b4-4d38-806d-c5c73d666d8c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a2a993b6-fd49-4e86-bd28-62693673b1fb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (10.0.9)</display>
+          <display>Microsoft.Extensions.FileProviders.Physical (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1256,11 +229,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cb12e3cd-6638-4476-bf44-c7c135d46eec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4b061810-a1ca-40bf-a0db-46bc5b48e111" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1270,11 +243,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7f6edd45-dd15-4a03-afe2-a3da58c85ea4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6944b4e7-0ab1-46dc-afc9-782ec8e0cca8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1284,11 +257,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0fbe413b-e140-4d8f-ad3a-69deb6949b34" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4c14a728-ca2f-4b62-8d35-4cc9b3e22604" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1298,11 +271,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="767f32a7-4fae-4a56-97b9-de7cbbad2ba8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e0f83a34-dfcc-4e50-97c0-8b6edecccf21" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.Configuration (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1312,11 +285,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e17de570-0057-40dd-a637-5e07714e51ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bf2f877e-eb12-41f1-9e1a-a60b48dbba7a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.Console (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1326,11 +299,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="dc634bdb-eff0-4e7a-b677-eaf2abacef59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a14201a2-b041-4dd3-a1e5-acc2b9af07b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.Debug (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1340,11 +313,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3d0a4e0f-9a3d-44f6-95e8-12b7588f3cbd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a859df07-44c4-4864-a156-ab487527c685" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.EventLog (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1354,11 +327,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bb30fa8b-6287-4464-9e98-674b2104a223" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="48657f29-74fb-44d8-83d9-628afee9607a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.EventSource (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1368,11 +341,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c8bbf5aa-bbf7-4227-9df1-70f12ce7675e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cc3033e8-d0e1-47ec-998c-3ffa67de2d1c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.9)</display>
+          <display>Microsoft.Extensions.Options (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>356014a7-933f-453d-a101-fec47fda9b80</parentFolderId>
@@ -1384,9 +357,1036 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="74258b8b-b5ff-40ad-8320-e01c4877ff2a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1bb23a79-75d8-4d62-b5fb-5e993d84aef1</parentFolderId>
+      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+      <packageName>Intent.WindowsServiceHost</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="fd1b0a94-6e35-47f2-a341-e8aa170dc2fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <display>Microsoft.Extensions.Configuration (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1fca7ec7-1bd8-463f-9baa-025a2c8f6fb3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="941d1365-4d80-4611-b8db-666636b29dba" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Binder</name>
+          <display>Microsoft.Extensions.Configuration.Binder (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c89b3abb-3d5a-40a1-a29b-414d6b55a21c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.CommandLine</name>
+          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0d29aa1f-f746-431b-a3c1-80ac5b00671d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
+          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c174b03f-400b-4139-8501-8010914edcd9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.FileExtensions</name>
+          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f3345927-fca0-4a22-8780-7602893678a0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Json</name>
+          <display>Microsoft.Extensions.Configuration.Json (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="76a4d8f3-e77b-4df5-a160-6808b762d7e6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.UserSecrets</name>
+          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="97c69820-a40f-45d2-83d1-6793f527c9d7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <display>Microsoft.Extensions.DependencyInjection (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4e5ad5ea-99bc-4e20-aa67-eb04a6d4c12e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2b4ab0e8-64dc-4a73-8710-6599576a9ab5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Diagnostics</name>
+          <display>Microsoft.Extensions.Diagnostics (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="91573649-d544-43f5-aeef-7a5b93a35221" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f1e4ea76-1bc1-49f6-8379-b43c1b783659" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.FileProviders.Physical</name>
+          <display>Microsoft.Extensions.FileProviders.Physical (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5462ca93-17af-4a32-aaaf-47cd4ee59695" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cb4cf92c-88a8-4dcd-9357-6e9ea3daca2d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b15e8da6-e9e7-4376-b441-f03c3dc4828d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e1b2b6c3-416c-49d8-b60a-27ef42c71e99" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Configuration</name>
+          <display>Microsoft.Extensions.Logging.Configuration (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="11d96e6e-d15b-4c55-9d3f-5b0bd10dc5e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Console</name>
+          <display>Microsoft.Extensions.Logging.Console (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6eb021ef-9289-4a38-b8f1-9d870f131345" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Debug</name>
+          <display>Microsoft.Extensions.Logging.Debug (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="eb08160b-0386-4dda-acb9-304e2c18bc41" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventLog</name>
+          <display>Microsoft.Extensions.Logging.EventLog (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8a628fa5-59fa-404a-b1a1-7e0700703ec4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventSource</name>
+          <display>Microsoft.Extensions.Logging.EventSource (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="df421d9d-1860-4488-b5e7-206e328e6a0b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>74258b8b-b5ff-40ad-8320-e01c4877ff2a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ba7ce07f-6ec9-429c-bdc3-c9539c9029bc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1bb23a79-75d8-4d62-b5fb-5e993d84aef1</parentFolderId>
+      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+      <packageName>Intent.WindowsServiceHost</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="80273420-1e4b-46e3-aa37-0235afee3255" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <display>Microsoft.Extensions.Configuration (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6bb26529-4678-4ca0-b76f-9cd3eab908da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f4eb3bf5-9a42-4f35-a55a-67ed33fe63aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Binder</name>
+          <display>Microsoft.Extensions.Configuration.Binder (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1f668001-5d42-4ba3-b2c9-2e160608816a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.CommandLine</name>
+          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0581455f-0823-4660-84be-690afdb56b4e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
+          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="03547352-0415-40ac-ac9c-f2ae6338d205" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.FileExtensions</name>
+          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="87004765-9a88-40cb-9ca5-b4cbe27c9b9a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Json</name>
+          <display>Microsoft.Extensions.Configuration.Json (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3155ae0a-dd98-48e8-a8e6-750f8f901870" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.UserSecrets</name>
+          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9be797ac-2b3d-4357-8c9a-6f9b556a2d43" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <display>Microsoft.Extensions.DependencyInjection (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7b77bc84-a426-4bfd-995b-b0b59c32dc2b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c804b3aa-3e29-4f24-9034-d0155fd656fd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Diagnostics</name>
+          <display>Microsoft.Extensions.Diagnostics (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cdf2a1ab-13e8-4f35-ae59-78c5038f9ef1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="39f1f59d-25fe-4303-a51b-ec5e3ceffcfc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.FileProviders.Physical</name>
+          <display>Microsoft.Extensions.FileProviders.Physical (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2a4af0b3-3387-481e-9012-bd8548458be7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d72b210a-a23f-4f8d-903b-668a83f70243" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1e050135-362c-4fc7-931d-3d097e09147a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d320ae0f-acdd-4f6f-a685-a19fb6e33ad2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Configuration</name>
+          <display>Microsoft.Extensions.Logging.Configuration (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b6902763-4a5c-4c21-9633-04066357ec68" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Console</name>
+          <display>Microsoft.Extensions.Logging.Console (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2073b8a6-21e1-43f2-9749-44b9d212fafd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Debug</name>
+          <display>Microsoft.Extensions.Logging.Debug (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3e4cbca2-8757-4782-b473-5506fdbde9af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventLog</name>
+          <display>Microsoft.Extensions.Logging.EventLog (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6a3179cd-646b-40c7-9203-d8a80aa1a591" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventSource</name>
+          <display>Microsoft.Extensions.Logging.EventSource (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c78edef7-f97b-4bda-9439-927f3984e2d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba7ce07f-6ec9-429c-bdc3-c9539c9029bc</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="86e4993d-546a-4709-9b6e-343228489b29" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1bb23a79-75d8-4d62-b5fb-5e993d84aef1</parentFolderId>
+      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+      <packageName>Intent.WindowsServiceHost</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d0e2065b-03d9-46aa-b67f-06a75573b474" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <display>Microsoft.Bcl.AsyncInterfaces (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f0b0956a-f8b0-4824-830b-cb8cd4587df2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <display>Microsoft.Extensions.Configuration (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="75e8c827-fbce-4388-85a7-37ba6e2cfa67" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Abstractions</name>
+          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="558a1f04-1392-40b8-8934-18a6c785ffef" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Binder</name>
+          <display>Microsoft.Extensions.Configuration.Binder (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="435efdbf-3994-4d4f-93f6-6d1dd6de0f79" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.CommandLine</name>
+          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c3a790cd-721f-4e57-aa21-8eeb2818aa64" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
+          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="29f8260f-d425-4efe-910b-6ecd206452a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.FileExtensions</name>
+          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8261c90a-8e8f-4d42-a532-27aa9b3e1e3b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Json</name>
+          <display>Microsoft.Extensions.Configuration.Json (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9c5abec1-b3a6-4921-aa02-1825000bbdee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.UserSecrets</name>
+          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fda1ee55-91df-43d7-8889-190700f956d6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <display>Microsoft.Extensions.DependencyInjection (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0a174bdc-351e-4828-a2db-75c15e7a1315" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bf22a036-7b7d-41c0-944e-82fcee94e5e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Diagnostics</name>
+          <display>Microsoft.Extensions.Diagnostics (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d06f2473-1c63-45b9-a709-5e3f53d0b0bf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.FileProviders.Abstractions</name>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d5afe49c-40db-40c8-b05e-c7f361466f90" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.FileProviders.Physical</name>
+          <display>Microsoft.Extensions.FileProviders.Physical (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ebf63014-3d23-4a6a-b5db-b596bb7e9191" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0817ec27-5625-4718-b880-5534c4a98c3f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="889ec4f5-5a94-41d9-a779-791913484e7d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="58cf6f65-2ebf-4624-88be-24d1452d0176" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Configuration</name>
+          <display>Microsoft.Extensions.Logging.Configuration (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4feaece4-f7f2-49fb-86fe-53714532efed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Console</name>
+          <display>Microsoft.Extensions.Logging.Console (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8cd5ba37-cfd9-4149-89e1-9d346bcf5c1c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Debug</name>
+          <display>Microsoft.Extensions.Logging.Debug (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="84236dce-fdfd-4c92-b42c-643453bd48b6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventLog</name>
+          <display>Microsoft.Extensions.Logging.EventLog (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b7736e21-a90b-498e-88a3-bce40ce6a112" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventSource</name>
+          <display>Microsoft.Extensions.Logging.EventSource (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="514e4127-927d-4f08-8a02-c01956494b63" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f9ed2463-9bde-4f04-bdf9-9a92d2dca1ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.6.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.6.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>86e4993d-546a-4709-9b6e-343228489b29</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="04cc0d73-3f46-46d4-b079-ea85a20c7de5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>11.0.0</name>
+      <display>11.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -1407,11 +1407,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7d5c9fb0-d9b3-4b20-be5b-42f269f65ac4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="193dba01-ecd4-4d74-9784-e1bb558f52c5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1421,11 +1421,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="62685b7f-1de0-45c8-bf95-b26f6ded53c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3400ae28-28ad-4275-8a62-c5a19c1ad962" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1435,11 +1435,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="932eac97-84ab-4200-8d67-08a45eca2868" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9a0133a8-4784-42e4-8e9b-c3a3a40eb7f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.Binder (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1449,11 +1449,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c2e980a6-5671-45a1-8e58-b15aee8c7bac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fc4dc90d-4170-4692-be9d-29a8848e6db8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.CommandLine (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1463,11 +1463,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c0ea5e90-da50-4143-9afc-0111c7a31bc8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2c3c1a89-40b7-44c8-b54a-69b9012b2090" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1477,11 +1477,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="85e13d6b-9f18-4241-8549-d05c96a691f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9a2bc881-14ef-4d8a-a991-dda736eaf0cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.FileExtensions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1491,11 +1491,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d6b7c0d1-e6e9-4738-aae8-c722330083f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8798c413-a484-4787-802e-a270c3512ef8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.Json (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1505,11 +1505,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bebfafb5-82a4-41e0-92a9-efa40200bbf5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6165476c-94d9-479e-8e92-21ae56749e09" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (10.0.9)</display>
+          <display>Microsoft.Extensions.Configuration.UserSecrets (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1519,11 +1519,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a963b35a-1d4d-46c1-b1ad-b282db7a135f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="06ae28dd-d016-42d9-ba34-6468abb68b93" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (10.0.9)</display>
+          <display>Microsoft.Extensions.DependencyInjection (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1533,11 +1533,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5aa1cddf-efda-49e8-8d96-a58e5a7ec2ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ea03273e-1773-4a57-92fe-01ad3cb66db9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1547,11 +1547,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1446b7c9-a3e6-4cde-9cc3-da5e74992220" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e4c7370c-907b-455e-b545-fe8b573b582b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (10.0.9)</display>
+          <display>Microsoft.Extensions.Diagnostics (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1561,11 +1561,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6ec984c9-f7d1-4da8-a66c-afadf88389d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b3e16a6e-dd9d-4130-95b8-8f634a3188d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.FileProviders.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1575,11 +1575,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8a1a8f59-2855-4081-ad48-d5682559cabe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3f561293-6047-4996-829f-60379fbfd5cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (10.0.9)</display>
+          <display>Microsoft.Extensions.FileProviders.Physical (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1589,11 +1589,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c2480a99-1e86-4445-b514-151c181c07b2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="aadd4765-0007-4b7e-afd0-18bd3a6f4203" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.Hosting.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1603,11 +1603,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8bb66a2b-2a71-4c3c-80b4-5637d018fdb6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="da47396e-2f1b-4f63-925e-430cd40de302" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1617,11 +1617,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5aa84f3c-439b-47dc-b216-1328cf15479b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="db698b35-4d8b-41ba-b80f-a7780a5410cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.Abstractions (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1631,11 +1631,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="783ddcbf-c233-4d51-876a-85deab0a8b4c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b0f40c33-585c-4ccd-a2ae-252fa3ce2a3c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.Configuration (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1645,11 +1645,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="704518c9-dd0e-4d3a-88d4-0b92b4d35a37" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3445135b-a6dd-4fc4-b924-9340c1682916" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.Console (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1659,11 +1659,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d10fd49b-f591-497c-b36d-49af6c953d86" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="538e440d-0462-45f4-b539-35f607e1c9f7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.Debug (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1673,11 +1673,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f9e76588-7763-4376-b9a4-b9a8dac1c43d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bb7e3d66-8fa8-426a-9714-f4e48d708c09" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.EventLog (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1687,11 +1687,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7cffccbd-557e-499c-9005-a334e8baff8d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="67b3bb8d-a200-46f5-aacc-6e710ac75160" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.EventSource (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>
@@ -1701,11 +1701,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f4ec4000-3890-40e0-bba1-d12957cde448" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="22a3586e-9144-4560-9e64-06974244c442" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (10.0.9)</display>
+          <display>Microsoft.Extensions.Options (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>04cc0d73-3f46-46d4-b079-ea85a20c7de5</parentFolderId>

@@ -1,3 +1,8 @@
+### Version 1.4.0
+
+- Improvement: Updated NuGet package versions:
+  - `Azure.Messaging.ServiceBus` 7.20.2 → 7.21.0
+
 ### Version 1.3.0
 
 - New Feature: Added `Authentication Methods` module setting to support Managed Identity authentication via `DefaultAzureCredential`, alongside the existing connection string.
@@ -50,7 +55,7 @@
 
 ### Version 1.0.4
 
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5.
 
 ### Version 1.0.3
 

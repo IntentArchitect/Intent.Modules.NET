@@ -90,7 +90,7 @@
   <file path="Wolverine.AspNetCore.Controllers.Application/Products/UpdateProductPrice/UpdateProductPriceCommandHandler.cs" templateId="Intent.Application.Wolverine.CommandHandler" />
   <file path="Wolverine.AspNetCore.Controllers.Application/Products/UpdateProductPrice/UpdateProductPriceCommandValidator.cs" templateId="Intent.Application.Wolverine.FluentValidation.CommandValidator" />
   <file path="Wolverine.AspNetCore.Controllers.Application/Security/Permissions.cs" templateId="Intent.AspNetCore.Permissions" />
-  <file path="Wolverine.AspNetCore.Controllers.Application/Wolverine.AspNetCore.Controllers.Application.csproj" deviationsHash="DA1E77F7F3AE44C942A4CD88DB6FA0A9905CEC4812BFC39FB7AD7757D8431C65" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Wolverine.AspNetCore.Controllers.Application/Wolverine.AspNetCore.Controllers.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Wolverine.AspNetCore.Controllers.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
   <file path="Wolverine.AspNetCore.Controllers.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
   <file path="Wolverine.AspNetCore.Controllers.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />

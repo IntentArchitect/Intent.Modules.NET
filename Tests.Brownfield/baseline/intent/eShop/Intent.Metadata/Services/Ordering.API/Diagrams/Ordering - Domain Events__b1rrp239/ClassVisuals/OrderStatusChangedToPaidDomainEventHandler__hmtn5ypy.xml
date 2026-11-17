@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="a7a44ae2-b974-4f46-8bbd-1cb13b5dc3f5" zIndex="0">
+  <name>OrderStatusChangedToPaidDomainEventHandler</name>
+  <position x="400" y="570" />
+  <size width="200" height="90" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

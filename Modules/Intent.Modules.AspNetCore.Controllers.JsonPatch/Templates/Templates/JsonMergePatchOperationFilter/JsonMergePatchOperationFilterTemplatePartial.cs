@@ -4,11 +4,13 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using NuGet.Versioning;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -23,6 +25,11 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Js
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public JsonMergePatchOperationFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            // Microsoft.OpenApi 3.x: the content is an IOpenApiMediaType, whose Schema can only be set on the concrete OpenApiMediaType
+            var getContent = UsesMicrosoftOpenApiV3
+                ? "operation.RequestBody.Content.TryGetValue(JsonMergePatchDocument.ContentType, out var mediaType) && mediaType is OpenApiMediaType content"
+                : "operation.RequestBody.Content.TryGetValue(JsonMergePatchDocument.ContentType, out var content)";
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.OpenApi")
                 .AddUsing("Morcatko.AspNetCore.JsonMergePatch")
@@ -36,7 +43,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Js
                         method.AddParameter("OpenApiOperation", "operation");
                         method.AddParameter("OperationFilterContext", "context");
                         method.AddStatements(
-                            """
+                            $$"""
                                 if (context.ApiDescription.HttpMethod != "PATCH")
                                 {
                                     return;
@@ -70,7 +77,7 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Js
                                     actualSchema?.Properties?.Remove("patchExecutor");
                                 }
 
-                                if (operation.RequestBody.Content.TryGetValue(JsonMergePatchDocument.ContentType, out var content))
+                                if ({{getContent}})
                                 {
                                     content.Schema = payloadSchemaReference;
                                 }
@@ -82,6 +89,13 @@ namespace Intent.Modules.AspNetCore.Controllers.JsonPatch.Templates.Templates.Js
         // This is a new Swashbuckle Filter so no need to support earlier versions, so if this somehow 
         // runs on an earlier OpenAPI version just don't generate.
         private bool IsMicrosoftOpenApi_2_4_1 => OutputTarget.GetMaxNetAppVersion().Major >= 8;
+
+        // Swashbuckle 11 depends on Microsoft.OpenApi 3.x. The filter only generates alongside Intent.AspNetCore.Swashbuckle,
+        // which registers the package.
+        private bool UsesMicrosoftOpenApiV3 =>
+            IsMicrosoftOpenApi_2_4_1 &&
+            ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.AspNetCore.Swashbuckle") &&
+            NuGetVersion.Parse(NugetRegistry.GetVersion("Swashbuckle.AspNetCore", OutputTarget.GetMaxNetAppVersion()).Version).Major >= 11;
 
         public override bool CanRunTemplate()
         {

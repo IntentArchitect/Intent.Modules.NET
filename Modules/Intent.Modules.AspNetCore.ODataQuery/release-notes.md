@@ -1,3 +1,9 @@
+### Version 1.1.0
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.AspNetCore.OData` 9.4.1 → 9.5.0 (net8.0); 7.7.9 → 7.8.1 (netstandard2.0)
+- Fixed: The Software Factory no longer fails with "More than one instance" when the application has more than one host. OData query support and its Swagger filter are now added to each host that has controllers.
+
 ### Version 1.0.20
 
 - Fixed: Minimum client version.
@@ -32,7 +38,7 @@
 
 ### Version 1.0.12
 
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5.
 - Improvement: Updated NuGet package versions.
 
 ### Version 1.0.11

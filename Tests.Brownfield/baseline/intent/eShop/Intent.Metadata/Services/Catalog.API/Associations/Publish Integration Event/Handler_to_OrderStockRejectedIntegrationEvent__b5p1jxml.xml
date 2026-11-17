@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ed945793-b804-45fe-b543-163e6d85a58d">
+  <sourceEnd id="43f179d1-4855-4837-8730-de09ea13557d" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : OrderStatusChangedToAwaitingValidationIntegrationEventHandler.Handler</display>
+    <typeReference id="630209f8-6bdc-4dd8-b526-b424d4b75a31">
+      <typeId>f2d1f327-c213-4ada-8d15-b84db9a73c57</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Catalog.API</typePackageName>
+      <typePackageId>c7d9613d-ef78-402d-a6b9-749c777f297a</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="ed945793-b804-45fe-b543-163e6d85a58d" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderStockRejectedIntegrationEvent</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="fcfce7c6-9980-430e-944a-991fb513a81f">
+      <typeId>da515e78-98ef-40b8-b943-ce1523ca96ba</typeId>
+      <typeName>OrderStockRejectedIntegrationEvent</typeName>
+      <typePackageName>Catalog.API.Eventing</typePackageName>
+      <typePackageId>ddc75f61-4669-4599-b243-0a6148a29f74</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+</association>

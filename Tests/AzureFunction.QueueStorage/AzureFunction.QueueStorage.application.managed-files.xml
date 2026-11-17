@@ -55,7 +55,7 @@
   <file path="AzureFunction.QueueStorage.Domain/Repositories/IEFRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface" />
   <file path="AzureFunction.QueueStorage.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="AzureFunction.QueueStorage.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
-  <file path="AzureFunction.QueueStorage.Infrastructure/AzureFunction.QueueStorage.Infrastructure.csproj" deviationsHash="B4F837D545D0F919C348C87C8840704EE76355A7AEFE025D9BA715FAE1219B9D" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AzureFunction.QueueStorage.Infrastructure/AzureFunction.QueueStorage.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AzureFunction.QueueStorage.Infrastructure/Configuration/AzureQueueStorageConfiguration.cs" templateId="Intent.Eventing.AzureQueueStorage.AzureQueueStorageConfiguration" />
   <file path="AzureFunction.QueueStorage.Infrastructure/Configuration/AzureQueueStorageOptions.cs" templateId="Intent.Eventing.AzureQueueStorage.AzureQueueStorageOptions" />
   <file path="AzureFunction.QueueStorage.Infrastructure/Configuration/AzureQueueStorageSubscriptionOptions.cs" templateId="Intent.Eventing.AzureQueueStorage.AzureQueueStorageSubscriptionOptions" />

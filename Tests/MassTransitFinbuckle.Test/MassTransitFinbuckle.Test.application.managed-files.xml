@@ -22,7 +22,7 @@
   <file path="MassTransitFinbuckle.Test.Api/Filters/TenantHeaderOperationFilter.cs" templateId="Intent.Modules.AspNetCore.MultiTenancy.TenantHeaderOperationFilter" />
   <file path="MassTransitFinbuckle.Test.Api/Filters/TypeSchemaFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" />
   <file path="MassTransitFinbuckle.Test.Api/Logging/BoundedLoggingDestructuringPolicy.cs" templateId="Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate" />
-  <file path="MassTransitFinbuckle.Test.Api/MassTransitFinbuckle.Test.Api.csproj" deviationsHash="0F7022FC92AE0F2348F1879F31B8E198E749D79F9C8AE9B37C74429E23806D09" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MassTransitFinbuckle.Test.Api/MassTransitFinbuckle.Test.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="MassTransitFinbuckle.Test.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="MassTransitFinbuckle.Test.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="MassTransitFinbuckle.Test.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
@@ -57,7 +57,7 @@
   <file path="MassTransitFinbuckle.Test.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
   <file path="MassTransitFinbuckle.Test.Application/IntegrationServices/Contracts/Services/RequestResponse/TestCommand.cs" templateId="Intent.Eventing.MassTransit.RequestResponse.ClientContracts.DtoContract" />
   <file path="MassTransitFinbuckle.Test.Application/IntegrationServices/IRequestResponseService.cs" templateId="Intent.Eventing.MassTransit.RequestResponse.ClientContracts.ServiceContract" />
-  <file path="MassTransitFinbuckle.Test.Application/MassTransitFinbuckle.Test.Application.csproj" deviationsHash="91A1583B2241DC6D556502789817CD2BC7618E32D5ABF27D6C161B01783F77E7" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MassTransitFinbuckle.Test.Application/MassTransitFinbuckle.Test.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="MassTransitFinbuckle.Test.Application/RequestResponse/Initial/InitialCommand.cs" templateId="Intent.Application.MediatR.CommandModels" />
   <file path="MassTransitFinbuckle.Test.Application/RequestResponse/Initial/InitialCommandHandler.cs" deviationsHash="1015C5A9DA869632FA330AC12F25FAE6282C3747BA9BB199FCC7A5A9A47A6261" templateId="Intent.Application.MediatR.CommandHandler" />
   <file path="MassTransitFinbuckle.Test.Application/RequestResponse/Initial/InitialCommandValidator.cs" templateId="Intent.Application.MediatR.FluentValidation.CommandValidator" />
@@ -88,7 +88,7 @@
   <file path="MassTransitFinbuckle.Test.Infrastructure/Eventing/Messages/ResponseMappingFactory.cs" templateId="Intent.Eventing.MassTransit.RequestResponse.RequestResponse.ResponseMappingFactory" />
   <file path="MassTransitFinbuckle.Test.Infrastructure/Eventing/Messages/Services/RequestResponse/TestCommand.cs" templateId="Intent.Eventing.MassTransit.RequestResponse.RequestResponse.MapperRequestMessage" />
   <file path="MassTransitFinbuckle.Test.Infrastructure/Eventing/RequestResponseService.cs" templateId="Intent.Eventing.MassTransit.RequestResponse.ClientImplementations.ServiceRequestClient" />
-  <file path="MassTransitFinbuckle.Test.Infrastructure/MassTransitFinbuckle.Test.Infrastructure.csproj" deviationsHash="5F01EF910580F2003F95B3D4D1ACA8A1C7A4810EA131156EF6C8011145104037" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="MassTransitFinbuckle.Test.Infrastructure/MassTransitFinbuckle.Test.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="MassTransitFinbuckle.Test.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="MassTransitFinbuckle.Test.Infrastructure/MultiTenant/TenantExtendedInfo.cs" templateId="Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo" />
   <file path="MassTransitFinbuckle.Test.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

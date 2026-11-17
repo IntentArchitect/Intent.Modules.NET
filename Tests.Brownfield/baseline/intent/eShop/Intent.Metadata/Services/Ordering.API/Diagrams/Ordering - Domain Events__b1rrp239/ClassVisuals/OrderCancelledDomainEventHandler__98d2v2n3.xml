@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="ce692386-e0c6-4148-91f2-8fb36fd3fc82" zIndex="0">
+  <name>OrderCancelledDomainEventHandler</name>
+  <position x="400" y="0" />
+  <size width="200" height="90" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

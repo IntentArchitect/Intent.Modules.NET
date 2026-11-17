@@ -29,6 +29,9 @@ namespace Intent.Modules.Application.Mediator.Templates.CommandModels
         public CommandModelsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.MediatorAbstractions(outputTarget));
+
+            FulfillsRole("Application.Contract.Command");
+
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource("Domain.Enum");
             AddTypeSource("Application.Contract.Dto");

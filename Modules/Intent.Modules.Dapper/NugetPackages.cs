@@ -19,9 +19,9 @@ namespace Intent.Modules.Dapper
             NugetRegistry.Register(DapperPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("2.1.79"),
-                        ( >= 8, >= 0) => new PackageVersion("2.1.79"),
-                        ( >= 2, >= 0) => new PackageVersion("2.1.79")
+                        ( >= 10, >= 0) => new PackageVersion("2.1.89"),
+                        ( >= 8, >= 0) => new PackageVersion("2.1.89"),
+                        ( >= 2, >= 0) => new PackageVersion("2.1.89")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.8")
                             .WithNugetDependency("System.Reflection.Emit.Lightweight", "4.7.0")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.6.3"),
@@ -31,33 +31,36 @@ namespace Intent.Modules.Dapper
             NugetRegistry.Register(MicrosoftDataSqlClientPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("7.0.2")
-                            .WithNugetDependency("Microsoft.Bcl.Cryptography", "9.0.13")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.13")
+                        ( >= 9, >= 0) => new PackageVersion("7.1.1")
+                            .WithNugetDependency("Microsoft.Bcl.Cryptography", "9.0.18")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.1.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.1.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "7.1.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.18")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.16.0")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.16.0")
                             .WithNugetDependency("Microsoft.SqlServer.Server", "1.0.0")
-                            .WithNugetDependency("System.Configuration.ConfigurationManager", "9.0.13")
-                            .WithNugetDependency("System.Security.Cryptography.Pkcs", "9.0.13"),
-                        ( >= 8, >= 0) => new PackageVersion("7.0.2")
+                            .WithNugetDependency("System.Configuration.ConfigurationManager", "9.0.18")
+                            .WithNugetDependency("System.Security.Cryptography.Pkcs", "9.0.18")
+                            .WithNugetDependency("System.Threading.RateLimiting", "9.0.18"),
+                        ( >= 8, >= 0) => new PackageVersion("7.1.1")
                             .WithNugetDependency("Microsoft.Bcl.Cryptography", "8.0.0")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.1.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.1.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "7.1.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "8.0.1")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.16.0")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.16.0")
                             .WithNugetDependency("Microsoft.SqlServer.Server", "1.0.0")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "8.0.1")
-                            .WithNugetDependency("System.Security.Cryptography.Pkcs", "8.0.1"),
-                        ( >= 2, >= 0) => new PackageVersion("7.0.2")
+                            .WithNugetDependency("System.Security.Cryptography.Pkcs", "8.0.1")
+                            .WithNugetDependency("System.Threading.RateLimiting", "8.0.0"),
+                        ( >= 2, >= 0) => new PackageVersion("7.1.1")
                             .WithNugetDependency("Microsoft.Bcl.Cryptography", "8.0.0")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
+                            .WithNugetDependency("Microsoft.Bcl.TimeProvider", "8.0.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Extensions.Abstractions", "7.1.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.Internal.Logging", "7.1.1")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "7.1.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "8.0.1")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.16.0")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.16.0")
@@ -65,7 +68,8 @@ namespace Intent.Modules.Dapper
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "8.0.1")
                             .WithNugetDependency("System.Security.Cryptography.Pkcs", "8.0.1")
                             .WithNugetDependency("System.Text.Json", "10.0.3")
-                            .WithNugetDependency("System.Threading.Channels", "10.0.3"),
+                            .WithNugetDependency("System.Threading.Channels", "10.0.3")
+                            .WithNugetDependency("System.Threading.RateLimiting", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftDataSqlClientPackageName}'"),
                     }
                 );

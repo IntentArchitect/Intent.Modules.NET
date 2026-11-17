@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="79fb56b8-6424-459e-9a10-ee605e1856f2" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>OrderPaymentFailedIntegrationEvent</name>
+  <display>OrderPaymentFailedIntegrationEvent</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>bc7bbbf4-b556-4a54-88b7-abc50dfbcbfb</parentFolderId>
+  <packageId>7a5d2fb8-eca6-43b8-a98e-160a024d2cd8</packageId>
+  <packageName>PaymentProcessor.Eventing</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="9bb8b979-bcb2-4908-91d5-b65028475bb6" name="Type Configuration">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="2f0cd31c-9b25-410b-bb47-ccb513504353" display="Type" value="positional record" />
+        <property name="7d854ec0-7ba8-48f5-a08e-539ef5fcb359" display="Modifiers" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="a8268032-90eb-4ec9-9bf7-5ab5aa60886f" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c7b26cd6-fc4b-40ad-9f6e-888090700814" display="Filename" />
+        <property name="9a07d677-d2bc-4280-b624-1f75c202400d" display="Namespace" value="eShop.PaymentProcessor.IntegrationEvents.Events" />
+        <property name="f0309c6d-985e-48ef-8ef0-89c60bdaab01" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="566dd73e-5ca5-4716-b941-37397cf78d67" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>OrderId</name>
+      <display>OrderId: int</display>
+      <typeReference id="38286da9-7292-49cd-b5c8-b4055636bde9">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <typeName>int</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>79fb56b8-6424-459e-9a10-ee605e1856f2</parentFolderId>
+      <packageId>7a5d2fb8-eca6-43b8-a98e-160a024d2cd8</packageId>
+      <packageName>PaymentProcessor.Eventing</packageName>
+    </element>
+  </children>
+</class>

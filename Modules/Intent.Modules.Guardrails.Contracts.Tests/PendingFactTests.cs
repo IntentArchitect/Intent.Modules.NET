@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Modules.Domain.Guardrails.Contracts.Drift;
+using Intent.Modules.Common.Drift;
 using Shouldly;
 using Xunit;
 
@@ -126,6 +126,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             return DriftCheck.Run(new DriftCheckInput
             {
                 Designer = "Services",
+                Kinds = FactKinds.For(FactKinds.Services),
                 RecipePath = "guardrails/services.drift.json",
                 RecipeJson = Recipe,
                 Code = new CodeFiles(files),
@@ -159,8 +160,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             {
                 $"`MillsController.Ping` route: model `Ping`, code (none) (no route template on the action). Location: `{Path}`"
             });
-            staging.ToMarkdown().ShouldContain(
-                $"| <FileRef path=\"{Path}\" /> | `MillsController.Ping` route: model `Ping`, code (none) (no route template on the action) |");
+            DriftFindings.Of(staging).ShouldContain(
+                $"Error Model/Code | text:`MillsController.Ping` | {Path} | `MillsController.Ping` route: model `Ping`, code (none) (no route template on the action)");
 
             // Applied: the same gap, now with its line, until the code is fixed.
             Run(model, Controller($"\n        {Ping}"), staging.Baseline, facts).WrongLines.ShouldBe(new[]
@@ -182,7 +183,8 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
                 $"`MillsController.Ping` route: model `Ping`, code (none) (no route template on the action). Location: `{Path}`",
                 $"`MillsController` route: model `api/Mills`, code (none) (no [Route] on the controller). Location: `{Path}`"
             });
-            report.ToMarkdown().ShouldContain($"| <FileRef path=\"{Path}\" change=\"added\" /> | `MillsController` route: model `api/Mills`, code (none) (no [Route] on the controller) |");
+            // The file is one this run adds, so it is named rather than linked.
+            DriftFindings.Of(report).ShouldContain($"Error Model/Code | text:`MillsController` | text:`{Path}` | `MillsController` route: model `api/Mills`, code (none) (no [Route] on the controller)");
         }
 
         [Fact]

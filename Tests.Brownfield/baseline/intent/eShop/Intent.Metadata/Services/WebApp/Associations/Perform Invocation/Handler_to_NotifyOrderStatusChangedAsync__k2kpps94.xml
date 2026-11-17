@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a2ea2cf7-f6e4-462a-8010-5cf4c3e67a94">
+  <sourceEnd id="66623154-7085-4e66-9634-8d19250c1b9f" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderStatusChangedToAwaitingValidationIntegrationEventHandler.Handler</display>
+    <typeReference id="0db15956-0c67-463a-abf6-4a2a00d8760f">
+      <typeId>94f748d8-2617-4e81-9fe0-709b0329ae58</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>WebApp</typePackageName>
+      <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="a2ea2cf7-f6e4-462a-8010-5cf4c3e67a94" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] NotifyOrderStatusChangedAsync(...): void</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="2691a140-d02f-4575-b1cd-2fdd972400e9">
+      <typeId>62ae56b5-9f9c-4580-a6e4-6a6137bd414e</typeId>
+      <typeName>NotifyOrderStatusChangedAsync</typeName>
+      <typePackageName>WebApp</typePackageName>
+      <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

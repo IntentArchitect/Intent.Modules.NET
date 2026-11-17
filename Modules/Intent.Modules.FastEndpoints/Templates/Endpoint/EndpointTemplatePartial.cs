@@ -219,6 +219,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 HttpVerb.Delete => "Delete",
                 HttpVerb.Put => "Put",
                 HttpVerb.Patch => "Patch",
+                HttpVerb.Query => "Query",
                 _ => throw new NotSupportedException($"Verb {Model.Verb} is not supported.")
             };
             method.AddStatement(new CSharpInvocationStatement(verb)
@@ -273,6 +274,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             switch (Model.Verb)
             {
                 case HttpVerb.Get:
+                case HttpVerb.Query:
                 case HttpVerb.Delete:
                     lambda.AddInvocationStatement($"b.Produces{producesReturnTypeDefinition}", i => i
                         .AddArgument(_responseMapper.GetResponseStatusCodeEnum(Model.InternalElement, "StatusCodes.Status200OK"))

@@ -92,6 +92,6 @@
   <file path="Standard.AspNetCore.ServiceCallHandlers.Infrastructure/Repositories/AddressRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="Standard.AspNetCore.ServiceCallHandlers.Infrastructure/Repositories/PersonRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="Standard.AspNetCore.ServiceCallHandlers.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
-  <file path="Standard.AspNetCore.ServiceCallHandlers.Infrastructure/Standard.AspNetCore.ServiceCallHandlers.Infrastructure.csproj" deviationsHash="F634A5872617AE044FFC3653CD9F323C0F9DEBFC5E1FAE42C63090AB0C6C4620" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Standard.AspNetCore.ServiceCallHandlers.Infrastructure/Standard.AspNetCore.ServiceCallHandlers.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Standard.AspNetCore.ServiceCallHandlers.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

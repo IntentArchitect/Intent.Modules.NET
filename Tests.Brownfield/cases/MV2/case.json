@@ -1,0 +1,15 @@
+{
+  "id": "MV2",
+  "title": "Move: split endpoints into a new API class",
+  "lane": "ai",
+  "prompt": "Split OrdersApi: move the read endpoints (get order, get orders, get card types) into a new OrderQueriesApi class, keeping their routes.",
+  "done": "get order, get orders and get card types live in OrderQueriesApi with unchanged routes, and OrdersApi keeps the rest",
+  "expect": [
+    {
+      "id": "moved",
+      "net": "visible",
+      "text": "The Services designer has the three read operations on a new OrderQueriesApi service (moved, not duplicated), and OrdersApi keeps the rest. Visuals on saved diagrams don't count: the agent is told to leave saved diagrams alone."
+    },
+    { "id": "routes", "net": "visible", "text": "Their routes, verbs and security are unchanged in the model." }
+  ]
+}

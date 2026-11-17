@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a0a01616-9551-41f2-bd32-1bfdd5732b5e">
+  <sourceEnd id="c81760a1-91ee-4503-aaf0-39a954a950cd" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OrderStartedIntegrationEventHandler.Handler</display>
+    <typeReference id="b1d4e73f-dc75-4609-b787-2d3924ee87af">
+      <typeId>3e03c7c5-bf9a-44a0-b0e7-bc3e0d28c33c</typeId>
+      <typeName>Handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Basket.API</typePackageName>
+      <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="a0a01616-9551-41f2-bd32-1bfdd5732b5e" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result = DeleteBasketAsync(...): bool</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="6a34f5b8-8552-4751-8f69-d3f0c0f9dd47">
+      <typeId>46d865d1-12f6-4515-acf6-b2742fcfe630</typeId>
+      <typeName>DeleteBasketAsync</typeName>
+      <typePackageName>Basket.API</typePackageName>
+      <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+</association>

@@ -2,14 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Intent.Modules.Domain.Guardrails.Contracts.Drift;
+using Intent.Modules.Common.Drift;
 
 namespace Intent.Modules.Guardrails.Contracts.Tests
 {
-    /// <summary>
-    /// Runs the drift check on code held in memory. The engine is the Domain module's copy; the Services module's
-    /// copy is identical apart from the namespace (<see cref="SharedCodeTests"/>).
-    /// </summary>
+    /// <summary>Runs the drift module's check on code held in memory, for a Guardrails designer's kinds of fact.</summary>
     internal static class Drift
     {
         public static DriftReport Check(
@@ -23,6 +20,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             return DriftCheck.Run(new DriftCheckInput
             {
                 Designer = designer,
+                Kinds = FactKinds.For(designer),
                 RecipePath = $"guardrails/{designer.ToLowerInvariant()}.drift.json",
                 RecipeJson = recipe,
                 Code = new CodeFiles(files),

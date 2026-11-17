@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="78a45a42-148e-47ef-b171-d430b2591ec8" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>OrderStatusChangedToAwaitingValidationDomainEventHandler</name>
+  <display>OrderStatusChangedToAwaitingValidationDomainEventHandler</display>
+  <parentFolderId>ea181e59-618a-4ecb-b586-8373088d231c</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <children>
+    <association id="9160c79c-ec59-4bb3-b2ee-14d363d044dc">
+      <sourceEnd id="83a57819-54d6-4a7f-82a8-7ed3a761def3" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+        <display>: OrderStatusChangedToAwaitingValidationDomainEventHandler</display>
+        <typeReference id="c8e74af5-1ab2-4f56-965f-3c57efe7ca4a">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="9160c79c-ec59-4bb3-b2ee-14d363d044dc" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+        <name>handler</name>
+        <display>[handles] OrderStatusChangedToAwaitingValidationDomainEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="5a270e9a-d2cb-4293-9531-c1bdb5f10267">
+          <typeId>20828c62-689b-40e8-b517-e52386fec4cb</typeId>
+          <typeName>OrderStatusChangedToAwaitingValidationDomainEvent</typeName>
+          <typePackageName>Ordering</typePackageName>
+          <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Domain Event Handler Association</associationType>
+      <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+    </association>
+  </children>
+</class>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e484e205-b5bc-4649-b987-031061b5a9d9" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler</name>
+  <display>UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler</display>
+  <parentFolderId>ea181e59-618a-4ecb-b586-8373088d231c</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <children>
+    <association id="4ac4acfd-c48a-4c89-96f1-915cdd897439">
+      <sourceEnd id="0fe3047d-66ef-4c79-95bb-5774087cecc1" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+        <display>: UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler</display>
+        <typeReference id="2458d5e4-b223-4dfd-ad3d-832e30524206">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="4ac4acfd-c48a-4c89-96f1-915cdd897439" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+        <name>handler</name>
+        <display>[handles] BuyerAndPaymentMethodVerifiedDomainEvent</display>
+        <traits>
+          <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        </traits>
+        <typeReference id="dc66eb5d-1406-4b41-b3fe-add9d2020205">
+          <typeId>1e32efea-61e4-4e19-b6cb-e6b138bb36a0</typeId>
+          <typeName>BuyerAndPaymentMethodVerifiedDomainEvent</typeName>
+          <typePackageName>Ordering</typePackageName>
+          <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Domain Event Handler Association</associationType>
+      <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+    </association>
+  </children>
+</class>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c6fed469-abbf-4d26-a909-fb234f272a9f" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <order>1</order>
+  <parentFolderId>44f71d10-a4b8-412d-9639-16490704c224</parentFolderId>
+  <packageId>44f71d10-a4b8-412d-9639-16490704c224</packageId>
+  <packageName>TestMediator.Quartz.Domain</packageName>
+  <diagram>
+    <targetPackageId>44f71d10-a4b8-412d-9639-16490704c224</targetPackageId>
+  </diagram>
+</class>

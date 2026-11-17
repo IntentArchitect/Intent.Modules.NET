@@ -27,5 +27,17 @@ namespace Scalar.NET10.Bearer.Application.Implementation
             // TODO: Implement UpdateWidget (WidgetService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
+
+        /// <summary>
+        /// HTTP QUERY endpoint: the search criteria travel in the request body.
+        /// </summary>
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public async Task<List<WidgetDto>> SearchWidgets(WidgetDto criteria, CancellationToken cancellationToken = default)
+        {
+            // This application has no persistence: the operation exists to prove the generated HTTP QUERY surface,
+            // so there is never anything to match.
+            await Task.CompletedTask;
+            return [];
+        }
     }
 }

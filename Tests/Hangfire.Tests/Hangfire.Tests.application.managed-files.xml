@@ -68,7 +68,7 @@
   <file path="Hangfire.Tests.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="Hangfire.Tests.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="Hangfire.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="Hangfire.Tests.Infrastructure/Hangfire.Tests.Infrastructure.csproj" deviationsHash="D8389EFE551C7DC158289B31F270A8030498BA23795413A07EB4DC6E3560D5BF" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Hangfire.Tests.Infrastructure/Hangfire.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Hangfire.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Hangfire.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Hangfire.Tests.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />

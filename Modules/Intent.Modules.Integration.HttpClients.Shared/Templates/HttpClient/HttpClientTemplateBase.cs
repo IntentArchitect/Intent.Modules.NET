@@ -190,7 +190,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                             method.AddStatement($"relativeUri = {UseType("Microsoft.AspNetCore.WebUtilities.QueryHelpers")}.AddQueryString(relativeUri, queryParams);");
                         }
 
-                        method.AddStatement($"using var httpRequest = new HttpRequestMessage(HttpMethod.{endpoint.Verb}, relativeUri);");
+                        method.AddStatement($"using var httpRequest = new HttpRequestMessage({GetHttpMethodExpression(endpoint.Verb)}, relativeUri);");
                         method.AddStatement("httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));");
 
                         if (inputsBySource.TryGetValue(HttpInputSource.FromHeader, out var headerParams))
@@ -448,6 +448,16 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                     method.AddStatement("// Class cleanup goes here");
                 });
             });
+    }
+
+    private string GetHttpMethodExpression(HttpVerb verb)
+    {
+        // HttpMethod.Query exists from .NET 10, older targets build the method from its name
+        return verb switch
+        {
+            HttpVerb.Query when OutputTarget.GetMaxNetAppVersion().Major < 10 => "new HttpMethod(\"QUERY\")",
+            _ => $"HttpMethod.{verb}"
+        };
     }
 
     private string GetSourceExpression(string? methodParameterName, IHttpEndpointModel endpoint, IHttpEndpointInputModel input)

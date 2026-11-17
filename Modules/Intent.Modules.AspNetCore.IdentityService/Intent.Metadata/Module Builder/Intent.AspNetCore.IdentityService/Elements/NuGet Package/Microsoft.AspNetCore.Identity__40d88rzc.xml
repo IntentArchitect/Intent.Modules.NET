@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="e7b0423d-8705-4c25-bb39-c6dfb6ae5efe" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.3.11</name>
-      <display>2.3.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>2.3.14</name>
+      <display>2.3.14 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,46 +47,72 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2c679d37-975a-4df2-acbc-9eb74630a951" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8b612572-78b0-42f6-8eb4-a561022e9002" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Authentication.Cookies</name>
+          <display>Microsoft.AspNetCore.Authentication.Cookies (2.3.13)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.10</value>
+          <value>2.3.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7b0423d-8705-4c25-bb39-c6dfb6ae5efe</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="80a88dfb-eb8b-4c7e-92ec-1dd0f21f5c9d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8648c704-b7d9-493c-91ac-e31b40e0467f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Cryptography.KeyDerivation</name>
+          <display>Microsoft.AspNetCore.Cryptography.KeyDerivation (2.3.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7b0423d-8705-4c25-bb39-c6dfb6ae5efe</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1c6a49bb-65bd-438f-95b6-63558f1f50f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6a7641c3-0402-463d-8ad3-929743c7fecb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Hosting.Abstractions</name>
+          <display>Microsoft.AspNetCore.Hosting.Abstractions (2.3.13)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.10</value>
+          <value>2.3.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7b0423d-8705-4c25-bb39-c6dfb6ae5efe</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="064a946b-1064-40e9-ba3a-85b3aba14a3e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="22868637-02f3-4932-ae64-0f9e8a35acce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Core</name>
+          <display>Microsoft.Extensions.Identity.Core (2.3.13)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.10</value>
+          <value>2.3.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7b0423d-8705-4c25-bb39-c6dfb6ae5efe</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4d7f37a3-9085-4c91-85f8-39a24702a8d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Security.Cryptography.Xml</name>
+          <display>System.Security.Cryptography.Xml (8.0.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e7b0423d-8705-4c25-bb39-c6dfb6ae5efe</parentFolderId>
+          <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+          <packageName>Intent.AspNetCore.IdentityService</packageName>
           <stereotypes />
           <metadata />
           <childElements />

@@ -1,0 +1,27 @@
+{
+  "id": "RN1c",
+  "title": "A rename made in the code with a refactoring tool",
+  "lane": "manual",
+  "plants": ["rn1c"],
+  "prompt": "I renamed Buyer to Customer in the code with a refactoring tool. Bring the model up to date.",
+  "done": "the model calls the class Customer and the code still has the developer's rename",
+  "expect": [
+    { "id": "renamed", "net": "visible", "text": "The Domain designer has a Customer class and no Buyer class." },
+    {
+      "id": "identity",
+      "net": "blind",
+      "text": "Customer is the original Buyer element renamed in place, not a new element: it keeps Buyer's attributes, operations and associations (to Order and PaymentMethod)."
+    },
+    {
+      "id": "references",
+      "net": "blind",
+      "text": "Everything in the model that referenced Buyer still references Customer: the repository's entity, the domain event's property, the Order association, and the Services designer's entity actions on it (ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler's create action and its update action on VerifyOrAddPaymentMethod)."
+    },
+    { "id": "table", "net": "visible", "text": "The model still maps Customer to the table buyers." },
+    {
+      "id": "no-stub",
+      "net": "visible",
+      "text": "The code has no Buyer class again: a Software Factory proposal to recreate Buyer.cs was declined or never applied."
+    }
+  ]
+}

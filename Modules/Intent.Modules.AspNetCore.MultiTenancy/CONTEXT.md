@@ -34,7 +34,7 @@ the app and observing behavior (HTTP requests, logs, or a database query), not j
 | `Intent.Modules.EntityFrameworkCore` package floor (`>= 8.0.28` / `>= 9.0.17`, required transitively by `Finbuckle.MultiTenant.EntityFrameworkCore` 9.4.10) | — | **Build-only** | This module is not part of the IA solution these test apps live in; fix is source-only, confirmed against the real 9.4.10 `.nuspec` dependency groups, not SF/runtime-verified against any target app in this repo. |
 | Google Cloud Storage separate-account multi-tenancy | `Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests` | **Build-only** | `Intent.Modules.Google.CloudStorage` needed no changes for Finbuckle 9.4.10 *by itself* — it has no direct Finbuckle API usage and resolves tenants purely through this module's `ITenantConnections`/named-connection abstraction. It did need one fix for a *combination* issue: this test app also has an EF Core `DbContext`, and claiming its own named `GoogleCloudStorageConnection` meant `AspNetCoreIntegrationExtension`'s EF Core integration (item 5 below) could no longer assume `ConnectionString` exists — fixed in `Intent.Modules.Google.CloudStorage` itself (see that module's own `CONTEXT.md`), not here. What else broke was the app's own stale hand-written code (fixed by hand) plus the `GetDefaultTenants()` bug (item 4 below, fixed in this module). Not runtime-tested — requires developer-provided GCS credentials. |
 | MinimalHostingModel (uses both MultiTenancy + MassTransit) | `MinimalHostingModel` | **Build + SF diff verified** | Only app in this repo still carrying the genuine pre-upgrade `Body = Ignore` pattern; used as the live test case for the `ITemplateMigration` in item 6 below (separate-database scenario — retarget path, not the strip path). |
-| net9.0 / net10.0 targets | — | **Not tested** | Every test app in this repo targets `net8.0`. The `>= 8` NuGet arm (all pinned to `9.4.10`, no separate `>=10` arm) is unexercised on net9/net10 by any real app — confirmed by source/package-floor reasoning only. |
+| net9.0 / net10.0 / net11.0 targets | `EntityFrameworkCore.MultiDbContext.WithDefaultDbContext` (net10.0); SF suite `AspNetCore.MultiHost.Tests` (net10.0 and net11.0 hosts) | **SF output only (6.1.0)** | The net10 app regenerates with 0 changes on 6.1.0; the suite baseline shows `Finbuckle.MultiTenant.AspNetCore` 9.4.10 in both the net10 and the net11 host. Neither is built or run. net9.0 is not covered by any app. |
 
 ### Known-fixed bugs discovered *during* this testing (not pre-existing upstream issues)
 
@@ -184,6 +184,28 @@ the app and observing behavior (HTTP requests, logs, or a database query), not j
    separate code path targeting an `Infrastructure.Configuration.MongoDb.MultiTenancy` template role)
    was investigated as part of this and found to be dead code in this repo — no template currently
    registers that role, so it was left untouched.
+
+## Several hosts in one application (6.1.0)
+
+An application can have several hosts (WebAndWorker-style: two APIs and a worker), each with its own
+startup, Swagger configuration and multi-tenancy configuration. Before 6.1.0 the module looked each of
+these up with the singular `application.FindTemplateInstance`, which throws "More than one instance" as
+soon as a second host exists.
+
+- **Per host, never application-wide.** `AspNetCoreIntegrationExtension` loops over every
+  `IAppStartupTemplate`, and `TenantHeaderOperationFilterTemplate` registers itself in its own project's
+  Swagger configuration (`OutputTarget.FindTemplateInstance`). `OutputTarget` lookups only see the
+  project and the projects it references, so a host never wires another host's files. This is the
+  pattern `Intent.AspNetCore` records as the multi-host convention (its `CONTEXT.md`, "History").
+- **A host without a multi-tenancy configuration is skipped, and logged at Debug.** Multi-tenancy is
+  wired into a startup only when that project has its own `MultiTenancyConfiguration` (placed by its
+  Template Output). Without that guard, `ConfigureMultiTenancy` would be called where it isn't declared,
+  and the `UseRouting` lookup throws in a worker, which has no request pipeline. Logging at Warning was
+  rejected: a worker host without tenants is a normal setup, and the warning repeated on every run.
+- **Proof:** the SF test suite `AspNetCore.MultiHost.Tests` (sibling branch `agent/dotnet-11-sf-tests`)
+  failed on 6.0.0 and passes on 6.1.0. Its baseline holds each host's `Program.cs`
+  (`ConfigureMultiTenancy` / `UseMultiTenancy`) and `SwashbuckleConfiguration.cs` (the tenant header
+  filter). The single-host test apps listed above regenerate with 0 changes on 6.1.0.
 
 ### Infra used for runtime verification (all local, Docker where noted)
 

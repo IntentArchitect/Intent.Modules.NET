@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Modules.Domain.Guardrails.Contracts.Drift;
+using Intent.Modules.Common.Drift;
 using Shouldly;
 using Xunit;
 using static Intent.Modules.Guardrails.Contracts.Tests.Drift;
@@ -424,6 +424,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             var validation = RecipeValidation.Run(new RecipeValidationInput
             {
                 Designer = Services,
+                Kinds = FactKinds.For(Services),
                 RecipePath = "guardrails/services.drift.json",
                 RecipeJson = HandlersRecipe,
                 Code = new CodeFiles(Handlers),

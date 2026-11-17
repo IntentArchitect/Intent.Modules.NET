@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="9ceecd43-3ece-4b5e-a8fd-f5ab4e0b9efb" zIndex="0">
+  <name>ProductPriceChangedIntegrationEvent</name>
+  <position x="400" y="650" />
+  <size width="200" height="70" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

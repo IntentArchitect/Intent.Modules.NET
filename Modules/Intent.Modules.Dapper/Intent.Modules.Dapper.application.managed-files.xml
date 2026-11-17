@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="4a709c8e-37f0-40ba-94d3-fb0fb1e00b18">
-  <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
+  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="Api/RepositoryExtensionsModel.cs" deviationsHash="8C65EFC9CDF4D6342A7140319D719A6D0668198C21D7A4D22F7D607BE2981D87" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel" />
   <file path="FactoryExtensions/EntityRepositoryOperationExtension.cs" deviationsHash="7C1BE3ED23B0A17F1C615B9BA20D45BA91B70ED2AF4CD7583D206ACC97B312B9" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />

@@ -24,45 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="1b7741e8-09e2-4949-b851-e9be564c6d1c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.2.0</name>
-      <display>1.7.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>94da3b22-1a36-42d3-af1c-f2a4b6406239</parentFolderId>
-      <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
-      <packageName>Intent.Aws.Lambda.Functions</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="07b97aa2-4921-4b04-92c5-bf7174124414" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Amazon.Lambda.Core</name>
-          <isAbstract>false</isAbstract>
-          <value>3.1.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1b7741e8-09e2-4949-b851-e9be564c6d1c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="d84aec48-a267-4ea2-a9c8-c77adc505d05" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.2.0</name>
-      <display>1.7.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>2.4.2</name>
+      <display>2.4.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -83,13 +47,55 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="022a4197-1e38-4ea6-947a-9d7c97c1a4dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d8bb287c-f7c6-46a8-9a24-ff6cd6fa5bb5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Amazon.Lambda.Core</name>
+          <display>Amazon.Lambda.Core (3.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>3.1.1</value>
+          <value>3.4.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d84aec48-a267-4ea2-a9c8-c77adc505d05</parentFolderId>
+          <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
+          <packageName>Intent.Aws.Lambda.Functions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1b7741e8-09e2-4949-b851-e9be564c6d1c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>2.4.2</name>
+      <display>2.4.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>94da3b22-1a36-42d3-af1c-f2a4b6406239</parentFolderId>
+      <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
+      <packageName>Intent.Aws.Lambda.Functions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="51f33f5e-8a7c-4e4e-87a2-bf1134a8a797" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Amazon.Lambda.Core</name>
+          <display>Amazon.Lambda.Core (3.4.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.4.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1b7741e8-09e2-4949-b851-e9be564c6d1c</parentFolderId>
+          <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
+          <packageName>Intent.Aws.Lambda.Functions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -97,11 +103,15 @@
       </childElements>
     </childElement>
     <childElement id="1c42fd8d-139f-4e99-961a-52404d3f7e15" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.2.0</name>
+      <name>2.4.2</name>
+      <display>2.4.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>94da3b22-1a36-42d3-af1c-f2a4b6406239</parentFolderId>
+      <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
+      <packageName>Intent.Aws.Lambda.Functions</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -115,13 +125,16 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0b142d31-e15d-4b18-a56b-e41991ab3066" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="61942c73-d179-4777-acf2-df3c7d75c2ec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Amazon.Lambda.Core</name>
+          <display>Amazon.Lambda.Core (3.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>3.1.1</value>
+          <value>3.4.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1c42fd8d-139f-4e99-961a-52404d3f7e15</parentFolderId>
+          <packageId>4741e086-f1fa-4135-88df-1a329c15a271</packageId>
+          <packageName>Intent.Aws.Lambda.Functions</packageName>
           <stereotypes />
           <metadata />
           <childElements />

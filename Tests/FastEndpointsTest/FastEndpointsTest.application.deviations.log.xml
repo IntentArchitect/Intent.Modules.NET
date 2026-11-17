@@ -11,6 +11,15 @@
       <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
     </file>
     <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#9f34f9f3-2188-4857-8b2a-433bb2c1853f</correlationId>
+      <path>FastEndpointsTest.Application/AggregateRoots/SearchAggregateRoots/SearchAggregateRootsQueryHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-05T12:40:46.6240054Z</updatedAt>
+      <deviationsHash>77CE7ABB89279CD408AC7EBC2F17DA861C132A40C10EC49FD2447C6E8651395D</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.MediatR.DomainEvents.AggregateManager#a893b893-0782-4407-897a-57bb1305b67c</correlationId>
       <path>FastEndpointsTest.Application/EventHandlers/DDD/AccountHolderManager.cs</path>
       <count>1</count>

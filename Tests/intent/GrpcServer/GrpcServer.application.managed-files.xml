@@ -331,7 +331,7 @@
   <file path="GrpcServer.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="GrpcServer.Infrastructure/Eventing/IntegrationEventConsumer.cs" templateId="Intent.Eventing.MassTransit.IntegrationEventConsumer" />
   <file path="GrpcServer.Infrastructure/Eventing/MassTransitMessageBus.cs" templateId="Intent.Eventing.MassTransit.MassTransitMessageBus" />
-  <file path="GrpcServer.Infrastructure/GrpcServer.Infrastructure.csproj" deviationsHash="35CEAEE9734D3645CA61D294BC386DA1384724C530CDFE8267617D67F176910E" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="GrpcServer.Infrastructure/GrpcServer.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="GrpcServer.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="GrpcServer.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="GrpcServer.Infrastructure/Persistence/Configurations/ApplicationIdentityUserConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

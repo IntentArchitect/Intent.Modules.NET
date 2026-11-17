@@ -17,15 +17,18 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
     <childElement id="870c9b37-723a-4c92-af0c-85fdafc513f6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>14.3.1</name>
-      <display>13.9.9 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>14.3.5</name>
+      <display>14.3.5 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f3c1234e-631f-4a7d-85ab-19763974e15c</parentFolderId>
@@ -44,35 +47,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="633f4d2f-25c6-4336-8dcc-9ae924faa702" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.AspNetCore</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>870c9b37-723a-4c92-af0c-85fdafc513f6</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="dab13141-a379-4c48-b64e-15b74b29fcb4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="23c3d7ad-0411-4f09-9cb8-fa7e2e553e53" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>ChilliCream.Nitro.App</name>
+          <display>ChilliCream.Nitro.App (23.0.4)</display>
           <isAbstract>false</isAbstract>
           <value>23.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>870c9b37-723a-4c92-af0c-85fdafc513f6</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="32c5aa36-bf3d-47e6-ac50-f3136cd2defa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1cc003f6-8ee7-43da-9919-8dd1dfffdcbe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.AspNetCore</name>
+          <display>HotChocolate.AspNetCore (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>870c9b37-723a-4c92-af0c-85fdafc513f6</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a4cf7f33-063c-4e4f-9be5-43a730c334ab" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Extensions</name>
+          <display>Microsoft.Azure.Functions.Extensions (1.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>870c9b37-723a-4c92-af0c-85fdafc513f6</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -80,9 +92,10 @@
       </childElements>
     </childElement>
     <childElement id="607e1fcb-6cf9-46e4-99f4-758a8bfb8bda" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>14.3.1</name>
-      <display>13.9.9 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <name>14.3.5</name>
+      <display>14.3.5 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f3c1234e-631f-4a7d-85ab-19763974e15c</parentFolderId>
@@ -101,100 +114,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8af2b823-7af1-4a39-bc27-a449d493e4cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.AspNetCore</name>
-          <isAbstract>false</isAbstract>
-          <value>14.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>607e1fcb-6cf9-46e4-99f4-758a8bfb8bda</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a60eea96-7d33-4b1b-9a79-7942abcff2a5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5c361454-6306-4532-94f7-83ae3462ff8f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>ChilliCream.Nitro.App</name>
+          <display>ChilliCream.Nitro.App (23.0.4)</display>
           <isAbstract>false</isAbstract>
           <value>23.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>607e1fcb-6cf9-46e4-99f4-758a8bfb8bda</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7f5b4bab-6937-4ce6-81df-ab10f8041f5e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="49cc66e1-41d7-4eb9-af46-49cef090c783" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.AspNetCore</name>
+          <display>HotChocolate.AspNetCore (14.3.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>14.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>607e1fcb-6cf9-46e4-99f4-758a8bfb8bda</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="eb35c95b-24fd-4fb4-ac51-5163958990a8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Extensions</name>
+          <display>Microsoft.Azure.Functions.Extensions (1.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>607e1fcb-6cf9-46e4-99f4-758a8bfb8bda</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="323afd61-2a52-4b49-941c-f2869063f52c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.4.0</name>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>f3c1234e-631f-4a7d-85ab-19763974e15c</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="52cdda83-4baa-4fb1-b44a-ff2196c3b016" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.AspNetCore</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>323afd61-2a52-4b49-941c-f2869063f52c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="160da7eb-e723-4e0a-a59f-c1b043fa0d30" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>ChilliCream.Nitro.App</name>
-          <isAbstract>false</isAbstract>
-          <value>31.0.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>323afd61-2a52-4b49-941c-f2869063f52c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c9e53dee-9718-4846-b6b7-a13c400cef84" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Azure.Functions.Extensions</name>
-          <isAbstract>false</isAbstract>
-          <value>1.1.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>323afd61-2a52-4b49-941c-f2869063f52c</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="3ce2368e-3a65-4fd4-b0ed-07aae48b1b91" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Azure.WebJobs</name>
-          <isAbstract>false</isAbstract>
-          <value>3.0.41</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>323afd61-2a52-4b49-941c-f2869063f52c</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -202,11 +159,15 @@
       </childElements>
     </childElement>
     <childElement id="77428978-b9af-417f-882f-f5b7261947e1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.4.0</name>
+      <name>16.7.5</name>
+      <display>16.7.5 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f3c1234e-631f-4a7d-85ab-19763974e15c</parentFolderId>
+      <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+      <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -220,46 +181,139 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="cccb19da-83c6-4b92-970d-06262a78c750" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.AspNetCore</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>77428978-b9af-417f-882f-f5b7261947e1</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c8cf0df0-910c-48a6-9c58-82fbc023e30d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e5b873af-cef4-48e4-945c-d3cadf6c641b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>ChilliCream.Nitro.App</name>
+          <display>ChilliCream.Nitro.App (32.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>31.0.2</value>
+          <value>32.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>77428978-b9af-417f-882f-f5b7261947e1</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="daf6235b-a319-4917-9d3d-874615dd6180" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6a2d2e85-6e97-4074-96db-a976447b9bb9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.AspNetCore</name>
+          <display>HotChocolate.AspNetCore (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>77428978-b9af-417f-882f-f5b7261947e1</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0fe933f5-1e89-4e68-bcb1-98162c2c8566" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Extensions</name>
+          <display>Microsoft.Azure.Functions.Extensions (1.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>77428978-b9af-417f-882f-f5b7261947e1</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2e098499-1563-4a06-b656-b556aa3a6e07" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="54dbdee5-42fa-48d7-b2dc-271c66a547cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.WebJobs</name>
+          <display>Microsoft.Azure.WebJobs (3.0.41)</display>
           <isAbstract>false</isAbstract>
           <value>3.0.41</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>77428978-b9af-417f-882f-f5b7261947e1</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="323afd61-2a52-4b49-941c-f2869063f52c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>16.7.5</name>
+      <display>16.7.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f3c1234e-631f-4a7d-85ab-19763974e15c</parentFolderId>
+      <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+      <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d1e22e75-9c2b-4d00-acbc-9a54aa81512b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>ChilliCream.Nitro.App</name>
+          <display>ChilliCream.Nitro.App (32.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>32.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>323afd61-2a52-4b49-941c-f2869063f52c</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e393d5a3-13be-42b3-a9d7-a44b49bfabcb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.AspNetCore</name>
+          <display>HotChocolate.AspNetCore (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>323afd61-2a52-4b49-941c-f2869063f52c</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b9048047-5ff5-41ff-8108-2b0b21af1198" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Extensions</name>
+          <display>Microsoft.Azure.Functions.Extensions (1.1.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>323afd61-2a52-4b49-941c-f2869063f52c</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ce994194-da24-48da-b1a1-eeef6565e0fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.WebJobs</name>
+          <display>Microsoft.Azure.WebJobs (3.0.41)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.0.41</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>323afd61-2a52-4b49-941c-f2869063f52c</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -267,11 +321,15 @@
       </childElements>
     </childElement>
     <childElement id="97f68829-a29b-4442-9aba-4614d9f7b5cd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>16.4.0</name>
+      <name>16.7.5</name>
+      <display>16.7.5 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f3c1234e-631f-4a7d-85ab-19763974e15c</parentFolderId>
+      <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+      <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -285,46 +343,58 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="40742754-4ffd-4a76-86db-7b44d9795213" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>HotChocolate.AspNetCore</name>
-          <isAbstract>false</isAbstract>
-          <value>16.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>97f68829-a29b-4442-9aba-4614d9f7b5cd</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c4279531-d53d-4b6e-81b4-ceaddbeb7d0d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1acf25b0-673b-437e-bc26-72849718dc71" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>ChilliCream.Nitro.App</name>
+          <display>ChilliCream.Nitro.App (32.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>31.0.2</value>
+          <value>32.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>97f68829-a29b-4442-9aba-4614d9f7b5cd</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fdc330b7-f044-4e9d-a71c-8aac05181315" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c09c508f-23a4-4314-811f-5ff27291b4d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.AspNetCore</name>
+          <display>HotChocolate.AspNetCore (16.7.5)</display>
+          <isAbstract>false</isAbstract>
+          <value>16.7.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>97f68829-a29b-4442-9aba-4614d9f7b5cd</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="13b1ce77-150f-4931-bc02-f1242c664fed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Extensions</name>
+          <display>Microsoft.Azure.Functions.Extensions (1.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>97f68829-a29b-4442-9aba-4614d9f7b5cd</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="282fd8e9-0d74-4e8c-87d3-75a713809c5c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4c8c0a6d-9b66-4402-b44d-dd4e659014d6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.WebJobs</name>
+          <display>Microsoft.Azure.WebJobs (3.0.41)</display>
           <isAbstract>false</isAbstract>
           <value>3.0.41</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>97f68829-a29b-4442-9aba-4614d9f7b5cd</parentFolderId>
+          <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+          <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />

@@ -20,49 +20,49 @@ namespace Intent.Modules.Application.DependencyInjection
             NugetRegistry.Register(MicrosoftExtensionsConfigurationAbstractionsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "10.0.9"),
-                        ( >= 9, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "10.0.9"),
-                        ( >= 8, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "10.0.9"),
-                        ( >= 2, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "10.0.9"),
+                        ( >= 10, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "11.0.0"),
+                        ( >= 9, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "10.0.15"),
+                        ( >= 8, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "10.0.15"),
+                        ( >= 2, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "10.0.15"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationAbstractionsPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftExtensionsConfigurationBinderPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9"),
-                        ( >= 9, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9"),
-                        ( >= 8, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9"),
-                        ( >= 2, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.9"),
+                        ( >= 10, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "11.0.0"),
+                        ( >= 9, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.15"),
+                        ( >= 8, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.15"),
+                        ( >= 2, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.15"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationBinderPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftExtensionsDependencyInjectionPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9"),
-                        ( >= 9, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9"),
-                        ( >= 8, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9"),
-                        ( >= 2, >= 1) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9"),
-                        ( >= 2, >= 0) => new PackageVersion("10.0.9")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.9")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.9")
+                        ( >= 10, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "11.0.0"),
+                        ( >= 9, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.15"),
+                        ( >= 8, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.15"),
+                        ( >= 2, >= 1) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.15"),
+                        ( >= 2, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.15")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.6.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsDependencyInjectionPackageName}'"),
                     }

@@ -79,7 +79,7 @@
   <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/Repositories/IWithKeyConfigRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
   <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure.csproj" deviationsHash="A126D38418ACD0F287493549E3A4D0C64749BFA85BBF438020D01A3A6F8738D1" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure/Persistence/Configurations/BaseWithLastConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

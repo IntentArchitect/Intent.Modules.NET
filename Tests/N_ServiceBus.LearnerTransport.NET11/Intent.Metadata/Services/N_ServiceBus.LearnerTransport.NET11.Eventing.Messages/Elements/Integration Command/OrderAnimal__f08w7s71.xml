@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b6893bbc-196c-4222-bce3-48974c907b2d" type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+  <name>OrderAnimal</name>
+  <display>OrderAnimal</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>7c84b3ec-174b-4fde-bffe-4c91429243d3</parentFolderId>
+  <packageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</packageId>
+  <packageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c45c1bba-04ce-4ba3-88e6-c69b6ce3d1ca" name="NServiceBus">
+      <definitionPackageName>Intent.Eventing.NServiceBus</definitionPackageName>
+      <definitionPackageId>62ed1010-b7ea-41be-8a1e-617d3d8b5f8b</definitionPackageId>
+      <properties>
+        <property name="7fb26481-5156-4067-ad30-b55b48f2bfbe" display="Endpoint Name" value="Animals" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="4d147ce2-b59c-48ce-b972-a21bb03e3d6e" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>name</name>
+      <display>name: string</display>
+      <typeReference id="7ff26241-7d25-40f5-bea8-c490d8c5003a">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>b6893bbc-196c-4222-bce3-48974c907b2d</parentFolderId>
+      <packageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</packageId>
+      <packageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</packageName>
+    </element>
+    <element id="32d63703-b68b-4944-b606-f5a3a7cc4441" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>type</name>
+      <display>type: string</display>
+      <typeReference id="1afc56e4-dfcc-4060-b11b-c57b21330466">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>b6893bbc-196c-4222-bce3-48974c907b2d</parentFolderId>
+      <packageId>7c84b3ec-174b-4fde-bffe-4c91429243d3</packageId>
+      <packageName>N_ServiceBus.LearnerTransport.NET11.Eventing.Messages</packageName>
+    </element>
+  </children>
+</class>

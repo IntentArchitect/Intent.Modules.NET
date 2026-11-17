@@ -1,0 +1,34 @@
+using EntityFrameworkCore.SqlServer.EF11.Domain.Repositories;
+using EntityFrameworkCore.SqlServer.EF11.Domain.Repositories.TPT.InheritanceAssociations;
+using EntityFrameworkCore.SqlServer.EF11.Domain.TPT.InheritanceAssociations;
+using EntityFrameworkCore.SqlServer.EF11.Infrastructure.Persistence;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.Repository", Version = "1.0")]
+
+namespace EntityFrameworkCore.SqlServer.EF11.Infrastructure.Repositories.TPT.InheritanceAssociations
+{
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    public class TPT_FkBaseClassRepository : RepositoryBase<TPT_FkBaseClass, TPT_FkBaseClass, ApplicationDbContext>, ITPT_FkBaseClassRepository
+    {
+        public TPT_FkBaseClassRepository(ApplicationDbContext dbContext) : base(dbContext)
+        {
+        }
+
+        public async Task<TPT_FkBaseClass?> FindByIdAsync(
+            (Guid CompositeKeyA, Guid CompositeKeyB) id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, cancellationToken);
+        }
+
+        public async Task<TPT_FkBaseClass?> FindByIdAsync(
+            (Guid CompositeKeyA, Guid CompositeKeyB) id,
+            Func<IQueryable<TPT_FkBaseClass>, IQueryable<TPT_FkBaseClass>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, queryOptions, cancellationToken);
+        }
+    }
+}

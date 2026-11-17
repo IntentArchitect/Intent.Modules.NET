@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<solution id="045a7ce4-1889-4e49-b15a-01bb860b9ce9">
+  <name>eShop9</name>
+  <version>3.3.0</version>
+  <icon>./img/logo-blue.svg</icon>
+  <iconType>UrlImagePath</iconType>
+  <metadataRelativePath>Intent.Metadata</metadataRelativePath>
+  <modulesCacheRelativePath>.cache/modules</modulesCacheRelativePath>
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.EmptyVisualStudioSolution" version="4.2.16" />
+  <applications>
+    <application id="f095be37-55e6-4f92-a318-8d9487b66bf2" name="eShop" relativePath="eShop/eShop.application.config" />
+  </applications>
+  <workspaceRoot>..</workspaceRoot>
+</solution>

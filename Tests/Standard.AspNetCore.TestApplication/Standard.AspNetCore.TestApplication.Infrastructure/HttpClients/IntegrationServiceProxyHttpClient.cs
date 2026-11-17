@@ -357,6 +357,31 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             }
         }
 
+        public async Task<List<CustomDTO>> QueryBodyParamOpAsync(
+            CustomDTO param1,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/integration/querybodyparamop";
+            using var httpRequest = new HttpRequestMessage(new HttpMethod("QUERY"), relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            var content = JsonSerializer.Serialize(param1, _serializerOptions);
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, JSON_MEDIA_TYPE);
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<List<CustomDTO>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
         public void Dispose()
         {
             Dispose(true);

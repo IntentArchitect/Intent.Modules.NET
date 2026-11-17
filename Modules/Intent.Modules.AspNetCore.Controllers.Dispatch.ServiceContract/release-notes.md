@@ -1,3 +1,7 @@
+### Version 5.3.0
+
+- Improvement: `QUERY` operations skip the unit of work and the message bus flush, as `GET` operations do.
+
 ### Version 5.2.20
 
 - Improvement: Prevent `CancellationToken` automatically applied with `Asyncronous` stereotype applied with `No Cancellation Token` set to true.

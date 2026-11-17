@@ -86,7 +86,7 @@
   <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Repositories/DaprStateStoreRepositoryBase.cs" templateId="Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryBase" />
   <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
-  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Subscribe.CleanArchDapr.TestApplication.Infrastructure.csproj" deviationsHash="342BD7B57BD165FF3F012CAD069331649B4E9F4906131F7B97640EBAD4E44F43" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Subscribe.CleanArchDapr.TestApplication.Infrastructure/Subscribe.CleanArchDapr.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Subscribe.CleanArchDapr.TestApplication.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="dapr/components/pubsub.yaml" templateId="Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration" />
   <file path="dapr/components/statestore.yaml" templateId="Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration" />

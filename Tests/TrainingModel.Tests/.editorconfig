@@ -24,6 +24,8 @@ dotnet_diagnostic.S6678.severity = none
 dotnet_diagnostic.S1118.severity = none
 # RouteAttribute required on controllers
 dotnet_diagnostic.S6934.severity = none
+# Unnecessary null-forgiving operator (new in SonarAnalyzer 10.35; templates still emit redundant `!`)
+dotnet_diagnostic.S8969.severity = none
 
 [CreateCustomerCommandValidator.cs]
 # async method without await

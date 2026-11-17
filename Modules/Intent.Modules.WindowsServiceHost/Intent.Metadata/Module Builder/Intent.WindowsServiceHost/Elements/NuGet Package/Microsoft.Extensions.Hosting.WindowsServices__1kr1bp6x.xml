@@ -24,210 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="1293cc18-0f2d-460d-9abc-359d5fab354a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8633c016-2aee-43ea-b5f3-679a2a3ecab3</parentFolderId>
-      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-      <packageName>Intent.WindowsServiceHost</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="2b09df1f-0c89-4f66-a211-6288d9a458dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Hosting</name>
-          <display>Microsoft.Extensions.Hosting (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1293cc18-0f2d-460d-9abc-359d5fab354a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="cc9cf184-16f8-4978-8674-0d1bcf51b72f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1293cc18-0f2d-460d-9abc-359d5fab354a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="fa83710a-99b6-4793-a5c7-b72111b9d70b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.ServiceProcess.ServiceController</name>
-          <display>System.ServiceProcess.ServiceController (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1293cc18-0f2d-460d-9abc-359d5fab354a</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="cbd0b274-8284-4dda-9147-7248331831f8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETStandard,Version=v2.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8633c016-2aee-43ea-b5f3-679a2a3ecab3</parentFolderId>
-      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-      <packageName>Intent.WindowsServiceHost</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="7e38c2c7-0add-4029-81cc-9520059af7d0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Hosting</name>
-          <display>Microsoft.Extensions.Hosting (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>cbd0b274-8284-4dda-9147-7248331831f8</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="adb618cb-000a-49c8-94b5-fe48b793be47" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>cbd0b274-8284-4dda-9147-7248331831f8</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a3dfe6d8-8315-4ce6-9b8b-a6c9e7ba0566" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.ServiceProcess.ServiceController</name>
-          <display>System.ServiceProcess.ServiceController (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>cbd0b274-8284-4dda-9147-7248331831f8</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="e85b09cb-cd85-4efa-ae5d-1d7b1e86a1be" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETStandard,Version=v2.1 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8633c016-2aee-43ea-b5f3-679a2a3ecab3</parentFolderId>
-      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-      <packageName>Intent.WindowsServiceHost</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="a891506c-e750-4ccc-bf5e-3a8923177103" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Hosting</name>
-          <display>Microsoft.Extensions.Hosting (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e85b09cb-cd85-4efa-ae5d-1d7b1e86a1be</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="78217d9a-cf9e-46c3-9341-73096db40332" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e85b09cb-cd85-4efa-ae5d-1d7b1e86a1be</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="57517918-cbf1-4c36-b0f5-602248026629" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.ServiceProcess.ServiceController</name>
-          <display>System.ServiceProcess.ServiceController (10.0.9)</display>
-          <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e85b09cb-cd85-4efa-ae5d-1d7b1e86a1be</parentFolderId>
-          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
-          <packageName>Intent.WindowsServiceHost</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="aad10ca1-657b-4854-8b9e-b358f648f9df" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -248,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="62aed355-254d-4e2a-88fa-80b507c9d113" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="258d6164-d6b9-4180-9cad-27af9154ad9b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
-          <display>Microsoft.Extensions.Hosting (10.0.9)</display>
+          <display>Microsoft.Extensions.Hosting (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aad10ca1-657b-4854-8b9e-b358f648f9df</parentFolderId>
@@ -262,11 +61,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="174dd424-ad3b-4ae8-ac2c-3bc2617d2dae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="716fa797-0e23-4e8a-b4bd-76b6c947571e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.EventLog (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aad10ca1-657b-4854-8b9e-b358f648f9df</parentFolderId>
@@ -276,11 +75,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="707771e9-ab54-40b9-ba1e-dd142f8b8ee8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="58c163c1-b136-4025-80de-0df0f2e9f978" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.ServiceProcess.ServiceController</name>
-          <display>System.ServiceProcess.ServiceController (10.0.9)</display>
+          <display>System.ServiceProcess.ServiceController (10.0.15)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>10.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aad10ca1-657b-4854-8b9e-b358f648f9df</parentFolderId>
@@ -292,9 +91,210 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="1293cc18-0f2d-460d-9abc-359d5fab354a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8633c016-2aee-43ea-b5f3-679a2a3ecab3</parentFolderId>
+      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+      <packageName>Intent.WindowsServiceHost</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="1a5edfe8-9dbf-436b-bcea-4c085e4315f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Hosting</name>
+          <display>Microsoft.Extensions.Hosting (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1293cc18-0f2d-460d-9abc-359d5fab354a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c720f86b-b75a-4af5-85bc-c2f0a69956b0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventLog</name>
+          <display>Microsoft.Extensions.Logging.EventLog (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1293cc18-0f2d-460d-9abc-359d5fab354a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3a202e43-7552-4e67-ba2e-5fdb5b66d306" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.ServiceProcess.ServiceController</name>
+          <display>System.ServiceProcess.ServiceController (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1293cc18-0f2d-460d-9abc-359d5fab354a</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="e85b09cb-cd85-4efa-ae5d-1d7b1e86a1be" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8633c016-2aee-43ea-b5f3-679a2a3ecab3</parentFolderId>
+      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+      <packageName>Intent.WindowsServiceHost</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="ba9fb88f-2e77-4791-931a-c017dcb19b63" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Hosting</name>
+          <display>Microsoft.Extensions.Hosting (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e85b09cb-cd85-4efa-ae5d-1d7b1e86a1be</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2b821b6c-ea49-4cd6-9882-fb759e6e6c0e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventLog</name>
+          <display>Microsoft.Extensions.Logging.EventLog (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e85b09cb-cd85-4efa-ae5d-1d7b1e86a1be</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="faae6fff-ac5f-4df9-966d-ab3f45e951d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.ServiceProcess.ServiceController</name>
+          <display>System.ServiceProcess.ServiceController (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e85b09cb-cd85-4efa-ae5d-1d7b1e86a1be</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="cbd0b274-8284-4dda-9147-7248331831f8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8633c016-2aee-43ea-b5f3-679a2a3ecab3</parentFolderId>
+      <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+      <packageName>Intent.WindowsServiceHost</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="0e5da0fc-b392-4233-8286-1cb8d2f14f9f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Hosting</name>
+          <display>Microsoft.Extensions.Hosting (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cbd0b274-8284-4dda-9147-7248331831f8</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1721bf2e-1d01-40c2-a3f9-f36577e41743" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.EventLog</name>
+          <display>Microsoft.Extensions.Logging.EventLog (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cbd0b274-8284-4dda-9147-7248331831f8</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="54ab9ea0-80ed-4785-8f74-dae7c4b295e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.ServiceProcess.ServiceController</name>
+          <display>System.ServiceProcess.ServiceController (10.0.15)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.15</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cbd0b274-8284-4dda-9147-7248331831f8</parentFolderId>
+          <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+          <packageName>Intent.WindowsServiceHost</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="f858f9ee-19bf-47e4-ac29-1342e474be1e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.9 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>11.0.0</name>
+      <display>11.0.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -315,11 +315,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f5f28a34-9191-4d28-813c-ee90069de580" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="13304a98-30d6-431a-9c8c-04b0b14ef29f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
-          <display>Microsoft.Extensions.Hosting (10.0.9)</display>
+          <display>Microsoft.Extensions.Hosting (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f858f9ee-19bf-47e4-ac29-1342e474be1e</parentFolderId>
@@ -329,11 +329,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="dd753846-fb55-4417-9e57-0a9f2c9e3ea0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a616e2fb-8f9d-4f95-9b5f-016f943a5c9b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (10.0.9)</display>
+          <display>Microsoft.Extensions.Logging.EventLog (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f858f9ee-19bf-47e4-ac29-1342e474be1e</parentFolderId>
@@ -343,11 +343,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e37a6772-a4bf-4871-a8f6-b76cc9468a52" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="912bc427-6c27-48fe-b4fd-69baf4003ad4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.ServiceProcess.ServiceController</name>
-          <display>System.ServiceProcess.ServiceController (10.0.9)</display>
+          <display>System.ServiceProcess.ServiceController (11.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.9</value>
+          <value>11.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f858f9ee-19bf-47e4-ac29-1342e474be1e</parentFolderId>

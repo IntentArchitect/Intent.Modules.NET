@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="77722d48-ddb2-4283-b799-9535af12deaf">
+  <sourceEnd id="4ab66b8e-8fd4-43ff-85ec-17e64abcd8bf" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : OrderStatusChangedToPaidDomainEventHandler.handler</display>
+    <typeReference id="37a047b3-32b8-4ebb-b6c5-46b60d6c1720">
+      <typeId>9f51e580-01a2-4a66-8849-d8a7794fe765</typeId>
+      <typeName>handler</typeName>
+      <isNavigable>false</isNavigable>
+      <typePackageName>Ordering.API</typePackageName>
+      <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+    </typeReference>
+  </sourceEnd>
+  <targetEnd id="77722d48-ddb2-4283-b799-9535af12deaf" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderStatusChangedToPaidIntegrationEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="dcff948a-5496-4bf3-aa36-5fdcf9d21a5c">
+      <typeId>62351911-3a5d-40be-a2ab-034912a6374c</typeId>
+      <typeName>OrderStatusChangedToPaidIntegrationEvent</typeName>
+      <typePackageName>Ordering.API.Eventing</typePackageName>
+      <typePackageId>54cb363b-5140-4891-b45f-ee554a76d9c4</typePackageId>
+    </typeReference>
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+</association>

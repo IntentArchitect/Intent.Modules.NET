@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e5bab136-703a-4067-a8ac-5c614cb20ba1" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>In-memory pub/sub: order status integration event handlers notify the buyer's open Orders pages.</comment>
+  <name>OrderStatusNotificationService</name>
+  <display>OrderStatusNotificationService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>ca0c1717-ad54-432b-87fc-677c3166d949</parentFolderId>
+  <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+  <packageName>WebApp</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" value="eShop.WebApp.Services" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="54b00a51-5bbb-45ee-a806-c9c9dfa77d49" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>SubscribeToOrderStatusNotifications</name>
+      <display>SubscribeToOrderStatusNotifications(buyerId: string, callback: Func&lt;Task&gt;): IDisposable</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="d5f72079-60a9-4e76-afac-32d44962e487">
+        <typeId>955fcbf4-adbe-46ef-a4b1-e3fc02370011</typeId>
+        <typeName>IDisposable</typeName>
+        <typePackageName>WebApp</typePackageName>
+        <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+      </typeReference>
+      <parentFolderId>e5bab136-703a-4067-a8ac-5c614cb20ba1</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <children>
+        <element id="6177a114-ee3e-4f76-b13b-a91b9bcbb012" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>buyerId</name>
+          <display>in : buyerId: string</display>
+          <typeReference id="db169a5e-3516-46b9-b090-72d1dfdb1e74">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>54b00a51-5bbb-45ee-a806-c9c9dfa77d49</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+        </element>
+        <element id="f0ecbf1a-b441-456f-a071-f1011598f1d1" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>callback</name>
+          <display>in : callback: Func&lt;Task&gt;</display>
+          <typeReference id="6b92c879-f441-499f-a6bb-20117265310b">
+            <typeId>13af789b-c709-4d0d-854e-af5bf8761f78</typeId>
+            <typeName>Func&lt;Task&gt;</typeName>
+            <typePackageName>WebApp</typePackageName>
+            <typePackageId>a3de4daf-009a-4aa7-814e-9b86050586ad</typePackageId>
+          </typeReference>
+          <parentFolderId>54b00a51-5bbb-45ee-a806-c9c9dfa77d49</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="62ae56b5-9f9c-4580-a6e4-6a6137bd414e" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>NotifyOrderStatusChangedAsync</name>
+      <display>NotifyOrderStatusChangedAsync(buyerId: string): void</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="6759551f-152a-4188-8379-e8c609406d13" />
+      <parentFolderId>e5bab136-703a-4067-a8ac-5c614cb20ba1</parentFolderId>
+      <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+      <packageName>WebApp</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="no async keyword" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="bb12dadd-2619-484c-9130-b551c2755710" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>buyerId</name>
+          <display>in : buyerId: string</display>
+          <typeReference id="4c40d8a7-ce5a-40a4-8cb3-f8e3099082a4">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>62ae56b5-9f9c-4580-a6e4-6a6137bd414e</parentFolderId>
+          <packageId>a3de4daf-009a-4aa7-814e-9b86050586ad</packageId>
+          <packageName>WebApp</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

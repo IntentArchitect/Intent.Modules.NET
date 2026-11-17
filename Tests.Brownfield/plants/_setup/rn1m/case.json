@@ -1,0 +1,3 @@
+{
+  "prompt": "In the Domain designer, rename the Buyer class to Customer. Rename the existing element in place; don't create a new one, and change nothing else."
+}

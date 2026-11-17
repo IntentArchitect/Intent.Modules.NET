@@ -33,6 +33,10 @@
       <parentFolderId>6570fe67-44fd-4887-8afe-8a6bf3ca86f8</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -83,6 +87,10 @@
       <parentFolderId>6570fe67-44fd-4887-8afe-8a6bf3ca86f8</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -132,6 +140,10 @@
       <parentFolderId>6570fe67-44fd-4887-8afe-8a6bf3ca86f8</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -170,6 +182,10 @@
       <parentFolderId>6570fe67-44fd-4887-8afe-8a6bf3ca86f8</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -241,6 +257,10 @@
       <parentFolderId>6570fe67-44fd-4887-8afe-8a6bf3ca86f8</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -312,6 +332,10 @@
       <parentFolderId>6570fe67-44fd-4887-8afe-8a6bf3ca86f8</parentFolderId>
       <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
       <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>

@@ -167,19 +167,6 @@
       <fileHash>2DF8EA931920CAB48F8FB8DFA49F0640572C71657E66CFC497F647F78E4E5377</fileHash>
     </file>
     <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#a7d214f2-d79e-4341-bebb-59eaffc5dbb0</correlationId>
-      <path>AdvancedMappingCrud.Repositories.Tests.Infrastructure/AdvancedMappingCrud.Repositories.Tests.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:41:51.1238302Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:31.8564327Z</approvedAt>
-      <deviationsHash>25565F15AD63B442DA207F0D0ABF46889FDCD5D60B33854AEB1CF4A5B94A84B6</deviationsHash>
-      <fileHash>9267ECE6E3BEF8D7BB497C04B1FA240FC06ACE52CED3F8B82E250A9500C86692</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#121d0ce3-7e80-475f-adaf-6e03568ea5a7</correlationId>
       <path>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Basics/GetBasicsNullableTests.cs</path>
       <count>1</count>

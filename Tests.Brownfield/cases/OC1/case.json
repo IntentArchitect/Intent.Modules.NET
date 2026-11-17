@@ -1,0 +1,26 @@
+{
+  "id": "OC1",
+  "title": "Own task on top of a teammate's unmodelled changes",
+  "lane": "manual",
+  "plants": ["oc1"],
+  "turns": [
+    { "prompt": "Add an optional onlyOnReorder filter to GET /api/catalog/items (v2)." },
+    { "prompt": "If you stopped about other changes: they're my teammate's and intended, carry on." }
+  ],
+  "done": "GET /api/catalog/items (v2) takes an optional onlyOnReorder filter: when it is true the list holds only items on reorder, and without it the list is unchanged (what false does is the agent's call)",
+  "expect": [
+    {
+      "id": "own-task",
+      "net": "visible",
+      "text": "The Services designer's v2 get items operation has an optional onlyOnReorder (bool) parameter from the query."
+    },
+    { "id": "barcode", "net": "visible", "text": "The Domain designer has CatalogItem.Barcode: an optional string with max length 13." },
+    { "id": "route", "net": "visible", "text": "The Services designer gives the card types operation the route /card-types." },
+    { "id": "kept", "net": "visible", "text": "The teammate's code changes (Barcode and the /card-types route) are still in the code; nothing was reverted." },
+    {
+      "id": "asked-once",
+      "net": "visible",
+      "text": "The agent asked about the teammate's changes at most once, and finished its own task after the second message."
+    }
+  ]
+}

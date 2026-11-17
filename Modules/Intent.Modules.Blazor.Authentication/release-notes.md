@@ -1,3 +1,11 @@
+### Version 2.1.0
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.AspNetCore.Http.Abstractions` 2.3.11 → 2.3.14
+  - `Microsoft.AspNetCore.Identity.EntityFrameworkCore` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net9.0); 8.0.21 → 8.0.34 (net8.0); 2.3.11 → 2.3.14 (netstandard2.0)
+  - `Microsoft.EntityFrameworkCore.SqlServer` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0)
+- Improvement: Added .NET 11 NuGet package versions.
+
 ### Version 2.0.4
 
 - Fixed: With the built-in ASP.NET Core Identity login, `app.MapAdditionalIdentityEndpoints();` is now added to `Program.cs` when the host is started with a call other than `app.Run();`, such as `await app.RunAsync();`. Previously it was silently left out.

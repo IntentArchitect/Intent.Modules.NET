@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fe313dcb-060e-4124-93b0-762d4e564b6f" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <comment>Typed HttpClient for Catalog.API (api/catalog/, api-version 2.0 set in WebApp's DI).</comment>
+  <name>CatalogService</name>
+  <display>CatalogService</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>3f5e8303-47e1-4021-a785-e3ff5e14dd1c</parentFolderId>
+  <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+  <packageName>WebAppComponents</packageName>
+  <children>
+    <element id="c84af48a-bf6d-4d5f-9a1e-283953789465" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetCatalogItem</name>
+      <display>GetCatalogItem(id: int): CatalogItem?</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="54a6ec32-699f-41b2-b25c-14a3fd713d35">
+        <typeId>7e6ec727-6b5a-47df-a391-c2bff77f84cc</typeId>
+        <typeName>CatalogItem</typeName>
+        <isNullable>true</isNullable>
+        <typePackageName>WebAppComponents</typePackageName>
+        <typePackageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</typePackageId>
+      </typeReference>
+      <parentFolderId>fe313dcb-060e-4124-93b0-762d4e564b6f</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="38da9465-4099-4b22-ac5a-a01cde22dec2" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="b82f3fd2-7147-4f2c-a75b-6584b755f184" display="Include Cancellation Token" value="false" />
+            <property name="48ff7dfe-d6b8-4c41-bb48-c43b6d89e4a8" display="Async Mode" value="no async keyword" />
+            <property name="9a2d0802-e9ae-4f1b-a64b-74599d35050a" display="Task Type" />
+            <property name="32bcde4b-4a9c-4da6-a83e-02b644c28cd3" display="Cancellation Token Name" />
+            <property name="6deb3923-9e1e-4af7-8ca1-541ecf64360e" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="6d83f23e-61f8-4256-86ca-4a278e0cb66c" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: int</display>
+          <typeReference id="6c47e3a6-2af9-4aee-959b-6375481e69d6">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>c84af48a-bf6d-4d5f-9a1e-283953789465</parentFolderId>
+          <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+          <packageName>WebAppComponents</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="803beea8-a66b-4e5f-873e-204f07f698a4" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetCatalogItems</name>
+      <display>GetCatalogItems(pageIndex: int, pageSize: int, brands: int[*]?, types: int[*]?): CatalogResult</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="f9487e35-c263-4c7b-99ac-ea4904fd9fa3">
+        <typeId>3ff69a32-247a-444e-9d52-065bd6d45314</typeId>
+        <typeName>CatalogResult</typeName>
+        <typePackageName>WebAppComponents</typePackageName>
+        <typePackageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</typePackageId>
+      </typeReference>
+      <parentFolderId>fe313dcb-060e-4124-93b0-762d4e564b6f</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="38da9465-4099-4b22-ac5a-a01cde22dec2" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="b82f3fd2-7147-4f2c-a75b-6584b755f184" display="Include Cancellation Token" value="false" />
+            <property name="48ff7dfe-d6b8-4c41-bb48-c43b6d89e4a8" display="Async Mode" value="async" />
+            <property name="9a2d0802-e9ae-4f1b-a64b-74599d35050a" display="Task Type" />
+            <property name="32bcde4b-4a9c-4da6-a83e-02b644c28cd3" display="Cancellation Token Name" />
+            <property name="6deb3923-9e1e-4af7-8ca1-541ecf64360e" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="a1ce44ef-db75-42c4-9ff5-0cfdd3d6ed10" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>pageIndex</name>
+          <display>pageIndex: int</display>
+          <typeReference id="e7eb1923-f79f-4e23-a356-944680fc2931">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>803beea8-a66b-4e5f-873e-204f07f698a4</parentFolderId>
+          <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+          <packageName>WebAppComponents</packageName>
+        </element>
+        <element id="c9dae50f-10f9-47c5-a059-0c1cf4d2ebcd" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>pageSize</name>
+          <display>pageSize: int</display>
+          <typeReference id="75caf411-d241-429f-ac64-86f28696111c">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>803beea8-a66b-4e5f-873e-204f07f698a4</parentFolderId>
+          <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+          <packageName>WebAppComponents</packageName>
+        </element>
+        <element id="befc031f-5bfc-449d-a85d-64fddd9e5a96" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>brands</name>
+          <display>brands: int[*]?</display>
+          <typeReference id="0179ad2d-6b48-481a-8484-1e86129463ad">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isNullable>true</isNullable>
+            <isCollection>true</isCollection>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>803beea8-a66b-4e5f-873e-204f07f698a4</parentFolderId>
+          <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+          <packageName>WebAppComponents</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="def585dc-4000-4215-969b-fcf9afd61c34" name="Collection Type">
+              <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+              <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+              <properties>
+                <property name="0221edd9-aa90-48a3-83c4-240cf9bfbf3a" display="Type" value="Array" />
+                <property name="5109b1b3-81a6-418e-b1e8-b39ea18821c5" display="Custom Format" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="5acb2460-592c-4b81-bdbb-0ef38138865d" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>types</name>
+          <display>types: int[*]?</display>
+          <typeReference id="93f96dbb-1e01-4510-a3c4-e2413becf3da">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isNullable>true</isNullable>
+            <isCollection>true</isCollection>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>803beea8-a66b-4e5f-873e-204f07f698a4</parentFolderId>
+          <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+          <packageName>WebAppComponents</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="def585dc-4000-4215-969b-fcf9afd61c34" name="Collection Type">
+              <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+              <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+              <properties>
+                <property name="0221edd9-aa90-48a3-83c4-240cf9bfbf3a" display="Type" value="Array" />
+                <property name="5109b1b3-81a6-418e-b1e8-b39ea18821c5" display="Custom Format" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+      </children>
+    </element>
+    <element id="d54ee3d8-2dda-411a-8855-874e1f58f89c" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetCatalogItems</name>
+      <display>GetCatalogItems(ids: int[*]): CatalogItem[*]</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="d2b80ac0-84a6-4985-8752-564f729caaf8">
+        <typeId>7e6ec727-6b5a-47df-a391-c2bff77f84cc</typeId>
+        <typeName>CatalogItem</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>WebAppComponents</typePackageName>
+        <typePackageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</typePackageId>
+      </typeReference>
+      <parentFolderId>fe313dcb-060e-4124-93b0-762d4e564b6f</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="def585dc-4000-4215-969b-fcf9afd61c34" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="0221edd9-aa90-48a3-83c4-240cf9bfbf3a" display="Type" value="List" />
+            <property name="5109b1b3-81a6-418e-b1e8-b39ea18821c5" display="Custom Format" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="38da9465-4099-4b22-ac5a-a01cde22dec2" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="b82f3fd2-7147-4f2c-a75b-6584b755f184" display="Include Cancellation Token" value="false" />
+            <property name="48ff7dfe-d6b8-4c41-bb48-c43b6d89e4a8" display="Async Mode" value="async" />
+            <property name="9a2d0802-e9ae-4f1b-a64b-74599d35050a" display="Task Type" />
+            <property name="32bcde4b-4a9c-4da6-a83e-02b644c28cd3" display="Cancellation Token Name" />
+            <property name="6deb3923-9e1e-4af7-8ca1-541ecf64360e" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="a990081d-c61e-421c-8b32-7bcc8cb119e1" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>ids</name>
+          <display>ids: int[*]</display>
+          <typeReference id="63587d5b-c62d-45c3-b75f-57f6ce33fb47">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isCollection>true</isCollection>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>d54ee3d8-2dda-411a-8855-874e1f58f89c</parentFolderId>
+          <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+          <packageName>WebAppComponents</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="def585dc-4000-4215-969b-fcf9afd61c34" name="Collection Type">
+              <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+              <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+              <properties>
+                <property name="0221edd9-aa90-48a3-83c4-240cf9bfbf3a" display="Type" value="IEnumerable" />
+                <property name="5109b1b3-81a6-418e-b1e8-b39ea18821c5" display="Custom Format" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+      </children>
+    </element>
+    <element id="66e046cc-5ef2-47c9-b3b9-b3c6e01d019c" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetCatalogItemsWithSemanticRelevance</name>
+      <display>GetCatalogItemsWithSemanticRelevance(page: int, take: int, text: string): CatalogResult</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="11a7f3fa-2f58-4a75-8144-15c5a7fc4831">
+        <typeId>3ff69a32-247a-444e-9d52-065bd6d45314</typeId>
+        <typeName>CatalogResult</typeName>
+        <typePackageName>WebAppComponents</typePackageName>
+        <typePackageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</typePackageId>
+      </typeReference>
+      <parentFolderId>fe313dcb-060e-4124-93b0-762d4e564b6f</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="38da9465-4099-4b22-ac5a-a01cde22dec2" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="b82f3fd2-7147-4f2c-a75b-6584b755f184" display="Include Cancellation Token" value="false" />
+            <property name="48ff7dfe-d6b8-4c41-bb48-c43b6d89e4a8" display="Async Mode" value="no async keyword" />
+            <property name="9a2d0802-e9ae-4f1b-a64b-74599d35050a" display="Task Type" />
+            <property name="32bcde4b-4a9c-4da6-a83e-02b644c28cd3" display="Cancellation Token Name" />
+            <property name="6deb3923-9e1e-4af7-8ca1-541ecf64360e" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="ff4a7a92-ef93-4647-9087-04e6aba7e3a4" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>page</name>
+          <display>page: int</display>
+          <typeReference id="30d0654b-a8dc-4a67-a6d2-a782de3229e0">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>66e046cc-5ef2-47c9-b3b9-b3c6e01d019c</parentFolderId>
+          <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+          <packageName>WebAppComponents</packageName>
+        </element>
+        <element id="80072670-f20c-4b44-a85a-94c361271bc9" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>take</name>
+          <display>take: int</display>
+          <typeReference id="fbf45c3c-7a43-45a3-a450-f322a73b4a13">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>66e046cc-5ef2-47c9-b3b9-b3c6e01d019c</parentFolderId>
+          <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+          <packageName>WebAppComponents</packageName>
+        </element>
+        <element id="c85a9f16-4406-42af-8dae-68ec3ed47f93" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>text</name>
+          <display>text: string</display>
+          <typeReference id="75441557-4348-4ce1-bb5a-3835d33db3bb">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>66e046cc-5ef2-47c9-b3b9-b3c6e01d019c</parentFolderId>
+          <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+          <packageName>WebAppComponents</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="191a24c0-a255-424d-87cf-1f35b5c71c12" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetBrands</name>
+      <display>GetBrands(): CatalogBrand[*]</display>
+      <typeReference id="81a9486d-d733-42d7-b60a-e34a8bcfe96b">
+        <typeId>b0ebcd0e-36a1-47c4-9c4a-53544ec56715</typeId>
+        <typeName>CatalogBrand</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>WebAppComponents</typePackageName>
+        <typePackageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</typePackageId>
+      </typeReference>
+      <parentFolderId>fe313dcb-060e-4124-93b0-762d4e564b6f</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="def585dc-4000-4215-969b-fcf9afd61c34" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="0221edd9-aa90-48a3-83c4-240cf9bfbf3a" display="Type" value="IEnumerable" />
+            <property name="5109b1b3-81a6-418e-b1e8-b39ea18821c5" display="Custom Format" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="38da9465-4099-4b22-ac5a-a01cde22dec2" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="b82f3fd2-7147-4f2c-a75b-6584b755f184" display="Include Cancellation Token" value="false" />
+            <property name="48ff7dfe-d6b8-4c41-bb48-c43b6d89e4a8" display="Async Mode" value="async" />
+            <property name="9a2d0802-e9ae-4f1b-a64b-74599d35050a" display="Task Type" />
+            <property name="32bcde4b-4a9c-4da6-a83e-02b644c28cd3" display="Cancellation Token Name" />
+            <property name="6deb3923-9e1e-4af7-8ca1-541ecf64360e" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="bca7a9db-b62b-451e-ab66-88a4513a52f2" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetTypes</name>
+      <display>GetTypes(): CatalogItemType[*]</display>
+      <typeReference id="31578f6f-af02-4f94-93b5-aa19e6a3bbeb">
+        <typeId>50ee6434-0656-46e9-b610-8a847eae5afc</typeId>
+        <typeName>CatalogItemType</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>WebAppComponents</typePackageName>
+        <typePackageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</typePackageId>
+      </typeReference>
+      <parentFolderId>fe313dcb-060e-4124-93b0-762d4e564b6f</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="def585dc-4000-4215-969b-fcf9afd61c34" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="0221edd9-aa90-48a3-83c4-240cf9bfbf3a" display="Type" value="IEnumerable" />
+            <property name="5109b1b3-81a6-418e-b1e8-b39ea18821c5" display="Custom Format" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="38da9465-4099-4b22-ac5a-a01cde22dec2" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="b82f3fd2-7147-4f2c-a75b-6584b755f184" display="Include Cancellation Token" value="false" />
+            <property name="48ff7dfe-d6b8-4c41-bb48-c43b6d89e4a8" display="Async Mode" value="async" />
+            <property name="9a2d0802-e9ae-4f1b-a64b-74599d35050a" display="Task Type" />
+            <property name="32bcde4b-4a9c-4da6-a83e-02b644c28cd3" display="Cancellation Token Name" />
+            <property name="6deb3923-9e1e-4af7-8ca1-541ecf64360e" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="a04d717b-4fed-4108-8ad9-ccb8fd3b47f7" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetCatalogFacets</name>
+      <display>GetCatalogFacets(brands: int[*]?, types: int[*]?): CatalogFacets</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="4d58f499-566f-40ae-9cae-07a09b6cb71e">
+        <typeId>cfbfa59c-479f-45cc-9cd2-c1856c665678</typeId>
+        <typeName>CatalogFacets</typeName>
+        <typePackageName>WebAppComponents</typePackageName>
+        <typePackageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</typePackageId>
+      </typeReference>
+      <parentFolderId>fe313dcb-060e-4124-93b0-762d4e564b6f</parentFolderId>
+      <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+      <packageName>WebAppComponents</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="38da9465-4099-4b22-ac5a-a01cde22dec2" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="b82f3fd2-7147-4f2c-a75b-6584b755f184" display="Include Cancellation Token" value="false" />
+            <property name="48ff7dfe-d6b8-4c41-bb48-c43b6d89e4a8" display="Async Mode" value="async" />
+            <property name="9a2d0802-e9ae-4f1b-a64b-74599d35050a" display="Task Type" />
+            <property name="32bcde4b-4a9c-4da6-a83e-02b644c28cd3" display="Cancellation Token Name" />
+            <property name="6deb3923-9e1e-4af7-8ca1-541ecf64360e" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="529b65fe-3bb0-4153-8118-a4aecbb5a0e3" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>brands</name>
+          <display>brands: int[*]?</display>
+          <typeReference id="2cbf771a-2791-4de1-8395-365255acc013">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isNullable>true</isNullable>
+            <isCollection>true</isCollection>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>a04d717b-4fed-4108-8ad9-ccb8fd3b47f7</parentFolderId>
+          <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+          <packageName>WebAppComponents</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="def585dc-4000-4215-969b-fcf9afd61c34" name="Collection Type">
+              <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+              <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+              <properties>
+                <property name="0221edd9-aa90-48a3-83c4-240cf9bfbf3a" display="Type" value="Array" />
+                <property name="5109b1b3-81a6-418e-b1e8-b39ea18821c5" display="Custom Format" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+        <element id="6c33c790-bb15-499f-af57-17088fde1621" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>types</name>
+          <display>types: int[*]?</display>
+          <typeReference id="eec9c02b-ea0e-4df6-92fd-a7f65a7c2f5f">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <isNullable>true</isNullable>
+            <isCollection>true</isCollection>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>a04d717b-4fed-4108-8ad9-ccb8fd3b47f7</parentFolderId>
+          <packageId>e1e093d2-72ae-4e5a-9806-7717ac5fbebf</packageId>
+          <packageName>WebAppComponents</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="def585dc-4000-4215-969b-fcf9afd61c34" name="Collection Type">
+              <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+              <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+              <properties>
+                <property name="0221edd9-aa90-48a3-83c4-240cf9bfbf3a" display="Type" value="Array" />
+                <property name="5109b1b3-81a6-418e-b1e8-b39ea18821c5" display="Custom Format" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

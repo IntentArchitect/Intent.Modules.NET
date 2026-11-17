@@ -107,7 +107,7 @@
   <file path="ValueObjects.Record.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="ValueObjects.Record.Infrastructure/Repositories/TestEntityRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="ValueObjects.Record.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
-  <file path="ValueObjects.Record.Infrastructure/ValueObjects.Record.Infrastructure.csproj" deviationsHash="54A47B5D1C3F3D79F3EE9D29093135E54F1197CCC3D744BA5895940FA51ACA68" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="ValueObjects.Record.Infrastructure/ValueObjects.Record.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="ValueObjects.Record.IntegrationTests/AddressType.cs" templateId="Intent.AspNetCore.IntegrationTesting.EnumContract" />
   <file path="ValueObjects.Record.IntegrationTests/BaseIntegrationTest.cs" templateId="Intent.AspNetCore.IntegrationTesting.BaseIntegrationTest" />
   <file path="ValueObjects.Record.IntegrationTests/EFContainerFixture.cs" deviationsHash="0398FA3C0D76855C8DF279E628B41CDBD4E05BED1EDB8E25C8A39E0656570A66" templateId="Intent.AspNetCore.IntegrationTesting.EFContainerFixture" />

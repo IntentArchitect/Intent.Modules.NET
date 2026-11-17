@@ -1,3 +1,16 @@
+### Version 1.1.0
+
+- Improvement: Updated NuGet package versions:
+  - `Microsoft.Extensions.Configuration.Abstractions` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)
+  - `Microsoft.Extensions.Configuration.Binder` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0)
+  - `Microsoft.Extensions.DependencyInjection` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1)
+  - `Microsoft.Extensions.Hosting` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1)
+  - `Microsoft.Extensions.Hosting.WindowsServices` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.1)
+
+> ⚠️ **BREAKING CHANGES**
+>
+> This module update may change behaviour or cause compilation breaks in custom code you have written that relies on Microsoft.Extensions.Hosting v11, where a failing BackgroundService now makes IHost.RunAsync and StopAsync throw. For details see the [Microsoft.Extensions.Hosting 11 breaking change](https://github.com/dotnet/docs/blob/main/docs/core/compatibility/extensions/11/ihost-runasync-stopasync-throw-backgroundservice-failure.md).
+
 ### Version 1.0.17
 
 - Improvement: Updated to use `Intent.VisualStudio.Projects`'s `Program.cs` template instead of one inside this module.

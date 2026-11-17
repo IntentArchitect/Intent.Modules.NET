@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="5c43df13-1c48-4b2e-b593-357fc437df44" zIndex="0">
+  <name>RedisBasketRepository</name>
+  <position x="800" y="50" />
+  <size width="200" height="120" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

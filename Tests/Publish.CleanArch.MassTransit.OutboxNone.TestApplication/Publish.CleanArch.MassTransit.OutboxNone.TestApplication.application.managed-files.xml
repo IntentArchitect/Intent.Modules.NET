@@ -118,7 +118,7 @@
   <file path="Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure/Persistence/Configurations/BasketConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />
-  <file path="Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure/Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.csproj" deviationsHash="E289E1E8E538A687CA01EFCEBD1AAC98335DB20D0810CE3EA262BE61C1F2B14A" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure/Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure/Repositories/BasketRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />

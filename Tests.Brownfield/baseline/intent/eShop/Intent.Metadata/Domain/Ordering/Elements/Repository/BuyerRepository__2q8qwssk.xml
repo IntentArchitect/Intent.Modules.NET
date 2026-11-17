@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f4995627-749b-4cbb-b246-93233bcd30ee" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+  <comment>Implements IBuyerRepository (IRepository&lt;Buyer&gt;) over OrderingContext.</comment>
+  <name>BuyerRepository</name>
+  <display>BuyerRepository&lt;Buyer&gt;</display>
+  <sort-children>manually</sort-children>
+  <typeReference id="326b4039-57f7-410b-9023-e1ab145a604f">
+    <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+    <typeName>Buyer</typeName>
+    <typePackageName>Ordering</typePackageName>
+    <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+  </typeReference>
+  <parentFolderId>a0ca65a6-b4e4-4098-ae0c-5b6ee80e4952</parentFolderId>
+  <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+  <packageName>Ordering</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="88722cfc-8f4e-4cc2-96f5-3635f5b520d1" name="File Config">
+      <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+      <properties>
+        <property name="11d2548c-4d37-4c5d-ab7b-ba60b4bc61be" display="Filename" />
+        <property name="e9476ee3-2e32-427f-95b2-938c8fb8397b" display="Namespace" value="eShop.Ordering.Infrastructure.Repositories" />
+        <property name="df085ba5-b5b5-44f2-9690-51f3c8053736" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="90517293-1272-4978-a955-8dab7c83683f" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Add</name>
+      <display>Add(buyer: Buyer): Buyer</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="12587b96-50c6-4046-bc3d-3190a37e6f22">
+        <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+        <typeName>Buyer</typeName>
+        <typePackageName>Ordering</typePackageName>
+        <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+      </typeReference>
+      <parentFolderId>f4995627-749b-4cbb-b246-93233bcd30ee</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <children>
+        <element id="18341711-0d1f-49b3-9f5e-9c011cb5c966" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>buyer</name>
+          <display>in : buyer: Buyer</display>
+          <typeReference id="c101ca34-fa33-4700-b06e-c8b1ef94818b">
+            <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+            <typeName>Buyer</typeName>
+            <typePackageName>Ordering</typePackageName>
+            <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+          </typeReference>
+          <parentFolderId>90517293-1272-4978-a955-8dab7c83683f</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="9e8a4303-bb21-4d5c-9189-b4affc39a3aa" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Update</name>
+      <display>Update(buyer: Buyer): Buyer</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="a0713146-85b2-42ca-845c-d9afb41153ba">
+        <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+        <typeName>Buyer</typeName>
+        <typePackageName>Ordering</typePackageName>
+        <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+      </typeReference>
+      <parentFolderId>f4995627-749b-4cbb-b246-93233bcd30ee</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <children>
+        <element id="5b4508a3-9523-4055-97bf-bd09b9fb0048" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>buyer</name>
+          <display>in : buyer: Buyer</display>
+          <typeReference id="cfcd4009-408e-4f68-872c-96b09a57694e">
+            <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+            <typeName>Buyer</typeName>
+            <typePackageName>Ordering</typePackageName>
+            <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+          </typeReference>
+          <parentFolderId>9e8a4303-bb21-4d5c-9189-b4affc39a3aa</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="089a7b71-9998-456f-b547-6b31bc23903d" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>FindAsync</name>
+      <display>FindAsync(identity: string): Buyer</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="0ad9c906-f43e-4fdd-ac3f-76c7a959dc01">
+        <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+        <typeName>Buyer</typeName>
+        <typePackageName>Ordering</typePackageName>
+        <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+      </typeReference>
+      <parentFolderId>f4995627-749b-4cbb-b246-93233bcd30ee</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="0a9a8e86-b11e-4a1d-9af5-5050dd6fef89" name="Async Configuration">
+          <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+          <properties>
+            <property name="26ff8b12-6cae-463a-82bc-c155d4d3c2e5" display="Include Cancellation Token" value="false" />
+            <property name="2bd977a8-dae8-44ed-903e-d1c06a51dcff" display="Async Mode" value="async" />
+            <property name="045873bb-fcfd-4c59-a158-23ce36911e87" display="Task Type" />
+            <property name="fa4791fb-7fea-4c98-88ec-7457d3c72a7f" display="Cancellation Token Name" />
+            <property name="3b10c9b2-9134-45c7-8f60-ac03b4a23422" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="654842a5-cd02-419c-bdf5-d95a0d3b2056" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>identity</name>
+          <display>in : identity: string</display>
+          <typeReference id="dd98f712-5711-4bbc-974c-a1927bf1caf6">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>089a7b71-9998-456f-b547-6b31bc23903d</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="e43b1751-1fb9-4420-8cce-621eaa212cf6" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>FindByIdAsync</name>
+      <display>FindByIdAsync(id: int): Buyer</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="84575585-ee78-42b2-ba98-58fb501ed00b">
+        <typeId>61a67154-8048-4011-bf04-19be21396a2f</typeId>
+        <typeName>Buyer</typeName>
+        <typePackageName>Ordering</typePackageName>
+        <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+      </typeReference>
+      <parentFolderId>f4995627-749b-4cbb-b246-93233bcd30ee</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="0a9a8e86-b11e-4a1d-9af5-5050dd6fef89" name="Async Configuration">
+          <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+          <properties>
+            <property name="26ff8b12-6cae-463a-82bc-c155d4d3c2e5" display="Include Cancellation Token" value="false" />
+            <property name="2bd977a8-dae8-44ed-903e-d1c06a51dcff" display="Async Mode" value="async" />
+            <property name="045873bb-fcfd-4c59-a158-23ce36911e87" display="Task Type" />
+            <property name="fa4791fb-7fea-4c98-88ec-7457d3c72a7f" display="Cancellation Token Name" />
+            <property name="3b10c9b2-9134-45c7-8f60-ac03b4a23422" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="bb317024-0e87-4b9a-815b-7e0737d54069" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>id</name>
+          <display>in : id: int</display>
+          <typeReference id="4038abf0-c285-4df7-9ddc-250b11af8949">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>e43b1751-1fb9-4420-8cce-621eaa212cf6</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+      </children>
+    </element>
+  </children>
+</class>

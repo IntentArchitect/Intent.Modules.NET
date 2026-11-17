@@ -1,0 +1,98 @@
+[
+  {
+    "note": "the type a refactoring tool renames, and its file; members, variables, strings and comments keep their names",
+    "file": "src/Ordering.Domain/AggregatesModel/BuyerAggregate/Buyer.cs",
+    "find": "public class Buyer",
+    "replace": "public class Customer"
+  },
+  { "file": "src/Ordering.Domain/AggregatesModel/BuyerAggregate/Buyer.cs", "find": "    protected Buyer()", "replace": "    protected Customer()" },
+  {
+    "file": "src/Ordering.Domain/AggregatesModel/BuyerAggregate/Buyer.cs",
+    "find": "    public Buyer(string identity, string name) : this()",
+    "replace": "    public Customer(string identity, string name) : this()"
+  },
+  { "file": "src/Ordering.Domain/AggregatesModel/BuyerAggregate/Buyer.cs", "renameTo": "src/Ordering.Domain/AggregatesModel/BuyerAggregate/Customer.cs" },
+  { "file": "src/Ordering.Domain/AggregatesModel/BuyerAggregate/IBuyerRepository.cs", "find": "IRepository<Buyer>", "replace": "IRepository<Customer>" },
+  {
+    "file": "src/Ordering.Domain/AggregatesModel/BuyerAggregate/IBuyerRepository.cs",
+    "find": "    Buyer Add(Buyer buyer);",
+    "replace": "    Customer Add(Customer buyer);"
+  },
+  {
+    "file": "src/Ordering.Domain/AggregatesModel/BuyerAggregate/IBuyerRepository.cs",
+    "find": "    Buyer Update(Buyer buyer);",
+    "replace": "    Customer Update(Customer buyer);"
+  },
+  {
+    "file": "src/Ordering.Domain/AggregatesModel/BuyerAggregate/IBuyerRepository.cs",
+    "find": "    Task<Buyer> FindAsync(",
+    "replace": "    Task<Customer> FindAsync("
+  },
+  {
+    "file": "src/Ordering.Domain/AggregatesModel/BuyerAggregate/IBuyerRepository.cs",
+    "find": "    Task<Buyer> FindByIdAsync(",
+    "replace": "    Task<Customer> FindByIdAsync("
+  },
+  {
+    "file": "src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs",
+    "find": "    public Buyer Buyer { get; }",
+    "replace": "    public Customer Buyer { get; }"
+  },
+  {
+    "file": "src/Ordering.Domain/Events/BuyerPaymentMethodVerifiedDomainEvent.cs",
+    "find": "    public Buyer Buyer { get; private set; }",
+    "replace": "    public Customer Buyer { get; private set; }"
+  },
+  {
+    "file": "src/Ordering.Domain/Events/BuyerPaymentMethodVerifiedDomainEvent.cs",
+    "find": "BuyerAndPaymentMethodVerifiedDomainEvent(Buyer buyer,",
+    "replace": "BuyerAndPaymentMethodVerifiedDomainEvent(Customer buyer,"
+  },
+  {
+    "file": "src/Ordering.Infrastructure/EntityConfigurations/BuyerEntityTypeConfiguration.cs",
+    "find": "IEntityTypeConfiguration<Buyer>",
+    "replace": "IEntityTypeConfiguration<Customer>"
+  },
+  {
+    "file": "src/Ordering.Infrastructure/EntityConfigurations/BuyerEntityTypeConfiguration.cs",
+    "find": "EntityTypeBuilder<Buyer>",
+    "replace": "EntityTypeBuilder<Customer>"
+  },
+  {
+    "file": "src/Ordering.Infrastructure/OrderingContext.cs",
+    "find": "    public DbSet<Buyer> Buyers { get; set; }",
+    "replace": "    public DbSet<Customer> Buyers { get; set; }"
+  },
+  {
+    "file": "src/Ordering.Infrastructure/Repositories/BuyerRepository.cs",
+    "find": "    public Buyer Add(Buyer buyer)",
+    "replace": "    public Customer Add(Customer buyer)"
+  },
+  {
+    "file": "src/Ordering.Infrastructure/Repositories/BuyerRepository.cs",
+    "find": "    public Buyer Update(Buyer buyer)",
+    "replace": "    public Customer Update(Customer buyer)"
+  },
+  {
+    "file": "src/Ordering.Infrastructure/Repositories/BuyerRepository.cs",
+    "find": "    public async Task<Buyer> FindAsync(",
+    "replace": "    public async Task<Customer> FindAsync("
+  },
+  {
+    "file": "src/Ordering.Infrastructure/Repositories/BuyerRepository.cs",
+    "find": "    public async Task<Buyer> FindByIdAsync(",
+    "replace": "    public async Task<Customer> FindByIdAsync("
+  },
+  {
+    "file": "src/Ordering.API/Application/DomainEventHandlers/ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler.cs",
+    "find": "new Buyer(",
+    "replace": "new Customer("
+  },
+  { "file": "tests/Ordering.UnitTests/Application/NewOrderCommandHandlerTest.cs", "all": true, "find": "new Buyer(", "replace": "new Customer(" },
+  {
+    "file": "tests/Ordering.UnitTests/Application/NewOrderCommandHandlerTest.cs",
+    "find": "    private Buyer FakeBuyer()",
+    "replace": "    private Customer FakeBuyer()"
+  },
+  { "file": "tests/Ordering.UnitTests/Domain/BuyerAggregateTest.cs", "all": true, "find": "new Buyer(", "replace": "new Customer(" }
+]

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="6fd74bac-b451-43a6-a556-3b622119c6b4" zIndex="0">
+  <name>OrderStockConfirmedIntegrationEvent</name>
+  <position x="800" y="800" />
+  <size width="200" height="70" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

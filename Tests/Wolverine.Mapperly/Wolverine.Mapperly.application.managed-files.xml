@@ -23,7 +23,7 @@
   <file path="Wolverine.Mapperly.Api/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.AspNetCore.Program" />
   <file path="Wolverine.Mapperly.Api/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
   <file path="Wolverine.Mapperly.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
-  <file path="Wolverine.Mapperly.Api/Wolverine.Mapperly.Api.csproj" deviationsHash="F1D7A8FC8913AEF9F0FD4B2C608DFB5C19B29B43B2BA04EC3A42B8CC00113A3B" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Wolverine.Mapperly.Api/Wolverine.Mapperly.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Wolverine.Mapperly.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
   <file path="Wolverine.Mapperly.Application/Common/Exceptions/ForbiddenAccessException.cs" templateId="Intent.Application.Identity.ForbiddenAccessException" />
   <file path="Wolverine.Mapperly.Application/Common/Interfaces/IBypassValidation.cs" templateId="Intent.Application.Wolverine.FluentValidation.BypassValidationInterface" />
@@ -45,7 +45,7 @@
   <file path="Wolverine.Mapperly.Application/Products/GetProductById/GetProductByIdHandler.cs" templateId="Intent.Application.Wolverine.QueryHandler" />
   <file path="Wolverine.Mapperly.Application/Products/GetProductById/GetProductByIdValidator.cs" templateId="Intent.Application.Wolverine.FluentValidation.QueryValidator" />
   <file path="Wolverine.Mapperly.Application/Products/ProductDto.cs" templateId="Intent.Application.Dtos.DtoModel" />
-  <file path="Wolverine.Mapperly.Application/Wolverine.Mapperly.Application.csproj" deviationsHash="9760DC4BB9BF707BD4B026261CB7914E9E2EBA859DD43C82DC5678F979E80EAD" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Wolverine.Mapperly.Application/Wolverine.Mapperly.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Wolverine.Mapperly.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
   <file path="Wolverine.Mapperly.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
   <file path="Wolverine.Mapperly.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
@@ -74,6 +74,6 @@
   <file path="Wolverine.Mapperly.Infrastructure/Repositories/ProductRepository.cs" templateId="Intent.EntityFrameworkCore.Repositories.Repository" />
   <file path="Wolverine.Mapperly.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="Wolverine.Mapperly.Infrastructure/Services/DomainEventService.cs" templateId="Intent.Application.Wolverine.DomainEvents.DomainEventService" />
-  <file path="Wolverine.Mapperly.Infrastructure/Wolverine.Mapperly.Infrastructure.csproj" deviationsHash="C6A1F132869AC9A5D30DE2485323FED8A438B89A620A81709E1BBAC21DC38676" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Wolverine.Mapperly.Infrastructure/Wolverine.Mapperly.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Wolverine.Mapperly.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

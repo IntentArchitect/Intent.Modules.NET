@@ -24,7 +24,7 @@
   <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="EntityFrameworkCore.SplitQueries.SqlServer.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.csproj" deviationsHash="A0A368121A93B540DA8FE3C6ED3462C12D3DD64863FB93A85401A3D56218FD44" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="EntityFrameworkCore.SplitQueries.SqlServer.Infrastructure/Persistence/Configurations/OrderConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

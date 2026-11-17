@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3faef02b-8f5c-42c0-a0e1-fc4a1952f5e5" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
+  <name>Ordering.Infrastructure</name>
+  <display>Ordering.Infrastructure</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>c54e5800-31e9-40ef-aea7-f78534d7eae2</parentFolderId>
+  <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk" />
+        <property name="abba11c7-3b43-4228-9eac-72311a302668" display="Aspire SDK Version" value="13.0" isActive="false" />
+        <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" />
+        <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" isActive="false" />
+        <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" />
+        <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" />
+        <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" />
+        <property name="d53ab03c-90cf-4b6a-b733-73b6983ab603" display="Target Framework" value="3da65706-027d-4433-9218-6b0f90ce3fc4" />
+        <property name="b9685057-b337-42d8-9536-d0185ea69b73" display="Target Frameworks" isActive="false" />
+        <property name="c9fc7052-9557-4485-a759-fa33363472b3" display="Configurations" />
+        <property name="c27f8813-bee4-4289-81e5-570e755a8f30" display="Root Namespace" />
+        <property name="a6660df2-6016-40c6-8453-8e5993f407c9" display="User Secrets Id" />
+        <property name="16ac8254-c83f-42d9-98bb-db9c0532bce6" display="Generate Runtime Configuration Files" />
+        <property name="94e630db-ee2b-4d4f-a423-19d3469178fa" display="Generate Documentation File" />
+        <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" />
+        <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" value="(unspecified)" />
+        <property name="8ee6e435-e556-439c-9712-a3f287972813" display="Runtime Identifiers" />
+        <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn)" />
+        <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" />
+        <property name="a811d3f2-253e-46de-ae72-bd6ec9f30d54" display="Generate AppSettings File" value="false" />
+        <property name="4fe561b9-333e-4341-8243-d569db8cd8f4" display="Generate LaunchSettings File" value="false" />
+        <property name="0aca4b00-3558-46c4-abcc-e4d9b8b17090" display="MSTest SDK Version" isActive="false" />
+        <property name="4b817fc6-d866-481a-bdc8-1fa9aa3bb97a" display="Generate Program File" value="false" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" />
+        <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" />
+        <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="false" />
+        <property name="68a31b13-148b-45da-a6ea-5a6883f86438" display="Nullable" value="(unspecified)" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+      <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+      <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+      <properties>
+        <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Order Status Saga] **/*&quot;,&quot;[Medium - Checkout &amp; Order Submission, Order Status Saga] Idempotency/**, !**/*.css&quot;,&quot;[Medium - Order Status Saga, Schemas &amp; Startup Migrations] EntityConfigurations/**&quot;,&quot;[High - Buyer Card Data, Order Status Saga, Schemas &amp; Startup Migrations] EntityConfigurations/PaymentMethodEntityTypeConfiguration.cs&quot;,&quot;[High - Checkout &amp; Order Submission, Order Status Saga] Idempotency/RequestManager.cs&quot;,&quot;[High - Event Bus &amp; Outbox, Order Status Saga] MediatorExtension.cs, OrderingContext.cs&quot;,&quot;[High - Order Status Saga, Schemas &amp; Startup Migrations] EntityConfigurations/OrderEntityTypeConfiguration.cs, Migrations/20230925222426_Initial.cs, Migrations/20231021004633_FixOrderitemseqSchema.cs, Migrations/20231026091055_Outbox.cs, Migrations/20240106121712_UseEnumForOrderStatus.cs, Migrations/OrderingContextModelSnapshot.cs&quot;,&quot;[Medium - Order Status Saga, Schemas &amp; Startup Migrations] Migrations/20230925222426_Initial.Designer.cs, Migrations/20231021004633_FixOrderitemseqSchema.Designer.cs, Migrations/20231026091055_Outbox.Designer.cs, Migrations/20240106121712_UseEnumForOrderStatus.Designer.cs&quot;,&quot;[Low - Build, Packages &amp; CI, Order Status Saga] Ordering.Infrastructure.csproj&quot;]">
+          <itemList>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Idempotency/**&#xA;!**/*.css" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="EntityConfigurations/**" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;,&quot;c0d41701-ffeb-4ab5-b0d7-7f447329693a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="EntityConfigurations/PaymentMethodEntityTypeConfiguration.cs" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;493280a1-9e7e-4999-a49a-e3cdfd46096d&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;,&quot;c0d41701-ffeb-4ab5-b0d7-7f447329693a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Idempotency/RequestManager.cs" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="MediatorExtension.cs&#xA;OrderingContext.cs" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;9258151b-6d9b-4e9a-829b-4a91ca34aee6&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="EntityConfigurations/OrderEntityTypeConfiguration.cs&#xA;Migrations/20230925222426_Initial.cs&#xA;Migrations/20231021004633_FixOrderitemseqSchema.cs&#xA;Migrations/20231026091055_Outbox.cs&#xA;Migrations/20240106121712_UseEnumForOrderStatus.cs&#xA;Migrations/OrderingContextModelSnapshot.cs" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="3 - High" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;,&quot;c0d41701-ffeb-4ab5-b0d7-7f447329693a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Migrations/20230925222426_Initial.Designer.cs&#xA;Migrations/20231021004633_FixOrderitemseqSchema.Designer.cs&#xA;Migrations/20231026091055_Outbox.Designer.cs&#xA;Migrations/20240106121712_UseEnumForOrderStatus.Designer.cs" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;,&quot;c0d41701-ffeb-4ab5-b0d7-7f447329693a&quot;]" />
+              </properties>
+            </item>
+            <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+              <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+              <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+              <properties>
+                <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Ordering.Infrastructure.csproj" />
+                <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;733a08d8-e739-4955-88f0-6dbf82c3192e&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+              </properties>
+            </item>
+          </itemList>
+        </property>
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="5880fc7d-1e53-4076-ae60-7d3d9730c796" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Domain.Guardrails.Contracts.EntityContract</name>
+      <display>Intent.Domain.Guardrails.Contracts.EntityContract</display>
+      <parentFolderId>3faef02b-8f5c-42c0-a0e1-fc4a1952f5e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" value="np(InternalElement.Package.Name) == &quot;Ordering&quot; &amp;&amp; np(Folder.Name) == &quot;Idempotency&quot;" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Order Status Saga] **/*&quot;,&quot;[Medium - Checkout &amp; Order Submission, Order Status Saga] Idempotency/**, !**/*.css&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+                  </properties>
+                </item>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="Idempotency/**&#xA;!**/*.css" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="2 - Medium" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;7140a590-2c2b-4c50-bd08-6533bd462d79&quot;,&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <element id="f0a91497-f77e-4eb4-b0f8-4045e886c131" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Domain.Guardrails.Contracts.RepositoryContract</name>
+      <display>Intent.Domain.Guardrails.Contracts.RepositoryContract</display>
+      <externalReference>Intent.Domain.Guardrails.Contracts</externalReference>
+      <parentFolderId>3faef02b-8f5c-42c0-a0e1-fc4a1952f5e5</parentFolderId>
+      <packageId>73111e3e-79ab-4f94-bcd9-131e4085c088</packageId>
+      <packageName>root</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="1a5d919b-7ca2-4f2f-8a0d-0995aa6b02ac" name="File Classification">
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="3e552682-b2c7-450a-acb6-be006206cf97" display="Entries" value="[&quot;[Low - Order Status Saga] **/*&quot;]">
+              <itemList>
+                <item stereotypeDefinitionId="14476d2c-c5fb-4aea-ad8c-55d1b00a8203" name="File Classification Entry">
+                  <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+                  <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+                  <properties>
+                    <property name="14dd36e5-eee3-4b8f-9868-99b965703d23" display="Glob" value="**/*" />
+                    <property name="1f903649-4ed0-4c2b-b288-34dedacdff05" display="Review Importance" value="1 - Low" />
+                    <property name="c42e8c3a-962a-4e85-b890-e3234eb6534d" display="Classification" value="[&quot;a0972569-245b-456b-9970-c715712a3374&quot;]" />
+                  </properties>
+                </item>
+              </itemList>
+            </property>
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+    </element>
+    <association id="97543880-91f2-4214-b745-eb59c6b084f5">
+      <sourceEnd id="e3ad1293-11e2-4cc3-b1d7-27d177d671eb" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: Ordering.Infrastructure</display>
+        <typeReference id="5b27b2de-fcf4-4550-8543-1dd45c3a0200">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="97543880-91f2-4214-b745-eb59c6b084f5" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: IntegrationEventLogEF</display>
+        <typeReference id="e0c18327-6c8e-4816-9811-99d63f6c2c24">
+          <typeId>aae71fdc-b083-4a76-8a02-dc79191142dd</typeId>
+          <typeName>IntegrationEventLogEF</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+    <association id="a616798b-c002-4c32-9c38-195ac92808c9">
+      <sourceEnd id="0ad2fbc7-d0e7-415f-bbd0-3c43657a8bd9" type="Project Reference Source End" typeId="bf6b54c8-e305-41d5-a08d-52d5325d05b2">
+        <display>: Ordering.Infrastructure</display>
+        <typeReference id="3e2ae57c-855f-446a-affd-c56d556eba54">
+          <isNavigable>false</isNavigable>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="a616798b-c002-4c32-9c38-195ac92808c9" type="Project Reference Target End" typeId="dea99762-17e6-41f7-acb5-6b3c28969e3d">
+        <name>Reference</name>
+        <display>Reference: Ordering.Domain</display>
+        <typeReference id="2c3b162b-0c19-4c10-9916-8efaf1c23f1d">
+          <typeId>e9ecc10b-62a0-4979-93aa-d6eefcc18a18</typeId>
+          <typeName>Ordering.Domain</typeName>
+          <typePackageName>root</typePackageName>
+          <typePackageId>73111e3e-79ab-4f94-bcd9-131e4085c088</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Project Reference</associationType>
+      <associationTypeId>08ed7993-fa72-4359-aa1e-b4389a32edec</associationTypeId>
+    </association>
+  </children>
+</class>

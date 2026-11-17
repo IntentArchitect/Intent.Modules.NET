@@ -1,0 +1,15 @@
+[
+  { "note": "the route", "file": "src/Ordering.API/Apis/OrdersApi.cs", "find": "        api.MapGet(\"/cardtypes\", GetCardTypesAsync);\n", "replace": "" },
+  {
+    "note": "its method; IOrderQueries.GetCardTypesAsync is left for the agent to find",
+    "file": "src/Ordering.API/Apis/OrdersApi.cs",
+    "find": "    public static async Task<Ok<IEnumerable<CardType>>> GetCardTypesAsync(IOrderQueries orderQueries)\n    {\n        var cardTypes = await orderQueries.GetCardTypesAsync();\n        return TypedResults.Ok(cardTypes);\n    }\n\n",
+    "replace": ""
+  },
+  {
+    "note": "its unit test, which the developer deleted with it",
+    "file": "tests/Ordering.UnitTests/Application/OrdersWebApiTest.cs",
+    "find": "    [TestMethod]\n    public async Task Get_cardTypes_success()\n    {\n        // Arrange\n        var fakeDynamicResult = Enumerable.Empty<CardType>();\n        _orderQueriesMock.GetCardTypesAsync()\n            .Returns(Task.FromResult(fakeDynamicResult));\n\n        // Act\n        var result = await OrdersApi.GetCardTypesAsync(_orderQueriesMock);\n\n        // Assert\n        Assert.IsInstanceOfType<Ok<IEnumerable<CardType>>>(result);\n        Assert.AreSame(fakeDynamicResult, result.Value);\n    }\n\n",
+    "replace": ""
+  }
+]

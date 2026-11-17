@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6401266d-0812-4b5b-ac30-45d630a1cabd" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <comment>Read side: queries OrderingContext directly and projects to the view-model records in OrderViewModel.cs.</comment>
+  <name>OrderQueries</name>
+  <display>OrderQueries</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>a5b9e53e-6fc4-4c1f-9494-af3c7f4b7133</parentFolderId>
+  <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+  <packageName>Ordering.API</packageName>
+  <children>
+    <element id="e0b0aca2-0825-40c6-9114-cd26c144f50f" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetOrderAsync</name>
+      <display>GetOrderAsync(id: int): Order</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="721d20bc-1152-4404-a183-703c4effb04b">
+        <typeId>40879308-82d4-4cf4-96a0-f329ce9177a5</typeId>
+        <typeName>Order</typeName>
+        <typePackageName>Ordering.API</typePackageName>
+        <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+      </typeReference>
+      <parentFolderId>6401266d-0812-4b5b-ac30-45d630a1cabd</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="39b3b357-b9de-4985-a84b-976a8282893a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: int</display>
+          <typeReference id="f829c7a3-c968-4437-ae27-03419ec91e91">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>e0b0aca2-0825-40c6-9114-cd26c144f50f</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+        </element>
+        <association id="e42cf94c-eb33-4bac-9468-bd5e0d3bdaaf">
+          <sourceEnd id="05cb1d4b-79c1-49fd-a408-11d14b27f6ac" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+            <display>: GetOrderAsync</display>
+            <typeReference id="c6957dcb-fd90-4108-b6a2-cb2103a891c4">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="e42cf94c-eb33-4bac-9468-bd5e0d3bdaaf" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+            <name>order</name>
+            <display>[query] order: Order</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="d598f032-70f8-4c06-88cb-fd527e96adf9">
+              <typeId>40cec252-97ea-4da2-aaf1-86a50002a76a</typeId>
+              <typeName>Order</typeName>
+              <typePackageName>Ordering</typePackageName>
+              <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Query Entity Action</associationType>
+          <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="496c6a0c-ac7a-4b0f-96d7-1cb019ac503b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetOrdersFromUserAsync</name>
+      <display>GetOrdersFromUserAsync(userId: string): OrderSummary[*]</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="6ffdb63c-e346-4d2d-b6a3-58d32a29ef09">
+        <typeId>d881ddf7-0362-4daf-9283-12b65d180910</typeId>
+        <typeName>OrderSummary</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>Ordering.API</typePackageName>
+        <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+      </typeReference>
+      <parentFolderId>6401266d-0812-4b5b-ac30-45d630a1cabd</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="IEnumerable" />
+            <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <element id="c102ee47-c703-4e43-8f38-3bddf93a50ac" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>userId</name>
+          <display>in : userId: string</display>
+          <typeReference id="28ade12d-f8ed-495c-8008-3c5b902886cd">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>496c6a0c-ac7a-4b0f-96d7-1cb019ac503b</parentFolderId>
+          <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+          <packageName>Ordering.API</packageName>
+        </element>
+        <association id="b0c28f80-ebf3-4914-877d-ecd11f3ede04">
+          <sourceEnd id="1a95c6a1-8c6a-4879-b5e8-06c667c2de54" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+            <display>: GetOrdersFromUserAsync</display>
+            <typeReference id="3c6d8388-5587-4949-a4b0-9fab3cf62cd8">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="b0c28f80-ebf3-4914-877d-ecd11f3ede04" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+            <name>orders</name>
+            <display>[query] orders: Order[*]?</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="6ebd0e9e-eff0-4d99-bdc7-18a834ffb595">
+              <typeId>40cec252-97ea-4da2-aaf1-86a50002a76a</typeId>
+              <typeName>Order</typeName>
+              <isNullable>true</isNullable>
+              <isCollection>true</isCollection>
+              <typePackageName>Ordering</typePackageName>
+              <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Query Entity Action</associationType>
+          <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+        </association>
+      </children>
+    </element>
+    <element id="fe1fd5cd-8c91-4519-ae95-55fcf0503d61" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetCardTypesAsync</name>
+      <display>GetCardTypesAsync(): CardType[*]</display>
+      <typeReference id="06cd08b7-fe0f-485c-8543-d841a4b00e94">
+        <typeId>e71cbb46-29e2-494a-8f2e-a2e44ccdde0d</typeId>
+        <typeName>CardType</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>Ordering.API</typePackageName>
+        <typePackageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</typePackageId>
+      </typeReference>
+      <parentFolderId>6401266d-0812-4b5b-ac30-45d630a1cabd</parentFolderId>
+      <packageId>438b2c00-0866-4f95-ac5e-c6bde6ee83ea</packageId>
+      <packageName>Ordering.API</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="IEnumerable" />
+            <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="582f45ce-db44-4e70-bf08-4d69d2b3a760" name="Async Configuration">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="a732332f-7a1d-4337-bb28-fc9a4af08a3f" display="Include Cancellation Token" value="false" />
+            <property name="f0349bc8-e954-405b-a89f-7be98bd82f1a" display="Async Mode" value="async" />
+            <property name="9749e8be-02db-45fe-8878-603340ccbb7d" display="Task Type" />
+            <property name="e7f8a5b9-cd55-4f29-bfb1-bb264b84f722" display="Cancellation Token Name" />
+            <property name="23533f45-4f15-4a89-9072-ca36e23d7aad" display="Cancellation Token Default" value="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <children>
+        <association id="f9dc87bf-36c7-4b48-a3bc-5b91279eea6c">
+          <sourceEnd id="7a207d5e-17e0-4aed-9eda-5b9cc4b7b311" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+            <display>: GetCardTypesAsync</display>
+            <typeReference id="cd069243-0792-4ac7-ace1-ed77d7286cb9">
+              <isNavigable>false</isNavigable>
+            </typeReference>
+          </sourceEnd>
+          <targetEnd id="f9dc87bf-36c7-4b48-a3bc-5b91279eea6c" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+            <name>cardTypes</name>
+            <display>[query] cardTypes: CardType[*]?</display>
+            <traits>
+              <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+            </traits>
+            <typeReference id="ac1ec92f-f3a8-499c-9ca3-e3a48b88b64e">
+              <typeId>a3369344-c726-402f-8c05-4c8252547e92</typeId>
+              <typeName>CardType</typeName>
+              <isNullable>true</isNullable>
+              <isCollection>true</isCollection>
+              <typePackageName>Ordering</typePackageName>
+              <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+            </typeReference>
+          </targetEnd>
+          <associationType>Query Entity Action</associationType>
+          <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+        </association>
+      </children>
+    </element>
+  </children>
+</class>

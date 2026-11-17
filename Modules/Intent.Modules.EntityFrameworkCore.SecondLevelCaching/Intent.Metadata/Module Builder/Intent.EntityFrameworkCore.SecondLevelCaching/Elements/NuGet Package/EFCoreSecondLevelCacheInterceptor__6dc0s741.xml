@@ -17,15 +17,18 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="66eca637-6e3a-499d-94bd-e67d8dbe9c69" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.13</name>
-      <display>4.6.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+    <childElement id="00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>5.6.1</name>
+      <display>5.6.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b0f2945c-ecd9-44e3-ab2a-79971a8eff2b</parentFolderId>
@@ -33,56 +36,66 @@
       <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
             <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="889478de-8809-409c-afdc-c4035c370078" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cd3b7507-4719-4d34-8687-f130f2528732" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
+          <display>AsyncKeyedLock (8.1.2)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.2</value>
+          <value>8.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>66eca637-6e3a-499d-94bd-e67d8dbe9c69</parentFolderId>
+          <parentFolderId>00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="952f9a84-b3ae-4af4-8909-3fb2c8df677c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="505ba0b8-134d-4003-8a80-42dd91f2a7ce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
+          <display>Microsoft.EntityFrameworkCore (3.1.0)</display>
           <isAbstract>false</isAbstract>
-          <value>7.0.0</value>
+          <value>3.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>66eca637-6e3a-499d-94bd-e67d8dbe9c69</parentFolderId>
+          <parentFolderId>00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="12d12307-fd59-47ae-9603-c0a308a7faf4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7975541f-bb64-43a4-9a97-e1e1fad29a8d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (3.1.0)</display>
           <isAbstract>false</isAbstract>
-          <value>7.0.0</value>
+          <value>3.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>66eca637-6e3a-499d-94bd-e67d8dbe9c69</parentFolderId>
+          <parentFolderId>00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="4f16df79-a5a4-402a-a9c7-7ec8f3d8e371" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.13</name>
-      <display>4.6.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+    <childElement id="1ecc377d-3e35-47fa-8951-c30944545093" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>5.6.1</name>
+      <display>5.6.1 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b0f2945c-ecd9-44e3-ab2a-79971a8eff2b</parentFolderId>
@@ -90,68 +103,55 @@
       <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
             <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="409a8e19-51e4-41cd-b99c-8f9721932acb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="253410b3-7b91-4ae2-8c33-f23c599021fa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
+          <display>AsyncKeyedLock (8.1.2)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.2</value>
+          <value>8.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <parentFolderId>1ecc377d-3e35-47fa-8951-c30944545093</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cc6762ac-d158-49f7-8254-ac1734d59cca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c60b2ca4-1c46-43da-9413-bfb0c95248eb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
+          <display>Microsoft.EntityFrameworkCore (5.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>5.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <parentFolderId>1ecc377d-3e35-47fa-8951-c30944545093</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8eab5a0d-ee61-4f12-a794-b23c9cb2d03b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="58cbe5e4-997a-48e6-a440-e208fc0b6853" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (5.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>5.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="448622da-ee60-451e-935d-0620d840b8b1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Caching.Memory</name>
-          <isAbstract>false</isAbstract>
-          <value>8.0.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8df4d201-4fc5-41ea-8330-3d067f2971eb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.IO.Hashing</name>
-          <isAbstract>false</isAbstract>
-          <value>10.0.8</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <parentFolderId>1ecc377d-3e35-47fa-8951-c30944545093</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -159,9 +159,10 @@
       </childElements>
     </childElement>
     <childElement id="c57002ee-4803-4e44-bdeb-ba8be902ee39" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.13</name>
-      <display>4.6.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>5.6.1</name>
+      <display>5.6.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b0f2945c-ecd9-44e3-ab2a-79971a8eff2b</parentFolderId>
@@ -180,154 +181,220 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c4558340-5049-429b-990b-6fa4c94695fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9c898f20-3e7c-45a5-9474-01d62c579523" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
+          <display>AsyncKeyedLock (8.1.2)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.2</value>
+          <value>8.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c57002ee-4803-4e44-bdeb-ba8be902ee39</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="17c8d8d5-296f-4d38-9bb4-a85eced223ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b842401d-d473-4ae7-b37a-3ba660455fd2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
+          <display>Microsoft.EntityFrameworkCore (6.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c57002ee-4803-4e44-bdeb-ba8be902ee39</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c54d9441-aa76-466c-86cc-895b443ce1ab" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e2a5bbbd-f0a8-4180-8836-53d5ed5a8580" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (6.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c57002ee-4803-4e44-bdeb-ba8be902ee39</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e1d45665-e7f5-4bd4-9d55-eb1f5ff2390c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ace8a767-0f76-47c7-bb10-b68448f7b575" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (6.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c57002ee-4803-4e44-bdeb-ba8be902ee39</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.13</name>
+    <childElement id="66eca637-6e3a-499d-94bd-e67d8dbe9c69" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>5.6.1</name>
+      <display>5.6.1 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b0f2945c-ecd9-44e3-ab2a-79971a8eff2b</parentFolderId>
+      <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+      <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
+          <addedByDefault>true</addedByDefault>
           <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
             <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="30562a6a-27d9-4de4-973d-0f1a00bbb0b3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cc3b64ff-eead-4f8a-bd3a-8dea1f72792a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
+          <display>AsyncKeyedLock (8.1.2)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.2</value>
+          <value>8.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13</parentFolderId>
+          <parentFolderId>66eca637-6e3a-499d-94bd-e67d8dbe9c69</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a8e01371-05c6-42cc-a421-95020abd73cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1dbb3291-5023-4b16-9533-4333845aa965" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
+          <display>Microsoft.EntityFrameworkCore (7.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>3.1.0</value>
+          <value>7.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13</parentFolderId>
+          <parentFolderId>66eca637-6e3a-499d-94bd-e67d8dbe9c69</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f027df03-6e44-4be2-bd5e-e959cf736588" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b4bc706c-63ee-46f4-8a41-17ae92aebc52" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (7.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>3.1.0</value>
+          <value>7.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13</parentFolderId>
+          <parentFolderId>66eca637-6e3a-499d-94bd-e67d8dbe9c69</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="1ecc377d-3e35-47fa-8951-c30944545093" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.13</name>
+    <childElement id="4f16df79-a5a4-402a-a9c7-7ec8f3d8e371" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>5.6.1</name>
+      <display>5.6.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b0f2945c-ecd9-44e3-ab2a-79971a8eff2b</parentFolderId>
+      <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+      <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>false</addedByDefault>
+          <addedByDefault>true</addedByDefault>
           <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
             <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8459a9dc-93d6-4235-bdf9-309dafaf2506" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="97f82a6b-d69e-4874-9cb2-288681932479" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
+          <display>AsyncKeyedLock (8.1.2)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.2</value>
+          <value>8.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>1ecc377d-3e35-47fa-8951-c30944545093</parentFolderId>
+          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="80777125-fac6-4b45-826a-3943d02d9e6d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="51d9ab8b-94d6-4200-a4b5-cd2e421af0f5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
+          <display>Microsoft.EntityFrameworkCore (8.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>5.0.0</value>
+          <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>1ecc377d-3e35-47fa-8951-c30944545093</parentFolderId>
+          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="16416b68-71c4-4177-8252-e1f14f48c0d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="87f0b87c-6992-4b07-babb-1994d47297a5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (8.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>5.0.0</value>
+          <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>1ecc377d-3e35-47fa-8951-c30944545093</parentFolderId>
+          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b8272f47-6aec-4537-9f03-ee8c0e93b81b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3338c8a6-34d5-4372-9614-18fb9de62ee9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.IO.Hashing</name>
+          <display>System.IO.Hashing (10.0.14)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.14</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -335,11 +402,15 @@
       </childElements>
     </childElement>
     <childElement id="1e608202-359c-4d9a-b998-9f1488db23d6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.13</name>
+      <name>5.6.1</name>
+      <display>5.6.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b0f2945c-ecd9-44e3-ab2a-79971a8eff2b</parentFolderId>
+      <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+      <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -353,46 +424,58 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f4f62d16-03e9-4370-bc4c-b1b707160e56" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0c0a0d46-9129-4ddc-929f-091ba1db4c7d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
+          <display>AsyncKeyedLock (8.1.2)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.2</value>
+          <value>8.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1e608202-359c-4d9a-b998-9f1488db23d6</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b9d91ae4-aa81-47f5-a14a-dcb7e2f22e9b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4a542a51-aba0-44fe-9b84-db8bf38c9620" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
+          <display>Microsoft.EntityFrameworkCore (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1e608202-359c-4d9a-b998-9f1488db23d6</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="df738675-9296-4163-a9c4-29d98d5cd003" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5af96a41-6b52-47e1-a4d4-cc1c1b914008" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1e608202-359c-4d9a-b998-9f1488db23d6</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="59e32f52-a023-45ec-9830-06a83fa36f4c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bb182fe2-a044-4e62-9695-c67c381611ef" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Hashing</name>
+          <display>System.IO.Hashing (10.0.14)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.8</value>
+          <value>10.0.14</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1e608202-359c-4d9a-b998-9f1488db23d6</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -400,11 +483,15 @@
       </childElements>
     </childElement>
     <childElement id="558d8901-9abe-4916-a097-f7c38cd75fdd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.3.13</name>
+      <name>5.6.1</name>
+      <display>5.6.1 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b0f2945c-ecd9-44e3-ab2a-79971a8eff2b</parentFolderId>
+      <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+      <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -418,46 +505,58 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="537becb0-8eda-41c4-97b4-ed5cc595b6bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2d69cae5-19bd-4dc9-b8f6-232edb84a02e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AsyncKeyedLock</name>
+          <display>AsyncKeyedLock (8.1.2)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.2</value>
+          <value>8.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>558d8901-9abe-4916-a097-f7c38cd75fdd</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b30973f7-b82b-49f8-8e7f-79fd3fb87628" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b33a55e6-eef8-4507-82fc-2fe5783ce93f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
+          <display>Microsoft.EntityFrameworkCore (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>558d8901-9abe-4916-a097-f7c38cd75fdd</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a208fc2e-a0bd-4245-b733-d289750864d9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5b602fa6-7633-4ab9-91c0-5d7ff933c9a1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (10.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>10.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>558d8901-9abe-4916-a097-f7c38cd75fdd</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c0449a19-b005-46ce-b6da-f44ea2a283ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0e023ea7-253c-43cd-a976-9b46067ac210" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Hashing</name>
+          <display>System.IO.Hashing (10.0.14)</display>
           <isAbstract>false</isAbstract>
-          <value>10.0.8</value>
+          <value>10.0.14</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>558d8901-9abe-4916-a097-f7c38cd75fdd</parentFolderId>
+          <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+          <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />

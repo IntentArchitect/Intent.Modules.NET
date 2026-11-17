@@ -1,0 +1,225 @@
+diff --git a/src/Ordering.API/Application/DomainEventHandlers/ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler.cs b/src/Ordering.API/Application/DomainEventHandlers/ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler.cs
+index 6a9a83a..1dfbae7 100644
+--- a/src/Ordering.API/Application/DomainEventHandlers/ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler.cs
++++ b/src/Ordering.API/Application/DomainEventHandlers/ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler.cs
+@@ -31,7 +31,7 @@ public class ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler
+ 
+         if (!buyerExisted)
+         {
+-            buyer = new Buyer(domainEvent.UserId, domainEvent.UserName);
++            buyer = new Customer(domainEvent.UserId, domainEvent.UserName);
+         }
+ 
+         // REVIEW: The event this creates needs to be sent after SaveChanges has propagated the buyer Id. It currently only
+diff --git a/src/Ordering.Domain/AggregatesModel/BuyerAggregate/Buyer.cs b/src/Ordering.Domain/AggregatesModel/BuyerAggregate/Customer.cs
+similarity index 94%
+rename from src/Ordering.Domain/AggregatesModel/BuyerAggregate/Buyer.cs
+rename to src/Ordering.Domain/AggregatesModel/BuyerAggregate/Customer.cs
+index 240dd9f..97f8a0a 100644
+--- a/src/Ordering.Domain/AggregatesModel/BuyerAggregate/Buyer.cs
++++ b/src/Ordering.Domain/AggregatesModel/BuyerAggregate/Customer.cs
+@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
+ 
+ namespace eShop.Ordering.Domain.AggregatesModel.BuyerAggregate;
+ 
+-public class Buyer
++public class Customer
+     : Entity, IAggregateRoot
+ {
+     [Required]
+@@ -21,13 +21,13 @@ public class Buyer
+ 
+     public IEnumerable<PaymentMethod> PaymentMethods => _paymentMethods.AsReadOnly();
+ 
+-    protected Buyer()
++    protected Customer()
+     {
+ 
+         _paymentMethods = new List<PaymentMethod>();
+     }
+ 
+-    public Buyer(string identity, string name) : this()
++    public Customer(string identity, string name) : this()
+     {
+         IdentityGuid = !string.IsNullOrWhiteSpace(identity) ? identity : throw new ArgumentNullException(nameof(identity));
+         Name = !string.IsNullOrWhiteSpace(name) ? name : throw new ArgumentNullException(nameof(name));
+diff --git a/src/Ordering.Domain/AggregatesModel/BuyerAggregate/IBuyerRepository.cs b/src/Ordering.Domain/AggregatesModel/BuyerAggregate/IBuyerRepository.cs
+index a611195..8d8e431 100644
+--- a/src/Ordering.Domain/AggregatesModel/BuyerAggregate/IBuyerRepository.cs
++++ b/src/Ordering.Domain/AggregatesModel/BuyerAggregate/IBuyerRepository.cs
+@@ -3,11 +3,11 @@
+ //This is just the RepositoryContracts or Interface defined at the Domain Layer
+ //as requisite for the Buyer Aggregate
+ 
+-public interface IBuyerRepository : IRepository<Buyer>
++public interface IBuyerRepository : IRepository<Customer>
+ {
+-    Buyer Add(Buyer buyer);
+-    Buyer Update(Buyer buyer);
+-    Task<Buyer> FindAsync(string BuyerIdentityGuid);
+-    Task<Buyer> FindByIdAsync(int id);
++    Customer Add(Customer buyer);
++    Customer Update(Customer buyer);
++    Task<Customer> FindAsync(string BuyerIdentityGuid);
++    Task<Customer> FindByIdAsync(int id);
+ }
+ 
+diff --git a/src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs b/src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs
+index df703aa..b8e6826 100644
+--- a/src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs
++++ b/src/Ordering.Domain/AggregatesModel/OrderAggregate/Order.cs
+@@ -20,7 +20,7 @@ public class Order
+ 
+     public int? BuyerId { get; private set; }
+ 
+-    public Buyer Buyer { get; }
++    public Customer Buyer { get; }
+ 
+     public OrderStatus OrderStatus { get; private set; }
+ 
+diff --git a/src/Ordering.Domain/Events/BuyerPaymentMethodVerifiedDomainEvent.cs b/src/Ordering.Domain/Events/BuyerPaymentMethodVerifiedDomainEvent.cs
+index 15f75d3..ce6e60a 100644
+--- a/src/Ordering.Domain/Events/BuyerPaymentMethodVerifiedDomainEvent.cs
++++ b/src/Ordering.Domain/Events/BuyerPaymentMethodVerifiedDomainEvent.cs
+@@ -9,11 +9,11 @@ namespace eShop.Ordering.Domain.Events;
+ public class BuyerAndPaymentMethodVerifiedDomainEvent
+     : INotification
+ {
+-    public Buyer Buyer { get; private set; }
++    public Customer Buyer { get; private set; }
+     public PaymentMethod Payment { get; private set; }
+     public int OrderId { get; private set; }
+ 
+-    public BuyerAndPaymentMethodVerifiedDomainEvent(Buyer buyer, PaymentMethod payment, int orderId)
++    public BuyerAndPaymentMethodVerifiedDomainEvent(Customer buyer, PaymentMethod payment, int orderId)
+     {
+         Buyer = buyer;
+         Payment = payment;
+diff --git a/src/Ordering.Infrastructure/EntityConfigurations/BuyerEntityTypeConfiguration.cs b/src/Ordering.Infrastructure/EntityConfigurations/BuyerEntityTypeConfiguration.cs
+index 9de21b5..32e531b 100644
+--- a/src/Ordering.Infrastructure/EntityConfigurations/BuyerEntityTypeConfiguration.cs
++++ b/src/Ordering.Infrastructure/EntityConfigurations/BuyerEntityTypeConfiguration.cs
+@@ -1,9 +1,9 @@
+ ﻿namespace eShop.Ordering.Infrastructure.EntityConfigurations;
+ 
+ class BuyerEntityTypeConfiguration
+-    : IEntityTypeConfiguration<Buyer>
++    : IEntityTypeConfiguration<Customer>
+ {
+-    public void Configure(EntityTypeBuilder<Buyer> buyerConfiguration)
++    public void Configure(EntityTypeBuilder<Customer> buyerConfiguration)
+     {
+         buyerConfiguration.ToTable("buyers");
+ 
+diff --git a/src/Ordering.Infrastructure/OrderingContext.cs b/src/Ordering.Infrastructure/OrderingContext.cs
+index 0b265de..6e18aa4 100644
+--- a/src/Ordering.Infrastructure/OrderingContext.cs
++++ b/src/Ordering.Infrastructure/OrderingContext.cs
+@@ -12,7 +12,7 @@ public class OrderingContext : DbContext, IUnitOfWork
+     public DbSet<Order> Orders { get; set; }
+     public DbSet<OrderItem> OrderItems { get; set; }
+     public DbSet<PaymentMethod> Payments { get; set; }
+-    public DbSet<Buyer> Buyers { get; set; }
++    public DbSet<Customer> Buyers { get; set; }
+     public DbSet<CardType> CardTypes { get; set; }
+ 
+     private readonly IMediator _mediator;
+diff --git a/src/Ordering.Infrastructure/Repositories/BuyerRepository.cs b/src/Ordering.Infrastructure/Repositories/BuyerRepository.cs
+index 31942e4..3ba8ab4 100644
+--- a/src/Ordering.Infrastructure/Repositories/BuyerRepository.cs
++++ b/src/Ordering.Infrastructure/Repositories/BuyerRepository.cs
+@@ -19,7 +19,7 @@ public class BuyerRepository
+         _context = context ?? throw new ArgumentNullException(nameof(context));
+     }
+ 
+-    public Buyer Add(Buyer buyer)
++    public Customer Add(Customer buyer)
+     {
+         if (buyer.IsTransient())
+         {
+@@ -31,14 +31,14 @@ public class BuyerRepository
+         return buyer;
+     }
+ 
+-    public Buyer Update(Buyer buyer)
++    public Customer Update(Customer buyer)
+     {
+         return _context.Buyers
+                 .Update(buyer)
+                 .Entity;
+     }
+ 
+-    public async Task<Buyer> FindAsync(string identity)
++    public async Task<Customer> FindAsync(string identity)
+     {
+         var buyer = await _context.Buyers
+             .Include(b => b.PaymentMethods)
+@@ -48,7 +48,7 @@ public class BuyerRepository
+         return buyer;
+     }
+ 
+-    public async Task<Buyer> FindByIdAsync(int id)
++    public async Task<Customer> FindByIdAsync(int id)
+     {
+         var buyer = await _context.Buyers
+             .Include(b => b.PaymentMethods)
+diff --git a/tests/Ordering.UnitTests/Application/NewOrderCommandHandlerTest.cs b/tests/Ordering.UnitTests/Application/NewOrderCommandHandlerTest.cs
+index 8a66f4c..87aa15d 100644
+--- a/tests/Ordering.UnitTests/Application/NewOrderCommandHandlerTest.cs
++++ b/tests/Ordering.UnitTests/Application/NewOrderCommandHandlerTest.cs
+@@ -50,12 +50,12 @@ public class NewOrderRequestHandlerTest
+     public void Handle_throws_exception_when_no_buyerId()
+     {
+         //Assert
+-        Assert.ThrowsExactly<ArgumentNullException>(() => new Buyer(string.Empty, string.Empty));
++        Assert.ThrowsExactly<ArgumentNullException>(() => new Customer(string.Empty, string.Empty));
+     }
+ 
+-    private Buyer FakeBuyer()
++    private Customer FakeBuyer()
+     {
+-        return new Buyer(Guid.NewGuid().ToString(), "1");
++        return new Customer(Guid.NewGuid().ToString(), "1");
+     }
+ 
+     private Order FakeOrder()
+diff --git a/tests/Ordering.UnitTests/Domain/BuyerAggregateTest.cs b/tests/Ordering.UnitTests/Domain/BuyerAggregateTest.cs
+index 58af6b5..7cb347b 100644
+--- a/tests/Ordering.UnitTests/Domain/BuyerAggregateTest.cs
++++ b/tests/Ordering.UnitTests/Domain/BuyerAggregateTest.cs
+@@ -14,7 +14,7 @@ public class BuyerAggregateTest
+         var name = "fakeUser";
+ 
+         //Act 
+-        var fakeBuyerItem = new Buyer(identity, name);
++        var fakeBuyerItem = new Customer(identity, name);
+ 
+         //Assert
+         Assert.IsNotNull(fakeBuyerItem);
+@@ -28,7 +28,7 @@ public class BuyerAggregateTest
+         var name = "fakeUser";
+ 
+         //Act - Assert
+-        Assert.ThrowsExactly<ArgumentNullException>(() => new Buyer(identity, name));
++        Assert.ThrowsExactly<ArgumentNullException>(() => new Customer(identity, name));
+     }
+ 
+     [TestMethod]
+@@ -44,7 +44,7 @@ public class BuyerAggregateTest
+         var orderId = 1;
+         var name = "fakeUser";
+         var identity = new Guid().ToString();
+-        var fakeBuyerItem = new Buyer(identity, name);
++        var fakeBuyerItem = new Customer(identity, name);
+ 
+         //Act
+         var result = fakeBuyerItem.VerifyOrAddPaymentMethod(cardTypeId, alias, cardNumber, securityNumber, cardHolderName, expiration, orderId);
+@@ -121,7 +121,7 @@ public class BuyerAggregateTest
+         var name = "fakeUser";
+ 
+         //Act 
+-        var fakeBuyer = new Buyer(Guid.NewGuid().ToString(), name);
++        var fakeBuyer = new Customer(Guid.NewGuid().ToString(), name);
+         fakeBuyer.VerifyOrAddPaymentMethod(cardTypeId, alias, cardNumber, cardSecurityNumber, cardHolderName, cardExpiration, orderId);
+ 
+         //Assert

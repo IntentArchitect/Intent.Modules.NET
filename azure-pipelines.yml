@@ -10,7 +10,7 @@ trigger:
 resources:
   pipelines:
   - pipeline: 'intent'
-    source: 'Intent Architect'
+    source: 'Intent Architect Client'
     trigger: 
       branches:
         include:
@@ -30,8 +30,15 @@ variables:
   value: '4bb4c1b9-5b56-4972-8bac-0ad3fa64204e/intentarchitect-feed'
 - name: 'vstsFeedUrl'
   value: 'https://pkgs.dev.azure.com/intentarchitect/4bb4c1b9-5b56-4972-8bac-0ad3fa64204e/_packaging/intentarchitect-feed/nuget/v3/index.json'
+# Tests.Brownfield holds a third-party app (eShop) used for brownfield evals, so CI must not restore, build or test it.
+# The .NET 11 test applications need the .NET 11 SDK, which makes every dotnet step several times slower on the
+# build agents, so CI skips them until that is resolved.
 - name: 'targetsToBuild'
-  value: '**/*.sln'
+  value: |
+    **/*.sln
+    !Tests.Brownfield/**
+    !Tests/*.EF11/**
+    !Tests/*.NET11*/**
 - name: 'intent-solution'
   value: 'Tests/Intent.Modules.NET.Tests.isln'
 - name: 'intent-module-solution'

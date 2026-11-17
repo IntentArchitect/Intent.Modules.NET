@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="cd73c8e4-4479-407e-8432-8e29d9517421" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.2</name>
-      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>10.0.3</name>
+      <display>10.0.3 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -83,6 +83,74 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cd73c8e4-4479-407e-8432-8e29d9517421</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="9cf47ae3-f546-4e82-890d-b10bccca64db" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <comment>Pre-release (user decision 2026-11-13): Npgsql has no 11.0.0 GA yet. Leave unlocked so Fetch Latest replaces it with the GA version once it is on nuget.org.</comment>
+      <name>11.0.0-rc.3</name>
+      <display>11.0.0-rc.3 ( &gt;= .NETCoreApp,Version=v11.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8f42705c-5ddc-48a5-9139-4526768b3d7d</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v11.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="11a07715-1e68-4a77-b9c2-d480e5421835" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <display>Microsoft.EntityFrameworkCore (11.0.0-rc.3.26522.148)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0-rc.3.26522.148</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9cf47ae3-f546-4e82-890d-b10bccca64db</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="90a150ad-a0d6-4dae-9f49-e5f6b4d11e19" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (11.0.0-rc.3.26522.148)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0-rc.3.26522.148</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9cf47ae3-f546-4e82-890d-b10bccca64db</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="45977f76-8a7c-415d-91a7-322207a6658a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Npgsql</name>
+          <display>Npgsql (10.0.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>10.0.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9cf47ae3-f546-4e82-890d-b10bccca64db</parentFolderId>
           <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
           <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />

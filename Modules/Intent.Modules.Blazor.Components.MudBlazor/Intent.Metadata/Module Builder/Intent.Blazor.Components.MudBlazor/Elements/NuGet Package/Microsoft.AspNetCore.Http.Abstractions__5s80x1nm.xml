@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="403c1fbe-655a-44b3-b521-fb61527ad81a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.3.11</name>
-      <display>2.3.11 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>2.3.14</name>
+      <display>2.3.14 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f8227951-7b9a-46ef-8f1d-c42f389a186a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8cb60899-fc90-487f-9700-a68ee5c5be84" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Http.Features</name>
-          <display>Microsoft.AspNetCore.Http.Features (2.3.10)</display>
+          <display>Microsoft.AspNetCore.Http.Features (2.3.13)</display>
           <isAbstract>false</isAbstract>
-          <value>2.3.10</value>
+          <value>2.3.13</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>403c1fbe-655a-44b3-b521-fb61527ad81a</parentFolderId>
@@ -61,7 +61,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b3d227b0-6845-4eda-929d-9f80abb7db42" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="37c2f86b-d924-46a9-9623-8eb9aeb6d3db" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encodings.Web</name>
           <display>System.Text.Encodings.Web (8.0.0)</display>
           <isAbstract>false</isAbstract>

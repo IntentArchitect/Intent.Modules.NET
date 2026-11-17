@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="2ac31413-5bf5-46ba-a3ec-9f09861fd22b" zIndex="0">
+  <name>OrderStatusChangedToCancelledIntegrationEventHandler</name>
+  <position x="400" y="190" />
+  <size width="200" height="90" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classVisual id="8ab9ad58-fbc0-49dc-ab33-7c5218688a87" zIndex="0">
+  <name>OrderStatusChangedToAwaitingValidationIntegrationEventHandler</name>
+  <position x="400" y="0" />
+  <size width="200" height="90" />
+  <autoResizeEnabled>true</autoResizeEnabled>
+</classVisual>

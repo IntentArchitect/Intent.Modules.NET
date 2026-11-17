@@ -1,0 +1,18 @@
+{
+  "id": "AD4",
+  "title": "Add: remove a discontinued item from every basket (cross-service)",
+  "lane": "ai",
+  "plants": ["ad1"],
+  "prompt": "When a catalog item is discontinued, remove it from every customer's basket.",
+  "done": "discontinuing a catalog item publishes an integration event, and Basket.API handles it by removing that product from every customer's basket",
+  "expect": [
+    { "id": "message", "net": "visible", "text": "The Services designer has the new integration event (a message) with the fields the code gives it." },
+    { "id": "publish", "net": "blind", "text": "The discontinue operation has a publish interaction to that message." },
+    { "id": "subscription", "net": "blind", "text": "Basket.API's handler for the message is modelled, subscribed to the message." },
+    {
+      "id": "handler-intent",
+      "net": "blind",
+      "text": "The handler's interaction with what it changes (the baskets) is modelled, as far as the model can state it."
+    }
+  ]
+}

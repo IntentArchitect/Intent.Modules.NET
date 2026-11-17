@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.Drift;
 using Intent.Modules.Services.Guardrails.Contracts.Templates;
 
 namespace Intent.Modules.Services.Guardrails.Contracts.Drift
@@ -17,13 +18,13 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
         /// <summary>Each interaction association type and the kind of fact it states.</summary>
         private static readonly IReadOnlyDictionary<string, FactKind> Intents = new Dictionary<string, FactKind>(StringComparer.OrdinalIgnoreCase)
         {
-            [OptionalModelerMetadata.CreateEntityActionTypeId] = FactKinds.IntentCreates,
-            [OptionalModelerMetadata.UpdateEntityActionTypeId] = FactKinds.IntentUpdates,
-            [OptionalModelerMetadata.DeleteEntityActionTypeId] = FactKinds.IntentDeletes,
-            [OptionalModelerMetadata.QueryEntityActionTypeId] = FactKinds.IntentQueries,
-            [OptionalModelerMetadata.PerformInvocationTypeId] = FactKinds.IntentInvokes,
-            [OptionalModelerMetadata.PublishIntegrationEventTypeId] = FactKinds.IntentPublishes,
-            [OptionalModelerMetadata.SendIntegrationCommandTypeId] = FactKinds.IntentSends
+            [OptionalModelerMetadata.CreateEntityActionTypeId] = ServicesDrift.IntentCreates,
+            [OptionalModelerMetadata.UpdateEntityActionTypeId] = ServicesDrift.IntentUpdates,
+            [OptionalModelerMetadata.DeleteEntityActionTypeId] = ServicesDrift.IntentDeletes,
+            [OptionalModelerMetadata.QueryEntityActionTypeId] = ServicesDrift.IntentQueries,
+            [OptionalModelerMetadata.PerformInvocationTypeId] = ServicesDrift.IntentInvokes,
+            [OptionalModelerMetadata.PublishIntegrationEventTypeId] = ServicesDrift.IntentPublishes,
+            [OptionalModelerMetadata.SendIntegrationCommandTypeId] = ServicesDrift.IntentSends
         };
 
         /// <summary>The subscriptions an event handler's interactions are drawn from.</summary>
@@ -48,7 +49,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
                     case "Service":
                         if (Stereotype(element, "Http Service Settings") is { } serviceSettings)
                         {
-                            facts.Add(Fact(FactKinds.ServiceRoute, element.Name, Property(serviceSettings, "Route"), new Dictionary<string, string> { ["Service"] = element.Name }, null, element.Id));
+                            facts.Add(Fact(ServicesDrift.ServiceRoute, element.Name, Property(serviceSettings, "Route"), new Dictionary<string, string> { ["Service"] = element.Name }, null, element.Id));
                         }
 
                         foreach (var operation in element.ChildElements.Where(x => x.SpecializationType == "Operation"))
@@ -100,7 +101,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
                     ["Folder"] = folderOf.ParentElement is { SpecializationType: "Folder" } folder ? folder.Name : string.Empty
                 };
                 string value;
-                if (kind == FactKinds.IntentInvokes)
+                if (kind == ServicesDrift.IntentInvokes)
                 {
                     // An operation belongs to its Service, Domain Service, Repository or Service Proxy; a Command, Query or
                     // stored procedure to nothing a call names.
@@ -108,7 +109,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
                     placeholders["Invoked"] = target.Name;
                     placeholders["InvokedOwner"] = target.SpecializationType == "Operation" && target.ParentElement is { } parent && parent.SpecializationType != "Folder" ? parent.Name : string.Empty;
                 }
-                else if (kind == FactKinds.IntentPublishes || kind == FactKinds.IntentSends)
+                else if (kind == ServicesDrift.IntentPublishes || kind == ServicesDrift.IntentSends)
                 {
                     value = target.Name;
                     placeholders["Message"] = target.Name;
@@ -155,24 +156,24 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
             var parameters = element.ChildElements.Where(x => x.SpecializationType == parameterType).ToList();
             var parameterNames = service == null ? null : parameters.Select(x => x.Name).ToList();
 
-            facts.Add(Fact(FactKinds.OperationVerb, display, Property(http, "Verb"), placeholders, parameterNames, service?.Id, element.Id));
-            facts.Add(Fact(FactKinds.OperationRoute, display, Property(http, "Route"), placeholders, parameterNames, service?.Id, element.Id));
+            facts.Add(Fact(ServicesDrift.OperationVerb, display, Property(http, "Verb"), placeholders, parameterNames, service?.Id, element.Id));
+            facts.Add(Fact(ServicesDrift.OperationRoute, display, Property(http, "Route"), placeholders, parameterNames, service?.Id, element.Id));
             if (usesSecurity)
             {
                 var (security, secured) = EffectiveSecurity(element);
-                facts.Add(Fact(FactKinds.Security, display, security, placeholders, parameterNames, service?.Id, element.Id));
+                facts.Add(Fact(ServicesDrift.Security, display, security, placeholders, parameterNames, service?.Id, element.Id));
                 if (secured != null)
                 {
                     var roles = Names(secured, "Roles", "Security Roles");
                     if (roles.Length > 0)
                     {
-                        facts.Add(Fact(FactKinds.SecurityRoles, display, roles, placeholders, parameterNames, service?.Id, element.Id));
+                        facts.Add(Fact(ServicesDrift.SecurityRoles, display, roles, placeholders, parameterNames, service?.Id, element.Id));
                     }
 
                     var policies = Names(secured, "Policy", "Security Policies");
                     if (policies.Length > 0)
                     {
-                        facts.Add(Fact(FactKinds.SecurityPolicy, display, policies, placeholders, parameterNames, service?.Id, element.Id));
+                        facts.Add(Fact(ServicesDrift.SecurityPolicy, display, policies, placeholders, parameterNames, service?.Id, element.Id));
                     }
                 }
             }
@@ -182,7 +183,7 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Drift
                 if (Stereotype(parameter, "Parameter Settings") is { } settings)
                 {
                     var parameterPlaceholders = new Dictionary<string, string>(placeholders) { ["Parameter"] = parameter.Name };
-                    facts.Add(Fact(FactKinds.ParameterSource, $"{display}({parameter.Name})", Property(settings, "Source") is { Length: > 0 } source ? source : "Default", parameterPlaceholders, parameterNames, service?.Id, element.Id, parameter.Id));
+                    facts.Add(Fact(ServicesDrift.ParameterSource, $"{display}({parameter.Name})", Property(settings, "Source") is { Length: > 0 } source ? source : "Default", parameterPlaceholders, parameterNames, service?.Id, element.Id, parameter.Id));
                 }
             }
         }

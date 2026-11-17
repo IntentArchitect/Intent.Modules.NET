@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="413855bb-73cc-46b1-a1fd-2c5c331e926c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.1.79</name>
-      <display>2.1.79 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>2.1.89</name>
+      <display>2.1.89 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -92,8 +92,8 @@
       </childElements>
     </childElement>
     <childElement id="a0fe7cad-8b7a-4952-b5cd-e2d8fa98afe6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.1.79</name>
-      <display>2.1.79 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>2.1.89</name>
+      <display>2.1.89 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -115,8 +115,8 @@
       <childElements />
     </childElement>
     <childElement id="e480a714-5d45-4ead-9a3b-f7b6d838b71c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.1.79</name>
-      <display>2.1.79 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>2.1.89</name>
+      <display>2.1.89 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

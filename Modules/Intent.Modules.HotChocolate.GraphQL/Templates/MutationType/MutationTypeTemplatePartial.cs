@@ -46,9 +46,12 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.MutationType
 
                     foreach (var mutation in Model.Resolvers)
                     {
-                        if (mutation.TypeReference.Element == null)
+                        // HotChocolate doesn't expose a method returning only Task, rejects [UseMutationConvention] on it,
+                        // and fails at startup when the Mutation root ends up with no fields. So void mutations aren't generated.
+                        if (!HasReturnType(mutation))
                         {
-                            Logging.Log.Warning($"GraphQL mutations must define a return type. {Model.Name}.{mutation.Name} does not specify a return type. This operation may not show in the GraphQL schema for this reason.");
+                            Logging.Log.Warning($"GraphQL mutations must define a return type. {Model.Name}.{mutation.Name} does not specify a return type, so it is not exposed as a GraphQL mutation.");
+                            continue;
                         }
                         @class.AddMethod($"{GetTypeName(mutation)}", mutation.Name.ToPascalCase(), method =>
                         {
@@ -78,6 +81,18 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.MutationType
                         });
                     }
                 });
+        }
+
+        // A mutation type with only void mutations would be an empty type extension, so it isn't generated.
+        // The GraphQL configuration templates register only the mutation types that run.
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && Model.Resolvers.Any(HasReturnType);
+        }
+
+        private static bool HasReturnType(IGraphQLResolverModel mutation)
+        {
+            return mutation.TypeReference.Element != null;
         }
 
         [IntentManaged(Mode.Fully)]

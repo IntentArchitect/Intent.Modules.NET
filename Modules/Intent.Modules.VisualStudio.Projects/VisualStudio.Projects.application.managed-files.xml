@@ -54,7 +54,7 @@
   <file path="Migrations/Migration_04_01_02_Pre_00.cs" deviationsHash="A63B329876C88821DA24DC0D6DB0910ECE5C1528D645B9C0CC4CE12E1247B247" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
   <file path="Migrations/Migration_04_01_11_Pre_00.cs" deviationsHash="70421C58765A78BEC4D8236F3BF50ECFD565BA87346EEAD589A73E68CF26ADA8" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
   <file path="Migrations/OnInstallMigration.cs" deviationsHash="D1F1B13B7A7BA657073FFCA7945C61937F8556767DD477BB584BB840E4A2C1BA" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
-  <file path="NugetPackages.cs" deviationsHash="B42DF5FD44F5FEBEA7506FC1640EC9DE97197F03E16A8C1D43CDF47CAB660104" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
+  <file path="NugetPackages.cs" deviationsHash="C2EF0F5418E5610EB11028982A98368AB844413B8C2CA584C3B7F895DDAFF953" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="PackageExtensionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
   <file path="Templates/AzureFunctions/HostJson/HostJsonTemplate.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed" />

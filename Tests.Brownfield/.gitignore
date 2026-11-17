@@ -1,0 +1,2 @@
+# Raw per-run output: logs, status, each run's agent.patch and drift reports. results/history is the committed record.
+results/runs/

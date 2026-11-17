@@ -50,7 +50,7 @@
   <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Validation/IValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface" />
   <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/Common/Validation/ValidatorProvider.cs" templateId="Intent.Application.FluentValidation.Dtos.ValidatorProvider" />
   <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/DependencyInjection.cs" templateId="Intent.Application.DependencyInjection.DependencyInjection" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/EntityFrameworkCore.MultiDbContext.DbContextInterface.Application.csproj" deviationsHash="8E43B219839C5425A262C131ECD8ECD2C45ECD116787B7D721066CF5216424CC" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Application/EntityFrameworkCore.MultiDbContext.DbContextInterface.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/CollectionExtensions.cs" templateId="Intent.Entities.CollectionExtensions" />
   <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/DomainEvent.cs" templateId="Intent.DomainEvents.DomainEventBase" />
   <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/Exceptions/NotFoundException.cs" templateId="Intent.Entities.NotFoundException" />
@@ -80,7 +80,7 @@
   <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IPagedList.cs" templateId="Intent.Entities.Repositories.Api.PagedListInterface" />
   <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.csproj" deviationsHash="140C091655FBB62EAC50EB5F65970B66C0992EBEA8498C2734331F8CE2F9696D" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/EntityFrameworkCoreMultiDbContextDbContextInterfaceConstants.cs" templateId="Intent.Infrastructure.Constants.ConstantsTemplate" />
   <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

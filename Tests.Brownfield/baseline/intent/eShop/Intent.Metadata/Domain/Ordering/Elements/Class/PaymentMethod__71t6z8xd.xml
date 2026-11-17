@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="436c2166-3812-4d0a-9575-5e33a44c1396" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment>Key: Id (int) is declared on the SeedWork Entity base class, so it isn't modelled here. Id uses the HiLo sequence paymentseq. Its persisted card data is held in private fields that the model can't describe: _alias (column Alias, max 200, required), _cardNumber (CardNumber, max 25, required), _cardHolderName (CardHolderName, max 200, required), _expiration (Expiration) and _cardTypeId (CardTypeId, the foreign key to CardType). _securityNumber isn't mapped. The owning Buyer's key is the shadow property BuyerId.</comment>
+  <name>PaymentMethod</name>
+  <display>PaymentMethod</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>32875a8c-cdfa-4a47-952a-cb7963507c2e</parentFolderId>
+  <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+  <packageName>Ordering</packageName>
+  <traits>
+    <trait id="8b78644d-8b44-48c7-8c13-68255e2252c0" name="[Service Argument]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="88722cfc-8f4e-4cc2-96f5-3635f5b520d1" name="File Config">
+      <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+      <properties>
+        <property name="11d2548c-4d37-4c5d-ab7b-ba60b4bc61be" display="Filename" />
+        <property name="e9476ee3-2e32-427f-95b2-938c8fb8397b" display="Namespace" value="eShop.Ordering.Domain.AggregatesModel.BuyerAggregate" />
+        <property name="df085ba5-b5b5-44f2-9690-51f3c8053736" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="dd205b32-b48b-4c77-98f5-faefb2c047ce" name="Table">
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="2b3a9df7-65e1-4800-b919-bef1a6b8f5a9" display="Name" value="paymentmethods" />
+        <property name="13e6101f-0e37-4eda-a6ae-ec48cd9f8f4b" display="Schema" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="511c4ccc-82d6-44ee-b2ca-1474bbd455e2" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>PaymentMethod</name>
+      <display>PaymentMethod()</display>
+      <parentFolderId>436c2166-3812-4d0a-9575-5e33a44c1396</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2189ac42-f723-4663-9673-80ad2cdd9f51" name="Constructor Configuration">
+          <definitionPackageName>Intent.Domain.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>11aae230-6dfe-414e-bf5f-18280aad6ae2</definitionPackageId>
+          <properties>
+            <property name="1ece30f0-2390-47ff-84e4-06ca2681d174" display="Access Modifier" value="protected" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+    <element id="d328650d-857a-4eab-a034-45194d1d4ae8" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>PaymentMethod</name>
+      <display>PaymentMethod(cardTypeId: int, alias: string, cardNumber: string, securityNumber: string, cardHolderName: string, expiration: datetime)</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <parentFolderId>436c2166-3812-4d0a-9575-5e33a44c1396</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <element id="fdd9db1e-e2de-4708-af48-5530ec5a0aac" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardTypeId</name>
+          <display>in : cardTypeId: int</display>
+          <typeReference id="3644bc22-9a1d-4e6c-b30a-3f75d07add33">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>d328650d-857a-4eab-a034-45194d1d4ae8</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="5c02a6ce-19ff-4447-aa04-63f59954ee39" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>alias</name>
+          <display>in : alias: string</display>
+          <typeReference id="e53f823f-fee9-459b-91a7-5337d4182e45">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>d328650d-857a-4eab-a034-45194d1d4ae8</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="031d5192-0093-4209-80a5-e2ae54208224" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardNumber</name>
+          <display>in : cardNumber: string</display>
+          <typeReference id="544fff50-03e9-4f18-a7d6-5c8d0e89296b">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>d328650d-857a-4eab-a034-45194d1d4ae8</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="f1cf87aa-e868-4873-b5c9-2d82ee602e3c" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>securityNumber</name>
+          <display>in : securityNumber: string</display>
+          <typeReference id="1c4bed78-0f76-4f49-a269-f954f5ad59d4">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>d328650d-857a-4eab-a034-45194d1d4ae8</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="81310a21-dc0f-41c5-88d9-7c389f8ce046" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardHolderName</name>
+          <display>in : cardHolderName: string</display>
+          <typeReference id="88436f6e-4dfa-486d-8770-86ca0c582f0f">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>d328650d-857a-4eab-a034-45194d1d4ae8</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="296911fc-df03-4a1d-af51-e3e12442f523" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>expiration</name>
+          <display>in : expiration: datetime</display>
+          <typeReference id="6c235c13-bfec-4afc-a146-b9b97c49b1bc">
+            <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+            <typeName>datetime</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>d328650d-857a-4eab-a034-45194d1d4ae8</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+      </children>
+    </element>
+    <element id="179f7035-20af-4a19-b414-5e1517c295b3" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>IsEqualTo</name>
+      <display>IsEqualTo(cardTypeId: int, cardNumber: string, expiration: datetime): bool</display>
+      <sort-children>by-type-then-manually</sort-children>
+      <typeReference id="ae1353ea-8dce-4a13-a290-3a1767c31a28">
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+        <typeName>bool</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>436c2166-3812-4d0a-9575-5e33a44c1396</parentFolderId>
+      <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+      <packageName>Ordering</packageName>
+      <children>
+        <element id="5652c465-212b-42c8-9661-66275ae68726" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardTypeId</name>
+          <display>in : cardTypeId: int</display>
+          <typeReference id="ca4b2f79-0a08-4135-92e5-cb536e7640dc">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <typeName>int</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>179f7035-20af-4a19-b414-5e1517c295b3</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="fc42c94a-2303-4cfa-af50-213f364949b9" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>cardNumber</name>
+          <display>in : cardNumber: string</display>
+          <typeReference id="c58f98b1-22d6-49dc-be7e-1133da3c6bed">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <typeName>string</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>179f7035-20af-4a19-b414-5e1517c295b3</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+        <element id="ea993c30-6ceb-41c1-9e40-18b7bc973d70" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>expiration</name>
+          <display>in : expiration: datetime</display>
+          <typeReference id="49554078-a2f8-4a3b-8976-3db8c57e4147">
+            <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+            <typeName>datetime</typeName>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          </typeReference>
+          <parentFolderId>179f7035-20af-4a19-b414-5e1517c295b3</parentFolderId>
+          <packageId>dd730354-cf83-44cb-bfa9-09dd5b335529</packageId>
+          <packageName>Ordering</packageName>
+        </element>
+      </children>
+    </element>
+    <association id="26dc09f5-cecc-454d-90bc-c303c7ba86c1">
+      <comment>HasOne(p =&gt; p.CardType).WithMany().HasForeignKey("_cardTypeId"): the foreign key is the private field _cardTypeId (column CardTypeId).</comment>
+      <sourceEnd id="10c6a5c8-fdd2-423e-a1da-90b9fb3eabaa" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+        <name>PaymentMethods</name>
+        <display>PaymentMethods: PaymentMethod[*]?</display>
+        <typeReference id="512d5a43-53a0-448d-bb77-210a1cdd5a6f">
+          <isNavigable>false</isNavigable>
+          <isNullable>true</isNullable>
+          <isCollection>true</isCollection>
+        </typeReference>
+      </sourceEnd>
+      <targetEnd id="26dc09f5-cecc-454d-90bc-c303c7ba86c1" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+        <comment>HasOne(p =&gt; p.CardType).WithMany().HasForeignKey("_cardTypeId"): the foreign key is the private field _cardTypeId (column CardTypeId).</comment>
+        <name>CardType</name>
+        <display>CardType: CardType</display>
+        <typeReference id="df185146-d2ab-472a-be76-a6c2d20818c5">
+          <typeId>a3369344-c726-402f-8c05-4c8252547e92</typeId>
+          <typeName>CardType</typeName>
+          <typePackageName>Ordering</typePackageName>
+          <typePackageId>dd730354-cf83-44cb-bfa9-09dd5b335529</typePackageId>
+        </typeReference>
+      </targetEnd>
+      <associationType>Association</associationType>
+      <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+    </association>
+  </children>
+</class>

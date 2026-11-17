@@ -80,7 +80,7 @@
   <file path="EfCoreSoftDelete.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="EfCoreSoftDelete.Domain/ValueObject.cs" templateId="Intent.ValueObjects.ValueObjectBase" />
   <file path="EfCoreSoftDelete.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="EfCoreSoftDelete.Infrastructure/EfCoreSoftDelete.Infrastructure.csproj" deviationsHash="6AD89FD62134D598AA8F2FA87A10384F60F4D614A19B07833693BAE6175A6CF8" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="EfCoreSoftDelete.Infrastructure/EfCoreSoftDelete.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="EfCoreSoftDelete.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="EfCoreSoftDelete.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="EfCoreSoftDelete.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

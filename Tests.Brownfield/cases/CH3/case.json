@@ -1,0 +1,10 @@
+{
+  "id": "CH3",
+  "title": "Change: restrict two endpoints to a role",
+  "lane": "ai",
+  "prompt": "Only users in the Admin role may ship or cancel orders.",
+  "done": "the ship and cancel order endpoints require the Admin role, and the other order endpoints are unchanged",
+  "expect": [
+    { "id": "roles", "net": "visible", "text": "The Services designer secures the ship and cancel operations with the Admin role, and only those two." }
+  ]
+}

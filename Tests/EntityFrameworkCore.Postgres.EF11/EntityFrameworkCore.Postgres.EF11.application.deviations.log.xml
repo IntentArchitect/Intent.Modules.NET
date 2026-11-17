@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#bab368d3-43dc-4e8d-89a9-0fd33f5bd478</correlationId>
+      <path>EntityFrameworkCore.Postgres.EF11.Application/Implementation/BlogsService.cs</path>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-13T08:55:10.1844861Z</updatedAt>
+      <deviationsHash>B878080460281BA29C287181AC5FCE53F905C5BC42B8FAAF1538D15E07230A78</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#84e2176b-ecdc-4e83-bc00-b2577e103ef6</correlationId>
+      <path>EntityFrameworkCore.Postgres.EF11.Domain/Repositories/IBlogRepository.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-13T08:55:10.184503Z</updatedAt>
+      <deviationsHash>80DA6F96B1B192207C5FC08F07F76CBCFF78A21105BD7DCAD2C5D5164B20F0C4</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.EntityFrameworkCore.Repositories.Repository#84e2176b-ecdc-4e83-bc00-b2577e103ef6</correlationId>
+      <path>EntityFrameworkCore.Postgres.EF11.Infrastructure/Repositories/BlogRepository.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-13T08:55:10.184521Z</updatedAt>
+      <deviationsHash>612BAF706DD3F6EE60038A8592F78838CB3C99573D83A16D4427B6464A3DD59D</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

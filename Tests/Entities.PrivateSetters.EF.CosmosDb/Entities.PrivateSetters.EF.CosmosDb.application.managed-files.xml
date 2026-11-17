@@ -52,7 +52,7 @@
   <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="Entities.PrivateSetters.EF.CosmosDb.Domain/Repositories/ITagRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Entities.PrivateSetters.EF.CosmosDb.Infrastructure.csproj" deviationsHash="CD39E9B1D1DA1142A25B4CB3C4BB9B857D6B4E2E0CBADD45B188C01A4B5746D0" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Entities.PrivateSetters.EF.CosmosDb.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Entities.PrivateSetters.EF.CosmosDb.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

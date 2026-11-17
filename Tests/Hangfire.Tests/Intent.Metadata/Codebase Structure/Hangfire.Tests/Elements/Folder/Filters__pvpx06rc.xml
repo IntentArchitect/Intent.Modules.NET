@@ -249,5 +249,37 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="167e1408-ac25-4a55-bc19-0ccaeff93360" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.HttpQueryDocumentFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0e2b340a-ff02-42a7-96e9-e519747747b8</parentFolderId>
+      <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+      <packageName>Hangfire.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b952a263-e9f5-4d8e-af3f-b663283a45d4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer</name>
+      <display>Intent.AspNetCore.Swashbuckle.OpenApi32DocumentSerializer</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0e2b340a-ff02-42a7-96e9-e519747747b8</parentFolderId>
+      <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+      <packageName>Hangfire.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

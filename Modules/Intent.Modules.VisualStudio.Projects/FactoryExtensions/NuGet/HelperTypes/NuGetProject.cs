@@ -13,6 +13,11 @@ internal class NuGetProject
     public string ProjectId { get; set; }
     public IEnumerable<IStereotype> ProjectStereotypes { get; set; }
     public string Name { get; set; }
+    /// <summary>
+    /// The project's target frameworks, sorted and joined with ";". Package versions are only consolidated between
+    /// projects with the same value, as a version for one framework may not support another.
+    /// </summary>
+    public string TargetFrameworks { get; set; } = string.Empty;
     public string Content { get; set; }
     public Dictionary<string, NuGetPackage> RequestedPackages { get; set; } = new(StringComparer.OrdinalIgnoreCase);
     public Dictionary<string, NuGetPackage> InstalledPackages { get; set; } = new(StringComparer.OrdinalIgnoreCase);

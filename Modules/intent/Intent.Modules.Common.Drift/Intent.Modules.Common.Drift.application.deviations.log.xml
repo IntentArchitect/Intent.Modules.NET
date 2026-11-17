@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#9e1369ae-eede-4c26-97ed-f84614177072</correlationId>
+      <path>Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:23:42.413988Z</updatedAt>
+      <deviationsHash>1C146175F140EDB7905F73DBB1C6E67616863D4634CF52541A6A65B58067C9C0</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#9de3ecae-d150-4842-849b-187349505d4a</correlationId>
+      <path>Templates/IntentDriftReference/IntentDriftReferenceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:23:42.4140101Z</updatedAt>
+      <deviationsHash>61E8C054EFD1D896DD5D0534F1B1552A039076D355B319DAEAACB8C123B5869C</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#0d424a87-3d1a-4bd3-a90e-e24bf0c26d2b</correlationId>
+      <path>Templates/ModelSyncRule/ModelSyncRuleTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:23:42.414018Z</updatedAt>
+      <deviationsHash>87B1E6520FA62A2B7E92125EDED7B3D6FD72A4124801E0644EF6B36454D80DA6</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#5fdb9a3a-cee9-499d-aa51-26eb9158faa8</correlationId>
+      <path>Templates/SyncModelSkill/SyncModelSkillTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:23:42.4140257Z</updatedAt>
+      <deviationsHash>8F134B32C9236F003CFCCBD259108E4B3218806199ED14990473537D58DE777A</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#ad869c1c-7c8a-433c-b3d3-933e2b79de89</correlationId>
+      <path>Templates/ValidateDriftRecipesSkill/ValidateDriftRecipesSkillTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-10-29T09:23:42.4140335Z</updatedAt>
+      <deviationsHash>79A8EA5809EF4DB57E4AD3FB21BE8A72783EC4EE4E9A84F1AE500A65F50A9862</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

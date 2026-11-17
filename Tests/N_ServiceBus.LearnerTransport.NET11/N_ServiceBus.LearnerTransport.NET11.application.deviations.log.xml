@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#c2c90d40-ca71-4c8a-a610-dd1cfab761b9</correlationId>
+      <path>N_ServiceBus.LearnerTransport.NET11.Application/IntegrationEvents/EventHandlers/CatchAllHandler.cs</path>
+      <count>4</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-15T09:50:51.6275851Z</updatedAt>
+      <deviationsHash>E98669CD6EEB0214D938C45B809F6E26A1BCC27028DDC02268306A0AF4AAB8CC</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Contracts.IntegrationEventHandler#895881dc-7c3e-44c7-af60-d3b13b0709f1</correlationId>
+      <path>N_ServiceBus.LearnerTransport.NET11.Application/IntegrationEvents/EventHandlers/TestMessageHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-15T09:50:51.6276143Z</updatedAt>
+      <deviationsHash>EA3BE0DDDD0F2BCA1F33AF2079C20788363D16066B6D9EEBB8F00730D0B1FC58</deviationsHash>
+    </file>
+  </files>
+</deviationsLog>

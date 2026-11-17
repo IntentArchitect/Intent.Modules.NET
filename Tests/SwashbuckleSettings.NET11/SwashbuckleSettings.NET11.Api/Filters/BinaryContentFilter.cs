@@ -1,0 +1,53 @@
+using Intent.RoslynWeaver.Attributes;
+using Microsoft.OpenApi;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using SwashbuckleSettings.NET11.Api.Controllers.FileTransfer;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.AspNetCore.Controllers.BinaryContentFilter", Version = "1.0")]
+
+namespace SwashbuckleSettings.NET11.Api.Filters
+{
+    public class BinaryContentFilter : IOperationFilter
+    {
+        /// <summary>
+        /// Configures operations decorated with the <see cref="BinaryContentAttribute" />.
+        /// </summary>
+        /// <param name="operation">The operation.</param>
+        /// <param name="context">The context.</param>
+        public void Apply(OpenApiOperation operation, OperationFilterContext context)
+        {
+            var attribute = context.MethodInfo.GetCustomAttributes(typeof(BinaryContentAttribute), false).FirstOrDefault();
+
+            if (attribute == null)
+            {
+                return;
+            }
+            operation.Parameters ??= [];
+            operation.Parameters.Add(new OpenApiParameter
+            {
+                Name = "Content-Disposition",
+                In = ParameterLocation.Header,
+                Required = false,
+                Schema = new OpenApiSchema
+                {
+                    Type = JsonSchemaType.String
+                },
+                Description = "e.g. form-data; name=\"file\"; filename=example.txt"
+            });
+            operation.RequestBody = new OpenApiRequestBody()
+            {
+                Required = true,
+                Content = new Dictionary<string, IOpenApiMediaType>()
+            };
+            operation.RequestBody!.Content!.Add("application/octet-stream", new OpenApiMediaType()
+            {
+                Schema = new OpenApiSchema()
+                {
+                    Type = JsonSchemaType.String,
+                    Format = "binary",
+                },
+            });
+        }
+    }
+}

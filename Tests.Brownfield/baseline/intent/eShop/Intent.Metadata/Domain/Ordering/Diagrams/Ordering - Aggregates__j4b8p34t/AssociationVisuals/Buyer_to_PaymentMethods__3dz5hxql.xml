@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<associationVisual id="96777631-85ec-4df4-a8f3-bf3ebe99151c" zIndex="0">
+  <name>Buyer_to_PaymentMethods</name>
+  <sourceId>61a67154-8048-4011-bf04-19be21396a2f</sourceId>
+  <targetId>436c2166-3812-4d0a-9575-5e33a44c1396</targetId>
+  <targetPrefPoint x="100" y="55" />
+</associationVisual>

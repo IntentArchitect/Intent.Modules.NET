@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="08986c00-9a91-4dbd-9901-7b148b0660e8" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>ODataControllers</name>
+  <display>ODataControllers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4b244475-625c-4c0e-b06d-bc5cb068e712</parentFolderId>
+  <packageId>cc4879a3-df01-497d-af3e-ed16ab8d623f</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c3cc35e7-8cb8-4a30-a941-0539241db756" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.OData.EntityFramework.ODataAggregateController</name>
+      <display>Intent.AspNetCore.OData.EntityFramework.ODataAggregateController</display>
+      <externalReference>Intent.AspNetCore.OData.EntityFramework</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>08986c00-9a91-4dbd-9901-7b148b0660e8</parentFolderId>
+      <packageId>cc4879a3-df01-497d-af3e-ed16ab8d623f</packageId>
+      <packageName>root</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

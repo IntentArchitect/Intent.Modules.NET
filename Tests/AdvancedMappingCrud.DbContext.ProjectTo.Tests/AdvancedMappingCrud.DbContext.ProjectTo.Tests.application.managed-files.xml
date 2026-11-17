@@ -31,7 +31,7 @@
   <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Api/Services/CurrentUserService.cs" templateId="Intent.Application.Identity.CurrentUserService" />
   <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Api/Startup.cs" templateId="Intent.AspNetCore.Startup" />
   <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
-  <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application/AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.csproj" deviationsHash="4C508DEE126CD2CF10ED247422B6F99C0AF5684919423E5B1750B3777CFEBD72" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application/AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.AuthorizationBehaviour" />
   <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application/Common/Behaviours/LoggingBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.LoggingBehaviour" />
   <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application/Common/Behaviours/PerformanceBehaviour.cs" templateId="Intent.Application.MediatR.Behaviours.PerformanceBehaviour" />
@@ -184,7 +184,7 @@
   <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Domain/Entities/User.cs" templateId="Intent.Entities.DomainEntity" />
   <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Domain/EntityStatus.cs" templateId="Intent.Entities.DomainEnum" />
   <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Domain/OrderStatus.cs" templateId="Intent.Entities.DomainEnum" />
-  <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure/AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure.csproj" deviationsHash="70411D16BCC7159C4D7D0BD76D9B3BC0FE252E9B9192571246B391BB656E2275" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure/AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
   <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

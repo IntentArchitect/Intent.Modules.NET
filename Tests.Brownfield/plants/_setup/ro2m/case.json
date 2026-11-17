@@ -1,0 +1,3 @@
+{
+  "prompt": "In the Domain designer, add an optional string attribute Sku to CatalogItem, with a max length of 32."
+}

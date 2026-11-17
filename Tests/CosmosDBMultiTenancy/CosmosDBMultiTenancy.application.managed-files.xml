@@ -16,7 +16,7 @@
   <file path="CosmosDBMultiTenancy.Api/Configuration/SwashbuckleConfiguration.cs" templateId="Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration" />
   <file path="CosmosDBMultiTenancy.Api/Controllers/InvoicesController.cs" templateId="Intent.AspNetCore.Controllers.Controller" />
   <file path="CosmosDBMultiTenancy.Api/Controllers/ResponseTypes/JsonResponse.cs" templateId="Intent.AspNetCore.Controllers.JsonResponse" />
-  <file path="CosmosDBMultiTenancy.Api/CosmosDBMultiTenancy.Api.csproj" deviationsHash="BAA9759090316B6D1B897C99F6AE9FB2064B26690AAC17B17E2E44441B591609" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="CosmosDBMultiTenancy.Api/CosmosDBMultiTenancy.Api.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="CosmosDBMultiTenancy.Api/Filters/AuthorizeCheckOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter" />
   <file path="CosmosDBMultiTenancy.Api/Filters/ExceptionFilter.cs" templateId="Intent.AspNetCore.Controllers.ExceptionFilter" />
   <file path="CosmosDBMultiTenancy.Api/Filters/HideRouteParametersFromBodyOperationFilter.cs" templateId="Intent.AspNetCore.Swashbuckle.HideRouteParametersFromBodyOperationFilter" />

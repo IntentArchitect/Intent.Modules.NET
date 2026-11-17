@@ -141,6 +141,6 @@
   <file path="TableStorage.Tests.Infrastructure/Repositories/RepositoryBase.cs" templateId="Intent.EntityFrameworkCore.Repositories.RepositoryBase" />
   <file path="TableStorage.Tests.Infrastructure/Repositories/TableStorageRepositoryBase.cs" templateId="Intent.Azure.TableStorage.TableStorageRepositoryBase" />
   <file path="TableStorage.Tests.Infrastructure/Services/DomainEventService.cs" templateId="Intent.MediatR.DomainEvents.DomainEventService" />
-  <file path="TableStorage.Tests.Infrastructure/TableStorage.Tests.Infrastructure.csproj" deviationsHash="C115DBB7671124337D7C8D9EB1BD5D631B37AEBF2E9FA2518ED7C30B5D4871DC" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="TableStorage.Tests.Infrastructure/TableStorage.Tests.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="TableStorage.Tests.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
 </managedFiles>

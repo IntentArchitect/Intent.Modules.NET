@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2299ee93-60a6-468d-a0a4-52ec67f3f22f" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CustomerBasket</name>
+  <display>CustomerBasket</display>
+  <sort-children>by-type-then-manually</sort-children>
+  <parentFolderId>501bdc0a-3960-4d04-85b8-ddbbd9d42522</parentFolderId>
+  <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+  <packageName>Basket.API</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f58ac38b-545d-4b87-9560-c3430ef415ed" name="File Config">
+      <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+      <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+      <properties>
+        <property name="c1ae06dd-91ed-4e44-92ca-9384a54fbc59" display="Filename" />
+        <property name="35b47dc5-8c32-4596-9515-0480c0558752" display="Namespace" value="eShop.Basket.API.Model" />
+        <property name="729b70ca-5559-433b-9cfd-0206dab6b2fd" display="No Namespace" value="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <children>
+    <element id="858af90d-e863-4bb1-9ef2-6e8a9acff218" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>BuyerId</name>
+      <display>BuyerId: string</display>
+      <typeReference id="ab1fdc5c-3385-4ed3-a824-19fcc2d7c814">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeName>string</typeName>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+      </typeReference>
+      <parentFolderId>2299ee93-60a6-468d-a0a4-52ec67f3f22f</parentFolderId>
+      <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+      <packageName>Basket.API</packageName>
+    </element>
+    <element id="6dd5d8e5-9fdc-4b07-ae16-8ea7a9167b34" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Items</name>
+      <display>Items: BasketItem[*] = @[]</display>
+      <value>@[]</value>
+      <typeReference id="87ced365-7154-492a-bd0a-0d59c13dfb4f">
+        <typeId>d583ebb4-57f5-4a44-8dbc-8db4c458d8e4</typeId>
+        <typeName>BasketItem</typeName>
+        <isCollection>true</isCollection>
+        <typePackageName>Basket.API</typePackageName>
+        <typePackageId>25536d89-5344-4328-b4d5-3b3fb7798097</typePackageId>
+      </typeReference>
+      <parentFolderId>2299ee93-60a6-468d-a0a4-52ec67f3f22f</parentFolderId>
+      <packageId>25536d89-5344-4328-b4d5-3b3fb7798097</packageId>
+      <packageName>Basket.API</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="2550e9f2-2d5c-4a98-b6a9-8348f86f06b2" name="Collection Type">
+          <definitionPackageName>Intent.Services.Guardrails.Contracts</definitionPackageName>
+          <definitionPackageId>5c3db0f8-a7c9-4afc-b9dd-ca5d5a22674d</definitionPackageId>
+          <properties>
+            <property name="c2d2f207-be03-4dfc-a5c1-995fcb7cce97" display="Type" value="List" />
+            <property name="7a58d9ff-2d8d-4adb-84da-c37548b02931" display="Custom Format" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+    </element>
+  </children>
+</class>

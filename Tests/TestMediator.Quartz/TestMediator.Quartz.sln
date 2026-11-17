@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{5FF60553-BB13-42A0-8D4B-4C33AF968CB7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMediator.Quartz.Api", "TestMediator.Quartz.Api\TestMediator.Quartz.Api.csproj", "{F10E2F76-C629-485D-A23B-B5719BAE85CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{5AD2EA73-C650-42CA-9CC2-EA4B5B5AA98C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMediator.Quartz.Application", "TestMediator.Quartz.Application\TestMediator.Quartz.Application.csproj", "{1BEBE950-CB09-412E-BD97-67C4C5F43D60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{142C482C-148B-46EA-BBF8-0C0B16F001AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMediator.Quartz.Domain", "TestMediator.Quartz.Domain\TestMediator.Quartz.Domain.csproj", "{BB6DB982-99FA-43AF-9B95-847F26AB15D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{D215EA61-616A-4B61-8991-6DFAEDE491ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMediator.Quartz.Infrastructure", "TestMediator.Quartz.Infrastructure\TestMediator.Quartz.Infrastructure.csproj", "{02B94FCA-392A-4E4A-905A-A559ABE6F993}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F10E2F76-C629-485D-A23B-B5719BAE85CC} = {5FF60553-BB13-42A0-8D4B-4C33AF968CB7}
+		{1BEBE950-CB09-412E-BD97-67C4C5F43D60} = {5AD2EA73-C650-42CA-9CC2-EA4B5B5AA98C}
+		{BB6DB982-99FA-43AF-9B95-847F26AB15D8} = {142C482C-148B-46EA-BBF8-0C0B16F001AF}
+		{02B94FCA-392A-4E4A-905A-A559ABE6F993} = {D215EA61-616A-4B61-8991-6DFAEDE491ED}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F10E2F76-C629-485D-A23B-B5719BAE85CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10E2F76-C629-485D-A23B-B5719BAE85CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10E2F76-C629-485D-A23B-B5719BAE85CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10E2F76-C629-485D-A23B-B5719BAE85CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BEBE950-CB09-412E-BD97-67C4C5F43D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BEBE950-CB09-412E-BD97-67C4C5F43D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BEBE950-CB09-412E-BD97-67C4C5F43D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BEBE950-CB09-412E-BD97-67C4C5F43D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB6DB982-99FA-43AF-9B95-847F26AB15D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB6DB982-99FA-43AF-9B95-847F26AB15D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB6DB982-99FA-43AF-9B95-847F26AB15D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB6DB982-99FA-43AF-9B95-847F26AB15D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02B94FCA-392A-4E4A-905A-A559ABE6F993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B94FCA-392A-4E4A-905A-A559ABE6F993}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B94FCA-392A-4E4A-905A-A559ABE6F993}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B94FCA-392A-4E4A-905A-A559ABE6F993}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

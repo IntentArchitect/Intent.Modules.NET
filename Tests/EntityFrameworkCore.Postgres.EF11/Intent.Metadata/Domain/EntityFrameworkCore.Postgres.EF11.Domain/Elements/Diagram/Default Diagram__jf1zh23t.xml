@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="60989aed-074c-406b-84b9-d65fe244e0d5" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <parentFolderId>9e660ce7-7357-4d30-9094-f957a8eb71fd</parentFolderId>
+  <packageId>9e660ce7-7357-4d30-9094-f957a8eb71fd</packageId>
+  <packageName>EntityFrameworkCore.Postgres.EF11.Domain</packageName>
+  <diagram>
+    <targetPackageId>9e660ce7-7357-4d30-9094-f957a8eb71fd</targetPackageId>
+  </diagram>
+</class>

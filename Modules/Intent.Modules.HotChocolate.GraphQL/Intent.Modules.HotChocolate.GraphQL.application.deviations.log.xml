@@ -10,6 +10,15 @@
       <updatedAt>2026-09-02T13:57:28.0243312Z</updatedAt>
       <deviationsHash>DC889AA4E7F31EBAB1B3D9E1154267A99A98A869F8C102C397CDED45188E3407</deviationsHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f16ade6a-8713-4526-b0b1-38e7cee8b749</correlationId>
+      <path>Templates/MutationType/MutationTypeTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-14T17:46:25.8796716Z</updatedAt>
+      <deviationsHash>F5C457764FDE5ECD19EE0B9A8B689407E2152693A77230CC28959BF253B986B9</deviationsHash>
+    </file>
   </files>
   <customFiles>
     <customFile>

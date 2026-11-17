@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="a37e9eec-4e8a-4b03-953c-b4cd7b87271d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>10.0.9</name>
-      <display>10.0.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>10.0.15</name>
+      <display>10.0.15 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,13 +47,83 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a463eb06-6e6d-4c95-a4eb-c80ef28353f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a5739e02-6ec3-4b4e-b8be-4d7f35b72b3c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OpenApi</name>
+          <display>Microsoft.OpenApi (2.13.0)</display>
           <isAbstract>false</isAbstract>
-          <value>2.0.0</value>
+          <value>2.13.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a37e9eec-4e8a-4b03-953c-b4cd7b87271d</parentFolderId>
+          <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+          <packageName>Intent.AspNetCore.Scalar</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="97cd4018-e8d1-4327-9e1c-4ae7e411e45c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>11.0.0</name>
+      <display>11.0.0 ( &gt;= .NETCoreApp,Version=v11.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2ef13de8-b52e-4467-9ef4-4a2ffcc086bd</parentFolderId>
+      <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+      <packageName>Intent.AspNetCore.Scalar</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v11.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="9c531954-d2ca-450f-a96e-aec16e33537d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.WebUtilities</name>
+          <display>Microsoft.AspNetCore.WebUtilities (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>97cd4018-e8d1-4327-9e1c-4ae7e411e45c</parentFolderId>
+          <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+          <packageName>Intent.AspNetCore.Scalar</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5975f4fc-3cc6-48a0-9c6c-a98ecf887faf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Hosting</name>
+          <display>Microsoft.Extensions.Hosting (11.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>11.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>97cd4018-e8d1-4327-9e1c-4ae7e411e45c</parentFolderId>
+          <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+          <packageName>Intent.AspNetCore.Scalar</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bcf6ca5d-9958-447b-b2e7-295bc46fd551" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.OpenApi</name>
+          <display>Microsoft.OpenApi (3.11.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.11.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>97cd4018-e8d1-4327-9e1c-4ae7e411e45c</parentFolderId>
+          <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+          <packageName>Intent.AspNetCore.Scalar</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -100,8 +170,8 @@
       </childElements>
     </childElement>
     <childElement id="3a219169-0fac-4d98-8b7e-43cdfc076f96" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.28</name>
-      <display>8.0.23 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.0.34</name>
+      <display>8.0.34 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -122,13 +192,16 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="616f02b5-1439-4ea7-bcf1-f22cc323b42c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="accba47c-a5a4-4d02-91d8-e6cc126fae89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OpenApi</name>
+          <display>Microsoft.OpenApi (1.6.31)</display>
           <isAbstract>false</isAbstract>
-          <value>1.4.3</value>
+          <value>1.6.31</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3a219169-0fac-4d98-8b7e-43cdfc076f96</parentFolderId>
+          <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+          <packageName>Intent.AspNetCore.Scalar</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -136,8 +209,8 @@
       </childElements>
     </childElement>
     <childElement id="5efb9258-95e3-4bb5-aeea-09d90ec7a88a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.17</name>
-      <display>9.0.12 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>9.0.23</name>
+      <display>9.0.23 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -158,13 +231,16 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4b1513b8-9410-4700-8f80-656bf5db1add" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="78c307b4-cfae-4f4f-aa02-8c18bc88e721" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OpenApi</name>
+          <display>Microsoft.OpenApi (1.6.31)</display>
           <isAbstract>false</isAbstract>
-          <value>1.6.17</value>
+          <value>1.6.31</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5efb9258-95e3-4bb5-aeea-09d90ec7a88a</parentFolderId>
+          <packageId>26ad62ab-3eab-479d-be93-ac6c6cd8046c</packageId>
+          <packageName>Intent.AspNetCore.Scalar</packageName>
           <stereotypes />
           <metadata />
           <childElements />

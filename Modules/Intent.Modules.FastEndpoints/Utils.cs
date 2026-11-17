@@ -50,6 +50,7 @@ internal static class Utils
         switch (endpointModel.Verb)
         {
             case HttpVerb.Get:
+            case HttpVerb.Query:
             case HttpVerb.Patch:
             case HttpVerb.Put:
                 defaultResponseExpression = hasReturnType ? $"TypedResults.Ok({resultExpression})" : "TypedResults.NoContent()";

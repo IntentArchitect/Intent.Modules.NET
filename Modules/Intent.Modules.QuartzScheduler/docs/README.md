@@ -20,6 +20,6 @@ This module creates the required infrastructure for a Windows Service:-
 ## Service Designer
 
 You can model scheduled jobs in the services designer, using the CRON syntax to specify the scheduling.
-`Scheduled Jobs` can be modeled to publish commands if you are using MediatR.
+`Scheduled Jobs` can be modeled to publish commands if you are using MediatR or Mediator.
 
 ![Scheduled Jobs](images/modeled-scheduled-jobs.png)

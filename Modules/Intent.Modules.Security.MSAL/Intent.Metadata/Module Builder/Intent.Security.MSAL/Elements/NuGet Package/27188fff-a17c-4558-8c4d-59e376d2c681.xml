@@ -24,115 +24,9 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="104fc53d-9f33-412f-9898-4fc4c1047caa" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.12.2</name>
-      <display>4.12.2 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>27188fff-a17c-4558-8c4d-59e376d2c681</parentFolderId>
-      <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-      <packageName>Intent.Security.MSAL</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="f3fe5835-7bc4-4a02-a706-bab3b7c1252b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Graph</name>
-          <display>Microsoft.Graph (4.36.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.36.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>104fc53d-9f33-412f-9898-4fc4c1047caa</parentFolderId>
-          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-          <packageName>Intent.Security.MSAL</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="6bfc9b46-052c-4f0f-b238-a1e8cbfa7b1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web.TokenAcquisition</name>
-          <display>Microsoft.Identity.Web.TokenAcquisition (4.12.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.12.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>104fc53d-9f33-412f-9898-4fc4c1047caa</parentFolderId>
-          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-          <packageName>Intent.Security.MSAL</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="0c6e338f-c60d-47cc-927b-ae9097d6e858" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.12.2</name>
-      <display>4.12.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>27188fff-a17c-4558-8c4d-59e376d2c681</parentFolderId>
-      <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-      <packageName>Intent.Security.MSAL</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="59623eac-cc10-43d4-ac8b-ac1372a7a086" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Graph</name>
-          <display>Microsoft.Graph (4.36.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.36.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>0c6e338f-c60d-47cc-927b-ae9097d6e858</parentFolderId>
-          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-          <packageName>Intent.Security.MSAL</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="2acc1b06-3dcd-4866-83ce-67099a0e8053" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Identity.Web.TokenAcquisition</name>
-          <display>Microsoft.Identity.Web.TokenAcquisition (4.12.2)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.12.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>0c6e338f-c60d-47cc-927b-ae9097d6e858</parentFolderId>
-          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-          <packageName>Intent.Security.MSAL</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="e38c71a0-75dc-4b3d-bfad-9cccf624e325" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.12.2</name>
-      <display>4.12.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>4.18.0</name>
+      <display>4.18.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -153,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1e681fe0-0a40-44cd-ab91-69ab1c3def8b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4bb29e8e-184a-4aba-8e81-198d7717489f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Graph</name>
           <display>Microsoft.Graph (4.36.0)</display>
           <isAbstract>false</isAbstract>
@@ -167,11 +61,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4aa2b135-954e-485d-8d53-cdde2934fe8b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0b59b6d8-ec61-42a3-9f7e-c3b28307ab84" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenAcquisition</name>
-          <display>Microsoft.Identity.Web.TokenAcquisition (4.12.2)</display>
+          <display>Microsoft.Identity.Web.TokenAcquisition (4.18.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.12.2</value>
+          <value>4.18.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e38c71a0-75dc-4b3d-bfad-9cccf624e325</parentFolderId>
@@ -183,9 +77,115 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="0c6e338f-c60d-47cc-927b-ae9097d6e858" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>4.18.0</name>
+      <display>4.18.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>27188fff-a17c-4558-8c4d-59e376d2c681</parentFolderId>
+      <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+      <packageName>Intent.Security.MSAL</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="02568fed-642e-43c3-87f2-4c04fb3fa74e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Graph</name>
+          <display>Microsoft.Graph (4.36.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.36.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0c6e338f-c60d-47cc-927b-ae9097d6e858</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e861e11b-84c9-4737-9440-08c2829f1f72" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web.TokenAcquisition</name>
+          <display>Microsoft.Identity.Web.TokenAcquisition (4.18.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.18.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0c6e338f-c60d-47cc-927b-ae9097d6e858</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="104fc53d-9f33-412f-9898-4fc4c1047caa" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>4.18.0</name>
+      <display>4.18.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>27188fff-a17c-4558-8c4d-59e376d2c681</parentFolderId>
+      <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+      <packageName>Intent.Security.MSAL</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="6365b0d6-d29a-4b22-bea3-f89c58d32a94" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Graph</name>
+          <display>Microsoft.Graph (4.36.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.36.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>104fc53d-9f33-412f-9898-4fc4c1047caa</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="25ee21f5-fcf9-4c0e-a8f6-60357dfc85aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web.TokenAcquisition</name>
+          <display>Microsoft.Identity.Web.TokenAcquisition (4.18.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.18.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>104fc53d-9f33-412f-9898-4fc4c1047caa</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="7b83235b-71be-42e6-abd5-3f0b2e717f3c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.12.2</name>
-      <display>4.12.2 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
+      <name>4.18.0</name>
+      <display>4.18.0 ( &gt;= .NETCoreApp,Version=v10.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -206,7 +206,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a1ef3e3b-ec25-4965-a33b-4d65e9710c44" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="95432a95-9048-4804-87e9-b42643c0cb6a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Graph</name>
           <display>Microsoft.Graph (4.36.0)</display>
           <isAbstract>false</isAbstract>
@@ -220,11 +220,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a65902f0-fbef-44e9-a0a5-91497b5f358c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="65310566-8781-4373-a32a-5d1016084983" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenAcquisition</name>
-          <display>Microsoft.Identity.Web.TokenAcquisition (4.12.2)</display>
+          <display>Microsoft.Identity.Web.TokenAcquisition (4.18.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.12.2</value>
+          <value>4.18.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7b83235b-71be-42e6-abd5-3f0b2e717f3c</parentFolderId>

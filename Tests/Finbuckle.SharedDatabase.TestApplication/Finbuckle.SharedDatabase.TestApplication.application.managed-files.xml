@@ -62,7 +62,7 @@
   <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/IUserRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Finbuckle.SharedDatabase.TestApplication.Infrastructure.csproj" deviationsHash="E89F181B48881ED41743D93365DA8592B7E194C6BACB9E4AE27E837E30282039" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Finbuckle.SharedDatabase.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />
   <file path="Finbuckle.SharedDatabase.TestApplication.Infrastructure/Persistence/Configurations/UserConfiguration.cs" templateId="Intent.EntityFrameworkCore.EntityTypeConfiguration" />

@@ -16,6 +16,7 @@ using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Multitenancy;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
@@ -23,6 +24,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -46,25 +48,11 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
 
     protected override void OnAfterTemplateRegistrations(IApplication application)
     {
-        var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-        template?.CSharpFile.OnBuild(_ =>
+        // An application can have several hosts, each with its own startup template, so configure each one.
+        foreach (var template in application.FindTemplateInstances<IAppStartupTemplate>(IAppStartupTemplate.RoleName))
         {
-            template.StartupFile.AddServiceConfiguration(ctx => $"{ctx.Services}.ConfigureMultiTenancy({ctx.Configuration});");
-        }, 100);
-
-        template?.CSharpFile.AfterBuild(_ =>
-        {
-            template.StartupFile.ConfigureApp((statements, ctx) =>
-            {
-                var useRoutingStatement = statements.FindStatement(x => x.ToString()!.Contains(".UseRouting()"));
-                if (useRoutingStatement == null)
-                {
-                    throw new("app.UseRouting() was not configured");
-                }
-
-                useRoutingStatement.InsertBelow(new CSharpStatement($"{ctx.App}.UseMultiTenancy();"));
-            });
-        }, 10);
+            ConfigureStartup(template);
+        }
 
         var configurations = new List<(string ConnectionStringName, ApplyConfiguration ApplyConfiguration)>();
         foreach (var tryGetConfiguration in new[] { TryGetEfCoreConfiguration, TryGetMongoDbConfiguration })
@@ -90,6 +78,38 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         {
             configuration.ApplyConfiguration(hasMultipleConfigurations);
         }
+    }
+
+    private static void ConfigureStartup(IAppStartupTemplate template)
+    {
+        // ConfigureMultiTenancy is declared by the host's own multi-tenancy configuration, placed by its Template Output.
+        if (template.OutputTarget.FindTemplateInstance(MultiTenancyConfigurationTemplate.TemplateId) is null)
+        {
+            // A host without multi-tenancy, such as a worker, is a normal setup, so this is not a warning.
+            Logging.Log.Debug($"Multitenancy: project '{template.OutputTarget.GetProject().Name}' has a startup but no multi-tenancy configuration it can reference, " +
+                "so tenants are not resolved in that project. " +
+                $"To resolve them, add a Template Output for {MultiTenancyConfigurationTemplate.TemplateId} under that project in the Codebase Structure designer.");
+            return;
+        }
+
+        template.CSharpFile.OnBuild(_ =>
+        {
+            template.StartupFile.AddServiceConfiguration(ctx => $"{ctx.Services}.ConfigureMultiTenancy({ctx.Configuration});");
+        }, 100);
+
+        template.CSharpFile.AfterBuild(_ =>
+        {
+            template.StartupFile.ConfigureApp((statements, ctx) =>
+            {
+                var useRoutingStatement = statements.FindStatement(x => x.ToString()!.Contains(".UseRouting()"));
+                if (useRoutingStatement == null)
+                {
+                    throw new("app.UseRouting() was not configured");
+                }
+
+                useRoutingStatement.InsertBelow(new CSharpStatement($"{ctx.App}.UseMultiTenancy();"));
+            });
+        }, 10);
     }
 
     private static bool TryGetEfCoreConfiguration(IApplication application, IMetadataManager metadataManager, out string connectionStringName, out ApplyConfiguration applyConfiguration)
@@ -295,7 +315,17 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         IApplication application,
         IReadOnlyCollection<string> connectionStringNames)
     {
-        var template = application.FindTemplateInstance<MultiTenancyConfigurationTemplate>(MultiTenancyConfigurationTemplate.TemplateId);
+        // Each host has its own multi-tenancy configuration.
+        foreach (var template in application.FindTemplateInstances<MultiTenancyConfigurationTemplate>(MultiTenancyConfigurationTemplate.TemplateId))
+        {
+            UpdateMultiTenancyConfigurationTemplate(template, connectionStringNames);
+        }
+    }
+
+    private static void UpdateMultiTenancyConfigurationTemplate(
+        MultiTenancyConfigurationTemplate template,
+        IReadOnlyCollection<string> connectionStringNames)
+    {
         var extendedInfoTypeName = template.GetTypeName(TenantExtendedInfoTemplate.TemplateId);
 
         template.CSharpFile.AfterBuild(file =>

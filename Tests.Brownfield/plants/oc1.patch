@@ -1,0 +1,40 @@
+diff --git a/src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs b/src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs
+index 5992d29..5b8e37e 100644
+--- a/src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs
++++ b/src/Catalog.API/Infrastructure/EntityConfigurations/CatalogItemEntityTypeConfiguration.cs
+@@ -10,6 +10,9 @@ class CatalogItemEntityTypeConfiguration
+         builder.Property(ci => ci.Name)
+             .HasMaxLength(50);
+ 
++        builder.Property(ci => ci.Barcode)
++            .HasMaxLength(13);
++
+         builder.Property(ci => ci.Embedding)
+             .HasColumnType("vector(384)");
+ 
+diff --git a/src/Catalog.API/Model/CatalogItem.cs b/src/Catalog.API/Model/CatalogItem.cs
+index 801caf2..be885d2 100644
+--- a/src/Catalog.API/Model/CatalogItem.cs
++++ b/src/Catalog.API/Model/CatalogItem.cs
+@@ -50,6 +50,8 @@ public class CatalogItem
+     /// </summary>
+     public bool OnReorder { get; set; }
+ 
++    public string? Barcode { get; set; }
++
+     public CatalogItem(string name) { Name = name; }
+ 
+ 
+diff --git a/src/Ordering.API/Apis/OrdersApi.cs b/src/Ordering.API/Apis/OrdersApi.cs
+index 159ab3b..7581319 100644
+--- a/src/Ordering.API/Apis/OrdersApi.cs
++++ b/src/Ordering.API/Apis/OrdersApi.cs
+@@ -20,7 +20,7 @@ public static class OrdersApi
+         api.MapPut("/ship", ShipOrderAsync);
+         api.MapGet("{orderId:int}", GetOrderAsync);
+         api.MapGet("/", GetOrdersByUserAsync);
+-        api.MapGet("/cardtypes", GetCardTypesAsync);
++        api.MapGet("/card-types", GetCardTypesAsync);
+         api.MapPost("/draft", CreateOrderDraftAsync);
+         api.MapPost("/", CreateOrderAsync);
+ 

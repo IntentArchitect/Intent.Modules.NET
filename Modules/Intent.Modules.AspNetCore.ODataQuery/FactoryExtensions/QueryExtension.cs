@@ -57,10 +57,18 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
 
         private void UpdateController(IApplication application, QueryModel queryModel, bool enableSelect)
         {
+            // Each host that exposes the service has its own controller for it.
+            var controllerTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.AspNetCore.Controllers.Controller")
+                .Where(t => t.TryGetModel<IMetadataModel>(out var model) && model.Id == queryModel.InternalElement.ParentElement.Id);
+            foreach (var controllerTemplate in controllerTemplates)
+            {
+                UpdateController(controllerTemplate, queryModel, enableSelect);
+            }
+        }
 
-            var controllerTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.Controllers.Controller", queryModel.InternalElement.ParentElement.Id);
-            if (controllerTemplate == null) return;
-            controllerTemplate?.CSharpFile.OnBuild(file =>
+        private static void UpdateController(ICSharpFileBuilderTemplate controllerTemplate, QueryModel queryModel, bool enableSelect)
+        {
+            controllerTemplate.CSharpFile.OnBuild(file =>
             {
                 controllerTemplate.AddUsing("Microsoft.AspNetCore.OData.Query");
                 var @class = file.Classes.First();

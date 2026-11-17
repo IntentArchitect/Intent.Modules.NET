@@ -23,9 +23,9 @@ namespace Intent.Modules.UnitTesting
             NugetRegistry.Register(CoverletCollectorPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("10.0.1"),
+                        ( >= 8, >= 0) => new PackageVersion("10.1.0"),
                         ( >= 2, >= 0) => new PackageVersion("6.0.4"),
-                        ( >= 0, >= 0) => new PackageVersion("10.0.1"),
+                        ( >= 0, >= 0) => new PackageVersion("10.1.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{CoverletCollectorPackageName}'"),
                     }
                 );
@@ -41,31 +41,31 @@ namespace Intent.Modules.UnitTesting
             NugetRegistry.Register(MoqPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("4.20.72")
-                            .WithNugetDependency("Castle.Core", "5.1.1"),
-                        ( >= 2, >= 1) => new PackageVersion("4.20.72")
-                            .WithNugetDependency("Castle.Core", "5.1.1"),
-                        ( >= 2, >= 0) => new PackageVersion("4.20.72")
-                            .WithNugetDependency("Castle.Core", "5.1.1")
-                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
+                        ( >= 6, >= 0) => new PackageVersion("4.21.0")
+                            .WithNugetDependency("Castle.Core", "5.2.1"),
+                        ( >= 2, >= 1) => new PackageVersion("4.21.0")
+                            .WithNugetDependency("Castle.Core", "5.2.1"),
+                        ( >= 2, >= 0) => new PackageVersion("4.21.0")
+                            .WithNugetDependency("Castle.Core", "5.2.1")
+                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.6.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MoqPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NSubstitutePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("5.3.0")
+                        ( >= 8, >= 0) => new PackageVersion("6.2.0")
                             .WithNugetDependency("Castle.Core", "5.1.1"),
-                        ( >= 2, >= 0) => new PackageVersion("5.3.0")
+                        ( >= 2, >= 0) => new PackageVersion("6.2.0")
                             .WithNugetDependency("Castle.Core", "5.1.1")
-                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.3.0"),
+                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NSubstitutePackageName}'"),
                     }
                 );
             NugetRegistry.Register(XunitRunnerVisualstudioPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("3.1.5"),
+                        ( >= 8, >= 0) => new PackageVersion("3.1.5", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("3.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{XunitRunnerVisualstudioPackageName}'"),
                     }
@@ -73,7 +73,7 @@ namespace Intent.Modules.UnitTesting
             NugetRegistry.Register(XunitV3PackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("3.2.2")
+                        ( >= 8, >= 0) => new PackageVersion("3.2.2", locked: true)
                             .WithNugetDependency("xunit.v3.mtp-v1", "3.2.2"),
                         ( >= 6, >= 0) => new PackageVersion("1.1.0")
                             .WithNugetDependency("xunit.analyzers", "1.20.0")

@@ -57,7 +57,7 @@
   <file path="Finbuckle.SeparateDatabase.TestApplication.Domain/Repositories/IRepository.cs" templateId="Intent.Entities.Repositories.Api.RepositoryInterface" />
   <file path="Finbuckle.SeparateDatabase.TestApplication.Domain/Repositories/IUserRepository.cs" templateId="Intent.Entities.Repositories.Api.EntityRepositoryInterface" />
   <file path="Finbuckle.SeparateDatabase.TestApplication.Infrastructure/DependencyInjection.cs" templateId="Intent.Infrastructure.DependencyInjection.DependencyInjection" />
-  <file path="Finbuckle.SeparateDatabase.TestApplication.Infrastructure/Finbuckle.SeparateDatabase.TestApplication.Infrastructure.csproj" deviationsHash="DAFE24B59AA4E09292A963FB44FD4E3A4A770369FFFED11C2A67639AD6DC01F5" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Finbuckle.SeparateDatabase.TestApplication.Infrastructure/Finbuckle.SeparateDatabase.TestApplication.Infrastructure.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Finbuckle.SeparateDatabase.TestApplication.Infrastructure/Migrations/README.md" templateId="Intent.EntityFrameworkCore.DbMigrationsReadMe" />
   <file path="Finbuckle.SeparateDatabase.TestApplication.Infrastructure/MultiTenant/TenantExtendedInfo.cs" templateId="Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo" />
   <file path="Finbuckle.SeparateDatabase.TestApplication.Infrastructure/Persistence/ApplicationDbContext.cs" templateId="Intent.EntityFrameworkCore.DbContext" />

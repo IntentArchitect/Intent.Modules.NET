@@ -24,7 +24,7 @@ Modeling your domain for Redis OM will look familiar to modeling your domain for
 
 ![Domain Model](images/redis-om-domain-modeling.png)
 
-`Id` attributes will automatically have `Indexed` stereotypes applied since Redis OM requires fields be `Indexed` when one wants to query them.
+`Id` attributes are always generated as `Indexed`, since Redis OM needs at least one indexed field to create a document's search index and to query it.
 
 Attributes can be marked as `Indexed` by applying this Stereotype.
 

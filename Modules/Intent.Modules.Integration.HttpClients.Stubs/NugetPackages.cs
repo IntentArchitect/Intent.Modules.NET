@@ -19,17 +19,22 @@ namespace Intent.Modules.Integration.HttpClients.Stubs
             NugetRegistry.Register(MicrosoftExtensionsConfigurationBinderPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.2"),
+                        ( >= 10, >= 0) => new PackageVersion("11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "11.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "11.0.0"),
+                        ( >= 2, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "10.0.15")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "10.0.15"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationBinderPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftExtensionsDependencyInjectionAbstractionsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("10.0.2")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "10.0.2"),
+                        ( >= 10, >= 0) => new PackageVersion("11.0.0"),
+                        ( >= 2, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "10.0.15")
+                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.6.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsDependencyInjectionAbstractionsPackageName}'"),
                     }
                 );

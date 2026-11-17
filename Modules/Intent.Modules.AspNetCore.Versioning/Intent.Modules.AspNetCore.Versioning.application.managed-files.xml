@@ -4,7 +4,7 @@
   <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FactoryExtensions/ControllerInstaller.cs" deviationsHash="0D4FDBA9C637C42FAB4A3C8B435F63F980319130FFF7533CB275D05882439A17" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/SwaggerInstaller.cs" deviationsHash="0AF5677B1868AC2B3220CE077FD848C883EE40EAAAABB0D252F63D657B304ACE" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/SwaggerInstaller.cs" deviationsHash="C72D66D13CBCF96A744195A04B2AB6E84B9222AA3683100C8FA771AE2F8CAD0A" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.AspNetCore.Versioning.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.AspNetCore.Versioning.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />

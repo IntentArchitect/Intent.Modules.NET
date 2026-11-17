@@ -14,18 +14,5 @@
       <deviationsHash>DC22D2647C9BE6F32304D259790177DB471061B55AB9C4773F543ABD684FFC3A</deviationsHash>
       <fileHash>28F34703E2B5371804E6A057014C32874349D793B22CDB9900A55B04429A072E</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.VisualStudio.Projects.CSharpProject#fb7214f9-ab4f-4419-ac71-a3f347b74160</correlationId>
-      <path>Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Intent.Modules.NET.Tests.Module1.Infrastructure.csproj</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-07-10T06:43:12.8535459Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2026-07-10T09:12:34.2369102Z</approvedAt>
-      <deviationsHash>7F763F60B5DF5D6717FED7617583C269354D8690575286DD4349CA6B15DAAA1C</deviationsHash>
-      <fileHash>A7EA2FB4250FDCB43D4D47DA81B75353C98750AD2BA02C1918F19990A11FDC8B</fileHash>
-    </file>
   </files>
 </deviationsLog>

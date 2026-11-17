@@ -7,8 +7,10 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Drift;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Services.Guardrails.Contracts.Drift;
 using CSharpKeywords = Intent.Modules.Common.Templates.CSharp;
 
 namespace Intent.Modules.Services.Guardrails.Contracts.Templates
@@ -18,8 +20,11 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
     /// output file can find each other. Declared on a hand-written partial of each template, because
     /// the base list of the designer-generated partial is Signature-Fully managed.
     /// </summary>
-    public interface IServicesContractTemplate : ICSharpFileBuilderTemplate
+    public interface IServicesContractTemplate : IDriftStructureSource
     {
+        /// <summary>The Services drift check compares this template's output with the code.</summary>
+        string IDriftStructureSource.Designer => ServicesDrift.Name;
+
         /// <summary>The designer element this template generates a type for.</summary>
         IElement ContractElement { get; }
 
