@@ -115,6 +115,16 @@ public sealed class ClaimReading
 
     internal string? Message { get; }
 
+    internal IReadOnlyList<Span> Code { get; private init; } = [];
+
+    /// <summary>
+    /// The reading with the other code it was read through, such as the <c>HasOne</c> and <c>WithMany</c> that pick out the
+    /// relationship a <c>HasForeignKey</c> configures. A finding still points at the reading's own place; a verified claim's
+    /// element is linked to both, for View Code and Changes Review.
+    /// </summary>
+    public ClaimReading Through(IEnumerable<Span> code) =>
+        new(From, Value, At, Reason, Detail, Candidates, Searched, Located, Message) { Code = [.. Code, .. code] };
+
     /// <summary>
     /// For <c>type.exists</c>: the type that realises the element, found where the engine's own rule wouldn't look. The
     /// claims that depend on this one read it.

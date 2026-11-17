@@ -1,5 +1,6 @@
 using System.Collections;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.DriftEngine.Code;
 
 namespace Intent.Modules.Common.DriftEngine.Vocabulary;
 
@@ -282,9 +283,7 @@ internal sealed class Expression
             "isSource" => end.Association is { } association && !IsTarget(association, end),
             "isTarget" => end.Association is { } association && IsTarget(association, end),
             "otherEnd" => end.OtherEnd(),
-            "multiplicity" => end.TypeReference is not { } multiplicity ? null
-                : multiplicity.IsCollection ? multiplicity.IsNullable ? "*" : "1..*"
-                : multiplicity.IsNullable ? "0..1" : "1",
+            "multiplicity" => end.TypeReference is not { } multiplicity ? null : TypeComparer.Multiplicity(multiplicity),
             "isNavigable" => end.IsNavigable,
             _ => end.TypeReference?.Element
         },

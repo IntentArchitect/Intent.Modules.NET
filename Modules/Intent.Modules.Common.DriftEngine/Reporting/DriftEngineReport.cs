@@ -97,7 +97,23 @@ namespace Intent.Modules.Common.DriftEngine.Reporting
             // What was checked, so a run with no drift is told apart from one that checked nothing.
             Logging.Log.Info($"Drift engine: checked {result.Claims.Count} claims against {result.Files.Count} files: " +
                 $"{result.Claims.Count(x => x.Outcome == "verified")} verified, {result.Claims.Count(x => x.Outcome == "contradicted")} contradicted, " +
-                $"{result.Claims.Count(x => x.Outcome == "cantVerify")} can't verify.");
+                $"{result.Claims.Count(x => x.Outcome == "cantVerify")} can't verify; " +
+                $"{result.Links.Select(x => x.Element).Distinct().Count()} elements linked to their code.");
+
+            // Each element's verified code, for View Code and Changes Review. The Software Factory reads the files as they are
+            // on disk now, as the engine did, and writes the links after this step.
+            foreach (var link in result.Links)
+            {
+                var path = Path.GetFullPath(Path.Combine(output, link.File));
+                if (link.Start is { } start && link.Length is { } length)
+                {
+                    application.ReportCodeLink(link.Element, path, start, length);
+                }
+                else
+                {
+                    application.ReportCodeLink(link.Element, path);
+                }
+            }
             var timings = $"Drift engine timings: model {model.TotalMilliseconds:0} ms, " +
                 string.Join(", ", result.Timings.Take(result.Timings.Count(x => !x.What.StartsWith("kind ")) + 8)
                     .Select(x => $"{x.What} {x.Milliseconds:0} ms{(x.Count is { } count ? $" ({count})" : "")}"));

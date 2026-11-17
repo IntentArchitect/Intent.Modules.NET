@@ -167,10 +167,17 @@ public sealed partial class DriftEngine
         findings.AddRange(_extensionFailures.GroupBy(x => x.Extension).Select(x => new Finding("config/pluginFailed", ScopeArea, "Code", "error",
             $"The {x.Key} extension failed: {x.First().Error} Claims it reads can't be verified.", new Anchor(Text: x.Key))));
         findings.AddRange(_packFindings.DistinctBy(x => x.Message));
+        var reported = Overridden(findings);
+        List<CodeLink> links = [];
+        if (_scope.Rows.Count > 0)
+        {
+            Timed("links", () => links = Links(reported));
+        }
+
         _timings.Add(new Timing("total", Stopwatch.GetElapsedTime(run).TotalMilliseconds));
         _timings.AddRange(_kindTimes.OrderByDescending(x => x.Value.Ticks)
             .Select(x => new Timing($"kind {x.Key}", TimeSpan.FromTicks(x.Value.Ticks * TimeSpan.TicksPerSecond / Stopwatch.Frequency).TotalMilliseconds, x.Value.Count)));
-        return new RunResult(_claims, Overridden(findings), Coverage(), _packs.Select(x => new PackRef(x.Id, x.Version)).ToList(), FilesRead()) { Timings = _timings };
+        return new RunResult(_claims, reported, Coverage(), _packs.Select(x => new PackRef(x.Id, x.Version)).ToList(), FilesRead()) { Timings = _timings, Links = links };
     }
 
     /// <summary>How long each part of the run took, for the log.</summary>
@@ -1724,6 +1731,11 @@ public sealed partial class DriftEngine
                 break;
         }
 
+        if (reading.Code.Count > 0 && claim.Reading is { } applied)
+        {
+            applied.Through = reading.Code;
+        }
+
         // Compared, both sides are shown as canonical text.
         claim.Expected = Canonical(claim, claim.Expected);
     }
@@ -1867,6 +1879,9 @@ public sealed partial class DriftEngine
         var message = (claim.Outcome, claim.Reason) switch
         {
             ("contradicted", _) when reading.Message is not null => reading.Message,
+            // A navigation's type and nullability state its association end's multiplicity, so that is what is said to differ.
+            ("contradicted", _) when claim.Source is IAssociationEnd { TypeReference: { } end } && EndMultiplicity(claim, end, reading) is { } code =>
+                $"`{display}` multiplicity: model `{TypeComparer.Multiplicity(end)}`, code {code}. The model states it in the association end's multiplicity.",
             ("contradicted", _) when claim.Definition.Existence && reading.Searched is { Count: > 0 } =>
                 $"`{display}` isn't in the code.",
             // Something there or not: "in the model, not in the code", not "model `present`, code `absent`".
@@ -1895,6 +1910,33 @@ public sealed partial class DriftEngine
         };
 
         return new Finding($"claim/{claim.Kind}", $"{claim.Area} (DriftEngine)", "ModelCode", "error", message, new Anchor(Element: claim.Element), [claim.Kind]);
+    }
+
+    /// <summary>
+    /// The multiplicity a navigation's code states, when that is all a <c>member.type</c> or <c>member.nullable</c> claim on its
+    /// association end disagrees on: a collection is <c>*</c>, an optional reference <c>0..1</c> and a required one <c>1</c>.
+    /// Null for any other difference, such as another item type.
+    /// </summary>
+    private string? EndMultiplicity(Claim claim, ITypeReference end, Reading reading)
+    {
+        if (claim.Kind == "member.nullable")
+        {
+            return !end.IsCollection && reading.Value is "true" or "false" ? $"`{(reading.Value == "true" ? "0..1" : "1")}`" : null;
+        }
+
+        if (claim.Kind != "member.type" || LocatedMember(claim)?.Type is not { } type || !TypeComparer.MatchesButForCollection(end, type, ProfileOf(type)))
+        {
+            return null;
+        }
+
+        return TypeComparer.IsCollection(type, ProfileOf(type))
+            ? $"`*` (`{type.Text}`)"
+            : type.Nullable switch
+            {
+                "true" => $"`0..1` (`{type.Text}`)",
+                "false" => $"`1` (`{type.Text}`)",
+                _ => $"a single `{type.Text}`"
+            };
     }
 
     /// <summary>

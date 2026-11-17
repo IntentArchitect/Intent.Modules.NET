@@ -578,7 +578,7 @@ public class Buyer
 
 ## association-reference-required
 
-The model says every order has a buyer (`1`), but `Order.Buyer` is `Buyer?`, so the code lets an order have none.
+The model says every order has a buyer (`1`), but `Order.Buyer` is `Buyer?`, so the code lets an order have none. The finding says so as the end's multiplicity.
 
 ```json case
 { "phase": 1, "base": "association-reference-optional", "kinds": ["member.nullable"], "traces": ["ESC-DOM-56"], "requirements": ["R1", "R14"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
@@ -621,7 +621,8 @@ The model says every order has a buyer (`1`), but `Order.Buyer` is `Buyer?`, so 
     { "kind": "member.nullable", "element": "order-buyer", "outcome": "contradicted", "expected": "false", "actual": "true", "at": "src/Domain/Order.cs:7" }
   ],
   "findings": [
-    { "rule": "claim/member.nullable", "severity": "error", "subject": "order-buyer" }
+    { "rule": "claim/member.nullable", "severity": "error", "subject": "order-buyer",
+      "messageContains": "`Order.Buyer` multiplicity: model `1`, code `0..1`." }
   ]
 }
 ```
@@ -871,6 +872,10 @@ public class Order
 {
   "claims": [
     { "kind": "member.nullable", "element": "order-buyer", "outcome": "contradicted", "expected": "false", "actual": "true", "at": "src/Domain/Order.cs:7" }
+  ],
+  "findings": [
+    { "rule": "claim/member.nullable", "severity": "error", "subject": "order-buyer",
+      "messageContains": "`Order.Buyer` multiplicity: model `1`, code `0..1`." }
   ]
 }
 ```

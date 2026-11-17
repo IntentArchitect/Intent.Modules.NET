@@ -118,6 +118,12 @@ Each requirement names the principle (P1 to P6 in [the plan](../plan.md)) or the
 | R58 | Adopting a real codebase (scope, curated model, packs, a green run) takes 2 hours or less, with no code changes.       | Plan decision                                                    | phase 5 |
 | R59 | Adoption resolves contradictions in the model, never in the code. Anything it can't read is reported to the developer. | P4; Common.Drift's "setting up the check never changes the code" | phase 5 |
 
+## L. Code links
+
+| Id  | Requirement                                                                                                                                                                                                                                                                                                                  | From                                          | Cases                       |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------------- |
+| R60 | Each run links every element (an association end's being its association's) to the code its verified claims read, for Intent Architect's View Code and Changes Review, which counts a linked line as verified. A declaration inside that code is linked only by its own element's claims, and no line holding a contradicted claim's reading, a finding or code no claim located is linked. An element with no line left is linked to the file. | User decision, 2026-11-17                     | the engine's code link tests |
+
 ## Not required
 
 - **Model-only rules.** Naming, "a Layer has a Path", and "a Navigation targets a Page" are designer validation, provided by the vocabulary's own module. The catalog marks them `model-rule`.

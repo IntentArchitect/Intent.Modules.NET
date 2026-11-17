@@ -468,7 +468,7 @@ internal sealed partial class EfCoreClaims : IClaimReader
         }
         var dependentConfig = EntityOf(context, model, dependent);
         var principalConfig = principal is null ? null : EntityOf(context, model, principal);
-        var chains = (dependentConfig?.Chains.Where(FromDependent) ?? []).Concat(principalConfig?.Chains.Where(FromPrincipal) ?? []).Distinct();
+        var chains = (dependentConfig?.Chains.Where(FromDependent) ?? []).Concat(principalConfig?.Chains.Where(FromPrincipal) ?? []).Distinct().ToList();
         var stated = chains.Select(chain => chain.LastOrDefault(c => c.Name == "HasForeignKey")).OfType<FluentCall>().ToList();
         if (stated.Count > 1)
         {
@@ -480,20 +480,23 @@ internal sealed partial class EfCoreClaims : IClaimReader
         string Modelled(string code) => located.FindIndex(x => x?.Name == code) is var index and >= 0 ? key.Columns[index] : code;
         if (stated is [var only])
         {
-            return ClaimReading.Stated(string.Join(", ", only.Selected.Select(Modelled)), only.At);
+            return ClaimReading.Stated(string.Join(", ", only.Selected.Select(Modelled)), only.At).Through(Selecting(chains.First(x => x.Contains(only))));
         }
+
+        // The one chain that configures the relationship is read with a key stated elsewhere too.
+        var selecting = chains is [var chain] ? Selecting(chain) : [];
 
         // [ForeignKey("Buyer")] on the key property, or [ForeignKey("BuyerId")] on the navigation.
         var members = context.Code.MembersOf(dependent).ToList();
         string? Named(MemberNode member) => member.Attributes.FirstOrDefault(a => a.Name == "ForeignKey" && a.Arguments.Count == 1)?.Arguments[0];
         if (members.Where(x => Named(x) is { } navigation && key.Navigations.Contains(navigation)).ToList() is { Count: > 0 } annotated)
         {
-            return ClaimReading.Stated(string.Join(", ", annotated.Select(x => x.Name)), annotated[0].At);
+            return ClaimReading.Stated(string.Join(", ", annotated.Select(x => x.Name)), annotated[0].At).Through(selecting);
         }
 
         if (members.FirstOrDefault(x => key.Navigations.Contains(x.Name) && Named(x) is not null) is { } navigationProperty)
         {
-            return ClaimReading.Stated(string.Join(", ", Named(navigationProperty)!.Split(',', StringSplitOptions.TrimEntries)), navigationProperty.At);
+            return ClaimReading.Stated(string.Join(", ", Named(navigationProperty)!.Split(',', StringSplitOptions.TrimEntries)), navigationProperty.At).Through(selecting);
         }
 
         // Every modelled column is one EF Core discovers for one of the relationship's navigations. With none modelled (a
@@ -501,9 +504,13 @@ internal sealed partial class EfCoreClaims : IClaimReader
         var conventional = located.Count > 0 && located.All(member => member is not null
                                                  && key.Navigations.Any(navigation => ConventionalForeignKey(context, dependent, member, model, navigation) is not null));
         return conventional
-            ? ClaimReading.Defaulted(string.Join(", ", key.Columns), located[0]!.At)
+            ? ClaimReading.Defaulted(string.Join(", ", key.Columns), located[0]!.At).Through(selecting)
             : ClaimReading.Absent(dependent.At);
     }
+
+    /// <summary>The calls of a chain that pick out its relationship: its <c>HasOne</c> or <c>HasMany</c>, and its <c>WithOne</c> or <c>WithMany</c>.</summary>
+    private static IReadOnlyList<Span> Selecting(IReadOnlyList<FluentCall> chain) =>
+        chain.Take(1).Concat(chain.Where(x => x.Name is "WithOne" or "WithMany").Take(1)).Select(x => x.At).ToList();
 
     /// <summary>
     /// How many owners each target has, for a relationship's end that no navigation states: the chain that configures the
@@ -548,20 +555,22 @@ internal sealed partial class EfCoreClaims : IClaimReader
                 return ClaimReading.Stated("1", first.At);
             }
 
-            // From the owner its With is the other end; from the target, its Has is.
+            // From the owner its With is the other end; from the target, its Has is. Read through the calls that pick out the
+            // relationship, whatever states the multiplicity.
+            var selecting = Selecting(chain);
             var many = isOwners ? with?.Name == "WithMany" || with is null && first.Name == "HasOne" : first.Name == "HasMany";
             if (many)
             {
-                return ClaimReading.Stated("*", isOwners ? (with ?? first).At : first.At);
+                return ClaimReading.Stated("*", isOwners ? (with ?? first).At : first.At).Through(selecting);
             }
 
             if (chain.LastOrDefault(x => x.Name == "IsRequired") is { } required)
             {
-                return ClaimReading.Stated(required.Arguments is ["false"] ? "0..1" : "1", required.At);
+                return ClaimReading.Stated(required.Arguments is ["false"] ? "0..1" : "1", required.At).Through(selecting);
             }
 
             var stated = chain.LastOrDefault(x => x.Name == "HasForeignKey")?.Selected is [var key] ? key : null;
-            return Owners(context, model, owner, target, stated) ?? ClaimReading.Stated("0..1", (with ?? first).At);
+            return (Owners(context, model, owner, target, stated) ?? ClaimReading.Stated("0..1", (with ?? first).At)).Through(selecting);
         }
 
         // The navigation alone: a collection is one-to-many, a reference many-to-one.

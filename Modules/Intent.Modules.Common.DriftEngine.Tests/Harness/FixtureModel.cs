@@ -97,6 +97,7 @@ internal sealed class FixtureModel
         var source = Substitute.For<IAssociationEnd>();
         var target = Substitute.For<IAssociationEnd>();
         var id = data.Text("id")!;
+        association.Id.Returns(id);
         association.SpecializationType.Returns(data.Text("type"));
         association.SourceEnd.Returns(source);
         association.TargetEnd.Returns(target);

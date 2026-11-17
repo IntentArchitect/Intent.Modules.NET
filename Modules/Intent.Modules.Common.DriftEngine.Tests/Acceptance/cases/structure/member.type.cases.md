@@ -1101,7 +1101,7 @@ public class PaymentMethod
 
 ## association-collection-flag
 
-The model says a buyer has at most one payment method (`0..1`), but the code navigates a collection: the end's type is contradicted, as one finding.
+The model says a buyer has at most one payment method (`0..1`), but the code navigates a collection: the end's type is contradicted, as one finding. The type differs only in being a collection, so the finding says what that means for the end, its multiplicity, with the code's type.
 
 ```json case
 { "phase": 1, "base": "association-collection", "kinds": ["member.type"], "traces": ["ESC-DOM-55"], "requirements": ["R1", "R14"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
@@ -1144,7 +1144,41 @@ The model says a buyer has at most one payment method (`0..1`), but the code nav
     { "kind": "member.type", "element": "buyer-payment-methods", "outcome": "contradicted", "at": "src/Domain/Buyer.cs:9" }
   ],
   "findings": [
-    { "rule": "claim/member.type", "severity": "error", "subject": "buyer-payment-methods", "count": 1 }
+    { "rule": "claim/member.type", "severity": "error", "subject": "buyer-payment-methods", "count": 1,
+      "messageContains": "`Buyer.PaymentMethods` multiplicity: model `0..1`, code `*` (`IEnumerable<PaymentMethod>`)." }
+  ]
+}
+```
+
+## association-single-for-collection
+
+The model says a buyer has many payment methods (`*`), but the code navigates one. Outside a nullable context the code doesn't say whether the one may be missing, so the finding says it is a single one.
+
+```json case
+{ "phase": 1, "base": "association-collection", "kinds": ["member.type"], "traces": ["ESC-DOM-55"], "requirements": ["R1", "R14"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Buyer.cs
+namespace Ordering.Domain;
+
+public class Buyer
+{
+    private readonly List<PaymentMethod> _paymentMethods = new();
+
+    public int Id { get; private set; }
+
+    public PaymentMethod PaymentMethods { get; private set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "buyer-payment-methods", "outcome": "contradicted", "at": "src/Domain/Buyer.cs:9" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "buyer-payment-methods",
+      "messageContains": "`Buyer.PaymentMethods` multiplicity: model `*`, code a single `PaymentMethod`." }
   ]
 }
 ```

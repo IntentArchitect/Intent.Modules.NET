@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Common.DriftEngine</id>
   <version>1.0.0-pre.0</version>
-  <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
+  <supportedClientVersions>[5.4.2-a,6.0.0)</supportedClientVersions>
   <summary>The drift engine: compares a designer's model with hand-written code through stack packs, within a modelled Drift Scope, and reports through Intent.Common.DriftReporting.</summary>
   <description>The drift engine: compares a designer's model with hand-written code through stack packs, within a modelled Drift Scope, and reports through Intent.Common.DriftReporting.</description>
   <authors>Intent Architect</authors>

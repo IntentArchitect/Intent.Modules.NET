@@ -44,6 +44,29 @@ internal static class TypeComparer
             return false;
         }
 
+        return ItemMatches(model, code, profile);
+    }
+
+    /// <summary>An association end's multiplicity as the designer writes it: <c>1</c>, <c>0..1</c>, <c>*</c> or <c>1..*</c>.</summary>
+    public static string Multiplicity(ITypeReference end) => end.IsCollection ? end.IsNullable ? "*" : "1..*" : end.IsNullable ? "0..1" : "1";
+
+    /// <summary>Whether the code type is one of the profile's collection forms, nullability aside.</summary>
+    public static bool IsCollection(TypeRefNode code, JsonNode profile) => CollectionItem(WithoutNullable(code, profile), profile) is not null;
+
+    /// <summary>
+    /// Whether the code type is the model's, but for being a collection or not: <c>ICollection&lt;Order&gt;</c> where the model
+    /// says one <c>Order</c>, or the reverse. What a navigation states about its association end's multiplicity.
+    /// </summary>
+    public static bool MatchesButForCollection(ITypeReference model, TypeRefNode code, JsonNode profile)
+    {
+        var whole = WithoutNullable(code, profile);
+        var item = CollectionItem(whole, profile);
+        return (item is not null) != model.IsCollection && ItemMatches(model, item is null ? whole : WithoutNullable(item, profile), profile);
+    }
+
+    /// <summary>The code type, past any collection, is the model's type: a primitive as the profile writes it, an element by name.</summary>
+    private static bool ItemMatches(ITypeReference model, TypeRefNode code, JsonNode profile)
+    {
         if (model.Element is not { } element)
         {
             return false;

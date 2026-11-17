@@ -40,6 +40,12 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
 
     private readonly Dictionary<AnonymousFunctionExpressionSyntax, IReadOnlyList<ParameterNode>> _lambdaParameters = [];
 
+    // Every node of the body in order, and its locals and plain assignments by name, found once: a name is looked up at each
+    // use, and a scaffolded OnModelCreating makes thousands of calls on its lambdas' parameters.
+    private IReadOnlyList<SyntaxNode>? _nodes;
+    private ILookup<string, VariableDeclaratorSyntax>? _locals;
+    private ILookup<string, AssignmentExpressionSyntax>? _assignments;
+
     // The member whose body this is, and its parameters, which the values that name them are.
     private BaseMethodDeclarationSyntax? _declaration;
     private IReadOnlyList<ParameterNode> _declarationParameters = [];
@@ -298,7 +304,7 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
         IdentifierNameSyntax identifier when Local(identifier, before) is { } local =>
         [
             ..LocalValues(local, identifier.Identifier.Text, before).Select(x => Value(x, x.SpanStart)),
-            ..roots.SelectMany(x => x.DescendantNodes()).Where(x => x.SpanStart > local.SpanStart && x.SpanStart < before)
+            ..Nodes.Where(x => x.SpanStart > local.SpanStart && x.SpanStart < before)
                 .Where(x => Changed(x) is IdentifierNameSyntax changed && changed.Identifier.Text == identifier.Identifier.Text)
                 .Select(x => new ValueNode { Text = Normalise(x), At = CSharpReader.SpanOf(x, file) })
         ],
@@ -497,7 +503,10 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
 
     /// <summary>The local a name is: the last one of the name declared before the use.</summary>
     private VariableDeclaratorSyntax? Local(IdentifierNameSyntax identifier, int before) =>
-        roots.SelectMany(x => x.DescendantNodes()).OfType<VariableDeclaratorSyntax>().LastOrDefault(x => x.Identifier.Text == identifier.Identifier.Text && x.SpanStart < before);
+        (_locals ??= Nodes.OfType<VariableDeclaratorSyntax>().ToLookup(x => x.Identifier.Text, StringComparer.Ordinal))[identifier.Identifier.Text]
+        .LastOrDefault(x => x.SpanStart < before);
+
+    private IReadOnlyList<SyntaxNode> Nodes => _nodes ??= roots.SelectMany(x => x.DescendantNodes()).ToList();
 
     /// <summary>What a local is given before the use: its initializer and every plain assignment to it (one in each branch of an if is both).</summary>
     private List<ExpressionSyntax> LocalValues(VariableDeclaratorSyntax local, string name, int before)
@@ -508,10 +517,10 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
             values.Add(initializer);
         }
 
-        values.AddRange(roots.SelectMany(x => x.DescendantNodes()).OfType<AssignmentExpressionSyntax>()
-            .Where(x => x.IsKind(SyntaxKind.SimpleAssignmentExpression) && x.Left is IdentifierNameSyntax { Identifier.Text: var assigned } && assigned == name
-                        && x.SpanStart > local.SpanStart && x.SpanStart < before)
-            .Select(x => x.Right));
+        _assignments ??= Nodes.OfType<AssignmentExpressionSyntax>()
+            .Where(x => x.IsKind(SyntaxKind.SimpleAssignmentExpression) && x.Left is IdentifierNameSyntax)
+            .ToLookup(x => ((IdentifierNameSyntax)x.Left).Identifier.Text, StringComparer.Ordinal);
+        values.AddRange(_assignments[name].Where(x => x.SpanStart > local.SpanStart && x.SpanStart < before).Select(x => x.Right));
         return values;
     }
 

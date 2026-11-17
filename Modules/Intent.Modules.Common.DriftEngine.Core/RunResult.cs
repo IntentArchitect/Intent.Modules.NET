@@ -38,6 +38,10 @@ public sealed class Reading
 
     public IReadOnlyList<Span>? Candidates { get; init; }
 
+    /// <summary>The other code the value was read through (<c>ClaimReading.Through</c>), linked to the element with <see cref="At"/>; not part of the result's schema.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public IReadOnlyList<Span> Through { get; internal set; } = [];
+
     /// <summary>The finding's text as the claim reader worded it; null when the engine words it. The finding carries it, not the result.</summary>
     [System.Text.Json.Serialization.JsonIgnore]
     public string? Message { get; init; }
@@ -140,7 +144,21 @@ public sealed record RunResult(IReadOnlyList<Claim> Claims, IReadOnlyList<Findin
     /// <summary>How long each part of the run took, for the log; not part of the result's schema.</summary>
     [System.Text.Json.Serialization.JsonIgnore]
     public IReadOnlyList<Timing> Timings { get; init; } = [];
+
+    /// <summary>The code each element is linked to, for Intent Architect's View Code and Changes Review; not part of the result's schema.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public IReadOnlyList<CodeLink> Links { get; init; } = [];
 }
+
+/// <summary>
+/// Code that realises a model element and agrees with it: a range of a file, or the whole file when <see cref="Start"/> is
+/// null, for an element whose code in the file holds drift or code the model doesn't describe.
+/// </summary>
+/// <param name="Element">The element's id; an association end's is its association's, as Intent Architect links associations.</param>
+/// <param name="File">The file, relative to the output folder.</param>
+/// <param name="Start">The zero-based character offset of the code in the file's text, as <c>File.ReadAllText</c> reads it.</param>
+/// <param name="Length">How many characters the code spans.</param>
+public sealed record CodeLink(string Element, string File, int? Start = null, int? Length = null);
 
 /// <summary>How long a part of the run took: reading code (<c>code</c>, each language and reader), building and reading claims
 /// (<c>kind X</c> is one kind's own reading, with its claim count), rules, opt-in and the total.</summary>
