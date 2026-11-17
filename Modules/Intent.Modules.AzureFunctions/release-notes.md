@@ -19,7 +19,7 @@
   - `Microsoft.EntityFrameworkCore.InMemory` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0); 6.0.32 → 6.0.36 (net6.0)
   - `Microsoft.EntityFrameworkCore.Proxies` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0); 6.0.32 → 6.0.36 (net6.0)
   - `Microsoft.EntityFrameworkCore.SqlServer` 10.0.9 → 10.0.15 (net10.0); 9.0.17 → 9.0.23 (net8.0); 6.0.32 → 6.0.36 (net6.0)
-  - `Microsoft.EntityFrameworkCore.Tools` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0); 6.0.32 → 6.0.36 (net6.0)
+  - `Microsoft.EntityFrameworkCore.Tools` 11.0.0 (net11.0); 10.0.9 → 10.0.15 (net10.0); 10.0.9 → 9.0.23 (net9.0); 10.0.9 → 8.0.34 (net8.0); 6.0.32 → 6.0.36 (net6.0), aligned with `Intent.EntityFrameworkCore`
   - `Microsoft.Extensions.Configuration.Abstractions` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0); 6.0.0 → 6.0.1 (net6.0)
   - `Microsoft.Extensions.Configuration.Binder` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0); 6.0.0 → 6.0.1 (net6.0)
   - `Microsoft.Extensions.Configuration.EnvironmentVariables` 10.0.9 → 11.0.0 (net10.0); 10.0.9 → 10.0.15 (net9.0, net8.0, netstandard2.0); 6.0.1 → 6.0.2 (net6.0)

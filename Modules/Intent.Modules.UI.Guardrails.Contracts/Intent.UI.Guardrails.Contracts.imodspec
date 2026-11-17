@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.UI.Guardrails.Contracts</id>
-  <version>1.0.0-pre.1</version>
+  <version>1.0.0</version>
   <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
   <summary>Keeps the User Interface designer authoritative for brownfield UI code: a skill models the pages, dialogs, components and layouts and what each calls, and the shared drift check fails the Software Factory run when the model and the code disagree.</summary>
   <description>Keeps the User Interface designer authoritative for brownfield UI code: a skill models the pages, dialogs, components and layouts and what each calls, and the shared drift check fails the Software Factory run when the model and the code disagree.</description>
@@ -36,8 +36,8 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.11.1" />
-    <dependency id="Intent.Common.Drift" version="1.0.0-pre.2" />
-    <dependency id="Intent.Common.DriftReporting" version="1.0.0-pre.0" />
+    <dependency id="Intent.Common.Drift" version="1.0.0" />
+    <dependency id="Intent.Common.DriftReporting" version="1.0.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.UI" version="1.1.6" />
     <dependency id="Intent.Modelers.UI.Core" version="1.0.4" />
