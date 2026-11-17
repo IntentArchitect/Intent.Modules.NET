@@ -770,3 +770,98 @@ api.getProducts().then((x) => { products.value = x; });
   ]
 }
 ```
+
+## react-page-calls-proxy-operation
+
+The same Call Service Operation Actions read against React by the stock React reader. It follows the component's code, its hooks and handlers included, and the code's own functions it calls, to the call of the proxy's method: the catalog page calls a custom hook, `useProducts`, whose effect calls `catalogApi.getProducts`; the product card calls `catalogApi.addToCart` from a click handler in its JSX. Two components in one file are each their own code, so the card's call isn't the page's, and the catalog page's Call Service Operation Action to `addToCart` is contradicted.
+
+```json case
+{ "phase": "later", "kinds": ["intent.invokes", "intent.target"], "requirements": ["R2", "R3", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "pages", "type": "Folder", "name": "pages", "children": [
+            { "id": "catalog-page", "type": "Page", "name": "CatalogPage", "stereotypes": { "Page": { "Route": "/" } } },
+            { "id": "product-card", "type": "Component", "name": "ProductCard" }
+          ] },
+          { "id": "api-folder", "type": "Folder", "name": "api", "children": [
+            { "id": "catalog-api", "type": "Proxy", "name": "CatalogApi", "children": [
+              { "id": "get-products", "type": "Proxy Operation", "name": "GetProducts" },
+              { "id": "add-to-cart", "type": "Proxy Operation", "name": "AddToCart" }
+            ] }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "catalog-calls-get-products", "type": "Call Service Operation Action", "source": { "element": "catalog-page" }, "target": { "element": "get-products" } },
+        { "id": "card-calls-add-to-cart", "type": "Call Service Operation Action", "source": { "element": "product-card" }, "target": { "element": "add-to-cart" } },
+        { "id": "catalog-calls-add-to-cart", "type": "Call Service Operation Action", "source": { "element": "catalog-page" }, "target": { "element": "add-to-cart" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```ts file src/api/catalogApi.ts
+export const catalogApi = {
+    getProducts(): Promise<string[]> {
+        return fetch('/api/products').then((x) => x.json());
+    },
+
+    addToCart(id: string): Promise<void> {
+        return fetch(`/api/cart/${id}`, { method: 'POST' }).then(() => undefined);
+    },
+};
+```
+
+```ts file src/hooks/useProducts.ts
+import { useEffect, useState } from 'react';
+import { catalogApi } from '../api/catalogApi';
+
+export function useProducts() {
+    const [products, setProducts] = useState<string[]>([]);
+    useEffect(() => {
+        catalogApi.getProducts().then(setProducts);
+    }, []);
+    return products;
+}
+```
+
+```tsx file src/pages/CatalogPage.tsx
+import { catalogApi } from '../api/catalogApi';
+import { useProducts } from '../hooks/useProducts';
+
+export function ProductCard({ id }: { id: string }) {
+    return <button onClick={() => catalogApi.addToCart(id)}>Add {id}</button>;
+}
+
+export default function CatalogPage() {
+    const products = useProducts();
+    return <ul>{products.map((id) => <ProductCard key={id} id={id} />)}</ul>;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "catalog-api", "outcome": "verified", "at": "src/api/catalogApi.ts:1" },
+    { "kind": "intent.invokes", "element": "catalog-calls-get-products", "outcome": "verified", "at": "src/hooks/useProducts.ts:7" },
+    { "kind": "intent.target", "element": "catalog-calls-get-products", "outcome": "verified", "actual": "catalogApi" },
+    { "kind": "intent.invokes", "element": "card-calls-add-to-cart", "outcome": "verified", "at": "src/pages/CatalogPage.tsx:5" },
+    { "kind": "intent.invokes", "element": "catalog-calls-add-to-cart", "outcome": "contradicted", "expected": "present" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "catalog-calls-add-to-cart" }
+  ]
+}
+```

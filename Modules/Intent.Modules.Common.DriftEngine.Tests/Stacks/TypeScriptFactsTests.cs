@@ -369,6 +369,158 @@ public class TypeScriptFactsTests
         graph.Types.Single().Name.ShouldBe("A");
     }
 
+    private static readonly (string Path, string Source)[] ReactFiles =
+    [
+        ("web/src/types.ts", """
+            export interface Product { id: string; name: string }
+            """),
+        ("web/src/ProductCard.tsx", """
+            import { memo, useCallback, useState } from 'react';
+            import type { Product } from './types';
+
+            interface ProductCardProps {
+              product: Product;
+              compact?: boolean;
+              onSelect(id: string): void;
+            }
+
+            export const ProductCard = memo(({ product, compact = false, onSelect }: ProductCardProps) => {
+              const [open, setOpen] = useState<boolean>(false);
+              const select = useCallback(() => onSelect(product.id), [product]);
+              return (
+                <>
+                  <h2 className="title">{product.name}</h2>
+                  {open && <Badge label="new" />}
+                </>
+              );
+            });
+
+            function Badge({ label }: { label: string }) {
+              return <span>{label}</span>;
+            }
+
+            export function formatName(name: string) {
+              return name.trim();
+            }
+            """),
+        ("web/src/Catalog.jsx", """
+            import { Link, useNavigate } from 'react-router-dom';
+            import { ProductCard as Card } from './ProductCard';
+
+            export default function Catalog(props) {
+              const navigate = useNavigate();
+              function open(id) {
+                navigate(`/products/${id}`);
+              }
+
+              return (
+                <ul>
+                  {props.items.map((p) => (
+                    <li key={p.id}>
+                      <Card product={p} onSelect={open} {...props.extra} />
+                      <Link to={`/products/${p.id}`}>View {p.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              );
+            }
+            """),
+        ("web/src/main.jsx", """
+            import { createBrowserRouter } from 'react-router-dom';
+            import Catalog from './Catalog';
+
+            export const router = createBrowserRouter([
+              { path: '/', element: <Catalog />, children: [{ path: 'products/:id', lazy: () => import('./ProductCard') }] },
+            ]);
+            """),
+        ("web/src/cart.js", """
+            import { create } from 'zustand';
+
+            export const useCartStore = create()((set) => ({ items: [], add: (item) => set((s) => ({ items: [...s.items, item] })) }));
+            """),
+        ("web/src/vendor.min.js", "!function(){}();"),
+    ];
+
+    private static readonly CodeGraph ReactGraph = ReadAll(ReactFiles);
+
+    private static TypeNode ReactType(string name) => ReactGraph.Types.Single(x => x.Name == name);
+
+    [Fact]
+    public void A_capitalised_function_returning_jsx_is_a_component_and_javascript_is_read_too()
+    {
+        ReactType("ProductCard").Kind.ShouldBe("component");
+        ReactType("Badge").Kind.ShouldBe("component");
+        ReactType("Catalog").Kind.ShouldBe("component");
+        ReactType("Catalog").Files.ShouldBe(["web/src/Catalog.jsx"]);
+
+        // A function that returns anything else is still the module's.
+        Member(ReactType("ProductCard.tsx"), "formatName").Kind.ShouldBe("method");
+
+        // A default export names the component, so a default import of its file resolves to it.
+        var catalog = ReactGraph.Files.Single(x => x.Path == "web/src/main.jsx").Imports.Single(x => x.Alias == "Catalog");
+        ReactGraph.TypeOf(catalog).ShouldBeSameAs(ReactType("Catalog"));
+
+        // A minified bundle is a build's output.
+        ReactGraph.Files.ShouldNotContain(x => x.Path == "web/src/vendor.min.js");
+    }
+
+    [Fact]
+    public void A_components_members_are_its_props_its_state_its_functions_and_its_render_body()
+    {
+        var card = ReactType("ProductCard");
+        card.Members.Select(x => (x.Name, x.Kind, x.Access)).ShouldBe([
+            ("product", "property", "public"), ("compact", "property", "public"), ("onSelect", "property", "public"),
+            ("ProductCard", "constructor", "private"), ("open", "property", "private"), ("select", "method", "private")
+        ]);
+        Member(card, "product").Type!.Name.ShouldBe("Product");
+        Member(card, "open").Modifiers.ShouldBe(["state"]);
+        Member(card, "open").Type!.Name.ShouldBe("boolean");
+        Member(card, "select").Body!.Calls.Single().Name.ShouldBe("onSelect");
+
+        // Its render body holds its hooks and what its JSX calls.
+        Member(card, "ProductCard").Body!.Calls.Select(x => x.Name).ShouldBe(["useState", "useCallback", "onSelect"]);
+
+        // JavaScript props are the names it reads from its props.
+        var catalog = ReactType("Catalog");
+        catalog.Members.Where(x => x.Kind == "property").Select(x => x.Name).ShouldBe(["items", "extra"]);
+        Member(catalog, "open").Body!.Calls.Single().Name.ShouldBe("navigate");
+    }
+
+    [Fact]
+    public void Jsx_is_markup_with_its_fragments_flattened_and_its_values_as_code()
+    {
+        var card = ReactGraph.Files.Single(x => x.Path == "web/src/ProductCard.tsx");
+        card.Markup.Select(x => x.Tag).ShouldBe(["h2", "Badge", "span"]);
+        card.Markup[0].Content!.Parts.Single().Text.ShouldBe("product.name");
+        card.Markup[0].Attributes.Single().Literal!.Value.ShouldBe("title");
+        ReactGraph.TypeFor(card.Markup[1].Component!, ReactType("ProductCard")).ShouldBeSameAs(ReactType("Badge"));
+
+        var catalog = ReactGraph.Files.Single(x => x.Path == "web/src/Catalog.jsx");
+        var li = catalog.Markup.Single().Children.Single();
+        li.Children.Select(x => x.Tag).ShouldBe(["Card", "Link"]);
+
+        // An aliased import's tag resolves to the component it imports.
+        ReactGraph.TypeFor(li.Children[0].Component!, ReactType("Catalog")).ShouldBeSameAs(ReactType("ProductCard"));
+        li.Children[0].Attributes.Select(x => x.Name).ShouldBe(["product", "onSelect", "..."]);
+        li.Children[0].Attributes[1].Literal!.Parts.Single().Text.ShouldBe("open");
+
+        var to = li.Children[1].Attributes.Single().Literal!;
+        to.Kind.ShouldBe("interpolated");
+        to.Parts.Select(x => x.Text).ShouldBe(["/products/", "p.id"]);
+        li.Children[1].Content!.Parts.Select(x => x.Text).ShouldBe(["View", "p.name"]);
+
+        // An element given as an attribute's value is markup of its own.
+        ReactGraph.Files.Single(x => x.Path == "web/src/main.jsx").Markup.Single().Tag.ShouldBe("Catalog");
+    }
+
+    [Fact]
+    public void A_call_of_what_a_call_returns_is_named_as_that_call()
+    {
+        var create = ReactGraph.Files.Single(x => x.Path == "web/src/cart.js").TopLevel!.Calls.Single(x => x is { Name: "create", Arguments.Count: 1 });
+        create.On!.Name.ShouldBe("create");
+        create.Arguments[0].Function!.Returns.Single().Members.Select(x => x.Member).ShouldBe(["items", "add"]);
+    }
+
     private sealed class NoNode : INodeRunner
     {
         public NodeRun Run(string script, IReadOnlyList<string> arguments) => new(null, "Node.js isn't on the path.");

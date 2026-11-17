@@ -7,7 +7,9 @@ namespace Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
 /// type-checks or runs the code. A module (a file) is a namespace named by its path without its extension; its classes,
 /// interfaces, type aliases and enums are types; what it declares outside them, its functions and variables, are the members
 /// of a <c>module</c> type named for the file (<c>client.ts</c>). A Vue single-file component is a <c>component</c> type
-/// named for its file, whose members are its scripts' functions and variables, its props and its emits.
+/// named for its file, whose members are its scripts' functions and variables, its props and its emits. A React component, a
+/// capitalised function returning JSX or a class extending <c>Component</c>, is a <c>component</c> type of its name, and JSX
+/// is its file's markup. JavaScript is read as TypeScript without its types.
 /// </summary>
 internal static class TypeScriptReader
 {
@@ -42,6 +44,9 @@ internal static class TypeScriptReader
         /// <summary>What each local name it imports is: the import that binds it.</summary>
         public Dictionary<string, ImportNode> Bindings { get; } = new(StringComparer.Ordinal);
 
+        /// <summary>The markup its JSX writes, in the order it is written: read with the code, after the file's node is made.</summary>
+        public List<MarkupNode> Markup { get; } = [];
+
         public FileNode Node { get; set; } = null!;
     }
 
@@ -62,7 +67,7 @@ internal static class TypeScriptReader
                 return (file, script, kind);
             }
 
-            return (file, text, file.EndsWith(".tsx", StringComparison.OrdinalIgnoreCase) ? "tsx" : "ts");
+            return (file, text, ScriptKind(file));
         }).ToList();
 
         var (parsed, failure) = TypeScriptWorker.Parse(scripts, node);
@@ -108,22 +113,28 @@ internal static class TypeScriptReader
                 Language = TypeScriptLanguage.LanguageName,
                 Namespaces = [module.Namespace],
                 Imports = Imports(module, modules),
-                Markup = templates.GetValueOrDefault(module.File.Path) ?? []
+                // A Vue template's markup is read from its file; JSX's with the code, once every module is.
+                Markup = templates.GetValueOrDefault(module.File.Path) ?? module.Markup
             };
             graph.Files.Add(module.Node);
         }
 
         // An initializer's names can be another module's, so initializers are read again once every module is, before the
-        // bodies, whose values can be the fields they give.
+        // bodies, whose values can be the fields they give. JSX is markup read with the code it is written in, so its values
+        // are that code's.
+        var built = new Dictionary<Module, HashSet<TypeScriptNode>>();
         foreach (var module in modules.Values)
         {
+            built[module] = [];
             foreach (var owner in graph.Types.Where(x => x.Files.Contains(module.File.Path)))
             {
                 foreach (var member in owner.Members)
                 {
                     if (module.Initializers.TryGetValue(member, out var initializer))
                     {
-                        member.Value = new TypeScriptBody(module, owner, modules, graph).Initializer(initializer);
+                        var body = new TypeScriptBody(module, owner, modules, graph);
+                        member.Value = body.Initializer(initializer);
+                        module.Markup.AddRange(body.Markup(initializer, built[module]));
                     }
                 }
             }
@@ -134,15 +145,33 @@ internal static class TypeScriptReader
         {
             foreach (var (member, function, owner) in module.Bodies)
             {
-                member.Body = new TypeScriptBody(module, owner, modules, graph).Function(function, member.Parameters);
+                var body = new TypeScriptBody(module, owner, modules, graph);
+                member.Body = body.Function(function, member.Parameters);
+                module.Markup.AddRange(body.Markup(function, built[module]));
             }
 
             if (module is { TopLevel.Count: > 0, Owner: { } top })
             {
-                module.Node.TopLevel = new TypeScriptBody(module, top, modules, graph).TopLevel(module.TopLevel);
+                var body = new TypeScriptBody(module, top, modules, graph);
+                module.Node.TopLevel = body.TopLevel(module.TopLevel);
+                foreach (var statement in module.TopLevel)
+                {
+                    module.Markup.AddRange(body.Markup(statement, built[module]));
+                }
             }
+
+            module.Markup.Sort((a, b) => (a.At.Line, a.At.Column ?? 0).CompareTo((b.At.Line, b.At.Column ?? 0)));
         }
     }
+
+    /// <summary>How TypeScript's parser reads a file: JSX in <c>.tsx</c> and <c>.jsx</c>, and JavaScript as JavaScript, which may also hold JSX.</summary>
+    private static string ScriptKind(string path) => Path.GetExtension(path).ToLowerInvariant() switch
+    {
+        ".tsx" => "tsx",
+        ".jsx" => "jsx",
+        ".js" or ".mjs" or ".cjs" => "js",
+        _ => "ts"
+    };
 
     /// <summary>A module's name: its path without its extension (<c>src/api/client</c>; <c>.d.ts</c> as one extension).</summary>
     internal static string ModuleName(string path)
@@ -276,7 +305,7 @@ internal static class TypeScriptReader
         static IEnumerable<string> Candidates(string path)
         {
             yield return path;
-            foreach (var extension in new[] { ".ts", ".tsx", ".d.ts", ".mts", ".cts", ".vue" })
+            foreach (var extension in new[] { ".ts", ".tsx", ".d.ts", ".mts", ".cts", ".vue", ".js", ".jsx", ".mjs", ".cjs" })
             {
                 yield return path + extension;
             }
@@ -289,7 +318,7 @@ internal static class TypeScriptReader
                 }
             }
 
-            foreach (var extension in new[] { ".ts", ".tsx", ".d.ts" })
+            foreach (var extension in new[] { ".ts", ".tsx", ".d.ts", ".js", ".jsx" })
             {
                 yield return $"{path}/index{extension}";
             }
@@ -441,6 +470,16 @@ internal static class TypeScriptReader
                 case "ExportAssignment" when statement["expression"] is { Kind: "Identifier" } exported:
                     module.Default ??= exported.Value;
                     return;
+                case "ExportAssignment" when Unwrapped(statement["expression"]!) is { Kind: "CallExpression" } wrapper:
+                    // export default memo(Cart), connect(mapState)(Cart): what a wrapper is given, when it is a component's name.
+                    if (wrapper.List("arguments").FirstOrDefault(x => x.Is("Identifier"))?.Value is { Length: > 0 } wrapped && char.IsUpper(wrapped[0]))
+                    {
+                        module.Default ??= wrapped;
+                    }
+
+                    Owner();
+                    module.TopLevel.Add(statement);
+                    return;
                 case "ExpressionStatement" when _vue && statement["expression"] is { Kind: "CallExpression" } call && Macro(call, null):
                     return;
                 default:
@@ -478,10 +517,18 @@ internal static class TypeScriptReader
 
         private void Class(TypeScriptNode declaration, string ns)
         {
-            var type = Declare(declaration, ns, "class");
+            // A React class component: one that extends Component or PureComponent, whose props are its first type argument's.
+            var react = _vue ? null : declaration.List("heritageClauses").SelectMany(x => x.List("types"))
+                .FirstOrDefault(x => x["expression"]?.Canonical is "Component" or "PureComponent" or "React.Component" or "React.PureComponent");
+            var type = Declare(declaration, ns, react is null ? "class" : "component");
             foreach (var clause in declaration.List("heritageClauses"))
             {
                 type.BaseTypes.AddRange(clause.List("types").Select(x => TypeRef(x, module.Strict)));
+            }
+
+            if (react?.List("typeArguments").FirstOrDefault() is { } props)
+            {
+                type.Members.AddRange(Signatures(props).Select(Prop));
             }
 
             foreach (var member in declaration.List("members"))
@@ -625,14 +672,25 @@ internal static class TypeScriptReader
             return written;
         }
 
-        /// <summary>A function declared in the module: a method of the module, or of a component's script.</summary>
+        /// <summary>A function declared in the module: a method of the module, or of a component's script, or a React component.</summary>
         private void Function(TypeScriptNode declaration)
         {
             if (declaration["name"]?.Value is not { } name)
             {
+                // export default function () { return <main />; } is a component named for its file.
+                if (Component(ModuleName(FileName(module.File.Path)), declaration, declaration, "public", null))
+                {
+                    return;
+                }
+
                 // export default function () { }
                 Owner();
                 module.TopLevel.Add(declaration);
+                return;
+            }
+
+            if (Component(name, declaration, declaration, Access(declaration), null))
+            {
                 return;
             }
 
@@ -646,6 +704,165 @@ internal static class TypeScriptReader
                 Parameters(declaration), TypeParameters(declaration), access: Access(declaration), isStatic: true);
             Body(member, declaration, owner);
         }
+
+        /// <summary>The function a variable holds that may render: an arrow function or function, also inside <c>memo(...)</c> or <c>forwardRef(...)</c>.</summary>
+        private static TypeScriptNode? Rendering(TypeScriptNode? initializer) => initializer is null ? null : Unwrapped(initializer) switch
+        {
+            { Kind: "ArrowFunction" or "FunctionExpression" } function => function,
+            { Kind: "CallExpression" } call when Unwrapped(call["expression"]!) is var callee
+                                                 && (callee.Is("Identifier") ? callee.Value : callee["name"]?.Value) is "memo" or "forwardRef"
+                => Rendering(call.List("arguments").FirstOrDefault()),
+            _ => null
+        };
+
+        /// <summary>
+        /// A React function component, when the function is one: named with a capital letter and returning JSX (React renders
+        /// only a capitalised tag as a component). It is a <c>component</c> type of its name. Its members are its props (what its
+        /// first parameter's type, or a <c>React.FC&lt;Props&gt;</c> variable's, states, the names it destructures from it, or
+        /// those it reads from it), its state (each <c>useState</c> or <c>useReducer</c> value) and the functions it declares
+        /// (also through <c>useCallback</c>), each private but its props. Its own body, which runs each time it renders, is a
+        /// private constructor of its name, so its hooks, calls and JSX are its code. Not in a Vue component's script.
+        /// </summary>
+        /// <param name="declared">What declares it: the function, or the variable statement holding it.</param>
+        /// <param name="variableType">A variable's type, which may give its props: <c>const Cart: React.FC&lt;CartProps&gt;</c>.</param>
+        /// <returns>It is one.</returns>
+        private bool Component(string name, TypeScriptNode function, TypeScriptNode declared, string access, TypeScriptNode? variableType)
+        {
+            if (_vue || name.Length == 0 || !char.IsUpper(name[0]) || !ReturnsJsx(function))
+            {
+                return false;
+            }
+
+            var type = new TypeNode { Name = name, Namespace = module.Namespace, Kind = "component", At = declared.Span, Access = access, TextOf = () => declared.Canonical };
+            Add(type);
+            if (declared.Has("DefaultKeyword"))
+            {
+                module.Default ??= name;
+            }
+
+            var props = function.List("parameters").FirstOrDefault();
+            var stated = (props?["type"] ?? variableType?.List("typeArguments").FirstOrDefault()) is { } written ? Signatures(written).Select(Prop).ToList() : [];
+            type.Members.AddRange(stated);
+            if (props?["name"] is { Kind: "ObjectBindingPattern" } pattern)
+            {
+                // ({ title, onSave, compact = false }): each name it destructures is a prop, with its default.
+                foreach (var element in pattern.List("elements").Where(x => x["dotDotDotToken"] is null))
+                {
+                    var prop = element["propertyName"] is { } renamed ? NameOf(renamed) : element["name"]?.Value;
+                    if (prop is not null && type.Members.All(x => x.Name != prop))
+                    {
+                        type.Members.Add(Member(element, "property", null, [], name: prop, value: element["initializer"], access: "public"));
+                    }
+                }
+            }
+            else if (props?["name"] is { Kind: "Identifier" } named && stated.Count == 0)
+            {
+                // (props) => props.title: each name it reads from its props.
+                foreach (var read in function.Descendants().Where(x => x.Is("PropertyAccessExpression") && x["expression"] is { Kind: "Identifier" } on && on.Value == named.Value)
+                             .DistinctBy(x => x["name"]!.Value))
+                {
+                    type.Members.Add(Member(read, "property", null, [], name: read["name"]!.Value, access: "public"));
+                }
+            }
+
+            var render = Member(declared, "constructor", null, [], Parameters(function), name: name, access: "private");
+            type.Members.Add(render);
+            if (function["body"] is not null)
+            {
+                module.Bodies.Add((render, function, type));
+            }
+
+            foreach (var statement in function["body"] is { Kind: "Block" } block ? block.List("statements") : [])
+            {
+                if (statement.Is("FunctionDeclaration") && statement["name"]?.Value is { } inner)
+                {
+                    Body(Member(statement, "method", Returns(statement), [], Parameters(statement), TypeParameters(statement), name: inner, access: "private"), statement, type);
+                    continue;
+                }
+
+                foreach (var declaration in statement.Is("VariableStatement") ? statement["declarationList"]!.List("declarations") : [])
+                {
+                    var initializer = declaration["initializer"] is { } value ? Unwrapped(value) : null;
+                    var hook = initializer is { Kind: "CallExpression" } call && Unwrapped(call["expression"]!) is var callee
+                        ? (callee.Is("Identifier") ? callee.Value : callee["name"]?.Value)
+                        : null;
+                    if (declaration["name"] is { Kind: "ArrayBindingPattern" } state && hook is "useState" or "useReducer"
+                        && state.List("elements").FirstOrDefault() is { Kind: "BindingElement" } first && first["name"] is { Kind: "Identifier" } held)
+                    {
+                        // const [count, setCount] = useState<number>(0): count is its state.
+                        var stateType = initializer!.List("typeArguments").FirstOrDefault() is { } t && hook == "useState" ? TypeRef(t, module.Strict) : null;
+                        type.Members.Add(Member(first, "property", stateType, [], name: held.Value, access: "private", at: declaration, extra: ["state"]));
+                        continue;
+                    }
+
+                    var local = initializer is { Kind: "ArrowFunction" or "FunctionExpression" } ? initializer
+                        : hook == "useCallback" ? initializer!.List("arguments").FirstOrDefault() is { } given ? Unwrapped(given) : null
+                        : null;
+                    if (declaration["name"] is { Kind: "Identifier" } functionName && local is { Kind: "ArrowFunction" or "FunctionExpression" })
+                    {
+                        Body(Member(declaration, "method", Returns(local), [], Parameters(local), TypeParameters(local), name: functionName.Value, access: "private",
+                            extra: local.Has("AsyncKeyword") ? ["async"] : []), local, type);
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>A function returns JSX: an arrow function's expression, or a <c>return</c> of its own, is an element, a fragment, or a condition giving one.</summary>
+        private static bool ReturnsJsx(TypeScriptNode function)
+        {
+            return function["body"] switch
+            {
+                null => false,
+                { Kind: "Block" } block => Returns(block).Any(x => x["expression"] is { } returned && IsJsx(returned)),
+                var expression => IsJsx(expression)
+            };
+
+            static IEnumerable<TypeScriptNode> Returns(TypeScriptNode node) => node.Children
+                .Where(x => x.Kind is not ("ArrowFunction" or "FunctionExpression" or "FunctionDeclaration" or "MethodDeclaration" or "ClassDeclaration" or "ClassExpression"))
+                .SelectMany(x => x.Is("ReturnStatement") ? [x] : Returns(x));
+
+            static bool IsJsx(TypeScriptNode expression)
+            {
+                expression = Unwrapped(expression);
+                return expression.Kind switch
+                {
+                    "JsxElement" or "JsxSelfClosingElement" or "JsxFragment" => true,
+                    "ConditionalExpression" => IsJsx(expression["whenTrue"]!) || IsJsx(expression["whenFalse"]!),
+                    "BinaryExpression" when expression["operatorToken"]?.Kind is "AmpersandAmpersandToken" or "BarBarToken" or "QuestionQuestionToken"
+                        => IsJsx(expression["left"]!) || IsJsx(expression["right"]!),
+                    _ => false
+                };
+            }
+        }
+
+        /// <summary>
+        /// The members a props type states: an object type's, an interface's or a type alias's the file declares by that name,
+        /// or each part of an intersection's.
+        /// </summary>
+        private IEnumerable<TypeScriptNode> Signatures(TypeScriptNode type) => Stated(type).Where(x => x.Kind is "PropertySignature" or "MethodSignature");
+
+        private IEnumerable<TypeScriptNode> Stated(TypeScriptNode type)
+        {
+            type = type.Is("ParenthesizedType") ? type["type"]! : type;
+            switch (type.Kind)
+            {
+                case "TypeLiteral":
+                    return type.List("members");
+                case "IntersectionType":
+                    return type.List("types").SelectMany(Stated);
+                case "TypeReference" when type["typeName"]?.Value is { } name
+                                          && module.File.Root.Descendants().FirstOrDefault(x => x.Kind is "InterfaceDeclaration" or "TypeAliasDeclaration" && x["name"]?.Value == name) is { } declared:
+                    return declared.Is("InterfaceDeclaration") ? declared.List("members") : Stated(declared["type"]!);
+                default:
+                    return [];
+            }
+        }
+
+        /// <summary>A prop its props type states, as a property: a callback prop (<c>onSave(): void</c>) too.</summary>
+        private MemberNode Prop(TypeScriptNode signature) =>
+            Member(signature, "property", signature.Is("PropertySignature") ? Typed(signature["type"], signature) : null, signature.List("modifiers"), access: "public");
 
         /// <summary>
         /// A module's variables: one holding an arrow function or function is a method; a <c>const</c> holding an object
@@ -668,6 +885,11 @@ internal static class TypeScriptReader
                 }
 
                 if (_vue && initializer is { Kind: "CallExpression" } call && Macro(call, declaration))
+                {
+                    continue;
+                }
+
+                if (Rendering(initializer) is { } rendering && Component(name.Value!, rendering, statement, Access(statement), declaration["type"]))
                 {
                     continue;
                 }

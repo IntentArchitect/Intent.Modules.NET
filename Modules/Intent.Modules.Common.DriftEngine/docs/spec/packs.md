@@ -72,7 +72,7 @@ Module upgrades never change a house pack ([R53](requirements.md)); it's in the 
 | `intent.jpa`         | Persistence over JPA annotations                                                                | 4     |
 | `intent.mediatr`     | Commands, queries, handlers and validators                                                      | later |
 | `intent.blazor`      | Razor component rules for the User Interface kinds: routes, titles, parameters, injection, security | later |
-| `intent.typescript`  | The TypeScript reader (with Vue single-file components) and the TypeScript language profile     | later |
+| `intent.typescript`  | The TypeScript reader (with JavaScript, JSX and Vue single-file components) and the TypeScript language profile | later |
 | `intent.protobuf`    | The Protobuf reader (proto2, proto3 and editions) and the Protobuf language profile             | later |
 | `intent.grpc`        | gRPC service conventions: a Proto Message DTO is the `.proto` message of its name. The Protobuf profile names fields as protoc does (`ProductId` is `product_id`), and the C# profile has `ServerCallContext` as an injected parameter | 1 |
 | `intent.messaging`   | Domain events raised, integration events published and commands sent, whatever does it: the `intent.raises`, `intent.publishes` and `intent.sends` links, and every message type and raise the diagram could show and doesn't, on by default ([rules.md](rules.md#messages-the-diagram-could-show)) | 1 |

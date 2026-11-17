@@ -45,7 +45,7 @@ Every node has:
 | `chain`         | A whole fluent call chain                                                                                          | `calls` in order                                                                                     |
 | `call`          | A method or function call                                                                                          | `callee` (the name called), `receiver` (canonical text), `receiverType` (when resolved), `typeArguments` (type refs, as written), `arguments`: each with `text` (canonical), `types` and `literal` (when it is one) |
 | `creation`      | An object creation (`new X(…)`)                                                                                    | `type`, `arguments`, `initializers` (each a member, or an indexer as written, and its value), `items` (a collection initializer's) |
-| `markup`        | An element in markup: a Razor component's, a Vue template's ([Markup](#markup))                                    | `tag`, `component` (a type ref, when the tag names a component), `attributes`, `children`, `content` |
+| `markup`        | An element in markup: a Razor component's, a Vue template's, JSX's ([Markup](#markup))                             | `tag`, `component` (a type ref, when the tag names a component), `attributes`, `children`, `content` |
 
 Framework readers add their own kinds, namespaced by framework: `ef.entity`, `openapi.operation`.
 
@@ -115,7 +115,7 @@ Rules compare canonical text, so layout and comments never change a reading.
 | Text               | 1     | any file, as `file` with `raw`                                               | none       |
 | Java               | 4     | `.java`, `pom.xml`, `build.gradle`                                           | declared   |
 | EF Core migrations | 4     | committed `*ModelSnapshot.cs`                                                | n/a        |
-| TypeScript         | later | `.ts`, `.tsx`, `.mts`, `.cts`, `.vue` (its `<script>` blocks, and its `<template>` as markup), `tsconfig.json` | declared |
+| TypeScript         | later | `.ts`, `.tsx`, `.mts`, `.cts`, `.js`, `.jsx`, `.mjs`, `.cjs` (JSX as markup), `.vue` (its `<script>` blocks, and its `<template>` as markup), `tsconfig.json`, `jsconfig.json` | declared |
 | Protobuf           | later | `.proto` (proto2, proto3 and editions)                                       | declared   |
 
 A reader is a plug-in like any other ([rules.md](rules.md#plug-ins)); the C# and text readers ship in the engine's own pack, the others in their stack packs ([packs.md](packs.md#stock-packs)).
@@ -149,6 +149,10 @@ The Java spike's front end is Vue and TypeScript, and the Services designer's co
 | `class`, `interface`, `type X = …`, `enum`                                                          | `type`, with `typeKind` `class`, `interface`, `typeAlias` or `enum`. A type alias's object type gives it members, and the named types an intersection joins (`Base & { … }`) are its supertypes |
 | A `const` holding an object literal (`export const api = { … }`)                                    | `type` with `typeKind` `object`, with its methods and properties, besides the module's `field` |
 | A Vue single-file component                                                                         | `type` with `typeKind` `component`, named after the file; it is its file's default export |
+| A React function component: a function named with a capital letter that returns JSX, declared or held by a `const`, also through `memo` or `forwardRef`; an anonymous default export named for its file; a class extending `Component` or `PureComponent` | `type` with `typeKind` `component`, of its name, instead of the module's method; a file may declare several |
+| A React component's props: its first parameter's type's members (or a `React.FC<Props>` variable's), the names it destructures, else those it reads from it; a class component's first type argument's | `property`, public |
+| A function component's state (`useState`, `useReducer`) and the functions it declares (also through `useCallback`) | `property` with the `state` modifier; `method`, with its body; both private |
+| A function component's own body, which runs each time it renders                                   | A private `constructor` of its name, with its body, so its hooks, calls and JSX are its code |
 | A property of a class, interface or object type; a constructor parameter with an access modifier or `readonly`; a `get`/`set` pair | `property`, with `type`; optional (`name?: string`) makes it nullable under `strict` |
 | A component's props (`defineProps`, by type or at run time, with `withDefaults`' values) and `defineModel` | `property`; `defineModel`'s has the `model` modifier                               |
 | A component's emits (`defineEmits`, by call signatures or named tuples)                             | `event`, with its `parameter` nodes                                                      |
@@ -156,12 +160,13 @@ The Java spike's front end is Vue and TypeScript, and the Services designer's co
 | A module-level variable; a `<script setup>`'s variable                                              | `field`, with its initializer as `value`                                                 |
 | A decorator                                                                                         | `annotation`; an object literal argument's properties are named arguments (`@Component({ selector: 'app-cart' })`) |
 | Calls, `new`, assignments, `return`s; arrow functions and function expressions                      | As for C#. The statements a module runs when it loads (a `<script setup>`'s when its component is set up) are the file's `topLevel` |
+| JSX                                                                                                 | The file's markup ([Markup](#markup)), read with the code it is written in                |
 
-A call reaches a function as the code says: a bare call the module's own function or one it imports, unless a local or parameter has the name; `this.find()` the class's or object's own; `api.getProducts()` what `api` is, whether a typed field or parameter, an object, or a namespace import's module. `await` gives what a `Promise<T>` resolves to.
+A call reaches a function as the code says: a bare call the module's own function or one it imports, unless a local or parameter has the name; `this.find()` the class's or object's own; `api.getProducts()` what `api` is, whether a typed field or parameter, an object, or a namespace import's module. `await` gives what a `Promise<T>` resolves to. A call of what a call returns (Zustand's `create<State>()(...)`, `connect(map)(View)`) has that call's name and is made on it, reaching nothing.
 
-Resolution is declared: relative imports, and the nearest `tsconfig.json`'s `baseUrl` and `paths` (following `extends`, and a solution-style config's `references` to the one that includes the file), resolve to in-scope files, with or without their extension, an ESM import's `.js` written for its `.ts`, or a folder's `index`; a package import stays as written. The same config's `strict` or `strictNullChecks` says whether types state nullability.
+Resolution is declared: relative imports, and the nearest `tsconfig.json`'s (or a JavaScript project's `jsconfig.json`'s) `baseUrl` and `paths` (following `extends`, and a solution-style config's `references` to the one that includes the file), resolve to in-scope files, with or without their extension, an ESM import's `.js` written for its `.ts`, or a folder's `index`; a package import stays as written. The same config's `strict` or `strictNullChecks` says whether types state nullability.
 
-The reader parses with TypeScript's own parser (`typescript.js`, the last JavaScript release, 6.0), syntax only, on Node.js: Intent Architect's own in a Software Factory run, so the machine needs none, and the machine's `node` in tests. Every in-scope file is parsed in one Node.js process per run. A `.vue` file's `<script>` and `<script setup>` blocks are parsed as one script whose positions are the file's, and its `<template>` is its file's markup ([Markup](#markup)). JavaScript files (`.js`, `.jsx`) aren't read; a component whose script is JavaScript is parsed as JavaScript.
+The reader parses with TypeScript's own parser (`typescript.js`, the last JavaScript release, 6.0), syntax only, on Node.js: Intent Architect's own in a Software Factory run, so the machine needs none, and the machine's `node` in tests. Every in-scope file is parsed in one Node.js process per run. A `.vue` file's `<script>` and `<script setup>` blocks are parsed as one script whose positions are the file's, and its `<template>` is its file's markup ([Markup](#markup)). JavaScript (`.js`, `.jsx`, `.mjs`, `.cjs`, and a component whose script is JavaScript) is parsed as JavaScript, which TypeScript's parser reads as it does TypeScript, without the types, so a typed comparison of JavaScript code has nothing to compare. A minified bundle (`.min.js`) is a build's output, and isn't read.
 
 ### The Protobuf reader
 
@@ -189,7 +194,7 @@ The reader parses the language's grammar itself, proto2, proto3 and editions, wi
 
 ### Markup
 
-A Razor component's markup and a Vue component's template are read into one shape, so a rule about what a page renders, links to or titles itself reads either. A file's `markup` is the elements at its top level, each with the elements inside it; what an attribute means to a framework (a component's parameter, a link's route) is a stack's to say.
+A Razor component's markup, a Vue component's template and JSX are read into one shape, so a rule about what a page renders, links to or titles itself reads any of them. A file's `markup` is the elements at its top level, each with the elements inside it; what an attribute means to a framework (a component's parameter, a link's route) is a stack's to say. A file with several React components holds all of their JSX; each component's is what lies inside its declaration.
 
 | Field        | What it is                                                                                                                                                       |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -207,9 +212,9 @@ A Razor component's markup and a Vue component's template are read into one shap
 | Vue's `:to` (`v-bind:to`), `@click.prevent`   | `bind`, `to`; `on`, `click`, `prevent`                  |
 | Vue's `#item` (`v-slot:item`), `.value`       | `slot`, `item`; `bind`, `value`, `prop`                 |
 
-A directive's value is code, so it has no `literal`. A plain attribute's is a `string`, or in Razor `interpolated` when values are written in it: `href="/orders/@id"` is `/orders/` and `id`, and `Item="@item"` is `item` alone.
+A directive's value is code, so it has no `literal`. A plain attribute's is a `string`, or in Razor `interpolated` when values are written in it: `href="/orders/@id"` is `/orders/` and `id`, and `Item="@item"` is `item` alone. JSX has no directives: an attribute given in braces is `interpolated` alike, its parts the code's values, so `` to={`/orders/${id}`} `` is `/orders/` and `id`, `onClick={save}` is `save` alone, and a string in braces is a `string`. A spread (`{...props}`) is an attribute named `...`.
 
-Razor's markup is read as the Razor compiler parses it, before the compiler's own passes fold and encode it. A Vue template is read as Vue's compiler parses a single-file component: the top-level `<template>` is HTML and every other block raw text; an element closes at its end tag, at `/>` or as a void element, an end tag closes the elements left open inside its element, and one that closes nothing is ignored; `<textarea>` and `<title>` hold text and `{{ }}` values, `<script>` and `<style>` text alone. A template in another language (`lang="pug"`) or file (`src`) isn't read.
+Razor's markup is read as the Razor compiler parses it, before the compiler's own passes fold and encode it. JSX is read from TypeScript's parse, with the code it is written in, so its values are that code's: each outermost element, and each element written as an attribute's value (react-router's `element={<Page />}`), is a top-level element. A fragment (`<>...</>`) renders only its children, so they take its place, and an element written in code among an element's children (`{items.map(x => <Row />)}`, `{open && <Dialog />}`) is one of its children. A Vue template is read as Vue's compiler parses a single-file component: the top-level `<template>` is HTML and every other block raw text; an element closes at its end tag, at `/>` or as a void element, an end tag closes the elements left open inside its element, and one that closes nothing is ignored; `<textarea>` and `<title>` hold text and `{{ }}` values, `<script>` and `<style>` text alone. A template in another language (`lang="pug"`) or file (`src`) isn't read.
 
 ### Markup references
 
@@ -217,6 +222,7 @@ A component used in markup is a type ref like any other, so the `type` comparer 
 
 - In a `.razor` file, an element whose tag starts with a capital letter, or is qualified, names that tag. The C# reader resolves it as Razor does: a qualified name as written; otherwise through the `@using` directives of the file and of every `_Imports.razor` in its folder and the folders above it, then the file's own namespace (its `@namespace`, or the project's root namespace plus the folder path) and the namespaces it is in.
 - In a `.vue` file, a tag that isn't an HTML, SVG or MathML element, or that starts with a capital letter, names a component by its PascalCase name (`stock-pill` names `StockPill`), and a dotted tag (`ui.Badge`) names a member of what the script imports. It resolves through the script's imports. `<component :is>` names none, and `<slot>` and `<template>` aren't components.
+- In JSX, a tag that starts with a capital letter, or is qualified (`Ui.Badge`), names a component, as JSX compiles it; a lower-case tag is an element. It resolves through the file's imports, an aliased import (`import { StockPill as Pill }`) included, then the file's own components.
 
 A library's component, such as Blazor's `PageTitle` or Vue Router's `RouterLink`, isn't in the graph, so its name stays as written.
 

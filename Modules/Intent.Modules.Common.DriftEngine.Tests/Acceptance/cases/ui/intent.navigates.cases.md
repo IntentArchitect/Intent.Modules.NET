@@ -416,3 +416,232 @@ const title = 'Order';
   ]
 }
 ```
+
+## react-standard-navigation
+
+The same Navigations read against React by the stock React reader. It reads the source component's `<Link to>` and its code's `navigate(...)` from react-router's `useNavigate()`: the layout's `to="/"` goes to the root, and the checkout's `` navigate(`/orders/${orderId}`) ``, in a handler the component declares, to the order page, its value standing for the `{id}` segment. The checkout page has no link back to the catalog, so that Navigation is contradicted.
+
+```json case
+{ "phase": 6, "kinds": ["intent.navigates"], "requirements": ["R2", "R3", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "app", "type": "Layout", "name": "App" },
+          { "id": "pages", "type": "Folder", "name": "pages", "children": [
+            { "id": "catalog-page", "type": "Page", "name": "CatalogPage", "stereotypes": { "Page": { "Route": "/" } } },
+            { "id": "checkout-page", "type": "Page", "name": "CheckoutPage", "stereotypes": { "Page": { "Route": "/checkout" } } },
+            { "id": "order-page", "type": "Page", "name": "OrderPage", "stereotypes": { "Page": { "Route": "/orders/{id}" } } }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "app-to-catalog", "type": "Navigation", "source": { "element": "app" }, "target": { "element": "catalog-page" } },
+        { "id": "checkout-to-order", "type": "Navigation", "source": { "element": "checkout-page" }, "target": { "element": "order-page" } },
+        { "id": "checkout-to-catalog", "type": "Navigation", "source": { "element": "checkout-page" }, "target": { "element": "catalog-page" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```tsx file src/router.tsx
+import { createBrowserRouter } from 'react-router-dom';
+import App from './App';
+import CatalogPage from './pages/CatalogPage';
+import CheckoutPage from './pages/CheckoutPage';
+import OrderPage from './pages/OrderPage';
+
+export const router = createBrowserRouter([
+    { path: '/', element: <App />, children: [
+        { index: true, element: <CatalogPage /> },
+        { path: 'checkout', element: <CheckoutPage /> },
+        { path: 'orders/:id', element: <OrderPage /> },
+    ] },
+]);
+```
+
+```tsx file src/App.tsx
+import { Link, Outlet } from 'react-router-dom';
+
+export default function App() {
+    return (
+        <>
+            <Link to="/" className="brand">eShop</Link>
+            <Outlet />
+        </>
+    );
+}
+```
+
+```tsx file src/pages/CatalogPage.tsx
+export default function CatalogPage() {
+    return <h1>Catalog</h1>;
+}
+```
+
+```tsx file src/pages/CheckoutPage.tsx
+import { useNavigate } from 'react-router-dom';
+
+export default function CheckoutPage() {
+    const navigate = useNavigate();
+
+    async function placed(orderId: string) {
+        navigate(`/orders/${orderId}`);
+    }
+
+    return <button onClick={() => placed('42')}>Place order</button>;
+}
+```
+
+```tsx file src/pages/OrderPage.tsx
+export default function OrderPage() {
+    return <h1>Order</h1>;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "app-to-catalog", "outcome": "verified", "at": "src/App.tsx:6" },
+    { "kind": "intent.navigates", "element": "checkout-to-order", "outcome": "verified", "at": "src/pages/CheckoutPage.tsx:7" },
+    { "kind": "intent.navigates", "element": "checkout-to-catalog", "outcome": "contradicted", "expected": "present" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.navigates", "severity": "error", "subject": "checkout-to-catalog" }
+  ]
+}
+```
+
+## react-navigation-forms
+
+The other ways react-router navigates, in a JavaScript front end: a `<NavLink>` whose `to` is a path object, a `<Navigate>` that redirects as it renders, and a `redirect(...)` from the route module's `loader`, which runs for the page's route. A link whose path the code computes whole can't be read, so a Navigation it would be the only evidence of can't be verified.
+
+```json case
+{ "phase": 6, "kinds": ["intent.navigates"], "requirements": ["R2", "R3", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "nav-bar", "type": "Component", "name": "NavBar" },
+          { "id": "account-page", "type": "Page", "name": "AccountPage", "stereotypes": { "Page": { "Route": "/account" } } },
+          { "id": "orders-page", "type": "Page", "name": "OrdersPage", "stereotypes": { "Page": { "Route": "/orders" } } },
+          { "id": "cart-page", "type": "Page", "name": "CartPage", "stereotypes": { "Page": { "Route": "/cart" } } },
+          { "id": "login-page", "type": "Page", "name": "LoginPage", "stereotypes": { "Page": { "Route": "/login" } } },
+          { "id": "help-page", "type": "Page", "name": "HelpPage", "stereotypes": { "Page": { "Route": "/help" } } }
+        ]
+      }],
+      "associations": [
+        { "id": "nav-to-cart", "type": "Navigation", "source": { "element": "nav-bar" }, "target": { "element": "cart-page" } },
+        { "id": "nav-to-help", "type": "Navigation", "source": { "element": "nav-bar" }, "target": { "element": "help-page" } },
+        { "id": "account-to-login", "type": "Navigation", "source": { "element": "account-page" }, "target": { "element": "login-page" } },
+        { "id": "orders-to-login", "type": "Navigation", "source": { "element": "orders-page" }, "target": { "element": "login-page" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```jsx file src/routes.jsx
+import AccountPage from './AccountPage';
+import OrdersPage, { loader as ordersLoader } from './OrdersPage';
+import CartPage from './CartPage';
+import LoginPage from './LoginPage';
+import HelpPage from './HelpPage';
+
+export const routes = [
+    { path: '/account', element: <AccountPage /> },
+    { path: '/orders', element: <OrdersPage />, loader: ordersLoader },
+    { path: '/cart', element: <CartPage /> },
+    { path: '/login', element: <LoginPage /> },
+    { path: '/help', element: <HelpPage /> },
+];
+```
+
+```jsx file src/NavBar.jsx
+import { NavLink } from 'react-router-dom';
+
+export function NavBar({ helpPath }) {
+    return (
+        <nav>
+            <NavLink to={{ pathname: '/cart' }}>Cart</NavLink>
+            <NavLink to={helpPath}>Help</NavLink>
+        </nav>
+    );
+}
+```
+
+```jsx file src/AccountPage.jsx
+import { Navigate } from 'react-router-dom';
+
+export default function AccountPage({ user }) {
+    if (!user) {
+        return <Navigate to="/login" replace />;
+    }
+
+    return <h1>{user.name}</h1>;
+}
+```
+
+```jsx file src/OrdersPage.jsx
+import { redirect } from 'react-router-dom';
+
+export async function loader() {
+    if (!localStorage.getItem('token')) {
+        throw redirect('/login');
+    }
+
+    return null;
+}
+
+export default function OrdersPage() {
+    return <h1>Orders</h1>;
+}
+```
+
+```jsx file src/CartPage.jsx
+export default function CartPage() {
+    return <h1>Cart</h1>;
+}
+```
+
+```jsx file src/LoginPage.jsx
+export default function LoginPage() {
+    return <h1>Log in</h1>;
+}
+```
+
+```jsx file src/HelpPage.jsx
+export default function HelpPage() {
+    return <h1>Help</h1>;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "nav-to-cart", "outcome": "verified", "at": "src/NavBar.jsx:6" },
+    { "kind": "intent.navigates", "element": "nav-to-help", "outcome": "cantVerify", "reason": "unreadable" },
+    { "kind": "intent.navigates", "element": "account-to-login", "outcome": "verified", "at": "src/AccountPage.jsx:5" },
+    { "kind": "intent.navigates", "element": "orders-to-login", "outcome": "verified", "at": "src/OrdersPage.jsx:5" }
+  ]
+}
+```

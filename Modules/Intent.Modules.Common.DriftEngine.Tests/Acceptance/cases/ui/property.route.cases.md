@@ -140,3 +140,58 @@ The model's `ItemId` is a Route Parameter, and the page's route has lost its par
   ]
 }
 ```
+
+## react-route-parameters
+
+A React page is given its route's parameters by react-router's `useParams()`, so the stock React reader reads a Property as a route parameter when the page reads it from there: destructured (`const { id } = useParams()`) or read from what it returns (`params.tab`). The order page reads `id` and `tab`; the model's `Tab` has no Route Parameter, so the code states otherwise, and `Note`, which nothing reads from the route, states `false` by saying nothing.
+
+```json case
+{ "phase": "later", "kinds": ["property.route"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "order-page", "type": "Page", "name": "OrderPage", "stereotypes": { "Page": { "Route": "/orders/{id}/{tab}" } },
+            "children": [
+              { "id": "order-page-id", "type": "Property", "name": "Id", "typeRef": { "type": "string" }, "stereotypes": { "Route Parameter": {} } },
+              { "id": "order-page-tab", "type": "Property", "name": "Tab", "typeRef": { "type": "string" } },
+              { "id": "order-page-note", "type": "Property", "name": "Note", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```tsx file src/OrderPage.tsx
+import { useParams } from 'react-router-dom';
+
+export default function OrderPage({ note }: { note?: string }) {
+    const { id } = useParams<{ id: string }>();
+    const params = useParams();
+    return <h1>Order {id} ({params.tab}) {note}</h1>;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "property.route", "element": "order-page-id", "outcome": "verified", "expected": "true", "actual": "true", "at": "src/OrderPage.tsx:4" },
+    { "kind": "property.route", "element": "order-page-tab", "outcome": "contradicted", "expected": "false", "actual": "true" },
+    { "kind": "property.route", "element": "order-page-note", "outcome": "verified", "expected": "false", "actual": "false", "fromSilence": true }
+  ],
+  "findings": [
+    { "rule": "claim/property.route", "severity": "error", "subject": "order-page-tab" }
+  ]
+}
+```

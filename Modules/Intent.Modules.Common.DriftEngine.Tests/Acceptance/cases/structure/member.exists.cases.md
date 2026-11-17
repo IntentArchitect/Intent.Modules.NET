@@ -1040,6 +1040,191 @@ A User Interface Component's Property is a `[Parameter]` property, its Event Emi
 }
 ```
 
+## react-component-members
+
+The standard User Interface designer (2.0.0) read against a React function component by the stock React reader. A Property is a prop, from the props type or the names the component destructures, or its state (a `useState` value); an Event Emitter is an `on...` callback prop of its name, `Selected` being `onSelected`; a Component Operation is a function the component declares, here through `useCallback`. A component wrapped in `memo` is the component.
+
+```json case
+{ "phase": 6, "kinds": ["member.exists"], "requirements": ["R2", "R33", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "product-card", "type": "Component", "name": "ProductCard",
+            "children": [
+              { "id": "product-card-product-id", "type": "Property", "name": "ProductId", "typeRef": { "type": "string" } },
+              { "id": "product-card-compact", "type": "Property", "name": "Compact", "typeRef": { "type": "bool" } },
+              { "id": "product-card-quantity", "type": "Property", "name": "Quantity", "typeRef": { "type": "int" } },
+              { "id": "product-card-selected", "type": "Event Emitter", "name": "Selected", "typeRef": { "type": "string" } },
+              { "id": "product-card-select", "type": "Component Operation", "name": "Select" }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```tsx file src/ProductCard.tsx
+import { memo, useCallback, useState } from 'react';
+
+interface ProductCardProps {
+    productId: string;
+    onSelected(id: string): void;
+}
+
+export const ProductCard = memo(({ productId, onSelected, compact = false }: ProductCardProps & { compact?: boolean }) => {
+    const [quantity, setQuantity] = useState(1);
+    const select = useCallback(() => onSelected(productId), [productId, onSelected]);
+    return (
+        <article className={compact ? 'compact' : undefined}>
+            <input type="number" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} />
+            <button onClick={select}>Select</button>
+        </article>
+    );
+});
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "product-card-product-id", "outcome": "verified", "at": "src/ProductCard.tsx:4" },
+    { "kind": "member.exists", "element": "product-card-compact", "outcome": "verified", "at": "src/ProductCard.tsx:8" },
+    { "kind": "member.exists", "element": "product-card-quantity", "outcome": "verified", "at": "src/ProductCard.tsx:9" },
+    { "kind": "member.exists", "element": "product-card-selected", "outcome": "verified", "at": "src/ProductCard.tsx:5" },
+    { "kind": "member.exists", "element": "product-card-select", "outcome": "verified", "at": "src/ProductCard.tsx:10" }
+  ]
+}
+```
+
+## react-component-members-missing
+
+The component lost its `onSelected` callback and its `select` function, and keeps `quantity` only as a prop it is given: the Event Emitter and the Component Operation are each missing, and the Property still holds.
+
+```json case
+{ "phase": 6, "base": "react-component-members", "kinds": ["member.exists"], "requirements": ["R8"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```tsx file src/ProductCard.tsx
+interface ProductCardProps {
+    productId: string;
+    quantity: number;
+    compact?: boolean;
+}
+
+export function ProductCard({ productId, quantity, compact }: ProductCardProps) {
+    return <article className={compact ? 'compact' : undefined}>{productId} x {quantity}</article>;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "product-card-quantity", "outcome": "verified", "at": "src/ProductCard.tsx:3" },
+    { "kind": "member.exists", "element": "product-card-selected", "outcome": "contradicted" },
+    { "kind": "member.exists", "element": "product-card-select", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "product-card-selected" },
+    { "rule": "claim/member.exists", "severity": "error", "subject": "product-card-select" }
+  ]
+}
+```
+
+## react-store-members
+
+A store's state and actions, whatever the store library: a Redux Toolkit slice's initial state and reducers, and what a Zustand store's creator returns. The readers every TypeScript front end shares read both, through the slice's `initialState` constant and Zustand's middleware. The wishlist has no `clear` action.
+
+```json case
+{ "phase": 6, "kinds": ["member.exists"], "requirements": ["R2", "R33", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "stores", "type": "Folder", "name": "stores", "children": [
+            { "id": "cart", "type": "Store", "name": "Cart", "children": [
+              { "id": "cart-lines", "type": "Property", "name": "Lines" },
+              { "id": "cart-line-added", "type": "Property", "name": "LineAdded" }
+            ] },
+            { "id": "wishlist", "type": "Store", "name": "Wishlist", "children": [
+              { "id": "wishlist-items", "type": "Property", "name": "Items" },
+              { "id": "wishlist-add", "type": "Property", "name": "Add" },
+              { "id": "wishlist-clear", "type": "Property", "name": "Clear" }
+            ] }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```ts file src/stores/cartSlice.ts
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = { lines: [] as string[] };
+
+export const cartSlice = createSlice({
+    name: 'cart',
+    initialState,
+    reducers: {
+        lineAdded(state, action) {
+            state.lines.push(action.payload);
+        },
+    },
+});
+```
+
+```ts file src/stores/wishlist.ts
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+
+export const useWishlistStore = create<{ items: string[]; add(id: string): void }>()(
+    persist(
+        (set) => ({
+            items: [],
+            add: (id) => set((s) => ({ items: [...s.items, id] })),
+        }),
+        { name: 'wishlist' },
+    ),
+);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "cart", "outcome": "verified", "at": "src/stores/cartSlice.ts:5" },
+    { "kind": "type.exists", "element": "wishlist", "outcome": "verified", "at": "src/stores/wishlist.ts:4" },
+    { "kind": "member.exists", "element": "cart-lines", "outcome": "verified", "at": "src/stores/cartSlice.ts:3" },
+    { "kind": "member.exists", "element": "cart-line-added", "outcome": "verified", "at": "src/stores/cartSlice.ts:9" },
+    { "kind": "member.exists", "element": "wishlist-items", "outcome": "verified", "at": "src/stores/wishlist.ts:7" },
+    { "kind": "member.exists", "element": "wishlist-add", "outcome": "verified", "at": "src/stores/wishlist.ts:8" },
+    { "kind": "member.exists", "element": "wishlist-clear", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "wishlist-clear" }
+  ]
+}
+```
+
 ## model-definition
 
 A Model Definition's Properties are the record's positional parameters, and its Operation a public method.

@@ -16,13 +16,16 @@ internal sealed record TsConfig(string? BaseUrl, IReadOnlyList<(string Pattern, 
 {
     private static readonly JsonDocumentOptions Json = new() { CommentHandling = JsonCommentHandling.Skip, AllowTrailingCommas = true };
 
-    /// <summary>The nearest <c>tsconfig.json</c> at or above a file's folder, inside the output folder; null when there is none.</summary>
+    /// <summary>
+    /// The nearest <c>tsconfig.json</c> at or above a file's folder, inside the output folder, or a JavaScript project's
+    /// <c>jsconfig.json</c>, which says the same; null when there is none.
+    /// </summary>
     /// <param name="loaded">The configs read so far, by path, for the run's other files.</param>
     public static TsConfig? For(string root, string file, Dictionary<string, object?> loaded)
     {
         for (var folder = Folder(file); ; folder = Folder(folder))
         {
-            if (Load(root, Join(folder, "tsconfig.json"), loaded, 0) is { } config)
+            if ((Load(root, Join(folder, "tsconfig.json"), loaded, 0) ?? Load(root, Join(folder, "jsconfig.json"), loaded, 0)) is { } config)
             {
                 // A solution-style tsconfig.json (create-vue's) only references the ones that hold the options: the first
                 // that includes the file.

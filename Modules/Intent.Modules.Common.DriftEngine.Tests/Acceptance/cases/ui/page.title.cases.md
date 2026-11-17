@@ -179,3 +179,69 @@ The item page's title is computed from the item it shows, and the model states a
   ]
 }
 ```
+
+## react-title
+
+The standard User Interface designer (2.0.0) read against React by the stock React reader. A React page states its title by rendering a `<title>` (React 19 hoists it into the document's head; react-helmet's `<Helmet>` holds one too), or by setting `document.title` in its code, an effect included. The cart page renders its title, and the orders page sets one other than the model's.
+
+```json case
+{ "phase": "later", "kinds": ["page.title"], "requirements": ["R2", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "cart-page", "type": "Page", "name": "CartPage", "stereotypes": { "Page": { "Route": "/cart", "Title": "Shopping Bag" } } },
+          { "id": "orders-page", "type": "Page", "name": "OrdersPage", "stereotypes": { "Page": { "Route": "/orders", "Title": "My Orders" } } }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```tsx file src/CartPage.tsx
+import { Helmet } from 'react-helmet-async';
+
+export default function CartPage() {
+    return (
+        <>
+            <Helmet><title>Shopping Bag</title></Helmet>
+            <h1>Cart</h1>
+        </>
+    );
+}
+```
+
+```tsx file src/OrdersPage.tsx
+import { useEffect } from 'react';
+
+const TITLE = 'Orders';
+
+export default function OrdersPage() {
+    useEffect(() => {
+        document.title = TITLE;
+    }, []);
+    return <h1>Orders</h1>;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "page.title", "element": "cart-page", "outcome": "verified", "actual": "Shopping Bag", "at": "src/CartPage.tsx:6" },
+    { "kind": "page.title", "element": "orders-page", "outcome": "contradicted", "expected": "My Orders", "actual": "Orders", "at": "src/OrdersPage.tsx:7" }
+  ],
+  "findings": [
+    { "rule": "claim/page.title", "severity": "error", "subject": "orders-page" }
+  ]
+}
+```

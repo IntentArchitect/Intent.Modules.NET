@@ -206,6 +206,73 @@ export const stockClient = {
 }
 ```
 
+## react-axios-instance-request
+
+A React front end's proxy usually sends through an axios instance its code creates, named as the code likes (`http = axios.create({ baseURL })`). The proxy reader every TypeScript front end shares reads a call on a variable given `axios.create(...)` as it does one on `axios`: `getProduct`'s `http.get(`/products/${id}`)` is `GET products/{id}`, and `removeLine` sends a `DELETE` to `cart/lines/{id}` where the model has `cart/{id}`.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.route", "proxy.verb"], "requirements": ["R2", "R10", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "shop-api", "type": "Proxy", "name": "ShopApi", "children": [
+            { "id": "get-product", "type": "Proxy Operation", "name": "GetProduct",
+              "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "products/{id}" } } },
+            { "id": "remove-line", "type": "Proxy Operation", "name": "RemoveLine",
+              "stereotypes": { "HTTP Request": { "Verb": "DELETE", "Route": "cart/{id}" } } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```js file src/http.js
+import axios from 'axios';
+
+export const http = axios.create({ baseURL: import.meta.env.VITE_API_URL });
+```
+
+```js file src/shopApi.js
+import { http } from './http';
+
+export const shopApi = {
+    getProduct(id) {
+        return http.get(`/products/${id}`).then((x) => x.data);
+    },
+
+    removeLine(id) {
+        return http.delete(`/cart/lines/${id}`);
+    },
+};
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "shop-api", "outcome": "verified", "at": "src/shopApi.js:3" },
+    { "kind": "proxy.verb", "element": "get-product", "outcome": "verified", "actual": "GET", "at": "src/shopApi.js:5" },
+    { "kind": "proxy.route", "element": "get-product", "outcome": "verified", "actual": "products/{id}", "at": "src/shopApi.js:5" },
+    { "kind": "proxy.verb", "element": "remove-line", "outcome": "verified", "actual": "DELETE", "at": "src/shopApi.js:9" },
+    { "kind": "proxy.route", "element": "remove-line", "outcome": "contradicted", "expected": "cart/{id}", "actual": "cart/lines/{id}", "at": "src/shopApi.js:9" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.route", "severity": "error", "subject": "remove-line" }
+  ]
+}
+```
+
 ## eshop-http-route
 
 eShopCustom's Blazor catalog proxy builds its URI from a field and an interpolation: `api/catalog/` and `items/{id}`, the string the engine's value evaluation gives. The backend Operation its Backend Operation stereotype names is at `api/catalog` and `items/{id}`, so the routes match segment by segment, the hole against the parameter. The house pack gives the vocabulary for eShopCustom's own stereotype; reading the path from the proxy's `HttpClient` call is the stock proxy reader's.

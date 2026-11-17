@@ -14,11 +14,13 @@ using Intent.Modules.Common.DriftEngine.Stacks.Mediator;
 using Intent.Modules.Common.DriftEngine.Stacks.MediatR;
 using Intent.Modules.Common.DriftEngine.Stacks.Messaging;
 using Intent.Modules.Common.DriftEngine.Stacks.Protobuf;
+using Intent.Modules.Common.DriftEngine.Stacks.React;
 using Intent.Modules.Common.DriftEngine.Stacks.Proxies;
 using Intent.Modules.Common.DriftEngine.Stacks.Relational;
 using Intent.Modules.Common.DriftEngine.Stacks.Serialization;
 using Intent.Modules.Common.DriftEngine.Stacks.SpringMvc;
 using Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
+using Intent.Modules.Common.DriftEngine.Stacks.TypeScriptUi;
 using Intent.Modules.Common.DriftEngine.Stacks.Vue;
 using Intent.Modules.Common.DriftEngine.Stacks.Wolverine;
 
@@ -58,7 +60,9 @@ public static class StockExtensions
         new InteractionsExtension(),
         new SerializationExtension(),
         new BlazorExtension(),
+        new TypeScriptUiExtension(),
         new VueExtension(),
+        new ReactExtension(),
         new ProxiesExtension()
     ];
 

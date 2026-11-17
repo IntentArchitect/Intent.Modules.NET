@@ -535,3 +535,212 @@ export function formatMoney(value: number): string {
   ]
 }
 ```
+
+## react-standard-uses-and-composition
+
+The same associations read against React by the stock React reader. A Composition is the child's tag in the page's JSX, here inside a `.map(...)` and resolving through an aliased import; a Uses is a value import of the file the store or utility is located in. The store is a Redux Toolkit slice, located by its `createSlice` name in `cartSlice.ts`; the page imports its selector. A Uses of a component the page doesn't render, but imports to hand on as a value, holds; a Composition needs the tag, so the page's Composition of the banner it only imports is contradicted, as is the Uses of the utility it doesn't import.
+
+```json case
+{ "phase": 6, "kinds": ["intent.uses"], "requirements": ["R2", "R3", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "pages", "type": "Folder", "name": "pages", "children": [
+            { "id": "catalog-page", "type": "Page", "name": "CatalogPage", "stereotypes": { "Page": { "Route": "/" } } }
+          ] },
+          { "id": "components", "type": "Folder", "name": "components", "children": [
+            { "id": "stock-pill", "type": "Component", "name": "StockPill" },
+            { "id": "empty-state", "type": "Component", "name": "EmptyState" },
+            { "id": "promo-banner", "type": "Component", "name": "PromoBanner" }
+          ] },
+          { "id": "features", "type": "Folder", "name": "features", "children": [
+            { "id": "cart-folder", "type": "Folder", "name": "cart", "children": [
+              { "id": "cart", "type": "Store", "name": "Cart" }
+            ] }
+          ] },
+          { "id": "utils", "type": "Folder", "name": "utils", "children": [
+            { "id": "format", "type": "Utility", "name": "Format" }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "catalog-places-stock-pill", "type": "Composition", "source": { "element": "catalog-page" }, "target": { "element": "stock-pill" } },
+        { "id": "catalog-places-promo-banner", "type": "Composition", "source": { "element": "catalog-page" }, "target": { "element": "promo-banner" } },
+        { "id": "catalog-uses-empty-state", "type": "Uses", "source": { "element": "catalog-page" }, "target": { "element": "empty-state" } },
+        { "id": "catalog-uses-cart", "type": "Uses", "source": { "element": "catalog-page" }, "target": { "element": "cart" } },
+        { "id": "catalog-uses-format", "type": "Uses", "source": { "element": "catalog-page" }, "target": { "element": "format" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```tsx file src/pages/CatalogPage.tsx
+import { useSelector } from 'react-redux';
+import { StockPill as Pill } from '../components/StockPill';
+import { EmptyState } from '../components/EmptyState';
+import { PromoBanner } from '../components/PromoBanner';
+import { selectLines } from '../features/cart/cartSlice';
+import { List } from './List';
+
+export default function CatalogPage({ products }: { products: { id: string; inStock: boolean }[] }) {
+    const lines = useSelector(selectLines);
+    return (
+        <List empty={EmptyState} banner={lines.length > 0 ? PromoBanner : null}>
+            {products.map((p) => <Pill key={p.id} inStock={p.inStock} />)}
+        </List>
+    );
+}
+```
+
+```tsx file src/pages/List.tsx
+import type { ComponentType, ReactNode } from 'react';
+
+export function List({ empty: Empty, children }: { empty: ComponentType; banner: ComponentType | null; children: ReactNode }) {
+    return children ? <ul>{children}</ul> : <Empty />;
+}
+```
+
+```tsx file src/components/StockPill.tsx
+export function StockPill({ inStock }: { inStock: boolean }) {
+    return <span>{inStock ? 'In stock' : 'Sold out'}</span>;
+}
+```
+
+```tsx file src/components/EmptyState.tsx
+export function EmptyState() {
+    return <p>Nothing here</p>;
+}
+```
+
+```tsx file src/components/PromoBanner.tsx
+export function PromoBanner() {
+    return <aside>Sale</aside>;
+}
+```
+
+```ts file src/features/cart/cartSlice.ts
+import { createSlice } from '@reduxjs/toolkit';
+
+const cartSlice = createSlice({
+    name: 'cart',
+    initialState: { lines: [] as string[] },
+    reducers: {
+        added(state, action) {
+            state.lines.push(action.payload);
+        },
+    },
+});
+
+export const selectLines = (state: { cart: { lines: string[] } }) => state.cart.lines;
+export default cartSlice.reducer;
+```
+
+```ts file src/utils/format.ts
+export function formatMoney(value: number): string {
+    return `$${value.toFixed(2)}`;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "cart", "outcome": "verified", "at": "src/features/cart/cartSlice.ts:3" },
+    { "kind": "type.exists", "element": "format", "outcome": "verified", "at": "src/utils/format.ts:1" },
+    { "kind": "intent.uses", "element": "catalog-places-stock-pill", "outcome": "verified", "at": "src/pages/CatalogPage.tsx:12" },
+    { "kind": "intent.uses", "element": "catalog-uses-empty-state", "outcome": "verified", "at": "src/pages/CatalogPage.tsx:3" },
+    { "kind": "intent.uses", "element": "catalog-uses-cart", "outcome": "verified", "at": "src/pages/CatalogPage.tsx:5" },
+    { "kind": "intent.uses", "element": "catalog-places-promo-banner", "outcome": "contradicted", "expected": "present" },
+    { "kind": "intent.uses", "element": "catalog-uses-format", "outcome": "contradicted", "expected": "present" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "catalog-places-promo-banner" },
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "catalog-uses-format" },
+    { "rule": "claim/intent.uses", "subject": "catalog-uses-cart", "count": 0 }
+  ]
+}
+```
+
+## react-component-not-a-module
+
+A plain TypeScript module beside the components isn't a component, so the React reader leaves it alone: a Uses from a utility is read from its code by the readers every TypeScript front end shares, as an import, whatever the framework. `checkout.ts` imports the cart store but not the formatting utility.
+
+```json case
+{ "phase": 6, "kinds": ["intent.uses"], "requirements": ["R2", "R3", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "stores", "type": "Folder", "name": "stores", "children": [
+            { "id": "cart", "type": "Store", "name": "Cart" }
+          ] },
+          { "id": "utils", "type": "Folder", "name": "utils", "children": [
+            { "id": "checkout", "type": "Utility", "name": "Checkout" },
+            { "id": "format", "type": "Utility", "name": "Format" }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "checkout-uses-cart", "type": "Uses", "source": { "element": "checkout" }, "target": { "element": "cart" } },
+        { "id": "checkout-uses-format", "type": "Uses", "source": { "element": "checkout" }, "target": { "element": "format" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```ts file src/stores/useCartStore.ts
+import { create } from 'zustand';
+
+export const useCartStore = create<{ lines: string[] }>()(() => ({ lines: [] }));
+```
+
+```ts file src/utils/checkout.ts
+import { useCartStore } from '../stores/useCartStore';
+
+export function checkout(): string[] {
+    return useCartStore.getState().lines;
+}
+```
+
+```ts file src/utils/format.ts
+export const format = (value: number) => value.toFixed(2);
+```
+
+```tsx file src/CartBadge.tsx
+import { useCartStore } from './stores/useCartStore';
+
+export function CartBadge() {
+    const lines = useCartStore((s) => s.lines);
+    return <span>{lines.length}</span>;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "cart", "outcome": "verified", "at": "src/stores/useCartStore.ts:3" },
+    { "kind": "intent.uses", "element": "checkout-uses-cart", "outcome": "verified", "at": "src/utils/checkout.ts:1" },
+    { "kind": "intent.uses", "element": "checkout-uses-format", "outcome": "contradicted", "expected": "present" }
+  ]
+}
+```

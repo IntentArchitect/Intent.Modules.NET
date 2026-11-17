@@ -140,3 +140,58 @@ The model's `Quantity` is Bindable, and the component has no `QuantityChanged` c
   ]
 }
 ```
+
+## react-controlled-props
+
+React binds both ways through a controlled prop: the value, and a callback that hands back a new one, `value` with `onChange`, or a name with `on{Name}Change`. The stock React reader reads a Property as bindable when the component takes both. `Quantity` has `onQuantityChange`; `Max` has no callback, so it isn't bindable, against the model.
+
+```json case
+{ "phase": "later", "kinds": ["property.bindable"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "quantity-input", "type": "Component", "name": "QuantityInput",
+            "children": [
+              { "id": "quantity-input-quantity", "type": "Property", "name": "Quantity", "typeRef": { "type": "int" }, "stereotypes": { "Bindable": {} } },
+              { "id": "quantity-input-max", "type": "Property", "name": "Max", "typeRef": { "type": "int" }, "stereotypes": { "Bindable": {} } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```tsx file src/QuantityInput.tsx
+interface QuantityInputProps {
+    quantity: number;
+    max: number;
+    onQuantityChange(quantity: number): void;
+}
+
+export function QuantityInput({ quantity, max, onQuantityChange }: QuantityInputProps) {
+    return <input type="number" max={max} value={quantity} onChange={(e) => onQuantityChange(Number(e.target.value))} />;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "property.bindable", "element": "quantity-input-quantity", "outcome": "verified", "actual": "true", "at": "src/QuantityInput.tsx:2" },
+    { "kind": "property.bindable", "element": "quantity-input-max", "outcome": "contradicted", "expected": "true", "actual": "false", "fromSilence": true }
+  ],
+  "findings": [
+    { "rule": "claim/property.bindable", "severity": "error", "subject": "quantity-input-max" }
+  ]
+}
+```

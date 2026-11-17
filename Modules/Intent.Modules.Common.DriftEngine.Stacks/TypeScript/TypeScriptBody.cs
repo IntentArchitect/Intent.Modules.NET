@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Intent.Modules.Common.DriftEngine.Code;
 
 namespace Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
@@ -70,6 +71,122 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
     {
         _inside = statements.SelectMany(x => Inside(x).Prepend(x)).ToList();
         return Build(_inside, [], [], false, module.File.Canonical(statements[0].Start, statements[^1].End), module.File.SpanOf(statements[0].Start, statements[^1].End));
+    }
+
+    /// <summary>
+    /// The markup JSX writes in what was just read (a function, an initializer or the top-level code), as the shape Razor and
+    /// Vue markup have: each outermost element, and each element written in an attribute's value (react-router's
+    /// <c>element={&lt;Page /&gt;}</c>), as a root. A fragment (<c>&lt;&gt;...&lt;/&gt;</c>) renders only its children, so they take its
+    /// place; an element written in code among the children (<c>{items.map(x =&gt; &lt;Row /&gt;)}</c>, <c>{open &amp;&amp; &lt;Dialog /&gt;}</c>)
+    /// is a child. A tag that starts with a capital letter or is qualified (<c>Ui.Grid</c>) names a component, as JSX
+    /// compiles it. An attribute's value is a literal: a string as written, else <c>interpolated</c> with its code as parts
+    /// (<c>to={`/orders/${id}`}</c> is <c>/orders/</c> and <c>id</c>; <c>onClick={save}</c> is <c>save</c> alone), as Razor's
+    /// <c>href="/orders/@id"</c> is.
+    /// </summary>
+    /// <param name="scope">What was read.</param>
+    /// <param name="built">The elements read so far, so code read twice (a variable's initializer that also runs) gives its markup once.</param>
+    public IReadOnlyList<MarkupNode> Markup(TypeScriptNode scope, ISet<TypeScriptNode> built)
+    {
+        var roots = new List<MarkupNode>();
+        var outermost = Nearest(scope, roots, built).ToList();
+        roots.AddRange(outermost);
+        return roots;
+    }
+
+    private static bool IsElement(TypeScriptNode node) => node.Kind is "JsxElement" or "JsxSelfClosingElement";
+
+    /// <summary>The elements nearest a node: it, else those inside it, a fragment's children in its place.</summary>
+    private IEnumerable<MarkupNode> Nearest(TypeScriptNode node, List<MarkupNode> roots, ISet<TypeScriptNode> built)
+    {
+        if (IsElement(node))
+        {
+            if (built.Add(node))
+            {
+                yield return Element(node, roots, built);
+            }
+
+            yield break;
+        }
+
+        var children = node.Is("JsxFragment") ? node.List("children") : node.Children;
+        foreach (var child in children)
+        {
+            foreach (var element in Nearest(child, roots, built))
+            {
+                yield return element;
+            }
+        }
+    }
+
+    private MarkupNode Element(TypeScriptNode element, List<MarkupNode> roots, ISet<TypeScriptNode> built)
+    {
+        var opening = element.Is("JsxElement") ? element["openingElement"]! : element;
+        var tag = opening["tagName"]!.Canonical;
+        var attributes = new List<MarkupAttributeNode>();
+        foreach (var attribute in opening["attributes"]?.List("properties") ?? [])
+        {
+            // An element written in an attribute's value is markup of its own.
+            roots.AddRange(Nearest(attribute, roots, built));
+            if (attribute.Is("JsxSpreadAttribute"))
+            {
+                var spread = attribute["expression"]!;
+                attributes.Add(new MarkupAttributeNode { Name = "...", Value = spread.Source, Literal = Code(spread), At = attribute.Span });
+                continue;
+            }
+
+            var initializer = attribute["initializer"];
+            var expression = initializer?.Is("JsxExpression") == true ? initializer["expression"] : initializer;
+            attributes.Add(new MarkupAttributeNode
+            {
+                Name = attribute["name"]!.Canonical,
+                Value = expression is null ? null : expression.Is("StringLiteral") ? expression.Value : expression.Source,
+                Literal = expression is null ? null : LiteralOf(expression, Value) ?? Code(expression),
+                At = attribute.Span
+            });
+        }
+
+        var children = element.Is("JsxElement") ? element.List("children").SelectMany(x => Nearest(x, roots, built)).ToList() : [];
+        var source = element.File.Text[element.Start..element.End];
+        var first = tag.Split('.')[0];
+        return new MarkupNode
+        {
+            Tag = tag,
+            Component = tag.Contains('.') || first.Length > 0 && char.IsUpper(first[0])
+                ? new TypeRefNode { Text = tag, Name = tag[(tag.LastIndexOf('.') + 1)..], QualifiedName = tag, Language = TypeScriptLanguage.LanguageName }
+                : null,
+            Attributes = attributes,
+            Children = children,
+            Content = children.Count == 0 && element.Is("JsxElement") ? Content(element.List("children")) : null,
+            At = element.Span,
+            TextOf = () => CanonicalText.OfMarkup(source)
+        };
+    }
+
+    /// <summary>Code given as an attribute's value: an <c>interpolated</c> literal of it alone.</summary>
+    private LiteralNode Code(TypeScriptNode expression) => new() { Kind = "interpolated", Parts = [Value(expression)] };
+
+    /// <summary>What an element holds when it holds only text and values: its text trimmed, each run of whitespace one space, and each <c>{value}</c>.</summary>
+    private LiteralNode? Content(IReadOnlyList<TypeScriptNode> children)
+    {
+        var parts = new List<ValueNode>();
+        foreach (var child in children)
+        {
+            if (child.Is("JsxText") && Regex.Replace(child.Value ?? "", @"\s+", " ").Trim() is { Length: > 0 } text)
+            {
+                parts.Add(new ValueNode { Text = text, Literal = new LiteralNode { Kind = "string", Value = text }, At = child.Span });
+            }
+            else if (child.Is("JsxExpression") && child["expression"] is { } expression)
+            {
+                parts.Add(Value(expression));
+            }
+        }
+
+        return parts.Count switch
+        {
+            0 => null,
+            _ when parts.All(x => x.Literal is { Kind: "string" }) => new LiteralNode { Kind = "string", Value = string.Join(" ", parts.Select(x => x.Literal!.Value)) },
+            _ => new LiteralNode { Kind = "interpolated", Parts = parts }
+        };
     }
 
     /// <param name="function">A function, method, constructor or accessor, whose body is a block, or an arrow function's an expression.</param>
@@ -234,7 +351,8 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
             return null;
         }
 
-        var on = call["expression"] is { Kind: "PropertyAccessExpression" } access ? TypeScriptReader.Unwrapped(access["expression"]!) : null;
+        var on = call["expression"] is { Kind: "PropertyAccessExpression" } access ? TypeScriptReader.Unwrapped(access["expression"]!)
+            : TypeScriptReader.Unwrapped(call["expression"]!) is { Kind: "CallExpression" } curried ? curried : null;
         if (on is { Kind: "AwaitExpression" })
         {
             on = TypeScriptReader.Unwrapped(on["expression"]!);
@@ -259,8 +377,8 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
     /// <summary>
     /// A call's name, what it is made on (<c>api.getProducts()</c>; nothing for a bare call or one on <c>this</c>) and that's
     /// type, and the functions it can reach. A bare call reaches a function the module declares or imports, unless a local or a
-    /// parameter has the name. A call whose callee isn't a name (<c>handlers[key]()</c>, <c>import('./x')</c>, <c>super()</c>)
-    /// isn't one.
+    /// parameter has the name. A call of what a call returns has that call's name. A call whose callee isn't a name
+    /// (<c>handlers[key]()</c>, <c>import('./x')</c>, <c>super()</c>) isn't one.
     /// </summary>
     private (string Name, string? Receiver, TypeRefNode? ReceiverType, IReadOnlyList<CallTarget> Targets)? Resolve(TypeScriptNode call, int depth)
     {
@@ -292,6 +410,10 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
                 var written = receiver.Canonical;
                 return (name, written, typed, graph.Targets(name, written, typed, count, owner));
             }
+            case "CallExpression" when depth < MaxDepth && Resolve(callee, depth + 1) is { } inner:
+                // A call of what a call returns (Zustand's create<State>()(...), connect(map)(View)) is named as the call it is
+                // made on, which is its On; what it reaches isn't known.
+                return (inner.Name, inner.Receiver, inner.ReceiverType, []);
             default:
                 return null;
         }

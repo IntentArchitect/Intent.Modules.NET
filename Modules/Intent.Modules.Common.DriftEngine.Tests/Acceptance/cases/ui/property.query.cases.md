@@ -223,3 +223,63 @@ The model's `Page` Property is a Query Parameter, and the code's `Page` has lost
   ]
 }
 ```
+
+## react-query-parameters
+
+A React page reads its query string through react-router's `useSearchParams()`, or a `URLSearchParams` it makes, with `get('q')`. The stock React reader reads a Property as a query parameter when the page gets its name from one of those, and such a Property is the page's even though it is no prop. The search page reads `q` and `sort`, and never `page`, which the model has as a Query Parameter: with no prop and no read of that name, the Property itself is missing, one finding, and its query parameter waits on it.
+
+```json case
+{ "phase": "later", "kinds": ["property.query", "member.exists"], "cases": ["engine/blocked"], "requirements": ["R2", "R3", "R11", "R28", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "search-page", "type": "Page", "name": "SearchPage", "stereotypes": { "Page": { "Route": "/search" } },
+            "children": [
+              { "id": "search-page-q", "type": "Property", "name": "Q", "typeRef": { "type": "string" }, "stereotypes": { "Query Parameter": {} } },
+              { "id": "search-page-sort", "type": "Property", "name": "Sort", "typeRef": { "type": "string" }, "stereotypes": { "Query Parameter": {} } },
+              { "id": "search-page-page", "type": "Property", "name": "Page", "typeRef": { "type": "int" }, "stereotypes": { "Query Parameter": {} } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```jsx file src/SearchPage.jsx
+import { useLocation, useSearchParams } from 'react-router-dom';
+
+export default function SearchPage() {
+    const [searchParams] = useSearchParams();
+    const query = new URLSearchParams(useLocation().search);
+    const q = searchParams.get('q');
+    const sort = query.get('sort');
+    return <h1>{q} by {sort}</h1>;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "property.query", "element": "search-page-q", "outcome": "verified", "actual": "true", "at": "src/SearchPage.jsx:6" },
+    { "kind": "property.query", "element": "search-page-sort", "outcome": "verified", "actual": "true", "at": "src/SearchPage.jsx:7" },
+    { "kind": "member.exists", "element": "search-page-q", "outcome": "verified", "at": "src/SearchPage.jsx:6" },
+    { "kind": "member.exists", "element": "search-page-page", "outcome": "contradicted" },
+    { "kind": "property.query", "element": "search-page-page", "outcome": "cantVerify", "reason": "blocked", "blockedBy": "member.exists" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "search-page-page" },
+    { "rule": "claim/property.query", "subject": "search-page-page", "count": 0 }
+  ]
+}
+```

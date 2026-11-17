@@ -5,9 +5,10 @@ using Intent.Modules.Common.DriftEngine.Packs;
 namespace Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
 
 /// <summary>
-/// TypeScript as a language the engine reads: <c>.ts</c>, <c>.tsx</c>, <c>.mts</c> and <c>.cts</c> files, and Vue
-/// single-file components' scripts (<c>.vue</c>), parsed by TypeScript's own parser on Node.js (<see cref="INodeRunner"/>).
-/// Its profile (the <c>typescript</c> pack) names TypeScript's types, collections and type kinds.
+/// TypeScript as a language the engine reads: <c>.ts</c>, <c>.tsx</c>, <c>.mts</c> and <c>.cts</c> files, JavaScript
+/// (<c>.js</c>, <c>.jsx</c>, <c>.mjs</c>, <c>.cjs</c>, which TypeScript's parser reads as it does TypeScript, without its
+/// types), and Vue single-file components' scripts (<c>.vue</c>), parsed by TypeScript's own parser on Node.js
+/// (<see cref="INodeRunner"/>). Its profile (the <c>typescript</c> pack) names TypeScript's types, collections and type kinds.
 /// </summary>
 /// <param name="node">How Node.js is run: Intent Architect's own in a Software Factory run; the machine's <c>node</c> by default.</param>
 public sealed class TypeScriptExtension(INodeRunner? node = null) : IDriftExtension
@@ -23,13 +24,14 @@ internal sealed class TypeScriptLanguage(INodeRunner node) : ILanguage
 {
     internal const string LanguageName = "typescript";
 
-    private static readonly string[] Extensions = [".ts", ".tsx", ".mts", ".cts", ".vue"];
+    private static readonly string[] Extensions = [".ts", ".tsx", ".mts", ".cts", ".vue", ".js", ".jsx", ".mjs", ".cjs"];
 
     public string Name => LanguageName;
 
     public string Title => "TypeScript";
 
-    public bool Reads(string path) => Extensions.Any(x => path.EndsWith(x, StringComparison.OrdinalIgnoreCase));
+    /// <summary>A minified bundle (<c>.min.js</c>) is a build's output, not code anyone writes, so it isn't read.</summary>
+    public bool Reads(string path) => Extensions.Any(x => path.EndsWith(x, StringComparison.OrdinalIgnoreCase)) && !path.EndsWith(".min.js", StringComparison.OrdinalIgnoreCase);
 
     public void Read(string root, IReadOnlyList<string> files, CodeGraph graph) => TypeScriptReader.Read(root, files, graph, node);
 }
