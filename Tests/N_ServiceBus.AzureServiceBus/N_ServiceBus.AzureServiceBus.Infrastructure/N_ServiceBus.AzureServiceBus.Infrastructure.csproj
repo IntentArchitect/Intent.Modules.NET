@@ -12,7 +12,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="10.0.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="11.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.15" />
     <PackageReference Include="NServiceBus" Version="10.2.9" />
     <PackageReference Include="NServiceBus.Extensions.Hosting" Version="4.1.0" />
     <PackageReference Include="NServiceBus.Transport.AzureServiceBus" Version="6.5.1" />

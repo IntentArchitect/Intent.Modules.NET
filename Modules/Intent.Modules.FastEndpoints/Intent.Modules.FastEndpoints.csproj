@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -8,7 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.9.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.1" />
-    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.8.0-pre.0" />
+    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.8.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="4.0.10" />
     <PackageReference Include="Intent.Packager" Version="3.6.2-pre.0">
       <PrivateAssets>all</PrivateAssets>
@@ -21,9 +21,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
-  
+
   <Import Project="..\Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems" Label="Shared" />
-  
+
   <Import Project="..\Intent.Modules.ApiHosting.Shared\Intent.Modules.ApiHosting.Shared.projitems" Label="Shared" />
 
 </Project>

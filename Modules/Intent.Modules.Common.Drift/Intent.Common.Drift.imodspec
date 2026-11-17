@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Common.Drift</id>
-  <version>1.0.0-pre.2</version>
+  <version>1.0.0</version>
   <supportedClientVersions>[5.1.0-a,6.0.0)</supportedClientVersions>
   <summary>The drift check shared by modules that compare a designer's model with hand-written code: the code index, recipe engine, structure comparer and drift report, and the always-on rule and skills covering every designer that contributes a drift check.</summary>
   <description>The drift check shared by modules that compare a designer's model with hand-written code: the code index, recipe engine, structure comparer and drift report, and the always-on rule and skills covering every designer that contributes a drift check.</description>
@@ -34,10 +34,10 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.11.1" />
-    <dependency id="Intent.Common.CSharp" version="3.10.12-pre.2" />
-    <dependency id="Intent.Common.DriftReporting" version="1.0.0-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.11.0" />
+    <dependency id="Intent.Common.DriftReporting" version="1.0.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="5.0.3-pre.2" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="5.1.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

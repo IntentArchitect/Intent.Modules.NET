@@ -588,11 +588,13 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreToolsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("11.0.0"),
-                        ( >= 9, >= 0) => new PackageVersion("10.0.15")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Design", "9.0.15"),
-                        ( >= 8, >= 0) => new PackageVersion("10.0.15")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Design", "8.0.26"),
+                        ( >= 11, >= 0) => new PackageVersion("11.0.0"),
+                        ( >= 10, >= 0) => new PackageVersion("10.0.15")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Design", "10.0.15"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.23", locked: true)
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Design", "9.0.23"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.34", locked: true)
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Design", "8.0.34"),
                         ( >= 6, >= 0) => new PackageVersion("6.0.36", locked: true)
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Design", "6.0.36"),
                         ( >= 2, >= 0) => new PackageVersion("5.0.17")
