@@ -26,7 +26,7 @@ Code the model doesn't mention isn't drift on its own, so by default nothing rep
 
 | List | Row | What it does |
 | --- | --- | --- |
-| Opt-in Rules | Rule, Glob | Turns a rule on, optionally narrowed to some files: `optin/unmodelled.file`, `.type`, `.member`, `.interaction`, `.exposed`, `.value`, `.index` or `.endpoint`, or a module's own |
+| Opt-in Rules | Rule, Glob, Description | Turns a rule on, optionally narrowed to some files: `optin/unmodelled.file`, `.type`, `.member`, `.interaction`, `.exposed`, `.value`, `.index` or `.endpoint`, or a module's own. The Description says what the row's files are (`Domain layer: entities and repositories`), and the list shows it beside the rule, so rows of the same rule over different layers can be told apart; without one, the list shows the first glob. |
 | Exceptions | Rule, Match, Reason | Code a rule mustn't report: file globs, type names or `Type.Member`s, one per line, with one reason for them all. An entry that matches nothing is a warning. |
 | Severity Overrides | Rule, Severity, Reason | Another severity for the findings whose rule matches (`*` matches anything): `optin/unmodelled.*` as Warning while the model catches up |
 

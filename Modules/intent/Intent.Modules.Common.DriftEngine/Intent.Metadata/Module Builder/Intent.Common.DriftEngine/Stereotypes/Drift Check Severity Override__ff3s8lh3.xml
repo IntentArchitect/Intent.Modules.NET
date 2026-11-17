@@ -11,6 +11,11 @@
   <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction>const rule = (properties["Rule"].value ?? "").trim();
+const severity = properties["Severity"].value;
+const reason = (properties["Reason"].value ?? "").trim();
+const text = `${rule}${severity ? ` → ${severity}` : ""}`;
+return reason ? `${reason} · ${text}` : text;</displayFunction>
   <displayAsAnnotation>false</displayAsAnnotation>
   <displayAsText>true</displayAsText>
   <autoAdd>false</autoAdd>

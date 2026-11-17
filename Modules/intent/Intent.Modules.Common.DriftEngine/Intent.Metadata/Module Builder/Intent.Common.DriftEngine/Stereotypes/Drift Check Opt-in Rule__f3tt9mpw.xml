@@ -11,6 +11,16 @@
   <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction>const rule = (properties["Rule"].value ?? "").trim().replace(/^optin\//, "");
+const description = (properties["Description"].value ?? "").trim();
+if (description) {
+    return `${description} · ${rule}`;
+}
+const globs = (properties["Glob"].value ?? "").split("\n").map(x =&gt; x.trim()).filter(x =&gt; x.length &gt; 0);
+if (globs.length === 0) {
+    return `${rule} · every file in scope`;
+}
+return `${rule} · ${globs[0]}${globs.length &gt; 1 ? ` (+${globs.length - 1} more)` : ""}`;</displayFunction>
   <displayAsAnnotation>false</displayAsAnnotation>
   <displayAsText>true</displayAsText>
   <autoAdd>false</autoAdd>
@@ -35,6 +45,14 @@
       <controlType>textarea</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>e.g. src/Domain/**</placeholder>
+    </property>
+    <property id="5800fa36-431a-4d45-9beb-016d07b5ab9f">
+      <hint>What the row's files are, such as the layer and what it holds. The list shows it, so rows of the same rule can be told apart.</hint>
+      <name>Description</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>e.g. Domain layer: entities, enums and repositories</placeholder>
     </property>
   </properties>
 </stereotypeDefinition>

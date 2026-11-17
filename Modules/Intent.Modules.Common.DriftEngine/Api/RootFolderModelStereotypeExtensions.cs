@@ -234,6 +234,11 @@ namespace Intent.Common.DriftEngine.Api
                 return _stereotype.GetProperty<string>("Glob");
             }
 
+            public string Description()
+            {
+                return _stereotype.GetProperty<string>("Description");
+            }
+
         }
 
         public class DriftCheckSeverityOverride
