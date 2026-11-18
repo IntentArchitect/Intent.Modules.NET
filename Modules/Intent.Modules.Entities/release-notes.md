@@ -1,3 +1,7 @@
+### Version 5.3.6
+
+- Fixed: `UpdateHelper` no longer generates a redundant null-forgiving operator (`!`) that SonarAnalyzer rule S8969 reports, which failed builds with warnings treated as errors.
+
 ### Version 5.3.5
 
 - Improvement: Updated output path of some templates to not be nested in an `Entities` folder.

@@ -1,3 +1,7 @@
+### Version 4.13.1
+
+- Fixed: Command and query validators with nested DTO properties no longer generate a redundant null-forgiving operator (`!`) on `GetValidator<T>()` that SonarAnalyzer rule S8969 reports, which failed builds with warnings treated as errors.
+
 ### Version 4.13.0
 
 - Improvement: Updated NuGet package versions:

@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Fixed: `MassTransitMessageBus.SchedulePublishAsync` no longer generates a redundant null-forgiving operator (`!`) on the null-checked `ConsumeContext` that SonarAnalyzer rule S8969 reports, which failed builds with warnings treated as errors.
+
 ### Version 1.1.1
 
 - Fixed: Minimum client version.

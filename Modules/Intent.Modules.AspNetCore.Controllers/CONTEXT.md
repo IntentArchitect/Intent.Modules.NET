@@ -50,6 +50,13 @@ Generates ASP.NET Core MVC controllers from Services designer elements, plus the
 - The exception `switch` inside `OnException` carries the builder metadata `exception-switch`. Other modules
   find it with `FindMethod("OnException").FindStatement(p => p.HasMetadata("exception-switch"))` and append
   cases. Renaming the method or dropping the metadata silently stops those modules contributing cases.
+- **`BinaryContentFilter` emits `operation.RequestBody.Content!.Add(...)`: no `!` on `RequestBody`, but
+  `Content!` is kept.** SonarAnalyzer 10.35's S8969 flags a `!` on an expression the compiler already knows
+  is non-null, which fails apps that treat warnings as errors. `RequestBody` was just assigned a `new`
+  value, so its `!` was removed. `Content!` was kept because `RequestBody` is an interface in OpenApi 2.x,
+  so the compiler may not carry the initialiser's `Content` through. Removing it unproven risks a CS8602
+  warning instead. No test app with this filter has been built against Sonar 10.35 yet. Drop `Content!`
+  only once a build reports it.
 
 ## Module Interactions
 - **Intent.ModularMonolith.Host** — adds a `ValidationException` case to the exception switch via the

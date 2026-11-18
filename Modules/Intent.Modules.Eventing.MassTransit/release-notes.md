@@ -1,3 +1,7 @@
+### Version 7.3.1
+
+- Fixed: `MassTransitMessageBus` no longer generates redundant null-forgiving operators (`!`) on the null-checked `ConsumeContext` that SonarAnalyzer rule S8969 reports, which failed builds with warnings treated as errors.
+
 ### Version 7.3.0
 
 - Improvement: Updated NuGet package versions:

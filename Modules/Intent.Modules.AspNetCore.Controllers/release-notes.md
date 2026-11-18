@@ -1,3 +1,7 @@
+### Version 7.2.1
+
+- Fixed: `BinaryContentFilter` no longer generates a redundant null-forgiving operator (`!`) on the just-assigned `RequestBody` that SonarAnalyzer rule S8969 reports, which failed builds with warnings treated as errors.
+
 ### Version 7.2.0
 
 - New Feature: Operations modelled with the HTTP `QUERY` verb generate `[HttpQuery]` actions, backed by a generated `HttpQueryAttribute`, and respond like `GET` operations.

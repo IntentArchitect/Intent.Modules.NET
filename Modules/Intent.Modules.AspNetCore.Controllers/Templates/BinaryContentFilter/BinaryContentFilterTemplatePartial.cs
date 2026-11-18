@@ -117,7 +117,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
                         {
                             method.AddStatements(
                                 """
-                                operation.RequestBody!.Content!.Add("application/octet-stream", new OpenApiMediaType()
+                                operation.RequestBody.Content!.Add("application/octet-stream", new OpenApiMediaType()
                                 {
                                     Schema = new OpenApiSchema()
                                     {
@@ -131,7 +131,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
                         {
                             method.AddStatements(
                                 """
-                                operation.RequestBody!.Content!.Add("application/octet-stream", new OpenApiMediaType()
+                                operation.RequestBody.Content!.Add("application/octet-stream", new OpenApiMediaType()
                                 {
                                     Schema = new OpenApiSchema()
                                     {

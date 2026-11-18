@@ -224,6 +224,13 @@ is meant to run the EF-outbox branch.
   risks the same C# enclosing-namespace resolution collision documented repo-wide for Wolverine/
   NServiceBus — this module's own test apps are careful to avoid it, but a new consumer app is
   not automatically protected.
+- **No `!` on `ConsumeContext` inside its `is not null` block.** `MassTransitMessageBus.ConsumeContext`
+  is `ConsumeContext?`, and every use sits in an `if (ConsumeContext is not null)` block, so a `!` there is
+  redundant. SonarAnalyzer 10.35's S8969 flags it, which fails apps that treat warnings as errors.
+  `Intent.Eventing.MassTransit.Scheduling`'s `SchedulePublishAsync` follows the same rule. Extensions
+  adding statements to that block should too. (Unverified in generated output as of 7.3.1-pre.0: the
+  module could not be installed into TrainingModel.Tests to regenerate it. S8969 was confirmed on the
+  old output only.)
 
 ---
 
