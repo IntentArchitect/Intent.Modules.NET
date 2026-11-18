@@ -21,7 +21,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.People
         {
             RuleFor(v => v.Details)
                 .NotNull()
-                .SetValidator(provider.GetValidator<PersonCreatePersonPersonDetailsDto>()!);
+                .SetValidator(provider.GetValidator<PersonCreatePersonPersonDetailsDto>());
         }
     }
 }

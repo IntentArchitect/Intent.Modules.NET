@@ -23,7 +23,7 @@ namespace FastEndpointsTest.Application.AggregateRootLongs.CreateAggregateRootLo
                 .NotNull();
 
             RuleFor(v => v.CompositeOfAggrLong)
-                .SetValidator(provider.GetValidator<CreateAggregateRootLongCommandCompositeOfAggrLongDto>()!);
+                .SetValidator(provider.GetValidator<CreateAggregateRootLongCommandCompositeOfAggrLongDto?>());
         }
     }
 }

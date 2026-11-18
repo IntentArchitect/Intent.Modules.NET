@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.NestingParents
 
             RuleFor(v => v.ChildChild)
                 .NotNull()
-                .SetValidator(provider.GetValidator<ManualChildChildDto>()!);
+                .SetValidator(provider.GetValidator<ManualChildChildDto>());
         }
     }
 }

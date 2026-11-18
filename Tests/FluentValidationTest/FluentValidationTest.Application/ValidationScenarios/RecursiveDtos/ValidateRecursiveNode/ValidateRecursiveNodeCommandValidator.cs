@@ -22,7 +22,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.RecursiveDtos.Val
             RuleFor(v => v.Root)
                 .NotNull()
                 .NotEmpty()
-                .SetValidator(provider.GetValidator<RecursiveNodeDto>()!);
+                .SetValidator(provider.GetValidator<RecursiveNodeDto>());
         }
     }
 }

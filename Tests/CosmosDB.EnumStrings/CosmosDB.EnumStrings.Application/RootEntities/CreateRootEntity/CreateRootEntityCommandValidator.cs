@@ -31,11 +31,11 @@ namespace CosmosDB.EnumStrings.Application.RootEntities.CreateRootEntity
 
             RuleFor(v => v.Embedded)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateRootEntityEmbeddedObjectDto>()!);
+                .SetValidator(provider.GetValidator<CreateRootEntityEmbeddedObjectDto>());
 
             RuleFor(v => v.NestedEntities)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateRootEntityCommandNestedEntitiesDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateRootEntityCommandNestedEntitiesDto>()));
         }
     }
 }

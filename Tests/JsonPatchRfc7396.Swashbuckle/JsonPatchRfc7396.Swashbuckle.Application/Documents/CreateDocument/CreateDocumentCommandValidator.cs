@@ -25,27 +25,27 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents.CreateDocument
 
             RuleFor(v => v.Title)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateDocumentTitleDto>()!);
+                .SetValidator(provider.GetValidator<CreateDocumentTitleDto>());
 
             RuleFor(v => v.Content)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateDocumentContentDto>()!);
+                .SetValidator(provider.GetValidator<CreateDocumentContentDto>());
 
             RuleFor(v => v.Changes)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateDocumentCommandChangesDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateDocumentCommandChangesDto>()));
 
             RuleFor(v => v.Permissions)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateDocumentCommandPermissionsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateDocumentCommandPermissionsDto>()));
 
             RuleFor(v => v.Revisions)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateDocumentCommandRevisionsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateDocumentCommandRevisionsDto>()));
 
             RuleFor(v => v.Sessions)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateDocumentCommandSessionsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateDocumentCommandSessionsDto>()));
         }
     }
 }

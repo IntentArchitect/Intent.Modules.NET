@@ -24,7 +24,7 @@ namespace CosmosDB.EntityInterfaces.Application.Regions.CreateRegion
 
             RuleFor(v => v.Countries)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateRegionCountryDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateRegionCountryDto>()));
         }
     }
 }

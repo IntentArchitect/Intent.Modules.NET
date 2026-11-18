@@ -24,10 +24,10 @@ namespace FastEndpointsTest.Application.AggregateRoots.CreateAggregateRootCompos
 
             RuleFor(v => v.Composites)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBCommandCompositesDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBCommandCompositesDto>()));
 
             RuleFor(v => v.Composite)
-                .SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBCommandCompositeDto>()!);
+                .SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBCommandCompositeDto?>());
         }
     }
 }

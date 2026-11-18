@@ -40,7 +40,7 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
 
             RuleFor(v => v.UniqueConstraintIndexCompositeEntityForElements)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto>()));
 
             RuleFor(v => v)
                 .MustAsync(CheckUniqueConstraint_CompUniqueFieldA_CompUniqueFieldB)

@@ -28,7 +28,7 @@ namespace MudBlazor.ExampleApp.Application.Customers.UpdateCustomer
 
             RuleFor(v => v.Address)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateCustomerAddressDto>()!);
+                .SetValidator(provider.GetValidator<UpdateCustomerAddressDto>());
         }
     }
 }

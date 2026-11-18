@@ -21,7 +21,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.MixedScenarios.Re
         {
             RuleFor(v => v.CustomerRegistration)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CustomerRegistrationDto>()!);
+                .SetValidator(provider.GetValidator<CustomerRegistrationDto>());
         }
     }
 }

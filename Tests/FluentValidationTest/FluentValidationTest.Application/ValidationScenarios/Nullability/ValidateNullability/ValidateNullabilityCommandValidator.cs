@@ -35,10 +35,10 @@ namespace FluentValidationTest.Application.ValidationScenarios.Nullability.Valid
 
             RuleFor(v => v.RequiredPayload)
                 .NotNull()
-                .SetValidator(provider.GetValidator<SimplePayloadDto>()!);
+                .SetValidator(provider.GetValidator<SimplePayloadDto>());
 
             RuleFor(v => v.OptionalPayload)
-                .SetValidator(provider.GetValidator<SimplePayloadDto>()!);
+                .SetValidator(provider.GetValidator<SimplePayloadDto?>());
         }
     }
 }

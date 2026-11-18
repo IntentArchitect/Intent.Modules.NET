@@ -24,7 +24,7 @@ namespace Entities.Interfaces.EF.Application.Orders.CreateOrder
 
             RuleFor(v => v.OrderItems)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderOrderItemDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderOrderItemDto>()));
         }
     }
 }

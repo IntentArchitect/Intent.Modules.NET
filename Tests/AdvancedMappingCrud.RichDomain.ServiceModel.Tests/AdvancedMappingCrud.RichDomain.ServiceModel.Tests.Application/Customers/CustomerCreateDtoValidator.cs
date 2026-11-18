@@ -21,7 +21,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Customer
         {
             RuleFor(v => v.User)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CustomerCreateCustomerUserDto>()!);
+                .SetValidator(provider.GetValidator<CustomerCreateCustomerUserDto>());
 
             RuleFor(v => v.Login)
                 .NotNull()

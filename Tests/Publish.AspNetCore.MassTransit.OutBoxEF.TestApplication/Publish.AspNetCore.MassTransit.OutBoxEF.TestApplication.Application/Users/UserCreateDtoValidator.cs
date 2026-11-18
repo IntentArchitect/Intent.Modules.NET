@@ -29,7 +29,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Us
 
             RuleFor(v => v.Preferences)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<PreferenceDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<PreferenceDto>()));
         }
     }
 }

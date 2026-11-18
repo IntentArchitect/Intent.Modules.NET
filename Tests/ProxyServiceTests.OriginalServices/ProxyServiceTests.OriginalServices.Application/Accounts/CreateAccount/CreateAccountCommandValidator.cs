@@ -22,7 +22,7 @@ namespace ProxyServiceTests.OriginalServices.Application.Accounts.CreateAccount
 
             RuleFor(v => v.Amount)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateAccountMoneyDto>()!);
+                .SetValidator(provider.GetValidator<CreateAccountMoneyDto>());
 
             RuleFor(v => v.Number)
                 .NotNull();

@@ -20,7 +20,7 @@ namespace FluentValidationTest.Application.ValidationScenarios.MixedScenarios.Op
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.OptionalField)
-                .SetValidator(provider.GetValidator<OptionalSuppliedDto>()!);
+                .SetValidator(provider.GetValidator<OptionalSuppliedDto?>());
         }
     }
 }

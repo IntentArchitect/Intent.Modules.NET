@@ -25,7 +25,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
 
             RuleFor(v => v.OrderItems)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateOrderOrderItemDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateOrderOrderItemDto>()));
         }
     }
 }

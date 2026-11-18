@@ -24,7 +24,7 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents
 
             RuleFor(v => v.Actor)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateDocumentCommandActorDto>()!);
+                .SetValidator(provider.GetValidator<CreateDocumentCommandActorDto>());
 
             RuleFor(v => v.ClientChangeId)
                 .NotNull();

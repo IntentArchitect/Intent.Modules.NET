@@ -21,11 +21,11 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.ConfigurationStores
         {
             RuleFor(v => v.Key)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateConfigurationStoreKeyDto>()!);
+                .SetValidator(provider.GetValidator<UpdateConfigurationStoreKeyDto>());
 
             RuleFor(v => v.ScopeKey)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateConfigurationStoreScopeKeyDto>()!);
+                .SetValidator(provider.GetValidator<UpdateConfigurationStoreScopeKeyDto>());
 
             RuleFor(v => v.ValueType)
                 .NotNull()

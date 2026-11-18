@@ -33,7 +33,7 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
 
             RuleFor(v => v.UniqueConstraintIndexCompositeEntityForElements)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto>()));
         }
     }
 }

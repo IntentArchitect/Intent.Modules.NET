@@ -27,7 +27,7 @@ namespace Redis.Om.Repositories.Application.DerivedTypes.CreateDerivedType
 
             RuleFor(v => v.DerivedTypeAggregate)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateDerivedTypeDerivedTypeAggregateDto>()!);
+                .SetValidator(provider.GetValidator<CreateDerivedTypeDerivedTypeAggregateDto>());
         }
     }
 }

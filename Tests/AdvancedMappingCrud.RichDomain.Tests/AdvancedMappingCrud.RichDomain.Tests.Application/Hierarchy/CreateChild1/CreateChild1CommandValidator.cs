@@ -21,7 +21,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Hierarchy.CreateChild
         {
             RuleFor(v => v.Dto)
                 .NotNull()
-                .SetValidator(provider.GetValidator<Child1>()!);
+                .SetValidator(provider.GetValidator<Child1>());
         }
     }
 }

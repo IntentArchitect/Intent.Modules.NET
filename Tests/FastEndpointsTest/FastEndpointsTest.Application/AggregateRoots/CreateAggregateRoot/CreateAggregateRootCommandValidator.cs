@@ -43,7 +43,7 @@ namespace FastEndpointsTest.Application.AggregateRoots.CreateAggregateRoot
 
             RuleFor(v => v.Composites)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAggregateRootCommandCompositesDto3>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAggregateRootCommandCompositesDto3>()));
         }
     }
 }

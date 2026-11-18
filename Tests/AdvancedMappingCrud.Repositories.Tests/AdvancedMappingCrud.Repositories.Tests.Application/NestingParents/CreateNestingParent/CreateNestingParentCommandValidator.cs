@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.NestingParents.Crea
 
             RuleFor(v => v.NestingChildren)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateNestingParentCommandNestingChildrenDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateNestingParentCommandNestingChildrenDto>()));
         }
     }
 }

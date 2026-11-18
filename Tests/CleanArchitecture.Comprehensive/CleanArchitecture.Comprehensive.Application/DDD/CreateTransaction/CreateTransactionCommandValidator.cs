@@ -22,14 +22,14 @@ namespace CleanArchitecture.Comprehensive.Application.DDD.CreateTransaction
         {
             RuleFor(v => v.Current)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateMoneyDto>()!);
+                .SetValidator(provider.GetValidator<CreateMoneyDto>());
 
             RuleFor(v => v.Description)
                 .NotNull();
 
             RuleFor(v => v.Account)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateAccountDto>()!);
+                .SetValidator(provider.GetValidator<CreateAccountDto>());
         }
     }
 }

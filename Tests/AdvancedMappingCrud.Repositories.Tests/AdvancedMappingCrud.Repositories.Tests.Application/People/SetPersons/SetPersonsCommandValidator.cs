@@ -21,7 +21,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.People.SetPersons
         {
             RuleFor(v => v.People)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<PersonDCDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<PersonDCDto>()));
         }
     }
 }

@@ -24,11 +24,11 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateRoots.CreateAggre
                 .NotNull();
 
             RuleFor(v => v.Composite)
-                .SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBCompositeSingleBBDto>()!);
+                .SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBCompositeSingleBBDto?>());
 
             RuleFor(v => v.Composites)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBCompositeManyBBDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBCompositeManyBBDto>()));
         }
     }
 }

@@ -24,11 +24,11 @@ namespace ValueObjects.Record.Application.TestEntities.CreateTestEntity
 
             RuleFor(v => v.Amount)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateTestEntityMoneyDto>()!);
+                .SetValidator(provider.GetValidator<CreateTestEntityMoneyDto>());
 
             RuleFor(v => v.Address)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateTestEntityAddressDto>()!);
+                .SetValidator(provider.GetValidator<CreateTestEntityAddressDto>());
         }
     }
 }

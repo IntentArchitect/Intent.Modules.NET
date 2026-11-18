@@ -28,27 +28,27 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents.PatchDocument
 
             RuleFor(v => v.Title)
                 .NotNull()
-                .SetValidator(provider.GetValidator<PatchDocumentCommandTitleDto>()!);
+                .SetValidator(provider.GetValidator<PatchDocumentCommandTitleDto>());
 
             RuleFor(v => v.Content)
                 .NotNull()
-                .SetValidator(provider.GetValidator<PatchDocumentCommandContentDto>()!);
+                .SetValidator(provider.GetValidator<PatchDocumentCommandContentDto>());
 
             RuleFor(v => v.Changes)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<PatchDocumentCommandChangesDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<PatchDocumentCommandChangesDto>()));
 
             RuleFor(v => v.Permissions)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<PatchDocumentCommandPermissionsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<PatchDocumentCommandPermissionsDto>()));
 
             RuleFor(v => v.Revisions)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<PatchDocumentCommandRevisionsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<PatchDocumentCommandRevisionsDto>()));
 
             RuleFor(v => v.Sessions)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<PatchDocumentCommandSessionsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<PatchDocumentCommandSessionsDto>()));
         }
     }
 }

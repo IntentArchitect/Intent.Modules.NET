@@ -23,13 +23,13 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Contracts.Ser
 
             RuleFor(v => v.Composites)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateAggregateRootCompositeManyBDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateAggregateRootCompositeManyBDto>()));
 
             RuleFor(v => v.Composite)
-                .SetValidator(provider.GetValidator<UpdateAggregateRootCompositeSingleADto>()!);
+                .SetValidator(provider.GetValidator<UpdateAggregateRootCompositeSingleADto?>());
 
             RuleFor(v => v.Aggregate)
-                .SetValidator(provider.GetValidator<UpdateAggregateRootAggregateSingleCDto>()!);
+                .SetValidator(provider.GetValidator<UpdateAggregateRootAggregateSingleCDto?>());
 
             RuleFor(v => v.LimitedDomain)
                 .NotNull()

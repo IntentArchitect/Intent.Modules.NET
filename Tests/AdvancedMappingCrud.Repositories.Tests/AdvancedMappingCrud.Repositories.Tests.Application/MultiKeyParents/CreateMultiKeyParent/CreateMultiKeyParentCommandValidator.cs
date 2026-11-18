@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.MultiKeyParents.Cre
 
             RuleFor(v => v.MultiKeyChildren)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateMultiKeyParentCommandMultiKeyChildrenDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateMultiKeyParentCommandMultiKeyChildrenDto>()));
         }
     }
 }

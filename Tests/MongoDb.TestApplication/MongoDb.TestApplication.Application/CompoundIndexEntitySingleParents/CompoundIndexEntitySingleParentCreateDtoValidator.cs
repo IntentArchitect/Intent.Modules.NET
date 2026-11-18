@@ -26,7 +26,7 @@ namespace MongoDb.TestApplication.Application.CompoundIndexEntitySingleParents
 
             RuleFor(v => v.CompoundIndexEntitySingleChild)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CompoundIndexEntitySingleChildDto>()!);
+                .SetValidator(provider.GetValidator<CompoundIndexEntitySingleChildDto>());
         }
     }
 }

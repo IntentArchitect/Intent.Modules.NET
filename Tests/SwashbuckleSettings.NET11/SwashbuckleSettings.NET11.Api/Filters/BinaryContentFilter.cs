@@ -40,7 +40,7 @@ namespace SwashbuckleSettings.NET11.Api.Filters
                 Required = true,
                 Content = new Dictionary<string, IOpenApiMediaType>()
             };
-            operation.RequestBody!.Content!.Add("application/octet-stream", new OpenApiMediaType()
+            operation.RequestBody.Content!.Add("application/octet-stream", new OpenApiMediaType()
             {
                 Schema = new OpenApiSchema()
                 {

@@ -24,7 +24,7 @@ namespace GrpcServer.Application.Products.CreateComplexProduct
 
             RuleFor(v => v.TypeTestField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<TypeTestDto>()!);
+                .SetValidator(provider.GetValidator<TypeTestDto>());
         }
     }
 }

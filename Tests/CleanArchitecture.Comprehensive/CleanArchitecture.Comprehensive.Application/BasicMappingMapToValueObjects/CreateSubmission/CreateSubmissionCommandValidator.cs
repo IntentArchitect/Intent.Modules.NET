@@ -24,7 +24,7 @@ namespace CleanArchitecture.Comprehensive.Application.BasicMappingMapToValueObje
 
             RuleFor(v => v.Items)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateSubmissionItemDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateSubmissionItemDto>()));
         }
     }
 }

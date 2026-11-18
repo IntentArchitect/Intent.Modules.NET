@@ -23,7 +23,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
         {
             RuleFor(v => v.Cost)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreatePurchaseMoneyDto>()!);
+                .SetValidator(provider.GetValidator<CreatePurchaseMoneyDto>());
         }
     }
 }

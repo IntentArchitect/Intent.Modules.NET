@@ -26,7 +26,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Customers.Crea
                 .NotNull();
 
             RuleFor(v => v.Preferences)
-                .SetValidator(provider.GetValidator<CreateCustomerCommandPreferencesDto>()!);
+                .SetValidator(provider.GetValidator<CreateCustomerCommandPreferencesDto?>());
         }
     }
 }

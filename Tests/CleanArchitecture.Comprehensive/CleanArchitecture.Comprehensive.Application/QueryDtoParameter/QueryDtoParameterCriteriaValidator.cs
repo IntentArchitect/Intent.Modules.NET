@@ -27,7 +27,7 @@ namespace CleanArchitecture.Comprehensive.Application.QueryDtoParameter
 
             RuleFor(v => v.Nested)
                 .NotNull()
-                .SetValidator(provider.GetValidator<NestedQueryDto>()!);
+                .SetValidator(provider.GetValidator<NestedQueryDto>());
         }
     }
 }

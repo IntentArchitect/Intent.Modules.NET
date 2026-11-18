@@ -30,7 +30,7 @@ namespace AdvancedMappingCrudMongo.Tests.Application.Orders.CreateOrder
 
             RuleFor(v => v.OrderItems)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderCommandOrderItemsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderCommandOrderItemsDto>()));
         }
     }
 }

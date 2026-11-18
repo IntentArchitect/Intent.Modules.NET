@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.EmbeddedParents.CreateEmb
 
             RuleFor(v => v.Children)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateEmbeddedParentEmbeddedChildDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateEmbeddedParentEmbeddedChildDto>()));
         }
     }
 }

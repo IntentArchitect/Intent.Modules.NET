@@ -21,7 +21,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.Invoices.Operation
         {
             RuleFor(v => v.Lines)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<OperationLineDataContractDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<OperationLineDataContractDto>()));
         }
     }
 }

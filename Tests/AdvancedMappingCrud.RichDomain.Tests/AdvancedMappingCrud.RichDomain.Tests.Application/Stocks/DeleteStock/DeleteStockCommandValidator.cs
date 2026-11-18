@@ -21,7 +21,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Stocks.DeleteStock
         {
             RuleFor(v => v.Data)
                 .NotNull()
-                .SetValidator(provider.GetValidator<StockDto>()!);
+                .SetValidator(provider.GetValidator<StockDto>());
         }
     }
 }

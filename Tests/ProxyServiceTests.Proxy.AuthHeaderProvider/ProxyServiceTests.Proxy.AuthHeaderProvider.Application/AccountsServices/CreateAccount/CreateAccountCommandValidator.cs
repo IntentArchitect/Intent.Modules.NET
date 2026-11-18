@@ -24,7 +24,7 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.AccountsService
 
             RuleFor(v => v.Amount)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateAccountMoneyDto>()!);
+                .SetValidator(provider.GetValidator<CreateAccountMoneyDto>());
         }
     }
 }

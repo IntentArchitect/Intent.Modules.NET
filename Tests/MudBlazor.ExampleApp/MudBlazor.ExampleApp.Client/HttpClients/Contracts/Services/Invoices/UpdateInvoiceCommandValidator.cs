@@ -27,7 +27,7 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Invoices
 
             RuleFor(v => v.OrderLines)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateInvoiceCommandOrderLinesDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateInvoiceCommandOrderLinesDto>()));
         }
     }
 }

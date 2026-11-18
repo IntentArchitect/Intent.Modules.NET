@@ -25,13 +25,13 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateRoots.CreateAggre
 
             RuleFor(v => v.Composites)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAggregateRootCompositeManyBDto>()));
 
             RuleFor(v => v.Composite)
-                .SetValidator(provider.GetValidator<CreateAggregateRootCompositeSingleADto>()!);
+                .SetValidator(provider.GetValidator<CreateAggregateRootCompositeSingleADto?>());
 
             RuleFor(v => v.Aggregate)
-                .SetValidator(provider.GetValidator<CreateAggregateRootAggregateSingleCDto>()!);
+                .SetValidator(provider.GetValidator<CreateAggregateRootAggregateSingleCDto?>());
 
             RuleFor(v => v.LimitedDomain)
                 .NotNull()

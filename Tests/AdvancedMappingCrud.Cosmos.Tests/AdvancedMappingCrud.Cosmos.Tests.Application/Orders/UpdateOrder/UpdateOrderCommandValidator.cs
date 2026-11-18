@@ -34,7 +34,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.UpdateOrder
 
             RuleFor(v => v.OrderTags)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateOrderCommandOrderTagsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateOrderCommandOrderTagsDto>()));
         }
     }
 }

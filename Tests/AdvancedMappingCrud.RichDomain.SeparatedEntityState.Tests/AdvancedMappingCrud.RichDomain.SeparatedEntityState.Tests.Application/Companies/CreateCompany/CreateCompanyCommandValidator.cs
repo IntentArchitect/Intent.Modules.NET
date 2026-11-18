@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
 
             RuleFor(v => v.ContactDetailsVOS)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateCompanyContactDetailsVODto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateCompanyContactDetailsVODto>()));
         }
     }
 }

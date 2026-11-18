@@ -21,7 +21,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
         {
             RuleFor(v => v.Dto)
                 .NotNull()
-                .SetValidator(provider.GetValidator<Child3>()!);
+                .SetValidator(provider.GetValidator<Child3>());
         }
     }
 }

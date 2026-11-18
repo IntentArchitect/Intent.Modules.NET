@@ -24,7 +24,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders.CreateO
 
             RuleFor(v => v.Shipments)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderCommandShipmentsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderCommandShipmentsDto>()));
         }
     }
 }

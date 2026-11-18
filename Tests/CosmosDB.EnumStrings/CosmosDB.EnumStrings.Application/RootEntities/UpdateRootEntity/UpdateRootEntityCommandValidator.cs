@@ -31,7 +31,7 @@ namespace CosmosDB.EnumStrings.Application.RootEntities.UpdateRootEntity
 
             RuleFor(v => v.Embedded)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateRootEntityEmbeddedObjectDto>()!);
+                .SetValidator(provider.GetValidator<UpdateRootEntityEmbeddedObjectDto>());
 
             RuleFor(v => v.Id)
                 .NotNull();

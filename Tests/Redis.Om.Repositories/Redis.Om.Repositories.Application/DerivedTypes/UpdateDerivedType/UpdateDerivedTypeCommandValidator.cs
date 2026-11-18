@@ -30,7 +30,7 @@ namespace Redis.Om.Repositories.Application.DerivedTypes.UpdateDerivedType
 
             RuleFor(v => v.DerivedTypeAggregate)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateDerivedTypeDerivedTypeAggregateDto>()!);
+                .SetValidator(provider.GetValidator<UpdateDerivedTypeDerivedTypeAggregateDto>());
         }
     }
 }

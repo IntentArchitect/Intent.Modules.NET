@@ -56,7 +56,7 @@ namespace Intent.Modules.NET.Tests.Infrastructure.Core.Eventing
         {
             if (ConsumeContext is not null)
             {
-                await ConsumeContext!.PublishBatch(messagesToPublish.Select(x => x.Message), cancellationToken).ConfigureAwait(false);
+                await ConsumeContext.PublishBatch(messagesToPublish.Select(x => x.Message), cancellationToken).ConfigureAwait(false);
                 return;
             }
             var publishEndpoint = _serviceProvider.GetRequiredService<IPublishEndpoint>();
@@ -78,11 +78,11 @@ namespace Intent.Modules.NET.Tests.Infrastructure.Core.Eventing
                 {
                     if (address is null)
                     {
-                        await ConsumeContext!.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
+                        await ConsumeContext.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
                     }
                     else
                     {
-                        var endpoint = await ConsumeContext!.GetSendEndpoint(address).ConfigureAwait(false);
+                        var endpoint = await ConsumeContext.GetSendEndpoint(address).ConfigureAwait(false);
                         await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
                     }
                 }

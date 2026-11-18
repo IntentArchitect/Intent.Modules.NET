@@ -99,7 +99,6 @@
   <file path="Blazor.InteractiveAuto.Jwt/Components/Account/Shared/AccountLayout.razor.cs" templateId="Intent.Blazor.Authentication.Templates.Server.AccountLayoutCodeBehindTemplate" />
   <file path="Blazor.InteractiveAuto.Jwt/Components/Account/Shared/StatusMessage.razor" templateId="Intent.Blazor.Templates.Server.RazorServerComponentTemplate" />
   <file path="Blazor.InteractiveAuto.Jwt/Components/Account/Shared/StatusMessage.razor.cs" templateId="Intent.Blazor.Templates.Server.RazorServerComponentCodeBehindTemplate" />
-  <file path="Blazor.InteractiveAuto.Jwt/Components/Account/Shared/_Imports.razor" templateId="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.MudBlazorAccountFolderSharedFolderFilesStaticContentTemplateRegistration" />
   <file path="Blazor.InteractiveAuto.Jwt/Components/App.razor" templateId="Intent.Blazor.Templates.Server.AppRazorTemplate" />
   <file path="Blazor.InteractiveAuto.Jwt/Components/_Imports.razor" templateId="Intent.Blazor.Templates.Server.ServerImportsRazorTemplate" />
   <file path="Blazor.InteractiveAuto.Jwt/Configuration/ProblemDetailsConfiguration.cs" templateId="Intent.AspNetCore.ProblemDetailsConfiguration" />

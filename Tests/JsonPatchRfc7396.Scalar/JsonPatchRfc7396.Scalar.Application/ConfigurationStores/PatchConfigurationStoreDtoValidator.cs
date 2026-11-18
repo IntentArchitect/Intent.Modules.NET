@@ -23,10 +23,10 @@ namespace JsonPatchRfc7396.Scalar.Application.ConfigurationStores
                 .NotNull();
 
             RuleFor(v => v.Changes)
-                .ForEach(x => x.SetValidator(provider.GetValidator<PatchConfigurationStoreChangesDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<PatchConfigurationStoreChangesDto>()));
 
             RuleFor(v => v.Items)
-                .ForEach(x => x.SetValidator(provider.GetValidator<PatchConfigurationStoreItemsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<PatchConfigurationStoreItemsDto>()));
         }
     }
 }

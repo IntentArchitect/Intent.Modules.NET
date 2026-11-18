@@ -90,7 +90,7 @@ namespace CompositeMessageBus.Infrastructure.Eventing
         {
             if (ConsumeContext is not null)
             {
-                await ConsumeContext!.PublishBatch(messagesToPublish.Select(x => x.Message), cancellationToken).ConfigureAwait(false);
+                await ConsumeContext.PublishBatch(messagesToPublish.Select(x => x.Message), cancellationToken).ConfigureAwait(false);
                 return;
             }
             var publishEndpoint = _serviceProvider.GetRequiredService<IPublishEndpoint>();
@@ -112,11 +112,11 @@ namespace CompositeMessageBus.Infrastructure.Eventing
                 {
                     if (address is null)
                     {
-                        await ConsumeContext!.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
+                        await ConsumeContext.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
                     }
                     else
                     {
-                        var endpoint = await ConsumeContext!.GetSendEndpoint(address).ConfigureAwait(false);
+                        var endpoint = await ConsumeContext.GetSendEndpoint(address).ConfigureAwait(false);
                         await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);
                     }
                 }
@@ -150,7 +150,7 @@ namespace CompositeMessageBus.Infrastructure.Eventing
                 {
                     if (toSchedule.AdditionalData != null && toSchedule.AdditionalData.TryGetValue(ScheduledKey, out var scheduledObj) && scheduledObj is DateTime scheduled)
                     {
-                        await ConsumeContext!.SchedulePublish(scheduled, toSchedule.Message, cancellationToken).ConfigureAwait(false);
+                        await ConsumeContext.SchedulePublish(scheduled, toSchedule.Message, cancellationToken).ConfigureAwait(false);
                     }
                 }
                 return;

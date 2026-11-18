@@ -27,7 +27,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.ParentWithAnemicChi
 
             RuleFor(v => v.AnemicChildren)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateParentWithAnemicChildAnemicChildDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateParentWithAnemicChildAnemicChildDto>()));
         }
     }
 }

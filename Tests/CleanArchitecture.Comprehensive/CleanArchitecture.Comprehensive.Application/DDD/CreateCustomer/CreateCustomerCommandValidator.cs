@@ -30,7 +30,7 @@ namespace CleanArchitecture.Comprehensive.Application.DDD.CreateCustomer
 
             RuleFor(v => v.Address)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateCustomerAddressDto>()!);
+                .SetValidator(provider.GetValidator<CreateCustomerAddressDto>());
 
             RuleFor(v => v.Email)
                 .NotNull()

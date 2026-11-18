@@ -23,7 +23,7 @@ namespace CleanArchitecture.Comprehensive.Application.QueryDtoParameter.HasDtoPa
         {
             RuleFor(v => v.Arg)
                 .NotNull()
-                .SetValidator(provider.GetValidator<QueryDtoParameterCriteria>()!);
+                .SetValidator(provider.GetValidator<QueryDtoParameterCriteria>());
         }
     }
 }

@@ -21,7 +21,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.MappableS
         {
             RuleFor(v => v.Entities)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateEntitiesCommandentitiesDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateEntitiesCommandentitiesDto>()));
         }
     }
 }

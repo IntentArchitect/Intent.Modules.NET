@@ -27,7 +27,7 @@ namespace Subscribe.MassTransit.DomainInteractionsRepro.Application.CreateCatalo
 
             RuleFor(v => v.CatalogueItems)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateCatalogueItemDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateCatalogueItemDto>()));
         }
     }
 }

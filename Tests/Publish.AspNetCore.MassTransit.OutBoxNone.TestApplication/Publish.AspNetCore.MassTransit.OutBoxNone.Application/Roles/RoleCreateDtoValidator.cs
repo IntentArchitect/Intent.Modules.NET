@@ -25,7 +25,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Roles
 
             RuleFor(v => v.Priviledges)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<PriviledgeDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<PriviledgeDto>()));
         }
     }
 }

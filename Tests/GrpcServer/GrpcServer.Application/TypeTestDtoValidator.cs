@@ -22,87 +22,87 @@ namespace GrpcServer.Application
         {
             RuleFor(v => v.BinaryField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<BinaryTestDto>()!);
+                .SetValidator(provider.GetValidator<BinaryTestDto>());
 
             RuleFor(v => v.BoolField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<BoolTestDto>()!);
+                .SetValidator(provider.GetValidator<BoolTestDto>());
 
             RuleFor(v => v.ByteField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<ByteTestDto>()!);
+                .SetValidator(provider.GetValidator<ByteTestDto>());
 
             RuleFor(v => v.CharField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CharTestDto>()!);
+                .SetValidator(provider.GetValidator<CharTestDto>());
 
             RuleFor(v => v.ComplexValueField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<ComplexValueTestDto>()!);
+                .SetValidator(provider.GetValidator<ComplexValueTestDto>());
 
             RuleFor(v => v.DateOnlyField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<DateOnlyTestDto>()!);
+                .SetValidator(provider.GetValidator<DateOnlyTestDto>());
 
             RuleFor(v => v.DateTimeField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<DateTimeTestDto>()!);
+                .SetValidator(provider.GetValidator<DateTimeTestDto>());
 
             RuleFor(v => v.DateTimeOffsetField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<DateTimeOffsetTestDto>()!);
+                .SetValidator(provider.GetValidator<DateTimeOffsetTestDto>());
 
             RuleFor(v => v.DecimalField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<DecimalTestDto>()!);
+                .SetValidator(provider.GetValidator<DecimalTestDto>());
 
             RuleFor(v => v.DictionaryField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<DictionaryTestDto>()!);
+                .SetValidator(provider.GetValidator<DictionaryTestDto>());
 
             RuleFor(v => v.DoubleField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<DoubleTestDto>()!);
+                .SetValidator(provider.GetValidator<DoubleTestDto>());
 
             RuleFor(v => v.EnumField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<EnumTestDto>()!);
+                .SetValidator(provider.GetValidator<EnumTestDto>());
 
             RuleFor(v => v.FloatField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<FloatTestDto>()!);
+                .SetValidator(provider.GetValidator<FloatTestDto>());
 
             RuleFor(v => v.GuidField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<GuidTestDto>()!);
+                .SetValidator(provider.GetValidator<GuidTestDto>());
 
             RuleFor(v => v.IntField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<IntTestDto>()!);
+                .SetValidator(provider.GetValidator<IntTestDto>());
 
             RuleFor(v => v.LongField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<LongTestDto>()!);
+                .SetValidator(provider.GetValidator<LongTestDto>());
 
             RuleFor(v => v.ObjectField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<ObjectTestDto>()!);
+                .SetValidator(provider.GetValidator<ObjectTestDto>());
 
             RuleFor(v => v.PagedResultField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<PagedResultTestDto>()!);
+                .SetValidator(provider.GetValidator<PagedResultTestDto>());
 
             RuleFor(v => v.ShortField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<ShortTestDto>()!);
+                .SetValidator(provider.GetValidator<ShortTestDto>());
 
             RuleFor(v => v.StringField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<StringTestDto>()!);
+                .SetValidator(provider.GetValidator<StringTestDto>());
 
             RuleFor(v => v.TimeSpanField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<TimeSpanTestDto>()!);
+                .SetValidator(provider.GetValidator<TimeSpanTestDto>());
         }
     }
 }

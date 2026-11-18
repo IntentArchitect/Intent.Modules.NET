@@ -22,11 +22,11 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Contracts.Ser
                 .NotNull();
 
             RuleFor(v => v.Composite)
-                .SetValidator(provider.GetValidator<UpdateAggregateRootCompositeSingleACompositeSingleAADto>()!);
+                .SetValidator(provider.GetValidator<UpdateAggregateRootCompositeSingleACompositeSingleAADto?>());
 
             RuleFor(v => v.Composites)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateAggregateRootCompositeSingleACompositeManyAADto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateAggregateRootCompositeSingleACompositeManyAADto>()));
         }
     }
 }

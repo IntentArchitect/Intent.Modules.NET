@@ -24,7 +24,7 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders
 
             RuleFor(v => v.Document)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateOrderCommandManifestDocumentDto>()!);
+                .SetValidator(provider.GetValidator<CreateOrderCommandManifestDocumentDto>());
         }
     }
 }

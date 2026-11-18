@@ -27,7 +27,7 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Customers
 
             RuleFor(v => v.Address)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateCustomerAddressDto>()!);
+                .SetValidator(provider.GetValidator<CreateCustomerAddressDto>());
         }
     }
 }

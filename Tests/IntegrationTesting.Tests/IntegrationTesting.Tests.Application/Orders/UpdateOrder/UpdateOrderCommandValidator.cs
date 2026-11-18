@@ -24,7 +24,7 @@ namespace IntegrationTesting.Tests.Application.Orders.UpdateOrder
 
             RuleFor(v => v.OrderItems)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateOrderCommandOrderItemsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateOrderCommandOrderItemsDto>()));
         }
     }
 }

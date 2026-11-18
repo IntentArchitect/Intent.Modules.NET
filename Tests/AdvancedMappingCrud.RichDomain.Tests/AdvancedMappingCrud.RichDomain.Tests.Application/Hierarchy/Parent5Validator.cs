@@ -26,7 +26,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Hierarchy
 
             RuleFor(v => v.Aunt)
                 .NotNull()
-                .SetValidator(provider.GetValidator<Aunt5>()!);
+                .SetValidator(provider.GetValidator<Aunt5>());
         }
     }
 }

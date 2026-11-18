@@ -23,7 +23,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Warehouses.UpdateWa
                 .NotNull();
 
             RuleFor(v => v.Address)
-                .SetValidator(provider.GetValidator<UpdateWarehouseCommandAddressDto>()!);
+                .SetValidator(provider.GetValidator<UpdateWarehouseCommandAddressDto?>());
         }
     }
 }

@@ -29,7 +29,7 @@ namespace AzureFunctions.AzureServiceBus.Application.Validators.Org.CreateOrg
 
             RuleFor(v => v.Departments)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrgCommandDepartmentsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrgCommandDepartmentsDto>()));
         }
     }
 }

@@ -21,11 +21,11 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
         {
             RuleFor(v => v.ContactDetailsVO)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateUserContactDetailsVODto>()!);
+                .SetValidator(provider.GetValidator<CreateUserContactDetailsVODto>());
 
             RuleFor(v => v.Addresses)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateUserAddressDCDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateUserAddressDCDto>()));
         }
     }
 }

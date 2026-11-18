@@ -29,7 +29,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
 
             RuleFor(v => v.Roles)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateUserRoleDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateUserRoleDto>()));
         }
     }
 }

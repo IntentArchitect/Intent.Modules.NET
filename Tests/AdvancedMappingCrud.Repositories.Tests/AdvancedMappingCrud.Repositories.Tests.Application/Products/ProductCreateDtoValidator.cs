@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Products
 
             RuleFor(v => v.Tags)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateProductTagDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateProductTagDto>()));
         }
     }
 }

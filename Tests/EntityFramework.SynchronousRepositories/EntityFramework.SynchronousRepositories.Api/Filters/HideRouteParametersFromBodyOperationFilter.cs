@@ -22,8 +22,8 @@ namespace EntityFramework.SynchronousRepositories.Api.Filters
             {
                 return;
             }
-            var parameters = operation.Parameters!;
-            var requestBody = operation.RequestBody!;
+            var parameters = operation.Parameters;
+            var requestBody = operation.RequestBody;
 
             if (requestBody?.Content == null)
             {

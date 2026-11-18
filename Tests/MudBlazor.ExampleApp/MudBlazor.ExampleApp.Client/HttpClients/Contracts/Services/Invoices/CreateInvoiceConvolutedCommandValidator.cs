@@ -21,7 +21,7 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Invoices
         {
             RuleFor(v => v.Invoice)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateInvoiceDTO>()!);
+                .SetValidator(provider.GetValidator<CreateInvoiceDTO>());
         }
     }
 }

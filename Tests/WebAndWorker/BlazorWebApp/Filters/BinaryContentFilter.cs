@@ -39,7 +39,7 @@ namespace BlazorWebApp.Filters
                 Required = true,
                 Content = new Dictionary<string, OpenApiMediaType>()
             };
-            operation.RequestBody!.Content!.Add("application/octet-stream", new OpenApiMediaType()
+            operation.RequestBody.Content!.Add("application/octet-stream", new OpenApiMediaType()
             {
                 Schema = new OpenApiSchema()
                 {

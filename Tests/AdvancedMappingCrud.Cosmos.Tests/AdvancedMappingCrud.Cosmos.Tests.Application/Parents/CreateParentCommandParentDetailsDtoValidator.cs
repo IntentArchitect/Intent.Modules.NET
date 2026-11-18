@@ -26,10 +26,10 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Parents
                 .NotNull();
 
             RuleFor(v => v.ParentDetailsTags)
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateParentCommandParentDetailsTagsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateParentCommandParentDetailsTagsDto>()));
 
             RuleFor(v => v.ParentSubDetails)
-                .SetValidator(provider.GetValidator<CreateParentCommandParentSubDetailsDto>()!);
+                .SetValidator(provider.GetValidator<CreateParentCommandParentSubDetailsDto?>());
         }
     }
 }

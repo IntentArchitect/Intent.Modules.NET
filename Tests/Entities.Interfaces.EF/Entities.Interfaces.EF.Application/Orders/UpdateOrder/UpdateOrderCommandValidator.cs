@@ -24,7 +24,7 @@ namespace Entities.Interfaces.EF.Application.Orders.UpdateOrder
 
             RuleFor(v => v.OrderItems)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateOrderOrderItemDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateOrderOrderItemDto>()));
         }
     }
 }

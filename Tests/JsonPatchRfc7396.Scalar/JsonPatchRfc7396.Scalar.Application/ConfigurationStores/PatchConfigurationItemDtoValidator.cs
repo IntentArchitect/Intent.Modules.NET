@@ -21,11 +21,11 @@ namespace JsonPatchRfc7396.Scalar.Application.ConfigurationStores
         {
             RuleFor(v => v.Key)
                 .NotNull()
-                .SetValidator(provider.GetValidator<PatchConfigurationItemKeyDto1>()!);
+                .SetValidator(provider.GetValidator<PatchConfigurationItemKeyDto1>());
 
             RuleFor(v => v.ScopeKey)
                 .NotNull()
-                .SetValidator(provider.GetValidator<PatchConfigurationItemScopeKeyDto1>()!);
+                .SetValidator(provider.GetValidator<PatchConfigurationItemScopeKeyDto1>());
 
             RuleFor(v => v.ValueType)
                 .NotNull()

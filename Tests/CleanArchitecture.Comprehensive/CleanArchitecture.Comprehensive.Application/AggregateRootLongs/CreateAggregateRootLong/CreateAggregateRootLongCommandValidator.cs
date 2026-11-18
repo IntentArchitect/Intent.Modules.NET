@@ -23,7 +23,7 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateRootLongs.CreateA
                 .NotNull();
 
             RuleFor(v => v.CompositeOfAggrLong)
-                .SetValidator(provider.GetValidator<CreateAggregateRootLongCompositeOfAggrLongDto>()!);
+                .SetValidator(provider.GetValidator<CreateAggregateRootLongCompositeOfAggrLongDto?>());
         }
     }
 }

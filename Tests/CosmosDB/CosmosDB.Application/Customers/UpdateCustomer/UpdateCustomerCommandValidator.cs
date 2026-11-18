@@ -27,7 +27,7 @@ namespace CosmosDB.Application.Customers.UpdateCustomer
 
             RuleFor(v => v.DeliveryAddress)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateCustomerAddressDto>()!);
+                .SetValidator(provider.GetValidator<UpdateCustomerAddressDto>());
         }
     }
 }

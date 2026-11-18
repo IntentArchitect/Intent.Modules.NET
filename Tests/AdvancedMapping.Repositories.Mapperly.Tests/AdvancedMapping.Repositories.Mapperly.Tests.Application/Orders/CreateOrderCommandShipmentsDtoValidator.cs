@@ -21,11 +21,11 @@ namespace AdvancedMapping.Repositories.Mapperly.Tests.Application.Orders
         {
             RuleFor(v => v.Dispatch)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateOrderCommandDispatchDto>()!);
+                .SetValidator(provider.GetValidator<CreateOrderCommandDispatchDto>());
 
             RuleFor(v => v.Manifest)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateOrderCommandManifestDto>()!);
+                .SetValidator(provider.GetValidator<CreateOrderCommandManifestDto>());
 
             RuleFor(v => v.Provider)
                 .NotNull();

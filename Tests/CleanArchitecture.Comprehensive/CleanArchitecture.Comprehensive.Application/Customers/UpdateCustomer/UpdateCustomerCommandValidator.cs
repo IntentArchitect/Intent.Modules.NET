@@ -29,7 +29,7 @@ namespace CleanArchitecture.Comprehensive.Application.Customers.UpdateCustomer
 
             RuleFor(v => v.Address)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateCustomerAddressDto>()!);
+                .SetValidator(provider.GetValidator<UpdateCustomerAddressDto>());
 
             RuleFor(v => v.Name)
                 .NotNull()

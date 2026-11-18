@@ -21,7 +21,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Farmers.AddPlotFarm
         {
             RuleFor(v => v.Address)
                 .NotNull()
-                .SetValidator(provider.GetValidator<AddPlotDto>()!);
+                .SetValidator(provider.GetValidator<AddPlotDto>());
         }
     }
 }

@@ -23,7 +23,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
         {
             RuleFor(v => v.Address)
                 .NotNull()
-                .SetValidator(provider.GetValidator<ChangeAddressDCDto>()!);
+                .SetValidator(provider.GetValidator<ChangeAddressDCDto>());
         }
     }
 }

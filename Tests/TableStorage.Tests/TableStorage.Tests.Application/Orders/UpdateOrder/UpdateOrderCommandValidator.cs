@@ -30,7 +30,7 @@ namespace TableStorage.Tests.Application.Orders.UpdateOrder
 
             RuleFor(v => v.Customer)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateOrderCustomerDto>()!);
+                .SetValidator(provider.GetValidator<UpdateOrderCustomerDto>());
         }
     }
 }

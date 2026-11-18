@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.EmbeddedParents.UpdateEmb
 
             RuleFor(v => v.Children)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateEmbeddedParentEmbeddedChildDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateEmbeddedParentEmbeddedChildDto>()));
 
             RuleFor(v => v.Id)
                 .NotNull();

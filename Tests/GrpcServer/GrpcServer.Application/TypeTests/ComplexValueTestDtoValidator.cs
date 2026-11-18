@@ -21,17 +21,17 @@ namespace GrpcServer.Application.TypeTests
         {
             RuleFor(v => v.ComplexTypeField)
                 .NotNull()
-                .SetValidator(provider.GetValidator<ComplexTypeDto>()!);
+                .SetValidator(provider.GetValidator<ComplexTypeDto>());
 
             RuleFor(v => v.ComplexTypeFieldCollection)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<ComplexTypeDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<ComplexTypeDto>()));
 
             RuleFor(v => v.ComplexTypeFieldNullable)
-                .SetValidator(provider.GetValidator<ComplexTypeDto>()!);
+                .SetValidator(provider.GetValidator<ComplexTypeDto?>());
 
             RuleFor(v => v.ComplexTypeFieldNullableCollection)
-                .ForEach(x => x.SetValidator(provider.GetValidator<ComplexTypeDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<ComplexTypeDto>()));
         }
     }
 }

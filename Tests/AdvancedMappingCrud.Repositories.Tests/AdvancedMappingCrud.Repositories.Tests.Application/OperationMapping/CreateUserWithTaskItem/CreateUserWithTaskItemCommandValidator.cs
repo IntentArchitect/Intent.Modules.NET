@@ -30,7 +30,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.OperationMapping.Cr
 
             RuleFor(v => v.SubTasks)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateUserWithTaskItemCommandSubTasksDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateUserWithTaskItemCommandSubTasksDto>()));
         }
     }
 }

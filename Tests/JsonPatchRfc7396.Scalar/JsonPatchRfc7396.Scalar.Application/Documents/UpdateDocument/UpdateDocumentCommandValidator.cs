@@ -28,27 +28,27 @@ namespace JsonPatchRfc7396.Scalar.Application.Documents.UpdateDocument
 
             RuleFor(v => v.Title)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateDocumentTitleDto>()!);
+                .SetValidator(provider.GetValidator<UpdateDocumentTitleDto>());
 
             RuleFor(v => v.Content)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateDocumentContentDto>()!);
+                .SetValidator(provider.GetValidator<UpdateDocumentContentDto>());
 
             RuleFor(v => v.Changes)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateDocumentCommandChangesDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateDocumentCommandChangesDto>()));
 
             RuleFor(v => v.Permissions)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateDocumentCommandPermissionsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateDocumentCommandPermissionsDto>()));
 
             RuleFor(v => v.Revisions)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateDocumentCommandRevisionsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateDocumentCommandRevisionsDto>()));
 
             RuleFor(v => v.Sessions)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateDocumentCommandSessionsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateDocumentCommandSessionsDto>()));
         }
     }
 }

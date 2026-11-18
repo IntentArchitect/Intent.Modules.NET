@@ -23,10 +23,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.PatchOrder
                 .IsInEnum();
 
             RuleFor(v => v.BillingAddress)
-                .SetValidator(provider.GetValidator<PatchOrderCommandBillingAddressDto>()!);
+                .SetValidator(provider.GetValidator<PatchOrderCommandBillingAddressDto?>());
 
             RuleFor(v => v.DeliveryAddress)
-                .SetValidator(provider.GetValidator<PatchOrderCommandDeliveryAddressDto>()!);
+                .SetValidator(provider.GetValidator<PatchOrderCommandDeliveryAddressDto?>());
         }
     }
 }

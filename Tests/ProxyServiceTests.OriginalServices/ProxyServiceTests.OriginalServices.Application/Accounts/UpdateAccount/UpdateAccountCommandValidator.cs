@@ -24,7 +24,7 @@ namespace ProxyServiceTests.OriginalServices.Application.Accounts.UpdateAccount
 
             RuleFor(v => v.Amount)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateAccountMoneyDto>()!);
+                .SetValidator(provider.GetValidator<UpdateAccountMoneyDto>());
         }
     }
 }

@@ -26,7 +26,7 @@ namespace MongoDb.TestApplication.Application.MultikeyIndexEntitySingleParents
 
             RuleFor(v => v.MultikeyIndexEntitySingleChild)
                 .NotNull()
-                .SetValidator(provider.GetValidator<MultikeyIndexEntitySingleChildDto>()!);
+                .SetValidator(provider.GetValidator<MultikeyIndexEntitySingleChildDto>());
         }
     }
 }

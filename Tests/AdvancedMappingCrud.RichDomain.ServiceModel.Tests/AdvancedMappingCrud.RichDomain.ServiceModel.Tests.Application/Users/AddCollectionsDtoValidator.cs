@@ -21,11 +21,11 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Users
         {
             RuleFor(v => v.Addresses)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<AddCollectionsAddAddressDCDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<AddCollectionsAddAddressDCDto>()));
 
             RuleFor(v => v.Contacts)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<AddCollectionsAddContactDetailsVODto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<AddCollectionsAddContactDetailsVODto>()));
         }
     }
 }

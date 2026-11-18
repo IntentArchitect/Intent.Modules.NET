@@ -22,7 +22,7 @@ namespace MudBlazor.ExampleApp.Application.Invoices.CreateInvoiceConvoluted
         {
             RuleFor(v => v.Invoice)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateInvoiceDTO>()!);
+                .SetValidator(provider.GetValidator<CreateInvoiceDTO>());
         }
     }
 }

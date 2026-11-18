@@ -24,11 +24,11 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents
 
             RuleFor(v => v.Content)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateDocumentCommandContentDto>()!);
+                .SetValidator(provider.GetValidator<UpdateDocumentCommandContentDto>());
 
             RuleFor(v => v.Author)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateDocumentCommandActorDto>()!);
+                .SetValidator(provider.GetValidator<UpdateDocumentCommandActorDto>());
         }
     }
 }

@@ -31,11 +31,11 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders.CreateOrder
 
             RuleFor(v => v.OrderTags)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderCommandOrderTagsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderCommandOrderTagsDto>()));
 
             RuleFor(v => v.OrderItems)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderCommandOrderItemsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderCommandOrderItemsDto>()));
         }
     }
 }

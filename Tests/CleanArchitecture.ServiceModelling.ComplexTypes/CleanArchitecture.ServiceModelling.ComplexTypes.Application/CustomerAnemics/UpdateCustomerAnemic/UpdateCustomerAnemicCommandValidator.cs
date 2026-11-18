@@ -25,7 +25,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
 
             RuleFor(v => v.Address)
                 .NotNull()
-                .SetValidator(provider.GetValidator<UpdateCustomerAnemicAddressDto>()!);
+                .SetValidator(provider.GetValidator<UpdateCustomerAnemicAddressDto>());
         }
     }
 }

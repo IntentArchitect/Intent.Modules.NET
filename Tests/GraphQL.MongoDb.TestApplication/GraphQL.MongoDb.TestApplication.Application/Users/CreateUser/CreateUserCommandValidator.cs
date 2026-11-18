@@ -31,7 +31,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.CreateUser
 
             RuleFor(v => v.AssignedPrivileges)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateUserAssignedPrivilegeDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateUserAssignedPrivilegeDto>()));
         }
     }
 }

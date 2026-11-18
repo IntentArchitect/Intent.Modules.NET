@@ -26,7 +26,7 @@ namespace MongoDb.TestApplication.Application.TextIndexEntityMultiParents
 
             RuleFor(v => v.TextIndexEntityMultiChild)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<TextIndexEntityMultiChildDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<TextIndexEntityMultiChildDto>()));
         }
     }
 }

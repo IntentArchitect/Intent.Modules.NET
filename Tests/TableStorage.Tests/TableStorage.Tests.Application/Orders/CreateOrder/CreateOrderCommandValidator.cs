@@ -30,11 +30,11 @@ namespace TableStorage.Tests.Application.Orders.CreateOrder
 
             RuleFor(v => v.Customer)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateOrderCustomerDto>()!);
+                .SetValidator(provider.GetValidator<CreateOrderCustomerDto>());
 
             RuleFor(v => v.OrderLines)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderOrderLineDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderOrderLineDto>()));
         }
     }
 }

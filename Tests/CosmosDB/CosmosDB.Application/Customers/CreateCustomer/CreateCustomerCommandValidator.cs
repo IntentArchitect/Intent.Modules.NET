@@ -24,7 +24,7 @@ namespace CosmosDB.Application.Customers.CreateCustomer
 
             RuleFor(v => v.DeliveryAddress)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateCustomerAddressDto>()!);
+                .SetValidator(provider.GetValidator<CreateCustomerAddressDto>());
         }
     }
 }

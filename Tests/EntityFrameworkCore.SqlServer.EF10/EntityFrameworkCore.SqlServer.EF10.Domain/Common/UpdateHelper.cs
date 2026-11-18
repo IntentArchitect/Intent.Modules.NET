@@ -38,7 +38,7 @@ namespace EntityFrameworkCore.SqlServer.EF10.Domain.Common
                 return new List<TOriginal>();
             }
 
-            baseCollection ??= new List<TOriginal>()!;
+            baseCollection ??= new List<TOriginal>();
 
             var result = baseCollection.CompareCollections(changedCollection, equalityCheck);
             foreach (var elementToAdd in result.ToAdd)

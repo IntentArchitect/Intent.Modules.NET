@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Ones.CreateOne
 
             RuleFor(v => v.Two)
                 .NotNull()
-                .SetValidator(provider.GetValidator<CreateOneTwoDto>()!);
+                .SetValidator(provider.GetValidator<CreateOneTwoDto>());
         }
     }
 }

@@ -30,7 +30,7 @@ namespace JsonPatchRfc7396.Swashbuckle.Application.Documents.PatchDocumentChange
 
             RuleFor(v => v.Actor)
                 .NotNull()
-                .SetValidator(provider.GetValidator<PatchDocumentChangeActorDto>()!);
+                .SetValidator(provider.GetValidator<PatchDocumentChangeActorDto>());
 
             RuleFor(v => v.ClientChangeId)
                 .NotNull();
