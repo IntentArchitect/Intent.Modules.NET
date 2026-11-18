@@ -38,7 +38,7 @@ namespace TrainingModel.Tests.Application.Customers.CreateCustomer
             RuleFor(v => v.Address)
                 .NotNull()
                 .CustomAsync(ValidateAddressAsync)
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateCustomerCommandAddressDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateCustomerCommandAddressDto>()));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]

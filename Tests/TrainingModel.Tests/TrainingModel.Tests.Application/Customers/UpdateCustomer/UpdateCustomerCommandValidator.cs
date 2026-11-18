@@ -30,7 +30,7 @@ namespace TrainingModel.Tests.Application.Customers.UpdateCustomer
 
             RuleFor(v => v.Address)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateCustomerCommandAddressDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateCustomerCommandAddressDto>()));
         }
     }
 }
