@@ -16,7 +16,8 @@ namespace Intent.Modules.Services.Guardrails.Contracts.Templates
     /// <para>
     /// Deliberate, documented exception to "typed accessors only" (user decision): this module was built with no
     /// dependency on those modelers, so their typed models are not used. Intent.Modelers.Eventing has since become a
-    /// dependency, for this module's subscription associations, but its elements are still read raw. The
+    /// module dependency, because it defines the subscription associations this module's skill and README name, but
+    /// this assembly still references none of its types and reads its elements raw. The
     /// reverse-engineering skill installs the other modelers in a consumer only when the code needs them; without one
     /// there are no such elements and nothing is generated. The
     /// elements are therefore read as raw <see cref="IElement"/>s by specialization type id, and this module's own

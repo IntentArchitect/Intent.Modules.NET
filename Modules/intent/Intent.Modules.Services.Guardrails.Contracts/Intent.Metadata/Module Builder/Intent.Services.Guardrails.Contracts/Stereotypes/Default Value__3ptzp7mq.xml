@@ -7,7 +7,7 @@
 return ["f11273c1-217f-4f42-b690-3d8b488f95a8"].indexOf(element.specializationId) &gt;= 0;</targetFilterFunction>
   <traitStorage>package</traitStorage>
   <applyMode>manually</applyMode>
-  <icon type="FontAwesome" source="fa-pencil" />
+  <icon type="FontAwesome" source="pencil" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
   <displayAsAnnotation>false</displayAsAnnotation>
