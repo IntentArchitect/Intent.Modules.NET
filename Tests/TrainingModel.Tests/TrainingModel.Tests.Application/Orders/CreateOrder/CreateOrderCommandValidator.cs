@@ -32,7 +32,7 @@ namespace TrainingModel.Tests.Application.Orders.CreateOrder
 
             RuleFor(v => v.OrderItems)
                 .NotNull()
-                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderCommandOrderItemsDto>()!));
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateOrderCommandOrderItemsDto>()));
         }
 
         private async Task<bool> CheckUniqueConstraint_RefNo(string value, CancellationToken cancellationToken)
