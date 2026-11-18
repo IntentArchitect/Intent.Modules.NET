@@ -1181,16 +1181,32 @@ public sealed partial class DriftEngine
         bool Located(TypeNode type) => locations.Count == 0 || type.Files.Any(f => locations.Any(g => g.IsMatch(f)));
         var candidates = _graph.Types.Where(x => x.Name == NameIn(ProfileOf(x)) && Located(x)).ToList();
 
+        // Designer folders become namespaces, or the folders the files are in: of several types with the name, the one
+        // whose namespace or folder ends with most of the element's folders is it. A folder named as a namespace
+        // (eShop10's User Interface folder HybridApp.Components.Layout) is each of its segments.
+        var folders = Folders(element).SelectMany(x => x.Split('.', StringSplitOptions.RemoveEmptyEntries)).ToList();
+
+        int Score(TypeNode type) => type.Files
+            .Select(f => TrailingMatch(Path.GetDirectoryName(f)?.Split('/', '\\') ?? [], folders))
+            .Append(TrailingMatch(type.Namespace.Split('.'), folders))
+            .Max();
+
         // An element its conventions say may be a class or an interface (a Service, a Repository) with no type of its name
         // is the interface its language names it (C#'s IBasketRepository), which a class of another name implements
         // (RedisBasketRepository). With a type of its name, that is it, as the code's own classes are read first: the model
-        // drawn from a class (DocumentSearchService) and one drawn from its interface (CatalogAI) both hold.
+        // drawn from a class (DocumentSearchService) and one drawn from its interface (CatalogAI) both hold. Unless the
+        // element's folders place that interface and not the type of its name: each feature's own IOrderData, in its own
+        // Data namespace, beside a data layer's OrderData class elsewhere.
         var typeKinds = (Convention(claim.Designer, element)?["typeKinds"] as JsonArray)?.Select(x => x!.GetValue<string>()).ToList() ?? [];
-        if (candidates.Count == 0 && pattern is null && typeKinds.Count > 1 && typeKinds.Contains("interface"))
+        if (pattern is null && typeKinds.Count > 1 && typeKinds.Contains("interface"))
         {
-            candidates = _graph.Types
+            var contracts = _graph.Types
                 .Where(x => x.Kind == "interface" && Located(x) && Naming.InCode(ProfileOf(x), element.Name, ["interface", "type"]) is var contract && contract == x.Name && contract != NameIn(ProfileOf(x)))
                 .ToList();
+            if (candidates.Count == 0 || (contracts.Count > 0 && contracts.Max(Score) > candidates.Max(Score)))
+            {
+                candidates = contracts;
+            }
         }
 
         // A Razor component and its code-behind are one component (R37), whatever namespace each part ends up in: the
@@ -1203,15 +1219,6 @@ public sealed partial class DriftEngine
 
         if (candidates.Count > 1)
         {
-            // Designer folders become namespaces, or the folders the files are in: of several types with the name, the one
-            // whose namespace or folder ends with most of the element's folders is it. A folder named as a namespace
-            // (eShop10's User Interface folder HybridApp.Components.Layout) is each of its segments.
-            var folders = Folders(element).SelectMany(x => x.Split('.', StringSplitOptions.RemoveEmptyEntries)).ToList();
-
-            int Score(TypeNode type) => type.Files
-                .Select(f => TrailingMatch(Path.GetDirectoryName(f)?.Split('/', '\\') ?? [], folders))
-                .Append(TrailingMatch(type.Namespace.Split('.'), folders))
-                .Max();
             var scored = candidates.Select(x => (Type: x, Score: Score(x))).ToList();
             var best = scored.Max(x => x.Score);
             var top = scored.Where(x => x.Score == best).Select(x => x.Type).ToList();

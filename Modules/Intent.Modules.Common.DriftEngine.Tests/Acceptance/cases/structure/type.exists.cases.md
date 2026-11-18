@@ -1326,6 +1326,96 @@ Neither `PricingService` nor `IPricingService` is in the code: the Domain Servic
 }
 ```
 
+## repository-interface-in-its-folder
+
+Each feature keeps its own data access, an interface named `IOrderData` in its own `Data` namespace that a proxy factory implements at run time, and a data layer elsewhere has a class named `OrderData`. Each Repository `OrderData` sits in the folder of its feature's namespace. The class of its name is outside those folders and the interface its language names it is inside them, so the interface is the Repository's type, and its operation is the interface's method (R43).
+
+```json case
+{ "phase": 1, "kinds": ["type.exists", "member.exists"], "requirements": ["R2", "R43"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "sales", "type": "Folder", "name": "Shop.Sales.Data",
+            "children": [
+              { "id": "sales-data", "type": "Repository", "name": "OrderData",
+                "children": [
+                  { "id": "sales-data-confirm", "type": "Operation", "name": "ConfirmOrder",
+                    "children": [
+                      { "id": "sales-data-confirm-id", "type": "Parameter", "name": "orderId", "typeRef": { "type": "int" } }
+                    ] }
+                ] }
+            ] },
+          { "id": "billing", "type": "Folder", "name": "Shop.Billing.Data",
+            "children": [
+              { "id": "billing-data", "type": "Repository", "name": "OrderData",
+                "children": [
+                  { "id": "billing-data-invoice", "type": "Operation", "name": "InvoiceOrder",
+                    "children": [
+                      { "id": "billing-data-invoice-id", "type": "Parameter", "name": "orderId", "typeRef": { "type": "int" } }
+                    ] }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Sales/Data/IOrderData.cs
+namespace Shop.Sales.Data;
+
+public interface IOrderData
+{
+    void ConfirmOrder(int orderId);
+}
+```
+
+```csharp file src/Billing/Data/IOrderData.cs
+namespace Shop.Billing.Data;
+
+public interface IOrderData
+{
+    void InvoiceOrder(int orderId);
+}
+```
+
+```csharp file src/Data/Ef/OrderData.cs
+namespace Shop.Data.Ef;
+
+public class OrderData
+{
+    public void Archive(int orderId)
+    {
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "sales-data", "outcome": "verified", "at": "src/Sales/Data/IOrderData.cs:3" },
+    { "kind": "type.exists", "element": "billing-data", "outcome": "verified", "at": "src/Billing/Data/IOrderData.cs:3" },
+    { "kind": "member.exists", "element": "sales-data-confirm", "outcome": "verified", "at": "src/Sales/Data/IOrderData.cs:5" },
+    { "kind": "member.exists", "element": "billing-data-invoice", "outcome": "verified", "at": "src/Billing/Data/IOrderData.cs:5" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "count": 0 },
+    { "rule": "claim/member.exists", "count": 0 }
+  ]
+}
+```
+
 ## data-contract
 
 The Data Contract `Money` is the record of its name, and its attributes are its properties, with their types.
