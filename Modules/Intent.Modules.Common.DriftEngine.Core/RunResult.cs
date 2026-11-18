@@ -183,4 +183,18 @@ public sealed record DriftInput(
     /// a Service Proxy's target operations, and never claimed on, since their code is another application's.
     /// </summary>
     public IReadOnlyDictionary<string, IReadOnlyList<IPackage>> References { get; init; } = new Dictionary<string, IReadOnlyList<IPackage>>();
+
+    /// <summary>
+    /// Keep what the code's read produced, in this process, for the next run over the same output folder, and reuse what the
+    /// last one kept when nothing it depends on has changed: every file's path, size and last-write time, the Drift Scope's
+    /// rows, and the languages and code readers. For a host whose process outlives a run, as the Software Factory's does.
+    /// The read is held in memory between runs, one per output folder.
+    /// </summary>
+    public bool KeepCode { get; init; }
+
+    /// <summary>
+    /// Stops the run, with an <see cref="OperationCanceledException"/>, at its next checkpoint once cancelled: each file a
+    /// language reads, each code reader, each claim, rule and opt-in rule, and before the links. A cancelled read isn't kept.
+    /// </summary>
+    public CancellationToken CancellationToken { get; init; }
 }

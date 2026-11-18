@@ -31,7 +31,7 @@ internal sealed class CSharpLanguage : ILanguage
     public bool Reads(string path) =>
         path.EndsWith(".cs", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".razor", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".csproj", StringComparison.OrdinalIgnoreCase);
 
-    public void Read(string root, IReadOnlyList<string> files, CodeGraph graph) => CSharpReader.Read(root, files, graph);
+    public void Read(string root, IReadOnlyList<string> files, CodeGraph graph, CancellationToken cancellationToken) => CSharpReader.Read(root, files, graph, cancellationToken);
 }
 
 /// <summary>

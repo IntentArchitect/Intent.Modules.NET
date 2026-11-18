@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.DriftEngine.Extensions;
@@ -77,7 +78,14 @@ namespace Intent.Modules.Common.DriftEngine.Reporting
             RunResult result;
             try
             {
-                result = DriftEngine.Run(new DriftInput(designers, output, StockPacks.Select(x => Pack.Stock(x)).ToList(), all) { References = references });
+                // The Software Factory's process outlives a run, so the code's read is kept for the next one (KeepCode). The SDK
+                // gives an extension no token for the run, so it can't be cancelled until one does.
+                result = DriftEngine.Run(new DriftInput(designers, output, StockPacks.Select(x => Pack.Stock(x)).ToList(), all)
+                {
+                    References = references,
+                    KeepCode = true,
+                    CancellationToken = CancellationToken.None
+                });
             }
             catch (Exception e)
             {

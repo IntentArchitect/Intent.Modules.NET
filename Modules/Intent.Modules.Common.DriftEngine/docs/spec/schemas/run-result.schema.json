@@ -142,7 +142,7 @@
             }
           }
         },
-        "builtin": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+        "builtin": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 }, "description": "How many folders each built-in exclusion took, by exclusion (bin, obj, hidden folders, NuGet packages, ...); the walk never enters them, so their files aren't counted" },
         "unmatched": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } }
       }
     }

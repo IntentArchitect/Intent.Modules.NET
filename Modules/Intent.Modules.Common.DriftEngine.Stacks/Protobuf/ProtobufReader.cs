@@ -22,16 +22,22 @@ internal static class ProtobufReader
     /// <param name="root">The output folder.</param>
     /// <param name="files">In-scope paths relative to <paramref name="root"/>, with <c>/</c> separators.</param>
     /// <param name="graph">The graph it adds the files, types and members to, and its <see cref="ProtobufSyntax"/>.</param>
-    public static void Read(string root, IReadOnlyList<string> files, CodeGraph graph)
+    /// <param name="cancellationToken">Checked file by file.</param>
+    public static void Read(string root, IReadOnlyList<string> files, CodeGraph graph, CancellationToken cancellationToken)
     {
         var syntax = new ProtobufSyntax();
         graph.Set(syntax);
         var inScope = files.ToHashSet(StringComparer.Ordinal);
-        var parsed = files.Select(x => new Parser(x, File.ReadAllText(Path.Combine(root, x))).Read()).ToList();
+        var parsed = files.Select(x =>
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            return new Parser(x, File.ReadAllText(Path.Combine(root, x))).Read();
+        }).ToList();
         var packages = parsed.ToDictionary(x => x.Path, x => x.Package, StringComparer.Ordinal);
         var declared = parsed.SelectMany(x => x.Types).ToLookup(x => x.FullName, StringComparer.Ordinal);
         foreach (var file in parsed)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             if (file.Errors.Count > 0)
             {
                 graph.Failures.Add((file.Path, string.Join("; ", file.Errors)));

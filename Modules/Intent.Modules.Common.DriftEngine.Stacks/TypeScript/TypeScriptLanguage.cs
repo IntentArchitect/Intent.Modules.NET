@@ -33,7 +33,7 @@ internal sealed class TypeScriptLanguage(INodeRunner node) : ILanguage
     /// <summary>A minified bundle (<c>.min.js</c>) is a build's output, not code anyone writes, so it isn't read.</summary>
     public bool Reads(string path) => Extensions.Any(x => path.EndsWith(x, StringComparison.OrdinalIgnoreCase)) && !path.EndsWith(".min.js", StringComparison.OrdinalIgnoreCase);
 
-    public void Read(string root, IReadOnlyList<string> files, CodeGraph graph) => TypeScriptReader.Read(root, files, graph, node);
+    public void Read(string root, IReadOnlyList<string> files, CodeGraph graph, CancellationToken cancellationToken) => TypeScriptReader.Read(root, files, graph, node, cancellationToken);
 }
 
 /// <summary>

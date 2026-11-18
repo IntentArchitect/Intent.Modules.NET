@@ -89,7 +89,8 @@ public sealed partial class DriftEngine
         }
 
         // An element whose code in a file is all drift or undescribed code is still linked to the file, with no lines verified.
-        links.AddRange(whole.Where(x => !links.Any(l => l.File == x.File && l.Element == x.Element))
+        var linked = links.Select(x => (x.File, x.Element)).ToHashSet();
+        links.AddRange(whole.Where(x => !linked.Contains((x.File, x.Element)))
             .OrderBy(x => x.File, StringComparer.Ordinal)
             .Select(x => new CodeLink(x.Element, x.File)));
         return links;

@@ -53,12 +53,16 @@ internal static class TypeScriptReader
     /// <param name="root">The output folder.</param>
     /// <param name="files">In-scope paths relative to <paramref name="root"/>, with <c>/</c> separators.</param>
     /// <param name="graph">The graph it adds the files, types and members to, and its <see cref="TypeScriptSyntax"/>.</param>
-    public static void Read(string root, IReadOnlyList<string> files, CodeGraph graph, INodeRunner node)
+    /// <param name="cancellationToken">
+    /// Checked file by file and module by module; Node.js parses every file in one call, which runs to its end.
+    /// </param>
+    public static void Read(string root, IReadOnlyList<string> files, CodeGraph graph, INodeRunner node, CancellationToken cancellationToken)
     {
         // A Vue component's template is markup, read from the file as written.
         var templates = new Dictionary<string, IReadOnlyList<MarkupNode>>(StringComparer.Ordinal);
         var scripts = files.Select(file =>
         {
+            cancellationToken.ThrowIfCancellationRequested();
             var text = File.ReadAllText(Path.Combine(root, file));
             if (file.EndsWith(".vue", StringComparison.OrdinalIgnoreCase))
             {
@@ -87,6 +91,7 @@ internal static class TypeScriptReader
         var modules = new Dictionary<string, Module>(StringComparer.Ordinal);
         foreach (var file in parsed)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             if (file.Errors.Count > 0)
             {
                 graph.Failures.Add((file.Path, string.Join("; ", file.Errors)));
@@ -143,6 +148,7 @@ internal static class TypeScriptReader
         // What a body's calls reach, and what their arguments are, can depend on any module, so bodies are read last.
         foreach (var module in modules.Values)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             foreach (var (member, function, owner) in module.Bodies)
             {
                 var body = new TypeScriptBody(module, owner, modules, graph);

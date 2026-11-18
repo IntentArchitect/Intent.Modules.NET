@@ -224,7 +224,7 @@ public class RazorFactsTests
 
             var graph = new CodeGraph();
             var language = new CSharpExtension().Languages.Single();
-            language.Read(root, files.Select(x => x.Path).Where(language.Reads).ToList(), graph);
+            language.Read(root, files.Select(x => x.Path).Where(language.Reads).ToList(), graph, TestContext.Current.CancellationToken);
             return graph;
         }
         finally

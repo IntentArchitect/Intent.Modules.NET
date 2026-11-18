@@ -33,7 +33,7 @@ public class TypeScriptWorkerTests
         {
             File.WriteAllText(Path.Combine(root, "a.ts"), "export interface A { id: string }");
             var graph = new CodeGraph();
-            new TypeScriptExtension(node).Languages.Single().Read(root, ["a.ts"], graph);
+            new TypeScriptExtension(node).Languages.Single().Read(root, ["a.ts"], graph, TestContext.Current.CancellationToken);
             return graph;
         }
         finally

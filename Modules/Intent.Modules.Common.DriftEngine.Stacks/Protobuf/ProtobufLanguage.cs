@@ -30,7 +30,7 @@ internal sealed class ProtobufLanguage : ILanguage
 
     public bool LibrariesNeedImports => true;
 
-    public void Read(string root, IReadOnlyList<string> files, CodeGraph graph) => ProtobufReader.Read(root, files, graph);
+    public void Read(string root, IReadOnlyList<string> files, CodeGraph graph, CancellationToken cancellationToken) => ProtobufReader.Read(root, files, graph, cancellationToken);
 }
 
 /// <summary>

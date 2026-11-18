@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Intent.Modules.Common.DriftEngine.Code;
@@ -31,7 +32,8 @@ internal static class CSharpReader
     /// <param name="root">The output folder.</param>
     /// <param name="files">In-scope paths relative to <paramref name="root"/>, with <c>/</c> separators.</param>
     /// <param name="graph">The graph it adds the files, types and members to, and its <see cref="CSharpSyntax"/>.</param>
-    public static void Read(string root, IReadOnlyList<string> files, CodeGraph graph)
+    /// <param name="cancellationToken">Checked file by file, and body by body.</param>
+    public static void Read(string root, IReadOnlyList<string> files, CodeGraph graph, CancellationToken cancellationToken)
     {
         var syntax = new CSharpSyntax(graph);
         graph.Set(syntax);
@@ -61,6 +63,8 @@ internal static class CSharpReader
         // Razor components first, so a component's code-behind (X.razor.cs) is a part of the component.
         foreach (var file in files.Where(x => x.EndsWith(".razor", StringComparison.OrdinalIgnoreCase)).Concat(files.Where(x => x.EndsWith(".cs", StringComparison.OrdinalIgnoreCase))))
         {
+            cancellationToken.ThrowIfCancellationRequested();
+            var parse = Stopwatch.GetTimestamp();
             var governing = Governing(file, projects);
             if (governing is { Nullable: null })
             {
@@ -94,6 +98,8 @@ internal static class CSharpReader
                 tree = CSharpSyntaxTree.ParseText(File.ReadAllText(Path.Combine(root, file)), path: file);
             }
 
+            graph.Timed("parse", parse);
+            var declarations = Stopwatch.GetTimestamp();
             var nullableContext = tree.GetText().ToString().Contains("#nullable enable", StringComparison.Ordinal) || governing?.Nullable == true;
             if (nullableContext)
             {
@@ -173,12 +179,16 @@ internal static class CSharpReader
                     }
                 }
             }
+
+            graph.Timed("declarations", declarations);
         }
 
         // What a body's calls are made on, and what their arguments are, can depend on any type, so bodies are read last, and
         // so are initializers, whose names can be another type's constants.
+        var started = Stopwatch.GetTimestamp();
         foreach (var (member, body, owner, file) in bodies)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             if (body is EqualsValueClauseSyntax initializer)
             {
                 member.Value = new CSharpBody([initializer], owner, file, graph).Initializer(initializer.Value);
@@ -189,19 +199,28 @@ internal static class CSharpReader
             }
         }
 
+        graph.Timed("bodies", started);
+
         // Top-level statements are the global namespace's Program's, which a partial Program class can add members to.
+        started = Stopwatch.GetTimestamp();
         foreach (var (node, statements, file) in topLevel)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             var program = parts.GetValueOrDefault(".Program") ?? new TypeNode { Name = "Program", Namespace = "", Kind = "class", At = SpanOf(statements[0], file) };
             node.TopLevel = new CSharpBody(statements, program, file, graph).TopLevel();
         }
 
+        graph.Timed("top-level", started);
+
         // Nullability needs to know which names are value types, which the whole graph tells.
+        started = Stopwatch.GetTimestamp();
         var valueTypes = ValueTypes(graph);
         foreach (var (typeRef, context) in referenceTypesNullable)
         {
             typeRef.Nullable = Nullability(typeRef, context, valueTypes);
         }
+
+        graph.Timed("nullability", started);
     }
 
     internal static TypeRefNode TypeOf(TypeSyntax syntax, string file, CSharpSyntax csharp, CodeGraph graph)

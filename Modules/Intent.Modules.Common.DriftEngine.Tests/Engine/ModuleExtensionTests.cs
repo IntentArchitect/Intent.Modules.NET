@@ -82,7 +82,7 @@ public class ModuleExtensionTests
 
         public bool Reads(string path) => path.EndsWith(".toy", StringComparison.Ordinal);
 
-        public void Read(string root, IReadOnlyList<string> files, CodeGraph graph)
+        public void Read(string root, IReadOnlyList<string> files, CodeGraph graph, CancellationToken cancellationToken)
         {
             foreach (var file in files)
             {

@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using Intent.Modules.Common.DriftEngine.Packs;
+using Intent.Modules.Common.DriftEngine.Stacks;
 using Intent.Modules.Common.DriftEngine.Tests.Harness;
 
 namespace Intent.Modules.Common.DriftEngine.Tests.Real;
@@ -41,8 +42,18 @@ public class RealStructureRunTests
             packs.Add(Pack.Parse(JsonNode.Parse(File.ReadAllText(house))!));
         }
 
-        var result = DriftEngine.Run(new DriftInput(FixtureModel.Build(model), output, packs));
+        // Every stock extension, as the Software Factory runs it: the engine reads no language itself. It keeps the read, so a
+        // second run over the unchanged code reuses it, as the Software Factory's next run does.
+        var input = new DriftInput(FixtureModel.Build(model), output, packs, StockExtensions.All) { KeepCode = true };
+        DriftEngine.ForgetKeptCode(output);
+        var result = DriftEngine.Run(input);
         watch.Stop();
+        var again = Stopwatch.StartNew();
+        var second = DriftEngine.Run(input);
+        again.Stop();
+        var kept = Memory();
+        DriftEngine.ForgetKeptCode(output);
+        var freed = Memory();
         GitStatus(output).ShouldBe(before, "Checking never writes code (P4, R17).");
 
         var json = JsonSerializer.SerializeToNode(result, new JsonSerializerOptions
@@ -57,11 +68,29 @@ public class RealStructureRunTests
         List<string> summary =
         [
             $"{result.Files.Count} files read, {result.Claims.Count} claims, {watch.ElapsedMilliseconds} ms",
+            "timings: " + Timings(result),
+            $"second run, {again.ElapsedMilliseconds} ms: {Timings(second)}",
+            $"memory with the read kept: {kept.Managed / 1048576} MB managed, {kept.WorkingSet / 1048576} MB working set; " +
+            $"once dropped: {freed.Managed / 1048576} MB managed, {freed.WorkingSet / 1048576} MB working set",
             .. result.Claims.GroupBy(x => $"{x.Kind} {x.Outcome}{(x.Reason is null ? "" : $" ({x.Reason})")}").OrderBy(x => x.Key).Select(x => $"  {x.Key}: {x.Count()}"),
             "",
             .. result.Findings.Select(x => $"{x.Severity} {x.Rule}: {x.Message}")
         ];
         File.WriteAllLines(Path.Combine(folder, "summary.txt"), summary);
+    }
+
+    /// <summary>As the Software Factory log has them: every part of the run, then the 8 slowest kinds.</summary>
+    private static string Timings(RunResult result) =>
+        string.Join(", ", result.Timings.Take(result.Timings.Count(x => !x.What.StartsWith("kind ", StringComparison.Ordinal)) + 8)
+            .Select(x => $"{x.What} {x.Milliseconds:0} ms{(x.Count is { } count ? $" ({count})" : "")}"));
+
+    /// <summary>The process's memory once everything unreachable is collected: the managed heap and the working set.</summary>
+    private static (long Managed, long WorkingSet) Memory()
+    {
+        System.Runtime.GCSettings.LargeObjectHeapCompactionMode = System.Runtime.GCLargeObjectHeapCompactionMode.CompactOnce;
+        GC.Collect(GC.MaxGeneration, GCCollectionMode.Aggressive, blocking: true, compacting: true);
+        GC.WaitForPendingFinalizers();
+        return (GC.GetTotalMemory(forceFullCollection: true), Environment.WorkingSet);
     }
 
     private static string GitStatus(string folder)

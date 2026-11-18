@@ -32,13 +32,15 @@ internal static class JavaReader
     /// <param name="root">The output folder.</param>
     /// <param name="files">In-scope paths relative to <paramref name="root"/>, with <c>/</c> separators.</param>
     /// <param name="graph">The graph it adds the files, types and members to, and its <see cref="JavaSyntax"/>.</param>
-    public static void Read(string root, IReadOnlyList<string> files, CodeGraph graph)
+    /// <param name="cancellationToken">Checked file by file, and body by body.</param>
+    public static void Read(string root, IReadOnlyList<string> files, CodeGraph graph, CancellationToken cancellationToken)
     {
         var syntax = new JavaSyntax();
         graph.Set(syntax);
         var bodies = new List<Body>();
         foreach (var file in files)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             var (tree, errors) = Parse(File.ReadAllText(Path.Combine(root, file)));
             if (errors.Count > 0)
             {
@@ -63,6 +65,7 @@ internal static class JavaReader
         // What a body's calls are made on, and what their arguments are, can depend on any type, so bodies are read last.
         foreach (var (member, body, owner, file) in bodies)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             member.Body = new JavaBody(body, owner, file, graph).Member(member.Parameters);
         }
     }

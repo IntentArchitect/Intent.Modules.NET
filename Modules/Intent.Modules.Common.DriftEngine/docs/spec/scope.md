@@ -39,7 +39,9 @@ As File Classification resolves a file's row ([R27](requirements.md)):
 3. An element none of whose rows match hands the file up to the next element above.
 4. A file no row matches is out. It isn't listed one by one: the coverage listing counts it as "not in any row".
 
-Built-in exclusions come first and no row can bring them back in: `.git`, `bin`, `obj` and `node_modules` folders at any depth, hidden folders (a name starting with `.`), and the Intent solution's own folders (any folder holding an `.isln`, `.application.config` or `Intent.Metadata`).
+Built-in exclusions come first and no row can bring them back in: `.git`, `bin`, `obj` and `node_modules` folders at any depth, hidden folders (a name starting with `.`), the Intent solution's own folders (any folder holding an `.isln`, `.application.config` or `Intent.Metadata`), and NuGet's packages folder. The engine never walks into one, so their files are never listed, and a large build output or package cache costs a run nothing. The output folder itself is never Intent's own, even with a solution at its root.
+
+NuGet's packages folder, where a `packages.config` project restores, is known by what it holds, not by its name: a folder per package, each with the package's `.nupkg` (`packages/Newtonsoft.Json.13.0.3/Newtonsoft.Json.13.0.3.nupkg`). A folder named `packages` is also where a JavaScript or TypeScript monorepo keeps its own source, which is read like any other.
 
 An example, with the Root Folder and a `src/Api` project element:
 
@@ -103,7 +105,7 @@ With no scope, every claim is can't verify, `outOfScope` (or `blocked` behind an
 The Software Factory log lists what is out of scope, so a person can see what a green run didn't look at ([R15](requirements.md)). The drift report never does: it holds only drift (decision 30), and what is out of scope isn't drift. The listing gives:
 
 - per row: its element, glob, scope, reason, and how many files (or types) it decides;
-- the built-in exclusions, with counts;
+- the built-in exclusions, with how many folders each took (their files are never listed, so aren't counted);
 - files in no row, with a count per top-level folder.
 
 ## The `Drift Check` stereotype

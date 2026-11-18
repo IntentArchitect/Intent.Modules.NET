@@ -177,7 +177,7 @@ internal static class Versioning
             }
         }
 
-        foreach (var candidate in type is null ? code.Types : [type])
+        foreach (var candidate in type is null ? code.Types : (IEnumerable<TypeNode>)[type])
         {
             if (candidate.Attributes.Concat(candidate.Members.SelectMany(x => x.Attributes))
                     .FirstOrDefault(x => x.Arguments.Any(a => a.Contains(constraint, StringComparison.OrdinalIgnoreCase))) is { } route)

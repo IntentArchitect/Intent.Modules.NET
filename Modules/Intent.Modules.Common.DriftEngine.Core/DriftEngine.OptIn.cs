@@ -93,8 +93,25 @@ public sealed partial class DriftEngine
     internal static bool Inside(Span outer, Span inner) =>
         outer.File == inner.File && inner.Line >= outer.Line && inner.Line <= (outer.EndLine ?? outer.Line);
 
-    internal (string Designer, IElement Element)? ElementOf(TypeNode type) =>
-        _types.FirstOrDefault(x => x.Value == type).Key is { } claim ? (claim.Designer, claim.Source) : null;
+    /// <summary>The first claim that located each type, by the claims' order, as of when <see cref="_types"/> had this many.</summary>
+    private (int Count, Dictionary<TypeNode, Claim> Claims)? _claimsOf;
+
+    internal (string Designer, IElement Element)? ElementOf(TypeNode type)
+    {
+        // A claim locates its type once, so the index is built again only when claims have located more since.
+        if (_claimsOf is not { } index || index.Count != _types.Count)
+        {
+            var claims = new Dictionary<TypeNode, Claim>();
+            foreach (var (claim, located) in _types)
+            {
+                claims.TryAdd(located, claim);
+            }
+
+            _claimsOf = index = (_types.Count, claims);
+        }
+
+        return index.Claims.TryGetValue(type, out var found) ? (found.Designer, found.Source) : null;
+    }
 
     /// <summary>The types elements' <c>type.exists</c> claims located, each with its claim.</summary>
     internal IEnumerable<(Claim Claim, TypeNode Type)> LocatedTypes() =>
@@ -258,6 +275,7 @@ public sealed partial class DriftEngine
         var context = new RuleContext(this, _graph, _codeScope, _claims);
         foreach (var (id, (extension, rule)) in rules.OrderBy(x => x.Key, StringComparer.Ordinal))
         {
+            _input.CancellationToken.ThrowIfCancellationRequested();
             var rows = _check.OptIn.Where(x => x.Rule == id).ToList();
             if (rows.Count == 0)
             {

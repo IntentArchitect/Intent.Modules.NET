@@ -564,12 +564,6 @@ internal sealed class CoveredCalls
     public HashSet<CallNode> Calls { get; } = new(ReferenceEqualityComparer.Instance);
 }
 
-/// <summary>The types of the code that implement or derive from a type of its own, found once per run.</summary>
-internal sealed class ImplementationsOf
-{
-    public Dictionary<TypeNode, IReadOnlyList<TypeNode>> Types { get; } = new(ReferenceEqualityComparer.Instance);
-}
-
 /// <summary>
 /// The types of the code that are messages of a kind of link, each with its modelled element, or null for one the model
 /// doesn't have; and what every modelled one derives from or implements, which made the others messages.
@@ -805,20 +799,7 @@ internal static class MessageCode
     private static bool HasBody(TypeNode type, MemberNode member) =>
         member.Body is not null && type.Kind != "interface" && !member.Modifiers.Contains("abstract");
 
-    private static IReadOnlyList<TypeNode> Implementations(CodeGraph code, TypeNode type)
-    {
-        if (code.Get<ImplementationsOf>() is not { } known)
-        {
-            code.Set(known = new ImplementationsOf());
-        }
-
-        if (!known.Types.TryGetValue(type, out var implementations))
-        {
-            known.Types[type] = implementations = code.Types.Where(x => x != type && x.Kind is not "interface" && code.Bases(x).Contains(type)).ToList();
-        }
-
-        return implementations;
-    }
+    private static IEnumerable<TypeNode> Implementations(CodeGraph code, TypeNode type) => code.ImplementationsOf(type).Where(x => x.Kind is not "interface");
 
     public static void Cover(CodeGraph code, IEnumerable<CallNode> calls)
     {

@@ -123,18 +123,35 @@ public sealed partial class DriftEngine
         _languages = _extensions.SelectMany(x => x.Languages.Select(l => (x.Id, l))).GroupBy(x => x.l.Name).Select(x => x.Last()).ToList();
     }
 
+    /// <exception cref="OperationCanceledException">The input's <see cref="DriftInput.CancellationToken"/> was cancelled.</exception>
     public static RunResult Run(DriftInput input) => new DriftEngine(input).Run();
 
     private RunResult Run()
     {
+        // The read is kept for the next run once this one is done with the graph, however it ends: a run cancelled or failed
+        // after its read finished leaves a read as good as any.
+        try
+        {
+            return Check();
+        }
+        finally
+        {
+            Keep();
+        }
+    }
+
+    private RunResult Check()
+    {
         var findings = new List<Finding>();
         var run = Stopwatch.GetTimestamp();
+        var cancellation = _input.CancellationToken;
         Timed("code", ReadCode);
         Timed("claims.build", BuildClaims);
         Timed("claims.read", () =>
         {
             foreach (var claim in _claims)
             {
+                cancellation.ThrowIfCancellationRequested();
                 Evaluate(claim);
             }
         });
@@ -171,6 +188,7 @@ public sealed partial class DriftEngine
         List<CodeLink> links = [];
         if (_scope.Rows.Count > 0)
         {
+            cancellation.ThrowIfCancellationRequested();
             Timed("links", () => links = Links(reported));
         }
 
@@ -206,6 +224,7 @@ public sealed partial class DriftEngine
             new Anchor(Text: x.Last().Extension))));
         foreach (var (extension, rule) in rules.Select(x => x.Last()))
         {
+            _input.CancellationToken.ThrowIfCancellationRequested();
             try
             {
                 // Code a Context row decides is read for the rules, never reported on itself.
@@ -276,9 +295,8 @@ public sealed partial class DriftEngine
             }
         }
 
-        listing.AddRange(_files.Where(x => x.Decision.Builtin is not null).GroupBy(x => x.Decision.Builtin!)
-            .Select(x => $"built in, {x.Key}, {x.Count()} files"));
-        var unmatched = _files.Where(x => x.Decision is { Row: null, Builtin: null })
+        listing.AddRange(_builtin.Select(x => $"built in, {x.Key}, {x.Value} {(x.Value == 1 ? "folder" : "folders")}"));
+        var unmatched = _files.Where(x => x.Decision.Row is null)
             .GroupBy(x => x.Path.Split('/')[0])
             .Select(x => $"{x.Key} {x.Count()}")
             .ToList();
@@ -298,21 +316,44 @@ public sealed partial class DriftEngine
 
     private readonly List<(TypeNode Type, ScopeRow Row)> _excludedTypes = [];
 
+    /// <summary>How many folders each built-in exclusion took; the walk never entered them, so their files aren't in <see cref="_files"/>.</summary>
+    private IReadOnlyDictionary<string, int> _builtin = new Dictionary<string, int>();
+
     private void ReadCode()
     {
-        var all = Directory.EnumerateFiles(_input.OutputFolder, "*", SearchOption.AllDirectories)
-            .Select(x => Path.GetRelativePath(_input.OutputFolder, x).Replace('\\', '/'))
-            .ToList();
-        _scope = ScopeModel.From(_input.Designers.GetValueOrDefault(CodebaseStructure), all);
+        // The walk and the scope's decisions, apart from the languages' reads.
+        var walk = Stopwatch.GetTimestamp();
+        var walked = ScopeModel.Walk(_input.OutputFolder);
+        _builtin = walked.Builtin;
+        _scope = ScopeModel.From(_input.Designers.GetValueOrDefault(CodebaseStructure));
         _check = CheckModel.From(_input.Designers.GetValueOrDefault(CodebaseStructure));
-        foreach (var path in all)
+
+        // The last run's read of this folder, when nothing it depends on has changed since: its scope, decisions, graph and
+        // what its readers stored, all of a piece. The Drift Check is the model's, so it is this run's either way.
+        _readKey = _input.KeepCode ? ReadKey(walked, _scope) : null;
+        if (_readKey is not null && TakeKept(_readKey) is { } kept)
         {
-            _files.Add((path, _scope.Decide(path)));
+            (_scope, _codeScope, _graph, _stored, _readCounts) = (kept.Scope, kept.CodeScope, kept.Graph, kept.Stored, kept.Read);
+            _files.AddRange(kept.Files);
+            _excludedTypes.AddRange(kept.ExcludedTypes);
+            _graph.KeepOnly(_stored);
+            _timings.Add(new Timing("code files", Stopwatch.GetElapsedTime(walk).TotalMilliseconds, _files.Count));
+            _timings.Add(new Timing("code cached", 0, _readCounts.Values.Sum()));
+            Profiles();
+            _readDone = true;
+            return;
+        }
+
+        foreach (var file in walked.Files)
+        {
+            _files.Add((file.Path, _scope.Decide(file.Path)));
         }
 
         _codeScope = new CodeScope(_files.Select(x => (x.Path, x.Decision.In, x.Decision.Checked)));
+        _timings.Add(new Timing("code files", Stopwatch.GetElapsedTime(walk).TotalMilliseconds, _files.Count));
 
         // Each language reads its in-scope files; a file no language reads isn't read.
+        var failures = _extensionFailures.Count;
         var read = new Dictionary<string, int>();
         foreach (var (extension, language) in _languages)
         {
@@ -322,28 +363,22 @@ public sealed partial class DriftEngine
                 continue;
             }
 
+            _input.CancellationToken.ThrowIfCancellationRequested();
             try
             {
-                Timed($"code {language.Name}", () => language.Read(_input.OutputFolder, files, _graph), files.Count);
+                Timed($"code {language.Name}", () => language.Read(_input.OutputFolder, files, _graph, _input.CancellationToken), files.Count);
                 read[language.Name] = files.Count;
             }
-            catch (Exception e)
+            catch (Exception e) when (e is not OperationCanceledException)
             {
                 _extensionFailures.Add((extension, $"{e.GetType().Name}: {e.Message}"));
             }
+
+            TimedParts($"code {language.Name}");
         }
 
-        foreach (var name in _languages.Select(x => x.Language.Name))
-        {
-            if (_packs.Select(x => x.Profile(name)).LastOrDefault(x => x is not null) is { } profile)
-            {
-                _profiles[name] = profile;
-            }
-        }
-
-        _read = read.OrderByDescending(x => x.Value).ThenBy(x => x.Key, StringComparer.Ordinal).Select(x => x.Key).ToList();
-        var primary = _read.Concat(_languages.Select(x => x.Language.Name)).FirstOrDefault();
-        _profile = primary is not null && _profiles.TryGetValue(primary, out var primaryProfile) ? primaryProfile : new JsonObject();
+        _readCounts = read;
+        Profiles();
 
         // A type a scope row excludes by name is not read, though its file is (R26).
         foreach (var type in _graph.Types.ToList())
@@ -359,20 +394,66 @@ public sealed partial class DriftEngine
         {
             foreach (var reader in extension.Readers)
             {
+                _input.CancellationToken.ThrowIfCancellationRequested();
                 try
                 {
                     Timed($"code {extension.Id} {reader.GetType().Name}", () => reader.Read(_graph));
                 }
-                catch (Exception e)
+                catch (Exception e) when (e is not OperationCanceledException)
                 {
                     _extensionFailures.Add((extension.Id, $"{e.GetType().Name}: {e.Message}"));
                 }
+
+                TimedParts($"code {extension.Id} {reader.GetType().Name}");
             }
         }
+
+        _stored = _graph.Stored;
+        _readFailed = _extensionFailures.Count > failures;
+        _readDone = true;
     }
 
+    /// <summary>
+    /// Each language's profile, from the packs (the last pack's that has one), and the primary one: the profile of the language
+    /// that read the most files. The packs are the model's, so this is worked out every run, a kept read's too.
+    /// </summary>
+    private void Profiles()
+    {
+        foreach (var name in _languages.Select(x => x.Language.Name))
+        {
+            if (_packs.Select(x => x.Profile(name)).LastOrDefault(x => x is not null) is { } profile)
+            {
+                _profiles[name] = profile;
+            }
+        }
+
+        _read = _readCounts.OrderByDescending(x => x.Value).ThenBy(x => x.Key, StringComparer.Ordinal).Select(x => x.Key).ToList();
+        var primary = _read.Concat(_languages.Select(x => x.Language.Name)).FirstOrDefault();
+        _profile = primary is not null && _profiles.TryGetValue(primary, out var primaryProfile) ? primaryProfile : new JsonObject();
+    }
+
+    /// <summary>The parts a reader timed on the graph (<see cref="CodeGraph.Timed"/>), each logged under the reader: <c>code csharp parse</c>.</summary>
+    private void TimedParts(string reader) =>
+        _timings.AddRange(_graph.TakeTimed().Select(x => new Timing($"{reader} {x.What}", x.Milliseconds)));
+
+    private readonly Dictionary<string, ILanguage?> _languageOf = new(StringComparer.Ordinal);
+
     /// <summary>The language that reads a file; null when none does.</summary>
-    private ILanguage? LanguageOf(string path) => _languages.Select(x => x.Language).FirstOrDefault(x => x.Reads(path));
+    private ILanguage? LanguageOf(string path) =>
+        _languageOf.TryGetValue(path, out var language) ? language : _languageOf[path] = _languages.Select(x => x.Language).FirstOrDefault(x => x.Reads(path));
+
+    /// <summary>
+    /// The in-scope types named as each one's own language names something (<paramref name="nameIn"/>, given its profile), in
+    /// the graph's order: the name is worked out once per language and looked up, not worked out again for every type.
+    /// </summary>
+    private List<TypeNode> TypesNamedIn(Func<JsonNode, string> nameIn)
+    {
+        var names = new Dictionary<JsonNode, string>(ReferenceEqualityComparer.Instance);
+        string Name(JsonNode profile) => names.TryGetValue(profile, out var name) ? name : names[profile] = nameIn(profile);
+
+        // A type's profile is its language's, else the primary one (ProfileOf).
+        return _graph.TypesNamed(_profiles.Values.Append(_profile).Select(Name)).Where(x => x.Name == Name(ProfileOf(x))).ToList();
+    }
 
     /// <summary>The profile of the language a file is written in; the run's primary one when no language reads it.</summary>
     internal JsonNode ProfileOf(string file) => LanguageOf(file) is { } language && _profiles.TryGetValue(language.Name, out var profile) ? profile : _profile;
@@ -396,9 +477,8 @@ public sealed partial class DriftEngine
         var rows = _scope.Rows.Select(row => new CoverageRow(
             row.Host, row.Number, row.Globs.Select(x => x.Pattern).ToList(), row.Types.Count == 0 ? null : row.Types, row.Scope, row.Reason,
             _files.Count(x => x.Decision.Row == row))).ToList();
-        var builtin = _files.Where(x => x.Decision.Builtin is not null).GroupBy(x => x.Decision.Builtin!).ToDictionary(x => x.Key, x => x.Count());
-        var unmatched = _files.Count(x => x.Decision is { Row: null, Builtin: null });
-        return new Coverage(rows, builtin, unmatched == 0 ? new Dictionary<string, int>() : new Dictionary<string, int> { ["not in any row"] = unmatched });
+        var unmatched = _files.Count(x => x.Decision.Row is null);
+        return new Coverage(rows, _builtin, unmatched == 0 ? new Dictionary<string, int>() : new Dictionary<string, int> { ["not in any row"] = unmatched });
     }
 
     // ---- Claims (block 1) ----
@@ -1122,7 +1202,7 @@ public sealed partial class DriftEngine
                 var readers = _extensions.Where(x => x.ClaimReaders.Any(r => r.Kinds.Contains(claim.Kind))).Select(x => x.Id).ToList();
                 var stems = new[] { claim.Source, Owner(claim.Source) }.OfType<IElement>().Select(NameOf).Where(x => x.Length > 0).ToList();
                 var shadow = readers.Count == 0 ? default
-                    : _files.FirstOrDefault(x => !x.Decision.In && x.Decision.Builtin is null && LanguageOf(x.Path) is not null
+                    : _files.FirstOrDefault(x => !x.Decision.In && LanguageOf(x.Path) is not null
                                                  && stems.Any(stem => Path.GetFileName(x.Path).StartsWith(stem, StringComparison.Ordinal)));
                 if (shadow.Path is not null)
                 {
@@ -1155,7 +1235,7 @@ public sealed partial class DriftEngine
         }
 
         var others = type.Kind == "interface"
-            ? _graph.Types.Where(x => x != type && _graph.Bases(x).Contains(type))
+            ? _graph.ImplementationsOf(type)
             : _graph.Bases(type).Where(x => x.Kind == "interface");
         return others.SelectMany(x => x.Members).Where(x => x.Kind == "method" && x.Name == member.Name && x.Parameters.Count == member.Parameters.Count);
     }
@@ -1168,7 +1248,8 @@ public sealed partial class DriftEngine
         var element = claim.Source;
         var pattern = Convention(claim.Designer, element)?["name"]?.GetValue<string>();
         var kinds = TypeKinds(claim.Designer, element) is ["interface"] ? new[] { "interface", "type" } : ["type"];
-        string NameIn(JsonNode profile) => pattern is not null
+        var nameIn = new Dictionary<JsonNode, string>(ReferenceEqualityComparer.Instance);
+        string NameIn(JsonNode profile) => nameIn.TryGetValue(profile, out var known) ? known : nameIn[profile] = pattern is not null
             ? Naming.Fill(pattern, new Dictionary<string, string> { ["Name"] = element.Name })
             : Naming.InCode(profile, element.Name, kinds);
         var names = ReadProfiles().Select(NameIn).Distinct().ToList();
@@ -1179,7 +1260,7 @@ public sealed partial class DriftEngine
             ?.Select(x => new GlobPattern(Naming.Fill(x!.GetValue<string>(), new Dictionary<string, string> { ["Name"] = element.Name, ["FolderPath"] = folderPath }).Replace("//", "/")))
             .ToList() ?? [];
         bool Located(TypeNode type) => locations.Count == 0 || type.Files.Any(f => locations.Any(g => g.IsMatch(f)));
-        var candidates = _graph.Types.Where(x => x.Name == NameIn(ProfileOf(x)) && Located(x)).ToList();
+        var candidates = TypesNamedIn(NameIn).Where(Located).ToList();
 
         // Designer folders become namespaces, or the folders the files are in: of several types with the name, the one
         // whose namespace or folder ends with most of the element's folders is it. A folder named as a namespace
@@ -1200,8 +1281,8 @@ public sealed partial class DriftEngine
         var typeKinds = (Convention(claim.Designer, element)?["typeKinds"] as JsonArray)?.Select(x => x!.GetValue<string>()).ToList() ?? [];
         if (pattern is null && typeKinds.Count > 1 && typeKinds.Contains("interface"))
         {
-            var contracts = _graph.Types
-                .Where(x => x.Kind == "interface" && Located(x) && Naming.InCode(ProfileOf(x), element.Name, ["interface", "type"]) is var contract && contract == x.Name && contract != NameIn(ProfileOf(x)))
+            var contracts = TypesNamedIn(profile => Naming.InCode(profile, element.Name, ["interface", "type"]))
+                .Where(x => x.Kind == "interface" && Located(x) && x.Name != NameIn(ProfileOf(x)))
                 .ToList();
             if (candidates.Count == 0 || (contracts.Count > 0 && contracts.Max(Score) > candidates.Max(Score)))
             {
@@ -1257,7 +1338,7 @@ public sealed partial class DriftEngine
                 _types[claim] = candidates[0];
                 Verify(claim, new Reading { Value = "present", From = "code", At = candidates[0].At });
                 break;
-            case 0 when !_files.Any(x => !x.Decision.In && x.Decision.Builtin is null && names.Any(stem => IsNamedFor(x.Path, stem))) && !CodeLivesWhere(element)
+            case 0 when !_files.Any(x => !x.Decision.In && names.Any(stem => IsNamedFor(x.Path, stem))) && !CodeLivesWhere(element)
                          && UseOf(names) is { } use:
                 // A type the code uses and doesn't declare is a library's it references, as a message from a contracts
                 // package is (IHandleMessages<Ping>): it exists, and what the model says of its shape can't be read. Not
@@ -1648,7 +1729,7 @@ public sealed partial class DriftEngine
     /// <param name="at">Where the missing code belongs, when that is known: a member's owner.</param>
     private void Missing(Claim claim, IReadOnlyList<string> fileStems, string searchedFor, Span? at = null)
     {
-        var shadow = _files.FirstOrDefault(x => !x.Decision.In && x.Decision.Builtin is null && fileStems.Any(stem => IsNamedFor(x.Path, stem)));
+        var shadow = _files.FirstOrDefault(x => !x.Decision.In && fileStems.Any(stem => IsNamedFor(x.Path, stem)));
         if (shadow.Path is not null)
         {
             Cant(claim, "outOfScope", new Reading { ShadowFile = shadow.Path, ScopeRow = shadow.Decision.Row?.Id, Detail = searchedFor });

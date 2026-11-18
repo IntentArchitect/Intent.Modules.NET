@@ -29,7 +29,7 @@ internal sealed class JavaLanguage : ILanguage
 
     public bool Reads(string path) => path.EndsWith(".java", StringComparison.OrdinalIgnoreCase);
 
-    public void Read(string root, IReadOnlyList<string> files, CodeGraph graph) => JavaReader.Read(root, files, graph);
+    public void Read(string root, IReadOnlyList<string> files, CodeGraph graph, CancellationToken cancellationToken) => JavaReader.Read(root, files, graph, cancellationToken);
 }
 
 /// <summary>

@@ -615,7 +615,7 @@ public class JavaFactsTests
             }
 
             var graph = new CodeGraph();
-            new JavaExtension().Languages.Single().Read(root, files.Select(x => x.Path).ToList(), graph);
+            new JavaExtension().Languages.Single().Read(root, files.Select(x => x.Path).ToList(), graph, TestContext.Current.CancellationToken);
             return graph;
         }
         finally

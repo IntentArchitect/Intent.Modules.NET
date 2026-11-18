@@ -1,3 +1,5 @@
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace Intent.Modules.Common.DriftEngine.Code;
@@ -849,10 +851,27 @@ public sealed class CodeGraph
 {
     private readonly Dictionary<Type, object> _extensions = [];
 
-    /// <summary>Every in-scope source file a reader read, in path order.</summary>
-    public List<FileNode> Files { get; } = [];
+    public CodeGraph()
+    {
+        Files = new GraphList<FileNode>(Changed);
+        Types = new GraphList<TypeNode>(Changed);
+    }
 
-    public List<TypeNode> Types { get; } = [];
+    /// <summary>Every in-scope source file a reader read, in path order.</summary>
+    public GraphList<FileNode> Files { get; }
+
+    public GraphList<TypeNode> Types { get; }
+
+    private Indexes? _indexes;
+
+    /// <summary>
+    /// The lookups by name, path and project, and what is worked out once per type, each built on its first use and all of
+    /// them dropped when <see cref="Types"/> or <see cref="Files"/> change. What they read of a node (a type's files and base
+    /// types) is complete once its reader has declared it, and no lookup runs before that.
+    /// </summary>
+    private Indexes Index => _indexes ??= new Indexes(this);
+
+    private void Changed() => _indexes = null;
 
     /// <summary>Files a reader failed on, with its diagnostic (code-reader.md, Failures).</summary>
     public List<(string File, string Error)> Failures { get; } = [];
@@ -864,19 +883,15 @@ public sealed class CodeGraph
     /// What a file's code can name without qualifying it: its own imports, those of the files it has imports from
     /// (<see cref="FileNode.ImportsFrom"/>), and the global ones of its project.
     /// </summary>
-    public IEnumerable<ImportNode> ImportsOf(FileNode file) =>
-        file.Imports
-            .Concat(file.ImportsFrom.Count == 0 ? [] : Files.Where(x => file.ImportsFrom.Contains(x.Path)).SelectMany(x => x.Imports))
-            .Concat(file.Project is null
-                ? []
-                : Files.Where(x => x != file && x.Project == file.Project).SelectMany(x => x.Imports.Where(i => i.Global)));
+    public IEnumerable<ImportNode> ImportsOf(FileNode file) => Index.ImportsOf(file);
 
     /// <summary>
     /// Every markup element written in a type's files, depth first, in the order they are written: a Razor component's
     /// markup, a Vue component's template's.
     /// </summary>
     public IEnumerable<MarkupNode> MarkupOf(TypeNode type) =>
-        Files.Where(x => x.Markup.Count > 0 && type.Files.Contains(x.Path)).SelectMany(x => x.Markup).SelectMany(x => x.DescendantsAndSelf());
+        // JSX is read with its code, after its file is in the graph, so whether a file has markup is looked at here, not indexed.
+        Index.FilesAt(type.Files).Where(x => x.Markup.Count > 0).SelectMany(x => x.Markup).SelectMany(x => x.DescendantsAndSelf());
 
     /// <summary>
     /// A file's code can name a namespace's types unqualified: the file imports it, or declares it or a namespace inside it.
@@ -892,6 +907,12 @@ public sealed class CodeGraph
     /// </summary>
     public IReadOnlyList<string> Supertypes(TypeNode type)
     {
+        var memo = Index.Supertypes;
+        if (memo.TryGetValue(type, out var known))
+        {
+            return known;
+        }
+
         var names = new List<string>();
         var seen = new HashSet<TypeNode> { type };
         var queue = new Queue<TypeNode>([type]);
@@ -915,7 +936,7 @@ public sealed class CodeGraph
             }
         }
 
-        return names.Distinct(StringComparer.Ordinal).ToList();
+        return memo[type] = names.Distinct(StringComparer.Ordinal).ToList();
     }
 
     /// <summary>
@@ -924,6 +945,12 @@ public sealed class CodeGraph
     /// </summary>
     public IReadOnlyList<TypeNode> Bases(TypeNode type)
     {
+        var memo = Index.Bases;
+        if (memo.TryGetValue(type, out var known))
+        {
+            return known;
+        }
+
         var bases = new List<TypeNode>();
         var seen = new HashSet<TypeNode> { type };
         var queue = new Queue<TypeNode>([type]);
@@ -939,8 +966,14 @@ public sealed class CodeGraph
             }
         }
 
-        return bases;
+        return memo[type] = bases;
     }
+
+    /// <summary>
+    /// The in-scope types that derive from or implement a type, directly or through others, in the graph's order: the
+    /// classes implementing an interface, and the interfaces extending it. The types whose <see cref="Bases"/> have it.
+    /// </summary>
+    public IReadOnlyList<TypeNode> ImplementationsOf(TypeNode type) => Index.Implementations.GetValueOrDefault(type) ?? [];
 
     /// <summary>
     /// A type's members, then the ones it inherits, nearest first: <c>Id</c> declared on an <c>Entity</c> base is a member
@@ -1093,13 +1126,25 @@ public sealed class CodeGraph
         return dot < 0 ? null : TypeNamed(import.Target[..dot]);
     }
 
-    private TypeNode? TypeNamed(string qualifiedName) => Types.FirstOrDefault(x => (x.Namespace.Length == 0 ? x.Name : $"{x.Namespace}.{x.Name}") == qualifiedName);
+    /// <summary>The in-scope types of a name, without namespace, in the graph's order.</summary>
+    public IReadOnlyList<TypeNode> TypesNamed(string name) => Index.TypesByName.GetValueOrDefault(name) ?? [];
+
+    /// <summary>The in-scope types of any of these names, in the graph's order.</summary>
+    public IReadOnlyList<TypeNode> TypesNamed(IEnumerable<string> names)
+    {
+        var distinct = names.Distinct(StringComparer.Ordinal).ToList();
+        return distinct.Count == 1 ? TypesNamed(distinct[0]) : distinct.SelectMany(TypesNamed).OrderBy(Index.PositionOf).ToList();
+    }
+
+    private TypeNode? TypeNamed(string qualifiedName) => Index.TypesByQualifiedName.GetValueOrDefault(qualifiedName);
 
     private TypeNode? Resolve(TypeRefNode reference, TypeNode from)
     {
         // A qualified base (Domain.SeedWork.Entity) names the end of the type's full name, or all of it.
-        var candidates = Types.Where(x => x.Name == reference.Name && (reference.QualifiedName == reference.Name || $".{x.Namespace}.{x.Name}".EndsWith("." + reference.QualifiedName, StringComparison.Ordinal))).ToList();
-        var imports = Files.Where(x => from.Files.Contains(x.Path)).SelectMany(ImportsOf).ToList();
+        var candidates = (Index.TypesByName.GetValueOrDefault(reference.Name) ?? [])
+            .Where(x => reference.QualifiedName == reference.Name || $".{x.Namespace}.{x.Name}".EndsWith("." + reference.QualifiedName, StringComparison.Ordinal))
+            .ToList();
+        var imports = Index.ImportsOf(from);
         if (reference.QualifiedName != reference.Name)
         {
             // Qualified by an alias of what an import names (C#'s using D = Shop.Domain;, TypeScript's import * as api),
@@ -1135,8 +1180,222 @@ public sealed class CodeGraph
             .OrderByDescending(x => x.Namespace.Length)
             .FirstOrDefault();
 
+    private readonly List<(string What, long Ticks)> _timed = [];
+
+    /// <summary>
+    /// Adds the time since <paramref name="started"/> (a <see cref="Stopwatch.GetTimestamp"/>) to a part of a reader's work,
+    /// for the run's timings in the Software Factory log: C#'s parse, declarations and bodies. A reader times a part file by
+    /// file, and the engine logs the parts under the reader that timed them, each in the order it was first timed.
+    /// </summary>
+    public void Timed(string what, long started)
+    {
+        var ticks = Stopwatch.GetTimestamp() - started;
+        var index = _timed.FindIndex(x => x.What == what);
+        if (index < 0)
+        {
+            _timed.Add((what, ticks));
+        }
+        else
+        {
+            _timed[index] = (what, _timed[index].Ticks + ticks);
+        }
+    }
+
+    /// <summary>The parts timed since the last call, in milliseconds, for the engine to log under the reader that timed them.</summary>
+    internal IReadOnlyList<(string What, double Milliseconds)> TakeTimed()
+    {
+        var timed = _timed.Select(x => (x.What, x.Ticks * 1000d / Stopwatch.Frequency)).ToList();
+        _timed.Clear();
+        return timed;
+    }
+
     /// <summary>Keeps what a language or an extension's reader found, for the readers after it; one value per type.</summary>
     public void Set<T>(T value) where T : class => _extensions[typeof(T)] = value;
 
     public T? Get<T>() where T : class => _extensions.GetValueOrDefault(typeof(T)) as T;
+
+    /// <summary>What is kept on the graph (<see cref="Set{T}"/>), by its type.</summary>
+    internal IReadOnlyCollection<Type> Stored => _extensions.Keys.ToList();
+
+    /// <summary>Drops what was kept on the graph since <paramref name="stored"/> was: what claims kept, as against what readers did.</summary>
+    internal void KeepOnly(IReadOnlyCollection<Type> stored)
+    {
+        foreach (var type in _extensions.Keys.Except(stored).ToList())
+        {
+            _extensions.Remove(type);
+        }
+    }
+
+    /// <summary>
+    /// The graph's lookups, each built on its first use. Each keeps the graph's order, so a lookup gives what a scan of
+    /// <see cref="Types"/> or <see cref="Files"/> gave, in the same order, and ties resolve as they did.
+    /// </summary>
+    private sealed class Indexes(CodeGraph graph)
+    {
+        private Dictionary<string, List<TypeNode>>? _typesByName;
+        private Dictionary<string, TypeNode>? _typesByQualifiedName;
+        private Dictionary<TypeNode, int>? _positions;
+        private Dictionary<string, List<(int Position, FileNode File)>>? _filesByPath;
+        private Dictionary<string, List<FileNode>>? _globalImporters;
+        private Dictionary<TypeNode, List<TypeNode>>? _implementations;
+        private readonly Dictionary<FileNode, IReadOnlyList<ImportNode>> _fileImports = [];
+        private readonly Dictionary<TypeNode, (int Files, IReadOnlyList<ImportNode> Imports)> _typeImports = [];
+
+        public Dictionary<TypeNode, IReadOnlyList<TypeNode>> Bases { get; } = [];
+
+        public Dictionary<TypeNode, IReadOnlyList<string>> Supertypes { get; } = [];
+
+        /// <summary>The types of each name, in the graph's order.</summary>
+        public Dictionary<string, List<TypeNode>> TypesByName => _typesByName ??= graph.Types
+            .GroupBy(x => x.Name, StringComparer.Ordinal)
+            .ToDictionary(x => x.Key, x => x.ToList(), StringComparer.Ordinal);
+
+        /// <summary>Where a type first is in <see cref="CodeGraph.Types"/>.</summary>
+        public int PositionOf(TypeNode type)
+        {
+            if (_positions is null)
+            {
+                _positions = [];
+                foreach (var (node, position) in graph.Types.Select((x, i) => (x, i)))
+                {
+                    _positions.TryAdd(node, position);
+                }
+            }
+
+            return _positions[type];
+        }
+
+        /// <summary>The first type of each qualified name: <c>Shop.Domain.Order</c>, or a bare name in no namespace.</summary>
+        public Dictionary<string, TypeNode> TypesByQualifiedName
+        {
+            get
+            {
+                if (_typesByQualifiedName is null)
+                {
+                    _typesByQualifiedName = new Dictionary<string, TypeNode>(StringComparer.Ordinal);
+                    foreach (var type in graph.Types)
+                    {
+                        _typesByQualifiedName.TryAdd(type.Namespace.Length == 0 ? type.Name : $"{type.Namespace}.{type.Name}", type);
+                    }
+                }
+
+                return _typesByQualifiedName;
+            }
+        }
+
+        /// <summary>The types whose bases have each type, in the graph's order (<see cref="CodeGraph.ImplementationsOf"/>).</summary>
+        public Dictionary<TypeNode, List<TypeNode>> Implementations
+        {
+            get
+            {
+                if (_implementations is null)
+                {
+                    _implementations = [];
+                    foreach (var type in graph.Types)
+                    {
+                        foreach (var @base in graph.Bases(type))
+                        {
+                            if (!_implementations.TryGetValue(@base, out var implementations))
+                            {
+                                _implementations[@base] = implementations = [];
+                            }
+
+                            implementations.Add(type);
+                        }
+                    }
+                }
+
+                return _implementations;
+            }
+        }
+
+        /// <summary>The graph's files at these paths, in the graph's order, each once.</summary>
+        public IEnumerable<FileNode> FilesAt(IReadOnlyCollection<string> paths)
+        {
+            _filesByPath ??= graph.Files.Select((file, position) => (Position: position, File: file))
+                .GroupBy(x => x.File.Path, StringComparer.Ordinal)
+                .ToDictionary(x => x.Key, x => x.ToList(), StringComparer.Ordinal);
+            return paths.Count == 1
+                ? _filesByPath.GetValueOrDefault(paths.First())?.Select(x => x.File) ?? []
+                : paths.Distinct(StringComparer.Ordinal).SelectMany(x => _filesByPath.GetValueOrDefault(x) ?? []).OrderBy(x => x.Position).Select(x => x.File);
+        }
+
+        public IReadOnlyList<ImportNode> ImportsOf(FileNode file)
+        {
+            if (_fileImports.TryGetValue(file, out var known))
+            {
+                return known;
+            }
+
+            // A project's global imports are of each file in it but their own.
+            _globalImporters ??= graph.Files.Where(x => x.Project is not null && x.Imports.Any(i => i.Global))
+                .GroupBy(x => x.Project!, StringComparer.Ordinal)
+                .ToDictionary(x => x.Key, x => x.ToList(), StringComparer.Ordinal);
+            return _fileImports[file] = file.Imports
+                .Concat(file.ImportsFrom.Count == 0 ? [] : FilesAt(file.ImportsFrom).SelectMany(x => x.Imports))
+                .Concat(file.Project is null
+                    ? []
+                    : (_globalImporters.GetValueOrDefault(file.Project) ?? []).Where(x => x != file).SelectMany(x => x.Imports.Where(i => i.Global)))
+                .ToList();
+        }
+
+        /// <summary>The imports of every file a type is in, in the graph's order of those files.</summary>
+        public IReadOnlyList<ImportNode> ImportsOf(TypeNode type)
+        {
+            // A type's files are complete once it is declared, before any lookup; the count only guards that.
+            if (_typeImports.TryGetValue(type, out var known) && known.Files == type.Files.Count)
+            {
+                return known.Imports;
+            }
+
+            var imports = FilesAt(type.Files).SelectMany(ImportsOf).ToList();
+            _typeImports[type] = (type.Files.Count, imports);
+            return imports;
+        }
+    }
+}
+
+/// <summary>
+/// A list of the graph's nodes, <see cref="CodeGraph.Types"/> or <see cref="CodeGraph.Files"/>, that tells the graph when it
+/// changes, so its lookups are built again.
+/// </summary>
+public sealed class GraphList<T> : Collection<T>
+{
+    private readonly Action _changed;
+
+    internal GraphList(Action changed) => _changed = changed;
+
+    public void AddRange(IEnumerable<T> items)
+    {
+        foreach (var item in items)
+        {
+            Items.Add(item);
+        }
+
+        _changed();
+    }
+
+    protected override void InsertItem(int index, T item)
+    {
+        base.InsertItem(index, item);
+        _changed();
+    }
+
+    protected override void SetItem(int index, T item)
+    {
+        base.SetItem(index, item);
+        _changed();
+    }
+
+    protected override void RemoveItem(int index)
+    {
+        base.RemoveItem(index);
+        _changed();
+    }
+
+    protected override void ClearItems()
+    {
+        base.ClearItems();
+        _changed();
+    }
 }

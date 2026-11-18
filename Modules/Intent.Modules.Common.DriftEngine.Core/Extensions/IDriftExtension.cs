@@ -146,7 +146,11 @@ public interface ILanguage
     /// <param name="root">The output folder.</param>
     /// <param name="files">Its in-scope files, relative to <paramref name="root"/>, with <c>/</c> separators, in order.</param>
     /// <param name="graph">The graph to add to; a file it can't read goes in <see cref="CodeGraph.Failures"/>.</param>
-    void Read(string root, IReadOnlyList<string> files, CodeGraph graph);
+    /// <param name="cancellationToken">
+    /// The run's: check it file by file (<see cref="CancellationToken.ThrowIfCancellationRequested"/>), so a cancelled run
+    /// stops reading. A cancelled read is never kept for the next run.
+    /// </param>
+    void Read(string root, IReadOnlyList<string> files, CodeGraph graph, CancellationToken cancellationToken);
 }
 
 /// <summary>

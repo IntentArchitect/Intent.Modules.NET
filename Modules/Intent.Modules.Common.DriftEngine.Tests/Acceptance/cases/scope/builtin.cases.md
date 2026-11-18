@@ -1,6 +1,6 @@
 # scope/builtin
 
-Some folders are never code to check, whatever the rows say (R22): `.git`, `bin`, `obj` and `node_modules` folders at any depth, hidden folders (a name starting with `.`), and the Intent solution's own folders (any folder holding an `.isln`, `.application.config` or `Intent.Metadata`). The built-in exclusions come before every row, and no row can bring them back in. Their files are never opened; the coverage listing counts them.
+Some folders are never code to check, whatever the rows say (R22): `.git`, `bin`, `obj` and `node_modules` folders at any depth, hidden folders (a name starting with `.`), the Intent solution's own folders (any folder holding an `.isln`, `.application.config` or `Intent.Metadata`), and NuGet's packages folder (a folder whose folders hold a `.nupkg`). The built-in exclusions come before every row, and no row can bring them back in. The walk never enters them, so their files are never listed, let alone opened; the coverage listing counts the folders.
 
 ## build-output-and-tooling
 
@@ -125,6 +125,112 @@ public class Order
     { "kind": "type.exists", "element": "order", "outcome": "verified", "at": "src/Domain/Order.cs:3" }
   ],
   "filesRead": { "include": ["src/Domain/Order.cs"], "exclude": ["intent/**"] }
+}
+```
+
+## nuget-packages-folder
+
+A `packages.config` project restores NuGet packages into `packages/`, a folder per package holding the package's `.nupkg`. That is never code to check, though the row takes everything, and it is known by what it holds, not by its name. One package carries source as content, a class named `Order`: were it read, the claim on `Order` would be ambiguous. It is verified, from `src/Domain/Order.cs` alone, and the listing counts the folder.
+
+```json case
+{ "phase": 1, "base": "build-output-and-tooling", "without": ["src/Domain/obj/Debug/net8.0/Generated/Order.g.cs", "src/Domain/bin/Debug/net8.0/Shop.Domain.deps.json", "src/Web/node_modules/bootstrap/dist/js/bootstrap.js", "src/Domain/.backup/Order.cs", ".github/workflows/build.yml"], "cases": ["scope/builtin", "scope/coverage"], "requirements": ["R22", "R15"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```text file packages/Shop.Contracts.1.0.0/Shop.Contracts.1.0.0.nupkg
+A package archive; only its name and place say what the folder is.
+```
+
+```csharp file packages/Shop.Contracts.1.0.0/content/Order.cs
+namespace Shop.Domain;
+
+public class Order
+{
+    public Guid Id { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "order", "outcome": "verified", "at": "src/Domain/Order.cs:3" }
+  ],
+  "findings": [
+    { "rule": "scope/coverage", "severity": "info", "messageContains": "built in, NuGet packages, 1 folder" }
+  ],
+  "filesRead": { "include": ["src/Domain/Order.cs"], "exclude": ["packages/**"] }
+}
+```
+
+## packages-folder-of-source
+
+A JavaScript or TypeScript monorepo keeps its own code in `packages/`, a folder per package. No folder in it holds a `.nupkg`, so it isn't NuGet's: its code is read and checked like any other.
+
+```json case
+{ "phase": 4, "cases": ["scope/builtin"], "requirements": ["R22"], "packs": ["intent.core", "house.storefront"], "language": "typescript" }
+```
+
+```json pack
+{
+  "id": "house.storefront",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "languages": ["typescript"],
+  "designers": ["Front End"],
+  "vocabulary": {
+    "Front End": {
+      "entries": [
+        { "kind": "type.exists", "for": { "element": "Contract" }, "value": "self", "bindings": { "Name": "name" }, "own": ["Name"], "source": "the Contract" }
+      ]
+    }
+  },
+  "conventions": {
+    "Front End": {
+      "types": {
+        "Contract": { "typeKinds": ["interface", "typeAlias"], "find": "type", "note": "The storefront: a Contract is an exported interface or type" }
+      }
+    }
+  }
+}
+```
+
+```json model
+{
+  "designers": {
+    "Front End": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront",
+        "elements": [
+          { "id": "product-dto", "type": "Contract", "name": "ProductDto",
+            "children": [
+              { "id": "product-dto-id", "type": "Field", "name": "Id", "typeRef": { "type": "guid" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Storefront", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file packages/storefront/src/api/types.ts
+export interface ProductDto {
+    Id: string;
+}
+```
+
+```json file packages/storefront/package.json
+{ "name": "@shop/storefront", "private": true }
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "product-dto", "outcome": "verified", "at": "packages/storefront/src/api/types.ts:1" }
+  ],
+  "filesRead": { "include": ["packages/storefront/src/api/types.ts"] }
 }
 ```
 

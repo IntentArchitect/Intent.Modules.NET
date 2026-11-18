@@ -59,14 +59,14 @@ public sealed partial class DriftEngine
         var type = OwnType(claim);
         var contract = type.Kind == "interface"
             ? type
-            : _graph.Types.FirstOrDefault(x => x != type && x.Kind == "interface" && x.Name == Naming.InCode(ProfileOf(x), claim.Source.Name, ["interface", "type"]));
+            : TypesNamedIn(profile => Naming.InCode(profile, claim.Source.Name, ["interface", "type"])).FirstOrDefault(x => x != type && x.Kind == "interface");
         if (contract is null)
         {
             Verify(claim, new Reading { Value = "present", From = "code", At = type.At });
             return;
         }
 
-        var implementations = _graph.Types.Where(x => x.Kind != "interface" && _graph.Bases(x).Contains(contract)).ToList();
+        var implementations = _graph.ImplementationsOf(contract).Where(x => x.Kind != "interface").ToList();
         if (implementations.Count == 0)
         {
             if (RunTimeImplementation(contract) is { } made)
@@ -95,9 +95,11 @@ public sealed partial class DriftEngine
     private CallNode? RunTimeImplementation(TypeNode contract)
     {
         // A type argument in a type's code is resolved from there; one in a file's top-level statements has no type to resolve
-        // from, so its name, and any qualifier it has, must end the interface's full name.
+        // from, so its name, and any qualifier it has, must end the interface's full name. Only a type argument of the
+        // interface's name, or an alias's, can resolve to it, so no other is resolved.
+        var aliases = _graph.Files.SelectMany(x => x.Imports).Select(x => x.Alias).OfType<string>().ToHashSet(StringComparer.Ordinal);
         bool Names(TypeRefNode argument, TypeNode? from) => from is not null
-            ? _graph.TypeFor(argument, from) == contract
+            ? (argument.Name == contract.Name || aliases.Contains(argument.Name)) && _graph.TypeFor(argument, from) == contract
             : argument.Name == contract.Name
               && (argument.QualifiedName == argument.Name || $".{contract.Namespace}.{contract.Name}".EndsWith("." + argument.QualifiedName, StringComparison.Ordinal));
 

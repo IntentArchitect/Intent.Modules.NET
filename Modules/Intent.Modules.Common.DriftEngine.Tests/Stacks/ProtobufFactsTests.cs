@@ -388,7 +388,7 @@ public class ProtobufFactsTests
             }
 
             var graph = new CodeGraph();
-            new ProtobufExtension().Languages.Single().Read(root, files.Select(x => x.Path).ToList(), graph);
+            new ProtobufExtension().Languages.Single().Read(root, files.Select(x => x.Path).ToList(), graph, TestContext.Current.CancellationToken);
             return graph;
         }
         finally

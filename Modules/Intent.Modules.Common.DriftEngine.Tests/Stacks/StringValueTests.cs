@@ -225,7 +225,7 @@ public class StringValueTests
             }
 
             var graph = new CodeGraph();
-            language.Read(root, files.Select(x => x.Path).ToList(), graph);
+            language.Read(root, files.Select(x => x.Path).ToList(), graph, TestContext.Current.CancellationToken);
             return graph;
         }
         finally

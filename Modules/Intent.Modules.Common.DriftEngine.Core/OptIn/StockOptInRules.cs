@@ -127,7 +127,7 @@ internal sealed class UnmodelledMember : IOptInRule
 
             // An override of a modelled base type's member is that type's; one of a framework's base (a hosted service's
             // StopAsync, a gRPC service's methods) is the type's own operation.
-            var modelledBase = type.BaseTypes.Any(b => context.Code.Types.Any(x => x.Name == b.Name && context.ElementOf(x) is not null));
+            var modelledBase = type.BaseTypes.Any(b => context.Code.TypesNamed(b.Name).Any(x => context.ElementOf(x) is not null));
             foreach (var member in type.Members)
             {
                 if (!states.Contains(member.Kind) || member.Access != "public" || modelledBase && member.Modifiers.Contains("override") || EveryTypeHas.Contains(member.Name) ||

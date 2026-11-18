@@ -528,7 +528,7 @@ public class CSharpFactsTests
             }
 
             var graph = new CodeGraph();
-            new CSharpExtension().Languages.Single().Read(root, files.Select(x => x.Path).ToList(), graph);
+            new CSharpExtension().Languages.Single().Read(root, files.Select(x => x.Path).ToList(), graph, TestContext.Current.CancellationToken);
             return graph;
         }
         finally

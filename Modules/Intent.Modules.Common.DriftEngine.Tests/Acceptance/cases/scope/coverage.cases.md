@@ -1,6 +1,6 @@
 # scope/coverage
 
-The run lists what is out of scope, so a person can see what a green run didn't look at (R15): per row, its element, glob, scope, reason and how many files it decides; the built-in exclusions with counts; and the files in no row, counted per top-level folder. It is one `scope/coverage` finding of severity Info, which the Software Factory writes to its log and never to the drift report: the report holds only drift (decision 30).
+The run lists what is out of scope, so a person can see what a green run didn't look at (R15): per row, its element, glob, scope, reason and how many files it decides; how many folders each built-in exclusion took; and the files in no row, counted per top-level folder. It is one `scope/coverage` finding of severity Info, which the Software Factory writes to its log and never to the drift report: the report holds only drift (decision 30).
 
 eShopCustom's Domain, Services and Front End modules each gave a not-yet-adopted summary: a count of the files under their Sources that no Adopted entry covered, reported as a warning or a note rather than one finding per file. The listing's "not in any row" count is that summary; files outside scope are still never reported one by one.
 
@@ -99,16 +99,24 @@ INSERT INTO Orders (Id) VALUES ('6f1c2a1e-0d5b-4a7e-9c1f-2b3d4e5f6a7b');
 
 ## built-in-exclusions
 
-The listing counts what the built-in exclusions skipped, here one file under an `obj` folder, so even code no row could bring in is accounted for.
+The listing counts what the built-in exclusions skipped, so even code no row could bring in is accounted for. It counts folders, not files: the walk never enters an excluded folder, so its files are never listed. Here two `obj` folders, one of them holding two files, are two folders.
 
 ```json case
 { "phase": 1, "base": "rows-with-reasons", "cases": ["scope/coverage", "scope/builtin"], "requirements": ["R15", "R22"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
 ```
 
+```json file src/Domain/obj/project.assets.json
+{ "version": 3 }
+```
+
+```csharp file src/Legacy/obj/Debug/net8.0/Shop.Legacy.AssemblyInfo.cs
+[assembly: System.Reflection.AssemblyCompanyAttribute("Shop.Legacy")]
+```
+
 ```json expect
 {
   "findings": [
-    { "rule": "scope/coverage", "severity": "info", "messageContains": "obj" }
+    { "rule": "scope/coverage", "severity": "info", "messageContains": "built in, obj, 2 folders" }
   ],
   "filesRead": { "exclude": ["**/obj/**"] }
 }
