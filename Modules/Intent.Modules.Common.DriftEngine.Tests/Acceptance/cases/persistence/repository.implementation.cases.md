@@ -89,6 +89,101 @@ No class implements `IOrderRepository`. The implementation is an existence claim
 }
 ```
 
+## verified-run-time-factory
+
+No class implements `IOrderRepository`: a proxy library makes one at run time, through a generic factory of the code's own that the composition root registers. The code handing the interface to a call as a type argument is its implementation, whatever the library, so the reading is that call.
+
+```json case
+{ "phase": "later", "base": "verified", "without": ["src/Infrastructure/Repositories/OrderRepository.cs"], "kinds": ["repository.implementation"], "traces": ["ESC-DOM-72"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```csharp file src/Infrastructure/DependencyInjection.cs
+using Microsoft.Extensions.DependencyInjection;
+using Ordering.Domain.Repositories;
+
+namespace Ordering.Infrastructure;
+
+public static class DependencyInjection
+{
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services)
+    {
+        services.AddSingleton(x => CreateProxy<IOrderRepository>("Orders"));
+        return services;
+    }
+
+    public static T CreateProxy<T>(string connectionName) where T : class
+    {
+        var factory = new DatabaseProxyFactory(connectionName);
+        return factory.Create<T>();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "repository.implementation", "element": "order-repository", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Infrastructure/DependencyInjection.cs:10" }
+  ]
+}
+```
+
+## verified-library-factory
+
+The library's factory is called directly, in Program.cs's top-level statements.
+
+```json case
+{ "phase": "later", "base": "verified", "without": ["src/Infrastructure/Repositories/OrderRepository.cs"], "kinds": ["repository.implementation"], "traces": ["ESC-DOM-72"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```csharp file src/Api/Program.cs
+using Ordering.Domain.Repositories;
+
+var builder = WebApplication.CreateBuilder(args);
+var factory = new DatabaseProxyFactory("Orders");
+builder.Services.AddSingleton(factory.Create<IOrderRepository>());
+
+var app = builder.Build();
+app.Run();
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "repository.implementation", "element": "order-repository", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Api/Program.cs:5" }
+  ]
+}
+```
+
+## contradicted-resolved-only
+
+The code only takes `IOrderRepository` from the container. Fetching an instance says nothing about what implements it, so the profile's container fetches (`GetRequiredService`) don't count, and the claim is contradicted.
+
+```json case
+{ "phase": "later", "base": "verified", "without": ["src/Infrastructure/Repositories/OrderRepository.cs"], "kinds": ["repository.implementation"], "traces": ["ESC-DOM-72"], "requirements": ["R1", "R8"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```csharp file src/Api/Program.cs
+using Ordering.Domain.Repositories;
+
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+var orders = app.Services.GetRequiredService<IOrderRepository>();
+app.Run();
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "repository.implementation", "element": "order-repository", "outcome": "contradicted", "expected": "present", "actual": "absent" }
+  ],
+  "findings": [
+    { "rule": "claim/repository.implementation", "severity": "error", "subject": "order-repository", "messageContains": "isn't in the code" }
+  ]
+}
+```
+
 ## contradicted-not-implementing
 
 A class named `OrderRepository` exists but doesn't implement `IOrderRepository`. A name alone isn't an implementation, so the claim is contradicted (ESC-DOM-72).
