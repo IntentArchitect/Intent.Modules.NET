@@ -6,15 +6,11 @@
   <file path="Api/DTOFieldModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/DTOModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/EnumModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
-  <file path="Api/IntegrationCommandSubscriptionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModel" />
-  <file path="Api/IntegrationCommandSubscriptionModelAssociationExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions" />
-  <file path="Api/IntegrationEventSubscriptionModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModel" />
-  <file path="Api/IntegrationEventSubscriptionModelAssociationExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions" />
   <file path="Api/OperationModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/ParameterModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/QueryModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/ServiceModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
-  <file path="FactoryExtensions/ServicesDriftReporter.cs" deviationsHash="37D3FFFD2CC3BB98C1C46D33F0965EB441D5ACF97B6F55EA647107655482DF45" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/ServicesDriftReporter.cs" deviationsHash="FB4F759C2596E336B1FDD6F11F5A14E22963E7C068A28A89C08E217065E84364" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Modules.Services.Guardrails.Contracts.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Intent.Services.Guardrails.Contracts.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
@@ -52,6 +48,5 @@
   <file path="Templates/ServiceProxyContract/ServiceProxyContractTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ServiceProxyContract/ServiceProxyContractTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
-  <file path="modelers/Guardrails Eventing Extension.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
   <file path="release-notes.md" templateId="Intent.ModuleBuilder.Templates.ReleaseNotes" />
 </managedFiles>

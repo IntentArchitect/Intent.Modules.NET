@@ -7,7 +7,7 @@
 return ["bde29850-5fb9-4f47-9941-b9e182fd9bdc", "93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7"].indexOf(element.specializationId) &gt;= 0;</targetFilterFunction>
   <traitStorage>package</traitStorage>
   <applyMode>manually</applyMode>
-  <icon type="FontAwesome" source="fa-asterisk" />
+  <icon type="FontAwesome" source="asterisk" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
   <displayAsAnnotation>false</displayAsAnnotation>
