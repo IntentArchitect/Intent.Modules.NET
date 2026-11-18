@@ -266,3 +266,55 @@ public final class OrderStatus {
   ]
 }
 ```
+
+## data-contract-as-struct
+
+A Data Contract is a class or a record. `Money` is a `struct`: found, and reported as the wrong kind (R11, R41).
+
+```json case
+{ "phase": 1, "kinds": ["type.exists", "type.kind"], "requirements": ["R11", "R41"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "money", "type": "Data Contract", "name": "Money",
+            "children": [
+              { "id": "money-amount", "type": "Attribute", "name": "Amount", "typeRef": { "type": "decimal" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Contracts/Money.cs
+namespace Shop.Domain.Contracts;
+
+public struct Money
+{
+    public decimal Amount { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "money", "outcome": "verified", "at": "src/Domain/Contracts/Money.cs:3" },
+    { "kind": "type.kind", "element": "money", "outcome": "contradicted", "expected": "class, record", "actual": "struct",
+      "at": "src/Domain/Contracts/Money.cs:3" }
+  ],
+  "findings": [
+    { "rule": "claim/type.kind", "severity": "error", "subject": "money", "messageContains": "Money" }
+  ]
+}
+```

@@ -1033,6 +1033,7 @@
     "intent.aspnetcore",
     "intent.nservicebus",
     "intent.messaging",
+    "intent.interactions",
     "intent.java",
     "intent.springmvc",
     "intent.jpa",

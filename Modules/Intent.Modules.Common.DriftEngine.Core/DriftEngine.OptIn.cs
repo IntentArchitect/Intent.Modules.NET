@@ -69,6 +69,18 @@ public sealed partial class DriftEngine
 
         types.UnionWith(_graph.Types.Where(x => x.Members.Any(members.Contains)));
 
+        // An element that may be a class or an interface (a Service, Domain Service or Repository) located as its interface
+        // is that interface and the classes implementing it (IPricingService's TieredPricingService), as one located as its
+        // class is the class and its interfaces, below.
+        var contracts = LocatedTypes()
+            .Where(x => x.Type.Kind == "interface" && (Convention(x.Claim.Designer, x.Claim.Source)?["typeKinds"] as JsonArray)?.Any(k => k!.GetValue<string>() == "class") == true)
+            .Select(x => x.Type)
+            .ToHashSet();
+        if (contracts.Count > 0)
+        {
+            types.UnionWith(_graph.Types.Where(x => x.Kind != "interface" && _graph.Bases(x).Any(contracts.Contains)).ToList());
+        }
+
         // A located class's interfaces are its code: a Service's, Domain Service's or Repository's interface beside its class
         // is no element of its own.
         types.UnionWith(types.Where(x => x.Kind != "interface").SelectMany(_graph.Bases).Where(x => x.Kind == "interface").ToList());

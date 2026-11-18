@@ -1201,3 +1201,245 @@ export interface ProductDto {
   ]
 }
 ```
+
+## domain-service
+
+The Domain Service `PricingService` is the class of its name, with its interface `IPricingService` beside it, as Intent's Domain Services output writes them. With a type of its name, that type is the Domain Service's, and its operation is the class's method.
+
+```json case
+{ "phase": 1, "kinds": ["type.exists", "type.kind", "member.exists"], "requirements": ["R2", "R41", "R43"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order" },
+          { "id": "pricing-service", "type": "Domain Service", "name": "PricingService",
+            "children": [
+              { "id": "pricing-service-price-of", "type": "Operation", "name": "PriceOf", "typeRef": { "type": "decimal" },
+                "children": [
+                  { "id": "pricing-service-price-of-order", "type": "Parameter", "name": "order", "typeRef": { "element": "order" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Order.cs
+namespace Shop.Domain;
+
+public class Order
+{
+}
+```
+
+```csharp file src/Domain/Services/IPricingService.cs
+namespace Shop.Domain.Services;
+
+public interface IPricingService
+{
+    decimal PriceOf(Order order);
+}
+```
+
+```csharp file src/Domain/Services/PricingService.cs
+namespace Shop.Domain.Services;
+
+public class PricingService : IPricingService
+{
+    public decimal PriceOf(Order order) => 0m;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "pricing-service", "outcome": "verified", "at": "src/Domain/Services/PricingService.cs:3" },
+    { "kind": "type.kind", "element": "pricing-service", "outcome": "verified", "actual": "class" },
+    { "kind": "member.exists", "element": "pricing-service-price-of", "outcome": "verified", "at": "src/Domain/Services/PricingService.cs:5" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "count": 0 }
+  ]
+}
+```
+
+## domain-service-interface
+
+Code written by hand names the Domain Service's interface after it, `IPricingService`, and implements it in a class of another name, `TieredPricingService`. No type has the Domain Service's name, so, as a Service or a Repository is, it is the interface its language names it, and its operation is the interface's method (R43).
+
+```json case
+{ "phase": 1, "base": "domain-service", "without": ["src/Domain/Services/PricingService.cs"], "kinds": ["type.exists", "type.kind", "member.exists"], "requirements": ["R2", "R41", "R43"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Services/TieredPricingService.cs
+namespace Shop.Domain.Services;
+
+public class TieredPricingService : IPricingService
+{
+    public decimal PriceOf(Order order) => 0m;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "pricing-service", "outcome": "verified", "at": "src/Domain/Services/IPricingService.cs:3" },
+    { "kind": "type.kind", "element": "pricing-service", "outcome": "verified", "actual": "interface" },
+    { "kind": "member.exists", "element": "pricing-service-price-of", "outcome": "verified", "at": "src/Domain/Services/IPricingService.cs:5" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "count": 0 }
+  ]
+}
+```
+
+## domain-service-missing
+
+Neither `PricingService` nor `IPricingService` is in the code: the Domain Service's type is contradicted, and its operation is blocked behind it (R5, R8).
+
+```json case
+{ "phase": 1, "base": "domain-service", "without": ["src/Domain/Services/IPricingService.cs", "src/Domain/Services/PricingService.cs"], "kinds": ["type.exists", "member.exists"], "requirements": ["R5", "R8", "R43"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "pricing-service", "outcome": "contradicted" },
+    { "kind": "member.exists", "element": "pricing-service-price-of", "outcome": "cantVerify", "reason": "blocked", "blockedBy": "type.exists" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "severity": "error", "subject": "pricing-service", "messageContains": "isn't in the code" },
+    { "rule": "claim/member.exists", "count": 0 }
+  ]
+}
+```
+
+## data-contract
+
+The Data Contract `Money` is the record of its name, and its attributes are its properties, with their types.
+
+```json case
+{ "phase": 1, "kinds": ["type.exists", "type.kind", "member.exists", "member.type"], "requirements": ["R2", "R41", "R43", "R44"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "money", "type": "Data Contract", "name": "Money",
+            "children": [
+              { "id": "money-amount", "type": "Attribute", "name": "Amount", "typeRef": { "type": "decimal" } },
+              { "id": "money-currency", "type": "Attribute", "name": "Currency", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Contracts/Money.cs
+namespace Shop.Domain.Contracts;
+
+public record Money
+{
+    public decimal Amount { get; init; }
+
+    public string Currency { get; init; } = "";
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "money", "outcome": "verified", "at": "src/Domain/Contracts/Money.cs:3" },
+    { "kind": "type.kind", "element": "money", "outcome": "verified", "expected": "class, record", "actual": "record" },
+    { "kind": "member.exists", "element": "money-amount", "outcome": "verified", "at": "src/Domain/Contracts/Money.cs:5" },
+    { "kind": "member.type", "element": "money-amount", "outcome": "verified", "expected": "decimal", "actual": "decimal" },
+    { "kind": "member.exists", "element": "money-currency", "outcome": "verified", "at": "src/Domain/Contracts/Money.cs:7" },
+    { "kind": "member.type", "element": "money-currency", "outcome": "verified", "expected": "string", "actual": "string" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "count": 0 },
+    { "rule": "claim/member.exists", "count": 0 },
+    { "rule": "claim/member.type", "count": 0 }
+  ]
+}
+```
+
+## data-contract-drift
+
+`Money` has lost `Currency`, and its `Amount` is a `double`. The type is there, so each attribute's claim is read: one is missing and the other's type differs (R8, R11).
+
+```json case
+{ "phase": 1, "base": "data-contract", "kinds": ["member.exists", "member.type"], "requirements": ["R8", "R11"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Contracts/Money.cs
+namespace Shop.Domain.Contracts;
+
+public record Money
+{
+    public double Amount { get; init; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "money", "outcome": "verified" },
+    { "kind": "member.type", "element": "money-amount", "outcome": "contradicted", "expected": "decimal", "actual": "double", "at": "src/Domain/Contracts/Money.cs:5" },
+    { "kind": "member.exists", "element": "money-currency", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "money-amount" },
+    { "rule": "claim/member.exists", "severity": "error", "subject": "money-currency", "messageContains": "`Money.Currency` isn't in the code." }
+  ]
+}
+```
+
+## data-contract-missing
+
+No type is named `Money`: the Data Contract is contradicted, and its attributes are blocked behind it (R5, R8).
+
+```json case
+{ "phase": 1, "base": "data-contract", "without": ["src/Domain/Contracts/Money.cs"], "kinds": ["type.exists", "member.exists"], "requirements": ["R5", "R8"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Contracts/Price.cs
+namespace Shop.Domain.Contracts;
+
+public record Price(decimal Amount);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "money", "outcome": "contradicted" },
+    { "kind": "member.exists", "element": "money-amount", "outcome": "cantVerify", "reason": "blocked", "blockedBy": "type.exists" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "severity": "error", "subject": "money", "messageContains": "isn't in the code" },
+    { "rule": "claim/member.exists", "count": 0 }
+  ]
+}
+```

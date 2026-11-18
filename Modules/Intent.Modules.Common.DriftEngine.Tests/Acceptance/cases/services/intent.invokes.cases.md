@@ -865,3 +865,143 @@ export default function CatalogPage() {
   ]
 }
 ```
+
+## domain-service-call
+
+`PlaceOrder` invokes the Domain Service operation `PricingService.PriceOf`, and the application service calls it through its injected `IPricingService`, the interface beside the Domain Service's class.
+
+```json case
+{ "phase": 6, "kinds": ["intent.invokes"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.services", "intent.interactions"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order" },
+          { "id": "pricing-service", "type": "Domain Service", "name": "PricingService",
+            "children": [
+              { "id": "pricing-service-price-of", "type": "Operation", "name": "PriceOf", "typeRef": { "type": "decimal" },
+                "children": [
+                  { "id": "pricing-service-price-of-order", "type": "Parameter", "name": "order", "typeRef": { "element": "order" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Shop.Application",
+        "elements": [
+          { "id": "order-service", "type": "Service", "name": "OrderService",
+            "children": [
+              { "id": "order-service-place-order", "type": "Operation", "name": "PlaceOrder", "typeRef": { "type": "decimal" } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "place-order-invokes-price-of", "type": "Perform Invocation",
+          "source": { "element": "order-service-place-order" }, "target": { "element": "pricing-service-price-of" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Order.cs
+namespace Shop.Domain;
+
+public class Order
+{
+}
+```
+
+```csharp file src/Domain/Services/IPricingService.cs
+namespace Shop.Domain.Services;
+
+public interface IPricingService
+{
+    decimal PriceOf(Order order);
+}
+```
+
+```csharp file src/Domain/Services/PricingService.cs
+namespace Shop.Domain.Services;
+
+public class PricingService : IPricingService
+{
+    public decimal PriceOf(Order order) => 0m;
+}
+```
+
+```csharp file src/Application/OrderService.cs
+using Shop.Domain;
+using Shop.Domain.Services;
+
+namespace Shop.Application;
+
+public class OrderService
+{
+    private readonly IPricingService _pricing;
+
+    public OrderService(IPricingService pricing)
+    {
+        _pricing = pricing;
+    }
+
+    public decimal PlaceOrder()
+    {
+        return _pricing.PriceOf(new Order());
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "place-order-invokes-price-of", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Application/OrderService.cs:17" }
+  ]
+}
+```
+
+## domain-service-not-called
+
+`PlaceOrder` prices the order itself and never calls the Domain Service, so the modelled invocation is contradicted.
+
+```json case
+{ "phase": 6, "base": "domain-service-call", "kinds": ["intent.invokes"], "requirements": ["R8"], "packs": ["intent.core", "intent.domain", "intent.services", "intent.interactions"], "language": "csharp" }
+```
+
+```csharp file src/Application/OrderService.cs
+using Shop.Domain;
+using Shop.Domain.Services;
+
+namespace Shop.Application;
+
+public class OrderService
+{
+    public decimal PlaceOrder()
+    {
+        return 0m;
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "place-order-invokes-price-of", "outcome": "contradicted", "expected": "present", "actual": "absent" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "place-order-invokes-price-of", "messageContains": "`PricingService.PriceOf`" }
+  ]
+}
+```

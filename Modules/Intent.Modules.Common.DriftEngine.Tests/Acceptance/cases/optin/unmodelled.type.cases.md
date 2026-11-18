@@ -1875,3 +1875,42 @@ public interface IClock
   ]
 }
 ```
+
+## class-of-a-modelled-interface
+
+The other way round: no type has the `BuyerLookup` Domain Service's name, so it is located as its interface `IBuyerLookup`, and `EmailBuyerLookup`, which implements it, is its code too, as a located class's interfaces are. `SystemClock` implements nothing the model describes: reported.
+
+```json case
+{ "phase": 2, "base": "interface-of-a-modelled-class", "without": ["src/Domain/Services/BuyerLookup.cs", "src/Domain/Services/IClock.cs"], "cases": ["optin/unmodelled.type"], "requirements": ["R49"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Services/EmailBuyerLookup.cs
+namespace Ordering.Domain.Services;
+
+public class EmailBuyerLookup : IBuyerLookup
+{
+    public bool Exists(string email) => false;
+}
+```
+
+```csharp file src/Domain/Services/SystemClock.cs
+namespace Ordering.Domain.Services;
+
+public class SystemClock
+{
+    public DateTime Now => DateTime.UtcNow;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "buyer-lookup", "outcome": "verified", "at": "src/Domain/Services/IBuyerLookup.cs:3" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.type", "subject": "src/Domain/Services/IBuyerLookup.cs:3", "count": 0, "note": "The located interface" },
+    { "rule": "optin/unmodelled.type", "subject": "src/Domain/Services/EmailBuyerLookup.cs:3", "count": 0, "note": "The class of a located interface" },
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/Domain/Services/SystemClock.cs:3", "messageContains": "`SystemClock` isn't in the model." }
+  ]
+}
+```

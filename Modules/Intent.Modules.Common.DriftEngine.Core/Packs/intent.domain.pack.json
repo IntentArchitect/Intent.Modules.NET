@@ -65,7 +65,7 @@
         "Domain Event": { "typeKinds": ["class", "record"], "states": ["property", "field"] },
         "Value Object": { "typeKinds": ["class", "record", "struct"], "states": ["property", "field"] },
         "Repository": { "typeKinds": ["interface", "class"], "states": ["method"] },
-        "Domain Service": { "typeKinds": ["class"], "states": ["method"] },
+        "Domain Service": { "typeKinds": ["class", "interface"], "states": ["method"] },
         "Data Contract": { "typeKinds": ["class", "record"], "states": ["property", "field"] }
       }
     }
