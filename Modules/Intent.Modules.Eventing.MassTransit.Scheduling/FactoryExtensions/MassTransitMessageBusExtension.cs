@@ -57,7 +57,7 @@ public class MassTransitMessageBusExtension : FactoryExtensionBase
                     {
                         fe.AddIfStatement("toSchedule.AdditionalData != null && toSchedule.AdditionalData.TryGetValue(ScheduledKey, out var scheduledObj) && scheduledObj is DateTime scheduled", b =>
                         {
-                            b.AddStatement("await ConsumeContext!.SchedulePublish(scheduled, toSchedule.Message, cancellationToken).ConfigureAwait(false);");
+                            b.AddStatement("await ConsumeContext.SchedulePublish(scheduled, toSchedule.Message, cancellationToken).ConfigureAwait(false);");
                         });
                     });
                     block.AddReturn("");

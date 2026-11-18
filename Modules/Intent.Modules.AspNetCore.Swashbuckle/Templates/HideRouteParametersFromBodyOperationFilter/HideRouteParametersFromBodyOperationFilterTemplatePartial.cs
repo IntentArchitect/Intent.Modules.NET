@@ -76,8 +76,8 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.HideRouteParametersFro
 
                         if (isMicrosoftOpenApi_2_4_1)
                         {
-                            method.AddStatement("var parameters = operation.Parameters!;");
-                            method.AddStatement("var requestBody = operation.RequestBody!;");
+                            method.AddStatement("var parameters = operation.Parameters;");
+                            method.AddStatement("var requestBody = operation.RequestBody;");
                             method.AddIfStatement("requestBody?.Content == null", stmt =>
                             {
                                 stmt.AddReturn("");

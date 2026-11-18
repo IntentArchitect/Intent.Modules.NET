@@ -50,6 +50,12 @@ identifiers, XML comments and the operation filters the generated endpoints need
   file). Known gap: HotChocolate.AspNetCore's `build/HotChocolate.AspNetCore.targets` adds `global using HotChocolate;`
   when `ImplicitUsings` is on, and `HotChocolate.Path` then makes `Path` ambiguous (CS0104). `UseType` can't see that
   clash: type resolution knows neither package-supplied global usings nor `HotChocolate.Path`.
+- **`HideRouteParametersFromBodyOperationFilter` reads `operation.Parameters` and `operation.RequestBody`
+  without `!` on .NET 8 and later** (the Microsoft.OpenApi 2.4.1 branch, which the 3.x path shares), because
+  its early-return guard already rules out null for both. SonarAnalyzer 10.35's S8969 flags a `!` there,
+  which fails apps that treat warnings as errors. Keep the guard and the plain reads together. (Unverified in
+  generated output as of 6.1.1-pre.0: the module could not be installed into TrainingModel.Tests to
+  regenerate it. S8969 was confirmed on the old output only.)
 
 ## Module Interactions
 - **Intent.AspNetCore.Controllers** — produces the `[HttpQuery]` actions this module describes.

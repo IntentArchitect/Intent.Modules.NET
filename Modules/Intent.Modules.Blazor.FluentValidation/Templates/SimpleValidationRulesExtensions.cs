@@ -8,6 +8,7 @@ using Intent.Modules.Blazor.FluentValidation.Templates;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
@@ -237,9 +238,16 @@ public static class SimpleValidationRulesExtensions
             
             EnsureValidatorProviderInjected(template);
 
+            // A nullable property's rule expects IValidator<TDto?>, so pass TDto? to avoid CS8620 without needing a "!"
+            var project = template.OutputTarget.GetProject();
+            var validatorTypeArgument = !property.TypeReference.IsCollection && property.TypeReference.IsNullable &&
+                                        project.IsNullableAwareContext() && project.NullableEnabled
+                ? $"{dtoTemplateName}?"
+                : dtoTemplateName;
+
             validationRuleChain.AddChainStatement(property.TypeReference.IsCollection
-                ? $"ForEach(x => x.SetValidator(provider.GetValidator<{dtoTemplateName}>()!))"
-                : $"SetValidator(provider.GetValidator<{dtoTemplateName}>()!)");
+                ? $"ForEach(x => x.SetValidator(provider.GetValidator<{validatorTypeArgument}>()))"
+                : $"SetValidator(provider.GetValidator<{validatorTypeArgument}>())");
         }
     }
 

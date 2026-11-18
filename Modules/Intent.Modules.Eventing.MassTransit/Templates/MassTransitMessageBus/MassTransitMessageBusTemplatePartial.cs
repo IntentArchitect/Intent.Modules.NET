@@ -87,7 +87,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus
 
                         method.AddIfStatement("ConsumeContext is not null", block =>
                         {
-                            block.AddStatement("await ConsumeContext!.PublishBatch(messagesToPublish.Select(x => x.Message), cancellationToken).ConfigureAwait(false);");
+                            block.AddStatement("await ConsumeContext.PublishBatch(messagesToPublish.Select(x => x.Message), cancellationToken).ConfigureAwait(false);");
                             block.AddStatement("return;");
                         });
 
@@ -111,10 +111,10 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitMessageBus
 
                             fe.AddIfStatement("ConsumeContext is not null", block =>
                             {
-                                block.AddIfStatement("address is null", b => b.AddStatement("await ConsumeContext!.Send(toSend.Message, cancellationToken).ConfigureAwait(false);"));
+                                block.AddIfStatement("address is null", b => b.AddStatement("await ConsumeContext.Send(toSend.Message, cancellationToken).ConfigureAwait(false);"));
                                 block.AddElseStatement(b =>
                                 {
-                                    b.AddStatement("var endpoint = await ConsumeContext!.GetSendEndpoint(address).ConfigureAwait(false);");
+                                    b.AddStatement("var endpoint = await ConsumeContext.GetSendEndpoint(address).ConfigureAwait(false);");
                                     b.AddStatement("await endpoint.Send(toSend.Message, cancellationToken).ConfigureAwait(false);");
                                 });
                             });

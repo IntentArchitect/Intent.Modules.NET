@@ -10,6 +10,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 
@@ -450,12 +451,23 @@ internal static class ValidationRulesExtensions
                 return;
             }
 
+            // A nullable property's rule expects IValidator<TDto?>, so pass TDto? to avoid CS8620 without needing a "!"
+            var validatorTypeArgument = !property.TypeReference.IsCollection && property.TypeReference.IsNullable && IsNullableEnabled(template)
+                ? $"{dtoTemplateName}?"
+                : dtoTemplateName;
+
             validationRuleChain.AddChainStatement(property.TypeReference.IsCollection
-                ? $"ForEach(x => x.SetValidator(provider.GetValidator<{dtoTemplateName}>()!))"
-                : $"SetValidator(provider.GetValidator<{dtoTemplateName}>()!)");
+                ? $"ForEach(x => x.SetValidator(provider.GetValidator<{validatorTypeArgument}>()))"
+                : $"SetValidator(provider.GetValidator<{validatorTypeArgument}>())");
 
             validationRuleChain.Metadata["requires-validator-provider"] = true;
         }
+    }
+
+    private static bool IsNullableEnabled(IIntentTemplate template)
+    {
+        var project = template.OutputTarget.GetProject();
+        return project.IsNullableAwareContext() && project.NullableEnabled;
     }
 
     // This approach is used for nested DTO Validation scenarios.

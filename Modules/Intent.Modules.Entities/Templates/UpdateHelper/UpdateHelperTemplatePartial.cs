@@ -65,7 +65,7 @@ namespace Intent.Modules.Entities.Templates.UpdateHelper
                                                 return new List<{{TOriginal}}>();
                                             }
                                             """);
-                        method.AddStatement($"baseCollection ??= new List<{TOriginal}>()!;", st => st.SeparatedFromPrevious());
+                        method.AddStatement($"baseCollection ??= new List<{TOriginal}>();", st => st.SeparatedFromPrevious());
                         method.AddStatement("var result = baseCollection.CompareCollections(changedCollection, equalityCheck);", st => st.SeparatedFromPrevious());
                         method.AddStatement("""
                                             foreach (var elementToAdd in result.ToAdd)

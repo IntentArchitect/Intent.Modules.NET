@@ -1,3 +1,7 @@
+### Version 6.1.1
+
+- Fixed: With Microsoft.OpenApi 2.4.1 or later, `HideRouteParametersFromBodyOperationFilter` no longer generates redundant null-forgiving operators (`!`) that SonarAnalyzer rule S8969 reports, which failed builds with warnings treated as errors.
+
 ### Version 6.1.0
 
 - New Feature: On .NET 10, `QUERY` operations appear in the Swagger document, which is served as OpenAPI 3.2, and Swagger UI can send them.
