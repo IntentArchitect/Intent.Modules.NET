@@ -5,7 +5,6 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Quartz;
-using Quartz.Impl.Matchers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.QuartzScheduler.QuartzConfiguration", Version = "1.0")]
@@ -29,7 +28,7 @@ namespace BugSnagTest.ServiceHost.Configuration
                             trigger.WithIdentity("ScheduledJob");
                         });
                     }
-                    q.AddJobListener<BugSnagQuartzJobListener>(GroupMatcher<JobKey>.AnyGroup());
+                    q.AddJobListener<BugSnagQuartzJobListener>(new IMatcher<JobKey>[] { GroupMatcher<JobKey>.AnyGroup() });
                 });
 
             services

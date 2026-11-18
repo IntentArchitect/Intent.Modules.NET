@@ -45,6 +45,15 @@
       <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
     </file>
     <file>
+      <correlationId>Intent.QuartzScheduler.ScheduledJob#563d8729-d9e0-4080-92f8-35f085c1b059</correlationId>
+      <path>WebAndWorker.QuartzWorker/Jobs/HandWrittenJob.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-11-18T12:55:57.6058058Z</updatedAt>
+      <deviationsHash>010B3C30112AA0DC9367BE668F41343A992430FC7F51EE5E18A07C819947126C</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram#ef106ec3-5cb1-4b2b-af22-06089fc67c31</correlationId>
       <path>WebAndWorker.QuartzWorker/Program.cs</path>
       <count>1</count>

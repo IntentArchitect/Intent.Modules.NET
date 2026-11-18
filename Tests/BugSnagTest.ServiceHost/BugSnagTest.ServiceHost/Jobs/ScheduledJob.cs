@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using BugSnagTest.ServiceHost.Scheduled;
 using Intent.RoslynWeaver.Attributes;
@@ -21,10 +22,10 @@ namespace BugSnagTest.ServiceHost.Jobs
         }
 
         [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-        public async Task Execute(IJobExecutionContext context)
+        public async ValueTask Execute(IJobExecutionContext context, CancellationToken cancellationToken = default)
         {
             var command = new ScheduledCommand();
-            await _mediator.Send(command);
+            await _mediator.Send(command, cancellationToken);
         }
     }
 }

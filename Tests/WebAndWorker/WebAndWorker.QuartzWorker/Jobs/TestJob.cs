@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -21,10 +22,10 @@ namespace WebAndWorker.QuartzWorker.Jobs
         }
 
         [IntentManaged(Mode.Fully)]
-        public async Task Execute(IJobExecutionContext context)
+        public async ValueTask Execute(IJobExecutionContext context, CancellationToken cancellationToken = default)
         {
             var command = new OnTestCommand();
-            await _mediator.Send(command);
+            await _mediator.Send(command, cancellationToken);
         }
     }
 }

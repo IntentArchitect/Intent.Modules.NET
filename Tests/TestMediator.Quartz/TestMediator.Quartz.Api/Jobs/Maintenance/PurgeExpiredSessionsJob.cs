@@ -20,10 +20,10 @@ namespace TestMediator.Quartz.Api.Jobs.Maintenance
         }
 
         [IntentManaged(Mode.Fully)]
-        public async Task Execute(IJobExecutionContext context)
+        public async ValueTask Execute(IJobExecutionContext context, CancellationToken cancellationToken = default)
         {
             var command = new PurgeExpiredSessionsCommand();
-            await _mediator.Send(command);
+            await _mediator.Send(command, cancellationToken);
         }
     }
 }

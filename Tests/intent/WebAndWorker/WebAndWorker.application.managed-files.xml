@@ -202,6 +202,7 @@
   <file path="WebAndWorker.Mobile.Api/appsettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default" />
   <file path="WebAndWorker.QuartzWorker/Configuration/ApplicationSecurityConfiguration.cs" templateId="Intent.Application.Identity.ApplicationSecurityConfiguration" />
   <file path="WebAndWorker.QuartzWorker/Configuration/QuartzConfiguration.cs" templateId="Intent.QuartzScheduler.QuartzConfiguration" />
+  <file path="WebAndWorker.QuartzWorker/Jobs/HandWrittenJob.cs" deviationsHash="010B3C30112AA0DC9367BE668F41343A992430FC7F51EE5E18A07C819947126C" templateId="Intent.QuartzScheduler.ScheduledJob" />
   <file path="WebAndWorker.QuartzWorker/Jobs/TestJob.cs" templateId="Intent.QuartzScheduler.ScheduledJob" />
   <file path="WebAndWorker.QuartzWorker/Program.cs" deviationsHash="D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9" templateId="Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram" />
   <file path="WebAndWorker.QuartzWorker/Properties/launchSettings.json" templateId="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />

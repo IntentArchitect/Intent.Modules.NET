@@ -8,6 +8,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
+using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
@@ -31,6 +32,17 @@ namespace Intent.Modules.QuartzScheduler.Templates.QuartzConfiguration
         {
             AddTypeSource(ScheduledJobTemplate.TemplateId);
 
+            // Quartz 4 folded the hosting package into the core Quartz package. Quartz.AspNetCore remains a
+            // real package on 4.x, so web projects keep it and any hand-added reference is raised in place.
+            // Requested here, not in a build callback: Intent.Bugsnag reads it in its own OnBuild to choose
+            // the Quartz 3 or Quartz 4 listener shape, and its callbacks can run before this file's.
+            var packageName = OutputTarget.GetProject().HasMicrosoftNetSdkWeb()
+                ? NugetPackages.QuartzAspNetCorePackageName
+                : QuartzVersion.UsesQuartz4(OutputTarget)
+                ? NugetPackages.QuartzPackageName
+                : NugetPackages.QuartzExtensionsHostingPackageName;
+            AddNugetDependency(NugetRegistry.GetVersion(packageName, QuartzVersion.GetPackageFramework(OutputTarget)));
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
@@ -39,14 +51,6 @@ namespace Intent.Modules.QuartzScheduler.Templates.QuartzConfiguration
                 .AddUsing("Quartz")
                 .AddClass($"QuartzConfiguration", @class =>
                 {
-                    if (OutputTarget.GetProject().HasMicrosoftNetSdkWeb())
-                    {
-                        AddNugetDependency(NugetPackages.QuartzAspNetCore(OutputTarget));
-                    }
-                    else
-                    {
-                        AddNugetDependency(NugetPackages.QuartzExtensionsHosting(OutputTarget));
-                    }
                     @class.Static();
                     @class.AddMethod("IServiceCollection", "ConfigureQuartz", method =>
                     {
@@ -103,6 +107,15 @@ namespace Intent.Modules.QuartzScheduler.Templates.QuartzConfiguration
             EmitOrPublish(ServiceConfigurationRequest
                 .ToRegister("ConfigureQuartz", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
+
+            if (QuartzVersion.UsesQuartz4(OutputTarget))
+            {
+                // A 3.x reference left beside Quartz 4 causes CS0433 duplicate types, and Intent does not
+                // drop a package reference just because no template requests it any more. On 4.x these two
+                // ids are empty forwarding packages.
+                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.QuartzExtensionsHostingPackageName, OutputTarget));
+                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent("Quartz.Extensions.DependencyInjection", OutputTarget));
+            }
         }
 
         [IntentManaged(Mode.Fully)]

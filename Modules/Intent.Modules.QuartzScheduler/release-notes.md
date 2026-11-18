@@ -1,3 +1,7 @@
+### Version 1.2.0
+
+- Improvement: Projects that target only `.NET 10` or later now use Quartz.NET 4.7.3 (`Quartz.AspNetCore` for web projects, the core `Quartz` package otherwise), and Scheduled Jobs implement the Quartz 4 `IJob` (`ValueTask Execute(IJobExecutionContext, CancellationToken)`). Command-publishing jobs forward the token, and the hand-written body of any other job is kept when its signature changes. Existing `Quartz.Extensions.Hosting` and `Quartz.Extensions.DependencyInjection` references are removed, since Quartz 4 folds them into `Quartz`. With central package management, their now-unused `PackageVersion` entries stay in `Directory.Packages.props` and can be deleted. `.NET 8` and `.NET 9` projects, and projects that also target an earlier framework, are unchanged and stay on Quartz 3.22.10. See the [Quartz 4 migration guide](https://www.quartz-scheduler.net/documentation/quartz-4.x/migration-guide.html) for changes outside the generated code: hand-written listeners, ADO.NET job store schema, stricter cron parsing.
+
 ### Version 1.1.0
 
 - Fixed: Scheduled Jobs that publish a command failed to generate when `Intent.Application.Mediator` is installed. The job now sends the command with Mediator's `ISender`.

@@ -23,17 +23,7 @@ public class BugSnagQuartzJobListener : IJobListener
 
     public string Name => "BugSnag";
 
-    public Task JobToBeExecuted(IJobExecutionContext context, CancellationToken cancellationToken = default)
-    {
-        return Task.CompletedTask;
-    }
-
-    public Task JobExecutionVetoed(IJobExecutionContext context, CancellationToken cancellationToken = default)
-    {
-        return Task.CompletedTask;
-    }
-
-    public async Task JobWasExecuted(
+    public async ValueTask JobWasExecuted(
             IJobExecutionContext context,
             JobExecutionException? jobException,
             CancellationToken cancellationToken = default)

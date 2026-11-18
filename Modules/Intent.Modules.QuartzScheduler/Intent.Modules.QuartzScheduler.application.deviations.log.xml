@@ -5,19 +5,19 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#59acfaab-ddbb-43bf-b06b-57477478d89d</correlationId>
       <path>Templates/QuartzConfiguration/QuartzConfigurationTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:57:45.7140627Z</updatedAt>
-      <deviationsHash>0A2F23BBC0671E39D27731BE8D44FD8F5E0DC4DCE77F7BE2B1A00D76C8FA059B</deviationsHash>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-11-18T08:00:02.174833Z</updatedAt>
+      <deviationsHash>8DDFAE2E1A270C621E2A17792E529FFFB3436FA581598B209DD90FAF35D30852</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#50aab102-9800-451c-8f9f-8e3667e6b2cd</correlationId>
       <path>Templates/ScheduledJob/ScheduledJobTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-11-03T10:35:14.3137633Z</updatedAt>
-      <deviationsHash>36E5F488B7914828F5726AAF1E969601AD01E44E406B467691C232BCA091ED42</deviationsHash>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-11-18T08:00:02.1749592Z</updatedAt>
+      <deviationsHash>21AA6DF37DDC3623A1C4228E8B34FC52B80368DA78BB8A6D84DD130790F2FA55</deviationsHash>
     </file>
   </files>
   <customFiles>

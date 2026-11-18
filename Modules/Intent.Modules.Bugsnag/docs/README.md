@@ -15,6 +15,7 @@ This module adds the necessary NuGet packages and configuration to automatically
 - **NuGet Packages**: Adds the `Bugsnag.AspNet.Core` NuGet package to your project.
 - **Configuration**: Adds Bugsnag to your `appsettings.json` and configures it in your application's startup (`Program.cs` or `Startup.cs`).
 - **Middleware**: Registers the Bugsnag middleware to automatically capture unhandled exceptions in the ASP.NET Core pipeline.
+- **Quartz job listener**: When `Intent.QuartzScheduler` is installed, adds a Quartz job listener that reports exceptions thrown by scheduled jobs. It targets whichever Quartz.NET version `Intent.QuartzScheduler` uses for the project: Quartz.NET 4 for projects that target only `.NET 10` or later, Quartz.NET 3 otherwise.
 
 ## Module Settings
 
@@ -24,8 +25,8 @@ Your Bugsnag project's API Key. This is required to send errors to the correct p
 
 ## How to use the module
 
-1.  Install this module.
-2.  Configure the `API Key` in the module settings.
-3.  Run the software factory.
+1. Install this module.
+2. Configure the `API Key` in the module settings.
+3. Run the software factory.
 
 The module will automatically add the required configuration to your application. Any unhandled exceptions will now be reported to your Bugsnag dashboard.

@@ -40,10 +40,17 @@ namespace Intent.Modules.QuartzScheduler.Templates.ScheduledJob
                     {
                         ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     });
+                    // Quartz 4 (net10.0 only) changed IJob.Execute to return ValueTask and take a CancellationToken.
+                    // Async() alone turns a ValueTask return type back into Task, so the shape is chosen here.
                     @class.AddMethod("Task", "Execute", method =>
                     {
-                        method.Async();
+                        method.Async(asValueTask: UsesQuartz4);
                         method.AddParameter("IJobExecutionContext", "context");
+                        if (UsesQuartz4)
+                        {
+                            method.AddOptionalCancellationTokenParameter(this);
+                        }
+
                         if (model.PublishedCommand() == null)
                         {
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
@@ -76,9 +83,13 @@ namespace Intent.Modules.QuartzScheduler.Templates.ScheduledJob
                     var method = @class.FindMethod("Execute");
                     method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                     method.AddStatement($"var command = new {GetTypeName(commandTemplate)}();");
-                    method.AddStatement("await _mediator.Send(command);");
+                    method.AddStatement(UsesQuartz4
+                        ? "await _mediator.Send(command, cancellationToken);"
+                        : "await _mediator.Send(command);");
                 });
         }
+
+        private bool UsesQuartz4 => QuartzVersion.UsesQuartz4(OutputTarget);
 
         private const string CommandContractRole = "Application.Contract.Command";
         private const string MediatorCommandModelsTemplateId = "Intent.Application.Mediator.CommandModels";

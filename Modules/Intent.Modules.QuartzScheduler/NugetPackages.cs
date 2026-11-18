@@ -11,18 +11,30 @@ namespace Intent.Modules.QuartzScheduler
 {
     public class NugetPackages : INugetPackages
     {
+        public const string QuartzPackageName = "Quartz";
         public const string QuartzAspNetCorePackageName = "Quartz.AspNetCore";
         public const string QuartzExtensionsHostingPackageName = "Quartz.Extensions.Hosting";
 
         public void RegisterPackages()
         {
+            NugetRegistry.Register(QuartzPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 10, >= 0) => new PackageVersion("4.7.3")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "10.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "10.0.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{QuartzPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(QuartzAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("3.22.10", locked: true)
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "10.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "10.0.0")
-                            .WithNugetDependency("Quartz.Extensions.Hosting", "3.22.10"),
+                        ( >= 10, >= 0) => new PackageVersion("4.7.3")
+                            .WithNugetDependency("Quartz", "4.7.3"),
                         ( >= 9, >= 0) => new PackageVersion("3.22.10")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "9.0.0")
@@ -40,9 +52,8 @@ namespace Intent.Modules.QuartzScheduler
             NugetRegistry.Register(QuartzExtensionsHostingPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 10, >= 0) => new PackageVersion("3.22.10", locked: true)
-                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "10.0.0")
-                            .WithNugetDependency("Quartz.Extensions.DependencyInjection", "3.22.10"),
+                        ( >= 10, >= 0) => new PackageVersion("4.7.3")
+                            .WithNugetDependency("Quartz", "4.7.3"),
                         ( >= 9, >= 0) => new PackageVersion("3.22.10")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
                             .WithNugetDependency("Quartz.Extensions.DependencyInjection", "3.22.10"),
@@ -56,6 +67,8 @@ namespace Intent.Modules.QuartzScheduler
                     }
                 );
         }
+
+        public static NugetPackageInfo Quartz(IOutputTarget outputTarget) => NugetRegistry.GetVersion(QuartzPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo QuartzExtensionsHosting(IOutputTarget outputTarget) => NugetRegistry.GetVersion(QuartzExtensionsHostingPackageName, outputTarget.GetMaxNetAppVersion());
 

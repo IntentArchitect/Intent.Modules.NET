@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -39,16 +40,31 @@ namespace Intent.Modules.Bugsnag.Templates.BugSnagQuartzJobListener
                         prop.WithoutSetter();
                         prop.Getter.WithExpressionImplementation(@"""BugSnag""");
                     });
-                    @class.AddMethod("Task", "JobToBeExecuted",
-                        method => method.AddParameter("IJobExecutionContext", "context")
-                            .AddOptionalCancellationTokenParameter(this)
-                            .AddStatement("return Task.CompletedTask;"));
-                    @class.AddMethod("Task", "JobExecutionVetoed",
-                        method => method.AddParameter("IJobExecutionContext", "context")
-                            .AddOptionalCancellationTokenParameter(this)
-                            .AddStatement("return Task.CompletedTask;"));
+                })
+                .OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var usesQuartz4 = TryGetTemplate<ICSharpFileBuilderTemplate>(QuartzConfigurationRole, out var quartzConfiguration) &&
+                        QuartzVersion.UsesQuartz4(quartzConfiguration);
+
+                    // Quartz 4 changed the listener callbacks to return ValueTask and gave every IJobListener member a
+                    // default implementation, so only the callback we use is emitted. A Task-returning callback
+                    // compiles against Quartz 4 but is rejected at startup.
+                    if (!usesQuartz4)
+                    {
+                        @class.AddMethod("Task", "JobToBeExecuted",
+                            method => method.AddParameter("IJobExecutionContext", "context")
+                                .AddOptionalCancellationTokenParameter(this)
+                                .AddStatement("return Task.CompletedTask;"));
+                        @class.AddMethod("Task", "JobExecutionVetoed",
+                            method => method.AddParameter("IJobExecutionContext", "context")
+                                .AddOptionalCancellationTokenParameter(this)
+                                .AddStatement("return Task.CompletedTask;"));
+                    }
+
+                    // Async() alone turns a ValueTask return type back into Task, so the shape is chosen here.
                     @class.AddMethod("Task", "JobWasExecuted", method => method
-                        .Async()
+                        .Async(asValueTask: usesQuartz4)
                         .AddParameter("IJobExecutionContext", "context")
                         .AddParameter("JobExecutionException" + (OutputTarget.GetProject().NullableEnabled ? "?" : ""), "jobException")
                         .AddOptionalCancellationTokenParameter(this)
@@ -61,8 +77,10 @@ namespace Intent.Modules.Bugsnag.Templates.BugSnagQuartzJobListener
 
         public override bool CanRunTemplate()
         {
-            return TryGetTemplate<ICSharpFileBuilderTemplate>("Distribution.DependencyInjection.Quartz", out _);
+            return TryGetTemplate<ICSharpFileBuilderTemplate>(QuartzConfigurationRole, out _);
         }
+
+        private const string QuartzConfigurationRole = "Distribution.DependencyInjection.Quartz";
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

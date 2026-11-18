@@ -3,6 +3,7 @@
   <name>File Classifications</name>
   <display>File Classifications</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ee92094a-40b1-4395-84d1-94de082dfe06</parentFolderId>
@@ -11,6 +12,29 @@
   <stereotypes />
   <metadata />
   <childElements>
+    <childElement id="4725e185-61ed-45c4-9a9a-68b31569c121" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>API Contract</name>
+      <display>API Contract</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8ba310ee-cb0b-42d8-be51-222f8b19249c</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
     <childElement id="ac8c1f54-1789-4973-8b10-66b25ca6f27e" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
       <name>App Composition</name>
       <display>App Composition</display>
@@ -20,7 +44,17 @@
       <parentFolderId>8ba310ee-cb0b-42d8-be51-222f8b19249c</parentFolderId>
       <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
       <packageName>BugSnagTest.ServiceHost</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -33,20 +67,17 @@
       <parentFolderId>8ba310ee-cb0b-42d8-be51-222f8b19249c</parentFolderId>
       <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
       <packageName>BugSnagTest.ServiceHost</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="4725e185-61ed-45c4-9a9a-68b31569c121" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
-      <name>API Contract</name>
-      <display>API Contract</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8ba310ee-cb0b-42d8-be51-222f8b19249c</parentFolderId>
-      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
-      <packageName>BugSnagTest.ServiceHost</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -59,7 +90,17 @@
       <parentFolderId>8ba310ee-cb0b-42d8-be51-222f8b19249c</parentFolderId>
       <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
       <packageName>BugSnagTest.ServiceHost</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>

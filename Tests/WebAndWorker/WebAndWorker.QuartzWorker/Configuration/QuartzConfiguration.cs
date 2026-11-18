@@ -18,6 +18,15 @@ namespace WebAndWorker.QuartzWorker.Configuration
             services
                 .AddQuartz(q =>
                 {
+                    if (configuration.GetValue<bool?>($"Quartz:Jobs:HandWrittenJob:Enabled") ?? true)
+                    {
+                        q.ScheduleJob<HandWrittenJob>(trigger =>
+                        {
+                            trigger.WithCronSchedule(configuration.GetValue<string?>($"Quartz:Jobs:HandWrittenJob:CronSchedule") ?? "0 0 * * * ?");
+                            trigger.WithIdentity("HandWrittenJob");
+                        });
+                    }
+
                     if (configuration.GetValue<bool?>($"Quartz:Jobs:TestJob:Enabled") ?? true)
                     {
                         q.ScheduleJob<TestJob>(trigger =>

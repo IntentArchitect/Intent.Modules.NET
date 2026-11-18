@@ -1,6 +1,7 @@
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Bugsnag.Templates;
+using Intent.Modules.Bugsnag.Templates.BugSnagQuartzJobListener;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -46,12 +47,21 @@ namespace Intent.Modules.Bugsnag.FactoryExtensions
                     return;
                 }
 
-                file.AddUsing("Quartz.Impl.Matchers");
+                // Quartz 4 takes the matchers as a C# 13 params collection. Under an older LangVersion that is an
+                // ordinary parameter, so neither a bare matcher nor no argument compiles: the array is passed
+                // explicitly. GroupMatcher also moved from Quartz.Impl.Matchers to Quartz.
+                var usesQuartz4 = QuartzVersion.UsesQuartz4(configTemplate);
+                if (!usesQuartz4)
+                {
+                    file.AddUsing("Quartz.Impl.Matchers");
+                }
                 method.InsertStatement(0, $"services.AddSingleton<{configTemplate.GetBugSnagQuartzJobListenerName()}>();");
                 var addQuartzChain = method.Statements.OfType<CSharpMethodChainStatement>().FirstOrDefault();
                 var addQuartzInv = addQuartzChain?.Statements.FirstOrDefault() as CSharpInvocationStatement;
                 var addQuartzLambda = addQuartzInv?.Statements.FirstOrDefault() as CSharpLambdaBlock;
-                addQuartzLambda?.AddStatement($"q.AddJobListener<{configTemplate.GetBugSnagQuartzJobListenerName()}>(GroupMatcher<JobKey>.AnyGroup());");
+                addQuartzLambda?.AddStatement(usesQuartz4
+                    ? $"q.AddJobListener<{configTemplate.GetBugSnagQuartzJobListenerName()}>(new IMatcher<JobKey>[] {{ GroupMatcher<JobKey>.AnyGroup() }});"
+                    : $"q.AddJobListener<{configTemplate.GetBugSnagQuartzJobListenerName()}>(GroupMatcher<JobKey>.AnyGroup());");
             });
         }
     }

@@ -1,3 +1,7 @@
+### Version 1.0.10
+
+- Improvement: The Quartz job listener now matches the Quartz.NET version `Intent.QuartzScheduler` requests for the project. Where that is Quartz 4 (`Intent.QuartzScheduler` 1.2.0 on projects targeting only `.NET 10` or later), the listener uses `ValueTask` callbacks and `GroupMatcher` from the `Quartz` namespace, and is registered with an explicit matcher array so it compiles under any C# language version. Otherwise it is unchanged.
+
 ### Version 1.0.9
 
 - Improvement: Updated NuGet package versions.

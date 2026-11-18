@@ -13,9 +13,9 @@
   <file path="Intent.Modules.QuartzScheduler.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Intent.QuartzScheduler.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
-  <file path="Templates/QuartzConfiguration/QuartzConfigurationTemplatePartial.cs" deviationsHash="0A2F23BBC0671E39D27731BE8D44FD8F5E0DC4DCE77F7BE2B1A00D76C8FA059B" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/QuartzConfiguration/QuartzConfigurationTemplatePartial.cs" deviationsHash="8DDFAE2E1A270C621E2A17792E529FFFB3436FA581598B209DD90FAF35D30852" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/QuartzConfiguration/QuartzConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/ScheduledJob/ScheduledJobTemplatePartial.cs" deviationsHash="36E5F488B7914828F5726AAF1E969601AD01E44E406B467691C232BCA091ED42" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/ScheduledJob/ScheduledJobTemplatePartial.cs" deviationsHash="21AA6DF37DDC3623A1C4228E8B34FC52B80368DA78BB8A6D84DD130790F2FA55" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ScheduledJob/ScheduledJobTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
   <file path="modelers/Quartz Scheduler Settings.designer.settings" templateId="Intent.ModuleBuilder.DesignerSettings" />
