@@ -34,6 +34,7 @@ The routes will be generated inside the `ocelot.json` file:
 {
   "Routes": [
   {
+      "Key": "CreateClientCommandGatewayRoute",
       "UpstreamPathTemplate": "/api/clients",
       "UpstreamHttpMethod": [
           "Post"
@@ -48,6 +49,16 @@ The routes will be generated inside the `ocelot.json` file:
   },
   // ...
 ```
+
+Each route's `Key` is the name of its API Gateway Route, so you can refer to it from an Ocelot aggregate's `RouteKeys`. Route names must be unique.
+
+## Editing `ocelot.json` by hand
+
+You can add any Ocelot setting to a generated route, for example `AuthenticationOptions`, `RateLimitOptions` or `Priority`, and it is kept when the Software Factory runs again. Routes are matched on their `UpstreamPathTemplate` and `DownstreamHttpMethod`, so your additions stay with their route when other routes are added or removed. If you change either of those two values in the designer, the route counts as new and your additions to it are lost.
+
+Removing a route from the designer removes it from `ocelot.json`. Top-level sections you add by hand, such as `GlobalConfiguration`, are left alone.
+
+## Hosts
 
 You will see that each route entry has a Host value corresponding to the package name being imported.
 This is a substitution of the actual host name and port number.

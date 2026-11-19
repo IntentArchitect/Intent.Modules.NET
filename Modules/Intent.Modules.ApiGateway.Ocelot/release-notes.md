@@ -1,3 +1,9 @@
+### Version 1.2.0
+
+- Improvement: Hand edits to `ocelot.json` (authentication, rate limiting, priorities and so on) now survive regeneration and stay with their route when routes are added or removed. Routes are matched on their upstream path and downstream HTTP method. This module now depends on `Intent.Code.Weaving.Json`.
+- Improvement: Each generated route now has a `Key`, set to the route's name, so it can be referenced from Ocelot aggregates.
+- Improvement: Two API Gateway Routes with the same name now fail the Software Factory with an error on the route, instead of generating duplicate keys.
+
 ### Version 1.1.0
 
 - Improvement: Updated NuGet package versions:
