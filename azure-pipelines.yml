@@ -30,15 +30,16 @@ variables:
   value: '4bb4c1b9-5b56-4972-8bac-0ad3fa64204e/intentarchitect-feed'
 - name: 'vstsFeedUrl'
   value: 'https://pkgs.dev.azure.com/intentarchitect/4bb4c1b9-5b56-4972-8bac-0ad3fa64204e/_packaging/intentarchitect-feed/nuget/v3/index.json'
+# SDK 11's CLI telemetry looks up the Azure VM metadata endpoint (169.254.169.254) and waits for it before every
+# dotnet command exits. The build agents don't answer it, which adds 1-3 s to each of the hundreds of dotnet calls
+# and pushed the build past its 60-minute limit (https://github.com/dotnet/sdk/issues/57036).
+- name: 'DOTNET_CLI_TELEMETRY_OPTOUT'
+  value: '1'
 # Tests.Brownfield holds a third-party app (eShop) used for brownfield evals, so CI must not restore, build or test it.
-# The .NET 11 test applications need the .NET 11 SDK, which makes every dotnet step several times slower on the
-# build agents, so CI skips them until that is resolved.
 - name: 'targetsToBuild'
   value: |
     **/*.sln
     !Tests.Brownfield/**
-    !Tests/*.EF11/**
-    !Tests/*.NET11*/**
 - name: 'intent-solution'
   value: 'Tests/Intent.Modules.NET.Tests.isln'
 - name: 'intent-module-solution'
@@ -94,6 +95,12 @@ steps:
   displayName: 'Install latest .NET 10 SDK'
   inputs:
     version: '10.x'
+
+- task: UseDotNet@2
+  displayName: 'Install latest .NET 11 SDK'
+  inputs:
+    version: '11.x'
+    includePreviewVersions: false
 
 # Required for entry in NuGet.Config that is generated as part of 'dotnet pack'.
 - task: NuGetAuthenticate@1
