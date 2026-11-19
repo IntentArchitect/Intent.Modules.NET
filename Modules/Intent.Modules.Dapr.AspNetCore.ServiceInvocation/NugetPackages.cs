@@ -12,7 +12,6 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
     public class NugetPackages : INugetPackages
     {
         public const string DaprClientPackageName = "Dapr.Client";
-        public const string IdentityModelAspNetCorePackageName = "IdentityModel.AspNetCore";
         public const string MicrosoftAspNetCoreHttpPackageName = "Microsoft.AspNetCore.Http";
         public const string MicrosoftAspNetCoreHttpExtensionsPackageName = "Microsoft.AspNetCore.Http.Extensions";
         public const string MicrosoftAspNetCoreWebUtilitiesPackageName = "Microsoft.AspNetCore.WebUtilities";
@@ -83,14 +82,6 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
                             .WithNugetDependency("Microsoft.Extensions.Logging", "6.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "6.0.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DaprClientPackageName}'"),
-                    }
-                );
-            NugetRegistry.Register(IdentityModelAspNetCorePackageName,
-                (framework) => (framework.Major, framework.Minor) switch
-                    {
-                        ( >= 6, >= 0) => new PackageVersion("4.3.0", locked: true),
-                        ( >= 2, >= 0) => new PackageVersion("2.0.0", locked: true),
-                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IdentityModelAspNetCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftAspNetCoreHttpPackageName,
@@ -193,8 +184,6 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
         }
 
         public static NugetPackageInfo DaprClient(IOutputTarget outputTarget) => NugetRegistry.GetVersion(DaprClientPackageName, outputTarget.GetMaxNetAppVersion());
-
-        public static NugetPackageInfo IdentityModelAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(IdentityModelAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftAspNetCoreHttp(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreHttpPackageName, outputTarget.GetMaxNetAppVersion());
 

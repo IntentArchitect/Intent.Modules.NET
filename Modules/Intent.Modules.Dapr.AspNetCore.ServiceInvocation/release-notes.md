@@ -1,3 +1,7 @@
+### Version 2.4.1
+
+- Improvement: Removed the unused registration for the deprecated `IdentityModel.AspNetCore` NuGet package. No generated project referenced it.
+
 ### Version 2.4.0
 
 - New Feature: Service invocation proxies call `QUERY` operations with the HTTP `QUERY` method and send the body as JSON.
@@ -155,7 +159,7 @@
 
 - Improvement: File transfer ( upload / download ) support.
 - Improvement: Improved internal processes for working with Service Proxies.
- 
+
 ### Version 2.2.0
 
 - Improvement: Underlying proxy templates updated to support alternate Metadata models.

@@ -12,7 +12,6 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
     public class NugetPackages : INugetPackages
     {
         public const string AutoFixturePackageName = "AutoFixture";
-        public const string IdentityModelAspNetCorePackageName = "IdentityModel.AspNetCore";
         public const string IEvangelistAzureCosmosRepositoryPackageName = "IEvangelist.Azure.CosmosRepository";
         public const string MicrosoftAspNetCoreMvcTestingPackageName = "Microsoft.AspNetCore.Mvc.Testing";
         public const string MicrosoftAspNetCoreWebUtilitiesPackageName = "Microsoft.AspNetCore.WebUtilities";
@@ -33,14 +32,6 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
                     {
                         ( >= 2, >= 0) => new PackageVersion("4.18.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AutoFixturePackageName}'"),
-                    }
-                );
-            NugetRegistry.Register(IdentityModelAspNetCorePackageName,
-                (framework) => (framework.Major, framework.Minor) switch
-                    {
-                        ( >= 6, >= 0) => new PackageVersion("4.3.0", locked: true),
-                        ( >= 2, >= 0) => new PackageVersion("2.0.0", locked: true),
-                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IdentityModelAspNetCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(IEvangelistAzureCosmosRepositoryPackageName,
@@ -286,8 +277,6 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
         }
 
         public static NugetPackageInfo AutoFixture(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AutoFixturePackageName, outputTarget.GetMaxNetAppVersion());
-
-        public static NugetPackageInfo IdentityModelAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(IdentityModelAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftNETTestSdk(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftNETTestSdkPackageName, outputTarget.GetMaxNetAppVersion());
 

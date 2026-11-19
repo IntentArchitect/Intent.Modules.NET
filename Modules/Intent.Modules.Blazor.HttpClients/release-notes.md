@@ -1,3 +1,7 @@
+### Version 4.2.1
+
+- Improvement: Removed the unused registration for the deprecated `IdentityModel.AspNetCore` NuGet package. No generated project referenced it. Client access token management is configured by `Intent.Integration.HttpClients`, which uses `Duende.AccessTokenManagement` on .NET 8+.
+
 ### Version 4.2.0
 
 - New Feature: Service proxies call `QUERY` operations with the HTTP `QUERY` method and send the body as JSON.

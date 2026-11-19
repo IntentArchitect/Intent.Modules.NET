@@ -12,6 +12,7 @@ Generates typed HttpClient implementations of service proxy contracts, plus the 
   - **Rejected for now: Duende 4.x / `HybridCache`.** It is deferred because it means a package major-version move.
 - **HTTP `QUERY` proxies are version-aware (since 6.3.0).** `HttpClientTemplateBase` in the shared project emits `HttpMethod.Query` on .NET 10+ and `new HttpMethod("QUERY")` before that, since `HttpMethod.Query` only exists from .NET 10. The body follows `FromBody` as for `POST`. Because the base is shared, `Blazor.HttpClients`, `Dapr.AspNetCore.ServiceInvocation` and `AspNetCore.IntegrationTesting` change with it and are bumped together.
 - **The pre-.NET 8 IdentityModel.AspNetCore path is deliberately untouched.** That library manages its own token cache, and it worked before 6.0.1. Adding Caching.Memory there would also risk netstandard2.1 package issues.
+- **This module is the only one that registers `IdentityModel.AspNetCore`.** `Blazor.HttpClients` 4.2.1, `Dapr.AspNetCore.ServiceInvocation` 2.4.1 and `AspNetCore.IntegrationTesting` 2.1.1 each dropped their copy of the registration (locked at 4.3.0 / 2.0.0), because nothing in those modules ever added the package. The shared `NuGetPackages.IdentityModelAspNetCore` accessor resolves against the global `NugetRegistry`. It works only because this module registers the package, so call it from here alone. Keep the lock in place: 4.3.0 is the last version, and the package is deprecated in favour of Duende.AccessTokenManagement, which the .NET 8+ path uses.
 
 ## Invariants & Constraints
 

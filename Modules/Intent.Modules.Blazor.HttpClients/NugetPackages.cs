@@ -11,21 +11,12 @@ namespace Intent.Modules.Blazor.HttpClients
 {
     public class NugetPackages : INugetPackages
     {
-        public const string IdentityModelAspNetCorePackageName = "IdentityModel.AspNetCore";
         public const string MicrosoftAspNetCoreWebUtilitiesPackageName = "Microsoft.AspNetCore.WebUtilities";
         public const string MicrosoftExtensionsHttpPackageName = "Microsoft.Extensions.Http";
         public const string SystemTextJsonPackageName = "System.Text.Json";
 
         public void RegisterPackages()
         {
-            NugetRegistry.Register(IdentityModelAspNetCorePackageName,
-                (framework) => (framework.Major, framework.Minor) switch
-                    {
-                        ( >= 6, >= 0) => new PackageVersion("4.3.0", locked: true),
-                        ( >= 2, >= 0) => new PackageVersion("2.0.0", locked: true),
-                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IdentityModelAspNetCorePackageName}'"),
-                    }
-                );
             NugetRegistry.Register(MicrosoftAspNetCoreWebUtilitiesPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
@@ -101,8 +92,6 @@ namespace Intent.Modules.Blazor.HttpClients
                     }
                 );
         }
-
-        public static NugetPackageInfo IdentityModelAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(IdentityModelAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftAspNetCoreWebUtilities(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreWebUtilitiesPackageName, outputTarget.GetMaxNetAppVersion());
 

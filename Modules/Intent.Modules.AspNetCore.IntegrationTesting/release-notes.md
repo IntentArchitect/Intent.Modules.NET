@@ -1,3 +1,7 @@
+### Version 2.1.1
+
+- Improvement: Removed the unused registration for the deprecated `IdentityModel.AspNetCore` NuGet package. No generated project referenced it.
+
 ### Version 2.1.0
 
 - New Feature: Test proxies call `QUERY` operations with the HTTP `QUERY` method and send the body as JSON.
@@ -18,6 +22,7 @@
 - Improvement: Added default Template Classification and Priorities.
 
 ### Version 2.0.20
+
 - New Feature: Added support for `SQLite` when using `Intent.EntityFrameworkCore`. The generated database fixture runs SQLite in-process against an in-memory database, so no container runtime (e.g. Docker) is required to run the tests.
 - New Feature: Added a `integration test` skill to guide AI Agents around implementations.
 - New Feature: Added a `Generate Service Proxies for Testing` setting which controls whether the HTTP client proxies (and their supporting DTO, enum, `ProblemDetailsWithErrors` and `HttpClientRequestException` contracts) are generated into the test project.
