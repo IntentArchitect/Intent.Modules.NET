@@ -1,3 +1,7 @@
+### Version 4.4.1
+
+- Improvement: Removed the registration for the deprecated `IdentityModel` NuGet package, superseded by `Duende.IdentityModel`; projects that still reference `IdentityModel` continue to have it removed.
+
 ### Version 4.4.0
 
 - Improvement: Added .NET 11 NuGet package versions.

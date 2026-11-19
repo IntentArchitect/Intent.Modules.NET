@@ -18,10 +18,13 @@
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b42df490-198c-4c3f-aeca-83bbf9f87ab8</correlationId>
       <path>FactoryExtensions/ApplicationSecurityConfigurationFactoryExtension.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandrejvv@gmail.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-10-16T20:07:45.3934164Z</updatedAt>
-      <deviationsHash>3E97E0C9B317EDFC4F97BA6994DA68B8EE6A38B7E7C058AB370B322437B4EB48</deviationsHash>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-11-19T10:59:57.9579965Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-11-19T12:38:33.76347Z</approvedAt>
+      <deviationsHash>E484D266B270738893CFEEBB5259D4C3946FFEBBFD449E47D80FF52DD78B845A</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5631733b-f3fd-46ec-b22e-0abaf76c29c8</correlationId>
@@ -30,6 +33,9 @@
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
       <updatedAt>2026-09-02T13:57:46.9006541Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-11-19T12:38:37.0130302Z</approvedAt>
       <deviationsHash>D44FAFF736AC60DC2567DCD193832B1D66A2F2C5134603D9B5BCCCBCE9BDE649</deviationsHash>
     </file>
   </files>

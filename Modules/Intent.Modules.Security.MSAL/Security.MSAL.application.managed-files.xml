@@ -4,7 +4,7 @@
   <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FactoryExtensions/ApplicationSecurityConfigurationFactoryExtension.cs" deviationsHash="9D71288FBA6DBAA3C1F62180927C23D4F82B27FC0FECB50B36DAE4B4E8215759" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
-  <file path="FactoryExtensions/CurrentUserServiceFactoryExtension.cs" deviationsHash="33F55718F2D8DFC5292DD38A8007CF7B4C8B9DE0AEB8B7D66CDA1B418829CD08" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/CurrentUserServiceFactoryExtension.cs" deviationsHash="6DCA21C3C1D4479D65F14DABD4C603C8FF1161A6E111BFB218B3B7CDB053530D" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Modules.Security.MSAL.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Intent.Security.MSAL.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />

@@ -1,3 +1,7 @@
+### Version 4.2.1
+
+- Improvement: Removed the unused registration for the deprecated `IdentityModel` NuGet package.
+
 ### Version 4.2.0
 
 - Improvement: Updated NuGet package versions:

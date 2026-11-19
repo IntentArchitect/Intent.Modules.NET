@@ -30,15 +30,15 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
             // lookup, which throws once a second host exists.
             foreach (var template in application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Security.CurrentUserService")))
             {
-                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(
-                    NugetPackages.IdentityModelPackageName, template.OutputTarget));
+                // Remove the deprecated "IdentityModel" package, superseded by Duende.IdentityModel
+                application.EventDispatcher.Publish(new RemoveNugetPackageEvent("IdentityModel", template.OutputTarget));
 
                 template.AddNugetDependency(NugetPackages.DuendeIdentityModel(template.OutputTarget));
             }
 
             CurrentUserHelper.UpdateCurrentUserService(application);
         }
-            
+
             /*
 
             template.CSharpFile.AfterBuild(file =>
