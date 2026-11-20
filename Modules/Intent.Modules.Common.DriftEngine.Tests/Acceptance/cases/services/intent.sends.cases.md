@@ -393,6 +393,102 @@ public class PaymentOutputs
 }
 ```
 
+## verified-own-parameter-handed-to-logic
+
+The endpoint takes the command as its request and hands it to the logic behind an interface, whose class sends it with `SendLocal(command)`, as CrmBus's `QuoteController.SubmitQuote` does through `IQuoteLogic`. The command comes from outside the code, so the endpoint's own parameter is the message it hands on, and the call that leads to the send is where it does: verified.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["intent.sends"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapPost("/", CreateOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Ok<Guid>> CreateOrderAsync(ChargePaymentCommand command, IOrderLogic logic)
+    {
+        await logic.SubmitAsync(command);
+
+        return TypedResults.Ok(Guid.NewGuid());
+    }
+}
+```
+
+```csharp file src/Ordering.API/Apis/OrderLogic.cs
+namespace Ordering.API.Apis;
+
+public interface IOrderLogic
+{
+    Task SubmitAsync(ChargePaymentCommand command);
+}
+
+public class OrderLogic(IMessageSession messageSession) : IOrderLogic
+{
+    public async Task SubmitAsync(ChargePaymentCommand command)
+    {
+        await messageSession.SendLocal(command);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "create-order-sends-charge-payment", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Ordering.API/Apis/OrdersApi.cs:16" }
+  ]
+}
+```
+
+## contradicted-own-parameter-not-handed-on
+
+The logic now only reads the command it is given and sends nothing, so the endpoint's parameter is never handed on: its type alone isn't a send, and the modelled send isn't in the code.
+
+```json case
+{ "phase": 4, "base": "verified-own-parameter-handed-to-logic", "kinds": ["intent.sends"], "requirements": ["R8"], "packs": ["intent.core", "intent.services", "intent.aspnetcore", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrderLogic.cs
+namespace Ordering.API.Apis;
+
+public interface IOrderLogic
+{
+    Task SubmitAsync(ChargePaymentCommand command);
+}
+
+public class OrderLogic : IOrderLogic
+{
+    public decimal LastTotal { get; private set; }
+
+    public Task SubmitAsync(ChargePaymentCommand command)
+    {
+        LastTotal = command.Total;
+        return Task.CompletedTask;
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "create-order-sends-charge-payment", "outcome": "contradicted", "expected": "present", "actual": "absent" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.sends", "severity": "error", "subject": "create-order-sends-charge-payment", "messageContains": "isn't in the code" }
+  ]
+}
+```
+
 ## contradicted-published-not-sent
 
 The endpoint publishes `ChargePaymentCommand` instead of sending it. A publish goes to every subscriber, a send to the command's one receiver, so the modelled send isn't in the code.

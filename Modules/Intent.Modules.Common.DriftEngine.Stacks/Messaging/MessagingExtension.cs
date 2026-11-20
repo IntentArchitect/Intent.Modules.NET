@@ -634,6 +634,9 @@ internal static class MessageCode
     /// The calls in the method, or in the code's own methods it calls (transitively), that hand a message on (<see cref="MessagesOf"/>),
     /// each with the method's own call that leads to it: itself, or its call of the method that does. A method does what the
     /// methods it delegates to do, its type's and its collaborators' alike (<see cref="Bodies"/>): a handler that has a helper send.
+    /// The method itself hands on a message it takes, as a parameter, from outside the code: an action's request body passed to
+    /// the logic that sends it (<c>_quoteLogic.SubmitQuoteAsync(quote)</c>). A method it calls doesn't: its caller handed it in,
+    /// and the caller's call is the one that hands it on (<see cref="HandsOn(CodeGraph, TypeNode, MemberNode, CallNode, int, TypeRefNode)"/>).
     /// </summary>
     public static IEnumerable<(CallNode Root, CallNode Call)> Raising(CodeGraph code, TypeNode type, MemberNode member, Func<TypeRefNode, bool> isMessage)
     {
@@ -644,7 +647,8 @@ internal static class MessageCode
             foreach (var call in current.Member.Calls)
             {
                 var root = current.Root ?? call;
-                if (call.Arguments.Select((x, i) => (Value: x, Index: i)).Any(a => MessagesOf(code, current.Type, a.Value).Any(c => isMessage(c) && HandsOn(code, current.Type, current.Member, call, a.Index, c))))
+                var own = current.Root is null;
+                if (call.Arguments.Select((x, i) => (Value: x, Index: i)).Any(a => MessagesOf(code, current.Type, a.Value, own).Any(c => isMessage(c) && HandsOn(code, current.Type, current.Member, call, a.Index, c))))
                 {
                     yield return (root, call);
                 }
@@ -663,7 +667,11 @@ internal static class MessageCode
     /// <c>var nextMessage = await router.NextAsync(...)</c> types it as, <c>context.SendLocal(outputs.SendEmail)</c> the
     /// property's type.
     /// </summary>
-    public static IEnumerable<TypeRefNode> MessagesOf(CodeGraph code, TypeNode from, ValueNode value)
+    /// <param name="parameters">
+    /// A parameter is the type it is declared as, too: the method takes its message from outside the code, so no caller of the
+    /// code's own hands it in (<see cref="Raising"/>).
+    /// </param>
+    public static IEnumerable<TypeRefNode> MessagesOf(CodeGraph code, TypeNode from, ValueNode value, bool parameters = false)
     {
         var seen = new HashSet<TypeRefNode>(ReferenceEqualityComparer.Instance);
         foreach (var creation in Created(code, from, value))
@@ -674,7 +682,7 @@ internal static class MessageCode
             }
         }
 
-        if (!value.IsKnown || FromParameter(value, 0))
+        if (!value.IsKnown || !parameters && FromParameter(value, 0))
         {
             yield break;
         }

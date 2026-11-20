@@ -13,7 +13,8 @@ namespace Intent.Modules.Common.DriftEngine.Stacks.AspNetCore;
 /// builds, a controller's factory (<c>Ok(data)</c>), <c>Results</c>' or <c>TypedResults</c>', or a result it creates
 /// (<c>new OkObjectResult(data)</c>), through locals, conditionals and the code's own methods that build it; what that result
 /// carries is what the operation returns: <c>Ok(data)</c> is data's type, <c>NoContent()</c> nothing. An error result isn't
-/// modelled. A result this doesn't read, or a body whose type the code doesn't say, is can't verify, never a guess.
+/// modelled. A body whose type the code doesn't say is the action's declared response (<c>[ResponseType]</c>,
+/// <c>[ProducesResponseType]</c>); a result this doesn't read, or an untyped body with no declared response, is can't verify, never a guess.
 /// </summary>
 internal static class ActionResults
 {
@@ -56,18 +57,37 @@ internal static class ActionResults
     {
         var returns = member.Type!;
         var successes = new List<(TypeRefNode? Body, Span At)>();
+        var untyped = new List<Unread>();
         foreach (var value in member.Body?.Returns ?? [])
         {
-            if (Value(member.Body!, value, value.At, 0, successes) is { } unread)
+            if (Value(member.Body!, value, value.At, 0, successes) is not { } unread)
+            {
+                continue;
+            }
+
+            // A success whose body the code doesn't type may be the one the action declares; any other unread result can't be.
+            if (unread.Reason != "unresolved")
             {
                 return ClaimReading.CantVerify(unread.Reason, unread.Message, unread.At);
             }
+
+            untyped.Add(unread);
         }
 
-        // The body comes first. Only when it builds no success, as a stub that only throws, does the action's declared response say.
-        if (successes.Count == 0)
+        // The body comes first. Only when it builds no success, as a stub that only throws, or builds one whose body the code
+        // doesn't type (Content(HttpStatusCode.OK, x == "y")), does the action's declared response say: [ResponseType(typeof(bool))]
+        // is the code's own statement of its success, and a body that is typed is still compared against the model as it is.
+        if (successes.Count == 0 || untyped.Count > 0)
         {
-            Declared(member, successes);
+            var declared = new List<(TypeRefNode? Body, Span At)>();
+            Declared(member, declared);
+            if (untyped.Count > 0 && declared.Count == 0)
+            {
+                return ClaimReading.CantVerify(untyped[0].Reason, untyped[0].Message, untyped[0].At);
+            }
+
+            // Each untyped success is the declared response, at the return that builds it.
+            successes.AddRange(untyped.Count > 0 ? untyped.SelectMany(x => declared.Select(d => (d.Body, x.At))) : declared);
         }
 
         if (successes.Count == 0)

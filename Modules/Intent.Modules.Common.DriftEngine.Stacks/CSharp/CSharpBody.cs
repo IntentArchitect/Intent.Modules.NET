@@ -22,6 +22,14 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
 
     private static readonly (List<TypeRefNode> Types, bool Known) Unknown = ([], false);
 
+    /// <summary>The binary operators whose result is a bool: comparisons, the logical ones and a type test.</summary>
+    private static readonly HashSet<SyntaxKind> Comparisons =
+    [
+        SyntaxKind.EqualsExpression, SyntaxKind.NotEqualsExpression, SyntaxKind.LessThanExpression, SyntaxKind.LessThanOrEqualExpression,
+        SyntaxKind.GreaterThanExpression, SyntaxKind.GreaterThanOrEqualExpression, SyntaxKind.LogicalAndExpression, SyntaxKind.LogicalOrExpression,
+        SyntaxKind.IsExpression
+    ];
+
     /// <summary>Each call once, so a chain's call is the same node as the one the body has.</summary>
     private readonly Dictionary<InvocationExpressionSyntax, CallNode?> _calls = [];
 
@@ -442,6 +450,21 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
                 return Cast(TypesOf(cast.Expression, before, depth), cast.Type);
             case BinaryExpressionSyntax { Right: TypeSyntax type } binary when binary.IsKind(SyntaxKind.AsExpression):
                 return Cast(TypesOf(binary.Left, before, depth), type);
+            // A comparison, a logical operator and a type test are a bool, whatever they compare: x.ToLowerInvariant() == "y".
+            case BinaryExpressionSyntax when Comparisons.Contains(expression.Kind()):
+            case PrefixUnaryExpressionSyntax when expression.IsKind(SyntaxKind.LogicalNotExpression):
+            case IsPatternExpressionSyntax:
+                return ([Predefined("bool")], true);
+            // A signed number is the number's type, as the compiler gives it: -1.00m is a decimal. Only the types C# keeps
+            // under a sign; a smaller one is promoted, so isn't its own.
+            case PrefixUnaryExpressionSyntax signed when signed.IsKind(SyntaxKind.UnaryMinusExpression) || signed.IsKind(SyntaxKind.UnaryPlusExpression):
+            {
+                var operand = TypesOf(signed.Operand, before, depth);
+                return operand is { Known: true, Types: [{ Name: "int" or "long" or "float" or "double" or "decimal" }] } ? operand : Unknown;
+            }
+            // string.Empty, the one constant of string's own it reads.
+            case MemberAccessExpressionSyntax { Expression: PredefinedTypeSyntax { Keyword.Text: "string" } or IdentifierNameSyntax { Identifier.Text: "String" }, Name.Identifier.Text: "Empty" }:
+                return ([Predefined("string")], true);
             case ConditionalExpressionSyntax conditional:
             {
                 var whenTrue = TypesOf(conditional.WhenTrue, before, depth);

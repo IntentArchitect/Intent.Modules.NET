@@ -2589,3 +2589,265 @@ export const api = {
   ]
 }
 ```
+
+## web-api-2-untyped-body-declared
+
+A Web API 2 action succeeds with what a library gives, `LegacyStore.Lookup(quoteCode)`, whose type the code doesn't say, and declares its success with `[ResponseType(typeof(string))]`. The declaration is the code's own statement of the body, so the untyped success is a `string`, the model's return type: verified. The 417 is still an error result.
+
+```json case
+{ "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "CrmBus.Crm",
+        "elements": [
+          { "id": "crm-controller", "type": "Service", "name": "CrmController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/Crm" } },
+            "children": [
+              { "id": "get-quote-acceptance", "type": "Operation", "name": "GetQuoteAcceptanceByQuoteCode", "typeRef": { "type": "string" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "GetQuoteAcceptanceByQuoteCode" } },
+                "children": [ { "id": "get-quote-acceptance-quote-code", "type": "Parameter", "name": "quoteCode", "typeRef": { "type": "string" } } ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/CrmBus.Crm/Controllers/CrmController.cs
+using System;
+using System.Net;
+using System.Web.Http;
+using System.Web.Http.Description;
+using Legacy.Data;
+
+namespace CrmBus.Crm.Controllers;
+
+[RoutePrefix("api/Crm")]
+public class CrmController : ApiController
+{
+    [HttpGet]
+    [ResponseType(typeof(string))]
+    [Route("GetQuoteAcceptanceByQuoteCode")]
+    public IHttpActionResult GetQuoteAcceptanceByQuoteCode(string quoteCode)
+    {
+        try
+        {
+            return Content(HttpStatusCode.OK, LegacyStore.Lookup(quoteCode));
+        }
+        catch (Exception ex)
+        {
+            return Content(HttpStatusCode.ExpectationFailed, ex.Message);
+        }
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-quote-acceptance", "outcome": "verified", "expected": "string", "actual": "IHttpActionResult with string" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "count": 0 }
+  ]
+}
+```
+
+## web-api-2-untyped-body-declared-contradicted
+
+The action now declares `[ResponseType(typeof(int))]`, so its untyped success is an `int` against the model's `string`: contradicted.
+
+```json case
+{ "phase": 4, "base": "web-api-2-untyped-body-declared", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/CrmBus.Crm/Controllers/CrmController.cs
+using System;
+using System.Net;
+using System.Web.Http;
+using System.Web.Http.Description;
+using Legacy.Data;
+
+namespace CrmBus.Crm.Controllers;
+
+[RoutePrefix("api/Crm")]
+public class CrmController : ApiController
+{
+    [HttpGet]
+    [ResponseType(typeof(int))]
+    [Route("GetQuoteAcceptanceByQuoteCode")]
+    public IHttpActionResult GetQuoteAcceptanceByQuoteCode(string quoteCode)
+    {
+        try
+        {
+            return Content(HttpStatusCode.OK, LegacyStore.Lookup(quoteCode));
+        }
+        catch (Exception ex)
+        {
+            return Content(HttpStatusCode.ExpectationFailed, ex.Message);
+        }
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-quote-acceptance", "outcome": "contradicted", "expected": "string", "actual": "IHttpActionResult with int" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "get-quote-acceptance" }
+  ]
+}
+```
+
+## web-api-2-untyped-body-undeclared
+
+Without a `[ResponseType]`, nothing in the code says what `LegacyStore.Lookup(quoteCode)` is: can't verify, never a guess.
+
+```json case
+{ "phase": 4, "base": "web-api-2-untyped-body-declared", "kinds": ["operation.returns"], "requirements": ["R2", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/CrmBus.Crm/Controllers/CrmController.cs
+using System;
+using System.Net;
+using System.Web.Http;
+using Legacy.Data;
+
+namespace CrmBus.Crm.Controllers;
+
+[RoutePrefix("api/Crm")]
+public class CrmController : ApiController
+{
+    [HttpGet]
+    [Route("GetQuoteAcceptanceByQuoteCode")]
+    public IHttpActionResult GetQuoteAcceptanceByQuoteCode(string quoteCode)
+    {
+        try
+        {
+            return Content(HttpStatusCode.OK, LegacyStore.Lookup(quoteCode));
+        }
+        catch (Exception ex)
+        {
+            return Content(HttpStatusCode.ExpectationFailed, ex.Message);
+        }
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-quote-acceptance", "outcome": "cantVerify", "reason": "unresolved" }
+  ]
+}
+```
+
+## csharp-expression-types
+
+What C# itself says a value is, with no `[ResponseType]` to fall back on: a comparison is a `bool` whatever it compares (`LegacyStore.Flag(code).ToLowerInvariant() == "y"`), a `var` local is its initializer's type when a later value isn't known (`var vatRate = -1.00m;`, a signed decimal), and `string.Empty` is a `string`, so a conditional of it and a string parameter is one. Each action's success is read from its body and matches the model: verified.
+
+```json case
+{ "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "CrmBus.Crm",
+        "elements": [
+          { "id": "scheme-controller", "type": "Service", "name": "SchemeController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/Scheme" } },
+            "children": [
+              { "id": "scheme-is-combo", "type": "Operation", "name": "SchemeIsComboScheme", "typeRef": { "type": "bool" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "SchemeIsComboScheme/{schemeCode}" } },
+                "children": [ { "id": "scheme-is-combo-scheme-code", "type": "Parameter", "name": "schemeCode", "typeRef": { "type": "string" } } ] },
+              { "id": "apply-vat", "type": "Operation", "name": "ApplyVatForTpa", "typeRef": { "type": "decimal" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "VatForTpa/{referenceId}" } },
+                "children": [ { "id": "apply-vat-reference-id", "type": "Parameter", "name": "referenceId", "typeRef": { "type": "int" } } ] },
+              { "id": "get-quote-code", "type": "Operation", "name": "GetQuoteCode", "typeRef": { "type": "string" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "GetQuoteCode" } },
+                "children": [ { "id": "get-quote-code-quote-code", "type": "Parameter", "name": "quoteCode", "typeRef": { "type": "string" } } ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/CrmBus.Crm/Controllers/SchemeController.cs
+using System;
+using System.Net;
+using System.Web.Http;
+using Legacy.Data;
+
+namespace CrmBus.Crm.Controllers;
+
+[RoutePrefix("api/Scheme")]
+public class SchemeController : ApiController
+{
+    [HttpGet]
+    [Route("SchemeIsComboScheme/{schemeCode}")]
+    public IHttpActionResult SchemeIsComboScheme(string schemeCode)
+    {
+        if (!string.IsNullOrWhiteSpace(schemeCode))
+        {
+            var queryResult = LegacyStore.Flag(schemeCode).ToLowerInvariant() == "y";
+            return Content(HttpStatusCode.OK, queryResult);
+        }
+
+        return Content(HttpStatusCode.OK, false);
+    }
+
+    [HttpGet]
+    [Route("VatForTpa/{referenceId}")]
+    public IHttpActionResult ApplyVatForTpa(int referenceId)
+    {
+        var vatRate = -1.00m;
+        if (referenceId > 0)
+        {
+            vatRate = LegacyStore.Rate(referenceId);
+        }
+
+        return Content(HttpStatusCode.OK, vatRate);
+    }
+
+    [HttpGet]
+    [Route("GetQuoteCode")]
+    public IHttpActionResult GetQuoteCode(string quoteCode)
+    {
+        return Ok(string.IsNullOrEmpty(quoteCode) ? string.Empty : quoteCode);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "scheme-is-combo", "outcome": "verified", "expected": "bool", "actual": "IHttpActionResult with bool" },
+    { "kind": "operation.returns", "element": "apply-vat", "outcome": "verified", "expected": "decimal", "actual": "IHttpActionResult with decimal" },
+    { "kind": "operation.returns", "element": "get-quote-code", "outcome": "verified", "expected": "string", "actual": "IHttpActionResult with string" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "count": 0 }
+  ]
+}
+```
