@@ -752,6 +752,49 @@ public partial class OrderQueries
 }
 ```
 
+## application-service-overload-renamed-parameters
+
+`GetOrdersFromUserAsync` has two overloads of one parameter, and the class renames the parameter its interface declares, `userId`, to `user`, so neither overload has the modelled Operation's parameter name. Of the two, the one whose parameter type matches, `string`, is the method it describes, not the first of that count, `Guid buyerId`.
+
+```json case
+{ "phase": 2, "base": "application-service-partial", "kinds": ["member.exists"], "requirements": ["R2", "R41", "R44"], "packs": ["intent.core", "intent.services", "house.eshop"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Application/Queries/OrderQueries.Summaries.cs
+namespace eShop.Ordering.API.Application.Queries;
+
+public partial class OrderQueries : IOrderQueries
+{
+    public Task<IEnumerable<OrderSummary>> GetOrdersFromUserAsync(Guid buyerId)
+    {
+        return GetOrdersFromUserAsync(buyerId.ToString());
+    }
+
+    public async Task<IEnumerable<OrderSummary>> GetOrdersFromUserAsync(string user)
+    {
+        return await context.Orders
+            .Where(o => o.Buyer.IdentityGuid == user)
+            .Select(o => new OrderSummary { OrderNumber = o.Id })
+            .ToListAsync();
+    }
+}
+
+public interface IOrderQueries
+{
+    Task<IEnumerable<OrderSummary>> GetOrdersFromUserAsync(Guid buyerId);
+
+    Task<IEnumerable<OrderSummary>> GetOrdersFromUserAsync(string userId);
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "order-queries-get-orders", "outcome": "verified", "at": "src/Ordering.API/Application/Queries/OrderQueries.Summaries.cs:10" }
+  ]
+}
+```
+
 ## hosted-service-override
 
 A Service with eShopCustom's Hosted Service stereotype is a `BackgroundService`; its modelled `ExecuteAsync` is the class's override. A `CancellationToken` is never modelled, so the model's Operation has no parameter. The claim is the method's existence; nothing compares the `override` modifier itself, which no structure kind states.

@@ -1609,15 +1609,20 @@ public sealed partial class DriftEngine
     }
 
     /// <summary>
-    /// Overloads are told apart by parameter names, then by their types, then by count (rules.md, Locating an element's
-    /// code). Injected parameters, such as a CancellationToken, aren't compared.
+    /// Overloads are told apart by parameter names, then by their types; with no names matching, by their types alone, since
+    /// a class may rename the parameters its interface declares (AutoMapper's <c>rows</c> for <c>IAutoMapper</c>'s <c>list</c>),
+    /// then by count (rules.md, Locating an element's code). Injected parameters, such as a CancellationToken, aren't compared.
     /// </summary>
     private MemberNode? Overload(IReadOnlyList<MemberNode> candidates, IElement element)
     {
         var parameters = Parameters(element);
+        bool Typed(MemberNode member) => Stated(member) is var stated && stated.Count == parameters.Count
+            && stated.Zip(parameters).All(p => p.First.Type is { } code && p.Second.TypeReference is { Element: not null } model && TypeMatches(model, code));
+
         var named = candidates.Where(x => Stated(x).Select(p => p.Name).SequenceEqual(parameters.Select(p => p.Name), StringComparer.OrdinalIgnoreCase)).ToList();
-        return named.FirstOrDefault(x => Stated(x).Zip(parameters).All(p => p.First.Type is { } code && p.Second.TypeReference is { Element: not null } model && TypeMatches(model, code)))
+        return named.FirstOrDefault(Typed)
                ?? named.FirstOrDefault()
+               ?? candidates.FirstOrDefault(Typed)
                ?? candidates.FirstOrDefault(x => Stated(x).Count == parameters.Count);
     }
 

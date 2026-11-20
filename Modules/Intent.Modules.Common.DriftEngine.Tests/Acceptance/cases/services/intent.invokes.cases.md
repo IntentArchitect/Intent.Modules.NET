@@ -1005,3 +1005,97 @@ public class OrderService
   ]
 }
 ```
+
+## invoked-through-a-cast-local
+
+`GetQuote` invokes `CrmDataEntities.spGetQuote`, and the logic class reaches it through its `DbContext` field cast to the code's own EF6 context, `var context = (CrmDataEntities)_context;`. A downcast is the type it names, so `context.spGetQuote(id)` calls `CrmDataEntities`' method, not one of `DbContext`'s.
+
+```json case
+{ "phase": 6, "kinds": ["intent.invokes"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.interactions"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "CrmBus.Crm",
+        "elements": [
+          { "id": "crm-data-entities", "type": "Service", "name": "CrmDataEntities",
+            "children": [
+              { "id": "crm-data-entities-sp-get-quote", "type": "Operation", "name": "spGetQuote",
+                "children": [
+                  { "id": "crm-data-entities-sp-get-quote-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                ] }
+            ] },
+          { "id": "quote-logic", "type": "Service", "name": "QuoteLogic",
+            "children": [
+              { "id": "quote-logic-get-quote", "type": "Operation", "name": "GetQuote",
+                "children": [
+                  { "id": "quote-logic-get-quote-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                ] }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "get-quote-invokes-sp-get-quote", "type": "Perform Invocation",
+          "source": { "element": "quote-logic-get-quote" }, "target": { "element": "crm-data-entities-sp-get-quote" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/CrmBus.Crm/Data/CrmDataEntities.cs
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+
+namespace CrmBus.Crm.Data;
+
+public partial class CrmDataEntities : DbContext
+{
+    public virtual ObjectResult<spGetQuote_Result> spGetQuote(int id) => null!;
+}
+
+public class spGetQuote_Result
+{
+    public decimal Premium { get; set; }
+}
+```
+
+```csharp file src/CrmBus.Crm/Logic/QuoteLogic.cs
+using System.Data.Entity;
+using System.Linq;
+using CrmBus.Crm.Data;
+
+namespace CrmBus.Crm.Logic;
+
+public class QuoteLogic
+{
+    private readonly DbContext _context;
+
+    public QuoteLogic(DbContext context)
+    {
+        _context = context;
+    }
+
+    public spGetQuote_Result GetQuote(int id)
+    {
+        var context = (CrmDataEntities)_context;
+        return context.spGetQuote(id).FirstOrDefault();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "get-quote-invokes-sp-get-quote", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/CrmBus.Crm/Logic/QuoteLogic.cs:19" }
+  ]
+}
+```

@@ -345,6 +345,87 @@ public class SearchRequest
 }
 ```
 
+## web-api-2-content-error-status
+
+A Web API 2 action succeeds with `Content(HttpStatusCode.Created, model)` and fails with `Content(HttpStatusCode.ExpectationFailed, ex.Message)`. Any status .NET's `HttpStatusCode` names is read, so the 417 is an error, not the success status, and isn't taken for ASP.NET Core's `Content(text)`, a 200: the success status is the 201 alone.
+
+```json case
+{ "phase": 4, "kinds": ["operation.status"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "CrmBus.Crm",
+        "elements": [
+          { "id": "address-controller", "type": "Service", "name": "AddressController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/Address" } },
+            "children": [
+              { "id": "add-address", "type": "Operation", "name": "AddAddress", "typeRef": { "type": "int" },
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "AddAddress", "Success Response Code": "201 (Created)" } },
+                "children": [ { "id": "add-address-line1", "type": "Parameter", "name": "line1", "typeRef": { "type": "string" } } ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+using System;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Http;
+
+namespace CrmBus.Crm.Controllers;
+
+public interface IAddressLogic
+{
+    Task<int> AddAddress(string line1);
+}
+
+[RoutePrefix("api/Address")]
+public class AddressController : ApiController
+{
+    private readonly IAddressLogic _logic;
+
+    public AddressController(IAddressLogic logic)
+    {
+        _logic = logic;
+    }
+
+    [HttpPost]
+    [Route("AddAddress")]
+    public async Task<IHttpActionResult> AddAddress(string line1)
+    {
+        try
+        {
+            var id = await _logic.AddAddress(line1);
+            return Content(HttpStatusCode.Created, id);
+        }
+        catch (Exception ex)
+        {
+            return Content(HttpStatusCode.ExpectationFailed, ex.Message);
+        }
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.status", "element": "add-address", "outcome": "verified", "expected": "201", "actual": "201" }
+  ]
+}
+```
+
 ## java-verified-no-content
 
 Over Spring MVC, `ResponseEntity.noContent()` is a 204, and the Operation's Success Response Code is `204 (No Content)`. Traces JAV-SVC-07.

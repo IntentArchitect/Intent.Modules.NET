@@ -137,6 +137,262 @@ public static class PaymentCommands
 }
 ```
 
+## verified-local-from-awaited-call
+
+The endpoint sends a local it is given by awaiting an injected router, `var command = await router.NextAsync(...).ConfigureAwait(false)`, and no in-scope code implements the router, so nothing shows the command being created. The code types the local as the router's `Task<ChargePaymentCommand>` gives it, and a value typed as the message is the message, so the send is verified.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["intent.sends"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapPost("/", CreateOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Ok<Guid>> CreateOrderAsync(CreateOrderRequest request, IMessageSession messageSession, IPaymentRouter router)
+    {
+        var orderId = Guid.NewGuid();
+        var command = await router.NextAsync(orderId, request.Total).ConfigureAwait(false);
+
+        await messageSession.Send(command);
+
+        return TypedResults.Ok(orderId);
+    }
+}
+```
+
+```csharp file src/Ordering.API/Apis/IPaymentRouter.cs
+namespace Ordering.API.Apis;
+
+public interface IPaymentRouter
+{
+    Task<ChargePaymentCommand> NextAsync(Guid orderId, decimal total);
+
+    Task<RefundPaymentCommand> RefundAsync(Guid orderId, decimal total);
+
+    Task<PaymentOutputs> PrepareAsync(Guid orderId, decimal total);
+}
+
+public class PaymentOutputs
+{
+    public ChargePaymentCommand Charge { get; set; } = null!;
+
+    public RefundPaymentCommand Refund { get; set; } = null!;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "create-order-sends-charge-payment", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Ordering.API/Apis/OrdersApi.cs:19" }
+  ]
+}
+```
+
+## contradicted-local-from-awaited-call
+
+The router now gives a `RefundPaymentCommand`, so the local the endpoint sends is typed as another command and the modelled send isn't in the code.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["intent.sends"], "requirements": ["R8"], "packs": ["intent.core", "intent.services", "intent.aspnetcore", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapPost("/", CreateOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Ok<Guid>> CreateOrderAsync(CreateOrderRequest request, IMessageSession messageSession, IPaymentRouter router)
+    {
+        var orderId = Guid.NewGuid();
+        var command = await router.RefundAsync(orderId, request.Total).ConfigureAwait(false);
+
+        await messageSession.Send(command);
+
+        return TypedResults.Ok(orderId);
+    }
+}
+```
+
+```csharp file src/Ordering.API/Apis/IPaymentRouter.cs
+namespace Ordering.API.Apis;
+
+public interface IPaymentRouter
+{
+    Task<ChargePaymentCommand> NextAsync(Guid orderId, decimal total);
+
+    Task<RefundPaymentCommand> RefundAsync(Guid orderId, decimal total);
+
+    Task<PaymentOutputs> PrepareAsync(Guid orderId, decimal total);
+}
+
+public class PaymentOutputs
+{
+    public ChargePaymentCommand Charge { get; set; } = null!;
+
+    public RefundPaymentCommand Refund { get; set; } = null!;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "create-order-sends-charge-payment", "outcome": "contradicted", "expected": "present", "actual": "absent" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.sends", "severity": "error", "subject": "create-order-sends-charge-payment", "messageContains": "isn't in the code" }
+  ]
+}
+```
+
+## verified-property-of-returned-object
+
+The endpoint sends a property of what the router returns, `outputs.Charge`, which `PaymentOutputs` declares as a `ChargePaymentCommand`: the send is verified.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["intent.sends"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapPost("/", CreateOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Ok<Guid>> CreateOrderAsync(CreateOrderRequest request, IMessageSession messageSession, IPaymentRouter router)
+    {
+        var orderId = Guid.NewGuid();
+        var outputs = await router.PrepareAsync(orderId, request.Total);
+
+        await messageSession.Send(outputs.Charge);
+
+        return TypedResults.Ok(orderId);
+    }
+}
+```
+
+```csharp file src/Ordering.API/Apis/IPaymentRouter.cs
+namespace Ordering.API.Apis;
+
+public interface IPaymentRouter
+{
+    Task<ChargePaymentCommand> NextAsync(Guid orderId, decimal total);
+
+    Task<RefundPaymentCommand> RefundAsync(Guid orderId, decimal total);
+
+    Task<PaymentOutputs> PrepareAsync(Guid orderId, decimal total);
+}
+
+public class PaymentOutputs
+{
+    public ChargePaymentCommand Charge { get; set; } = null!;
+
+    public RefundPaymentCommand Refund { get; set; } = null!;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "create-order-sends-charge-payment", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Ordering.API/Apis/OrdersApi.cs:19" }
+  ]
+}
+```
+
+## contradicted-property-of-returned-object
+
+The endpoint now sends `outputs.Refund`, a `RefundPaymentCommand`: the modelled send isn't in the code.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["intent.sends"], "requirements": ["R8"], "packs": ["intent.core", "intent.services", "intent.aspnetcore", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapPost("/", CreateOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Ok<Guid>> CreateOrderAsync(CreateOrderRequest request, IMessageSession messageSession, IPaymentRouter router)
+    {
+        var orderId = Guid.NewGuid();
+        var outputs = await router.PrepareAsync(orderId, request.Total);
+
+        await messageSession.Send(outputs.Refund);
+
+        return TypedResults.Ok(orderId);
+    }
+}
+```
+
+```csharp file src/Ordering.API/Apis/IPaymentRouter.cs
+namespace Ordering.API.Apis;
+
+public interface IPaymentRouter
+{
+    Task<ChargePaymentCommand> NextAsync(Guid orderId, decimal total);
+
+    Task<RefundPaymentCommand> RefundAsync(Guid orderId, decimal total);
+
+    Task<PaymentOutputs> PrepareAsync(Guid orderId, decimal total);
+}
+
+public class PaymentOutputs
+{
+    public ChargePaymentCommand Charge { get; set; } = null!;
+
+    public RefundPaymentCommand Refund { get; set; } = null!;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "create-order-sends-charge-payment", "outcome": "contradicted", "expected": "present", "actual": "absent" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.sends", "severity": "error", "subject": "create-order-sends-charge-payment", "messageContains": "isn't in the code" }
+  ]
+}
+```
+
 ## contradicted-published-not-sent
 
 The endpoint publishes `ChargePaymentCommand` instead of sending it. A publish goes to every subscriber, a send to the command's one receiver, so the modelled send isn't in the code.

@@ -88,9 +88,10 @@ internal static class TypeComparer
             return true;
         }
 
-        // Type arguments count only when the model states them: Paged<Order> isn't Paged<Product>.
+        // Type arguments count only when the model states them: Paged<Order> isn't Paged<Product>. An array carries its item's
+        // name, so an array item (T[] in T[][]) is never the element by name.
         var arguments = model.GenericTypeParameters?.ToList() ?? [];
-        return code.Name == element.Name && (arguments.Count == 0 ||
+        return !code.IsArray && code.Name == element.Name && (arguments.Count == 0 ||
             arguments.Count == code.Arguments.Count && arguments.Zip(code.Arguments).All(x => Matches(x.First, x.Second, profile)));
     }
 

@@ -99,8 +99,9 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
                 })
                 .ToList(),
             Changes = inside.Select(Changed).OfType<ExpressionSyntax>().Select(Normalise).ToList(),
-            Returns = returned is not null
-                ? [Value(returned, returned.SpanStart)]
+            // An expression body that throws (=> throw new NotSupportedException()) returns nothing.
+            Returns = returned is ThrowExpressionSyntax ? []
+                : returned is not null ? [Value(returned, returned.SpanStart)]
                 : inside.OfType<ReturnStatementSyntax>()
                     .Where(x => x.Expression is not null && x.Ancestors().FirstOrDefault(IsFunction) == function)
                     .Select(x => Value(x.Expression!, x.Expression!.SpanStart))
@@ -263,14 +264,21 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
             GivenOf = sourced ? () => Given(bare, before) : null,
             Parameter = sourced && bare is IdentifierNameSyntax named && Local(named, before) is null ? ParameterOf(named) : null,
             Field = sourced ? FieldRead(bare, before) : null,
-            // An awaited call's value is what the call gives once awaited: await factory.MakeAsync(id) is MakeAsync's.
-            Call = sourced && (bare is AwaitExpressionSyntax awaited ? Bare(awaited.Expression) : bare) is InvocationExpressionSyntax invocation ? Call(invocation) : null,
+            // An awaited call's value is what the call gives once awaited: await factory.MakeAsync(id) is MakeAsync's, and so is
+            // await factory.MakeAsync(id).ConfigureAwait(false).
+            Call = sourced && (bare is AwaitExpressionSyntax awaited ? Bare(Configured(awaited.Expression)) : bare) is InvocationExpressionSyntax invocation ? Call(invocation) : null,
             Trimmed = sourced ? Trimmed(bare, before) : null,
             At = CSharpReader.SpanOf(expression, file)
         };
     }
 
     private static ExpressionSyntax Unwrapped(ExpressionSyntax expression) => expression is ParenthesizedExpressionSyntax parenthesized ? Unwrapped(parenthesized.Expression) : expression;
+
+    /// <summary>What is awaited under <c>ConfigureAwait(...)</c>, which changes only where the code resumes: <c>MakeAsync(id)</c> in <c>MakeAsync(id).ConfigureAwait(false)</c>.</summary>
+    private static ExpressionSyntax Configured(ExpressionSyntax awaited) =>
+        Unwrapped(awaited) is InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax { Name.Identifier.Text: "ConfigureAwait" } access, ArgumentList.Arguments.Count: 1 }
+            ? access.Expression
+            : awaited;
 
     /// <summary>What a value is under its parentheses, casts, <c>as</c> and <c>!</c>, none of which change its text.</summary>
     private static ExpressionSyntax Bare(ExpressionSyntax expression) => expression switch
@@ -431,9 +439,9 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
             case ObjectCreationExpressionSyntax creation:
                 return ([Created(creation)], true);
             case CastExpressionSyntax cast:
-                return OrDeclared(TypesOf(cast.Expression, before, depth), cast.Type);
+                return Cast(TypesOf(cast.Expression, before, depth), cast.Type);
             case BinaryExpressionSyntax { Right: TypeSyntax type } binary when binary.IsKind(SyntaxKind.AsExpression):
-                return OrDeclared(TypesOf(binary.Left, before, depth), type);
+                return Cast(TypesOf(binary.Left, before, depth), type);
             case ConditionalExpressionSyntax conditional:
             {
                 var whenTrue = TypesOf(conditional.WhenTrue, before, depth);
@@ -465,6 +473,11 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
                         : Unknown;
                 }
 
+                if (Tasks(resolved.Name, resolved.Receiver, invocation, typeArguments, before, depth + 1) is { } task)
+                {
+                    return task;
+                }
+
                 // A library's method: what a well-known one gives, or what a query chain does.
                 var library = LibraryResults.Of(resolved.Name, resolved.Receiver, resolved.ReceiverType, typeArguments, invocation.ArgumentList.Arguments.Count)
                               ?? Query(invocation, before, depth);
@@ -478,8 +491,8 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
                 return ([Predefined("string")], true);
             case AwaitExpressionSyntax awaited:
             {
-                // What a Task<T> or ValueTask<T> gives when awaited.
-                var (types, known) = TypesOf(awaited.Expression, before, depth);
+                // What a Task<T> or ValueTask<T> gives when awaited, ConfigureAwait or not; it's part of the await, so costs no depth.
+                var (types, known) = TypesOf(Configured(awaited.Expression), before, depth);
                 return known && types.All(x => x is { Name: "Task" or "ValueTask", Arguments.Count: 1 }) ? (types.Select(x => x.Arguments[0]).ToList(), true) : Unknown;
             }
             case IdentifierNameSyntax identifier:
@@ -656,9 +669,78 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
     private static TypeRefNode Predefined(string keyword) =>
         new() { Text = keyword, Name = keyword, QualifiedName = keyword, IsPredefinedValueType = keyword != "string", Language = CSharpLanguage.LanguageName };
 
-    /// <summary>What a cast or a typed local wraps says more than its declared type, which is what it is when that isn't known.</summary>
+    /// <summary>What a typed local is given says more than its declared type, which is what it is when that isn't known.</summary>
     private static (List<TypeRefNode> Types, bool Known) OrDeclared((List<TypeRefNode> Types, bool Known) value, TypeSyntax declared) =>
         value.Known && value.Types.Count > 0 ? value : ([CSharpReader.TypeRef(declared)], true);
+
+    /// <summary>
+    /// A cast or <c>as</c> is the type it names: <c>(CrmDataEntities)_context</c> is a <c>CrmDataEntities</c>, so its calls reach
+    /// that class's methods. Not when it names <c>object</c>, or a type what it casts is or derives from: an upcast keeps what the
+    /// value is, so <c>(IEvent)new OrderPlaced()</c> is still that creation.
+    /// </summary>
+    private (List<TypeRefNode> Types, bool Known) Cast((List<TypeRefNode> Types, bool Known) value, TypeSyntax target)
+    {
+        var type = CSharpReader.TypeRef(target);
+        return value.Known && value.Types.Count > 0 && (type.Name is "object" or "Object" || value.Types.All(x => IsA(x, type))) ? value : ([type], true);
+    }
+
+    /// <summary>A type is another, or derives from it or implements it: an in-scope one by its qualified name, a library's by its name.</summary>
+    private bool IsA(TypeRefNode type, TypeRefNode other)
+    {
+        if (type.Name == other.Name && type.IsArray == other.IsArray)
+        {
+            return true;
+        }
+
+        if (type.IsArray || graph.TypeFor(type, owner) is not { } declared)
+        {
+            return false;
+        }
+
+        var named = graph.TypeFor(other, owner);
+        return graph.Supertypes(declared).Contains(named is null ? other.Name : named.Namespace.Length > 0 ? $"{named.Namespace}.{named.Name}" : named.Name);
+    }
+
+    /// <summary>
+    /// What <c>Task.FromResult(x)</c> and <c>ValueTask.FromResult(x)</c> give, a task of <c>x</c>'s type, and <c>Task.Run(() =&gt; e)</c>,
+    /// a task of what its lambda gives (a task it gives is the one it runs, unwrapped, as <c>Task.Run</c>'s overloads do); a type
+    /// argument they're given says it outright. Null for any other call.
+    /// </summary>
+    private (List<TypeRefNode> Types, bool Known)? Tasks(string name, string? receiver, InvocationExpressionSyntax invocation, IReadOnlyList<TypeRefNode> typeArguments, int before, int depth)
+    {
+        var task = receiver switch
+        {
+            "Task" or "System.Threading.Tasks.Task" => "Task",
+            "ValueTask" or "System.Threading.Tasks.ValueTask" => "ValueTask",
+            _ => null
+        };
+        if (task is null || name is not ("FromResult" or "Run") || invocation.ArgumentList.Arguments is not [var argument] || name == "Run" && task != "Task")
+        {
+            return null;
+        }
+
+        if (typeArguments is [var stated])
+        {
+            return ([TaskOf(task, stated)], true);
+        }
+
+        if (name == "FromResult")
+        {
+            var (types, known) = TypesOf(argument.Expression, before, depth);
+            return known && types.Count > 0 ? (types.Select(x => TaskOf(task, x)).ToList(), true) : Unknown;
+        }
+
+        if (argument.Expression is not LambdaExpressionSyntax { ExpressionBody: { } body })
+        {
+            return Unknown;
+        }
+
+        var (given, all) = TypesOf(body, body.SpanStart, depth);
+        return all && given.Count > 0 ? (given.Select(x => x.Name == "Task" && x.Arguments.Count <= 1 ? x : TaskOf(task, x)).ToList(), true) : Unknown;
+    }
+
+    private static TypeRefNode TaskOf(string task, TypeRefNode result) =>
+        new() { Text = $"{task}<{result.Text}>", Name = task, QualifiedName = $"System.Threading.Tasks.{task}", Arguments = [result], Language = CSharpLanguage.LanguageName };
 
     /// <summary>
     /// A name in the body: a local declared before the use, then a parameter (the type's primary constructor's included), then
@@ -677,7 +759,16 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
 
             var given = LocalValues(local, name, before).Select(x => TypesOf(x, x.SpanStart, depth + 1)).ToList();
             (List<TypeRefNode> Types, bool Known) value = (given.SelectMany(x => x.Types).ToList(), given.Count > 0 && given.All(x => x.Known));
-            return local.Parent is VariableDeclarationSyntax { Type.IsVar: false } declaration ? OrDeclared(value, declaration.Type) : value;
+            if (local.Parent is VariableDeclarationSyntax { Type.IsVar: false } declaration)
+            {
+                return OrDeclared(value, declaration.Type);
+            }
+
+            // A var local whose values disagree, or aren't all known, is its initializer's type, which is C#'s own static type
+            // for it: var model = new object(); model = "..."; is an object.
+            return local.Initializer is not null && given is [{ Known: true, Types: [var initial] }, _, ..] && !(value.Known && value.Types.All(x => x.Text == initial.Text))
+                ? ([initial], true)
+                : value;
         }
 
         var parameter = identifier.Ancestors().SelectMany(Parameters).FirstOrDefault(x => x.Identifier.Text == name);

@@ -148,11 +148,17 @@ internal static class SuccessStatus
 
         for (var call = returned; call is not null; call = call.On)
         {
+            if (FromResult(call) is { } wrapped)
+            {
+                Value(code, type, body, wrapped, at, depth + 1, found, ref unreadable);
+                return;
+            }
+
             if (GivenStatus.Contains(call.Name) && (IsFramework(call) || call.Name == "CreateResponse"))
             {
-                if (StatusIn(call.Arguments.FirstOrDefault()) is { Known: false } && call.Name == "Content")
+                if (call.Name == "Content" && StatusIn(call.Arguments.FirstOrDefault()) is { Known: false } && !IsStatusCode(call.Arguments.FirstOrDefault()))
                 {
-                    // ASP.NET Core's Content(text) is a 200; Web API 2's Content(status, value) gives one.
+                    // ASP.NET Core's Content(text) is a 200; Web API 2's Content(status, value) gives one, even one this can't read.
                     found.Add((200, at));
                 }
                 else
@@ -199,6 +205,12 @@ internal static class SuccessStatus
 
     private static bool IsFramework(CallNode call) => call.Target is null && (call.Receiver is null || Receivers.Contains(call.Receiver));
 
+    /// <summary>What <c>Task.FromResult(x)</c> or <c>ValueTask.FromResult(x)</c> wraps: a result handed back as a finished task, returned or awaited.</summary>
+    public static ValueNode? FromResult(CallNode call) =>
+        call is { Name: "FromResult", Target: null, Arguments: [var wrapped], Receiver: "Task" or "ValueTask" or "System.Threading.Tasks.Task" or "System.Threading.Tasks.ValueTask" }
+            ? wrapped
+            : null;
+
     /// <summary>The status a value names, if it names one the code gives: <c>204</c>, <c>HttpStatusCode.NoContent</c>, <c>(int)HttpStatusCode.Created</c>, <c>StatusCodes.Status201Created</c>, <c>HttpStatus.NO_CONTENT</c>.</summary>
     private static (bool Known, int Status) StatusIn(ValueNode? value) =>
         StatusOf(value?.Literal?.Value ?? value?.Text) is { } status ? (true, status) : (false, 0);
@@ -211,7 +223,7 @@ internal static class SuccessStatus
             return null;
         }
 
-        text = Regex.Replace(text, @"^\((int|Integer)\)\s*", "").Trim();
+        text = Regex.Replace(text, @"^\((int|Integer|(System\.Net\.)?HttpStatusCode)\)\s*", "").Trim();
         if (int.TryParse(text, out var number))
         {
             return number;
@@ -222,10 +234,28 @@ internal static class SuccessStatus
             return int.Parse(constant.Groups[1].Value);
         }
 
-        return Regex.IsMatch(text, @"^(System\.Net\.|org\.springframework\.http\.)?(HttpStatusCode|HttpStatus)\.") && Names.TryGetValue(text.Split('.')[^1].Replace("_", ""), out var named)
-            ? named
-            : null;
+        if (!Regex.IsMatch(text, @"^(System\.Net\.|org\.springframework\.http\.)?(HttpStatusCode|HttpStatus)\."))
+        {
+            return null;
+        }
+
+        var name = text.Split('.')[^1].Replace("_", "");
+        if (Names.TryGetValue(name, out var named))
+        {
+            return named;
+        }
+
+        // Any other status .NET names (HttpStatusCode.ExpectationFailed), and Spring's HttpStatus, mostly the same words.
+        // A name only: Enum.TryParse would read digits, or names joined by commas, as a value too.
+        return Regex.IsMatch(name, "^[A-Za-z]+$") && Enum.TryParse<System.Net.HttpStatusCode>(name, ignoreCase: true, out var status) ? (int)status : null;
     }
+
+    /// <summary>
+    /// A value of .NET's <c>HttpStatusCode</c>: one of its members (<c>HttpStatusCode.ExpectationFailed</c>), a cast to it, or a
+    /// value the code types as one. Web API 2's <c>Content(status, value)</c> takes one first, ASP.NET Core's <c>Content(text)</c> a string.
+    /// </summary>
+    public static bool IsStatusCode(ValueNode? value) =>
+        value is not null && (Regex.IsMatch(value.Text, @"^\(?(System\.Net\.)?HttpStatusCode[.)]") || value.Types.Any(x => x.Name == "HttpStatusCode"));
 
     /// <summary>The success typed results a return type names, under <c>Task</c> and <c>Results&lt;...&gt;</c>.</summary>
     private static IEnumerable<int> Typed(TypeRefNode? type)

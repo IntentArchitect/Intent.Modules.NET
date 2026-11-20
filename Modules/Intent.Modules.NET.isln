@@ -187,4 +187,8 @@
     <application id="e5ece418-cf71-484a-a5ad-706affe51df3" name="Intent.Modules.Application.CQRS.CRUD" solutionFolder="Application" relativePath="Intent.Modules.Application.CQRS.CRUD/Intent.Modules.Application.CQRS.CRUD.application.config" />
     <application id="5b7f0f29-ed8a-419c-83ba-43d51a5acddb" name="ModuleBuilderAiSkills" solutionFolder="AI Skills" relativePath="ModuleBuilderAiSkills/ModuleBuilderAiSkills.application.config" />
   </applications>
+  <folders>
+    <folder path="../../../WIP/IBF2" />
+    <folder path="../../Intent" />
+  </folders>
 </solution>

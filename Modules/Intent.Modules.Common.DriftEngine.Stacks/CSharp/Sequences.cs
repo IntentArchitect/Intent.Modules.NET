@@ -10,11 +10,14 @@ namespace Intent.Modules.Common.DriftEngine.Stacks.CSharp;
 /// </summary>
 internal static class Sequences
 {
-    /// <summary>The sequences a chain can start on, of one element type.</summary>
+    /// <summary>
+    /// The sequences a chain can start on, of one element type; EF6's too, such as the <c>ObjectResult&lt;T&gt;</c> a database-first
+    /// context's stored procedure method gives (<c>context.spGetQuote(id).FirstOrDefault()</c>) and <c>Database.SqlQuery&lt;T&gt;</c>'s.
+    /// </summary>
     private static readonly HashSet<string> Sources = new(StringComparer.Ordinal)
     {
         "DbSet", "IQueryable", "IOrderedQueryable", "IEnumerable", "IOrderedEnumerable", "List", "IList", "ICollection", "IReadOnlyList", "IReadOnlyCollection",
-        "HashSet", "ISet", "IIncludableQueryable"
+        "HashSet", "ISet", "IIncludableQueryable", "ObjectResult", "DbRawSqlQuery", "DbSqlQuery"
     };
 
     /// <summary>The operators that keep the element type.</summary>

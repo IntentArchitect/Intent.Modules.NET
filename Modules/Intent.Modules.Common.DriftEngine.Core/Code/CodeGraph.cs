@@ -338,8 +338,10 @@ public sealed record CallTarget(TypeNode Type, MemberNode Member)
 /// <summary>
 /// A value in a body, such as a call's argument, and the types the code says it can be without running it: a creation is
 /// its type; a local is what it is given before it is used (its initializer and each assignment, one type each), or its
-/// declared type when one of those isn't known; a parameter, field or property is its declared type; a cast is what it
-/// casts, or else the cast's type; a conditional is both its branches, and a C# switch expression each of its arms.
+/// declared type when one of those isn't known (C#'s <c>var</c>, its initializer's, when they disagree); a parameter, field
+/// or property is its declared type; a cast is the type it
+/// names, unless that's <c>object</c> or a type what it casts derives from (an upcast), when it is what it casts; a
+/// conditional is both its branches, and a C# switch expression each of its arms.
 /// </summary>
 public sealed class ValueNode
 {
@@ -491,6 +493,9 @@ public sealed class AttributeNode
 {
     /// <summary>The name as used, without a namespace or the <c>Attribute</c> suffix: <c>HttpGet</c>.</summary>
     public required string Name { get; init; }
+
+    /// <summary>A generic attribute's type arguments: <c>OrderDto</c> for C#'s <c>[ProducesResponseType&lt;OrderDto&gt;(200)]</c>.</summary>
+    public IReadOnlyList<TypeRefNode> TypeArguments { get; init; } = [];
 
     /// <summary>The positional arguments: a string literal's value, otherwise the argument as written.</summary>
     public IReadOnlyList<string> Arguments { get; init; } = [];

@@ -1381,6 +1381,499 @@ public class ShapesController : ControllerBase
 }
 ```
 
+## web-api-2-content-status
+
+A Web API 2 action gives its status first: `Content(HttpStatusCode.OK, model)` succeeds with `model`, and `Content(HttpStatusCode.ExpectationFailed, ex.Message)` is an error result, which the model doesn't state. Any status .NET's `HttpStatusCode` names is read, so the 417 isn't taken for ASP.NET Core's `Content(text)`, a `string` success: the action returns `List<CrmAddressModel>`, the model's collection.
+
+```json case
+{ "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "CrmBus.Crm",
+        "elements": [
+          { "id": "crm-address-model", "type": "DTO", "name": "CrmAddressModel",
+            "children": [ { "id": "crm-address-model-line1", "type": "DTO-Field", "name": "Line1", "typeRef": { "type": "string" } } ] },
+          { "id": "address-controller", "type": "Service", "name": "AddressController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/Address" } },
+            "children": [
+              { "id": "get-address-by-person-id", "type": "Operation", "name": "GetAddressByPersonId", "typeRef": { "element": "crm-address-model", "collection": true },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "GetAddressByPersonId" } },
+                "children": [ { "id": "get-address-by-person-id-person-id", "type": "Parameter", "name": "personId", "typeRef": { "type": "int" } } ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/CrmBus.Crm/Models/CrmAddressModel.cs
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace CrmBus.Crm.Models;
+
+public class CrmAddressModel
+{
+    public string Line1 { get; set; } = "";
+}
+
+public interface IAddressLogic
+{
+    Task<List<CrmAddressModel>> GetAddressByPersonId(int personId);
+}
+```
+
+```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+using System;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Http;
+using CrmBus.Crm.Models;
+
+namespace CrmBus.Crm.Controllers;
+
+[RoutePrefix("api/Address")]
+public class AddressController : ApiController
+{
+    private readonly IAddressLogic _logic;
+
+    public AddressController(IAddressLogic logic)
+    {
+        _logic = logic;
+    }
+
+    [HttpGet]
+    [Route("GetAddressByPersonId")]
+    public async Task<IHttpActionResult> GetAddressByPersonId(int personId)
+    {
+        try
+        {
+            var model = await _logic.GetAddressByPersonId(personId);
+            return Content(HttpStatusCode.OK, model);
+        }
+        catch (Exception ex)
+        {
+            return Content(HttpStatusCode.ExpectationFailed, ex.Message);
+        }
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "verified", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with List<CrmAddressModel>" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "count": 0 }
+  ]
+}
+```
+
+## web-api-2-content-status-contradicted
+
+The action now succeeds with `Content(HttpStatusCode.OK, personId)`, an `int`, against the model's collection: contradicted. The 417 is still an error result, so the finding names only the `int`.
+
+```json case
+{ "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+using System;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Http;
+using CrmBus.Crm.Models;
+
+namespace CrmBus.Crm.Controllers;
+
+[RoutePrefix("api/Address")]
+public class AddressController : ApiController
+{
+    private readonly IAddressLogic _logic;
+
+    public AddressController(IAddressLogic logic)
+    {
+        _logic = logic;
+    }
+
+    [HttpGet]
+    [Route("GetAddressByPersonId")]
+    public async Task<IHttpActionResult> GetAddressByPersonId(int personId)
+    {
+        try
+        {
+            var model = await _logic.GetAddressByPersonId(personId);
+            return Content(HttpStatusCode.OK, personId);
+        }
+        catch (Exception ex)
+        {
+            return Content(HttpStatusCode.ExpectationFailed, ex.Message);
+        }
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "contradicted", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with int" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "get-address-by-person-id" }
+  ]
+}
+```
+
+## web-api-2-content-status-unknown
+
+The action's error path gives its status as a field, `Content(_failure, ex.Message)`. The field is an `HttpStatusCode`, so this is Web API 2's `Content(status, value)`, never ASP.NET Core's `Content(text)`, and whether it succeeds isn't known: can't verify, not a `string` success.
+
+```json case
+{ "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R2", "R5"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+using System;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Http;
+using CrmBus.Crm.Models;
+
+namespace CrmBus.Crm.Controllers;
+
+[RoutePrefix("api/Address")]
+public class AddressController : ApiController
+{
+    private readonly IAddressLogic _logic;
+    private readonly HttpStatusCode _failure;
+
+    public AddressController(IAddressLogic logic, HttpStatusCode failure)
+    {
+        _logic = logic;
+        _failure = failure;
+    }
+
+    [HttpGet]
+    [Route("GetAddressByPersonId")]
+    public async Task<IHttpActionResult> GetAddressByPersonId(int personId)
+    {
+        try
+        {
+            var model = await _logic.GetAddressByPersonId(personId);
+            return Content(HttpStatusCode.OK, model);
+        }
+        catch (Exception ex)
+        {
+            return Content(_failure, ex.Message);
+        }
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "cantVerify", "reason": "unreadable" }
+  ]
+}
+```
+
+## web-api-2-content-configure-await
+
+The action awaits the logic with `.ConfigureAwait(false)`, which changes only where it resumes: `model` is still what the task gives, `List<CrmAddressModel>`.
+
+```json case
+{ "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+using System;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Http;
+using CrmBus.Crm.Models;
+
+namespace CrmBus.Crm.Controllers;
+
+[RoutePrefix("api/Address")]
+public class AddressController : ApiController
+{
+    private readonly IAddressLogic _logic;
+
+    public AddressController(IAddressLogic logic)
+    {
+        _logic = logic;
+    }
+
+    [HttpGet]
+    [Route("GetAddressByPersonId")]
+    public async Task<IHttpActionResult> GetAddressByPersonId(int personId)
+    {
+        try
+        {
+            var model = await _logic.GetAddressByPersonId(personId).ConfigureAwait(false);
+            return Content(HttpStatusCode.OK, model);
+        }
+        catch (Exception ex)
+        {
+            return Content(HttpStatusCode.ExpectationFailed, ex.Message);
+        }
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "verified", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with List<CrmAddressModel>" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "count": 0 }
+  ]
+}
+```
+
+## web-api-2-task-from-result
+
+The action hands each result back through `await Task.FromResult(...)`, which is the result it wraps: `Content(HttpStatusCode.OK, model)` succeeds with `List<CrmAddressModel>`.
+
+```json case
+{ "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+using System;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Http;
+using CrmBus.Crm.Models;
+
+namespace CrmBus.Crm.Controllers;
+
+[RoutePrefix("api/Address")]
+public class AddressController : ApiController
+{
+    private readonly IAddressLogic _logic;
+
+    public AddressController(IAddressLogic logic)
+    {
+        _logic = logic;
+    }
+
+    [HttpGet]
+    [Route("GetAddressByPersonId")]
+    public async Task<IHttpActionResult> GetAddressByPersonId(int personId)
+    {
+        try
+        {
+            var model = await _logic.GetAddressByPersonId(personId);
+            return await Task.FromResult(Content(HttpStatusCode.OK, model));
+        }
+        catch (Exception ex)
+        {
+            return await Task.FromResult(Content(HttpStatusCode.ExpectationFailed, ex.Message));
+        }
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "verified", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with List<CrmAddressModel>" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "count": 0 }
+  ]
+}
+```
+
+## web-api-2-response-type-stub
+
+The action is a stub that only throws, so its body builds no success result, and its `[ResponseType(typeof(List<CrmAddressModel>))]` says what it returns: the model's collection.
+
+```json case
+{ "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.Description;
+using CrmBus.Crm.Models;
+
+namespace CrmBus.Crm.Controllers;
+
+[RoutePrefix("api/Address")]
+public class AddressController : ApiController
+{
+    [HttpGet]
+    [Route("GetAddressByPersonId")]
+    [ResponseType(typeof(List<CrmAddressModel>))]
+    public async Task<IHttpActionResult> GetAddressByPersonId(int personId)
+    {
+        throw new NotImplementedException();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "verified", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with List<CrmAddressModel>" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "count": 0 }
+  ]
+}
+```
+
+## web-api-2-response-type-stub-contradicted
+
+The stub's `[ResponseType]` now names one `CrmAddressModel`, against the model's collection: contradicted.
+
+```json case
+{ "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.Description;
+using CrmBus.Crm.Models;
+
+namespace CrmBus.Crm.Controllers;
+
+[RoutePrefix("api/Address")]
+public class AddressController : ApiController
+{
+    [HttpGet]
+    [Route("GetAddressByPersonId")]
+    [ResponseType(typeof(CrmAddressModel))]
+    public async Task<IHttpActionResult> GetAddressByPersonId(int personId)
+    {
+        throw new NotImplementedException();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "contradicted", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with CrmAddressModel" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "get-address-by-person-id" }
+  ]
+}
+```
+
+## web-api-2-response-type-body-first
+
+The action's body succeeds with `Content(HttpStatusCode.OK, personId)`, an `int`, and its `[ResponseType]` still names the collection. The body comes first and the attribute answers only when the body builds no success, so a changed return that left its attribute behind is still caught: contradicted.
+
+```json case
+{ "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.Description;
+using CrmBus.Crm.Models;
+
+namespace CrmBus.Crm.Controllers;
+
+[RoutePrefix("api/Address")]
+public class AddressController : ApiController
+{
+    [HttpGet]
+    [Route("GetAddressByPersonId")]
+    [ResponseType(typeof(List<CrmAddressModel>))]
+    public async Task<IHttpActionResult> GetAddressByPersonId(int personId)
+    {
+        await Task.Yield();
+        return Content(HttpStatusCode.OK, personId);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "contradicted", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with int" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "get-address-by-person-id" }
+  ]
+}
+```
+
+## action-result-produces-response-type
+
+ASP.NET Core stubs that only throw state what they return with `[ProducesResponseType]`: `typeof(CommodityDTO[])` with a 200, the generic `ProducesResponseType<CommodityDTO>(200)` beside an error response, which the model doesn't state, and a 204 with no type, which has no body.
+
+```json case
+{ "phase": 4, "base": "action-result-body", "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/BasisLink.Api/Controllers/CommodityMaterialController.cs
+using BasisLink.Api.Commodities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BasisLink.Api.Controllers;
+
+[ApiController]
+[Route("api/commodity-material")]
+public class CommodityMaterialController : ControllerBase
+{
+    [HttpGet]
+    [ProducesResponseType(typeof(CommodityDTO[]), StatusCodes.Status200OK)]
+    public IActionResult GetAll() => throw new NotSupportedException();
+
+    [HttpGet("{id}")]
+    [ProducesResponseType<CommodityDTO>(200)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public IActionResult Get(int id) => throw new NotSupportedException();
+
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public IActionResult Delete(int id) => throw new NotSupportedException();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "commodity-material-get-all", "outcome": "verified", "expected": "CommodityDTO[]", "actual": "IActionResult with CommodityDTO[]" },
+    { "kind": "operation.returns", "element": "commodity-material-get", "outcome": "verified", "expected": "CommodityDTO", "actual": "IActionResult with CommodityDTO" },
+    { "kind": "operation.returns", "element": "commodity-material-delete", "outcome": "verified", "actual": "IActionResult with no body" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "count": 0 }
+  ]
+}
+```
+
 ## component-operation
 
 A Component Operation is a method of the component's `@code` block. `OnBrandSelected` has no type reference, and its method returns a bare `Task`, which means nothing; `GetBrandCount` returns `int`.

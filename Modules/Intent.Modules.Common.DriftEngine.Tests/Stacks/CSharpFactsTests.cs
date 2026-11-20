@@ -170,7 +170,57 @@ public class CSharpFactsTests
         }
         """;
 
+    private const string ValueSource = """
+        namespace Shop;
+
+        public interface IMessage { }
+
+        public class Placed : IMessage { }
+
+        public class QuoteResult { }
+
+        public class Entities : DbContext
+        {
+            public virtual ObjectResult<QuoteResult> GetQuotes(int id) => null!;
+        }
+
+        public class QuoteService(OrderService orders)
+        {
+            private readonly DbContext _context = null!;
+
+            public async Task Quote(PlaceOrder command)
+            {
+                var placed = await orders.PlaceAsync(command).ConfigureAwait(false);
+                Audit(placed);
+                Audit(await orders.PlaceAsync(command).ConfigureAwait(false));
+                var context = (Entities)_context;
+                Audit(context.GetQuotes(1).FirstOrDefault());
+                Audit((IMessage)new Placed());
+                Audit((object)placed);
+                Audit(await Task.FromResult(new QuoteResult()));
+                Audit(await Task.Run(() => orders.Place(command)));
+                Audit(await Task.Run(() => orders.PlaceAsync(command)));
+                var model = new object();
+                model = "running";
+                Audit(model);
+                var count = 0;
+                count = Http.Count();
+                Audit(count);
+            }
+
+            private void Audit(object value) { }
+        }
+
+        public class OrderService
+        {
+            public Task<OrderDto> PlaceAsync(PlaceOrder command) => null!;
+            public OrderDto Place(PlaceOrder command) => null!;
+        }
+        """;
+
     private static readonly CodeGraph Graph = Read(Source);
+
+    private static readonly CodeGraph Values = Read(ValueSource);
 
     private static readonly CodeGraph Creations = Read(CreationSource);
 
@@ -290,6 +340,56 @@ public class CSharpFactsTests
         // A method's own type parameter isn't a type the code names.
         audits[2].Arguments.Single().IsKnown.ShouldBeFalse();
         Calls("Place").Single(x => x.Name == "Created").Arguments[1].Types.Single().Name.ShouldBe("OrderDto");
+    }
+
+    [Fact]
+    public void An_await_through_ConfigureAwait_gives_what_the_task_gives_and_has_the_call_it_awaits()
+    {
+        var audits = ValueAudits();
+        audits[0].Arguments.Single().Types.Single().Name.ShouldBe("OrderDto");
+        audits[1].Arguments.Single().Types.Single().Name.ShouldBe("OrderDto");
+        audits[1].Arguments.Single().Call!.Name.ShouldBe("PlaceAsync");
+    }
+
+    [Fact]
+    public void A_downcast_is_the_type_it_names_and_an_upcast_or_a_cast_to_object_is_what_it_casts()
+    {
+        // _context is a DbContext; cast to the code's own Entities, its calls reach Entities' methods.
+        var getQuotes = Values.Types.Single(x => x.Name == "QuoteService").Members.Single(x => x.Name == "Quote").Calls.Single(x => x.Name == "GetQuotes");
+        getQuotes.ReceiverType!.Name.ShouldBe("Entities");
+        getQuotes.Target!.Type.Name.ShouldBe("Entities");
+
+        // Placed implements IMessage, so the cast keeps the creation.
+        var audits = ValueAudits();
+        audits[3].Arguments.Single().Types.Single().Name.ShouldBe("Placed");
+        audits[3].Arguments.Single().Creations.ShouldHaveSingleItem();
+        audits[4].Arguments.Single().Types.Single().Name.ShouldBe("OrderDto");
+    }
+
+    [Fact]
+    public void An_EF6_stored_procedure_result_is_a_query_source()
+    {
+        ValueAudits()[2].Arguments.Single().Types.Single().Name.ShouldBe("QuoteResult");
+    }
+
+    [Fact]
+    public void A_task_from_a_result_or_from_a_run_is_a_task_of_what_it_is_given()
+    {
+        var audits = ValueAudits();
+        audits[5].Arguments.Single().Types.Single().Name.ShouldBe("QuoteResult");
+        audits[6].Arguments.Single().Types.Single().Name.ShouldBe("OrderDto");
+        // A task the lambda gives is the one Task.Run runs.
+        audits[7].Arguments.Single().Types.Single().Name.ShouldBe("OrderDto");
+    }
+
+    [Fact]
+    public void A_var_local_whose_values_disagree_or_are_not_all_known_is_its_initializer_s_type()
+    {
+        var audits = ValueAudits();
+        audits[8].Arguments.Single().IsKnown.ShouldBeTrue();
+        audits[8].Arguments.Single().Types.Single().Name.ShouldBe("object");
+        audits[9].Arguments.Single().IsKnown.ShouldBeTrue();
+        audits[9].Arguments.Single().Types.Single().Name.ShouldBe("int");
     }
 
     [Fact]
@@ -508,6 +608,9 @@ public class CSharpFactsTests
     }
 
     private static IReadOnlyList<CallNode> LiteralCalls() => Literals.Types.Single().Members.Single(x => x.Name == "Configure").Calls;
+
+    private static List<CallNode> ValueAudits() =>
+        Values.Types.Single(x => x.Name == "QuoteService").Members.Single(x => x.Name == "Quote").Calls.Where(x => x is { Name: "Audit", IsReference: false }).ToList();
 
     private static IReadOnlyList<CallNode> Calls(string member) => Targets.Types.Single(x => x.Name == "OrdersController").Members.Single(x => x.Name == member).Calls;
 

@@ -1030,6 +1030,96 @@ public class QuoteBatch
 }
 ```
 
+## jagged-array
+
+A jagged array is an array of arrays: the code's `ValidationResult[][]` is a collection whose items are `ValidationResult[]`, which a reverse-engineered model writes as a collection of the Type-Definition `ValidationResult[]`.
+
+```json case
+{ "phase": 1, "kinds": ["member.type"], "requirements": ["R2"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "CrmBus.Crm",
+        "elements": [
+          { "id": "quote-validation", "type": "DTO", "name": "QuoteValidationModel",
+            "children": [
+              { "id": "quote-validation-errors", "type": "DTO-Field", "name": "Errors", "typeRef": { "type": "ValidationResult[]", "collection": true } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/CrmBus.Crm/Models/QuoteValidationModel.cs
+using System.ComponentModel.DataAnnotations;
+
+namespace CrmBus.Crm.Models;
+
+public class QuoteValidationModel
+{
+    public ValidationResult[][] Errors { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "quote-validation-errors", "outcome": "verified", "at": "src/CrmBus.Crm/Models/QuoteValidationModel.cs:7" }
+  ]
+}
+```
+
+## jagged-array-contradicted
+
+The model says one level of collection, `ValidationResult[]`, and the code has two, `ValidationResult[][]`: its items are arrays, not `ValidationResult`s, so the type is contradicted rather than matched by the items' name.
+
+```json case
+{ "phase": 1, "base": "jagged-array", "kinds": ["member.type"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "CrmBus.Crm",
+        "elements": [
+          { "id": "quote-validation", "type": "DTO", "name": "QuoteValidationModel",
+            "children": [
+              { "id": "quote-validation-errors", "type": "DTO-Field", "name": "Errors", "typeRef": { "type": "ValidationResult", "collection": true } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "quote-validation-errors", "outcome": "contradicted", "at": "src/CrmBus.Crm/Models/QuoteValidationModel.cs:7" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "quote-validation-errors" }
+  ]
+}
+```
+
 ## association-collection
 
 A navigable association end's type is its target, and a collection of it when the end is `*` (`association.type`): `Buyer.PaymentMethods` is an `IEnumerable<PaymentMethod>`.

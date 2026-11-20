@@ -358,19 +358,21 @@ internal static class CSharpReader
     private static IReadOnlyList<AttributeNode> AttributesOf(SyntaxList<AttributeListSyntax> lists, string file) =>
         lists.SelectMany(x => x.Attributes).Select(attribute =>
         {
-            var name = attribute.Name switch
+            var simple = attribute.Name switch
             {
-                QualifiedNameSyntax qualified => qualified.Right.Identifier.Text,
-                AliasQualifiedNameSyntax alias => alias.Name.Identifier.Text,
-                SimpleNameSyntax simple => simple.Identifier.Text,
-                _ => attribute.Name.ToString()
+                QualifiedNameSyntax qualified => qualified.Right,
+                AliasQualifiedNameSyntax alias => alias.Name,
+                SimpleNameSyntax own => own,
+                _ => null
             };
+            var name = simple?.Identifier.Text ?? attribute.Name.ToString();
             string Value(AttributeArgumentSyntax argument) => LiteralOf(argument.Expression, file, x => ValueOf(x, file))?.Value ?? argument.Expression.ToString();
 
             var all = attribute.ArgumentList?.Arguments ?? default;
             return new AttributeNode
             {
                 Name = name.EndsWith("Attribute", StringComparison.Ordinal) ? name[..^"Attribute".Length] : name,
+                TypeArguments = simple is GenericNameSyntax generic ? generic.TypeArgumentList.Arguments.Select(TypeRef).ToList() : [],
                 Arguments = all.Where(x => x.NameEquals is null && x.NameColon is null).Select(Value).ToList(),
                 Named = all.Where(x => x.NameEquals is not null).ToDictionary(x => x.NameEquals!.Name.Identifier.Text, Value),
                 Values = all.OrderBy(x => x.NameEquals is not null || x.NameColon is not null)
@@ -493,7 +495,8 @@ internal static class CSharpReader
             }
             case ArrayTypeSyntax array:
             {
-                var element = TypeRef(array.ElementType);
+                // Only the outermost rank, the first written: a jagged T[][] is an array of T[], as the Java and TypeScript readers nest them.
+                var element = TypeRef(array.RankSpecifiers.Count > 1 ? SyntaxFactory.ArrayType(array.ElementType, SyntaxFactory.List(array.RankSpecifiers.Skip(1))) : array.ElementType);
                 return new TypeRefNode { Text = text, Name = element.Name, QualifiedName = element.QualifiedName, Arguments = [element], IsArray = true, Language = CSharpLanguage.LanguageName };
             }
             case PredefinedTypeSyntax predefined:

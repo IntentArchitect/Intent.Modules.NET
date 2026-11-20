@@ -1,6 +1,9 @@
 using Intent.Metadata.Models;
 using Intent.Modules.Common.DriftEngine.Code;
 using Intent.Modules.Common.DriftEngine.Extensions;
+using Intent.Modules.Common.DriftEngine.Stacks.CSharp;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Intent.Modules.Common.DriftEngine.Stacks.AspNetCore;
 
@@ -52,23 +55,26 @@ internal static class ActionResults
     public static ClaimReading Read(ClaimContext context, MemberNode member)
     {
         var returns = member.Type!;
-        if (member.Body is not { } body)
-        {
-            return ClaimReading.CantVerify("unreadable", $"`{member.Name}` returns `{returns.Text}`, which doesn't state the type of its body, and it has no body to read.", member.At);
-        }
-
         var successes = new List<(TypeRefNode? Body, Span At)>();
-        foreach (var value in body.Returns)
+        foreach (var value in member.Body?.Returns ?? [])
         {
-            if (Value(body, value, value.At, 0, successes) is { } unread)
+            if (Value(member.Body!, value, value.At, 0, successes) is { } unread)
             {
                 return ClaimReading.CantVerify(unread.Reason, unread.Message, unread.At);
             }
         }
 
+        // The body comes first. Only when it builds no success, as a stub that only throws, does the action's declared response say.
         if (successes.Count == 0)
         {
-            return ClaimReading.CantVerify("unreadable", $"`{member.Name}` returns `{returns.Text}`, which doesn't state the type of its body, and it builds no success result.", member.At);
+            Declared(member, successes);
+        }
+
+        if (successes.Count == 0)
+        {
+            return ClaimReading.CantVerify("unreadable", member.Body is null
+                ? $"`{member.Name}` returns `{returns.Text}`, which doesn't state the type of its body, and it has no body to read."
+                : $"`{member.Name}` returns `{returns.Text}`, which doesn't state the type of its body, and it builds no success result.", member.At);
         }
 
         // A success with no body beside ones with a body (a fallback Ok()) is the operation returning nothing of its type.
@@ -118,6 +124,12 @@ internal static class ActionResults
         if ((value.Call ?? MinimalApiClaims.Outermost(body, value.At)) is not { } call)
         {
             return Unreadable(value, at);
+        }
+
+        // return await Task.FromResult(Ok(data)): the result it hands back as a finished task.
+        if (Http.SuccessStatus.FromResult(call) is { } wrapped)
+        {
+            return Value(body, wrapped, at, depth + 1, successes);
         }
 
         if (call.Target is null && (call.Receiver is null || Receivers.Contains(call.Receiver)))
@@ -170,6 +182,8 @@ internal static class ActionResults
                 // StatusCode(201, value), Web API 2's Content(HttpStatusCode.Created, value).
                 return status is >= 200 and < 300 ? Success(body, arguments.Count > 1 ? arguments[1] : null, at, successes) : null;
             case "StatusCode":
+            case "Content" when Http.SuccessStatus.IsStatusCode(arguments.FirstOrDefault()):
+                // Web API 2's Content(status, value) with a status this can't read is never ASP.NET Core's Content(text).
                 return new Unread("unreadable", $"`{call.Text}` gives a status the code doesn't give as a value, so whether it succeeds isn't known.", at);
             case "Content":
                 // ASP.NET Core's Content(text) sends the text.
@@ -245,6 +259,41 @@ internal static class ActionResults
         successes.Add((type, at));
         return null;
     }
+
+    /// <summary>
+    /// The success responses the action declares: Web API 2's <c>[ResponseType(typeof(T))]</c>, and ASP.NET Core's
+    /// <c>[ProducesResponseType(typeof(T), 200)]</c>, <c>[ProducesResponseType(200, Type = typeof(T))]</c> and
+    /// <c>[ProducesResponseType&lt;T&gt;(200)]</c>, of a 2xx status (200 when it gives none). One with no type, or
+    /// <c>typeof(void)</c>, has no body.
+    /// </summary>
+    private static void Declared(MemberNode member, List<(TypeRefNode? Body, Span At)> successes)
+    {
+        foreach (var attribute in member.Attributes)
+        {
+            if (attribute is { Name: "ResponseType", Arguments: [var type] })
+            {
+                successes.Add((TypeOfType(type), attribute.At));
+            }
+            else if (attribute.Name == "ProducesResponseType")
+            {
+                var body = attribute.TypeArguments is [var generic]
+                    ? generic
+                    : attribute.Arguments.Select(TypeOfType).FirstOrDefault(x => x is not null) ?? (attribute.Named.TryGetValue("Type", out var named) ? TypeOfType(named) : null);
+                var status = attribute.Arguments.Select(Http.SuccessStatus.StatusOf).FirstOrDefault(x => x is not null)
+                             ?? (attribute.Named.TryGetValue("StatusCode", out var code) ? Http.SuccessStatus.StatusOf(code) : 200);
+                if (status is >= 200 and < 300)
+                {
+                    successes.Add((body, attribute.At));
+                }
+            }
+        }
+    }
+
+    /// <summary>The type a <c>typeof(T)</c> argument names; null for anything else, and for <c>typeof(void)</c>.</summary>
+    private static TypeRefNode? TypeOfType(string argument) =>
+        SyntaxFactory.ParseExpression(argument) is TypeOfExpressionSyntax { Type: var type } && type is not PredefinedTypeSyntax { Keyword.Text: "void" }
+            ? CSharpReader.TypeRef(type)
+            : null;
 
     /// <summary><c>Accepted(uri)</c>'s location: a string or a <c>Uri</c>, not a body.</summary>
     private static bool IsLocation(ValueNode value) =>

@@ -289,9 +289,9 @@ internal sealed class MessageCopyReader : IClaimReader
 }
 
 /// <summary>
-/// Whether the code the link starts from raises its message: the method, or the code's own methods it calls,
-/// hands a <c>new</c> one on (<see cref="MessageCode.HandsOn"/>). A command's code is the method that takes it; a handler subscription's is the
-/// handler's method that takes what it subscribes to.
+/// Whether the code the link starts from raises its message: the method, or the code's own methods it calls, hands one on
+/// (<see cref="MessageCode.HandsOn"/>), a <c>new</c> one or a value the code types as one (<see cref="MessageCode.MessagesOf"/>).
+/// A command's code is the method that takes it; a handler subscription's is the handler's method that takes what it subscribes to.
 /// </summary>
 internal sealed class MessageLinkReader : IClaimReader
 {
@@ -338,7 +338,7 @@ internal sealed class MessageLinkReader : IClaimReader
         }
 
         return ClaimReading.Compared("absent", unit.Member.At, false,
-            $"{MessageCode.Describe(source)} {link.Verb} `{message.Name}` in the model, but it isn't in the code: no `new {message.Name}(...)` is handed on in {where} or the code's own methods it calls ({unit.Member.At.File}). Remove the {link.Link} link if the code is right.");
+            $"{MessageCode.Describe(source)} {link.Verb} `{message.Name}` in the model, but it isn't in the code: no `{message.Name}`, new or typed as one, is handed on in {where} or the code's own methods it calls ({unit.Member.At.File}). Remove the {link.Link} link if the code is right.");
     }
 }
 
@@ -425,7 +425,7 @@ internal sealed class UnmodelledMessages : IDriftRule
         }
     }
 
-    /// <summary>Each call in checked code that hands a new message on, which no link claim covered.</summary>
+    /// <summary>Each call in checked code that hands a message on, new or typed as one, which no link claim covered.</summary>
     private static List<Send> Sends(RuleContext context, IReadOnlyDictionary<TypeNode, IElement?> messages, IReadOnlySet<CallNode> covered)
     {
         var sends = new List<Send>();
@@ -438,11 +438,11 @@ internal sealed class UnmodelledMessages : IDriftRule
                 {
                     for (var i = 0; i < call.Arguments.Count; i++)
                     {
-                        foreach (var created in MessageCode.Created(context.Code, type, call.Arguments[i]))
+                        foreach (var sent in MessageCode.MessagesOf(context.Code, type, call.Arguments[i]))
                         {
-                            if (MessageCode.Resolve(context.Code, created, type, messages.Keys) is { } message
+                            if (MessageCode.Resolve(context.Code, sent, type, messages.Keys) is { } message
                                 && !seen.Contains((call, message))
-                                && MessageCode.HandsOn(context.Code, type, member, call, i, created)
+                                && MessageCode.HandsOn(context.Code, type, member, call, i, sent)
                                 && seen.Add((call, message)))
                             {
                                 sends.Add(new Send(type, member, call, message, messages[message]));
@@ -631,11 +631,11 @@ internal static class MessageCode
         : $"No method takes `{source.Name}`, so what its handler {link.Verb} can't be read.";
 
     /// <summary>
-    /// The calls in the method, or in the code's own methods it calls (transitively), that hand a new message on, each with
-    /// the method's own call that leads to it: itself, or its call of the method that does. A method does what the methods
-    /// it delegates to do, its type's and its collaborators' alike (<see cref="Bodies"/>): a handler that has a helper send.
+    /// The calls in the method, or in the code's own methods it calls (transitively), that hand a message on (<see cref="MessagesOf"/>),
+    /// each with the method's own call that leads to it: itself, or its call of the method that does. A method does what the
+    /// methods it delegates to do, its type's and its collaborators' alike (<see cref="Bodies"/>): a handler that has a helper send.
     /// </summary>
-    public static IEnumerable<(CallNode Root, CallNode Call)> Raising(CodeGraph code, TypeNode type, MemberNode member, Func<CreationNode, bool> isMessage)
+    public static IEnumerable<(CallNode Root, CallNode Call)> Raising(CodeGraph code, TypeNode type, MemberNode member, Func<TypeRefNode, bool> isMessage)
     {
         var seen = new HashSet<MemberNode> { member };
         var queue = new Queue<(TypeNode Type, MemberNode Member, CallNode? Root)>([(type, member, null)]);
@@ -644,7 +644,7 @@ internal static class MessageCode
             foreach (var call in current.Member.Calls)
             {
                 var root = current.Root ?? call;
-                if (call.Arguments.Select((x, i) => (Value: x, Index: i)).Any(a => Created(code, current.Type, a.Value).Any(c => isMessage(c) && HandsOn(code, current.Type, current.Member, call, a.Index, c))))
+                if (call.Arguments.Select((x, i) => (Value: x, Index: i)).Any(a => MessagesOf(code, current.Type, a.Value).Any(c => isMessage(c) && HandsOn(code, current.Type, current.Member, call, a.Index, c))))
                 {
                     yield return (root, call);
                 }
@@ -658,10 +658,42 @@ internal static class MessageCode
     }
 
     /// <summary>
-    /// The messages a value can be: what it creates, or each message the code's own method it is the result of can return,
-    /// through the methods that method returns the result of in turn. <c>AddDomainEvent(StatusChanged())</c> raises each
-    /// event <c>StatusChanged()</c> returns, whichever branch returns it: a link says what the code can do, not what it
-    /// always does.
+    /// The messages a value can be, as types: what it creates (<see cref="Created"/>), and the type the code gives it, unless it
+    /// is the method's own parameter, whose message its caller handed in. <c>context.SendLocal(nextMessage)</c> sends what
+    /// <c>var nextMessage = await router.NextAsync(...)</c> types it as, <c>context.SendLocal(outputs.SendEmail)</c> the
+    /// property's type.
+    /// </summary>
+    public static IEnumerable<TypeRefNode> MessagesOf(CodeGraph code, TypeNode from, ValueNode value)
+    {
+        var seen = new HashSet<TypeRefNode>(ReferenceEqualityComparer.Instance);
+        foreach (var creation in Created(code, from, value))
+        {
+            if (seen.Add(creation.Type))
+            {
+                yield return creation.Type;
+            }
+        }
+
+        if (!value.IsKnown || FromParameter(value, 0))
+        {
+            yield break;
+        }
+
+        foreach (var type in value.Types.Where(seen.Add))
+        {
+            yield return type;
+        }
+    }
+
+    /// <summary>The value is a parameter of its unit, or a local given one.</summary>
+    private static bool FromParameter(ValueNode value, int depth) =>
+        value.Parameter is not null || depth < 3 && value.Given.Any(x => FromParameter(x, depth + 1));
+
+    /// <summary>
+    /// The messages a value creates: a creation, each message the code's own method it is the result of can return, through
+    /// the methods that method returns the result of in turn, and what a local is given. <c>AddDomainEvent(StatusChanged())</c>
+    /// raises each event <c>StatusChanged()</c> returns, whichever branch returns it: a link says what the code can do, not
+    /// what it always does.
     /// </summary>
     public static IEnumerable<CreationNode> Created(CodeGraph code, TypeNode from, ValueNode value) => Created(code, from, value, 0);
 
@@ -672,8 +704,19 @@ internal static class MessageCode
             yield return creation;
         }
 
-        if (depth >= 3 || value.Call is not { } call)
+        if (depth >= 3)
         {
+            yield break;
+        }
+
+        if (value.Call is not { } call)
+        {
+            // A local, or a conditional: what each of its values creates (var next = await router.NextAsync(message)).
+            foreach (var creation in value.Given.SelectMany(x => Created(code, from, x, depth + 1)))
+            {
+                yield return creation;
+            }
+
             yield break;
         }
 
@@ -689,7 +732,8 @@ internal static class MessageCode
     /// <summary>
     /// The value may be a message the code doesn't say: a type the code doesn't give, or one the message derives from or
     /// implements, such as a library factory's <c>INotification</c>. The result of the code's own method is what that
-    /// method returns (<see cref="Created"/>), so a helper that returns other messages says it isn't this one.
+    /// method returns (<see cref="Created"/>), so a helper that returns other messages says it isn't this one; a local is
+    /// what it is given.
     /// </summary>
     /// <param name="supertypes">What the message derives from or implements (<see cref="CodeGraph.Supertypes"/>).</param>
     public static bool Untyped(CodeGraph code, TypeNode from, ValueNode value, IReadOnlyCollection<string> supertypes) => Untyped(code, from, value, supertypes, 0);
@@ -699,6 +743,11 @@ internal static class MessageCode
         if (depth < 3 && value.Call is { } call && Bodies(code, from, call) is { Count: > 0 } bodies)
         {
             return bodies.Any(x => (x.Member.Body?.Returns ?? []).Any(r => Untyped(code, x.Type, r, supertypes, depth + 1)));
+        }
+
+        if (depth < 3 && value.Call is null && value.Creations.Count == 0 && value.Given.Count > 0)
+        {
+            return value.Given.Any(x => Untyped(code, from, x, supertypes, depth + 1));
         }
 
         return !value.IsKnown || value.Types.Any(x => code.TypeFor(x, from) is { } type
@@ -713,10 +762,10 @@ internal static class MessageCode
     /// (<c>Archive(new OrderShipped(id))</c> that logs its fields), and is no raise. Nor is a call in what a method
     /// returns when the method returns the message: it builds it for its caller (<c>return Task.FromResult(message)</c>).
     /// </summary>
-    public static bool HandsOn(CodeGraph code, TypeNode type, MemberNode member, CallNode call, int argument, CreationNode message) =>
-        HandsOn(code, type, member, call, argument, message.Type.Name);
+    public static bool HandsOn(CodeGraph code, TypeNode type, MemberNode member, CallNode call, int argument, TypeRefNode message) =>
+        HandsOn(code, type, member, call, argument, message.Name);
 
-    /// <inheritdoc cref="HandsOn(CodeGraph, TypeNode, MemberNode, CallNode, int, CreationNode)"/>
+    /// <inheritdoc cref="HandsOn(CodeGraph, TypeNode, MemberNode, CallNode, int, TypeRefNode)"/>
     public static bool HandsOn(CodeGraph code, TypeNode type, MemberNode member, CallNode call, int argument, string message) =>
         HandsOn(code, type, member, call, argument, message, new HashSet<MemberNode>(ReferenceEqualityComparer.Instance));
 
@@ -812,11 +861,11 @@ internal static class MessageCode
     }
 
     /// <summary>
-    /// The created type is the message: the type the model's element is in the code, or one of its name. Services each keep
+    /// The type handed on is the message: the type the model's element is in the code, or one of its name. Services each keep
     /// their own copy of a message they share, so a copy of the name is the message too.
     /// </summary>
-    public static bool Is(CodeGraph code, CreationNode created, TypeNode from, TypeNode? message, string name) =>
-        code.TypeFor(created.Type, from) is { } type ? type == message || type.Name == name : created.Type.Name == name;
+    public static bool Is(CodeGraph code, TypeRefNode sent, TypeNode from, TypeNode? message, string name) =>
+        code.TypeFor(sent, from) is { } type ? type == message || type.Name == name : sent.Name == name;
 
     /// <summary>
     /// The messages the code can raise for a kind of link: each modelled one, as its existence claim located it or by name,
@@ -862,8 +911,8 @@ internal static class MessageCode
         located(link.Designer, element)
         ?? code.Types.FirstOrDefault(x => x.Name == element.Name && x.Kind is "class" or "record");
 
-    public static TypeNode? Resolve(CodeGraph code, CreationNode created, TypeNode from, IEnumerable<TypeNode> messages) =>
-        code.TypeFor(created.Type, from) is { } type && messages.Contains(type) ? type : null;
+    public static TypeNode? Resolve(CodeGraph code, TypeRefNode sent, TypeNode from, IEnumerable<TypeNode> messages) =>
+        code.TypeFor(sent, from) is { } type && messages.Contains(type) ? type : null;
 
     /// <summary>A method as a finding names it: <c>Order.SetShippedStatus</c>, a constructor by its type's name.</summary>
     public static string Display(TypeNode type, MemberNode member) => member.Kind == "constructor" ? $"{type.Name}.{type.Name}" : $"{type.Name}.{member.Name}";
