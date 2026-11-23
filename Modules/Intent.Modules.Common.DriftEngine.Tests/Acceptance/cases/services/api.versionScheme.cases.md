@@ -1,6 +1,6 @@
 # api.versionScheme
 
-How a versioned Service reads its API version from a request, against the `ApiVersionReader` the application configures in `AddApiVersioning`. eShopCustom models it with its own `Query String Api Version` stereotype, whose `Parameter` names the query string parameter (its default, `api-version`, counts as unset), so the house pack brings the vocabulary: a claim exists only where Parameter is set, valued `query: <parameter>`. Intent's stock `Api Version Settings` stereotype puts the version in the route instead, so the Services pack's vocabulary claims `url segment` for it. The code states it in one global setting in another file than the router, or with an `{x:apiVersion}` segment in the router's route, so its rule is a plug-in of the ASP.NET Core pack, and the kind arrives `later`. `api.versionScheme` is `stated: whenSet` (decision 4).
+How a versioned Service reads its API version from a request, against the `ApiVersionReader` the application configures in `AddApiVersioning`. eShopCustom models it with its own `Query String Api Version` stereotype, whose `Parameter` names the query string parameter (its default, `api-version`, counts as unset), so the house pack brings the vocabulary: a claim exists only where Parameter is set, valued `query: <parameter>`. With Intent's stock `Api Version Settings` stereotype, the designer puts `{version}` in the Service's Route, and where it is says the scheme (user decision, 2026-11-23): in the path (`api/v{version}/orders`) the Services pack's vocabulary claims `url segment`; in the query string under a name (`api/orders?version={version}`), `query: <name>`; under Asp.Versioning's default name, `api-version`, or nowhere, it claims nothing, as the house stereotype's default counts as unset. The code states it in one global setting in another file than the router, or with an `{x:apiVersion}` segment in the router's route, so its rule is a plug-in of the ASP.NET Core pack, and the kind arrives `later`. `api.versionScheme` is `stated: whenSet` (decision 4).
 
 The fixtures adapt eShopCustom's `Ordering.API` (`Program.cs`, `Apis/OrdersApi.cs`).
 
@@ -254,6 +254,158 @@ public static class OrdersApi
   "claims": [
     { "kind": "api.versionScheme", "element": "orders-api", "outcome": "verified", "expected": "url segment", "actual": "url segment",
       "at": "src/Ordering.API/Program.cs:5" }
+  ]
+}
+```
+
+## api-version-settings-query-string-default
+
+eShop's `OrdersApi` serves version `1.0` and reads it with Asp.Versioning's default reader, from the query string's `api-version`, with no version in its routes. Applying Api Version Settings makes the designer put `{version}` in the Service's Route; written in the query string, `api/orders?api-version={version}`, it states no URL segment. `api-version` is Asp.Versioning's default, a convention the model doesn't state (decision 4), so there is no scheme claim. The versions are checked, and the Route is `api/orders`, as the query string isn't part of a route.
+
+```json case
+{ "phase": "later", "kinds": ["api.versionScheme", "service.versions", "service.route"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Ordering.API",
+        "elements": [
+          { "id": "ordering-api-version", "type": "Api Version", "name": "OrderingApiVersion",
+            "children": [
+              { "id": "version-1-0", "type": "Version", "name": "1.0" }
+            ] },
+          { "id": "orders-api", "type": "Service", "name": "OrdersApi",
+            "stereotypes": {
+              "Http Service Settings": { "Route": "api/orders?api-version={version}" },
+              "Api Version Settings": { "Applicable Versions": [ { "ref": "version-1-0" } ] }
+            },
+            "children": [
+              { "id": "cancel-order", "type": "Operation", "name": "CancelOrderAsync",
+                "stereotypes": { "Http Settings": { "Verb": "PUT", "Route": "cancel" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Ordering.API/Program.cs
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddApiVersioning(options => options.ReportApiVersions = true);
+
+var app = builder.Build();
+
+app.MapOrdersApiV1();
+
+app.Run();
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders").HasApiVersion(1.0);
+
+        api.MapPut("/cancel", CancelOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Results<Ok, BadRequest<string>>> CancelOrderAsync(CancelOrderCommand command, [AsParameters] OrderServices services)
+    {
+        var commandResult = await services.Mediator.Send(command);
+        return commandResult ? TypedResults.Ok() : TypedResults.BadRequest("Cancel order failed to process.");
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "api.versionScheme", "element": "orders-api", "absent": true },
+    { "kind": "service.versions", "element": "orders-api", "outcome": "verified", "actual": "1.0" },
+    { "kind": "service.route", "element": "orders-api", "outcome": "verified", "actual": "api/orders" }
+  ],
+  "findings": [
+    { "rule": "claim/api.versionScheme", "count": 0 }
+  ]
+}
+```
+
+## api-version-settings-query-parameter
+
+The same API reads its version from a query string parameter of its own, `new QueryStringApiVersionReader("version")`, and the Route says so, `api/orders?version={version}`: the claim is `query: version`, verified. A Route putting `{version}` in its path would claim the URL segment, as `api-version-settings-url-segment` does, and a Route with no `{version}` makes no claim.
+
+```json case
+{ "phase": "later", "base": "api-version-settings-query-string-default", "kinds": ["api.versionScheme"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Ordering.API",
+        "elements": [
+          { "id": "ordering-api-version", "type": "Api Version", "name": "OrderingApiVersion",
+            "children": [
+              { "id": "version-1-0", "type": "Version", "name": "1.0" }
+            ] },
+          { "id": "orders-api", "type": "Service", "name": "OrdersApi",
+            "stereotypes": {
+              "Http Service Settings": { "Route": "api/orders?version={version}" },
+              "Api Version Settings": { "Applicable Versions": [ { "ref": "version-1-0" } ] }
+            } },
+          { "id": "payments-api", "type": "Service", "name": "PaymentsApi",
+            "stereotypes": {
+              "Http Service Settings": { "Route": "api/payments" },
+              "Api Version Settings": { "Applicable Versions": [ { "ref": "version-1-0" } ] }
+            } }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Ordering.API/Program.cs
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddApiVersioning(options =>
+{
+    options.ApiVersionReader = new QueryStringApiVersionReader("version");
+});
+
+var app = builder.Build();
+
+app.MapOrdersApiV1();
+app.MapGroup("api/payments").HasApiVersion(1.0);
+
+app.Run();
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "api.versionScheme", "element": "orders-api", "outcome": "verified", "expected": "query: version", "actual": "query: version",
+      "at": "src/Ordering.API/Program.cs:5" },
+    { "kind": "api.versionScheme", "element": "payments-api", "absent": true }
   ]
 }
 ```

@@ -42,7 +42,18 @@ internal static class Binding
     private static readonly HashSet<string> Verbs = new(StringComparer.Ordinal) { "HttpGet", "HttpPost", "HttpPut", "HttpDelete", "HttpPatch", "HttpHead", "HttpOptions" };
 
     /// <summary>The calls that map a conventional route, for a controller whose actions have no route of their own.</summary>
-    private static readonly HashSet<string> Conventional = new(StringComparer.Ordinal) { "MapHttpRoute", "MapRoute", "MapControllerRoute", "MapAreaControllerRoute" };
+    private static readonly HashSet<string> Conventional =
+        new(StringComparer.Ordinal) { "MapHttpRoute", "MapRoute", "MapControllerRoute", "MapAreaControllerRoute", "MapDefaultControllerRoute" };
+
+    /// <summary>The calls an ASP.NET Core application maps a controller's conventional route with; an area's needs its controller's <c>[Area]</c>, so isn't one.</summary>
+    private static readonly HashSet<string> CoreConventional = new(StringComparer.Ordinal) { "MapControllerRoute", "MapRoute", "MapDefaultControllerRoute" };
+
+    /// <summary>The route <c>MapDefaultControllerRoute()</c> maps.</summary>
+    private const string DefaultControllerRoute = "{controller=Home}/{action=Index}/{id?}";
+
+    private static readonly Regex ControllerToken = new(@"\{controller(=[^}]*)?\}", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+    private static readonly Regex ActionToken = new(@"\{action(=[^}]*)?\}", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
     private static readonly Regex RouteNames = new(@"\{\**([A-Za-z_][A-Za-z0-9_]*)", RegexOptions.Compiled);
 
@@ -93,6 +104,14 @@ internal static class Binding
     /// the route's defaults make optional (<c>id = RouteParameter.Optional</c>) is left out when the action doesn't take
     /// it, so <c>EndowmentController.PostAsync(request)</c> is <c>~/api/Endowment</c>: absolute, as it isn't under the
     /// controller's route. Null for an action with its own route, or when no conventional route names a controller.
+    /// <para>
+    /// ASP.NET Core routes an action conventionally only when neither it nor its controller has an attribute route: a
+    /// controller's <c>[Route]</c> routes all its actions, and <c>[ApiController]</c> requires one. Its conventional routes
+    /// are <c>MapControllerRoute</c>'s pattern and <c>MapDefaultControllerRoute()</c>'s
+    /// <c>{controller=Home}/{action=Index}/{id?}</c>, the first with a <c>{controller}</c> and an <c>{action}</c>, so
+    /// <c>AccountController.Login()</c> is <c>~/Account/Login</c>: a token's default is still the action's own name in the
+    /// full route.
+    /// </para>
     /// </summary>
     public static string? ConventionalRoute(CodeGraph code, TypeNode owner, MemberNode member)
     {
@@ -101,9 +120,19 @@ internal static class Binding
             return null;
         }
 
-        foreach (var call in MinimalApiClaims.AllCalls(code).Where(x => x.Name == "MapHttpRoute"))
+        var webApi2 = WebApi2(code, owner);
+        var controllers = new[] { owner }.Concat(code.Bases(owner)).ToList();
+        if (!webApi2 && controllers.Any(x => x.Attributes.Any(a => a.Name == "ApiController" || a.Name == "Route" && a.Arguments.Count > 0)))
         {
-            if (call.Arguments.Select(x => x.Text).FirstOrDefault(x => x.StartsWith('"') && x.Contains("{controller}", StringComparison.OrdinalIgnoreCase)) is not { } quoted)
+            return null;
+        }
+
+        foreach (var call in MinimalApiClaims.AllCalls(code).Where(x => webApi2 ? x.Name == "MapHttpRoute" : CoreConventional.Contains(x.Name)))
+        {
+            var quoted = call.Name == "MapDefaultControllerRoute"
+                ? $"\"{DefaultControllerRoute}\""
+                : call.Arguments.Select(x => x.Text).FirstOrDefault(x => x.StartsWith('"') && ControllerToken.IsMatch(x) && (webApi2 || ActionToken.IsMatch(x)));
+            if (quoted is null)
             {
                 continue;
             }
@@ -114,7 +143,14 @@ internal static class Binding
             var segments = new List<string>();
             foreach (var segment in quoted.Trim('"').Trim('/').Split('/'))
             {
-                var name = segment.Trim('{', '}').TrimEnd('?');
+                // A token's default (`{action=Index}`) makes it optional; its name is before the `=`.
+                var token = segment.Trim('{', '}');
+                var name = token.Split('=')[0].TrimEnd('?');
+                if (segment.StartsWith('{') && token.Contains('='))
+                {
+                    optional.Add(name);
+                }
+
                 if (segment.StartsWith('{') && name.Equals("controller", StringComparison.OrdinalIgnoreCase))
                 {
                     segments.Add(controller);
@@ -244,6 +280,6 @@ internal static class Binding
 
         return MinimalApiClaims.AllCalls(code)
             .Where(x => Conventional.Contains(x.Name))
-            .SelectMany(x => x.Arguments.Where(a => a.Text.StartsWith('"')).Select(a => a.Text));
+            .SelectMany(x => x.Name == "MapDefaultControllerRoute" ? new[] { DefaultControllerRoute } : x.Arguments.Where(a => a.Text.StartsWith('"')).Select(a => a.Text));
     }
 }

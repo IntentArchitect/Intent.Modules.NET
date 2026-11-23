@@ -647,3 +647,157 @@ public class ClaimsController : ApiController
   ]
 }
 ```
+
+## aspnetcore-mvc-conventional-route
+
+An ASP.NET Core MVC controller with no `[Route]` serves its actions that have none of their own on the conventional routes the application maps: `MapDefaultControllerRoute()` maps `{controller=Home}/{action=Index}/{id?}`. `AccountController.Login` is `~/Account/Login`, absolute as it isn't under a controller's route, and `Details(id)` takes the optional `id`, so it is `~/Account/Details/{id?}`. `Logout` has its own template, `[HttpPost("signout")]`, which isn't conventional, and `ProfileController` has a `[Route]`, which routes every action it has: `Show` is under it. The adapted code is eShop's `Identity.API` Quickstart controllers.
+
+```json case
+{ "phase": 4, "kinds": ["operation.route"], "requirements": ["R2", "R10"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Identity.API",
+        "elements": [
+          { "id": "account", "type": "Service", "name": "AccountController",
+            "children": [
+              { "id": "login", "type": "Operation", "name": "Login",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Account/Login" } },
+                "children": [{ "id": "login-return-url", "type": "Parameter", "name": "returnUrl", "typeRef": { "type": "string" } }] },
+              { "id": "details", "type": "Operation", "name": "Details",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Account/Details/{id?}" } },
+                "children": [{ "id": "details-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }] },
+              { "id": "logout", "type": "Operation", "name": "Logout",
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "signout" } } }
+            ] },
+          { "id": "profile", "type": "Service", "name": "ProfileController",
+            "stereotypes": { "Http Service Settings": { "Route": "profile" } },
+            "children": [
+              { "id": "show", "type": "Operation", "name": "Show",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "show" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Identity", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Identity.API/Program.cs
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+app.UseRouting();
+app.MapDefaultControllerRoute();
+app.Run();
+```
+
+```csharp file src/Identity.API/Quickstart/AccountController.cs
+namespace Identity.API.Quickstart;
+
+public class AccountController : Controller
+{
+    [HttpGet]
+    public IActionResult Login(string returnUrl) => View();
+
+    [HttpGet]
+    public IActionResult Details(int id) => View();
+
+    [HttpPost("signout")]
+    public IActionResult Logout() => View();
+}
+```
+
+```csharp file src/Identity.API/Quickstart/ProfileController.cs
+namespace Identity.API.Quickstart;
+
+[Route("profile")]
+public class ProfileController : Controller
+{
+    [HttpGet("show")]
+    public IActionResult Show() => View();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.route", "element": "login", "outcome": "verified", "expected": "~/Account/Login", "actual": "~/Account/Login",
+      "at": "src/Identity.API/Quickstart/AccountController.cs:5" },
+    { "kind": "operation.route", "element": "details", "outcome": "verified", "actual": "~/Account/Details/{id?}" },
+    { "kind": "operation.route", "element": "logout", "outcome": "verified", "actual": "signout" },
+    { "kind": "operation.route", "element": "show", "outcome": "verified", "actual": "show" }
+  ],
+  "findings": [
+    { "rule": "aspnetcore/conventional.route", "count": 0 }
+  ]
+}
+```
+
+## aspnetcore-mvc-map-controller-route
+
+The same controller under a pattern `MapControllerRoute` maps, named by argument: `portal/{controller=Home}/{action=Index}/{id?}`. `Login` is `~/portal/Account/Login`; the model's `~/Account/Login`, the default route's, is contradicted. `Details` has no Route, so the diagram puts it at its service's Route, `account`, where ASP.NET Core doesn't serve it, and the `aspnetcore/conventional.route` rule reports it.
+
+```json case
+{ "phase": 4, "base": "aspnetcore-mvc-conventional-route", "kinds": ["operation.route"], "requirements": ["R2", "R10"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Identity.API",
+        "elements": [
+          { "id": "account", "type": "Service", "name": "AccountController",
+            "stereotypes": { "Http Service Settings": { "Route": "account" } },
+            "children": [
+              { "id": "login", "type": "Operation", "name": "Login",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Account/Login" } },
+                "children": [{ "id": "login-return-url", "type": "Parameter", "name": "returnUrl", "typeRef": { "type": "string" } }] },
+              { "id": "details", "type": "Operation", "name": "Details",
+                "stereotypes": { "Http Settings": { "Verb": "GET" } },
+                "children": [{ "id": "details-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Identity", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Identity.API/Program.cs
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+app.UseRouting();
+app.MapControllerRoute(name: "default", pattern: "portal/{controller=Home}/{action=Index}/{id?}");
+app.Run();
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.route", "element": "login", "outcome": "contradicted", "expected": "~/Account/Login", "actual": "~/portal/Account/Login" },
+    { "kind": "operation.route", "element": "details", "absent": true }
+  ],
+  "findings": [
+    { "rule": "claim/operation.route", "severity": "error", "subject": "login", "messageContains": "~/portal/Account/Login" },
+    { "rule": "aspnetcore/conventional.route", "severity": "error", "subject": "src/Identity.API/Quickstart/AccountController.cs:8", "messageContains": "`~/portal/Account/Details/{id?}`" }
+  ]
+}
+```

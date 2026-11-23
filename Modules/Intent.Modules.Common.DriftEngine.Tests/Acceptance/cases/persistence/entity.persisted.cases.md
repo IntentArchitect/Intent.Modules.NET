@@ -326,6 +326,79 @@ public class OrderingContext : DbContext
 }
 ```
 
+## verified-by-identity-base
+
+ASP.NET Core Identity's `IdentityDbContext<ApplicationUser>` declares the `DbSet` of its user itself, in a package, so `ApplicationDbContext` maps `ApplicationUser` with no `DbSet` or configuration of its own. `ApplicationUser : IdentityUser` inherits `Id`, a `string`, from that package's `IdentityUser<string>`, so the modelled `Id` is a member of it and EF Core's conventional key, and `CardNumber` is its own. The adapted code is eShop's `Identity.API`.
+
+```json case
+{ "phase": 4, "kinds": ["entity.persisted", "member.exists", "member.type", "key"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Identity.API",
+        "elements": [
+          { "id": "user", "type": "Class", "name": "ApplicationUser",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "user-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "string" }, "stereotypes": { "Primary Key": {} } },
+              { "id": "user-card-number", "type": "Attribute", "name": "CardNumber", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Identity", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Identity.API/Models/ApplicationUser.cs
+namespace Identity.API.Models;
+
+public class ApplicationUser : IdentityUser
+{
+    public string CardNumber { get; set; }
+}
+```
+
+```csharp file src/Identity.API/Data/ApplicationDbContext.cs
+using Identity.API.Models;
+
+namespace Identity.API.Data;
+
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+{
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "entity.persisted", "element": "user", "outcome": "verified", "expected": "true", "actual": "true", "at": "src/Identity.API/Data/ApplicationDbContext.cs:5" },
+    { "kind": "member.exists", "element": "user-id", "outcome": "verified", "at": "src/Identity.API/Models/ApplicationUser.cs:3" },
+    { "kind": "member.type", "element": "user-id", "outcome": "verified" },
+    { "kind": "member.exists", "element": "user-card-number", "outcome": "verified" },
+    { "kind": "key", "element": "user", "outcome": "verified", "actual": "Id" }
+  ],
+  "findings": [
+    { "rule": "claim/entity.persisted", "count": 0 },
+    { "rule": "claim/member.exists", "count": 0 }
+  ]
+}
+```
+
 ## verified-by-navigation
 
 No `DbSet` or configuration names `OrderItem`, but `Order`, which the context maps, navigates to it: EF Core maps an entity a mapped one navigates to, by convention. The code doesn't state it; the framework's default does.

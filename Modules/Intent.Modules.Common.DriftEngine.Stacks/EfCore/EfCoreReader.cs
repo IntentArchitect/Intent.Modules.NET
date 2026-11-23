@@ -28,6 +28,7 @@ internal sealed class EfCoreReader : ICodeReader
             return;
         }
 
+        IdentityTypes.AddTo(graph);
         var model = new EfCoreModel();
         foreach (var (file, tree) in csharp.Trees)
         {
@@ -98,7 +99,8 @@ internal sealed class EfCoreReader : ICodeReader
         var sets = type.Members.OfType<PropertyDeclarationSyntax>().Select(x => x.Type).OfType<GenericNameSyntax>()
             .Where(x => x.Identifier.Text == "DbSet" && x.TypeArgumentList.Arguments.Count == 1).ToList();
         var onModelCreating = type.Members.OfType<MethodDeclarationSyntax>().FirstOrDefault(x => x.Identifier.Text == "OnModelCreating");
-        if (sets.Count == 0 && onModelCreating is null)
+        var identity = IdentityEntities(type).ToList();
+        if (sets.Count == 0 && onModelCreating is null && identity.Count == 0)
         {
             return;
         }
@@ -108,6 +110,11 @@ internal sealed class EfCoreReader : ICodeReader
         foreach (var set in sets)
         {
             Maps(context, context.Entities, Name(set.TypeArgumentList.Arguments[0]), set, file);
+        }
+
+        foreach (var (entity, at) in identity)
+        {
+            Maps(context, context.Entities, Name(entity), at, file);
         }
 
         foreach (var invocation in onModelCreating?.DescendantNodes().OfType<InvocationExpressionSyntax>() ?? [])
@@ -137,6 +144,33 @@ internal sealed class EfCoreReader : ICodeReader
                     break;
                 case { Identifier.Text: "HasDefaultSchema" }:
                     context.DefaultSchema = Calls(invocation, file, csharp).LastOrDefault();
+                    break;
+            }
+        }
+    }
+
+    /// <summary>
+    /// The entities ASP.NET Core Identity's DbContext base maps through the <c>DbSet</c>s it declares itself:
+    /// <c>IdentityUserContext&lt;TUser, ...&gt;</c> its user, and <c>IdentityDbContext&lt;TUser, TRole, ...&gt;</c> its user and
+    /// role, so <c>ApplicationDbContext : IdentityDbContext&lt;ApplicationUser&gt;</c> maps <c>ApplicationUser</c>.
+    /// </summary>
+    private static IEnumerable<(TypeSyntax Entity, SyntaxNode At)> IdentityEntities(ClassDeclarationSyntax type)
+    {
+        foreach (var name in type.BaseList?.Types.Select(x => x.Type).OfType<GenericNameSyntax>() ?? [])
+        {
+            var arguments = name.TypeArgumentList.Arguments;
+            switch (name.Identifier.Text)
+            {
+                case "IdentityUserContext":
+                    yield return (arguments[0], name);
+                    break;
+                case "IdentityDbContext":
+                    yield return (arguments[0], name);
+                    if (arguments.Count > 1)
+                    {
+                        yield return (arguments[1], name);
+                    }
+
                     break;
             }
         }

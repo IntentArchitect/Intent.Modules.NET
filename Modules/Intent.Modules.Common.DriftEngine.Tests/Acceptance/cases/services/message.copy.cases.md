@@ -136,6 +136,94 @@ public class OrderStatusChangedToPaidIntegrationEventHandler : IIntegrationEvent
 }
 ```
 
+## subscriber-copy-beside-own-messages
+
+Ordering owns and models `OrderStartedIntegrationEvent`, and subscribes to OrderProcessor's `GracePeriodConfirmedIntegrationEvent`, which a referenced package models, through its own copy of the name. Both derive from `IntegrationEvent`, so the copy is a member of the family Ordering's own message teaches, and it is the referenced message: it isn't reported as a message the diagram doesn't show. The adapted code is eShop's `Ordering.API`.
+
+```json case
+{ "phase": "later", "kinds": ["message.copy"], "requirements": ["R2", "R44"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [
+        { "id": "eventing", "name": "Ordering.API.Eventing", "type": "Eventing Package",
+          "elements": [
+            { "id": "order-started", "type": "Message", "name": "OrderStartedIntegrationEvent",
+              "children": [{ "id": "order-started-user", "type": "Property", "name": "UserId", "typeRef": { "type": "string" } }] }
+          ] },
+        { "id": "services", "name": "Ordering.API",
+          "elements": [
+            { "id": "grace-handler", "type": "Integration Event Handler", "name": "GracePeriodConfirmedIntegrationEventHandler" }
+          ] }
+      ],
+      "associations": [
+        { "id": "handler-subscribes-grace", "type": "Subscribe Integration Event",
+          "source": { "element": "grace-handler" }, "target": { "element": "grace-confirmed" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "processor-eventing", "name": "OrderProcessor.Eventing", "type": "Eventing Package",
+        "elements": [
+          { "id": "grace-confirmed", "type": "Message", "name": "GracePeriodConfirmedIntegrationEvent",
+            "children": [{ "id": "grace-confirmed-order", "type": "Property", "name": "OrderId", "typeRef": { "type": "int" } }] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```csharp file src/EventBus/IntegrationEvent.cs
+namespace EventBus;
+
+public record IntegrationEvent
+{
+    public Guid Id { get; set; }
+}
+```
+
+```csharp file src/Ordering.API/IntegrationEvents/Events/OrderStartedIntegrationEvent.cs
+namespace Ordering.API.IntegrationEvents.Events;
+
+public record OrderStartedIntegrationEvent(string UserId) : IntegrationEvent;
+```
+
+```csharp file src/Ordering.API/IntegrationEvents/Events/GracePeriodConfirmedIntegrationEvent.cs
+namespace Ordering.API.IntegrationEvents.Events;
+
+public record GracePeriodConfirmedIntegrationEvent(int OrderId) : IntegrationEvent;
+```
+
+```csharp file src/Ordering.API/IntegrationEvents/EventHandling/GracePeriodConfirmedIntegrationEventHandler.cs
+namespace Ordering.API.IntegrationEvents.EventHandling;
+
+public class GracePeriodConfirmedIntegrationEventHandler : IIntegrationEventHandler<GracePeriodConfirmedIntegrationEvent>
+{
+    public Task Handle(GracePeriodConfirmedIntegrationEvent @event) => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "message.copy", "element": "handler-subscribes-grace", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "messaging/unmodelled.message", "count": 0 }
+  ]
+}
+```
+
 ## subscriber-copy-extra-property
 
 Webhooks' copy gains a `Note` the message doesn't send, so it is never set when the event arrives.

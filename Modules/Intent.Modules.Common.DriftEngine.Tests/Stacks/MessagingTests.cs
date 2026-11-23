@@ -343,19 +343,80 @@ public class MessagingTests
     private static Finding Finding(string rule, string about) =>
         Result.Findings.Single(x => x.Rule == rule && x.Message.StartsWith($"`{about}`", StringComparison.Ordinal));
 
-    private static RunResult Run()
+    /// <summary>
+    /// The Software Factory hands the engine no referenced packages of another application (eShop's Ordering, Catalog and
+    /// PaymentProcessor), so a subscriber's copy of another application's message is known only by the subscription that
+    /// reaches it. Ordering owns <c>OrderStartedIntegrationEvent</c>, which teaches the family, and subscribes to
+    /// OrderProcessor's <c>GracePeriodConfirmedIntegrationEvent</c> through a copy of its own: the copy isn't reported as a
+    /// message the diagram doesn't show.
+    /// </summary>
+    [Fact]
+    public void A_subscribers_copy_of_another_applications_message_is_that_message_when_its_package_isnt_handed_over()
+    {
+        var model = JsonNode.Parse("""
+            {
+              "designers": {
+                "Services": {
+                  "packages": [
+                    { "id": "eventing", "name": "Ordering.API.Eventing", "type": "Eventing Package",
+                      "elements": [{ "id": "order-started", "type": "Message", "name": "OrderStartedIntegrationEvent" }] },
+                    { "id": "services", "name": "Ordering.API",
+                      "elements": [{ "id": "grace-handler", "type": "Integration Event Handler", "name": "GracePeriodConfirmedIntegrationEventHandler" }] }
+                  ],
+                  "associations": [
+                    { "id": "handler-subscribes-grace", "type": "Subscribe Integration Event", "source": { "element": "grace-handler" }, "target": { "element": "grace-confirmed" } }
+                  ]
+                },
+                "Codebase Structure": {
+                  "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+                    "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+                }
+              },
+              "references": {
+                "Services": {
+                  "packages": [{ "id": "processor-eventing", "name": "OrderProcessor.Eventing", "type": "Eventing Package",
+                    "elements": [{ "id": "grace-confirmed", "type": "Message", "name": "GracePeriodConfirmedIntegrationEvent" }] }]
+                }
+              }
+            }
+            """)!;
+        var code = new Dictionary<string, string>
+        {
+            ["src/Ordering.API/IntegrationEvents.cs"] = """
+                namespace Ordering.API.IntegrationEvents;
+                public record IntegrationEvent;
+                public record OrderStartedIntegrationEvent(string UserId) : IntegrationEvent;
+                public record GracePeriodConfirmedIntegrationEvent(int OrderId) : IntegrationEvent;
+                public record OrderExpiredIntegrationEvent(int OrderId) : IntegrationEvent;
+                public class GracePeriodConfirmedIntegrationEventHandler : IIntegrationEventHandler<GracePeriodConfirmedIntegrationEvent>
+                {
+                    public Task Handle(GracePeriodConfirmedIntegrationEvent @event) => Task.CompletedTask;
+                }
+                """
+        };
+
+        // Built without its references, as the Software Factory hands the engine only this application's packages.
+        var result = Run(model, code);
+
+        result.Findings.Where(x => x.Rule == "messaging/unmodelled.message").Select(x => x.Message[1..x.Message.IndexOf('`', 1)])
+            .ShouldBe(["OrderExpiredIntegrationEvent"]);
+    }
+
+    private static RunResult Run() => Run(Model, Code);
+
+    private static RunResult Run(JsonNode model, IReadOnlyDictionary<string, string> code)
     {
         var root = Directory.CreateTempSubdirectory("driftengine-messaging-").FullName;
         try
         {
-            foreach (var (path, source) in Code)
+            foreach (var (path, source) in code)
             {
                 var full = Path.Combine(root, path);
                 Directory.CreateDirectory(Path.GetDirectoryName(full)!);
                 File.WriteAllText(full, source);
             }
 
-            return DriftEngine.Run(new DriftInput(FixtureModel.Build(Model), root,
+            return DriftEngine.Run(new DriftInput(FixtureModel.Build(model), root,
                 [Pack.Stock("intent.domain")!, Pack.Stock("intent.services")!],
                 [StockExtensions.Find("csharp")!, StockExtensions.Find("intent.messaging")!]));
         }

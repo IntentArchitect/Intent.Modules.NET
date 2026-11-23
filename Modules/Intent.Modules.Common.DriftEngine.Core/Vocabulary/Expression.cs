@@ -262,6 +262,10 @@ internal sealed class Expression
         "before" => Text(arguments[0]) is { } whole && Text(arguments[1]) is { Length: > 0 } separator && whole.IndexOf(separator, StringComparison.Ordinal) is var index and >= 0
             ? whole[..index]
             : Text(arguments[0]),
+        // The text after the last occurrence of a separator, or all of it: a query's last name, afterLast('a?x=1&v', '&') is v.
+        "afterLast" => Text(arguments[0]) is { } whole && Text(arguments[1]) is { Length: > 0 } last && whole.LastIndexOf(last, StringComparison.Ordinal) is var at and >= 0
+            ? whole[(at + last.Length)..]
+            : Text(arguments[0]),
         "join" => arguments[0] is IEnumerable list and not string
             ? string.Join(Text(arguments[1]) ?? ", ", list.Cast<object?>().Select(Text).OfType<string>())
             : Text(arguments[0]),

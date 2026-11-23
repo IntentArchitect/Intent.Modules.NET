@@ -24,7 +24,8 @@ public sealed class AspNetCoreExtension : IDriftExtension
 
 /// <summary>
 /// An Operation with no Route of its own is at its service's Route, and a Web API 2 action with no route of its own isn't
-/// at its controller's: Web API 2 serves it on a conventional route (<see cref="Binding.ConventionalRoute"/>). An empty Route
+/// at its controller's: Web API 2 serves it on a conventional route (<see cref="Binding.ConventionalRoute"/>), as ASP.NET
+/// Core does an action whose controller has no route either. An empty Route
 /// makes no <c>operation.route</c> claim (it is stated only when set), so this rule reads that case: the diagram puts
 /// the endpoint at the service's Route, and the code serves it somewhere else.
 /// </summary>
@@ -50,15 +51,15 @@ internal sealed class ConventionalRoutes : IDriftRule
                 || context.TypeOf(Designer, service) is not { } owner
                 || context.MemberOf(Designer, operation) is not { } member
                 || !context.Scope.Checks(member.At.File)
-                || !Binding.WebApi2(context.Code, owner)
                 || Binding.ConventionalRoute(context.Code, owner, member) is not { } conventional
                 || Binding.Normal(conventional[2..]) == Binding.Normal(serviceRoute))
             {
                 continue;
             }
 
+            var framework = Binding.WebApi2(context.Code, owner) ? "Web API 2" : "ASP.NET Core";
             yield return new Finding("aspnetcore/conventional.route", Designer, "ModelCode", "error",
-                $"`{owner.Name}.{member.Name}` ({member.At.File}:{member.At.Line}) has no route of its own, so Web API 2 doesn't serve it under its controller's route but on the conventional route `{conventional[2..]}`. The diagram puts Operation `{operation.Name}` at its service's Route, `{serviceRoute}`. Give the action a `[Route]`, or set the Operation's Route to `{conventional}`.",
+                $"`{owner.Name}.{member.Name}` ({member.At.File}:{member.At.Line}) has no route of its own, so {framework} doesn't serve it under its controller's route but on the conventional route `{conventional[2..]}`. The diagram puts Operation `{operation.Name}` at its service's Route, `{serviceRoute}`. Give the action a `[Route]`, or set the Operation's Route to `{conventional}`.",
                 new Anchor(File: member.At.File, Line: member.At.Line),
                 Against: [new Anchor(Element: operation.Id)]);
         }
@@ -144,6 +145,13 @@ internal sealed class AspNetCoreClaims : IClaimReader
                     return ClaimReading.Stated(ConventionVerbs.FirstOrDefault(x => member.Name.StartsWith(x, StringComparison.OrdinalIgnoreCase))?.ToUpperInvariant() ?? "POST", member.At);
                 }
 
+                if (actual is null && context.Expected is { Length: > 0 } modelled)
+                {
+                    // An ASP.NET Core action with no verb attribute serves every verb, so it serves the one the model gives. That is the
+                    // framework's convention, not a value the code states, so unmodelled.value doesn't report it.
+                    return ClaimReading.Defaulted(modelled, member.At, "no verb attribute: it serves every verb");
+                }
+
                 return Value(actual, (verb ?? accept)?.At ?? member.At);
             }
             case "operation.route":
@@ -153,9 +161,10 @@ internal sealed class AspNetCoreClaims : IClaimReader
                 var owner = context.TypeOf(context.Owner(context.Element)!)!;
                 var route = member.Attributes.FirstOrDefault(x => x.Name == "Route" && x.Arguments.Count > 0)
                             ?? member.Attributes.FirstOrDefault(x => HttpVerbs.Contains(x.Name) && x.Arguments.Count > 0);
-                if (route is null && Binding.WebApi2(context.Code, owner) && Binding.ConventionalRoute(context.Code, owner, member) is { } conventional)
+                if (route is null && Binding.ConventionalRoute(context.Code, owner, member) is { } conventional)
                 {
-                    // Web API 2 serves an action with no route of its own on a conventional route, not under its controller's.
+                    // Web API 2 serves an action with no route of its own on a conventional route, not under its controller's, and
+                    // ASP.NET Core one whose controller has no route either.
                     return ClaimReading.Stated(conventional, member.At);
                 }
 

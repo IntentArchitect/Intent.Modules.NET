@@ -883,7 +883,13 @@ internal static class MessageCode
     public static MessageTypes Messages(RuleContext context, MessageLink link)
     {
         var messages = new Dictionary<TypeNode, IElement?>(ReferenceEqualityComparer.Instance);
-        foreach (var element in context.Model.Elements(link.Designer, link.Message).Concat(context.Model.ReferencedElements(link.Designer).Where(x => x.SpecializationType == link.Message)))
+        // Another application's messages: its referenced package's, and those this application's subscriptions reach, which is
+        // all the Software Factory gives of them when it doesn't hand the package over. A subscriber's copy is then its message.
+        var subscribed = context.Model.Designers.Contains(Subscription.Designer)
+            ? context.Model.Elements(Subscription.Designer).SelectMany(x => Subscription.Associations.SelectMany(a => context.Model.Links(x, a))).Select(x => x.Target)
+            : [];
+        foreach (var element in context.Model.Elements(link.Designer, link.Message)
+                     .Concat(context.Model.ReferencedElements(link.Designer).Concat(subscribed).Where(x => x.SpecializationType == link.Message)))
         {
             if (TypeOf(context.Code, (designer, x) => context.LocatedOf(designer, x, "type.exists") as TypeNode, link, element) is { } type)
             {

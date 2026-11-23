@@ -325,6 +325,76 @@ public class CustomersController : ApiController
 }
 ```
 
+## aspnetcore-action-serves-every-verb
+
+An ASP.NET Core action with no verb attribute serves every verb, unlike Web API 2's, which takes one from its name. The designer needs one Verb, and the action serves it, so `HomeController.Index` modelled `GET` and `Error` modelled `POST` are both verified, as a convention the code doesn't state. `Privacy` has `[HttpGet]`, so `POST` is contradicted. The adapted code is eShop's `Identity.API` Quickstart `HomeController`.
+
+```json case
+{ "phase": 4, "kinds": ["operation.verb"], "requirements": ["R1", "R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Identity.API",
+        "elements": [
+          { "id": "home", "type": "Service", "name": "HomeController",
+            "children": [
+              { "id": "index", "type": "Operation", "name": "Index",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Home/Index" } } },
+              { "id": "error", "type": "Operation", "name": "Error",
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "~/Home/Error" } },
+                "children": [{ "id": "error-id", "type": "Parameter", "name": "errorId", "typeRef": { "type": "string" } }] },
+              { "id": "privacy", "type": "Operation", "name": "Privacy",
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "~/Home/Privacy" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Identity", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Identity.API/Program.cs
+var app = WebApplication.CreateBuilder(args).Build();
+app.MapDefaultControllerRoute();
+app.Run();
+```
+
+```csharp file src/Identity.API/Quickstart/HomeController.cs
+namespace Identity.API.Quickstart;
+
+public class HomeController : Controller
+{
+    public IActionResult Index() => View();
+
+    public Task<IActionResult> Error(string errorId) => Task.FromResult<IActionResult>(View());
+
+    [HttpGet]
+    public IActionResult Privacy() => View();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.verb", "element": "index", "outcome": "verified", "expected": "GET", "actual": "GET", "at": "src/Identity.API/Quickstart/HomeController.cs:5" },
+    { "kind": "operation.verb", "element": "error", "outcome": "verified", "actual": "POST" },
+    { "kind": "operation.verb", "element": "privacy", "outcome": "contradicted", "expected": "POST", "actual": "GET" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.verb", "severity": "error", "subject": "privacy", "messageContains": "GET" },
+    { "rule": "claim/operation.verb", "subject": "index", "count": 0 }
+  ]
+}
+```
+
 ## java-verified
 
 The same claim over Spring MVC: `@PostMapping` states `POST`. Traces JAV-SVC-06 (the verb part).

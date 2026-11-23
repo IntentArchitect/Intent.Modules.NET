@@ -993,7 +993,67 @@ public sealed class CodeGraph
     public IEnumerable<MemberNode> MembersOf(TypeNode type) =>
         type.Members.Concat(Bases(type)
             .Where(x => x.Kind != "interface" || type.Kind == "interface")
-            .SelectMany(x => x.Members.Where(m => m.Kind != "constructor")));
+            .SelectMany(x => x.Members.Where(m => m.Kind != "constructor")))
+            .Concat(LibraryMembersOf(type));
+
+    private readonly Dictionary<string, LibraryType> _libraryTypes = new(StringComparer.Ordinal);
+
+    /// <summary>
+    /// Tells the graph the members a library type declares, by its bare name, as a stack knows them: ASP.NET Core Identity's
+    /// <c>IdentityUser&lt;TKey&gt;</c> declares <c>Id</c> of <c>TKey</c>. The library's code isn't read, so without this a
+    /// type deriving from it has none of them. A member's type naming one of <paramref name="typeParameters"/> is the type
+    /// argument the code gives it, or with none, the one <paramref name="defaults"/> gives (<c>IdentityUser</c> is
+    /// <c>IdentityUser&lt;string&gt;</c>).
+    /// </summary>
+    public void AddLibraryType(string name, IReadOnlyList<string> typeParameters, IReadOnlyList<TypeRefNode> defaults, IReadOnlyList<MemberNode> members)
+    {
+        _libraryTypes[name] = new LibraryType(typeParameters, defaults, members);
+        Changed();
+    }
+
+    private sealed record LibraryType(IReadOnlyList<string> TypeParameters, IReadOnlyList<TypeRefNode> Defaults, IReadOnlyList<MemberNode> Members);
+
+    /// <summary>
+    /// The members a type inherits from the library types it or its in-scope bases derive from that a stack told the graph
+    /// of, each placed at the declaration of the type that derives from it, since that is where the code states it.
+    /// </summary>
+    private IReadOnlyList<MemberNode> LibraryMembersOf(TypeNode type)
+    {
+        if (_libraryTypes.Count == 0)
+        {
+            return [];
+        }
+
+        var memo = Index.LibraryMembers;
+        if (memo.TryGetValue(type, out var known))
+        {
+            return known;
+        }
+
+        var members = new List<MemberNode>();
+        foreach (var declaring in new[] { type }.Concat(Bases(type)))
+        {
+            foreach (var reference in declaring.BaseTypes.Where(x => Resolve(x, declaring) is null))
+            {
+                if (!_libraryTypes.TryGetValue(reference.Name, out var library))
+                {
+                    continue;
+                }
+
+                var arguments = reference.Arguments.Count > 0 ? reference.Arguments : library.Defaults;
+
+                TypeRefNode? Bound(TypeRefNode? memberType) =>
+                    memberType is not null && library.TypeParameters.ToList().IndexOf(memberType.Name) is var index and >= 0 && index < arguments.Count
+                        ? arguments[index]
+                        : memberType;
+
+                members.AddRange(library.Members.Where(x => members.All(m => m.Name != x.Name))
+                    .Select(x => x with { Type = Bound(x.Type), At = declaring.At }));
+            }
+        }
+
+        return memo[type] = members;
+    }
 
     /// <summary>
     /// The calls a method or constructor makes, then those of the methods of its own type it calls, transitively, each with
@@ -1255,6 +1315,8 @@ public sealed class CodeGraph
         public Dictionary<TypeNode, IReadOnlyList<TypeNode>> Bases { get; } = [];
 
         public Dictionary<TypeNode, IReadOnlyList<string>> Supertypes { get; } = [];
+
+        public Dictionary<TypeNode, IReadOnlyList<MemberNode>> LibraryMembers { get; } = [];
 
         /// <summary>The types of each name, in the graph's order.</summary>
         public Dictionary<string, List<TypeNode>> TypesByName => _typesByName ??= graph.Types

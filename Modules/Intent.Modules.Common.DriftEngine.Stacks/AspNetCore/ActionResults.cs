@@ -10,10 +10,11 @@ namespace Intent.Modules.Common.DriftEngine.Stacks.AspNetCore;
 /// <summary>
 /// What an action or handler returns when its return type doesn't say: <c>IActionResult</c>, <c>ActionResult</c>, Web API 2's
 /// <c>IHttpActionResult</c> or Minimal APIs' <c>IResult</c>, under <c>Task</c>. Each return is read for the success result it
-/// builds, a controller's factory (<c>Ok(data)</c>), <c>Results</c>' or <c>TypedResults</c>', or a result it creates
-/// (<c>new OkObjectResult(data)</c>), through locals, conditionals and the code's own methods that build it; what that result
-/// carries is what the operation returns: <c>Ok(data)</c> is data's type, <c>NoContent()</c> nothing. An error result isn't
-/// modelled. A body whose type the code doesn't say is the action's declared response (<c>[ResponseType]</c>,
+/// builds, a controller's factory (<c>Ok(data)</c>, an MVC view's <c>View(model)</c>), <c>Results</c>' or <c>TypedResults</c>',
+/// or a result it creates (<c>new OkObjectResult(data)</c>), through locals, conditionals and the code's own methods that build
+/// it, its controller extension methods included (<c>this.LoadingPage(...)</c>); what that result carries is what the
+/// operation returns: <c>Ok(data)</c> and <c>View(data)</c> are data's type, <c>NoContent()</c> and <c>View()</c> nothing. An
+/// error result isn't modelled, and an action that only redirects returns nothing. A body whose type the code doesn't say is the action's declared response (<c>[ResponseType]</c>,
 /// <c>[ProducesResponseType]</c>); a result this doesn't read, or an untyped body with no declared response, is can't verify, never a guess.
 /// </summary>
 internal static class ActionResults
@@ -33,6 +34,23 @@ internal static class ActionResults
         "ChallengeResult", "InternalServerErrorResult", "ExceptionResult", "InvalidModelStateResult", "RedirectResult", "RedirectToActionResult",
         "RedirectToRouteResult", "LocalRedirectResult", "SignOutResult"
     ];
+
+    /// <summary>The factories this reads the success of, besides the errors.</summary>
+    private static readonly HashSet<string> Factories =
+    [
+        "Ok", "Json", "NoContent", "Created", "Accepted", "CreatedAtAction", "CreatedAtRoute", "AcceptedAtAction", "AcceptedAtRoute", "StatusCode", "Content",
+        "File", "Stream", "PhysicalFile", "VirtualFile", "Bytes", "View", "PartialView"
+    ];
+
+    /// <summary>The results that send the user somewhere else: an MVC action that only returns these returns nothing.</summary>
+    private static readonly HashSet<string> Navigations =
+    [
+        "Redirect", "RedirectPermanent", "RedirectToAction", "RedirectToRoute", "RedirectToPage", "LocalRedirect", "Challenge", "SignOut",
+        "RedirectResult", "RedirectToActionResult", "RedirectToRouteResult", "LocalRedirectResult", "ChallengeResult", "SignOutResult"
+    ];
+
+    /// <summary>The types a controller extension method of the code's own extends: <c>this Controller controller</c>.</summary>
+    private static readonly HashSet<string> ControllerBases = ["Controller", "ControllerBase"];
 
     private static readonly TypeRefNode Stream = new() { Text = "Stream", Name = "Stream", QualifiedName = "System.IO.Stream" };
 
@@ -56,11 +74,19 @@ internal static class ActionResults
     public static ClaimReading Read(ClaimContext context, MemberNode member)
     {
         var returns = member.Type!;
+
+        // An action that only redirects, challenges or signs out renders nothing of its own, as Intent's MVC module models
+        // RedirectToAction: it returns nothing.
+        if (member.Body is { Returns: [var first, ..] } navigating && navigating.Returns.All(Navigates))
+        {
+            return ClaimReading.Compared($"{returns.Text} with no body", first.At, context.ExpectedValue is not ITypeReference);
+        }
+
         var successes = new List<(TypeRefNode? Body, Span At)>();
         var untyped = new List<Unread>();
         foreach (var value in member.Body?.Returns ?? [])
         {
-            if (Value(member.Body!, value, value.At, 0, successes) is not { } unread)
+            if (Value(context.Code, member.Body!, value, value.At, 0, successes, Receivers) is not { } unread)
             {
                 continue;
             }
@@ -114,8 +140,13 @@ internal static class ActionResults
 
     private sealed record Unread(string Reason, string Message, Span At);
 
-    /// <summary>The success a returned value builds, added to <paramref name="successes"/>; why it can't be read, when it can't.</summary>
-    private static Unread? Value(FunctionNode body, ValueNode value, Span at, int depth, List<(TypeRefNode? Body, Span At)> successes)
+    /// <summary>
+    /// The success a returned value builds, added to <paramref name="successes"/>; why it can't be read, when it can't.
+    /// <paramref name="controllers"/> are what a factory is called on: the controller itself, or the parameter a controller
+    /// extension method of the code's own is called on.
+    /// </summary>
+    private static Unread? Value(CodeGraph code, FunctionNode body, ValueNode value, Span at, int depth, List<(TypeRefNode? Body, Span At)> successes,
+        IReadOnlySet<string> controllers)
     {
         if (depth > MaxDepth)
         {
@@ -127,7 +158,7 @@ internal static class ActionResults
         {
             foreach (var given in value.Given)
             {
-                if (Value(body, given, given.At, depth + 1, successes) is { } unread)
+                if (Value(code, body, given, given.At, depth + 1, successes, controllers) is { } unread)
                 {
                     return unread;
                 }
@@ -149,10 +180,20 @@ internal static class ActionResults
         // return await Task.FromResult(Ok(data)): the result it hands back as a finished task.
         if (Http.SuccessStatus.FromResult(call) is { } wrapped)
         {
-            return Value(body, wrapped, at, depth + 1, successes);
+            return Value(code, body, wrapped, at, depth + 1, successes, controllers);
         }
 
-        if (call.Target is null && (call.Receiver is null || Receivers.Contains(call.Receiver)))
+        var onController = call.Receiver is null || controllers.Contains(call.Receiver);
+
+        // A controller extension method of the code's own that builds the result: return this.LoadingPage("Redirect", url),
+        // whose body calls the factory on the controller it extends, controller.View(viewName, model).
+        if (call.Target is null && onController && !Factories.Contains(call.Name) && !Errors.Contains(call.Name)
+            && Extension(code, call) is { Body: { } extension, Parameters: [var extended, ..] })
+        {
+            return Helper(code, extension, at, depth, successes, new HashSet<string>(Receivers) { extended.Name });
+        }
+
+        if (call.Target is null && onController)
         {
             return Factory(body, call, at, successes);
         }
@@ -160,19 +201,44 @@ internal static class ActionResults
         // A method of the code's own that builds the result: return HandleResult(data).
         if (call.Target is { Member: { Type: { } type, Body: { } helper } } && IsUntyped(type))
         {
-            foreach (var returned in helper.Returns)
-            {
-                if (Value(helper, returned, at, depth + 1, successes) is { } unread)
-                {
-                    return unread;
-                }
-            }
-
-            return null;
+            return Helper(code, helper, at, depth, successes, Receivers);
         }
 
         return Unreadable(value, at);
     }
+
+    /// <summary>The successes each return of a method of the code's own builds.</summary>
+    private static Unread? Helper(CodeGraph code, FunctionNode helper, Span at, int depth, List<(TypeRefNode? Body, Span At)> successes, IReadOnlySet<string> controllers)
+    {
+        foreach (var returned in helper.Returns)
+        {
+            if (Value(code, helper, returned, at, depth + 1, successes, controllers) is { } unread)
+            {
+                return unread;
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// The one static method of the code's own a call on the controller reaches as an extension method: of the call's name,
+    /// taking a <c>Controller</c> or <c>ControllerBase</c> and then the call's arguments, and returning an untyped result.
+    /// </summary>
+    private static MemberNode? Extension(CodeGraph code, CallNode call) =>
+        code.Types.SelectMany(x => x.Members)
+            .Where(x => x is { Kind: "method", IsStatic: true, Type: { } type } && x.Name == call.Name && IsUntyped(type)
+                        && x.Parameters.Count == call.Arguments.Count + 1 && x.Parameters[0].Type is { } extended && ControllerBases.Contains(extended.Name))
+            .Take(2).ToList() is [var only] ? only : null;
+
+    /// <summary>A return that only sends the user elsewhere: <c>RedirectToAction("Index")</c>, <c>Challenge(props, scheme)</c>.</summary>
+    private static bool Navigates(ValueNode value) =>
+        value is { Call: { } call } ? Navigations.Contains(call.Name) && (call.Receiver is null || Receivers.Contains(call.Receiver))
+            : value.Creations is [var creation] && Navigations.Contains(creation.Type.Name);
+
+    /// <summary><c>View(viewName)</c>'s name: text, not the model the view renders.</summary>
+    private static bool IsViewName(ValueNode value) =>
+        value.Literal is not null || value is { IsKnown: true, Types: [{ Name: "string" or "String" }] };
 
     /// <summary>A controller's, <c>Results</c>' or <c>TypedResults</c>' factory, and the body its success carries.</summary>
     private static Unread? Factory(FunctionNode body, CallNode call, Span at, List<(TypeRefNode? Body, Span At)> successes)
@@ -189,6 +255,10 @@ internal static class ActionResults
                 return Success(body, arguments.FirstOrDefault(), at, successes);
             case "NoContent":
                 return Success(body, null, at, successes);
+            case "View" or "PartialView":
+                // View(), View(viewName), View(model) or View(viewName, model): the model the view renders is what the action returns,
+                // as Intent's MVC module models it, and with none it returns nothing.
+                return Success(body, arguments.Count > 1 ? arguments[1] : arguments is [var model] && !IsViewName(model) ? model : null, at, successes);
             case "Created":
                 // Created(uri, value); Created() and Created(uri) have none.
                 return Success(body, arguments.Count > 1 ? arguments[1] : null, at, successes);

@@ -1381,6 +1381,136 @@ public class ShapesController : ControllerBase
 }
 ```
 
+## mvc-view-results
+
+An MVC action renders a view, and the model the view renders is what it returns, as Intent's MVC module models it: `View(vm)` is `LoginViewModel`, and `View()` and `View("Done")`, a view's name, render none, so `Index` and `Done` return nothing. `Redirect` returns `this.LoadingPage("Redirect", returnUrl)`, a controller extension method of the code's own whose body is `controller.View(viewName, new RedirectViewModel { ... })`, so it returns `RedirectViewModel`. `Revoke` only redirects, so it returns nothing. `Logout` renders `LoggedOutViewModel` on one path and, through `LoadingPage`, `RedirectViewModel` on the other: the model can state only one, so it is contradicted. The adapted code is eShop's `Identity.API` Quickstart controllers.
+
+```json case
+{ "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Identity.API",
+        "elements": [
+          { "id": "login-vm", "type": "DTO", "name": "LoginViewModel" },
+          { "id": "redirect-vm", "type": "DTO", "name": "RedirectViewModel" },
+          { "id": "logged-out-vm", "type": "DTO", "name": "LoggedOutViewModel" },
+          { "id": "account", "type": "Service", "name": "AccountController",
+            "children": [
+              { "id": "login", "type": "Operation", "name": "Login", "typeRef": { "element": "login-vm" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Account/Login" } } },
+              { "id": "index", "type": "Operation", "name": "Index",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Account/Index" } } },
+              { "id": "done", "type": "Operation", "name": "Done",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Account/Done" } } },
+              { "id": "redirect", "type": "Operation", "name": "Redirect", "typeRef": { "element": "redirect-vm" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Account/Redirect" } },
+                "children": [{ "id": "redirect-url", "type": "Parameter", "name": "returnUrl", "typeRef": { "type": "string" } }] },
+              { "id": "revoke", "type": "Operation", "name": "Revoke",
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "~/Account/Revoke" } } },
+              { "id": "logout", "type": "Operation", "name": "Logout", "typeRef": { "element": "logged-out-vm" },
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "~/Account/Logout" } },
+                "children": [{ "id": "logout-native", "type": "Parameter", "name": "native", "typeRef": { "type": "bool" } }] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Identity", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Identity.API/Quickstart/ViewModels.cs
+namespace Identity.API.Quickstart;
+
+public class LoginViewModel { public string ReturnUrl { get; set; } = ""; }
+
+public class RedirectViewModel { public string RedirectUrl { get; set; } = ""; }
+
+public class LoggedOutViewModel { public string ClientName { get; set; } = ""; }
+```
+
+```csharp file src/Identity.API/Quickstart/Extensions.cs
+namespace Identity.API.Quickstart;
+
+public static class Extensions
+{
+    public static IActionResult LoadingPage(this Controller controller, string viewName, string redirectUri)
+    {
+        controller.HttpContext.Response.StatusCode = 200;
+        return controller.View(viewName, new RedirectViewModel { RedirectUrl = redirectUri });
+    }
+}
+```
+
+```csharp file src/Identity.API/Quickstart/AccountController.cs
+namespace Identity.API.Quickstart;
+
+public class AccountController : Controller
+{
+    [HttpGet]
+    public IActionResult Login()
+    {
+        var vm = new LoginViewModel();
+        return View(vm);
+    }
+
+    [HttpGet]
+    public IActionResult Index() => View();
+
+    [HttpGet]
+    public IActionResult Done() => View("Done");
+
+    [HttpGet]
+    public IActionResult Redirect(string returnUrl)
+    {
+        return this.LoadingPage("Redirect", returnUrl);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Revoke()
+    {
+        await Task.Yield();
+        return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public IActionResult Logout(bool native)
+    {
+        if (native)
+        {
+            return this.LoadingPage("Redirect", "/");
+        }
+
+        return View("LoggedOut", new LoggedOutViewModel());
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "login", "outcome": "verified", "expected": "LoginViewModel", "actual": "IActionResult with LoginViewModel" },
+    { "kind": "operation.returns", "element": "index", "outcome": "verified", "actual": "IActionResult with no body" },
+    { "kind": "operation.returns", "element": "done", "outcome": "verified", "actual": "IActionResult with no body" },
+    { "kind": "operation.returns", "element": "redirect", "outcome": "verified", "actual": "IActionResult with RedirectViewModel" },
+    { "kind": "operation.returns", "element": "revoke", "outcome": "verified", "actual": "Task<IActionResult> with no body" },
+    { "kind": "operation.returns", "element": "logout", "outcome": "contradicted", "expected": "LoggedOutViewModel", "actual": "IActionResult with RedirectViewModel or LoggedOutViewModel" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "logout", "messageContains": "RedirectViewModel" },
+    { "rule": "claim/operation.returns", "subject": "login", "count": 0 }
+  ]
+}
+```
+
 ## web-api-2-content-status
 
 A Web API 2 action gives its status first: `Content(HttpStatusCode.OK, model)` succeeds with `model`, and `Content(HttpStatusCode.ExpectationFailed, ex.Message)` is an error result, which the model doesn't state. Any status .NET's `HttpStatusCode` names is read, so the 417 isn't taken for ASP.NET Core's `Content(text)`, a `string` success: the action returns `List<CrmAddressModel>`, the model's collection.
