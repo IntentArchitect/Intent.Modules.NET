@@ -1542,6 +1542,104 @@ public class AccountController : Controller
 }
 ```
 
+## mvc-view-results-declared-type
+
+The Services designer requires a GET to return a type, so an MVC GET that renders nothing can only be modelled with the action's own result type. `AccessDenied` renders `View()`, `Challenge` only challenges, and `Home.Index` renders `View()` or returns `NotFound()`: each is modelled as `IActionResult` and verifies. `Profile` renders `RedirectViewModel`, a body the model could state, so `IActionResult` there is contradicted. The adapted code is eShop's `Identity.API` Quickstart controllers.
+
+```json case
+{ "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Identity.API",
+        "elements": [
+          { "id": "account", "type": "Service", "name": "AccountController",
+            "children": [
+              { "id": "access-denied", "type": "Operation", "name": "AccessDenied", "typeRef": { "type": "IActionResult" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Account/AccessDenied" } } },
+              { "id": "challenge", "type": "Operation", "name": "Challenge", "typeRef": { "type": "IActionResult" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Account/Challenge" } },
+                "children": [{ "id": "challenge-scheme", "type": "Parameter", "name": "scheme", "typeRef": { "type": "string" } }] },
+              { "id": "profile", "type": "Operation", "name": "Profile", "typeRef": { "type": "IActionResult" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Account/Profile" } } }
+            ] },
+          { "id": "home", "type": "Service", "name": "HomeController",
+            "children": [
+              { "id": "home-index", "type": "Operation", "name": "Index", "typeRef": { "type": "IActionResult" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Home/Index" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Identity", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Identity.API/Quickstart/AccountController.cs
+namespace Identity.API.Quickstart;
+
+public class RedirectViewModel { public string RedirectUrl { get; set; } = ""; }
+
+public class AccountController : Controller
+{
+    [HttpGet]
+    public IActionResult AccessDenied()
+    {
+        return View();
+    }
+
+    [HttpGet]
+    public IActionResult Challenge(string scheme)
+    {
+        var props = new AuthenticationProperties();
+        return Challenge(props, scheme);
+    }
+
+    [HttpGet]
+    public IActionResult Profile() => View(new RedirectViewModel());
+}
+
+public class HomeController : Controller
+{
+    private readonly bool _development = true;
+
+    public IActionResult Index()
+    {
+        if (_development)
+        {
+            return View();
+        }
+
+        return NotFound();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "access-denied", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult with no body" },
+    { "kind": "operation.returns", "element": "challenge", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult with no body" },
+    { "kind": "operation.returns", "element": "home-index", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult with no body" },
+    { "kind": "operation.returns", "element": "profile", "outcome": "contradicted", "expected": "IActionResult", "actual": "IActionResult with RedirectViewModel" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "profile", "messageContains": "RedirectViewModel" },
+    { "rule": "claim/operation.returns", "subject": "access-denied", "count": 0 },
+    { "rule": "claim/operation.returns", "subject": "challenge", "count": 0 },
+    { "rule": "claim/operation.returns", "subject": "home-index", "count": 0 }
+  ]
+}
+```
+
 ## web-api-2-content-status
 
 A Web API 2 action gives its status first: `Content(HttpStatusCode.OK, model)` succeeds with `model`, and `Content(HttpStatusCode.ExpectationFailed, ex.Message)` is an error result, which the model doesn't state. Any status .NET's `HttpStatusCode` names is read, so the 417 isn't taken for ASP.NET Core's `Content(text)`, a `string` success: the action returns `List<CrmAddressModel>`, the model's collection.

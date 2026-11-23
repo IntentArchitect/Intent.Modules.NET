@@ -13,7 +13,8 @@ namespace Intent.Modules.Common.DriftEngine.Stacks.AspNetCore;
 /// builds, a controller's factory (<c>Ok(data)</c>, an MVC view's <c>View(model)</c>), <c>Results</c>' or <c>TypedResults</c>',
 /// or a result it creates (<c>new OkObjectResult(data)</c>), through locals, conditionals and the code's own methods that build
 /// it, its controller extension methods included (<c>this.LoadingPage(...)</c>); what that result carries is what the
-/// operation returns: <c>Ok(data)</c> and <c>View(data)</c> are data's type, <c>NoContent()</c> and <c>View()</c> nothing. An
+/// operation returns: <c>Ok(data)</c> and <c>View(data)</c> are data's type, <c>NoContent()</c> and <c>View()</c> nothing, which
+/// the model states with no type or with the action's own result type (a GET must have one in the Services designer). An
 /// error result isn't modelled, and an action that only redirects returns nothing. A body whose type the code doesn't say is the action's declared response (<c>[ResponseType]</c>,
 /// <c>[ProducesResponseType]</c>); a result this doesn't read, or an untyped body with no declared response, is can't verify, never a guess.
 /// </summary>
@@ -75,11 +76,16 @@ internal static class ActionResults
     {
         var returns = member.Type!;
 
+        // A success with no body is the model's nothing, or the action's own result type: the Services designer requires a GET
+        // to return a type, so an MVC GET that renders View() or only redirects can only be modelled as IActionResult.
+        var result = returns is { Name: "Task" or "ValueTask", Arguments: [var awaited] } ? awaited : returns;
+        var bodiless = context.ExpectedValue is not ITypeReference stated || context.TypeMatches(stated, result);
+
         // An action that only redirects, challenges or signs out renders nothing of its own, as Intent's MVC module models
         // RedirectToAction: it returns nothing.
         if (member.Body is { Returns: [var first, ..] } navigating && navigating.Returns.All(Navigates))
         {
-            return ClaimReading.Compared($"{returns.Text} with no body", first.At, context.ExpectedValue is not ITypeReference);
+            return ClaimReading.Compared($"{returns.Text} with no body", first.At, bodiless);
         }
 
         var successes = new List<(TypeRefNode? Body, Span At, bool View)>();
@@ -134,7 +140,7 @@ internal static class ActionResults
             context.TypeMatches(model, body) || IsFile(body) && (context.TypeMatches(model, Stream) || context.TypeMatches(model, Bytes));
 
         bool Same((TypeRefNode? Body, Span At, bool View) success) =>
-            context.ExpectedValue is ITypeReference model ? success.Body is not null && Matches(model, success.Body) : success.Body is null;
+            success.Body is null ? bodiless : context.ExpectedValue is ITypeReference model && Matches(model, success.Body);
 
         // An MVC action may render several pages: its own, and others such as a redirect page (Identity's LoadingPage). The model
         // states one return type, so a view model it renders is what the model may give; an API's bodies must all be the one.
