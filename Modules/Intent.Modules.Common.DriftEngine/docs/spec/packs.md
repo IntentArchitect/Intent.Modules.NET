@@ -68,6 +68,7 @@ Module upgrades never change a house pack ([R53](requirements.md)); it's in the 
 | `intent.aspnetcore`  | Reads the HTTP claims from controllers and minimal APIs: routes, verbs, binding, security, versioning; and reports an Operation whose empty Route puts it where Web API 2 doesn't serve it ([rules.md](rules.md#routes-web-api-2-serves-conventionally)) | 4     |
 | `intent.nservicebus` | Message handlers, sends and publishes                                                           | 4     |
 | `intent.java`        | The Java reader and language profile                                                            | 4     |
+| `intent.python`      | The Python reader and language profile                                                          | later |
 | `intent.springmvc`   | Routes, verbs, binding, status and security over Spring MVC                                     | 4     |
 | `intent.jpa`         | Persistence over JPA annotations                                                                | 4     |
 | `intent.mediatr`     | Commands, queries, handlers and validators                                                      | later |

@@ -124,7 +124,7 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
             return $"The engine doesn't ship {pack} yet.";
         }
 
-        if (meta.Text("language") is { } language && language is not ("csharp" or "java" or "typescript" or "protobuf"))
+        if (meta.Text("language") is { } language && language is not ("csharp" or "java" or "python" or "typescript" or "protobuf"))
         {
             return $"The engine has no {language} reader yet.";
         }

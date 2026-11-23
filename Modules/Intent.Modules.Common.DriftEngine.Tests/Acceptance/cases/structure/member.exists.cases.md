@@ -1933,3 +1933,101 @@ public class Buyer
   ]
 }
 ```
+
+## python-attribute-constructor-and-operation
+
+The same claims over Python, named by the Python profile: an attribute is a snake-case field, declared in the class (`quantity_on_hand`) or assigned to `self` in `__init__` (`product_id`); the modelled constructor is `__init__`; an operation is its snake-case method, `receive` for `Receive`. `self` is no parameter.
+
+```json case
+{ "phase": 4, "kinds": ["member.exists"], "traces": ["ESC-DOM-33"], "requirements": ["R2", "R33", "R41", "R42"], "packs": ["intent.core", "intent.domain", "intent.python"], "language": "python" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "stock-item", "type": "Class", "name": "StockItem",
+            "children": [
+              { "id": "stock-item-product-id", "type": "Attribute", "name": "ProductId", "typeRef": { "type": "guid" } },
+              { "id": "stock-item-quantity-on-hand", "type": "Attribute", "name": "QuantityOnHand", "typeRef": { "type": "int" } },
+              { "id": "stock-item-ctor", "type": "Class Constructor", "name": "StockItem",
+                "children": [
+                  { "id": "stock-item-ctor-product-id", "type": "Parameter", "name": "productId", "typeRef": { "type": "guid" } }
+                ] },
+              { "id": "stock-item-receive", "type": "Operation", "name": "Receive",
+                "children": [
+                  { "id": "stock-item-receive-quantity", "type": "Parameter", "name": "quantity", "typeRef": { "type": "int" } },
+                  { "id": "stock-item-receive-note", "type": "Parameter", "name": "note", "typeRef": { "type": "string" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```python file src/shop/domain/stock_item.py
+import uuid
+
+
+class StockItem:
+    quantity_on_hand: int
+
+    def __init__(self, product_id: uuid.UUID) -> None:
+        self.product_id = product_id
+        self.quantity_on_hand = 0
+
+    def receive(self, quantity: int, note: str) -> None:
+        self.quantity_on_hand += quantity
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "stock-item-product-id", "outcome": "verified", "at": "src/shop/domain/stock_item.py:8" },
+    { "kind": "member.exists", "element": "stock-item-quantity-on-hand", "outcome": "verified", "at": "src/shop/domain/stock_item.py:5" },
+    { "kind": "member.exists", "element": "stock-item-ctor", "outcome": "verified", "at": "src/shop/domain/stock_item.py:7" },
+    { "kind": "member.exists", "element": "stock-item-receive", "outcome": "verified", "at": "src/shop/domain/stock_item.py:11" }
+  ]
+}
+```
+
+## python-operation-missing
+
+`StockItem` has no `receive` method: the modelled operation is contradicted.
+
+```json case
+{ "phase": 4, "base": "python-attribute-constructor-and-operation", "kinds": ["member.exists"], "traces": ["ESC-DOM-33"], "requirements": ["R8"], "packs": ["intent.core", "intent.domain", "intent.python"], "language": "python" }
+```
+
+```python file src/shop/domain/stock_item.py
+import uuid
+
+
+class StockItem:
+    quantity_on_hand: int
+
+    def __init__(self, product_id: uuid.UUID) -> None:
+        self.product_id = product_id
+        self.quantity_on_hand = 0
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "stock-item-ctor", "outcome": "verified", "at": "src/shop/domain/stock_item.py:7" },
+    { "kind": "member.exists", "element": "stock-item-receive", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "stock-item-receive", "messageContains": "isn't in the code" }
+  ]
+}
+```

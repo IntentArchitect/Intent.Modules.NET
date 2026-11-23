@@ -1272,3 +1272,115 @@ public class Buyer
   ]
 }
 ```
+
+## python-field-type
+
+The same claim over a Python dataclass's annotations, through the Python profile: `guid` is `UUID`, `decimal` is `Decimal`, a collection of `StockMovement` is a `list[StockMovement]`, and a nullable `datetime` is an `Optional[datetime]`, whose `Optional` only makes it nullable.
+
+```json case
+{ "phase": 4, "kinds": ["member.type"], "traces": ["ESC-DOM-34"], "requirements": ["R2", "R33", "R41", "R42"], "packs": ["intent.core", "intent.domain", "intent.python"], "language": "python" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "stock-movement", "type": "Class", "name": "StockMovement",
+            "children": [
+              { "id": "stock-movement-quantity", "type": "Attribute", "name": "Quantity", "typeRef": { "type": "int" } }
+            ] },
+          { "id": "stock-item", "type": "Class", "name": "StockItem",
+            "children": [
+              { "id": "stock-item-product-id", "type": "Attribute", "name": "ProductId", "typeRef": { "type": "guid" } },
+              { "id": "stock-item-unit-cost", "type": "Attribute", "name": "UnitCost", "typeRef": { "type": "decimal" } },
+              { "id": "stock-item-movements", "type": "Attribute", "name": "Movements", "typeRef": { "element": "stock-movement", "collection": true } },
+              { "id": "stock-item-discontinued-on", "type": "Attribute", "name": "DiscontinuedOn", "typeRef": { "type": "datetime", "nullable": true } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```python file src/shop/domain/stock_movement.py
+from dataclasses import dataclass
+
+
+@dataclass
+class StockMovement:
+    quantity: int
+```
+
+```python file src/shop/domain/stock_item.py
+from dataclasses import dataclass, field
+from datetime import datetime
+from decimal import Decimal
+from typing import Optional
+from uuid import UUID
+
+from .stock_movement import StockMovement
+
+
+@dataclass
+class StockItem:
+    product_id: UUID
+    unit_cost: Decimal
+    movements: list[StockMovement] = field(default_factory=list)
+    discontinued_on: Optional[datetime] = None
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "stock-item-product-id", "outcome": "verified", "expected": "guid", "actual": "UUID", "at": "src/shop/domain/stock_item.py:12" },
+    { "kind": "member.type", "element": "stock-item-unit-cost", "outcome": "verified", "expected": "decimal", "actual": "Decimal", "at": "src/shop/domain/stock_item.py:13" },
+    { "kind": "member.type", "element": "stock-item-movements", "outcome": "verified", "expected": "StockMovement[]", "actual": "list[StockMovement]", "at": "src/shop/domain/stock_item.py:14" },
+    { "kind": "member.type", "element": "stock-item-discontinued-on", "outcome": "verified", "expected": "datetime?", "actual": "Optional[datetime]", "at": "src/shop/domain/stock_item.py:15" }
+  ]
+}
+```
+
+## python-field-type-contradicted
+
+`unit_cost` is a `float`, which the Python profile doesn't list for `decimal`: contradicted.
+
+```json case
+{ "phase": 4, "base": "python-field-type", "kinds": ["member.type"], "traces": ["ESC-DOM-34"], "requirements": ["R1", "R11", "R42"], "packs": ["intent.core", "intent.domain", "intent.python"], "language": "python" }
+```
+
+```python file src/shop/domain/stock_item.py
+from dataclasses import dataclass, field
+from datetime import datetime
+from decimal import Decimal
+from typing import Optional
+from uuid import UUID
+
+from .stock_movement import StockMovement
+
+
+@dataclass
+class StockItem:
+    product_id: UUID
+    unit_cost: float
+    movements: list[StockMovement] = field(default_factory=list)
+    discontinued_on: Optional[datetime] = None
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "stock-item-unit-cost", "outcome": "contradicted", "expected": "decimal", "actual": "float", "at": "src/shop/domain/stock_item.py:13" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "stock-item-unit-cost" }
+  ]
+}
+```

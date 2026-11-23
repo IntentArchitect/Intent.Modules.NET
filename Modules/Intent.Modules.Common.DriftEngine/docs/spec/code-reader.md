@@ -106,6 +106,7 @@ Rules compare canonical text, so layout and comments never change a reading.
 
 - **C#**: exactly Common.Drift's: tokens joined with no whitespace except one space between two words; comments and code disabled by `#if` dropped; string and interpolated string contents as written ([R34](requirements.md)). `builder.ToTable( "Orders" ,  "sales" ); // legacy` reads `builder.ToTable("Orders","sales");`, and `public  sealed class Order` reads `public sealed class Order`.
 - **Java**: the same rule over Java's tokens; text blocks as written.
+- **Python**: the same rule over Python's tokens, so indentation and line breaks don't count; strings, f-strings included, as written.
 - **Markup** (a `markup` node's `text`, the elements inside it included): each run of whitespace reduced to one space, and none beside `<` or `>` or before `/>`, so text content is trimmed and `<PageTitle> Shopping Bag | AdventureWorks </PageTitle>` reads `<PageTitle>Shopping Bag | AdventureWorks</PageTitle>`. Character references stay as written.
 - **TypeScript**: the C# rule over TypeScript's tokens; template literals as written.
 - **Protobuf**: the same rule over `.proto` tokens.
@@ -118,6 +119,7 @@ Rules compare canonical text, so layout and comments never change a reading.
 | C#                 | 1     | `.cs`, `.razor` (its directives, `@code` and markup), `.csproj`, `Directory.Build.props` | declared   |
 | Text               | 1     | any file, as `file` with `raw`                                               | none       |
 | Java               | 4     | `.java`, `pom.xml`, `build.gradle`                                           | declared   |
+| Python             | later | `.py`, `.pyi`                                                                | declared   |
 | EF Core migrations | 4     | committed `*ModelSnapshot.cs`                                                | n/a        |
 | TypeScript         | later | `.ts`, `.tsx`, `.mts`, `.cts`, `.js`, `.jsx`, `.mjs`, `.cjs` (JSX as markup), `.vue` (its `<script>` blocks, and its `<template>` as markup), `tsconfig.json`, `jsconfig.json` | declared |
 | Protobuf           | later | `.proto` (proto2, proto3 and editions)                                       | declared   |
@@ -234,13 +236,13 @@ A library's component, such as Blazor's `PageTitle` or Vue Router's `RouterLink`
 
 Each reader declares what it can do ([R35](requirements.md)). A rule that needs a capability the reader lacks gives can't verify, `unresolved`.
 
-| Capability     | Meaning                                                                                                                                                    | C#       | Java       | TypeScript | Protobuf | Text |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- | ---------- | -------- | ---- |
-| `declarations` | Types and members, with modifiers and type refs                                                                                                            | yes      | yes        | yes        | yes      | no   |
-| `bodies`       | Statements, chains, calls and creations                                                                                                                    | yes      | yes        | yes        | no       | no   |
-| `resolution`   | `declared`: names resolve to in-scope declarations through imports, namespaces and the project's global usings. Never to library types: there is no build. | declared | declared   | declared   | declared | none |
-| `nullable`     | Knows the nullable context                                                                                                                                 | yes      | by profile | by `tsconfig.json` | by presence | no |
-| `callTargets`  | Resolves a call to its method when the receiver's declared type is known (a field, parameter or explicitly typed local)                                    | declared | declared   | declared   | no       | no   |
+| Capability     | Meaning                                                                                                                                                    | C#       | Java       | Python     | TypeScript | Protobuf | Text |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- | ---------- | ---------- | -------- | ---- |
+| `declarations` | Types and members, with modifiers and type refs                                                                                                            | yes      | yes        | yes        | yes        | yes      | no   |
+| `bodies`       | Statements, chains, calls and creations                                                                                                                    | yes      | yes        | yes        | yes        | no       | no   |
+| `resolution`   | `declared`: names resolve to in-scope declarations through imports, namespaces and the project's global usings. Never to library types: there is no build. | declared | declared   | declared   | declared   | declared | none |
+| `nullable`     | Knows the nullable context                                                                                                                                 | yes      | by profile | by annotation | by `tsconfig.json` | by presence | no |
+| `callTargets`  | Resolves a call to its method when the receiver's declared type is known (a field, parameter or explicitly typed local)                                    | declared | declared   | declared   | declared   | no       | no   |
 
 `resolution: declared` is enough for the structure claims: a base type, a member's type or an implemented interface declared in scope resolves, and one from a library stays as written. A rule comparing a library type compares its name as written.
 

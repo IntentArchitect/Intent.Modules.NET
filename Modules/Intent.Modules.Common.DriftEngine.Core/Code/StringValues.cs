@@ -30,13 +30,8 @@ internal static class StringValues
                 return Literal([Hole(value)]);
             }
 
-            var bound = new Dictionary<ParameterNode, List<Part>>();
-            for (var i = 0; i < body.Parameters.Count && i < call.Arguments.Count; i++)
-            {
-                bound[body.Parameters[i]] = Evaluate(call.Arguments[i], bindings, 1);
-            }
-
-            bindings = bound;
+            var outer = bindings;
+            bindings = Bind(body.Parameters, call.Arguments, x => Evaluate(x, outer, 1));
         }
 
         return Literal(Evaluate(value, bindings, 0));
@@ -139,13 +134,27 @@ internal static class StringValues
             return null;
         }
 
+        var bound = Bind(body.Parameters, call.Arguments, x => Evaluate(x, bindings, depth + 1));
+        return Agreed(body.Returns.Select(x => Evaluate(x, bound, depth + 1)).ToList());
+    }
+
+    /// <summary>
+    /// A call's arguments bound to its method's parameters: a positional argument by its place, a named one by its name
+    /// (C#'s <c>status: "Paid"</c>, Python's <c>status="Paid"</c>), wherever it is written.
+    /// </summary>
+    private static Dictionary<ParameterNode, List<Part>> Bind(IReadOnlyList<ParameterNode> parameters, IReadOnlyList<ValueNode> arguments, Func<ValueNode, List<Part>> evaluate)
+    {
         var bound = new Dictionary<ParameterNode, List<Part>>();
-        for (var i = 0; i < body.Parameters.Count && i < call.Arguments.Count; i++)
+        for (var i = 0; i < arguments.Count; i++)
         {
-            bound[body.Parameters[i]] = Evaluate(call.Arguments[i], bindings, depth + 1);
+            var parameter = arguments[i].Name is { } name ? parameters.FirstOrDefault(x => x.Name == name) : i < parameters.Count ? parameters[i] : null;
+            if (parameter is not null)
+            {
+                bound[parameter] = evaluate(arguments[i]);
+            }
         }
 
-        return Agreed(body.Returns.Select(x => Evaluate(x, bound, depth + 1)).ToList());
+        return bound;
     }
 
     /// <summary>The one string all the ways give; null when they differ, or there are none.</summary>

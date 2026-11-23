@@ -348,6 +348,12 @@ public sealed class ValueNode
     /// <summary>The value as written, whitespace normalised.</summary>
     public required string Text { get; init; }
 
+    /// <summary>
+    /// The parameter a named argument names: <c>status</c> for C#'s <c>status: "Paid"</c> and Python's <c>status="Paid"</c>.
+    /// Null for a positional argument, and for any value that isn't an argument.
+    /// </summary>
+    public string? Name { get; init; }
+
     /// <summary>The types it can be, one per way the code gives it; the known ones when <see cref="IsKnown"/> is false.</summary>
     public IReadOnlyList<TypeRefNode> Types { get; init; } = [];
 

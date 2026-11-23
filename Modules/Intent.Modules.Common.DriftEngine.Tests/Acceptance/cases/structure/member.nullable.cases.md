@@ -910,3 +910,86 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
   ]
 }
 ```
+
+## python-annotations
+
+A Python annotation states whether a field can be `None`, as a type checker reads it: `int | None` (or `Optional[int]`) can, and any other type, `str` or `int`, can't.
+
+```json case
+{ "phase": 4, "kinds": ["member.nullable"], "traces": ["ESC-DOM-35"], "requirements": ["R2", "R33", "R35", "R42"], "packs": ["intent.core", "intent.domain", "intent.python"], "language": "python" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "stock-item", "type": "Class", "name": "StockItem",
+            "children": [
+              { "id": "stock-item-sku", "type": "Attribute", "name": "Sku", "typeRef": { "type": "string" } },
+              { "id": "stock-item-quantity-on-hand", "type": "Attribute", "name": "QuantityOnHand", "typeRef": { "type": "int" } },
+              { "id": "stock-item-reorder-level", "type": "Attribute", "name": "ReorderLevel", "typeRef": { "type": "int", "nullable": true } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```python file src/shop/domain/stock_item.py
+from dataclasses import dataclass
+
+
+@dataclass
+class StockItem:
+    sku: str
+    quantity_on_hand: int
+    reorder_level: int | None = None
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.nullable", "element": "stock-item-sku", "outcome": "verified", "expected": "false", "actual": "false", "at": "src/shop/domain/stock_item.py:6" },
+    { "kind": "member.nullable", "element": "stock-item-quantity-on-hand", "outcome": "verified", "expected": "false", "actual": "false", "at": "src/shop/domain/stock_item.py:7" },
+    { "kind": "member.nullable", "element": "stock-item-reorder-level", "outcome": "verified", "expected": "true", "actual": "true", "at": "src/shop/domain/stock_item.py:8" }
+  ]
+}
+```
+
+## python-annotation-contradicted
+
+`reorder_level` is annotated `int`, which can't be `None`, where the model's is nullable: contradicted.
+
+```json case
+{ "phase": 4, "base": "python-annotations", "kinds": ["member.nullable"], "traces": ["ESC-DOM-35"], "requirements": ["R1", "R11", "R42"], "packs": ["intent.core", "intent.domain", "intent.python"], "language": "python" }
+```
+
+```python file src/shop/domain/stock_item.py
+from dataclasses import dataclass
+
+
+@dataclass
+class StockItem:
+    sku: str
+    quantity_on_hand: int
+    reorder_level: int = 0
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.nullable", "element": "stock-item-reorder-level", "outcome": "contradicted", "expected": "true", "actual": "false", "at": "src/shop/domain/stock_item.py:8" }
+  ],
+  "findings": [
+    { "rule": "claim/member.nullable", "severity": "error", "subject": "stock-item-reorder-level" }
+  ]
+}
+```

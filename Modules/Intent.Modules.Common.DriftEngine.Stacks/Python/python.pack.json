@@ -1,0 +1,39 @@
+{
+  "id": "python",
+  "version": "1.0.0",
+  "description": "The Python language profile: how Python writes the model's types, collections, names and type kinds",
+  "languages": ["python"],
+  "profiles": {
+    "python": {
+      "language": "python",
+      "types": {
+        "string": ["str"],
+        "guid": ["UUID", "uuid.UUID"],
+        "int": ["int"],
+        "long": ["int"],
+        "short": ["int"],
+        "byte": ["int"],
+        "decimal": ["Decimal", "decimal.Decimal"],
+        "double": ["float"],
+        "float": ["float"],
+        "bool": ["bool"],
+        "char": ["str"],
+        "datetime": ["datetime", "datetime.datetime"],
+        "datetimeoffset": ["datetime", "datetime.datetime"],
+        "date": ["date", "datetime.date"],
+        "time": ["time", "timedelta", "datetime.time", "datetime.timedelta"],
+        "object": ["Any", "object", "typing.Any"],
+        "binary": ["bytes", "bytearray"]
+      },
+      "collections": ["list<T>", "List<T>", "set<T>", "Set<T>", "frozenset<T>", "FrozenSet<T>", "Sequence<T>", "MutableSequence<T>", "Collection<T>", "Iterable<T>", "AbstractSet<T>", "MutableSet<T>"],
+      "async": [{ "wrapper": "Awaitable<T>" }],
+      "nullable": {
+        "wrappers": ["Optional<T>"],
+        "unionMembers": ["None"],
+        "notStated": "Python states whether a value can be None only in its type annotation, and these are typed Any or object, which say nothing either way; annotate them with their type (Optional[T] or T | None when they can be None) to check them."
+      },
+      "naming": { "property": "{Name|snake}", "field": "{Name|snake}", "method": "{Name|snake}", "parameter": "{Name|snake}" },
+      "typeKinds": ["class", "interface", "enum", "typeAlias"]
+    }
+  }
+}

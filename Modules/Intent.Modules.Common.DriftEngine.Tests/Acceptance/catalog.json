@@ -1035,6 +1035,7 @@
     "intent.messaging",
     "intent.interactions",
     "intent.java",
+    "intent.python",
     "intent.springmvc",
     "intent.jpa",
     "intent.mediatr",

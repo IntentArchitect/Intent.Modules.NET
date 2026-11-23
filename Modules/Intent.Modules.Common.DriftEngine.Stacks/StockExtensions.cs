@@ -14,6 +14,7 @@ using Intent.Modules.Common.DriftEngine.Stacks.Mediator;
 using Intent.Modules.Common.DriftEngine.Stacks.MediatR;
 using Intent.Modules.Common.DriftEngine.Stacks.Messaging;
 using Intent.Modules.Common.DriftEngine.Stacks.Protobuf;
+using Intent.Modules.Common.DriftEngine.Stacks.Python;
 using Intent.Modules.Common.DriftEngine.Stacks.React;
 using Intent.Modules.Common.DriftEngine.Stacks.Proxies;
 using Intent.Modules.Common.DriftEngine.Stacks.Relational;
@@ -27,7 +28,7 @@ using Intent.Modules.Common.DriftEngine.Stacks.Wolverine;
 namespace Intent.Modules.Common.DriftEngine.Stacks;
 
 /// <summary>
-/// The extensions shipped with the engine. A language is one (CSharp, Java, TypeScript): the engine reads no code itself. What the model
+/// The extensions shipped with the engine. A language is one (CSharp, Java, Python, TypeScript): the engine reads no code itself. What the model
 /// states is technology-neutral (Relational, Http, Cqrs); how one framework's code states it is a separate extension (EfCore
 /// and Jpa, AspNetCore and SpringMvc, MediatR, Mediator and Wolverine), each reading the same claims with no change to the
 /// others. A framework's extension answers only when its framework is in the code; otherwise it leaves the claim to another,
@@ -43,6 +44,7 @@ public static class StockExtensions
     [
         new CSharpExtension(),
         new JavaExtension(),
+        new PythonExtension(),
         new TypeScriptExtension(node),
         new ProtobufExtension(),
         new GrpcExtension(),

@@ -141,3 +141,59 @@ public record OrderSummary
   ]
 }
 ```
+
+## python-pydantic-alias
+
+The same model over a Pydantic model: `buyer_name`'s `Field(alias="buyer")` states the name it is serialized as. `order_number` has no custom name: no claim.
+
+```json case
+{ "phase": "later", "base": "verified", "without": ["src/Ordering.API/Application/Queries/OrderSummary.cs"], "kinds": ["member.wireName"], "traces": ["ESC-SVC-48"], "requirements": ["R2", "R30", "R33", "R41"], "packs": ["intent.core", "intent.services", "intent.python"], "language": "python" }
+```
+
+```python file src/ordering/api/queries/order_summary.py
+from pydantic import BaseModel, Field
+
+
+class OrderSummary(BaseModel):
+    order_number: int
+    buyer_name: str = Field(alias="buyer")
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.wireName", "element": "order-summary-buyer-name", "outcome": "verified", "expected": "buyer", "actual": "buyer", "at": "src/ordering/api/queries/order_summary.py:6" },
+    { "kind": "member.wireName", "element": "order-summary-order-number", "absent": true }
+  ]
+}
+```
+
+## python-pydantic-serialization-alias-contradicted
+
+In `Annotated` metadata, Pydantic's `serialization_alias` is the name it writes: `buyerName`, not the model's `buyer`.
+
+```json case
+{ "phase": "later", "base": "python-pydantic-alias", "kinds": ["member.wireName"], "traces": ["ESC-SVC-48"], "requirements": ["R1", "R11", "R33"], "packs": ["intent.core", "intent.services", "intent.python"], "language": "python" }
+```
+
+```python file src/ordering/api/queries/order_summary.py
+from typing import Annotated
+
+from pydantic import BaseModel, Field
+
+
+class OrderSummary(BaseModel):
+    order_number: int
+    buyer_name: Annotated[str, Field(serialization_alias="buyerName")]
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.wireName", "element": "order-summary-buyer-name", "outcome": "contradicted", "expected": "buyer", "actual": "buyerName", "at": "src/ordering/api/queries/order_summary.py:8" }
+  ],
+  "findings": [
+    { "rule": "claim/member.wireName", "severity": "error", "subject": "order-summary-buyer-name" }
+  ]
+}
+```

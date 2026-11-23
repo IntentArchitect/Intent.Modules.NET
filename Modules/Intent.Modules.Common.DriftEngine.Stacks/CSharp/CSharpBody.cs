@@ -177,7 +177,7 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
             Receiver = call.Receiver,
             ReceiverType = call.ReceiverType,
             On = invocation.Expression is MemberAccessExpressionSyntax { Expression: InvocationExpressionSyntax on } ? Call(on) : null,
-            Arguments = invocation.ArgumentList.Arguments.Select(x => Value(x.Expression, invocation.SpanStart)).ToList(),
+            Arguments = invocation.ArgumentList.Arguments.Select(x => Value(x.Expression, invocation.SpanStart, name: x.NameColon?.Name.Identifier.Text)).ToList(),
             TypeArguments = TypeArgumentsOf(invocation.Expression),
             Target = call.Targets is [var target] ? target : null,
             Text = Normalise(invocation),
@@ -256,13 +256,15 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
     /// Whether it says where it comes from (<see cref="ValueNode.Joined"/>, <see cref="ValueNode.Given"/> and the like); not for
     /// an interpolation hole with a format, whose text isn't its value's.
     /// </param>
-    private ValueNode Value(ExpressionSyntax expression, int before, bool sourced = true)
+    /// <param name="name">A named argument's name (<c>status: "Paid"</c>).</param>
+    private ValueNode Value(ExpressionSyntax expression, int before, bool sourced = true, string? name = null)
     {
         var (types, known) = TypesOf(expression, before, 0);
         var bare = Bare(expression);
         return new ValueNode
         {
             Text = Normalise(expression),
+            Name = name,
             Types = types,
             IsKnown = known && types.Count > 0,
             Literal = CSharpReader.LiteralOf(expression, file, x => Value(x, before), x => Value(x, before, sourced: false)),
@@ -412,7 +414,7 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
         return _creations[creation] = new CreationNode
         {
             Type = Created(creation),
-            Arguments = creation.ArgumentList?.Arguments.Select(x => Value(x.Expression, creation.SpanStart)).ToList() ?? [],
+            Arguments = creation.ArgumentList?.Arguments.Select(x => Value(x.Expression, creation.SpanStart, name: x.NameColon?.Name.Identifier.Text)).ToList() ?? [],
             Initializers = initializer is not null && initializer.IsKind(SyntaxKind.ObjectInitializerExpression)
                 ? initializer.Expressions.OfType<AssignmentExpressionSyntax>()
                     .Select(x => new InitializerNode(x.Left is IdentifierNameSyntax name ? name.Identifier.Text : Normalise(x.Left), Value(x.Right, creation.SpanStart)))
