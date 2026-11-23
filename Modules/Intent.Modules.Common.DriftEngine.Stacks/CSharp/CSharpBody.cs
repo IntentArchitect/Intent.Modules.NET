@@ -179,7 +179,8 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
             On = invocation.Expression is MemberAccessExpressionSyntax { Expression: InvocationExpressionSyntax on } ? Call(on) : null,
             Arguments = invocation.ArgumentList.Arguments.Select(x => Value(x.Expression, invocation.SpanStart, name: x.NameColon?.Name.Identifier.Text)).ToList(),
             TypeArguments = TypeArgumentsOf(invocation.Expression),
-            Target = call.Targets is [var target] ? target : null,
+            // Of several overloads, the one the arguments' types fit: Logout(vm) with a LogoutViewModel is Logout(LogoutInputModel).
+            Target = Fitting(call.Targets, invocation, 0) is [var target] ? target : null,
             Text = Normalise(invocation),
             CanonicalOf = () => CSharpReader.Canonical(invocation),
             At = CSharpReader.SpanOf(invocation, file)
@@ -566,8 +567,10 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
             return false;
         }
 
-        // The argument's own type, or one it derives from or implements.
-        return parameter.Name == argument.Name || graph.TypeFor(argument, owner) is { } type && graph.Supertypes(type).Contains(parameter.Name);
+        // The argument's own type, or one it derives from or implements: an in-scope base by its name, as Supertypes gives it
+        // qualified (LogoutViewModel : LogoutInputModel fits Logout(LogoutInputModel model)).
+        return parameter.Name == argument.Name
+               || graph.TypeFor(argument, owner) is { } type && (graph.Supertypes(type).Contains(parameter.Name) || graph.Bases(type).Any(x => x.Name == parameter.Name));
     }
 
     /// <summary>An argument's type: as the code says, or the enum a member of it names (<c>BidTypeGroup.MarketPlace</c>).</summary>

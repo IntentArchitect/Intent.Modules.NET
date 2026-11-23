@@ -316,8 +316,8 @@ public class CSharpFactsTests
         var calls = Calls("Place");
         var find = calls.Where(x => x.Name == "Find").ToList();
 
-        // Both Finds take one argument (one has a default), so the call reaches neither for sure.
-        find[0].Target.ShouldBeNull();
+        // Both Finds take one argument (one has a default), and Find(1)'s int fits only Find(int id).
+        find[0].Target!.Member.Parameters.Select(x => x.Name).ShouldBe(["id"]);
         find[1].Target!.Member.Parameters.Select(x => x.Name).ShouldBe(["name", "page"]);
         calls.Single(x => x.Name == "Log").Target!.Member.Name.ShouldBe("Log");
 

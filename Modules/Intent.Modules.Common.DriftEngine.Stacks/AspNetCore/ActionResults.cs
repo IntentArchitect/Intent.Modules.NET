@@ -82,7 +82,7 @@ internal static class ActionResults
             return ClaimReading.Compared($"{returns.Text} with no body", first.At, context.ExpectedValue is not ITypeReference);
         }
 
-        var successes = new List<(TypeRefNode? Body, Span At)>();
+        var successes = new List<(TypeRefNode? Body, Span At, bool View)>();
         var untyped = new List<Unread>();
         foreach (var value in member.Body?.Returns ?? [])
         {
@@ -105,7 +105,7 @@ internal static class ActionResults
         // is the code's own statement of its success, and a body that is typed is still compared against the model as it is.
         if (successes.Count == 0 || untyped.Count > 0)
         {
-            var declared = new List<(TypeRefNode? Body, Span At)>();
+            var declared = new List<(TypeRefNode? Body, Span At, bool View)>();
             Declared(member, declared);
             if (untyped.Count > 0 && declared.Count == 0)
             {
@@ -113,7 +113,7 @@ internal static class ActionResults
             }
 
             // Each untyped success is the declared response, at the return that builds it.
-            successes.AddRange(untyped.Count > 0 ? untyped.SelectMany(x => declared.Select(d => (d.Body, x.At))) : declared);
+            successes.AddRange(untyped.Count > 0 ? untyped.SelectMany(x => declared.Select(d => (d.Body, x.At, false))) : declared);
         }
 
         if (successes.Count == 0)
@@ -133,7 +133,12 @@ internal static class ActionResults
         bool Matches(ITypeReference model, TypeRefNode body) =>
             context.TypeMatches(model, body) || IsFile(body) && (context.TypeMatches(model, Stream) || context.TypeMatches(model, Bytes));
 
-        var same = successes.All(x => context.ExpectedValue is ITypeReference model ? x.Body is not null && Matches(model, x.Body) : x.Body is null);
+        bool Same((TypeRefNode? Body, Span At, bool View) success) =>
+            context.ExpectedValue is ITypeReference model ? success.Body is not null && Matches(model, success.Body) : success.Body is null;
+
+        // An MVC action may render several pages: its own, and others such as a redirect page (Identity's LoadingPage). The model
+        // states one return type, so a view model it renders is what the model may give; an API's bodies must all be the one.
+        var same = successes.All(x => x.View) ? successes.Any(Same) : successes.All(Same);
         var actual = string.Join(" or ", successes.Select(x => x.Body?.Text ?? "no body").Distinct());
         return ClaimReading.Compared($"{returns.Text} with {actual}", successes[0].At, same);
     }
@@ -145,7 +150,7 @@ internal static class ActionResults
     /// <paramref name="controllers"/> are what a factory is called on: the controller itself, or the parameter a controller
     /// extension method of the code's own is called on.
     /// </summary>
-    private static Unread? Value(CodeGraph code, FunctionNode body, ValueNode value, Span at, int depth, List<(TypeRefNode? Body, Span At)> successes,
+    private static Unread? Value(CodeGraph code, FunctionNode body, ValueNode value, Span at, int depth, List<(TypeRefNode? Body, Span At, bool View)> successes,
         IReadOnlySet<string> controllers)
     {
         if (depth > MaxDepth)
@@ -208,7 +213,7 @@ internal static class ActionResults
     }
 
     /// <summary>The successes each return of a method of the code's own builds.</summary>
-    private static Unread? Helper(CodeGraph code, FunctionNode helper, Span at, int depth, List<(TypeRefNode? Body, Span At)> successes, IReadOnlySet<string> controllers)
+    private static Unread? Helper(CodeGraph code, FunctionNode helper, Span at, int depth, List<(TypeRefNode? Body, Span At, bool View)> successes, IReadOnlySet<string> controllers)
     {
         foreach (var returned in helper.Returns)
         {
@@ -241,7 +246,7 @@ internal static class ActionResults
         value.Literal is not null || value is { IsKnown: true, Types: [{ Name: "string" or "String" }] };
 
     /// <summary>A controller's, <c>Results</c>' or <c>TypedResults</c>' factory, and the body its success carries.</summary>
-    private static Unread? Factory(FunctionNode body, CallNode call, Span at, List<(TypeRefNode? Body, Span At)> successes)
+    private static Unread? Factory(FunctionNode body, CallNode call, Span at, List<(TypeRefNode? Body, Span At, bool View)> successes)
     {
         var arguments = call.Arguments;
         if (Errors.Contains(call.Name))
@@ -258,7 +263,7 @@ internal static class ActionResults
             case "View" or "PartialView":
                 // View(), View(viewName), View(model) or View(viewName, model): the model the view renders is what the action returns,
                 // as Intent's MVC module models it, and with none it returns nothing.
-                return Success(body, arguments.Count > 1 ? arguments[1] : arguments is [var model] && !IsViewName(model) ? model : null, at, successes);
+                return Success(body, arguments.Count > 1 ? arguments[1] : arguments is [var model] && !IsViewName(model) ? model : null, at, successes, view: true);
             case "Created":
                 // Created(uri, value); Created() and Created(uri) have none.
                 return Success(body, arguments.Count > 1 ? arguments[1] : null, at, successes);
@@ -277,10 +282,10 @@ internal static class ActionResults
                 return new Unread("unreadable", $"`{call.Text}` gives a status the code doesn't give as a value, so whether it succeeds isn't known.", at);
             case "Content":
                 // ASP.NET Core's Content(text) sends the text.
-                successes.Add((Text, at));
+                successes.Add((Text, at, false));
                 return null;
             case "File" or "Stream" or "PhysicalFile" or "VirtualFile" or "Bytes":
-                successes.Add((call.Name == "Bytes" || arguments.FirstOrDefault() is { IsKnown: true, Types: [{ IsArray: true, Name: "byte" }] } ? Bytes : Stream, at));
+                successes.Add((call.Name == "Bytes" || arguments.FirstOrDefault() is { IsKnown: true, Types: [{ IsArray: true, Name: "byte" }] } ? Bytes : Stream, at, false));
                 return null;
             default:
                 return new Unread("unreadable", $"`{call.Text}` builds a result this extension doesn't read, so what it returns isn't known.", at);
@@ -288,7 +293,7 @@ internal static class ActionResults
     }
 
     /// <summary>A result the action creates, and the body its success carries.</summary>
-    private static Unread? Created(FunctionNode body, CreationNode creation, Span at, List<(TypeRefNode? Body, Span At)> successes)
+    private static Unread? Created(FunctionNode body, CreationNode creation, Span at, List<(TypeRefNode? Body, Span At, bool View)> successes)
     {
         var arguments = creation.Arguments;
         var name = creation.Type.Name;
@@ -308,10 +313,10 @@ internal static class ActionResults
             case "CreatedAtActionResult" or "CreatedAtRouteResult" or "AcceptedAtActionResult" or "AcceptedAtRouteResult" or "CreatedAtRouteNegotiatedContentResult":
                 return Success(body, arguments.Count > 1 ? arguments[^1] : null, at, successes);
             case "FileContentResult":
-                successes.Add((Bytes, at));
+                successes.Add((Bytes, at, false));
                 return null;
             case "FileStreamResult" or "PhysicalFileResult" or "VirtualFileResult":
-                successes.Add((Stream, at));
+                successes.Add((Stream, at, false));
                 return null;
             case "StatusCodeResult" when arguments.Count > 0 && SuccessStatus(arguments[0]) is { } status:
                 return status is >= 200 and < 300 ? Success(body, null, at, successes) : null;
@@ -333,11 +338,11 @@ internal static class ActionResults
     }
 
     /// <summary>A success with the body given, or none; a body whose type the code doesn't say can't be read.</summary>
-    private static Unread? Success(FunctionNode body, ValueNode? payload, Span at, List<(TypeRefNode? Body, Span At)> successes)
+    private static Unread? Success(FunctionNode body, ValueNode? payload, Span at, List<(TypeRefNode? Body, Span At, bool View)> successes, bool view = false)
     {
         if (payload is null)
         {
-            successes.Add((null, at));
+            successes.Add((null, at, view));
             return null;
         }
 
@@ -346,7 +351,7 @@ internal static class ActionResults
             return new Unread("unresolved", $"The code doesn't say what `{payload.Text}` is, so what the action returns isn't known.", at);
         }
 
-        successes.Add((type, at));
+        successes.Add((type, at, view));
         return null;
     }
 
@@ -356,13 +361,13 @@ internal static class ActionResults
     /// <c>[ProducesResponseType&lt;T&gt;(200)]</c>, of a 2xx status (200 when it gives none). One with no type, or
     /// <c>typeof(void)</c>, has no body.
     /// </summary>
-    private static void Declared(MemberNode member, List<(TypeRefNode? Body, Span At)> successes)
+    private static void Declared(MemberNode member, List<(TypeRefNode? Body, Span At, bool View)> successes)
     {
         foreach (var attribute in member.Attributes)
         {
             if (attribute is { Name: "ResponseType", Arguments: [var type] })
             {
-                successes.Add((TypeOfType(type), attribute.At));
+                successes.Add((TypeOfType(type), attribute.At, false));
             }
             else if (attribute.Name == "ProducesResponseType")
             {
@@ -373,7 +378,7 @@ internal static class ActionResults
                              ?? (attribute.Named.TryGetValue("StatusCode", out var code) ? Http.SuccessStatus.StatusOf(code) : 200);
                 if (status is >= 200 and < 300)
                 {
-                    successes.Add((body, attribute.At));
+                    successes.Add((body, attribute.At, false));
                 }
             }
         }

@@ -1383,7 +1383,7 @@ public class ShapesController : ControllerBase
 
 ## mvc-view-results
 
-An MVC action renders a view, and the model the view renders is what it returns, as Intent's MVC module models it: `View(vm)` is `LoginViewModel`, and `View()` and `View("Done")`, a view's name, render none, so `Index` and `Done` return nothing. `Redirect` returns `this.LoadingPage("Redirect", returnUrl)`, a controller extension method of the code's own whose body is `controller.View(viewName, new RedirectViewModel { ... })`, so it returns `RedirectViewModel`. `Revoke` only redirects, so it returns nothing. `Logout` renders `LoggedOutViewModel` on one path and, through `LoadingPage`, `RedirectViewModel` on the other: the model can state only one, so it is contradicted. The adapted code is eShop's `Identity.API` Quickstart controllers.
+An MVC action renders a view, and the model the view renders is what it returns, as Intent's MVC module models it: `View(vm)` is `LoginViewModel`, and `View()` and `View("Done")`, a view's name, render none, so `Index` and `Done` return nothing. `Redirect` returns `this.LoadingPage("Redirect", returnUrl)`, a controller extension method of the code's own whose body is `controller.View(viewName, new RedirectViewModel { ... })`, so it returns `RedirectViewModel`. `Revoke` only redirects, so it returns nothing. The POST `Logout` renders `LoggedOutViewModel` on one path and, through `LoadingPage`, `RedirectViewModel` on the other. An MVC action may render several pages and the model states one, so a view model it renders verifies: `LoggedOutViewModel`. The GET `Logout(logoutId)` renders its own `LogoutViewModel`, or hands that to the POST `Logout(LogoutInputModel model)`, the overload its type derives from, whose pages are its pages too: `LogoutViewModel` verifies. `Profile` models `LoginViewModel`, a view model it never renders, which is contradicted. The adapted code is eShop's `Identity.API` Quickstart controllers.
 
 ```json case
 { "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -1399,6 +1399,8 @@ An MVC action renders a view, and the model the view renders is what it returns,
           { "id": "login-vm", "type": "DTO", "name": "LoginViewModel" },
           { "id": "redirect-vm", "type": "DTO", "name": "RedirectViewModel" },
           { "id": "logged-out-vm", "type": "DTO", "name": "LoggedOutViewModel" },
+          { "id": "logout-input", "type": "DTO", "name": "LogoutInputModel" },
+          { "id": "logout-vm", "type": "DTO", "name": "LogoutViewModel" },
           { "id": "account", "type": "Service", "name": "AccountController",
             "children": [
               { "id": "login", "type": "Operation", "name": "Login", "typeRef": { "element": "login-vm" },
@@ -1414,7 +1416,12 @@ An MVC action renders a view, and the model the view renders is what it returns,
                 "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "~/Account/Revoke" } } },
               { "id": "logout", "type": "Operation", "name": "Logout", "typeRef": { "element": "logged-out-vm" },
                 "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "~/Account/Logout" } },
-                "children": [{ "id": "logout-native", "type": "Parameter", "name": "native", "typeRef": { "type": "bool" } }] }
+                "children": [{ "id": "logout-model", "type": "Parameter", "name": "model", "typeRef": { "element": "logout-input" } }] },
+              { "id": "logout-get", "type": "Operation", "name": "Logout", "typeRef": { "element": "logout-vm" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Account/Logout" } },
+                "children": [{ "id": "logout-get-id", "type": "Parameter", "name": "logoutId", "typeRef": { "type": "string" } }] },
+              { "id": "profile", "type": "Operation", "name": "Profile", "typeRef": { "element": "login-vm" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/Account/Profile" } } }
             ] }
         ]
       }]
@@ -1435,6 +1442,10 @@ public class LoginViewModel { public string ReturnUrl { get; set; } = ""; }
 public class RedirectViewModel { public string RedirectUrl { get; set; } = ""; }
 
 public class LoggedOutViewModel { public string ClientName { get; set; } = ""; }
+
+public class LogoutInputModel { public string LogoutId { get; set; } = ""; }
+
+public class LogoutViewModel : LogoutInputModel { public bool ShowLogoutPrompt { get; set; } }
 ```
 
 ```csharp file src/Identity.API/Quickstart/Extensions.cs
@@ -1481,16 +1492,32 @@ public class AccountController : Controller
         return RedirectToAction("Index");
     }
 
-    [HttpPost]
-    public IActionResult Logout(bool native)
+    [HttpGet]
+    public async Task<IActionResult> Logout(string logoutId)
     {
-        if (native)
+        var vm = new LogoutViewModel { LogoutId = logoutId };
+        if (!vm.ShowLogoutPrompt)
+        {
+            return await Logout(vm);
+        }
+
+        return View(vm);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Logout(LogoutInputModel model)
+    {
+        await Task.Yield();
+        if (model.LogoutId == "")
         {
             return this.LoadingPage("Redirect", "/");
         }
 
         return View("LoggedOut", new LoggedOutViewModel());
     }
+
+    [HttpGet]
+    public IActionResult Profile() => View(new RedirectViewModel());
 }
 ```
 
@@ -1502,10 +1529,14 @@ public class AccountController : Controller
     { "kind": "operation.returns", "element": "done", "outcome": "verified", "actual": "IActionResult with no body" },
     { "kind": "operation.returns", "element": "redirect", "outcome": "verified", "actual": "IActionResult with RedirectViewModel" },
     { "kind": "operation.returns", "element": "revoke", "outcome": "verified", "actual": "Task<IActionResult> with no body" },
-    { "kind": "operation.returns", "element": "logout", "outcome": "contradicted", "expected": "LoggedOutViewModel", "actual": "IActionResult with RedirectViewModel or LoggedOutViewModel" }
+    { "kind": "operation.returns", "element": "logout", "outcome": "verified", "expected": "LoggedOutViewModel", "actual": "Task<IActionResult> with RedirectViewModel or LoggedOutViewModel" },
+    { "kind": "operation.returns", "element": "logout-get", "outcome": "verified", "expected": "LogoutViewModel" },
+    { "kind": "operation.returns", "element": "profile", "outcome": "contradicted", "expected": "LoginViewModel", "actual": "IActionResult with RedirectViewModel" }
   ],
   "findings": [
-    { "rule": "claim/operation.returns", "severity": "error", "subject": "logout", "messageContains": "RedirectViewModel" },
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "profile", "messageContains": "RedirectViewModel" },
+    { "rule": "claim/operation.returns", "subject": "logout", "count": 0 },
+    { "rule": "claim/operation.returns", "subject": "logout-get", "count": 0 },
     { "rule": "claim/operation.returns", "subject": "login", "count": 0 }
   ]
 }
