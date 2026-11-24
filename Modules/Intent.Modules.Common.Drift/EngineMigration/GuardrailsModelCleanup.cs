@@ -182,7 +182,8 @@ namespace Intent.Modules.Common.Drift.EngineMigration
 
         private static bool IsGuardrails(string moduleId) => moduleId != null && V1Footprint.ModuleIds.Contains(moduleId, StringComparer.OrdinalIgnoreCase);
 
-        private static IEnumerable<PackageModelPersistable> Owned(ApplicationPersistable application, ApplicationDesignerPersistable designer) =>
+        /// <summary>The designer's packages this application owns.</summary>
+        internal static IEnumerable<PackageModelPersistable> Owned(ApplicationPersistable application, ApplicationDesignerPersistable designer) =>
             designer.GetPackages(false, false).Where(x => string.Equals(x.ApplicationId, application.Id, StringComparison.OrdinalIgnoreCase));
 
         private static int Strip(List<StereotypePersistable> stereotypes) =>

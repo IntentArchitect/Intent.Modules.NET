@@ -1,6 +1,6 @@
 # operation.status
 
-An Operation's `Http Settings` Success Response Code, against the success status its endpoint returns: `TypedResults.Created` is 201, `TypedResults.Ok` 200, Spring's `ResponseEntity.noContent()` 204, and so on. `operation.status` is `stated: whenSet` and compared as a number: the model's `201 (Created)` is `201`. A handler that returns a plain value states no status, so it never verifies a modelled one (decision 4).
+An Operation's `Http Settings` Success Response Code, against the success status its endpoint returns: `TypedResults.Created` is 201, `TypedResults.Ok` 200, Spring's `ResponseEntity.noContent()` 204, and so on. `operation.status` is `stated: whenSet` and compared as a number: the model's `201 (Created)` is `201`. A handler that returns its data itself, not a result, is sent with the framework's default 200, which a modelled 200 verifies: Intent's controllers send 201 for a POST that states no status, so a model must state the 200 such a POST sends.
 
 The fixtures adapt eShopCustom's `Ordering.API/Apis/OrdersApi.cs` and the Java spike's `OrdersController`.
 
@@ -111,9 +111,9 @@ public static class OrdersApi
 }
 ```
 
-## contradicted-not-stated
+## contradicted-plain-value
 
-The handler returns the draft itself, as eShopCustom's `CreateOrderDraftAsync` does. ASP.NET Core sends a 200 for it, but the code states no status, and a convention never verifies a `whenSet` value: the modelled `201` is contradicted with the code side "not stated" (decision 4).
+The handler returns the draft itself, as eShopCustom's `CreateOrderDraftAsync` does, so ASP.NET Core sends it with its default 200: the modelled `201` is contradicted, the code side the default `200`.
 
 ```json case
 { "phase": 4, "base": "verified", "kinds": ["operation.status"], "requirements": ["R4"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -143,10 +143,101 @@ public static class OrdersApi
 ```json expect
 {
   "claims": [
-    { "kind": "operation.status", "element": "create-order-draft", "outcome": "contradicted", "expected": "201", "actual": null, "fromSilence": false }
+    { "kind": "operation.status", "element": "create-order-draft", "outcome": "contradicted", "expected": "201", "actual": "200", "fromSilence": true }
   ],
   "findings": [
-    { "rule": "claim/operation.status", "severity": "error", "subject": "create-order-draft", "messageContains": "doesn't state" }
+    { "rule": "claim/operation.status", "severity": "error", "subject": "create-order-draft", "messageContains": "it returns `OrderDraftDTO` itself), so it is `200`" }
+  ]
+}
+```
+
+## verified-plain-value
+
+BasisLink's test controller POSTs return a `string` and a `Task<string>` themselves, which ASP.NET Core sends with 200. Intent's controllers send 201 for a POST with no Success Response Code, so the model states `200 (OK)`, and it verifies. `Lookup` returns `ActionResult<string>` and gives it the `string` itself, which is sent with 200 too, so it verifies. `SendNothing` returns `Task` and sends no data, so its modelled 200 is contradicted as not stated.
+
+```json case
+{ "phase": 4, "kinds": ["operation.status"], "requirements": ["R4"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "BasisLink.Api",
+        "elements": [
+          { "id": "test-controller", "type": "Service", "name": "TestController",
+            "stereotypes": { "Http Service Settings": { "Route": "v1/Test" } },
+            "children": [
+              { "id": "send-user", "type": "Operation", "name": "SendUser", "typeRef": { "type": "string" },
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "SendUser", "Success Response Code": "200 (OK)" } } },
+              { "id": "test", "type": "Operation", "name": "Test", "typeRef": { "type": "string" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "Test", "Success Response Code": "200 (OK)" } } },
+              { "id": "send-nothing", "type": "Operation", "name": "SendNothing",
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "SendNothing", "Success Response Code": "200 (OK)" } } },
+              { "id": "lookup", "type": "Operation", "name": "Lookup", "typeRef": { "type": "string" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "Lookup", "Success Response Code": "200 (OK)" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "BasisLink", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/BasisLink.Api/Controllers/TestController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace BasisLink.Api.Controllers;
+
+[ApiController]
+[Route("v1/[controller]")]
+public class TestController : ControllerBase
+{
+    [HttpPost("SendUser")]
+    public async Task<string> SendUser()
+    {
+        await Task.Yield();
+        return "sent";
+    }
+
+    [HttpGet("Test")]
+    public string Test()
+    {
+        return "";
+    }
+
+    [HttpPost("SendNothing")]
+    public async Task SendNothing()
+    {
+        await Task.Yield();
+    }
+
+    [HttpGet("Lookup")]
+    public ActionResult<string> Lookup()
+    {
+        return "found";
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.status", "element": "send-user", "outcome": "verified", "expected": "200", "actual": "200" },
+    { "kind": "operation.status", "element": "test", "outcome": "verified", "expected": "200", "actual": "200" },
+    { "kind": "operation.status", "element": "send-nothing", "outcome": "contradicted", "expected": "200", "actual": null },
+    { "kind": "operation.status", "element": "lookup", "outcome": "verified", "expected": "200", "actual": "200" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.status", "subject": "send-user", "count": 0 },
+    { "rule": "claim/operation.status", "subject": "test", "count": 0 },
+    { "rule": "claim/operation.status", "subject": "lookup", "count": 0 },
+    { "rule": "claim/operation.status", "severity": "error", "subject": "send-nothing", "messageContains": "doesn't state" }
   ]
 }
 ```

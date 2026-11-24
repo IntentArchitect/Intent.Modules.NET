@@ -9,7 +9,8 @@ namespace Intent.Modules.Common.DriftEngine.Stacks.Http;
 /// framework's result factory (ASP.NET's <c>Ok</c>, <c>TypedResults.Created</c>, <c>StatusCode(204)</c>; Spring's
 /// <c>ResponseEntity.noContent()</c>), followed into the code's own helpers that build it (<c>Http.created(x)</c>), else the
 /// typed results its return type names (<c>Results&lt;Created&lt;T&gt;, NotFound&gt;</c>). An error result isn't the success
-/// status, and a plain value states none, whatever the framework would send for it (decision 4).
+/// status. A handler that returns its data itself, not a result, is sent with the framework's default 200: a default reading,
+/// which a modelled 200 verifies and <c>unmodelled.value</c> doesn't report.
 /// </summary>
 internal static class SuccessStatus
 {
@@ -84,7 +85,45 @@ internal static class SuccessStatus
         }
 
         var typed = Typed(handler.Type).Distinct().ToList();
-        return typed is [var only] ? ClaimReading.Stated(only.ToString(), handler.At) : ClaimReading.Absent(handler.At);
+        if (typed is [var only])
+        {
+            return ClaimReading.Stated(only.ToString(), handler.At);
+        }
+
+        // A handler that returns its data itself, not a result, has it sent with 200 by ASP.NET Core, Web API 2 and Spring
+        // alike: the framework's default, which a modelled 200 verifies. Intent's controllers send 201 for a POST that states
+        // no status, so a model must state the 200 such a POST sends.
+        return Data(context.Code, handler.Type) is { } data
+            ? ClaimReading.Defaulted("200", handler.At, $"it returns `{data.Text}` itself")
+            : ClaimReading.Absent(handler.At);
+    }
+
+    /// <summary>The framework results a handler may return, by name: anything else it returns is its data.</summary>
+    private static readonly HashSet<string> FrameworkResults = new(StringComparer.Ordinal)
+    {
+        "IActionResult", "ActionResult", "IHttpActionResult", "IResult", "IConvertToActionResult", "HttpResponseMessage", "ResponseEntity", "Results"
+    };
+
+    /// <summary>
+    /// What a handler returns when it is its data: its return type, under <c>Task</c> or <c>ValueTask</c>, and ASP.NET Core's
+    /// <c>ActionResult&lt;T&gt;</c>, whose <c>T</c> it may return itself, unless that is nothing or a framework result
+    /// (<see cref="FrameworkResults"/>, a typed result, or any other <c>…Result</c> the code doesn't declare). Null otherwise.
+    /// Only reached when no return builds a success, so an <c>ActionResult&lt;T&gt;</c> action's factories are read first.
+    /// </summary>
+    private static TypeRefNode? Data(CodeGraph code, TypeRefNode? type)
+    {
+        while (type is { Name: "Task" or "ValueTask" or "ActionResult", Arguments: [var inner] })
+        {
+            type = inner;
+        }
+
+        if (type is null or { Name: "void" or "Void" or "Task" or "ValueTask" or "Unit" } || FrameworkResults.Contains(type.Name))
+        {
+            return null;
+        }
+
+        var own = code.Types.Any(x => x.Name == type.Name);
+        return !own && (TypedResults.ContainsKey(type.Name) || type.Name.EndsWith("Result", StringComparison.Ordinal)) ? null : type;
     }
 
     /// <summary>

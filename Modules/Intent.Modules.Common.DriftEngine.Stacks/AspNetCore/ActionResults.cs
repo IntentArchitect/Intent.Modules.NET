@@ -13,9 +13,9 @@ namespace Intent.Modules.Common.DriftEngine.Stacks.AspNetCore;
 /// builds, a controller's factory (<c>Ok(data)</c>, an MVC view's <c>View(model)</c>), <c>Results</c>' or <c>TypedResults</c>',
 /// or a result it creates (<c>new OkObjectResult(data)</c>), through locals, conditionals and the code's own methods that build
 /// it, its controller extension methods included (<c>this.LoadingPage(...)</c>); what that result carries is what the
-/// operation returns: <c>Ok(data)</c> and <c>View(data)</c> are data's type, <c>NoContent()</c> and <c>View()</c> nothing, which
-/// the model states with no type or with the action's own result type (a GET must have one in the Services designer). An
-/// error result isn't modelled, and an action that only redirects returns nothing. A body whose type the code doesn't say is the action's declared response (<c>[ResponseType]</c>,
+/// operation returns: <c>Ok(data)</c> and <c>View(data)</c> are data's type, <c>NoContent()</c> and <c>View()</c> nothing. A
+/// model that states the action's own result type (<c>IActionResult</c>) states its signature, which is true whatever the body
+/// builds, so it verifies without reading the body. An error result isn't modelled, and an action that only redirects returns nothing. A body whose type the code doesn't say is the action's declared response (<c>[ResponseType]</c>,
 /// <c>[ProducesResponseType]</c>); a result this doesn't read, or an untyped body with no declared response, is can't verify, never a guess.
 /// </summary>
 internal static class ActionResults
@@ -76,10 +76,17 @@ internal static class ActionResults
     {
         var returns = member.Type!;
 
-        // A success with no body is the model's nothing, or the action's own result type: the Services designer requires a GET
-        // to return a type, so an MVC GET that renders View() or only redirects can only be modelled as IActionResult.
+        // The action's own result type is what its signature says, whatever its body builds: true, if less than the body's
+        // type would say. A Common.Drift model states it, as its contract was the signature, and the Services designer requires
+        // a GET to return a type, so an MVC GET that renders View() or only redirects can only be modelled with it.
         var result = returns is { Name: "Task" or "ValueTask", Arguments: [var awaited] } ? awaited : returns;
-        var bodiless = context.ExpectedValue is not ITypeReference stated || context.TypeMatches(stated, result);
+        if (context.ExpectedValue is ITypeReference stated && context.TypeMatches(stated, result))
+        {
+            return ClaimReading.Compared(returns.Text, member.At, true);
+        }
+
+        // Otherwise a success with no body is the model's nothing.
+        var bodiless = context.ExpectedValue is not ITypeReference;
 
         // An action that only redirects, challenges or signs out renders nothing of its own, as Intent's MVC module models
         // RedirectToAction: it returns nothing.

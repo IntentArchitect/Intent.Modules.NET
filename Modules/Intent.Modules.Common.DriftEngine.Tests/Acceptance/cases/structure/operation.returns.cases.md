@@ -1544,7 +1544,7 @@ public class AccountController : Controller
 
 ## mvc-view-results-declared-type
 
-The Services designer requires a GET to return a type, so an MVC GET that renders nothing can only be modelled with the action's own result type. `AccessDenied` renders `View()`, `Challenge` only challenges, and `Home.Index` renders `View()` or returns `NotFound()`: each is modelled as `IActionResult` and verifies. `Profile` renders `RedirectViewModel`, a body the model could state, so `IActionResult` there is contradicted. The adapted code is eShop's `Identity.API` Quickstart controllers.
+A model may state an action's own result type: it is what the signature says, true whatever the body builds, if less than the body's type would say. The Services designer requires a GET to return a type, so an MVC GET that renders nothing can only be modelled with it: `AccessDenied` renders `View()`, `Challenge` only challenges, and `Home.Index` renders `View()` or returns `NotFound()`. `Profile` renders `RedirectViewModel`, which the model could state, and states `IActionResult` instead. Each is modelled as `IActionResult` and verifies, without its body being read. The adapted code is eShop's `Identity.API` Quickstart controllers.
 
 ```json case
 { "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -1626,16 +1626,108 @@ public class HomeController : Controller
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "access-denied", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult with no body" },
-    { "kind": "operation.returns", "element": "challenge", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult with no body" },
-    { "kind": "operation.returns", "element": "home-index", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult with no body" },
-    { "kind": "operation.returns", "element": "profile", "outcome": "contradicted", "expected": "IActionResult", "actual": "IActionResult with RedirectViewModel" }
+    { "kind": "operation.returns", "element": "access-denied", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult" },
+    { "kind": "operation.returns", "element": "challenge", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult" },
+    { "kind": "operation.returns", "element": "home-index", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult" },
+    { "kind": "operation.returns", "element": "profile", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult" }
   ],
   "findings": [
-    { "rule": "claim/operation.returns", "severity": "error", "subject": "profile", "messageContains": "RedirectViewModel" },
-    { "rule": "claim/operation.returns", "subject": "access-denied", "count": 0 },
-    { "rule": "claim/operation.returns", "subject": "challenge", "count": 0 },
-    { "rule": "claim/operation.returns", "subject": "home-index", "count": 0 }
+    { "rule": "claim/operation.returns", "count": 0 }
+  ]
+}
+```
+
+## action-result-declared-type
+
+A Common.Drift model states a controller action's own result type, as its contract was the action's signature: `GetSafex` returns `IActionResult` and `GetCommodities` `Task<IActionResult>`, each with `Ok(data)`, and the model states `IActionResult` for both. That is true of the signature, so both verify. `GetMaterials` states `CommodityDTO`, a body the code doesn't build, so its body is read and it is contradicted; `GetGrades` states `IActionResult` over an action that returns `GradesDTO` itself, which isn't its result type, and is contradicted too. Adapted from BasisLink's controllers.
+
+```json case
+{ "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "BasisLink.Api",
+        "elements": [
+          { "id": "commodity-dto", "type": "DTO", "name": "CommodityDTO" },
+          { "id": "grain-service", "type": "Service", "name": "GrainController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/grain" } },
+            "children": [
+              { "id": "get-safex", "type": "Operation", "name": "GetSafex", "typeRef": { "type": "IActionResult" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "safex" } } },
+              { "id": "get-commodities", "type": "Operation", "name": "GetCommodities", "typeRef": { "type": "IActionResult" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "commodities" } } },
+              { "id": "get-materials", "type": "Operation", "name": "GetMaterials", "typeRef": { "element": "commodity-dto" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "materials" } } },
+              { "id": "get-grades", "type": "Operation", "name": "GetGrades", "typeRef": { "type": "IActionResult" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "grades" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "BasisLink", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/BasisLink.Api/Controllers/GrainController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace BasisLink.Api.Controllers;
+
+public class CommodityDTO { public string Code { get; set; } = ""; }
+
+public class FuturesDTO { public decimal Price { get; set; } }
+
+public class MaterialDTO { public string Name { get; set; } = ""; }
+
+public class GradesDTO { public string Grade { get; set; } = ""; }
+
+[ApiController]
+[Route("api/grain")]
+public class GrainController : ControllerBase
+{
+    [HttpGet("safex")]
+    public IActionResult GetSafex()
+    {
+        var futures = new FuturesDTO();
+        return Ok(futures);
+    }
+
+    [HttpGet("commodities")]
+    public async Task<IActionResult> GetCommodities()
+    {
+        await Task.Yield();
+        return Ok(new List<CommodityDTO>());
+    }
+
+    [HttpGet("materials")]
+    public IActionResult GetMaterials() => Ok(new List<MaterialDTO>());
+
+    [HttpGet("grades")]
+    public GradesDTO GetGrades() => new GradesDTO();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-safex", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult" },
+    { "kind": "operation.returns", "element": "get-commodities", "outcome": "verified", "expected": "IActionResult", "actual": "Task<IActionResult>" },
+    { "kind": "operation.returns", "element": "get-materials", "outcome": "contradicted", "expected": "CommodityDTO", "actual": "IActionResult with List<MaterialDTO>" },
+    { "kind": "operation.returns", "element": "get-grades", "outcome": "contradicted", "expected": "IActionResult" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "get-materials", "messageContains": "MaterialDTO" },
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "get-grades", "messageContains": "GradesDTO" },
+    { "rule": "claim/operation.returns", "subject": "get-safex", "count": 0 },
+    { "rule": "claim/operation.returns", "subject": "get-commodities", "count": 0 }
   ]
 }
 ```

@@ -56,6 +56,13 @@ namespace Intent.Modules.Common.Drift.EngineMigration
 
         public const string CodebaseStructureDesignerId = "0701433c-36c0-4569-b1f4-9204986b587d";
 
+        /// <summary>Intent.Metadata.RDBMS's <c>Table</c> stereotype on a Class, and its <c>Name</c> property.</summary>
+        public static class TableStereotype
+        {
+            public const string DefinitionId = "dd205b32-b48b-4c77-98f5-faefb2c047ce";
+            public const string Name = "2b3a9df7-65e1-4800-b919-bef1a6b8f5a9";
+        }
+
         /// <summary>The folder beside the <c>.application.config</c> holding <c>&lt;designer&gt;.drift.json</c>.</summary>
         public const string RecipeFolder = "guardrails";
 

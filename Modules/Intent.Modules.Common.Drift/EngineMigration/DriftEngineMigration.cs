@@ -47,13 +47,31 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 return false;
             }
 
-            var rows = RecipeConversion.Convert(recipeFiles.Select(x => new RecipeSource(Path.GetFileName(x), File.ReadAllText(x))));
+            var recipes = recipeFiles.Select(x => new RecipeSource(Path.GetFileName(x), File.ReadAllText(x))).ToList();
+            var rows = RecipeConversion.Convert(recipes);
             foreach (var note in rows.Notes)
             {
                 log.Add(note);
             }
 
-            ReleaseContractFiles(application, solution, log);
+            // The code as v1 read it, before the contract files are released: what v1 didn't report becomes exceptions, and a
+            // Table Name v1 read from EF Core's convention is cleared, so the first run reports what v1 did.
+            var outputFolder = OutputFolder(application);
+            var code = new CodeFiles(outputFolder);
+            var contractFiles = ContractFiles(application, solution, outputFolder);
+            var converted = new HashSet<string>(rows.Exceptions.SelectMany(x => x.Matches), StringComparer.Ordinal);
+            foreach (var row in V1Coverage.Exceptions(code, recipes, rows, contractFiles, ModelledTypes(model), log))
+            {
+                var matches = row.Matches.Where(x => !converted.Contains(x)).ToList();
+                if (matches.Count > 0)
+                {
+                    rows.Exceptions.Add(row with { Matches = matches });
+                }
+            }
+
+            ConventionalTableNames.Clear(model, code, log);
+
+            ReleaseContractFiles(outputFolder, contractFiles, application, log);
 
             GuardrailsModelCleanup.Apply(model, rows, log);
             model.SaveAllChanges();
@@ -74,19 +92,34 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             return true;
         }
 
-        private static void ReleaseContractFiles(IApplicationConfig application, ISolutionConfig solution, ICollection<string> log)
+        /// <summary>
+        /// The contract files, relative to the output folder: those the logs list, and those whose header names a contract
+        /// template. When another application writes to the same folder, its contract files can't be told apart, so only the
+        /// logs say which are this application's.
+        /// </summary>
+        private static IReadOnlyList<string> ContractFiles(IApplicationConfig application, ISolutionConfig solution, string outputFolder)
         {
-            var outputFolder = OutputFolder(application);
             var others = (solution.GetApplicationConfigs() ?? Enumerable.Empty<IApplicationConfig>())
                 .Where(x => x != null && !string.Equals(x.Id, application.Id, StringComparison.OrdinalIgnoreCase))
                 .Select(OutputFolder)
                 .ToList();
-
-            // Files the logs list, and those whose header names a contract template. When another application writes to the
-            // same folder, its contract files can't be told apart, so only the logs say which are this application's.
-            var files = OutputLogPruning.ContractFiles(application.FilePath, outputFolder)
+            return OutputLogPruning.ContractFiles(application.FilePath, outputFolder)
                 .Concat(others.Contains(outputFolder, StringComparer.OrdinalIgnoreCase) ? Enumerable.Empty<string>() : ContractRelease.FindContractFiles(outputFolder, others))
-                .Distinct(StringComparer.OrdinalIgnoreCase);
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+        }
+
+        /// <summary>The application's type elements, which the drift engine locates in the code by name.</summary>
+        private static IReadOnlyList<ModelledType> ModelledTypes(ApplicationPersistable model) =>
+            model.GetDesigners()
+                .SelectMany(x => GuardrailsModelCleanup.Owned(model, x))
+                .SelectMany(x => x.FindAllChildElements().OfType<ElementPersistable>())
+                .Where(x => V1Coverage.TypeElements.Contains(x.SpecializationType))
+                .Select(x => new ModelledType(x.Name, x.SpecializationType, x.ChildElements?.Select(c => c.Name).ToList() ?? new List<string>()))
+                .ToList();
+
+        private static void ReleaseContractFiles(string outputFolder, IReadOnlyList<string> files, IApplicationConfig application, ICollection<string> log)
+        {
             foreach (var file in files)
             {
                 if (file.EndsWith(".cs", StringComparison.OrdinalIgnoreCase) && ContractRelease.ReleaseFile(Path.Combine(outputFolder, file)))
