@@ -35,6 +35,16 @@ internal sealed partial class EfCoreClaims : IClaimReader
         "relationship.reference", "relationship.navigable", "relationship.joinColumn"
     };
 
+    /// <summary>
+    /// What the entity's configuration states about a column, read by the attribute's name, so a property the code lacks
+    /// still has its missing configuration reported in the same run: <c>IsRequired()</c>, <c>HasColumnName</c>,
+    /// <c>HasMaxLength</c> and the rest.
+    /// </summary>
+    public IReadOnlyCollection<string> KindsWithoutMember { get; } = new HashSet<string>(StringComparer.Ordinal)
+    {
+        "member.nullable", "column.name", "column.type", "column.textType", "column.maxLength", "column.precision", "column.scale", "column.default", "column.defaultSql"
+    };
+
     public ClaimReading? Read(ClaimContext context)
     {
         // No EF Core in the code: the claim is another framework's to read, or can't be verified.
@@ -105,8 +115,16 @@ internal sealed partial class EfCoreClaims : IClaimReader
                 return JoinColumn(context, model);
             default:
             {
-                var member = context.Member!;
-                var calls = EntityOf(context, model, Owner(context))?.Properties.GetValueOrDefault(member.Name) ?? [];
+                // A member the code lacks is configured, if at all, by the attribute's name, and has no annotations.
+                var member = context.Member;
+                var owner = Owner(context);
+                var entity = EntityOf(context, model, owner);
+                if (member is null && entity is null)
+                {
+                    return null;
+                }
+
+                var calls = entity?.Properties.GetValueOrDefault(member?.Name ?? context.Element.Name) ?? [];
                 // A key configured twice, never generated in one chain and generated in another: which EF Core keeps is its merge's.
                 var generations = calls.Where(x => x.Name is "ValueGeneratedNever" or "ValueGeneratedOnAdd" or "UseIdentityColumn" or "UseHiLo" or "UseSequence").ToList();
                 if (context.Kind == "key.generated" && generations.Select(x => x.Name == "ValueGeneratedNever").Distinct().Count() > 1)
@@ -121,10 +139,18 @@ internal sealed partial class EfCoreClaims : IClaimReader
                     return ClaimReading.Defaulted(value, given);
                 }
 
+                // What the code doesn't state is against the property, or for one it lacks, the entity's configuration. A
+                // provider's own text type isn't a fix the missing property needs, so it waits on the property.
+                if (member is null && value is null && context.Kind == "column.textType")
+                {
+                    return null;
+                }
+
+                var where = member?.At ?? ConfigurationOf(entity!);
                 return value is null && arguments.Unread is { } unread ? arguments.Unreadable(unread)
                     // A string property that states no text type leaves it to the provider: the model's DEFAULT.
-                    : value is null && context.Kind == "column.textType" ? ClaimReading.Absent(at ?? member.At, "DEFAULT")
-                    : Value(value, at ?? member.At);
+                    : value is null && context.Kind == "column.textType" ? ClaimReading.Absent(at ?? where, "DEFAULT")
+                    : Value(value, at ?? where);
             }
         }
     }
@@ -244,6 +270,29 @@ internal sealed partial class EfCoreClaims : IClaimReader
 
     /// <summary>The type of the class the claim's attribute belongs to.</summary>
     private static TypeNode Owner(ClaimContext context) => context.TypeOf(context.Owner(context.Element)!)!;
+
+    /// <summary>Where an entity is configured: its <c>IEntityTypeConfiguration&lt;T&gt;</c> class, else where its configuration starts.</summary>
+    private static Span ConfigurationOf(EntityConfig entity) => entity.ConfigurationClasses.Count > 0 ? entity.ConfigurationClasses[0].At : entity.At;
+
+    /// <summary>
+    /// Whether C# writes an attribute's model type as a reference type, whose nullability only a nullable context states: the
+    /// C# profile's <c>string</c>, <c>object</c> and <c>binary</c> (<c>byte[]</c>), as against an enum or its other types,
+    /// which are value types. Null for any other type (a class, a collection, a house type-definition), whose kind isn't
+    /// known without its code.
+    /// </summary>
+    private static bool? ReferenceType(IElement element) => element.TypeReference switch
+    {
+        { IsCollection: true } => null,
+        { Element.SpecializationType: "Enum" } => false,
+        { Element: { SpecializationType: "Type-Definition" } definition } => definition.Name switch
+        {
+            "string" or "object" or "binary" => true,
+            "guid" or "int" or "long" or "short" or "byte" or "decimal" or "double" or "float" or "bool" or "char"
+                or "datetime" or "datetimeoffset" or "date" or "time" => false,
+            _ => null
+        },
+        _ => null
+    };
 
     private static EntityConfig? EntityOf(ClaimContext context, EfCoreModel model, TypeNode type) => model.Of(type, context.Code);
 
@@ -704,8 +753,10 @@ internal sealed partial class EfCoreClaims : IClaimReader
     /// <summary>
     /// EF Core's own rule for nullability where the C# type can't state it (outside a nullable context): <c>IsRequired()</c>
     /// or <c>[Required]</c> makes a mapped property's column required; without either, EF Core maps a reference type as
-    /// optional (decision 13: an extension adds a rule to another's kind). Anywhere else the engine's own rule reads it, and
-    /// an association end is its navigation's relationship (<see cref="Navigation"/>).
+    /// optional (decision 13: an extension adds a rule to another's kind). A model that says required is then contradicted by
+    /// the missing configuration, and the finding says so rather than that the type is nullable, which it can't say
+    /// (user decision, 2026-11-24: "The Model says its required, so EF should say its required"). Anywhere else the
+    /// engine's own rule reads it, and an association end is its navigation's relationship (<see cref="Navigation"/>).
     /// </summary>
     private static ClaimReading? Required(ClaimContext context, EfCoreModel model)
     {
@@ -714,38 +765,63 @@ internal sealed partial class EfCoreClaims : IClaimReader
             return Navigation(context, model, end);
         }
 
-        if (context.Member is not { } member || member.Type?.Nullable is not (null or "unknown")
-            || context.Code.UngovernedFiles.ContainsKey(member.At.File)
+        var member = context.Member;
+        if (member is not null && (member.Type?.Nullable is not (null or "unknown") || context.Code.UngovernedFiles.ContainsKey(member.At.File))
             || context.Owner(context.Element) is not { } ownerElement || context.TypeOf(ownerElement) is not { } type
             || EntityOf(context, model, type) is not { } entity)
         {
             return null;
         }
 
-        if (entity.Properties.GetValueOrDefault(member.Name)?.LastOrDefault(x => x.Name == "IsRequired") is { } required)
+        // A property the code lacks (its member.exists is that finding) needs its configuration to make it required only where
+        // its C# type couldn't: a reference type, in a file outside a nullable context. Anywhere else its type will say it.
+        if (member is null && (ReferenceType(context.Element) is not true || context.Code.UngovernedFiles.ContainsKey(type.At.File)
+                               || CSharp.CSharpSyntax.Of(context.Code)?.InNullableContext(type.At.File) is not false))
+        {
+            return null;
+        }
+
+        var name = member?.Name ?? context.Element.Name;
+        if (entity.Properties.GetValueOrDefault(name)?.LastOrDefault(x => x.Name == "IsRequired") is { } required)
         {
             return ClaimReading.Stated(required.Arguments is ["false"] ? "true" : "false", required.At);
         }
 
         // A key's columns are always required.
-        if (entity.Calls.FirstOrDefault(x => x.Name == "HasKey" && x.Selected.Contains(member.Name)) is { } key)
+        if (entity.Calls.FirstOrDefault(x => x.Name == "HasKey" && x.Selected.Contains(name)) is { } key)
         {
             return ClaimReading.Stated("false", key.At);
         }
 
-        return member.Attributes.FirstOrDefault(x => x.Name == "Required") is { } annotation
-            ? ClaimReading.Stated("false", annotation.At)
-            : ClaimReading.Defaulted("true", member.At);
+        if (member?.Attributes.FirstOrDefault(x => x.Name == "Required") is { } annotation)
+        {
+            return ClaimReading.Stated("false", annotation.At);
+        }
+
+        // The model is checked against the configuration, which is what would state it, so a finding is against the entity's
+        // configuration class (else where it is configured); agreeing, the claim stays linked to the property. A property the
+        // code lacks that the model leaves optional needs nothing configured, so it waits on the property.
+        var same = context.Expected == "true";
+        if (member is null && same)
+        {
+            return null;
+        }
+
+        var configuration = ConfigurationOf(entity);
+        return ClaimReading.Compared("true", same ? member!.At : configuration, same,
+            $"`{ownerElement.Name}.{context.Element.Name}` is required in the model, but EF Core maps its column as nullable: nothing configures "
+            + $"`IsRequired()` or `[Required]` for it, and with nullable reference types off its `{member?.Type?.Text ?? context.Element.TypeReference?.Element?.Name}` type can't make it required. "
+            + $"Add `.IsRequired()` to `{type.Name}`'s EF Core configuration, or `[Required]` to the property.");
     }
 
     /// <summary>
     /// What a property's fluent configuration states for a column kind, or a data annotation on the property. A decimal's
     /// precision and scale may be written in its column type, <c>decimal(18, 2)</c>.
     /// </summary>
-    private static (string? Value, Span? At) Column(string kind, IReadOnlyList<FluentCall> calls, MemberNode member, Arguments arguments)
+    private static (string? Value, Span? At) Column(string kind, IReadOnlyList<FluentCall> calls, MemberNode? member, Arguments arguments)
     {
         FluentCall? Last(params string[] names) => calls.LastOrDefault(x => names.Contains(x.Name));
-        AttributeNode? Annotation(params string[] names) => member.Attributes.FirstOrDefault(x => names.Contains(x.Name));
+        AttributeNode? Annotation(params string[] names) => member?.Attributes.FirstOrDefault(x => names.Contains(x.Name));
         switch (kind)
         {
             case "column.name":

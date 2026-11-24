@@ -64,7 +64,7 @@ A stack module bundles the readers, vocabulary and conventions for one technolog
 
 ## Decisions
 
-- **A new module, Intent.Common.DriftEngine.** Clients on Common.Drift are migrated later. To keep that migration cheap:
+- **A new module, Intent.Common.DriftEngine.** Clients on Common.Drift move across by updating it to 2.0 (phase 6). To keep that migration cheap:
   - keep Common.Drift's kind and placeholder names, so its recipe files map onto stock and house readers;
   - report through Intent.Common.DriftReporting, with the engine's own files, so both engines can run side by side.
 - **The second language is Java.**
@@ -84,7 +84,7 @@ Each phase ends with a review. Phases are verified with unit tests, fixtures and
 | 3. Rules beyond regex       | Block 4, piloted on Architecture (layers, May Depend On, imports)                                                                                                                                                                                                                                      | Planted import violations are caught in C# (eShopCustom) and Java (the spike)                                                                |
 | 4. Java and the first packs | A Java reader, plus packs for Spring MVC, JPA, EF Core, ASP.NET Core and NServiceBus                                                                                                                                                                                                                   | The Java spike's Domain and Services claims are checked with no Java-specific code in the core                                               |
 | 5. Adoption flow            | AI skills that set scope, build a curated intent model, choose packs and verify                                                                                                                                                                                                                        | A real codebase is adopted in 2 hours or less, with no code changes                                                                          |
-| 6. Migration (later)        | A converter that maps recipe files onto stock and house readers, and a side-by-side run                                                                                                                                                                                                                | basislink5 and CrmBus give the same results on the new engine                                                                                |
+| 6. Migration                | Intent.Common.Drift 2.0, whose update moves an application across: it turns the recipe files into scope and opt-in rows, removes the Guardrails Contracts modules and keeps the code they generated (built 2026-11-23, [conversion.md](spec/conversion.md)). A side-by-side run, done on Common.Drift 1.x before the update (not built yet)                       | basislink5 and CrmBus give the same results on the new engine, apart from the changes conversion.md lists                                     |
 
 ## Evidence and inputs
 

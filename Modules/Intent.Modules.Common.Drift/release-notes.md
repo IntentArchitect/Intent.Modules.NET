@@ -1,3 +1,7 @@
+### Version 2.0.0
+
+- New Feature: Updating to 2.0 moves the application onto Intent.Common.DriftEngine. The recipe files become Drift Scope and Drift Check rows on the Codebase Structure Root Folder, and the Guardrails Contracts modules and their stereotypes are removed. The contract files those modules generated stay as hand-written code. Installing 2.0 into a Guardrails 1.0.0 application does the same.
+
 ### Version 1.0.0
 
 - New Feature: The drift check that compares a designer's model with hand-written code, with its always-on rule and its sync-model, configure-drift-check and validate-drift-recipes skills, shared by every module that contributes a designer to it.

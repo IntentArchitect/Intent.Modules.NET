@@ -190,5 +190,6 @@
   <folders>
     <folder path="../../../WIP/IBF2" />
     <folder path="../../Intent" />
+    <folder path="../../Intent.Modules" />
   </folders>
 </solution>

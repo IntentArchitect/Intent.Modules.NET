@@ -148,6 +148,7 @@ internal static class CSharpReader
                 type.Files.Add(file);
                 type.IsAbstract |= declaration.Modifiers.Any(SyntaxKind.AbstractKeyword);
                 type.IsStatic |= declaration.Modifiers.Any(SyntaxKind.StaticKeyword);
+                type.IsPartial |= declaration.Modifiers.Any(SyntaxKind.PartialKeyword);
                 if (AccessWritten(declaration.Modifiers) is { } access)
                 {
                     type.Access = access;

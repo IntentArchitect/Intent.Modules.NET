@@ -422,7 +422,79 @@ public class BuyerConfiguration : IEntityTypeConfiguration<Buyer>
   "claims": [
     { "kind": "member.nullable", "element": "buyer-name", "outcome": "verified", "expected": "false", "actual": "false",
       "at": "src/Infrastructure/Persistence/BuyerConfiguration.cs:11" },
-    { "kind": "member.nullable", "element": "buyer-email", "outcome": "verified", "expected": "true", "actual": "true", "fromSilence": true }
+    { "kind": "member.nullable", "element": "buyer-email", "outcome": "verified", "expected": "true", "actual": "true" }
+  ]
+}
+```
+
+## ef-unconfigured-required-nullable-disabled
+
+The model says `Name` is required, and the configuration says nothing about it. With nullable reference types off, the `string` type can't make the column required, so only `.IsRequired()` or `[Required]` can, and without either EF Core maps it nullable: the model is contradicted. The finding is against `BuyerConfiguration`, the code the model is checked against, not the property, and names the missing configuration, not the type, which says nothing (user decision, 2026-11-24: "The Model says its required, so EF should say its required"). eShop's Ordering had reported a `Test` added as `string` to `Order` on both sides as "model `false`, the code doesn't state it, so it is `true`", which read as if the code said the property was nullable. `Email`, modelled optional, still follows the model.
+
+```json case
+{ "phase": 4, "base": "ef-required-nullable-disabled", "kinds": ["member.nullable"], "requirements": ["R2", "R3"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Infrastructure/Persistence/BuyerConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Shop.Domain;
+
+namespace Shop.Infrastructure.Persistence;
+
+public class BuyerConfiguration : IEntityTypeConfiguration<Buyer>
+{
+    public void Configure(EntityTypeBuilder<Buyer> builder)
+    {
+        builder.ToTable("Buyers");
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.nullable", "element": "buyer-name", "outcome": "contradicted", "expected": "false", "actual": "true",
+      "at": "src/Infrastructure/Persistence/BuyerConfiguration.cs:7" },
+    { "kind": "member.nullable", "element": "buyer-email", "outcome": "verified", "expected": "true", "actual": "true" }
+  ],
+  "findings": [
+    { "rule": "claim/member.nullable", "severity": "error", "subject": "buyer-name",
+      "messageContains": "`Buyer.Name` is required in the model, but EF Core maps its column as nullable: nothing configures `IsRequired()` or `[Required]` for it" },
+    { "rule": "claim/member.nullable", "subject": "buyer-email", "count": 0 }
+  ]
+}
+```
+
+## ef-missing-required-property
+
+`Name` isn't in the code at all. It is reported missing, and in the same run its configuration is checked by its name: the model says required, a `string` outside a nullable context can't say so once it is added, and `BuyerConfiguration` has no `IsRequired()`, so that is a finding of its own, against the configuration (user decision, 2026-11-24: separate findings, so a missing property and its configuration take one trip). A property the model leaves optional, or whose type will state it, needs nothing configured and waits on the property.
+
+```json case
+{ "phase": 4, "base": "ef-unconfigured-required-nullable-disabled", "kinds": ["member.nullable", "member.exists"], "requirements": ["R2", "R3", "R8"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Buyer.cs
+namespace Shop.Domain;
+
+public class Buyer
+{
+    public string Email { get; private set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "buyer-name", "outcome": "contradicted" },
+    { "kind": "member.nullable", "element": "buyer-name", "outcome": "contradicted", "expected": "false", "actual": "true",
+      "at": "src/Infrastructure/Persistence/BuyerConfiguration.cs:7" },
+    { "kind": "member.nullable", "element": "buyer-email", "outcome": "verified", "expected": "true", "actual": "true" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "buyer-name", "messageContains": "isn't in the code" },
+    { "rule": "claim/member.nullable", "severity": "error", "subject": "buyer-name",
+      "messageContains": "`Buyer.Name` is required in the model, but EF Core maps its column as nullable" }
   ]
 }
 ```
@@ -629,7 +701,7 @@ The model says every order has a buyer (`1`), but `Order.Buyer` is `Buyer?`, so 
 
 ## java-many-to-one-optional
 
-Over JPA, a single end is required when its relationship says so: `@ManyToOne(optional = false)`, `@JoinColumn(nullable = false)` or `@NotNull`. Here the field is a plain `@ManyToOne`, so a line may have no product, where the model's `Product` end is `1`.
+Over JPA, a single end is required when its relationship says so: `@ManyToOne(optional = false)`, `@JoinColumn(nullable = false)` or `@NotNull`. Here the field is a plain `@ManyToOne`, so a line may have no product, where the model's `Product` end is `1`. The finding names the missing mapping.
 
 ```json case
 { "phase": 4, "kinds": ["member.nullable"], "traces": ["JAV-DOM-25"], "requirements": ["R1", "R14"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
@@ -708,7 +780,8 @@ public class Product {
     { "kind": "member.nullable", "element": "order-line-product", "outcome": "contradicted", "expected": "false", "actual": "true" }
   ],
   "findings": [
-    { "rule": "claim/member.nullable", "severity": "error", "subject": "order-line-product" }
+    { "rule": "claim/member.nullable", "severity": "error", "subject": "order-line-product",
+      "messageContains": "`OrderLine.Product` is required in the model, but JPA maps it as nullable" }
   ]
 }
 ```

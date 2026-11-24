@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="be3cbe89-b224-4500-a150-89d171b0fac4" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <comment>Keeps the contract files the migration released out of this machine's Software Factory output log, so a teammate's runs don't propose deleting them.</comment>
+  <name>GuardrailsOutputLogPruner</name>
+  <display>GuardrailsOutputLogPruner</display>
+  <parentFolderId>df777e11-cee8-4c8e-b2ec-878a88886484</parentFolderId>
+  <packageId>df777e11-cee8-4c8e-b2ec-878a88886484</packageId>
+  <packageName>Intent.Common.Drift</packageName>
+</class>

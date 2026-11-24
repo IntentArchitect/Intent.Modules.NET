@@ -260,7 +260,7 @@ The attribute has no Column stereotype, and the code says `HasColumnName("Paymen
 
 ## blocked-when-member-missing
 
-`Order` has no `PaymentId` property at all. `member.exists` is contradicted, and the column name, which depends on it, is can't verify, `blocked`: only the missing member's finding is reported, not a second one about its column (R5).
+`Order` has no `PaymentId` property at all. `member.exists` is contradicted. Its type, read from the property itself, is can't verify, `blocked` (R5). Its column name is read from the configuration by the property's name even so (user decision, 2026-11-24: a missing property and its configuration take one trip), and the configuration's `HasColumnName("PaymentMethodId")` states what the model does: verified. So only the missing member's finding is reported.
 
 ```json case
 { "phase": 4, "base": "verified", "kinds": ["column.name", "member.exists"], "cases": ["engine/blocked"], "requirements": ["R5", "R8"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
@@ -279,10 +279,12 @@ public class Order
 {
   "claims": [
     { "kind": "member.exists", "element": "order-payment-id", "outcome": "contradicted" },
-    { "kind": "column.name", "element": "order-payment-id", "outcome": "cantVerify", "reason": "blocked", "blockedBy": "member.exists" }
+    { "kind": "member.type", "element": "order-payment-id", "outcome": "cantVerify", "reason": "blocked", "blockedBy": "member.exists" },
+    { "kind": "column.name", "element": "order-payment-id", "outcome": "verified" }
   ],
   "findings": [
     { "rule": "claim/member.exists", "severity": "error", "subject": "order-payment-id" },
+    { "rule": "claim/member.type", "count": 0 },
     { "rule": "claim/column.name", "count": 0 }
   ]
 }

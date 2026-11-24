@@ -324,6 +324,9 @@ namespace Intent.Modules.Common.Drift
     {
         public static readonly IReadOnlyList<Glob> DefaultScope = new[] { new Glob("**/*.cs") };
 
+        /// <summary>How a recipe file is read: JSON with <c>//</c> comments and trailing commas.</summary>
+        public static readonly JsonDocumentOptions JsonOptions = new() { CommentHandling = JsonCommentHandling.Skip, AllowTrailingCommas = true };
+
         private static readonly string[] OwnPlaceholders = { "Class", "Method", "Member", "Name", "File" };
         private static readonly HashSet<string> RelativeInheritTargets = new(StringComparer.Ordinal) { "class", "base", "method", "property", "statement", "file" };
 
@@ -342,7 +345,7 @@ namespace Intent.Modules.Common.Drift
             JsonDocument document;
             try
             {
-                document = JsonDocument.Parse(json, new JsonDocumentOptions { CommentHandling = JsonCommentHandling.Skip, AllowTrailingCommas = true });
+                document = JsonDocument.Parse(json, JsonOptions);
             }
             catch (JsonException e)
             {

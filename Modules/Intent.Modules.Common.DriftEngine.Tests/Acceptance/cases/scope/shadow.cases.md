@@ -248,6 +248,73 @@ public class Order
 }
 ```
 
+## member-of-located-type
+
+A member's find has two steps, its type and then the member in it. Here the `class:Order` step finds `Order` in scope, in `src/Ordering/Order.cs`, and only the member step fails: the model's `Test` isn't on it. `Order` isn't partial, so that declaration is all of it and the member is contradicted. Only a partial type's missing member is looked for among out-of-scope files, since only it has other parts (`structure/member.exists#out-of-scope-partial`). `src/ClientApp/Order.cs`, which no row includes, is a different `Order`: several applications over one output folder each keep their own (eShop's Ordering and ClientApp, with the repository root as the output folder for both), and naming it made a planted `Order.Test` "can't be verified" instead of drift.
+
+```json case
+{ "phase": 1, "cases": ["scope/shadow", "scope/notRead"], "requirements": ["R8", "R25"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "children": [
+              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "guid" } },
+              { "id": "order-test", "type": "Attribute", "name": "Test", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [
+          { "Glob": "src/Ordering/**", "Scope": "In" }
+        ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Ordering/Order.cs
+namespace Ordering.Domain;
+
+public class Order
+{
+    public Guid Id { get; set; }
+}
+```
+
+```csharp file src/ClientApp/Order.cs
+namespace ClientApp.Models;
+
+public class Order
+{
+    public string Test { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "order", "outcome": "verified" },
+    { "kind": "member.exists", "element": "order-id", "outcome": "verified" },
+    { "kind": "member.exists", "element": "order-test", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "order-test", "messageContains": "isn't in the code" },
+    { "rule": "scope/coverage", "severity": "info", "subject": "root" }
+  ],
+  "noOtherFindings": true,
+  "filesRead": { "include": ["src/Ordering/Order.cs"], "exclude": ["src/ClientApp/**"] }
+}
+```
+
 ## no-row-includes-it
 
 Nothing is in scope until a row says so, so a file no row matches is out of scope as much as one an Out row excludes. basislink5's first real run put only its data project in scope; every DTO in the model lives in the DTO project, which no row matched, and each was reported as missing. Here `src/Contracts/Order.cs` matches no row: the claim is `outOfScope` with no scope row, and the message says no row includes the file.

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1be985ac-0fff-4dc2-ba26-8da81506da6f" type="Version Migration" typeId="03f24c57-66d8-4868-95a7-6daef900dc7f">
+  <comment>Moves an application from the v1 drift check (Guardrails Contracts modules and recipe files) onto Intent.Common.DriftEngine.</comment>
+  <name>2.0.0-pre.0</name>
+  <display>2.0.0-pre.0</display>
+  <parentFolderId>b26e4259-75ac-4d77-851b-d87c6aeb189e</parentFolderId>
+  <packageId>df777e11-cee8-4c8e-b2ec-878a88886484</packageId>
+  <packageName>Intent.Common.Drift</packageName>
+</class>

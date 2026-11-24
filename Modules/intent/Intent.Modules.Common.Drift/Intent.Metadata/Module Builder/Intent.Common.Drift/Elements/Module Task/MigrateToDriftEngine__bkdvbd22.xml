@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d8d1d198-05b4-4645-ae8b-c67b38341e86" type="Module Task" typeId="ad38ef37-45b8-4a6a-96de-f8d41da3cfe0">
+  <comment>Migrate to Drift Engine: runs the 2.0.0-pre.0 migration again, for an application whose update's migration failed. Argument: { "applicationId": "..." }.</comment>
+  <name>MigrateToDriftEngine</name>
+  <display>MigrateToDriftEngine</display>
+  <parentFolderId>df777e11-cee8-4c8e-b2ec-878a88886484</parentFolderId>
+  <packageId>df777e11-cee8-4c8e-b2ec-878a88886484</packageId>
+  <packageName>Intent.Common.Drift</packageName>
+</class>

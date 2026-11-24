@@ -287,6 +287,14 @@ public interface IClaimReader
 {
     IReadOnlyCollection<string> Kinds { get; }
 
+    /// <summary>
+    /// The kinds it reads from code other than the member's own declaration, such as a framework's configuration found by the
+    /// member's name: those are read even when the member isn't in the code, with <see cref="ClaimContext.Member"/> null,
+    /// since what that other code lacks is a fix of its own, reported in the same run as the missing member. Every other kind
+    /// waits on its member. None by default.
+    /// </summary>
+    IReadOnlyCollection<string> KindsWithoutMember => [];
+
     /// <returns>The reading, or null when this reader doesn't read the claim, so the next rule does.</returns>
     ClaimReading? Read(ClaimContext context);
 }

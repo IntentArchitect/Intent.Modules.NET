@@ -187,6 +187,53 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 }
 ```
 
+## missing-property-not-configured
+
+`Description` isn't in the code at all, and the configuration states no length for it either. Both are reported in the one run, each a fix of its own: the property is missing from `Order`, and `OrderConfiguration`, which EF Core reads by the property's name, has no `HasMaxLength(200)`. The length is against the configuration class, since there's no property to point at (user decision, 2026-11-24: separate findings, so a missing property and its configuration take one trip).
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["column.maxLength", "member.exists"], "requirements": ["R4", "R8"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Order.cs
+namespace Shop.Domain;
+
+public class Order
+{
+    public int Id { get; private set; }
+}
+```
+
+```csharp file src/Infrastructure/Persistence/OrderConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Shop.Domain;
+
+namespace Shop.Infrastructure.Persistence;
+
+public class OrderConfiguration : IEntityTypeConfiguration<Order>
+{
+    public void Configure(EntityTypeBuilder<Order> builder)
+    {
+        builder.ToTable("Orders");
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "order-description", "outcome": "contradicted" },
+    { "kind": "column.maxLength", "element": "order-description", "outcome": "contradicted", "expected": "200", "actual": null,
+      "at": "src/Infrastructure/Persistence/OrderConfiguration.cs:7" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "order-description", "messageContains": "isn't in the code" },
+    { "rule": "claim/column.maxLength", "severity": "error", "subject": "order-description", "messageContains": "doesn't state" }
+  ]
+}
+```
+
 ## not-claimed-when-unset
 
 The attribute has no MaxLength, and the code says `HasMaxLength(200)`. An unset `whenSet` value is no claim, so nothing is checked or reported (principle 1).

@@ -599,6 +599,12 @@ public sealed class TypeNode
     public bool IsStatic { get; set; }
 
     /// <summary>
+    /// A type whose parts may be in several files, as a C# <c>partial</c> type's are. Only such a type can have a member in a
+    /// file other than the ones it was found in.
+    /// </summary>
+    public bool IsPartial { get; set; }
+
+    /// <summary>
     /// As <see cref="MemberNode.Access"/>; with none written, what the language makes it: <c>internal</c> for a C# top-level
     /// type, <c>package</c> for Java's. A TypeScript type is <c>public</c> when it is exported.
     /// </summary>

@@ -2,8 +2,12 @@
 <managedFiles version="1" applicationId="d751d77e-dd44-4a5f-9925-eb358b35c46f">
   <file path="../.agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
+  <file path="FactoryExtensions/GuardrailsOutputLogPruner.cs" deviationsHash="8AE2CF50C6D8CFA5FFC3517291FED2ABE58F8530998C19B15FB7F9861ED4A721" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Common.Drift.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Common.Drift.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
+  <file path="Migrations/Migration_02_00_00_Pre_00.cs" deviationsHash="5684D5A1381F621527F013E742362C524E387FB297A5AFC0B2243BA9FBEE5252" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/OnInstallMigration.cs" deviationsHash="AEEA8FA9E62A6A3B091B23FAA233A99E05C2A843D492EDD55513DA7763084D7B" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
+  <file path="Tasks/MigrateToDriftEngine.cs" deviationsHash="0A3BAE0DBC69E0E00B5C7C45AEED9DCFBE3AA9AC55F4817F5041F138617F6857" templateId="Intent.ModuleBuilder.Templates.ModuleTask" />
   <file path="Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplatePartial.cs" deviationsHash="1C146175F140EDB7905F73DBB1C6E67616863D4634CF52541A6A65B58067C9C0" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/IntentDriftReference/IntentDriftReferenceTemplatePartial.cs" deviationsHash="61E8C054EFD1D896DD5D0534F1B1552A039076D355B319DAEAACB8C123B5869C" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />

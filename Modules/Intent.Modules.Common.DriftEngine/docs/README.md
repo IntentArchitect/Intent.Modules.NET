@@ -4,6 +4,8 @@
 
 The drift engine checks that hand-written code still matches the model. Each modelled fact (a class exists, an attribute has this type, a class is abstract) becomes a claim, and the engine reads the code to verify it, contradict it, or say why it can't be verified. It reads code and never writes it.
 
+It replaces Intent.Common.Drift, the recipe-based check of the Guardrails Contracts modules. To move an application across, update Intent.Common.Drift to 2.0: the update installs this module, turns the recipe files into the Drift Scope and Drift Check rows below, and removes the Guardrails Contracts modules, keeping the code they generated. Intent.Common.Drift's README says what the update does and what the first run shows.
+
 ## Setting scope
 
 Nothing is checked until the model says what code to read. Apply the **Drift Scope** stereotype to the Codebase Structure designer's Root Folder (or a Folder) and add rows:
@@ -90,4 +92,4 @@ The Software Factory log says what each run checked: how many claims, against ho
 ## Related Modules
 
 - Intent.Common.DriftReporting: the drift report the findings go to.
-- Intent.Common.Drift: the recipe-based drift check this engine replaces; both can run side by side.
+- Intent.Common.Drift: the recipe-based drift check this engine replaces. Updating it to 2.0 moves an application onto this engine; before that, both can run side by side.

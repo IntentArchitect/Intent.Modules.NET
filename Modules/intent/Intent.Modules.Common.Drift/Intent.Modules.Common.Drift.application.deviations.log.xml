@@ -2,6 +2,42 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#be3cbe89-b224-4500-a150-89d171b0fac4</correlationId>
+      <path>FactoryExtensions/GuardrailsOutputLogPruner.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-11-23T20:21:06.5067785Z</updatedAt>
+      <deviationsHash>8AE2CF50C6D8CFA5FFC3517291FED2ABE58F8530998C19B15FB7F9861ED4A721</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#1be985ac-0fff-4dc2-ba26-8da81506da6f</correlationId>
+      <path>Migrations/Migration_02_00_00_Pre_00.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-11-23T20:20:33.311649Z</updatedAt>
+      <deviationsHash>5684D5A1381F621527F013E742362C524E387FB297A5AFC0B2243BA9FBEE5252</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#09cc0e01-916a-47fe-911a-88a8a8abf0e8</correlationId>
+      <path>Migrations/OnInstallMigration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-11-23T20:20:33.3116405Z</updatedAt>
+      <deviationsHash>AEEA8FA9E62A6A3B091B23FAA233A99E05C2A843D492EDD55513DA7763084D7B</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.ModuleTask#d8d1d198-05b4-4645-ae8b-c67b38341e86</correlationId>
+      <path>Tasks/MigrateToDriftEngine.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2026-11-23T21:23:53.615997Z</updatedAt>
+      <deviationsHash>0A3BAE0DBC69E0E00B5C7C45AEED9DCFBE3AA9AC55F4817F5041F138617F6857</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#9e1369ae-eede-4c26-97ed-f84614177072</correlationId>
       <path>Templates/ConfigureDriftCheckSkill/ConfigureDriftCheckSkillTemplatePartial.cs</path>
       <count>1</count>

@@ -1,6 +1,46 @@
 # Intent.Common.Drift
 
-The drift check that compares a designer's model with hand-written code, shared by every module that contributes a designer to it. Intent.Domain.Guardrails.Contracts, Intent.Services.Guardrails.Contracts and Intent.UI.Guardrails.Contracts contribute the Domain, Services and User Interface designers, and install this module with them; it isn't installed on its own.
+The recipe-based drift check that compares a designer's model with hand-written code, shared by every module that contributes a designer to it. Intent.Domain.Guardrails.Contracts, Intent.Services.Guardrails.Contracts and Intent.UI.Guardrails.Contracts contribute the Domain, Services and User Interface designers, and install this module with them.
+
+Intent.Common.DriftEngine replaces this check. Updating this module to 2.0 moves an application onto it (below). The rest of this page describes the recipe-based check, which still runs wherever a Guardrails Contracts module is installed.
+
+## Moving to the drift engine
+
+Update Intent.Common.Drift to 2.0 in the Module Manager. The update installs Intent.Common.DriftEngine, and then its migration:
+
+- **Releases the contract files.** It removes the Intent attributes (`[assembly: DefaultIntentManaged]`, `[assembly: IntentTemplate]`, `[IntentManaged]`, `[IntentIgnore]` and the rest, and their `using`) from every file a Guardrails contract template generated. It also removes those files from the application's output records (`.intent/output-log.xml`, the committed `<application>.application.output.log` and `<application>.application.output.config.xml`), so the Software Factory no longer owns them and doesn't delete them. Nothing else in the files changes.
+- **Converts the recipe files** in `guardrails/` into rows on the first Codebase Structure package's Root Folder. It skips this when that application already has a Drift Scope or Drift Check.
+  - **Drift Scope:** one In row for `**`, since v1 checked code wherever its recipes found it, and an Out row for each file-pattern exception, with its reason.
+  - **Drift Check Opt-in Rules:** an `optin/unmodelled.type` row for each `own` entry, over the entry's `files` (else its recipe file's), with the entry's `kind` as its Description. There is also one `optin/unmodelled.member` row over `**/*.cs`, because v1 always reported unmodelled public members of modelled types.
+  - **Drift Check Exceptions:** a row for each type exception (`optin/unmodelled.type`) and each `Type.Member` exception (`optin/unmodelled.member`), one row per reason.
+  - An exception naming a convention's finding (`CatalogApi: MapGet [catalogtypes]`) means that convention gets no row. Notes and comments aren't kept; they stay in git history.
+- **Removes the Guardrails Contracts modules.** That takes their module entries, designer packages, settings and Template Outputs, their stereotypes on every element, and the Integration Event and Integration Command Subscription links between a subscriber's copy of a message and the published one. The engine matches a subscriber's copy to the message by name, so the links aren't needed.
+- **Deletes** the recipe files and the old per-machine baselines in `.cache/guardrails/<application>/`.
+
+Every file it rewrites and every row it writes is listed in the install's output. The migration changes code outside Change Review, so review it with `git diff` before committing.
+
+### The first Software Factory run
+
+- No contract file is proposed for deletion.
+- The old AI files are proposed for deletion: the `guardrails-model-sync` rule, the sync-model, configure-drift-check, validate-drift-recipes and reverse-engineer skills, and the recipe guides. Apply those deletions.
+- Findings appear under the engine's Areas of the drift report (`Domain (DriftEngine)`, `Services (DriftEngine)`, …). The engine reads differently from v1, so expect some new findings. In particular, an opt-in row takes a glob, not the `own` entry's find, so `unmodelled.type` now reports every unmodelled type in that glob: a helper class beside the DTOs, say. Model it, or add an Exceptions row with a reason.
+- If the run finds drift, its errors untick every staged change, the old AI file deletions included. Resolve the findings, or delete those files by hand.
+
+If the application had a Guardrails Contracts module but no recipe files, v1's check was off, so no rows are written. Set up a Drift Scope as the engine's README describes.
+
+### Teammates
+
+Commit the move. A teammate's own `.intent/output-log.xml` still lists the contract files after they pull it, but their Software Factory runs don't propose deleting them. Intent.Common.Drift counts each of those files as generated, without writing it, and removes it from that log during the run. A run whose changes are applied through an AI agent writes the entries back, and lists the contract files in `<application>.application.managed-files.xml` until the next run removes them again. CI and fresh clones aren't affected.
+
+### If the move fails
+
+A failed move logs an error naming its cause, such as a contract file that is read-only, and leaves the v1 check in place: the next Software Factory run puts back any Intent attributes it had removed and deletes nothing. Fix the cause, then run the module task **Migrate to Drift Engine** (`Intent.Common.Drift.MigrateToDriftEngine`) with `{ "applicationId": "<the application's id>" }`. It returns everything it changed. Then close and reopen the solution, so Intent loads the application without the Guardrails Contracts modules. Running the task again changes nothing.
+
+### Afterwards
+
+Intent.Common.Drift stays installed: it keeps the output records right on teammates' machines, and carries the recovery task. Once every machine has run the Software Factory after the move, uninstall it. Going back to 1.x doesn't restore the v1 check: reinstall the Guardrails Contracts modules and restore the recipe files from git.
+
+## The recipe-based check
 
 The module knows no designer. A contributing module supplies, for its designer, the facts the model states and how to read them from the model, the templates whose generated types are compared with the code, and the designer's text in the files below. This module supplies everything else:
 

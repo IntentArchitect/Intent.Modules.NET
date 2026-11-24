@@ -85,6 +85,8 @@ The lookup uses **file paths only and never opens an excluded file**. It repeats
 
 No hit leaves the outcome to the rest of the order in [claims-and-findings.md](claims-and-findings.md#outcomes): a missing type is contradicted.
 
+A member's find whose type step succeeded in scope is looked up only when that type is partial: only a partial type has parts in other files, so an out-of-scope file of a non-partial type's name is another type's, and the missing member is contradicted.
+
 ## Findings about scope
 
 | Rule             | When                                                                                            | Severity               |

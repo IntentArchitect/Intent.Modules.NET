@@ -9,15 +9,17 @@
   </ItemGroup>
 
 
-  <ItemGroup>
-    <!-- Supplied at run time by Intent.OutputManager.RoslynWeaver's lib folder (Roslyn 5.0), so it isn't shipped. Keep it at or below that version. -->
+  <ItemGroup><!-- Supplied at run time by Intent.OutputManager.RoslynWeaver's lib folder (Roslyn 5.0), so it isn't shipped. Keep it at or below that version. -->
+  
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup><!-- The migration's persistence model. The client supplies both at run time; 3.7.4 is the first with item-list rows. -->
+  
+    <PackageReference Include="Intent.Architect.Persistence" Version="3.7.4" />
     <PackageReference Include="Intent.Modules.Common" Version="3.11.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.10.12-pre.2" />
     <PackageReference Include="Intent.Modules.Common.DriftReporting" Version="1.0.0-pre.0" />
@@ -25,6 +27,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Intent.Persistence.SDK" Version="1.0.3" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0-pre.1" />
   </ItemGroup>

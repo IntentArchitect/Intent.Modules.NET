@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b26e4259-75ac-4d77-851b-d87c6aeb189e" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Module Migrations</name>
+  <display>Module Migrations</display>
+  <sort-children>by-type-then-by-name</sort-children>
+  <parentFolderId>df777e11-cee8-4c8e-b2ec-878a88886484</parentFolderId>
+  <packageId>df777e11-cee8-4c8e-b2ec-878a88886484</packageId>
+  <packageName>Intent.Common.Drift</packageName>
+</class>

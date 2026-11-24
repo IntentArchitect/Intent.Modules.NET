@@ -207,7 +207,9 @@ internal sealed partial class JpaClaims : IClaimReader
     /// JPA's rule for nullability where the Java type doesn't state it (an unannotated reference): <c>@Id</c>,
     /// <c>@Column(nullable = false)</c>, <c>@JoinColumn(nullable = false)</c> or a relationship's <c>optional = false</c>
     /// makes a mapped field's column required, and <c>nullable = true</c> optional; without one, JPA maps it nullable
-    /// (decision 13: an extension adds a rule to another's kind). It reads a Domain attribute or association end, which JPA
+    /// (decision 13: an extension adds a rule to another's kind). A model that says required is then contradicted by the
+    /// missing mapping, and the finding says so rather than that the type is nullable, which it can't say (user decision,
+    /// 2026-11-24, for EF Core's equivalent). It reads a Domain attribute or association end, which JPA
     /// maps; a field of a type JPA doesn't map, or another designer's element on a mapped type (a Services DTO that is an
     /// @Embeddable record), is left to the engine.
     /// </summary>
@@ -237,7 +239,9 @@ internal sealed partial class JpaClaims : IClaimReader
             }
         }
 
-        return ClaimReading.Defaulted("true", member.At);
+        return ClaimReading.Compared("true", member.At, context.Expected == "true",
+            $"`{owner.Name}.{context.Element.Name}` is required in the model, but JPA maps it as nullable: nothing sets `@Column(nullable = false)`, "
+            + "`@JoinColumn(nullable = false)` or a relationship's `optional = false` on it, and Java's type can't make it required. Add the one that fits.");
     }
 
     /// <summary>

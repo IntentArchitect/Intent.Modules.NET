@@ -879,11 +879,17 @@ public sealed partial class DriftEngine
             return;
         }
 
+        var withoutMember = false;
         if (Dependency(claim) is { } dependency)
         {
             Evaluate(dependency);
             claim.DependsOn = new ClaimRef(dependency.Designer, dependency.Element, dependency.Kind);
-            if (dependency.Outcome != "verified")
+
+            // A member the code lacks still has what other code must state about it read, by a reader that reads that code by
+            // the member's name (an EF Core configuration's IsRequired()), so both fixes are reported in one run (user,
+            // 2026-11-24). Its other claims wait on it.
+            withoutMember = dependency is { Kind: "member.exists", Outcome: "contradicted" } && ClaimReaders(claim.Kind).Any(x => x.Reader.KindsWithoutMember.Contains(claim.Kind));
+            if (dependency.Outcome != "verified" && !withoutMember)
             {
                 Cant(claim, "blocked", new Reading { Detail = $"Waits on {dependency.Kind}" });
                 return;
@@ -921,7 +927,7 @@ public sealed partial class DriftEngine
         var started = Stopwatch.GetTimestamp();
         try
         {
-            ReadClaim(claim);
+            ReadClaim(claim, withoutMember);
         }
         finally
         {
@@ -938,8 +944,43 @@ public sealed partial class DriftEngine
     /// <summary>Each kind's reading time and claim count.</summary>
     private readonly Dictionary<string, (long Ticks, int Count)> _kindTimes = new(StringComparer.Ordinal);
 
-    private void ReadClaim(Claim claim)
+    /// <summary>An extension's claim readers of a kind, a later extension's first.</summary>
+    private IEnumerable<(string Extension, IClaimReader Reader)> ClaimReaders(string kind) =>
+        _extensions.SelectMany(x => x.ClaimReaders.Select(r => (x.Id, r))).Reverse().Where(x => x.r.Kinds.Contains(kind));
+
+    /// <param name="withoutMember">
+    /// Its member isn't in the code: only a reader that reads the kind without it (<see cref="IClaimReader.KindsWithoutMember"/>)
+    /// reads it, and with none answering it waits on the member as any other claim does.
+    /// </param>
+    private void ReadClaim(Claim claim, bool withoutMember = false)
     {
+        if (withoutMember)
+        {
+            foreach (var (extension, reader) in ClaimReaders(claim.Kind).Where(x => x.Reader.KindsWithoutMember.Contains(claim.Kind)))
+            {
+                ClaimReading? reading;
+                try
+                {
+                    reading = reader.Read(new ClaimContext(this, claim, _graph, _codeScope));
+                }
+                catch (Exception e)
+                {
+                    _extensionFailures.Add((extension, $"{e.GetType().Name}: {e.Message}"));
+                    Cant(claim, "ruleFailed", new Reading { Detail = $"The {extension} extension failed reading it." });
+                    return;
+                }
+
+                if (reading is not null)
+                {
+                    Apply(claim, reading);
+                    return;
+                }
+            }
+
+            Cant(claim, "blocked", new Reading { Detail = "Waits on member.exists" });
+            return;
+        }
+
         // A parameter's claims read its operation's method as the house reads it for the operation's parameters: a String
         // its house binds as an enum (eShop.Backend's Http.parseEnum) is that enum for parameter.type too.
         if (claim.Kind.StartsWith("parameter.", StringComparison.Ordinal) && Owner(claim.Source) is { } operation
@@ -973,13 +1014,8 @@ public sealed partial class DriftEngine
 
         // An extension's claim reader comes before the engine's own structure rules, and a later extension's before an
         // earlier one's, so a module's reader can read any kind, the engine's included.
-        foreach (var (extension, reader) in _extensions.SelectMany(x => x.ClaimReaders.Select(r => (x.Id, r))).Reverse())
+        foreach (var (extension, reader) in ClaimReaders(claim.Kind))
         {
-            if (!reader.Kinds.Contains(claim.Kind))
-            {
-                continue;
-            }
-
             ClaimReading? reading;
             try
             {
@@ -1600,7 +1636,7 @@ public sealed partial class DriftEngine
         // A member the code lacks belongs in its owner: the finding links the owner's declaration.
         if (member is null)
         {
-            Missing(claim, owner.Name, searched, owner.At);
+            Missing(claim, [owner.Name], searched, owner.At, owner);
             return;
         }
 
@@ -1732,9 +1768,15 @@ public sealed partial class DriftEngine
     private void Missing(Claim claim, string fileStem, string searchedFor, Span? at = null) => Missing(claim, [fileStem], searchedFor, at);
 
     /// <param name="at">Where the missing code belongs, when that is known: a member's owner.</param>
-    private void Missing(Claim claim, IReadOnlyList<string> fileStems, string searchedFor, Span? at = null)
+    /// <param name="owner">
+    /// The in-scope type a missing member belongs in. Only another part of a partial type can hold it, so for any other
+    /// type no out-of-scope file is looked for: a file of its name there is another type's, such as another application's
+    /// over the same output folder.
+    /// </param>
+    private void Missing(Claim claim, IReadOnlyList<string> fileStems, string searchedFor, Span? at = null, TypeNode? owner = null)
     {
-        var shadow = _files.FirstOrDefault(x => !x.Decision.In && fileStems.Any(stem => IsNamedFor(x.Path, stem)));
+        var shadow = owner is { IsPartial: false } ? default
+            : _files.FirstOrDefault(x => !x.Decision.In && fileStems.Any(stem => IsNamedFor(x.Path, stem)));
         if (shadow.Path is not null)
         {
             Cant(claim, "outOfScope", new Reading { ShadowFile = shadow.Path, ScopeRow = shadow.Decision.Row?.Id, Detail = searchedFor });
