@@ -43,6 +43,9 @@ public sealed partial class DriftEngine
     private readonly Dictionary<ClaimRef, Claim> _index = [];
     private readonly Dictionary<Claim, TypeNode> _types = [];
 
+    /// <summary>The type claims being located, so two elements of one name that each look at the other's type don't loop.</summary>
+    private readonly HashSet<Claim> _locating = [];
+
     /// <summary>The types verified by the code's use of a library's type, which it references and doesn't declare.</summary>
     private readonly HashSet<Claim> _referenced = [];
     private readonly Dictionary<Claim, MemberNode> _members = [];
@@ -1342,8 +1345,10 @@ public sealed partial class DriftEngine
 
             // Projects repeat each other's folders (each service its own IntegrationEvents/Events, holding its copy of a
             // message): of the types its folders match equally, the one whose namespace or path names most of the element's
-            // package's segments is it, as eShop's Catalog.API.Eventing package names src/Catalog.API.
-            if (best > 0 && top.Count > 1)
+            // package's segments is it, as eShop's Catalog.API.Eventing package names src/Catalog.API. Equally when the folders
+            // match none, as for an element at its package's root: CrmBus's DTO ApiMessage in CrmBus.Api.DataContracts and its
+            // Eventing DTO ApiMessage in CrmBus.Api.Commands.Internal, each in the project of its package's name.
+            if (top.Count > 1)
             {
                 var package = (element.Package?.Name ?? "").Split('.', StringSplitOptions.RemoveEmptyEntries);
                 int Named(TypeNode type)
@@ -1362,9 +1367,20 @@ public sealed partial class DriftEngine
                 }
             }
 
-            if (best > 0 && top.Count == 1)
+            if (top.Count == 1)
             {
                 candidates = top;
+            }
+        }
+
+        // Two elements of one name each have their own type (a Domain entity, and the Services DTO of its name in a contracts
+        // project): a type another element of the name is located at isn't this one's.
+        if (candidates.Count > 1)
+        {
+            var taken = OthersLocated(claim, candidates);
+            if (candidates.Count(x => !taken.Contains(x)) == 1)
+            {
+                candidates = candidates.Where(x => !taken.Contains(x)).ToList();
             }
         }
 
@@ -1389,6 +1405,35 @@ public sealed partial class DriftEngine
                 Cant(claim, "ambiguous", new Reading { Candidates = candidates.Select(x => x.At).ToList() });
                 break;
         }
+    }
+
+    /// <summary>
+    /// The <paramref name="candidates"/> other type claims of the element's name are located at, each located first if it
+    /// hasn't been. One already being located is skipped: two elements of one name that each wait on the other stay
+    /// ambiguous.
+    /// </summary>
+    private HashSet<TypeNode> OthersLocated(Claim claim, IReadOnlyCollection<TypeNode> candidates)
+    {
+        var taken = new HashSet<TypeNode>();
+        _locating.Add(claim);
+        try
+        {
+            foreach (var other in _claims.Where(x => x.Kind == "type.exists" && x != claim && !_locating.Contains(x)
+                                                     && string.Equals(x.Source?.Name, claim.Source.Name, StringComparison.Ordinal)).ToList())
+            {
+                Evaluate(other);
+                if (_types.TryGetValue(other, out var type) && candidates.Contains(type))
+                {
+                    taken.Add(type);
+                }
+            }
+        }
+        finally
+        {
+            _locating.Remove(claim);
+        }
+
+        return taken;
     }
 
     /// <summary>

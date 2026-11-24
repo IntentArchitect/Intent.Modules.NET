@@ -402,6 +402,187 @@ public class MessagingTests
             .ShouldBe(["OrderExpiredIntegrationEvent"]);
     }
 
+    /// <summary>
+    /// A client's bus code, as its model draws it (2026-11-24):
+    /// <list type="bullet">
+    /// <item><c>OnMessageAsync</c> calls its wrapper's <c>SendAsync</c>, whose body publishes: the wrapper does a publish.</item>
+    /// <item><c>Process</c> hands its event to the modelled <c>Submit</c>, whose link shows the publish.</item>
+    /// <item><c>Add</c> serializes its command for a log, and hands it to the modelled sender, whose link shows the send.</item>
+    /// <item><c>SetStatus</c> adds a command to a list it builds.</item>
+    /// </list>
+    /// Every link is borne out, and nothing is reported as a raise the diagram doesn't show.
+    /// </summary>
+    [Fact]
+    public void A_wrappers_publish_a_linked_methods_raise_a_serializer_and_a_list_are_no_unshown_raise()
+    {
+        var model = JsonNode.Parse("""
+            {
+              "designers": {
+                "Services": {
+                  "packages": [{
+                    "id": "services", "name": "Crm.Api",
+                    "elements": [
+                      { "id": "listener", "type": "Service", "name": "AzureListener",
+                        "children": [{ "id": "listener-on-message", "type": "Operation", "name": "OnMessageAsync" }] },
+                      { "id": "quotes", "type": "Service", "name": "QuoteLogic",
+                        "children": [
+                          { "id": "quotes-process", "type": "Operation", "name": "Process" },
+                          { "id": "quotes-submit", "type": "Operation", "name": "Submit" }
+                        ] },
+                      { "id": "sender", "type": "Service", "name": "CombinationSender",
+                        "children": [{ "id": "sender-send", "type": "Operation", "name": "SendAsync" }] },
+                      { "id": "controller", "type": "Service", "name": "Controller",
+                        "children": [{ "id": "controller-add", "type": "Operation", "name": "Add" }] },
+                      { "id": "status", "type": "Service", "name": "QuoteStatus",
+                        "children": [{ "id": "status-set", "type": "Operation", "name": "SetStatus" }] },
+                      { "id": "azure-event", "type": "Message", "name": "AzureEvent" },
+                      { "id": "quote-requested", "type": "Message", "name": "QuoteRequested" },
+                      { "id": "create-combination", "type": "Integration Command", "name": "CreateCombination" },
+                      { "id": "quote-response", "type": "Integration Command", "name": "QuoteResponse" }
+                    ]
+                  }],
+                  "associations": [
+                    { "id": "on-message-publishes", "type": "Publish Integration Event", "source": { "element": "listener-on-message", "navigable": false }, "target": { "element": "azure-event" } },
+                    { "id": "submit-publishes", "type": "Publish Integration Event", "source": { "element": "quotes-submit", "navigable": false }, "target": { "element": "quote-requested" } },
+                    { "id": "send-sends", "type": "Send Integration Command", "source": { "element": "sender-send", "navigable": false }, "target": { "element": "create-combination" } }
+                  ]
+                },
+                "Codebase Structure": {
+                  "packages": [{ "id": "root", "name": "Crm", "type": "Root Folder",
+                    "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+                }
+              }
+            }
+            """)!;
+        var code = new Dictionary<string, string>
+        {
+            ["src/Api/Bus.cs"] = """
+                namespace Crm.Api;
+                public record AzureEvent(string Json);
+                public record QuoteRequested(int Id);
+                public record CreateCombination(string CompanyId);
+                public record QuoteResponse(int Id);
+
+                public interface IAzureEventSender
+                {
+                    Task SendAsync(AzureEvent message, IMessageSession session);
+                }
+
+                public class AzureEventSender : IAzureEventSender
+                {
+                    public Task SendAsync(AzureEvent message, IMessageSession session) => session.Publish(message);
+                }
+
+                public class AzureListener(IAzureEventSender sender, IMessageSession session)
+                {
+                    public Task OnMessageAsync(string json) => sender.SendAsync(new AzureEvent(json), session);
+                }
+
+                public class QuoteLogic(IMessageSession session)
+                {
+                    public Task Process(int id) => Submit(new QuoteRequested(id));
+
+                    public Task Submit(QuoteRequested message) => session.Publish(message);
+                }
+
+                public class CombinationSender(IMessageSession session)
+                {
+                    public Task SendAsync(CreateCombination message) => session.Send(message);
+                }
+
+                public class Controller(CombinationSender sender, IAuditLog audit)
+                {
+                    public async Task Add(string companyId)
+                    {
+                        var message = new CreateCombination(companyId);
+                        var json = JsonConvert.SerializeObject(message);
+                        await audit.WriteAsync(json);
+                        await sender.SendAsync(message);
+                    }
+                }
+
+                public class QuoteStatus
+                {
+                    public int SetStatus(int id)
+                    {
+                        var quotes = new List<QuoteResponse>();
+                        quotes.Add(new QuoteResponse(id));
+                        return quotes.Count;
+                    }
+                }
+                """
+        };
+
+        var result = Run(model, code);
+
+        result.Claims.Where(x => x.Element is "on-message-publishes" or "submit-publishes" or "send-sends").Select(x => $"{x.Element} {x.Outcome}").Order()
+            .ShouldBe(["on-message-publishes verified", "send-sends verified", "submit-publishes verified"]);
+        result.Findings.Where(x => x.Rule.StartsWith("messaging/", StringComparison.Ordinal)).Select(x => x.Message).ShouldBeEmpty();
+    }
+
+    /// <summary>
+    /// A transport named with neither publish nor send (user decision, 2026-11-24): Kafka's <c>ProduceAsync</c>, Azure Service
+    /// Bus's <c>ScheduleMessageAsync</c>, a house bus's <c>Dispatch</c>. The message's kind says which link the diagram lacks:
+    /// an integration event's is a publish, an integration command's a send.
+    /// </summary>
+    [Fact]
+    public void A_produce_schedule_or_dispatch_is_the_link_its_messages_kind_says()
+    {
+        var model = JsonNode.Parse("""
+            {
+              "designers": {
+                "Services": {
+                  "packages": [{
+                    "id": "services", "name": "Shop.Api",
+                    "elements": [
+                      { "id": "orders", "type": "Service", "name": "Orders",
+                        "children": [
+                          { "id": "orders-place", "type": "Operation", "name": "Place" },
+                          { "id": "orders-remind", "type": "Operation", "name": "Remind" },
+                          { "id": "orders-notify", "type": "Operation", "name": "Notify" }
+                        ] },
+                      { "id": "order-placed", "type": "Message", "name": "OrderPlaced" },
+                      { "id": "send-reminder", "type": "Integration Command", "name": "SendReminder" },
+                      { "id": "notify-buyer", "type": "Integration Command", "name": "NotifyBuyer" }
+                    ]
+                  }]
+                },
+                "Codebase Structure": {
+                  "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+                    "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+                }
+              }
+            }
+            """)!;
+        var code = new Dictionary<string, string>
+        {
+            ["src/Api/Orders.cs"] = """
+                namespace Shop.Api;
+                public record OrderPlaced(int Id);
+                public record SendReminder(int Id);
+                public record NotifyBuyer(int Id);
+
+                public class Orders(IProducer producer, IScheduler scheduler, IHouseBus bus)
+                {
+                    public Task Place(int id) => producer.ProduceAsync("orders", new OrderPlaced(id));
+
+                    public Task Remind(int id) => scheduler.ScheduleMessageAsync(new SendReminder(id), DateTimeOffset.Now);
+
+                    public Task Notify(int id) => bus.Dispatch(new NotifyBuyer(id));
+                }
+                """
+        };
+
+        var result = Run(model, code);
+
+        result.Findings.Where(x => x.Rule.StartsWith("messaging/", StringComparison.Ordinal)).Select(x => x.Message[..x.Message.IndexOf('`', 1)].TrimStart('`') + " " + x.Rule).Order()
+            .ShouldBe([
+                "Orders.Notify messaging/unmodelled.send",
+                "Orders.Place messaging/unmodelled.publish",
+                "Orders.Remind messaging/unmodelled.send"
+            ]);
+    }
+
     private static RunResult Run() => Run(Model, Code);
 
     private static RunResult Run(JsonNode model, IReadOnlyDictionary<string, string> code)

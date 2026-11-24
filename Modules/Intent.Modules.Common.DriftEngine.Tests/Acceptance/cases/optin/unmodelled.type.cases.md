@@ -1702,6 +1702,47 @@ public class OrderService
 }
 ```
 
+## nested-in-a-partial-types-other-part
+
+`Order` is partial, and the part declared first is in `Order.Generated.cs`. `Status` is nested in its other part, in `Order.cs`, so it is part of `Order` too, never reported on its own. A client's handler declares its enums this way.
+
+```json case
+{ "phase": 2, "base": "glob-only", "without": ["src/Domain/Order.cs"], "cases": ["optin/unmodelled.type"], "requirements": ["R37", "R49"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```csharp file src/Domain/A/Order.Generated.cs
+namespace Ordering.Domain;
+
+public partial class Order
+{
+    public string Description { get; private set; }
+}
+```
+
+```csharp file src/Domain/Order.cs
+namespace Ordering.Domain;
+
+public partial class Order
+{
+    public Status Current { get; private set; }
+
+    public enum Status
+    {
+        Draft,
+        Paid
+    }
+}
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.type", "messageContains": "`Status`", "count": 0, "note": "Nested in Order's second part, so part of it" },
+    { "rule": "optin/unmodelled.type", "messageContains": "`Buyer` isn't in the model" }
+  ]
+}
+```
+
 ## whole-scope
 
 The same code, with a row that has no Glob: the rule looks at every type in scope. `OrderService` is reported too. No located type is in its folder or a folder above it, so no designer is named.

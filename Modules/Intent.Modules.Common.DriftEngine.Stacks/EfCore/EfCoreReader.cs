@@ -97,7 +97,7 @@ internal sealed class EfCoreReader : ICodeReader
     private static void Context(EfCoreModel model, ClassDeclarationSyntax type, string file, CSharpSyntax csharp)
     {
         var sets = type.Members.OfType<PropertyDeclarationSyntax>().Select(x => x.Type).OfType<GenericNameSyntax>()
-            .Where(x => x.Identifier.Text == "DbSet" && x.TypeArgumentList.Arguments.Count == 1).ToList();
+            .Where(x => x.Identifier.Text is "DbSet" or "IDbSet" && x.TypeArgumentList.Arguments.Count == 1).ToList(); // IDbSet: EF6's
         var onModelCreating = type.Members.OfType<MethodDeclarationSyntax>().FirstOrDefault(x => x.Identifier.Text == "OnModelCreating");
         var identity = IdentityEntities(type).ToList();
         if (sets.Count == 0 && onModelCreating is null && identity.Count == 0)
@@ -228,9 +228,43 @@ internal sealed class EfCoreReader : ICodeReader
         }
         else
         {
+            calls = Ef6Relationship(calls);
             config.Calls.AddRange(calls);
             config.Chains.Add(calls);
         }
+    }
+
+    /// <summary>
+    /// An EF6 relationship chain as EF Core writes it, so every relationship rule reads one API (CrmBus.Api's DataContext is
+    /// EF6): <c>HasRequired(e =&gt; e.X)</c> is <c>HasOne(e =&gt; e.X)</c>, <c>HasOptional</c> too, and the <c>WithRequired</c>
+    /// and <c>WithOptional</c> forms are <c>WithOne</c>. <c>IsRequired()</c> is added, at the call that states it, where EF
+    /// Core's would mean the same: a required reference with many or no inverse (<c>HasRequired(e =&gt; e.Account)</c>), or a
+    /// collection whose inverse is required (<c>HasMany(e =&gt; e.Items).WithRequired(e =&gt; e.Account)</c>). A one-to-one
+    /// with one optional end is left to its foreign key, as EF Core's <c>IsRequired()</c> there names only the dependent.
+    /// </summary>
+    private static List<FluentCall> Ef6Relationship(List<FluentCall> calls)
+    {
+        if (calls[0].Name is not ("HasRequired" or "HasOptional" or "HasMany"))
+        {
+            return calls;
+        }
+
+        var with = calls.FirstOrDefault(x => x.Name.StartsWith("With", StringComparison.Ordinal));
+        var requiredBy = calls[0].Name == "HasRequired" && (with is null || with.Name == "WithMany" || with.Name.StartsWith("WithRequired", StringComparison.Ordinal)) ? calls[0]
+            : calls[0].Name == "HasMany" && with?.Name.StartsWith("WithRequired", StringComparison.Ordinal) == true ? with
+            : null;
+        var translated = calls.Select(x => x.Name switch
+        {
+            "HasRequired" or "HasOptional" => x with { Name = "HasOne" },
+            "WithRequired" or "WithRequiredDependent" or "WithRequiredPrincipal" or "WithOptional" or "WithOptionalDependent" or "WithOptionalPrincipal" => x with { Name = "WithOne" },
+            _ => x
+        }).ToList();
+        if (requiredBy is not null && translated.All(x => x.Name != "IsRequired"))
+        {
+            translated.Add(new FluentCall { Name = "IsRequired", At = requiredBy.At });
+        }
+
+        return translated;
     }
 
     /// <summary>A call chain, first call first: <c>entity.Property(e =&gt; e.X).HasMaxLength(50)</c>.</summary>

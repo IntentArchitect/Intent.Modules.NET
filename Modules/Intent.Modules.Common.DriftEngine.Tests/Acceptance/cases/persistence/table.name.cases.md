@@ -69,6 +69,76 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 }
 ```
 
+## verified-by-table-attribute
+
+No configuration names `Order`'s table; the class's `[Table("Orders")]` does, as EF6 and EF Core both read it. A client's EF6 entities state every table this way.
+
+```json case
+{ "phase": 4, "base": "verified", "without": ["src/Infrastructure/Persistence/OrderConfiguration.cs"], "kinds": ["table.name"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Order.cs
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Shop.Domain;
+
+[Table("Orders")]
+public class Order
+{
+    public Guid Id { get; set; }
+}
+```
+
+```csharp file src/Infrastructure/OrderingContext.cs
+using System.Data.Entity;
+using Shop.Domain;
+
+namespace Shop.Infrastructure;
+
+public class OrderingContext : DbContext
+{
+    public virtual IDbSet<Order> Orders { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "table.name", "element": "order", "outcome": "verified", "expected": "Orders", "actual": "Orders",
+      "at": "src/Domain/Order.cs:5" }
+  ]
+}
+```
+
+## configuration-overrides-the-attribute
+
+The class says `[Table("Order")]` and its configuration `ToTable("Orders")`. The configuration overrides the annotation in EF, so the table is `Orders`.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["table.name"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Order.cs
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Shop.Domain;
+
+[Table("Order")]
+public class Order
+{
+    public Guid Id { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "table.name", "element": "order", "outcome": "verified", "expected": "Orders", "actual": "Orders",
+      "at": "src/Infrastructure/Persistence/OrderConfiguration.cs:11" }
+  ]
+}
+```
+
 ## contradicted
 
 The configuration names another table. The finding names the claim, the element and the line, and says which model property states the value (R11, R14).

@@ -59,8 +59,10 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             var outputFolder = OutputFolder(application);
             var code = new CodeFiles(outputFolder);
             var contractFiles = ContractFiles(application, solution, outputFolder);
+            var modelledTypes = ModelledTypes(model);
+            DropUnmatched(rows, V1Coverage.NeverUnmodelled(code, modelledTypes), log);
             var converted = new HashSet<string>(rows.Exceptions.SelectMany(x => x.Matches), StringComparer.Ordinal);
-            foreach (var row in V1Coverage.Exceptions(code, recipes, rows, contractFiles, ModelledTypes(model), log))
+            foreach (var row in V1Coverage.Exceptions(code, recipes, rows, contractFiles, modelledTypes, log))
             {
                 var matches = row.Matches.Where(x => !converted.Contains(x)).ToList();
                 if (matches.Count > 0)
@@ -107,6 +109,39 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 .Concat(others.Contains(outputFolder, StringComparer.OrdinalIgnoreCase) ? Enumerable.Empty<string>() : ContractRelease.FindContractFiles(outputFolder, others))
                 .Distinct(StringComparer.OrdinalIgnoreCase)
                 .ToList();
+        }
+
+        /// <summary>
+        /// Drops the converted type exceptions that name a type the drift engine never reports as unmodelled
+        /// (<see cref="V1Coverage.NeverUnmodelled"/>): v1's exception for a modelled type covered a finding of its own
+        /// conventions, and on the engine the row would match nothing and warn on the first run.
+        /// </summary>
+        private static void DropUnmatched(ConvertedRecipes rows, IReadOnlyCollection<string> neverUnmodelled, ICollection<string> log)
+        {
+            for (var i = rows.Exceptions.Count - 1; i >= 0; i--)
+            {
+                var row = rows.Exceptions[i];
+                var dropped = row.Rule == RecipeConversion.UnmodelledType ? row.Matches.Where(neverUnmodelled.Contains).ToList() : new List<string>();
+                if (dropped.Count == 0)
+                {
+                    continue;
+                }
+
+                foreach (var match in dropped)
+                {
+                    log.Add($"Left out v1's exception for `{match}` ({row.Reason}): it names a modelled type, which the drift engine never reports as unmodelled.");
+                }
+
+                var kept = row.Matches.Where(x => !dropped.Contains(x)).ToList();
+                if (kept.Count == 0)
+                {
+                    rows.Exceptions.RemoveAt(i);
+                }
+                else
+                {
+                    rows.Exceptions[i] = row with { Matches = kept };
+                }
+            }
         }
 
         /// <summary>The application's type elements, which the drift engine locates in the code by name.</summary>

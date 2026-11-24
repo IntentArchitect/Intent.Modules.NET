@@ -182,6 +182,89 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
             matches.ShouldContain("ApiController");
         }
 
+        /// <summary>
+        /// A type nested in another is part of it, which the engine never reports on its own, so it gets no exception: one would
+        /// match nothing and warn (CrmBus's private response classes inside its handlers).
+        /// </summary>
+        [Fact]
+        public void A_type_declared_inside_another_gets_no_exception()
+        {
+            var code = new Dictionary<string, string>(Code)
+            {
+                ["Api/OrdersController.cs"] = """
+                    public class OrdersController : ControllerBase
+                    {
+                        [HttpGet]
+                        public OrderDto Get() => new OrderDto();
+
+                        public enum QuoteTypes { Single, Joint }
+                    }
+                    """
+            };
+
+            Exceptions(Services, code, Model).SelectMany(x => x.Matches).ShouldNotContain("QuoteTypes");
+        }
+
+        /// <summary>
+        /// The engine locates one type per element, so a further declaration of a modelled type's name in a row's files is
+        /// unmodelled to it, where v1 counted it as modelled (CrmBus's second FtpHeartBeatPingRequest, in its API project).
+        /// </summary>
+        [Fact]
+        public void Another_declaration_of_a_modelled_types_name_is_excepted_unless_an_element_has_each()
+        {
+            var code = new Dictionary<string, string>(Code) { ["Api/Legacy/OrderDto.cs"] = "namespace Legacy { public class OrderDto { } }" };
+
+            var rows = Exceptions(Services, code, Model);
+            rows.Single(x => x.Reason == V1Coverage.CopyReason).Matches.ShouldBe(new[] { "OrderDto" });
+
+            var both = Model.Append(new ModelledType("OrderDto", "DTO", new string[0])).ToArray();
+            Exceptions(Services, code, both).ShouldNotContain(x => x.Reason == V1Coverage.CopyReason);
+        }
+
+        /// <summary>
+        /// v1's handler contract stated its modifiers only, so it never reported a handler's methods; the engine's handler
+        /// conventions state them. The method that takes the modelled message is the subscription's, which the engine locates,
+        /// and an override is never reported.
+        /// </summary>
+        [Fact]
+        public void A_handlers_public_method_is_excepted_and_its_handle_method_and_overrides_arent()
+        {
+            var model = Model.Append(new ModelledType("PortalHandler", "Integration Event Handler", new string[0]))
+                .Append(new ModelledType("PortalMessage", "Message", new string[0])).ToArray();
+            var code = new Dictionary<string, string>(Code)
+            {
+                ["Api/PortalHandler.cs"] = """
+                    public class PortalMessage { }
+                    public class PortalHandler
+                    {
+                        public Task Handle(PortalMessage message, object context) => Task.CompletedTask;
+                        public static string DeriveProduct(decimal escalation) => "";
+                        public override string ToString() => "";
+                        private void Log() { }
+                    }
+                    """
+            };
+
+            var row = Exceptions(Services, code, model).Single(x => x.Reason == V1Coverage.HandlerMethodReason);
+            row.Rule.ShouldBe(RecipeConversion.UnmodelledMember);
+            row.Matches.ShouldBe(new[] { "PortalHandler.DeriveProduct" });
+        }
+
+        /// <summary>
+        /// A modelled type declared once is never reported as unmodelled, so v1's exception naming it (CrmBus's `Container`,
+        /// for a relationship its conventions found) would match nothing; one with another declaration may still be reported.
+        /// </summary>
+        [Fact]
+        public void A_modelled_type_declared_once_is_never_unmodelled()
+        {
+            var never = V1Coverage.NeverUnmodelled(new CodeFiles(Code), Model);
+            never.ShouldContain("OrderDto");
+            never.ShouldContain("OrdersController");
+
+            var code = new Dictionary<string, string>(Code) { ["Api/Legacy/OrderDto.cs"] = "namespace Legacy { public class OrderDto { } }" };
+            V1Coverage.NeverUnmodelled(new CodeFiles(code), Model).ShouldNotContain("OrderDto");
+        }
+
         private static IReadOnlyList<ExceptionRowSpec> Exceptions(string services, Dictionary<string, string> code, ModelledType[] model, string[] contractFiles = null)
         {
             var recipes = new[] { new RecipeSource("services.drift.json", services) };

@@ -36,13 +36,15 @@ internal sealed class UnmodelledType : IOptInRule
                     .Where(t => (x.Convention["typeKinds"] as JsonArray)?.Any(k => k!.GetValue<string>() == t.Kind) ?? true)
                     .ToHashSet()))
             .ToList();
-        var byFile = types.ToLookup(x => x.At.File, StringComparer.Ordinal);
+        // Every part of a partial type encloses what is nested in it: CrmBus's handler declares its QuoteTypes enum in its
+        // second part, which isn't where the type is said to be (2026-11-24).
+        var byFile = context.Code.Types.SelectMany(x => x.Declarations.Select(at => (Type: x, At: at))).ToLookup(x => x.At.File, StringComparer.Ordinal);
         var designers = context.Engine.LocatedTypes()
             .GroupBy(x => Folder(x.Type.At.File)!, StringComparer.Ordinal)
             .ToDictionary(x => x.Key, x => x.GroupBy(c => c.Claim.Designer).OrderByDescending(c => c.Count()).First().Key, StringComparer.Ordinal);
         foreach (var type in types)
         {
-            if (context.IsLocated(type) || byFile[type.At.File].Any(x => x != type && Encloses(x.At, type.At)))
+            if (context.IsLocated(type) || byFile[type.At.File].Any(x => x.Type != type && Encloses(x.At, type.At)))
             {
                 continue;
             }

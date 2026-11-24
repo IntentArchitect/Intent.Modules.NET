@@ -313,8 +313,8 @@ internal sealed class MessageLinkReader : IClaimReader
 
         var type = MessageCode.TypeOf(context.Code, (designer, element) => context.LocatedOf(element, "type.exists", designer) as TypeNode, link, message);
         // A publish isn't a send, nor a send a publish, on any bus: NServiceBus's, MassTransit's, MediatR's, Wolverine's.
-        var calls = units.SelectMany(x => MessageCode.Raising(context.Code, x.Type, x.Member, created => MessageCode.Is(context.Code, created, x.Type, type, message.Name)))
-            .Where(x => link.Other is not { } other || !Interactions.Reach.Words(x.Call.Name).Contains(other))
+        var calls = units.SelectMany(x => MessageCode.Raising(context.Code, x.Type, x.Member, created => MessageCode.Is(context.Code, created, x.Type, type, message.Name))
+                .Where(r => !MessageCode.IsOther(context.Code, r.In, r.Call, link)))
             .ToList();
         MessageCode.Cover(context.Code, calls.Select(x => x.Call));
         if (calls.Count > 0)
@@ -381,7 +381,7 @@ internal sealed class UnmodelledMessages : IDriftRule
         var asked = new HashSet<TypeNode>(ReferenceEqualityComparer.Instance);
         foreach (var (link, messages) in kinds)
         {
-            var sends = Sends(context, messages.Types, covered);
+            var sends = Sends(context, link, messages.Types, covered);
             if (sends.Count == 0)
             {
                 continue;
@@ -426,7 +426,8 @@ internal sealed class UnmodelledMessages : IDriftRule
     }
 
     /// <summary>Each call in checked code that hands a message on, new or typed as one, which no link claim covered.</summary>
-    private static List<Send> Sends(RuleContext context, IReadOnlyDictionary<TypeNode, IElement?> messages, IReadOnlySet<CallNode> covered)
+    /// <summary>The calls that hand on a message of the link's kind and no link covers (<see cref="Unshown"/>).</summary>
+    private static List<Send> Sends(RuleContext context, MessageLink link, IReadOnlyDictionary<TypeNode, IElement?> messages, IReadOnlySet<CallNode> covered)
     {
         var sends = new List<Send>();
         var seen = new HashSet<(CallNode, TypeNode)>();
@@ -434,7 +435,7 @@ internal sealed class UnmodelledMessages : IDriftRule
         {
             foreach (var member in type.Members)
             {
-                foreach (var call in member.Calls.Where(x => !covered.Contains(x)))
+                foreach (var call in member.Calls.Where(x => !covered.Contains(x) && Unshown(context.Code, type, x, link, covered)))
                 {
                     for (var i = 0; i < call.Arguments.Count; i++)
                     {
@@ -454,6 +455,33 @@ internal sealed class UnmodelledMessages : IDriftRule
         }
 
         return sends;
+    }
+
+    /// <summary>
+    /// Whether a call is a raise of the link's kind the diagram may not show (2026-11-24, from CrmBus.Api's move onto the
+    /// engine). Not when its message reaches a call a link covers: the diagram shows it at the method the link starts from,
+    /// as a modelled operation that calls the modelled one that publishes. For a publish or a send, only when what it ends in
+    /// (<see cref="MessageCode.Ends"/>) hands the message to a transport, or it ends in the code's own keeping, as an
+    /// outbox's entry: a serializer's <c>SerializeObject(message)</c>, a list's <c>Add</c> or a log line hands it to none.
+    /// A transport's method is named with the link's word, or with a word that says neither publish nor send
+    /// (<see cref="MessageCode.TransportWords"/>), whose link the message's kind decides; never with the other link's word.
+    /// </summary>
+    private static bool Unshown(CodeGraph code, TypeNode type, CallNode call, MessageLink link, IReadOnlySet<CallNode> covered)
+    {
+        if (MessageCode.HandedTo(code, type, call).Any(x => covered.Contains(x.Call)))
+        {
+            return false;
+        }
+
+        if (link.Own is not { } own)
+        {
+            return true;
+        }
+
+        var ends = MessageCode.Ends(code, type, call).Select(Interactions.Reach.Words).ToList();
+        return ends.Count == 0
+               || ends.Any(x => x.Contains(own))
+               || ends.Any(x => x.Any(MessageCode.TransportWords.Contains)) && (link.Other is not { } other || !ends.Any(x => x.Contains(other)));
     }
 
     /// <summary>
@@ -638,7 +666,8 @@ internal static class MessageCode
     /// the logic that sends it (<c>_quoteLogic.SubmitQuoteAsync(quote)</c>). A method it calls doesn't: its caller handed it in,
     /// and the caller's call is the one that hands it on (<see cref="HandsOn(CodeGraph, TypeNode, MemberNode, CallNode, int, TypeRefNode)"/>).
     /// </summary>
-    public static IEnumerable<(CallNode Root, CallNode Call)> Raising(CodeGraph code, TypeNode type, MemberNode member, Func<TypeRefNode, bool> isMessage)
+    /// <returns>Each raising call, the call in the member that leads to it, and the type whose method makes it.</returns>
+    public static IEnumerable<(CallNode Root, CallNode Call, TypeNode In)> Raising(CodeGraph code, TypeNode type, MemberNode member, Func<TypeRefNode, bool> isMessage)
     {
         var seen = new HashSet<MemberNode> { member };
         var queue = new Queue<(TypeNode Type, MemberNode Member, CallNode? Root)>([(type, member, null)]);
@@ -650,7 +679,7 @@ internal static class MessageCode
                 var own = current.Root is null;
                 if (call.Arguments.Select((x, i) => (Value: x, Index: i)).Any(a => MessagesOf(code, current.Type, a.Value, own).Any(c => isMessage(c) && HandsOn(code, current.Type, current.Member, call, a.Index, c))))
                 {
-                    yield return (root, call);
+                    yield return (root, call, current.Type);
                 }
 
                 foreach (var body in Bodies(code, current.Type, call).Where(x => seen.Add(x.Member)))
@@ -850,6 +879,65 @@ internal static class MessageCode
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// The words a transport's method is named with that hand a message on without saying whether it publishes or sends
+    /// (user decision, 2026-11-24): Kafka's <c>Produce</c>, Azure Service Bus's <c>ScheduleMessageAsync</c>, a house bus's
+    /// <c>Dispatch</c>. Which link it is comes from the message: an integration event's is a publish, a command's a send.
+    /// </summary>
+    public static readonly IReadOnlyCollection<string> TransportWords = new HashSet<string>(StringComparer.Ordinal) { "produce", "schedule", "dispatch" };
+
+    /// <summary>
+    /// Whether a raise is the other kind of link's, by the library calls it ends in (<see cref="Ends"/>): one named with the
+    /// other link's word (<c>Publish</c> for a send) and none with this link's. A call through the code's own wrapper is what
+    /// the wrapper does: CrmBus's <c>_sender.SendAsync(message, session)</c> publishes, as its body is
+    /// <c>session.Publish(message)</c>.
+    /// </summary>
+    public static bool IsOther(CodeGraph code, TypeNode type, CallNode call, MessageLink link)
+    {
+        if (link.Other is not { } other)
+        {
+            return false;
+        }
+
+        var ends = Ends(code, type, call).Select(Interactions.Reach.Words).ToList();
+        return ends.Any(x => x.Contains(other)) && (link.Own is not { } own || !ends.Any(x => x.Contains(own)));
+    }
+
+    /// <summary>
+    /// The names of the library calls a call's arguments end in: the call itself when it is a library's, else those of
+    /// <see cref="HandedTo"/>. None when the code's own methods keep what they are given rather than call a library with it,
+    /// as an outbox's entry is kept.
+    /// </summary>
+    public static IReadOnlyList<string> Ends(CodeGraph code, TypeNode type, CallNode call) =>
+        Bodies(code, type, call).Count == 0
+            ? [call.Name]
+            : HandedTo(code, type, call).Where(x => Bodies(code, x.Type, x.Call).Count == 0).Select(x => x.Call.Name).Distinct(StringComparer.Ordinal).ToList();
+
+    /// <summary>
+    /// The calls a call's arguments are handed to through the code's own methods it reaches, at any depth, each with the type
+    /// whose method makes it: <c>Submit(message)</c> reaches the <c>session.Publish(message)</c> in <c>Submit</c>.
+    /// </summary>
+    public static IReadOnlyList<(TypeNode Type, CallNode Call)> HandedTo(CodeGraph code, TypeNode type, CallNode call)
+    {
+        var found = new List<(TypeNode Type, CallNode Call)>();
+        var seen = new HashSet<MemberNode>(ReferenceEqualityComparer.Instance);
+        var queue = new Queue<(TypeNode Type, CallNode Call)>([(type, call)]);
+        while (queue.TryDequeue(out var current))
+        {
+            foreach (var body in Bodies(code, current.Type, current.Call).Where(x => seen.Add(x.Member)))
+            {
+                var parameters = (body.Member.Body?.Parameters is { Count: > 0 } own ? own : body.Member.Parameters).ToList();
+                foreach (var inner in body.Member.Calls.Where(x => x.Arguments.Any(a => parameters.Any(p => Names(a, p, 0)))))
+                {
+                    found.Add((body.Type, inner));
+                    queue.Enqueue((body.Type, inner));
+                }
+            }
+        }
+
+        return found;
     }
 
     /// <summary>An interface's or an abstract method has no body of its own, whatever unit the reader gives it.</summary>

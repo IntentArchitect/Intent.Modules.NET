@@ -61,16 +61,21 @@ internal sealed partial class EfCoreClaims : IClaimReader
                 return Persisted(context, model);
             case "table.name" or "table.schema":
             {
+                // The fluent configuration, else the data annotation it overrides: [Table("Account", Schema = "crm")], which
+                // EF6 and EF Core both read (CrmBus's EF6 entities state their tables only this way).
                 var type = context.Type!;
                 var toTable = EntityOf(context, model, type)?.Calls.FirstOrDefault(x => x.Name is "ToTable" or "ToView");
+                var annotation = toTable is null ? type.Attributes.FirstOrDefault(x => x.Name == "Table") : null;
                 var arguments = new Arguments(context);
-                var value = toTable is null ? null : arguments.Of(toTable, context.Kind == "table.name" ? 0 : 1);
+                var value = toTable is not null ? arguments.Of(toTable, context.Kind == "table.name" ? 0 : 1)
+                    : annotation is null ? null
+                    : context.Kind == "table.name" ? arguments.Of(annotation, 0) : arguments.Of(annotation, "Schema");
                 if (value is null && arguments.Unread is null && context.Kind == "table.schema")
                 {
                     return DefaultSchema(context, model, type, toTable, arguments);
                 }
 
-                return value is null && arguments.Unread is { } unread ? arguments.Unreadable(unread) : Value(value, toTable?.At ?? type.At);
+                return value is null && arguments.Unread is { } unread ? arguments.Unreadable(unread) : Value(value, toTable?.At ?? annotation?.At ?? type.At);
             }
             case "key":
                 return Key(context, context.Type!, model);
@@ -82,14 +87,16 @@ internal sealed partial class EfCoreClaims : IClaimReader
                 return Multiplicity(context, model);
             case "table.kind":
             {
-                // ToView maps a view; anything else, a table, which silence states too. Both are ambiguous.
+                // ToView maps a view; anything else, a table, which [Table] and silence state too. Both are ambiguous.
                 var type = context.Type!;
                 var mappings = EntityOf(context, model, type)?.Calls.Where(x => x.Name is "ToTable" or "ToView").ToList() ?? [];
                 return mappings.Select(x => x.Name).Distinct().Count() > 1
                     ? ClaimReading.CantVerify("ambiguous", "It is mapped both to a table and to a view.", mappings[0].At, mappings.Select(x => x.At).ToList())
                     : mappings.FirstOrDefault() is { } mapping
                         ? ClaimReading.Stated(mapping.Name == "ToView" ? "View" : "Table", mapping.At)
-                        : ClaimReading.Defaulted("Table", type.At);
+                        : type.Attributes.FirstOrDefault(x => x.Name == "Table") is { } annotation
+                            ? ClaimReading.Stated("Table", annotation.At)
+                            : ClaimReading.Defaulted("Table", type.At);
             }
             case "member.nullable":
                 return Required(context, model);
@@ -360,6 +367,19 @@ internal sealed partial class EfCoreClaims : IClaimReader
                     }
                 }
             }
+        }
+
+        // [Table] says the class is a table's entity, but only a DbContext's registration maps it (user decision, 2026-11-24:
+        // the diagram shows a persisted class, so one EF never maps is an error). CrmBus's EF6 lookup classes (ActionType)
+        // carry it, and nothing names them.
+        if (type.Attributes.FirstOrDefault(x => x.Name == "Table") is { } table)
+        {
+            var unmapped = model.Contexts.Count == 1
+                ? $"`{model.Contexts.Keys.Single()}` doesn't map it"
+                : $"none of the DbContexts ({string.Join(", ", model.Contexts.Keys.Order(StringComparer.Ordinal).Select(x => $"`{x}`"))}) maps it";
+            return ClaimReading.Compared("false", table.At, context.Expected == "false",
+                $"`{type.Name}` has `[Table]`, but {unmapped}: no `DbSet` or `IDbSet` of it, no `Entity<{type.Name}>()` or configuration applied for it, "
+                + "and no mapped entity navigates to it, so EF never reads or writes its table. Register it in the DbContext, or remove the class's Table stereotype if it isn't persisted.");
         }
 
         return ClaimReading.Absent(model.Contexts.Count == 1 ? model.Contexts.Values.Single().At : type.At, "false");
@@ -692,7 +712,12 @@ internal sealed partial class EfCoreClaims : IClaimReader
             .ToList();
         if (chains.Count > 1)
         {
-            return ClaimReading.CantVerify("ambiguous", $"{chains.Count} chains configure `{dependent.Name}.{navigation.Name}`.", chains[0][0].At, chains.Select(x => x[0].At).ToList());
+            // Configured from both ends, as CrmBus's EF6 context restates HasMany(e => e.Containers).WithRequired(e => e.Account)
+            // with HasRequired(e => e.Account) from Container: chains that state the same are one statement.
+            var states = chains.Select(x => x.LastOrDefault(c => c.Name == "IsRequired")).ToList();
+            return states.All(x => x is not null) && states.Select(x => x!.Arguments is ["false"]).Distinct().Count() == 1
+                ? ClaimReading.Stated(states[0]!.Arguments is ["false"] ? "true" : "false", states[0]!.At)
+                : ClaimReading.CantVerify("ambiguous", $"{chains.Count} chains configure `{dependent.Name}.{navigation.Name}`.", chains[0][0].At, chains.Select(x => x[0].At).ToList());
         }
 
         var chain = chains.FirstOrDefault();

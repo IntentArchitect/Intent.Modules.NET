@@ -2,15 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.AspNetCore.Program#5a119b11-8c4d-4825-96fb-bf3a7d358cd3</correlationId>
-      <path>BlazorWebApp/Program.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-10-20T12:01:21.8660343Z</updatedAt>
-      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
-    </file>
-    <file>
       <correlationId>Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram#085da2dd-f7b6-4602-88c6-5ed701c277df</correlationId>
       <path>WebAndWorker.AdditionalWorker/Program.cs</path>
       <count>1</count>
@@ -34,15 +25,6 @@
       <approvedAt>2026-07-26T11:46:54.1347326Z</approvedAt>
       <deviationsHash>67384C6AFFF937AF81E1D4B400DA8BD52DC44EB7167CB871577CF3F3BE421764</deviationsHash>
       <fileHash>CC78A993023D07114C31B19B39D4571362720A260751111AED82BC35F629E949</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.AspNetCore.Program#99eeee67-047d-490f-bd0d-d784696bdbe0</correlationId>
-      <path>WebAndWorker.Mobile.Api/Program.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-10-20T12:01:21.8671142Z</updatedAt>
-      <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.VisualStudio.Projects.ServiceWorker.ServiceWorkerProgram#ef106ec3-5cb1-4b2b-af22-06089fc67c31</correlationId>

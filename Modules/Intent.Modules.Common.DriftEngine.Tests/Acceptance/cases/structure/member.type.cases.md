@@ -436,6 +436,66 @@ public record OrderDto(int OrderNumber, string Date, List<OrderItemDto> OrderIte
 }
 ```
 
+## library-type-named-with-its-namespace
+
+A DTO's fields are typed with a library's `WebsiteClient`, which the model holds as a Type-Definition named with its namespace, `Just.Client.Service.Models.WebsiteClient`. The code writes it qualified in one field and by its own name in the other; both are the element's type. A client model types its REST client's responses this way.
+
+```json case
+{ "phase": 1, "kinds": ["member.type"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Crm.Services",
+        "elements": [
+          { "id": "website-client", "type": "Type-Definition", "name": "Just.Client.Service.Models.WebsiteClient" },
+          { "id": "list-response", "type": "DTO", "name": "ClientListResponse",
+            "children": [
+              { "id": "list-response-clients", "type": "DTO-Field", "name": "clients", "typeRef": { "element": "website-client", "collection": true } }
+            ] },
+          { "id": "response", "type": "DTO", "name": "ClientResponse",
+            "children": [
+              { "id": "response-client", "type": "DTO-Field", "name": "client", "typeRef": { "element": "website-client" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Crm", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Crm/RestClients/ClientModels.cs
+using Just.Client.Service.Models;
+
+namespace Crm.RestClients;
+
+public class ClientListResponse
+{
+    public Just.Client.Service.Models.WebsiteClient[] clients { get; set; }
+}
+
+public class ClientResponse
+{
+    public WebsiteClient client { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "list-response-clients", "outcome": "verified", "at": "src/Crm/RestClients/ClientModels.cs:7" },
+    { "kind": "member.type", "element": "response-client", "outcome": "verified", "at": "src/Crm/RestClients/ClientModels.cs:12" }
+  ]
+}
+```
+
 ## binary-is-a-byte-array
 
 The C# profile writes the model's `binary` as `byte[]`, which is also an array's form. A field of type `binary` isn't a collection, so `byte[]` matches it as written, before the array is read as a collection of `byte`. basislink5's first Software Factory run reported a file upload's `byte[]` as contradicting `binary`.

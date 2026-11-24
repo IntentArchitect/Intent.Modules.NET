@@ -2,6 +2,6 @@
 <outputFiles>
   <files>
     <file relativePath=".agents/design.md" state="ignored;once-off-generated" />
-    <file relativePath="WebAndWorker.AdditionalWorker/Program.cs" state="once-off-generated" />
+    <file relativePath="WebAndWorker.AdditionalWorker/Program.cs" state="ignored;once-off-generated" />
   </files>
 </outputFiles>

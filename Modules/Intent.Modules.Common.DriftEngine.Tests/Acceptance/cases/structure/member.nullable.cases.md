@@ -984,6 +984,89 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 }
 ```
 
+## ef6-has-required
+
+An EF6 context configures the relationship with `HasRequired(o => o.Buyer)`, EF6's form of `HasOne(o => o.Buyer).IsRequired()`. It decides whatever the foreign key's type, so with `BuyerId` an `int?` the navigation is still required, and the model's `1` agrees. A client's EF6 data layer configures its relationships this way.
+
+```json case
+{ "phase": 4, "base": "ef-navigation-optional-contradicted", "without": ["src/Domain/Persistence/OrderConfiguration.cs"], "kinds": ["member.nullable"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Persistence/OrderingContext.cs
+using System.Data.Entity;
+
+namespace Ordering.Domain.Persistence;
+
+public class OrderingContext : DbContext
+{
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Order>()
+            .HasRequired(o => o.Buyer);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.nullable", "element": "order-buyer", "outcome": "verified", "expected": "false", "actual": "false", "at": "src/Domain/Persistence/OrderingContext.cs:10" }
+  ],
+  "findings": [
+    { "rule": "claim/member.nullable", "subject": "order-buyer", "count": 0 }
+  ]
+}
+```
+
+## ef6-configured-from-both-ends
+
+The EF6 context configures the relationship from both ends: `Buyer`'s `HasMany(b => b.Orders).WithRequired(o => o.Buyer)`, which a client's context then restates from `Order` with `HasRequired(o => o.Buyer)`. Both say the navigation is required, so they are one statement, not two places to choose from; chains that disagree would be ambiguous.
+
+```json case
+{ "phase": 4, "base": "ef6-has-required", "kinds": ["member.nullable"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Buyer.cs
+namespace Ordering.Domain;
+
+public class Buyer
+{
+    public int Id { get; private set; }
+
+    public ICollection<Order> Orders { get; private set; }
+}
+```
+
+```csharp file src/Domain/Persistence/OrderingContext.cs
+using System.Data.Entity;
+
+namespace Ordering.Domain.Persistence;
+
+public class OrderingContext : DbContext
+{
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Buyer>()
+            .HasMany(b => b.Orders)
+            .WithRequired(o => o.Buyer);
+
+        modelBuilder.Entity<Order>()
+            .HasRequired(o => o.Buyer);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.nullable", "element": "order-buyer", "outcome": "verified", "expected": "false", "actual": "false" }
+  ],
+  "findings": [
+    { "rule": "claim/member.nullable", "subject": "order-buyer", "count": 0 }
+  ]
+}
+```
+
 ## python-annotations
 
 A Python annotation states whether a field can be `None`, as a type checker reads it: `int | None` (or `Optional[int]`) can, and any other type, `str` or `int`, can't.

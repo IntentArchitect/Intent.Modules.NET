@@ -326,6 +326,81 @@ public class OrderingContext : DbContext
 }
 ```
 
+## verified-by-idbset
+
+An EF6 context maps `Order` with an `IDbSet`, EF6's interface for a set, which maps the class as a `DbSet` does. A client's data layer declares every set this way.
+
+```json case
+{ "phase": 4, "base": "verified", "without": ["src/Infrastructure/Persistence/OrderConfiguration.cs"], "kinds": ["entity.persisted"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Infrastructure/OrderingContext.cs
+using System.Data.Entity;
+using Shop.Domain;
+
+namespace Shop.Infrastructure;
+
+public class OrderingContext : DbContext
+{
+    public virtual IDbSet<Order> Orders { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "entity.persisted", "element": "order", "outcome": "verified", "expected": "true", "actual": "true",
+      "at": "src/Infrastructure/OrderingContext.cs:8" }
+  ]
+}
+```
+
+## contradicted-table-attribute-not-registered
+
+`Order` carries `[Table("Orders")]`, and nothing the context declares names it or navigates to it. The annotation says it is a table's entity, but only a DbContext's registration maps it, so EF never reads or writes its table, while the diagram shows a persisted class (user decision, 2026-11-24: an error). The finding says what is missing. A client's EF6 lookup classes are written this way.
+
+```json case
+{ "phase": 4, "base": "verified", "without": ["src/Infrastructure/Persistence/OrderConfiguration.cs"], "kinds": ["entity.persisted"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Order.cs
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Shop.Domain;
+
+[Table("Orders")]
+public class Order
+{
+    public Guid Id { get; set; }
+}
+```
+
+```csharp file src/Infrastructure/OrderingContext.cs
+using System.Data.Entity;
+
+namespace Shop.Infrastructure;
+
+public class OrderingContext : DbContext
+{
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "entity.persisted", "element": "order", "outcome": "contradicted", "expected": "true", "actual": "false",
+      "at": "src/Domain/Order.cs:5" }
+  ],
+  "findings": [
+    { "rule": "claim/entity.persisted", "severity": "error", "subject": "order",
+      "messageContains": "`Order` has `[Table]`, but `OrderingContext` doesn't map it: no `DbSet` or `IDbSet` of it, no `Entity<Order>()` or configuration applied for it, and no mapped entity navigates to it" }
+  ]
+}
+```
+
 ## verified-by-identity-base
 
 ASP.NET Core Identity's `IdentityDbContext<ApplicationUser>` declares the `DbSet` of its user itself, in a package, so `ApplicationDbContext` maps `ApplicationUser` with no `DbSet` or configuration of its own. `ApplicationUser : IdentityUser` inherits `Id`, a `string`, from that package's `IdentityUser<string>`, so the modelled `Id` is a member of it and EF Core's conventional key, and `CardNumber` is its own. The adapted code is eShop's `Identity.API`.

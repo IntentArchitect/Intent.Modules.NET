@@ -45,8 +45,16 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         /// </summary>
         private static readonly HashSet<string> InterfaceElements = new(StringComparer.Ordinal) { "Service", "Service Proxy", "Repository", "Domain Service" };
 
+        /// <summary>
+        /// The element types whose conventions state methods where v1's contracts compared none: a handler stated its modifiers
+        /// only, so v1 never reported its public methods.
+        /// </summary>
+        private static readonly HashSet<string> HandlerElements = new(StringComparer.Ordinal) { "Integration Event Handler", "Domain Event Handler" };
+
         public const string ContractFileReason = "Declared in a file v1 generated a modelled type into, which v1 counted as modelled";
         public const string FieldReason = "A public field, which v1 never reported";
+        public const string CopyReason = "Another declaration of a modelled type's name, which v1 counted as modelled";
+        public const string HandlerMethodReason = "A public method of a handler, whose methods v1 never compared";
 
         /// <param name="code">The application's code, as v1 read it.</param>
         /// <param name="contractFiles">The contract files, relative to the code's root with <c>/</c> separators.</param>
@@ -79,25 +87,36 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             var typeRows = rows.OptIn.Where(x => x.Rule == RecipeConversion.UnmodelledType && !x.Globs.Any(failed.Contains))
                 .Select(x => (Row: x, Globs: x.Globs.Select(g => new Glob(g)).ToList()))
                 .ToList();
-            foreach (var file in code.AllFiles().Where(Checked))
+            // A type nested in another is part of it, which the engine never reports on its own, so only top-level types count.
+            var covered = code.AllFiles().Where(Checked)
+                .Select(file => (File: file, Covering: typeRows.Where(x => x.Globs.Any(g => g.IsMatch(file))).Select(x => x.Row.Description).Distinct().ToList()))
+                .Where(x => x.Covering.Count > 0)
+                .Select(x => (x.File, x.Covering, Types: TopLevel(code, x.File)))
+                .ToList();
+            var coveredDeclarations = covered.SelectMany(x => x.Types).ToLookup(x => x.Identifier.Text, StringComparer.Ordinal);
+            foreach (var (file, covering, types) in covered)
             {
-                var covering = typeRows.Where(x => x.Globs.Any(g => g.IsMatch(file))).Select(x => x.Row.Description).Distinct().ToList();
-                if (covering.Count == 0)
-                {
-                    continue;
-                }
-
                 var reason = $"v1's conventions over these files ({string.Join(", ", covering)}) didn't report it";
                 // By name, as an exception matches: a partial type a find matched in one of its files was found.
-                foreach (var type in TopLevelTypes(code, file).Where(x => !modelled.Contains(x)))
+                foreach (var type in types)
                 {
-                    if (!found.Contains(type))
+                    var name = type.Identifier.Text;
+                    if (modelled.Contains(name))
                     {
-                        Except(reason, type);
+                        // The engine locates one type per element, so a further type of the name in these files is reported as
+                        // unmodelled (CrmBus's second FtpHeartBeatPingRequest, in the API project).
+                        if (model.Any(x => x.Name == name) && Copies(coveredDeclarations[name]) > model.Count(x => x.Name == name))
+                        {
+                            Except(CopyReason, name);
+                        }
+                    }
+                    else if (!found.Contains(name))
+                    {
+                        Except(reason, name);
                     }
                     else if (contracts.Contains(file))
                     {
-                        Except(ContractFileReason, type);
+                        Except(ContractFileReason, name);
                     }
                 }
             }
@@ -105,27 +124,76 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             if (rows.OptIn.FirstOrDefault(x => x.Rule == RecipeConversion.UnmodelledMember) is { } members)
             {
                 var stateFields = model.Where(x => FieldElements.Contains(x.ElementType)).ToLookup(x => x.Name, StringComparer.Ordinal);
+                var handlers = model.Where(x => HandlerElements.Contains(x.ElementType)).ToLookup(x => x.Name, StringComparer.Ordinal);
+                var typeNames = new HashSet<string>(model.Select(x => x.Name), StringComparer.Ordinal);
                 foreach (var file in code.Matching(members.Globs.Select(x => new Glob(x)).ToList()).Where(Checked))
                 {
                     var syntax = code.Get(file)?.Syntax;
                     foreach (var type in syntax?.DescendantNodes().OfType<TypeDeclarationSyntax>() ?? Enumerable.Empty<TypeDeclarationSyntax>())
                     {
-                        var elements = stateFields[type.Identifier.Text].ToList();
-                        if (elements.Count == 0 || type is InterfaceDeclarationSyntax)
+                        if (type is InterfaceDeclarationSyntax)
                         {
                             continue;
                         }
 
-                        foreach (var field in PublicFields(type).Where(x => !elements.Any(e => e.Members.Contains(x))))
+                        var elements = stateFields[type.Identifier.Text].ToList();
+                        foreach (var field in PublicFields(type).Where(x => elements.Count > 0 && !elements.Any(e => e.Members.Contains(x))))
                         {
                             Except(FieldReason, $"{type.Identifier.Text}.{field}");
+                        }
+
+                        // A handler's method that takes a modelled message is its subscription's, which the engine locates.
+                        var handler = handlers[type.Identifier.Text].ToList();
+                        foreach (var method in PublicMethods(type).Where(x => handler.Count > 0 && !handler.Any(e => e.Members.Contains(x.Identifier.Text))
+                                     && !x.ParameterList.Parameters.Any(p => p.Type != null && typeNames.Contains(LastName(p.Type)))))
+                        {
+                            Except(HandlerMethodReason, $"{type.Identifier.Text}.{method.Identifier.Text}");
                         }
                     }
                 }
             }
 
-            return byReason.Select(x => new ExceptionRowSpec(x.Key == FieldReason ? RecipeConversion.UnmodelledMember : RecipeConversion.UnmodelledType, x.Value, x.Key)).ToList();
+            return byReason.Select(x => new ExceptionRowSpec(x.Key is FieldReason or HandlerMethodReason ? RecipeConversion.UnmodelledMember : RecipeConversion.UnmodelledType, x.Value, x.Key)).ToList();
         }
+
+        /// <summary>
+        /// The modelled type names the drift engine never reports as unmodelled: each element of the name has a type to locate,
+        /// and the code declares no further one. A converted exception naming one matches nothing (CrmBus's v1 exceptions for
+        /// <c>Container</c>, which covered a relationship its conventions found, and <c>JustApplicant</c>, which covered a
+        /// generation filter).
+        /// </summary>
+        public static IReadOnlyCollection<string> NeverUnmodelled(CodeFiles code, IReadOnlyList<ModelledType> model)
+        {
+            var declarations = code.AllFiles().Where(CodeFiles.IsCSharp)
+                .SelectMany(x => code.Get(x)?.Syntax?.DescendantNodes().OfType<BaseTypeDeclarationSyntax>() ?? Enumerable.Empty<BaseTypeDeclarationSyntax>())
+                .ToLookup(x => x.Identifier.Text, StringComparer.Ordinal);
+            return Modelled(model, declarations)
+                .Where(x => declarations.Contains(x) && Copies(declarations[x].Where(d => d.Parent is not BaseTypeDeclarationSyntax)) <= Math.Max(1, model.Count(m => m.Name == x)))
+                .ToHashSet(StringComparer.Ordinal);
+        }
+
+        /// <summary>The types a file declares outside any other type.</summary>
+        private static List<BaseTypeDeclarationSyntax> TopLevel(CodeFiles code, string file) =>
+            code.Get(file)?.Syntax?.DescendantNodes().OfType<BaseTypeDeclarationSyntax>().Where(x => x.Parent is not BaseTypeDeclarationSyntax).ToList()
+            ?? new List<BaseTypeDeclarationSyntax>();
+
+        /// <summary>How many types the declarations are: a partial type's parts, in its namespace and enclosing types, are one.</summary>
+        private static int Copies(IEnumerable<BaseTypeDeclarationSyntax> declarations) =>
+            declarations.Select(x => string.Join(".", x.AncestorsAndSelf().Select(a => a switch
+            {
+                BaseNamespaceDeclarationSyntax ns => ns.Name.ToString(),
+                BaseTypeDeclarationSyntax t => t.Identifier.Text,
+                _ => null
+            }).Where(n => n != null).Reverse())).Distinct(StringComparer.Ordinal).Count();
+
+        private static string LastName(TypeSyntax type) => type switch
+        {
+            QualifiedNameSyntax qualified => qualified.Right.Identifier.Text,
+            GenericNameSyntax generic => generic.Identifier.Text,
+            SimpleNameSyntax simple => simple.Identifier.Text,
+            NullableTypeSyntax nullable => LastName(nullable.ElementType),
+            _ => type.ToString()
+        };
 
         /// <summary>
         /// The names of the types the drift engine locates for the model's elements: a type of an element's name; for an element
@@ -215,5 +283,10 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             type.Members.OfType<FieldDeclarationSyntax>()
                 .Where(x => x.Modifiers.Any(SyntaxKind.PublicKeyword))
                 .SelectMany(x => x.Declaration.Variables.Select(v => v.Identifier.Text));
+
+        /// <summary>Its public methods, overrides aside, as the engine's <c>unmodelled.member</c> leaves them out.</summary>
+        private static IEnumerable<MethodDeclarationSyntax> PublicMethods(TypeDeclarationSyntax type) =>
+            type.Members.OfType<MethodDeclarationSyntax>()
+                .Where(x => x.Modifiers.Any(SyntaxKind.PublicKeyword) && !x.Modifiers.Any(SyntaxKind.OverrideKeyword));
     }
 }

@@ -80,14 +80,14 @@ public class Customer
 
 ## ambiguous
 
-Two in-scope classes are named `Order`, in different folders and namespaces, and nothing narrows the choice. The engine doesn't pick one: the claim is can't verify, `ambiguous`, and the finding names both (R43).
+Two in-scope classes are named `Order`, in different folders and namespaces, and nothing narrows the choice: the element is at its package's root, and both namespaces name the package `Shop.Domain` equally. The engine doesn't pick one: the claim is can't verify, `ambiguous`, and the finding names both (R43).
 
 ```json case
 { "phase": 1, "base": "verified", "kinds": ["type.exists"], "cases": ["engine/ambiguous"], "requirements": ["R5", "R43"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
 ```
 
-```csharp file src/Reporting/Order.cs
-namespace Shop.Reporting;
+```csharp file src/Domain/Legacy/Order.cs
+namespace Shop.Domain.Legacy;
 
 public class Order
 {
@@ -101,7 +101,7 @@ public class Order
     { "kind": "type.exists", "element": "order", "outcome": "cantVerify", "reason": "ambiguous" }
   ],
   "findings": [
-    { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "src/Reporting/Order.cs:3" }
+    { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "src/Domain/Legacy/Order.cs:3" }
   ]
 }
 ```
@@ -209,6 +209,110 @@ public record OrderStockItem(int ProductId, int Units);
 {
   "claims": [
     { "kind": "type.exists", "element": "stock-item", "outcome": "verified", "at": "src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs:3" }
+  ]
+}
+```
+
+## package-breaks-a-root-tie
+
+Two contracts projects each declare an `ApiMessage`, and each is modelled at the root of a package of its project's name. With no folders, both types match each element's folders equally, so the package breaks the tie as it does for folders: each element is the copy in the project its package names. A client copy's model was drawn this way, and the Guardrails `File Config` had told the copies apart.
+
+```json case
+{ "phase": 1, "kinds": ["type.exists"], "requirements": ["R43"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [
+        { "id": "data-contracts", "name": "Crm.DataContracts",
+          "elements": [ { "id": "data-message", "type": "DTO", "name": "ApiMessage" } ] },
+        { "id": "commands", "name": "Crm.Commands.Internal",
+          "elements": [ { "id": "command-message", "type": "DTO", "name": "ApiMessage" } ] }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Crm", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Crm.DataContracts/ApiMessage.cs
+namespace Crm.DataContracts;
+
+public class ApiMessage
+{
+}
+```
+
+```csharp file src/Crm.Commands.Internal/Ftp/FtpMessage.cs
+namespace Crm.Commands.Internal.Ftp;
+
+public class ApiMessage
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "data-message", "outcome": "verified", "at": "src/Crm.DataContracts/ApiMessage.cs:3" },
+    { "kind": "type.exists", "element": "command-message", "outcome": "verified", "at": "src/Crm.Commands.Internal/Ftp/FtpMessage.cs:3" }
+  ]
+}
+```
+
+## another-element-takes-its-copy
+
+The Domain models the data layer's `TransactionRequest`, and the Services models the contracts project's DTO of the same name. The Services DTO's package names its project, so it is that copy. The Domain package `Crm.Domain` names neither project more than the other, and the copy left is the data layer's, as the other element of the name is the contracts one.
+
+```json case
+{ "phase": 1, "kinds": ["type.exists"], "requirements": ["R43"], "packs": ["intent.core", "intent.domain", "intent.services"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{ "id": "domain", "name": "Crm.Domain",
+        "elements": [ { "id": "entity", "type": "Class", "name": "TransactionRequest" } ] }]
+    },
+    "Services": {
+      "packages": [{ "id": "data-contracts", "name": "Crm.DataContracts",
+        "elements": [ { "id": "dto", "type": "DTO", "name": "TransactionRequest" } ] }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Crm", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Crm.Data/Contracts/TransactionRequest.cs
+namespace Crm.Data.Contracts;
+
+public class TransactionRequest
+{
+}
+```
+
+```csharp file src/Crm.DataContracts/TransactionRequest.cs
+namespace Crm.DataContracts;
+
+public class TransactionRequest
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "entity", "outcome": "verified", "at": "src/Crm.Data/Contracts/TransactionRequest.cs:3" },
+    { "kind": "type.exists", "element": "dto", "outcome": "verified", "at": "src/Crm.DataContracts/TransactionRequest.cs:3" }
   ]
 }
 ```

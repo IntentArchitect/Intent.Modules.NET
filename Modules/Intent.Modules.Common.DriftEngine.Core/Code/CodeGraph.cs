@@ -594,6 +594,15 @@ public sealed class TypeNode
     /// <summary>Every file a part of the type is in.</summary>
     public List<string> Files { get; } = [];
 
+    /// <summary>
+    /// Where each part of a partial type is declared, the first being <see cref="At"/>, as a reader that merges parts records
+    /// them. Empty from a reader that doesn't, so <see cref="Declarations"/> is <see cref="At"/>.
+    /// </summary>
+    public List<Span> Parts { get; } = [];
+
+    /// <summary>Where each part of the type is declared: <see cref="Parts"/>, else <see cref="At"/>.</summary>
+    public IReadOnlyList<Span> Declarations => Parts.Count > 0 ? Parts : [At];
+
     public bool IsAbstract { get; set; }
 
     public bool IsStatic { get; set; }

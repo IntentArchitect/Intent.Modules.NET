@@ -186,14 +186,14 @@ public class OrderItem : Entity, IAggregateRoot
 
 ## blocked
 
-A second `Order` class in the reporting folder makes `Order`'s `type.exists` ambiguous. With no single type to read, its marker claim is can't verify, `blocked` behind it (R5).
+A second `Order` class in a legacy folder of the domain project makes `Order`'s `type.exists` ambiguous: both namespaces name the package `Shop.Domain` equally. With no single type to read, its marker claim is can't verify, `blocked` behind it (R5).
 
 ```json case
 { "phase": 2, "base": "aggregate-root-verified", "kinds": ["type.exists", "type.marker"], "cases": ["engine/blocked"], "requirements": ["R5", "R43"], "packs": ["intent.core", "intent.domain", "house.eshop"], "language": "csharp" }
 ```
 
-```csharp file src/Reporting/Order.cs
-namespace Shop.Reporting;
+```csharp file src/Domain/Legacy/Order.cs
+namespace Shop.Domain.Legacy;
 
 public class Order
 {
@@ -208,7 +208,7 @@ public class Order
     { "kind": "type.marker", "element": "order", "key": "IAggregateRoot", "outcome": "cantVerify", "reason": "blocked", "blockedBy": "type.exists" }
   ],
   "findings": [
-    { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "src/Reporting/Order.cs:3" },
+    { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "src/Domain/Legacy/Order.cs:3" },
     { "rule": "claim/type.marker", "subject": "order", "count": 0, "note": "A blocked claim has no finding of its own" }
   ]
 }

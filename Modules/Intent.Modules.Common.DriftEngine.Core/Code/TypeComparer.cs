@@ -91,9 +91,17 @@ internal static class TypeComparer
         // Type arguments count only when the model states them: Paged<Order> isn't Paged<Product>. An array carries its item's
         // name, so an array item (T[] in T[][]) is never the element by name.
         var arguments = model.GenericTypeParameters?.ToList() ?? [];
-        return !code.IsArray && code.Name == element.Name && (arguments.Count == 0 ||
+        return !code.IsArray && Named(element.Name, code) && (arguments.Count == 0 ||
             arguments.Count == code.Arguments.Count && arguments.Zip(code.Arguments).All(x => Matches(x.First, x.Second, profile)));
     }
+
+    /// <summary>
+    /// The code type is the element's by name: an element named for a library's type with its namespace
+    /// (<c>Just.Client.Service.Models.WebsiteClient</c>, which a client model types a DTO field with) is the type the code
+    /// writes qualified, or by its own name.
+    /// </summary>
+    private static bool Named(string name, TypeRefNode code) =>
+        code.Name == name || name.Contains('.') && (code.QualifiedName == name || code.Text == name || name.EndsWith("." + code.Name, StringComparison.Ordinal));
 
     /// <summary>
     /// An anonymous type is the model's <c>object</c>, or a modelled type of its shape: the same members, by name with case
