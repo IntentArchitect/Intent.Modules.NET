@@ -21,6 +21,12 @@
         <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="false" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="fee00939-5360-4a07-8d80-300a7d9ee81e" name="Rate Limit">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.ApiGateway.Ocelot</definitionPackageName>
+      <definitionPackageId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</definitionPackageId>
+      <properties />
+    </stereotype>
   </stereotypes>
   <metadata />
   <childElements>

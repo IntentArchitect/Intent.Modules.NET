@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputFiles>
+  <files>
+    <file relativePath="OcelotTest.Api/ocelot.rate-limiting.json" state="ignored;once-off-generated" />
+  </files>
+</outputFiles>

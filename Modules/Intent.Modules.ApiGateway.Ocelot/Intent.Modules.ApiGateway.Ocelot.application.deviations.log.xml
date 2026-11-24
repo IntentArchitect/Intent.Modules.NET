@@ -7,8 +7,17 @@
       <count>1</count>
       <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-09-02T13:55:52.6401737Z</updatedAt>
+      <updatedAt>2026-11-24T11:41:12.4188917Z</updatedAt>
       <deviationsHash>7882BD20F5F418FB2337445EBED1C18A8DE12B3392C43BB5EC93876AB8597E0E</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#fa4ba618-ab66-4f10-b78a-24fdab1cb1fc</correlationId>
+      <path>Templates/OcelotJson/OcelotJsonTemplatePartial.cs</path>
+      <count>8</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-25T10:22:46.7572624Z</updatedAt>
+      <deviationsHash>DE82FEDCE4C9C8658A384809D79584851BBA190BCC485946A622FF0F29727AF4</deviationsHash>
     </file>
   </files>
   <customFiles>

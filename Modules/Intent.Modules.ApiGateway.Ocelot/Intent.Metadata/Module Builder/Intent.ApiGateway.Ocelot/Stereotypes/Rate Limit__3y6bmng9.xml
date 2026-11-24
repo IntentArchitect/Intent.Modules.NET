@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="fee00939-5360-4a07-8d80-300a7d9ee81e" version="3.1.0">
+  <comment>Rate limits this gateway route with the gateway's shared rate limit rule. The rule's numbers live in ocelot.json, under GlobalConfiguration.RateLimitOptions (Limit, Period, Wait, ClientIdHeader, ClientWhitelist), and are yours to edit; the Software Factory only keeps its RouteKeys in step with the routes that have this stereotype. Ocelot identifies the client by the ClientIdHeader request header (Oc-Client by default); a request without it is answered with 503. Routes without this stereotype are not rate limited.</comment>
+  <hint>Rate limit this route with the gateway's shared rule in ocelot.json</hint>
+  <name>Rate Limit</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="b09d7684-5dde-4d4b-9cb5-0707bfd8578f">Api Gateway Route</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <traitStorage>package</traitStorage>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="fa-gauge-high" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayFunction>return "Rate Limited";</displayFunction>
+  <displayAsAnnotation>true</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</parentFolderId>
+  <order>0</order>
+  <packageId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</packageId>
+  <packageName>Intent.ApiGateway.Ocelot</packageName>
+  <properties />
+</stereotypeDefinition>

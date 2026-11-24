@@ -1,0 +1,16 @@
+{
+  "answers:open-questions-2:1nobq6l": {
+    "ref-location": {
+      "selected": [
+        "tests"
+      ],
+      "freeform": ""
+    }
+  },
+  "answerSets": {
+    "open-questions-2:1nobq6l": {
+      "text": "Where should the hand-written reference solution live?\nTests/OcelotReference in this branch\n\nStop for your review after each pattern, or run P1 to P6 and report once?\n(no answer)",
+      "count": 1
+    }
+  }
+}

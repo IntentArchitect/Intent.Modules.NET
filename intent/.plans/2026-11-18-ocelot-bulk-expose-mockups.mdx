@@ -1,0 +1,80 @@
+# Manage gateway routes: mock
+
+Goal G1 from [[2026-11-18-ocelot-gateway-pattern-proof]]. One screen with one job: **pick which HTTP endpoints the gateway exposes**. Tick an endpoint to add a route, untick it to remove the route, and optionally bring changed routes back in line with their endpoint. Security and rate limits are not on this screen.
+
+It is a single `openForm` dialog, opened from **Manage gateway routes…** on the gateway's package. It uses only Dynamic Form API parts:
+
+- a `text` Find field;
+- a multi-select `tree-view` of the HTTP endpoints in the referenced service packages, where ticked means "has a gateway route";
+- an `alert` line that summarises what Apply will do;
+- a `checkbox` for syncing changed routes.
+
+<Canvas id="manage-routes" caption="Manage gateway routes: tick to add, untick to remove" height={540}
+  artboards={[
+    { id: "pick", title: "Pick endpoints", surface: "panel", html: `<div class="wf-col" style="gap:10px;">
+  <div class="wf-row" style="justify-content:space-between;"><h3>Manage gateway routes</h3><span data-icon="circle-help"></span></div>
+  <label>Find</label><input placeholder="Route or name, e.g. aggregate-roots" />
+  <div class="wf-card wf-col" style="gap:5px;">
+    <div class="wf-row"><span data-icon="chevron-down"></span><span data-icon="package"></span><span>CleanArchitecture.Comprehensive.Services</span></div>
+    <div class="wf-row" style="padding-left:20px;"><span data-icon="chevron-down"></span><span data-icon="folder"></span><span>AggregateRoots</span></div>
+    <div class="wf-row" style="padding-left:40px;"><input type="checkbox" checked /><span>POST api/aggregate-roots</span><span class="wf-muted">routed</span></div>
+    <div class="wf-row" style="padding-left:40px;"><input type="checkbox" checked /><span>GET api/aggregate-roots/{id}</span><span class="wf-muted">routed · changed: was api/aggregate-root/{id}</span></div>
+    <div class="wf-row" style="padding-left:40px;"><input type="checkbox" checked /><span>DELETE api/aggregate-roots/{id}</span><span class="wf-muted">new</span></div>
+    <div class="wf-row" style="padding-left:40px;"><input type="checkbox" /><span>PUT api/aggregate-roots/{id}</span><span class="wf-muted">remove</span></div>
+    <div class="wf-row" style="padding-left:20px;"><span data-icon="chevron-right"></span><span data-icon="folder"></span><span>Invoices</span></div>
+  </div>
+  <label><input type="checkbox" checked /> Sync changed routes with their endpoint (1)</label>
+  <div class="wf-row"><span data-icon="info"></span><span class="wf-muted">Apply will add 1, remove 1 and sync 1 route.</span></div>
+  <div class="wf-row" style="justify-content:flex-end;"><button class="wf-btn">Cancel</button><button class="wf-btn wf-btn--primary">Apply</button></div>
+</div>` },
+    { id: "detached", title: "Routes whose endpoint is gone", surface: "panel", html: `<div class="wf-col" style="gap:10px;">
+  <div class="wf-row" style="justify-content:space-between;"><h3>Manage gateway routes</h3><span data-icon="circle-help"></span></div>
+  <label>Find</label><input placeholder="" />
+  <div class="wf-card wf-col" style="gap:5px;">
+    <div class="wf-row"><span data-icon="chevron-down"></span><span data-icon="triangle-alert"></span><span>No longer exposed</span></div>
+    <div class="wf-row" style="padding-left:20px;"><input type="checkbox" checked /><span>DetachedGatewayRoute</span><span class="wf-muted">endpoint deleted or lost its HTTP settings</span></div>
+    <div class="wf-row"><span data-icon="chevron-right"></span><span data-icon="package"></span><span>Standard.AspNetCore.TestApplication.Services</span></div>
+  </div>
+  <div class="wf-row"><span data-icon="info"></span><span class="wf-muted">Untick to remove it.</span></div>
+  <div class="wf-row" style="justify-content:flex-end;"><button class="wf-btn">Cancel</button><button class="wf-btn wf-btn--primary">Apply</button></div>
+</div>` },
+  ]}
+/>
+
+## Behaviour
+
+- **The tree:**
+  - It shows every operation, command and query with Http Settings in the packages the gateway references, grouped by package and folder.
+  - Endpoints that already have a route start ticked (`isSelected`).
+  - Each label shows the verb and route, plus a status through `displayFunction`: routed, changed, or (after a tick change) new or remove.
+  - Routes that are no longer attached to an HTTP endpoint appear under "No longer exposed", ticked, so you can untick them to remove them.
+- **Find** narrows the tree by route or name. That matters with 200+ endpoints.
+- **Apply:**
+  - Ticked without a route: creates an Api Gateway Route with a Route Association to the endpoint. The modeler's existing macros then name it and copy the verb, route, route variables and body.
+  - Unticked with a route: deletes that route.
+  - Sync, when ticked: copies the current verb and route from the endpoint onto each changed route.
+  - Cancel changes nothing.
+
+## Why sync is needed
+
+When a route is linked, the modeler **copies** the endpoint's verb and route onto the gateway route's own Http Settings (the upstream). The downstream path is read from the endpoint at generation time, so it stays current. The upstream copy does not: rename `api/aggregate-root/{id}` to `api/aggregate-roots/{id}` and the gateway keeps exposing the old upstream path. The same applies to a changed verb. "Changed" in the tree means the route's upstream verb or route differs from the endpoint's.
+
+<Callout id="sync-overwrites" tone="warning" title="Sync cannot tell drift from a deliberate change">
+
+A developer may have changed a route's upstream path on purpose (for example to version it at the gateway). The model stores the copy and the deliberate edit in the same place, so the screen cannot tell them apart. That is why sync is a separate checkbox, and why each changed route shows its old value in its label before you apply. Accepted: the alternative, storing an "override" flag, adds metadata for a case the client has not raised.
+
+</Callout>
+
+<Callout id="unproven" tone="risk" title="What P5 must prove">
+
+1. Creating a Route Association from a designer script fires the modeler's on-changed macro, so a new route gets its name, verb, route and body exactly as one drawn by hand.
+2. The Dynamic Form API declares no filter on `tree-view`. Find only works if `onChange` can replace the tree's nodes while the form is open. Fallback: Find on a first wizard page, then the tree.
+3. A tree with 200+ nodes stays usable.
+
+</Callout>
+
+<Callout id="out" tone="warning" title="Not on this screen">
+
+Security and rate limits: secure-by-default is generated (G3), and per-route rate limits are set on the route itself (G5). Aggregates (one route, several endpoints) are not created here, and existing aggregate routes are left alone.
+
+</Callout>
