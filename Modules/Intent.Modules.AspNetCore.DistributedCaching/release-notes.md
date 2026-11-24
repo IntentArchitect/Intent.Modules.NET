@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Fixed: `DistributedCacheWithUnitOfWork` dropped the `DistributedCacheEntryOptions` passed to `Set`/`SetAsync` inside a unit of work (including every command wrapped by the unit of work behaviour), so entries written on commit never expired.
+
 ### Version 1.1.0
 
 - Improvement: Updated NuGet package versions:

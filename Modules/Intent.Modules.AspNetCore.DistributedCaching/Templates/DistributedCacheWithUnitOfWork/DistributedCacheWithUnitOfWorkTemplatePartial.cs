@@ -99,7 +99,7 @@ namespace Intent.Modules.AspNetCore.DistributedCaching.Templates.DistributedCach
                             @if.AddStatement("return;");
                         });
 
-                        method.AddStatement("_scopedData.Value.ActionQueue.Enqueue(cancellationToken => _distributedCache.SetAsync(key, value, cancellationToken));");
+                        method.AddStatement("_scopedData.Value.ActionQueue.Enqueue(cancellationToken => _distributedCache.SetAsync(key, value, options, cancellationToken));");
                         method.AddStatement("_scopedData.Value.Cache.AddOrUpdate(key, value, (_, _) => value);");
                     });
 
@@ -118,7 +118,7 @@ namespace Intent.Modules.AspNetCore.DistributedCaching.Templates.DistributedCach
                             @if.AddStatement("return;");
                         });
 
-                        method.AddStatement("_scopedData.Value.ActionQueue.Enqueue(cancellationToken => _distributedCache.SetAsync(key, value, cancellationToken));");
+                        method.AddStatement("_scopedData.Value.ActionQueue.Enqueue(cancellationToken => _distributedCache.SetAsync(key, value, options, cancellationToken));");
                         method.AddStatement("_scopedData.Value.Cache.AddOrUpdate(key, value, (_, _) => value);");
                     });
 

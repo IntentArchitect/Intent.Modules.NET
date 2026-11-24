@@ -64,7 +64,7 @@ namespace EfCore.SecondLevelCaching.Infrastructure.Caching
                 _distributedCache.Set(key, value, options);
                 return;
             }
-            _scopedData.Value.ActionQueue.Enqueue(cancellationToken => _distributedCache.SetAsync(key, value, cancellationToken));
+            _scopedData.Value.ActionQueue.Enqueue(cancellationToken => _distributedCache.SetAsync(key, value, options, cancellationToken));
             _scopedData.Value.Cache.AddOrUpdate(key, value, (_, _) => value);
         }
 
@@ -79,7 +79,7 @@ namespace EfCore.SecondLevelCaching.Infrastructure.Caching
                 await _distributedCache.SetAsync(key, value, options, token);
                 return;
             }
-            _scopedData.Value.ActionQueue.Enqueue(cancellationToken => _distributedCache.SetAsync(key, value, cancellationToken));
+            _scopedData.Value.ActionQueue.Enqueue(cancellationToken => _distributedCache.SetAsync(key, value, options, cancellationToken));
             _scopedData.Value.Cache.AddOrUpdate(key, value, (_, _) => value);
         }
 

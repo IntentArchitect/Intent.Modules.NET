@@ -3,6 +3,7 @@
   <name>File Classifications</name>
   <display>File Classifications</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7ec10013-9d9d-4710-beea-68262a98592f</parentFolderId>
@@ -11,19 +12,6 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="cfc572ff-00f3-4f42-a2d6-db47010f55c2" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
-      <name>App Composition</name>
-      <display>App Composition</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>2802de67-9c7f-45fd-aeca-25d5526f8aa6</parentFolderId>
-      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
-      <packageName>EfCore.SecondLevelCaching</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="12af6c61-d7ab-48b7-80bf-92077170f1dd" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
       <name>API Contract</name>
       <display>API Contract</display>
@@ -33,33 +21,40 @@
       <parentFolderId>2802de67-9c7f-45fd-aeca-25d5526f8aa6</parentFolderId>
       <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
       <packageName>EfCore.SecondLevelCaching</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="0ce9eef3-7f60-4378-91bd-9ba98d5cc00c" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
-      <name>Security</name>
-      <display>Security</display>
+    <childElement id="cfc572ff-00f3-4f42-a2d6-db47010f55c2" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>App Composition</name>
+      <display>App Composition</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2802de67-9c7f-45fd-aeca-25d5526f8aa6</parentFolderId>
       <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
       <packageName>EfCore.SecondLevelCaching</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="32618edf-a9b1-44be-b53b-df1a41663a5d" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
-      <name>Persistence Schema</name>
-      <display>Persistence Schema</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>2802de67-9c7f-45fd-aeca-25d5526f8aa6</parentFolderId>
-      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
-      <packageName>EfCore.SecondLevelCaching</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -72,7 +67,17 @@
       <parentFolderId>2802de67-9c7f-45fd-aeca-25d5526f8aa6</parentFolderId>
       <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
       <packageName>EfCore.SecondLevelCaching</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -85,7 +90,17 @@
       <parentFolderId>2802de67-9c7f-45fd-aeca-25d5526f8aa6</parentFolderId>
       <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
       <packageName>EfCore.SecondLevelCaching</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -98,20 +113,40 @@
       <parentFolderId>2802de67-9c7f-45fd-aeca-25d5526f8aa6</parentFolderId>
       <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
       <packageName>EfCore.SecondLevelCaching</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="18e08ca6-b027-4688-9281-a71650f97f2f" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
-      <name>Validation</name>
-      <display>Validation</display>
+    <childElement id="32618edf-a9b1-44be-b53b-df1a41663a5d" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Persistence Schema</name>
+      <display>Persistence Schema</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2802de67-9c7f-45fd-aeca-25d5526f8aa6</parentFolderId>
       <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
       <packageName>EfCore.SecondLevelCaching</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
@@ -124,7 +159,63 @@
       <parentFolderId>2802de67-9c7f-45fd-aeca-25d5526f8aa6</parentFolderId>
       <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
       <packageName>EfCore.SecondLevelCaching</packageName>
-      <stereotypes />
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0ce9eef3-7f60-4378-91bd-9ba98d5cc00c" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Security</name>
+      <display>Security</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2802de67-9c7f-45fd-aeca-25d5526f8aa6</parentFolderId>
+      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+      <packageName>EfCore.SecondLevelCaching</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="18e08ca6-b027-4688-9281-a71650f97f2f" type="File Classification" typeId="86490efd-d823-44cf-bb67-283231ae95f3">
+      <name>Validation</name>
+      <display>Validation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2802de67-9c7f-45fd-aeca-25d5526f8aa6</parentFolderId>
+      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+      <packageName>EfCore.SecondLevelCaching</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1a1b0c10-113c-472f-8f76-9fb4eb6832f3" name="File Classification Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="cf22e22d-a014-444e-8dc9-2b5e8f5462d2" display="Color" isActive="true" />
+            <property name="26749dad-2b9b-4dd0-85ab-7445ebf547df" display="Color (Dark Mode)" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
       <metadata />
       <childElements />
     </childElement>
