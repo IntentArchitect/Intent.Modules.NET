@@ -137,15 +137,30 @@ internal sealed class AspNetCoreClaims : IClaimReader
                 // Web API 2's [RoutePrefix] is the controller's route, as ASP.NET Core's [Route] on the controller is.
                 var type = context.Type!;
                 var route = type.Attributes.FirstOrDefault(x => x.Name is "Route" or "RoutePrefix" && x.Arguments.Count > 0);
+                // With none, a controller a conventional route serves is under that route's prefix up to its {controller}: the
+                // routing's convention, not a value the code states, so unmodelled.value doesn't report it.
+                if (route is null && IsController(context.Code, type) && Binding.ConventionalPrefix(context.Code, type) is { } conventional)
+                {
+                    return ClaimReading.Defaulted(conventional, type.At, "no route attribute: a conventional route serves its actions");
+                }
+
                 return Value(route is null ? null : Tokens(route.Arguments[0], type.Name, null), route?.At ?? type.At);
             }
             case "operation.verb":
             {
                 var member = context.Member!;
                 var owner = context.Code.Types.FirstOrDefault(x => x.Members.Contains(member));
-                if (Verb(context.Code, owner, member) is { } stated)
+                if (Verbs(context.Code, owner, member) is { } stated)
                 {
-                    return ClaimReading.Stated(stated.Verb, stated.At);
+                    if (stated.Verbs is [var only])
+                    {
+                        return ClaimReading.Stated(only, stated.At);
+                    }
+
+                    // An action with several verb attributes ([HttpGet] and [HttpPost]), or an [AcceptVerbs] listing several, serves
+                    // each, so the one Verb the designer takes is true when it is any of them.
+                    var served = stated.Verbs.FirstOrDefault(x => string.Equals(x, context.Expected, StringComparison.OrdinalIgnoreCase));
+                    return ClaimReading.Compared(served ?? string.Join(", ", stated.Verbs), stated.At, served is not null);
                 }
 
                 if (context.Expected is { Length: > 0 } modelled)
@@ -309,7 +324,8 @@ internal sealed class AspNetCoreClaims : IClaimReader
 
         // The Http Settings the code states, when it states the verb: an ASP.NET Core action with no verb attribute serves every
         // verb, and which one the diagram should give it is a judgement.
-        if (Verb(context.Code, type, member) is not { } verb)
+        // An action serving several verbs gets the first: the designer takes one.
+        if (Verbs(context.Code, type, member) is not { } verbs)
         {
             return reading;
         }
@@ -317,32 +333,33 @@ internal sealed class AspNetCoreClaims : IClaimReader
         return reading.Correcting(new ModelCorrection(ModelCorrection.SetStereotype, context.Element.Id)
         {
             Stereotype = "Http Settings",
-            Properties = new Dictionary<string, string> { ["Verb"] = verb.Verb, ["Route"] = Route(context.Code, type, member).Route ?? "" }
+            Properties = new Dictionary<string, string> { ["Verb"] = verbs.Verbs[0], ["Route"] = Route(context.Code, type, member).Route ?? "" }
         });
     }
 
     /// <summary>
-    /// The verb an action states: its verb attribute's, its <c>[AcceptVerbs]</c>' first, or Web API 2's convention for an
-    /// unattributed action, the verb its name starts with (<c>GetOrders</c> is GET), else POST. Null for an ASP.NET Core action
-    /// with no verb attribute, which serves every verb.
+    /// The verbs an action states, at the first attribute stating one: every verb attribute's (<c>[HttpGet]</c> and
+    /// <c>[HttpPost]</c> on one action serve both), else every verb its <c>[AcceptVerbs]</c> lists, else Web API 2's
+    /// convention for an unattributed action, the verb its name starts with (<c>GetOrders</c> is GET), else POST. Null for an
+    /// ASP.NET Core action with no verb attribute, which serves every verb.
     /// </summary>
-    private static (string Verb, Span At)? Verb(CodeGraph code, TypeNode? owner, MemberNode member)
+    private static (IReadOnlyList<string> Verbs, Span At)? Verbs(CodeGraph code, TypeNode? owner, MemberNode member)
     {
-        var verb = member.Attributes.FirstOrDefault(x => HttpVerbs.Contains(x.Name));
+        var verbs = member.Attributes.Where(x => HttpVerbs.Contains(x.Name)).ToList();
         var accept = member.Attributes.FirstOrDefault(x => x.Name == "AcceptVerbs" && x.Arguments.Count > 0);
-        if (verb is not null)
+        if (verbs.Count > 0)
         {
-            return (verb.Name[4..].ToUpperInvariant(), verb.At);
+            return (verbs.Select(x => x.Name[4..].ToUpperInvariant()).Distinct().ToList(), verbs[0].At);
         }
 
         if (accept is not null)
         {
-            return (accept.Arguments[0].ToUpperInvariant(), accept.At);
+            return (accept.Arguments.Select(x => x.ToUpperInvariant()).Distinct().ToList(), accept.At);
         }
 
         // OData routes an unattributed action by the same convention.
         return owner is not null && (Binding.WebApi2(code, owner) || Binding.OData(code, owner))
-            ? (ConventionVerbs.FirstOrDefault(x => member.Name.StartsWith(x, StringComparison.OrdinalIgnoreCase))?.ToUpperInvariant() ?? "POST", member.At)
+            ? ([ConventionVerbs.FirstOrDefault(x => member.Name.StartsWith(x, StringComparison.OrdinalIgnoreCase))?.ToUpperInvariant() ?? "POST"], member.At)
             : null;
     }
 

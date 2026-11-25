@@ -12,7 +12,11 @@ namespace Intent.Modules.Common.Drift.EngineMigration
     /// A type element of the model, with the names of its children, as the drift engine locates it in the code: by name. And
     /// whether it has a constructor among them, as v1 compared a type's constructors only then.
     /// </summary>
-    internal sealed record ModelledType(string Name, string ElementType, IReadOnlyCollection<string> Members, bool HasConstructors = false);
+    internal sealed record ModelledType(string Name, string ElementType, IReadOnlyCollection<string> Members, bool HasConstructors = false)
+    {
+        /// <summary>For a handler, the names of the messages it subscribes to, which the engine finds its subscriptions' code by.</summary>
+        public IReadOnlyCollection<string> Messages { get; init; } = Array.Empty<string>();
+    }
 
     /// <summary>
     /// The Exceptions rows that keep the converted opt-in rows to what v1 reported (user decision, 2026-11-24: "Except what v1
@@ -274,7 +278,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             {
                 var stateFields = model.Where(x => FieldElements.Contains(x.ElementType)).ToLookup(x => x.Name, StringComparer.Ordinal);
                 var handlers = model.Where(x => HandlerElements.Contains(x.ElementType)).ToLookup(x => x.Name, StringComparer.Ordinal);
-                var typeNames = new HashSet<string>(model.Select(x => x.Name), StringComparer.Ordinal);
+                var subscriptionCode = SubscriptionCode(code, rows.Scope, handlers);
                 var byName = model.ToLookup(x => x.Name, StringComparer.Ordinal);
                 var compared = new HashSet<string>(contractFiles.Where(CodeFiles.IsCSharp).SelectMany(x => Declarations(code, x)).Select(x => x.Identifier.Text), StringComparer.Ordinal);
                 foreach (var file in code.Matching(members.Globs.Select(x => new Glob(x)).ToList()).Where(Checked))
@@ -293,12 +297,10 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                             Except(FieldReason, $"{type.Identifier.Text}.{field}");
                         }
 
-                        // A handler's method that takes a modelled message is its subscription's, which the engine locates, and so is
-                        // one that makes it from what a queue hands it (JsonConvert.DeserializeObject<ApplicationPack>(json)).
+                        // A handler's method the engine finds a subscription in is located, so never reported (SubscriptionCode).
                         var handler = handlers[type.Identifier.Text].ToList();
                         foreach (var method in PublicMethods(type).Where(x => handler.Count > 0 && !handler.Any(e => e.Members.Contains(x.Identifier.Text))
-                                     && !x.ParameterList.Parameters.Any(p => p.Type != null && typeNames.Contains(LastName(p.Type)))
-                                     && !x.DescendantNodes().OfType<GenericNameSyntax>().Any(g => g.TypeArgumentList.Arguments.Any(a => typeNames.Contains(LastName(a))))))
+                                     && !subscriptionCode.Contains(x)))
                         {
                             Except(HandlerMethodReason, $"{type.Identifier.Text}.{method.Identifier.Text}");
                         }
@@ -529,5 +531,65 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         private static IEnumerable<MethodDeclarationSyntax> PublicMethods(TypeDeclarationSyntax type) =>
             type.Members.OfType<MethodDeclarationSyntax>()
                 .Where(x => x.Modifiers.Any(SyntaxKind.PublicKeyword) && !x.Modifiers.Any(SyntaxKind.OverrideKeyword));
+
+        /// <summary>
+        /// The methods the drift engine finds handlers' subscriptions in, which it locates and so never reports, as its
+        /// <c>subscription.handler</c> reading does over every part of a handler's class it reads (a partial handler's
+        /// <c>Handle</c> in one file, the implementation method it hands the message to in another). For each message the
+        /// handler subscribes to: the methods taking it, as a parameter's type or a type argument of one; with none, and no base
+        /// over it, the methods making it, by a call given it as a type argument (<c>JsonConvert.DeserializeObject&lt;T&gt;(json)</c>).
+        /// Only the handler's own messages count. A migrated NServiceBus application's handlers deserialise a modelled DTO
+        /// (<c>JsonSerializer.Deserialize&lt;OperationData&gt;(json)</c>) without handling it, and one subscribes to another
+        /// application's message with no link to it, so it has no subscription code and the engine reports every public method.
+        /// By name, as the engine matches a message whose type it can't resolve.
+        /// </summary>
+        private static HashSet<MethodDeclarationSyntax> SubscriptionCode(CodeFiles code, IEnumerable<ScopeRowSpec> scope, ILookup<string, ModelledType> handlers)
+        {
+            var located = new HashSet<MethodDeclarationSyntax>();
+            var parts = EngineRead(code, scope)
+                .SelectMany(x => code.Get(x)?.Syntax?.DescendantNodes().OfType<TypeDeclarationSyntax>() ?? Enumerable.Empty<TypeDeclarationSyntax>())
+                .Where(x => x is not InterfaceDeclarationSyntax && handlers.Contains(x.Identifier.Text))
+                .ToLookup(x => x.Identifier.Text, StringComparer.Ordinal);
+            foreach (var handler in parts)
+            {
+                var methods = handler.SelectMany(x => x.Members.OfType<MethodDeclarationSyntax>()).ToList();
+                foreach (var message in handlers[handler.Key].SelectMany(x => x.Messages).Distinct(StringComparer.Ordinal))
+                {
+                    var taking = methods.Where(x => x.ParameterList.Parameters.Any(p => p.Type != null && Mentions(p.Type, message))).ToList();
+                    if (taking.Count > 0)
+                    {
+                        located.UnionWith(taking);
+                    }
+                    else if (!handler.Any(x => x.BaseList?.Types.Any(b => Over(b.Type, message)) == true))
+                    {
+                        located.UnionWith(methods.Where(x => Makes(x, message)));
+                    }
+                }
+            }
+
+            return located;
+        }
+
+        /// <summary>The type is the message, or has it among its type arguments.</summary>
+        private static bool Mentions(TypeSyntax type, string message) => LastName(type) == message || Over(type, message);
+
+        /// <summary>The type has the message among its type arguments, at any depth: <c>IHandleMessages&lt;PlaceOrder&gt;</c>.</summary>
+        private static bool Over(TypeSyntax type, string message) => type switch
+        {
+            QualifiedNameSyntax qualified => Over(qualified.Right, message),
+            GenericNameSyntax generic => generic.TypeArgumentList.Arguments.Any(x => Mentions(x, message)),
+            NullableTypeSyntax nullable => Over(nullable.ElementType, message),
+            _ => false
+        };
+
+        /// <summary>The method calls something given the message as a type argument.</summary>
+        private static bool Makes(MethodDeclarationSyntax method, string message) =>
+            method.DescendantNodes().OfType<InvocationExpressionSyntax>().Any(x => (x.Expression switch
+            {
+                GenericNameSyntax generic => generic,
+                MemberAccessExpressionSyntax { Name: GenericNameSyntax generic } => generic,
+                MemberBindingExpressionSyntax { Name: GenericNameSyntax generic } => generic,
+                _ => null
+            })?.TypeArgumentList.Arguments.Any(a => LastName(a) == message) == true);
     }
 }

@@ -112,7 +112,7 @@ internal sealed class MinimalApiReader : ICodeReader
                     model.Routers.Add(router.Identifier.Text);
                 }
 
-                // MapMethods("/x", ["PUT"], handler) maps the verbs it lists; several are joined, which no one verb matches.
+                // MapMethods("/x", ["PUT"], handler) maps the verbs it lists; several are joined, and the endpoint serves each.
                 string? verb;
                 ExpressionSyntax? template;
                 ExpressionSyntax? handler;
@@ -488,8 +488,10 @@ internal sealed class MinimalApiClaims : IClaimReader
 
         return context.Kind switch
         {
-            "operation.verb" when endpoint.Verb.Contains(',') =>
-                ClaimReading.CantVerify("unreadable", $"The code can't read as one verb: `MapMethods` maps {endpoint.Template} with {endpoint.Verb.Replace(",", ", ")}.", endpoint.At),
+            // MapMethods with several verbs serves each, so the one Verb the designer takes is true when it is any of them.
+            "operation.verb" when endpoint.Verb.Contains(',') => endpoint.Verb.Split(',').FirstOrDefault(x => string.Equals(x, context.Expected, StringComparison.OrdinalIgnoreCase)) is { } served
+                ? ClaimReading.Compared(served, endpoint.At, true)
+                : ClaimReading.Compared(endpoint.Verb.Replace(",", ", "), endpoint.At, false),
             "operation.verb" => ClaimReading.Stated(endpoint.Verb, endpoint.At),
             "operation.route" => endpoint.TemplateIn(context.Code) is { } template
                 ? ClaimReading.Stated(template, endpoint.At)

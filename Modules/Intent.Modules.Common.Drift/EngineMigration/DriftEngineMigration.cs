@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using Intent.Configuration;
 using Intent.IArchitect.Agent.Persistence.Model;
+using Intent.IArchitect.Agent.Persistence.Model.Common;
 using Intent.IArchitect.Agent.Persistence.Serialization;
 using Intent.Utils;
 
@@ -194,8 +195,9 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         }
 
         /// <summary>
-        /// The application's type elements, which the drift engine locates in the code by name, each with its children's names
-        /// and the names of the association ends it navigates by (an entity's <c>Result</c> collection).
+        /// The application's type elements, which the drift engine locates in the code by name, each with its children's names,
+        /// the names of the association ends it navigates by (an entity's <c>Result</c> collection) and, for a handler, the
+        /// names of the messages its subscription links reach, another application's included.
         /// </summary>
         private static IReadOnlyList<ModelledType> ModelledTypes(ApplicationPersistable model)
         {
@@ -204,14 +206,41 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 .SelectMany(x => new[] { (Holder: x.SourceEnd?.TypeReference?.TypeId, End: x.TargetEnd?.Name), (Holder: x.TargetEnd?.TypeReference?.TypeId, End: x.SourceEnd?.Name) })
                 .Where(x => x.Holder != null && !string.IsNullOrEmpty(x.End))
                 .ToLookup(x => x.Holder, x => x.End, StringComparer.OrdinalIgnoreCase);
+            var messages = SubscribedMessages(packages, model.GetDesigners().SelectMany(x => x.GetPackages(false, false)));
             return packages
                 .SelectMany(x => x.FindAllChildElements().OfType<ElementPersistable>())
                 .Where(x => V1Coverage.TypeElements.Contains(x.SpecializationType))
                 .Select(x => new ModelledType(x.Name, x.SpecializationType,
                     (x.ChildElements?.Select(c => c.Name) ?? Enumerable.Empty<string>()).Concat(ends[x.Id]).ToList(),
-                    x.ChildElements?.Any(c => c.SpecializationType == "Constructor") == true))
+                    x.ChildElements?.Any(c => c.SpecializationType == "Constructor") == true)
+                {
+                    Messages = messages[x.Id].Distinct(StringComparer.Ordinal).ToList()
+                })
                 .ToList();
         }
+
+        /// <summary>
+        /// The names of the messages each handler subscribes to, by the handler's id: the elements its subscription links in the
+        /// <paramref name="owned"/> packages reach, named from any package read (<paramref name="all"/>), so another application's
+        /// message is named too. A link to an element no package holds names nothing.
+        /// </summary>
+        internal static ILookup<string, string> SubscribedMessages(IEnumerable<PackageModelPersistable> owned, IEnumerable<PackageModelPersistable> all)
+        {
+            var names = all.SelectMany(x => x.FindAllChildElements().OfType<ElementPersistable>())
+                .Where(x => x.Id != null)
+                .GroupBy(x => x.Id, StringComparer.OrdinalIgnoreCase)
+                .ToDictionary(x => x.Key, x => x.First().Name, StringComparer.OrdinalIgnoreCase);
+            return owned.SelectMany(GuardrailsModelCleanup.AssociationSources)
+                .Where(x => x.Source != null && SubscriptionAssociations.Contains(x.Association.AssociationType)
+                            && x.Association.TargetEnd?.TypeReference?.TypeId is { } target && names.ContainsKey(target))
+                .ToLookup(x => x.Source, x => names[x.Association.TargetEnd.TypeReference.TypeId], StringComparer.OrdinalIgnoreCase);
+        }
+
+        /// <summary>The links a handler subscribes to a message by, as the drift engine's Services pack claims them.</summary>
+        private static readonly HashSet<string> SubscriptionAssociations = new(StringComparer.Ordinal)
+        {
+            "Subscribe Integration Event", "Subscribe Integration Command", "Domain Event Handler Association"
+        };
 
         private static void ReleaseContractFiles(string outputFolder, IReadOnlyList<string> files, IApplicationConfig application, ICollection<string> log)
         {

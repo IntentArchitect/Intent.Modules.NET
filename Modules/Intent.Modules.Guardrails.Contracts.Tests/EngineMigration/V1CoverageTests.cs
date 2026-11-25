@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.IArchitect.Agent.Persistence.Model;
+using Intent.IArchitect.Agent.Persistence.Model.Common;
 using Intent.Modules.Common.Drift;
 using Intent.Modules.Common.Drift.EngineMigration;
 using Shouldly;
@@ -292,7 +294,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
         [Fact]
         public void A_handlers_public_method_is_excepted_and_its_handle_method_and_overrides_arent()
         {
-            var model = Model.Append(new ModelledType("PortalHandler", "Integration Event Handler", new string[0]))
+            var model = Model.Append(new ModelledType("PortalHandler", "Integration Event Handler", new string[0]) { Messages = new[] { "PortalMessage" } })
                 .Append(new ModelledType("PortalMessage", "Message", new string[0])).ToArray();
             var code = new Dictionary<string, string>(Code)
             {
@@ -536,7 +538,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
         [Fact]
         public void A_handlers_method_making_a_modelled_message_from_what_it_receives_is_not_excepted()
         {
-            var model = Model.Append(new ModelledType("OrderConsumer", "Integration Event Handler", new string[0]))
+            var model = Model.Append(new ModelledType("OrderConsumer", "Integration Event Handler", new string[0]) { Messages = new[] { "PlaceOrder" } })
                 .Append(new ModelledType("PlaceOrder", "Integration Command", new string[0])).ToArray();
             var code = new Dictionary<string, string>(Code)
             {
@@ -550,6 +552,91 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
             };
 
             Exceptions(Services, code, model).Single(x => x.Reason == V1Coverage.HandlerMethodReason).Matches.ShouldBe(new[] { "OrderConsumer.StartAsync" });
+        }
+
+        /// <summary>
+        /// Only the handler's own messages are its subscription's code, as the engine reads it, over every part of a partial
+        /// handler. <c>QuoteCompletedHandler</c> subscribes to <c>QuoteCompleted</c>: its <c>Handle</c> and the implementation
+        /// method in its other file take it, and its static helper deserialising the modelled DTO <c>OperationData</c> doesn't
+        /// handle anything, so only the helper is excepted. <c>PackGeneratedHandler</c> handles another application's message,
+        /// with no subscription link to it, so the engine locates none of its methods and reports each, the implementation
+        /// method that deserialises <c>OperationData</c> included. Both were clean under v1 in a migrated NServiceBus application.
+        /// </summary>
+        [Fact]
+        public void A_handlers_methods_are_its_subscriptions_only_for_its_own_messages_over_every_part()
+        {
+            var model = Model.Append(new ModelledType("QuoteCompletedHandler", "Integration Event Handler", new string[0]) { Messages = new[] { "QuoteCompleted" } })
+                .Append(new ModelledType("PackGeneratedHandler", "Integration Event Handler", new string[0]))
+                .Append(new ModelledType("QuoteCompleted", "Integration Command", new string[0]))
+                .Append(new ModelledType("OperationData", "DTO", new string[0])).ToArray();
+            var code = new Dictionary<string, string>(Code)
+            {
+                ["Api/Infrastructure/QuoteCompletedHandler.cs"] = """
+                    public partial class QuoteCompletedHandler : IHandleMessages<QuoteCompleted>
+                    {
+                        public Task Handle(QuoteCompleted message, IMessageHandlerContext context) => HandleImplementationAsync(message);
+                    }
+                    """,
+                ["Api/Handlers/QuoteCompletedHandler.cs"] = """
+                    public partial class QuoteCompletedHandler
+                    {
+                        public Task HandleImplementationAsync(QuoteCompleted message) => Task.CompletedTask;
+                        public static OperationData DeserializeOperationData(string json) => System.Text.Json.JsonSerializer.Deserialize<OperationData>(json);
+                    }
+                    """,
+                ["Api/Infrastructure/PackGeneratedHandler.cs"] = """
+                    public partial class PackGeneratedHandler : IHandleMessages<Partner.Contracts.PackGenerated>
+                    {
+                        public Task Handle(Partner.Contracts.PackGenerated message, IMessageHandlerContext context) => HandleImplementationAsync(message);
+                    }
+                    """,
+                ["Api/Handlers/PackGeneratedHandler.cs"] = """
+                    public partial class PackGeneratedHandler
+                    {
+                        public Task HandleImplementationAsync(Partner.Contracts.PackGenerated message)
+                        {
+                            var data = System.Text.Json.JsonSerializer.Deserialize<OperationData>(message.Value);
+                            return Task.CompletedTask;
+                        }
+                    }
+                    """
+            };
+
+            Exceptions(Services, code, model).Single(x => x.Reason == V1Coverage.HandlerMethodReason).Matches.OrderBy(x => x, System.StringComparer.Ordinal).ShouldBe(new[]
+            {
+                "PackGeneratedHandler.Handle", "PackGeneratedHandler.HandleImplementationAsync", "QuoteCompletedHandler.DeserializeOperationData"
+            });
+        }
+
+        /// <summary>
+        /// A handler's subscribed messages are the elements its subscription links reach, named from any package read, another
+        /// application's included; another kind of link, or one to an element no package holds, names none.
+        /// </summary>
+        [Fact]
+        public void A_handlers_messages_are_what_its_subscription_links_reach_in_any_package()
+        {
+            static AssociationPersistable Link(string type, string source, string target) => new()
+            {
+                Id = System.Guid.NewGuid().ToString(),
+                AssociationType = type,
+                SourceEnd = new AssociationEndPersistable { Id = System.Guid.NewGuid().ToString(), TypeReference = new TypeReferencePersistable { TypeId = source } },
+                TargetEnd = new AssociationEndPersistable { Id = System.Guid.NewGuid().ToString(), TypeReference = new TypeReferencePersistable { TypeId = target } }
+            };
+            var partner = new PackageModelPersistable { Id = "partner", Name = "Partner.Messages" };
+            partner.Classes.Add(new ElementPersistable { Id = "pack-generated", Name = "PackGenerated", SpecializationType = "Integration Event" });
+            var services = new PackageModelPersistable { Id = "services", Name = "Services" };
+            services.Classes.Add(new ElementPersistable { Id = "quote-handler", Name = "QuoteCompletedHandler", SpecializationType = "Integration Event Handler" });
+            services.Classes.Add(new ElementPersistable { Id = "quote-completed", Name = "QuoteCompleted", SpecializationType = "Integration Command" });
+            services.Classes.Add(new ElementPersistable { Id = "pack-handler", Name = "PackGeneratedHandler", SpecializationType = "Integration Event Handler" });
+            services.Associations.Add(Link("Subscribe Integration Command", "quote-handler", "quote-completed"));
+            services.Associations.Add(Link("Subscribe Integration Event", "pack-handler", "pack-generated"));
+            services.Associations.Add(Link("Send Command", "pack-handler", "quote-completed"));
+            services.Associations.Add(Link("Subscribe Integration Event", "quote-handler", "no-such-element"));
+
+            var messages = DriftEngineMigration.SubscribedMessages(new[] { services }, new[] { services, partner });
+
+            messages["quote-handler"].ShouldBe(new[] { "QuoteCompleted" });
+            messages["pack-handler"].ShouldBe(new[] { "PackGenerated" });
         }
 
         private static IReadOnlyList<ExceptionRowSpec> Exceptions(string services, Dictionary<string, string> code, ModelledType[] model, string[] contractFiles = null)

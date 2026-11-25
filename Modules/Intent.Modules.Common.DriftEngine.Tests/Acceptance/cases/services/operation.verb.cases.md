@@ -1,6 +1,6 @@
 # operation.verb
 
-An Operation's `Http Settings` Verb, against the HTTP method its endpoint is mapped with: `MapGet`, `MapPut` and the rest, `MapMethods` with one verb, or a Spring `*Mapping` annotation. `operation.verb` is `stated: always`: every mapped endpoint states its verb.
+An Operation's `Http Settings` Verb, against the HTTP method its endpoint is mapped with: `MapGet`, `MapPut` and the rest, `MapMethods`, or a Spring `*Mapping` annotation. `operation.verb` is `stated: always`: every mapped endpoint states its verb.
 
 The fixtures adapt eShopCustom's `Ordering.API/Apis/OrdersApi.cs` and the Java spike's `OrdersController`.
 
@@ -163,12 +163,12 @@ public static class OrdersApi
 }
 ```
 
-## map-methods-with-several-verbs-unreadable
+## map-methods-with-several-verbs
 
-`MapMethods` with two verbs states no single verb an Operation can match. eShopCustom listed a multi-verb mapping as code it couldn't model; here the claim is can't verify, `unreadable`, so the reviewer sees the endpoint wasn't checked.
+`MapMethods` with two verbs serves both. The designer takes one Verb, and the model's `PUT` is one of them, so it is true and verified, as a model stating less than the code can is no drift.
 
 ```json case
-{ "phase": 4, "base": "verified", "kinds": ["operation.verb"], "cases": ["engine/unreadable"], "requirements": ["R5"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+{ "phase": 4, "base": "verified", "kinds": ["operation.verb"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
 ```csharp file src/Ordering.API/Apis/OrdersApi.cs
@@ -201,11 +201,57 @@ public static class OrdersApi
 ```json expect
 {
   "claims": [
-    { "kind": "operation.verb", "element": "cancel-order", "outcome": "cantVerify", "reason": "unreadable",
+    { "kind": "operation.verb", "element": "cancel-order", "outcome": "verified", "expected": "PUT", "actual": "PUT",
       "at": "src/Ordering.API/Apis/OrdersApi.cs:9" }
   ],
   "findings": [
-    { "rule": "claim/operation.verb", "severity": "error", "subject": "cancel-order", "messageContains": "can't read" }
+    { "rule": "claim/operation.verb", "count": 0 }
+  ]
+}
+```
+
+## map-methods-with-several-verbs-contradicted
+
+`MapMethods` serves `POST` and `PATCH`, and the model's `PUT` is neither, so the claim is contradicted, with every verb the endpoint serves as the code's.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["operation.verb"], "requirements": ["R1", "R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapMethods("/cancel", ["POST", "PATCH"], CancelOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Results<Ok, BadRequest<string>>> CancelOrderAsync(
+        [FromHeader(Name = "x-requestid")] Guid requestId,
+        CancelOrderCommand command,
+        [AsParameters] OrderServices services)
+    {
+        var requestCancelOrder = new IdentifiedCommand<CancelOrderCommand, bool>(command, requestId);
+        var commandResult = await services.Mediator.Send(requestCancelOrder);
+
+        return commandResult ? TypedResults.Ok() : TypedResults.BadRequest("Cancel order failed to process.");
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.verb", "element": "cancel-order", "outcome": "contradicted", "expected": "PUT", "actual": "POST, PATCH" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.verb", "severity": "error", "subject": "cancel-order", "messageContains": "POST, PATCH" }
   ]
 }
 ```
@@ -321,6 +367,85 @@ public class CustomersController : ApiController
   ],
   "findings": [
     { "rule": "claim/operation.verb", "severity": "error", "subject": "archive", "messageContains": "POST" }
+  ]
+}
+```
+
+## web-api-2-several-verb-attributes
+
+An action with `[HttpGet]` and `[HttpPost]` serves both, as an `[AcceptVerbs]` listing several does. The designer takes one Verb: `PostPing` modelled `POST` and `Lookup` modelled `GET` are true and verified, `Archive` modelled `PUT` is neither and contradicted. Adapted from a migrated Web API 2 application's diagnostics controller, clean under Common.Drift v1.
+
+```json case
+{ "phase": 4, "kinds": ["operation.verb"], "requirements": ["R1", "R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Diagnostics.Api",
+        "elements": [
+          { "id": "ping", "type": "DTO", "name": "Ping" },
+          { "id": "diagnostics", "type": "Service", "name": "DiagnosticsController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/diagnostics" } },
+            "children": [
+              { "id": "post-ping", "type": "Operation", "name": "PostPing",
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "ping" } },
+                "children": [{ "id": "post-ping-value", "type": "Parameter", "name": "value", "typeRef": { "element": "ping" } }] },
+              { "id": "lookup", "type": "Operation", "name": "Lookup",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "lookup" } } },
+              { "id": "archive", "type": "Operation", "name": "Archive",
+                "stereotypes": { "Http Settings": { "Verb": "PUT", "Route": "archive" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Diagnostics", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Diagnostics.Api/Controllers/DiagnosticsController.cs
+namespace Diagnostics.Api.Controllers;
+
+public class Ping
+{
+    public string SourceAddress { get; set; }
+}
+
+[RoutePrefix("api/diagnostics")]
+public class DiagnosticsController : ApiController
+{
+    [HttpGet]
+    [HttpPost]
+    [Route("ping")]
+    public Ping PostPing(Ping value) => value;
+
+    [AcceptVerbs("GET", "HEAD")]
+    [Route("lookup")]
+    public IHttpActionResult Lookup() => Ok();
+
+    [HttpGet, HttpPost]
+    [Route("archive")]
+    public IHttpActionResult Archive() => Ok();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.verb", "element": "post-ping", "outcome": "verified", "expected": "POST", "actual": "POST",
+      "at": "src/Diagnostics.Api/Controllers/DiagnosticsController.cs:11" },
+    { "kind": "operation.verb", "element": "lookup", "outcome": "verified", "expected": "GET", "actual": "GET" },
+    { "kind": "operation.verb", "element": "archive", "outcome": "contradicted", "expected": "PUT", "actual": "GET, POST" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.verb", "subject": "post-ping", "count": 0 },
+    { "rule": "claim/operation.verb", "severity": "error", "subject": "archive", "messageContains": "GET, POST" }
   ]
 }
 ```

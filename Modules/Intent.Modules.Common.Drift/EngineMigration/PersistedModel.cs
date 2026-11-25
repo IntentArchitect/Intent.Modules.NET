@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -193,22 +192,8 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 }
             }
 
-            // In the nested formats an association sits under its source element, which then needn't name itself as its source.
-            var holders = new Dictionary<AssociationPersistable, string>(ReferenceEqualityComparer.Instance);
-            foreach (var element in package.FindAllChildElements())
+            foreach (var (association, source) in GuardrailsModelCleanup.AssociationSources(package))
             {
-                if (element.GetType().GetProperty("Associations")?.GetValue(element) is IEnumerable owned)
-                {
-                    foreach (var association in owned.OfType<AssociationPersistable>())
-                    {
-                        holders[association] = element.Id;
-                    }
-                }
-            }
-
-            foreach (var association in GuardrailsModelCleanup.AllAssociations(package))
-            {
-                var source = association.SourceEnd?.TypeReference?.TypeId is { Length: > 0 } id ? id : holders.GetValueOrDefault(association);
                 _sources[association] = source;
                 if (association.SourceEnd?.Id != null)
                 {

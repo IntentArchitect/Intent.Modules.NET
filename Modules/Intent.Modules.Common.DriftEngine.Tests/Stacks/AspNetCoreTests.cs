@@ -423,6 +423,159 @@ public class AspNetCoreTests
         Run(model, code).Findings.ShouldNotContain(x => x.Rule == "aspnetcore/conventional.route");
     }
 
+    /// <summary>
+    /// A controller with no route attribute that a conventional route serves is under that route's segments up to its
+    /// <c>{controller}</c>, as a default: Web API 2's <c>api/{controller}/{id}</c> (named arguments, as an OWIN host writes
+    /// them) puts <c>DiagnosticsController</c> under <c>api/Diagnostics</c>, and ASP.NET Core's
+    /// <c>admin/{controller=Home}/{action=Index}</c> puts <c>AccountController</c> under <c>admin/Account</c>. A
+    /// <c>[RoutePrefix]</c> is still the controller's route, and a controller whose actions all have routes of their own isn't
+    /// served conventionally, so nothing states its route.
+    /// </summary>
+    [Fact]
+    public void A_conventionally_routed_controller_is_under_the_route_up_to_its_controller()
+    {
+        static string Service(string id, string name, string route) =>
+            $$"""{ "id": "{{id}}", "type": "Service", "name": "{{name}}", "stereotypes": { "Http Service Settings": { "Route": "{{route}}" } } }""";
+        var webApi = new Dictionary<string, string>
+        {
+            ["src/Host/Startup.cs"] = """
+                internal class Startup
+                {
+                    public void Configuration(IAppBuilder appBuilder)
+                    {
+                        var config = new HttpConfiguration();
+                        config.Routes.MapHttpRoute(
+                            name: "DefaultApi",
+                            routeTemplate: "api/{controller}/{id}",
+                            defaults: new { id = RouteParameter.Optional });
+                        appBuilder.UseWebApi(config);
+                    }
+                }
+                """,
+            ["src/Host/Controllers/DiagnosticsController.cs"] = """
+                public class DiagnosticsController : ApiController
+                {
+                    [HttpPost]
+                    public string PostPing(string value) => value;
+                }
+                """,
+            ["src/Host/Controllers/SendController.cs"] = """
+                [RoutePrefix("api/outbound")]
+                public class SendController : ApiController
+                {
+                    [HttpPost]
+                    public string PostAsync() => "";
+                }
+                """,
+            ["src/Host/Controllers/StatusController.cs"] = """
+                public class StatusController : ApiController
+                {
+                    [HttpGet]
+                    [Route("api/health")]
+                    public string Get() => "";
+                }
+                """
+        };
+        var webApiResult = Run(ServicesModel(Service("diagnostics", "DiagnosticsController", "api/Diagnostics"), Service("send", "SendController", "api/outbound"),
+            Service("status", "StatusController", "api/Status")), webApi);
+
+        Claim(webApiResult, "diagnostics", "service.route").Outcome.ShouldBe("verified");
+        Claim(webApiResult, "diagnostics", "service.route").Reading!.Value.ShouldBe("api/Diagnostics");
+        Claim(webApiResult, "send", "service.route").Reading!.Value.ShouldBe("api/outbound");
+        Claim(webApiResult, "status", "service.route").Outcome.ShouldBe("contradicted");
+        Claim(webApiResult, "status", "service.route").Reading!.Value.ShouldBeNull();
+
+        var mvc = new Dictionary<string, string>
+        {
+            ["src/Admin/Program.cs"] = """
+                var app = WebApplication.CreateBuilder(args).Build();
+                app.MapControllerRoute("admin", "admin/{controller=Home}/{action=Index}");
+                app.Run();
+                """,
+            ["src/Admin/Controllers/AccountController.cs"] = """
+                public class AccountController : Controller
+                {
+                    public IActionResult Login() => View();
+                }
+                """
+        };
+        var mvcResult = Run(ServicesModel(Service("account", "AccountController", "admin/Account")), mvc);
+
+        Claim(mvcResult, "account", "service.route").Outcome.ShouldBe("verified");
+        Claim(mvcResult, "account", "service.route").Reading!.Value.ShouldBe("admin/Account");
+    }
+
+    /// <summary>
+    /// An action with several verb attributes, or an <c>[AcceptVerbs]</c> listing several, serves each, so the one Verb the
+    /// designer takes is true when it is any of them, and contradicted, naming them all, when it is none. An action the model
+    /// gives no Http Settings carries the first as its correction.
+    /// </summary>
+    [Fact]
+    public void An_action_with_several_verbs_serves_each()
+    {
+        static string Operation(string id, string name, string? verb) => verb is null
+            ? $$"""{ "id": "{{id}}", "type": "Operation", "name": "{{name}}" }"""
+            : $$"""{ "id": "{{id}}", "type": "Operation", "name": "{{name}}", "stereotypes": { "Http Settings": { "Verb": "{{verb}}", "Route": "{{name.ToLowerInvariant()}}" } } }""";
+        var model = ServicesModel($$"""
+            { "id": "diagnostics", "type": "Service", "name": "DiagnosticsController", "stereotypes": { "Http Service Settings": { "Route": "api/diagnostics" } },
+              "children": [
+                {{Operation("ping", "Ping", "POST")}},
+                {{Operation("lookup", "Lookup", "PATCH")}},
+                {{Operation("archive", "Archive", "PUT")}},
+                {{Operation("echo", "Echo", null)}}
+              ] }
+            """);
+        var code = new Dictionary<string, string>
+        {
+            ["src/Host/Controllers/DiagnosticsController.cs"] = """
+                [RoutePrefix("api/diagnostics")]
+                public class DiagnosticsController : ApiController
+                {
+                    [HttpGet]
+                    [HttpPost]
+                    [Route("ping")]
+                    public string Ping() => "";
+
+                    [AcceptVerbs("PUT", "PATCH")]
+                    [Route("lookup")]
+                    public string Lookup() => "";
+
+                    [HttpGet, HttpDelete]
+                    [Route("archive")]
+                    public string Archive() => "";
+
+                    [HttpPost]
+                    [HttpGet]
+                    [Route("echo")]
+                    public string Echo() => "";
+                }
+                """
+        };
+
+        var result = Run(model, code);
+
+        Claim(result, "ping", "operation.verb").Outcome.ShouldBe("verified");
+        Claim(result, "lookup", "operation.verb").Outcome.ShouldBe("verified");
+        Claim(result, "archive", "operation.verb").Outcome.ShouldBe("contradicted");
+        Claim(result, "archive", "operation.verb").Reading!.Value.ShouldBe("GET, DELETE");
+        Corrections(result, "claim/endpoint.exists", "echo").ShouldBe(["setStereotype echo Http Settings Route=echo, Verb=POST"]);
+    }
+
+    /// <summary>A Services model of the given elements, with every file under <c>src/</c> in scope.</summary>
+    private static JsonNode ServicesModel(params string[] elements) => JsonNode.Parse($$"""
+        {
+          "designers": {
+            "Services": { "packages": [{ "id": "services", "name": "Host", "elements": [ {{string.Join(",", elements)}} ] }] },
+            "Codebase Structure": {
+              "packages": [{ "id": "root", "name": "Host", "type": "Root Folder",
+                "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+            }
+          }
+        }
+        """)!;
+
+    private static Claim Claim(RunResult result, string element, string kind) => result.Claims.Single(x => x.Element == element && x.Kind == kind);
+
     private static IEnumerable<string> Corrections(RunResult result, string rule, string element) =>
         result.Findings.Single(x => x.Rule == rule && x.Subject.Element == element).Corrections.Select(Text);
 

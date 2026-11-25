@@ -207,6 +207,30 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 : ((IEnumerable<AssociationPersistable>)method.Invoke(package, null)!).ToList();
         }
 
+        /// <summary>
+        /// Every association of the package (<see cref="AllAssociations"/>) with the id of the element or end it starts from: its
+        /// source end's type, else, in the nested formats, where an association sits under its source element and needn't name
+        /// it, that element.
+        /// </summary>
+        internal static List<(AssociationPersistable Association, string Source)> AssociationSources(PackageModelPersistable package)
+        {
+            var holders = new Dictionary<AssociationPersistable, string>(ReferenceEqualityComparer.Instance);
+            foreach (var element in package.FindAllChildElements())
+            {
+                if (element.GetType().GetProperty("Associations")?.GetValue(element) is System.Collections.IEnumerable owned)
+                {
+                    foreach (var association in owned.OfType<AssociationPersistable>())
+                    {
+                        holders[association] = element.Id;
+                    }
+                }
+            }
+
+            return AllAssociations(package)
+                .Select(x => (x, x.SourceEnd?.TypeReference?.TypeId is { Length: > 0 } id ? id : holders.GetValueOrDefault(x)))
+                .ToList();
+        }
+
         internal static void RemoveAssociation(PackageModelPersistable package, AssociationPersistable association)
         {
             var method = package.GetType().GetMethod("RemoveAssociation", new[] { typeof(AssociationPersistable) });

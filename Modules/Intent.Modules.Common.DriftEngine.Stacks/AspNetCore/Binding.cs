@@ -128,6 +128,73 @@ internal static class Binding
             return ODataRoute(code, owner, member);
         }
 
+        if (Mapping(code, owner) is not { } mapping)
+        {
+            return null;
+        }
+
+        var (template, optional) = mapping;
+        var action = member.Attributes.FirstOrDefault(x => x.Name == "ActionName" && x.Arguments.Count > 0)?.Arguments[0].Trim('"') ?? member.Name;
+        var segments = new List<string>();
+        foreach (var segment in template)
+        {
+            // A token's default (`{action=Index}`) makes it optional; its name is before the `=`.
+            var token = segment.Trim('{', '}');
+            var name = token.Split('=')[0].TrimEnd('?');
+            if (segment.StartsWith('{') && token.Contains('='))
+            {
+                optional.Add(name);
+            }
+
+            if (segment.StartsWith('{') && name.Equals("controller", StringComparison.OrdinalIgnoreCase))
+            {
+                segments.Add(ControllerName(owner));
+            }
+            else if (segment.StartsWith('{') && name.Equals("action", StringComparison.OrdinalIgnoreCase))
+            {
+                segments.Add(action);
+            }
+            else if (!segment.StartsWith('{')
+                     || !(optional.Contains(name) || segment.EndsWith("?}", StringComparison.Ordinal))
+                     || member.Parameters.Any(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+            {
+                segments.Add(segment);
+            }
+        }
+
+        return "~/" + string.Join("/", segments);
+    }
+
+    /// <summary>
+    /// The route a controller with no route of its own is served under, when a conventional route serves its actions (any
+    /// public one with no route of its own, as <see cref="ConventionalRoute"/> reads it): the conventional route's segments up
+    /// to its <c>{controller}</c>, which is the controller's name. So Web API 2's default <c>api/{controller}/{id}</c> serves
+    /// <c>DiagnosticsController</c> under <c>api/Diagnostics</c>, the Route a migrated application's model gives its Service.
+    /// Null for an OData controller, which its entity set names (<see cref="ODataRoute"/>), one whose actions all have routes
+    /// of their own, or with no conventional route naming a controller.
+    /// </summary>
+    public static string? ConventionalPrefix(CodeGraph code, TypeNode owner)
+    {
+        if (OData(code, owner)
+            || !owner.Members.Any(x => x is { Kind: "method", Access: "public", IsStatic: false } && x.Attributes.All(a => a.Name != "NonAction") && !HasOwnRoute(x))
+            || Mapping(code, owner) is not { } mapping)
+        {
+            return null;
+        }
+
+        var prefix = mapping.Template.TakeWhile(x => !(x.StartsWith('{') && ControllerToken.IsMatch(x)));
+        return string.Join("/", prefix.Append(ControllerName(owner)));
+    }
+
+    /// <summary>
+    /// The conventional route that serves the controller's actions with no route of their own, as its template's segments and
+    /// the route values its defaults make optional (<c>id = RouteParameter.Optional</c>): Web API 2's first <c>MapHttpRoute</c>
+    /// with a <c>{controller}</c>; ASP.NET Core's first <c>MapControllerRoute</c> with a <c>{controller}</c> and an
+    /// <c>{action}</c>, or <c>MapDefaultControllerRoute()</c>'s, unless the controller has a <c>[Route]</c> or
+    /// <c>[ApiController]</c>, which require attribute routing. Null when none serves it.
+    /// </summary>
+    private static (string[] Template, HashSet<string> Optional)? Mapping(CodeGraph code, TypeNode owner)
+    {
         var webApi2 = WebApi2(code, owner);
         var controllers = new[] { owner }.Concat(code.Bases(owner)).ToList();
         if (!webApi2 && controllers.Any(x => x.Attributes.Any(a => a.Name == "ApiController" || a.Name == "Route" && a.Arguments.Count > 0)))
@@ -140,46 +207,19 @@ internal static class Binding
             var quoted = call.Name == "MapDefaultControllerRoute"
                 ? $"\"{DefaultControllerRoute}\""
                 : call.Arguments.Select(x => x.Text).FirstOrDefault(x => x.StartsWith('"') && ControllerToken.IsMatch(x) && (webApi2 || ActionToken.IsMatch(x)));
-            if (quoted is null)
+            if (quoted is not null)
             {
-                continue;
+                var optional = call.Arguments.SelectMany(x => OptionalValues.Matches(x.Text).Select(m => m.Groups[1].Value)).ToHashSet(StringComparer.OrdinalIgnoreCase);
+                return (quoted.Trim('"').Trim('/').Split('/'), optional);
             }
-
-            var optional = call.Arguments.SelectMany(x => OptionalValues.Matches(x.Text).Select(m => m.Groups[1].Value)).ToHashSet(StringComparer.OrdinalIgnoreCase);
-            var controller = owner.Name.EndsWith("Controller", StringComparison.Ordinal) ? owner.Name[..^"Controller".Length] : owner.Name;
-            var action = member.Attributes.FirstOrDefault(x => x.Name == "ActionName" && x.Arguments.Count > 0)?.Arguments[0].Trim('"') ?? member.Name;
-            var segments = new List<string>();
-            foreach (var segment in quoted.Trim('"').Trim('/').Split('/'))
-            {
-                // A token's default (`{action=Index}`) makes it optional; its name is before the `=`.
-                var token = segment.Trim('{', '}');
-                var name = token.Split('=')[0].TrimEnd('?');
-                if (segment.StartsWith('{') && token.Contains('='))
-                {
-                    optional.Add(name);
-                }
-
-                if (segment.StartsWith('{') && name.Equals("controller", StringComparison.OrdinalIgnoreCase))
-                {
-                    segments.Add(controller);
-                }
-                else if (segment.StartsWith('{') && name.Equals("action", StringComparison.OrdinalIgnoreCase))
-                {
-                    segments.Add(action);
-                }
-                else if (!segment.StartsWith('{')
-                         || !(optional.Contains(name) || segment.EndsWith("?}", StringComparison.Ordinal))
-                         || member.Parameters.Any(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
-                {
-                    segments.Add(segment);
-                }
-            }
-
-            return "~/" + string.Join("/", segments);
         }
 
         return null;
     }
+
+    /// <summary>A controller's name in a route: its class name less <c>Controller</c>.</summary>
+    private static string ControllerName(TypeNode owner) =>
+        owner.Name.EndsWith("Controller", StringComparison.Ordinal) ? owner.Name[..^"Controller".Length] : owner.Name;
 
     /// <summary>
     /// The route OData's conventional routing serves an <c>ODataController</c>'s action on: the prefix its route is mapped

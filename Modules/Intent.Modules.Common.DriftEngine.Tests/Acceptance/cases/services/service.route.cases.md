@@ -1,6 +1,6 @@
 # service.route
 
-A Service's `Http Service Settings` Route, against the route prefix its router states: the `MapGroup` prefix of a minimal API router, or a Spring controller's class-level `@RequestMapping`. `service.route` is `stated: whenSet`: the model states a prefix only where the code states one (decision 4), and the `route` comparer ignores a leading or trailing `/`, case in literal segments and parameter constraints.
+A Service's `Http Service Settings` Route, against the route prefix its router states: the `MapGroup` prefix of a minimal API router, an ASP.NET controller's `[Route]` or Web API 2's `[RoutePrefix]` (else, for a controller a conventional route serves, that route's prefix up to its `{controller}`, as a default), or a Spring controller's class-level `@RequestMapping`. `service.route` is `stated: whenSet`: the model states a prefix only where the code states one (decision 4), and the `route` comparer ignores a leading or trailing `/`, case in literal segments and parameter constraints.
 
 The fixtures adapt eShopCustom's `Ordering.API/Apis/OrdersApi.cs` and the Java spike's `OrdersController`.
 
@@ -367,6 +367,217 @@ public class OrdersController {
   "claims": [
     { "kind": "service.route", "element": "orders-controller", "outcome": "verified", "expected": "api/orders", "actual": "api/orders",
       "at": "src/main/java/com/eshop/backend/api/OrdersController.java:11" }
+  ]
+}
+```
+
+## web-api-2-conventional-route-verified
+
+A Web API 2 controller with no `[RoutePrefix]` is served on the conventional route `MapHttpRoute` maps with a `{controller}`, `api/{controller}/{id}`, so `DiagnosticsController` is under `api/Diagnostics`, the Route the model gives its Service. That is the routing's convention, read as a default. Adapted from a migrated, OWIN self-hosted Web API 2 application, clean under Common.Drift v1.
+
+```json case
+{ "phase": 4, "kinds": ["service.route"], "requirements": ["R2", "R10"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Workflow.Host",
+        "elements": [
+          { "id": "ping", "type": "DTO", "name": "Ping" },
+          { "id": "diagnostics", "type": "Service", "name": "DiagnosticsController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/Diagnostics" } },
+            "children": [
+              { "id": "post-ping", "type": "Operation", "name": "PostPing",
+                "stereotypes": { "Http Settings": { "Verb": "POST" } },
+                "children": [{ "id": "post-ping-value", "type": "Parameter", "name": "value", "typeRef": { "element": "ping" } }] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Workflow", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Workflow.Host/Services/Startup.cs
+namespace Workflow.Host;
+
+internal class Startup
+{
+    public void Configuration(IAppBuilder appBuilder)
+    {
+        HttpConfiguration config = new HttpConfiguration();
+
+        config.Routes.MapHttpRoute(
+            name: "DefaultApi",
+            routeTemplate: "api/{controller}/{id}",
+            defaults: new { id = RouteParameter.Optional }
+        );
+
+        appBuilder.UseWebApi(config);
+    }
+}
+```
+
+```csharp file src/Workflow.Host/Controllers/DiagnosticsController.cs
+namespace Workflow.Host.Controllers;
+
+public class Ping
+{
+    public string SourceAddress { get; set; }
+}
+
+public class DiagnosticsController : ApiController
+{
+    [HttpPost]
+    public Ping PostPing(Ping value) => value;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "service.route", "element": "diagnostics", "outcome": "verified", "expected": "api/Diagnostics", "actual": "api/Diagnostics",
+      "at": "src/Workflow.Host/Controllers/DiagnosticsController.cs:8" }
+  ],
+  "findings": [
+    { "rule": "claim/service.route", "count": 0 },
+    { "rule": "aspnetcore/conventional.route", "count": 0 }
+  ]
+}
+```
+
+## web-api-2-conventional-route-contradicted
+
+The same code, with the Service's Route `api/diag`, where Web API 2 doesn't serve the controller. The finding names the route it does.
+
+```json case
+{ "phase": 4, "base": "web-api-2-conventional-route-verified", "kinds": ["service.route"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Workflow.Host",
+        "elements": [
+          { "id": "ping", "type": "DTO", "name": "Ping" },
+          { "id": "diagnostics", "type": "Service", "name": "DiagnosticsController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/diag" } },
+            "children": [
+              { "id": "post-ping", "type": "Operation", "name": "PostPing",
+                "stereotypes": { "Http Settings": { "Verb": "POST" } },
+                "children": [{ "id": "post-ping-value", "type": "Parameter", "name": "value", "typeRef": { "element": "ping" } }] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Workflow", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "service.route", "element": "diagnostics", "outcome": "contradicted", "expected": "api/diag", "actual": "api/Diagnostics" }
+  ],
+  "findings": [
+    { "rule": "claim/service.route", "severity": "error", "subject": "diagnostics", "messageContains": "conventional route" }
+  ]
+}
+```
+
+## web-api-2-conventional-route-not-reported-when-unset
+
+The same code, with the Service's Route left unset and the `unmodelled.value` opt-in rule on. The conventional route is the routing's convention, not a value the code states for the controller, so the model leaving it unset isn't reported.
+
+```json case
+{ "phase": 4, "base": "web-api-2-conventional-route-verified", "kinds": ["service.route"], "cases": ["optin/unmodelled.value"], "requirements": ["R49"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Workflow.Host",
+        "elements": [
+          { "id": "ping", "type": "DTO", "name": "Ping" },
+          { "id": "diagnostics", "type": "Service", "name": "DiagnosticsController",
+            "stereotypes": { "Http Service Settings": {} },
+            "children": [
+              { "id": "post-ping", "type": "Operation", "name": "PostPing",
+                "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "~/api/Diagnostics" } },
+                "children": [{ "id": "post-ping-value", "type": "Parameter", "name": "value", "typeRef": { "element": "ping" } }] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Workflow", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.value" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "service.route", "element": "diagnostics", "absent": true }
+  ],
+  "findings": [
+    { "rule": "claim/service.route", "count": 0 },
+    { "rule": "optin/unmodelled.value", "subject": "src/Workflow.Host/Controllers/DiagnosticsController.cs:8", "count": 0 }
+  ]
+}
+```
+
+## web-api-2-attribute-routed-controller-not-stated
+
+A Web API 2 controller with no `[RoutePrefix]` whose every action has a `[Route]` isn't served on the conventional route at all: attribute routing puts each action at its own route. So nothing states the controller's route, and the model's `api/Diagnostics` is contradicted as not stated.
+
+```json case
+{ "phase": 4, "base": "web-api-2-conventional-route-verified", "kinds": ["service.route"], "requirements": ["R4"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Workflow.Host/Controllers/DiagnosticsController.cs
+namespace Workflow.Host.Controllers;
+
+public class Ping
+{
+    public string SourceAddress { get; set; }
+}
+
+public class DiagnosticsController : ApiController
+{
+    [HttpPost]
+    [Route("api/diagnostics/ping")]
+    public Ping PostPing(Ping value) => value;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "service.route", "element": "diagnostics", "outcome": "contradicted", "expected": "api/Diagnostics" }
+  ],
+  "findings": [
+    { "rule": "claim/service.route", "severity": "error", "subject": "diagnostics", "messageContains": "doesn't state it" }
   ]
 }
 ```
